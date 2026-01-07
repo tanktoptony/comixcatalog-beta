@@ -1,0 +1,33 @@
+{
+  "name": "comixcatalog-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.86.0",
+    "better-sqlite3": "^12.5.0",
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.3",
+    "next": "^16.0.7",
+    "node-fetch": "^3.3.2",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "sql.js": "^1.13.0",
+    "wa-sqlite": "^1.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "autoprefixer": "^10.4.22",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.3",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17"
+  }
+}

@@ -1,0 +1,785 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================================
+   GLOBAL BRAND VARIABLES
+   =========================================================== */
+:root {
+  --x-blue: #0b1e6b;
+  --x-gold: #f4d03f;
+  --x-offwhite: #fff9d6;
+  --x-line: #000000;
+  --x-bg-panel: #1a1a1a;
+  --x-text-main: #ffffff;
+  --x-red-burst: #c4122f;
+}
+
+/* ===========================================================
+   BASE BODY & PAGE WRAPPER
+   =========================================================== */
+body {
+  margin: 0;
+  padding: 0;
+  background: #020617;
+  color: var(--x-text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}
+
+.page-wrapper {
+  max-width: 1200px;
+  margin: 1rem auto 4rem;
+  padding: 0 1rem;
+}
+
+/* ===========================================================
+   HEADER
+   =========================================================== */
+.site-header {
+  background: var(--x-blue);
+  border-bottom: 4px solid var(--x-gold);
+  color: #fff;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.brand-sub {
+  font-size: 0.7rem;
+  color: var(--x-gold);
+  font-weight: 700;
+}
+
+.main-nav {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--x-line);
+  background: var(--x-gold);
+  color: #000;
+  padding: 0.3rem 0.5rem;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.nav-link:hover {
+  transform: translate(-1px, -1px) rotate(-1deg);
+  box-shadow: 4px 4px 0 #000;
+}
+
+.nav-link-logout {
+  background-color: #f5c400; /* same yellow */
+  color: #000;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  border: none;
+  font-weight: 600;
+}
+
+.nav-link-logout:hover {
+  background-color: #ffd84d;
+  color: #000;
+}
+
+
+/* ===========================================================
+   LANDING PAGE / HERO
+   =========================================================== */
+.landing-community {
+  padding-top: 36px;
+}
+
+   .landing-hero {
+  padding: 72px 24px 56px;
+  background: linear-gradient(135deg, #0f172a 0%, var(--x-blue) 35%, #020617 100%);
+  position: relative;
+}
+
+.landing-hero-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .landing-hero-inner {
+    flex-direction: column;
+  }
+}
+
+.landing-left {
+  flex: 1;
+}
+
+.landing-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.landing-comic {
+  width: 150px;
+  text-align: center;
+}
+
+.landing-comic img {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.landing-comic-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 8px;
+}
+
+.landing-comic-sub {
+  font-size: 0.75rem;
+  color: var(--x-gold);
+}
+
+.landing-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(250, 204, 21, 0.6);
+  color: #facc15;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+}
+
+.landing-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #f9fafb;
+  line-height: 1.1;
+}
+
+.landing-title-accent {
+  color: var(--x-gold);
+}
+
+.landing-subtitle {
+  max-width: 640px;
+  font-size: 1rem;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+.landing-subtitle-accent {
+  color: var(--x-gold);
+  font-weight: 600;
+}
+
+.landing-bullets {
+  margin: 20px 0;
+  padding-left: 20px;
+  list-style: disc;
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.landing-cta-row {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0 16px;
+}
+
+.landing-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.15s ease;
+  cursor: pointer;
+}
+
+.landing-btn-primary {
+  background: #facc15;
+  color: #020617;
+  box-shadow: 0 10px 40px rgba(250, 204, 21, 0.4);
+}
+
+.landing-btn-primary:hover {
+  background: #fde047;
+}
+
+.landing-btn-secondary {
+  background: transparent;
+  border: 1px solid #374151;
+  color: #e5e7eb;
+}
+
+.landing-btn-secondary:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.landing-footnote {
+  margin-top: 12px;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.community-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+}
+
+.community-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5c400; /* your yellow */
+}
+
+.community-link img {
+  width: 26px;
+  height: 26px;
+  display: block;
+
+  /* FORCE color for black SVGs */
+  filter: brightness(0) saturate(100%)
+          invert(83%) sepia(49%)
+          saturate(747%) hue-rotate(6deg)
+          brightness(104%) contrast(101%);
+}
+
+
+/* ===========================================================
+   AUTH PANELS
+   =========================================================== */
+.auth-panel {
+  background: radial-gradient(circle at top left, var(--x-blue), #001b40 70%, #000a1c);
+  border-radius: 16px;
+  padding: 40px 36px;
+  max-width: 480px;
+  margin: 4rem auto;
+  color: #f9fafb;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.auth-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--x-gold);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.auth-input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  background: #0f172a;
+  color: #f9fafb;
+}
+
+/* ===========================================================
+   FOOTER
+   =========================================================== */
+.site-footer {
+  margin-top: 36px;
+  padding: 26px 0 40px;
+  background: var(--x-blue);
+  border-top: 4px solid var(--x-gold);
+}
+
+.footer-inner {
+  text-align: center;
+}
+
+.footer-tag {
+  font-size: 14px;
+  color: #facc15;
+}
+
+/* ===========================================================
+   SEARCH & LIBRARY
+   =========================================================== */
+.comic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  padding: 10px 0;
+}
+
+.comic-card {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: 0.2s ease;
+}
+
+.comic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(250, 204, 21, 0.25);
+}
+
+/* REAL FIX: Consistent comic cover sizing on SEARCH */
+.comic-card-cover {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-height: 380px;     /* The part I failed to include earlier */
+  overflow: hidden;
+  background: #000;
+}
+
+.comic-card-cover img {
+  width: 100%;
+  height: 100%;          /* Fill the aspect box */
+  object-fit: cover;
+  display: block;
+}
+
+.comic-card-body {
+  padding: 12px 14px;
+}
+
+.comic-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  margin-bottom: 4px;
+}
+
+.comic-card-meta {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.library-toggle {
+  display: inline-flex;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.library-toggle button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #374151;
+  background: #0f172a;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.library-toggle button.active {
+  background: #facc15;
+  color: #020617;
+  border-color: #facc15;
+}
+
+.empty-state {
+  margin-top: 24px;
+}
+
+/* ===========================================================
+   HYBRID DETAIL PAGE (SAFE)
+   =========================================================== */
+
+/* CLEAN, RESPONSIVE TWO-COLUMN GRID */
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(380px, 440px) 1fr; /* ⬅ wider hero column */
+  gap: 3rem;
+  align-items: start;
+
+  max-width: 1080px;
+  margin: 0 auto;
+
+  padding: 2.5rem 2.75rem; /* ⬅ THIS IS THE BIG FIX */
+}
+
+@media (max-width: 900px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.issue-controls {
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* CENTERED HERO */
+.issue-hero {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.issue-cover-frame {
+  width: 100%;
+  max-width: 320px;          /* ⬅ stronger presence */
+  aspect-ratio: 3 / 4;
+  max-height: 440px;         /* ⬅ restores hero feel */
+  overflow: hidden;
+  background: #000;
+  border-radius: 14px;       /* ⬅ slightly more premium */
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(250, 204, 21, 0.25); /* ⬅ subtle gold glow */
+}
+
+.issue-cover-img {
+  width: 100%;
+  height: 100%;          /* Fill the fixed frame */
+  object-fit: cover;     /* Never stretch */
+  display: block;
+}
+
+/* Status Pills */
+.issue-status-row {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 16px;
+}
+
+/* Section Formatting */
+.issue-section {
+  margin-top: 24px;
+}
+
+.issue-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.condition-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.condition-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.condition-score {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.issue-siblings {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Search card actions — cleaner spacing & styling */
+.comic-card-actions {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.comic-btn {
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.15s ease;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+}
+
+.comic-btn:hover {
+  background: #1e293b;
+}
+/* Detail Page Buttons */
+.issue-status-row {
+  display: flex;
+  gap: 10px;
+  margin: 14px 0 18px;
+}
+
+.issue-actions {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-nav-row {
+  margin-top: 24px;
+  display: flex;
+  gap: 14px;
+}
+
+.detail-nav-row a {
+  padding: 8px 14px;
+  background: #0f172a;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.detail-nav-row a:hover {
+  background: #1e293b;
+}
+
+.metadata-column {
+  padding-top: 4px;
+  padding-right: 12px;
+}
+
+.metadata-section {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===========================================================
+   NEWS & UPDATES TYPOGRAPHY
+   =========================================================== */
+
+.news-page h1 {
+  color: var(--x-offwhite);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.news-post h2 {
+  color: var(--x-gold);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.news-post-date {
+  color: #94a3b8; /* slate-400 */
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.news-post-body {
+  color: #e5e7eb; /* slate-200 */
+  line-height: 1.6;
+  margin-top: 0.75rem;
+}
+
+.page {
+  padding: 2rem;
+}
+
+.form-card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(10, 20, 40, 0.9);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 14px;
+}
+
+.form-title {
+  margin-bottom: 0.25rem;
+}
+
+.form-subtitle {
+  font-size: 0.9rem;
+  color: #b9c3ff;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  color: #b9c3ff;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+input {
+  height: 42px;
+  padding: 0 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #2b3a70;
+  background: #0b1a3a;
+  color: white;
+}
+
+small {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #8fa2ff;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+}
+
+.primary-btn {
+  margin-top: 0.5rem;
+  height: 46px;
+  background: #ffd400;
+  color: #0b1a3a;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.file-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 1rem;
+  background: #0b1a3a;
+  border: 1px solid #2b3a70;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.file-button:hover {
+  border-color: #ffd400;
+}
+
+.file-name {
+  font-size: 0.85rem;
+  color: #b9c3ff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 260px;
+}
+
+.add-comic-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  background: var(--x-gold);
+  color: #020617;
+  text-decoration: none;
+
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.add-comic-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #000;
+  background: #fde047;
+}
+
+.add-comic-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 #000;
+}
+

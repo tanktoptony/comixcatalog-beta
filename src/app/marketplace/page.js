@@ -21,7 +21,7 @@ export default function MarketplacePage() {
         <strong>Current focus:</strong> building out the collector tools and
         early backer network. If you’d like to be among the first verified
         sellers,{" "}
-        <Link href="/signup?ref=founding" className="text-[#f7c400]">
+        <Link href="https://www.patreon.com/comixcatalog" className="text-[#f7c400]">
           become a Founding Collector
         </Link>{" "}
         and we’ll reach out when listings open.

@@ -3,46 +3,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { getSupabaseClient } from "@/lib/supabase/client";
-
-const supabase = getSupabaseClient();
+import { useAuth } from "@/context/AuthContext";
 
 export default function Header() {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { user, loading, signOut } = useAuth();
   const [hasAccess, setHasAccess] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setHasAccess(localStorage.getItem("cc_beta_access") === "true");
+    if (typeof document !== "undefined") {
+      setHasAccess(document.cookie.includes("cc_beta_access=true"));
     }
   }, []);
 
-  useEffect(() => {
-    // 1️⃣ Load initial session
-    supabase.auth.getUser().then(({ data }) => {
-      setUser(data.user ?? null);
-      setLoading(false);
-    });
-
-    // 2️⃣ Subscribe to auth changes
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
-
-  async function handleLogout() {
-    await supabase.auth.signOut();
-    // no hard refresh needed — auth listener updates UI
-  }
-
   if (loading) return null;
+
 
   return (
     <header className="site-header">
@@ -70,15 +44,12 @@ export default function Header() {
           <Link href="/marketplace" className="nav-link">
             Marketplace
           </Link>
-
           <Link href="/library" className="nav-link">
             My Library
           </Link>
-
           <Link href="/news" className="nav-link">
             News & Updates
           </Link>
-
           <Link href="/search" className="nav-link">
             Search
           </Link>
@@ -95,21 +66,11 @@ export default function Header() {
           )}
 
           {user && (
-            <button onClick={handleLogout} className="nav-link nav-link-logout">
+            <button onClick={signOut} className="nav-link nav-link-logout">
               Logout
             </button>
           )}
         </nav>
-
-        {/* CTA */}
-        {/* <div className="header-cta">
-          <Link
-            href="/signup?ref=founding"
-            className="landing-btn landing-btn-primary"
-          >
-            Become a Founding Collector
-          </Link>
-        </div> */}
       </div>
     </header>
   );

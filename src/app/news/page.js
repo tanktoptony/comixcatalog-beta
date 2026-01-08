@@ -5,33 +5,77 @@ export default function NewsPage() {
     {
       title: "Welcome to ComixCatalog (Beta)",
       date: "January 2026",
-      body: `BETA IS NOW LIVE! Guys, I can't tell you how excited I am to share this first step with you. And let me be clear: that is exactly what this is — only a first step. This will not be the most robust website you have encountered, but the first and most important features are here: searching issues, viewing detailed pages, and organizing your Collection and Wishlist. Over the coming weeks and months, I will be expanding data coverage, improving performance, and adding new features based on your feedback.
+      body: (
+        <>
+          <p>
+            BETA IS NOW LIVE! Guys, I can't tell you how excited I am to share
+            this first step with you. And let me be clear: that is exactly what
+            this is — only a first step.
+          </p>
 
-      Some things to note as you get started:
-      - This is a beta, so expect bugs and rough edges. Please report any issues you encounter to help shape the platform.
-      - The database is user-powered for now. If you notice missing issues or variants, please consider adding them!
-      - Your collections and wishlists are private by default. No one else can see what you own or want.
-      - Future features will include pricing tools, verified cataloging, and a marketplace for buying and selling.
+          <p>
+            This will not be the most robust website you have encountered, but
+            the first and most important features are here: searching issues,
+            viewing detailed pages, and organizing your Collection and Wishlist.
+          </p>
 
-      Our next steps are a few quality of life improvements after spending the past several months with nose to the grindstone working through what this first iteration would look like. Lots of days and weeks banging my head against the wall, so I'm looking to take a few days of mental R&R and knock out some of the easier stuff for the site. However, be aware that imminent changes include:
+          <p>Some things to note as you get started:</p>
 
-      - Improved mobile responsiveness
-      - User Profiles and public collections/wishlists
-      - Community features (comments, reviews, ratings, messaging)
-      - Additional data fields on issue detail pages
-      - Better error handling and loading states
-      - Patreon perk implementation (profile badges, early access, etc.)
-      - Potential for AI and Comic Book image recognition down the line
+          <ul>
+            <li>This is a beta, so expect bugs and rough edges.</li>
+            <li>The database is user-powered for now.</li>
+            <li>Your collections and wishlists are private by default.</li>
+            <li>
+              Future features will include pricing tools and a marketplace.
+            </li>
+          </ul>
 
-      ***All of this before we institute the marketplace and truly give all of you the complete online comic collecting and purchasing experience you deserve.***
+          <p>Imminent changes include:</p>
 
-      Thank you all for even the small modicum of interest we've managed to generate at this point - if you'd like to support further and still be part of the founding collectors guild, perhaps you will consider donating to our Patreon (https://www.patreon.com/comixcatalog)to assist in development costs.
-      I'm incredibly excited to see where we can take this together. Happy New Year to all of you and thanks again for joining the party. 
-      Excelsior!
-      - Anthony
-      Founder, ComixCatalog
-      
-      `,
+          <ul>
+            <li>Improved mobile responsiveness</li>
+            <li>User profiles and public collections</li>
+            <li>Community features (comments, reviews, messaging)</li>
+            <li>Additional data fields on issue pages</li>
+            <li>Better error handling and loading states</li>
+            <li>Patreon perk implementation</li>
+            <li>Potential AI image recognition</li>
+          </ul>
+
+          <p>
+            <strong>
+              All of this before we institute the marketplace and deliver the
+              complete online comic collecting experience you deserve.
+            </strong>
+          </p>
+
+          <p>
+            Thank you all for even the small modicum of interest we've managed
+            to generate so far. If you'd like to support further and still be
+            part of the founding collectors guild, please consider donating to
+            our{" "}
+            <a
+              href="https://www.patreon.com/comixcatalog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link"
+            >
+              Patreon
+            </a>{" "}
+            to assist with development costs.
+          </p>
+
+          <p>
+            Happy New Year, and thanks again for joining the party.
+            <br />
+            Excelsior!
+            <br />
+            – Anthony
+            <br />
+            Founder, ComixCatalog
+          </p>
+        </>
+      ),
     },
     {
       title: "Welcome to ComixCatalog (Beta)",
@@ -66,7 +110,9 @@ Over the past month, the focus has been on rebuilding the front-end, establishin
 
           <p className="news-post-date">{post.date}</p>
 
-          <p className="news-post-body whitespace-pre-line">{post.body.trim()}</p>
+          <div className="news-post-body whitespace-pre-line">
+            {typeof post.body === "string" ? post.body.trim() : post.body}
+          </div>
         </article>
       ))}
     </section>

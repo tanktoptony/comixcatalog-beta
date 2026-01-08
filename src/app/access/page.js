@@ -14,12 +14,18 @@ export default function AccessPage() {
     e.preventDefault();
 
     if (code.trim() === ACCESS_CODE) {
+      // client-side hint
       localStorage.setItem("cc_beta_access", "true");
+
+      // server-visible enforcement
+      document.cookie = "cc_beta_access=true; path=/; max-age=31536000";
+
       router.push("/");
     } else {
       setError("Invalid access code.");
     }
   }
+
 
   return (
     <main className="access-page">

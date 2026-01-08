@@ -8,14 +8,16 @@ import { useAuth } from "@/context/AuthContext";
 export default function Header() {
   const { user, loading, signOut } = useAuth();
   const [hasAccess, setHasAccess] = useState(false);
+  const [accessChecked, setAccessChecked] = useState(false);
 
   useEffect(() => {
-    if (typeof document !== "undefined") {
-      setHasAccess(document.cookie.includes("cc_beta_access=true"));
+    if (typeof window !== "undefined") {
+      setHasAccess(localStorage.getItem("cc_beta_access") === "true");
+      setAccessChecked(true);
     }
   }, []);
 
-  if (loading) return null;
+  if (!accessChecked) return null;
 
 
   return (
@@ -54,7 +56,8 @@ export default function Header() {
             Search
           </Link>
 
-          {!user && hasAccess && (
+          {/* Only beta users who are NOT logged in */}
+          {hasAccess && !user && (
             <>
               <Link href="/login" className="nav-link">
                 Login
@@ -65,6 +68,7 @@ export default function Header() {
             </>
           )}
 
+          {/* Logged-in users */}
           {user && (
             <button onClick={signOut} className="nav-link nav-link-logout">
               Logout

@@ -2,34 +2,17 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { getSupabaseClient } from "@/lib/supabase/client";
-import { useRouter } from "next/navigation";
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
+  const supabase = getSupabaseClient();
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const supabase = getSupabaseClient();
-  const router = useRouter();
 
-  async function signOut() {
-    await supabase.auth.signOut();
-
-    // clear beta access
-    document.cookie = "cc_beta_access=; path=/; max-age=0";
-    localStorage.removeItem("cc_beta_access");
-
-    setUser(null);
-
-    // force navigation so middleware runs
-    router.push("/access");
-  }
-
-  
   useEffect(() => {
-    const supabase = getSupabaseClient(); // ✅ THIS WAS MISSING
-
-    // Initial load
+    // Initial session
     supabase.auth.getUser().then(({ data }) => {
       setUser(data.user ?? null);
       setLoading(false);
@@ -42,10 +25,13 @@ export function AuthProvider({ children }) {
       setUser(session?.user ?? null);
     });
 
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
+    return () => subscription.unsubscribe();
+  }, [supabase]);
+
+  async function signOut() {
+    await supabase.auth.signOut();
+    setUser(null);
+  }
 
   return (
     <AuthContext.Provider value={{ user, loading, signOut }}>
@@ -56,8 +42,6 @@ export function AuthProvider({ children }) {
 
 export function useAuth() {
   const ctx = useContext(AuthContext);
-  if (!ctx) {
-    throw new Error("useAuth must be used inside AuthProvider");
-  }
+  if (!ctx) throw new Error("useAuth must be used inside AuthProvider");
   return ctx;
 }

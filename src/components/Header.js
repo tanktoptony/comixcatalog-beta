@@ -10,6 +10,8 @@ export default function Header() {
   const [hasAccess, setHasAccess] = useState(false);
   const [accessChecked, setAccessChecked] = useState(false);
 
+  console.log("HEADER USER:", user);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       setHasAccess(localStorage.getItem("cc_beta_access") === "true");

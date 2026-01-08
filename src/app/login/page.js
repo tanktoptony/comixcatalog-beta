@@ -1,30 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
-
-const supabase = getSupabaseClient();
 
 export default function LoginPage() {
   const router = useRouter();
+  const { user } = useAuth();
+
+  const supabase = getSupabaseClient();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    if (user) {
+      router.replace("/library");
+    }
+  }, [user, router]);
+
   async function handleLogin(e) {
     e.preventDefault();
-
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (!error) {
-      router.push("/library");
-    } else {
-      alert(error.message);
-    }
+    await supabase.auth.signInWithPassword({ email, password });
   }
 
   return (
@@ -33,44 +31,22 @@ export default function LoginPage() {
       style={{ padding: 16, maxWidth: 480, margin: "0 auto" }}
     >
       <div className="section-label badge-x">Log In</div>
-      <h1 className="hero-title" style={{ marginBottom: 12 }}>
-        Welcome back
-      </h1>
 
-      <form
-        onSubmit={handleLogin}
-        className="flex-col"
-        style={{ display: "flex", gap: 12 }}
-      >
+      <form onSubmit={handleLogin} style={{ display: "flex", gap: 12 }}>
         <input
           className="input"
           type="email"
-          required
-          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-
         <input
           className="input"
           type="password"
-          required
-          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        <button className="btn btn-primary" type="submit">
-          Log In
-        </button>
+        <button className="btn btn-primary">Log In</button>
       </form>
-
-      <p className="muted" style={{ marginTop: 12 }}>
-        Don't have an account?{" "}
-        <a href="/signup" className="link">
-          Create one
-        </a>
-      </p>
     </section>
   );
 }

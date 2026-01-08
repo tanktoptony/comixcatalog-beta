@@ -59,7 +59,7 @@ export default function Header() {
           </Link>
 
           {/* Only beta users who are NOT logged in */}
-          {hasAccess && !user && (
+          {hasAccess && (
             <>
               <Link href="/login" className="nav-link">
                 Login

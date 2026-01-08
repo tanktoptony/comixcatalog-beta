@@ -1,13 +1,16 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
+function getSupabase() {
+  return createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  );
+}
 
 // GET /api/wishlist?user_id=xxx
 export async function GET(req) {
+  const supabase = getSupabase();
   const { searchParams } = new URL(req.url);
   const user_id = searchParams.get("user_id");
 

@@ -8,18 +8,24 @@ import { useAuth } from "@/context/AuthContext";
 export default function Header() {
   const { user, loading, signOut } = useAuth();
   const [hasAccess, setHasAccess] = useState(false);
-  const [accessChecked, setAccessChecked] = useState(false);
 
   console.log("HEADER USER:", user);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setHasAccess(localStorage.getItem("cc_beta_access") === "true");
-      setAccessChecked(true);
-    }
-  }, []);
+  const checkAccess = () => {
+    setHasAccess(localStorage.getItem("cc_beta_access") === "true");
+  };
 
-  if (!accessChecked) return null;
+  checkAccess();
+
+  window.addEventListener("storage", checkAccess);
+  window.addEventListener("cc-beta-access", checkAccess);
+
+  return () => {
+    window.removeEventListener("storage", checkAccess);
+    window.removeEventListener("cc-beta-access", checkAccess);
+  };
+}, []);
 
 
   return (

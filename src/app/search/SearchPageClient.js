@@ -3,7 +3,6 @@
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { useLibrary } from "../../context/LibraryContext";
-import { MOCK_ITEMS } from "@/data/mockCatalog";
 import { useAuth } from "@/context/AuthContext";
 
 /**
@@ -19,16 +18,6 @@ function mapSupabaseComic(row) {
       ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${row.cover_path}`
       : null,
     __source: "supabase",
-  };
-}
-
-function normalizeMockComic(item) {
-  return {
-    ...item,
-    cover: item.cover
-      ? `/covers/${item.cover}` // public/covers/*.jpg
-      : null,
-    __source: "mock",
   };
 }
 
@@ -57,23 +46,18 @@ export default function SearchPageClient() {
     loadSupabaseComics();
   }, []);
 
-  /**
-   * Merge mock + Supabase results
-   */
   const results = useMemo(() => {
-    const mappedSupabase = supabaseComics.map(mapSupabaseComic);
-    const mappedMocks = MOCK_ITEMS.map(normalizeMockComic);
-    const combined = [...mappedMocks, ...mappedSupabase];
+  const mappedSupabase = supabaseComics.map(mapSupabaseComic);
 
-    if (!query) return combined;
+  if (!query) return mappedSupabase;
 
-    const q = query.toLowerCase();
-    return combined.filter(
-      (item) =>
-        item.title?.toLowerCase().includes(q) ||
-        item.series?.toLowerCase().includes(q)
-    );
-  }, [query, supabaseComics]);
+  const q = query.toLowerCase();
+  return mappedSupabase.filter(
+    (item) =>
+      item.title?.toLowerCase().includes(q)
+  );
+}, [query, supabaseComics]);
+
 
   return (
     <section className="comic-panel">

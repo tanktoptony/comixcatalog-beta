@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
-import { MOCK_ITEMS } from "@/data/mockCatalog";
 
 export default function ComicDetailPage() {
   const { id } = useParams();
@@ -13,31 +12,15 @@ export default function ComicDetailPage() {
   const [comic, setComic] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const safeCollectionIds = Array.isArray(collectionIds) ? collectionIds : [];
-  const safeWishlistIds = Array.isArray(wishlistIds) ? wishlistIds : [];
+  const inCollection = collectionIds?.has(String(id));
+  const inWishlist = wishlistIds?.has(String(id));
 
-  const inCollection = safeCollectionIds.includes(id);
-  const inWishlist = safeWishlistIds.includes(id);
 
   useEffect(() => {
     if (!id) return;
 
     async function loadComic() {
       setLoading(true);
-
-      // ===============================
-      // MOCK COMICS (UNCHANGED)
-      // ===============================
-      const mockComic = MOCK_ITEMS.find((c) => String(c.id) === String(id));
-
-      if (mockComic) {
-        setComic({
-          ...mockComic,
-          cover: mockComic.cover ? `/covers/${mockComic.cover}` : null,
-        });
-        setLoading(false);
-        return;
-      }
 
       // ===============================
       // SUPABASE COMICS — SAME AS SEARCH

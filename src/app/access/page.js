@@ -17,6 +17,9 @@ export default function AccessPage() {
       // client-side hint
       localStorage.setItem("cc_beta_access", "true");
 
+      // 🔥 notify Header immediately (no refresh)
+      window.dispatchEvent(new Event("cc-beta-access"));
+
       // server-visible enforcement
       document.cookie = "cc_beta_access=true; path=/; max-age=31536000";
 

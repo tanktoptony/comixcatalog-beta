@@ -18,6 +18,11 @@
 /* ===========================================================
    BASE BODY & PAGE WRAPPER
    =========================================================== */
+
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -44,7 +49,8 @@ body {
 .header-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 10px 1rem;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,7 +79,16 @@ body {
 
 .main-nav {
   display: flex;
-  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.4rem;
+  }
 }
 
 .nav-link {
@@ -114,7 +129,7 @@ body {
   padding-top: 36px;
 }
 
-   .landing-hero {
+.landing-hero {
   padding: 72px 24px 56px;
   background: linear-gradient(135deg, #0f172a 0%, var(--x-blue) 35%, #020617 100%);
   position: relative;
@@ -140,10 +155,19 @@ body {
 
 .landing-right {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 16px;
-  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .landing-right {
+    justify-content: center;
+  }
+
+  .landing-comic {
+    width: 120px;
+  }
 }
 
 .landing-comic {
@@ -351,14 +375,14 @@ body {
    =========================================================== */
 .comic-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 24px;
   padding: 10px 0;
 }
 
 .comic-card {
   width: 100%;
-  max-width: 240px;
+  max-width: 100%;
   margin: 0 auto;
   background: rgba(15, 23, 42, 0.96);
   border: 1px solid #334155;
@@ -633,12 +657,18 @@ body {
 }
 
 .form-card {
+  width: 100%;
   max-width: 720px;
+  overflow-x: hidden;
   margin: 0 auto;
   padding: 2rem;
   background: rgba(10, 20, 40, 0.9);
   border: 1px solid rgba(255, 215, 0, 0.3);
   border-radius: 14px;
+}
+
+.file-name {
+  max-width: 100%;
 }
 
 .form-title {
@@ -663,6 +693,12 @@ body {
   gap: 1.25rem;
 }
 
+@media (max-width: 640px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
 .field {
   display: flex;
   flex-direction: column;
@@ -684,6 +720,14 @@ input {
   border: 1px solid #2b3a70;
   background: #0b1a3a;
   color: white;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 small {

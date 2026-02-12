@@ -76,7 +76,7 @@ export default function HomePage() {
     <section className="landing-community">
       <div className="community-links">
         <a
-          href="https://discord.gg/comixcatalog"
+          href="https://discord.gg/3qMNAvPG"
           target="_blank"
           rel="noopener noreferrer"
           className="community-link"

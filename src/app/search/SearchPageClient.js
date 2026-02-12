@@ -14,6 +14,11 @@ function mapSupabaseComic(row) {
     title: row.series_title,
     issueNumber: row.issue_number,
     year: row.release_year,
+    publisher:
+      typeof row.publisher === "string"
+        ? row.publisher.trim()
+        : null,
+    storyArc: row.story_arc || null,
     cover: row.cover_path
       ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${row.cover_path}`
       : null,
@@ -22,6 +27,12 @@ function mapSupabaseComic(row) {
 }
 
 export default function SearchPageClient() {
+  const [publisherFilter, setPublisherFilter] = useState(null);
+  const [yearRange, setYearRange] = useState(null);
+  const [collectionFilter, setCollectionFilter] = useState("all"); 
+  // "all" | "collection" | "wishlist"
+
+
   const [query, setQuery] = useState("");
   const [supabaseComics, setSupabaseComics] = useState([]);
 
@@ -47,17 +58,47 @@ export default function SearchPageClient() {
   }, []);
 
   const results = useMemo(() => {
+    
   const mappedSupabase = supabaseComics.map(mapSupabaseComic);
+  let filtered = mappedSupabase;
 
-  if (!query) return mappedSupabase;
+  console.log(mappedSupabase.map(c => c.publisher));
 
-  const q = query.toLowerCase();
-  return mappedSupabase.filter(
-    (item) =>
+  if (query) {
+    const q = query.toLowerCase();
+    filtered = filtered.filter((item) =>
       item.title?.toLowerCase().includes(q)
-  );
-}, [query, supabaseComics]);
+    );
+  }
 
+  if (publisherFilter) {
+    filtered = filtered.filter((item) => {
+      const publisher = String(item.publisher || "").toLowerCase();
+      return publisher.includes(publisherFilter.toLowerCase());
+    });
+  }
+
+  if (collectionFilter === "collection") {
+    filtered = filtered.filter((item) =>
+      collectionIds.has(item.id)
+    );
+  }
+
+  if (collectionFilter === "wishlist") {
+    filtered = filtered.filter((item) =>
+      wishlistIds.has(item.id)
+    );
+  }
+
+    return filtered;
+  }, [
+    query,
+    supabaseComics,
+    publisherFilter,
+    collectionFilter,
+    collectionIds,
+    wishlistIds,
+  ]);
 
   return (
     <section className="comic-panel">
@@ -71,6 +112,48 @@ export default function SearchPageClient() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
+      </div>
+
+      <div className="filter-bar">
+        {["Marvel", "DC", "Image", "Dark Horse", "Boom"].map((pub) => (
+          <button
+            key={pub}
+            className={`filter-btn ${publisherFilter === pub ? "active" : ""}`}
+            onClick={() =>
+              setPublisherFilter(
+                publisherFilter === pub ? null : pub
+              )
+            }
+          >
+            {pub}
+          </button>
+        ))}
+
+        <button
+          className={`filter-btn ${
+            collectionFilter === "collection" ? "active" : ""
+          }`}
+          onClick={() =>
+            setCollectionFilter(
+              collectionFilter === "collection" ? "all" : "collection"
+            )
+          }
+        >
+          In My Collection
+        </button>
+
+        <button
+          className={`filter-btn ${
+            collectionFilter === "wishlist" ? "active" : ""
+          }`}
+          onClick={() =>
+            setCollectionFilter(
+              collectionFilter === "wishlist" ? "all" : "wishlist"
+            )
+          }
+        >
+          Wishlist
+        </button>
       </div>
 
       <p className="muted">

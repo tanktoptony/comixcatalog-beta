@@ -22,6 +22,7 @@ export async function GET() {
         publisher,
         release_year,
         variant_name,
+        created_by,
         comic_covers (
           image_path,
           is_primary
@@ -53,17 +54,30 @@ export async function GET() {
  * POST /api/comics
  * Create comic (metadata + optional cover)
  */
+
 export async function POST(req) {
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 
+  /*  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return NextResponse.json(
+      { error: "Unauthorized" },
+      { status: 401 }
+    );
+  }
+  */
+
   let formData;
   try {
     formData = await req.formData();
   } catch (err) {
-    console.error("Failed to read formData:", err);
     return NextResponse.json(
       { error: "Invalid form submission" },
       { status: 400 }
@@ -75,6 +89,9 @@ export async function POST(req) {
   const publisher = formData.get("publisher");
   const release_year = formData.get("release_year");
   const coverFile = formData.get("cover");
+  const created_by = formData.get("created_by");
+
+  console.log("SERVER created_by:", created_by);
 
   if (!series_title || !issue_number || !publisher) {
     return NextResponse.json(
@@ -83,7 +100,7 @@ export async function POST(req) {
     );
   }
 
-  // 1️⃣ Create comic FIRST and ALWAYS return it
+  // 🔥 NOW we store created_by
   const { data: comic, error: comicError } = await supabase
     .from("comics")
     .insert({
@@ -91,6 +108,7 @@ export async function POST(req) {
       issue_number,
       publisher,
       release_year: release_year ? Number(release_year) : null,
+      created_by,
     })
     .select()
     .single();
@@ -103,7 +121,7 @@ export async function POST(req) {
     );
   }
 
-  // 2️⃣ Best-effort cover upload (never blocks response)
+  // Cover upload remains same logic
   if (coverFile && coverFile.size > 0) {
     try {
       const path = `${comic.id}.jpg`;
@@ -117,16 +135,14 @@ export async function POST(req) {
           comic_id: comic.id,
           image_path: path,
           is_primary: true,
+          uploaded_by: created_by,
         });
-      } else {
-        console.warn("Cover upload failed:", uploadError);
       }
     } catch (err) {
       console.warn("Cover handling crashed:", err);
     }
   }
 
-  // ✅ ALWAYS return comic
   return NextResponse.json({ comic }, { status: 201 });
 }
 

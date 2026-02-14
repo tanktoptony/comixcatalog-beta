@@ -41,7 +41,7 @@ export default function HomePage() {
               Track your personal collection value like a real portfolio.
             </li>
             <li>
-              Seller listings with real condition notes, not vague “VG? lol”
+              Seller listings with real condition notes, not vague
               nonsense.
             </li>
           </ul>

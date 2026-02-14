@@ -57,11 +57,11 @@ export default function Header() {
           <Link href="/library" className="nav-link">
             My Library
           </Link>
-          <Link href="/news" className="nav-link">
-            News & Updates
+          <Link href="/blog" className="nav-link">
+            Developer Blog
           </Link>
           <Link href="/search" className="nav-link">
-            Search
+            View Comics
           </Link>
 
           {/* Only beta users who are NOT logged in */}

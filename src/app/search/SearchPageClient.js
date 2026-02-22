@@ -115,7 +115,7 @@ export default function SearchPageClient() {
       </div>
 
       <div className="filter-bar">
-        {["Marvel", "DC", "Image", "Dark Horse", "Boom"].map((pub) => (
+        {["Marvel", "DC", "Image", "Dark Horse", "Boom", "IDW", "Evil Ink", "Vertigo"].map((pub) => (
           <button
             key={pub}
             className={`filter-btn ${publisherFilter === pub ? "active" : ""}`}

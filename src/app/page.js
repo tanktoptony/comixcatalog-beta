@@ -10,41 +10,32 @@ export default function HomePage() {
       <div className="landing-hero-inner">
         {/* LEFT — TEXT */}
         <div className="landing-left">
-          <a
-            href="https://www.patreon.com/comixcatalog"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="landing-badge"
-          >
-            ✨ Join as a founding collector
-          </a>
 
           <h1 className="landing-title">
-            The Discogs for Comics.{" "}
-            <span className="landing-title-accent">Finally.</span>
+            The Home for Serious Comic Collectors
           </h1>
-
           <p className="landing-subtitle">
-            Catalog every issue. Track every variant. Buy and sell with
-            verified collectors.{" "}
-            <span className="landing-subtitle-accent">ComixCatalog</span> is
-            the marketplace built for people who actually care about
-            condition, keys, and provenance — not just clicks.
+            Catalog your collection. Track performance over time. Buy and sell with clarity around grade, variant, and condition — all in one place.
           </p>
 
-          <ul className="landing-bullets">
-            <li>
-              Full issue + variant database (User-powered first, then full
-              catalog with publisher partnerships).
-            </li>
-            <li>
-              Track your personal collection value like a real portfolio.
-            </li>
-            <li>
-              Seller listings with real condition notes, not vague
-              nonsense.
-            </li>
-          </ul>
+          <div className="landing-features-compact">
+
+            <div className="landing-feature-compact">
+              <span className="feature-label">CATALOG</span>
+              <p>Every issue. Every printing. Every variant.</p>
+            </div>
+
+            <div className="landing-feature-compact">
+              <span className="feature-label">TRACK</span>
+              <p>Portfolio-style value insights over time.</p>
+            </div>
+
+            <div className="landing-feature-compact">
+              <span className="feature-label">MARKETPLACE</span>
+              <p>Transparent listings. Verified collectors.</p>
+            </div>
+          </div>
+
         </div>
 
         {/* RIGHT — COVERS */}
@@ -121,6 +112,21 @@ export default function HomePage() {
           aria-label="Email"
         >
           <img src="/icons/mail.svg" alt="Email" />
+        </a>
+      </div>
+
+      <div className="support-section">
+        <div className="support-divider" />
+        <p className="support-text">
+          ComixCatalog is being built independently. If you believe in a better platform for collectors and want to help accelerate development, consider supporting the project.
+        </p>
+        <a
+          href="https://www.patreon.com/cw/ComixCatalog"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="support-button"
+        >
+          Support the Build
         </a>
       </div>
     </section>

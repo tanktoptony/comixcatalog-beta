@@ -16,7 +16,7 @@
 }
 
 /* ===========================================================
-   BASE BODY & PAGE WRAPPER
+   BASE BODY
    =========================================================== */
 
 html, body {
@@ -40,6 +40,7 @@ body {
 /* ===========================================================
    HEADER
    =========================================================== */
+
 .site-header {
   background: var(--x-blue);
   border-bottom: 4px solid var(--x-gold);
@@ -50,7 +51,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 1rem;
-  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,13 +84,6 @@ body {
   gap: 0.5rem;
 }
 
-@media (max-width: 480px) {
-  .nav-link {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.4rem;
-  }
-}
-
 .nav-link {
   font-size: 0.8rem;
   font-weight: 600;
@@ -98,230 +91,237 @@ body {
   border: 2px solid var(--x-line);
   background: var(--x-gold);
   color: #000;
-  padding: 0.3rem 0.5rem;
+  padding: 0.3rem 0.6rem;
   box-shadow: 2px 2px 0 #000;
+  transition: all 0.15s ease;
 }
 
 .nav-link:hover {
-  transform: translate(-1px, -1px) rotate(-1deg);
+  transform: translate(-1px, -1px);
   box-shadow: 4px 4px 0 #000;
 }
 
-.nav-link-logout {
-  background-color: #f5c400; /* same yellow */
-  color: #000;
-  padding: 0.4rem 0.75rem;
-  border-radius: 4px;
-  border: none;
-  font-weight: 600;
-}
-
-.nav-link-logout:hover {
-  background-color: #ffd84d;
-  color: #000;
-}
-
-
 /* ===========================================================
-   LANDING PAGE / HERO
+   BUTTON SYSTEM (PRIMARY UI STANDARD)
    =========================================================== */
-.landing-community {
-  padding-top: 36px;
-}
 
-.landing-hero {
-  padding: 72px 24px 56px;
-  background: linear-gradient(135deg, #0f172a 0%, var(--x-blue) 35%, #020617 100%);
-  position: relative;
-}
-
-.landing-hero-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-@media (max-width: 900px) {
-  .landing-hero-inner {
-    flex-direction: column;
-  }
-}
-
-.landing-left {
-  flex: 1;
-}
-
-.landing-right {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 640px) {
-  .landing-right {
-    justify-content: center;
-  }
-
-  .landing-comic {
-    width: 120px;
-  }
-}
-
-.landing-comic {
-  width: 150px;
-  text-align: center;
-}
-
-.landing-comic img {
-  display: block;
-  width: 100%;
-  max-width: 150px;
-  height: auto;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-}
-
-.landing-comic-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: white;
-  margin-top: 8px;
-}
-
-.landing-comic-sub {
-  font-size: 0.75rem;
-  color: var(--x-gold);
-}
-
-.landing-badge {
+.add-comic-btn,
+.filter-btn,
+.primary-btn {
   display: inline-flex;
   align-items: center;
-  padding: 6px 14px;
+  justify-content: center;
+
+  padding: 6px 14px;              /* smaller */
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(250, 204, 21, 0.6);
-  color: #facc15;
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
-}
 
-.landing-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #f9fafb;
-  line-height: 1.1;
-}
-
-.landing-title-accent {
-  color: var(--x-gold);
-}
-
-.landing-subtitle {
-  max-width: 640px;
-  font-size: 1rem;
-  color: #e5e7eb;
-  line-height: 1.6;
-}
-
-.landing-subtitle-accent {
-  color: var(--x-gold);
-  font-weight: 600;
-}
-
-.landing-bullets {
-  margin: 20px 0;
-  padding-left: 20px;
-  list-style: disc;
-  color: #d1d5db;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.landing-cta-row {
-  display: flex;
-  gap: 12px;
-  margin: 24px 0 16px;
-}
-
-.landing-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 22px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.15s ease;
-  cursor: pointer;
-}
-
-.landing-btn-primary {
-  background: #facc15;
+  background: var(--x-gold);
   color: #020617;
-  box-shadow: 0 10px 40px rgba(250, 204, 21, 0.4);
+  text-decoration: none;
+
+  font-size: 0.7rem;              /* smaller */
+  font-weight: 600;               /* less heavy */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;     /* slightly lighter */
+
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
 }
 
-.landing-btn-primary:hover {
+.add-comic-btn:hover,
+.filter-btn:hover,
+.primary-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #000;
   background: #fde047;
 }
 
-.landing-btn-secondary {
-  background: transparent;
-  border: 1px solid #374151;
-  color: #e5e7eb;
+.add-comic-btn:active,
+.filter-btn:active,
+.primary-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 #000;
 }
 
-.landing-btn-secondary:hover {
-  background: rgba(15, 23, 42, 0.9);
+/* Active Filter State */
+.filter-btn.active {
+  background: var(--x-blue);
+  color: var(--x-gold);
 }
 
-.landing-footnote {
-  margin-top: 12px;
-  color: #9ca3af;
-  font-size: 0.85rem;
-  max-width: 600px;
-  line-height: 1.5;
+.filter-btn {
+  padding: 7px 16px;   /* slightly wider than base */
+  font-size: 0.72rem;
+  border-radius: 999px;
+
+  background: var(--x-gold);
+  color: #000;
+
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
 }
-
-.community-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 22px;
-}
-
-.community-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #f5c400; /* your yellow */
-}
-
-.community-link img {
-  width: 26px;
-  height: 26px;
-  display: block;
-
-  /* FORCE color for black SVGs */
-  filter: brightness(0) saturate(100%)
-          invert(83%) sepia(49%)
-          saturate(747%) hue-rotate(6deg)
-          brightness(104%) contrast(101%);
-}
-
 
 /* ===========================================================
-   AUTH PANELS
+   FILE UPLOAD (Styled, no browser default look)
    =========================================================== */
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.file-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 1rem;
+  background: #0b1a3a;
+  border: 2px solid #000;
+  border-radius: 999px;
+  color: var(--x-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 #000;
+  cursor: pointer;
+}
+
+.file-button:hover {
+  background: #162454;
+}
+
+.file-name {
+  font-size: 0.85rem;
+  color: #b9c3ff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 260px;
+}
+
+/* ===========================================================
+   FORM ELEMENTS
+   =========================================================== */
+
+label {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  color: #b9c3ff;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+  height: 42px;
+  padding: 0 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #2b3a70;
+  background: #0b1a3a;
+  color: white;
+}
+
+/* ===========================================================
+   COMIC GRID
+   =========================================================== */
+
+.comic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 24px;
+  padding: 10px 0;
+}
+
+.comic-card-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  line-height: 1.3;
+  margin-top: 10px;
+  margin-bottom: 4px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.comic-card > .card-link {
+  padding: 0 12px 6px;
+  display: block;
+}
+
+.comic-card:hover .comic-card-title {
+  color: var(--x-gold);
+}
+
+.comic-card {
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: 0.2s ease;
+}
+
+.comic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(250, 204, 21, 0.25);
+}
+
+.comic-card-cover {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #000;
+}
+
+.comic-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Library card text refinement */
+.comic-card-title {
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+.comic-card-meta {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+/* ===========================================================
+   AUTH PANEL
+   =========================================================== */
+
 .auth-panel {
   background: radial-gradient(circle at top left, var(--x-blue), #001b40 70%, #000a1c);
   border-radius: 16px;
@@ -354,6 +354,7 @@ body {
 /* ===========================================================
    FOOTER
    =========================================================== */
+
 .site-footer {
   margin-top: 36px;
   padding: 26px 0 40px;
@@ -370,195 +371,40 @@ body {
   color: #facc15;
 }
 
-/* ===========================================================
-   SEARCH & LIBRARY
-   =========================================================== */
-.comic-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 24px;
-  padding: 10px 0;
-}
+/* ========================= */
+/* FILTER BAR CONTAINER     */
+/* ========================= */
 
-.comic-card {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  background: rgba(15, 23, 42, 0.96);
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0 24px;
+
+  padding: 14px 16px;
+  background: rgba(15, 23, 42, 0.85);
   border: 1px solid #334155;
   border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  transition: 0.2s ease;
 }
 
-.comic-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(250, 204, 21, 0.25);
-}
-
-/* REAL FIX: Consistent comic cover sizing on SEARCH */
-.comic-card-cover {
+.search-input {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  max-height: 380px;     /* The part I failed to include earlier */
-  overflow: hidden;
-  background: #000;
-}
-
-.comic-card-cover img {
-  width: 100%;
-  height: 100%;          /* Fill the aspect box */
-  object-fit: cover;
-  display: block;
-}
-
-.comic-card-body {
-  padding: 12px 14px;
-}
-
-.comic-card-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #f3f4f6;
-  margin-bottom: 4px;
-}
-
-.comic-card-meta {
-  font-size: 0.75rem;
-  color: #94a3b8;
-}
-
-.library-toggle {
-  display: inline-flex;
-  gap: 6px;
-  margin-bottom: 24px;
-}
-
-.library-toggle button {
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid #374151;
+  max-width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
   background: #0f172a;
   color: #e5e7eb;
   font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.library-toggle button.active {
-  background: #facc15;
-  color: #020617;
-  border-color: #facc15;
-}
-
-.empty-state {
-  margin-top: 24px;
+  margin-bottom: 12px;
 }
 
 /* ===========================================================
-   HYBRID DETAIL PAGE (SAFE)
+   CARD ACTION BUTTONS (SUBTLE / EMBEDDED)
    =========================================================== */
 
-/* CLEAN, RESPONSIVE TWO-COLUMN GRID */
-.detail-layout {
-  display: grid;
-  grid-template-columns: minmax(380px, 440px) 1fr; /* ⬅ wider hero column */
-  gap: 3rem;
-  align-items: start;
-
-  max-width: 1080px;
-  margin: 0 auto;
-
-  padding: 2.5rem 2.75rem; /* ⬅ THIS IS THE BIG FIX */
-}
-
-@media (max-width: 900px) {
-  .detail-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-.issue-controls {
-  padding-left: 1.5rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: 1.5rem;
-  width: 100%;
-  max-width: 320px;
-}
-
-/* CENTERED HERO */
-.issue-hero {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.issue-cover-frame {
-  width: 100%;
-  max-width: 320px;          /* ⬅ stronger presence */
-  aspect-ratio: 3 / 4;
-  max-height: 440px;         /* ⬅ restores hero feel */
-  overflow: hidden;
-  background: #000;
-  border-radius: 14px;       /* ⬅ slightly more premium */
-  box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.45),
-    0 0 24px rgba(250, 204, 21, 0.25); /* ⬅ subtle gold glow */
-}
-
-.issue-cover-img {
-  width: 100%;
-  height: 100%;          /* Fill the fixed frame */
-  object-fit: cover;     /* Never stretch */
-  display: block;
-}
-
-/* Status Pills */
-.issue-status-row {
-  display: flex;
-  gap: 8px;
-  margin: 12px 0 16px;
-}
-
-/* Section Formatting */
-.issue-section {
-  margin-top: 24px;
-}
-
-.issue-section-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.condition-grid {
-  display: grid;
-  gap: 16px;
-}
-
-.condition-input {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.condition-score {
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.issue-siblings {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* Search card actions — cleaner spacing & styling */
 .comic-card-actions {
-  padding: 12px 14px;
+  padding: 8px 10px 14px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -566,476 +412,370 @@ body {
 }
 
 .comic-btn {
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  transition: 0.15s ease;
-  background: #0f172a;
-  border: 1px solid #334155;
-  color: #e2e8f0;
+  width: 100%;
+  padding: 6px 10px;
+
+  background: #0f1f47;         /* slightly lifted from card */
+  border: 1px solid #1e40af;   /* subtle blue edge */
+  border-radius: 6px;
+
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #e5e7eb;
+
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 .comic-btn:hover {
-  background: #1e293b;
-}
-/* Detail Page Buttons */
-.issue-status-row {
-  display: flex;
-  gap: 10px;
-  margin: 14px 0 18px;
+  background: #162d66;
+  border-color: #3b82f6;
 }
 
-.issue-actions {
-  margin-top: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.comic-btn-danger {
+  background: #3f1d1d;
+  border-color: #7f1d1d;
+  color: #fca5a5;
 }
 
-.detail-nav-row {
-  margin-top: 24px;
-  display: flex;
-  gap: 14px;
-}
-
-.detail-nav-row a {
-  padding: 8px 14px;
-  background: #0f172a;
-  border: 1px solid #374151;
-  border-radius: 8px;
-  color: #e5e7eb;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.detail-nav-row a:hover {
-  background: #1e293b;
-}
-
-.metadata-column {
-  padding-top: 4px;
-  padding-right: 12px;
-}
-
-.metadata-section {
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+.comic-btn-danger:hover {
+  background: #5b2121;
+  border-color: #ef4444;
 }
 
 /* ===========================================================
-   NEWS & UPDATES TYPOGRAPHY
+   LANDING PAGE / HERO
    =========================================================== */
 
-.news-page h1 {
-  color: var(--x-offwhite);
-  font-weight: 800;
-  letter-spacing: -0.01em;
+.landing-hero {
+  padding: 72px 24px 56px;
+  background: linear-gradient(135deg, #0f172a 0%, var(--x-blue) 35%, #020617 100%);
+  position: relative;
 }
 
-.news-post h2 {
-  color: var(--x-gold);
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
-.news-post-date {
-  color: #94a3b8; /* slate-400 */
-  font-size: 0.85rem;
-  font-style: italic;
-}
-
-.news-post-body {
-  color: #e5e7eb; /* slate-200 */
-  line-height: 1.6;
-  margin-top: 0.75rem;
-}
-
-.page {
-  padding: 2rem;
-}
-
-.form-card {
-  width: 100%;
-  max-width: 720px;
-  overflow-x: hidden;
+.landing-hero-inner {
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 2rem;
-  background: rgba(10, 20, 40, 0.9);
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  border-radius: 14px;
-}
-
-.file-name {
-  max-width: 100%;
-}
-
-.form-title {
-  margin-bottom: 0.25rem;
-}
-
-.form-subtitle {
-  font-size: 0.9rem;
-  color: #b9c3ff;
-  margin-bottom: 1.5rem;
-}
-
-.form {
   display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  gap: 40px;
+  align-items: flex-start;
 }
 
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-}
-
-@media (max-width: 640px) {
-  .grid-2 {
-    grid-template-columns: 1fr;
+@media (max-width: 900px) {
+  .landing-hero-inner {
+    flex-direction: column;
   }
 }
 
-.field {
+.landing-left {
+  flex: 1;
+}
+
+.landing-right {
   display: flex;
-  flex-direction: column;
-}
-
-label {
-  font-size: 0.85rem;
-  margin-bottom: 0.25rem;
-  color: #b9c3ff;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="file"],
-input {
-  height: 42px;
-  padding: 0 0.75rem;
-  border-radius: 6px;
-  border: 1px solid #2b3a70;
-  background: #0b1a3a;
-  color: white;
-}
-
-input,
-select,
-textarea {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-small {
-  margin-top: 0.25rem;
-  font-size: 0.75rem;
-  color: #8fa2ff;
-}
-
-.error {
-  color: #ff6b6b;
-  font-size: 0.85rem;
-}
-
-.primary-btn {
-  margin-top: 0.5rem;
-  height: 46px;
-  background: #ffd400;
-  color: #0b1a3a;
-  font-weight: 600;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-}
-
-.primary-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.file-upload {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.file-button {
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
-  height: 42px;
-  padding: 0 1rem;
-  background: #0b1a3a;
-  border: 1px solid #2b3a70;
-  border-radius: 6px;
-  color: white;
-  font-size: 0.85rem;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.file-button:hover {
-  border-color: #ffd400;
-}
-
-.file-name {
-  font-size: 0.85rem;
-  color: #b9c3ff;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 260px;
-}
-
-.add-comic-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 10px 18px;
-  border-radius: 999px;
-
-  background: var(--x-gold);
-  color: #020617;
-  text-decoration: none;
-
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-
-  border: 2px solid #000;
-  box-shadow: 3px 3px 0 #000;
-
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease,
-    background-color 0.15s ease;
-}
-
-.add-comic-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 #000;
-  background: #fde047;
-}
-
-.add-comic-btn:active {
-  transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 #000;
-}
-
-.filter-bar {
-  display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
-  margin: 18px 0 24px;
+}
 
-  padding: 14px;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid #334155;
+.landing-comic {
+  width: 150px;
+  text-align: center;
+}
+
+.landing-comic img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
-.filter-btn {
-  padding: 8px 16px;
-  border-radius: 999px;
-
-  background: var(--x-gold);
-  color: #000;
-
-  font-size: 0.8rem;
+.landing-title {
+  font-size: 3rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-
-  border: 2px solid #000;
-  box-shadow: 3px 3px 0 #000;
-
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease,
-    background-color 0.15s ease;
+  color: #f9fafb;
+  line-height: 1.1;
 }
 
-.filter-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 #000;
-  background: #fde047;
-}
-
-.filter-btn.active {
-  background: #0b1e6b;
-  color: var(--x-gold);
-  border-color: #000;
-}
-
-/* ========================= */
-/* BLOG LAYOUT POLISH       */
-/* ========================= */
-
-.blog-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px 80px;
-}
-
-.blog-card {
-  background: #0b1a3a;
-  border: 1px solid #1e3a8a;
-  border-radius: 10px;
-  padding: 24px;
-  margin-bottom: 28px;
-  transition: all 0.2s ease;
-}
-
-.blog-card:hover {
-  border-color: #facc15;
-  transform: translateY(-2px);
-}
-
-.blog-card-title {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 6px;
-  color: white;
-}
-
-.blog-card-date {
-  font-size: 0.9rem;
-  opacity: 0.6;
-  margin-bottom: 12px;
-}
-
-.blog-card-excerpt {
-  opacity: 0.85;
+.landing-subtitle {
+  max-width: 640px;
+  font-size: 1rem;
+  color: #e5e7eb;
   line-height: 1.6;
 }
 
+/* ===========================================================
+   COMMUNITY / SOCIAL LINKS
+   =========================================================== */
 
-/* ========================= */
-/* SINGLE BLOG POST         */
-/* ========================= */
-
-.news-page {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px 80px;
+.community-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-top: 18px;
 }
 
-.hero-title {
-  font-size: 2.4rem;
+.community-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--x-gold);
+  transition: transform 0.15s ease;
+}
+
+.community-link:hover {
+  transform: translateY(-2px);
+}
+
+.community-link img {
+  width: 26px;
+  height: 26px;
+  display: block;
+
+  /* Force gold color for dark SVGs */
+  filter: brightness(0) saturate(100%)
+          invert(83%) sepia(49%)
+          saturate(747%) hue-rotate(6deg)
+          brightness(104%) contrast(101%);
+}
+
+/* Layout Container */
+.landing-left {
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Headline */
+.landing-title {
+  font-size: 2.2rem;
   font-weight: 800;
-  margin-bottom: 10px;
   letter-spacing: -0.5px;
-}
-
-.news-post-date {
-  opacity: 0.6;
-  margin-bottom: 30px;
-}
-
-.news-post-body {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #e5e7eb;
-}
-
-.news-post-body p {
-  margin-bottom: 20px;
-}
-
-
-/* ========================= */
-/* COMMENTS SECTION         */
-/* ========================= */
-
-.comment {
-  background: #0f1f47;
-  border: 1px solid #1e40af;
-  padding: 16px;
-  border-radius: 8px;
+  color: #ffffff;
   margin-bottom: 14px;
 }
 
-.comment p {
+.landing-subtitle {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 24px;
+  max-width: 500px;
+}
+
+.landing-features-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.landing-feature-compact {
+  border-left: 3px solid #f5c518;
+  padding-left: 14px;
+}
+
+.feature-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #f5c518;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.landing-feature-compact p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+  margin: 0;
+}
+
+/* CSV Ready State */
+.csv-ready {
+  background: #16a34a;        /* green */
+  color: white;
+  border-color: #000;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.csv-ready:hover {
+  background: #22c55e;
+}
+.support-section {
+  margin-top: 32px;
+  padding: 40px 20px 60px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
+}
+
+.support-divider {
+  width: 60px;
+  height: 3px;
+  background: #f5c518;
+  margin: 0 auto 24px auto;
+}
+
+.support-text {
+  max-width: 600px;
+  margin: 0 auto 24px auto;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+.support-button {
+  display: inline-block;
+  padding: 10px 22px;
+  background-color: #f5c518;
+  color: #0b1437;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.support-button:hover {
+  background-color: #ffd84d;
+  transform: translateY(-2px);
+}
+
+/* ===========================================================
+   CARD LINK RESET
+   =========================================================== */
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:visited {
+  color: inherit;
+}
+
+/* Status Pills */
+.pill {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 3px 8px 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+.pill-new {
+  background: #1e293b;
+  color: #94a3b8;
+}
+
+.pill-collection {
+  background: rgba(22, 163, 74, 0.15);
+  color: #22c55e;
+}
+
+.pill-wishlist {
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+}
+
+/* ===== Comic Detail Typography ===== */
+
+.issue-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.issue-year {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+}
+
+/* Layout refinement */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Cover styling */
+.issue-cover-frame {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.issue-cover-img {
+  width: 100%;
+  display: block;
+}
+
+/* Metadata spacing */
+.metadata-section {
+  margin-top: 32px;
+}
+
+.issue-section-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #f5c518;
+  margin-bottom: 12px;
+}
+
+/* Condition sliders */
+.condition-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.condition-input span {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  display: block;
   margin-bottom: 6px;
 }
 
-.comment small {
-  opacity: 0.6;
-  font-size: 0.75rem;
-}
-
-
-/* ========================= */
-/* FORM POLISH              */
-/* ========================= */
-
-.form textarea {
+.condition-input input[type="range"] {
   width: 100%;
-  min-height: 120px;
-  padding: 14px;
-  border-radius: 8px;
-  border: 1px solid #1e40af;
-  background: #0b1a3a;
-  color: white;
-  resize: vertical;
-  font-family: inherit;
 }
 
-.form textarea:focus {
-  outline: none;
-  border-color: #facc15;
+/* Card content spacing */
+.comic-card .card-link,
+.comic-card > div:not(.comic-card-cover) {
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
-.primary-btn {
-  background: #facc15;
-  color: #111827;
-  font-weight: 600;
-  padding: 10px 18px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.primary-btn:hover {
-  background: #fde047;
-  transform: translateY(-1px);
-}
-
-
-/* ========================= */
-/* ADMIN DELETE BUTTON      */
-/* ========================= */
-
-.delete-btn {
-  background: #dc2626;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
+/* Space under cover */
+.issue-hero {
   margin-bottom: 20px;
-  transition: all 0.15s ease;
 }
 
-.delete-btn:hover {
-  background: #ef4444;
-  transform: translateY(-1px);
+/* Space under status pills */
+.issue-status-row {
+  margin-bottom: 20px;
 }
 
-
-/* ========================= */
-/* DIVIDER                  */
-/* ========================= */
-
-hr {
-  border: none;
-  height: 1px;
-  background: #1e3a8a;
+/* Space above action buttons */
+.issue-actions {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
+.issue-status-row {
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.add-comic-btn {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+}

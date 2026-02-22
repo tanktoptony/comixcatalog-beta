@@ -133,12 +133,12 @@ export default function ComicDetailPage() {
 
         {/* RIGHT COLUMN */}
         <div className="metadata-column">
-          <h1 className="landing-title">
+          <h1 className="issue-title">
             {comic.title}
             {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
           </h1>
 
-          <p className="landing-subtitle">
+          <p className="issue-subtitle">
             {comic.year || "Unknown Year"}
           </p>
 

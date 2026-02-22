@@ -51,26 +51,26 @@ export default function Header() {
 
         {/* MAIN NAV */}
         <nav className="main-nav" aria-label="Primary navigation">
-          <Link href="/marketplace" className="nav-link">
+          <Link href="/marketplace" className="nav-link add-comic-btn">
             Marketplace
           </Link>
-          <Link href="/library" className="nav-link">
+          <Link href="/library" className="nav-link add-comic-btn">
             My Library
           </Link>
-          <Link href="/blog" className="nav-link">
+          <Link href="/blog" className="nav-link add-comic-btn">
             Developer Blog
           </Link>
-          <Link href="/search" className="nav-link">
+          <Link href="/search" className="nav-link add-comic-btn">
             View Comics
           </Link>
 
           {/* Only beta users who are NOT logged in */}
           {hasAccess && !loading &&!user &&(
             <>
-              <Link href="/login" className="nav-link">
+              <Link href="/login" className="nav-link add-comic-btn">
                 Login
               </Link>
-              <Link href="/signup" className="nav-link">
+              <Link href="/signup" className="nav-link add-comic-btn">
                 Sign Up
               </Link>
             </>
@@ -78,7 +78,7 @@ export default function Header() {
 
           {/* Logged-in users */}
           {user && (
-            <button onClick={signOut} className="nav-link nav-link-logout">
+            <button onClick={signOut} className="add-comic-btn nav-link nav-link-logout">
               Logout
             </button>
           )}

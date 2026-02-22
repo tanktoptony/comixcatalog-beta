@@ -14,21 +14,23 @@ export async function GET() {
 
     const { data, error } = await supabase
       .from("comics")
-      .select(
-        `
+      .select(`
         id,
-        series_title,
         issue_number,
-        publisher,
         release_year,
         variant_name,
         created_by,
+        series (
+          title,
+          publishers (
+            name
+          )
+        ),
         comic_covers (
           image_path,
           is_primary
         )
-        `
-      )
+      `)
       .order("created_at", { ascending: false });
 
     if (error) {
@@ -37,10 +39,15 @@ export async function GET() {
     }
 
     const comics = (data ?? []).map((comic) => ({
-      ...comic,
+      id: comic.id,
+      series_title: comic.series?.title ?? null,
+      publisher: comic.series?.publishers?.name ?? null,
+      issue_number: comic.issue_number,
+      release_year: comic.release_year,
+      variant_name: comic.variant_name,
+      created_by: comic.created_by,
       cover_path:
         comic.comic_covers?.find((c) => c.is_primary)?.image_path ?? null,
-      comic_covers: undefined,
     }));
 
     return NextResponse.json({ comics });
@@ -61,19 +68,6 @@ export async function POST(req) {
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 
-  /*  
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    return NextResponse.json(
-      { error: "Unauthorized" },
-      { status: 401 }
-    );
-  }
-  */
-
   let formData;
   try {
     formData = await req.formData();
@@ -86,44 +80,75 @@ export async function POST(req) {
 
   const series_title = formData.get("series_title");
   const issue_number = formData.get("issue_number");
-  const publisher = formData.get("publisher");
+  const publisher_name = formData.get("publisher");
   const release_year = formData.get("release_year");
   const coverFile = formData.get("cover");
   const created_by = formData.get("created_by");
 
-  console.log("SERVER created_by:", created_by);
-
-  if (!series_title || !issue_number || !publisher) {
+  if (!series_title || !issue_number || !publisher_name) {
     return NextResponse.json(
       { error: "Missing required fields" },
       { status: 400 }
     );
   }
 
-  // 🔥 NOW we store created_by
-  const { data: comic, error: comicError } = await supabase
-    .from("comics")
-    .insert({
-      series_title,
-      issue_number,
-      publisher,
-      release_year: release_year ? Number(release_year) : null,
-      created_by,
-    })
-    .select()
-    .single();
+  try {
+    // 1️⃣ Find or create publisher
+    let { data: publisher } = await supabase
+      .from("publishers")
+      .select("*")
+      .eq("name", publisher_name)
+      .single();
 
-  if (comicError) {
-    console.error("Comic insert failed:", comicError);
-    return NextResponse.json(
-      { error: "Failed to create comic" },
-      { status: 500 }
-    );
-  }
+    if (!publisher) {
+      const { data: newPublisher, error } = await supabase
+        .from("publishers")
+        .insert({ name: publisher_name })
+        .select()
+        .single();
 
-  // Cover upload remains same logic
-  if (coverFile && coverFile.size > 0) {
-    try {
+      if (error) throw error;
+      publisher = newPublisher;
+    }
+
+    // 2️⃣ Find or create series
+    let { data: series } = await supabase
+      .from("series")
+      .select("*")
+      .eq("title", series_title)
+      .eq("publisher_id", publisher.id)
+      .single();
+
+    if (!series) {
+      const { data: newSeries, error } = await supabase
+        .from("series")
+        .insert({
+          title: series_title,
+          publisher_id: publisher.id,
+        })
+        .select()
+        .single();
+
+      if (error) throw error;
+      series = newSeries;
+    }
+
+    // 3️⃣ Insert comic using series_id
+    const { data: comic, error: comicError } = await supabase
+      .from("comics")
+      .insert({
+        series_id: series.id,
+        issue_number,
+        release_year: release_year ? Number(release_year) : null,
+        created_by,
+      })
+      .select()
+      .single();
+
+    if (comicError) throw comicError;
+
+    // 4️⃣ Handle cover upload
+    if (coverFile && coverFile.size > 0) {
       const path = `${comic.id}.jpg`;
 
       const { error: uploadError } = await supabase.storage
@@ -138,11 +163,16 @@ export async function POST(req) {
           uploaded_by: created_by,
         });
       }
-    } catch (err) {
-      console.warn("Cover handling crashed:", err);
     }
-  }
 
-  return NextResponse.json({ comic }, { status: 201 });
+    return NextResponse.json({ comic }, { status: 201 });
+
+  } catch (err) {
+    console.error("POST /api/comics failed:", err);
+    return NextResponse.json(
+      { error: "Failed to create comic" },
+      { status: 500 }
+    );
+  }
 }
 

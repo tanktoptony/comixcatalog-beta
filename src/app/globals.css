@@ -495,8 +495,12 @@ input[type="file"] {
 .landing-title {
   font-size: 3rem;
   font-weight: 800;
-  color: #f9fafb;
+  color: #e5e7eb;
   line-height: 1.1;
+}
+
+.landing-title b {
+  color: #fde047;
 }
 
 .landing-subtitle {

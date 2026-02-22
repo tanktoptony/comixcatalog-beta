@@ -12,6 +12,7 @@ export default function HomePage() {
         <div className="landing-left">
 
           <h1 className="landing-title">
+            <b>ComixCatalog</b>
             The Home for Serious Comic Collectors
           </h1>
           <p className="landing-subtitle">

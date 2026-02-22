@@ -83,13 +83,7 @@ export default function LibraryPage() {
       <h1>My Library</h1>
       <CollectionStats collections={collections} />
 
-      <div
-        style={{
-          marginBottom: "1rem",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
+      <div className ="library-actions">
         <button className="add-comic-btn" onClick={() => setTab("owned")}>
           Collection
         </button>

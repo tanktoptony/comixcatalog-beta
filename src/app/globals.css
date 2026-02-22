@@ -707,6 +707,21 @@ input[type="file"] {
   align-items: start;
 }
 
+@media (max-width: 900px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.metadata-column {
+  min-width: 0;
+}
+
+.issue-title {
+  word-break: break-word;
+}
+
 /* Cover styling */
 .issue-cover-frame {
   border-radius: 8px;
@@ -782,4 +797,15 @@ input[type="file"] {
 .add-comic-btn {
   padding: 6px 14px;
   font-size: 0.85rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+.library-actions {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }

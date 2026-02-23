@@ -11,7 +11,7 @@ export default async function PublicProfilePage({ params }) {
   }
 
   const res = await fetch(
-    `http://localhost:3000/api/public-profile?username=${username}`,
+    `api/public-profile?username=${username}`,
     { cache: "no-store" }
   );
 

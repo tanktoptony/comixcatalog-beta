@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
+
 export async function GET(req) {
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -13,6 +14,7 @@ export async function GET(req) {
   if (!username) {
     return NextResponse.json({ error: "Username required" }, { status: 400 });
   }
+
 
   // 1️⃣ Get profile
   const { data: profile, error: profileError } = await supabase
@@ -29,34 +31,61 @@ export async function GET(req) {
   const { data: collection, error: collectionError } = await supabase
     .from("user_collections")
     .select(`
-    id,
-    status,
-    condition,
-    grade_numeric,
-    slab_company,
-    slab_cert_number,
-    notes,
-    comic_id,
-    comics!user_collections_comic_id_fkey (
+      id,
+      status,
+      condition,
+      grade_numeric,
+      slab_company,
+      slab_cert_number,
+      notes,
+      comic_id,
+      comics!user_collections_comic_id_fkey (
         id,
-        series_title,
         issue_number,
         release_year,
-        comic_covers!comic_covers_comic_id_fkey (
-        image_path,
-        is_primary
+        series_title,
+        publisher,
+        comic_covers (
+          image_path,
+          is_primary
         )
-    )
+      )
     `)
-    .eq("user_id", profile.id)
-    .eq("status", "owned");
+    .eq("user_id", profile.id);
 
   if (collectionError) {
     return NextResponse.json({ error: "Failed to load collection" }, { status: 500 });
   }
 
+  console.log("DEBUG COMICS OBJECT:", collection?.[0]?.comics);
+
+  const normalizedCollection = (collection || []).map((item) => ({
+    ...item,
+    comics: {
+      ...item.comics,
+      series_title:
+        item.comics?.series_title ||
+        item.comics?.title ||
+        "Untitled",
+    },
+  }));
+
+  const publisherCounts = {};
+
+  (collection || []).forEach((item) => {
+    const pub = item.comics?.publisher;
+    if (!pub) return;
+
+    publisherCounts[pub] = (publisherCounts[pub] || 0) + 1;
+  });
+
+  const dominantPublisher =
+    Object.entries(publisherCounts)
+      .sort((a, b) => b[1] - a[1])[0]?.[0] || "Unknown";
+
   return NextResponse.json({
     username: profile.username,
-    collection: collection || []
+    collection: normalizedCollection,
+    dominantPublisher,
   });
 }

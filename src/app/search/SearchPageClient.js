@@ -11,14 +11,10 @@ import { useAuth } from "@/context/AuthContext";
 function mapSupabaseComic(row) {
   return {
     id: row.id,
-    title: row.series_title,
+    title: row.series_title ?? row.title ?? null,
     issueNumber: row.issue_number,
     year: row.release_year,
-    publisher:
-      typeof row.publisher === "string"
-        ? row.publisher.trim()
-        : null,
-    storyArc: row.story_arc || null,
+    publisher: row.publisher || null,
     cover: row.cover_path
       ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${row.cover_path}`
       : null,
@@ -58,8 +54,12 @@ export default function SearchPageClient() {
   }, []);
 
   const results = useMemo(() => {
-    
-  const mappedSupabase = supabaseComics.map(mapSupabaseComic);
+  console.log("SEARCH RAW:", supabaseComics[0]);
+
+  const mappedSupabase = supabaseComics
+    .filter(Boolean)
+    .map(mapSupabaseComic)
+    .filter(Boolean);
   let filtered = mappedSupabase;
 
   console.log(mappedSupabase.map(c => c.publisher));
@@ -90,7 +90,7 @@ export default function SearchPageClient() {
     );
   }
 
-    return filtered;
+    return filtered.filter(Boolean);
   }, [
     query,
     supabaseComics,
@@ -99,6 +99,8 @@ export default function SearchPageClient() {
     collectionIds,
     wishlistIds,
   ]);
+
+  console.log(results.slice(0,3));
 
   return (
     <section className="comic-panel">
@@ -166,6 +168,7 @@ export default function SearchPageClient() {
       )}
 
       <div className="comic-grid">
+        
         {results.map((item) => {
           const inCollection = collectionIds.has(item.id);
           const inWishlist = wishlistIds.has(item.id);

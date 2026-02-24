@@ -84,12 +84,15 @@ export default function LibraryPage() {
       <CollectionStats collections={collections} />
 
       <div className ="library-actions">
-        <button className="add-comic-btn" onClick={() => setTab("owned")}>
+        <button
+          className={`add-comic-btn ${tab === "owned" ? "active-tab" : ""}`}
+          onClick={() => setTab("owned")}
+        >
           Collection
         </button>
 
         <button
-          className="add-comic-btn"
+          className={`add-comic-btn ${tab === "wishlist" ? "active-tab" : ""}`}
           onClick={() => setTab("wishlist")}
           style={{ marginLeft: 8 }}
         >
@@ -210,15 +213,16 @@ export default function LibraryPage() {
           if (!comic) return null;
 
           return (
-            <div
-              key={`${item.comic_id}-${item.status}-${index}`}
+            <article
+              key={`${item.id}-${item.comic_id}-${item.status}`}
               className="comic-card"
             >
-              <Link href={`/comic/${item.comic_id}`}>
+              <Link href={`/comic/${item.comic_id}`} className="card-link">
                 <div className="comic-card-cover">
                   <img
                     src={comic.cover || "/fallback-cover.png"}
                     alt={comic.title}
+                    loading="lazy"
                   />
                 </div>
 
@@ -231,20 +235,7 @@ export default function LibraryPage() {
                   {comic.year || "Unknown"}
                 </div>
               </Link>
-
-              {tab === "owned" && (
-                <div style={{ marginTop: 8 }}>
-                  <button
-                    onClick={() => toggleForSale(item)}
-                    className="add-comic-btn"
-                  >
-                    {item.status === "for_sale"
-                      ? "Remove From Sale"
-                      : "Mark For Sale"}
-                  </button>
-                </div>
-              )}
-            </div>
+            </article>
           );
         })}
       </div>

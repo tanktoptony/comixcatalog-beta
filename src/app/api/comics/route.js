@@ -16,16 +16,12 @@ export async function GET() {
       .from("comics")
       .select(`
         id,
+        series_title,
+        publisher,
         issue_number,
         release_year,
         variant_name,
         created_by,
-        series (
-          title,
-          publishers (
-            name
-          )
-        ),
         comic_covers (
           image_path,
           is_primary
@@ -40,8 +36,8 @@ export async function GET() {
 
     const comics = (data ?? []).map((comic) => ({
       id: comic.id,
-      series_title: comic.series?.title ?? null,
-      publisher: comic.series?.publishers?.name ?? null,
+      series_title: comic.series_title ?? null,
+      publisher: comic.publisher ?? null,
       issue_number: comic.issue_number,
       release_year: comic.release_year,
       variant_name: comic.variant_name,
@@ -138,6 +134,8 @@ export async function POST(req) {
       .from("comics")
       .insert({
         series_id: series.id,
+        series_title,          // ✅ ADD THIS
+        publisher: publisher_name, // ✅ ADD THIS (important too)
         issue_number,
         release_year: release_year ? Number(release_year) : null,
         created_by,

@@ -1,75 +1,231 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
-const supabase = getSupabaseClient();
+const AVATAR_KEYS = [
+  "cc_badge",
+  "hero_01","hero_02","hero_03","hero_04",
+  "hero_05","hero_06","hero_07","hero_08",
+  "hero_09","hero_10","hero_11","hero_12",
+  "hero_13","hero_14","hero_15","hero_16",
+];
 
 export default function SignUpPage() {
-  const router = useRouter();
+  const supabase = getSupabaseClient();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [avatarKey, setAvatarKey] = useState("cc_badge");
+
+  const [saving, setSaving] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [successMsg, setSuccessMsg] = useState(null);
+
+  const [resendMsg, setResendMsg] = useState(null);
+  const [resending, setResending] = useState(false);
+
+  async function handleResendConfirmation() {
+    if (!email) {
+      setErrorMsg("Enter your email to resend confirmation.");
+      return;
+    }
+
+    setResending(true);
+    setResendMsg(null);
+    setErrorMsg(null);
+
+    const { data, error } = await supabase.auth.resend({
+      type: "signup",
+      email,
+    });
+
+    console.log("RESEND DATA:", data);
+    console.log("RESEND ERROR:", error);
+
+    if (error) {
+      setErrorMsg(error.message);
+    } else {
+      setResendMsg("Confirmation email resent. Check your inbox.");
+    }
+
+    setResending(false);
+  }
 
   async function handleSignup(e) {
     e.preventDefault();
+    if (saving) return;
 
-    const { error } = await supabase.auth.signUp({
+    setErrorMsg(null);
+    setSuccessMsg(null);
+
+    const usernameNormalized = username.trim().toLowerCase();
+
+    if (!/^[a-z0-9_]{3,20}$/.test(usernameNormalized)) {
+      setErrorMsg(
+        "Username must be 3–20 characters (letters, numbers, underscore)."
+      );
+      return;
+    }
+
+    if (password.length < 6) {
+      setErrorMsg("Password must be at least 6 characters.");
+      return;
+    }
+
+    setSaving(true);
+
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
     });
 
-    if (!error) {
-      router.push("/library");
-    } else {
-      alert(error.message);
+    if (error) {
+      setSaving(false);
+      setErrorMsg(error.message);
+      return;
     }
+
+    const user = data?.user;
+
+    if (user) {
+      const { error: profileError } = await supabase
+        .from("profiles")
+        .upsert(
+          {
+            id: user.id,
+            username: usernameNormalized,
+            avatar_key: avatarKey,
+            is_public: true,
+          },
+          { onConflict: "id" }
+        );
+
+      if (profileError) {
+        setSaving(false);
+        setErrorMsg("Account created, but profile setup failed.");
+        return;
+      }
+    }
+
+    setSuccessMsg(
+      "Account created! Please check your email to confirm your account before logging in."
+    );
+
+    setSaving(false);
+    setEmail("");
+    setPassword("");
+    setUsername("");
+    setAvatarKey("cc_badge");
   }
 
   return (
-    <section
-      className="comic-panel"
-      style={{ padding: 16, maxWidth: 480, margin: "0 auto" }}
-    >
-      <div className="section-label badge-x">Create Account</div>
-      <h1 className="hero-title" style={{ marginBottom: 12 }}>
-        Join ComixCatalog
-      </h1>
+    <section className="auth-panel">
+      <div className="section-label badge-x" style={{ textAlign: "center" }}>
+        Create Account
+      </div>
 
-      <form
-        onSubmit={handleSignup}
-        className="flex-col"
-        style={{ display: "flex", gap: 12 }}
-      >
-        <input
-          className="input"
-          type="email"
-          required
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <h1 className="auth-title">Join ComixCatalog</h1>
 
-        <input
-          className="input"
-          type="password"
-          required
-          placeholder="Password (min 6 chars)"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+      <form onSubmit={handleSignup} className="auth-form">
+        <div className="auth-group">
+          <label>Username</label>
+          <input
+            className="auth-input"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            autoComplete="username"
+          />
+        </div>
 
-        <button className="btn btn-primary" type="submit">
-          Sign Up
+        <div className="auth-group">
+          <label>Email</label>
+          <input
+            className="auth-input"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete="email"
+          />
+        </div>
+
+        <div className="auth-group">
+          <label>Password</label>
+          <input
+            className="auth-input"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="new-password"
+          />
+        </div>
+
+        <div className="auth-group">
+          <label>Choose an avatar</label>
+          <div className="avatar-grid">
+            {AVATAR_KEYS.map((key) => {
+              const selected = key === avatarKey;
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  className={`avatar-choice ${selected ? "is-selected" : ""}`}
+                  onClick={() => setAvatarKey(key)}
+                >
+                  <Image
+                    src={`/avatars/${key}.png`}
+                    alt={key}
+                    width={46}
+                    height={46}
+                  />
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <button
+          className="primary-btn auth-submit"
+          type="submit"
+          disabled={saving}
+        >
+          {saving ? "Creating..." : "Sign Up"}
         </button>
       </form>
 
-      <p className="muted" style={{ marginTop: 12 }}>
+      {errorMsg && <div className="auth-error">{errorMsg}</div>}
+
+      {successMsg && (
+        <div className="auth-success">
+          <p>{successMsg}</p>
+
+          <button
+            type="button"
+            className="auth-link-button"
+            onClick={handleResendConfirmation}
+            disabled={resending}
+            style={{ marginTop: 8 }}
+          >
+            {resending ? "Resending..." : "Resend confirmation email"}
+          </button>
+
+          {resendMsg && (
+            <div style={{ marginTop: 6, fontSize: 13 }}>
+              {resendMsg}
+            </div>
+          )}
+        </div>
+      )}
+
+      <p className="auth-footer">
         Already have an account?{" "}
-        <a href="/login" className="link">
+        <Link href="/login" className="link">
           Log in
-        </a>
+        </Link>
       </p>
     </section>
   );

@@ -1,52 +1,169 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
+import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
 export default function LoginPage() {
   const router = useRouter();
-  const { user } = useAuth();
-
   const supabase = getSupabaseClient();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
-    if (user) {
-      router.replace("/library");
-    }
-  }, [user, router]);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [showResend, setShowResend] = useState(false);
+  const [resendMsg, setResendMsg] = useState(null);
+  const [resending, setResending] = useState(false);
 
   async function handleLogin(e) {
     e.preventDefault();
-    await supabase.auth.signInWithPassword({ email, password });
+    if (saving) return;
+
+    setSaving(true);
+    setErrorMsg(null);
+    setShowResend(false);
+    setResendMsg(null);
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      setSaving(false);
+
+      if (error.message.toLowerCase().includes("email not confirmed")) {
+        setErrorMsg("Please confirm your email before logging in.");
+        setShowResend(true);
+      } else {
+        setErrorMsg("Invalid email or password.");
+      }
+
+      return;
+    }
+
+    const user = data?.user;
+    if (!user) {
+      setSaving(false);
+      return;
+    }
+
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("username")
+      .eq("id", user.id)
+      .single();
+
+    if (!profile?.username) {
+      router.push("/complete-profile");
+      return;
+    }
+
+    router.push(`/u/${profile.username}`);
+  }
+
+  async function handleResendConfirmation() {
+    if (!email) {
+      setErrorMsg("Enter your email to resend confirmation.");
+      return;
+    }
+
+    setResending(true);
+    setResendMsg(null);
+
+    const { error } = await supabase.auth.resend({
+      type: "signup",
+      email,
+    });
+
+    if (error) {
+      setErrorMsg("Unable to resend confirmation email.");
+    } else {
+      setResendMsg("Confirmation email resent. Check your inbox.");
+    }
+
+    setResending(false);
   }
 
   return (
-    <section
-      className="comic-panel"
-      style={{ padding: 16, maxWidth: 480, margin: "0 auto" }}
-    >
-      <div className="section-label badge-x">Log In</div>
+    <section className="auth-panel">
+      <div className="section-label badge-x" style={{ textAlign: "center" }}>
+        Log In
+      </div>
 
-      <form onSubmit={handleLogin} style={{ display: "flex", gap: 12 }}>
-        <input
-          className="input"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          className="input"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="btn btn-primary">Log In</button>
+      <h1 className="auth-title">Welcome Back</h1>
+
+      <form onSubmit={handleLogin} className="auth-form">
+        <div className="auth-group">
+          <label>Email</label>
+          <input
+            className="auth-input"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete="email"
+          />
+        </div>
+
+        <div className="auth-group">
+          <label>Password</label>
+          <input
+            className="auth-input"
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="primary-btn auth-submit"
+          disabled={saving}
+        >
+          {saving ? "Logging in..." : "Log In"}
+        </button>
       </form>
+
+      {errorMsg && (
+        <div className="auth-error">
+          <p>{errorMsg}</p>
+
+          {showResend && (
+            <>
+              <button
+                type="button"
+                className="auth-link-button"
+                onClick={handleResendConfirmation}
+                disabled={resending}
+                style={{ marginTop: 8 }}
+              >
+                {resending
+                  ? "Resending..."
+                  : "Resend confirmation email"}
+              </button>
+
+              {resendMsg && (
+                <div style={{ marginTop: 6, fontSize: 13 }}>
+                  {resendMsg}
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      )}
+
+      <p className="auth-footer">
+        Don’t have an account?{" "}
+        <Link href="/signup" className="link">
+          Sign up
+        </Link>
+      </p>
     </section>
   );
 }

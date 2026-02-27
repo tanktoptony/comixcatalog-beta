@@ -24,35 +24,31 @@ export default function BlogIndexPage() {
   }, []);
 
   return (
-    <section className="comic-panel news-page">
-      <div className="section-label badge-x">Developer Updates</div>
-      <h1 className="hero-title mb-6">ComixCatalog Blog</h1>
+    <section className="blog-page">
+      <div className="blog-eyebrow">Developer Updates</div>
+      <h1 className="blog-title">ComixCatalog Dispatch</h1>
 
-      {error && <p className="error">{error}</p>}
+      <div className="blog-list">
+        {posts.map((post) => (
+          <Link
+            key={post.id}
+            href={`/blog/${post.slug}`}
+            className="blog-card"
+          >
+            <div className="blog-card-date">
+              {new Date(post.created_at).toLocaleDateString()}
+            </div>
 
-      {posts.length === 0 && !error && (
-        <p>No posts published yet.</p>
-      )}
-
-      {posts.map((post) => (
-        <article key={post.id} className="news-post mb-10">
-          <h2>
-            <Link href={`/blog/${post.slug}`}>
+            <div className="blog-card-title">
               {post.title}
-            </Link>
-          </h2>
+            </div>
 
-          <p className="news-post-date">
-            {post.published_at
-              ? new Date(post.published_at).toLocaleDateString()
-              : ""}
-          </p>
-
-          <p>
-            {post.excerpt || post.content.slice(0, 200)}...
-          </p>
-        </article>
-      ))}
+            <div className="blog-card-excerpt">
+              {post.excerpt}
+            </div>
+          </Link>
+        ))}
+      </div>
     </section>
   );
 }

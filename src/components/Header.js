@@ -63,6 +63,9 @@ export default function Header() {
           <Link href="/search" className="nav-link add-comic-btn">
             View Comics
           </Link>
+          <Link href="/collectors" className="nav-link add-comic-btn">
+            Founding Collectors
+          </Link>
 
           {/* Only beta users who are NOT logged in */}
           {hasAccess && !loading &&!user &&(

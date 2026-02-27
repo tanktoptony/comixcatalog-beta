@@ -77,34 +77,61 @@ body {
   font-weight: 700;
 }
 
+/* ===========================================================
+   HEADER
+   =========================================================== */
+
 .main-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 0.5rem;
+  gap: 0.45rem;              /* slightly tighter */
 }
 
+/* Streamlined nav buttons (less blocky, still comic-y) */
 .nav-link {
-  font-size: 0.8rem;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.78rem;        /* slightly smaller */
+  font-weight: 650;
+  letter-spacing: 0.02em;    /* less shouty */
   text-decoration: none;
-  border: 2px solid var(--x-line);
-  background: var(--x-gold);
+
+  padding: 0.32rem 0.55rem;  /* slimmer */
+  border-radius: 999px;      /* pill instead of block */
+
+  border: 1px solid var(--x-line); /* lighter border */
+  background: rgba(244, 208, 63, 0.92);
   color: #000;
-  padding: 0.3rem 0.6rem;
-  box-shadow: 2px 2px 0 #000;
-  transition: all 0.15s ease;
+
+  box-shadow: 1px 1px 0 #000; /* lighter shadow */
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease, opacity 0.12s ease;
 }
 
 .nav-link:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 #000;
+  box-shadow: 2px 2px 0 #000;
+  background: #fde047;
 }
+
+/* optional: active state if you add .active-tab or similar to nav links */
+.nav-link.active,
+.nav-link[aria-current="page"] {
+  background: var(--x-blue);
+  color: var(--x-gold);
+  border-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 1px 1px 0 #000;
+}
+
 
 /* ===========================================================
    BUTTON SYSTEM (PRIMARY UI STANDARD)
    =========================================================== */
 
+/* NOTE: keep your existing class names, but make them slimmer/cleaner */
 .add-comic-btn,
 .filter-btn,
 .primary-btn {
@@ -112,65 +139,64 @@ body {
   align-items: center;
   justify-content: center;
 
-  padding: 6px 14px;              /* smaller */
+  padding: 7px 12px;         /* slimmer, less chunky */
   border-radius: 999px;
 
-  background: var(--x-gold);
+  background: rgba(244, 208, 63, 0.92);
   color: #020617;
   text-decoration: none;
 
-  font-size: 0.7rem;              /* smaller */
-  font-weight: 600;               /* less heavy */
-  letter-spacing: 0.05em;
+  font-size: 0.78rem;        /* readable, not tiny */
+  font-weight: 650;
+  letter-spacing: 0.03em;    /* reduced */
   text-transform: uppercase;
 
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0 #000;     /* slightly lighter */
+  border: 1px solid #000;    /* lighter than 2px */
+  box-shadow: 1px 1px 0 #000;
 
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease,
-    background-color 0.15s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease, opacity 0.12s ease;
 }
 
 .add-comic-btn:hover,
 .filter-btn:hover,
 .primary-btn:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 #000;
+  box-shadow: 2px 2px 0 #000;
   background: #fde047;
 }
 
 .add-comic-btn:active,
 .filter-btn:active,
 .primary-btn:active {
-  transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 #000;
+  transform: translate(0px, 0px); /* less “jumping” */
+  box-shadow: 1px 1px 0 #000;
+  opacity: 0.95;
 }
 
 /* Active Filter State */
 .filter-btn.active {
   background: var(--x-blue);
   color: var(--x-gold);
+  border-color: #000;
+  box-shadow: 1px 1px 0 #000;
 }
 
+/* Filter buttons can be slightly wider, but still streamlined */
 .filter-btn {
-  padding: 7px 16px;   /* slightly wider than base */
-  font-size: 0.72rem;
+  padding: 7px 14px;
+  font-size: 0.78rem;
   border-radius: 999px;
+}
 
-  background: var(--x-gold);
-  color: #000;
-
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0 #000;
-
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease,
-    background-color 0.15s ease;
+/* If you want the Add Comic button to feel like a “primary” but not huge */
+.add-comic-btn {
+  padding: 7px 13px;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-width: fit-content;
 }
 
 /* ===========================================================
@@ -349,6 +375,105 @@ input[type="file"] {
   border: 1px solid #374151;
   background: #0f172a;
   color: #f9fafb;
+}
+
+/* =========================
+   AUTH FORM LAYOUT (SIGNUP)
+========================= */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-group label {
+  display: block;
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+  color: rgba(255,255,255,0.78);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.auth-help {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: rgba(185,195,255,0.8);
+}
+
+.auth-submit {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+}
+
+.auth-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.auth-success {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(244, 208, 63, 0.12);
+  border: 1px solid rgba(244, 208, 63, 0.35);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* =========================
+   AVATAR PICKER
+========================= */
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+@media (max-width: 520px) {
+  .avatar-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+.avatar-choice {
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.12);
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+
+.avatar-choice:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(244,208,63,0.35);
+}
+
+.avatar-choice.is-selected {
+  border-color: rgba(244,208,63,0.9);
+  box-shadow: 0 0 0 2px rgba(244,208,63,0.18);
+}
+
+.avatar-img {
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.25);
+}
+
+.avatar-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ===========================================================
@@ -973,4 +1098,290 @@ input[type="file"] {
   text-transform: uppercase;
   opacity: 0.7;
   margin-top: 6px;
+}
+
+/* =========================
+   TEXT LINKS (AUTH / INLINE)
+========================= */
+.link {
+  color: var(--x-gold);
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: #fde047;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: rgba(244, 208, 63, 0.6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s ease;
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Prevent purple visited link */
+.link:visited {
+  color: var(--x-gold);
+}
+
+/* =========================
+   PROFILE EMPTY STATE
+========================= */
+
+.profile-empty-state {
+  margin-top: 40px;
+  padding: 36px;
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(244,208,63,0.08),
+      transparent 45%
+    ),
+    rgba(15,23,42,0.85);
+
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+
+.profile-empty-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.profile-empty-text {
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.profile-empty-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 24px auto;
+  max-width: 420px;
+  text-align: left;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.profile-empty-list li {
+  margin-bottom: 8px;
+}
+
+.profile-empty-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ===========================
+   PROFILE EMPTY STATE
+=========================== */
+
+.empty-state {
+  margin-top: 40px;
+  padding: 32px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #334155;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.empty-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--x-gold);
+}
+
+.empty-sub {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+.empty-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+.empty-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.auth-link-button {
+  background: none;
+  border: none;
+  color: var(--x-gold);
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.auth-link-button:hover {
+  opacity: 0.8;
+}
+
+.collectors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.collector-card {
+  background: linear-gradient(
+    145deg,
+    #0b1e6b 0%,
+    #132a7a 100%
+  );
+  border: 2px solid var(--x-gold);
+  border-radius: 18px;
+  padding: 26px 20px;
+  text-align: center;
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.collector-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255,255,255,0.08),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.collector-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 18px rgba(244, 208, 63, 0.4);
+  border-color: #fff3a0;
+}
+
+.collector-name {
+  margin-top: 14px;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--x-gold);
+}
+
+.collector-card img {
+  border: 3px solid var(--x-gold);
+  padding: 4px;
+  background: #000;
+  transition: transform 0.2s ease;
+}
+
+.collector-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ===========================================================
+   BLOG PAGE
+   =========================================================== */
+
+.blog-page {
+  max-width: 760px;
+  margin: 3rem auto 4rem auto;
+  padding: 0 1rem;
+}
+
+.blog-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--x-gold);
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.blog-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 2.5rem;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.blog-card {
+  padding: 22px 24px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid #334155;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+}
+
+.blog-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--x-gold);
+  margin-bottom: 6px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.blog-card-title:hover {
+  color: #fde047;
+}
+
+.blog-card-date {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
+.blog-card-excerpt {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.85;
 }

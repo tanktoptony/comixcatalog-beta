@@ -145,12 +145,14 @@ export default function AddComicPage() {
                 {coverFile ? coverFile.name : "No file selected"}
               </span>
             </div>
-
+            
             <small>JPG or PNG, optional</small>
           </div>
-
+          
           {error && <p className="error">{error}</p>}
 
+          <hr />
+          <br />
           <button className="primary-btn" disabled={submitting}>
             {submitting ? "Adding…" : "Add Comic"}
           </button>

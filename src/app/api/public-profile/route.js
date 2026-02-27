@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-
 export async function GET(req) {
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -12,22 +11,31 @@ export async function GET(req) {
   const username = searchParams.get("username");
 
   if (!username) {
-    return NextResponse.json({ error: "Username required" }, { status: 400 });
+    return NextResponse.json(
+      { error: "Username required" },
+      { status: 400 }
+    );
   }
 
-
-  // 1️⃣ Get profile
+  // -------------------------
+  // 1️⃣ Get Profile
+  // -------------------------
   const { data: profile, error: profileError } = await supabase
     .from("profiles")
-    .select("id, username, is_public")
+    .select("id, username, is_public, avatar_key")
     .eq("username", username)
     .single();
 
   if (profileError || !profile || !profile.is_public) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
+    return NextResponse.json(
+      { error: "Not found" },
+      { status: 404 }
+    );
   }
 
-  // 2️⃣ Get collection
+  // -------------------------
+  // 2️⃣ Get Collection
+  // -------------------------
   const { data: collection, error: collectionError } = await supabase
     .from("user_collections")
     .select(`
@@ -54,11 +62,15 @@ export async function GET(req) {
     .eq("user_id", profile.id);
 
   if (collectionError) {
-    return NextResponse.json({ error: "Failed to load collection" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to load collection" },
+      { status: 500 }
+    );
   }
 
-  console.log("DEBUG COMICS OBJECT:", collection?.[0]?.comics);
-
+  // -------------------------
+  // Normalize Collection
+  // -------------------------
   const normalizedCollection = (collection || []).map((item) => ({
     ...item,
     comics: {
@@ -70,9 +82,12 @@ export async function GET(req) {
     },
   }));
 
+  // -------------------------
+  // Publisher Stats
+  // -------------------------
   const publisherCounts = {};
 
-  (collection || []).forEach((item) => {
+  normalizedCollection.forEach((item) => {
     const pub = item.comics?.publisher;
     if (!pub) return;
 
@@ -81,10 +96,13 @@ export async function GET(req) {
 
   const dominantPublisher =
     Object.entries(publisherCounts)
-      .sort((a, b) => b[1] - a[1])[0]?.[0] || "Unknown";
+      .sort((a, b) => b[1] - a[1])[0]?.[0] || null;
 
+  // -------------------------
+  // Return
+  // -------------------------
   return NextResponse.json({
-    username: profile.username,
+    profile,
     collection: normalizedCollection,
     dominantPublisher,
   });

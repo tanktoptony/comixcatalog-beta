@@ -5,6 +5,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 
 export default function NewBlogPostPage() {
+
   const { user } = useAuth();
   const router = useRouter();
 
@@ -18,10 +19,13 @@ export default function NewBlogPostPage() {
   const [error, setError] = useState(null);
   const [saving, setSaving] = useState(false);
 
-  if (!user || user.id !== process.env.NEXT_PUBLIC_ADMIN_USER_ID) {
-  return <p>Unauthorized</p>;
-}
+  if (!user) {
+    return <p>Loading...</p>;
+  }
 
+  if (user.id !== process.env.NEXT_PUBLIC_ADMIN_USER_ID) {
+    return <p>Unauthorized</p>;
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();

@@ -172,19 +172,20 @@ export default async function PublicProfilePage({ params }) {
 
             <div className="profile-empty-steps">
               <div>1️⃣ Search for a comic or Upload your own</div>
-              <div>2️⃣ Add it to your collection or wishlist</div>
+              <div>2️⃣ Add it to your collection (recommended!) or wishlist</div>
               <div>3️⃣ Upload a cover image</div>
               <div>4️⃣ Track condition, slabs, and notes</div>
               <div>5️⃣ Share your profile with other collectors</div>
             </div>
+            <hr />
 
             <div className="profile-empty-actions">
               <Link href="/search" className="primary-btn">
-                Add Your First Comic
+                Browse Comics
               </Link>
 
               <Link href="/library" className="filter-btn">
-                Browse Library
+                Upload your Comics
               </Link>
             </div>
           </div>

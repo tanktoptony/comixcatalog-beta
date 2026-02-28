@@ -23,6 +23,9 @@ export default function NewBlogPostPage() {
     return <p>Loading...</p>;
   }
 
+  console.log("CURRENT USER ID:", user.id);
+  console.log("ADMIN ENV ID:", process.env.NEXT_PUBLIC_ADMIN_USER_ID);
+
   if (user.id !== process.env.NEXT_PUBLIC_ADMIN_USER_ID) {
     return <p>Unauthorized</p>;
   }

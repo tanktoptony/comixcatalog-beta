@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 
 export default function Header() {
-  const { user, loading, signOut } = useAuth();
+  const { user, loading, profile, signOut } = useAuth();
   const [hasAccess, setHasAccess] = useState(false);
 
   console.log("HEADER USER:", user);
@@ -67,24 +67,36 @@ export default function Header() {
             Founding Collectors
           </Link>
 
-          {/* Only beta users who are NOT logged in */}
-          {hasAccess && !loading &&!user &&(
-            <>
-              <Link href="/login" className="nav-link add-comic-btn">
-                Login
-              </Link>
-              <Link href="/signup" className="nav-link add-comic-btn">
-                Sign Up
-              </Link>
-            </>
-          )}
+          {/* Not logged in */}
+            {!loading && !user && (
+              <>
+                <Link href="/login" className="nav-link add-comic-btn">
+                  Login
+                </Link>
+                <Link href="/signup" className="nav-link add-comic-btn">
+                  Sign Up
+                </Link>
+              </>
+            )}
 
-          {/* Logged-in users */}
-          {user && (
-            <button onClick={signOut} className="add-comic-btn nav-link nav-link-logout">
-              Logout
-            </button>
-          )}
+            {/* Logged-in users */}
+              {!loading && user && profile && (
+                <>
+                  <Link
+                    href={`/u/${profile.username}`}
+                    className="nav-link add-comic-btn"
+                  >
+                    My Profile
+                  </Link>
+
+                  <button
+                    onClick={signOut}
+                    className="add-comic-btn nav-link nav-link-logout"
+                  >
+                    Logout
+                  </button>
+                </>
+              )}
         </nav>
       </div>
     </header>

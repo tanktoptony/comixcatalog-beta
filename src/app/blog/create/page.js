@@ -26,7 +26,8 @@ export default function NewBlogPostPage() {
   console.log("CURRENT USER ID:", user.id);
   console.log("ADMIN ENV ID:", process.env.NEXT_PUBLIC_ADMIN_USER_ID);
 
-  if (user.id !== process.env.NEXT_PUBLIC_ADMIN_USER_ID) {
+  const ADMIN_ID = "9ec650a2-8870-4175-82da-99d72cab9efc"
+  if (user.id !== ADMIN_ID) {
     return <p>Unauthorized</p>;
   }
 

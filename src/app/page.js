@@ -68,7 +68,7 @@ export default function HomePage() {
     <section className="landing-community">
       <div className="community-links">
         <a
-          href="https://discord.gg/3qMNAvPG"
+          href="https://discord.gg/aQruGVnD3y"
           target="_blank"
           rel="noopener noreferrer"
           className="community-link"

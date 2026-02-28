@@ -7,27 +7,8 @@ import { useAuth } from "@/context/AuthContext";
 
 export default function Header() {
   const { user, loading, profile, signOut } = useAuth();
-  const [hasAccess, setHasAccess] = useState(false);
 
-  console.log("HEADER USER:", user);
-
-  useEffect(() => {
-  const checkAccess = () => {
-    setHasAccess(localStorage.getItem("cc_beta_access") === "true");
-  };
-
-  checkAccess();
-
-  window.addEventListener("storage", checkAccess);
-  window.addEventListener("cc-beta-access", checkAccess);
-
-  return () => {
-    window.removeEventListener("storage", checkAccess);
-    window.removeEventListener("cc-beta-access", checkAccess);
-  };
-}, []);
-
-
+  console.log("PROFILE:", profile);
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -68,7 +49,7 @@ export default function Header() {
           </Link>
 
           {/* Not logged in */}
-            {!loading && !user && (
+          {!user && (
               <>
                 <Link href="/login" className="nav-link add-comic-btn">
                   Login
@@ -79,24 +60,26 @@ export default function Header() {
               </>
             )}
 
-            {/* Logged-in users */}
-              {!loading && user && profile && (
-                <>
+            {/* Logged in */}
+            {user && (
+              <>
+                {profile?.username && (
                   <Link
                     href={`/u/${profile.username}`}
                     className="nav-link add-comic-btn"
                   >
                     My Profile
                   </Link>
+                )}
 
-                  <button
-                    onClick={signOut}
-                    className="add-comic-btn nav-link nav-link-logout"
-                  >
-                    Logout
-                  </button>
-                </>
-              )}
+                <button
+                  onClick={signOut}
+                  className="add-comic-btn nav-link nav-link-logout"
+                >
+                  Logout
+                </button>
+              </>
+            )}
         </nav>
       </div>
     </header>

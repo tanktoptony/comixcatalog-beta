@@ -1385,3 +1385,46 @@ input[type="file"] {
   line-height: 1.6;
   opacity: 0.85;
 }
+
+.marketplace-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.hero-subtext {
+  max-width: 720px;
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-bottom: 80px;
+}
+
+.feature-block {
+  background: var(--x-bg-panel);
+  border: 1px solid var(--x-line);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.feature-block h3 {
+  margin-bottom: 8px;
+  color: var(--x-gold);
+}
+
+.coming-soon-panel {
+  background: linear-gradient(
+    145deg,
+    #0b1e6b,
+    #0a164f
+  );
+  border: 1px solid var(--x-gold);
+  padding: 28px;
+  border-radius: 12px;
+}

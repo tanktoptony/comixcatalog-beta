@@ -1,31 +1,60 @@
-"use client";
-
-import Link from "next/link";
-
 export default function MarketplacePage() {
   return (
-    <section className="comic-panel">
+    <section className="comic-panel marketplace-page">
+      {/* Section Label */}
       <div className="section-label badge-x">Marketplace</div>
-      <h1 className="hero-title" style={{ marginBottom: "1rem" }}>
-        Collector Listings (Coming Soon)
+
+      {/* Hero Title */}
+      <h1 className="hero-title mb-6">
+        Collector Marketplace
       </h1>
 
-      <p className="muted" style={{ marginBottom: "1.5rem" }}>
-        The ComixCatalog Marketplace will allow verified collectors and sellers
-        to list their comics with condition notes, provenance, and photo proof —
-        not vague “VG-ish” listings. You’ll be able to search by title, grade,
-        and creator across thousands of verified copies.
+      {/* Intro */}
+      <p className="hero-subtext mb-10">
+        A transparent, collector-first marketplace built around grade,
+        variant, and verified ownership — not vague “VG-ish” listings.
       </p>
 
-      <p>
-        <strong>Current focus:</strong> building out the collector tools and
-        early backer network. If you’d like to be among the first verified
-        sellers,{" "}
-        <Link href="https://www.patreon.com/comixcatalog" className="text-[#f7c400]">
-          become a Founding Collector
-        </Link>{" "}
-        and we’ll reach out when listings open.
-      </p>
+      {/* Feature Blocks */}
+      <div className="feature-grid">
+        <div className="feature-block">
+          <h3>Verified Sellers</h3>
+          <p>
+            Only verified collectors can list. Listings are tied to real
+            collection entries.
+          </p>
+        </div>
+
+        <div className="feature-block">
+          <h3>Grade Transparency</h3>
+          <p>
+            CGC/graded copies clearly marked. Raw copies include condition
+            notes and high-resolution photos.
+          </p>
+        </div>
+
+        <div className="feature-block">
+          <h3>Search by What Matters</h3>
+          <p>
+            Filter by issue, variant, grade, publisher, and creator —
+            not just title.
+          </p>
+        </div>
+      </div>
+
+      {/* Current Focus Panel */}
+      <div className="coming-soon-panel mt-12">
+        <h2>Currently in Development</h2>
+        <p>
+          We’re building the collector tools and early verified seller
+          network first. Marketplace access will open to Founding
+          Collectors before public launch.
+        </p>
+
+        <a href="https://www.patreon.com/cw/ComixCatalog" className="primary-btn mt-4">
+          Become a Founding Collector
+        </a>
+      </div>
     </section>
   );
 }

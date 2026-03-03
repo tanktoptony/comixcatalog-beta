@@ -23,6 +23,10 @@ html, body {
   overflow-x: hidden;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -953,6 +957,7 @@ input[type="file"] {
   gap: 24px;
   align-items: center;
   margin-bottom: 32px;
+  flex-wrap: wrap;
 }
 
 .profile-hero-panel {
@@ -975,6 +980,15 @@ input[type="file"] {
   overflow: hidden;
 }
 
+.profile-info {
+  flex: 1;
+  min-width: 0;               /* 🔥 prevents text overflow */
+}
+
+.profile-username {
+  overflow-wrap: break-word;  /* 🔥 prevents long usernames from pushing width */
+}
+
 
 /* -----------------------------
    AVATAR
@@ -987,6 +1001,9 @@ input[type="file"] {
   box-shadow:
     0 0 0 3px var(--x-gold),
     0 0 20px rgba(244, 208, 63, 0.3);
+  flex-shrink: 0;
+  position: relative;
+  max-width: 120px;
 }
 
 
@@ -1057,9 +1074,8 @@ input[type="file"] {
 ------------------------------ */
 .profile-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 }
 
 
@@ -1074,6 +1090,7 @@ input[type="file"] {
   border-radius: 14px;
   text-align: center;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  min-width: 0;
 }
 
 .stat-card:hover {

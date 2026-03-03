@@ -64,7 +64,7 @@ export default async function PublicProfilePage({ params }) {
     (a, b) => b[1] - a[1]
   );
 
-  const topPublisher = sortedPublishers[0]?.[0] || "Unknown";
+  const topPublisher = sortedPublishers[0]?.[0] || null;
   const topPublisherCount = sortedPublishers[0]?.[1] || 0;
   const uniquePublishers = Object.keys(publisherCounts).length;
 
@@ -135,8 +135,10 @@ export default async function PublicProfilePage({ params }) {
 
           <div className="stat-card">
             <div className="stat-number">
-              {topPublisher}
-              <span className="stat-sub"> ({topPublisherCount})</span>
+              {topPublisher || "—"}
+              {topPublisher && (
+                <span className="stat-sub"> ({topPublisherCount})</span>
+              )}
             </div>
             <div className="stat-label">Dominant Publisher</div>
           </div>

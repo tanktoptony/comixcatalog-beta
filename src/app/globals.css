@@ -49,6 +49,9 @@ body {
   background: var(--x-blue);
   border-bottom: 4px solid var(--x-gold);
   color: #fff;
+
+  position: relative;
+  z-index: 1000;
 }
 
 .header-inner {
@@ -94,6 +97,9 @@ body {
 
 /* Streamlined nav buttons (less blocky, still comic-y) */
 .nav-link {
+  min-width: 0;
+  text-align: center;
+  white-space: normal;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -432,7 +438,7 @@ input[type="file"] {
 ========================= */
 .avatar-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
   gap: 10px;
   padding: 10px;
   border-radius: 12px;
@@ -1444,4 +1450,83 @@ input[type="file"] {
   border: 1px solid var(--x-gold);
   padding: 28px;
   border-radius: 12px;
+}
+
+/* ===========================================================
+   MOBILE NAV (HAMBURGER)
+   =========================================================== */
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--x-gold);
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Mobile behavior */
+@media (max-width: 900px) {
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 72px;
+    right: 10px;
+
+    width: 220px;
+    max-width: calc(100vw - 20px);
+
+    background: var(--x-blue);
+    border: 2px solid var(--x-gold);
+    border-radius: 12px;
+    padding: 14px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    z-index: 1100;
+
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+
+  .main-nav.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .main-nav .nav-link {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+  }
 }

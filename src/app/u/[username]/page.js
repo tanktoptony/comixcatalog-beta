@@ -138,7 +138,7 @@ export default async function PublicProfilePage({ params }) {
               {topPublisher || "—"}
               {topPublisher && (
                 <span className="stat-sub"> ({topPublisherCount})</span>
-              )}
+              )} 
             </div>
             <div className="stat-label">Dominant Publisher</div>
           </div>

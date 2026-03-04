@@ -6,7 +6,7 @@ import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
 const AVATAR_KEYS = [
-  "cc_badge",
+  
   "hero_01","hero_02","hero_03","hero_04",
   "hero_05","hero_06","hero_07","hero_08",
   "hero_09","hero_10","hero_11","hero_12",

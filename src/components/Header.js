@@ -2,16 +2,29 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
 export default function Header() {
-  const { user, loading, profile, signOut } = useAuth();
+  const { user, profile, signOut } = useAuth();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
-  console.log("PROFILE:", profile);
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+
+  async function handleLogout() {
+    await signOut();
+    setMenuOpen(false);
+    router.refresh();
+  }
+
   return (
     <header className="site-header">
       <div className="header-inner">
+
         {/* BRAND */}
         <Link href="/" className="brand" aria-label="ComixCatalog home">
           <Image
@@ -30,56 +43,66 @@ export default function Header() {
           </div>
         </Link>
 
+        {/* HAMBURGER BUTTON */}
+        <button
+          className="nav-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
         {/* MAIN NAV */}
-        <nav className="main-nav" aria-label="Primary navigation">
-          <Link href="/marketplace" className="nav-link add-comic-btn">
+        {/* MOBILE NAV */}
+        <nav className={`main-nav ${menuOpen ? "open" : ""}`}>
+
+          <Link href="/marketplace" className="nav-link" onClick={closeMenu}>
             Marketplace
           </Link>
-          <Link href="/library" className="nav-link add-comic-btn">
+
+          <Link href="/library" className="nav-link" onClick={closeMenu}>
             My Library
           </Link>
-          <Link href="/blog" className="nav-link add-comic-btn">
+
+          <Link href="/blog" className="nav-link" onClick={closeMenu}>
             Developer Blog
           </Link>
-          <Link href="/search" className="nav-link add-comic-btn">
+
+          <Link href="/search" className="nav-link" onClick={closeMenu}>
             View Comics
           </Link>
-          <Link href="/collectors" className="nav-link add-comic-btn">
+
+          <Link href="/collectors" className="nav-link" onClick={closeMenu}>
             Founding Collectors
           </Link>
 
-          {/* Not logged in */}
           {!user && (
-              <>
-                <Link href="/login" className="nav-link add-comic-btn">
-                  Login
-                </Link>
-                <Link href="/signup" className="nav-link add-comic-btn">
-                  Sign Up
-                </Link>
-              </>
-            )}
+            <>
+              <Link href="/login" className="nav-link" onClick={closeMenu}>Login</Link>
+              <Link href="/signup" className="nav-link" onClick={closeMenu}>Sign Up</Link>
+            </>
+          )}
 
-            {/* Logged in */}
-            {user && (
-              <>
-                {profile?.username && (
-                  <Link
-                    href={`/u/${profile.username}`}
-                    className="nav-link add-comic-btn"
-                  >
-                    My Profile
-                  </Link>
-                )}
-
-                <button
-                  onClick={signOut}
-                  className="add-comic-btn nav-link nav-link-logout"
+          {user && (
+            <>
+              {profile?.username && (
+                <Link
+                  href={`/u/${profile.username}`}
+                  className="nav-link"
+                  onClick={closeMenu}
                 >
-                  Logout
-                </button>
-              </>
-            )}
+                  My Profile
+                </Link>
+              )}
+
+              <button onClick={handleLogout} className="nav-link">
+                Logout
+              </button>
+            </>
+          )}
+
         </nav>
       </div>
     </header>

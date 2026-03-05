@@ -45,6 +45,32 @@ async function refreshLibrary() {
     refreshLibrary();
   }, [user?.id]);
 
+  useEffect(() => {
+    if (!user?.id) return;
+
+    const supabase = getSupabaseClient();
+
+    const channel = supabase
+      .channel("library-changes")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "user_collections",
+          filter: `user_id=eq.${user.id}`,
+        },
+        () => {
+          refreshLibrary();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [user?.id]);
+
   const collectionIds = useMemo(
     () =>
       new Set(
@@ -66,44 +92,51 @@ async function refreshLibrary() {
   );
 
   async function addToCollection(comic_id, status) {
-  if (!user?.id) return;
+    if (!user?.id) return;
 
-  const supabase = getSupabaseClient();
+    // 🔥 optimistic UI update
+    setCollections((prev) => {
+      const filtered = prev.filter((c) => String(c.comic_id) !== String(comic_id));
+      return [...filtered, { comic_id, status, user_id: user.id }];
+    });
 
-  const { error } = await supabase
-    .from("user_collections")
-    .upsert(
-      { comic_id, status, user_id: user.id },
-      { onConflict: "user_id,comic_id" }
-    );
+    const supabase = getSupabaseClient();
 
-  if (error) {
-    console.error(error);
-    return;
+    const { error } = await supabase
+      .from("user_collections")
+      .upsert(
+        { comic_id, status, user_id: user.id },
+        { onConflict: "user_id,comic_id" }
+      );
+
+    if (error) {
+      console.error(error);
+      await refreshLibrary(); // fallback sync
+    }
   }
-
-  await refreshLibrary();
-}
 
 
   async function removeFromCollection(comic_id) {
-  if (!user?.id) return;
+    if (!user?.id) return;
 
-  const supabase = getSupabaseClient();
+    // 🔥 optimistic UI update
+    setCollections((prev) =>
+      prev.filter((c) => String(c.comic_id) !== String(comic_id))
+    );
 
-  const { error } = await supabase
-    .from("user_collections")
-    .delete()
-    .eq("comic_id", comic_id)
-    .eq("user_id", user.id);
+    const supabase = getSupabaseClient();
 
-  if (error) {
-    console.error(error);
-    return;
+    const { error } = await supabase
+      .from("user_collections")
+      .delete()
+      .eq("comic_id", comic_id)
+      .eq("user_id", user.id);
+
+    if (error) {
+      console.error(error);
+      await refreshLibrary();
+    }
   }
-
-  await refreshLibrary();
-}
 
   return (
     <LibraryContext.Provider

@@ -17,7 +17,7 @@ export default function Header() {
 
   async function handleLogout() {
     await signOut();
-    setMenuOpen(false);
+    router.push("/");
     router.refresh();
   }
 

@@ -53,7 +53,7 @@ export async function POST(req) {
   const { title, slug, content, excerpt, user_id } = body;
 
   // 🔐 Admin check (ONLY ONE)
-  if (user_id !== process.env.NEXT_PUBLIC_ADMIN_USER_ID) {
+  if (user_id !== "9ec650a2-8870-4175-82da-99d72cab9efc") {
     return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
   }
 

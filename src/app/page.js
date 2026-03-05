@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import ActivityFeed from "@/components/ActivityFeed";
 
 export default function HomePage() {
   return (
@@ -64,6 +65,8 @@ export default function HomePage() {
       </div>
     </section>
 
+    <ActivityFeed />
+    <br />
     {/* COMMUNITY SECTION */}
     <section className="landing-community">
       <div className="community-links">
@@ -130,6 +133,8 @@ export default function HomePage() {
           Support the Build
         </a>
       </div>
+
+
     </section>
   </>
 );

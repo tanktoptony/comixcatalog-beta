@@ -14,36 +14,21 @@ export function AuthProvider({ children }) {
 
   // 🔹 Load initial session
   useEffect(() => {
-    async function initialize() {
-      const { data } = await supabase.auth.getUser();
-      const currentUser = data.user ?? null;
+  async function loadUser() {
+    const { data } = await supabase.auth.getSession();
+    setUser(data?.session?.user ?? null);
+  }
 
-      setUser(currentUser);
+  loadUser();
 
-      if (currentUser) {
-        await loadProfile(currentUser.id);
-      }
+  const {
+    data: { subscription },
+  } = supabase.auth.onAuthStateChange((_event, session) => {
+    setUser(session?.user ?? null);
+  });
 
-      setLoading(false);
-    }
-
-    initialize();
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      const currentUser = session?.user ?? null;
-      setUser(currentUser);
-
-      if (currentUser) {
-        await loadProfile(currentUser.id);
-      } else {
-        setProfile(null);
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, [supabase]);
+  return () => subscription.unsubscribe();
+}, []);
 
   // 🔹 Fetch profile row
   async function loadProfile(userId) {

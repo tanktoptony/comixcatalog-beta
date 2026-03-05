@@ -11,10 +11,10 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
 
-  if (loading) {
+  if (loading && !user) {
     return null;
   }
-  
+
   function closeMenu() {
     setMenuOpen(false);
   }

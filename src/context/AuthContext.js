@@ -71,7 +71,7 @@ export function AuthProvider({ children }) {
       mounted = false;
       listener.subscription.unsubscribe();
     };
-  }, []);
+  }, [supabase]);
 
   // 🔹 Fetch profile row
   async function loadProfile(userId) {

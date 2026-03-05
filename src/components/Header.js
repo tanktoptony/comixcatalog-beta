@@ -7,10 +7,14 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
 export default function Header() {
-  const { user, profile, signOut } = useAuth();
+  const { user, profile, loading, signOut } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
 
+  if (loading) {
+    return null;
+  }
+  
   function closeMenu() {
     setMenuOpen(false);
   }

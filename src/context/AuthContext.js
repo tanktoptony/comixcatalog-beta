@@ -13,22 +13,65 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   // 🔹 Load initial session
+   // AuthContext.js (core logic)
   useEffect(() => {
-  async function loadUser() {
-    const { data } = await supabase.auth.getSession();
-    setUser(data?.session?.user ?? null);
-  }
+    let mounted = true;
 
-  loadUser();
+    async function boot() {
+      setLoading(true);
 
-  const {
-    data: { subscription },
-  } = supabase.auth.onAuthStateChange((_event, session) => {
-    setUser(session?.user ?? null);
-  });
+      const { data: sessionData } = await supabase.auth.getSession();
+      const nextUser = sessionData?.session?.user ?? null;
 
-  return () => subscription.unsubscribe();
-}, []);
+      if (!mounted) return;
+      setUser(nextUser);
+
+      if (nextUser) {
+        const { data: prof } = await supabase
+          .from("profiles")
+          .select("*")
+          .eq("id", nextUser.id)
+          .single();
+
+        if (!mounted) return;
+        setProfile(prof ?? null);
+      } else {
+        setProfile(null);
+      }
+
+      if (!mounted) return;
+      setLoading(false);
+    }
+
+    boot();
+
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      async (_event, session) => {
+        const nextUser = session?.user ?? null;
+        setUser(nextUser);
+
+        // IMPORTANT: fetch profile on every auth change
+        if (nextUser) {
+          const { data: prof } = await supabase
+            .from("profiles")
+            .select("*")
+            .eq("id", nextUser.id)
+            .single();
+
+          setProfile(prof ?? null);
+        } else {
+          setProfile(null);
+        }
+
+        setLoading(false);
+      }
+    );
+
+    return () => {
+      mounted = false;
+      listener.subscription.unsubscribe();
+    };
+  }, []);
 
   // 🔹 Fetch profile row
   async function loadProfile(userId) {

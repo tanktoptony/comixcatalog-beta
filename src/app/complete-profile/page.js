@@ -23,19 +23,19 @@ export default function CompleteProfilePage() {
         return;
       }
 
-      const { data: profile } = await supabase
+      const { data: profile, error } = await supabase
         .from("profiles")
         .select("username")
         .eq("id", user.id)
-        .maybeSingle();
+        .single();
 
-      if (profile?.username) {
-        router.push(`/u/${profile.username}`);
+      if (!error && profile?.username) {
+        router.replace(`/u/${profile.username}`);
       }
     }
 
     checkIfAlreadyComplete();
-  }, []);
+  }, [router, supabase]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -98,7 +98,7 @@ export default function CompleteProfilePage() {
       return;
     }
 
-    router.push(`/u/${usernameNormalized}`);
+    router.replace(`/u/${usernameNormalized}`);
   }
 
   return (

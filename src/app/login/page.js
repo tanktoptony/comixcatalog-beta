@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
@@ -51,20 +51,31 @@ export default function LoginPage() {
       return;
     }
 
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    if (!session) {
+      setSaving(false);
+      setErrorMsg("Login session failed. Please try again.");
+      return;
+    }
+
     const { data: profile } = await supabase
       .from("profiles")
       .select("username")
       .eq("id", user.id)
       .single();
 
+    setSaving(false);
+
     if (!profile?.username) {
-      router.push("/complete-profile");
+      router.replace("/complete-profile");
       return;
     }
 
-    router.push(`/u/${profile.username}`);
+    router.replace(`/u/${profile.username}`);
   }
-
   async function handleResendConfirmation() {
     if (!email) {
       setErrorMsg("Enter your email to resend confirmation.");

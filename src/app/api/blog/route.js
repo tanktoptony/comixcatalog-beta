@@ -1,12 +1,24 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-export async function GET(req) {
-  const supabase = createClient(
+const ADMIN_ID = "9ec650a2-8870-4175-82da-99d72cab9efc";
+
+function getAnonClient() {
+  return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   );
+}
 
+function getAdminClient() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  );
+}
+
+export async function GET(req) {
+  const supabase = getAnonClient();
   const { searchParams } = new URL(req.url);
   const slug = searchParams.get("slug");
 
@@ -26,7 +38,7 @@ export async function GET(req) {
     return NextResponse.json({ post: data });
   }
 
-  // All published posts
+  // All posts
   const { data, error } = await supabase
     .from("blog_posts")
     .select("*")
@@ -44,20 +56,16 @@ export async function GET(req) {
 }
 
 export async function POST(req) {
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
+  const supabase = getAdminClient();
 
   const body = await req.json();
   const { title, slug, content, excerpt, user_id } = body;
 
-  // 🔐 Admin check (ONLY ONE)
-  if (user_id !== "9ec650a2-8870-4175-82da-99d72cab9efc") {
+  if (user_id !== ADMIN_ID) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
   }
 
-  if (!title || !slug || !content || !user_id) {
+  if (!title || !slug || !content) {
     return NextResponse.json(
       { error: "Missing required fields" },
       { status: 400 }
@@ -79,21 +87,18 @@ export async function POST(req) {
     .single();
 
   if (error) {
-  console.error("Supabase insert error:", error);
-  return NextResponse.json(
-    { error: "Failed to create post" },
-    { status: 500 }
-  );
-}
+    console.error("Supabase insert error:", error);
+    return NextResponse.json(
+      { error: "Failed to create post" },
+      { status: 500 }
+    );
+  }
 
   return NextResponse.json({ post: data }, { status: 201 });
 }
 
 export async function DELETE(req) {
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
+  const supabase = getAdminClient();
 
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
@@ -102,13 +107,10 @@ export async function DELETE(req) {
     return NextResponse.json({ error: "Missing id" }, { status: 400 });
   }
 
-  // 🔐 Admin check
-  const adminId = process.env.ADMIN_USER_ID || process.env.NEXT_PUBLIC_ADMIN_USER_ID;
-
   const body = await req.json().catch(() => null);
   const user_id = body?.user_id;
 
-  if (user_id !== adminId) {
+  if (user_id !== ADMIN_ID) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
   }
 

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
+import { ADMIN_ID } from "@/lib/admin";
 
 export default function NewBlogPostPage() {
 
@@ -23,10 +24,6 @@ export default function NewBlogPostPage() {
     return <p>Loading...</p>;
   }
 
-  console.log("CURRENT USER ID:", user.id);
-  console.log("ADMIN ENV ID:", process.env.NEXT_PUBLIC_ADMIN_USER_ID);
-
-  const ADMIN_ID = "9ec650a2-8870-4175-82da-99d72cab9efc"
   if (user.id !== ADMIN_ID) {
     return <p>Unauthorized</p>;
   }

@@ -13,7 +13,7 @@ export default function BlogPostPage() {
   const [content, setContent] = useState("");
   const [error, setError] = useState(null);
 
-  const adminId = process.env.NEXT_PUBLIC_ADMIN_USER_ID;
+  const ADMIN_ID = "9ec650a2-8870-4175-82da-99d72cab9efc";
 
   useEffect(() => {
     if (!slug) return;
@@ -100,7 +100,7 @@ export default function BlogPostPage() {
     <section className="comic-panel news-page">
       <h1 className="hero-title">{post.title}</h1>
 
-      {user?.id === adminId && (
+      {user && user.id === ADMIN_ID && (
         <button
           onClick={handleDelete}
           style={{

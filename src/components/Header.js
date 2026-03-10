@@ -20,9 +20,15 @@ export default function Header() {
   }
 
   async function handleLogout() {
-    await signOut();
-    router.push("/");
-    router.refresh();
+    console.log("Logout clicked");
+
+    const result = await signOut();
+
+    console.log("Logout result:", result);
+
+    if (result) {
+      router.replace("/");
+    }
   }
 
   return (

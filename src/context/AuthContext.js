@@ -6,51 +6,47 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const supabase = getSupabaseClient();
+  const [supabase] = useState(() => getSupabaseClient());
 
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // 🔹 Load initial session
-   // AuthContext.js (core logic)
   useEffect(() => {
     let mounted = true;
 
-    async function boot() {
-      setLoading(true);
-
-      const { data: sessionData } = await supabase.auth.getSession();
-      const nextUser = sessionData?.session?.user ?? null;
+    async function initialize() {
+      const { data } = await supabase.auth.getUser();
+      const currentUser = data?.user ?? null;
 
       if (!mounted) return;
-      setUser(nextUser);
 
-      if (nextUser) {
+      setUser(currentUser);
+
+      if (currentUser) {
         const { data: prof } = await supabase
           .from("profiles")
           .select("*")
-          .eq("id", nextUser.id)
+          .eq("id", currentUser.id)
           .single();
 
-        if (!mounted) return;
-        setProfile(prof ?? null);
-      } else {
-        setProfile(null);
+        if (mounted) setProfile(prof ?? null);
       }
 
-      if (!mounted) return;
       setLoading(false);
     }
 
-    boot();
+    initialize();
 
     const { data: listener } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
+      
+      async (event, session) => {
+        console.log("AUTH EVENT:", event);
+        
         const nextUser = session?.user ?? null;
+        
         setUser(nextUser);
 
-        // IMPORTANT: fetch profile on every auth change
         if (nextUser) {
           const { data: prof } = await supabase
             .from("profiles")
@@ -62,8 +58,6 @@ export function AuthProvider({ children }) {
         } else {
           setProfile(null);
         }
-
-        setLoading(false);
       }
     );
 
@@ -73,30 +67,31 @@ export function AuthProvider({ children }) {
     };
   }, [supabase]);
 
-  // 🔹 Fetch profile row
-  async function loadProfile(userId) {
-    const { data, error } = await supabase
-      .from("profiles")
-      .select("username")
-      .eq("id", userId)
-      .single();
-
-    if (!error && data) {
-      setProfile(data);
-    } else {
-      console.error("Profile fetch error:", error);
-      setProfile(null);
-    }
-  }
-
   async function signOut() {
-    await supabase.auth.signOut();
+    console.log("AuthContext: signOut called");
+
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.error("Supabase logout error:", error);
+      return false;
+    }
+
     setUser(null);
     setProfile(null);
+
+    return true;
   }
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, signOut }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        profile,
+        loading,
+        signOut,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

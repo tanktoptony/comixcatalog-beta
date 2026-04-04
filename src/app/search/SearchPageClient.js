@@ -6,7 +6,7 @@ import { useLibrary } from "../../context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 
 /**
- * Normalize Supabase comics into a search-safe shape
+ * Normalize API comics into a search-safe shape
  */
 function mapSupabaseComic(row) {
   return {
@@ -18,89 +18,125 @@ function mapSupabaseComic(row) {
     cover: row.cover_path
       ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${row.cover_path}`
       : null,
-    __source: "supabase",
+    __source: row.__source || "user",
   };
 }
 
 export default function SearchPageClient() {
   const [publisherFilter, setPublisherFilter] = useState(null);
   const [yearRange, setYearRange] = useState(null);
-  const [collectionFilter, setCollectionFilter] = useState("all"); 
+  const [collectionFilter, setCollectionFilter] = useState("all");
   // "all" | "collection" | "wishlist"
-
 
   const [query, setQuery] = useState("");
   const [supabaseComics, setSupabaseComics] = useState([]);
+  const [page, setPage] = useState(0);
+  const [seriesResults, setSeriesResults] = useState([]);
+  const [isBrowsing, setIsBrowsing] = useState(true);
 
   const { wishlistIds, collectionIds, addToCollection, removeFromCollection } =
     useLibrary();
 
-  const { user, loading: authLoading } = useAuth();
-  /**
-   * Load Supabase comics once
-   */
+  const { user } = useAuth();
+
   useEffect(() => {
-    async function loadSupabaseComics() {
+    const timeout = setTimeout(async () => {
       try {
-        const res = await fetch("/api/comics");
+        let url;
+
+        if (!query) {
+          setIsBrowsing(true);
+          url = `/api/comics?limit=100&offset=${page * 100}`;
+        } else {
+          setIsBrowsing(false);
+          url = `/api/search/comics?q=${encodeURIComponent(query)}&limit=100&offset=${page * 100}`;
+        }
+
+        const res = await fetch(url);
         const data = await res.json();
-        setSupabaseComics(data.comics || []);
+
+        setSupabaseComics((prev) => {
+          if (page === 0) return data.comics || [];
+          return [...prev, ...(data.comics || [])];
+        });
       } catch (err) {
-        console.error("Failed to load Supabase comics", err);
+        console.error("Load failed", err);
       }
+    }, 250);
+
+    return () => clearTimeout(timeout);
+  }, [query, page]);
+
+  useEffect(() => {
+    setPage(0);
+    setSupabaseComics([]);
+  }, [query]);
+
+  useEffect(() => {
+    if (!query) {
+      setSeriesResults([]);
+      return;
     }
 
-    loadSupabaseComics();
-  }, []);
+    const timeout = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/search/series?q=${encodeURIComponent(query)}`);
+        const data = await res.json();
+        setSeriesResults(data.series || []);
+      } catch (err) {
+        console.error("Series search failed", err);
+      }
+    }, 250);
+
+    return () => clearTimeout(timeout);
+  }, [query]);
 
   const results = useMemo(() => {
-  console.log("SEARCH RAW:", supabaseComics[0]);
+    const mappedSupabase = supabaseComics
+      .filter(Boolean)
+      .map(mapSupabaseComic)
+      .filter(Boolean);
 
-  const mappedSupabase = supabaseComics
-    .filter(Boolean)
-    .map(mapSupabaseComic)
-    .filter(Boolean);
-  let filtered = mappedSupabase;
+    let filtered = mappedSupabase;
 
-  console.log(mappedSupabase.map(c => c.publisher));
+    if (query) {
+      const q = query.toLowerCase();
+      filtered = filtered.filter((item) =>
+        String(item.title || "").toLowerCase().includes(q) ||
+        String(item.issueNumber || "").toLowerCase().includes(q) ||
+        String(item.publisher || "").toLowerCase().includes(q)
+      );
+    }
 
-  if (query) {
-    const q = query.toLowerCase();
-    filtered = filtered.filter((item) =>
-      item.title?.toLowerCase().includes(q)
-    );
-  }
+    if (publisherFilter) {
+      filtered = filtered.filter((item) => {
+        const publisher = String(item.publisher || "").toLowerCase();
+        return publisher.includes(publisherFilter.toLowerCase());
+      });
+    }
 
-  if (publisherFilter) {
-    filtered = filtered.filter((item) => {
-      const publisher = String(item.publisher || "").toLowerCase();
-      return publisher.includes(publisherFilter.toLowerCase());
-    });
-  }
+    if (yearRange) {
+      filtered = filtered.filter((item) => item.year === yearRange);
+    }
 
-  if (collectionFilter === "collection") {
-    filtered = filtered.filter((item) =>
-      collectionIds.has(item.id)
-    );
-  }
+    if (collectionFilter === "collection") {
+      filtered = filtered.filter((item) => collectionIds.has(item.id));
+    }
 
-  if (collectionFilter === "wishlist") {
-    filtered = filtered.filter((item) =>
-      wishlistIds.has(item.id)
-    );
-  }
+    if (collectionFilter === "wishlist") {
+      filtered = filtered.filter((item) => wishlistIds.has(item.id));
+    }
 
     return filtered.filter(Boolean);
   }, [
     query,
     supabaseComics,
     publisherFilter,
+    yearRange,
     collectionFilter,
     collectionIds,
     wishlistIds,
   ]);
-
-  console.log(results.slice(0,3));
 
   return (
     <section className="comic-panel">
@@ -115,6 +151,27 @@ export default function SearchPageClient() {
           onChange={(e) => setQuery(e.target.value)}
         />
       </div>
+
+      {seriesResults.length > 0 && (
+        <div style={{ marginBottom: "20px" }}>
+          <h3 className="section-label">Series</h3>
+
+          <div className="comic-grid">
+            {seriesResults.map((s) => (
+              <Link
+                key={s.id}
+                href={`/series/${s.id}`}
+                className="comic-card"
+              >
+                <div className="comic-card-title">{s.title}</div>
+                <div className="comic-card-meta">
+                  {s.publisher?.name || "Unknown Publisher"}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="filter-bar">
         {["Marvel", "DC", "Image", "Dark Horse", "Boom", "IDW", "Evil Ink", "Vertigo"].map((pub) => (
@@ -168,19 +225,17 @@ export default function SearchPageClient() {
       )}
 
       <div className="comic-grid">
-        
         {results.map((item) => {
           const inCollection = collectionIds.has(item.id);
           const inWishlist = wishlistIds.has(item.id);
-          const isSupabase = item.__source === "supabase";
-
+          const isUserAdded = item.__source === "user";
           const coverSrc = item.cover || "/fallback-cover.png";
 
           return (
             <article key={item.id} className="comic-card">
               <Link href={`/comic/${item.id}`} className="card-link">
                 <div className="comic-card-cover">
-                  <img src={coverSrc} alt={item.title} loading="lazy" />
+                  <img src={coverSrc} alt={item.title || "Comic cover"} loading="lazy" />
                 </div>
 
                 <div className="comic-card-title">
@@ -190,7 +245,7 @@ export default function SearchPageClient() {
 
                 <div className="comic-card-meta">{item.year || "Unknown"}</div>
 
-                {isSupabase && (
+                {isUserAdded && (
                   <span className="pill pill-new">User Added</span>
                 )}
               </Link>
@@ -204,7 +259,7 @@ export default function SearchPageClient() {
                 )}
               </div>
 
-              {item.__source === "supabase" && (
+              {item.__source === "user" && (
                 <div className="comic-card-actions">
                   {!collectionIds.has(item.id) && !wishlistIds.has(item.id) && (
                     <>
@@ -248,6 +303,15 @@ export default function SearchPageClient() {
             </article>
           );
         })}
+      </div>
+
+      <div style={{ marginTop: "20px", textAlign: "center" }}>
+        <button
+          className="comic-btn"
+          onClick={() => setPage((p) => p + 1)}
+        >
+          Load More
+        </button>
       </div>
     </section>
   );

@@ -6,7 +6,6 @@ import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
 const AVATAR_KEYS = [
-  
   "hero_01","hero_02","hero_03","hero_04",
   "hero_05","hero_06","hero_07","hero_08",
   "hero_09","hero_10","hero_11","hero_12",
@@ -19,7 +18,7 @@ export default function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [avatarKey, setAvatarKey] = useState("cc_badge");
+  const [avatarKey, setAvatarKey] = useState("hero_01");
 
   const [saving, setSaving] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -61,6 +60,7 @@ export default function SignUpPage() {
 
     setErrorMsg(null);
     setSuccessMsg(null);
+    setResendMsg(null);
 
     const usernameNormalized = username.trim().toLowerCase();
 
@@ -78,10 +78,23 @@ export default function SignUpPage() {
 
     setSaving(true);
 
+    const origin =
+      typeof window !== "undefined" ? window.location.origin : undefined;
+
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        emailRedirectTo: origin ? `${origin}/auth/callback` : undefined,
+        data: {
+          username: usernameNormalized,
+          avatar_key: avatarKey,
+        },
+      },
     });
+
+    console.log("SIGNUP DATA:", data);
+    console.log("SIGNUP ERROR:", error);
 
     if (error) {
       setSaving(false);
@@ -89,9 +102,12 @@ export default function SignUpPage() {
       return;
     }
 
-    const user = data?.user;
+    const user = data?.user ?? null;
+    const session = data?.session ?? null;
 
-    if (user) {
+    // Only try client-side profile creation if we actually have a session.
+    // If email confirmation is required, session may be null here even though signup succeeded.
+    if (user && session) {
       const { error: profileError } = await supabase
         .from("profiles")
         .upsert(
@@ -104,9 +120,14 @@ export default function SignUpPage() {
           { onConflict: "id" }
         );
 
+      console.log("PROFILE UPSERT ERROR:", profileError);
+
       if (profileError) {
+        // Do not fail the whole signup flow if auth user was created.
+        setSuccessMsg(
+          "Account created, but profile setup will finish after login or email confirmation."
+        );
         setSaving(false);
-        setErrorMsg("Account created, but profile setup failed.");
         return;
       }
     }
@@ -119,7 +140,7 @@ export default function SignUpPage() {
     setEmail("");
     setPassword("");
     setUsername("");
-    setAvatarKey("cc_badge");
+    setAvatarKey("hero_01");
   }
 
   return (

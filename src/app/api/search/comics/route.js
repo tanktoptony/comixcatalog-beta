@@ -7,6 +7,14 @@ function parseYear(value) {
   return match ? Number(match[0]) : null;
 }
 
+function normalizeIssueNumber(value) {
+  return String(value ?? "").trim().toLowerCase();
+}
+
+function normalizeSeriesTitle(value) {
+  return String(value ?? "").trim().toLowerCase();
+}
+
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
@@ -35,6 +43,7 @@ export async function GET(req) {
           issue_number,
           release_year,
           variant_name,
+          created_by,
           comic_covers (
             image_path,
             is_primary
@@ -54,6 +63,7 @@ export async function GET(req) {
           issue_number: comic.issue_number,
           release_year: comic.release_year,
           variant_name: comic.variant_name,
+          created_by: comic.created_by ?? null,
           cover_path:
             comic.comic_covers?.find((c) => c.is_primary)?.image_path ?? null,
           __source: "user",
@@ -143,7 +153,7 @@ export async function GET(req) {
       ])
     );
 
-    const gcdRows = (gcdIssues ?? []).map((issue) => ({
+    const gcdRowsBase = (gcdIssues ?? []).map((issue) => ({
       id: `gcd-${issue.gcd_id}`,
       series_title:
         seriesLookup[String(issue.series_gcd_id)]?.title ??
@@ -156,9 +166,47 @@ export async function GET(req) {
       issue_number: issue.issue_number,
       release_year: parseYear(issue.publication_date),
       variant_name: null,
-      cover_path: null,
+      created_by: null,
       __source: "gcd",
     }));
+
+    const seriesTitles = [
+      ...new Set(gcdRowsBase.map((row) => row.series_title).filter(Boolean)),
+    ];
+
+    let canonicalRows = [];
+    if (seriesTitles.length > 0) {
+      const { data, error } = await supabase
+        .from("canonical_covers")
+        .select("series_title, issue_number, storage_path")
+        .in("series_title", seriesTitles)
+        .not("storage_path", "is", null);
+
+      if (error) {
+        console.error("canonical cover lookup failed:", error);
+      } else {
+        canonicalRows = data ?? [];
+      }
+    }
+
+    const canonicalLookup = Object.fromEntries(
+      canonicalRows.map((row) => [
+        `${normalizeSeriesTitle(row.series_title)}::${normalizeIssueNumber(row.issue_number)}`,
+        row.storage_path,
+      ])
+    );
+
+    const gcdRows = gcdRowsBase.map((row) => {
+      const key = `${normalizeSeriesTitle(row.series_title)}::${normalizeIssueNumber(row.issue_number)}`;
+      const storagePath = canonicalLookup[key] ?? null;
+
+      return {
+        ...row,
+        cover_path: storagePath
+          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
+          : null,
+      };
+    });
 
     return NextResponse.json({
       comics: [...userRows, ...gcdRows],

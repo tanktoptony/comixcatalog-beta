@@ -16,20 +16,31 @@ export default function CompleteProfilePage() {
     async function checkIfAlreadyComplete() {
       const {
         data: { user },
+        error: userError,
       } = await supabase.auth.getUser();
 
+      console.log("COMPLETE PROFILE USER:", user);
+      console.log("COMPLETE PROFILE USER ERROR:", userError);
+
       if (!user) {
-        router.push("/login");
+        router.replace("/login");
         return;
       }
 
-      const { data: profile, error } = await supabase
+      const { data: profile, error: profileError } = await supabase
         .from("profiles")
         .select("username")
         .eq("id", user.id)
-        .single();
+        .maybeSingle();
 
-      if (!error && profile?.username) {
+      console.log("COMPLETE PROFILE CHECK:", profile);
+      console.log("COMPLETE PROFILE CHECK ERROR:", profileError);
+
+      if (profileError) {
+        return;
+      }
+
+      if (profile?.username) {
         router.replace(`/u/${profile.username}`);
       }
     }
@@ -60,19 +71,32 @@ export default function CompleteProfilePage() {
 
     const {
       data: { user },
+      error: userError,
     } = await supabase.auth.getUser();
 
+    console.log("COMPLETE PROFILE SUBMIT USER:", user);
+    console.log("COMPLETE PROFILE SUBMIT USER ERROR:", userError);
+
     if (!user) {
-      router.push("/login");
+      setSaving(false);
+      router.replace("/login");
       return;
     }
 
-    // Check uniqueness
-    const { data: existing } = await supabase
+    const { data: existing, error: existingError } = await supabase
       .from("profiles")
       .select("id")
       .eq("username", usernameNormalized)
       .maybeSingle();
+
+    console.log("COMPLETE PROFILE EXISTING:", existing);
+    console.log("COMPLETE PROFILE EXISTING ERROR:", existingError);
+
+    if (existingError) {
+      setSaving(false);
+      setErrorMsg("Could not verify username availability.");
+      return;
+    }
 
     if (existing && existing.id !== user.id) {
       setSaving(false);
@@ -80,8 +104,7 @@ export default function CompleteProfilePage() {
       return;
     }
 
-    // 🔥 THE FIX: use UPSERT instead of update
-    const { error } = await supabase
+    const { error: upsertError } = await supabase
       .from("profiles")
       .upsert(
         {
@@ -92,12 +115,15 @@ export default function CompleteProfilePage() {
         { onConflict: "id" }
       );
 
-    if (error) {
+    console.log("COMPLETE PROFILE UPSERT ERROR:", upsertError);
+
+    if (upsertError) {
       setSaving(false);
       setErrorMsg("Something went wrong. Try again.");
       return;
     }
 
+    setSaving(false);
     router.replace(`/u/${usernameNormalized}`);
   }
 
@@ -114,6 +140,7 @@ export default function CompleteProfilePage() {
             placeholder="your_name"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            autoComplete="username"
           />
         </div>
 

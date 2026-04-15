@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
@@ -32,10 +32,13 @@ export default function LoginPage() {
       password,
     });
 
+    console.log("LOGIN DATA:", data);
+    console.log("LOGIN ERROR:", error);
+
     if (error) {
       setSaving(false);
 
-      if (error.message.toLowerCase().includes("email not confirmed")) {
+      if (error.message?.toLowerCase().includes("email not confirmed")) {
         setErrorMsg("Please confirm your email before logging in.");
         setShowResend(true);
       } else {
@@ -45,29 +48,30 @@ export default function LoginPage() {
       return;
     }
 
-    const user = data?.user;
-    if (!user) {
-      setSaving(false);
-      return;
-    }
+    const user = data?.user ?? null;
+    const session = data?.session ?? null;
 
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
-
-    if (!session) {
+    if (!user || !session) {
       setSaving(false);
       setErrorMsg("Login session failed. Please try again.");
       return;
     }
 
-    const { data: profile } = await supabase
+    const { data: profile, error: profileError } = await supabase
       .from("profiles")
       .select("username")
       .eq("id", user.id)
-      .single();
+      .maybeSingle();
+
+    console.log("LOGIN PROFILE:", profile);
+    console.log("LOGIN PROFILE ERROR:", profileError);
 
     setSaving(false);
+
+    if (profileError) {
+      setErrorMsg("Login succeeded, but profile lookup failed.");
+      return;
+    }
 
     if (!profile?.username) {
       router.replace("/complete-profile");
@@ -76,6 +80,7 @@ export default function LoginPage() {
 
     router.replace(`/u/${profile.username}`);
   }
+
   async function handleResendConfirmation() {
     if (!email) {
       setErrorMsg("Enter your email to resend confirmation.");
@@ -84,11 +89,14 @@ export default function LoginPage() {
 
     setResending(true);
     setResendMsg(null);
+    setErrorMsg(null);
 
     const { error } = await supabase.auth.resend({
       type: "signup",
       email,
     });
+
+    console.log("RESEND LOGIN ERROR:", error);
 
     if (error) {
       setErrorMsg("Unable to resend confirmation email.");
@@ -154,9 +162,7 @@ export default function LoginPage() {
                 disabled={resending}
                 style={{ marginTop: 8 }}
               >
-                {resending
-                  ? "Resending..."
-                  : "Resend confirmation email"}
+                {resending ? "Resending..." : "Resend confirmation email"}
               </button>
 
               {resendMsg && (

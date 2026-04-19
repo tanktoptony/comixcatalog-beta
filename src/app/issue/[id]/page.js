@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
+import { useAuth } from "@/context/AuthContext";
 
 function money(value) {
   if (value == null || value === "") return "—";
@@ -26,6 +27,8 @@ export default function IssuePage() {
 
   const inCollection = collectionIds?.has(String(id));
   const inWishlist = wishlistIds?.has(String(id));
+
+  const { user } = useAuth();
 
   useEffect(() => {
     if (!id) return;
@@ -176,7 +179,11 @@ export default function IssuePage() {
                 marginTop: "18px",
               }}
             >
-              {!inCollection && !inWishlist && (
+              {!user && (
+                <div className="muted">Sign in to save this issue to your library.</div>
+              )}
+
+              {user && !inCollection && !inWishlist && (
                 <>
                   <button
                     className="add-comic-btn"
@@ -194,12 +201,21 @@ export default function IssuePage() {
                 </>
               )}
 
-              {(inCollection || inWishlist) && (
+              {user && inCollection && (
                 <button
                   className="add-comic-btn"
                   onClick={() => removeFromCollection(String(issue.id))}
                 >
-                  Remove from Library
+                  Remove from Collection
+                </button>
+              )}
+
+              {user && inWishlist && (
+                <button
+                  className="add-comic-btn"
+                  onClick={() => removeFromCollection(String(issue.id))}
+                >
+                  Remove from Wishlist
                 </button>
               )}
             </div>

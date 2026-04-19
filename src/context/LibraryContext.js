@@ -110,8 +110,16 @@ async function refreshLibrary() {
       );
 
     if (error) {
-      console.error(error);
-      await refreshLibrary(); // fallback sync
+      console.error("addToCollection failed", {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code,
+        comic_id,
+        status,
+        user_id: user.id,
+      });
+      await refreshLibrary();
     }
   }
 

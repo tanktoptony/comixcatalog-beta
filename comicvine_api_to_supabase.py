@@ -31,7 +31,7 @@ HEADERS = {
 }
 
 TARGET_VOLUMES = [
-    {"name": "The Amazing Spider-Man", "publisher": "Marvel Comics", "volume_id": 2127, "year": 1963},
+    {"name": "X-Factor", "publisher": "Marvel Comics", "volume_id": 3657, "year": 1986},
     {"name": "Iron Man", "publisher": "Marvel Comics", "volume_id": 6504, "year": 1998},
 
 ]

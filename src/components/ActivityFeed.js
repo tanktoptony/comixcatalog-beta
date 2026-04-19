@@ -1,35 +1,77 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function ActivityFeed() {
   const [activity, setActivity] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let ignore = false;
+
     async function load() {
-      const res = await fetch("/api/activity");
-      const data = await res.json();
-      setActivity(data.activity || []);
+      try {
+        const res = await fetch("/api/activity");
+        const data = await res.json();
+
+        if (!ignore) {
+          setActivity(Array.isArray(data.activity) ? data.activity : []);
+        }
+      } catch (err) {
+        console.error("Failed to load activity:", err);
+        if (!ignore) {
+          setActivity([]);
+        }
+      } finally {
+        if (!ignore) {
+          setLoading(false);
+        }
+      }
     }
 
     load();
+
+    return () => {
+      ignore = true;
+    };
   }, []);
 
-  return (
-    <div className="activity-feed">
-      <h3>Recent Collector Activity</h3>
+  const shouldScroll = activity.length >= 5;
 
-      <div className="activity-ticker">
-        <ul>
-          {[...activity, ...activity].map((a, i) => (
-            <li key={i}>
-              <b>{a.profiles?.username || "Collector"}</b>{" "}
-              {a.status === "owned" ? "added" : "wishlisted"}{" "}
-              {a.comics?.series_title || "Comic"} #{a.comics?.issue_number || ""}
-            </li>
-          ))}
-        </ul>
+  const items = useMemo(() => {
+    if (!shouldScroll) return activity;
+    return [...activity, ...activity];
+  }, [activity, shouldScroll]);
+
+  return (
+    <section className="activity-feed">
+      <div className="activity-feed-header">
+        <h3 className="activity-feed-title">Recent Collector Activity</h3>
       </div>
-    </div>
+
+      {loading ? (
+        <div className="activity-feed-empty">Loading activity…</div>
+      ) : activity.length === 0 ? (
+        <div className="activity-feed-empty">No recent activity yet.</div>
+      ) : (
+        <div className={`activity-ticker ${shouldScroll ? "is-scrolling" : "is-static"}`}>
+          <ul>
+            {items.map((a, i) => {
+              const username = a?.profiles?.username || "Collector";
+              const status = a?.status === "owned" ? "added" : "wishlisted";
+              const title = a?.comics?.series_title || "Comic";
+              const issue = a?.comics?.issue_number ? ` #${a.comics.issue_number}` : "";
+
+              return (
+                <li key={`${username}-${title}-${issue}-${i}`}>
+                  <b>{username}</b> {status} {title}
+                  {issue}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+    </section>
   );
 }

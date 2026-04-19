@@ -31,13 +31,9 @@ HEADERS = {
 }
 
 TARGET_VOLUMES = [
-    {"name": "The Amazing Spider-Man", "publisher": "Marvel", "volume_id": 2127},
-    {"name": "Spawn", "publisher": "Image"},
-    {"name": "Wolverine", "publisher": "Marvel"},
-    {"name": "The New Mutants", "publisher": "Marvel"},
-    {"name": "Marvel Super Heroes Secret Wars", "publisher": "Marvel"},
-    {"name": "The Walking Dead", "publisher": "Image"},
-    {"name": "Uncanny X-Men", "publisher": "Marvel"},
+    {"name": "The Amazing Spider-Man", "publisher": "Marvel Comics", "volume_id": 2127, "year": 1963},
+    {"name": "Iron Man", "publisher": "Marvel Comics", "volume_id": 6504, "year": 1998},
+
 ]
 
 LIMIT_TEST = None  # set to None for full run
@@ -56,7 +52,12 @@ def cv_get(endpoint: str, params: dict) -> dict:
         "format": "json",
         **params,
     }
-    resp = requests.get(f"{BASE_API}/{endpoint}", params=full_params, headers=HEADERS, timeout=60)
+    resp = requests.get(
+        f"{BASE_API}/{endpoint}",
+        params=full_params,
+        headers=HEADERS,
+        timeout=60,
+    )
     resp.raise_for_status()
     data = resp.json()
     if data.get("status_code") != 1:
@@ -170,6 +171,16 @@ def upsert_cover_row(row: dict) -> None:
         raise RuntimeError(f"DB upsert failed: {resp.status_code} {resp.text}")
 
 
+def get_volume(volume_id: int) -> dict:
+    data = cv_get(
+        f"volume/4050-{volume_id}/",
+        {
+            "field_list": "id,name,publisher,start_year,api_detail_url,count_of_issues",
+        },
+    )
+    return data.get("results") or {}
+
+
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     uploaded_rows = []
@@ -177,20 +188,35 @@ def main():
     for target in TARGET_VOLUMES:
         volume_name = target["name"]
         publisher_name = target.get("publisher")
+        explicit_volume_id = target.get("volume_id")
 
         print(f"\n=== Processing volume: {volume_name} ({publisher_name or 'any publisher'}) ===")
 
         try:
-            volume = find_volume(volume_name, publisher_name)
+            if explicit_volume_id:
+                volume = get_volume(explicit_volume_id)
+                print(f"  using explicit volume id: {explicit_volume_id}")
+            else:
+                volume = find_volume(volume_name, publisher_name)
+
             if not volume:
                 print(f"  volume not found: {volume_name}")
                 continue
 
-            volume_id = volume["id"]
-            print(f"  using volume: {volume.get('name')} (ID {volume_id})")
+            print(
+                "  matched volume:",
+                volume.get("name"),
+                "| id:",
+                volume.get("id"),
+                "| publisher:",
+                (volume.get("publisher") or {}).get("name"),
+                "| issue count:",
+                volume.get("count_of_issues"),
+            )
 
+            volume_id = volume["id"]
             issues = fetch_issues_for_volume(volume_id)
-            print(f"  found {len(issues)} issues")
+            print(f"  fetched {len(issues)} issues")
 
             if LIMIT_TEST:
                 issues = issues[:LIMIT_TEST]
@@ -213,15 +239,36 @@ def main():
 
                 print(f"  [{idx}/{len(issues)}] {issue_title} #{issue_number}")
 
+                series_year = None
+                try:
+                    series_year = int(target.get("year") or volume.get("start_year") or 0) or None
+                except Exception:
+                    series_year = None
+
+                comicvine_volume_id = None
+                try:
+                    comicvine_volume_id = int(volume.get("id")) if volume.get("id") else None
+                except Exception:
+                    comicvine_volume_id = None
+
                 storage_path = None
                 if cover_url:
                     try:
                         ext = guess_ext(cover_url)
                         safe_series = slugify(volume.get("name"))
                         safe_issue = slugify(issue_title)
-                        storage_path = f"comicvine/{safe_series}/{issue_id}-{safe_issue}{ext}"
+
+                        storage_path = (
+                            f"comicvine/{safe_series}/vol-{comicvine_volume_id}/"
+                            f"{issue_id}-{safe_issue}{ext}"
+                        )
+
                         image_bytes = download_image_bytes(cover_url)
-                        upload_to_supabase_storage(storage_path, image_bytes, guess_content_type(ext))
+                        upload_to_supabase_storage(
+                            storage_path,
+                            image_bytes,
+                            guess_content_type(ext),
+                        )
                     except Exception as e:
                         print(f"    image upload failed: {e}")
                         storage_path = None
@@ -230,6 +277,8 @@ def main():
                     "source": "comicvine",
                     "source_issue_url": api_detail_url or f"comicvine-issue-{issue_id}",
                     "external_issue_id": str(issue_id),
+                    "comicvine_volume_id": comicvine_volume_id,
+                    "series_year": series_year,
                     "series_title": volume.get("name"),
                     "issue_title": issue_title,
                     "issue_number": issue_number,
@@ -260,6 +309,8 @@ def main():
                 "source",
                 "source_issue_url",
                 "external_issue_id",
+                "comicvine_volume_id",
+                "series_year",
                 "series_title",
                 "issue_title",
                 "issue_number",
@@ -276,6 +327,7 @@ def main():
 
     print(f"\nDone. Upserted {len(uploaded_rows)} issue rows total.")
     print(f"CSV written to {CSV_PATH}")
+
 
 if __name__ == "__main__":
     main()

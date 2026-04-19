@@ -12,14 +12,32 @@ function normalizeIssueNumber(value) {
 }
 
 function normalizeSeriesTitle(value) {
-  return String(value ?? "").trim().toLowerCase();
+  return String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
+}
+
+function dedupeById(rows) {
+  const seen = new Set();
+  const out = [];
+
+  for (const row of rows) {
+    const key = String(row?.id ?? "");
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(row);
+  }
+
+  return out;
 }
 
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
     const q = (searchParams.get("q") || "").trim();
-    const limit = Math.max(1, Math.min(Number(searchParams.get("limit") || 100), 200));
+    const normalizedQ = normalizeSeriesTitle(q);
+    const limit = Math.max(1, Math.min(Number(searchParams.get("limit") || 36), 36));
     const offset = Math.max(0, Number(searchParams.get("offset") || 0));
 
     if (!q) {
@@ -51,23 +69,35 @@ export async function GET(req) {
         `)
         .or(`series_title.ilike.%${q}%,publisher.ilike.%${q}%,issue_number.ilike.%${q}%`)
         .order("created_at", { ascending: false })
-        .limit(100);
+        .limit(20);
 
       if (userError) {
         console.error("user comics search failed:", userError);
       } else {
-        userRows = (userComics ?? []).map((comic) => ({
-          id: comic.id,
-          series_title: comic.series_title ?? null,
-          publisher: comic.publisher ?? null,
-          issue_number: comic.issue_number,
-          release_year: comic.release_year,
-          variant_name: comic.variant_name,
-          created_by: comic.created_by ?? null,
-          cover_path:
-            comic.comic_covers?.find((c) => c.is_primary)?.image_path ?? null,
-          __source: "user",
-        }));
+        userRows = (userComics ?? [])
+          .map((comic) => ({
+            id: comic.id,
+            series_title: comic.series_title ?? null,
+            publisher: comic.publisher ?? null,
+            issue_number: comic.issue_number,
+            release_year: comic.release_year,
+            variant_name: comic.variant_name,
+            created_by: comic.created_by ?? null,
+            cover_path:
+              comic.comic_covers?.find((c) => c.is_primary)?.image_path ?? null,
+            __source: "user",
+          }))
+          .filter((row) => {
+            if (!normalizedQ) return true;
+
+            const haystacks = [
+              normalizeSeriesTitle(row.series_title),
+              normalizeSeriesTitle(row.publisher),
+              normalizeSeriesTitle(row.issue_number),
+            ];
+
+            return haystacks.some((value) => value.includes(normalizedQ));
+          });
       }
     }
 
@@ -85,19 +115,29 @@ export async function GET(req) {
       `)
       .ilike("title", `%${q}%`)
       .not("gcd_id", "is", null)
-      .limit(400);
+      .limit(60);
 
     if (seriesError) {
       console.error("series search for comics failed:", seriesError);
-      return NextResponse.json({ comics: userRows });
+      return NextResponse.json({ comics: dedupeById(userRows) });
     }
 
+    const normalizedSeriesMatches = (matchedSeries ?? []).filter((series) => {
+      if (!normalizedQ) return true;
+      return normalizeSeriesTitle(series.title).includes(normalizedQ);
+    });
+
+    const seriesPool =
+      normalizedSeriesMatches.length > 0
+        ? normalizedSeriesMatches
+        : (matchedSeries ?? []);
+
     const seriesGcdIds = [
-      ...new Set((matchedSeries ?? []).map((s) => s.gcd_id).filter(Boolean)),
+      ...new Set(seriesPool.map((s) => s.gcd_id).filter(Boolean)),
     ];
 
     if (seriesGcdIds.length === 0) {
-      return NextResponse.json({ comics: userRows });
+      return NextResponse.json({ comics: dedupeById(userRows) });
     }
 
     const { data: gcdIssues, error: gcdError } = await supabase
@@ -116,7 +156,7 @@ export async function GET(req) {
 
     if (gcdError) {
       console.error("gcd issue search failed:", gcdError);
-      return NextResponse.json({ comics: userRows });
+      return NextResponse.json({ comics: dedupeById(userRows) });
     }
 
     const publisherGcdIds = [
@@ -140,7 +180,7 @@ export async function GET(req) {
     }
 
     const seriesLookup = Object.fromEntries(
-      (matchedSeries ?? []).map((s) => [
+      seriesPool.map((s) => [
         String(s.gcd_id),
         {
           title: s.title ?? null,
@@ -153,33 +193,50 @@ export async function GET(req) {
       ])
     );
 
-    const gcdRowsBase = (gcdIssues ?? []).map((issue) => ({
-      id: `gcd-${issue.gcd_id}`,
-      series_title:
-        seriesLookup[String(issue.series_gcd_id)]?.title ??
-        issue.title ??
-        null,
-      publisher:
-        seriesLookup[String(issue.series_gcd_id)]?.publisher ??
-        gcdPublisherLookup[String(issue.publisher_gcd_id)] ??
-        null,
-      issue_number: issue.issue_number,
-      release_year: parseYear(issue.publication_date),
-      variant_name: null,
-      created_by: null,
-      __source: "gcd",
-    }));
+    const gcdRowsBase = (gcdIssues ?? [])
+      .map((issue) => ({
+        id: `gcd-${issue.gcd_id}`,
+        series_title:
+          seriesLookup[String(issue.series_gcd_id)]?.title ??
+          issue.title ??
+          null,
+        publisher:
+          seriesLookup[String(issue.series_gcd_id)]?.publisher ??
+          gcdPublisherLookup[String(issue.publisher_gcd_id)] ??
+          null,
+        issue_number: issue.issue_number,
+        release_year: parseYear(issue.publication_date),
+        variant_name: null,
+        created_by: null,
+        __source: "gcd",
+      }))
+      .filter((row) => {
+        if (!normalizedQ) return true;
+
+        const haystacks = [
+          normalizeSeriesTitle(row.series_title),
+          normalizeSeriesTitle(row.publisher),
+          normalizeSeriesTitle(row.issue_number),
+        ];
+
+        return haystacks.some((value) => value.includes(normalizedQ));
+      });
 
     const seriesTitles = [
       ...new Set(gcdRowsBase.map((row) => row.series_title).filter(Boolean)),
     ];
 
+    const issueNumbers = [
+      ...new Set(gcdRowsBase.map((row) => row.issue_number).filter((v) => v != null)),
+    ];
+
     let canonicalRows = [];
-    if (seriesTitles.length > 0) {
+    if (seriesTitles.length > 0 && issueNumbers.length > 0) {
       const { data, error } = await supabase
         .from("canonical_covers")
         .select("series_title, issue_number, storage_path")
         .in("series_title", seriesTitles)
+        .in("issue_number", issueNumbers)
         .not("storage_path", "is", null);
 
       if (error) {
@@ -209,7 +266,7 @@ export async function GET(req) {
     });
 
     return NextResponse.json({
-      comics: [...userRows, ...gcdRows],
+      comics: dedupeById([...userRows, ...gcdRows]),
     });
   } catch (err) {
     console.error("GET /api/search/comics crashed:", err);

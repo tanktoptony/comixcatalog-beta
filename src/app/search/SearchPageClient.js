@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useLibrary } from "../../context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 
+const PAGE_SIZE = 36;
+
 function resolveCoverUrl(rawCover) {
   if (!rawCover) return null;
 
@@ -29,6 +31,7 @@ function mapSupabaseComic(row) {
     created_by: row.created_by ?? null,
   };
 }
+
 
 export default function SearchPageClient() {
   const [publisherFilter, setPublisherFilter] = useState(null);
@@ -61,10 +64,11 @@ export default function SearchPageClient() {
 
         if (!query) {
           setIsBrowsing(true);
-          url = `/api/comics?limit=100&offset=${page * 100}`;
+          url = `/api/comics?limit=36&offset=${page * PAGE_SIZE}`;
         } else {
           setIsBrowsing(false);
-          url = `/api/search/comics?q=${encodeURIComponent(query)}&limit=100&offset=${page * 100}`;
+          url = `/api/search/comics?q=${encodeURIComponent(query)}&limit=36&offset=${page * PAGE_SIZE
+          }`;
         }
 
         const res = await fetch(url, { cache: "no-store" });
@@ -78,11 +82,22 @@ export default function SearchPageClient() {
 
         if (cancelled) return;
 
-        setHasMore(comics.length === 100);
+        setHasMore(comics.length === PAGE_SIZE);
 
         setSupabaseComics((prev) => {
-          if (page === 0) return comics;
-          return [...prev, ...comics];
+          const merged = page === 0 ? comics : [...prev, ...comics];
+
+          const deduped = [];
+          const seen = new Set();
+
+          for (const row of merged) {
+            const key = String(row?.id ?? "");
+            if (!key || seen.has(key)) continue;
+            seen.add(key);
+            deduped.push(row);
+          }
+
+          return deduped;
         });
       } catch (err) {
         console.error("Search comics load failed:", err);
@@ -95,7 +110,7 @@ export default function SearchPageClient() {
           setIsLoading(false);
         }
       }
-    }, 250);
+    }, 400);
 
     return () => {
       cancelled = true;
@@ -149,19 +164,30 @@ export default function SearchPageClient() {
   }, [query]);
 
   const results = useMemo(() => {
-    const mappedSupabase = supabaseComics
+    const mappedSupabaseRaw = supabaseComics
       .filter(Boolean)
       .map(mapSupabaseComic)
       .filter((item) => item && item.id);
+
+    const mappedSupabase = [];
+    const seenIds = new Set();
+
+    for (const item of mappedSupabaseRaw) {
+      const key = String(item.id);
+      if (seenIds.has(key)) continue;
+      seenIds.add(key);
+      mappedSupabase.push(item);
+    }
 
     let filtered = mappedSupabase;
 
     if (query) {
       const q = query.toLowerCase();
-      filtered = filtered.filter((item) =>
-        String(item.title || "").toLowerCase().includes(q) ||
-        String(item.issueNumber || "").toLowerCase().includes(q) ||
-        String(item.publisher || "").toLowerCase().includes(q)
+      filtered = filtered.filter(
+        (item) =>
+          String(item.title || "").toLowerCase().includes(q) ||
+          String(item.issueNumber || "").toLowerCase().includes(q) ||
+          String(item.publisher || "").toLowerCase().includes(q)
       );
     }
 
@@ -284,39 +310,26 @@ export default function SearchPageClient() {
           const inWishlist = wishlistIds.has(item.id);
           const isUserAdded = item.__source === "user";
           const coverSrc = item.cover || "/fallback-cover.png";
-          const comicHref = isUserAdded ? `/comic/${item.id}` : "#";
+          const comicHref = isUserAdded ? `/comic/${item.id}` : `/issue/${item.id}`;
 
           return (
             <article key={item.id} className="comic-card">
-              {isUserAdded ? (
-                <Link href={comicHref} className="card-link">
-                  <div className="comic-card-cover">
-                    <img src={coverSrc} alt={item.title || "Comic cover"} loading="lazy" />
-                  </div>
-
-                  <div className="comic-card-title">
-                    {item.title || "Untitled"}
-                    {item.issueNumber ? ` #${item.issueNumber}` : ""}
-                  </div>
-
-                  <div className="comic-card-meta">{item.year || "Unknown"}</div>
-
-                  <span className="pill pill-new">User Added</span>
-                </Link>
-              ) : (
-                <div className="card-link">
-                  <div className="comic-card-cover">
-                    <img src={coverSrc} alt={item.title || "Comic cover"} loading="lazy" />
-                  </div>
-
-                  <div className="comic-card-title">
-                    {item.title || "Untitled"}
-                    {item.issueNumber ? ` #${item.issueNumber}` : ""}
-                  </div>
-
-                  <div className="comic-card-meta">{item.year || "Unknown"}</div>
+              <Link href={comicHref} className="card-link">
+                <div className="comic-card-cover">
+                  <img src={coverSrc} alt={item.title || "Comic cover"} loading="lazy" />
                 </div>
-              )}
+
+                <div className="comic-card-title">
+                  {item.title || "Untitled"}
+                  {item.issueNumber ? ` #${item.issueNumber}` : ""}
+                </div>
+
+                <div className="comic-card-meta">{item.year || "Unknown"}</div>
+
+                {isUserAdded && (
+                  <span className="pill pill-new">User Added</span>
+                )}
+              </Link>
 
               <div className="comic-card-pills">
                 {inCollection && (

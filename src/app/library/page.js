@@ -6,6 +6,13 @@ import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
+function getLibraryHref(item, comic) {
+  if (comic?.href) return comic.href;
+  if (item?.gcd_issue_id != null) return `/issue/gcd-${item.gcd_issue_id}`;
+  if (item?.comic_id != null) return `/comic/${item.comic_id}`;
+  return "/library";
+}
+
 function normalizePublisherName(value) {
   const raw = String(value || "").trim();
   const lower = raw.toLowerCase();
@@ -20,6 +27,12 @@ function normalizePublisherName(value) {
   if (["dark horse", "dark horse comics"].includes(lower)) return "Dark Horse";
 
   return raw;
+}
+
+function makeLibraryKey(item) {
+  if (item?.gcd_issue_id != null) return `gcd-${item.gcd_issue_id}`;
+  if (item?.comic_id != null) return String(item.comic_id);
+  return null;
 }
 
 export default function LibraryPage() {
@@ -54,77 +67,152 @@ export default function LibraryPage() {
   }
 
   useEffect(() => {
-  async function loadCanonicalIssues() {
-    const ids = [
-      ...new Set(
-        collections
-          .map((item) => String(item.comic_id || ""))
-          .filter(Boolean)
-      ),
-    ];
+    async function loadLibraryItems() {
+      const entries = [
+        ...new Map(
+          collections
+            .map((item) => [makeLibraryKey(item), item])
+            .filter(([key]) => Boolean(key))
+        ).values(),
+      ];
 
-    if (ids.length === 0) {
-      setComicIndex({});
-      return;
-    }
-
-    try {
-      const results = await Promise.all(
-        ids.map(async (issueId) => {
-          try {
-            const res = await fetch(`/api/issues/${issueId}`, {
-              cache: "no-store",
-            });
-
-            const data = await res.json();
-
-            if (!res.ok || !data?.issue) return null;
-
-            const issue = data.issue;
-
-            return {
-              id: String(issue.id),
-              title: issue.series_title || "Untitled",
-              issueNumber: issue.issue_number || "",
-              year: issue.release_year || null,
-              publisher: normalizePublisherName(issue.publisher),
-              rawPublisher: issue.publisher || "Unknown Publisher",
-              cover: issue.cover || "/fallback-cover.png",
-              source: issue.source || "gcd",
-            };
-          } catch (err) {
-            console.error(`Failed to load issue ${issueId}`, err);
-            return null;
-          }
-        })
-      );
-
-      const index = {};
-      for (const item of results) {
-        if (!item?.id) continue;
-        index[item.id] = item;
+      if (entries.length === 0) {
+        setComicIndex({});
+        return;
       }
 
-      setComicIndex(index);
-    } catch (err) {
-      console.error("Failed to load canonical library issues", err);
-      setComicIndex({});
-    }
-  }
+      try {
+        const localEntries = entries.filter((item) => item.comic_id != null);
+        const gcdEntries = entries.filter((item) => item.gcd_issue_id != null);
 
-  loadCanonicalIssues();
-}, [collections]);
+        const index = {};
+
+        // 1) Load all local/user-added comics in one request
+        if (localEntries.length > 0) {
+          try {
+            const res = await fetch("/api/comics", { cache: "no-store" });
+
+            if (res.ok) {
+              const text = await res.text();
+              if (text) {
+                const data = JSON.parse(text);
+                const comics = Array.isArray(data?.comics) ? data.comics : [];
+
+                for (const raw of comics) {
+                  const comicId = String(raw.id || "");
+                  if (!comicId) continue;
+
+                  const cover =
+                    raw.cover_url ||
+                    raw.cover ||
+                    (raw.cover_path
+                      ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${raw.cover_path}`
+                      : "/fallback-cover.png");
+
+                  index[comicId] = {
+                    libraryKey: comicId,
+                    href: `/comic/${comicId}`,
+                    sourceType: "local",
+                    id: comicId,
+                    title: raw.series_title || raw.title || "Untitled",
+                    issueNumber: raw.issue_number || "",
+                    year: raw.release_year || null,
+                    publisher: normalizePublisherName(raw.publisher),
+                    rawPublisher: raw.publisher || "Unknown Publisher",
+                    cover,
+                  };
+                }
+              }
+            } else {
+              console.error("Failed to load /api/comics", res.status);
+            }
+          } catch (err) {
+            console.error("Failed to hydrate local comics for library", err);
+          }
+        }
+
+        // 2) Load canonical GCD issues individually
+        if (gcdEntries.length > 0) {
+          const gcdResults = await Promise.all(
+            gcdEntries.map(async (item) => {
+              const issueId = `gcd-${item.gcd_issue_id}`;
+              const libraryKey = issueId;
+
+              try {
+                const res = await fetch(`/api/issues/${issueId}`, {
+                  cache: "no-store",
+                });
+
+                if (!res.ok) {
+                  console.error("Failed to load GCD issue", issueId, res.status);
+                  return null;
+                }
+
+                const text = await res.text();
+                if (!text) {
+                  console.error("Empty GCD issue response", issueId);
+                  return null;
+                }
+
+                const data = JSON.parse(text);
+                if (!data?.issue) {
+                  console.error("Missing GCD issue payload", issueId, data);
+                  return null;
+                }
+
+                const issue = data.issue;
+
+                return {
+                  libraryKey,
+                  href: `/issue/${issueId}`,
+                  sourceType: "gcd",
+                  id: issueId,
+                  title: issue.series_title || "Untitled",
+                  issueNumber: issue.issue_number || "",
+                  year: issue.release_year || null,
+                  publisher: normalizePublisherName(issue.publisher),
+                  rawPublisher: issue.publisher || "Unknown Publisher",
+                  cover: issue.cover || "/fallback-cover.png",
+                };
+              } catch (err) {
+                console.error("Failed to load GCD library item", issueId, err);
+                return null;
+              }
+            })
+          );
+
+          for (const item of gcdResults) {
+            if (!item?.libraryKey) continue;
+            index[item.libraryKey] = item;
+          }
+        }
+
+        setComicIndex(index);
+      } catch (err) {
+        console.error("Failed to load library items", err);
+        setComicIndex({});
+      }
+    }
+
+    loadLibraryItems();
+  }, [collections]);
 
   const libraryItems = useMemo(() => {
     return collections
       .filter((item) => item.status === tab)
       .map((item) => {
-        const comic = comicIndex[String(item.comic_id)];
+        const key = makeLibraryKey(item);
+        const comic = comicIndex[key];
+
         if (!comic) return null;
 
         return {
           ...item,
-          comic,
+          libraryKey: key,
+          comic: {
+            ...comic,
+            href: getLibraryHref(item, comic),
+          },
         };
       })
       .filter(Boolean);
@@ -141,7 +229,7 @@ export default function LibraryPage() {
     return Object.entries(counts)
       .sort((a, b) => b[1] - a[1])
       .map(([name, count]) => ({ name, count }));
-}, [libraryItems]);
+  }, [libraryItems]);
 
   const filteredItems = useMemo(() => {
     let result = [...libraryItems];
@@ -201,44 +289,47 @@ export default function LibraryPage() {
   }, [libraryItems, search, publisherFilter, sortBy]);
 
   const stats = useMemo(() => {
-  const rawCurrent = collections.filter((item) => item.status === tab);
+    const rawCurrent = collections.filter((item) => item.status === tab);
 
-  const hydratedCurrent = rawCurrent
-    .map((item) => ({
-      ...item,
-      comic: comicIndex[String(item.comic_id)] || null,
-    }))
-    .filter((item) => item.comic);
+    const hydratedCurrent = rawCurrent
+      .map((item) => ({
+        ...item,
+        comic: comicIndex[makeLibraryKey(item)] || null,
+      }))
+      .filter((item) => item.comic);
 
-  const ownedCount = collections.filter((c) => c.status === "owned").length;
-  const wishlistCount = collections.filter((c) => c.status === "wishlist").length;
+    const ownedCount = collections.filter((c) => c.status === "owned").length;
+    const wishlistCount = collections.filter((c) => c.status === "wishlist").length;
 
-  const uniqueSeries = new Set(
-    hydratedCurrent.map(
-      (item) =>
-        `${item.comic?.title || "Untitled"}::${normalizePublisherName(item.comic?.publisher)}`
-    )
-  ).size;
+    const uniqueSeries = new Set(
+      hydratedCurrent.map(
+        (item) =>
+          `${item.comic?.title || "Untitled"}::${normalizePublisherName(item.comic?.publisher)}`
+      )
+    ).size;
 
-  const uniquePublishers = new Set(
-    hydratedCurrent.map((item) => item.comic.publisher || "Unknown Publisher")
-  ).size;
+    const uniquePublishers = new Set(
+      hydratedCurrent.map((item) =>
+        normalizePublisherName(item.comic?.publisher)
+      )
+    ).size;
 
-  const withYear = hydratedCurrent.filter((item) => item.comic.year);
-  const newestYear = withYear.length
-    ? Math.max(...withYear.map((item) => Number(item.comic.year)))
-    : "—";
+    const withYear = hydratedCurrent.filter((item) => item.comic.year);
+    const newestYear = withYear.length
+      ? Math.max(...withYear.map((item) => Number(item.comic.year)))
+      : "—";
 
-  return {
-    totalInView: rawCurrent.length,
-    renderedInView: hydratedCurrent.length,
-    ownedCount,
-    wishlistCount,
-    uniqueSeries,
-    uniquePublishers,
-    newestYear,
-  };
-}, [collections, comicIndex, tab]);
+    return {
+      totalInView: rawCurrent.length,
+      renderedInView: hydratedCurrent.length,
+      ownedCount,
+      wishlistCount,
+      uniqueSeries,
+      uniquePublishers,
+      newestYear,
+    };
+  }, [collections, comicIndex, tab]);
+
   return (
     <main className="library-shell">
       <section className="library-page-header">
@@ -444,9 +535,7 @@ export default function LibraryPage() {
         <section className="library-results-panel">
           <div className="library-results-header">
             <div className="library-results-copy">
-              <h2>
-                {tab === "owned" ? "Collection" : "Wishlist"}
-              </h2>
+              <h2>{tab === "owned" ? "Collection" : "Wishlist"}</h2>
               <p>
                 {filteredItems.length} item{filteredItems.length === 1 ? "" : "s"}
               </p>
@@ -501,10 +590,10 @@ export default function LibraryPage() {
 
                 return (
                   <article
-                    key={`${item.id}-${item.comic_id}-${item.status}`}
+                    key={`${item.id}-${item.libraryKey}-${item.status}`}
                     className="library-list-row"
                   >
-                    <Link href={`/comic/${item.comic_id}`} className="library-list-cover">
+                    <Link href={getLibraryHref(item, comic)} className="library-list-cover">
                       <img
                         src={comic.cover || "/fallback-cover.png"}
                         alt={comic.title}
@@ -513,7 +602,7 @@ export default function LibraryPage() {
                     </Link>
 
                     <div className="library-list-main">
-                      <Link href={`/comic/${item.comic_id}`} className="library-list-title">
+                      <Link href={getLibraryHref(item, comic)} className="library-list-title">
                         {comic.title}
                         {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
                       </Link>
@@ -538,7 +627,7 @@ export default function LibraryPage() {
                         </button>
                       )}
 
-                      <Link href={`/comic/${item.comic_id}`} className="library-row-btn primary">
+                      <Link href={getLibraryHref(item, comic)} className="library-row-btn primary">
                         View
                       </Link>
                     </div>
@@ -555,10 +644,10 @@ export default function LibraryPage() {
 
                 return (
                   <article
-                    key={`${item.id}-${item.comic_id}-${item.status}`}
+                    key={`${item.id}-${item.libraryKey}-${item.status}`}
                     className="comic-card"
                   >
-                    <Link href={`/comic/${item.comic_id}`} className="card-link">
+                    <Link href={getLibraryHref(item, comic)} className="card-link">
                       <div className="comic-card-cover">
                         <img
                           src={comic.cover || "/fallback-cover.png"}

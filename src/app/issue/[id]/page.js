@@ -25,10 +25,11 @@ export default function IssuePage() {
   const [issue, setIssue] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const inCollection = collectionIds?.has(String(id));
-  const inWishlist = wishlistIds?.has(String(id));
-
   const { user } = useAuth();
+  const libraryId = String(issue?.id || id || "");
+
+  const inCollection = collectionIds?.has(libraryId);
+  const inWishlist = wishlistIds?.has(libraryId);
 
   useEffect(() => {
     if (!id) return;
@@ -187,14 +188,14 @@ export default function IssuePage() {
                 <>
                   <button
                     className="add-comic-btn"
-                    onClick={() => addToCollection(String(issue.id), "owned")}
+                    onClick={() => addToCollection(libraryId, "owned")}
                   >
                     Add to Collection
                   </button>
 
                   <button
                     className="add-comic-btn"
-                    onClick={() => addToCollection(String(issue.id), "wishlist")}
+                    onClick={() => addToCollection(libraryId, "wishlist")}
                   >
                     Add to Wishlist
                   </button>
@@ -204,7 +205,7 @@ export default function IssuePage() {
               {user && inCollection && (
                 <button
                   className="add-comic-btn"
-                  onClick={() => removeFromCollection(String(issue.id))}
+                  onClick={() => removeFromCollection(libraryId)}
                 >
                   Remove from Collection
                 </button>
@@ -213,7 +214,7 @@ export default function IssuePage() {
               {user && inWishlist && (
                 <button
                   className="add-comic-btn"
-                  onClick={() => removeFromCollection(String(issue.id))}
+                  onClick={() => removeFromCollection(libraryId)}
                 >
                   Remove from Wishlist
                 </button>

@@ -86,6 +86,11 @@ export default async function PublicProfilePage({ params }) {
       ? Math.round((slabCount / totalBooks) * 100)
       : 0;
 
+  const costBasis = collection
+    .filter((c) => c.status === "owned" && c.purchase_price != null)
+    .reduce((sum, c) => sum + Number(c.purchase_price), 0);
+  const hasCostData = collection.some((c) => c.status === "owned" && c.purchase_price != null);
+
     return (
       <main style={{ padding: "2rem" }}>
         {/* HERO */}
@@ -107,7 +112,12 @@ export default async function PublicProfilePage({ params }) {
             </div>
 
             <div className="profile-info">
-              <h1 className="profile-username">{username}</h1>
+              <div className="profile-username-row">
+                <h1 className="profile-username">{username}</h1>
+                {profile?.is_founding_collector && (
+                  <span className="founding-badge">★ Founding Collector</span>
+                )}
+              </div>
               <div className="profile-meta">Collector since 2026</div>
               <ShareProfileButton username={username} />
             </div>
@@ -159,6 +169,15 @@ export default async function PublicProfilePage({ params }) {
             <div className="stat-number">{slabPercent}%</div>
             <div className="stat-label">Slab Ratio</div>
           </div>
+
+          {isOwner && hasCostData && (
+            <div className="stat-card">
+              <div className="stat-number">
+                {new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(costBasis)}
+              </div>
+              <div className="stat-label">Cost Basis</div>
+            </div>
+          )}
         </div>
 
         {/* EMPTY STATE OR GRID */}

@@ -38,10 +38,8 @@ export default function Header() {
 
   async function handleLogout() {
     closeMenu();
-    const result = await signOut();
-    if (result) {
-      router.replace("/");
-    }
+    await signOut();
+    window.location.href = "/";
   }
 
   function clearSearch() {

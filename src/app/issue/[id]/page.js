@@ -288,9 +288,14 @@ export default function IssuePage() {
                 <h3 className="issue-section-title">Quick Actions</h3>
 
                 <div style={{ display: "grid", gap: "10px" }}>
-                  <button className="add-comic-btn">Sell a Copy</button>
-                  <button className="add-comic-btn">Track Market Value</button>
-                  <button className="add-comic-btn">Share Issue</button>
+                  <button
+                    className="add-comic-btn"
+                    onClick={() => {
+                      if (navigator.clipboard) navigator.clipboard.writeText(window.location.href);
+                    }}
+                  >
+                    Copy Link
+                  </button>
                 </div>
               </div>
             </div>

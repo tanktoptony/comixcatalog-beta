@@ -15,36 +15,11 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     let mounted = true;
 
-    async function initialize() {
-      const { data } = await supabase.auth.getUser();
-      const currentUser = data?.user ?? null;
-
-      if (!mounted) return;
-
-      setUser(currentUser);
-
-      if (currentUser) {
-        const { data: prof } = await supabase
-          .from("profiles")
-          .select("*")
-          .eq("id", currentUser.id)
-          .single();
-
-        if (mounted) setProfile(prof ?? null);
-      }
-
-      setLoading(false);
-    }
-
-    initialize();
-
     const { data: listener } = supabase.auth.onAuthStateChange(
-      
       async (event, session) => {
-        console.log("AUTH EVENT:", event);
-        
+        if (!mounted) return;
+
         const nextUser = session?.user ?? null;
-        
         setUser(nextUser);
 
         if (nextUser) {
@@ -54,10 +29,12 @@ export function AuthProvider({ children }) {
             .eq("id", nextUser.id)
             .single();
 
-          setProfile(prof ?? null);
+          if (mounted) setProfile(prof ?? null);
         } else {
           setProfile(null);
         }
+
+        if (mounted) setLoading(false);
       }
     );
 

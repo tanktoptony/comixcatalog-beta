@@ -22,7 +22,7 @@ export async function GET(req) {
   // -------------------------
   const { data: profile, error: profileError } = await supabase
     .from("profiles")
-    .select("id, username, is_public, avatar_key")
+    .select("id, username, is_public, avatar_key, is_founding_collector")
     .eq("username", username)
     .single();
 
@@ -46,6 +46,7 @@ export async function GET(req) {
       slab_company,
       slab_cert_number,
       notes,
+      purchase_price,
       comic_id,
       comics!user_collections_comic_id_fkey (
         id,

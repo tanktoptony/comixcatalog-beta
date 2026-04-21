@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useLibrary } from "../../context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
@@ -9,17 +9,12 @@ const PAGE_SIZE = 36;
 
 function resolveCoverUrl(rawCover) {
   if (!rawCover) return null;
-
-  if (/^https?:\/\//i.test(rawCover)) {
-    return rawCover;
-  }
-
+  if (/^https?:\/\//i.test(rawCover)) return rawCover;
   return `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${rawCover}`;
 }
 
 function mapSupabaseComic(row) {
   if (!row || typeof row !== "object") return null;
-
   return {
     id: row.id ?? null,
     title: row.series_title ?? row.title ?? null,
@@ -32,26 +27,41 @@ function mapSupabaseComic(row) {
   };
 }
 
+// ── Skeleton card ──────────────────────────────────────────────────────────────
+function SkeletonCard() {
+  return (
+    <article className="comic-card" aria-hidden="true">
+      <div
+        className="comic-card-cover skeleton"
+        style={{ aspectRatio: "2/3", borderRadius: 8 }}
+      />
+      <div className="skeleton" style={{ height: 14, margin: "10px 0 6px", borderRadius: 4 }} />
+      <div className="skeleton" style={{ height: 12, width: "55%", borderRadius: 4 }} />
+    </article>
+  );
+}
 
 export default function SearchPageClient() {
+  const [query, setQuery] = useState("");
+  const [page, setPage] = useState(0);
+
+  const [supabaseComics, setSupabaseComics] = useState([]);
+  const [seriesResults, setSeriesResults] = useState([]);
+
   const [publisherFilter, setPublisherFilter] = useState(null);
-  const [yearRange, setYearRange] = useState(null);
   const [collectionFilter, setCollectionFilter] = useState("all");
 
-  const [query, setQuery] = useState("");
-  const [supabaseComics, setSupabaseComics] = useState([]);
-  const [page, setPage] = useState(0);
-  const [seriesResults, setSeriesResults] = useState([]);
   const [isBrowsing, setIsBrowsing] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [loadError, setLoadError] = useState(null);
   const [hasMore, setHasMore] = useState(true);
 
   const { wishlistIds, collectionIds, addToCollection, removeFromCollection } =
     useLibrary();
-
   const { user } = useAuth();
 
+  // ── Fetch comics (browse or search) ─────────────────────────────────────────
   useEffect(() => {
     let cancelled = false;
 
@@ -60,22 +70,15 @@ export default function SearchPageClient() {
         setIsLoading(true);
         setLoadError(null);
 
-        let url;
+        const url = query
+          ? `/api/search/comics?q=${encodeURIComponent(query)}&limit=${PAGE_SIZE}&offset=${page * PAGE_SIZE}`
+          : `/api/comics?limit=${PAGE_SIZE}&offset=${page * PAGE_SIZE}`;
 
-        if (!query) {
-          setIsBrowsing(true);
-          url = `/api/comics?limit=36&offset=${page * PAGE_SIZE}`;
-        } else {
-          setIsBrowsing(false);
-          url = `/api/search/comics?q=${encodeURIComponent(query)}&limit=36&offset=${page * PAGE_SIZE
-          }`;
-        }
+        setIsBrowsing(!query);
 
         const res = await fetch(url, { cache: "no-store" });
 
-        if (!res.ok) {
-          throw new Error(`Search request failed: ${res.status}`);
-        }
+        if (!res.ok) throw new Error(`Request failed: ${res.status}`);
 
         const data = await res.json();
         const comics = Array.isArray(data?.comics) ? data.comics : [];
@@ -86,31 +89,29 @@ export default function SearchPageClient() {
 
         setSupabaseComics((prev) => {
           const merged = page === 0 ? comics : [...prev, ...comics];
-
           const deduped = [];
           const seen = new Set();
-
           for (const row of merged) {
             const key = String(row?.id ?? "");
             if (!key || seen.has(key)) continue;
             seen.add(key);
             deduped.push(row);
           }
-
           return deduped;
         });
       } catch (err) {
         console.error("Search comics load failed:", err);
         if (!cancelled) {
-          setLoadError("Could not load comics right now.");
+          setLoadError("Could not load comics right now. Please try again.");
           if (page === 0) setSupabaseComics([]);
         }
       } finally {
         if (!cancelled) {
           setIsLoading(false);
+          setIsFirstLoad(false);
         }
       }
-    }, 400);
+    }, query ? 400 : 0);
 
     return () => {
       cancelled = true;
@@ -118,13 +119,16 @@ export default function SearchPageClient() {
     };
   }, [query, page]);
 
+  // ── Reset on new query ───────────────────────────────────────────────────────
   useEffect(() => {
     setPage(0);
     setSupabaseComics([]);
     setHasMore(true);
     setLoadError(null);
+    setPublisherFilter(null); // clear publisher filter on new search
   }, [query]);
 
+  // ── Series suggestions ───────────────────────────────────────────────────────
   useEffect(() => {
     if (!query) {
       setSeriesResults([]);
@@ -135,25 +139,18 @@ export default function SearchPageClient() {
 
     const timeout = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/search/series?q=${encodeURIComponent(query)}`, {
-          cache: "no-store",
-        });
-
-        if (!res.ok) {
-          throw new Error(`Series request failed: ${res.status}`);
-        }
-
+        const res = await fetch(
+          `/api/search/series?q=${encodeURIComponent(query)}`,
+          { cache: "no-store" }
+        );
+        if (!res.ok) throw new Error(`Series request failed: ${res.status}`);
         const data = await res.json();
-        const series = Array.isArray(data?.series) ? data.series : [];
-
         if (!cancelled) {
-          setSeriesResults(series.filter(Boolean));
+          setSeriesResults(Array.isArray(data?.series) ? data.series.filter(Boolean) : []);
         }
       } catch (err) {
         console.error("Series search failed:", err);
-        if (!cancelled) {
-          setSeriesResults([]);
-        }
+        if (!cancelled) setSeriesResults([]);
       }
     }, 250);
 
@@ -163,92 +160,87 @@ export default function SearchPageClient() {
     };
   }, [query]);
 
-  const results = useMemo(() => {
-    const mappedSupabaseRaw = supabaseComics
-      .filter(Boolean)
-      .map(mapSupabaseComic)
-      .filter((item) => item && item.id);
-
-    const mappedSupabase = [];
-    const seenIds = new Set();
-
-    for (const item of mappedSupabaseRaw) {
+  // ── Map + dedupe comics ──────────────────────────────────────────────────────
+  const mappedComics = useMemo(() => {
+    const mapped = supabaseComics.filter(Boolean).map(mapSupabaseComic).filter((item) => item && item.id);
+    const deduped = [];
+    const seen = new Set();
+    for (const item of mapped) {
       const key = String(item.id);
-      if (seenIds.has(key)) continue;
-      seenIds.add(key);
-      mappedSupabase.push(item);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      deduped.push(item);
     }
+    return deduped;
+  }, [supabaseComics]);
 
-    let filtered = mappedSupabase;
-
-    if (query) {
-      const q = query.toLowerCase();
-      filtered = filtered.filter(
-        (item) =>
-          String(item.title || "").toLowerCase().includes(q) ||
-          String(item.issueNumber || "").toLowerCase().includes(q) ||
-          String(item.publisher || "").toLowerCase().includes(q)
-      );
+  // ── Dynamic publisher list from current results ──────────────────────────────
+  const availablePublishers = useMemo(() => {
+    const counts = {};
+    for (const item of mappedComics) {
+      const pub = (item.publisher || "").trim();
+      if (!pub) continue;
+      counts[pub] = (counts[pub] || 0) + 1;
     }
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .map(([name]) => name);
+  }, [mappedComics]);
 
+  // ── Apply collection/wishlist filters only (server already handled query+publisher) ──
+  const results = useMemo(() => {
+    let filtered = mappedComics;
+
+    // Publisher filter (client-side on current page's results)
     if (publisherFilter) {
-      filtered = filtered.filter((item) => {
-        const publisher = String(item.publisher || "").toLowerCase();
-        return publisher.includes(publisherFilter.toLowerCase());
-      });
-    }
-
-    if (yearRange) {
-      filtered = filtered.filter((item) => item.year === yearRange);
+      filtered = filtered.filter((item) =>
+        String(item.publisher || "").toLowerCase().includes(publisherFilter.toLowerCase())
+      );
     }
 
     if (collectionFilter === "collection") {
       filtered = filtered.filter((item) => collectionIds.has(item.id));
-    }
-
-    if (collectionFilter === "wishlist") {
+    } else if (collectionFilter === "wishlist") {
       filtered = filtered.filter((item) => wishlistIds.has(item.id));
     }
 
     return filtered;
-  }, [
-    query,
-    supabaseComics,
-    publisherFilter,
-    yearRange,
-    collectionFilter,
-    collectionIds,
-    wishlistIds,
-  ]);
+  }, [mappedComics, publisherFilter, collectionFilter, collectionIds, wishlistIds]);
+
+  const togglePublisher = useCallback((pub) => {
+    setPublisherFilter((prev) => (prev === pub ? null : pub));
+  }, []);
+
+  const toggleCollection = useCallback((val) => {
+    setCollectionFilter((prev) => (prev === val ? "all" : val));
+  }, []);
 
   return (
     <section className="comic-panel">
       <div className="section-label badge-x">Search</div>
       <h1 className="hero-title">Find Comics</h1>
 
+      {/* Search input */}
       <div className="controls">
         <input
           className="input"
-          placeholder="Search comics…"
+          placeholder="Search series, issues, publishers…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          autoComplete="off"
         />
       </div>
 
+      {/* Series suggestions */}
       {seriesResults.length > 0 && (
         <div style={{ marginBottom: "20px" }}>
           <h3 className="section-label">Series</h3>
-
           <div className="comic-grid">
             {seriesResults.map((s) => {
               if (!s?.id) return null;
-
               return (
-                <Link
-                  key={s.id}
-                  href={`/series/${s.id}`}
-                  className="comic-card"
-                >
+                <Link key={s.id} href={`/series/${s.id}`} className="comic-card">
                   <div className="comic-card-title">{s.title || "Untitled Series"}</div>
                   <div className="comic-card-meta">
                     {s.publisher?.name || "Unknown Publisher"}
@@ -260,104 +252,134 @@ export default function SearchPageClient() {
         </div>
       )}
 
+      {/* Filter bar */}
       <div className="filter-bar">
-        {["Marvel", "DC", "Image", "Dark Horse", "Boom", "IDW", "Evil Ink", "Vertigo"].map((pub) => (
+        {/* Dynamic publisher filters from actual results */}
+        {availablePublishers.map((pub) => (
           <button
             key={pub}
             className={`filter-btn ${publisherFilter === pub ? "active" : ""}`}
-            onClick={() =>
-              setPublisherFilter(publisherFilter === pub ? null : pub)
-            }
+            onClick={() => togglePublisher(pub)}
           >
             {pub}
           </button>
         ))}
 
+        {/* Divider if publishers exist */}
+        {availablePublishers.length > 0 && (
+          <span style={{ width: 1, background: "rgba(255,255,255,0.1)", margin: "0 4px" }} />
+        )}
+
         <button
           className={`filter-btn ${collectionFilter === "collection" ? "active" : ""}`}
-          onClick={() =>
-            setCollectionFilter(collectionFilter === "collection" ? "all" : "collection")
-          }
+          onClick={() => toggleCollection("collection")}
         >
           In My Collection
         </button>
 
         <button
           className={`filter-btn ${collectionFilter === "wishlist" ? "active" : ""}`}
-          onClick={() =>
-            setCollectionFilter(collectionFilter === "wishlist" ? "all" : "wishlist")
-          }
+          onClick={() => toggleCollection("wishlist")}
         >
           Wishlist
         </button>
       </div>
 
-      {loadError && <div className="empty-state">{loadError}</div>}
-
-      <p className="muted">
-        {results.length} result{results.length === 1 ? "" : "s"} found
-        {query && ` for “${query}”`}
-        {!query && isBrowsing ? " in browse mode" : ""}
-      </p>
-
-      {!isLoading && !loadError && results.length === 0 && (
-        <div className="empty-state">No comics match your search yet.</div>
+      {/* Error state */}
+      {loadError && (
+        <div className="empty-state" style={{ color: "rgba(255,100,100,0.9)" }}>
+          {loadError}
+        </div>
       )}
 
+      {/* Result count */}
+      {!isFirstLoad && !loadError && (
+        <p className="muted">
+          {results.length} result{results.length === 1 ? "" : "s"}
+          {query ? ` for "${query}"` : " — browsing all comics"}
+          {publisherFilter ? ` · ${publisherFilter}` : ""}
+        </p>
+      )}
+
+      {/* Empty state */}
+      {!isLoading && !loadError && !isFirstLoad && results.length === 0 && (
+        <div className="empty-state">
+          {query
+            ? `No comics found for "${query}". Try a different search.`
+            : "No comics in the database yet."}
+        </div>
+      )}
+
+      {/* Comic grid */}
       <div className="comic-grid">
-        {results.map((item) => {
-          const inCollection = collectionIds.has(item.id);
-          const inWishlist = wishlistIds.has(item.id);
-          const isUserAdded = item.__source === "user";
-          const coverSrc = item.cover || "/fallback-cover.png";
-          const comicHref = isUserAdded ? `/comic/${item.id}` : `/issue/${item.id}`;
+        {/* Skeleton cards on first load */}
+        {isFirstLoad &&
+          Array.from({ length: 12 }).map((_, i) => <SkeletonCard key={i} />)}
 
-          return (
-            <article key={item.id} className="comic-card">
-              <Link href={comicHref} className="card-link">
-                <div className="comic-card-cover">
-                  <img src={coverSrc} alt={item.title || "Comic cover"} loading="lazy" />
+        {/* Real results */}
+        {!isFirstLoad &&
+          results.map((item) => {
+            const inCollection = collectionIds.has(item.id);
+            const inWishlist = wishlistIds.has(item.id);
+            const isUserAdded = item.__source === "user";
+            const coverSrc = item.cover || "/fallback-cover.png";
+            const comicHref = isUserAdded ? `/comic/${item.id}` : `/issue/${item.id}`;
+
+            return (
+              <article key={item.id} className="comic-card">
+                <Link href={comicHref} className="card-link">
+                  <div className="comic-card-cover">
+                    <img
+                      src={coverSrc}
+                      alt={item.title || "Comic cover"}
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.src = "/fallback-cover.png";
+                      }}
+                    />
+                  </div>
+
+                  <div className="comic-card-title">
+                    {item.title || "Untitled"}
+                    {item.issueNumber ? ` #${item.issueNumber}` : ""}
+                  </div>
+
+                  <div className="comic-card-meta">
+                    {[item.publisher, item.year].filter(Boolean).join(" · ") || "Unknown"}
+                  </div>
+
+                  {isUserAdded && (
+                    <span className="pill pill-new">User Added</span>
+                  )}
+                </Link>
+
+                <div className="comic-card-pills">
+                  {inCollection && (
+                    <span className="pill pill-collection">In Collection</span>
+                  )}
+                  {inWishlist && (
+                    <span className="pill pill-wishlist">On Wishlist</span>
+                  )}
                 </div>
 
-                <div className="comic-card-title">
-                  {item.title || "Untitled"}
-                  {item.issueNumber ? ` #${item.issueNumber}` : ""}
-                </div>
-
-                <div className="comic-card-meta">{item.year || "Unknown"}</div>
-
-                {isUserAdded && (
-                  <span className="pill pill-new">User Added</span>
-                )}
-              </Link>
-
-              <div className="comic-card-pills">
-                {inCollection && (
-                  <span className="pill pill-collection">In Collection</span>
-                )}
-                {inWishlist && (
-                  <span className="pill pill-wishlist">On Wishlist</span>
-                )}
-              </div>
-
-              {isUserAdded && (
                 <div className="comic-card-actions">
                   {!inCollection && !inWishlist && (
                     <>
                       <button
                         className="comic-btn"
                         disabled={!user}
+                        title={!user ? "Log in to add to collection" : undefined}
                         onClick={() => addToCollection(item.id, "owned")}
                       >
-                        Add to Collection
+                        + Collection
                       </button>
-
                       <button
                         className="comic-btn"
                         disabled={!user}
+                        title={!user ? "Log in to add to wishlist" : undefined}
                         onClick={() => addToCollection(item.id, "wishlist")}
                       >
-                        Add to Wishlist
+                        + Wishlist
                       </button>
                     </>
                   )}
@@ -367,7 +389,7 @@ export default function SearchPageClient() {
                       className="comic-btn comic-btn-danger"
                       onClick={() => removeFromCollection(item.id)}
                     >
-                      Remove from Collection
+                      Remove
                     </button>
                   )}
 
@@ -376,24 +398,26 @@ export default function SearchPageClient() {
                       className="comic-btn comic-btn-danger"
                       onClick={() => removeFromCollection(item.id)}
                     >
-                      Remove from Wishlist
+                      Remove
                     </button>
                   )}
                 </div>
-              )}
-            </article>
-          );
-        })}
+              </article>
+            );
+          })}
+
+        {/* Inline skeleton cards while loading more */}
+        {isLoading &&
+          !isFirstLoad &&
+          Array.from({ length: 6 }).map((_, i) => (
+            <SkeletonCard key={`more-${i}`} />
+          ))}
       </div>
 
-      {isLoading && <div className="empty-state">Loading…</div>}
-
-      {hasMore && !isLoading && (
-        <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <button
-            className="comic-btn"
-            onClick={() => setPage((p) => p + 1)}
-          >
+      {/* Load more */}
+      {hasMore && !isLoading && !isFirstLoad && results.length > 0 && (
+        <div style={{ marginTop: "24px", textAlign: "center" }}>
+          <button className="comic-btn" onClick={() => setPage((p) => p + 1)}>
             Load More
           </button>
         </div>

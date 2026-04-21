@@ -36,10 +36,7 @@ export default function AddComicPage() {
     fd.append("publisher", form.publisher);
     if (form.release_year) fd.append("release_year", form.release_year);
     if (coverFile) fd.append("cover", coverFile);
-    if (user?.id) fd.append("created_by", user.id);
     fd.append("created_by", user.id);
-
-    console.log("Submitting user id:", user?.id);
 
     const res = await fetch("/api/comics", {
       method: "POST",
@@ -71,8 +68,6 @@ export default function AddComicPage() {
         <p className="form-subtitle">
           Manually add a comic to your personal collection.
         </p>
-
-        <p>Current User: {user?.id || "Not logged in"}</p>
 
         <form onSubmit={handleSubmit} className="form">
           <div className="grid-2">

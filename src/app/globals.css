@@ -1031,6 +1031,42 @@ input[type="file"] {
 
 
 /* -----------------------------
+   PROFILE USERNAME ROW
+------------------------------ */
+.profile-username-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* -----------------------------
+   FOUNDING COLLECTOR BADGE
+------------------------------ */
+.founding-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #f4d03f 0%, #d4a017 100%);
+  color: #0b1238;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 3px 10px 3px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 1px 6px rgba(244, 208, 63, 0.35);
+}
+
+/* collector card badge sits below name */
+.collector-card .founding-badge {
+  font-size: 0.55rem;
+  padding: 2px 8px;
+  margin-top: 4px;
+}
+
+/* -----------------------------
    META
 ------------------------------ */
 .profile-meta {
@@ -3062,4 +3098,25 @@ button.nav-link {
     width: 100%;
     flex-wrap: wrap;
   }
+}
+
+/* ============================================================
+   SKELETON LOADING — add to your globals.css
+   ============================================================ */
+
+@keyframes skeleton-shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.10) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 800px 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+  border-radius: 6px;
 }

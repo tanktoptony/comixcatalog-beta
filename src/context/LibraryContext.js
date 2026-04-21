@@ -54,6 +54,8 @@ export function LibraryProvider({ children }) {
       return;
     }
 
+    setLoading(true);
+
     try {
       const supabase = getSupabaseClient();
 
@@ -98,8 +100,24 @@ export function LibraryProvider({ children }) {
           table: "user_collections",
           filter: `user_id=eq.${user.id}`,
         },
-        () => {
-          refreshLibrary();
+        (payload) => {
+          setCollections((prev) => {
+            if (payload.eventType === "INSERT") {
+              const row = payload.new;
+              if (prev.some((c) => c.id === row.id)) return prev;
+              return [...prev, row];
+            }
+            if (payload.eventType === "UPDATE") {
+              const row = payload.new;
+              return prev.map((c) => (c.id === row.id ? { ...c, ...row } : c));
+            }
+            if (payload.eventType === "DELETE") {
+              const oldId = payload.old?.id;
+              if (oldId == null) return prev;
+              return prev.filter((c) => c.id !== oldId);
+            }
+            return prev;
+          });
         }
       )
       .subscribe();

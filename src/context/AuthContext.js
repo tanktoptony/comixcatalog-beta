@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import { ADMIN_ID } from "@/lib/admin";
 
 const AuthContext = createContext(null);
 
@@ -45,18 +46,18 @@ export function AuthProvider({ children }) {
   }, [supabase]);
 
   async function signOut() {
-    console.log("AuthContext: signOut called");
+    // scope: "local" clears the browser session immediately without waiting on
+    // a server roundtrip. The default ("global") fails closed when the token is
+    // already invalid, leaving the user logged in locally.
+    const { error } = await supabase.auth.signOut({ scope: "local" });
 
-    const { error } = await supabase.auth.signOut();
+    setUser(null);
+    setProfile(null);
 
     if (error) {
       console.error("Supabase logout error:", error);
       return false;
     }
-
-    setUser(null);
-    setProfile(null);
-
     return true;
   }
 
@@ -67,6 +68,8 @@ export function AuthProvider({ children }) {
         profile,
         loading,
         signOut,
+        isAdmin: user?.id === ADMIN_ID,
+        isPro: Boolean(profile?.is_pro) || user?.id === ADMIN_ID,
       }}
     >
       {children}

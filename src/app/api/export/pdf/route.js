@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { PDFDocument, rgb, StandardFonts, PageSizes } from "pdf-lib";
+import { ADMIN_ID } from "@/lib/admin";
 
 export const maxDuration = 60;
 
@@ -91,16 +92,33 @@ export async function POST(req) {
     const supabase = getSupabase();
 
     const [{ data: profile }, { data: collRows, error: collErr }] = await Promise.all([
-      supabase.from("profiles").select("username").eq("id", user_id).single(),
+      supabase.from("profiles").select("username, is_pro").eq("id", user_id).single(),
       supabase
         .from("user_collections")
-        .select("id, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes")
+        .select("id, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes, purchase_price, market_value, user_cover_url")
         .eq("user_id", user_id)
         .eq("status", "owned"),
     ]);
 
+    const isProOrAdmin = Boolean(profile?.is_pro) || user_id === ADMIN_ID;
+    if (!isProOrAdmin) {
+      return NextResponse.json(
+        { error: "Pro tier required", upgrade: true },
+        { status: 402 }
+      );
+    }
+
     if (collErr) {
-      return NextResponse.json({ error: "Failed to fetch collection" }, { status: 500 });
+      console.error("PDF export: user_collections query failed", {
+        message: collErr.message,
+        details: collErr.details,
+        hint: collErr.hint,
+        code: collErr.code,
+      });
+      return NextResponse.json(
+        { error: `Failed to fetch collection: ${collErr.message}` },
+        { status: 500 }
+      );
     }
     if (!collRows?.length) {
       return NextResponse.json({ error: "No owned comics in collection" }, { status: 404 });
@@ -191,6 +209,8 @@ export async function POST(req) {
     }
 
     // ── Assemble sorted items ──
+    // User's own photo takes priority over the canonical cover — that's the
+    // whole point of the insurance report (this is *their* book, not a stock image).
     const items = collRows
       .map((row) => {
         const key = row.comic_id ? `comic:${row.comic_id}` : `gcd:${row.gcd_issue_id}`;
@@ -201,7 +221,7 @@ export async function POST(req) {
           issueNumber: meta.issueNumber ?? "",
           publisher: meta.publisher ?? "Unknown",
           year: meta.year ?? null,
-          coverUrl: meta.coverUrl ?? null,
+          coverUrl: row.user_cover_url || meta.coverUrl || null,
         };
       })
       .sort((a, b) => a.title.localeCompare(b.title));
@@ -233,24 +253,49 @@ export async function POST(req) {
     cover.drawText("Collection Appraisal Report", { x: MARGIN + 18, y: H - 162, size: 18, font: reg, color: WHITE });
     cover.drawRectangle({ x: MARGIN + 18, y: H - 178, width: W - (MARGIN + 18) * 2, height: 2, color: GOLD });
 
+    function sumColumn(rows, col) {
+      const valid = rows.filter(
+        (r) => r[col] != null && !Number.isNaN(Number(r[col]))
+      );
+      const total = valid.reduce((acc, r) => acc + Number(r[col]), 0);
+      return { total, count: valid.length };
+    }
+    function money(n) {
+      return `$${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }
+    function buildFinancialField(label, col) {
+      const { total, count } = sumColumn(collRows, col);
+      const value = count > 0 ? money(total) : "Not recorded";
+      const caption = count > 0 && count < items.length
+        ? `Based on ${count} of ${items.length} books`
+        : null;
+      return [label, value, caption];
+    }
+
     const reportDate = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
     const fields = [
       ["COLLECTOR", username],
       ["REPORT DATE", reportDate],
       ["TOTAL BOOKS", String(items.length)],
-      ["ESTIMATED VALUE", "Pending Appraisal"],
+      buildFinancialField("TOTAL PAID", "purchase_price"),
+      buildFinancialField("TOTAL MARKET VALUE", "market_value"),
     ];
 
-    let fy = H - 230;
-    for (const [label, value] of fields) {
+    let fy = H - 220;
+    for (const [label, value, caption] of fields) {
       cover.drawText(label, { x: MARGIN + 18, y: fy, size: 8, font: bold, color: GOLD, opacity: 0.75 });
       cover.drawText(value, { x: MARGIN + 18, y: fy - 18, size: 17, font: bold, color: WHITE });
-      fy -= 56;
+      if (caption) {
+        cover.drawText(caption, {
+          x: MARGIN + 18, y: fy - 32, size: 7.5, font: italic, color: WHITE, opacity: 0.55,
+        });
+      }
+      fy -= 48;
     }
 
     cover.drawRectangle({ x: MARGIN + 18, y: fy - 8, width: W - (MARGIN + 18) * 2, height: 1, color: GOLD, opacity: 0.3 });
 
-    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Values shown are placeholders and do not constitute a formal written appraisal.";
+    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Purchase-price and market-value totals reflect self-reported figures entered by the collector and do not constitute a formal written appraisal.";
     const dLines = wrapText(disclaimer, reg, 8.5, W - (MARGIN + 18) * 2);
     let dy = fy - 28;
     for (const line of dLines) {
@@ -271,28 +316,29 @@ export async function POST(req) {
 
     // Column x positions (0-indexed from left margin)
     // Total usable: 612 - 2*36 = 540
-    // cover=44 title=138 iss=30 pub=82 year=34 grade=44 slab=44 cert=64 notes=60
     const CX = {
       cover : MARGIN,
-      title : MARGIN + 44,
-      issue : MARGIN + 182,
-      pub   : MARGIN + 212,
-      year  : MARGIN + 294,
-      grade : MARGIN + 328,
-      slab  : MARGIN + 372,
-      cert  : MARGIN + 416,
-      notes : MARGIN + 480,
+      title : MARGIN + 38,
+      issue : MARGIN + 166,
+      pub   : MARGIN + 192,
+      year  : MARGIN + 264,
+      grade : MARGIN + 294,
+      slab  : MARGIN + 336,
+      cert  : MARGIN + 378,
+      paid  : MARGIN + 428,
+      value : MARGIN + 476,
     };
     const CW = {
       cover : 38,
-      title : 136,
-      issue : 28,
-      pub   : 80,
-      year  : 32,
+      title : 128,
+      issue : 26,
+      pub   : 72,
+      year  : 30,
       grade : 42,
       slab  : 42,
-      cert  : 62,
-      notes : W - MARGIN - 480 - 4,
+      cert  : 50,
+      paid  : 48,
+      value : W - MARGIN - 476 - 2,
     };
 
     let page = null;
@@ -320,7 +366,8 @@ export async function POST(req) {
         ["GRADE", CX.grade],
         ["SLAB", CX.slab],
         ["CERT #", CX.cert],
-        ["NOTES", CX.notes],
+        ["PAID", CX.paid],
+        ["VALUE", CX.value],
       ];
       for (const [txt, x] of headers) {
         if (txt) {
@@ -437,13 +484,58 @@ export async function POST(req) {
         x: CX.cert, y: ty + 4, size: ts, font: reg, color: DGRAY,
       });
 
-      // Notes
-      page.drawText(truncate(item.notes || "—", italic, 7, CW.notes), {
-        x: CX.notes, y: ty + 4, size: 7, font: italic, color: MGRAY,
+      // Paid
+      const paidLabel = item.purchase_price != null && !Number.isNaN(Number(item.purchase_price))
+        ? money(Number(item.purchase_price))
+        : "—";
+      page.drawText(truncate(paidLabel, reg, ts, CW.paid - 4), {
+        x: CX.paid, y: ty + 4, size: ts, font: reg, color: DGRAY,
+      });
+
+      // Market value
+      const valueLabel = item.market_value != null && !Number.isNaN(Number(item.market_value))
+        ? money(Number(item.market_value))
+        : "—";
+      const valueHasNumber = valueLabel !== "—";
+      page.drawText(truncate(valueLabel, bold, ts, CW.value - 4), {
+        x: CX.value, y: ty + 4, size: ts, font: bold, color: valueHasNumber ? NAVY : MGRAY,
       });
 
       pageY -= ROW_H;
     }
+
+    // ── Totals row ──
+    const TOTALS_H = 36;
+    if (pageY - TOTALS_H < PAGE_BOTTOM) {
+      newTablePage();
+    }
+
+    const totalsTop    = pageY;
+    const totalsBottom = pageY - TOTALS_H;
+
+    // Thicker separator above totals
+    page.drawRectangle({
+      x: MARGIN, y: totalsTop - 1, width: W - MARGIN * 2, height: 1.2, color: NAVY,
+    });
+    page.drawRectangle({
+      x: 0, y: totalsBottom, width: W, height: TOTALS_H, color: OFF,
+    });
+
+    const tRowY = totalsBottom + TOTALS_H / 2 - 3;
+    const totalPaidAll    = sumColumn(items, "purchase_price").total;
+    const totalValueAll   = sumColumn(items, "market_value").total;
+
+    page.drawText("TOTAL", {
+      x: CX.cert, y: tRowY + 4, size: 8.5, font: bold, color: NAVY,
+    });
+    page.drawText(money(totalPaidAll), {
+      x: CX.paid, y: tRowY + 4, size: 8.5, font: bold, color: NAVY,
+    });
+    page.drawText(money(totalValueAll), {
+      x: CX.value, y: tRowY + 4, size: 9, font: bold, color: NAVY,
+    });
+
+    pageY -= TOTALS_H;
 
     // ── Return PDF ──
     const bytes = await doc.save();

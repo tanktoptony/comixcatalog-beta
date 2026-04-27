@@ -6,6 +6,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
+function resolveCoverUrl(rawCover) {
+  if (!rawCover) return null;
+  if (/^https?:\/\//i.test(rawCover)) return rawCover;
+  return `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${rawCover}`;
+}
+
 function mapComicResult(row) {
   if (!row || typeof row !== "object") return null;
 
@@ -14,12 +20,29 @@ function mapComicResult(row) {
     title: row.series_title ?? row.title ?? "Untitled",
     issueNumber: row.issue_number ?? null,
     publisher: row.publisher ?? null,
+    releaseYear: row.release_year ?? null,
     source: row.__source || "user",
+    cover: resolveCoverUrl(row.cover_path),
   };
 }
 
+function normalizeYear(y) {
+  const n = Number(y);
+  if (!Number.isFinite(n)) return null;
+  if (n >= 1800 && n <= 2100) return Math.trunc(n);
+  return null;
+}
+
+function formatYearRange(start, end) {
+  const s = normalizeYear(start);
+  const e = normalizeYear(end);
+  if (!s) return "";
+  if (!e || e === s) return String(s);
+  return `${s}–${e}`;
+}
+
 export default function Header() {
-  const { user, profile, loading, signOut } = useAuth();
+  const { user, profile, loading, signOut, isPro } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const [query, setQuery] = useState("");
@@ -27,6 +50,7 @@ export default function Header() {
   const [comicResults, setComicResults] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
 
   const router = useRouter();
   const pathname = usePathname();
@@ -38,8 +62,12 @@ export default function Header() {
 
   async function handleLogout() {
     closeMenu();
-    await signOut();
-    window.location.href = "/";
+    try {
+      await signOut();
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
+    window.location.replace("/");
   }
 
   function clearSearch() {
@@ -47,6 +75,7 @@ export default function Header() {
     setSeriesResults([]);
     setComicResults([]);
     setSearchOpen(false);
+    setHighlightedIndex(-1);
   }
 
   function handleNavigate(href) {
@@ -138,6 +167,54 @@ export default function Header() {
     return seriesResults.length > 0 || comicResults.length > 0;
   }, [seriesResults, comicResults]);
 
+  const flatResults = useMemo(() => {
+    const items = [];
+    for (const s of seriesResults) {
+      if (!s?.id) continue;
+      items.push({ key: `series-${s.id}`, href: `/series/${s.id}` });
+    }
+    for (const c of comicResults) {
+      if (!c?.id) continue;
+      const href = c.source === "user" ? `/comic/${c.id}` : `/issue/${c.id}`;
+      items.push({ key: `comic-${c.id}`, href });
+    }
+    return items;
+  }, [seriesResults, comicResults]);
+
+  useEffect(() => {
+    setHighlightedIndex(-1);
+  }, [query, seriesResults, comicResults]);
+
+  function submitSearch() {
+    const q = query.trim();
+    if (!q) return;
+    if (highlightedIndex >= 0 && flatResults[highlightedIndex]) {
+      handleNavigate(flatResults[highlightedIndex].href);
+    } else {
+      handleNavigate(`/search?q=${encodeURIComponent(q)}`);
+    }
+  }
+
+  function handleSearchKeyDown(e) {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (flatResults.length === 0) return;
+      setSearchOpen(true);
+      setHighlightedIndex((i) => Math.min(i + 1, flatResults.length - 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHighlightedIndex((i) => Math.max(i - 1, -1));
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      submitSearch();
+    } else if (e.key === "Escape") {
+      setSearchOpen(false);
+      setHighlightedIndex(-1);
+    }
+  }
+
+  const activeStyle = { background: "rgba(255,255,255,0.08)" };
+
   if (loading && !user) {
     return null;
   }
@@ -172,6 +249,7 @@ export default function Header() {
             onFocus={() => {
               if (query.trim()) setSearchOpen(true);
             }}
+            onKeyDown={handleSearchKeyDown}
           />
 
           {searchOpen && (
@@ -189,47 +267,105 @@ export default function Header() {
               {!searchLoading && seriesResults.length > 0 && (
                 <div className="header-search-group">
                   <div className="header-search-group-title">Series</div>
-                  {seriesResults.map((series) => (
+                  {seriesResults.map((series, i) => {
+                    const flatIdx = i;
+                    const isActive = highlightedIndex === flatIdx;
+                    return (
                     <button
                       key={series.id}
                       type="button"
                       className="header-search-item"
+                      style={isActive ? activeStyle : undefined}
+                      onMouseEnter={() => setHighlightedIndex(flatIdx)}
                       onClick={() => handleNavigate(`/series/${series.id}`)}
                     >
-                      <span className="header-search-item-title">
-                        {series.title || "Untitled Series"}
+                      <span className="header-search-thumb">
+                        {series.cover ? (
+                          <img
+                            src={series.cover}
+                            alt=""
+                            loading="lazy"
+                            onError={(e) => {
+                              e.currentTarget.style.display = "none";
+                            }}
+                          />
+                        ) : null}
                       </span>
-                      <span className="header-search-item-meta">
-                        {series.publisher?.name || "Unknown Publisher"}
+                      <span className="header-search-item-body">
+                        <span className="header-search-item-title-row">
+                          <span className="header-search-item-title">
+                            {series.title || "Untitled Series"}
+                          </span>
+                          {series.volume_index && series.volume_count > 1 ? (
+                            <span className="header-search-volume-tag">
+                              Vol. {series.volume_index}
+                            </span>
+                          ) : null}
+                        </span>
+                        <span className="header-search-item-meta">
+                          {[
+                            series.publisher?.name || "Unknown Publisher",
+                            formatYearRange(series.year_start, series.year_end) || null,
+                            series.issue_count
+                              ? `${series.issue_count} issue${series.issue_count === 1 ? "" : "s"}`
+                              : null,
+                          ]
+                            .filter(Boolean)
+                            .join(" · ")}
+                        </span>
                       </span>
                     </button>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
 
               {!searchLoading && comicResults.length > 0 && (
                 <div className="header-search-group">
                   <div className="header-search-group-title">Issues</div>
-                  {comicResults.map((comic) => {
+                  {comicResults.map((comic, i) => {
                     const href =
                       comic.source === "user"
                         ? `/comic/${comic.id}`
                         : `/issue/${comic.id}`;
+                    const flatIdx = seriesResults.length + i;
+                    const isActive = highlightedIndex === flatIdx;
 
                     return (
                       <button
                         key={comic.id}
                         type="button"
                         className="header-search-item"
+                        style={isActive ? activeStyle : undefined}
+                        onMouseEnter={() => setHighlightedIndex(flatIdx)}
                         onClick={() => handleNavigate(href)}
                       >
-                        <span className="header-search-item-title">
-                          {comic.title}
-                          {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                        <span className="header-search-thumb">
+                          {comic.cover ? (
+                            <img
+                              src={comic.cover}
+                              alt=""
+                              loading="lazy"
+                              onError={(e) => {
+                                e.currentTarget.style.display = "none";
+                              }}
+                            />
+                          ) : null}
                         </span>
-                        <span className="header-search-item-meta">
-                          {comic.publisher || "Unknown Publisher"}
-                          {comic.source === "user" ? " · User Added" : ""}
+                        <span className="header-search-item-body">
+                          <span className="header-search-item-title">
+                            {comic.title}
+                            {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                          </span>
+                          <span className="header-search-item-meta">
+                            {[
+                              comic.publisher || "Unknown Publisher",
+                              comic.releaseYear ? String(comic.releaseYear) : null,
+                              comic.source === "user" ? "User Added" : null,
+                            ]
+                              .filter(Boolean)
+                              .join(" · ")}
+                          </span>
                         </span>
                       </button>
                     );
@@ -299,6 +435,17 @@ export default function Header() {
 
           {user && (
             <>
+              {isPro && (
+                <Link
+                  href="/upgrade"
+                  className="nav-pro-pill"
+                  onClick={closeMenu}
+                  title="Manage your Pro subscription"
+                >
+                  PRO
+                </Link>
+              )}
+
               {profile?.username && (
                 <Link
                   href={`/u/${profile.username}`}

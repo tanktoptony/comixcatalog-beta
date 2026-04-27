@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
@@ -38,9 +39,22 @@ function makeLibraryKey(item) {
 }
 
 export default function LibraryPage() {
+  // useSearchParams below requires a Suspense boundary in Next 15+ for static
+  // rendering. Without this, `next build` fails with a CSR-bailout prerender error.
+  return (
+    <Suspense fallback={null}>
+      <LibraryPageContent />
+    </Suspense>
+  );
+}
+
+function LibraryPageContent() {
   const { collections, loading } = useLibrary();
-  const { user } = useAuth();
+  const { user, isPro } = useAuth();
   const supabase = getSupabaseClient();
+
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [tab, setTab] = useState("owned");
   const [comicIndex, setComicIndex] = useState(() => Object.fromEntries(hydrationCache));
@@ -53,9 +67,32 @@ export default function LibraryPage() {
   const [sortBy, setSortBy] = useState("title-asc");
   const [viewMode, setViewMode] = useState("list");
   const [pdfExporting, setPdfExporting] = useState(false);
+  // Capture the upgrade flag once at mount. After router.replace() strips the
+  // query param (in the effect below), this state still holds — so the banner
+  // stays visible until the user dismisses it.
+  const [upgradeBanner, setUpgradeBanner] = useState(() => {
+    const flag = searchParams.get("upgrade");
+    if (flag === "success" || flag === "cancelled") return flag;
+    return null;
+  });
+
+  // Strip the ?upgrade=… query param after mount so refreshes don't keep
+  // re-firing the banner. The initial banner value comes from the lazy
+  // useState initializer above (it reads searchParams once at mount), so the
+  // banner stays visible until the user dismisses it even after replace().
+  useEffect(() => {
+    const flag = searchParams.get("upgrade");
+    if (flag === "success" || flag === "cancelled") {
+      router.replace("/library", { scroll: false });
+    }
+  }, [searchParams, router]);
 
   async function handleExportPdf() {
     if (!user) return;
+    if (!isPro) {
+      window.location.href = "/upgrade";
+      return;
+    }
     setPdfExporting(true);
     try {
       const res = await fetch("/api/export/pdf", {
@@ -65,6 +102,10 @@ export default function LibraryPage() {
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
+        if (res.status === 402 || err.upgrade) {
+          window.location.href = "/upgrade";
+          return;
+        }
         alert(err.error || "PDF generation failed");
         return;
       }
@@ -248,6 +289,14 @@ export default function LibraryPage() {
     return result;
   }, [libraryItems, search, publisherFilter, sortBy]);
 
+  const isHydrating = useMemo(() => {
+    if (collections.length === 0) return false;
+    return collections.some((item) => {
+      const key = makeLibraryKey(item);
+      return key && !comicIndex[key];
+    });
+  }, [collections, comicIndex]);
+
   const stats = useMemo(() => {
     const rawCurrent = collections.filter((item) => item.status === tab);
     const hydratedCurrent = rawCurrent
@@ -277,6 +326,37 @@ export default function LibraryPage() {
 
   return (
     <main className="library-shell">
+      {upgradeBanner === "success" && (
+        <div className="library-upgrade-banner success" role="status">
+          <span className="library-upgrade-banner-icon" aria-hidden="true">✓</span>
+          <div className="library-upgrade-banner-body">
+            <strong>Welcome to Pro.</strong> The Export PDF button below is now unlocked.
+          </div>
+          <button
+            type="button"
+            className="library-upgrade-banner-close"
+            onClick={() => setUpgradeBanner(null)}
+            aria-label="Dismiss"
+          >
+            ×
+          </button>
+        </div>
+      )}
+      {upgradeBanner === "cancelled" && (
+        <div className="library-upgrade-banner cancelled" role="status">
+          <div className="library-upgrade-banner-body">
+            Checkout cancelled — no charge. <Link href="/upgrade">Try again</Link> when you&rsquo;re ready.
+          </div>
+          <button
+            type="button"
+            className="library-upgrade-banner-close"
+            onClick={() => setUpgradeBanner(null)}
+            aria-label="Dismiss"
+          >
+            ×
+          </button>
+        </div>
+      )}
       <section className="library-page-header">
         <div>
           <div className="library-kicker">Collection Management</div>
@@ -293,8 +373,13 @@ export default function LibraryPage() {
                 onClick={handleExportPdf}
                 disabled={pdfExporting}
                 type="button"
+                title={isPro ? "Export your collection as an insurance PDF" : "Pro feature — click to upgrade"}
               >
-                {pdfExporting ? "Generating…" : "Export PDF"}
+                {pdfExporting
+                  ? "Generating…"
+                  : isPro
+                    ? "Export PDF"
+                    : "Export PDF (Pro)"}
               </button>
               <Link href="/library/add" className="library-primary-btn">
                 Add Comic
@@ -491,7 +576,19 @@ export default function LibraryPage() {
 
           {loading && <div className="library-empty-state">Loading…</div>}
 
-          {!loading && filteredItems.length === 0 && (
+          {!loading && filteredItems.length === 0 && isHydrating && (
+            <div className={viewMode === "grid" ? "comic-grid" : "library-list"}>
+              {Array.from({ length: Math.min(stats.totalInView || 6, 12) }).map((_, i) => (
+                <div
+                  key={`skeleton-${i}`}
+                  className={viewMode === "grid" ? "comic-card library-skeleton-card" : "library-list-row library-skeleton-row"}
+                  aria-hidden="true"
+                />
+              ))}
+            </div>
+          )}
+
+          {!loading && filteredItems.length === 0 && !isHydrating && (
             <div className="library-empty-state">No comics match this view yet.</div>
           )}
 
@@ -508,7 +605,13 @@ export default function LibraryPage() {
                   slab_company: item.slab_company ?? null,
                   slab_cert_number: item.slab_cert_number ?? null,
                   notes: item.notes ?? null,
+                  purchase_price: item.purchase_price ?? null,
+                  market_value: item.market_value ?? null,
+                  user_cover_url: item.user_cover_url ?? null,
                 };
+
+                const displayCover =
+                  liveGrade.user_cover_url || comic.cover || "/fallback-cover.png";
 
                 return (
                   <article
@@ -517,10 +620,15 @@ export default function LibraryPage() {
                   >
                     <Link href={getLibraryHref(item, comic)} className="library-list-cover">
                       <img
-                        src={comic.cover || "/fallback-cover.png"}
+                        src={displayCover}
                         alt={comic.title}
                         loading="lazy"
                       />
+                      {liveGrade.user_cover_url && (
+                        <span className="library-cover-tag" title="Your photo">
+                          Your photo
+                        </span>
+                      )}
                     </Link>
 
                     <div className="library-list-main">
@@ -540,6 +648,22 @@ export default function LibraryPage() {
                             <span>•</span>
                             <span style={{ color: "var(--cc-gold)", fontWeight: 700 }}>
                               {liveGrade.slab_company}
+                            </span>
+                          </>
+                        )}
+                        {liveGrade.purchase_price != null && (
+                          <>
+                            <span>•</span>
+                            <span title="What you paid">
+                              Paid ${Number(liveGrade.purchase_price).toFixed(2)}
+                            </span>
+                          </>
+                        )}
+                        {liveGrade.market_value != null && (
+                          <>
+                            <span>•</span>
+                            <span style={{ color: "var(--cc-gold)" }} title="Market value">
+                              Worth ${Number(liveGrade.market_value).toFixed(2)}
                             </span>
                           </>
                         )}
@@ -589,7 +713,15 @@ export default function LibraryPage() {
                   grade_numeric: item.grade_numeric ?? null,
                   condition: item.condition ?? null,
                   slab_company: item.slab_company ?? null,
+                  slab_cert_number: item.slab_cert_number ?? null,
+                  notes: item.notes ?? null,
+                  purchase_price: item.purchase_price ?? null,
+                  market_value: item.market_value ?? null,
+                  user_cover_url: item.user_cover_url ?? null,
                 };
+
+                const displayCover =
+                  liveGrade.user_cover_url || comic.cover || "/fallback-cover.png";
 
                 return (
                   <article
@@ -599,10 +731,15 @@ export default function LibraryPage() {
                     <Link href={getLibraryHref(item, comic)} className="card-link">
                       <div className="comic-card-cover">
                         <img
-                          src={comic.cover || "/fallback-cover.png"}
+                          src={displayCover}
                           alt={comic.title}
                           loading="lazy"
                         />
+                        {liveGrade.user_cover_url && (
+                          <span className="library-cover-tag" title="Your photo">
+                            Your photo
+                          </span>
+                        )}
                       </div>
                       <div className="comic-card-title">
                         {comic.title}
@@ -615,11 +752,27 @@ export default function LibraryPage() {
 
                     {/* Grade badge on grid cards */}
                     {(liveGrade.grade_numeric || liveGrade.condition) && (
-                      <div style={{ padding: "4px 10px 8px" }}>
+                      <div style={{ padding: "4px 10px 0" }}>
                         <GradeBadge
                           grade={liveGrade.grade_numeric}
                           company={liveGrade.slab_company}
                           condition={liveGrade.condition}
+                        />
+                      </div>
+                    )}
+
+                    {/* Inline grade editor — owned books only */}
+                    {tab === "owned" && (
+                      <div className="comic-card-grade">
+                        <GradeEditor
+                          collectionId={item.id}
+                          initialData={liveGrade}
+                          onSave={(updated) =>
+                            setGradeData((prev) => ({
+                              ...prev,
+                              [item.id]: { ...liveGrade, ...updated },
+                            }))
+                          }
                         />
                       </div>
                     )}

@@ -1,16 +1,31 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-
-function hasKnownPublisher(row) {
-  const name = row?.publisher?.name ?? "";
-  return !!name && name !== "Unknown Publisher";
-}
+import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 
 function normalizeSearch(value) {
   return String(value ?? "")
     .trim()
     .toLowerCase()
     .replace(/[^a-z0-9]/g, "");
+}
+
+function normalizeForScoring(value) {
+  return String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/\b(the|a|an)\b/g, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+
+function stripTrailingIssueNumber(q) {
+  const trimmed = String(q ?? "").trim();
+  const match = trimmed.match(/([\s#])(\d+(?:\.\d+)?)$/);
+  if (!match) return trimmed;
+  const num = Number(match[2]);
+  if (Number.isInteger(num) && num >= 1900 && num <= 2099) {
+    return trimmed;
+  }
+  return trimmed.slice(0, match.index).trim();
 }
 
 function normalizeTitleKey(value) {
@@ -24,385 +39,218 @@ function normalizeTitleKey(value) {
 function dedupeById(rows) {
   const seen = new Set();
   const out = [];
-
   for (const row of rows) {
     const key = String(row?.id ?? "");
     if (!key || seen.has(key)) continue;
     seen.add(key);
     out.push(row);
   }
-
   return out;
-}
-
-function dedupeByCanonicalKey(rows) {
-  const seen = new Set();
-  const out = [];
-
-  for (const row of rows) {
-    const key = row.gcd_id
-      ? `gcd:${row.gcd_id}`
-      : `title:${normalizeSearch(row.title)}`;
-
-    if (!key || seen.has(key)) continue;
-    seen.add(key);
-    out.push(row);
-  }
-
-  return out;
-}
-
-function normalizePublisherName(value) {
-  return String(value ?? "").trim();
-}
-
-function isSuspiciousPublisherName(publisherName, seriesTitle) {
-  const pub = normalizePublisherName(publisherName).toLowerCase();
-  const title = String(seriesTitle ?? "").trim().toLowerCase();
-
-  if (!pub) return true;
-  if (pub === "unknown publisher") return true;
-
-  if (title && pub.includes(title)) return true;
-
-  if (
-    pub.includes("publishing company") ||
-    pub.includes("publishing co") ||
-    pub.includes("company inc") ||
-    pub.includes("publications inc") ||
-    pub.includes("publishers inc") ||
-    pub.includes("comics inc")
-  ) {
-    return true;
-  }
-
-  return false;
-}
-
-function normalizePublisherLabel(value) {
-  const pub = String(value ?? "").trim();
-  if (!pub) return null;
-
-  const lower = pub.toLowerCase();
-
-  const exactMap = {
-    "marvel": "Marvel Comics",
-    "marvel comics": "Marvel Comics",
-    "marvel comics group": "Marvel Comics",
-    "marvel comic": "Marvel Comics",
-
-    "atlas magazines": "Marvel Comics",
-    "atlas magazines inc": "Marvel Comics",
-    "atlas magazines inc.": "Marvel Comics",
-    "magazine management": "Marvel Comics",
-    "magazine management co inc": "Marvel Comics",
-    "magazine management co. inc.": "Marvel Comics",
-    "magazine management co., inc.": "Marvel Comics",
-
-    "dc": "DC Comics",
-    "dc comics": "DC Comics",
-    "dc comics inc": "DC Comics",
-    "dc comics inc.": "DC Comics",
-    "dc comics, inc.": "DC Comics",
-    "dc comics group": "DC Comics",
-    "detective comics": "DC Comics",
-    "detective comics inc": "DC Comics",
-    "detective comics inc.": "DC Comics",
-    "detective comics, inc.": "DC Comics",
-    "national periodical publications": "DC Comics",
-    "national periodical publications inc": "DC Comics",
-    "national periodical publications inc.": "DC Comics",
-
-    "top cow": "Top Cow Comics",
-    "top cow comics": "Top Cow Comics",
-
-    "image": "Image Comics",
-    "image comics": "Image Comics",
-    "image comics inc": "Image Comics",
-    "image comics, inc.": "Image Comics",
-
-    "dark horse": "Dark Horse Comics",
-    "dark horse comics": "Dark Horse Comics",
-    "dark horse comics inc.": "Dark Horse Comics",
-
-    "boom": "BOOM! Studios",
-    "boom studios": "BOOM! Studios",
-    "boom! studios": "BOOM! Studios",
-
-    "idw": "IDW Publishing",
-    "idw publishing": "IDW Publishing",
-
-    "vertigo": "Vertigo",
-    "vertigo comics": "Vertigo",
-
-    "archie": "Archie Comics",
-    "archie comics": "Archie Comics",
-
-    "valiant": "Valiant Comics",
-    "valiant comics": "Valiant Comics",
-
-    "dynamite": "Dynamite Entertainment",
-    "dynamite entertainment": "Dynamite Entertainment",
-
-    "wonder woman publishing company inc": "DC Comics",
-    "wonder woman publishing company inc.": "DC Comics",
-    "olympia publications inc": "Marvel Comics",
-    "olympia publications inc.": "Marvel Comics",
-  };
-
-  if (exactMap[lower]) return exactMap[lower];
-
-  if (lower.includes("marvel")) return "Marvel Comics";
-  if (lower.includes("atlas magazines")) return "Marvel Comics";
-  if (lower.includes("magazine management")) return "Marvel Comics";
-
-  if (lower.includes("dc comics")) return "DC Comics";
-  if (lower.includes("detective comics")) return "DC Comics";
-  if (lower.includes("national periodical")) return "DC Comics";
-
-  if (lower.includes("top cow")) return "Top Cow Comics";
-  if (lower.includes("image")) return "Image Comics";
-  if (lower.includes("dark horse")) return "Dark Horse Comics";
-  if (lower.includes("boom")) return "BOOM! Studios";
-  if (lower.includes("idw")) return "IDW Publishing";
-  if (lower.includes("vertigo")) return "Vertigo";
-  if (lower.includes("archie")) return "Archie Comics";
-  if (lower.includes("valiant")) return "Valiant Comics";
-  if (lower.includes("dynamite")) return "Dynamite Entertainment";
-
-  return null;
 }
 
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
     const q = (searchParams.get("q") || "").trim();
-    const normalizedQ = normalizeSearch(q);
+    if (!q) return NextResponse.json({ series: [] });
 
-    if (!q) {
-      return NextResponse.json({ series: [] });
-    }
+    const strippedQuery = stripTrailingIssueNumber(q);
+    const titleQuery = strippedQuery || q;
+    const normalizedQ = normalizeSearch(titleQuery);
+    const normalizedQForScoring = normalizeForScoring(titleQuery);
+
+    if (!normalizedQ) return NextResponse.json({ series: [] });
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,
       process.env.SUPABASE_SERVICE_ROLE_KEY
     );
 
-    const { data: rawSeries, error: seriesError } = await supabase
+    const { data: rows, error } = await supabase
       .from("series")
       .select(`
         id,
         gcd_id,
         title,
-        publisher_id,
-        publisher:publisher_id (
-          id,
-          name,
-          gcd_id
-        )
+        issue_count_cached,
+        year_start_cached,
+        year_end_cached,
+        resolved_publisher_cached,
+        featured_cover_path_cached
       `)
-      .ilike("title", `%${q}%`)
-      .limit(100);
+      .ilike("title_normalized", `%${normalizedQ}%`)
+      .not("gcd_id", "is", null)
+      .gt("issue_count_cached", 0)
+      .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
+      .order("issue_count_cached", { ascending: false })
+      .limit(60);
 
-    if (seriesError) {
-      console.error("GET /api/search/series failed:", seriesError);
+    if (error) {
+      console.error("GET /api/search/series failed:", error);
       return NextResponse.json({ series: [] });
     }
 
-    let rows = (rawSeries ?? []).filter((row) => {
-      if (!normalizedQ) return true;
-      return normalizeSearch(row.title).includes(normalizedQ);
-    });
+    const significanceTier = (count) => {
+      if (count >= 50) return 3;
+      if (count >= 15) return 2;
+      if (count >= 3) return 1;
+      return 0;
+    };
 
-    rows = rows.filter((row) => row?.gcd_id);
+    const compareSeries = (a, b) => {
+      const aTitle = normalizeForScoring(a.title);
+      const bTitle = normalizeForScoring(b.title);
 
-    if (rows.length === 0) {
-      return NextResponse.json({ series: [] });
-    }
+      const aExact = aTitle === normalizedQForScoring ? 1 : 0;
+      const bExact = bTitle === normalizedQForScoring ? 1 : 0;
+      if (bExact !== aExact) return bExact - aExact;
 
-    const uniqueSeriesGcdIds = [
-      ...new Set(rows.map((row) => row.gcd_id).filter(Boolean)),
-    ];
+      const aTier = significanceTier(a.issue_count_cached ?? 0);
+      const bTier = significanceTier(b.issue_count_cached ?? 0);
+      if (bTier !== aTier) return bTier - aTier;
 
-    const { data: issueRows, error: issueError } = await supabase
-      .from("gcd_issues")
-      .select("series_gcd_id, publisher_gcd_id")
-      .in("series_gcd_id", uniqueSeriesGcdIds)
-      .limit(5000);
+      const aStarts = aTitle.startsWith(normalizedQForScoring) ? 1 : 0;
+      const bStarts = bTitle.startsWith(normalizedQForScoring) ? 1 : 0;
+      if (bStarts !== aStarts) return bStarts - aStarts;
 
-    if (issueError) {
-      console.error("GET /api/search/series issue coverage failed:", issueError);
-      return NextResponse.json({ series: [] });
-    }
-
-    const issueCountBySeriesGcdId = {};
-    const issuePublisherGcdLookup = {};
-
-    for (const row of issueRows ?? []) {
-      const seriesKey = String(row.series_gcd_id);
-
-      issueCountBySeriesGcdId[seriesKey] =
-        (issueCountBySeriesGcdId[seriesKey] ?? 0) + 1;
-
-      if (!issuePublisherGcdLookup[seriesKey] && row.publisher_gcd_id) {
-        issuePublisherGcdLookup[seriesKey] = String(row.publisher_gcd_id);
+      if ((b.issue_count_cached ?? 0) !== (a.issue_count_cached ?? 0)) {
+        return (b.issue_count_cached ?? 0) - (a.issue_count_cached ?? 0);
       }
-    }
 
-    rows = rows.filter((row) => {
-      const count = issueCountBySeriesGcdId[String(row.gcd_id)] ?? 0;
-      return count > 0;
-    });
-
-    if (rows.length === 0) {
-      return NextResponse.json({ series: [] });
-    }
-
-    const publisherGcdIds = [
-      ...new Set(Object.values(issuePublisherGcdLookup).filter(Boolean)),
-    ];
-
-    let gcdPublisherLookup = {};
-    if (publisherGcdIds.length > 0) {
-      const { data: gcdPublishers, error: gcdPublisherError } = await supabase
-        .from("gcd_publishers")
-        .select("gcd_id, name")
-        .in("gcd_id", publisherGcdIds);
-
-      if (gcdPublisherError) {
-        console.error(
-          "GET /api/search/series gcd publisher fallback failed:",
-          gcdPublisherError
-        );
-      } else {
-        gcdPublisherLookup = Object.fromEntries(
-          (gcdPublishers ?? []).map((row) => [String(row.gcd_id), row.name])
-        );
-      }
-    }
-
-    const mapped = rows.map((row) => {
-      const localPublisherName = row.publisher?.name ?? null;
-      const fallbackPublisherName =
-        gcdPublisherLookup[issuePublisherGcdLookup[String(row.gcd_id)]] ?? null;
-
-      const normalizedLocalPublisher =
-        normalizePublisherLabel(localPublisherName);
-      const normalizedFallbackPublisher =
-        normalizePublisherLabel(fallbackPublisherName);
-
-      const trustedLocalPublisher = !isSuspiciousPublisherName(
-        localPublisherName,
-        row.title
-      )
-        ? localPublisherName
-        : null;
-
-      const trustedFallbackPublisher = !isSuspiciousPublisherName(
-        fallbackPublisherName,
-        row.title
-      )
-        ? fallbackPublisherName
-        : null;
-
-      const resolvedPublisher =
-        normalizedLocalPublisher ??
-        normalizedFallbackPublisher ??
-        trustedLocalPublisher ??
-        trustedFallbackPublisher ??
-        "Unknown Publisher";
-
-      return {
-        id: row.id,
-        gcd_id: row.gcd_id ?? null,
-        title: row.title ?? "Untitled Series",
-        issue_count: issueCountBySeriesGcdId[String(row.gcd_id)] ?? 0,
-        publisher: {
-          name: resolvedPublisher,
-        },
-      };
-    });
+      return (a.title ?? "").localeCompare(b.title ?? "");
+    };
 
     const grouped = new Map();
-
-    for (const row of mapped) {
+    for (const row of rows ?? []) {
       const key = normalizeTitleKey(row.title);
       if (!grouped.has(key)) grouped.set(key, []);
       grouped.get(key).push(row);
     }
 
+    const volumeIndexById = new Map();
+    const volumeCountById = new Map();
+
     const cleaned = [];
+    for (const group of grouped.values()) {
+      const sorted = [...group].sort(compareSeries);
+      const kept = [];
+      const fingerprints = new Set();
 
-    for (const groupRows of grouped.values()) {
-      const sortedGroup = [...groupRows].sort((a, b) => {
-        const aTitle = normalizeSearch(a.title);
-        const bTitle = normalizeSearch(b.title);
+      for (const row of sorted) {
+        const pub = String(row.resolved_publisher_cached ?? "").toLowerCase();
+        const yearStart = row.year_start_cached ?? "";
+        const yearEnd = row.year_end_cached ?? "";
+        const issueCount = row.issue_count_cached ?? 0;
+        // Primary fingerprint: same publisher + same years = same canonical series
+        const yearKey = yearStart || yearEnd ? `${pub}|${yearStart}-${yearEnd}` : null;
+        // Fallback when year data is missing: bucket issue counts by rough magnitude
+        // so an 857-issue row and a 284-issue row stay separate, but two 128-issue
+        // rows from the same publisher collapse.
+        const countBucket = Math.round(issueCount / 5);
+        const countKey = `${pub}#${countBucket}`;
 
-        const aExact = aTitle === normalizedQ ? 1 : 0;
-        const bExact = bTitle === normalizedQ ? 1 : 0;
-        if (bExact !== aExact) return bExact - aExact;
+        const fp = yearKey ?? countKey;
+        if (fingerprints.has(fp)) continue;
+        fingerprints.add(fp);
+        kept.push(row);
+      }
 
-        const aStarts = aTitle.startsWith(normalizedQ) ? 1 : 0;
-        const bStarts = bTitle.startsWith(normalizedQ) ? 1 : 0;
-        if (bStarts !== aStarts) return bStarts - aStarts;
-
-        const aKnownPublisher = hasKnownPublisher(a) ? 1 : 0;
-        const bKnownPublisher = hasKnownPublisher(b) ? 1 : 0;
-        if (bKnownPublisher !== aKnownPublisher) {
-          return bKnownPublisher - aKnownPublisher;
-        }
-
-        if ((b.issue_count ?? 0) !== (a.issue_count ?? 0)) {
-          return (b.issue_count ?? 0) - (a.issue_count ?? 0);
-        }
-
-        return a.title.localeCompare(b.title);
-      });
-
-      const best = sortedGroup[0];
-
-      const kept = sortedGroup.filter((row, idx) => {
+      // Drop tiny runs if a much bigger one exists in the same title group
+      const best = kept[0];
+      const pruned = kept.filter((row, idx) => {
         if (idx === 0) return true;
-
-        const samePublisher =
-          (row.publisher?.name ?? "") === (best.publisher?.name ?? "");
-
-        if (!hasKnownPublisher(row) && hasKnownPublisher(best)) return false;
-        if ((row.issue_count ?? 0) < 5 && (best.issue_count ?? 0) >= 20) return false;
-        if (samePublisher && (row.issue_count ?? 0) < (best.issue_count ?? 0)) return false;
-
+        if ((row.issue_count_cached ?? 0) < 3 && (best.issue_count_cached ?? 0) >= 15) {
+          return false;
+        }
         return true;
       });
 
-      cleaned.push(...kept.slice(0, 2));
-    }
+      // Assign volume indicators only when every row in the group has a real
+      // year_start AND the starts are distinct. Without reliable chronology
+      // the numbers would be meaningless — better to show nothing than to lie.
+      if (pruned.length > 1) {
+        const allHaveYears = pruned.every((r) => Number.isFinite(r.year_start_cached));
+        const starts = pruned.map((r) => r.year_start_cached);
+        const startsAreDistinct = new Set(starts).size === starts.length;
 
-    cleaned.sort((a, b) => {
-      const aTitle = normalizeSearch(a.title);
-      const bTitle = normalizeSearch(b.title);
-
-      const aExact = aTitle === normalizedQ ? 1 : 0;
-      const bExact = bTitle === normalizedQ ? 1 : 0;
-      if (bExact !== aExact) return bExact - aExact;
-
-      const aStarts = aTitle.startsWith(normalizedQ) ? 1 : 0;
-      const bStarts = bTitle.startsWith(normalizedQ) ? 1 : 0;
-      if (bStarts !== aStarts) return bStarts - aStarts;
-
-      const aKnownPublisher = hasKnownPublisher(a) ? 1 : 0;
-      const bKnownPublisher = hasKnownPublisher(b) ? 1 : 0;
-      if (bKnownPublisher !== aKnownPublisher) return bKnownPublisher - aKnownPublisher;
-
-      if ((b.issue_count ?? 0) !== (a.issue_count ?? 0)) {
-        return (b.issue_count ?? 0) - (a.issue_count ?? 0);
+        if (allHaveYears && startsAreDistinct) {
+          const ordered = [...pruned].sort(
+            (a, b) => a.year_start_cached - b.year_start_cached
+          );
+          ordered.forEach((row, i) => {
+            volumeIndexById.set(row.id, i + 1);
+            volumeCountById.set(row.id, ordered.length);
+          });
+        }
       }
 
-      return a.title.localeCompare(b.title);
-    });
+      cleaned.push(...pruned);
+    }
 
-    return NextResponse.json({
-      series: dedupeByCanonicalKey(dedupeById(cleaned)).slice(0, 12),
-    });
+    cleaned.sort(compareSeries);
+    const top = dedupeById(cleaned).slice(0, 12);
+
+    // Cover fallback: for rows where featured_cover_path_cached is null,
+    // look up any canonical_cover by series_title so the autocomplete isn't
+    // left with empty tiles when the refresh script didn't find a match.
+    const missingCover = top.filter((row) => !row.featured_cover_path_cached);
+    const fallbackPathById = new Map();
+    if (missingCover.length > 0) {
+      const fallbackTitles = [
+        ...new Set(missingCover.map((r) => r.title).filter(Boolean)),
+      ];
+      if (fallbackTitles.length > 0) {
+        const { data: coverRows, error: coverErr } = await supabase
+          .from("canonical_covers")
+          .select("series_title, storage_path, publisher")
+          .in("series_title", fallbackTitles)
+          .not("storage_path", "is", null)
+          .limit(fallbackTitles.length * 8);
+
+        if (!coverErr && coverRows) {
+          const byTitlePub = new Map();
+          const byTitle = new Map();
+          for (const c of coverRows) {
+            if (!c.storage_path) continue;
+            const titleKey = String(c.series_title ?? "").toLowerCase();
+            const pubKey = String(c.publisher ?? "").toLowerCase();
+            const tpKey = `${titleKey}|${pubKey}`;
+            if (!byTitlePub.has(tpKey)) byTitlePub.set(tpKey, c.storage_path);
+            if (!byTitle.has(titleKey)) byTitle.set(titleKey, c.storage_path);
+          }
+
+          for (const row of missingCover) {
+            const titleKey = String(row.title ?? "").toLowerCase();
+            const pubKey = String(row.resolved_publisher_cached ?? "").toLowerCase();
+            const path =
+              byTitlePub.get(`${titleKey}|${pubKey}`) ?? byTitle.get(titleKey) ?? null;
+            if (path) fallbackPathById.set(row.id, path);
+          }
+        }
+      }
+    }
+
+    const series = top.map((row) => ({
+      id: row.id,
+      gcd_id: row.gcd_id ?? null,
+      title: row.title ?? "Untitled Series",
+      issue_count: row.issue_count_cached ?? 0,
+      year_start: row.year_start_cached ?? null,
+      year_end: row.year_end_cached ?? null,
+      volume_index: volumeIndexById.get(row.id) ?? null,
+      volume_count: volumeCountById.get(row.id) ?? null,
+      publisher: {
+        name: row.resolved_publisher_cached ?? "Unknown Publisher",
+      },
+      cover: (() => {
+        const path = row.featured_cover_path_cached ?? fallbackPathById.get(row.id);
+        return path
+          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`
+          : null;
+      })(),
+    }));
+
+    return NextResponse.json({ series });
   } catch (err) {
     console.error("GET /api/search/series crashed:", err);
     return NextResponse.json({ series: [] });

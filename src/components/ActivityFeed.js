@@ -11,21 +11,22 @@ export default function ActivityFeed() {
 
     async function load() {
       try {
-        const res = await fetch("/api/activity");
-        const data = await res.json();
+        const res = await fetch("/api/activity", {
+          cache: "no-store",
+          headers: { Accept: "application/json" },
+        });
+
+        const text = await res.text();
+        const data = text ? JSON.parse(text) : { activity: [] };
 
         if (!ignore) {
-          setActivity(Array.isArray(data.activity) ? data.activity : []);
+          setActivity(Array.isArray(data?.activity) ? data.activity : []);
         }
       } catch (err) {
         console.error("Failed to load activity:", err);
-        if (!ignore) {
-          setActivity([]);
-        }
+        if (!ignore) setActivity([]);
       } finally {
-        if (!ignore) {
-          setLoading(false);
-        }
+        if (!ignore) setLoading(false);
       }
     }
 
@@ -39,8 +40,7 @@ export default function ActivityFeed() {
   const shouldScroll = activity.length >= 5;
 
   const items = useMemo(() => {
-    if (!shouldScroll) return activity;
-    return [...activity, ...activity];
+    return shouldScroll ? [...activity, ...activity] : activity;
   }, [activity, shouldScroll]);
 
   return (
@@ -59,11 +59,11 @@ export default function ActivityFeed() {
             {items.map((a, i) => {
               const username = a?.profiles?.username || "Collector";
               const status = a?.status === "owned" ? "added" : "wishlisted";
-              const title = a?.comics?.series_title || "Comic";
+              const title = a?.comics?.series_title || "Unknown comic";
               const issue = a?.comics?.issue_number ? ` #${a.comics.issue_number}` : "";
 
               return (
-                <li key={`${username}-${title}-${issue}-${i}`}>
+                <li key={`${a.user_id}-${a.comic_id}-${a.created_at}-${i}`}>
                   <b>{username}</b> {status} {title}
                   {issue}
                 </li>

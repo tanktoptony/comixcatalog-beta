@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useLibrary } from "../../context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 
@@ -11,6 +12,21 @@ function resolveCoverUrl(rawCover) {
   if (!rawCover) return null;
   if (/^https?:\/\//i.test(rawCover)) return rawCover;
   return `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${rawCover}`;
+}
+
+function normalizeYear(y) {
+  const n = Number(y);
+  if (!Number.isFinite(n)) return null;
+  if (n >= 1800 && n <= 2100) return Math.trunc(n);
+  return null;
+}
+
+function formatYearRange(start, end) {
+  const s = normalizeYear(start);
+  const e = normalizeYear(end);
+  if (!s) return "";
+  if (!e || e === s) return String(s);
+  return `${s}–${e}`;
 }
 
 function mapSupabaseComic(row) {
@@ -42,8 +58,15 @@ function SkeletonCard() {
 }
 
 export default function SearchPageClient() {
-  const [query, setQuery] = useState("");
+  const searchParams = useSearchParams();
+  const urlQuery = searchParams.get("q") || "";
+
+  const [query, setQuery] = useState(urlQuery);
   const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    setQuery(urlQuery);
+  }, [urlQuery]);
 
   const [supabaseComics, setSupabaseComics] = useState([]);
   const [seriesResults, setSeriesResults] = useState([]);
@@ -119,13 +142,12 @@ export default function SearchPageClient() {
     };
   }, [query, page]);
 
-  // ── Reset on new query ───────────────────────────────────────────────────────
+  // ── Reset page/filter on new query (keep old results visible until new ones arrive) ──
   useEffect(() => {
     setPage(0);
-    setSupabaseComics([]);
     setHasMore(true);
     setLoadError(null);
-    setPublisherFilter(null); // clear publisher filter on new search
+    setPublisherFilter(null);
   }, [query]);
 
   // ── Series suggestions ───────────────────────────────────────────────────────
@@ -239,11 +261,14 @@ export default function SearchPageClient() {
           <div className="comic-grid">
             {seriesResults.map((s) => {
               if (!s?.id) return null;
+              const yearLabel = formatYearRange(s.year_start, s.year_end);
               return (
                 <Link key={s.id} href={`/series/${s.id}`} className="comic-card">
                   <div className="comic-card-title">{s.title || "Untitled Series"}</div>
                   <div className="comic-card-meta">
-                    {s.publisher?.name || "Unknown Publisher"}
+                    {[s.publisher?.name || "Unknown Publisher", yearLabel]
+                      .filter(Boolean)
+                      .join(" · ")}
                   </div>
                 </Link>
               );

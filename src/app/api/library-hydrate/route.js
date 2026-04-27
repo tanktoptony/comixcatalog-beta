@@ -111,13 +111,17 @@ export async function POST(req) {
       });
 
       const seriesTitles = [...new Set(intermediate.map((r) => r.seriesTitle).filter(Boolean))];
+      const issueNumbers = [
+        ...new Set(intermediate.map((r) => r.issue_number).filter((v) => v != null)),
+      ];
       let canonicalLookup = {};
 
-      if (seriesTitles.length > 0) {
+      if (seriesTitles.length > 0 && issueNumbers.length > 0) {
         const { data: covers } = await supabase
           .from("canonical_covers")
           .select("series_title, issue_number, storage_path")
           .in("series_title", seriesTitles)
+          .in("issue_number", issueNumbers)
           .not("storage_path", "is", null);
 
         canonicalLookup = Object.fromEntries(

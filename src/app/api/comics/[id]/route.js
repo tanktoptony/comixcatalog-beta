@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { resolvePublisher } from "@/lib/publisher";
 
 function getSupabase() {
   return createClient(
@@ -14,6 +15,32 @@ function parseYear(value) {
   return match ? Number(match[0]) : null;
 }
 
+const COVER_YEAR_DIFF_THRESHOLD = 2;
+
+function pickBestCoverRow(rows, targetYear) {
+  if (!rows?.length) return null;
+  let best = null;
+  let bestDiff = Infinity;
+  for (const r of rows) {
+    if (targetYear == null) {
+      if (!best) best = r;
+      continue;
+    }
+    const y = parseYear(r.cover_date);
+    if (y == null) {
+      if (!best) best = r;
+      continue;
+    }
+    const diff = Math.abs(y - targetYear);
+    if (diff > COVER_YEAR_DIFF_THRESHOLD) continue;
+    if (diff < bestDiff) {
+      best = r;
+      bestDiff = diff;
+    }
+  }
+  return best;
+}
+
 // GET /api/comics/[id]
 export async function GET(req, context) {
   try {
@@ -22,7 +49,12 @@ export async function GET(req, context) {
 
     // Handle GCD issues (prefixed with "gcd-")
     if (String(id).startsWith("gcd-")) {
-      const gcdId = String(id).replace(/^gcd-/, "");
+      // gcd_id is an integer column — coerce explicitly to avoid implicit
+      // string→int casting in Postgres and to reject malformed URLs early.
+      const gcdId = Number(String(id).replace(/^gcd-/, ""));
+      if (!Number.isInteger(gcdId) || gcdId <= 0) {
+        return NextResponse.json({ error: "Invalid GCD id" }, { status: 400 });
+      }
 
       const { data: issue, error } = await supabase
         .from("gcd_issues")
@@ -41,10 +73,10 @@ export async function GET(req, context) {
         return NextResponse.json({ error: "Issue not found" }, { status: 404 });
       }
 
-      const [seriesResult, gcdPublisherResult] = await Promise.all([
+      const [seriesResult, gcdPublisherResult, gcdSeriesResult] = await Promise.all([
         supabase
           .from("series")
-          .select("id, title, publisher:publisher_id(id, name)")
+          .select("id, title, cv_publisher, publisher:publisher_id(id, name)")
           .eq("gcd_id", issue.series_gcd_id)
           .single(),
         issue.publisher_gcd_id
@@ -54,31 +86,57 @@ export async function GET(req, context) {
               .eq("gcd_id", issue.publisher_gcd_id)
               .single()
           : Promise.resolve({ data: null }),
+        // Series-level publisher per GCD — preferred over per-issue value,
+        // which is often a distributor or shell company.
+        supabase
+          .from("gcd_series")
+          .select("publisher_gcd_id")
+          .eq("gcd_id", issue.series_gcd_id)
+          .single(),
       ]);
 
       const seriesRow = seriesResult.data;
       const seriesTitle = seriesRow?.title ?? issue.title ?? null;
-      const publisherName =
-        seriesRow?.publisher?.name ??
-        gcdPublisherResult.data?.name ??
-        null;
 
-      // Resolve cover
+      const seriesLevelPublisherGcdId = gcdSeriesResult.data?.publisher_gcd_id ?? null;
+      let seriesLevelPublisherName = null;
+      if (seriesLevelPublisherGcdId) {
+        const { data: gcdPubRow } = await supabase
+          .from("gcd_publishers")
+          .select("name")
+          .eq("gcd_id", seriesLevelPublisherGcdId)
+          .single();
+        seriesLevelPublisherName = gcdPubRow?.name ?? null;
+      }
+
       let cover = null;
+      let canonicalPublisher = null;
       if (seriesTitle && issue.issue_number != null) {
         const { data: canonicalRows } = await supabase
           .from("canonical_covers")
-          .select("storage_path")
+          .select("storage_path, publisher, cover_date")
           .eq("series_title", seriesTitle)
-          .eq("issue_number", issue.issue_number)
-          .not("storage_path", "is", null)
-          .limit(1);
+          .eq("issue_number", issue.issue_number);
 
-        const storagePath = canonicalRows?.[0]?.storage_path ?? null;
-        if (storagePath) {
-          cover = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`;
+        const issueYear = parseYear(issue.publication_date);
+        const bestRow = pickBestCoverRow(canonicalRows, issueYear);
+        if (bestRow?.storage_path) {
+          cover = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${bestRow.storage_path}`;
         }
+        canonicalPublisher = bestRow?.publisher
+          ?? canonicalRows?.find((row) => row.publisher)?.publisher
+          ?? null;
       }
+
+      const publisherName = resolvePublisher({
+        cv: seriesRow?.cv_publisher ?? canonicalPublisher,
+        candidates: [
+          seriesRow?.publisher?.name ?? null,
+          seriesLevelPublisherName,
+          gcdPublisherResult.data?.name ?? null,
+        ],
+        seriesTitle,
+      });
 
       return NextResponse.json({
         issue: {

@@ -1,39 +1,57 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { resolvePublisher } from "@/lib/publisher";
 
-async function resolvePublisherFromComicVine(
-  supabase,
-  seriesTitle,
-  issueNumber,
-  fallbackPublisher = null
-) {
-  if (!seriesTitle) return fallbackPublisher;
+async function fetchCanonicalMatch(supabase, seriesTitle, issueNumber, targetYear) {
+  if (!seriesTitle) return { storage_path: null, publisher: null };
 
-  const exact = await supabase
+  const { data: exactRows } = await supabase
     .from("canonical_covers")
-    .select("publisher")
+    .select("storage_path, publisher, cover_date")
     .eq("series_title", seriesTitle)
-    .eq("issue_number", issueNumber)
-    .not("publisher", "is", null)
-    .limit(1);
+    .eq("issue_number", issueNumber);
 
-  const exactPublisher = exact.data?.[0]?.publisher ?? null;
-  if (exactPublisher) return exactPublisher;
+  const best = pickBestCoverRow(exactRows, targetYear);
+  if (best) return best;
 
-  const bySeries = await supabase
+  const { data: seriesRows } = await supabase
     .from("canonical_covers")
-    .select("publisher")
+    .select("storage_path, publisher, cover_date")
     .eq("series_title", seriesTitle)
     .not("publisher", "is", null)
-    .limit(1);
+    .limit(20);
 
-  return bySeries.data?.[0]?.publisher ?? fallbackPublisher;
+  const bestFallback = pickBestCoverRow(seriesRows, targetYear);
+  return bestFallback ?? { storage_path: null, publisher: null };
 }
 
 function parseYear(value) {
   if (!value) return null;
   const match = String(value).match(/\b(18|19|20)\d{2}\b/);
   return match ? Number(match[0]) : null;
+}
+
+function pickBestCoverRow(rows, targetYear) {
+  if (!rows?.length) return null;
+  let best = null;
+  let bestDiff = Infinity;
+  for (const r of rows) {
+    if (targetYear == null) {
+      if (!best) best = r;
+      continue;
+    }
+    const y = parseYear(r.cover_date);
+    if (y == null) {
+      if (!best) best = r;
+      continue;
+    }
+    const diff = Math.abs(y - targetYear);
+    if (diff < bestDiff) {
+      best = r;
+      bestDiff = diff;
+    }
+  }
+  return best;
 }
 
 function normalizeIssueNumber(value) {
@@ -96,7 +114,12 @@ export async function GET(req, context) {
     );
 
     if (String(id).startsWith("gcd-")) {
-      const gcdId = String(id).replace(/^gcd-/, "");
+      // gcd_id is an integer column — coerce explicitly to avoid implicit
+      // string→int casting in Postgres and to reject malformed URLs early.
+      const gcdId = Number(String(id).replace(/^gcd-/, ""));
+      if (!Number.isInteger(gcdId) || gcdId <= 0) {
+        return NextResponse.json({ error: "Invalid GCD id" }, { status: 400 });
+      }
 
       const { data: issue, error: issueError } = await supabase
         .from("gcd_issues")
@@ -115,63 +138,86 @@ export async function GET(req, context) {
         return NextResponse.json({ error: "Issue not found" }, { status: 404 });
       }
 
-      const { data: seriesRow } = await supabase
-        .from("series")
-        .select(`
-          id,
-          gcd_id,
-          title,
-          publisher_id,
-          publisher:publisher_id (
+      const [seriesResult, gcdSeriesResult] = await Promise.all([
+        supabase
+          .from("series")
+          .select(`
             id,
-            name,
-            gcd_id
-          )
-        `)
-        .eq("gcd_id", issue.series_gcd_id)
-        .single();
+            gcd_id,
+            title,
+            publisher_id,
+            cv_publisher,
+            publisher:publisher_id (
+              id,
+              name,
+              gcd_id
+            )
+          `)
+          .eq("gcd_id", issue.series_gcd_id)
+          .single(),
+        // Series-level publisher per GCD — preferred over per-issue
+        // publisher_gcd_id, which is often a distributor or shell company.
+        supabase
+          .from("gcd_series")
+          .select("publisher_gcd_id")
+          .eq("gcd_id", issue.series_gcd_id)
+          .single(),
+      ]);
+
+      const seriesRow = seriesResult.data;
+      const seriesLevelPublisherGcdId = gcdSeriesResult.data?.publisher_gcd_id ?? null;
+
+      const publisherIdsToFetch = [
+        ...new Set(
+          [issue.publisher_gcd_id, seriesLevelPublisherGcdId]
+            .filter(Boolean)
+            .map((v) => String(v))
+        ),
+      ];
 
       let gcdPublisherName = null;
-      if (issue.publisher_gcd_id) {
-        const { data: gcdPublisherRow } = await supabase
+      let seriesLevelPublisherName = null;
+      if (publisherIdsToFetch.length > 0) {
+        const { data: gcdPublisherRows } = await supabase
           .from("gcd_publishers")
           .select("gcd_id, name")
-          .eq("gcd_id", issue.publisher_gcd_id)
-          .single();
+          .in("gcd_id", publisherIdsToFetch);
 
-        gcdPublisherName = gcdPublisherRow?.name ?? null;
+        const nameByGcdId = new Map(
+          (gcdPublisherRows ?? []).map((row) => [String(row.gcd_id), row.name])
+        );
+        gcdPublisherName = issue.publisher_gcd_id
+          ? nameByGcdId.get(String(issue.publisher_gcd_id)) ?? null
+          : null;
+        seriesLevelPublisherName = seriesLevelPublisherGcdId
+          ? nameByGcdId.get(String(seriesLevelPublisherGcdId)) ?? null
+          : null;
       }
 
       const seriesId = seriesRow?.id ?? null;
       const seriesTitle = seriesRow?.title ?? issue.title ?? null;
-      const rawPublisherName =
-        seriesRow?.publisher?.name ??
-        (seriesRow?.publisher?.gcd_id ? gcdPublisherName : null) ??
-        gcdPublisherName ??
-        null;
 
-      const publisherName = await resolvePublisherFromComicVine(
+      const issueYear = parseYear(issue.publication_date);
+      const canonicalMatch = await fetchCanonicalMatch(
         supabase,
         seriesTitle,
         issue.issue_number,
-        rawPublisherName
+        issueYear
       );
 
-      let cover = null;
-      if (seriesTitle && issue.issue_number != null) {
-        const { data: canonicalRows } = await supabase
-          .from("canonical_covers")
-          .select("storage_path")
-          .eq("series_title", seriesTitle)
-          .eq("issue_number", issue.issue_number)
-          .not("storage_path", "is", null)
-          .limit(1);
+      const publisherName = resolvePublisher({
+        cv: seriesRow?.cv_publisher ?? canonicalMatch.publisher,
+        candidates: [
+          seriesRow?.publisher?.name ?? null,
+          seriesLevelPublisherName,
+          gcdPublisherName,
+        ],
+        seriesTitle,
+      });
 
-        const storagePath = canonicalRows?.[0]?.storage_path ?? null;
-        if (storagePath) {
-          cover = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`;
-        }
-      }
+      const cover = canonicalMatch.storage_path
+        ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${canonicalMatch.storage_path}`
+        : null;
 
       let prevIssue = null;
       let nextIssue = null;

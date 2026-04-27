@@ -94,8 +94,78 @@ export default function GradeEditor({ collectionId, initialData = {}, onSave }) 
   const [purchasePrice, setPurchasePrice] = useState(
     initialData.purchase_price != null ? String(initialData.purchase_price) : ""
   );
+  const [marketValue, setMarketValue] = useState(
+    initialData.market_value != null ? String(initialData.market_value) : ""
+  );
+  const [userCoverUrl, setUserCoverUrl] = useState(initialData.user_cover_url || null);
+  const [uploading, setUploading] = useState(false);
 
   const isSlabbed = !!slabCompany;
+
+  async function handleCoverFile(file) {
+    if (!file || !collectionId) return;
+    if (!file.type.startsWith("image/")) {
+      setError("Please choose an image file.");
+      return;
+    }
+    if (file.size > 8 * 1024 * 1024) {
+      setError("Image too large (max 8MB).");
+      return;
+    }
+
+    setUploading(true);
+    setError(null);
+    try {
+      const supabase = getSupabaseClient();
+      const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
+      const path = `library/${collectionId}.${ext}`;
+
+      const { error: upErr } = await supabase.storage
+        .from("comic-covers")
+        .upload(path, file, { upsert: true, contentType: file.type });
+      if (upErr) throw upErr;
+
+      const { data: pub } = supabase.storage.from("comic-covers").getPublicUrl(path);
+      // Cache-bust so the new image shows immediately after re-upload.
+      const url = pub?.publicUrl ? `${pub.publicUrl}?t=${Date.now()}` : null;
+      if (!url) throw new Error("Could not resolve public URL");
+
+      const { error: dbErr } = await supabase
+        .from("user_collections")
+        .update({ user_cover_url: url })
+        .eq("id", collectionId);
+      if (dbErr) throw dbErr;
+
+      setUserCoverUrl(url);
+      onSave?.({ user_cover_url: url });
+    } catch (err) {
+      console.error("cover upload failed:", err);
+      setError("Upload failed — please try again.");
+    } finally {
+      setUploading(false);
+    }
+  }
+
+  async function handleRemoveCover() {
+    if (!collectionId) return;
+    setUploading(true);
+    setError(null);
+    try {
+      const supabase = getSupabaseClient();
+      const { error: dbErr } = await supabase
+        .from("user_collections")
+        .update({ user_cover_url: null })
+        .eq("id", collectionId);
+      if (dbErr) throw dbErr;
+      setUserCoverUrl(null);
+      onSave?.({ user_cover_url: null });
+    } catch (err) {
+      console.error("cover remove failed:", err);
+      setError("Could not remove photo.");
+    } finally {
+      setUploading(false);
+    }
+  }
 
   async function handleSave() {
     if (!collectionId) return;
@@ -106,6 +176,7 @@ export default function GradeEditor({ collectionId, initialData = {}, onSave }) 
       const supabase = getSupabaseClient();
 
       const parsedPrice = purchasePrice.trim() !== "" ? Number(purchasePrice) : null;
+      const parsedMarket = marketValue.trim() !== "" ? Number(marketValue) : null;
       const payload = {
         condition: isSlabbed ? null : condition || null,
         grade_numeric: isSlabbed && gradeNumeric !== "" ? Number(gradeNumeric) : null,
@@ -113,6 +184,7 @@ export default function GradeEditor({ collectionId, initialData = {}, onSave }) 
         slab_cert_number: isSlabbed && certNumber ? certNumber.trim() : null,
         notes: notes.trim() || null,
         purchase_price: parsedPrice != null && !Number.isNaN(parsedPrice) ? parsedPrice : null,
+        market_value: parsedMarket != null && !Number.isNaN(parsedMarket) ? parsedMarket : null,
       };
 
       const { error: supabaseError } = await supabase
@@ -140,6 +212,7 @@ export default function GradeEditor({ collectionId, initialData = {}, onSave }) 
     setCertNumber(initialData.slab_cert_number || "");
     setNotes(initialData.notes || "");
     setPurchasePrice(initialData.purchase_price != null ? String(initialData.purchase_price) : "");
+    setMarketValue(initialData.market_value != null ? String(initialData.market_value) : "");
     setError(null);
     setOpen(false);
   }
@@ -177,6 +250,53 @@ export default function GradeEditor({ collectionId, initialData = {}, onSave }) 
       {/* Inline editor panel */}
       {open && (
         <div className="grade-editor-panel">
+
+          {/* Your photo of the book */}
+          <div className="grade-field grade-cover-field">
+            <label className="grade-label">Your photo of this book</label>
+            <div className="grade-cover-row">
+              {userCoverUrl ? (
+                <img
+                  src={userCoverUrl}
+                  alt="Your photo"
+                  className="grade-cover-thumb"
+                />
+              ) : (
+                <div className="grade-cover-thumb grade-cover-thumb-empty" aria-hidden="true">
+                  No photo
+                </div>
+              )}
+              <div className="grade-cover-actions">
+                <label className={`grade-cover-btn ${uploading ? "is-disabled" : ""}`}>
+                  {uploading ? "Uploading…" : userCoverUrl ? "Replace" : "Upload"}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    hidden
+                    disabled={uploading}
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) handleCoverFile(f);
+                      e.target.value = "";
+                    }}
+                  />
+                </label>
+                {userCoverUrl && (
+                  <button
+                    type="button"
+                    className="grade-cover-remove"
+                    onClick={handleRemoveCover}
+                    disabled={uploading}
+                  >
+                    Remove
+                  </button>
+                )}
+              </div>
+            </div>
+            <div className="grade-cover-hint">
+              Adds your specific copy to insurance PDFs and the public profile. Max 8MB.
+            </div>
+          </div>
 
           {/* Slab company */}
           <div className="grade-field">
@@ -260,6 +380,20 @@ export default function GradeEditor({ collectionId, initialData = {}, onSave }) 
               placeholder="e.g. 12.00"
               value={purchasePrice}
               onChange={(e) => setPurchasePrice(e.target.value)}
+            />
+          </div>
+
+          {/* Market value (self-reported for now; automated in Phase 3) */}
+          <div className="grade-field">
+            <label className="grade-label">Market Value ($)</label>
+            <input
+              className="grade-input"
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="e.g. 85.00"
+              value={marketValue}
+              onChange={(e) => setMarketValue(e.target.value)}
             />
           </div>
 

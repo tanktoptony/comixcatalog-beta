@@ -339,49 +339,23 @@ These are our wedge.
 
 ## 7. Discogs reference screenshots
 
-Drop the screenshots from 2026-04-26 into `docs/north-star/discogs-reference/` with the filenames below so this doc can link them inline once they're saved:
+Captured 2026-04-26 from discogs.com. Saved in [`docs/north-star/discogs-reference/`](./discogs-reference/).
 
-| Suggested filename | Captures |
-|---|---|
-| `01-homepage.png` | Top nav, search, hero carousel, "Best-Selling This Week" |
-| `02-notifications.png` | Notifications panel — wantlist hits, "In Case You Missed It" |
-| `03-user-menu.png` | User dropdown — Account / Shop Music / Sell Music / Contribute columns |
-| `04-digs-menu.png` | Reads/Digs dropdown |
-| `05-community-menu.png` | Forum/Groups/Lists/Contributors/Leaderboard menu |
-| `06-sell-menu.png` | Sell dropdown — list, start selling, grading/pricing/shipping guides |
-| `07-shop-menu.png` | Shop dropdown — wantlist, new & upcoming, formats |
-| `08-explore-menu.png` | Explore dropdown — all, advanced search, most collected, submit |
-| `09-search-results.png` | Search results with faceted filters |
-| `10-advanced-search.png` | Advanced search form |
-| `11-search-most-collected.png` | "Most Collected" results sort |
-| `12-add-release.png` | Submit-a-release form (drag-drop image, structured fields, guidelines sidebar) |
-| `13-submission-guidelines.png` | Help-center-style guidelines article |
-| `14-shop-wantlist.png` | "All Items I Want" — items from wantlist now for sale |
-| `15-new-upcoming.png` | New & Upcoming releases page (carousel + grid) |
-| `16-shop-vinyl.png` | Format-filtered shop (Vinyl) |
-| `17-shop-cd.png` | CD shop |
-| `18-shop-cassette.png` | Cassette shop |
-| `19-shop-all.png` | All marketplace items |
-| `20-purchases.png` | Order history table |
-| `21-cart-empty.png` | Empty cart state |
-| `22-buyer-settings.png` | Marketplace buyer settings |
-| `23-seller-settings.png` | Seller onboarding modal + form |
-| `24-sell-landing.png` | "Sell on Discogs" marketing page |
-| `25-grade-guide.png` | "All About Record Grading" article |
-| `26-pricing-guide.png` | "How to Price Records" article |
-| `27-shipping-guide.png` | "Packing & Shipping" article |
-| `28-seller-resources.png` | Seller resources index (Account / Grading / Pricing cards) |
-| `29-seller-updates.png` | Seller updates feed with topic filter |
-| `30-forum.png` | Forum index with category counts |
-| `31-groups.png` | Groups index |
-| `32-lists.png` | Recent Lists / featured lists |
-| `33-contributors.png` | All-time contributors leaderboard |
-| `34-leaderboard-monthly.png` | Monthly leaderboard with "Latest Submissions" sidebar |
-| `35-community-guidelines.png` | Community guidelines article |
-| `36-digs-features.png` | Digs/Reads — Features tab |
-| `37-digs-most-valuable.png` | Digs — Most Valuable & Best Selling |
-| `38-digs-collecting.png` | Digs — Collecting tab |
-| `39-digs-gear.png` | Digs — Audio Gear tab |
+Coverage of the captures (in rough nav order — actual filenames in the folder, browse them directly):
+
+- **Homepage**: top nav, search bar, hero carousel, "Best-Selling This Week" grid
+- **Notifications panel**: wantlist hits with cover thumb + seller + price, "In Case You Missed It" recommendations
+- **User dropdown**: Account / Shop / Sell / Contribute column layout
+- **Top-nav dropdowns**: Explore Discography, Shop Music (formats), Sell Music (guides), Community (forum/groups/lists/contributors), Reads/Digs (features/most-valuable/collecting/gear)
+- **Search**: faceted-filter results page, advanced search form, "Most Collected" sort
+- **Submission flow**: Add Release form (drag-drop image, structured fields, guidelines sidebar), Submission Guidelines article
+- **Marketplace**: Shop My Wantlist, New & Upcoming (carousel + grid), format-specific shops (Vinyl / CD / Cassette), full marketplace browse, empty cart, Purchases history table
+- **Settings**: Buyer settings, Seller onboarding modal + form
+- **Seller resources**: "Sell on Discogs" landing, How to Grade article, How to Price article, Packing & Shipping article, Seller Resources index, Seller Updates feed with topic filter
+- **Community**: Forum index with category counts, Groups index, Recent Lists, all-time Contributors leaderboard, Monthly Leaderboard with Latest Submissions sidebar, Community Guidelines
+- **Reads/Digs**: Features, Most Valuable & Best Selling, Collecting, Audio Gear
+
+When in doubt about layout density, button placement, filter behavior, or copy tone — open the relevant capture and match it.
 
 ---
 

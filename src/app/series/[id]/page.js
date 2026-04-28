@@ -5,8 +5,23 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 
 function issueSortValue(issueNumber) {
-  const num = Number(issueNumber);
+  // Comics often store dual-numbered issues like "30 (471)" (Vol 2 / Vol 1
+  // legacy numbering — Spider-Man, Fantastic Four, X-Men all do this), or
+  // "1A", "1.MU", "300.1". A naive Number() returns NaN on these and shoves
+  // them to the end. Extract the leading numeric portion so they sort by
+  // their primary issue number.
+  const raw = String(issueNumber ?? "").trim();
+  if (!raw) return Number.MAX_SAFE_INTEGER;
+
+  const num = Number(raw);
   if (!Number.isNaN(num)) return num;
+
+  const match = raw.match(/^(-?\d+(\.\d+)?)/);
+  if (match) {
+    const parsed = Number(match[1]);
+    if (!Number.isNaN(parsed)) return parsed;
+  }
+
   return Number.MAX_SAFE_INTEGER;
 }
 
@@ -148,6 +163,7 @@ export default function SeriesPage() {
             </p>
           </div>
         </div>
+
 
         <div
           style={{

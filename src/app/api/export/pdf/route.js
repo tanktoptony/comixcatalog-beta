@@ -95,7 +95,9 @@ export async function POST(req) {
       supabase.from("profiles").select("username, is_pro").eq("id", user_id).single(),
       supabase
         .from("user_collections")
-        .select("id, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes, purchase_price, market_value, user_cover_url")
+        // TODO: re-add `user_cover_url` once the user_collections.user_cover_url
+        // migration runs. Until then, querying it returns 42703 and breaks export.
+        .select("id, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes, purchase_price, market_value")
         .eq("user_id", user_id)
         .eq("status", "owned"),
     ]);
@@ -209,8 +211,9 @@ export async function POST(req) {
     }
 
     // ── Assemble sorted items ──
-    // User's own photo takes priority over the canonical cover — that's the
-    // whole point of the insurance report (this is *their* book, not a stock image).
+    // TODO: once user_collections.user_cover_url migration lands, prefer the
+    // user's own photo over the canonical cover (that's the whole point of the
+    // insurance report — this is *their* book, not a stock image).
     const items = collRows
       .map((row) => {
         const key = row.comic_id ? `comic:${row.comic_id}` : `gcd:${row.gcd_issue_id}`;
@@ -221,7 +224,7 @@ export async function POST(req) {
           issueNumber: meta.issueNumber ?? "",
           publisher: meta.publisher ?? "Unknown",
           year: meta.year ?? null,
-          coverUrl: row.user_cover_url || meta.coverUrl || null,
+          coverUrl: meta.coverUrl || null,
         };
       })
       .sort((a, b) => a.title.localeCompare(b.title));

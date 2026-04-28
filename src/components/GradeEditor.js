@@ -3,6 +3,12 @@
 import { useState } from "react";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
+// TODO: re-enable once user_collections.user_cover_url migration runs.
+// Currently the column does NOT exist in the DB, so any update writes will
+// 42703 and uploads cannot persist. Keep the upload code intact behind this
+// flag so it lights back up the moment the migration ships.
+const USER_COVER_UPLOAD_ENABLED = false;
+
 const RAW_CONDITIONS = [
   { value: "", label: "Not set" },
   { value: "Poor", label: "Poor (P)" },
@@ -251,52 +257,55 @@ export default function GradeEditor({ collectionId, initialData = {}, onSave }) 
       {open && (
         <div className="grade-editor-panel">
 
-          {/* Your photo of the book */}
-          <div className="grade-field grade-cover-field">
-            <label className="grade-label">Your photo of this book</label>
-            <div className="grade-cover-row">
-              {userCoverUrl ? (
-                <img
-                  src={userCoverUrl}
-                  alt="Your photo"
-                  className="grade-cover-thumb"
-                />
-              ) : (
-                <div className="grade-cover-thumb grade-cover-thumb-empty" aria-hidden="true">
-                  No photo
-                </div>
-              )}
-              <div className="grade-cover-actions">
-                <label className={`grade-cover-btn ${uploading ? "is-disabled" : ""}`}>
-                  {uploading ? "Uploading…" : userCoverUrl ? "Replace" : "Upload"}
-                  <input
-                    type="file"
-                    accept="image/*"
-                    hidden
-                    disabled={uploading}
-                    onChange={(e) => {
-                      const f = e.target.files?.[0];
-                      if (f) handleCoverFile(f);
-                      e.target.value = "";
-                    }}
+          {/* Your photo of the book — disabled until the
+              user_collections.user_cover_url migration runs. */}
+          {USER_COVER_UPLOAD_ENABLED && (
+            <div className="grade-field grade-cover-field">
+              <label className="grade-label">Your photo of this book</label>
+              <div className="grade-cover-row">
+                {userCoverUrl ? (
+                  <img
+                    src={userCoverUrl}
+                    alt="Your photo"
+                    className="grade-cover-thumb"
                   />
-                </label>
-                {userCoverUrl && (
-                  <button
-                    type="button"
-                    className="grade-cover-remove"
-                    onClick={handleRemoveCover}
-                    disabled={uploading}
-                  >
-                    Remove
-                  </button>
+                ) : (
+                  <div className="grade-cover-thumb grade-cover-thumb-empty" aria-hidden="true">
+                    No photo
+                  </div>
                 )}
+                <div className="grade-cover-actions">
+                  <label className={`grade-cover-btn ${uploading ? "is-disabled" : ""}`}>
+                    {uploading ? "Uploading…" : userCoverUrl ? "Replace" : "Upload"}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      hidden
+                      disabled={uploading}
+                      onChange={(e) => {
+                        const f = e.target.files?.[0];
+                        if (f) handleCoverFile(f);
+                        e.target.value = "";
+                      }}
+                    />
+                  </label>
+                  {userCoverUrl && (
+                    <button
+                      type="button"
+                      className="grade-cover-remove"
+                      onClick={handleRemoveCover}
+                      disabled={uploading}
+                    >
+                      Remove
+                    </button>
+                  )}
+                </div>
+              </div>
+              <div className="grade-cover-hint">
+                Adds your specific copy to insurance PDFs and the public profile. Max 8MB.
               </div>
             </div>
-            <div className="grade-cover-hint">
-              Adds your specific copy to insurance PDFs and the public profile. Max 8MB.
-            </div>
-          </div>
+          )}
 
           {/* Slab company */}
           <div className="grade-field">

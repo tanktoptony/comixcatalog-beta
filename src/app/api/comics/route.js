@@ -1,24 +1,22 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
-}
-
-function normalizeIssueNumber(value) {
-  return String(value ?? "").trim().toLowerCase();
-}
-
-function normalizeSeriesTitle(value) {
-  return String(value ?? "").trim().toLowerCase();
-}
-
+// GET /api/comics — the no-query "browse" surface for /search.
+//
+// Previously this returned a flat dump of user-added comics (mostly garbage
+// "Untitled #[nn]" rows with no covers) followed by GCD issues ordered by
+// gcd_id ASC (= oldest first, mostly coverless). The result was a search
+// landing page full of empty cards.
+//
+// New behavior: surface curated *series* tiles — only series that have a
+// canonical featured cover, ordered by issue count (so Batman / X-Men / etc.
+// surface first). Each row uses the series UUID as `series-<id>` and links to
+// /series/<id>. SearchPageClient renders them like comic cards but routes to
+// the series page instead.
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
-    const limit = Math.max(1, Math.min(Number(searchParams.get("limit") || 100), 100));
+    const limit = Math.max(1, Math.min(Number(searchParams.get("limit") || 36), 100));
     const offset = Math.max(0, Number(searchParams.get("offset") || 0));
 
     const supabase = createClient(
@@ -26,171 +24,43 @@ export async function GET(req) {
       process.env.SUPABASE_SERVICE_ROLE_KEY
     );
 
-    const { count: userCount, error: countError } = await supabase
-      .from("comics")
-      .select("*", { count: "exact", head: true });
+    const { data: featuredSeries, error: seriesError } = await supabase
+      .from("series")
+      .select(`
+        id,
+        title,
+        resolved_publisher_cached,
+        year_start_cached,
+        issue_count_cached,
+        featured_cover_path_cached
+      `)
+      .not("featured_cover_path_cached", "is", null)
+      .gt("issue_count_cached", 0)
+      .order("issue_count_cached", { ascending: false })
+      .range(offset, offset + limit - 1);
 
-    if (countError) {
-      console.error("GET /api/comics user count failed:", countError);
+    if (seriesError) {
+      console.error("GET /api/comics featured series failed:", seriesError);
       return NextResponse.json({ comics: [] });
     }
 
-    const safeUserCount = userCount ?? 0;
-    const userOffset = Math.min(offset, safeUserCount);
-    const userLimit = Math.max(0, Math.min(limit, safeUserCount - userOffset));
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const comics = (featuredSeries ?? []).map((s) => ({
+      id: `series-${s.id}`,
+      series_id: s.id,
+      series_title: s.title ?? "Untitled",
+      publisher: s.resolved_publisher_cached ?? "Unknown Publisher",
+      issue_number: null,
+      release_year: s.year_start_cached ?? null,
+      issue_count: s.issue_count_cached ?? 0,
+      cover_path: s.featured_cover_path_cached
+        ? `${supabaseUrl}/storage/v1/object/public/canonical-covers/${s.featured_cover_path_cached}`
+        : null,
+      created_by: null,
+      __source: "series",
+    }));
 
-    let userRows = [];
-    if (userLimit > 0) {
-      const { data, error } = await supabase
-        .from("comics")
-        .select(`
-          id,
-          series_title,
-          publisher,
-          issue_number,
-          release_year,
-          variant_name,
-          created_at,
-          created_by,
-          comic_covers (
-            image_path,
-            is_primary
-          )
-        `)
-        .order("created_at", { ascending: false })
-        .range(userOffset, userOffset + userLimit - 1);
-
-      if (error) {
-        console.error("GET /api/comics user rows failed:", error);
-        return NextResponse.json({ comics: [] });
-      }
-
-      userRows = (data ?? []).map((comic) => ({
-        id: comic.id,
-        series_title: comic.series_title ?? null,
-        publisher: comic.publisher ?? null,
-        issue_number: comic.issue_number,
-        release_year: comic.release_year,
-        variant_name: comic.variant_name,
-        created_by: comic.created_by ?? null,
-        cover_path:
-          comic.comic_covers?.find((c) => c.is_primary)?.image_path ?? null,
-        __source: "user",
-      }));
-    }
-
-    const remaining = limit - userRows.length;
-    let gcdRows = [];
-
-    if (remaining > 0) {
-      const gcdOffset = Math.max(0, offset - safeUserCount);
-
-      const { data: issues, error: issuesError } = await supabase
-        .from("gcd_issues")
-        .select(`
-          gcd_id,
-          series_gcd_id,
-          publisher_gcd_id,
-          issue_number,
-          title,
-          publication_date
-        `)
-        .order("gcd_id", { ascending: true })
-        .range(gcdOffset, gcdOffset + remaining - 1);
-
-      if (issuesError) {
-        console.error("GET /api/comics gcd issues failed:", issuesError);
-        return NextResponse.json({ comics: userRows });
-      }
-
-      const seriesGcdIds = [...new Set((issues ?? []).map((i) => i.series_gcd_id).filter(Boolean))];
-      const publisherGcdIds = [...new Set((issues ?? []).map((i) => i.publisher_gcd_id).filter(Boolean))];
-
-      let seriesLookup = {};
-      if (seriesGcdIds.length > 0) {
-        const { data: seriesRows, error: seriesError } = await supabase
-          .from("series")
-          .select("gcd_id, title")
-          .in("gcd_id", seriesGcdIds);
-
-        if (seriesError) {
-          console.error("GET /api/comics gcd series failed:", seriesError);
-        } else {
-          seriesLookup = Object.fromEntries(
-            (seriesRows ?? []).map((row) => [String(row.gcd_id), row.title])
-          );
-        }
-      }
-
-      let publisherLookup = {};
-      if (publisherGcdIds.length > 0) {
-        const { data: publisherRows, error: publisherError } = await supabase
-          .from("gcd_publishers")
-          .select("gcd_id, name")
-          .in("gcd_id", publisherGcdIds);
-
-        if (publisherError) {
-          console.error("GET /api/comics gcd publishers failed:", publisherError);
-        } else {
-          publisherLookup = Object.fromEntries(
-            (publisherRows ?? []).map((row) => [String(row.gcd_id), row.name])
-          );
-        }
-      }
-
-      const gcdRowsBase = (issues ?? []).map((issue) => ({
-        id: `gcd-${issue.gcd_id}`,
-        series_title: seriesLookup[String(issue.series_gcd_id)] ?? issue.title ?? null,
-        publisher: publisherLookup[String(issue.publisher_gcd_id)] ?? null,
-        issue_number: issue.issue_number,
-        release_year: parseYear(issue.publication_date),
-        variant_name: null,
-        created_by: null,
-        __source: "gcd",
-      }));
-
-      const seriesTitles = [
-        ...new Set(gcdRowsBase.map((row) => row.series_title).filter(Boolean)),
-      ];
-
-      let canonicalRows = [];
-      if (seriesTitles.length > 0) {
-        const { data, error } = await supabase
-          .from("canonical_covers")
-          .select("series_title, issue_number, storage_path")
-          .in("series_title", seriesTitles)
-          .not("storage_path", "is", null);
-
-        if (error) {
-          console.error("GET /api/comics canonical cover lookup failed:", error);
-        } else {
-          canonicalRows = data ?? [];
-        }
-      }
-
-      const canonicalLookup = Object.fromEntries(
-        canonicalRows.map((row) => [
-          `${normalizeSeriesTitle(row.series_title)}::${normalizeIssueNumber(row.issue_number)}`,
-          row.storage_path,
-        ])
-      );
-
-      gcdRows = gcdRowsBase.map((row) => {
-        const key = `${normalizeSeriesTitle(row.series_title)}::${normalizeIssueNumber(row.issue_number)}`;
-        const storagePath = canonicalLookup[key] ?? null;
-
-        return {
-          ...row,
-          cover_path: storagePath
-            ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
-            : null,
-        };
-      });
-    }
-
-    return NextResponse.json({
-      comics: [...userRows, ...gcdRows],
-    });
+    return NextResponse.json({ comics });
   } catch (err) {
     console.error("GET /api/comics crashed:", err);
     return NextResponse.json({ comics: [] });

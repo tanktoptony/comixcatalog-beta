@@ -105,7 +105,17 @@ export function LibraryProvider({ children }) {
             if (payload.eventType === "INSERT") {
               const row = payload.new;
               if (prev.some((c) => c.id === row.id)) return prev;
-              return [...prev, row];
+              // Replace any optimistic placeholder for the same library item
+              // (matched by gcd_issue_id or comic_id) so we don't end up with
+              // both an optimistic row and a realtime-inserted row.
+              const filtered = prev.filter((c) => {
+                if (typeof c.id === "string" && c.id.startsWith("optimistic-")) {
+                  if (row.gcd_issue_id != null && c.gcd_issue_id === row.gcd_issue_id) return false;
+                  if (row.comic_id != null && c.comic_id === row.comic_id) return false;
+                }
+                return true;
+              });
+              return [...filtered, row];
             }
             if (payload.eventType === "UPDATE") {
               const row = payload.new;
@@ -155,7 +165,14 @@ export function LibraryProvider({ children }) {
     const { comic_id, gcd_issue_id, libraryKey } = parseLibraryInput(inputId);
     if (!libraryKey) return;
 
+    // Give the optimistic row a temp id so realtime INSERT dedup works.
+    // Without it, payload.new.id (real uuid) doesn't match the optimistic
+    // row's missing id, and realtime appends a duplicate before refreshLibrary
+    // reconciles. We strip the temp prefix server-side; only the local state
+    // ever sees this id.
+    const optimisticId = `optimistic-${libraryKey}-${Date.now()}`;
     const optimisticRow = {
+      id: optimisticId,
       user_id: user.id,
       status,
       comic_id,

@@ -33,10 +33,12 @@ function mapSupabaseComic(row) {
   if (!row || typeof row !== "object") return null;
   return {
     id: row.id ?? null,
+    seriesId: row.series_id ?? null,
     title: row.series_title ?? row.title ?? null,
     issueNumber: row.issue_number ?? null,
     year: row.release_year ?? null,
     publisher: row.publisher || null,
+    issueCount: row.issue_count ?? null,
     cover: resolveCoverUrl(row.cover_path),
     __source: row.__source || "user",
     created_by: row.created_by ?? null,
@@ -254,26 +256,65 @@ export default function SearchPageClient() {
         />
       </div>
 
-      {/* Series suggestions */}
+      {/* Series suggestions — grouped by title, divider between groups */}
       {seriesResults.length > 0 && (
         <div style={{ marginBottom: "20px" }}>
           <h3 className="section-label">Series</h3>
-          <div className="comic-grid">
-            {seriesResults.map((s) => {
-              if (!s?.id) return null;
-              const yearLabel = formatYearRange(s.year_start, s.year_end);
-              return (
-                <Link key={s.id} href={`/series/${s.id}`} className="comic-card">
-                  <div className="comic-card-title">{s.title || "Untitled Series"}</div>
-                  <div className="comic-card-meta">
-                    {[s.publisher?.name || "Unknown Publisher", yearLabel]
-                      .filter(Boolean)
-                      .join(" · ")}
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          {(() => {
+            // Group consecutive rows by normalized title so "Batman" 1940 and
+            // "Batman" 2016 sit together, with a horizontal divider between
+            // distinct titles.
+            const titleKey = (s) =>
+              String(s?.title ?? "")
+                .trim()
+                .toLowerCase()
+                .replace(/\b(the|a|an)\b/g, "")
+                .replace(/[^a-z0-9]/g, "");
+
+            const groups = [];
+            for (const s of seriesResults) {
+              if (!s?.id) continue;
+              const key = titleKey(s);
+              const last = groups[groups.length - 1];
+              if (last && last.key === key) last.rows.push(s);
+              else groups.push({ key, rows: [s] });
+            }
+
+            return groups.map((group, gi) => (
+              <div key={`series-group-${gi}`}>
+                {gi > 0 && <hr className="series-volume-divider" />}
+                <div className="comic-grid">
+                  {group.rows.map((s) => {
+                    const yearLabel = formatYearRange(s.year_start, s.year_end);
+                    const volumeLabel =
+                      s.volume_count && s.volume_count > 1 && s.volume_index
+                        ? `Vol. ${s.volume_index} of ${s.volume_count}`
+                        : null;
+                    return (
+                      <Link
+                        key={s.id}
+                        href={`/series/${s.id}`}
+                        className="comic-card"
+                      >
+                        <div className="comic-card-title">
+                          {s.title || "Untitled Series"}
+                        </div>
+                        <div className="comic-card-meta">
+                          {[
+                            s.publisher?.name || "Unknown Publisher",
+                            yearLabel,
+                            volumeLabel,
+                          ]
+                            .filter(Boolean)
+                            .join(" · ")}
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            ));
+          })()}
         </div>
       )}
 
@@ -321,7 +362,7 @@ export default function SearchPageClient() {
       {!isFirstLoad && !loadError && (
         <p className="muted">
           {results.length} result{results.length === 1 ? "" : "s"}
-          {query ? ` for "${query}"` : " — browsing all comics"}
+          {query ? ` for "${query}"` : " — featured series"}
           {publisherFilter ? ` · ${publisherFilter}` : ""}
         </p>
       )}
@@ -344,11 +385,16 @@ export default function SearchPageClient() {
         {/* Real results */}
         {!isFirstLoad &&
           results.map((item) => {
-            const inCollection = collectionIds.has(item.id);
-            const inWishlist = wishlistIds.has(item.id);
+            const isSeries = item.__source === "series";
             const isUserAdded = item.__source === "user";
+            const inCollection = !isSeries && collectionIds.has(item.id);
+            const inWishlist = !isSeries && wishlistIds.has(item.id);
             const coverSrc = item.cover || "/fallback-cover.png";
-            const comicHref = isUserAdded ? `/comic/${item.id}` : `/issue/${item.id}`;
+            const comicHref = isSeries
+              ? `/series/${item.seriesId}`
+              : isUserAdded
+              ? `/comic/${item.id}`
+              : `/issue/${item.id}`;
 
             return (
               <article key={item.id} className="comic-card">
@@ -370,7 +416,16 @@ export default function SearchPageClient() {
                   </div>
 
                   <div className="comic-card-meta">
-                    {[item.publisher, item.year].filter(Boolean).join(" · ") || "Unknown"}
+                    {isSeries
+                      ? [
+                          item.publisher,
+                          item.year,
+                          item.issueCount ? `${item.issueCount} issues` : null,
+                        ]
+                          .filter(Boolean)
+                          .join(" · ") || "Unknown"
+                      : [item.publisher, item.year].filter(Boolean).join(" · ") ||
+                        "Unknown"}
                   </div>
 
                   {isUserAdded && (
@@ -378,55 +433,59 @@ export default function SearchPageClient() {
                   )}
                 </Link>
 
-                <div className="comic-card-pills">
-                  {inCollection && (
-                    <span className="pill pill-collection">In Collection</span>
-                  )}
-                  {inWishlist && (
-                    <span className="pill pill-wishlist">On Wishlist</span>
-                  )}
-                </div>
+                {!isSeries && (
+                  <div className="comic-card-pills">
+                    {inCollection && (
+                      <span className="pill pill-collection">In Collection</span>
+                    )}
+                    {inWishlist && (
+                      <span className="pill pill-wishlist">On Wishlist</span>
+                    )}
+                  </div>
+                )}
 
-                <div className="comic-card-actions">
-                  {!inCollection && !inWishlist && (
-                    <>
+                {!isSeries && (
+                  <div className="comic-card-actions">
+                    {!inCollection && !inWishlist && (
+                      <>
+                        <button
+                          className="comic-btn"
+                          disabled={!user}
+                          title={!user ? "Log in to add to collection" : undefined}
+                          onClick={() => addToCollection(item.id, "owned")}
+                        >
+                          + Collection
+                        </button>
+                        <button
+                          className="comic-btn"
+                          disabled={!user}
+                          title={!user ? "Log in to add to wishlist" : undefined}
+                          onClick={() => addToCollection(item.id, "wishlist")}
+                        >
+                          + Wishlist
+                        </button>
+                      </>
+                    )}
+
+                    {inCollection && (
                       <button
-                        className="comic-btn"
-                        disabled={!user}
-                        title={!user ? "Log in to add to collection" : undefined}
-                        onClick={() => addToCollection(item.id, "owned")}
+                        className="comic-btn comic-btn-danger"
+                        onClick={() => removeFromCollection(item.id)}
                       >
-                        + Collection
+                        Remove
                       </button>
+                    )}
+
+                    {inWishlist && (
                       <button
-                        className="comic-btn"
-                        disabled={!user}
-                        title={!user ? "Log in to add to wishlist" : undefined}
-                        onClick={() => addToCollection(item.id, "wishlist")}
+                        className="comic-btn comic-btn-danger"
+                        onClick={() => removeFromCollection(item.id)}
                       >
-                        + Wishlist
+                        Remove
                       </button>
-                    </>
-                  )}
-
-                  {inCollection && (
-                    <button
-                      className="comic-btn comic-btn-danger"
-                      onClick={() => removeFromCollection(item.id)}
-                    >
-                      Remove
-                    </button>
-                  )}
-
-                  {inWishlist && (
-                    <button
-                      className="comic-btn comic-btn-danger"
-                      onClick={() => removeFromCollection(item.id)}
-                    >
-                      Remove
-                    </button>
-                  )}
-                </div>
+                    )}
+                  </div>
+                )}
               </article>
             );
           })}

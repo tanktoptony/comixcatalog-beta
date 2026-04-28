@@ -136,25 +136,57 @@ export async function GET(req) {
       ...new Set(intermediate.map((r) => r.seriesTitle).filter(Boolean)),
     ];
 
-    let canonicalLookup = {};
+    // Year-aware cover lookup — same disambiguation as /api/library-hydrate.
+    // Without it, multiple volumes of the same series_title share covers and
+    // a 2011 IDW TMNT issue ends up with a 1984 Mirage cover.
+    const COVER_YEAR_TOLERANCE = 1;
+    const coversByKey = new Map();
     if (seriesTitles.length > 0) {
       const { data: covers } = await supabase
         .from("canonical_covers")
-        .select("series_title, issue_number, storage_path")
+        .select("series_title, issue_number, series_year, cover_date, storage_path")
         .in("series_title", seriesTitles)
         .not("storage_path", "is", null);
 
-      canonicalLookup = Object.fromEntries(
-        (covers ?? []).map((row) => [
-          `${norm(row.series_title)}::${norm(row.issue_number)}`,
-          row.storage_path,
-        ])
-      );
+      for (const c of covers ?? []) {
+        const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
+        if (!coversByKey.has(key)) coversByKey.set(key, []);
+        coversByKey.get(key).push(c);
+      }
     }
 
     for (const row of intermediate) {
       const coverKey = `${norm(row.seriesTitle)}::${norm(row.issue_number)}`;
-      const storagePath = canonicalLookup[coverKey] ?? null;
+      const candidates = coversByKey.get(coverKey) ?? [];
+      const issueYear = row.year;
+
+      let storagePath = null;
+      if (candidates.length > 0 && issueYear != null) {
+        // cover_date is THIS issue's publication date — it's the authoritative
+        // year signal for per-issue matching. series_year is when the series
+        // started; for long-running annuals it's many years off this issue's
+        // actual year, which would falsely reject correct covers.
+        const yearOf = (c) => {
+          const cd = parseYear(c.cover_date);
+          if (cd != null) return cd;
+          return c.series_year != null ? Number(c.series_year) : null;
+        };
+
+        let best = null;
+        let bestDiff = Infinity;
+        for (const c of candidates) {
+          const cy = yearOf(c);
+          if (cy == null) continue;
+          const diff = Math.abs(cy - issueYear);
+          if (diff > COVER_YEAR_TOLERANCE) continue;
+          if (diff < bestDiff) {
+            best = c;
+            bestDiff = diff;
+          }
+        }
+        if (best) storagePath = best.storage_path;
+      }
+
       gcdDisplayLookup[row.gcd_id] = {
         title: row.seriesTitle ?? "Untitled",
         issueNumber: row.issue_number ?? "",

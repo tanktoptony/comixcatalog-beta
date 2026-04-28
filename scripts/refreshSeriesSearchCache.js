@@ -329,13 +329,27 @@ async function processBatch(seriesBatch) {
             bestScore = s;
           }
         }
-        return best;
+        return { row: best, score: bestScore };
       };
 
-      // First try unclaimed; if nothing qualifies, fall back to claimed pool
-      // so tiny groups with one cover still get something.
-      let bestCover = pickBest({ allowClaimed: false });
-      if (!bestCover) bestCover = pickBest({ allowClaimed: true });
+      // Quality threshold: only commit a cover if it actually fits this volume.
+      // 200 = the year-in-range bonus, so this requires the cover_date to fall
+      // within yearStart..yearEnd. Without this, cross-volume bleed happens —
+      // a 2016 Batman cover ends up on the 1940 Batman row because there's no
+      // disqualifying constraint, and the user clicks a 2016-looking tile and
+      // lands on 1940 issues. Better to leave the cover null than mismatched.
+      const COVER_SCORE_THRESHOLD = 200;
+
+      let { row: bestCover, score: bestScore } = pickBest({ allowClaimed: false });
+      if (!bestCover || bestScore < COVER_SCORE_THRESHOLD) {
+        const reattempt = pickBest({ allowClaimed: true });
+        if (reattempt.row && reattempt.score >= COVER_SCORE_THRESHOLD) {
+          bestCover = reattempt.row;
+          bestScore = reattempt.score;
+        } else {
+          bestCover = null;
+        }
+      }
 
       const path = bestCover?.storage_path ?? null;
       if (path) {

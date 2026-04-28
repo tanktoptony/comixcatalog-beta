@@ -114,27 +114,65 @@ export async function POST(req) {
       const issueNumbers = [
         ...new Set(intermediate.map((r) => r.issue_number).filter((v) => v != null)),
       ];
-      let canonicalLookup = {};
+
+      // Year-aware cover lookup. canonical_covers is indexed by
+      // (series_title, issue_number) but those alone aren't enough to
+      // disambiguate volumes — Mirage TMNT 1984 #2 and IDW TMNT 2011 #2 are
+      // both stored under "Teenage Mutant Ninja Turtles" #2. We pull
+      // series_year from canonical_covers and require it to match the issue's
+      // publication year (with a small tolerance) before using the cover.
+      // No match = no cover; fallback placeholder beats the wrong volume.
+      const COVER_YEAR_TOLERANCE = 1;
+      const coversByKey = new Map();
 
       if (seriesTitles.length > 0 && issueNumbers.length > 0) {
         const { data: covers } = await supabase
           .from("canonical_covers")
-          .select("series_title, issue_number, storage_path")
+          .select("series_title, issue_number, series_year, cover_date, storage_path")
           .in("series_title", seriesTitles)
           .in("issue_number", issueNumbers)
           .not("storage_path", "is", null);
 
-        canonicalLookup = Object.fromEntries(
-          (covers ?? []).map((row) => [
-            `${norm(row.series_title)}::${norm(row.issue_number)}`,
-            row.storage_path,
-          ])
-        );
+        for (const c of covers ?? []) {
+          const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
+          if (!coversByKey.has(key)) coversByKey.set(key, []);
+          coversByKey.get(key).push(c);
+        }
       }
 
       for (const row of intermediate) {
         const coverKey = `${norm(row.seriesTitle)}::${norm(row.issue_number)}`;
-        const storagePath = canonicalLookup[coverKey] ?? null;
+        const issueYear = parseYear(row.publication_date);
+        const candidates = coversByKey.get(coverKey) ?? [];
+
+        let storagePath = null;
+        if (candidates.length > 0 && issueYear != null) {
+          // For a specific issue, cover_date is the authoritative year signal —
+          // it's THIS issue's publication date. series_year is when the
+          // *series* started, which for long-running annuals (X-Men Annual
+          // 1970, issue #3 published 1979) is many years off the actual issue.
+          // Only fall back to series_year when cover_date is missing.
+          const yearOf = (c) => {
+            const cd = parseYear(c.cover_date);
+            if (cd != null) return cd;
+            return c.series_year != null ? Number(c.series_year) : null;
+          };
+
+          let best = null;
+          let bestDiff = Infinity;
+          for (const c of candidates) {
+            const cy = yearOf(c);
+            if (cy == null) continue;
+            const diff = Math.abs(cy - issueYear);
+            if (diff > COVER_YEAR_TOLERANCE) continue;
+            if (diff < bestDiff) {
+              best = c;
+              bestDiff = diff;
+            }
+          }
+          if (best) storagePath = best.storage_path;
+        }
+
         const libraryKey = `gcd-${row.gcd_id}`;
 
         items[libraryKey] = {
@@ -144,7 +182,7 @@ export async function POST(req) {
           id: libraryKey,
           title: row.seriesTitle ?? "Untitled",
           issueNumber: row.issue_number ?? "",
-          year: parseYear(row.publication_date),
+          year: issueYear,
           publisher: row.publisher ?? null,
           cover: storagePath
             ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`

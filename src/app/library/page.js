@@ -10,6 +10,11 @@ import GradeEditor, { GradeBadge } from "@/components/GradeEditor";
 
 const hydrationCache = new Map();
 
+// TODO: re-enable once user_collections.user_cover_url migration runs.
+// The column does not exist yet, so item.user_cover_url is always undefined
+// from the API anyway — but we keep this flag to make the dead UI obvious.
+const USER_COVER_UPLOAD_ENABLED = false;
+
 function getLibraryHref(item, comic) {
   if (comic?.href) return comic.href;
   if (item?.gcd_issue_id != null) return `/issue/gcd-${item.gcd_issue_id}`;
@@ -158,17 +163,21 @@ function LibraryPageContent() {
         return;
       }
 
-      // Seed immediately from cache so re-visits and in-place filtering feel instant.
-      const cachedIndex = {};
+      // Merge cache into existing state instead of replacing it. Replacing on
+      // every signature change blanks out items that were hydrated mid-session
+      // but happened to roll out of `hydrationCache` (e.g. via a tab swap) —
+      // which is what made fresh wishlist/collection adds appear missing on
+      // the library page until a reload re-fetched them.
       const missingKeys = new Set();
+      const cachedAdditions = {};
       for (const key of uniqueKeys) {
         if (hydrationCache.has(key)) {
-          cachedIndex[key] = hydrationCache.get(key);
+          cachedAdditions[key] = hydrationCache.get(key);
         } else {
           missingKeys.add(key);
         }
       }
-      setComicIndex(cachedIndex);
+      setComicIndex((prev) => ({ ...prev, ...cachedAdditions }));
 
       if (missingKeys.size === 0) return;
 
@@ -225,12 +234,28 @@ function LibraryPageContent() {
       .filter((item) => item.status === tab)
       .map((item) => {
         const key = makeLibraryKey(item);
+        if (!key) return null;
         const comic = comicIndex[key];
-        if (!comic) return null;
+        // Even without hydration data we surface the row as a stub. Previous
+        // behavior (return null) hid freshly-added wishlist/collection items
+        // until /api/library-hydrate completed, which made first-attempt adds
+        // appear to silently fail. Stub now, real data fills in on next
+        // render once hydration resolves.
+        const stub = {
+          id: key,
+          title: "…",
+          issueNumber: "",
+          year: null,
+          publisher: "Unknown Publisher",
+          rawPublisher: "Unknown Publisher",
+          cover: "/fallback-cover.png",
+        };
+        const resolved = comic ?? stub;
         return {
           ...item,
           libraryKey: key,
-          comic: { ...comic, href: getLibraryHref(item, comic) },
+          hydrated: Boolean(comic),
+          comic: { ...resolved, href: getLibraryHref(item, comic) },
         };
       })
       .filter(Boolean);
@@ -607,7 +632,7 @@ function LibraryPageContent() {
                   notes: item.notes ?? null,
                   purchase_price: item.purchase_price ?? null,
                   market_value: item.market_value ?? null,
-                  user_cover_url: item.user_cover_url ?? null,
+                  user_cover_url: USER_COVER_UPLOAD_ENABLED ? (item.user_cover_url ?? null) : null,
                 };
 
                 const displayCover =
@@ -624,7 +649,7 @@ function LibraryPageContent() {
                         alt={comic.title}
                         loading="lazy"
                       />
-                      {liveGrade.user_cover_url && (
+                      {USER_COVER_UPLOAD_ENABLED && liveGrade.user_cover_url && (
                         <span className="library-cover-tag" title="Your photo">
                           Your photo
                         </span>
@@ -717,7 +742,7 @@ function LibraryPageContent() {
                   notes: item.notes ?? null,
                   purchase_price: item.purchase_price ?? null,
                   market_value: item.market_value ?? null,
-                  user_cover_url: item.user_cover_url ?? null,
+                  user_cover_url: USER_COVER_UPLOAD_ENABLED ? (item.user_cover_url ?? null) : null,
                 };
 
                 const displayCover =
@@ -735,7 +760,7 @@ function LibraryPageContent() {
                           alt={comic.title}
                           loading="lazy"
                         />
-                        {liveGrade.user_cover_url && (
+                        {USER_COVER_UPLOAD_ENABLED && liveGrade.user_cover_url && (
                           <span className="library-cover-tag" title="Your photo">
                             Your photo
                           </span>

@@ -214,6 +214,17 @@ export async function GET(req, context) {
       return acc;
     }, {});
 
+    // Series year span — used as the tolerance window for picking a canonical
+    // cover. Without this, a 2022 "Robin: The Lazarus Tournament" cover ends
+    // up assigned to the 1993 Robin #1 because canonical_covers only has the
+    // recent run ingested.
+    const seriesYears = issueRows
+      .map((row) => parseYear(row.publication_date))
+      .filter((y) => y != null);
+    const seriesYearMin = seriesYears.length ? Math.min(...seriesYears) : null;
+    const seriesYearMax = seriesYears.length ? Math.max(...seriesYears) : null;
+    const COVER_YEAR_TOLERANCE = 1;
+
     const mappedIssuesRaw = issueRows.map((issue) => {
       const issueYear = parseYear(issue.publication_date);
 
@@ -225,19 +236,34 @@ export async function GET(req, context) {
 
       const yearAwareStoragePath = canonicalLookupByYear[yearAwareKey] ?? null;
 
+      // For the fallback path, only accept covers whose series_year sits
+      // inside this series's actual year span (with a small tolerance). If
+      // every candidate fails that test, return no cover rather than the
+      // wrong one. This stops cross-volume bleed at the per-issue level.
       const allCandidates = candidatesByIssue[legacyKey] ?? [];
+      const inSpanCandidates =
+        seriesYearMin != null && seriesYearMax != null
+          ? allCandidates.filter(
+              (row) =>
+                row.series_year != null &&
+                Number(row.series_year) >= seriesYearMin - COVER_YEAR_TOLERANCE &&
+                Number(row.series_year) <= seriesYearMax + COVER_YEAR_TOLERANCE
+            )
+          : allCandidates;
+
       const yearMatchingCandidates =
         issueYear != null
-          ? allCandidates.filter(
+          ? inSpanCandidates.filter(
               (row) =>
                 row.series_year != null &&
                 Number(row.series_year) === issueYear
             )
           : [];
+
       const candidatePool =
         yearMatchingCandidates.length > 0
           ? yearMatchingCandidates
-          : allCandidates;
+          : inSpanCandidates;
       const uniqueCandidatePaths = [
         ...new Set(candidatePool.map((row) => row.storage_path)),
       ];

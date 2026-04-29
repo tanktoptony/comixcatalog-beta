@@ -15,6 +15,21 @@
 
 When in doubt about a feature, ask: *does Discogs do this, and does it make sense for comics?* If yes — build it. If they don't, think hard about whether it belongs.
 
+### 1.1 Competitive references
+
+**Primary reference: Discogs.** Music collectors' platform. Database + collection manager + peer marketplace, all in one. The standard we're trying to meet on UX and information density.
+
+**Closest comics-space competitor: [mycomicshop.com](https://www.mycomicshop.com).** A long-running comics retailer that does much of what we're building — searchable database, want-list tracking with email alerts, marketplace, customer collection records — but **clunkily**. The site reads as a 2010-era retail catalog: dense tables, retailer-led layout, dated typography, no real collector identity layer (no public profiles in the Discogs sense), no slab-grade-first UX, no portfolio-style value tracking. They prove the demand exists; their UX shows the gap we're filling.
+
+**What ComixCatalog does differently from mycomicshop:**
+- **Collector identity first.** Public profiles at `/u/<username>` with badges, stats, and shareable collection — mycomicshop has none of this.
+- **Slab-grade native.** CGC/CBCS cert numbers, slabbed-vs-raw distinctions, verified-grade marketplace badges baked in, not bolted on.
+- **Portfolio over time.** Value-tracking charts, run-completion stats, want-list price alerts as first-class features.
+- **Modern visual standard.** Discogs-density navigation, dark theme, grid-first browsing, mobile-respectful.
+- **Marketplace as peer-to-peer.** mycomicshop sells *to* collectors. We let collectors transact *with* collectors and take a smaller cut.
+
+When evaluating a feature, also check: *would this make ComixCatalog feel less like mycomicshop and more like Discogs?*
+
 ---
 
 ## 2. Visual Design Standard

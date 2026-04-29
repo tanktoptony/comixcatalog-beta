@@ -1,6 +1,7 @@
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import PatreonBanner from "../components/PatreonBanner";
 import { LibraryProvider } from "../context/LibraryContext";
 import { AuthProvider } from "../context/AuthContext";
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       <body className="page-shell">
         <AuthProvider>
           <LibraryProvider>
+            <PatreonBanner />
             <Header />
             <main className="page-wrapper">{children}</main>
             <Footer />

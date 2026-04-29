@@ -26,7 +26,11 @@ export default function BlogIndexPage() {
   return (
     <section className="blog-page">
       <div className="blog-eyebrow">Developer Updates</div>
-      <h1 className="blog-title">ComixCatalog Dispatch</h1>
+      <h1 className="blog-title">Danger Room Dispatch</h1>
+      <p className="blog-subtitle">
+        Behind-the-scenes notes from the ComixCatalog team — what we shipped,
+        what we&rsquo;re working on, and what&rsquo;s coming next.
+      </p>
 
       <div className="blog-list">
         {posts.map((post) => (

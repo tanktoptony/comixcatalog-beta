@@ -24,6 +24,11 @@ export async function GET(req) {
       process.env.SUPABASE_SERVICE_ROLE_KEY
     );
 
+    // Reverted the publisher_id IS NOT NULL filter — too many legitimate
+    // series rows have null publisher_id (incomplete canonical publishers
+    // mapping) and the filter wiped out the popular-series browse. The
+    // foreign-reprint problem (Close-Up Inc. Superman, etc.) is a cache
+    // staleness issue better solved by re-running refreshSeriesSearchCache.
     const { data: featuredSeries, error: seriesError } = await supabase
       .from("series")
       .select(`

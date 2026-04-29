@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ActivityFeed from "@/components/ActivityFeed";
+import FeaturedCarousel from "@/components/FeaturedCarousel";
 
 export default function HomePage() {
   return (
@@ -12,29 +13,30 @@ export default function HomePage() {
         {/* LEFT — TEXT */}
         <div className="landing-left">
 
+          <p className="landing-eyebrow">Catalog · Collect · Connect</p>
           <h1 className="landing-title">
-            <b>ComixCatalog </b>
-            - The Home for Serious Comic Collectors
+            A home for serious comic collectors.
           </h1>
           <p className="landing-subtitle">
-            Catalog your collection. Track performance over time. Buy and sell with clarity around grade, variant, and condition — all in one place.
+            Catalog what you own. Track its value over time. Buy and sell
+            with clarity on grade, variant, and condition.
           </p>
 
           <div className="landing-features-compact">
 
             <div className="landing-feature-compact">
-              <span className="feature-label">CATALOG</span>
+              <span className="feature-label">Catalog</span>
               <p>Every issue. Every printing. Every variant.</p>
             </div>
 
             <div className="landing-feature-compact">
-              <span className="feature-label">TRACK</span>
-              <p>Portfolio-style value insights over time.</p>
+              <span className="feature-label">Track</span>
+              <p>Portfolio insights, every book accounted for.</p>
             </div>
 
             <div className="landing-feature-compact">
-              <span className="feature-label">MARKETPLACE</span>
-              <p>Transparent listings. Verified collectors.</p>
+              <span className="feature-label">Marketplace</span>
+              <p>Transparent listings, verified collectors.</p>
             </div>
           </div>
 
@@ -65,77 +67,9 @@ export default function HomePage() {
       </div>
     </section>
 
+    <FeaturedCarousel />
     <ActivityFeed />
-    <br />
-    {/* COMMUNITY SECTION */}
-    <section className="landing-community">
-      <div className="community-links">
-        <a
-          href="https://discord.gg/aQruGVnD3y"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="community-link"
-          aria-label="Join us on Discord"
-        >
-          <img src="/icons/discord.svg" alt="Discord" />
-        </a>
-
-        <a
-          href="https://www.reddit.com/r/comixcatalog"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="community-link"
-          aria-label="Visit our Reddit"
-        >
-          <img src="/icons/reddit.svg" alt="Reddit" />
-        </a>
-
-        <a
-          href="https://www.instagram.com/comixcatalog"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="community-link"
-          aria-label="Instagram"
-        >
-          <img src="/icons/instagram.svg" alt="Instagram" />
-        </a>
-
-        <a
-          href="https://www.youtube.com/@comixcatalog"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="community-link"
-          aria-label="YouTube"
-        >
-          <img src="/icons/youtube.svg" alt="YouTube" />
-        </a>
-
-        <a
-          href="mailto:comixcatalog@gmail.com"
-          className="community-link"
-          aria-label="Email"
-        >
-          <img src="/icons/mail.svg" alt="Email" />
-        </a>
-      </div>
-
-      <div className="support-section">
-        <div className="support-divider" />
-        <p className="support-text">
-          ComixCatalog is being built independently. If you believe in a better platform for collectors and want to help accelerate development, consider supporting the project.
-        </p>
-        <a
-          href="https://www.patreon.com/cw/ComixCatalog"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="support-button"
-        >
-          Support the Build
-        </a>
-      </div>
-
-
-    </section>
+    {/* Support / community CTAs moved to the global PatreonBanner + Footer. */}
   </>
 );
 

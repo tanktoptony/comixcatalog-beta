@@ -37,8 +37,10 @@ TARGET_VOLUMES = [
     # `volume_id` directly from the ComicVine URL — e.g.
     # https://comicvine.gamespot.com/x-men-annual/4050-22988/ → volume_id=22988.
     # This bypasses the name+year search and removes ambiguity.
-    {"name": "X-Men Annual", "publisher": "Marvel", "volume_id": 22988},
-    {"name": "X-Men Annual", "publisher": "Marvel", "volume_id": 10748},
+    
+    # Jim Starlin — Rebirth of Thanos / Silver Surfer crossover era annuals
+    {"name": "Silver Surfer Annual", "publisher": "Marvel", "year": 1994},
+
 ]
 
 LIMIT_TEST = None  # set to None for full run

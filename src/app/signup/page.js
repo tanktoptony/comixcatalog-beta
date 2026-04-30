@@ -27,8 +27,12 @@ export default function SignUpPage() {
   const [resendMsg, setResendMsg] = useState(null);
   const [resending, setResending] = useState(false);
 
+  const [submittedEmail, setSubmittedEmail] = useState("");
+
   async function handleResendConfirmation() {
-    if (!email) {
+    const emailToResend = (submittedEmail || email).trim().toLowerCase();
+
+    if (!emailToResend) {
       setErrorMsg("Enter your email to resend confirmation.");
       return;
     }
@@ -39,16 +43,22 @@ export default function SignUpPage() {
 
     const { data, error } = await supabase.auth.resend({
       type: "signup",
-      email,
+      email: emailToResend,
+      options: {
+        emailRedirectTo:
+          typeof window !== "undefined"
+            ? `${window.location.origin}/auth/callback`
+            : undefined,
+      },
     });
 
     console.log("RESEND DATA:", data);
     console.log("RESEND ERROR:", error);
 
     if (error) {
-      setErrorMsg(error.message);
+      setErrorMsg(error.message || "Unable to resend confirmation email.");
     } else {
-      setResendMsg("Confirmation email resent. Check your inbox.");
+      setResendMsg(`Confirmation email resent to ${emailToResend}. Check your inbox.`);
     }
 
     setResending(false);
@@ -63,6 +73,7 @@ export default function SignUpPage() {
     setResendMsg(null);
 
     const usernameNormalized = username.trim().toLowerCase();
+    const emailNormalized = email.trim().toLowerCase();
 
     if (!/^[a-z0-9_]{3,20}$/.test(usernameNormalized)) {
       setErrorMsg(
@@ -78,14 +89,14 @@ export default function SignUpPage() {
 
     setSaving(true);
 
-    const origin =
-      typeof window !== "undefined" ? window.location.origin : undefined;
-
     const { data, error } = await supabase.auth.signUp({
-      email,
+      email: emailNormalized,
       password,
       options: {
-        emailRedirectTo: origin ? `${origin}/auth/callback` : undefined,
+        emailRedirectTo:
+          typeof window !== "undefined"
+            ? `${window.location.origin}/auth/callback`
+            : undefined,
         data: {
           username: usernameNormalized,
           avatar_key: avatarKey,
@@ -98,7 +109,38 @@ export default function SignUpPage() {
 
     if (error) {
       setSaving(false);
-      setErrorMsg(error.message);
+
+      console.error("SIGNUP FULL ERROR:", {
+        name: error.name,
+        message: error.message,
+        status: error.status,
+        cause: error.cause,
+        raw: error,
+      });
+
+      const message = error.message?.toLowerCase() || "";
+      const name = error.name?.toLowerCase() || "";
+
+      if (message.includes("rate limit")) {
+        setErrorMsg(
+          "We’ve sent too many confirmation emails recently. Please wait a few minutes and try again."
+        );
+      } else if (message.includes("already registered") || message.includes("already exists")) {
+        setErrorMsg(
+          "An account may already exist with this email. Try logging in or resending your confirmation email."
+        );
+      } else if (
+        name.includes("retryable") ||
+        message.includes("fetch") ||
+        error.status === 504
+      ) {
+        setErrorMsg(
+          "Signup service timed out. Please wait a few minutes and try again."
+        );
+      } else {
+        setErrorMsg(error.message || "Unable to create account. Please try again.");
+      }
+
       return;
     }
 
@@ -132,12 +174,13 @@ export default function SignUpPage() {
       }
     }
 
+    setSubmittedEmail(emailNormalized);
+
     setSuccessMsg(
       "Account created! Please check your email to confirm your account before logging in."
     );
 
     setSaving(false);
-    setEmail("");
     setPassword("");
     setUsername("");
     setAvatarKey("hero_01");
@@ -157,6 +200,7 @@ export default function SignUpPage() {
           <input
             className="auth-input"
             type="text"
+            required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             autoComplete="username"
@@ -168,6 +212,7 @@ export default function SignUpPage() {
           <input
             className="auth-input"
             type="email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             autoComplete="email"
@@ -179,6 +224,7 @@ export default function SignUpPage() {
           <input
             className="auth-input"
             type="password"
+            required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="new-password"

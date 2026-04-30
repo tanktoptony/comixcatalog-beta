@@ -39,7 +39,8 @@ TARGET_VOLUMES = [
     # This bypasses the name+year search and removes ambiguity.
     
     # Jim Starlin — Rebirth of Thanos / Silver Surfer crossover era annuals
-    {"name": "Silver Surfer Annual", "publisher": "Marvel", "year": 1994},
+    {"name": "Batman", "publisher": "DC", "volume_id": 42721, "year": 2011},
+    {"name": "Batman", "publisher": "DC", "volume_id": 166619, "year": 2025},
 
 ]
 

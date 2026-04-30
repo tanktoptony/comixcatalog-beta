@@ -5,15 +5,25 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
+function withTimeout(promise, ms, label = "Request") {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error(`${label} timed out`)), ms)
+    ),
+  ]);
+}
+
 export default function LoginPage() {
   const router = useRouter();
   const supabase = getSupabaseClient();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [saving, setSaving] = useState(false);
 
+  const [saving, setSaving] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
+
   const [showResend, setShowResend] = useState(false);
   const [resendMsg, setResendMsg] = useState(null);
   const [resending, setResending] = useState(false);
@@ -22,67 +32,138 @@ export default function LoginPage() {
     e.preventDefault();
     if (saving) return;
 
+    const emailNormalized = email.trim().toLowerCase();
+
     setSaving(true);
     setErrorMsg(null);
     setShowResend(false);
     setResendMsg(null);
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    try {
+      console.log("LOGIN START:", emailNormalized);
 
-    console.log("LOGIN DATA:", data);
-    console.log("LOGIN ERROR:", error);
+      const { data, error } = await withTimeout(
+        supabase.auth.signInWithPassword({
+          email: emailNormalized,
+          password,
+        }),
+        15000,
+        "Login"
+      );
 
-    if (error) {
-      setSaving(false);
+      console.log("LOGIN DATA:", data);
+      console.log("LOGIN ERROR:", error);
 
-      if (error.message?.toLowerCase().includes("email not confirmed")) {
-        setErrorMsg("Please confirm your email before logging in.");
-        setShowResend(true);
-      } else {
-        setErrorMsg("Invalid email or password.");
+      if (error) {
+        const message = error.message?.toLowerCase() || "";
+
+        if (message.includes("email not confirmed")) {
+          setErrorMsg("Please confirm your email before logging in.");
+          setShowResend(true);
+        } else if (message.includes("invalid login credentials")) {
+          setErrorMsg("Invalid email or password.");
+        } else {
+          setErrorMsg(error.message || "Unable to log in.");
+        }
+
+        return;
       }
 
-      return;
-    }
+      const user = data?.user ?? null;
+      const session = data?.session ?? null;
 
-    const user = data?.user ?? null;
-    const session = data?.session ?? null;
+      if (!user || !session) {
+        setErrorMsg("Login session failed. Please try again.");
+        return;
+      }
 
-    if (!user || !session) {
-      setSaving(false);
-      setErrorMsg("Login session failed. Please try again.");
-      return;
-    }
+      console.log("LOGIN USER:", user.id);
 
-    const { data: profile, error: profileError } = await supabase
-      .from("profiles")
-      .select("username")
-      .eq("id", user.id)
-      .maybeSingle();
+      const { data: profile, error: profileError } = await withTimeout(
+        supabase
+          .from("profiles")
+          .select("username")
+          .eq("id", user.id)
+          .maybeSingle(),
+        15000,
+        "Profile lookup"
+      );
 
-    console.log("LOGIN PROFILE:", profile);
-    console.log("LOGIN PROFILE ERROR:", profileError);
+      console.log("LOGIN PROFILE:", profile);
+      console.log("LOGIN PROFILE ERROR:", profileError);
 
-    setSaving(false);
+      if (profileError) {
+        setErrorMsg("Login succeeded, but profile lookup failed.");
+        return;
+      }
 
-    if (profileError) {
-      setErrorMsg("Login succeeded, but profile lookup failed.");
-      return;
-    }
+      if (profile?.username) {
+        router.replace(`/u/${profile.username}`);
+        router.refresh();
+        return;
+      }
 
-    if (!profile?.username) {
+      const metadataUsername = user.user_metadata?.username;
+      const metadataAvatarKey = user.user_metadata?.avatar_key || "hero_01";
+
+      if (metadataUsername) {
+        console.log("RECOVERING PROFILE FROM METADATA:", metadataUsername);
+
+        const { error: createProfileError } = await withTimeout(
+          supabase.from("profiles").upsert(
+            {
+              id: user.id,
+              username: metadataUsername,
+              avatar_key: metadataAvatarKey,
+              is_public: true,
+            },
+            { onConflict: "id" }
+          ),
+          15000,
+          "Profile recovery"
+        );
+
+        console.log("LOGIN PROFILE RECOVERY ERROR:", createProfileError);
+
+        if (createProfileError) {
+          setErrorMsg("Login succeeded, but profile setup failed.");
+          return;
+        }
+
+        router.replace(`/u/${metadataUsername}`);
+        router.refresh();
+        return;
+      }
+
       router.replace("/complete-profile");
-      return;
-    }
+      router.refresh();
+    } catch (err) {
+      console.error("LOGIN FULL ERROR:", {
+        name: err?.name,
+        message: err?.message,
+        status: err?.status,
+        cause: err?.cause,
+        raw: err,
+      });
 
-    router.replace(`/u/${profile.username}`);
+      const message = err?.message || "";
+
+      if (message.toLowerCase().includes("timed out")) {
+        setErrorMsg(
+          "Login timed out. Supabase may be slow right now. Please try again in a minute."
+        );
+      } else {
+        setErrorMsg("Something went wrong while logging in. Please try again.");
+      }
+    } finally {
+      setSaving(false);
+    }
   }
 
   async function handleResendConfirmation() {
-    if (!email) {
+    const emailNormalized = email.trim().toLowerCase();
+
+    if (!emailNormalized) {
       setErrorMsg("Enter your email to resend confirmation.");
       return;
     }
@@ -91,20 +172,46 @@ export default function LoginPage() {
     setResendMsg(null);
     setErrorMsg(null);
 
-    const { error } = await supabase.auth.resend({
-      type: "signup",
-      email,
-    });
+    try {
+      const { data, error } = await withTimeout(
+        supabase.auth.resend({
+          type: "signup",
+          email: emailNormalized,
+          options: {
+            emailRedirectTo:
+              typeof window !== "undefined"
+                ? `${window.location.origin}/auth/callback`
+                : undefined,
+          },
+        }),
+        15000,
+        "Resend confirmation"
+      );
 
-    console.log("RESEND LOGIN ERROR:", error);
+      console.log("RESEND LOGIN DATA:", data);
+      console.log("RESEND LOGIN ERROR:", error);
 
-    if (error) {
-      setErrorMsg("Unable to resend confirmation email.");
-    } else {
+      if (error) {
+        const message = error.message?.toLowerCase() || "";
+
+        if (message.includes("rate limit")) {
+          setErrorMsg(
+            "We’ve sent too many confirmation emails recently. Please wait a few minutes and try again."
+          );
+        } else {
+          setErrorMsg(error.message || "Unable to resend confirmation email.");
+        }
+
+        return;
+      }
+
       setResendMsg("Confirmation email resent. Check your inbox.");
+    } catch (err) {
+      console.error("RESEND LOGIN FULL ERROR:", err);
+      setErrorMsg("Confirmation resend timed out. Please try again in a minute.");
+    } finally {
+      setResending(false);
     }
-
-    setResending(false);
   }
 
   return (

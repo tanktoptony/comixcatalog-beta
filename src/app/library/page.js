@@ -10,10 +10,7 @@ import GradeEditor, { GradeBadge } from "@/components/GradeEditor";
 
 const hydrationCache = new Map();
 
-// TODO: re-enable once user_collections.user_cover_url migration runs.
-// The column does not exist yet, so item.user_cover_url is always undefined
-// from the API anyway — but we keep this flag to make the dead UI obvious.
-const USER_COVER_UPLOAD_ENABLED = false;
+const USER_COVER_UPLOAD_ENABLED = true;
 
 function getLibraryHref(item, comic) {
   if (comic?.href) return comic.href;

@@ -3,11 +3,7 @@
 import { useState } from "react";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
-// TODO: re-enable once user_collections.user_cover_url migration runs.
-// Currently the column does NOT exist in the DB, so any update writes will
-// 42703 and uploads cannot persist. Keep the upload code intact behind this
-// flag so it lights back up the moment the migration ships.
-const USER_COVER_UPLOAD_ENABLED = false;
+const USER_COVER_UPLOAD_ENABLED = true;
 
 const RAW_CONDITIONS = [
   { value: "", label: "Not set" },

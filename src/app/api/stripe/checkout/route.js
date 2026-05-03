@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { getStripe, PRO_PRICE_ID, getSiteUrl } from "@/lib/stripe";
+import { getStripe, PRO_PRICE_ID, FOUNDING_PRICE_ID, getSiteUrl } from "@/lib/stripe";
 import { ADMIN_ID } from "@/lib/admin";
 
 function getSupabase() {
@@ -12,17 +12,19 @@ function getSupabase() {
 
 export async function POST(req) {
   try {
-    if (!PRO_PRICE_ID) {
-      return NextResponse.json(
-        { error: "Pro tier not configured" },
-        { status: 500 }
-      );
-    }
-
     const body = await req.json().catch(() => ({}));
-    const { user_id } = body;
+    const { user_id, tier = "pro" } = body;
+
     if (!user_id) {
       return NextResponse.json({ error: "user_id required" }, { status: 400 });
+    }
+
+    const priceId = tier === "founding" ? FOUNDING_PRICE_ID : PRO_PRICE_ID;
+    if (!priceId) {
+      return NextResponse.json(
+        { error: `${tier} tier not configured` },
+        { status: 500 }
+      );
     }
 
     const supabase = getSupabase();
@@ -52,8 +54,6 @@ export async function POST(req) {
         const existing = await stripe.customers.retrieve(customerId);
         if (existing.deleted) customerId = null;
       } catch (e) {
-        // Stale ID — most often a live/test mode mismatch left over from a
-        // prior environment. Drop it and recreate below.
         if (e?.code === "resource_missing") customerId = null;
         else throw e;
       }
@@ -76,14 +76,14 @@ export async function POST(req) {
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       customer: customerId,
-      line_items: [{ price: PRO_PRICE_ID, quantity: 1 }],
+      line_items: [{ price: priceId, quantity: 1 }],
       success_url: `${site}/library?upgrade=success`,
       cancel_url: `${site}/upgrade?upgrade=cancelled`,
       allow_promotion_codes: true,
       subscription_data: {
-        metadata: { supabase_user_id: user_id },
+        metadata: { supabase_user_id: user_id, tier },
       },
-      metadata: { supabase_user_id: user_id },
+      metadata: { supabase_user_id: user_id, tier },
     });
 
     return NextResponse.json({ url: session.url });

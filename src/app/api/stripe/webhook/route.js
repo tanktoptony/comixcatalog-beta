@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { getStripe } from "@/lib/stripe";
+import { getStripe, FOUNDING_PRICE_ID } from "@/lib/stripe";
 
 export const runtime = "nodejs";
 
@@ -11,12 +11,20 @@ function getSupabase() {
   );
 }
 
-async function setProStatusByCustomer(supabase, customerId, isPro) {
+async function setProStatusByCustomer(supabase, customerId, isPro, isFounding = false) {
   if (!customerId) return;
+  const update = { is_pro: isPro };
+  if (isFounding) update.is_founding_collector = true;
+  if (!isPro) update.is_founding_collector = false;
   await supabase
     .from("profiles")
-    .update({ is_pro: isPro })
+    .update(update)
     .eq("stripe_customer_id", customerId);
+}
+
+function isFoundingPrice(sub) {
+  if (!FOUNDING_PRICE_ID) return false;
+  return (sub.items?.data ?? []).some((item) => item.price?.id === FOUNDING_PRICE_ID);
 }
 
 export async function POST(req) {
@@ -50,13 +58,13 @@ export async function POST(req) {
         const session = event.data.object;
         const userId = session.metadata?.supabase_user_id;
         const customerId = session.customer;
+        const isFounding = session.metadata?.tier === "founding";
         if (userId && customerId) {
-          await supabase
-            .from("profiles")
-            .update({ stripe_customer_id: customerId, is_pro: true })
-            .eq("id", userId);
+          const update = { stripe_customer_id: customerId, is_pro: true };
+          if (isFounding) update.is_founding_collector = true;
+          await supabase.from("profiles").update(update).eq("id", userId);
         } else if (customerId) {
-          await setProStatusByCustomer(supabase, customerId, true);
+          await setProStatusByCustomer(supabase, customerId, true, isFounding);
         }
         break;
       }
@@ -66,7 +74,8 @@ export async function POST(req) {
         const sub = event.data.object;
         const customerId = sub.customer;
         const active = ["active", "trialing"].includes(sub.status);
-        await setProStatusByCustomer(supabase, customerId, active);
+        const isFounding = isFoundingPrice(sub);
+        await setProStatusByCustomer(supabase, customerId, active, isFounding);
         break;
       }
 

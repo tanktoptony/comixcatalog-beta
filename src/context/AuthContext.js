@@ -70,6 +70,7 @@ export function AuthProvider({ children }) {
         signOut,
         isAdmin: user?.id === ADMIN_ID,
         isPro: Boolean(profile?.is_pro) || user?.id === ADMIN_ID,
+        isFounding: Boolean(profile?.is_founding_collector),
       }}
     >
       {children}

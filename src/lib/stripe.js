@@ -13,6 +13,7 @@ export function getStripe() {
 }
 
 export const PRO_PRICE_ID = process.env.STRIPE_PRO_PRICE_ID;
+export const FOUNDING_PRICE_ID = process.env.STRIPE_FOUNDING_PRICE_ID;
 
 export function getSiteUrl() {
   return (

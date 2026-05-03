@@ -248,8 +248,6 @@ export function LibraryProvider({ children }) {
     await refreshLibrary();
     return;
   }
-
-  await refreshLibrary();
 }
 
   async function removeFromCollection(inputId) {

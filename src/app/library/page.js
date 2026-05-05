@@ -52,19 +52,42 @@ export default function LibraryPage() {
 
 function LibraryPageContent() {
   const { collections, loading } = useLibrary();
-  const { user, isPro } = useAuth();
+  const { user, isPro, profile } = useAuth();
   const supabase = getSupabaseClient();
 
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [tab, setTab] = useState("owned");
+  // Honor ?tab=wishlist (or ?tab=owned) on first load — used by the footer
+  // "Wantlist" link and any other deep-link entry into the library.
+  const [tab, setTab] = useState(() => {
+    const t = searchParams.get("tab");
+    return t === "wishlist" || t === "owned" ? t : "owned";
+  });
   const [comicIndex, setComicIndex] = useState(() => Object.fromEntries(hydrationCache));
+
+  // hydrationCache is module-scoped and survives navigation/sign-out, which
+  // means a previous account's hydrated covers can flash before the new
+  // user's data loads. Wipe it whenever the active user changes.
+  useEffect(() => {
+    hydrationCache.clear();
+    setComicIndex({});
+  }, [user?.id]);
   const [csvResult, setCsvResult] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [gradeData, setGradeData] = useState({});
 
   const [search, setSearch] = useState("");
+  const [shareCopied, setShareCopied] = useState(false);
+
+  function handleShare() {
+    if (!profile?.username) return;
+    const url = `${window.location.origin}/u/${profile.username}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2000);
+    });
+  }
   const [publisherFilter, setPublisherFilter] = useState("all");
   const [sortBy, setSortBy] = useState("title-asc");
   const [viewMode, setViewMode] = useState("list");
@@ -386,6 +409,15 @@ function LibraryPageContent() {
           <p className="library-subtitle">
             Manage your collection, wishlist, and CSV imports from one place.
           </p>
+          {profile?.username && (
+            <button
+              type="button"
+              className={`library-share-btn ${shareCopied ? "library-share-btn--copied" : ""}`}
+              onClick={handleShare}
+            >
+              {shareCopied ? "✓ Link copied!" : "↗ Share my collection"}
+            </button>
+          )}
         </div>
         <div className="library-header-actions">
           {user && (
@@ -417,13 +449,13 @@ function LibraryPageContent() {
             className={`library-tab ${tab === "owned" ? "active" : ""}`}
             onClick={() => setTab("owned")}
           >
-            Collection
+            Collection {stats.ownedCount > 0 && <span className="library-tab-count">{stats.ownedCount}</span>}
           </button>
           <button
             className={`library-tab ${tab === "wishlist" ? "active" : ""}`}
             onClick={() => setTab("wishlist")}
           >
-            Wishlist
+            Wishlist {stats.wishlistCount > 0 && <span className="library-tab-count">{stats.wishlistCount}</span>}
           </button>
         </div>
 
@@ -647,9 +679,7 @@ function LibraryPageContent() {
                         loading="lazy"
                       />
                       {USER_COVER_UPLOAD_ENABLED && liveGrade.user_cover_url && (
-                        <span className="library-cover-tag" title="Your photo">
-                          Your photo
-                        </span>
+                        <span className="library-cover-tag" title="Your photo">Your photo</span>
                       )}
                     </Link>
 
@@ -691,11 +721,11 @@ function LibraryPageContent() {
                         )}
                       </div>
 
-                      {/* Grade editor — owned books only */}
                       {tab === "owned" && (
                         <GradeEditor
                           collectionId={item.id}
                           initialData={liveGrade}
+                          canonicalCover={comic.cover || null}
                           onSave={(updated) =>
                             setGradeData((prev) => ({
                               ...prev,
@@ -758,9 +788,7 @@ function LibraryPageContent() {
                           loading="lazy"
                         />
                         {USER_COVER_UPLOAD_ENABLED && liveGrade.user_cover_url && (
-                          <span className="library-cover-tag" title="Your photo">
-                            Your photo
-                          </span>
+                          <span className="library-cover-tag" title="Your photo">Your photo</span>
                         )}
                       </div>
                       <div className="comic-card-title">
@@ -772,7 +800,6 @@ function LibraryPageContent() {
                       </div>
                     </Link>
 
-                    {/* Grade badge on grid cards */}
                     {(liveGrade.grade_numeric || liveGrade.condition) && (
                       <div style={{ padding: "4px 10px 0" }}>
                         <GradeBadge
@@ -783,19 +810,19 @@ function LibraryPageContent() {
                       </div>
                     )}
 
-                    {/* Inline grade editor — owned books only */}
                     {tab === "owned" && (
                       <div className="comic-card-grade">
                         <GradeEditor
                           collectionId={item.id}
                           initialData={liveGrade}
+                          canonicalCover={comic.cover || null}
                           onSave={(updated) =>
                             setGradeData((prev) => ({
                               ...prev,
                               [item.id]: { ...liveGrade, ...updated },
                             }))
                           }
-                        />
+                          />
                       </div>
                     )}
                   </article>

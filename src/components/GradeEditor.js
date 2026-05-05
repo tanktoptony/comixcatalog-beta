@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
 const USER_COVER_UPLOAD_ENABLED = true;
@@ -83,7 +83,7 @@ function GradeBadge({ grade, company, condition }) {
 
 export { GradeBadge };
 
-export default function GradeEditor({ collectionId, initialData = {}, onSave }) {
+export default function GradeEditor({ collectionId, initialData = {}, canonicalCover = null, onSave }) {
   const [open, setOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
@@ -101,6 +101,11 @@ export default function GradeEditor({ collectionId, initialData = {}, onSave }) 
   );
   const [userCoverUrl, setUserCoverUrl] = useState(initialData.user_cover_url || null);
   const [uploading, setUploading] = useState(false);
+
+  // Sync photo when initialData updates (e.g. after library hydration)
+  useEffect(() => {
+    setUserCoverUrl(initialData.user_cover_url || null);
+  }, [initialData.user_cover_url]);
 
   const isSlabbed = !!slabCompany;
 
@@ -264,6 +269,13 @@ export default function GradeEditor({ collectionId, initialData = {}, onSave }) 
                     src={userCoverUrl}
                     alt="Your photo"
                     className="grade-cover-thumb"
+                  />
+                ) : canonicalCover ? (
+                  <img
+                    src={canonicalCover}
+                    alt="Issue cover"
+                    className="grade-cover-thumb"
+                    style={{ opacity: 0.5 }}
                   />
                 ) : (
                   <div className="grade-cover-thumb grade-cover-thumb-empty" aria-hidden="true">

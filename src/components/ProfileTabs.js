@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
-const TABS = [
-  { id: "owned", label: "Owned" },
-  { id: "wishlist", label: "Wantlist" },
-  { id: "for_sale", label: "For Sale" },
-  { id: "activity", label: "Activity" },
+const TAB_DEFS = [
+  { id: "owned", label: "Owned", visibilityKey: "collection" },
+  { id: "wishlist", label: "Wantlist", visibilityKey: "wantlist" },
+  { id: "for_sale", label: "For Sale", visibilityKey: "for_sale" },
+  { id: "activity", label: "Activity", visibilityKey: null },
 ];
 
 function formatRelative(iso) {
@@ -29,8 +29,17 @@ function ActivityVerb({ status }) {
   return "updated";
 }
 
-export default function ProfileTabs({ collection, isOwner }) {
-  const [activeTab, setActiveTab] = useState("owned");
+export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
+  // Filter out tabs whose section is hidden by privacy settings (unless owner).
+  const visibleTabs = TAB_DEFS.filter((t) => {
+    if (!t.visibilityKey) return true;
+    if (isOwner) return true;
+    return visibility[t.visibilityKey] !== false;
+  });
+
+  const [activeTab, setActiveTab] = useState(
+    visibleTabs[0]?.id || "owned"
+  );
 
   const grouped = useMemo(() => {
     const owned = [];
@@ -63,7 +72,7 @@ export default function ProfileTabs({ collection, isOwner }) {
   return (
     <div className="profile-tabs-wrap">
       <div className="profile-tabs" role="tablist">
-        {TABS.map((tab) => (
+        {visibleTabs.map((tab) => (
           <button
             key={tab.id}
             type="button"

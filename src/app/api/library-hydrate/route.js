@@ -47,25 +47,76 @@ export async function POST(req) {
         : { data: [] },
     ]);
 
-    // ── Local comics ──
-    for (const comic of localResult.data ?? []) {
-      const coverPath =
-        comic.comic_covers?.find((c) => c.is_primary)?.image_path ??
-        comic.comic_covers?.[0]?.image_path ??
-        null;
-      items[String(comic.id)] = {
-        libraryKey: String(comic.id),
-        href: `/comic/${comic.id}`,
-        sourceType: "local",
-        id: String(comic.id),
-        title: comic.series_title ?? "Untitled",
-        issueNumber: comic.issue_number ?? "",
-        year: comic.release_year ?? null,
-        publisher: comic.publisher ?? null,
-        cover: coverPath
-          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${coverPath}`
-          : null,
-      };
+    // ── Local comics — canonical cover lookup ──
+    const localComics = localResult.data ?? [];
+    if (localComics.length > 0) {
+      const localSeriesTitles = [...new Set(localComics.map((c) => c.series_title).filter(Boolean))];
+      const localIssueNumbers = [...new Set(localComics.map((c) => c.issue_number).filter((v) => v != null))];
+
+      const COVER_YEAR_TOLERANCE = 1;
+      const localCoversByKey = new Map();
+
+      if (localSeriesTitles.length > 0 && localIssueNumbers.length > 0) {
+        const { data: localCovers } = await supabase
+          .from("canonical_covers")
+          .select("series_title, issue_number, series_year, cover_date, storage_path")
+          .in("series_title", localSeriesTitles)
+          .in("issue_number", localIssueNumbers)
+          .not("storage_path", "is", null);
+
+        for (const c of localCovers ?? []) {
+          const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
+          if (!localCoversByKey.has(key)) localCoversByKey.set(key, []);
+          localCoversByKey.get(key).push(c);
+        }
+      }
+
+      for (const comic of localComics) {
+        const coverKey = `${norm(comic.series_title)}::${norm(comic.issue_number)}`;
+        const issueYear = comic.release_year ?? null;
+        const candidates = localCoversByKey.get(coverKey) ?? [];
+
+        let canonicalUrl = null;
+        if (candidates.length > 0) {
+          const yearOf = (c) => {
+            const cd = parseYear(c.cover_date);
+            if (cd != null) return cd;
+            return c.series_year != null ? Number(c.series_year) : null;
+          };
+          let best = null;
+          let bestDiff = Infinity;
+          for (const c of candidates) {
+            const cy = yearOf(c);
+            if (cy == null) { if (!best) best = c; continue; }
+            if (issueYear == null) { best = c; break; }
+            const diff = Math.abs(cy - issueYear);
+            if (diff > COVER_YEAR_TOLERANCE) continue;
+            if (diff < bestDiff) { best = c; bestDiff = diff; }
+          }
+          if (best) canonicalUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${best.storage_path}`;
+        }
+
+        // Fall back to user-uploaded comic_covers if no canonical cover found
+        const userCoverPath =
+          comic.comic_covers?.find((c) => c.is_primary)?.image_path ??
+          comic.comic_covers?.[0]?.image_path ??
+          null;
+        const userCoverFallback = userCoverPath
+          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${userCoverPath}`
+          : null;
+
+        items[String(comic.id)] = {
+          libraryKey: String(comic.id),
+          href: `/comic/${comic.id}`,
+          sourceType: "local",
+          id: String(comic.id),
+          title: comic.series_title ?? "Untitled",
+          issueNumber: comic.issue_number ?? "",
+          year: comic.release_year ?? null,
+          publisher: comic.publisher ?? null,
+          cover: canonicalUrl ?? userCoverFallback,
+        };
+      }
     }
 
     // ── GCD issues ──

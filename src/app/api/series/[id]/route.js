@@ -163,7 +163,7 @@ export async function GET(req, context) {
     if (issueNumbers.length > 0) {
       const { data, error } = await supabase
         .from("canonical_covers")
-        .select("series_title, issue_number, series_year, storage_path, publisher")
+        .select("series_title, issue_number, series_year, cover_date, storage_path, publisher")
         .eq("series_title", series.title)
         .in("issue_number", issueNumbers);
 
@@ -192,15 +192,6 @@ export async function GET(req, context) {
       seriesTitle: series.title,
     });
 
-    const canonicalLookupByYear = Object.fromEntries(
-      canonicalRows
-        .filter((row) => row.series_year != null && row.storage_path)
-        .map((row) => [
-          `${normalizeSeriesTitle(row.series_title)}::${normalizeIssueNumber(row.issue_number)}::${String(row.series_year)}`,
-          row.storage_path,
-        ])
-    );
-
     const candidatesByIssue = canonicalRows.reduce((acc, row) => {
       const key =
         `${normalizeSeriesTitle(row.series_title)}::${normalizeIssueNumber(row.issue_number)}`;
@@ -226,15 +217,10 @@ export async function GET(req, context) {
     const COVER_YEAR_TOLERANCE = 1;
 
     const mappedIssuesRaw = issueRows.map((issue) => {
-      const issueYear = parseYear(issue.publication_date);
-
-      const yearAwareKey =
-        `${normalizeSeriesTitle(series.title)}::${normalizeIssueNumber(issue.issue_number)}::${String(issueYear ?? "")}`;
+      const gcdYear = parseYear(issue.publication_date);
 
       const legacyKey =
         `${normalizeSeriesTitle(series.title)}::${normalizeIssueNumber(issue.issue_number)}`;
-
-      const yearAwareStoragePath = canonicalLookupByYear[yearAwareKey] ?? null;
 
       // For the fallback path, only accept covers whose series_year sits
       // inside this series's actual year span (with a small tolerance). If
@@ -251,32 +237,33 @@ export async function GET(req, context) {
             )
           : allCandidates;
 
-      const yearMatchingCandidates =
-        issueYear != null
-          ? inSpanCandidates.filter(
-              (row) =>
-                row.series_year != null &&
-                Number(row.series_year) === issueYear
-            )
-          : [];
+      // Pick the candidate whose cover_date / series_year is closest to the
+      // issue's publication year. If GCD doesn't have a publication_date,
+      // any in-span candidate is fine — pick the first by cover_date.
+      const ranked = [...inSpanCandidates].sort((a, b) => {
+        const aYear = parseYear(a.cover_date) ?? Number(a.series_year ?? 0);
+        const bYear = parseYear(b.cover_date) ?? Number(b.series_year ?? 0);
+        if (gcdYear != null) {
+          return Math.abs(aYear - gcdYear) - Math.abs(bYear - gcdYear);
+        }
+        return aYear - bYear;
+      });
 
-      const candidatePool =
-        yearMatchingCandidates.length > 0
-          ? yearMatchingCandidates
-          : inSpanCandidates;
-      const uniqueCandidatePaths = [
-        ...new Set(candidatePool.map((row) => row.storage_path)),
-      ];
-      const fallbackStoragePath =
-        uniqueCandidatePaths.length === 1 ? uniqueCandidatePaths[0] : null;
+      const best = ranked[0] ?? null;
+      const storagePath = best?.storage_path ?? null;
 
-      const storagePath = yearAwareStoragePath ?? fallbackStoragePath ?? null;
+      // Year fallback: if gcd_issues.publication_date is missing, fall back to
+      // the chosen canonical cover's cover_date (per-issue) or its series_year.
+      const releaseYear =
+        gcdYear ??
+        (best ? parseYear(best.cover_date) ?? Number(best.series_year ?? null) : null) ??
+        null;
 
       return {
         id: `gcd-${issue.gcd_id}`,
         title: issue.title ?? null,
         issue_number: issue.issue_number,
-        release_year: issueYear,
+        release_year: releaseYear,
         publication_date: issue.publication_date ?? null,
         cover: storagePath
           ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`

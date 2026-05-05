@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import ShareProfileButton from "@/components/ShareProfileButton";
 import { headers } from "next/headers";
 import Image from "next/image";
-import EditAvatarButton from "@/components/EditAvatarButton";
+import EditProfileButton from "@/components/EditProfileButton";
 import ProfileTabs from "@/components/ProfileTabs";
 import { createClient } from "@supabase/supabase-js";
 
@@ -32,14 +32,6 @@ export default async function PublicProfilePage({ params }) {
 
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
 
-  const res = await fetch(
-    `${protocol}://${host}/api/public-profile?username=${username}`,
-    { cache: "no-store" }
-  );
-  if (!res.ok) notFound();
-
-  const { profile, collection } = await res.json();
-
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -47,6 +39,18 @@ export default async function PublicProfilePage({ params }) {
   const {
     data: { user: currentUser },
   } = await supabase.auth.getUser();
+
+  const viewerParam = currentUser?.id
+    ? `&viewer_id=${encodeURIComponent(currentUser.id)}`
+    : "";
+  const res = await fetch(
+    `${protocol}://${host}/api/public-profile?username=${username}${viewerParam}`,
+    { cache: "no-store" }
+  );
+  if (!res.ok) notFound();
+
+  const { profile, collection, visibility = {} } = await res.json();
+
   const isOwner = currentUser?.id === profile.id;
 
   const ownedItems = collection.filter((c) => c.status === "owned");
@@ -112,17 +116,13 @@ export default async function PublicProfilePage({ params }) {
               className="rounded-full"
               unoptimized={Boolean(profile.avatar_url)}
             />
-            {isOwner && (
-              <EditAvatarButton
-                profileId={profile.id}
-                currentAvatar={profile.avatar_key}
-              />
-            )}
           </div>
 
           <div className="profile-info">
             <div className="profile-username-row">
-              <h1 className="profile-username">{username}</h1>
+              <h1 className="profile-username">
+                {profile.display_name || username}
+              </h1>
               <div className="profile-badges">
                 {profile?.is_founding_collector && (
                   <span className="profile-badge founding">
@@ -134,11 +134,32 @@ export default async function PublicProfilePage({ params }) {
                 )}
               </div>
             </div>
-            {joinDate && (
-              <div className="profile-meta">Collector since {joinDate}</div>
+            {profile.display_name && (
+              <div className="profile-handle">@{username}</div>
             )}
+            <div className="profile-meta-row">
+              {joinDate && (
+                <span className="profile-meta">Collector since {joinDate}</span>
+              )}
+              {profile.location && (
+                <span className="profile-meta">· {profile.location}</span>
+              )}
+              {profile.website_url && (
+                <a
+                  className="profile-website-link"
+                  href={profile.website_url}
+                  target="_blank"
+                  rel="noopener nofollow noreferrer"
+                >
+                  · {profile.website_url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                </a>
+              )}
+            </div>
+            {profile.bio && <p className="profile-bio">{profile.bio}</p>}
             <div className="profile-actions">
               <ShareProfileButton username={username} />
+              {/* EditProfileButton self-gates on client-side ownership check */}
+              <EditProfileButton profile={profile} />
               {isOwner && (
                 <Link href="/library" className="profile-action-btn">
                   Manage library
@@ -163,7 +184,7 @@ export default async function PublicProfilePage({ params }) {
           <div className="profile-stat-pill-num">{forSaleCount}</div>
           <div className="profile-stat-pill-label">For Sale</div>
         </div>
-        {hasMarketValue && (
+        {hasMarketValue && visibility.value !== false && (
           <div className="profile-stat-pill highlight">
             <div className="profile-stat-pill-num">
               {formatCurrency(totalMarketValue)}
@@ -180,7 +201,11 @@ export default async function PublicProfilePage({ params }) {
       {/* BODY: tabs + sidebar */}
       <div className="profile-body">
         <div className="profile-body-main">
-          <ProfileTabs collection={collection} isOwner={isOwner} />
+          <ProfileTabs
+            collection={collection}
+            isOwner={isOwner}
+            visibility={visibility}
+          />
         </div>
 
         <aside className="profile-sidebar">

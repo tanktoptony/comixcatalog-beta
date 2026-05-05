@@ -59,10 +59,19 @@ export function LibraryProvider({ children }) {
     try {
       const supabase = getSupabaseClient();
 
-      const { data, error } = await supabase
+      // Hard timeout. A hung Supabase query (RLS hang, network stall, etc.)
+      // would otherwise leave the library spinning "Loading…" indefinitely.
+      // 10s is well above a healthy roundtrip; anything past that is broken.
+      const queryPromise = supabase
         .from("user_collections")
         .select("*")
         .eq("user_id", user.id);
+
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("library query timed out (10s)")), 10000)
+      );
+
+      const { data, error } = await Promise.race([queryPromise, timeoutPromise]);
 
       if (error) {
         console.error("refreshLibrary error", {
@@ -76,12 +85,20 @@ export function LibraryProvider({ children }) {
       }
 
       setCollections(data ?? []);
+    } catch (err) {
+      console.error("refreshLibrary crashed:", err);
+      setCollections([]);
     } finally {
       setLoading(false);
     }
   }
 
   useEffect(() => {
+    // Clear immediately on user change so a previous account's collections
+    // never paint under a new session. Without this, collections from the
+    // signed-out user linger until refreshLibrary resolves.
+    setCollections([]);
+    setLoading(true);
     refreshLibrary();
   }, [user?.id]);
 

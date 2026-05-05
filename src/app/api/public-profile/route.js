@@ -14,11 +14,12 @@ function norm(value) {
 export async function GET(req) {
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 
   const { searchParams } = new URL(req.url);
   const username = searchParams.get("username");
+  const viewerId = searchParams.get("viewer_id") || null;
 
   if (!username) {
     return NextResponse.json({ error: "Username required" }, { status: 400 });
@@ -27,14 +28,29 @@ export async function GET(req) {
   const { data: profile, error: profileError } = await supabase
     .from("profiles")
     .select(
-      "id, username, is_public, avatar_key, avatar_url, is_founding_collector, is_pro, created_at"
+      "id, username, is_public, avatar_key, avatar_url, is_founding_collector, is_pro, created_at, display_name, location, bio, website_url, show_collection, show_wantlist, show_for_sale, show_value"
     )
     .eq("username", username)
     .single();
 
-  if (profileError || !profile || !profile.is_public) {
+  if (profileError || !profile) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
+
+  const isOwner = viewerId && viewerId === profile.id;
+
+  // Non-owners are blocked from non-public profiles entirely.
+  if (!isOwner && !profile.is_public) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
+  // Per-section privacy. Owners see everything regardless.
+  const visibility = {
+    collection: isOwner || profile.show_collection !== false,
+    wantlist: isOwner || profile.show_wantlist !== false,
+    for_sale: isOwner || profile.show_for_sale !== false,
+    value: isOwner || profile.show_value !== false,
+  };
 
   const { data: collection, error: collectionError } = await supabase
     .from("user_collections")
@@ -201,6 +217,27 @@ export async function GET(req) {
     }
   }
 
+  // Canonical cover lookup for local comics
+  const localItems = (collection || []).filter((i) => i.gcd_issue_id == null && i.comics);
+  const localSeriesTitles = [...new Set(localItems.map((i) => i.comics?.series_title).filter(Boolean))];
+  const localIssueNumbers = [...new Set(localItems.map((i) => i.comics?.issue_number).filter((v) => v != null))];
+  const localCanonicalByKey = new Map();
+
+  if (localSeriesTitles.length > 0 && localIssueNumbers.length > 0) {
+    const { data: localCovers } = await supabase
+      .from("canonical_covers")
+      .select("series_title, issue_number, series_year, cover_date, storage_path")
+      .in("series_title", localSeriesTitles)
+      .in("issue_number", localIssueNumbers)
+      .not("storage_path", "is", null);
+
+    for (const c of localCovers ?? []) {
+      const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
+      if (!localCanonicalByKey.has(key)) localCanonicalByKey.set(key, []);
+      localCanonicalByKey.get(key).push(c);
+    }
+  }
+
   const normalizedCollection = (collection || [])
     .map((item) => {
       if (item.gcd_issue_id != null) {
@@ -212,18 +249,44 @@ export async function GET(req) {
       const comic = item.comics;
       if (!comic) return null;
 
+      const coverKey = `${norm(comic.series_title)}::${norm(comic.issue_number)}`;
+      const candidates = localCanonicalByKey.get(coverKey) ?? [];
+      const issueYear = comic.release_year ?? null;
+      const COVER_YEAR_TOLERANCE = 1;
+
+      let canonicalUrl = null;
+      if (candidates.length > 0) {
+        const yearOf = (c) => {
+          const cd = parseYear(c.cover_date);
+          if (cd != null) return cd;
+          return c.series_year != null ? Number(c.series_year) : null;
+        };
+        let best = null;
+        let bestDiff = Infinity;
+        for (const c of candidates) {
+          const cy = yearOf(c);
+          if (cy == null) { if (!best) best = c; continue; }
+          if (issueYear == null) { best = c; break; }
+          const diff = Math.abs(cy - issueYear);
+          if (diff > COVER_YEAR_TOLERANCE) continue;
+          if (diff < bestDiff) { best = c; bestDiff = diff; }
+        }
+        if (best) canonicalUrl = `${supabaseUrl}/storage/v1/object/public/canonical-covers/${best.storage_path}`;
+      }
+
       const primaryCover =
         comic.comic_covers?.find((c) => c.is_primary) ||
         comic.comic_covers?.[0];
+      const userCoverFallback = primaryCover
+        ? `${supabaseUrl}/storage/v1/object/public/comic-covers/${primaryCover.image_path}`
+        : null;
 
       const display = {
         title: comic.series_title || "Untitled",
         issueNumber: comic.issue_number ?? "",
         year: comic.release_year ?? null,
         publisher: comic.publisher ?? null,
-        coverUrl: primaryCover
-          ? `${supabaseUrl}/storage/v1/object/public/comic-covers/${primaryCover.image_path}`
-          : null,
+        coverUrl: canonicalUrl ?? userCoverFallback,
         href: `/comic/${comic.id}`,
         sourceType: "local",
       };
@@ -232,8 +295,22 @@ export async function GET(req) {
     })
     .filter(Boolean);
 
+  // Apply per-section privacy. Owners see everything. Non-owners get items
+  // filtered by status, and value fields zeroed out if show_value is off.
+  const visibleCollection = normalizedCollection
+    .filter((item) => {
+      if (item.status === "owned" && !visibility.collection) return false;
+      if (item.status === "wishlist" && !visibility.wantlist) return false;
+      if (item.status === "for_sale" && !visibility.for_sale) return false;
+      return true;
+    })
+    .map((item) => {
+      if (visibility.value) return item;
+      return { ...item, market_value: null, purchase_price: null };
+    });
+
   const publisherCounts = {};
-  normalizedCollection.forEach((item) => {
+  visibleCollection.forEach((item) => {
     const pub = item.display?.publisher;
     if (!pub) return;
     publisherCounts[pub] = (publisherCounts[pub] || 0) + 1;
@@ -244,7 +321,8 @@ export async function GET(req) {
 
   return NextResponse.json({
     profile,
-    collection: normalizedCollection,
+    visibility,
+    collection: visibleCollection,
     dominantPublisher,
   });
 }

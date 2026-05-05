@@ -60,14 +60,13 @@ export default function Header() {
     setMenuOpen(false);
   }
 
-  async function handleLogout() {
+  function handleLogout() {
     closeMenu();
-    try {
-      await signOut();
-    } catch (err) {
-      console.error("Logout failed:", err);
-    }
-    window.location.replace("/");
+    // Navigate first so the header repaints as logged-out instantly. Fire the
+    // Supabase signOut in the background — awaiting it (IndexedDB write +
+    // local-storage clear) added a perceptible delay before the redirect.
+    router.replace("/");
+    signOut().catch((err) => console.error("Logout failed:", err));
   }
 
   function clearSearch() {
@@ -214,10 +213,6 @@ export default function Header() {
   }
 
   const activeStyle = { background: "rgba(255,255,255,0.08)" };
-
-  if (loading && !user) {
-    return null;
-  }
 
   return (
     <header className="site-header">

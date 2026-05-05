@@ -21,7 +21,17 @@ export function AuthProvider({ children }) {
         if (!mounted) return;
 
         const nextUser = session?.user ?? null;
-        setUser(nextUser);
+
+        // Only clear profile when transitioning between two DIFFERENT signed-in
+        // users (account switch). Don't clear on the initial null→user
+        // transition (first sign-in) — that's what was leaving "My Profile"
+        // missing on the first paint.
+        setUser((prev) => {
+          if (prev?.id && nextUser?.id && prev.id !== nextUser.id) {
+            setProfile(null);
+          }
+          return nextUser;
+        });
 
         if (nextUser) {
           const { data: prof } = await supabase
@@ -30,7 +40,24 @@ export function AuthProvider({ children }) {
             .eq("id", nextUser.id)
             .single();
 
-          if (mounted) setProfile(prof ?? null);
+          if (mounted) {
+            // If no profile row exists in the DB, synthesize a minimal one
+            // from the auth user so downstream UI (header link, share button,
+            // avatar) still renders. Username falls back to email local-part.
+            const synthesized = prof ?? {
+              id: nextUser.id,
+              username:
+                nextUser.user_metadata?.username ||
+                nextUser.email?.split("@")[0] ||
+                null,
+              avatar_url: null,
+              avatar_key: null,
+              is_pro: false,
+              is_founding_collector: false,
+              created_at: nextUser.created_at ?? null,
+            };
+            setProfile((prev) => synthesized ?? prev ?? null);
+          }
         } else {
           setProfile(null);
         }

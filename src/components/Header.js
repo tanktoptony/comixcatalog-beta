@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
@@ -44,6 +44,7 @@ function formatYearRange(start, end) {
 export default function Header() {
   const { user, profile, loading, signOut, isPro } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const [query, setQuery] = useState("");
   const [seriesResults, setSeriesResults] = useState([]);
@@ -55,18 +56,20 @@ export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const searchRef = useRef(null);
+  const userMenuRef = useRef(null);
 
   function closeMenu() {
     setMenuOpen(false);
+    setUserMenuOpen(false);
   }
 
   function handleLogout() {
     closeMenu();
-    // Navigate first so the header repaints as logged-out instantly. Fire the
-    // Supabase signOut in the background — awaiting it (IndexedDB write +
-    // local-storage clear) added a perceptible delay before the redirect.
+    // signOut() clears user/profile synchronously (before its first await) so
+    // the navbar paints as logged-out the moment React processes the next
+    // tick. Then we navigate. The network signOut runs in the background.
+    signOut();
     router.replace("/");
-    signOut().catch((err) => console.error("Logout failed:", err));
   }
 
   function clearSearch() {
@@ -90,15 +93,23 @@ export default function Header() {
 
   useEffect(() => {
     function handleOutsideClick(event) {
-      if (!searchRef.current) return;
-      if (!searchRef.current.contains(event.target)) {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
         setSearchOpen(false);
       }
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setUserMenuOpen(false);
+      }
     }
-
+    function handleEsc(event) {
+      if (event.key === "Escape") {
+        setUserMenuOpen(false);
+      }
+    }
     document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("keydown", handleEsc);
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleEsc);
     };
   }, []);
 
@@ -400,21 +411,8 @@ export default function Header() {
           <Link href="/marketplace" className="nav-link" onClick={closeMenu}>
             Marketplace
           </Link>
-
-          <Link href="/library" className="nav-link" onClick={closeMenu}>
-            My Library
-          </Link>
-
-          <Link href="/blog" className="nav-link" onClick={closeMenu}>
-            Developer Blog
-          </Link>
-
           <Link href="/search" className="nav-link" onClick={closeMenu}>
             Browse
-          </Link>
-
-          <Link href="/collectors" className="nav-link" onClick={closeMenu}>
-            Founding Collectors
           </Link>
 
           {!user && (
@@ -422,42 +420,195 @@ export default function Header() {
               <Link href="/login" className="nav-link" onClick={closeMenu}>
                 Login
               </Link>
-              <Link href="/signup" className="nav-link" onClick={closeMenu}>
+              <Link href="/signup" className="nav-cta" onClick={closeMenu}>
                 Sign Up
               </Link>
             </>
           )}
-
-          {user && (
-            <>
-              {isPro && (
-                <Link
-                  href="/upgrade"
-                  className="nav-pro-pill"
-                  onClick={closeMenu}
-                  title="Manage your Pro subscription"
-                >
-                  PRO
-                </Link>
-              )}
-
-              {profile?.username && (
-                <Link
-                  href={`/u/${profile.username}`}
-                  className="nav-link"
-                  onClick={closeMenu}
-                >
-                  My Profile
-                </Link>
-              )}
-
-              <button type="button" onClick={handleLogout} className="nav-link">
-                Logout
-              </button>
-            </>
-          )}
         </nav>
+
+        {/* Library icon + avatar dropdown live OUTSIDE .main-nav so they stay
+            visible on mobile while text links collapse behind the hamburger.
+            Inbox slot is reserved for Phase 4 (marketplace messages); rendering
+            it now means the layout doesn't shift when we wire it later. */}
+        {user && (
+          <div className="header-user-actions">
+            <button
+              type="button"
+              className="nav-icon-btn nav-icon-btn-disabled"
+              title="Inbox (coming with marketplace)"
+              aria-label="Inbox"
+              disabled
+            >
+              <InboxIcon />
+            </button>
+            <Link
+              href="/library"
+              className="nav-icon-btn"
+              onClick={closeMenu}
+              title="My Library"
+              aria-label="My Library"
+            >
+              <LibraryIcon />
+            </Link>
+            <UserMenu
+              ref={userMenuRef}
+              open={userMenuOpen}
+              setOpen={setUserMenuOpen}
+              profile={profile}
+              isPro={isPro}
+              onLogout={handleLogout}
+              onNavigate={closeMenu}
+            />
+          </div>
+        )}
       </div>
     </header>
   );
 }
+
+function LibraryIcon() {
+  // Stack-of-books icon, currentColor for theming.
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M4 4h4v16H4z" />
+      <path d="M9 4h4v16H9z" />
+      <path d="M15 5l3.5-1 3 14-3.5 1z" />
+    </svg>
+  );
+}
+
+function InboxIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M3 13h4l2 3h6l2-3h4" />
+      <path d="M5 5h14l2 8v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6z" />
+    </svg>
+  );
+}
+
+const UserMenu = forwardRef(function UserMenu(
+  { open, setOpen, profile, isPro, onLogout, onNavigate },
+  ref
+) {
+  const username = profile?.username || null;
+  const displayName = profile?.display_name || username || "Account";
+  const avatarSrc = profile?.avatar_url
+    ? profile.avatar_url
+    : `/avatars/${profile?.avatar_key || "cc_badge"}.png`;
+
+  function handleItem(callback) {
+    return () => {
+      setOpen(false);
+      onNavigate?.();
+      callback?.();
+    };
+  }
+
+  return (
+    <div className="user-menu" ref={ref}>
+      <button
+        type="button"
+        className={`user-menu-trigger ${open ? "is-open" : ""}`}
+        onClick={() => setOpen(!open)}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-label="Account menu"
+      >
+        <img src={avatarSrc} alt="" className="user-menu-avatar" />
+        {isPro && <span className="user-menu-pro-dot" aria-hidden="true" />}
+      </button>
+
+      {open && (
+        <div className="user-menu-panel" role="menu">
+          <div className="user-menu-head">
+            <div className="user-menu-name">{displayName}</div>
+            {username && displayName !== username && (
+              <div className="user-menu-handle">@{username}</div>
+            )}
+            {isPro && <span className="user-menu-pro-pill">PRO</span>}
+          </div>
+
+          <div className="user-menu-divider" />
+
+          {username && (
+            <Link
+              href={`/u/${username}`}
+              className="user-menu-item"
+              role="menuitem"
+              onClick={handleItem()}
+            >
+              My Profile
+            </Link>
+          )}
+          <Link
+            href="/library"
+            className="user-menu-item"
+            role="menuitem"
+            onClick={handleItem()}
+          >
+            My Library
+          </Link>
+          <Link
+            href="/collectors"
+            className="user-menu-item"
+            role="menuitem"
+            onClick={handleItem()}
+          >
+            Founding Collectors
+          </Link>
+          <Link
+            href="/blog"
+            className="user-menu-item"
+            role="menuitem"
+            onClick={handleItem()}
+          >
+            Developer Blog
+          </Link>
+
+          <div className="user-menu-divider" />
+
+          <Link
+            href="/upgrade"
+            className={`user-menu-item ${isPro ? "" : "user-menu-item-cta"}`}
+            role="menuitem"
+            onClick={handleItem()}
+          >
+            {isPro ? "Manage Pro" : "Upgrade to Pro"}
+          </Link>
+
+          <div className="user-menu-divider" />
+
+          <button
+            type="button"
+            className="user-menu-item user-menu-item-danger"
+            role="menuitem"
+            onClick={handleItem(onLogout)}
+          >
+            Sign out
+          </button>
+        </div>
+      )}
+    </div>
+  );
+});

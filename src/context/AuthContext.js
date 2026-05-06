@@ -16,53 +16,62 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     let mounted = true;
 
+    // Track the prior user.id outside React state so we can detect account
+    // switches without nesting setProfile inside a setUser updater (which
+    // double-invokes in strict mode).
+    let prevUserId = null;
+
     const { data: listener } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         if (!mounted) return;
 
         const nextUser = session?.user ?? null;
+        const nextUserId = nextUser?.id ?? null;
 
-        // Only clear profile when transitioning between two DIFFERENT signed-in
-        // users (account switch). Don't clear on the initial null→user
-        // transition (first sign-in) — that's what was leaving "My Profile"
-        // missing on the first paint.
-        setUser((prev) => {
-          if (prev?.id && nextUser?.id && prev.id !== nextUser.id) {
-            setProfile(null);
-          }
-          return nextUser;
-        });
-
-        if (nextUser) {
-          const { data: prof } = await supabase
-            .from("profiles")
-            .select("*")
-            .eq("id", nextUser.id)
-            .single();
-
-          if (mounted) {
-            // If no profile row exists in the DB, synthesize a minimal one
-            // from the auth user so downstream UI (header link, share button,
-            // avatar) still renders. Username falls back to email local-part.
-            const synthesized = prof ?? {
-              id: nextUser.id,
-              username:
-                nextUser.user_metadata?.username ||
-                nextUser.email?.split("@")[0] ||
-                null,
-              avatar_url: null,
-              avatar_key: null,
-              is_pro: false,
-              is_founding_collector: false,
-              created_at: nextUser.created_at ?? null,
-            };
-            setProfile((prev) => synthesized ?? prev ?? null);
-          }
-        } else {
+        // SIGNED_OUT — null out everything immediately, no network needed.
+        if (!nextUser) {
+          prevUserId = null;
+          setUser(null);
           setProfile(null);
+          setLoading(false);
+          return;
         }
 
-        if (mounted) setLoading(false);
+        // Account switch — drop the previous account's profile right away
+        // so its avatar/username can't render under the new session while
+        // the fresh fetch is in flight.
+        if (prevUserId && prevUserId !== nextUserId) {
+          setProfile(null);
+        }
+        prevUserId = nextUserId;
+
+        setUser(nextUser);
+
+        const { data: prof } = await supabase
+          .from("profiles")
+          .select("*")
+          .eq("id", nextUser.id)
+          .single();
+
+        if (!mounted) return;
+
+        // If no profile row exists in the DB, synthesize a minimal one from
+        // the auth user so the header link, share button, and avatar still
+        // render. Username falls back to the email local-part.
+        const synthesized = prof ?? {
+          id: nextUser.id,
+          username:
+            nextUser.user_metadata?.username ||
+            nextUser.email?.split("@")[0] ||
+            null,
+          avatar_url: null,
+          avatar_key: null,
+          is_pro: false,
+          is_founding_collector: false,
+          created_at: nextUser.created_at ?? null,
+        };
+        setProfile(synthesized);
+        setLoading(false);
       }
     );
 
@@ -73,19 +82,29 @@ export function AuthProvider({ children }) {
   }, [supabase]);
 
   async function signOut() {
-    // scope: "local" clears the browser session immediately without waiting on
-    // a server roundtrip. The default ("global") fails closed when the token is
-    // already invalid, leaving the user logged in locally.
-    const { error } = await supabase.auth.signOut({ scope: "local" });
-
+    // CRITICAL: clear local state synchronously BEFORE the network call.
+    // If supabase.auth.signOut() hangs, errors, or its onAuthStateChange
+    // event never fires, the navbar would otherwise stay logged-in. Doing
+    // it in this order guarantees the UI updates instantly; the listener's
+    // SIGNED_OUT handler is a redundant safety net rather than the source
+    // of truth.
     setUser(null);
     setProfile(null);
 
-    if (error) {
-      console.error("Supabase logout error:", error);
+    // scope: "local" clears the browser session without waiting on a server
+    // roundtrip. The default ("global") fails closed when the token is
+    // already invalid, leaving the user logged in locally.
+    try {
+      const { error } = await supabase.auth.signOut({ scope: "local" });
+      if (error) {
+        console.error("Supabase logout error:", error);
+        return false;
+      }
+      return true;
+    } catch (err) {
+      console.error("Supabase logout threw:", err);
       return false;
     }
-    return true;
   }
 
   return (

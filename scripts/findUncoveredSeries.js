@@ -53,6 +53,16 @@ const PAGE_SIZE = 1000;
 function norm(s) {
   return String(s ?? "").trim().toLowerCase();
 }
+// Loose publisher comparison — strips suffixes ("Comics", "Entertainment",
+// "Inc.", etc.) and non-alphanumerics. Mirrors _norm_publisher in the Python
+// ingest so 'Marvel Comics' matches 'Marvel'.
+function normPublisher(value) {
+  if (!value) return "";
+  let s = String(value).trim().toLowerCase();
+  s = s.replace(/\b(comics|entertainment|publishing|inc\.?|llc|ltd|company|co\.?)\b/g, "");
+  s = s.replace(/[^a-z0-9]+/g, "");
+  return s;
+}
 function parseYear(value) {
   if (!value) return null;
   const m = String(value).match(/\b(18|19|20)\d{2}\b/);
@@ -113,16 +123,16 @@ async function run() {
     ? seriesRows.filter((s) => userSeriesIds.has(s.id))
     : seriesRows;
 
-  console.log(`\nLoading canonical_covers (title + year + issue_number + storage_path)…`);
+  console.log(`\nLoading canonical_covers (title + publisher + year + issue_number + storage_path)…`);
   const ccRows = await paginate(() =>
     supabase
       .from("canonical_covers")
-      .select("series_title, series_year, cover_date, issue_number, storage_path")
+      .select("series_title, publisher, series_year, cover_date, issue_number, storage_path")
       .not("storage_path", "is", null)
   );
   console.log(`  ${ccRows.length} canonical_covers rows with storage_path`);
 
-  // Bucket covers by normalized title -> list of {year, issueNumberNorm}
+  // Bucket covers by normalized title -> list of {year, issueNum, publisher}
   const coversByTitle = new Map();
   for (const r of ccRows) {
     const k = norm(r.series_title);
@@ -131,6 +141,7 @@ async function run() {
     coversByTitle.get(k).push({
       year: r.series_year ?? parseYear(r.cover_date),
       issueNum: norm(r.issue_number),
+      publisher: r.publisher ?? null,
     });
   }
 
@@ -157,7 +168,13 @@ async function run() {
   }
   console.log(`  done loading issues for ${issuesBySeriesGcdId.size} series`);
 
-  // For each series, compute coverage
+  // For each series, compute coverage. Strict match: a cover only counts if
+  //  (a) issue_number matches,
+  //  (b) publisher matches (normalized — "Marvel Comics" == "Marvel"), and
+  //  (c) the cover's series_year is within YEAR_TOLERANCE of the issue's
+  //      actual publication year (or the series start year as fallback).
+  // The old logic treated any cover anywhere in the series's 30-year span as
+  // coverage, which let Spanish reprints satisfy a Marvel run.
   const ranked = [];
   for (const s of targets) {
     const issues = issuesBySeriesGcdId.get(s.gcd_id) ?? [];
@@ -165,22 +182,32 @@ async function run() {
 
     const titleKey = norm(s.title);
     const candidates = coversByTitle.get(titleKey) ?? [];
-    const yearStart = s.year_start_cached;
-    const yearEnd = s.year_end_cached;
+    const seriesPub = normPublisher(s.resolved_publisher_cached);
 
-    // Pre-filter candidates whose series_year is within the series span
-    const inSpan = candidates.filter((c) => {
-      if (c.year == null) return true;
-      if (yearStart != null && c.year < yearStart - YEAR_TOLERANCE) return false;
-      if (yearEnd != null && c.year > yearEnd + YEAR_TOLERANCE) return false;
-      return true;
-    });
-
-    const inSpanByIssue = new Set(inSpan.map((c) => c.issueNum));
+    // Group candidates by issue number for fast lookup
+    const candidatesByIssue = new Map();
+    for (const c of candidates) {
+      // Hard publisher gate when series has a known publisher.
+      if (seriesPub && normPublisher(c.publisher) !== seriesPub) continue;
+      const list = candidatesByIssue.get(c.issueNum) ?? [];
+      list.push(c);
+      candidatesByIssue.set(c.issueNum, list);
+    }
 
     let covered = 0;
     for (const i of issues) {
-      if (inSpanByIssue.has(i.issueNum)) covered += 1;
+      const cands = candidatesByIssue.get(i.issueNum);
+      if (!cands || cands.length === 0) continue;
+      const targetYear = i.year ?? s.year_start_cached ?? null;
+      // No issue year? accept any same-publisher candidate as coverage.
+      if (targetYear == null) {
+        covered += 1;
+        continue;
+      }
+      const hit = cands.some(
+        (c) => c.year != null && Math.abs(c.year - targetYear) <= YEAR_TOLERANCE
+      );
+      if (hit) covered += 1;
     }
 
     const total = issues.length;
@@ -192,8 +219,8 @@ async function run() {
       gcd_id: s.gcd_id,
       title: s.title,
       publisher: s.resolved_publisher_cached,
-      year_start: yearStart,
-      year_end: yearEnd,
+      year_start: s.year_start_cached,
+      year_end: s.year_end_cached,
       total,
       covered,
       uncovered,
@@ -201,55 +228,90 @@ async function run() {
     });
   }
 
+  // Dedupe: GCD has multiple series rows for the same logical title (format
+  // variants, reprints, foreign editions). For cover ingestion, all of them
+  // share one ComicVine volume — surfacing duplicates 4x just generates
+  // duplicate ingest targets. Collapse by (title, year_start, publisher).
+  const dedupedMap = new Map();
+  for (const r of ranked) {
+    const key = `${norm(r.title)}::${r.year_start ?? ""}::${normPublisher(r.publisher)}`;
+    const existing = dedupedMap.get(key);
+    if (!existing) {
+      dedupedMap.set(key, { ...r, _dupes: 1 });
+    } else {
+      // Keep the row with the most issues (best signal for the canonical
+      // entry), but bump the dupe count so we can show "(×4)" in the table.
+      existing._dupes += 1;
+      if (r.total > existing.total) {
+        Object.assign(existing, r, { _dupes: existing._dupes });
+      }
+    }
+  }
+  const deduped = Array.from(dedupedMap.values());
+
   // Sort: most uncovered issues first, then series with NO covers prioritized
-  ranked.sort((a, b) => {
+  deduped.sort((a, b) => {
     if (a.covered === 0 && b.covered > 0) return -1;
     if (b.covered === 0 && a.covered > 0) return 1;
     return b.uncovered - a.uncovered;
   });
 
-  const top = ranked.slice(0, TOP);
+  // By default, skip series with 0 uncovered issues — they're not gaps.
+  // --include-covered re-includes them for sanity-checking.
+  const includeCovered = Boolean(flag("include-covered", false));
+  const gapsOnly = includeCovered ? ranked : ranked.filter((r) => r.uncovered > 0);
+  const top = gapsOnly.slice(0, TOP);
 
-  console.log(`\n──────── Top ${TOP} series with worst cover gaps ────────`);
-  console.log("# uncovered | total | covered | %    | publisher        | year      | title");
-  console.log("─".repeat(110));
-  for (const r of top) {
-    const yr = r.year_start
-      ? r.year_start === r.year_end
-        ? `${r.year_start}`
-        : `${r.year_start}–${r.year_end ?? "?"}`
-      : "?";
-    console.log(
-      `${String(r.uncovered).padStart(8)} | ` +
-      `${String(r.total).padStart(5)} | ` +
-      `${String(r.covered).padStart(7)} | ` +
-      `${r.pct.toFixed(0).padStart(3)}% | ` +
-      `${(r.publisher ?? "—").padEnd(16).slice(0, 16)} | ` +
-      `${yr.padEnd(9)} | ` +
-      `${r.title}`
-    );
+  if (gapsOnly.length === 0) {
+    console.log(`\nAll ${ranked.length} ranked series are 100% covered. No gaps to fill.`);
+    if (USER_ONLY) {
+      console.log("Tip: drop --user-only to scan the full DB (54k+ series).");
+    }
+  } else {
+    console.log(`\n──────── Top ${Math.min(TOP, gapsOnly.length)} series with worst cover gaps ────────`);
+    console.log("# uncovered | total | covered |   %    | publisher        | year      | title");
+    console.log("─".repeat(110));
+    for (const r of top) {
+      const yr = r.year_start
+        ? r.year_start === r.year_end
+          ? `${r.year_start}`
+          : `${r.year_start}–${r.year_end ?? "?"}`
+        : "?";
+      console.log(
+        `${String(r.uncovered).padStart(8)} | ` +
+        `${String(r.total).padStart(5)} | ` +
+        `${String(r.covered).padStart(7)} | ` +
+        // .toFixed(1) so 99.897 reads as "99.9%" not a misleading "100%".
+        `${r.pct.toFixed(1).padStart(5)}% | ` +
+        `${(r.publisher ?? "—").padEnd(16).slice(0, 16)} | ` +
+        `${yr.padEnd(9)} | ` +
+        `${r.title}`
+      );
+    }
   }
 
-  // Emit Python-pasteable list
-  console.log(`\n──────── Paste into TARGET_VOLUMES in comicvine_api_to_supabase.py ────────`);
-  for (const r of top) {
-    const pub = (r.publisher ?? "").replace(/"/g, '\\"');
-    const name = (r.title ?? "").replace(/"/g, '\\"');
-    const year = r.year_start ?? null;
-    console.log(
-      `  {"name": "${name}", "publisher": "${pub}", "year": ${year}},  # ${r.uncovered} of ${r.total} uncovered`
-    );
-  }
+  // Emit Python-pasteable + JSON only for series with actual gaps
+  const ingestable = top.filter((r) => r.uncovered > 0);
+  if (ingestable.length > 0) {
+    console.log(`\n──────── Paste into TARGET_VOLUMES in comicvine_api_to_supabase.py ────────`);
+    for (const r of ingestable) {
+      const pub = (r.publisher ?? "").replace(/"/g, '\\"');
+      const name = (r.title ?? "").replace(/"/g, '\\"');
+      const year = r.year_start ?? null;
+      console.log(
+        `  {"name": "${name}", "publisher": "${pub}", "year": ${year}},  # ${r.uncovered} of ${r.total} uncovered`
+      );
+    }
 
-  // Emit JSON for --targets ingestion
-  const jsonTargets = top.map((r) => ({
-    name: r.title,
-    publisher: r.publisher,
-    year: r.year_start,
-  }));
-  fs.writeFileSync(OUT_FILE, JSON.stringify(jsonTargets, null, 2));
-  console.log(`\nWrote ${jsonTargets.length} targets to ${OUT_FILE}`);
-  console.log(`Run:  python comicvine_api_to_supabase.py --targets ${path.relative(path.resolve(__dirname, ".."), OUT_FILE)}`);
+    const jsonTargets = ingestable.map((r) => ({
+      name: r.title,
+      publisher: r.publisher,
+      year: r.year_start,
+    }));
+    fs.writeFileSync(OUT_FILE, JSON.stringify(jsonTargets, null, 2));
+    console.log(`\nWrote ${jsonTargets.length} targets to ${OUT_FILE}`);
+    console.log(`Run:  python comicvine_api_to_supabase.py --targets ${path.relative(path.resolve(__dirname, ".."), OUT_FILE)} --skip-existing`);
+  }
 
   // Summary
   const totalUncovered = ranked.reduce((s, r) => s + r.uncovered, 0);

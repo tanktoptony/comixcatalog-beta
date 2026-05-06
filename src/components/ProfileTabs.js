@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import EmptyState from "./EmptyState";
 
 const TAB_DEFS = [
   { id: "owned", label: "Owned", visibilityKey: "collection" },
@@ -136,37 +137,62 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
 }
 
 function EmptyTab({ tab, isOwner }) {
-  const copy =
-    tab === "owned"
-      ? isOwner
-        ? "You don't have any books in your collection yet."
-        : "This collector hasn't added any owned books yet."
-      : tab === "wishlist"
-      ? isOwner
-        ? "Your wantlist is empty. Add issues you're hunting for."
-        : "No public wantlist."
-      : isOwner
-      ? "You haven't listed anything for sale."
-      : "Nothing for sale right now.";
-
+  if (tab === "owned") {
+    return (
+      <EmptyState
+        icon="📚"
+        compact
+        title={isOwner ? "Nothing in your collection yet" : "No public collection"}
+        body={
+          isOwner
+            ? "Add issues you own to start tracking grades, values, and variants."
+            : "This collector hasn't added owned books to their public profile yet."
+        }
+        ctaHref={isOwner ? "/search" : null}
+        ctaLabel={isOwner ? "Find comics to add" : null}
+      />
+    );
+  }
+  if (tab === "wishlist") {
+    return (
+      <EmptyState
+        icon="🎯"
+        compact
+        title={isOwner ? "Your wantlist is empty" : "No public wantlist"}
+        body={
+          isOwner
+            ? "Track issues you're hunting for. Sellers can see your public wantlist and reach out."
+            : "This collector hasn't shared a wantlist."
+        }
+        ctaHref={isOwner ? "/search" : null}
+        ctaLabel={isOwner ? "Find issues to track" : null}
+      />
+    );
+  }
+  // for_sale
   return (
-    <div className="profile-tab-empty">
-      <p>{copy}</p>
-      {isOwner && (
-        <Link href="/search" className="primary-btn">
-          Find comics
-        </Link>
-      )}
-    </div>
+    <EmptyState
+      icon="🏷️"
+      compact
+      title={isOwner ? "Nothing listed for sale" : "Nothing for sale"}
+      body={
+        isOwner
+          ? "List slabbed or graded copies once the marketplace launches in Phase 2."
+          : "This collector isn't selling anything at the moment."
+      }
+    />
   );
 }
 
 function ActivityList({ items }) {
   if (!items.length) {
     return (
-      <div className="profile-tab-empty">
-        <p>No activity yet.</p>
-      </div>
+      <EmptyState
+        icon="🕒"
+        compact
+        title="No activity yet"
+        body="Adds, grade edits, and listings will show up here as you use ComixCatalog."
+      />
     );
   }
 

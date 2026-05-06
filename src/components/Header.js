@@ -430,10 +430,10 @@ export default function Header() {
           {!user && (
             <>
               <Link href="/login" className="nav-link" onClick={closeMenu}>
-                Login
+                Sign in
               </Link>
               <Link href="/signup" className="nav-cta" onClick={closeMenu}>
-                Sign Up
+                Create account
               </Link>
             </>
           )}

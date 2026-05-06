@@ -7,6 +7,7 @@ import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor, { GradeBadge } from "@/components/GradeEditor";
+import EmptyState from "@/components/EmptyState";
 
 const hydrationCache = new Map();
 
@@ -657,7 +658,40 @@ function LibraryPageContent() {
           )}
 
           {!loading && filteredItems.length === 0 && !isHydrating && (
-            <div className="library-empty-state">No comics match this view yet.</div>
+            (() => {
+              // Different empty states depending on whether the user has *any*
+              // items in this tab (true empty) or just no items matching the
+              // current search/filter (filtered empty).
+              const totalInTab = collections.filter((c) => c.status === tab).length;
+              if (totalInTab === 0) {
+                return tab === "owned" ? (
+                  <EmptyState
+                    icon="📚"
+                    title="No comics in your collection yet"
+                    body="Search the database for any series or issue, then add it to your collection to start tracking grades, values, and variants."
+                    ctaHref="/search"
+                    ctaLabel="Browse the database"
+                    secondary={{ href: "/library/add", label: "Add a comic manually" }}
+                  />
+                ) : (
+                  <EmptyState
+                    icon="🎯"
+                    title="Your wantlist is empty"
+                    body="Add issues you're hunting for. We'll surface them when sellers list matching copies, and your wantlist becomes a public link you can share."
+                    ctaHref="/search"
+                    ctaLabel="Find issues to track"
+                  />
+                );
+              }
+              // Filtered empty (search / publisher filter active)
+              return (
+                <EmptyState
+                  icon="🔍"
+                  title="No matches"
+                  body={`Nothing in your ${tab === "owned" ? "collection" : "wishlist"} matches the current search or filter.`}
+                />
+              );
+            })()
           )}
 
           {/* ── LIST VIEW ── */}

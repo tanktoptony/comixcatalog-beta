@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useLibrary } from "../../context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
+import EmptyState from "@/components/EmptyState";
 
 const PAGE_SIZE = 36;
 
@@ -369,11 +370,20 @@ export default function SearchPageClient() {
 
       {/* Empty state */}
       {!isLoading && !loadError && !isFirstLoad && results.length === 0 && (
-        <div className="empty-state">
-          {query
-            ? `No comics found for "${query}". Try a different search.`
-            : "No comics in the database yet."}
-        </div>
+        query ? (
+          <EmptyState
+            icon="🔍"
+            title={`No results for "${query}"`}
+            body="Try a broader search, fewer words, or check the spelling. Series titles are the most reliable way to find an issue."
+            secondary={{ href: "/search", label: "Clear search" }}
+          />
+        ) : (
+          <EmptyState
+            icon="📚"
+            title="Nothing to browse yet"
+            body="The database is still being populated. Check back soon."
+          />
+        )
       )}
 
       {/* Comic grid */}

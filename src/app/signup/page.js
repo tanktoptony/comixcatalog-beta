@@ -192,7 +192,7 @@ export default function SignUpPage() {
         Create Account
       </div>
 
-      <h1 className="auth-title">Join ComixCatalog</h1>
+      <h1 className="auth-title">Create your account</h1>
 
       <form onSubmit={handleSignup} className="auth-form">
         <div className="auth-group">
@@ -260,7 +260,7 @@ export default function SignUpPage() {
           type="submit"
           disabled={saving}
         >
-          {saving ? "Creating..." : "Sign Up"}
+          {saving ? "Creating account…" : "Create account"}
         </button>
       </form>
 

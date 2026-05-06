@@ -41,9 +41,6 @@ TARGET_VOLUMES = [
     # https://comicvine.gamespot.com/x-men-annual/4050-22988/ → volume_id=22988.
     # This bypasses the name+year search and removes ambiguity.
     
- {"name": "The Uncanny X-Men", "publisher": "Marvel Comics", "year": 1981},  # 0 of 978 uncovered
-  {"name": "Silver Surfer", "publisher": "Marvel Comics", "year": 1987},  # 0 of 22 uncovered
-  {"name": "The Uncanny X-Men", "publisher": "Marvel Comics", "year": 1981},  # 0 of 978 uncovered
 ]
 
 LIMIT_TEST = None  # set to None for full run

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
 function withTimeout(promise, ms, label = "Request") {
@@ -190,11 +191,19 @@ export default function LoginPage() {
 
   return (
     <section className="auth-panel">
-      <div className="section-label badge-x" style={{ textAlign: "center" }}>
-        Log In
-      </div>
+      <Link href="/" className="auth-brand" aria-label="ComixCatalog home">
+        <Image
+          src="/img/logos/cc_badge.png"
+          alt=""
+          width={48}
+          height={48}
+          className="auth-brand-badge"
+          priority
+        />
+      </Link>
 
-      <h1 className="auth-title">Welcome Back</h1>
+      <h1 className="auth-title">Sign in</h1>
+      <p className="auth-subtitle">Catalog. Collect. Connect.</p>
 
       <form onSubmit={handleLogin} className="auth-form">
         <div className="auth-group">
@@ -226,7 +235,7 @@ export default function LoginPage() {
           className="primary-btn auth-submit"
           disabled={saving}
         >
-          {saving ? "Logging in..." : "Log In"}
+          {saving ? "Signing in…" : "Sign in"}
         </button>
       </form>
 

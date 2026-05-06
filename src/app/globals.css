@@ -652,6 +652,61 @@ input[type="file"] {
   margin: 0;
 }
 
+.footer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-meta-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.footer-meta-link {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s;
+}
+.footer-meta-link:hover { color: #fff; }
+
+.footer-meta-sep {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* Operational-status pip — small green dot signaling the service is healthy.
+   When you wire up a real /status page, this can be driven by an actual
+   uptime check instead of being hardcoded. */
+.footer-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px rgba(74, 222, 128, 0.5);
+  display: inline-block;
+}
+
+@media (max-width: 720px) {
+  .footer-meta {
+    align-items: center;
+    text-align: center;
+  }
+  .footer-meta-line {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 720px) {
   .footer-bottom {
     justify-content: center;
@@ -5991,6 +6046,95 @@ button.nav-link {
 }
 
 /* Edit Profile modal styles live inline in EditProfileModal.jsx (component-scoped). */
+
+
+/* ─────────────────────────────────────────────────────────────────────────
+   EmptyState — unified placeholder for empty lists / tabs / search results.
+   ───────────────────────────────────────────────────────────────────────── */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 56px 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.empty-state.is-compact {
+  padding: 28px 16px;
+}
+
+.empty-state-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-state-title {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.empty-state-body {
+  margin: 0;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 44ch;
+  line-height: 1.55;
+}
+
+.empty-state-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.empty-state-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--x-gold);
+  color: #181a22;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: 1px solid var(--x-gold);
+  text-decoration: none;
+  transition: filter 0.15s;
+}
+.empty-state-cta:hover { filter: brightness(1.05); }
+
+.empty-state-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  font-size: 0.88rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-decoration: none;
+  transition: 0.15s;
+}
+.empty-state-secondary:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.3);
+}
 
 
 /* ─────────────────────────────────────────────────────────────────────────

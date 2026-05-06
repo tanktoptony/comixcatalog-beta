@@ -50,18 +50,19 @@ export default function HomePage() {
         </div>
         <div className="lp-proof-divider" />
         <div className="lp-proof-item">
-          <span className="lp-proof-num">Solo</span>
-          <span className="lp-proof-label">built in Chicago</span>
+          <span className="lp-proof-num">35,000+</span>
+          <span className="lp-proof-label">cover scans archived</span>
         </div>
       </section>
 
       {/* ── PROBLEM ──────────────────────────────────────────── */}
       <section className="lp-problem">
-        <h2 className="lp-problem-h2">Your collection deserves better than a spreadsheet.</h2>
+        <h2 className="lp-problem-h2">One tool, every detail.</h2>
         <p className="lp-problem-body">
-          Serious collectors track grades, variants, newsstand vs. direct, CGC cert numbers,
-          purchase prices, and current market values — across hundreds or thousands of books.
-          No existing tool does all of that in one place. ComixCatalog does.
+          Track grades, variants, newsstand vs. direct, CGC and CBCS cert numbers,
+          purchase prices, and current market values across hundreds or thousands
+          of books. Export an insurance-ready PDF in a click. Sell when you&rsquo;re
+          ready, with verified grades on every listing.
         </p>
       </section>
 
@@ -74,8 +75,8 @@ export default function HomePage() {
           <div className="lp-feature-icon">◈</div>
           <h3>Catalog</h3>
           <p>
-            Every series. Every issue. Every printing and variant — indexed from the
-            Grand Comics Database, the most complete comic registry on earth.
+            Every series, issue, printing, and variant — indexed from the
+            Grand Comics Database with ComicVine cover art on top.
           </p>
         </div>
         <div className="lp-feature">

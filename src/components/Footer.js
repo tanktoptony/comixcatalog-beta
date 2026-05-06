@@ -196,9 +196,21 @@ export default function Footer() {
             Built in Chicago by collectors, for collectors.
           </p>
 
-          <p className="footer-copyright">
-            ComixCatalog™ · {year}
-          </p>
+          <div className="footer-meta">
+            <p className="footer-copyright">
+              © {year} ComixCatalog. All rights reserved.
+            </p>
+            <p className="footer-meta-line">
+              <a href="mailto:comixcatalog@gmail.com" className="footer-meta-link">
+                comixcatalog@gmail.com
+              </a>
+              <span className="footer-meta-sep" aria-hidden="true">·</span>
+              <Link href="/status" className="footer-meta-link footer-status">
+                <span className="footer-status-dot" aria-hidden="true" />
+                All systems operational
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

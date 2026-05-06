@@ -51,7 +51,7 @@ export default function LibraryPage() {
 }
 
 function LibraryPageContent() {
-  const { collections, loading } = useLibrary();
+  const { collections, loading, loadError, refreshLibrary } = useLibrary();
   const { user, isPro, profile } = useAuth();
   const supabase = getSupabaseClient();
 
@@ -400,6 +400,20 @@ function LibraryPageContent() {
           >
             ×
           </button>
+        </div>
+      )}
+      {loadError && (
+        <div className="library-upgrade-banner cancelled" role="alert">
+          <div className="library-upgrade-banner-body">
+            Couldn&rsquo;t load your library: {loadError}.{" "}
+            <button
+              type="button"
+              className="auth-link-button"
+              onClick={() => refreshLibrary?.()}
+            >
+              Retry
+            </button>
+          </div>
         </div>
       )}
       <section className="library-page-header">

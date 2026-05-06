@@ -1,33 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { getSupabaseClient } from "@/lib/supabase/client";
+import { useAuth } from "@/context/AuthContext";
 import EditProfileModal from "./EditProfileModal";
 
 export default function EditProfileButton({ profile }) {
   const [open, setOpen] = useState(false);
-  // Owner check has to happen client-side: the server-rendered page reads
-  // auth via the anon key with no cookie, so its isOwner is always false.
-  const [isOwner, setIsOwner] = useState(false);
+  // Read the cached user from AuthContext rather than calling
+  // supabase.auth.getUser() ourselves. The previous approach added a
+  // round-trip that hung when auth was slow, so the button never rendered
+  // even for the actual owner.
+  const { user } = useAuth();
   const router = useRouter();
 
-  useEffect(() => {
-    let cancelled = false;
-    async function check() {
-      const supabase = getSupabaseClient();
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      if (!cancelled && user?.id === profile?.id) {
-        setIsOwner(true);
-      }
-    }
-    check();
-    return () => {
-      cancelled = true;
-    };
-  }, [profile?.id]);
+  const isOwner = Boolean(user?.id && profile?.id && user.id === profile.id);
 
   if (!isOwner) return null;
 

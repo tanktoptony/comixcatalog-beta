@@ -408,11 +408,23 @@ export default function Header() {
         </button>
 
         <nav className={`main-nav ${menuOpen ? "open" : ""}`}>
-          <Link href="/marketplace" className="nav-link" onClick={closeMenu}>
-            Marketplace
+          <Link
+            href="/search"
+            className="nav-icon-btn"
+            onClick={closeMenu}
+            title="Browse"
+            aria-label="Browse"
+          >
+            <BrowseIcon />
           </Link>
-          <Link href="/search" className="nav-link" onClick={closeMenu}>
-            Browse
+          <Link
+            href="/marketplace"
+            className="nav-icon-btn"
+            onClick={closeMenu}
+            title="Marketplace"
+            aria-label="Marketplace"
+          >
+            <MarketplaceIcon />
           </Link>
 
           {!user && (
@@ -503,6 +515,48 @@ function InboxIcon() {
     >
       <path d="M3 13h4l2 3h6l2-3h4" />
       <path d="M5 5h14l2 8v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6z" />
+    </svg>
+  );
+}
+
+function BrowseIcon() {
+  // Compass-style explore icon — denotes "browse / discover".
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M15.5 8.5l-2 5-5 2 2-5z" />
+    </svg>
+  );
+}
+
+function MarketplaceIcon() {
+  // Storefront / shop icon.
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M3 9l1.5-5h15L21 9" />
+      <path d="M4 9v11h16V9" />
+      <path d="M3 9c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3" />
+      <path d="M9 20v-6h6v6" />
     </svg>
   );
 }

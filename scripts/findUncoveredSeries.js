@@ -259,11 +259,11 @@ async function run() {
   // By default, skip series with 0 uncovered issues — they're not gaps.
   // --include-covered re-includes them for sanity-checking.
   const includeCovered = Boolean(flag("include-covered", false));
-  const gapsOnly = includeCovered ? ranked : ranked.filter((r) => r.uncovered > 0);
+  const gapsOnly = includeCovered ? deduped : deduped.filter((r) => r.uncovered > 0);
   const top = gapsOnly.slice(0, TOP);
 
   if (gapsOnly.length === 0) {
-    console.log(`\nAll ${ranked.length} ranked series are 100% covered. No gaps to fill.`);
+    console.log(`\nAll ${deduped.length} ranked series are 100% covered. No gaps to fill.`);
     if (USER_ONLY) {
       console.log("Tip: drop --user-only to scan the full DB (54k+ series).");
     }
@@ -277,6 +277,7 @@ async function run() {
           ? `${r.year_start}`
           : `${r.year_start}–${r.year_end ?? "?"}`
         : "?";
+      const dupeTag = r._dupes > 1 ? ` (×${r._dupes})` : "";
       console.log(
         `${String(r.uncovered).padStart(8)} | ` +
         `${String(r.total).padStart(5)} | ` +
@@ -285,7 +286,7 @@ async function run() {
         `${r.pct.toFixed(1).padStart(5)}% | ` +
         `${(r.publisher ?? "—").padEnd(16).slice(0, 16)} | ` +
         `${yr.padEnd(9)} | ` +
-        `${r.title}`
+        `${r.title}${dupeTag}`
       );
     }
   }
@@ -314,9 +315,15 @@ async function run() {
   }
 
   // Summary
-  const totalUncovered = ranked.reduce((s, r) => s + r.uncovered, 0);
-  const totalIssues = ranked.reduce((s, r) => s + r.total, 0);
-  console.log(`\nOverall: ${totalUncovered} of ${totalIssues} issues uncovered across ${ranked.length} ranked series (${((totalUncovered / Math.max(1, totalIssues)) * 100).toFixed(1)}%)`);
+  const totalUncovered = deduped.reduce((s, r) => s + r.uncovered, 0);
+  const totalIssues = deduped.reduce((s, r) => s + r.total, 0);
+  const collapsed = ranked.length - deduped.length;
+  console.log(
+    `\nOverall: ${totalUncovered} of ${totalIssues} issues uncovered across ` +
+    `${deduped.length} unique series` +
+    (collapsed > 0 ? ` (${collapsed} duplicate GCD records collapsed)` : "") +
+    ` (${((totalUncovered / Math.max(1, totalIssues)) * 100).toFixed(1)}%)`
+  );
 }
 
 run().catch((err) => {

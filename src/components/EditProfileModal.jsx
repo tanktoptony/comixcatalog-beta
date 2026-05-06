@@ -329,10 +329,22 @@ export default function EditProfileModal({ profile, onClose, onSaved }) {
       const url = pub?.publicUrl ? `${pub.publicUrl}?t=${Date.now()}` : null;
       if (!url) throw new Error("Could not resolve public URL");
 
+      // Persist the new avatar_url immediately so it survives a Cancel.
+      // Saving was previously deferred to handleSave; if the user closed the
+      // modal without hitting Save, the upload was effectively lost.
+      const { error: dbErr } = await supabase
+        .from("profiles")
+        .update({ avatar_url: url })
+        .eq("id", profile.id);
+      if (dbErr) throw dbErr;
+
       setAvatarUrl(url);
     } catch (err) {
       console.error("avatar upload failed:", err);
-      setError("Avatar upload failed. Try again.");
+      // Surface the actual error message so RLS / bucket-missing /
+      // network failures are debuggable instead of opaque.
+      const msg = err?.message || String(err);
+      setError(`Avatar upload failed: ${msg}`);
     } finally {
       setAvatarUploading(false);
     }
@@ -446,7 +458,23 @@ export default function EditProfileModal({ profile, onClose, onSaved }) {
                         ...S.btnGhost,
                         ...(avatarUploading ? S.btnDisabled : null),
                       }}
-                      onClick={() => setAvatarUrl(null)}
+                      onClick={async () => {
+                        setAvatarUploading(true);
+                        setError(null);
+                        try {
+                          const { error: dbErr } = await supabase
+                            .from("profiles")
+                            .update({ avatar_url: null })
+                            .eq("id", profile.id);
+                          if (dbErr) throw dbErr;
+                          setAvatarUrl(null);
+                        } catch (err) {
+                          const msg = err?.message || String(err);
+                          setError(`Remove failed: ${msg}`);
+                        } finally {
+                          setAvatarUploading(false);
+                        }
+                      }}
                       disabled={avatarUploading}
                     >
                       Remove

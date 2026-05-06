@@ -5994,6 +5994,137 @@ button.nav-link {
 
 
 /* ─────────────────────────────────────────────────────────────────────────
+   Auth pages (login, signup) — overrides earlier blue-gradient styling so
+   the panels match the flat dark surface used by the profile hero,
+   library, and EditProfileModal.
+   ───────────────────────────────────────────────────────────────────────── */
+
+.auth-panel {
+  background: #15171f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 36px 32px;
+  max-width: 440px;
+  margin: 4rem auto;
+  color: #fff;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+}
+
+.auth-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 24px;
+  letter-spacing: -0.01em;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-group label {
+  display: block;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.auth-input {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  font-size: 0.94rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.15s, background 0.15s;
+}
+.auth-input::placeholder { color: rgba(255, 255, 255, 0.3); }
+.auth-input:focus {
+  outline: none;
+  border-color: rgba(244, 208, 63, 0.55);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.auth-submit {
+  width: 100%;
+  padding: 11px 16px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 999px;
+  background: var(--x-gold);
+  color: #181a22;
+  border: 1px solid var(--x-gold);
+  cursor: pointer;
+  margin-top: 6px;
+  transition: 0.15s;
+}
+.auth-submit:hover:not(:disabled) { filter: brightness(1.05); }
+.auth-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.auth-error {
+  margin-top: 16px;
+  padding: 10px 12px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  border-radius: 8px;
+  font-size: 0.86rem;
+}
+.auth-error p { margin: 0; }
+
+.auth-success {
+  margin-top: 16px;
+  padding: 10px 12px;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  color: #86efac;
+  border-radius: 8px;
+  font-size: 0.86rem;
+}
+
+.auth-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+.auth-footer .link {
+  color: var(--x-gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+.auth-footer .link:hover { text-decoration: underline; }
+
+.auth-link-button {
+  background: none;
+  border: none;
+  color: var(--x-gold);
+  cursor: pointer;
+  font-size: 0.86rem;
+  text-decoration: underline;
+  padding: 0;
+  font-family: inherit;
+}
+.auth-link-button:hover { opacity: 0.8; }
+
+/* Hide the small "LOG IN" / "SIGN UP" badge above the title — the title
+   already says it. Reduces visual noise on the panel. */
+.auth-panel .section-label.badge-x {
+  display: none;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────
    Header redesign — Discogs-style: wide search, slim inline nav, avatar
    dropdown for everything else. Coexists with existing .header-* and
    .nav-link rules; new selectors are .nav-icon-btn / .nav-cta / .user-menu*.
@@ -6173,11 +6304,26 @@ button.nav-link {
 }
 
 /* The icon row that lives outside .main-nav so it stays visible on mobile
-   while the text-link nav collapses behind the hamburger. */
+   while the text-link nav collapses behind the hamburger.
+   The ::before draws a thin vertical divider that visually separates
+   "navigation" (Browse, Marketplace) from "personal" (Inbox, Library, You). */
 .header-user-actions {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  position: relative;
+  padding-left: 12px;
+  margin-left: 6px;
+}
+.header-user-actions::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .nav-icon-btn-disabled {

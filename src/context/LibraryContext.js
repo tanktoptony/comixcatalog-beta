@@ -46,29 +46,32 @@ export function LibraryProvider({ children }) {
   const { user } = useAuth();
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(null);
 
   async function refreshLibrary() {
     if (!user?.id) {
       setCollections([]);
       setLoading(false);
+      setLoadError(null);
       return;
     }
 
     setLoading(true);
+    setLoadError(null);
 
     try {
       const supabase = getSupabaseClient();
 
-      // Hard timeout. A hung Supabase query (RLS hang, network stall, etc.)
-      // would otherwise leave the library spinning "Loading…" indefinitely.
-      // 10s is well above a healthy roundtrip; anything past that is broken.
+      // Hard timeout — prevents silent infinite spinner if Supabase hangs.
+      // 30s is generous but Supabase free-tier cold starts can take 15s+;
+      // anything past 30 means there's a real problem worth surfacing.
       const queryPromise = supabase
         .from("user_collections")
         .select("*")
         .eq("user_id", user.id);
 
       const timeoutPromise = new Promise((_, reject) =>
-        setTimeout(() => reject(new Error("library query timed out (10s)")), 10000)
+        setTimeout(() => reject(new Error("Supabase didn't respond in 30s")), 30000)
       );
 
       const { data, error } = await Promise.race([queryPromise, timeoutPromise]);
@@ -81,6 +84,7 @@ export function LibraryProvider({ children }) {
           code: error.code,
         });
         setCollections([]);
+        setLoadError(error.message || "Failed to load library");
         return;
       }
 
@@ -88,6 +92,7 @@ export function LibraryProvider({ children }) {
     } catch (err) {
       console.error("refreshLibrary crashed:", err);
       setCollections([]);
+      setLoadError(err?.message || "Failed to load library");
     } finally {
       setLoading(false);
     }
@@ -311,6 +316,7 @@ export function LibraryProvider({ children }) {
     <LibraryContext.Provider
       value={{
         loading,
+        loadError,
         collections,
         collectionIds,
         wishlistIds,

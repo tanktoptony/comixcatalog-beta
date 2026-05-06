@@ -42,12 +42,14 @@ export default function LoginPage() {
     try {
       console.log("LOGIN START:", emailNormalized);
 
+      // Bumped 15s → 30s. Supabase free-tier cold starts can take 15s+;
+      // a stricter cap was rejecting healthy logins as "timed out".
       const { data, error } = await withTimeout(
         supabase.auth.signInWithPassword({
           email: emailNormalized,
           password,
         }),
-        15000,
+        30000,
         "Login"
       );
 
@@ -79,63 +81,35 @@ export default function LoginPage() {
 
       console.log("LOGIN USER:", user.id);
 
-      const { data: profile, error: profileError } = await withTimeout(
-        supabase
-          .from("profiles")
-          .select("username")
-          .eq("id", user.id)
-          .maybeSingle(),
-        15000,
-        "Profile lookup"
-      );
-
-      console.log("LOGIN PROFILE:", profile);
-      console.log("LOGIN PROFILE ERROR:", profileError);
-
-      if (profileError) {
-        setErrorMsg("Login succeeded, but profile lookup failed.");
-        return;
-      }
-
-      if (profile?.username) {
-        router.replace(`/u/${profile.username}`);
-        router.refresh();
-        return;
-      }
-
-      const metadataUsername = user.user_metadata?.username;
-      const metadataAvatarKey = user.user_metadata?.avatar_key || "hero_01";
-
-      if (metadataUsername) {
-        console.log("RECOVERING PROFILE FROM METADATA:", metadataUsername);
-
-        const { error: createProfileError } = await withTimeout(
-          supabase.from("profiles").upsert(
-            {
-              id: user.id,
-              username: metadataUsername,
-              avatar_key: metadataAvatarKey,
-              is_public: true,
-            },
-            { onConflict: "id" }
-          ),
-          15000,
-          "Profile recovery"
+      // Auth succeeded — that's enough to call this a successful login.
+      // Profile lookup used to happen here (with another 15s timeout),
+      // which made login fail when Supabase was just-slightly-slow on the
+      // second roundtrip. Now we kick off the profile lookup as a fire-and-
+      // forget redirect helper with a SHORT 4s window. If it resolves in
+      // time → land on /u/<username>. Otherwise → land on / and let
+      // AuthContext (which has email-fallback synthesis) populate the UI.
+      try {
+        const { data: profile } = await withTimeout(
+          supabase
+            .from("profiles")
+            .select("username")
+            .eq("id", user.id)
+            .maybeSingle(),
+          4000,
+          "Profile lookup"
         );
-
-        console.log("LOGIN PROFILE RECOVERY ERROR:", createProfileError);
-
-        if (createProfileError) {
-          setErrorMsg("Login succeeded, but profile setup failed.");
+        if (profile?.username) {
+          router.replace(`/u/${profile.username}`);
+          router.refresh();
           return;
         }
-
-        router.replace(`/u/${metadataUsername}`);
-        router.refresh();
-        return;
+      } catch (profileErr) {
+        console.warn("Profile lookup skipped (slow):", profileErr?.message);
       }
 
-      router.replace("/complete-profile");
+      // Fall through: profile not found / lookup slow / etc. Land on home;
+      // AuthContext will resolve the profile in the background.
+      router.replace("/");
       router.refresh();
     } catch (err) {
       console.error("LOGIN FULL ERROR:", {

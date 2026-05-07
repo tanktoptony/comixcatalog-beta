@@ -63,17 +63,20 @@ export default function AddComicPage() {
 
   return (
     <main className="page">
-      <section className="form-card">
-        <h1 className="form-title">Add Comic</h1>
-        <p className="form-subtitle">
-          Manually add a comic to your personal collection.
+      <section className="cc-form-card">
+        <h1 className="cc-form-title">Add a comic</h1>
+        <p className="cc-form-sub">
+          Manually add an issue to your personal collection. Used for raw
+          books or anything not already indexed in the database.
         </p>
 
-        <form onSubmit={handleSubmit} className="form">
-          <div className="grid-2">
-            <div className="field">
-              <label>Series Title</label>
+        <form onSubmit={handleSubmit} className="cc-form">
+          <div className="cc-form-grid">
+            <div className="cc-field">
+              <label htmlFor="ac-series">Series title</label>
               <input
+                id="ac-series"
+                className="cc-input"
                 required
                 placeholder="Amazing Spider-Man"
                 value={form.series_title}
@@ -83,9 +86,11 @@ export default function AddComicPage() {
               />
             </div>
 
-            <div className="field">
-              <label>Issue Number</label>
+            <div className="cc-field">
+              <label htmlFor="ac-issue">Issue number</label>
               <input
+                id="ac-issue"
+                className="cc-input"
                 required
                 placeholder="300"
                 value={form.issue_number}
@@ -96,10 +101,12 @@ export default function AddComicPage() {
             </div>
           </div>
 
-          <div className="grid-2">
-            <div className="field">
-              <label>Publisher</label>
+          <div className="cc-form-grid">
+            <div className="cc-field">
+              <label htmlFor="ac-publisher">Publisher</label>
               <input
+                id="ac-publisher"
+                className="cc-input"
                 required
                 placeholder="Marvel Comics"
                 value={form.publisher}
@@ -109,9 +116,11 @@ export default function AddComicPage() {
               />
             </div>
 
-            <div className="field">
-              <label>Release Year</label>
+            <div className="cc-field">
+              <label htmlFor="ac-year">Release year</label>
               <input
+                id="ac-year"
+                className="cc-input"
                 type="number"
                 placeholder="1988"
                 value={form.release_year}
@@ -122,12 +131,11 @@ export default function AddComicPage() {
             </div>
           </div>
 
-          <div className="field">
-            <label>Cover Image (optional)</label>
-
-            <div className="file-upload">
-              <label className="file-button">
-                Add Cover Image
+          <div className="cc-field">
+            <label>Cover image</label>
+            <div className="cc-file-row">
+              <label className="cc-file-btn">
+                Choose image
                 <input
                   type="file"
                   accept="image/*"
@@ -135,22 +143,20 @@ export default function AddComicPage() {
                   hidden
                 />
               </label>
-
-              <span className="file-name">
+              <span className="cc-file-name">
                 {coverFile ? coverFile.name : "No file selected"}
               </span>
             </div>
-            
-            <small>JPG or PNG, optional</small>
+            <span className="cc-hint">JPG or PNG, optional. Used until the issue is matched to a canonical scan.</span>
           </div>
-          
-          {error && <p className="error">{error}</p>}
 
-          <hr />
-          <br />
-          <button className="primary-btn" disabled={submitting}>
-            {submitting ? "Adding…" : "Add Comic"}
-          </button>
+          {error && <div className="cc-form-error">{error}</div>}
+
+          <div className="cc-form-actions">
+            <button className="cc-submit" disabled={submitting}>
+              {submitting ? "Adding…" : "Add to collection"}
+            </button>
+          </div>
         </form>
       </section>
     </main>

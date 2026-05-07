@@ -28,6 +28,21 @@ export const US_PUBLISHER_ALLOWLIST = [
   "Archie Comics",
   "Top Cow Comics",
   "Vertigo",
+  // Indie / classic-indie houses with significant US runs.
+  // Mirage Studios is the canonical home of the original TMNT run (1984)
+  // and was previously filtered out — that's why the original TMNT main
+  // run didn't surface in series search. Same goes for the rest below.
+  "Mirage Studios",
+  "WildStorm",
+  "Oni Press",
+  "Caliber Comics",
+  "Eclipse Comics",
+  "First Comics",
+  "AfterShock Comics",
+  "Ahoy Comics",
+  "Black Mask Studios",
+  "AWA Studios",
+  "Now Comics",
 ];
 
 const MASTER_EXACT_MAP = {
@@ -99,6 +114,46 @@ const MASTER_EXACT_MAP = {
 
   "dynamite": "Dynamite Entertainment",
   "dynamite entertainment": "Dynamite Entertainment",
+
+  "mirage": "Mirage Studios",
+  "mirage studios": "Mirage Studios",
+  "mirage publishing": "Mirage Studios",
+  "mirage comics": "Mirage Studios",
+
+  "wildstorm": "WildStorm",
+  "wildstorm productions": "WildStorm",
+  "wildstorm comics": "WildStorm",
+
+  "oni": "Oni Press",
+  "oni press": "Oni Press",
+
+  "caliber": "Caliber Comics",
+  "caliber comics": "Caliber Comics",
+  "caliber press": "Caliber Comics",
+
+  "eclipse": "Eclipse Comics",
+  "eclipse comics": "Eclipse Comics",
+  "eclipse enterprises": "Eclipse Comics",
+
+  "first": "First Comics",
+  "first comics": "First Comics",
+  "first publishing": "First Comics",
+
+  "aftershock": "AfterShock Comics",
+  "aftershock comics": "AfterShock Comics",
+
+  "ahoy": "Ahoy Comics",
+  "ahoy comics": "Ahoy Comics",
+
+  "black mask": "Black Mask Studios",
+  "black mask studios": "Black Mask Studios",
+
+  "awa": "AWA Studios",
+  "awa studios": "AWA Studios",
+  "artists writers & artisans": "AWA Studios",
+
+  "now": "Now Comics",
+  "now comics": "Now Comics",
 };
 
 // Distributors, regional reprinters, and generic "<series> Publishing Co Inc"
@@ -141,6 +196,19 @@ export function normalizePublisherLabel(value) {
   if (lower.includes("archie")) return "Archie Comics";
   if (lower.includes("valiant")) return "Valiant Comics";
   if (lower.includes("dynamite")) return "Dynamite Entertainment";
+
+  // Indie / classic-indie houses (added after the original TMNT main run
+  // failed to surface in series search because Mirage wasn't in any list).
+  if (lower.includes("mirage")) return "Mirage Studios";
+  if (lower.includes("wildstorm")) return "WildStorm";
+  if (lower.includes("oni press") || lower === "oni") return "Oni Press";
+  if (lower.includes("caliber")) return "Caliber Comics";
+  if (lower.includes("eclipse")) return "Eclipse Comics";
+  if (lower.includes("first comics") || lower.includes("first publishing")) return "First Comics";
+  if (lower.includes("aftershock")) return "AfterShock Comics";
+  if (lower.includes("ahoy")) return "Ahoy Comics";
+  if (lower.includes("black mask")) return "Black Mask Studios";
+  if (lower.includes("awa studios") || lower === "awa") return "AWA Studios";
 
   return null;
 }

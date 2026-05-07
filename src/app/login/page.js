@@ -40,8 +40,10 @@ export default function LoginPage() {
     setShowResend(false);
     setResendMsg(null);
 
+    const debug = process.env.NODE_ENV === "development";
+
     try {
-      console.log("LOGIN START:", emailNormalized);
+      if (debug) console.log("LOGIN START:", emailNormalized);
 
       // Bumped 15s → 30s. Supabase free-tier cold starts can take 15s+;
       // a stricter cap was rejecting healthy logins as "timed out".
@@ -54,8 +56,10 @@ export default function LoginPage() {
         "Login"
       );
 
-      console.log("LOGIN DATA:", data);
-      console.log("LOGIN ERROR:", error);
+      if (debug) {
+        console.log("LOGIN DATA:", data);
+        console.log("LOGIN ERROR:", error);
+      }
 
       if (error) {
         const message = error.message?.toLowerCase() || "";
@@ -80,7 +84,7 @@ export default function LoginPage() {
         return;
       }
 
-      console.log("LOGIN USER:", user.id);
+      if (debug) console.log("LOGIN USER:", user.id);
 
       // Auth succeeded — that's enough to call this a successful login.
       // Profile lookup used to happen here (with another 15s timeout),
@@ -105,7 +109,9 @@ export default function LoginPage() {
           return;
         }
       } catch (profileErr) {
-        console.warn("Profile lookup skipped (slow):", profileErr?.message);
+        if (debug) {
+          console.warn("Profile lookup skipped (slow):", profileErr?.message);
+        }
       }
 
       // Fall through: profile not found / lookup slow / etc. Land on home;
@@ -113,13 +119,15 @@ export default function LoginPage() {
       router.replace("/");
       router.refresh();
     } catch (err) {
-      console.error("LOGIN FULL ERROR:", {
-        name: err?.name,
-        message: err?.message,
-        status: err?.status,
-        cause: err?.cause,
-        raw: err,
-      });
+      if (debug) {
+        console.error("LOGIN FULL ERROR:", {
+          name: err?.name,
+          message: err?.message,
+          status: err?.status,
+          cause: err?.cause,
+          raw: err,
+        });
+      }
 
       const message = err?.message || "";
 
@@ -163,8 +171,10 @@ export default function LoginPage() {
         "Resend confirmation"
       );
 
-      console.log("RESEND LOGIN DATA:", data);
-      console.log("RESEND LOGIN ERROR:", error);
+      if (process.env.NODE_ENV === "development") {
+        console.log("RESEND LOGIN DATA:", data);
+        console.log("RESEND LOGIN ERROR:", error);
+      }
 
       if (error) {
         const message = error.message?.toLowerCase() || "";
@@ -182,7 +192,9 @@ export default function LoginPage() {
 
       setResendMsg("Confirmation email resent. Check your inbox.");
     } catch (err) {
-      console.error("RESEND LOGIN FULL ERROR:", err);
+      if (process.env.NODE_ENV === "development") {
+        console.error("RESEND LOGIN FULL ERROR:", err);
+      }
       setErrorMsg("Confirmation resend timed out. Please try again in a minute.");
     } finally {
       setResending(false);
@@ -219,8 +231,9 @@ export default function LoginPage() {
         </div>
 
         <div className="auth-group">
-          <label>Password</label>
+          <label htmlFor="auth-password">Password</label>
           <input
+            id="auth-password"
             className="auth-input"
             type="password"
             required

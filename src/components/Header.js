@@ -43,7 +43,6 @@ function formatYearRange(start, end) {
 
 export default function Header() {
   const { user, profile, loading, signOut, isPro } = useAuth();
-  const [menuOpen, setMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const [query, setQuery] = useState("");
@@ -59,7 +58,9 @@ export default function Header() {
   const userMenuRef = useRef(null);
 
   function closeMenu() {
-    setMenuOpen(false);
+    // Closes the avatar dropdown when navigating. The hamburger menu it
+    // used to manage is gone, but every nav link still calls this on click,
+    // which is the right behavior for collapsing the avatar dropdown.
     setUserMenuOpen(false);
   }
 
@@ -397,17 +398,11 @@ export default function Header() {
           )}
         </div>
 
-        <button
-          className="nav-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <nav className={`main-nav ${menuOpen ? "open" : ""}`}>
+        {/* Inline header navigation. The hamburger is gone — for logged-in
+            users the avatar dropdown handles overflow, and for logged-out
+            users the Sign-in / Create-account links shrink to icons on the
+            narrowest widths via CSS. Always single-row, no wrapping. */}
+        <nav className="main-nav" aria-label="Primary">
           <Link
             href="/search"
             className="nav-icon-btn"
@@ -429,7 +424,7 @@ export default function Header() {
 
           {!user && (
             <>
-              <Link href="/login" className="nav-link" onClick={closeMenu}>
+              <Link href="/login" className="nav-link nav-link-mobile-hide" onClick={closeMenu}>
                 Sign in
               </Link>
               <Link href="/signup" className="nav-cta" onClick={closeMenu}>

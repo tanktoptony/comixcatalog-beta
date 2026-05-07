@@ -188,11 +188,19 @@ export default function SignUpPage() {
 
   return (
     <section className="auth-panel">
-      <div className="section-label badge-x" style={{ textAlign: "center" }}>
-        Create Account
-      </div>
+      <Link href="/" className="auth-brand" aria-label="ComixCatalog home">
+        <Image
+          src="/img/logos/cc_badge.png"
+          alt=""
+          width={48}
+          height={48}
+          className="auth-brand-badge"
+          priority
+        />
+      </Link>
 
       <h1 className="auth-title">Create your account</h1>
+      <p className="auth-subtitle">Free to join. Your collection, organized.</p>
 
       <form onSubmit={handleSignup} className="auth-form">
         <div className="auth-group">

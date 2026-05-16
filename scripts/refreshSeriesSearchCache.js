@@ -181,10 +181,51 @@ async function processBatch(seriesBatch) {
   const computed = seriesBatch.map((series) => {
     const issuesForSeries = issuesBySeriesGcdId.get(String(series.gcd_id)) ?? [];
 
-    const issueCount = issuesForSeries.filter(
-      (r) => !isPlaceholderIssueNumber(r.issue_number)
-    ).length;
+    // Dedupe by normalized issue_number so reprints / printing variants /
+    // newsstand-vs-direct duplicates don't inflate the count or push the
+    // year_end past the run's actual finale. The series detail API does
+    // this same dedupe ([id]/route.js); keeping the cache consistent means
+    // search shows the same number as the page.
+    //
+    // When the same issue_number appears multiple times, pick the row with
+    // the EARLIEST valid publication_date — that's the original printing,
+    // not a reprint. Prefer dated rows over undated ones (without this
+    // tiebreaker, picking the first row would drop usable date data when
+    // a reprint happened to land before the original in id order, and the
+    // year_start_cached coverage tanks).
+    const issueByNumber = new Map();
+    for (const row of issuesForSeries) {
+      if (isPlaceholderIssueNumber(row.issue_number)) continue;
+      const key = String(row.issue_number ?? "").trim().toLowerCase();
+      if (!key) continue;
+      const existing = issueByNumber.get(key);
+      if (!existing) {
+        issueByNumber.set(key, row);
+        continue;
+      }
+      const existingYear = parseYear(existing.publication_date);
+      const candidateYear = parseYear(row.publication_date);
+      // Replace if: the existing has no year and the candidate has one,
+      // OR both have years and the candidate is earlier (original printing).
+      if (
+        candidateYear != null &&
+        (existingYear == null || candidateYear < existingYear)
+      ) {
+        issueByNumber.set(key, row);
+      }
+    }
+    const dedupedIssues = [...issueByNumber.values()];
 
+    const issueCount = dedupedIssues.length;
+
+    // Year span uses the RAW row set, not the deduped one. Rationale: a
+    // chunk of rows have a valid publication_date but a null/empty
+    // issue_number — the dedupe drops them, which previously took 92k
+    // series from "has a year" to "null year." The live series API also
+    // computes years from raw rows, so this stays consistent with it.
+    // Trade-off: reprints can push year_end past the run's actual finale
+    // (TMNT 2011 → 2024 instead of 2020). That's preferable to losing
+    // 92k series's year data outright.
     const years = issuesForSeries
       .map((r) => parseYear(r.publication_date))
       .filter((y) => y != null);
@@ -248,11 +289,42 @@ async function processBatch(seriesBatch) {
       ?? fallbackPool.find((r) => r.publisher)?.publisher
       ?? null;
 
-    const resolvedPublisher = resolvePublisher({
-      cv: series.cv_publisher ?? canonicalPublisher,
-      candidates: [series.publisher?.name ?? null, ...issuePublisherNames],
-      seriesTitle: series.title,
-    });
+    // Year-aware publisher resolution — must match the logic in
+    // scripts/repairSeriesPublishersWithCv.js. Without this, every cache
+    // refresh regresses the 1984 TMNT (and any other pre-2000 series whose
+    // IP later changed hands) back to its modern owner. Rule:
+    //   year_start >= 2000 or null → trust cv_publisher (ComicVine is
+    //     reliable for modern attribution).
+    //   year_start < 2000 → prefer GCD indicia (cv often points at the
+    //     current IP holder, not the original publisher). Only fall back
+    //     to cv if indicia gives nothing useful.
+    const MODERN_ERA_CUTOFF = 2000;
+    const candidates = [series.publisher?.name ?? null, ...issuePublisherNames];
+    let resolvedPublisher;
+    if (yearStart == null || yearStart >= MODERN_ERA_CUTOFF) {
+      resolvedPublisher = resolvePublisher({
+        cv: series.cv_publisher ?? canonicalPublisher,
+        candidates,
+        seriesTitle: series.title,
+      });
+    } else {
+      const indiciaResolved = resolvePublisher({
+        cv: null,
+        candidates,
+        seriesTitle: series.title,
+      });
+      if (indiciaResolved && indiciaResolved !== "Unknown Publisher") {
+        resolvedPublisher = indiciaResolved;
+      } else {
+        // Indicia useless — fall back to cv. Better something than
+        // "Unknown Publisher" for a row that's clearly attributable.
+        resolvedPublisher = resolvePublisher({
+          cv: series.cv_publisher ?? canonicalPublisher,
+          candidates,
+          seriesTitle: series.title,
+        });
+      }
+    }
 
     return {
       series,
@@ -349,6 +421,37 @@ async function processBatch(seriesBatch) {
         } else {
           bestCover = null;
         }
+      }
+
+      // Tier 3 fallback — when no cover clears the strict year-fit threshold,
+      // accept any cover that shares the title. We prefer publisher match and
+      // issue #1, but ignore year fit entirely. This is how we get coverage
+      // from 0.7% to ~3.4% without ingesting new data: ~5,800 series have a
+      // cover sitting in canonical_covers right now that the strict matcher
+      // throws away (year window or null year disqualifies it). Better to
+      // show a wrong-volume cover than a blank placeholder — search users
+      // recognize the title from the cover, click through, and find the
+      // right run on the series page (which uses its own per-issue match).
+      if (!bestCover) {
+        let softBest = null;
+        let softScore = -Infinity;
+        for (const row of effectivePool) {
+          if (!row.storage_path) continue;
+          let s = 0;
+          if (normPub && row.publisher && normalizePublisherForMatch(row.publisher) === normPub) {
+            s += 60;
+          }
+          const issueStr = String(row.issue_number ?? "").trim();
+          if (issueStr === "1" || issueStr === "#1") s += 50;
+          // Prefer unclaimed even at this tier so we don't all point at the
+          // same one cover for 50 different "Batman" volumes.
+          if (claimed.has(row.storage_path)) s -= 200;
+          if (s > softScore) {
+            softBest = row;
+            softScore = s;
+          }
+        }
+        bestCover = softBest;
       }
 
       const path = bestCover?.storage_path ?? null;

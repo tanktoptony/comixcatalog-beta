@@ -43,6 +43,15 @@ export const US_PUBLISHER_ALLOWLIST = [
   "Black Mask Studios",
   "AWA Studios",
   "Now Comics",
+  // Additional US indies surfaced by the publisher audit dry-run.
+  "Fantagraphics",
+  "Avatar Press",
+  "Titan Comics",
+  "Antarctic Press",
+  "Zenescope Entertainment",
+  "VIZ Media",
+  "Archaia",
+  "Rebellion",
 ];
 
 const MASTER_EXACT_MAP = {
@@ -154,6 +163,41 @@ const MASTER_EXACT_MAP = {
 
   "now": "Now Comics",
   "now comics": "Now Comics",
+
+  "fantagraphics": "Fantagraphics",
+  "fantagraphics books": "Fantagraphics",
+  "fantagraphics books inc": "Fantagraphics",
+  "fantagraphics books, inc.": "Fantagraphics",
+
+  "avatar": "Avatar Press",
+  "avatar press": "Avatar Press",
+  "avatar press inc": "Avatar Press",
+  "avatar press inc.": "Avatar Press",
+
+  "titan": "Titan Comics",
+  "titan comics": "Titan Comics",
+  "titan books": "Titan Comics",
+
+  "antarctic press": "Antarctic Press",
+
+  "zenescope": "Zenescope Entertainment",
+  "zenescope entertainment": "Zenescope Entertainment",
+  "zenescope entertainment inc": "Zenescope Entertainment",
+  "zenescope entertainment, inc.": "Zenescope Entertainment",
+
+  "viz": "VIZ Media",
+  "viz media": "VIZ Media",
+  "viz media llc": "VIZ Media",
+  "viz media, llc": "VIZ Media",
+  "viz comics": "VIZ Media",
+
+  "archaia": "Archaia",
+  "archaia entertainment": "Archaia",
+  "archaia studios press": "Archaia",
+
+  "rebellion": "Rebellion",
+  "rebellion developments": "Rebellion",
+  "2000 ad": "Rebellion",
 };
 
 // Distributors, regional reprinters, and generic "<series> Publishing Co Inc"
@@ -209,6 +253,17 @@ export function normalizePublisherLabel(value) {
   if (lower.includes("ahoy")) return "Ahoy Comics";
   if (lower.includes("black mask")) return "Black Mask Studios";
   if (lower.includes("awa studios") || lower === "awa") return "AWA Studios";
+
+  // Additional US indies — surfaced when the publisher audit found these
+  // were getting downgraded to "Unknown Publisher".
+  if (lower.includes("fantagraphics")) return "Fantagraphics";
+  if (lower.includes("avatar press")) return "Avatar Press";
+  if (lower.includes("titan comics") || lower.includes("titan books") || lower === "titan") return "Titan Comics";
+  if (lower.includes("antarctic press")) return "Antarctic Press";
+  if (lower.includes("zenescope")) return "Zenescope Entertainment";
+  if (lower.includes("viz media") || lower.includes("viz comics") || lower === "viz") return "VIZ Media";
+  if (lower.includes("archaia")) return "Archaia";
+  if (lower.includes("rebellion") || lower === "2000 ad") return "Rebellion";
 
   return null;
 }

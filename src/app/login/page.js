@@ -52,7 +52,10 @@ export default function LoginPage() {
           email: emailNormalized,
           password,
         }),
-        30000,
+        // Temporarily bumped 30s → 60s. Supabase Auth has been responding
+        // slowly for this project (DB queries are instant, only the auth
+        // service is slow). Revisit once that stabilizes.
+        60000,
         "Login"
       );
 
@@ -207,31 +210,32 @@ export default function LoginPage() {
         <Image
           src="/img/logos/cc_badge.png"
           alt=""
-          width={48}
-          height={48}
+          width={56}
+          height={56}
           className="auth-brand-badge"
           priority
         />
       </Link>
 
-      <h1 className="auth-title">Sign in</h1>
-      <p className="auth-subtitle">Catalog. Collect. Connect.</p>
+      <h1 className="auth-title">Welcome</h1>
+      <p className="auth-subtitle">Log in to ComixCatalog to continue</p>
 
       <form onSubmit={handleLogin} className="auth-form">
-        <div className="auth-group">
-          <label>Email</label>
+        <div className="auth-field">
           <input
+            id="auth-email"
             className="auth-input"
             type="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             autoComplete="email"
+            placeholder=" "
           />
+          <label htmlFor="auth-email">Username or email address</label>
         </div>
 
-        <div className="auth-group">
-          <label htmlFor="auth-password">Password</label>
+        <div className="auth-field">
           <input
             id="auth-password"
             className="auth-input"
@@ -240,7 +244,9 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="current-password"
+            placeholder=" "
           />
+          <label htmlFor="auth-password">Password</label>
         </div>
 
         <button
@@ -248,7 +254,7 @@ export default function LoginPage() {
           className="primary-btn auth-submit"
           disabled={saving}
         >
-          {saving ? "Signing in…" : "Sign in"}
+          {saving ? "Signing in…" : "Continue"}
         </button>
       </form>
 
@@ -279,10 +285,7 @@ export default function LoginPage() {
       )}
 
       <p className="auth-footer">
-        Don’t have an account?{" "}
-        <Link href="/signup" className="link">
-          Sign up
-        </Link>
+        Don’t have an account? <Link href="/signup" className="link">Sign up</Link>
       </p>
     </section>
   );

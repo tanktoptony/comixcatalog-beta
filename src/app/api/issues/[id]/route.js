@@ -205,12 +205,24 @@ export async function GET(req, context) {
         issueYear
       );
 
+      // Publisher resolution priority (most-trusted → least):
+      //   1. Per-issue indicia publisher from gcd_issues (what was physically
+      //      printed in this specific book — what the collector cares about)
+      //   2. Series-level GCD publisher
+      //   3. Publishers-table FK on the canonical series row
+      //   4. ComicVine's series-level publisher (often the CURRENT IP owner
+      //      rather than the original publisher — wrong for old issues)
+      //   5. ComicVine's canonical-covers publisher
+      //
+      // The old code ranked ComicVine first, which made the 1984 Mirage
+      // TMNT #1 read as "IDW Publishing" because IDW currently holds the IP.
       const publisherName = resolvePublisher({
-        cv: seriesRow?.cv_publisher ?? canonicalMatch.publisher,
+        cv: gcdPublisherName,
         candidates: [
-          seriesRow?.publisher?.name ?? null,
           seriesLevelPublisherName,
-          gcdPublisherName,
+          seriesRow?.publisher?.name ?? null,
+          seriesRow?.cv_publisher ?? null,
+          canonicalMatch.publisher ?? null,
         ],
         seriesTitle,
       });

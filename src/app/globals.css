@@ -5518,6 +5518,24 @@ button.nav-link {
   line-height: 1.4;
 }
 
+/* Inline hint under a grade-editor input (e.g. cover-price estimate). */
+.grade-hint {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+.grade-hint-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--x-gold);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.grade-hint-link:hover { opacity: 0.85; }
+
 /* Library cover tag — shows when displaying user's own photo */
 .library-list-cover,
 .comic-card-cover {
@@ -7095,6 +7113,126 @@ button.nav-link {
   display: none;
 }
 
+/* ─────────────────────────────────────────────────────────────────────────
+   Auth pages — Discogs-style layout (centered card, floating labels,
+   prominent CTA) but kept on the site's dark surface to stay consistent
+   with the rest of the app.
+   ───────────────────────────────────────────────────────────────────────── */
+
+.auth-panel {
+  max-width: 460px;
+  padding: 48px 44px 36px;
+  border-radius: 18px;
+  margin: 5rem auto;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+.auth-brand {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  text-decoration: none;
+}
+.auth-brand-badge {
+  border-radius: 14px;
+  display: block;
+}
+
+.auth-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin: 0 0 8px;
+}
+
+.auth-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Floating-label field. Inputs use placeholder=" " so :not(:placeholder-shown)
+   tells us when the field is filled and we can lift the label. */
+.auth-field {
+  position: relative;
+}
+
+.auth-field .auth-input {
+  width: 100%;
+  height: 56px;
+  padding: 20px 14px 8px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.15s, background 0.15s;
+  margin: 0;
+}
+
+.auth-field .auth-input:focus {
+  outline: none;
+  border-color: var(--x-gold);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.auth-field label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  transition: all 0.15s ease;
+  background: #15171f;
+  padding: 0 4px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.auth-field .auth-input:focus + label,
+.auth-field .auth-input:not(:placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+.auth-field .auth-input:focus + label {
+  color: var(--x-gold);
+}
+
+.auth-submit {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+.auth-static-label {
+  display: block;
+  font-size: 0.78rem;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 
 /* ─────────────────────────────────────────────────────────────────────────
    Header redesign — Discogs-style: wide search, slim inline nav, avatar
@@ -7329,4 +7467,372 @@ button.nav-link {
   .user-menu-panel { min-width: 220px; right: -4px; }
 }
 
+/* ─────────────────────────────────────────────────────────────────────────
+   Messaging v1 — inbox list, thread view, composer, unread badge.
+   ───────────────────────────────────────────────────────────────────────── */
 
+/* Header inbox icon badge. */
+.nav-icon-btn-inbox { position: relative; }
+.nav-icon-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.66rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 2px solid var(--cc-bg, #0c0e16);
+}
+
+/* Message button on profile — uses the existing profile-action-btn shape,
+   adds a filled-primary variant. */
+.profile-action-btn-primary {
+  background: var(--x-gold);
+  color: #181a22;
+  border-color: var(--x-gold);
+  font-weight: 700;
+}
+.profile-action-btn-primary:hover { filter: brightness(1.05); }
+
+/* Inbox thread list. */
+.inbox-thread-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.inbox-thread {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.15s, border-color 0.15s;
+}
+.inbox-thread:hover { background: rgba(255, 255, 255, 0.06); }
+.inbox-thread.is-unread {
+  border-color: rgba(244, 208, 63, 0.35);
+  background: rgba(244, 208, 63, 0.04);
+}
+.inbox-thread-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  color: inherit;
+  text-decoration: none;
+}
+.inbox-thread-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.inbox-thread-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.inbox-thread-body { flex: 1; min-width: 0; }
+.inbox-thread-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.inbox-thread-top strong { font-size: 0.96rem; }
+.inbox-thread-time {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+}
+.inbox-thread-preview {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.inbox-thread.is-unread .inbox-thread-preview {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+.inbox-thread-unread-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--x-gold);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ── Thread view (single conversation) ───────────────────────────────────── */
+
+.thread-view {
+  max-width: 760px;
+  margin: 24px auto;
+  background: #15171f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 200px);
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.thread-topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  flex-shrink: 0;
+}
+.thread-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+.thread-back:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+.thread-peer {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+  flex: 1;
+  min-width: 0;
+}
+.thread-peer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.thread-peer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.thread-peer-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  min-width: 0;
+}
+.thread-peer-meta strong {
+  font-size: 1rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.thread-peer-handle {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.thread-scroller {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 18px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.thread-empty {
+  margin: auto;
+  max-width: 320px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.thread-empty-glyph {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+.thread-empty strong { color: #fff; }
+
+.thread-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 78%;
+  margin-top: 12px;
+}
+.thread-msg.is-grouped {
+  margin-top: 2px;
+}
+.thread-msg-mine {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+.thread-msg-theirs {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+.thread-msg-bubble {
+  padding: 9px 14px;
+  border-radius: 18px;
+  font-size: 0.94rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.thread-msg-mine .thread-msg-bubble {
+  background: var(--x-gold);
+  color: #181a22;
+  border-bottom-right-radius: 6px;
+}
+.thread-msg-theirs .thread-msg-bubble {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-bottom-left-radius: 6px;
+}
+.thread-msg.is-grouped .thread-msg-mine .thread-msg-bubble,
+.thread-msg-mine.is-grouped .thread-msg-bubble {
+  border-top-right-radius: 6px;
+}
+.thread-msg-theirs.is-grouped .thread-msg-bubble {
+  border-top-left-radius: 6px;
+}
+.thread-msg-meta {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 4px;
+  padding: 0 8px;
+}
+.thread-msg.is-grouped .thread-msg-meta {
+  display: none;
+}
+
+.thread-error {
+  margin: 0 18px;
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+  border-radius: 10px;
+  font-size: 0.86rem;
+}
+
+.thread-composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 14px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  flex-shrink: 0;
+}
+.thread-composer-input {
+  flex: 1;
+  resize: none;
+  min-height: 44px;
+  max-height: 180px;
+  padding: 11px 16px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.94rem;
+  line-height: 1.45;
+  transition: border-color 0.15s, background 0.15s;
+  overflow-y: auto;
+}
+.thread-composer-input:focus {
+  outline: none;
+  border-color: var(--x-gold);
+  background: rgba(255, 255, 255, 0.06);
+}
+.thread-composer-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.thread-composer-send {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--x-gold);
+  color: #181a22;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: filter 0.15s, transform 0.15s;
+}
+.thread-composer-send:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+.thread-composer-send:disabled {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: not-allowed;
+}
+
+.thread-composer-spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: #181a22;
+  animation: thread-spin 0.8s linear infinite;
+}
+@keyframes thread-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+  .thread-view {
+    margin: 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    height: calc(100vh - 120px);
+  }
+  .thread-msg {
+    max-width: 88%;
+  }
+}

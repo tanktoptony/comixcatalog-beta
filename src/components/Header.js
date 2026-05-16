@@ -5,6 +5,7 @@ import Image from "next/image";
 import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { useUnreadMessageCount } from "@/hooks/useUnreadMessageCount";
 
 function resolveCoverUrl(rawCover) {
   if (!rawCover) return null;
@@ -436,19 +437,20 @@ export default function Header() {
 
         {/* Library icon + avatar dropdown live OUTSIDE .main-nav so they stay
             visible on mobile while text links collapse behind the hamburger.
-            Inbox slot is reserved for Phase 4 (marketplace messages); rendering
-            it now means the layout doesn't shift when we wire it later. */}
+            Inbox slot is reserved — messaging v1 is wallpapered off while we
+            focus on data ingestion. Re-enable by swapping back to InboxNavButton. */}
         {user && (
           <div className="header-user-actions">
             <button
               type="button"
               className="nav-icon-btn nav-icon-btn-disabled"
-              title="Inbox (coming with marketplace)"
-              aria-label="Inbox"
+              title="Inbox (coming soon)"
+              aria-label="Inbox (coming soon)"
               disabled
             >
               <InboxIcon />
             </button>
+
             <Link
               href="/library"
               className="nav-icon-btn"
@@ -492,6 +494,25 @@ function LibraryIcon() {
       <path d="M9 4h4v16H9z" />
       <path d="M15 5l3.5-1 3 14-3.5 1z" />
     </svg>
+  );
+}
+
+function InboxNavButton() {
+  const unread = useUnreadMessageCount();
+  return (
+    <Link
+      href="/inbox"
+      className="nav-icon-btn nav-icon-btn-inbox"
+      title="Inbox"
+      aria-label={unread > 0 ? `Inbox (${unread} unread)` : "Inbox"}
+    >
+      <InboxIcon />
+      {unread > 0 && (
+        <span className="nav-icon-badge" aria-hidden="true">
+          {unread > 99 ? "99+" : unread}
+        </span>
+      )}
+    </Link>
   );
 }
 

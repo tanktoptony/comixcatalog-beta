@@ -196,6 +196,7 @@ export default function ComicDetailPage() {
                 <h3 className="issue-section-title">Condition & Grade</h3>
                 <GradeEditor
                   collectionId={collectionRow.id}
+                  releaseYear={comic?.year ?? null}
                   initialData={{
                     grade_numeric: gradeData?.grade_numeric ?? collectionRow.grade_numeric ?? null,
                     condition: gradeData?.condition ?? collectionRow.condition ?? null,

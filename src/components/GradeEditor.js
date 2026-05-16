@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import { estimateCoverPrice } from "@/lib/coverPrice";
 
 const USER_COVER_UPLOAD_ENABLED = true;
 
@@ -83,7 +84,7 @@ function GradeBadge({ grade, company, condition }) {
 
 export { GradeBadge };
 
-export default function GradeEditor({ collectionId, initialData = {}, canonicalCover = null, onSave }) {
+export default function GradeEditor({ collectionId, initialData = {}, canonicalCover = null, releaseYear = null, onSave }) {
   const [open, setOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
@@ -398,6 +399,22 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
               value={purchasePrice}
               onChange={(e) => setPurchasePrice(e.target.value)}
             />
+            {(() => {
+              const estimate = estimateCoverPrice(releaseYear);
+              if (estimate == null || purchasePrice) return null;
+              return (
+                <div className="grade-hint">
+                  Original cover price ~${estimate.toFixed(2)} ({releaseYear}).{" "}
+                  <button
+                    type="button"
+                    className="grade-hint-link"
+                    onClick={() => setPurchasePrice(estimate.toFixed(2))}
+                  >
+                    Use this
+                  </button>
+                </div>
+              );
+            })()}
           </div>
 
           {/* Market value (self-reported for now; automated in Phase 3) */}

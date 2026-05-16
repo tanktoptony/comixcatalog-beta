@@ -192,55 +192,61 @@ export default function SignUpPage() {
         <Image
           src="/img/logos/cc_badge.png"
           alt=""
-          width={48}
-          height={48}
+          width={56}
+          height={56}
           className="auth-brand-badge"
           priority
         />
       </Link>
 
       <h1 className="auth-title">Create your account</h1>
-      <p className="auth-subtitle">Free to join. Your collection, organized.</p>
+      <p className="auth-subtitle">Join ComixCatalog — free to start collecting</p>
 
       <form onSubmit={handleSignup} className="auth-form">
-        <div className="auth-group">
-          <label>Username</label>
+        <div className="auth-field">
           <input
+            id="signup-username"
             className="auth-input"
             type="text"
             required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             autoComplete="username"
+            placeholder=" "
           />
+          <label htmlFor="signup-username">Username</label>
         </div>
 
-        <div className="auth-group">
-          <label>Email</label>
+        <div className="auth-field">
           <input
+            id="signup-email"
             className="auth-input"
             type="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             autoComplete="email"
+            placeholder=" "
           />
+          <label htmlFor="signup-email">Email address</label>
         </div>
 
-        <div className="auth-group">
-          <label>Password</label>
+        <div className="auth-field">
           <input
+            id="signup-password"
             className="auth-input"
             type="password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="new-password"
+            placeholder=" "
           />
+          <label htmlFor="signup-password">Password</label>
         </div>
 
         <div className="auth-group">
-          <label>Choose an avatar</label>
+          <label className="auth-static-label">Choose an avatar</label>
           <div className="avatar-grid">
             {AVATAR_KEYS.map((key) => {
               const selected = key === avatarKey;
@@ -297,10 +303,7 @@ export default function SignUpPage() {
       )}
 
       <p className="auth-footer">
-        Already have an account?{" "}
-        <Link href="/login" className="link">
-          Log in
-        </Link>
+        Already have an account? <Link href="/login" className="link">Log in</Link>
       </p>
     </section>
   );

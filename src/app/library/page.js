@@ -774,6 +774,7 @@ function LibraryPageContent() {
                           collectionId={item.id}
                           initialData={liveGrade}
                           canonicalCover={comic.cover || null}
+                          releaseYear={comic.year || null}
                           onSave={(updated) =>
                             setGradeData((prev) => ({
                               ...prev,
@@ -864,6 +865,7 @@ function LibraryPageContent() {
                           collectionId={item.id}
                           initialData={liveGrade}
                           canonicalCover={comic.cover || null}
+                          releaseYear={comic.year || null}
                           onSave={(updated) =>
                             setGradeData((prev) => ({
                               ...prev,

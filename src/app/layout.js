@@ -5,9 +5,79 @@ import PatreonBanner from "../components/PatreonBanner";
 import { LibraryProvider } from "../context/LibraryContext";
 import { AuthProvider } from "../context/AuthContext";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://comixcatalog.com";
+const SITE_NAME = "ComixCatalog";
+const DEFAULT_TITLE = "ComixCatalog — Catalog. Collect. Connect.";
+const DEFAULT_DESCRIPTION =
+  "The database, collection manager, and marketplace for comic books. " +
+  "Search any issue, catalog what you own, track its value, and trade with " +
+  "full grade transparency. Built by collectors, for collectors.";
+
 export const metadata = {
-  title: "ComixCatalog",
-  description: "Catalog. Collect. Connect.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: DEFAULT_TITLE,
+    // %s is replaced per-page when child pages set their own title.
+    template: "%s — ComixCatalog",
+  },
+  description: DEFAULT_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: [
+    "comic books",
+    "comic book database",
+    "comic collection",
+    "comic marketplace",
+    "CGC",
+    "CBCS",
+    "key issues",
+    "comic book grading",
+    "comic book value",
+    "comic price guide",
+    "GCD",
+    "Grand Comics Database",
+  ],
+  authors: [{ name: "ComixCatalog" }],
+  creator: "ComixCatalog",
+  publisher: "ComixCatalog",
+  // Open Graph — controls preview cards on Facebook, Discord, iMessage,
+  // Slack, LinkedIn, Reddit, and most other link-unfurlers.
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ComixCatalog — the database, collection manager, and marketplace for comic books.",
+      },
+    ],
+  },
+  // Twitter / X card. summary_large_image gives the big preview tile
+  // collectors are used to seeing on Discogs / Letterboxd / etc.
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: ["/og-image.jpg"],
+    creator: "@comixcatalog",
+    site: "@comixcatalog",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon/favicon.ico" },
@@ -18,6 +88,12 @@ export const metadata = {
     ],
   },
   manifest: "/favicon/site.webmanifest",
+};
+
+// Next 16 moved themeColor (and a few others) out of `metadata` and into a
+// separate `viewport` export. Same value, new home — kills the build warning.
+export const viewport = {
+  themeColor: "#15171f",
 };
 
 export default function RootLayout({ children }) {

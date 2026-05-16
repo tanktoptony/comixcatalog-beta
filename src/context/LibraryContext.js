@@ -70,8 +70,11 @@ export function LibraryProvider({ children }) {
         .select("*")
         .eq("user_id", user.id);
 
+      // Bumped 30s → 60s alongside the login bump. Supabase Auth/PostgREST
+      // has been responding slowly even though direct DB queries via the
+      // service role are fast. Revert once that stabilizes.
       const timeoutPromise = new Promise((_, reject) =>
-        setTimeout(() => reject(new Error("Supabase didn't respond in 30s")), 30000)
+        setTimeout(() => reject(new Error("Supabase didn't respond in 60s")), 60000)
       );
 
       const { data, error } = await Promise.race([queryPromise, timeoutPromise]);

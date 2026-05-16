@@ -4,6 +4,7 @@ import ShareProfileButton from "@/components/ShareProfileButton";
 import { headers } from "next/headers";
 import Image from "next/image";
 import EditProfileButton from "@/components/EditProfileButton";
+import MessageButton from "@/components/MessageButton";
 import ProfileTabs from "@/components/ProfileTabs";
 import { createClient } from "@supabase/supabase-js";
 
@@ -160,6 +161,9 @@ export default async function PublicProfilePage({ params }) {
               <ShareProfileButton username={username} />
               {/* EditProfileButton self-gates on client-side ownership check */}
               <EditProfileButton profile={profile} />
+              {/* MessageButton self-gates: hidden when viewing own profile or
+                  not signed in. Renders as null otherwise. */}
+              <MessageButton recipientUsername={username} recipientId={profile.id} />
               {isOwner && (
                 <Link href="/library" className="profile-action-btn">
                   Manage library

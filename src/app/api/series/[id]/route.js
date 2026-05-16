@@ -47,6 +47,7 @@ export async function GET(req, context) {
         title,
         publisher_id,
         cv_publisher,
+        resolved_publisher_cached,
         publisher:publisher_id (
           id,
           name,
@@ -180,17 +181,23 @@ export async function GET(req, context) {
     const canonicalPublisherName =
       canonicalRows.find((row) => row.publisher)?.publisher ?? null;
 
-    const resolvedPublisher = resolvePublisher({
-      cv: cvPublisherName ?? canonicalPublisherName,
-      // gcd_series publisher (series-level) is preferred over per-issue
-      // publishers, which are often distributors or short-lived shells.
-      candidates: [
-        localPublisherName,
-        seriesLevelPublisherName,
-        ...gcdPublisherNames,
-      ],
-      seriesTitle: series.title,
-    });
+    // Prefer the precomputed cached value. It went through the audit
+    // pipeline (scripts/repairSeriesPublishersWithCv.js) which applies the
+    // year-aware logic — modern era trusts cv_publisher, pre-2000 prefers
+    // GCD indicia. Re-resolving here on every request would bypass that
+    // and reintroduce the bug where 1984 TMNT showed "IDW Publishing"
+    // because IDW currently owns the IP. Only re-resolve as a fallback.
+    const resolvedPublisher =
+      series.resolved_publisher_cached ||
+      resolvePublisher({
+        cv: cvPublisherName ?? canonicalPublisherName,
+        candidates: [
+          localPublisherName,
+          seriesLevelPublisherName,
+          ...gcdPublisherNames,
+        ],
+        seriesTitle: series.title,
+      });
 
     const candidatesByIssue = canonicalRows.reduce((acc, row) => {
       const key =

@@ -74,6 +74,20 @@ export default function Header() {
     router.replace("/");
   }
 
+  // Switch-account: same signOut, different destination. Sends straight to
+  // the login form instead of bouncing through the homepage — one click
+  // less for the "log in as someone else" path. Uses window.location instead
+  // of router.replace so the new page boots with a fully fresh auth state
+  // (handy if the previous session's getSession seed in AuthContext is
+  // still in flight).
+  function handleSwitchAccount() {
+    closeMenu();
+    signOut();
+    if (typeof window !== "undefined") {
+      window.location.href = "/login";
+    }
+  }
+
   function clearSearch() {
     setQuery("");
     setSeriesResults([]);
@@ -468,6 +482,7 @@ export default function Header() {
               profile={profile}
               isPro={isPro}
               onLogout={handleLogout}
+              onSwitchAccount={handleSwitchAccount}
               onNavigate={closeMenu}
             />
           </div>
@@ -579,7 +594,7 @@ function MarketplaceIcon() {
 }
 
 const UserMenu = forwardRef(function UserMenu(
-  { open, setOpen, user, profile, isPro, onLogout, onNavigate },
+  { open, setOpen, user, profile, isPro, onLogout, onSwitchAccount, onNavigate },
   ref
 ) {
   const username = profile?.username || null;
@@ -688,19 +703,15 @@ const UserMenu = forwardRef(function UserMenu(
           <div className="user-menu-divider" />
 
           {/* Switch account: explicit affordance for the multi-account case.
-              The old flow required Sign Out → land on /, then navigate to
-              /login. This collapses that to one click + auto-redirects so
-              the next session starts in the login form, ready for credentials. */}
+              Uses handleSwitchAccount (signOut → /login) instead of the
+              regular handleLogout (signOut → /). The previous inline
+              `await onLogout()` was racing router.replace("/") against
+              window.location.href = "/login" and you could land on either. */}
           <button
             type="button"
             className="user-menu-item"
             role="menuitem"
-            onClick={handleItem(async () => {
-              await onLogout?.();
-              if (typeof window !== "undefined") {
-                window.location.href = "/login";
-              }
-            })}
+            onClick={handleItem(onSwitchAccount)}
           >
             Switch account
           </button>

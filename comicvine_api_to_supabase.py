@@ -33,6 +33,22 @@ HEADERS = {
     "Accept": "application/json",
 }
 
+
+# ── Rate-limit budgeting ─────────────────────────────────────────────────
+# ComicVine free-tier is 200 requests/resource/hour. Each volume costs at
+# minimum 1 search + 1 detail + N issue pages. To stay safely under the
+# rolling 200/hour window we:
+#   1. Sleep ~VOL_SLEEP_SECONDS BETWEEN volumes (defaults 1.0s, ~60 vol/min).
+#   2. Track total search/volume requests in REQUEST_BUDGET.
+#   3. Exit cleanly when REQUEST_BUDGET is exhausted, BEFORE the next 420.
+#   4. Raise RateLimited if a request returns HTTP 420 anyway — outer loop
+#      bails so we don't burn 200 more failed retries.
+class RateLimited(Exception):
+    """Raised when ComicVine returns HTTP 420 Enhance Your Calm."""
+
+
+REQUEST_COUNTER = {"search": 0, "volume": 0, "issues": 0}
+
 TARGET_VOLUMES = [
     # --- Marvel: Bronze/Modern Keys & Popular Runs ---
     # When a name matches multiple ComicVine volumes (e.g. "X-Men Annual"
@@ -103,6 +119,26 @@ def parse_cli() -> argparse.Namespace:
             "the resolved volume's publisher matches this name (loose match — "
             "'Marvel' matches 'Marvel Comics'). Prevents Donald-Duck-shaped "
             "accidents."
+        ),
+    )
+    p.add_argument(
+        "--max-search-calls",
+        type=int,
+        default=180,
+        help=(
+            "Hard cap on ComicVine search+volume requests per run. ComicVine's "
+            "free tier limits 200/hour; default 180 leaves headroom for the "
+            "rolling window. Exits cleanly when hit so the next run resumes "
+            "with --skip-existing."
+        ),
+    )
+    p.add_argument(
+        "--vol-sleep",
+        type=float,
+        default=1.0,
+        help=(
+            "Seconds to sleep between volumes. Adds to the existing 0.5s "
+            "between issues. Default 1.0 keeps us under the rolling rate cap."
         ),
     )
     return p.parse_args()
@@ -203,6 +239,16 @@ def slugify(value: str) -> str:
 
 
 def cv_get(endpoint: str, params: dict) -> dict:
+    # Count by endpoint family for budgeting. Issue-list pages are 100 issues
+    # at a time so they're cheap relative to search/volume — but they still
+    # count against the rolling 200/hour limit and we track them too.
+    if endpoint.startswith("search"):
+        REQUEST_COUNTER["search"] += 1
+    elif endpoint.startswith("volume"):
+        REQUEST_COUNTER["volume"] += 1
+    elif endpoint.startswith("issues"):
+        REQUEST_COUNTER["issues"] += 1
+
     full_params = {
         "api_key": COMICVINE_API_KEY,
         "format": "json",
@@ -214,6 +260,16 @@ def cv_get(endpoint: str, params: dict) -> dict:
         headers=HEADERS,
         timeout=60,
     )
+
+    # ComicVine returns HTTP 420 "Enhance Your Calm" when you've blown the
+    # rate window. Don't retry — raise so the outer loop bails cleanly.
+    if resp.status_code == 420:
+        raise RateLimited(
+            f"ComicVine returned 420 (rate-limited). "
+            f"Calls so far: search={REQUEST_COUNTER['search']}, "
+            f"volume={REQUEST_COUNTER['volume']}, issues={REQUEST_COUNTER['issues']}."
+        )
+
     resp.raise_for_status()
     data = resp.json()
     if data.get("status_code") != 1:
@@ -528,12 +584,25 @@ def main():
     print(
         f"Processing {len(targets)} target volume(s) "
         f"(source: {source_label}, "
-        f"skip-existing: {bool(args.skip_existing)})"
+        f"skip-existing: {bool(args.skip_existing)}, "
+        f"max-search-calls: {args.max_search_calls}, "
+        f"vol-sleep: {args.vol_sleep}s)"
     )
 
     limit_per_volume = args.limit if args.limit is not None else LIMIT_TEST
+    rate_limited = False
 
     for target in targets:
+        # Budget check: stop BEFORE making the next search if we're already
+        # past the cap. Cleaner than getting a 420 mid-run.
+        search_volume_used = REQUEST_COUNTER["search"] + REQUEST_COUNTER["volume"]
+        if search_volume_used >= args.max_search_calls:
+            print(
+                f"\n── Budget cap reached "
+                f"({search_volume_used} search+volume calls ≥ {args.max_search_calls}). "
+                f"Exiting cleanly. Re-run later with --skip-existing to resume."
+            )
+            break
         volume_name = target["name"]
         publisher_name = target.get("publisher")
         explicit_volume_id = target.get("volume_id")
@@ -668,9 +737,37 @@ def main():
 
                 time.sleep(0.5)
 
+        except RateLimited as e:
+            # Hard stop: ComicVine slammed the door. Continuing would just
+            # generate 200 more 420s and burn the rolling window further.
+            print(f"  ✗ {e}")
+            print("  Stopping run — re-run later with --skip-existing to resume.")
+            rate_limited = True
+            break
         except Exception as e:
             print(f"  series failed: {e}")
-            continue
+            # fall through to per-volume sleep below
+
+        # Sleep BETWEEN volumes regardless of success/failure. The skip path
+        # (no match found) still consumed a search call, which counts against
+        # the rate window. Without this sleep, width-mode mass-skipping would
+        # blow the budget in seconds.
+        time.sleep(max(0.0, args.vol_sleep))
+
+    if rate_limited:
+        print(
+            f"\nPartial run. Counters: "
+            f"search={REQUEST_COUNTER['search']} "
+            f"volume={REQUEST_COUNTER['volume']} "
+            f"issues={REQUEST_COUNTER['issues']}"
+        )
+    else:
+        print(
+            f"\nFinished cleanly. Counters: "
+            f"search={REQUEST_COUNTER['search']} "
+            f"volume={REQUEST_COUNTER['volume']} "
+            f"issues={REQUEST_COUNTER['issues']}"
+        )
 
     with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(

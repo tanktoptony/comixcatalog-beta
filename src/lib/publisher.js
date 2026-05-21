@@ -52,6 +52,26 @@ export const US_PUBLISHER_ALLOWLIST = [
   "VIZ Media",
   "Archaia",
   "Rebellion",
+  // Modern indies — popular publishers user explicitly asked for or that
+  // commonly turn up in searches for current-era books.
+  "Aspen Comics",
+  "Vault Comics",
+  "Skybound",
+  "Mad Cave Studios",
+  "Heavy Metal",
+  "Action Lab Entertainment",
+  "Devil's Due",
+  // Classic-era US publishers. Missing these is why Donald Duck (1952) shows
+  // as "BOOM! Studios" — GCD indicia says "Dell" but Dell wasn't recognized,
+  // so the year-aware pre-2000 branch fell back to the cv_publisher (which
+  // reflects the modern IP holder, BOOM! in this case).
+  "Dell Comics",
+  "Gold Key",
+  "Charlton Comics",
+  "Harvey Comics",
+  "EC Comics",
+  "Fawcett Comics",
+  "Atlas Comics",
 ];
 
 const MASTER_EXACT_MAP = {
@@ -198,6 +218,81 @@ const MASTER_EXACT_MAP = {
   "rebellion": "Rebellion",
   "rebellion developments": "Rebellion",
   "2000 ad": "Rebellion",
+
+  // Modern indies added in the recent allowlist expansion.
+  "aspen": "Aspen Comics",
+  "aspen comics": "Aspen Comics",
+  "aspen mlt": "Aspen Comics",
+  "aspen mlt inc": "Aspen Comics",
+  "aspen mlt, inc.": "Aspen Comics",
+
+  "vault": "Vault Comics",
+  "vault comics": "Vault Comics",
+
+  "skybound": "Skybound",
+  "skybound entertainment": "Skybound",
+
+  "mad cave": "Mad Cave Studios",
+  "mad cave studios": "Mad Cave Studios",
+
+  "heavy metal": "Heavy Metal",
+  "heavy metal magazine": "Heavy Metal",
+  "metal mammoth": "Heavy Metal",
+  "metal mammoth inc": "Heavy Metal",
+
+  "action lab": "Action Lab Entertainment",
+  "action lab entertainment": "Action Lab Entertainment",
+  "action lab comics": "Action Lab Entertainment",
+
+  "devil's due": "Devil's Due",
+  "devils due": "Devil's Due",
+  "devil's due publishing": "Devil's Due",
+  "devil's due entertainment": "Devil's Due",
+
+  // Classic-era US publishers — added to fix mis-attribution of older books
+  // (e.g. Donald Duck 1952 showing "BOOM! Studios" because Dell wasn't
+  // recognized, so the pre-2000 indicia branch returned null and fell back
+  // to cv_publisher which holds the modern IP owner).
+  "dell": "Dell Comics",
+  "dell comics": "Dell Comics",
+  "dell publishing": "Dell Comics",
+  "dell publishing co inc": "Dell Comics",
+  "dell publishing co., inc.": "Dell Comics",
+
+  "gold key": "Gold Key",
+  "gold key comics": "Gold Key",
+  "western publishing": "Gold Key",
+  "western publishing company inc": "Gold Key",
+  "k. k. publications": "Gold Key",
+  "k. k. publications, inc.": "Gold Key",
+  "whitman": "Gold Key",
+  "whitman publishing": "Gold Key",
+
+  "charlton": "Charlton Comics",
+  "charlton comics": "Charlton Comics",
+  "charlton comics group": "Charlton Comics",
+  "charlton publications": "Charlton Comics",
+  "charlton publications inc": "Charlton Comics",
+
+  "harvey": "Harvey Comics",
+  "harvey comics": "Harvey Comics",
+  "harvey publications": "Harvey Comics",
+  "harvey publications inc": "Harvey Comics",
+  "harvey features syndicate": "Harvey Comics",
+
+  "ec": "EC Comics",
+  "ec comics": "EC Comics",
+  "ec publications": "EC Comics",
+  "entertaining comics": "EC Comics",
+  "william m. gaines": "EC Comics",
+
+  "fawcett": "Fawcett Comics",
+  "fawcett comics": "Fawcett Comics",
+  "fawcett publications": "Fawcett Comics",
+  "fawcett publications inc": "Fawcett Comics",
+
+  "atlas": "Atlas Comics",
+  "atlas comics": "Atlas Comics",
 };
 
 // Distributors, regional reprinters, and generic "<series> Publishing Co Inc"
@@ -264,6 +359,26 @@ export function normalizePublisherLabel(value) {
   if (lower.includes("viz media") || lower.includes("viz comics") || lower === "viz") return "VIZ Media";
   if (lower.includes("archaia")) return "Archaia";
   if (lower.includes("rebellion") || lower === "2000 ad") return "Rebellion";
+
+  // Modern indies (recent expansion).
+  if (lower.includes("aspen")) return "Aspen Comics";
+  if (lower.includes("vault")) return "Vault Comics";
+  if (lower.includes("skybound")) return "Skybound";
+  if (lower.includes("mad cave")) return "Mad Cave Studios";
+  if (lower.includes("heavy metal") || lower.includes("metal mammoth")) return "Heavy Metal";
+  if (lower.includes("action lab")) return "Action Lab Entertainment";
+  if (lower.includes("devil's due") || lower.includes("devils due")) return "Devil's Due";
+
+  // Classic-era US — needed to keep pre-2000 mis-attribution from falling
+  // through to the modern cv_publisher (current IP holder).
+  if (lower.includes("dell")) return "Dell Comics";
+  if (lower.includes("gold key") || lower.includes("western publishing") || lower.includes("whitman")) return "Gold Key";
+  if (lower.includes("charlton")) return "Charlton Comics";
+  if (lower.includes("harvey")) return "Harvey Comics";
+  if (lower === "ec" || lower.includes("ec comics") || lower.includes("entertaining comics")) return "EC Comics";
+  if (lower.includes("fawcett")) return "Fawcett Comics";
+  // "Atlas" is ambiguous — the 50s Marvel-predecessor and the 70s Atlas/Seaboard
+  // are both real. Only exact-match here, no substring fallback.
 
   return null;
 }

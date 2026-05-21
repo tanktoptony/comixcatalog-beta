@@ -7,7 +7,12 @@
     "dev": "cross-env NEXT_DISABLE_TURBOPACK=1 next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "covers:gap-featured": "node scripts/generateFeaturedGapTargets.js",
+    "covers:gap-both": "node scripts/generateCoverGapTargets.js --mode=both --limit=500",
+    "covers:refresh-cache": "node scripts/refreshSeriesSearchCache.js --force",
+    "covers:refresh-cache-test": "node scripts/refreshSeriesSearchCache.js --force --max-batches=1",
+    "covers:weekly": "npm run covers:refresh-cache && npm run covers:gap-featured"
   },
   "dependencies": {
     "@supabase/ssr": "^0.8.0",

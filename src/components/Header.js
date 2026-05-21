@@ -464,6 +464,7 @@ export default function Header() {
               ref={userMenuRef}
               open={userMenuOpen}
               setOpen={setUserMenuOpen}
+              user={user}
               profile={profile}
               isPro={isPro}
               onLogout={handleLogout}
@@ -578,11 +579,16 @@ function MarketplaceIcon() {
 }
 
 const UserMenu = forwardRef(function UserMenu(
-  { open, setOpen, profile, isPro, onLogout, onNavigate },
+  { open, setOpen, user, profile, isPro, onLogout, onNavigate },
   ref
 ) {
   const username = profile?.username || null;
-  const displayName = profile?.display_name || username || "Account";
+  // Email is the always-present source of truth from the auth user. The
+  // dropdown header MUST identify the user — falling through to a bare
+  // "Account" label (the previous behavior) made it impossible to tell
+  // which account you were signed into.
+  const email = user?.email ?? null;
+  const displayName = profile?.display_name || username || email || "Account";
   const avatarSrc = profile?.avatar_url
     ? profile.avatar_url
     : `/avatars/${profile?.avatar_key || "cc_badge"}.png`;
@@ -615,6 +621,18 @@ const UserMenu = forwardRef(function UserMenu(
             <div className="user-menu-name">{displayName}</div>
             {username && displayName !== username && (
               <div className="user-menu-handle">@{username}</div>
+            )}
+            {/* Always show email when it's not already the displayName.
+                This is the line that tells you WHICH account you're on —
+                non-negotiable for users who switch between dev + real accounts. */}
+            {email && email !== displayName && (
+              <div
+                className="user-menu-handle"
+                style={{ opacity: 0.7, fontSize: "0.85em" }}
+                title={email}
+              >
+                {email}
+              </div>
             )}
             {isPro && <span className="user-menu-pro-pill">PRO</span>}
           </div>
@@ -669,6 +687,23 @@ const UserMenu = forwardRef(function UserMenu(
 
           <div className="user-menu-divider" />
 
+          {/* Switch account: explicit affordance for the multi-account case.
+              The old flow required Sign Out → land on /, then navigate to
+              /login. This collapses that to one click + auto-redirects so
+              the next session starts in the login form, ready for credentials. */}
+          <button
+            type="button"
+            className="user-menu-item"
+            role="menuitem"
+            onClick={handleItem(async () => {
+              await onLogout?.();
+              if (typeof window !== "undefined") {
+                window.location.href = "/login";
+              }
+            })}
+          >
+            Switch account
+          </button>
           <button
             type="button"
             className="user-menu-item user-menu-item-danger"

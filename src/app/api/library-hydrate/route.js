@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getMarketValuesBulk } from "@/lib/marketValue";
 
 function parseYear(value) {
   if (!value) return null;
@@ -20,9 +21,16 @@ export async function POST(req) {
     const gcdIds = Array.isArray(body.gcd_issue_ids)
       ? body.gcd_issue_ids.map(Number).filter((n) => !Number.isNaN(n))
       : [];
+    // Optional payload for Phase 2 valuation. Each entry is one user_collections
+    // row's grade signal; we use it to bulk-query market_comps via getMarketValue.
+    // Shape: [{ collection_id, gcd_issue_id, grade_numeric, slab_company, condition }]
+    // Backward-compatible — callers that don't pass this just don't get prices.
+    const collectionGrades = Array.isArray(body.collection_grades)
+      ? body.collection_grades.filter((g) => g && g.collection_id)
+      : [];
 
     if (comicIds.length === 0 && gcdIds.length === 0) {
-      return NextResponse.json({ items: {} });
+      return NextResponse.json({ items: {}, market_values: {} });
     }
 
     const supabase = createClient(
@@ -242,9 +250,31 @@ export async function POST(req) {
       }
     }
 
-    return NextResponse.json({ items });
+    // ── Phase 2 auto-valuation ──
+    // For each collection item the caller passed grade signal for, query
+    // market_comps and return median + sample size keyed by collection_id.
+    // With zero comps in the DB (initial state), every entry returns
+    // {value: null, sample_size: 0} — the UI then renders nothing extra.
+    const marketValues = {};
+    if (collectionGrades.length > 0) {
+      const valueMap = await getMarketValuesBulk({
+        supabase,
+        items: collectionGrades.map((g) => ({
+          collection_id: g.collection_id,
+          gcd_issue_id: g.gcd_issue_id,
+          grade_numeric: g.grade_numeric,
+          slab_company: g.slab_company,
+          condition: g.condition,
+        })),
+      });
+      for (const [collectionId, result] of valueMap) {
+        marketValues[collectionId] = result;
+      }
+    }
+
+    return NextResponse.json({ items, market_values: marketValues });
   } catch (err) {
     console.error("POST /api/library-hydrate crashed:", err);
-    return NextResponse.json({ items: {} }, { status: 500 });
+    return NextResponse.json({ items: {}, market_values: {} }, { status: 500 });
   }
 }

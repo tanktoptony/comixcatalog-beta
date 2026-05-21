@@ -25,6 +25,56 @@ const supabase = createClient(
 const BATCH_SIZE = 100;
 const FORCE = process.argv.includes("--force");
 
+// --max-batches=<n> stops after N batches (≈BATCH_SIZE × N series). Useful
+// for smoke-testing a change before committing to the full 217k-row pass.
+// Cursor + --force still resume the rest later.
+const MAX_BATCHES_ARG = process.argv.find((a) => a.startsWith("--max-batches="));
+const MAX_BATCHES = MAX_BATCHES_ARG
+  ? Number(MAX_BATCHES_ARG.split("=")[1])
+  : Infinity;
+
+// Wraps a Supabase query builder in a retry loop. Supabase's PostgREST
+// occasionally surfaces transient errors that are safe to retry: 57014
+// (statement_timeout), 53300 (too_many_connections), and plain network
+// blips that come back as { message: 'fetch failed' }. Without this, one
+// 8-second slow batch out of 2,000 kills the whole 217k-row pass and
+// leaves you starting over (which is what just happened after the user
+// stepped away during the run).
+//
+// Pass a thunk that returns a fresh Supabase query — we re-invoke it on
+// each retry. Up to 4 attempts with 1s, 3s, 8s backoffs. Errors that
+// aren't transient throw on the first attempt.
+const TRANSIENT_CODES = new Set(["57014", "53300", "PGRST116", "ETIMEDOUT"]);
+async function runWithRetry(label, thunk, maxAttempts = 4) {
+  let lastError = null;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
+      const { data, error } = await thunk();
+      if (!error) return data;
+      const code = error.code || "";
+      const msg = (error.message || "").toLowerCase();
+      const transient =
+        TRANSIENT_CODES.has(code) ||
+        msg.includes("statement timeout") ||
+        msg.includes("fetch failed") ||
+        msg.includes("network");
+      if (!transient || attempt === maxAttempts) throw error;
+      lastError = error;
+    } catch (err) {
+      const msg = (err?.message || "").toLowerCase();
+      const transient = msg.includes("fetch failed") || msg.includes("network") || msg.includes("timeout");
+      if (!transient || attempt === maxAttempts) throw err;
+      lastError = err;
+    }
+    const backoffMs = [1000, 3000, 8000][attempt - 1] ?? 8000;
+    process.stdout.write(
+      `\n  ⚠ ${label} transient error (attempt ${attempt}/${maxAttempts}): ${lastError?.message ?? lastError?.code ?? "?"} — retrying in ${backoffMs}ms\n`
+    );
+    await new Promise((r) => setTimeout(r, backoffMs));
+  }
+  throw lastError;
+}
+
 function parseYear(value) {
   if (!value) return null;
   const match = String(value).match(/\b(18|19|20)\d{2}\b/);
@@ -37,13 +87,77 @@ function isPlaceholderIssueNumber(value) {
   return s === "[nn]" || s === "nn" || s === "(nn)";
 }
 
+// Strip variant/printing suffixes to get the canonical issue number.
+//   "1"                 → "1"
+//   "1 [Newsstand]"     → "1"
+//   "1 [Variant Cover]" → "1"
+//   "1A"                → "1"      (rare; 641 rows total per diagnostic)
+//   "1.NOW"             → "1"      (rare; 101 rows total)
+//   "5/1981"            → "5"      (foreign issue-by-year numbering)
+//   "1.5"               → "1.5"    (kept — actual fractional issue, e.g. #0.5)
+//   "Annual 1"          → null     (alpha-only; not a numbered issue)
+//
+// Returns null when there's no leading numeric base. The cache treats those
+// rows as un-numbered specials and skips them in the issue count, which
+// matches what users expect ("Annual" isn't part of "the run").
+function baseIssueNumber(value) {
+  if (value == null) return null;
+  const s = String(value).trim();
+  if (!s) return null;
+  // Match leading int or decimal. Stop at any non-numeric character.
+  const m = s.match(/^(\d+(?:\.\d+)?)/);
+  return m ? m[1] : null;
+}
+
+// Best available year for a gcd_issues row. publication_date is the canonical
+// field but it's null on ~65% of rows per the diagnostic. key_date is GCD's
+// sortable approximation (often "YYYY-MM-DD" or "YYYY-00-00") that's
+// populated more reliably. Try both before giving up.
+function bestYearFor(row) {
+  return parseYear(row.publication_date) ?? parseYear(row.key_date);
+}
+
 // In --force mode we walk the table by id cursor instead of filtering on
 // search_refreshed_at, so the script can chew through everything without
 // needing the giant UPDATE … SET search_refreshed_at = NULL to commit first.
 // Tradeoff: id-ordered batches don't cluster volumes of the same title, so
 // cross-volume cover claims only work within a single batch's title group
 // (less effective than the normal mode's title-ordered batching).
+// Cursor persistence for --force runs. When the script crashes mid-run
+// (Supabase timeout, network blip, user closes terminal), the next launch
+// reads this file and resumes from where it stopped. Beats redoing 100k+
+// already-processed rows. File auto-deletes on clean completion.
+import { readFileSync, writeFileSync, existsSync, unlinkSync } from "fs";
+const CURSOR_FILE = path.resolve(__dirname, ".refresh-cursor");
+
 let forceCursorId = null;
+if (FORCE && existsSync(CURSOR_FILE)) {
+  try {
+    forceCursorId = readFileSync(CURSOR_FILE, "utf8").trim() || null;
+    if (forceCursorId) {
+      console.log(`Resuming --force from saved cursor: id > ${forceCursorId}`);
+    }
+  } catch {
+    /* ignore — start from the beginning */
+  }
+}
+
+function saveCursor(id) {
+  if (!FORCE || !id) return;
+  try {
+    writeFileSync(CURSOR_FILE, String(id));
+  } catch {
+    /* persistence is best-effort; don't crash the script over it */
+  }
+}
+
+function clearCursor() {
+  try {
+    if (existsSync(CURSOR_FILE)) unlinkSync(CURSOR_FILE);
+  } catch {
+    /* ignore */
+  }
+}
 
 async function fetchSeriesBatch() {
   let query = supabase
@@ -69,13 +183,14 @@ async function fetchSeriesBatch() {
     query = query.is("search_refreshed_at", null).order("title", { ascending: true });
   }
 
-  const { data, error } = await query.limit(BATCH_SIZE);
-
-  if (error) throw error;
+  // Capture the query as a thunk so retries get a fresh request rather than
+  // re-awaiting the same exhausted promise.
+  const data = await runWithRetry("series batch fetch", () => query.limit(BATCH_SIZE));
   const rows = data ?? [];
 
   if (FORCE && rows.length > 0) {
     forceCursorId = rows[rows.length - 1].id;
+    saveCursor(forceCursorId);
   }
 
   return rows;
@@ -101,14 +216,15 @@ async function processBatch(seriesBatch) {
   const PAGE_SIZE = 1000;
   let from = 0;
   while (true) {
-    const { data: page, error: issueErr } = await supabase
-      .from("gcd_issues")
-      .select("series_gcd_id, publisher_gcd_id, issue_number, publication_date")
-      .in("series_gcd_id", seriesGcdIds)
-      .order("gcd_id", { ascending: true })
-      .range(from, from + PAGE_SIZE - 1);
+    const page = await runWithRetry("gcd_issues page", () =>
+      supabase
+        .from("gcd_issues")
+        .select("series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
+        .in("series_gcd_id", seriesGcdIds)
+        .order("gcd_id", { ascending: true })
+        .range(from, from + PAGE_SIZE - 1)
+    );
 
-    if (issueErr) throw issueErr;
     if (!page || page.length === 0) break;
     issueRows.push(...page);
     if (page.length < PAGE_SIZE) break;
@@ -150,15 +266,41 @@ async function processBatch(seriesBatch) {
   // grows past undici's ~16KB header cap and the request fails with
   // UND_ERR_HEADERS_OVERFLOW. The per-issue matching happens in JS below using
   // coversByTitleAndIssue, so the matching quality is identical.
+  //
+  // BUG FIX 2026-05-19: this query previously had no pagination. PostgREST
+  // caps responses at 1000 rows by default. A 100-series batch easily exceeds
+  // 1000 canonical_covers rows (e.g. "The Amazing Spider-Man" alone has 917),
+  // so the request was silently truncated and the matcher saw only a partial
+  // view of the data. Symptom: series with abundant covers in canonical_covers
+  // (ASM 1999, Simpsons Comics, etc.) had featured_cover_path_cached=NULL
+  // because the 1999-volume rows happened to be past row #1000 in the response.
+  // Fix: paginate with .range() exactly the same way the gcd_issues fetch
+  // pages elsewhere in this script.
   let coverRows = [];
   if (seriesTitles.length > 0) {
-    const { data, error } = await supabase
-      .from("canonical_covers")
-      .select("series_title, storage_path, publisher, cover_date, issue_number, series_year")
-      .in("series_title", seriesTitles);
+    const COVER_PAGE = 1000;
+    let from = 0;
+    while (true) {
+      // runWithRetry returns `data` directly (NOT {data, error}); destructuring
+      // it as {data, error} silently produced undefined and broke the loop on
+      // its first iteration — which wiped every featured_cover_path_cached to
+      // NULL because the matcher saw an empty cover pool for every series.
+      const page = await runWithRetry(
+        `canonical_covers page from=${from}`,
+        () =>
+          supabase
+            .from("canonical_covers")
+            .select("series_title, storage_path, publisher, cover_date, issue_number, series_year")
+            .in("series_title", seriesTitles)
+            .order("id", { ascending: true })
+            .range(from, from + COVER_PAGE - 1)
+      );
 
-    if (error) throw error;
-    coverRows = data ?? [];
+      if (!page || page.length === 0) break;
+      coverRows.push(...page);
+      if (page.length < COVER_PAGE) break;
+      from += COVER_PAGE;
+    }
   }
 
   // Index covers by (lowercased title, issue_number) so each series can pull
@@ -181,40 +323,36 @@ async function processBatch(seriesBatch) {
   const computed = seriesBatch.map((series) => {
     const issuesForSeries = issuesBySeriesGcdId.get(String(series.gcd_id)) ?? [];
 
-    // Dedupe by normalized issue_number so reprints / printing variants /
-    // newsstand-vs-direct duplicates don't inflate the count or push the
-    // year_end past the run's actual finale. The series detail API does
-    // this same dedupe ([id]/route.js); keeping the cache consistent means
-    // search shows the same number as the page.
+    // Dedupe by BASE issue number — strips bracketed/spaced/slash suffixes
+    // so `1`, `1 [Newsstand]`, `1 [Direct Edition]`, `1 [Variant Cover]`
+    // all collapse to issue 1. Without this, Superman (2011) reads as 114
+    // issues because each variant row has a distinct issue_number string.
+    // The diagnostic at scripts/diagnoseIssuesData.js confirmed bracketed
+    // variants are ~5% of rows and slash-year is ~16% (foreign convention).
     //
-    // When the same issue_number appears multiple times, pick the row with
-    // the EARLIEST valid publication_date — that's the original printing,
-    // not a reprint. Prefer dated rows over undated ones (without this
-    // tiebreaker, picking the first row would drop usable date data when
-    // a reprint happened to land before the original in id order, and the
-    // year_start_cached coverage tanks).
-    const issueByNumber = new Map();
+    // When multiple rows share a base number, prefer the row with the
+    // earliest valid date (original printing beats reprints) AND prefer
+    // dated rows over undated ones (don't drop year data we have).
+    const issueByBase = new Map();
     for (const row of issuesForSeries) {
       if (isPlaceholderIssueNumber(row.issue_number)) continue;
-      const key = String(row.issue_number ?? "").trim().toLowerCase();
-      if (!key) continue;
-      const existing = issueByNumber.get(key);
+      const base = baseIssueNumber(row.issue_number);
+      if (!base) continue;
+      const existing = issueByBase.get(base);
       if (!existing) {
-        issueByNumber.set(key, row);
+        issueByBase.set(base, row);
         continue;
       }
-      const existingYear = parseYear(existing.publication_date);
-      const candidateYear = parseYear(row.publication_date);
-      // Replace if: the existing has no year and the candidate has one,
-      // OR both have years and the candidate is earlier (original printing).
+      const existingYear = bestYearFor(existing);
+      const candidateYear = bestYearFor(row);
       if (
         candidateYear != null &&
         (existingYear == null || candidateYear < existingYear)
       ) {
-        issueByNumber.set(key, row);
+        issueByBase.set(base, row);
       }
     }
-    const dedupedIssues = [...issueByNumber.values()];
+    const dedupedIssues = [...issueByBase.values()];
 
     const issueCount = dedupedIssues.length;
 
@@ -227,7 +365,7 @@ async function processBatch(seriesBatch) {
     // (TMNT 2011 → 2024 instead of 2020). That's preferable to losing
     // 92k series's year data outright.
     const years = issuesForSeries
-      .map((r) => parseYear(r.publication_date))
+      .map((r) => bestYearFor(r))
       .filter((y) => y != null);
 
     const yearStart = years.length ? Math.min(...years) : null;
@@ -256,7 +394,7 @@ async function processBatch(seriesBatch) {
     for (const r of issuesForSeries) {
       const num = String(r.issue_number ?? "").trim();
       if (!num) continue;
-      const y = parseYear(r.publication_date);
+      const y = bestYearFor(r);
       if (y != null) issueYearByNumber.set(num, y);
     }
 
@@ -557,13 +695,20 @@ async function run() {
   if (FORCE) console.log("Mode: --force (ignoring search_refreshed_at, walking by id cursor)");
 
   let total = 0;
+  let batchesRun = 0;
 
   while (true) {
+    if (batchesRun >= MAX_BATCHES) {
+      console.log(`Reached --max-batches=${MAX_BATCHES}. Stopping (cursor preserved).`);
+      break;
+    }
+
     const batch = await fetchSeriesBatch();
     if (batch.length === 0) break;
 
     const count = await processBatch(batch);
     total += count;
+    batchesRun += 1;
     console.log(`Processed ${count} (total ${total})`);
 
     if (count === 0) {
@@ -573,6 +718,9 @@ async function run() {
   }
 
   console.log("DONE. Total updated:", total);
+
+  // Clean run — drop the resume cursor so the next --force starts fresh.
+  if (FORCE) clearCursor();
 
   await reportCoverage();
 }

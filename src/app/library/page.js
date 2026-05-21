@@ -77,6 +77,11 @@ function LibraryPageContent() {
   const [csvResult, setCsvResult] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [gradeData, setGradeData] = useState({});
+  // Phase 2 auto-market-values keyed by user_collections.id. Empty until
+  // /api/library-hydrate returns market_values for the current grade signals.
+  // Shape: { [collection_id]: { value, sample_size, fallback, bucket_used,
+  //   newest_comp_date, oldest_comp_date } }
+  const [marketValues, setMarketValues] = useState({});
 
   const [search, setSearch] = useState("");
   const [shareCopied, setShareCopied] = useState(false);
@@ -213,11 +218,28 @@ function LibraryPageContent() {
         }
       }
 
+      // Build collection_grades payload — Phase 2 auto-valuation needs the
+      // per-item grade signal to look up matching comps. Only items that have
+      // a gcd_issue_id can be valued (no comps for local-only `comic_id`s).
+      const collectionGrades = collections
+        .filter((c) => c.gcd_issue_id != null)
+        .map((c) => ({
+          collection_id: c.id,
+          gcd_issue_id: Number(c.gcd_issue_id),
+          grade_numeric: c.grade_numeric ?? null,
+          slab_company: c.slab_company ?? null,
+          condition: c.condition ?? null,
+        }));
+
       try {
         const res = await fetch("/api/library-hydrate", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ comic_ids: comicIds, gcd_issue_ids: gcdIds }),
+          body: JSON.stringify({
+            comic_ids: comicIds,
+            gcd_issue_ids: gcdIds,
+            collection_grades: collectionGrades,
+          }),
         });
         if (!res.ok || cancelled) return;
 
@@ -238,6 +260,9 @@ function LibraryPageContent() {
 
         if (!cancelled) {
           setComicIndex((prev) => ({ ...prev, ...fresh }));
+          if (data.market_values && typeof data.market_values === "object") {
+            setMarketValues((prev) => ({ ...prev, ...data.market_values }));
+          }
         }
       } catch (err) {
         console.error("Failed to load library items", err);
@@ -762,11 +787,30 @@ function LibraryPageContent() {
                         {liveGrade.market_value != null && (
                           <>
                             <span>•</span>
-                            <span style={{ color: "var(--cc-gold)" }} title="Market value">
+                            <span style={{ color: "var(--cc-gold)" }} title="Market value (your estimate)">
                               Worth ${Number(liveGrade.market_value).toFixed(2)}
                             </span>
                           </>
                         )}
+                        {/* Auto-value from market_comps — only render when no
+                            user override exists. Sample size is shown so users
+                            can judge confidence (e.g. "auto, 1 sale" is weak). */}
+                        {liveGrade.market_value == null &&
+                          marketValues[item.id]?.value != null && (
+                            <>
+                              <span>•</span>
+                              <span
+                                style={{ color: "var(--cc-gold)" }}
+                                title={`Median of ${marketValues[item.id].sample_size} recent sale${marketValues[item.id].sample_size === 1 ? "" : "s"} in bucket ${marketValues[item.id].bucket_used}${marketValues[item.id].fallback ? " (fallback bucket)" : ""}`}
+                              >
+                                Worth ~${Number(marketValues[item.id].value).toFixed(2)}{" "}
+                                <span style={{ opacity: 0.6, fontSize: "0.85em" }}>
+                                  (auto, {marketValues[item.id].sample_size}
+                                  {marketValues[item.id].sample_size === 1 ? " sale" : " sales"})
+                                </span>
+                              </span>
+                            </>
+                          )}
                       </div>
 
                       {tab === "owned" && (

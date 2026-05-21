@@ -21,57 +21,70 @@ export function AuthProvider({ children }) {
     // double-invokes in strict mode).
     let prevUserId = null;
 
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        if (!mounted) return;
+    // Single resolver used by both the explicit getSession() seed AND the
+    // onAuthStateChange listener. Without this shared path, you'd see drift
+    // (the listener writes one shape, the seed writes another).
+    async function applySession(session) {
+      if (!mounted) return;
+      const nextUser = session?.user ?? null;
+      const nextUserId = nextUser?.id ?? null;
 
-        const nextUser = session?.user ?? null;
-        const nextUserId = nextUser?.id ?? null;
-
-        // SIGNED_OUT — null out everything immediately, no network needed.
-        if (!nextUser) {
-          prevUserId = null;
-          setUser(null);
-          setProfile(null);
-          setLoading(false);
-          return;
-        }
-
-        // Account switch — drop the previous account's profile right away
-        // so its avatar/username can't render under the new session while
-        // the fresh fetch is in flight.
-        if (prevUserId && prevUserId !== nextUserId) {
-          setProfile(null);
-        }
-        prevUserId = nextUserId;
-
-        setUser(nextUser);
-
-        const { data: prof } = await supabase
-          .from("profiles")
-          .select("*")
-          .eq("id", nextUser.id)
-          .single();
-
-        if (!mounted) return;
-
-        // If no profile row exists in the DB, synthesize a minimal one from
-        // the auth user so the header link, share button, and avatar still
-        // render. Username falls back to the email local-part.
-        const synthesized = prof ?? {
-          id: nextUser.id,
-          username:
-            nextUser.user_metadata?.username ||
-            nextUser.email?.split("@")[0] ||
-            null,
-          avatar_url: null,
-          avatar_key: null,
-          is_pro: false,
-          is_founding_collector: false,
-          created_at: nextUser.created_at ?? null,
-        };
-        setProfile(synthesized);
+      if (!nextUser) {
+        prevUserId = null;
+        setUser(null);
+        setProfile(null);
         setLoading(false);
+        return;
+      }
+
+      if (prevUserId && prevUserId !== nextUserId) {
+        setProfile(null);
+      }
+      prevUserId = nextUserId;
+      setUser(nextUser);
+
+      const { data: prof } = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", nextUser.id)
+        .single();
+
+      if (!mounted) return;
+
+      // If no profile row exists in the DB, synthesize a minimal one from
+      // the auth user so the header link, share button, and avatar still
+      // render. Username falls back to the email local-part — but we ALSO
+      // keep the email itself accessible on profile.email so the dropdown
+      // can always identify the user even when username is null.
+      const synthesized = prof ?? {
+        id: nextUser.id,
+        username:
+          nextUser.user_metadata?.username ||
+          nextUser.email?.split("@")[0] ||
+          null,
+        avatar_url: null,
+        avatar_key: null,
+        is_pro: false,
+        is_founding_collector: false,
+        created_at: nextUser.created_at ?? null,
+      };
+      setProfile(synthesized);
+      setLoading(false);
+    }
+
+    // EXPLICIT INITIAL SEED. Without this, AuthContext relies on the
+    // listener firing INITIAL_SESSION — which is unreliable in practice:
+    // if the supabase client hydrated the session before our listener
+    // attached, the event already fired into the void. Symptom: page
+    // loads, user IS logged in to Supabase, but our React state stays
+    // null forever until they manually sign out + back in.
+    supabase.auth.getSession().then(({ data }) => {
+      if (mounted) applySession(data?.session ?? null);
+    });
+
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        applySession(session);
       }
     );
 

@@ -16,18 +16,48 @@ function normalizeSeriesTitle(value) {
   return String(value ?? "").trim().toLowerCase();
 }
 
-function dedupeIssuesByNumber(issues) {
-  const seen = new Set();
-  const out = [];
+// Strip variant/printing suffixes — same logic as the cache refresh.
+// "1 [Newsstand]" → "1", "5/1981" → "5", "Annual 1" → null.
+// See scripts/refreshSeriesSearchCache.js for the rationale.
+function baseIssueNumber(value) {
+  if (value == null) return null;
+  const s = String(value).trim();
+  if (!s) return null;
+  const m = s.match(/^(\d+(?:\.\d+)?)/);
+  return m ? m[1] : null;
+}
 
+// publication_date is null on ~65% of gcd_issues. key_date is GCD's sortable
+// approximation that's populated more reliably. Fall back to it.
+function bestYearFor(row) {
+  return parseYear(row.publication_date) ?? parseYear(row.key_date);
+}
+
+// Dedupe by BASE issue number so "1", "1 [Newsstand]", "1 [Variant Cover]"
+// collapse to a single issue. When duplicates exist, prefer the row with the
+// earliest valid date (original printing beats reprints) and prefer dated
+// rows over undated. This will become "issues + variants" once the schema
+// gets variant fields; today it just produces the correct issue count.
+function dedupeIssuesByBase(issues) {
+  const byBase = new Map();
   for (const issue of issues) {
-    const key = String(issue.issue_number ?? "").trim().toLowerCase();
-    if (!key || seen.has(key)) continue;
-    seen.add(key);
-    out.push(issue);
+    const base = baseIssueNumber(issue.issue_number);
+    if (!base) continue;
+    const existing = byBase.get(base);
+    if (!existing) {
+      byBase.set(base, issue);
+      continue;
+    }
+    const existingYear = bestYearFor(existing);
+    const candidateYear = bestYearFor(issue);
+    if (
+      candidateYear != null &&
+      (existingYear == null || candidateYear < existingYear)
+    ) {
+      byBase.set(base, issue);
+    }
   }
-
-  return out;
+  return [...byBase.values()];
 }
 
 export async function GET(req, context) {
@@ -85,7 +115,8 @@ export async function GET(req, context) {
           publisher_gcd_id,
           issue_number,
           title,
-          publication_date
+          publication_date,
+          key_date
         `)
         .eq("series_gcd_id", series.gcd_id)
         .order("gcd_id", { ascending: true })
@@ -146,7 +177,7 @@ export async function GET(req, context) {
     const cvPublisherName = series.cv_publisher ?? null;
 
     const years = issueRows
-      .map((issue) => parseYear(issue.publication_date))
+      .map((issue) => bestYearFor(issue))
       .filter((year) => year != null);
 
     const yearStart = years.length ? Math.min(...years) : null;
@@ -217,14 +248,14 @@ export async function GET(req, context) {
     // up assigned to the 1993 Robin #1 because canonical_covers only has the
     // recent run ingested.
     const seriesYears = issueRows
-      .map((row) => parseYear(row.publication_date))
+      .map((row) => bestYearFor(row))
       .filter((y) => y != null);
     const seriesYearMin = seriesYears.length ? Math.min(...seriesYears) : null;
     const seriesYearMax = seriesYears.length ? Math.max(...seriesYears) : null;
     const COVER_YEAR_TOLERANCE = 1;
 
     const mappedIssuesRaw = issueRows.map((issue) => {
-      const gcdYear = parseYear(issue.publication_date);
+      const gcdYear = bestYearFor(issue);
 
       const legacyKey =
         `${normalizeSeriesTitle(series.title)}::${normalizeIssueNumber(issue.issue_number)}`;
@@ -278,7 +309,7 @@ export async function GET(req, context) {
       };
     });
 
-    const mappedIssues = dedupeIssuesByNumber(mappedIssuesRaw);
+    const mappedIssues = dedupeIssuesByBase(mappedIssuesRaw);
     const featuredCover =
       mappedIssues.find((issue) => issue.cover)?.cover ?? null;
 

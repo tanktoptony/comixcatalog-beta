@@ -1,6 +1,6 @@
 # ComixCatalog — Claude Code Project Briefing
 
-> Solo founder project. Built in Chicago. Goal: replace bartending income with recurring revenue by end of summer 2025.
+> Solo founder project. Built in Chicago. Goal: replace bartending income with recurring revenue by end of summer 2026.
 > Tagline: "Built by collectors, for collectors."
 > Site: comixcatalog.com | @comixcatalog
 
@@ -25,7 +25,7 @@ ComixCatalog is an all-encompassing comic book database, collection manager, and
 - **Sellers** — List key issues or newsstand books via an integrated marketplace
 - **Everyone** — Know the real-time estimated value of their collection
 
-The app is **near launch**. Prioritize stability, correctness, and shipping over architectural perfection.
+The app is **stable and content-rich** (217k series, 2.5M issues, year-aware publisher resolution shipped). The current bottleneck is **revenue infrastructure** — Stripe + PDF + valuation pipeline — not core stability.
 
 ---
 
@@ -36,10 +36,10 @@ The app is **near launch**. Prioritize stability, correctness, and shipping over
 | Frontend | Next.js (App Router) |
 | Backend / API routes | Python scripts + Next.js API routes |
 | Database | Supabase (Postgres) |
-| Payments | Stripe + Stripe Connect (marketplace seller payouts) |
+| Payments | Stripe + Stripe Connect (marketplace seller payouts) — **not yet wired** |
 | Comic metadata | Grand Comics Database (GCD) |
-| Cover images | ComicVine API |
-| Valuation data | GOCollect (integration in progress) |
+| Cover images | ComicVine API (free tier only — no paid tier appears available; supplemented by GCD covers and future user uploads) |
+| Valuation data | **eBay Browse API (sold-comps)** — replacing stalled GoCollect integration. CGC pop reports and Heritage Auctions are future supplemental sources. |
 | Styling | Tailwind CSS |
 | Config | `next.config.mjs`, `tailwind.config.cjs`, `postcss.config.cjs` |
 
@@ -52,7 +52,7 @@ comixcatalog-beta/
 ├── .claude/                        # Claude Code settings
 ├── src/                            # Next.js app source (App Router)
 ├── public/
-│   ├── covers/                     # LEGACY — local cover stubs, to be removed. ComicVine is the cover source.
+│   ├── covers/                     # LEGACY — local cover stubs, to be removed. ComicVine/GCD are the cover sources.
 │   ├── avatars/                    # LEGACY — placeholder hero avatars, to be replaced with user image upload
 │   ├── favicon/
 │   ├── icons/
@@ -61,15 +61,14 @@ comixcatalog-beta/
 │   ├── sqlite.worker.js
 │   ├── wa-sqlite.wasm
 │   └── fallback-cover.png
-├── scripts/                        # Utility/migration scripts
+├── scripts/                        # Node utility/migration/diagnostic scripts (this is where new work lives)
 ├── comicvine_api_output/           # Logs + CSVs from ComicVine ingestion
 │   ├── ingest_*.log
 │   └── issues_uploaded.csv
 ├── canonical_covers_diagnostic.py  # Cover URL validation tooling
-├── comicvine_api_to_supabase.py    # ComicVine → Supabase ingestion
-├── gcd_scraper_to_supabase.py      # GCD → Supabase ingestion
+├── comicvine_api_to_supabase.py    # ComicVine → Supabase cover ingestion
+├── gcd_scraper_to_supabase.py      # GCD COVERS scraper — NOT a metadata ingester. Targeted backfill that scrapes comics.org HTML for issues already in user_collections that lack a canonical_covers row.
 ├── generate_comics_seed.py         # Seed data generation
-├── target_volumes_seed.py          # Volume/series seed targets
 ├── series_lookup_diagnostic.py     # Series lookup debugging
 ├── scrape.py                       # General scraping utility
 ├── comics_seed.csv                 # Seed data
@@ -80,24 +79,30 @@ comixcatalog-beta/
 └── package.json
 ```
 
+Note: `target_volumes_seed.py` was referenced in older briefings but has been removed.
+
 ---
 
 ## Data Sources — Critical Context
 
 ### GCD (Grand Comics Database)
 - **Primary source of truth** for all comic metadata: series, issues, story arcs, variants, publishers
-- Ingested via `gcd_scraper_to_supabase.py`
-- Tables are prefixed `gcd_*`
+- Tables prefixed `gcd_*` (`gcd_series`, `gcd_issues`, `gcd_publishers`)
+- **Important:** `gcd_scraper_to_supabase.py` does NOT populate these tables. It's a *covers* scraper that hits comics.org HTML for issues in user collections. The metadata tables were populated by an earlier ingest (likely from GCD's public Postgres dump) that's no longer in the repo. If you need to refresh `gcd_issues` from source, you'll need to either rebuild that pipeline or download a fresh GCD dump.
+- **Unexplored opportunity:** GCD's bulk dump includes a `gcd_cover` table with `image_path` references to `files1.comics.org/img/gcd/covers_by_id/...`. We do not currently ingest it. Auditing this is the highest-EV cover-coverage move — potentially 10×+ overnight without API rate limits.
 
 ### ComicVine
 - Used **only for cover images** — not a metadata source
 - Ingested via `comicvine_api_to_supabase.py`
-- Output logs in `comicvine_api_output/`
+- Free tier only: ~200 req/hour, 1 req/sec, ~150k req/month ceiling. **No paid tier appears to exist** since Fandom acquired CBS Interactive's API portfolio.
+- This constrains our cover ingestion strategy: pure-ComicVine path can't scale fast. Must combine with GCD covers and user uploads.
 
-### GOCollect
-- Target source for **valuation and pricing data**
-- Integration is **in progress / not fully established** — treat as aspirational
-- eBay sold listings are the current fallback for pricing estimates
+### Valuation (eBay sold-comps) — replaces GoCollect
+- **GoCollect integration is dead** — they did not respond to outreach. Mentions of GoCollect in older code/comments are aspirational, not active.
+- **New path: eBay Browse API** for last-90-days sold listings. Free tier, ~5,000 req/day, works today.
+- Build plan: `market_comps` table keyed on `(gcd_issue_id, grade_bucket, slab_company)`, refreshed weekly per issue or on-demand. Server function `getMarketValue()` returns median + sample size.
+- Phase 2 needs this wired before the Insurance PDF has credible numbers.
+- Future supplemental sources: CGC pop reports (slab values), Heritage Auctions API (auction comps for keys), MyComicShop buy-list (floor price).
 
 ---
 
@@ -110,10 +115,11 @@ comixcatalog-beta/
 
 ### Two parallel "series" tables — DO NOT confuse
 - `series` — **canonical / app-facing**. UUID primary key. Has resolved publisher, cached counts, title_normalized for search. This is what API routes should join.
-- `gcd_series` — **raw GCD mirror**. `gcd_id` integer primary key. Holds `name`, `sort_name`, `year_began`, `year_ended`, `publisher_gcd_id`. Currently *never queried* by the app — surface it when you need GCD-native metadata that didn't make it onto the canonical `series` row (e.g. sort_name, year_ended for prune logic).
+- `gcd_series` — **raw GCD mirror**. `gcd_id` integer primary key. Holds `name`, `sort_name`, `year_began`, `year_ended`, `publisher_gcd_id`. Currently surfaced for `publisher_gcd_id` (series-level publisher resolution); `sort_name` and `year_ended` are available for future ordering/prune work.
 
 ### Backup tables — DO NOT query
 - `series_backup`, `series_foreign_prune_backup`, `series_zero_issue_backup` — leftovers from past migrations. Read-only safety nets, not live data.
+- `comics_predupe_backup` — snapshot from May 2026 `dedupeComicsByContent.js` run that removed 1.65M legacy GCD-ingest rows from `comics`. Safe to drop after ~30 days clean.
 
 ### Tables (Supabase `public` schema)
 
@@ -129,10 +135,12 @@ Columns: `status`, `condition`, `grade_numeric` (numeric), `slab_company`, `slab
 - A row is either-or: `comic_id` set (local comic) OR `gcd_issue_id` set (GCD issue). Never both.
 - `status` values seen: `owned`, `wishlist`, `for_sale`.
 - **No `user_cover_url` column yet** — needs migration before per-book user-uploaded photos work end-to-end.
+- **Planned (Phase 2):** `auto_market_value` (numeric) + `auto_market_value_at` (timestamp) columns sourced from eBay comps, with the existing `market_value` becoming a user override.
 
 #### `comics` (user/local-contributed comics)
 PK `id` (uuid). FKs: `series_id` → `series.id`, `created_by` → `auth.users.id`.
 Columns: `series_title`, `issue_number`, `publisher`, `release_year` (int4), `variant_name`, `created_at`, `gcd_id` (int4 — when this user-comic was matched to a GCD issue).
+- ~140 actual user-contributed rows. The rest were legacy GCD-ingest duplicates, deduped May 2026 via `scripts/dedupeComicsByContent.js`.
 
 #### `comic_covers` (user-submitted covers for `comics`)
 PK `id` (uuid). FK `comic_id` → `comics.id`, `uploaded_by` → `auth.users.id`.
@@ -141,16 +149,19 @@ Columns: `image_path` (path inside `comic-covers` storage bucket), `is_official`
 #### `series` (canonical, app-facing)
 PK `id` (uuid). FK `publisher_id` → `publishers.id`. Bridge to GCD via `gcd_id` (int4).
 Columns: `title`, `created_at`, `cv_publisher`, `issue_count_cached`, `year_start_cached`, `year_end_cached`, `resolved_publisher_cached`, `featured_cover_path_cached`, `search_refreshed_at`, `title_normalized`.
-- The `*_cached` columns are refreshed by `scripts/refreshSeriesSearchCache.js`. Last full pass: **217,663 series; 79.4% have `year_start_cached`, 1.5% have `featured_cover_path_cached`**.
-- Cover-coverage ceiling is `canonical_covers` itself: only **319 distinct `series_title` values**, matching ~3,866 series rows (1.8% theoretical max). The join logic in the cache refresh is correct — raising coverage means ingesting more ComicVine covers via `comicvine_api_to_supabase.py`, not script changes. Diagnostic: `node scripts/diagnoseCoverCoverage.js`.
+- The `*_cached` columns are refreshed by `scripts/refreshSeriesSearchCache.js`. **Last full pass (May 18, 2026): 217,663 series; 85.5% have `year_start_cached`, 2.2% have `featured_cover_path_cached`.**
+- Year coverage jumped from 79.4% → 85.5% by falling back to `gcd_issues.key_date` when `publication_date` is null. Remaining 14.5% are genuinely undated in GCD.
+- Cover-coverage ceiling is the source data, not the join logic. `canonical_covers` has ~599 distinct `series_title` values. Raising coverage requires more cover ingest — see "Unexplored opportunity" under GCD above.
+- **Variant dedupe (Phase 1):** `issue_count_cached` collapses `1`, `1 [Newsstand]`, `1 [Variant Cover]` to a single base issue via `baseIssueNumber()`. Proper variant *schema* (variant_of_gcd_id, variant_name, variant_type) deferred until variant ingestion sources are settled.
 
-#### `gcd_series` (raw GCD mirror — currently unqueried)
+#### `gcd_series` (raw GCD mirror)
 PK `gcd_id` (int4). FK `publisher_gcd_id` → `gcd_publishers.gcd_id`.
 Columns: `name`, `sort_name`, `year_began`, `year_ended`.
 
 #### `gcd_issues`
 PK `gcd_id` (int4). FK `series_gcd_id` → `series.gcd_id` AND `gcd_series.gcd_id`. Also `publisher_gcd_id` → `gcd_publishers.gcd_id`.
 Columns: `issue_number`, `title`, `publication_date`, `key_date`.
+- `publication_date` is null on ~65% of rows. `key_date` (GCD's sortable approximation) fills most of that gap — use `bestYearFor(row)` helper, never raw `parseYear(publication_date)`.
 
 #### `gcd_publishers`
 PK `gcd_id` (int4). Columns: `name`, `year_began`, `year_ended`.
@@ -158,17 +169,20 @@ PK `gcd_id` (int4). Columns: `name`, `year_began`, `year_ended`.
 #### `publishers` (canonical publishers used by `series.publisher_id`)
 PK `id` (uuid). Columns: `name`, `created_at`, `gcd_id` (int4 — bridge to `gcd_publishers`).
 
-#### `canonical_covers` (ComicVine-sourced canonical issue covers)
+#### `canonical_covers` (ComicVine + GCD-sourced canonical issue covers)
 PK `id` (uuid). Columns: `source`, `source_issue_url`, `external_issue_id`, `series_title`, `issue_title`, `issue_number`, `publisher`, `cover_date`, `in_store_date`, `description`, `original_cover_url`, `storage_path` (inside `canonical-covers` storage bucket), `comicvine_volume_id` (uuid), `series_year` (int4), `created_at`.
-- Lookup is by `(series_title, issue_number)` — there's no FK to `series` or `gcd_issues`. Mismatched titles are a real failure mode.
+- Lookup is by `(series_title, issue_number)` — there's no FK to `series` or `gcd_issues`. Mismatched titles are a real failure mode; the matcher in `/api/series/[id]` applies a year-span tolerance to prevent cross-volume bleed (e.g. 2022 cover landing on 1993 Robin #1).
 
 #### `blog_comments`
 PK `id` (uuid). FKs `user_id` → `auth.users.id`, `post_id` → blog posts table.
 Columns: `content`, `created_at`.
 
+#### `market_comps` (planned, Phase 2)
+Not yet built. Will hold eBay sold-listing snapshots keyed on `(gcd_issue_id, grade_bucket, slab_company)` with `sold_price`, `sold_date`, `listing_url`, `fetched_at`. Refresh weekly per issue or on-demand.
+
 ### Storage buckets
 - `comic-covers` — user-submitted covers via `comic_covers.image_path`. Also where per-library-item user photos will live (under `library/<collection_id>.<ext>` once the migration lands).
-- `canonical-covers` — ComicVine-sourced covers via `canonical_covers.storage_path`.
+- `canonical-covers` — ComicVine + GCD-sourced covers via `canonical_covers.storage_path`.
 
 ### Per-Collection-Item Fields (already in DB, surface in UI)
 | Column | Description |
@@ -179,7 +193,7 @@ Columns: `content`, `created_at`.
 | `slab_cert_number` | Links to live CGC/CBCS registry lookup |
 | `notes` | Freeform per-issue collector notes |
 | `purchase_price` | What the user paid (numeric) |
-| `market_value` | Self-reported current value (numeric, automated in Phase 3) |
+| `market_value` | Self-reported current value (numeric). Phase 2: becomes user override on top of eBay-comp-derived `auto_market_value`. |
 
 ---
 
@@ -200,6 +214,7 @@ Always use these terms correctly in code, comments, and UI copy:
 | **Story arc** | A named multi-issue narrative within a series |
 | **Variant** | Alternate cover or print of the same issue number |
 | **Pop report / Census** | CGC data showing how many copies graded at each grade level |
+| **Comps** | Recently sold comparable listings used to estimate market value |
 
 ---
 
@@ -208,53 +223,75 @@ Always use these terms correctly in code, comments, and UI copy:
 | Tier | Price | Notes |
 |---|---|---|
 | **Free** | $0 | Basic collection tracking, search, public profile. No export. |
-| **Supporter** | $3/mo | Badge, Discord access, behind-the-scenes updates |
-| **Collector Beta** | $8/mo | Early feature access, feature voting, beta previews |
-| **Founding Collector** | $20/mo | Limited tier. Permanent badge, name on founders page, roadmap access |
-| **Collector Pro** | $8/mo | Grading tools, PDF export, unlimited import *(Phase 2 launch — priced to match Patreon Collector Beta tier)* |
-| **Vault** | $18/mo | PDF reports, private sharing link, priority marketplace placement *(Phase 2)* |
+| **Supporter** (Patreon) | $3/mo | Badge, Discord access, behind-the-scenes updates |
+| **Collector Beta** (Patreon) | $8/mo | Early feature access, feature voting, beta previews |
+| **Founding Collector** (Patreon) | $20/mo | Limited tier. Permanent badge, name on founders page, roadmap access |
+| **Collector Pro** (in-app) | $8/mo | Grading tools, PDF export, unlimited import. *Priced to match Patreon Collector Beta — no cannibalization.* **Phase 2 launch.** |
+| **Vault** (in-app) | $18/mo | PDF reports, private sharing link, priority marketplace placement. **Phase 2.** |
 | **Verified Collector badge** | $10 one-time | Links CGC registry to profile. Marketplace credential. |
 
 **Marketplace fee:** 5–8% per transaction (Discogs takes 8% for reference)
+
+Patreon Founding Collectors get grandfathered Pro status in-app via `is_founding_collector` short-circuit (planned alongside Stripe wiring).
 
 ---
 
 ## Feature Roadmap
 
-### Phase 1 — Stabilize (target: May 2) ← CURRENT PHASE
+### Phase 1 — Stabilize ✅ COMPLETE (May 2026)
 - [x] Fix `/api/comics/[id]/route.js` (was a React component, not an API handler)
 - [x] Fix comic detail page (was fetching 500 records to find one)
 - [x] Upgrade SearchPageClient (dynamic publisher filters, skeleton loading)
 - [x] Fix column name mismatches (`grade_num` → `grade_numeric`, `slab_comp` → `slab_company`)
-- [x] Align `gcd_issue_id` integer handling across LibraryContext (LibraryContext clean; fixed implicit string→int casting in `/api/issues/[id]` and `/api/comics/[id]`)
-- [x] Surface `gcd_series` table — `publisher_gcd_id` now feeds `resolvePublisher` candidates in `/api/series/[id]`, `/api/issues/[id]`, and `/api/comics/[id]` as a series-level fallback (preferred over per-issue indicia publishers). Remaining candidate uses (sort_name for ordering, year_ended for prune logic) deferred — surface as needed.
-- [x] Add error boundaries to prevent full-page crashes (`app/error.js`, `app/global-error.js`, `app/not-found.js`)
-- [x] **Profile page overhaul (Discogs-style v1)** — `/u/[username]` rebuilt with: hero (avatar, badges row including Pro + Founding Collector, real "Collector since" join date), headline stats strip (Owned / Wantlist / For Sale / Collection Value / Slabbed), tabbed body (Owned / Wantlist / For Sale / Activity) via `src/components/ProfileTabs.js`, sidebar with About / Top Publishers / Get Started panels. Activity tab pulls from collection.created_at. **Future work:** follow/follower counts, run-completion stats (Phase 3), and verified-collector badge wiring.
-- [x] **`/search` browse no longer dumps garbage** — `/api/comics` (no-query path) used to surface user-added "Untitled #[nn]" rows + GCD issues ordered by gcd_id ASC (oldest, mostly coverless). Replaced with curated featured-series tiles: query `series` where `featured_cover_path_cached IS NOT NULL` ordered by `issue_count_cached DESC`. SearchPageClient now routes series cards to `/series/<id>` and hides collection/wishlist actions for them.
-- [x] **Audit user-added `comics` table for garbage** — diagnostic + cleanup script at [scripts/auditUserComics.js](scripts/auditUserComics.js). Flags rows where title is null/blank/"Untitled" AND issue_number is `[nn]`/blank AND no `comic_covers` row exists. Refuses to delete rows referenced by `user_collections` (those need manual review). Run `node scripts/auditUserComics.js` to dry-run, then `--apply` to delete unreferenced garbage.
-- [ ] Test collection add/remove flows end-to-end with real data — manual click-through; needs UI session.
-- [x] **North Star alignment audit** — written as [docs/north-star/PHASE1_AUDIT.md](docs/north-star/PHASE1_AUDIT.md). Page-by-page comparison against Discogs reference with P1/P2/P3 priority tagging. Use as the closing checklist before launch.
+- [x] Align `gcd_issue_id` integer handling across LibraryContext
+- [x] Surface `gcd_series.publisher_gcd_id` as series-level publisher candidate
+- [x] Error boundaries (`app/error.js`, `app/global-error.js`, `app/not-found.js`)
+- [x] Profile page Discogs-style overhaul (`/u/[username]`)
+- [x] `/search` browse curated featured-series tiles (no more "Untitled #[nn]" garbage)
+- [x] `comics` table garbage audit + 1.65M legacy-row dedupe (`scripts/dedupeComicsByContent.js`)
+- [x] US-publisher allowlist applied to browse + typed search
+- [x] Year-aware publisher resolution (pre-2000 trusts GCD indicia, modern trusts cv) replicated into cache refresh
+- [x] Variant-aware issue count dedupe (`baseIssueNumber()` collapses bracketed/slash-year suffixes)
+- [x] `key_date` fallback for year coverage — 79.4% → 85.5%
+- [x] Cache refresh hardened with retry-on-57014 and cursor persistence (`scripts/.refresh-cursor`)
+- [x] North Star alignment audit ([docs/north-star/PHASE1_AUDIT.md](docs/north-star/PHASE1_AUDIT.md))
 
-### Phase 2 — Revenue Engine (target: May 30)
-1. **Grading & Condition UI** — inline editing on library items, grade badges on cards, slabbed vs raw toggle
-2. **Insurance/Appraisal PDF Report** ← PRIMARY revenue feature. Itemized with cover thumbnails, total value, date-stamped. Gated behind Pro. No other comic platform does this well.
-3. **Stripe + Pro Tier Launch** — Collector Pro ($8/mo) and Vault ($18/mo)
+### Phase 2 — Revenue Engine ← CURRENT PHASE (target: July 2026)
 
-### Phase 3 — Daily Engagement (target: June 30)
-- Portfolio value tracking with over-time charts
+Two parallel tracks. Both must land before Stripe.
+
+**Track A — Cover Ingestion (unblocks visual quality)**
+1. **Audit GCD bulk dump for `gcd_cover` table.** Likely 10×+ cover coverage overnight with no API limits. Highest-EV move.
+2. Build slow-daemon ComicVine ingester respecting 150k/mo ceiling. Prioritize US allowlist + `issue_count_cached > 20`.
+3. Plan user-upload UGC flow (Discogs's actual moat — most of their covers are community-sourced).
+
+**Track B — Valuation Pipeline (unblocks PDF credibility)**
+1. eBay developer account + Browse API key.
+2. `scripts/fetchEbayComps.js` — title-matching layer, comp storage in `market_comps`.
+3. `getMarketValue(gcd_issue_id, grade, slab_company)` server function — median + sample size + fallback hierarchy.
+4. `auto_market_value` + `auto_market_value_at` columns on `user_collections`, wired into library UI.
+
+**Track C — Convergence (depends on A and B)**
+1. **Grading & Condition UI** — inline editing on library items, grade badges on cards, slabbed vs raw toggle. Surfaces existing schema columns.
+2. **Insurance/Appraisal PDF Report** ← PRIMARY revenue feature. Itemized with cover thumbnails (Track A), grade, declared and comp-derived values (Track B), total, date-stamped.
+3. **Stripe + Pro Tier Launch** — Collector Pro ($8/mo), Vault ($18/mo). Patreon Founding Collectors grandfathered.
+
+### Phase 3 — Daily Engagement (target: Sept 2026)
+- Portfolio value tracking with over-time charts (Phase 2's `market_comps` snapshots feed this directly)
 - Want list price alerts (email/push when threshold crossed)
 - Collection intelligence ("You own 11 of 15 Uncanny X-Men key issues — here are the 4 you're missing")
 - Run completion percentage / gamification
 - Duplicate detection
+- Proper variant schema (variant_of_gcd_id, variant_name, variant_type) once a paid variant data source is established
 
-### Phase 4 — Marketplace Soft Launch (target: July 31)
+### Phase 4 — Marketplace Soft Launch (target: Nov 2026)
 - Pro users only initially
 - Verified grade badges on listings
 - Seller reputation scores
 - Stripe Connect for payouts
-- In-app buyer/seller messaging
+- In-app buyer/seller messaging (revival of the wallpapered-over inbox feature)
 
-### Phase 5 — Scale (August+)
+### Phase 5 — Scale (2027+)
 - Open marketplace to all verified users
 - CGC census/population data integration
 - React Native mobile app
@@ -262,17 +299,30 @@ Always use these terms correctly in code, comments, and UI copy:
 
 ---
 
+## Strategic Posture
+
+- **The dataset is the moat, not a product.** External API access is not a revenue track. GCD's CC BY-SA license, ComicVine's TOS, and eBay's redistribution prohibition all make a paid-API offering legally untenable. The combined dataset is most valuable as the exclusive foundation under ComixCatalog itself — same posture as Discogs.
+- **Partnerships over API sales.** Trade data access for distribution (LCS POS integrations, grader partnerships, insurance/appraisal channel deals).
+- **Cover coverage compounds via UGC.** Long-term, user uploads will dwarf any API-sourced cover library. Build that flow well in Phase 3.
+
+---
+
 ## Engineering Reminders
 
 - **API routes must be API routes.** Don't let Next.js page/component patterns bleed into `/api/` handlers — this has burned us before.
-- **Never fetch more records than needed.** The 500-record-to-find-one bug is fixed — don't reintroduce patterns like it.
-- **`gcd_series` is underutilized.** When building series-level features, check if this table should be joined in.
+- **Never fetch more records than needed.** The 500-record-to-find-one bug is fixed — don't reintroduce patterns like it. Be aware of Supabase's PostgREST 1000-row default cap when paginating (`PAGE_SIZE = 1000`, not higher).
+- **Year handling:** use `bestYearFor(row)` (publication_date → key_date fallback), never raw `parseYear(publication_date)`.
+- **Publisher resolution:** prefer `series.resolved_publisher_cached` (year-aware, audited) over re-running `resolvePublisher()` on request. Re-resolving introduces the "1984 TMNT shows IDW" regression. Only re-resolve as a fallback when the cached value is null.
+- **Issue dedupe:** use `baseIssueNumber()` to collapse variant suffixes when counting issues. Don't double-count `1`, `1 [Newsstand]`, `1 [Variant Cover]`.
 - **`gcd_issue_id` is an integer.** Treat it consistently everywhere — no implicit string coercion.
-- **Cover image priority:** ComicVine URL → `public/fallback-cover.png`. The `public/covers/` local stubs are legacy and should be removed — do not add to them or build logic that depends on them.
-- **User avatars:** The `public/avatars/` hero image set is legacy. The target is user-uploaded profile photos (via Supabase Storage or similar). Do not build new features that depend on the static avatar set.
+- **Cover image priority:** `canonical_covers.storage_path` → `public/fallback-cover.png`. The `public/covers/` local stubs are legacy and should be removed — do not add to them.
+- **User avatars:** The `public/avatars/` hero image set is legacy. The target is user-uploaded profile photos. Do not build new features that depend on the static avatar set.
+- **`gcd_scraper_to_supabase.py` does NOT ingest GCD metadata.** It's a covers scraper hitting comics.org HTML. If you need to rebuild `gcd_issues` from source, that pipeline is not in the repo and must be rebuilt from a fresh GCD Postgres dump.
+- **GoCollect is dead.** Do not write new code against any GoCollect endpoint. Valuation goes through eBay Browse API.
+- **No external API as a product.** Internal use only. Don't build endpoint surfaces designed for third-party developer consumption.
 - **Tailwind only** for styling. Config is in `tailwind.config.cjs`. No inline styles for layout.
-- **`.env.local`** holds all secrets (Supabase, ComicVine, Stripe, GOCollect). Never commit it.
-- **Python scripts in root** are data pipeline tools (ingestion, seeding, diagnostics) — not part of the Next.js app runtime.
+- **`.env.local`** holds all secrets (Supabase, ComicVine, Stripe, eBay). Never commit it.
+- **Python scripts in root** are data pipeline tools (ingestion, seeding, diagnostics) — not part of the Next.js app runtime. New scripts go in `scripts/` (Node).
 - **`codebase.txt`** is a snapshot that may be stale — don't treat it as ground truth.
 
 ---
@@ -282,7 +332,7 @@ Always use these terms correctly in code, comments, and UI copy:
 A user can:
 1. Search for any comic series or issue
 2. Add it to their collection with grade, condition, variant type, and notes
-3. See their total collection's estimated value
+3. See their total collection's estimated value, automatically derived from recent sold comps
 4. Generate a PDF report suitable for insurance or estate planning
 5. List books for sale and complete transactions with other collectors
 6. Get alerted when a want-list issue drops to their target price

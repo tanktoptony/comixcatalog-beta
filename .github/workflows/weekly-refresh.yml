@@ -1,0 +1,65 @@
+name: Weekly cache refresh
+
+# Every Monday at 09:00 UTC. Picks Monday so the carousel rotation (which
+# also flips Monday via week-index math in /api/comics) and the cache
+# refresh land together — a Monday visitor sees both a new mix AND any
+# new covers that landed during the prior week.
+#
+# Workflow-dispatch lets you trigger manually from the Actions tab too —
+# useful when you've just run a ComicVine ingest and want to surface the
+# new covers immediately rather than waiting for Monday.
+on:
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch: {}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60  # cache refresh on 217k series is well under this
+
+    env:
+      # Configure these as repo secrets:
+      #   Settings → Secrets and variables → Actions → New repository secret
+      # Required: NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      # Cache refresh writes only to series.*_cached columns. Safe to re-run.
+      # The --force flag rebuilds even rows that have search_refreshed_at set
+      # — needed because incremental refresh would skip rows that haven't
+      # changed in gcd_issues but DO have new canonical_covers.
+      - name: Refresh series search cache
+        run: node scripts/refreshSeriesSearchCache.js --force
+
+      # Regenerate the featured-gaps list. Not used by the workflow itself
+      # but committed for visibility — you can grep through commits or run
+      # the targeted ingest later.
+      - name: Regenerate featured gap targets
+        run: node scripts/generateFeaturedGapTargets.js
+
+      # Diff-only commit. If nothing changed (no new covers, no new gaps),
+      # this no-ops. If something did change, the gap-featured.json gets
+      # committed so the file in main reflects current state.
+      - name: Commit gap targets if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain gap-featured.json)" ]]; then
+            git add gap-featured.json
+            git commit -m "chore: weekly featured-gap targets refresh"
+            git push
+          else
+            echo "No featured-gap changes this week."
+          fi

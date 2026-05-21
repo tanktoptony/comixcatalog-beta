@@ -39,7 +39,8 @@ The app is **stable and content-rich** (217k series, 2.5M issues, year-aware pub
 | Payments | Stripe + Stripe Connect (marketplace seller payouts) — **not yet wired** |
 | Comic metadata | Grand Comics Database (GCD) |
 | Cover images | ComicVine API (free tier only — no paid tier appears available; supplemented by GCD covers and future user uploads) |
-| Valuation data | **eBay Browse API (sold-comps)** — replacing stalled GoCollect integration. CGC pop reports and Heritage Auctions are future supplemental sources. |
+| Valuation data | **eBay Marketplace Insights API** (sold-comps) — replacing stalled GoCollect integration. Awaiting account approval as of May 21, 2026. CGC pop reports and Heritage Auctions are future supplemental sources. |
+| Automation | **GitHub Actions weekly cron** for cache refresh + featured-gap regeneration. Monday 09:00 UTC. Requires `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` as repo secrets. |
 | Styling | Tailwind CSS |
 | Config | `next.config.mjs`, `tailwind.config.cjs`, `postcss.config.cjs` |
 
@@ -89,7 +90,7 @@ Note: `target_volumes_seed.py` was referenced in older briefings but has been re
 - **Primary source of truth** for all comic metadata: series, issues, story arcs, variants, publishers
 - Tables prefixed `gcd_*` (`gcd_series`, `gcd_issues`, `gcd_publishers`)
 - **Important:** `gcd_scraper_to_supabase.py` does NOT populate these tables. It's a *covers* scraper that hits comics.org HTML for issues in user collections. The metadata tables were populated by an earlier ingest (likely from GCD's public Postgres dump) that's no longer in the repo. If you need to refresh `gcd_issues` from source, you'll need to either rebuild that pipeline or download a fresh GCD dump.
-- **Unexplored opportunity:** GCD's bulk dump includes a `gcd_cover` table with `image_path` references to `files1.comics.org/img/gcd/covers_by_id/...`. We do not currently ingest it. Auditing this is the highest-EV cover-coverage move — potentially 10×+ overnight without API rate limits.
+- **GCD bulk-dump audit (May 19, 2026):** investigated whether the dump's `gcd_cover` table could 10x our coverage. **DEAD END.** Two reasons: (a) the user's local dump is metadata-only — no cover tables at all; (b) even if we had cover IDs, `files1.comics.org` is fully Cloudflare-walled — every request returns `Cf-Mitigated: challenge` regardless of User-Agent or Referer. This also explains why `gcd_scraper_to_supabase.py` never wrote a row: same Cloudflare wall. Treat that script as dead code pending removal.
 
 ### ComicVine
 - Used **only for cover images** — not a metadata source
@@ -99,10 +100,16 @@ Note: `target_volumes_seed.py` was referenced in older briefings but has been re
 
 ### Valuation (eBay sold-comps) — replaces GoCollect
 - **GoCollect integration is dead** — they did not respond to outreach. Mentions of GoCollect in older code/comments are aspirational, not active.
-- **New path: eBay Browse API** for last-90-days sold listings. Free tier, ~5,000 req/day, works today.
-- Build plan: `market_comps` table keyed on `(gcd_issue_id, grade_bucket, slab_company)`, refreshed weekly per issue or on-demand. Server function `getMarketValue()` returns median + sample size.
-- Phase 2 needs this wired before the Insurance PDF has credible numbers.
+- **eBay Browse API was the original plan and DOES NOT WORK** — Browse returns only *active* listings, not sold ones. The right endpoint is **eBay Marketplace Insights API**, which exposes `lastSoldPrice` + sale records but requires application + approval (NOT auto-granted by signup). User is awaiting Insights approval as of May 21, 2026; see [[project-ebay-blocked]] memory file.
+- **Pipeline foundation already shipped** (May 20, 2026):
+  - `market_comps` table — `scripts/migrations/0006_market_comps.sql` (applied)
+  - `src/lib/valuation.js` — `gradeBucket()`, `snapToCgcGrade()`, `bucketFallbacks()`, `median()`
+  - `src/lib/marketValue.js` — `getMarketValue()` + `getMarketValuesBulk()` with fallback chain
+  - `src/lib/ebayTitleParser.js` — parses listing titles into structured grade/issue/bucket
+  - `scripts/fetchEbayComps.js` — full pipeline scaffold; `fetchSoldListings()` is the only stub, ready to receive the real Insights endpoint when approval lands. Test via `--dry-run`.
+  - `/api/library-hydrate` + library UI already wired to display `auto_market_value` when comps exist. Renders nothing while table is empty.
 - Future supplemental sources: CGC pop reports (slab values), Heritage Auctions API (auction comps for keys), MyComicShop buy-list (floor price).
+- **Facebook Marketplace was considered and ruled out** — no API since deprecation, scraping is hostile + TOS-violating, and FB doesn't expose sold prices (only asking prices). Bad signal-to-noise even if scrapable.
 
 ---
 
@@ -131,11 +138,12 @@ Columns: `username`, `is_public`, `created_at`, `avatar_key`, `avatar_url`, `is_
 
 #### `user_collections`
 PK `id` (uuid). FKs: `user_id` → `auth.users`, `comic_id` → `comics.id`, plus a non-FK `gcd_issue_id` (int4) link.
-Columns: `status`, `condition`, `grade_numeric` (numeric), `slab_company`, `slab_cert_number`, `notes`, `purchase_price` (numeric), `market_value` (numeric), `publisher`, `created_at`, `created_by`.
+Columns: `status`, `condition`, `grade_numeric` (numeric), `slab_company`, `slab_cert_number`, `notes`, `purchase_price` (numeric), `market_value` (numeric), `publisher`, `created_at`, `created_by`, `user_cover_url`, `auto_market_value` (numeric), `auto_market_value_at` (timestamptz), `auto_market_value_n` (int4).
 - A row is either-or: `comic_id` set (local comic) OR `gcd_issue_id` set (GCD issue). Never both.
 - `status` values seen: `owned`, `wishlist`, `for_sale`.
-- **No `user_cover_url` column yet** — needs migration before per-book user-uploaded photos work end-to-end.
-- **Planned (Phase 2):** `auto_market_value` (numeric) + `auto_market_value_at` (timestamp) columns sourced from eBay comps, with the existing `market_value` becoming a user override.
+- `user_cover_url` — user-uploaded photo of their specific copy. Set via GradeEditor. Stored at `library/<collection_id>.<ext>` in `comic-covers` bucket.
+- `auto_market_value` — median sold price from `market_comps` for this issue's grade bucket. Phase 2 wired via migration 0006. User-entered `market_value` overrides this in the UI.
+- `auto_market_value_n` — sample size that fed the median. Surfaced in the library row tooltip ("auto, 5 sales") so users can judge confidence.
 
 #### `comics` (user/local-contributed comics)
 PK `id` (uuid). FKs: `series_id` → `series.id`, `created_by` → `auth.users.id`.
@@ -149,9 +157,10 @@ Columns: `image_path` (path inside `comic-covers` storage bucket), `is_official`
 #### `series` (canonical, app-facing)
 PK `id` (uuid). FK `publisher_id` → `publishers.id`. Bridge to GCD via `gcd_id` (int4).
 Columns: `title`, `created_at`, `cv_publisher`, `issue_count_cached`, `year_start_cached`, `year_end_cached`, `resolved_publisher_cached`, `featured_cover_path_cached`, `search_refreshed_at`, `title_normalized`.
-- The `*_cached` columns are refreshed by `scripts/refreshSeriesSearchCache.js`. **Last full pass (May 18, 2026): 217,663 series; 85.5% have `year_start_cached`, 2.2% have `featured_cover_path_cached`.**
+- The `*_cached` columns are refreshed by `scripts/refreshSeriesSearchCache.js`. **Last full pass (May 21, 2026): 217,663 series; 85.5% have `year_start_cached`, 2.6% have `featured_cover_path_cached`.**
 - Year coverage jumped from 79.4% → 85.5% by falling back to `gcd_issues.key_date` when `publication_date` is null. Remaining 14.5% are genuinely undated in GCD.
-- Cover-coverage ceiling is the source data, not the join logic. `canonical_covers` has ~599 distinct `series_title` values. Raising coverage requires more cover ingest — see "Unexplored opportunity" under GCD above.
+- Cover-coverage ceiling is the source data. `canonical_covers` is up to ~63k rows (post-May-2026 ingest) but covers concentrate on a small set of distinct titles. Raising coverage means more ComicVine ingest under the 200/hour budget, NOT script changes.
+- **Pagination bug fix (May 19, 2026):** the `canonical_covers` fetch inside `processBatch()` was missing `.range()` pagination. PostgREST silently capped responses at 1000 rows per batch, so cover-heavy titles ("The Amazing Spider-Man" alone has 917 rows) got truncated and the matcher saw a partial pool. Bug + fix in [scripts/refreshSeriesSearchCache.js:261-291](scripts/refreshSeriesSearchCache.js#L261-L291). After fix: 2.4% → 2.6%, modest because the truncation wasn't as systematic as feared.
 - **Variant dedupe (Phase 1):** `issue_count_cached` collapses `1`, `1 [Newsstand]`, `1 [Variant Cover]` to a single base issue via `baseIssueNumber()`. Proper variant *schema* (variant_of_gcd_id, variant_name, variant_type) deferred until variant ingestion sources are settled.
 
 #### `gcd_series` (raw GCD mirror)
@@ -177,8 +186,12 @@ PK `id` (uuid). Columns: `source`, `source_issue_url`, `external_issue_id`, `ser
 PK `id` (uuid). FKs `user_id` → `auth.users.id`, `post_id` → blog posts table.
 Columns: `content`, `created_at`.
 
-#### `market_comps` (planned, Phase 2)
-Not yet built. Will hold eBay sold-listing snapshots keyed on `(gcd_issue_id, grade_bucket, slab_company)` with `sold_price`, `sold_date`, `listing_url`, `fetched_at`. Refresh weekly per issue or on-demand.
+#### `market_comps` (shipped May 20, 2026 — migration 0006)
+PK `id` (uuid). FK: loose `gcd_issue_id` (nullable — eBay titles don't always match a known issue, we still capture the row for review).
+Columns: `grade_bucket` (text, NOT NULL — output of `gradeBucket()`), `slab_company`, `grade_numeric` (numeric 3,1), `condition_label`, `sold_price` (numeric 10,2 NOT NULL), `sold_currency` (default 'USD'), `sold_date` (date NOT NULL), `source` (text NOT NULL — 'ebay' / 'heritage' / future), `external_listing_id` (text NOT NULL — dedup key), `listing_url`, `listing_title`, `fetched_at`, `created_at`.
+- Unique index on `(source, external_listing_id)` — refetching same eBay listing UPSERTs.
+- Hot-path index on `(gcd_issue_id, grade_bucket, sold_date DESC)` for median lookups over last 90 days.
+- **Currently empty** — populated by `scripts/fetchEbayComps.js` once eBay Insights API access is approved.
 
 ### Storage buckets
 - `comic-covers` — user-submitted covers via `comic_covers.image_path`. Also where per-library-item user photos will live (under `library/<collection_id>.<ext>` once the migration lands).
@@ -258,23 +271,44 @@ Patreon Founding Collectors get grandfathered Pro status in-app via `is_founding
 
 ### Phase 2 — Revenue Engine ← CURRENT PHASE (target: July 2026)
 
-Two parallel tracks. Both must land before Stripe.
+Three parallel tracks. Track C is what unblocks Stripe.
 
 **Track A — Cover Ingestion (unblocks visual quality)**
-1. **Audit GCD bulk dump for `gcd_cover` table.** Likely 10×+ cover coverage overnight with no API limits. Highest-EV move.
-2. Build slow-daemon ComicVine ingester respecting 150k/mo ceiling. Prioritize US allowlist + `issue_count_cached > 20`.
-3. Plan user-upload UGC flow (Discogs's actual moat — most of their covers are community-sourced).
+- [x] GCD bulk dump audit — *dead path, Cloudflare blocks `files1.comics.org`*
+- [x] Targeted ComicVine ingest via `gap-targets.json` / `gap-featured.json` — 21k+ covers added May 18-19
+- [x] Cache truncation bug fix — coverage measurement is now accurate
+- [x] Dual-mode gap generator (`scripts/generateCoverGapTargets.js --mode=depth|width|both`)
+- [x] Rate-limit guard on ComicVine ingester (`--max-search-calls`, `--vol-sleep`, `RateLimited` exception)
+- [x] Weekly GitHub Actions cache refresh + featured-gap regeneration
+- [ ] User-upload UGC flow (Discogs's moat — Phase 3 priority)
 
 **Track B — Valuation Pipeline (unblocks PDF credibility)**
-1. eBay developer account + Browse API key.
-2. `scripts/fetchEbayComps.js` — title-matching layer, comp storage in `market_comps`.
-3. `getMarketValue(gcd_issue_id, grade, slab_company)` server function — median + sample size + fallback hierarchy.
-4. `auto_market_value` + `auto_market_value_at` columns on `user_collections`, wired into library UI.
+- [x] `market_comps` table + `auto_market_value` columns on `user_collections` (migration 0006)
+- [x] `gradeBucket()` + bucketing helpers
+- [x] `getMarketValue()` + bulk variant with fallback chain
+- [x] eBay listing-title parser (`src/lib/ebayTitleParser.js`)
+- [x] `scripts/fetchEbayComps.js` scaffold with `--dry-run` verified end-to-end
+- [x] `/api/library-hydrate` + library UI render `auto_market_value` when present
+- [ ] Wire real eBay Marketplace Insights API call (blocked on user's account approval)
+- [ ] First real backfill run + median calibration
 
 **Track C — Convergence (depends on A and B)**
-1. **Grading & Condition UI** — inline editing on library items, grade badges on cards, slabbed vs raw toggle. Surfaces existing schema columns.
-2. **Insurance/Appraisal PDF Report** ← PRIMARY revenue feature. Itemized with cover thumbnails (Track A), grade, declared and comp-derived values (Track B), total, date-stamped.
-3. **Stripe + Pro Tier Launch** — Collector Pro ($8/mo), Vault ($18/mo). Patreon Founding Collectors grandfathered.
+1. **Grading & Condition UI** — *largely shipped* via `GradeEditor` component. Inline editing on library items, grade badges, slabbed vs raw toggle, user cover photo upload. See [src/components/GradeEditor.js](src/components/GradeEditor.js).
+2. **Insurance/Appraisal PDF Report** ← PRIMARY revenue feature. `/api/export/pdf` endpoint exists and is gated behind `isPro`. Layout quality TBD — needs design pass.
+3. **Stripe + Pro Tier Launch** — Wired (`isPro` flag, `?upgrade=success/cancelled` banners, `/upgrade` page). Awaiting final polish + launch readiness.
+
+### Homepage Featured Carousel (shipped May 21, 2026)
+
+Curated [src/lib/featuredSeries.js](src/lib/featuredSeries.js) — ~79 entries across four tiers (current heat → recent classics → perennial icons → indie staples). Each entry resolves to an actual `series` row via `(title, publisher, prefer_year)`. `/api/comics` rotates the list weekly with a Mulberry32 PRNG seeded by ISO-week index — same view all week, fresh order every Monday. Tier 1 (current heat: Absolute Batman, Ultimate Spider-Man, etc.) always leads.
+
+To regenerate against current taste: edit `featuredSeries.js` directly. Then run `npm run covers:gap-featured` to find which curated entries lack covers, then a targeted ComicVine ingest fills them in.
+
+### Auth UX (refactored May 21, 2026)
+
+Three bugs fixed:
+1. **Initial-session race in AuthContext** — `useEffect` now explicitly calls `supabase.auth.getSession()` on mount and feeds the result through the same `applySession()` handler the listener uses. Previously relied solely on `onAuthStateChange` firing INITIAL_SESSION, which dropped silently in certain timing scenarios.
+2. **Dropdown identity always visible** — UserMenu now falls through to `user.email` if no profile.username exists. The bare "Account" fallback string is unreachable.
+3. **Switch Account affordance** — new button between "Manage Pro" and "Sign out" that signs out and lands directly on `/login` via `window.location.href` (avoiding the `router.replace("/")` race that would otherwise send users to homepage).
 
 ### Phase 3 — Daily Engagement (target: Sept 2026)
 - Portfolio value tracking with over-time charts (Phase 2's `market_comps` snapshots feed this directly)
@@ -310,7 +344,9 @@ Two parallel tracks. Both must land before Stripe.
 ## Engineering Reminders
 
 - **API routes must be API routes.** Don't let Next.js page/component patterns bleed into `/api/` handlers — this has burned us before.
-- **Never fetch more records than needed.** The 500-record-to-find-one bug is fixed — don't reintroduce patterns like it. Be aware of Supabase's PostgREST 1000-row default cap when paginating (`PAGE_SIZE = 1000`, not higher).
+- **Never fetch more records than needed.** The 500-record-to-find-one bug is fixed — don't reintroduce patterns like it.
+- **PostgREST 1000-row cap is silent.** Any `.in()` or `.select()` without `.range()` will silently cap at 1000 rows. This bit us twice (`diagnoseIssuesData.js` and the cache-refresh canonical_covers fetch). Always paginate with `.range(from, from + PAGE - 1)` in a loop when you might exceed 1000 rows.
+- **`runWithRetry()` returns `data` directly, NOT `{data, error}`.** Destructuring it as `{data, error} = await runWithRetry(...)` silently produces undefined and breaks downstream — that's how the pagination fix was botched the first time. See [scripts/refreshSeriesSearchCache.js:40-68](scripts/refreshSeriesSearchCache.js#L40-L68).
 - **Year handling:** use `bestYearFor(row)` (publication_date → key_date fallback), never raw `parseYear(publication_date)`.
 - **Publisher resolution:** prefer `series.resolved_publisher_cached` (year-aware, audited) over re-running `resolvePublisher()` on request. Re-resolving introduces the "1984 TMNT shows IDW" regression. Only re-resolve as a fallback when the cached value is null.
 - **Issue dedupe:** use `baseIssueNumber()` to collapse variant suffixes when counting issues. Don't double-count `1`, `1 [Newsstand]`, `1 [Variant Cover]`.
@@ -322,8 +358,11 @@ Two parallel tracks. Both must land before Stripe.
 - **No external API as a product.** Internal use only. Don't build endpoint surfaces designed for third-party developer consumption.
 - **Tailwind only** for styling. Config is in `tailwind.config.cjs`. No inline styles for layout.
 - **`.env.local`** holds all secrets (Supabase, ComicVine, Stripe, eBay). Never commit it.
+- **GitHub Actions secrets** mirror `.env.local` for the weekly cron — `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` only. Workflow file: [.github/workflows/weekly-refresh.yml](.github/workflows/weekly-refresh.yml).
 - **Python scripts in root** are data pipeline tools (ingestion, seeding, diagnostics) — not part of the Next.js app runtime. New scripts go in `scripts/` (Node).
 - **`codebase.txt`** is a snapshot that may be stale — don't treat it as ground truth.
+- **npm scripts for cover ops:** `covers:gap-featured` (curated gap list), `covers:gap-both` (depth + width modes), `covers:refresh-cache` (full --force refresh), `covers:refresh-cache-test` (single-batch smoke test), `covers:weekly` (refresh + gap regen). Python ingest stays manual (rate-limit risk).
+- **eBay parser uses relative imports**, not `@/` aliases — `src/lib/ebayTitleParser.js` imports from `./valuation.js` so it works from raw Node scripts like `scripts/fetchEbayComps.js`. Don't switch it to `@/lib/valuation`; that path only resolves under Next.js.
 
 ---
 

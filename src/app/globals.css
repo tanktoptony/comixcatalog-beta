@@ -434,6 +434,219 @@ input[type="file"] {
 }
 
 /* =========================
+   OAUTH PROVIDER BUTTONS
+   Used on /login and /signup above the email form. The button itself is
+   intentionally light/neutral so it reads as a third-party brand affordance
+   rather than a styled CTA — Google's brand guidelines also favor white
+   chrome around their logo.
+========================= */
+.oauth-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.oauth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f1f1f;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+}
+
+.oauth-btn:hover:not(:disabled) {
+  background: #f7f7f7;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.oauth-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.oauth-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.oauth-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.oauth-btn-label {
+  letter-spacing: 0.01em;
+}
+
+/* "or" divider between OAuth and email form. Centered text on a thin rule. */
+.oauth-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0 4px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.oauth-divider::before,
+.oauth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.oauth-divider span {
+  padding: 0 12px;
+}
+
+/* =========================
+   ACCOUNT SETTINGS (/account)
+   Wide layout, not the tight signup-card. Stacked sections divided by hairlines.
+========================= */
+.account-shell {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.account-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px;
+}
+
+.account-kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cc-gold, #f4d03f);
+  opacity: 0.9;
+}
+
+.account-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 6px 0 4px;
+  word-break: break-word;
+}
+
+.account-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.account-link-back {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.account-link-back:hover {
+  color: var(--cc-gold, #f4d03f);
+}
+
+.account-section {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.account-section:last-child {
+  border-bottom: none;
+}
+
+.account-section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.account-section-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+}
+
+.account-section-danger .account-section-title {
+  color: #ff6b6b;
+}
+
+/* Reusable destructive button — used by Delete Account today. Restrained
+   red so it doesn't dominate the page; full red only on hover/active. */
+.danger-btn {
+  background: rgba(244, 67, 54, 0.12);
+  color: #ff8a82;
+  border: 1px solid rgba(244, 67, 54, 0.4);
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.danger-btn:hover:not(:disabled) {
+  background: rgba(244, 67, 54, 0.85);
+  color: #fff;
+  border-color: rgba(244, 67, 54, 1);
+}
+
+.danger-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Neutral secondary action — Cancel buttons, etc. */
+.secondary-btn {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.secondary-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.secondary-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================
    AVATAR PICKER
 ========================= */
 .avatar-grid {

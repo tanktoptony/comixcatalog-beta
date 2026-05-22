@@ -16,7 +16,11 @@ on:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 60  # cache refresh on 217k series is well under this
+    # Local runs finish 217k series in ~20 min, but GitHub runners are 6-7x
+    # slower (network latency to Supabase). Empirically first run only got to
+    # 80k in 60 min before timing out, so we need real headroom. 4 hours is
+    # safe and the cron only fires weekly anyway.
+    timeout-minutes: 240
 
     env:
       # Configure these as repo secrets:

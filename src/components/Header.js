@@ -691,6 +691,19 @@ const UserMenu = forwardRef(function UserMenu(
 
           <div className="user-menu-divider" />
 
+          {/* Account settings — change password, email, privacy, delete account.
+              Distinct from "My Profile" (public-facing /u/<username>). */}
+          <Link
+            href="/account"
+            className="user-menu-item"
+            role="menuitem"
+            onClick={handleItem()}
+          >
+            Account settings
+          </Link>
+
+          <div className="user-menu-divider" />
+
           <Link
             href="/upgrade"
             className={`user-menu-item ${isPro ? "" : "user-menu-item-cta"}`}

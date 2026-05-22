@@ -571,10 +571,38 @@ async function processBatch(seriesBatch) {
       // recognize the title from the cover, click through, and find the
       // right run on the series page (which uses its own per-issue match).
       if (!bestCover) {
+        // Tier-3 fallback now ALSO enforces a year-distance ceiling. Without
+        // it, the 2022 Spider-Man series gets stuck with a 1990 McFarlane
+        // Spider-Man cover assigned to it (real bug, observed) — because that's
+        // the only "Spider-Man" cover in canonical_covers and the strict
+        // matcher correctly rejected it for year mismatch. The fallback then
+        // accepted it anyway. Result: search tile shows a misleading 30-year-
+        // wrong cover, user clicks in, per-issue page shows zero covers
+        // (because /api/series/[id] does NOT have this fallback), and the
+        // discontinuity makes the whole page look broken.
+        //
+        // Rule: when both the series and the candidate cover have a year, the
+        // cover must be within FALLBACK_YEAR_TOLERANCE of yearStart. If either
+        // side is missing year data, fall through to the old behavior since
+        // we can't make a year judgment.
+        const FALLBACK_YEAR_TOLERANCE = 10;
         let softBest = null;
         let softScore = -Infinity;
         for (const row of effectivePool) {
           if (!row.storage_path) continue;
+
+          if (yearStart != null) {
+            const coverYear =
+              parseYear(row.cover_date) ??
+              (row.series_year != null ? Number(row.series_year) : null);
+            if (
+              coverYear != null &&
+              Math.abs(coverYear - yearStart) > FALLBACK_YEAR_TOLERANCE
+            ) {
+              continue; // wrong era — skip even at the loose fallback tier
+            }
+          }
+
           let s = 0;
           if (normPub && row.publisher && normalizePublisherForMatch(row.publisher) === normPub) {
             s += 60;

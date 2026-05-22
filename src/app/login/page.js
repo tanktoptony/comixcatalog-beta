@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import OAuthButtons from "@/components/OAuthButtons";
 
 function withTimeout(promise, ms, label = "Request") {
   return Promise.race([
@@ -28,6 +29,37 @@ export default function LoginPage() {
   const [showResend, setShowResend] = useState(false);
   const [resendMsg, setResendMsg] = useState(null);
   const [resending, setResending] = useState(false);
+
+  // Read one-shot query-string flags on mount. Avoids pulling in
+  // useSearchParams (which would force a Suspense boundary refactor) and
+  // gives us banner state for: ?reset=success (just changed password),
+  // ?error=confirmation_failed (auth callback hit a snag), etc.
+  const [flashBanner, setFlashBanner] = useState(null);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("reset") === "success") {
+      setFlashBanner({
+        kind: "success",
+        text: "Password updated. Log in with your new password.",
+      });
+    } else if (params.get("error") === "confirmation_failed") {
+      setFlashBanner({
+        kind: "error",
+        text: "Confirmation link was invalid or expired. Sign in and we can resend.",
+      });
+    } else if (params.get("error") === "session_failed") {
+      setFlashBanner({
+        kind: "error",
+        text: "Couldn't establish a session. Please try logging in again.",
+      });
+    }
+    // Strip the query so a refresh doesn't keep re-showing the banner.
+    if (params.has("reset") || params.has("error")) {
+      const cleaned = window.location.pathname;
+      window.history.replaceState({}, "", cleaned);
+    }
+  }, []);
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -220,6 +252,23 @@ export default function LoginPage() {
       <h1 className="auth-title">Welcome</h1>
       <p className="auth-subtitle">Log in to ComixCatalog to continue</p>
 
+      {flashBanner && (
+        <div
+          className={
+            flashBanner.kind === "success" ? "auth-success" : "auth-error"
+          }
+          role="status"
+          style={{ marginBottom: 12 }}
+        >
+          {flashBanner.text}
+        </div>
+      )}
+
+      {/* OAuth providers — placed above the form so the friction-free path
+          is the first thing scanners see. The component handles its own
+          "or" divider so the email/password block below feels secondary. */}
+      <OAuthButtons />
+
       <form onSubmit={handleLogin} className="auth-form">
         <div className="auth-field">
           <input
@@ -247,6 +296,15 @@ export default function LoginPage() {
             placeholder=" "
           />
           <label htmlFor="auth-password">Password</label>
+        </div>
+
+        {/* Forgot password — primary affordance for the recovery flow.
+            Placed between password field and submit so a user scanning the
+            form before submitting sees the escape hatch immediately. */}
+        <div style={{ textAlign: "right", marginTop: -4, marginBottom: 8 }}>
+          <Link href="/forgot-password" className="auth-link" style={{ fontSize: 13 }}>
+            Forgot password?
+          </Link>
         </div>
 
         <button

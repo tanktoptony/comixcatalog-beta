@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import OAuthButtons from "@/components/OAuthButtons";
 
 const AVATAR_KEYS = [
   "hero_01","hero_02","hero_03","hero_04",
@@ -200,7 +201,13 @@ export default function SignUpPage() {
       </Link>
 
       <h1 className="auth-title">Create your account</h1>
-      <p className="auth-subtitle">Join ComixCatalog — free to start collecting</p>
+      <p className="auth-subtitle">Free to start tracking your collection &mdash; values, grades, runs.</p>
+
+      {/* OAuth above the email form — friction-free path is the lead.
+          /auth/callback already handles the post-OAuth profile creation,
+          including the redirect to /complete-profile when Google didn't
+          supply a username (which it never does). */}
+      <OAuthButtons />
 
       <form onSubmit={handleSignup} className="auth-form">
         <div className="auth-field">

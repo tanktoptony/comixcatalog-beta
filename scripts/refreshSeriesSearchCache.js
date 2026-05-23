@@ -33,6 +33,18 @@ const MAX_BATCHES = MAX_BATCHES_ARG
   ? Number(MAX_BATCHES_ARG.split("=")[1])
   : Infinity;
 
+// --dry-run computes everything but skips the DB write, logging the featured
+// cover pick per series instead. Use it to verify a matcher change before
+// committing it to the live cache.
+const DRY_RUN = process.argv.includes("--dry-run");
+
+// --only-ids=<uuid,uuid,...> processes exactly those series rows in a single
+// batch and stops. Targeted re-refresh after a matcher fix, no full pass.
+const ONLY_IDS_ARG = process.argv.find((a) => a.startsWith("--only-ids="));
+const ONLY_IDS = ONLY_IDS_ARG
+  ? ONLY_IDS_ARG.split("=")[1].split(",").map((s) => s.trim()).filter(Boolean)
+  : null;
+
 // Wraps a Supabase query builder in a retry loop. Supabase's PostgREST
 // occasionally surfaces transient errors that are safe to retry: 57014
 // (statement_timeout), 53300 (too_many_connections), and plain network
@@ -173,6 +185,14 @@ async function fetchSeriesBatch() {
       )
     `)
     .not("gcd_id", "is", null);
+
+  if (ONLY_IDS) {
+    query = query.in("id", ONLY_IDS);
+    const data = await runWithRetry("series batch fetch (only-ids)", () =>
+      query.limit(BATCH_SIZE)
+    );
+    return data ?? [];
+  }
 
   if (FORCE) {
     if (forceCursorId != null) {
@@ -416,11 +436,20 @@ async function processBatch(seriesBatch) {
       }
     }
 
-    // Fall back to title-only matches if per-issue lookup found nothing —
-    // preserves the previous (weaker) behavior rather than regressing.
-    const fallbackPool = coverCandidates.length === 0
-      ? (coversByTitleKey.get(titleKey) ?? [])
-      : [];
+    // The FULL set of covers that share this title, across every volume.
+    // This is the pool the featured-cover scorer actually uses (see Phase 2).
+    //
+    // BUG FIX 2026-05-23: this used to be populated ONLY when per-issue
+    // matching found nothing. But GCD and ComicVine number the same logical
+    // series differently — GCD numbers each relaunch volume 1..N, while
+    // ComicVine (canonical_covers) keeps legacy whole-series numbering
+    // (Action Comics 2017 = #957+, Daredevil 2020 = #611+). So per-issue
+    // string matching on "1".."22" matched the 1938 and 2011 #1 covers and
+    // EXCLUDED the correct 2017-era covers (numbered 957+) from the candidate
+    // pool. Phase 2 then never fell back to this full pool, and the year
+    // scorer picked the least-wrong old cover. Always populate the full pool
+    // and let Phase 2 score year-fit across all of it.
+    const fallbackPool = coversByTitleKey.get(titleKey) ?? [];
 
     const canonicalPublisher =
       coverCandidates.find((r) => r.publisher)?.publisher
@@ -498,9 +527,13 @@ async function processBatch(seriesBatch) {
     for (const entry of chronological) {
       const { yearStart, yearEnd, resolvedPublisher, coverCandidates, fallbackPool } = entry;
       const normPub = normalizePublisherForMatch(resolvedPublisher);
-      // Prefer per-issue matched candidates; only fall back to title-only pool
-      // if there are no per-issue matches at all.
-      const effectivePool = coverCandidates.length > 0 ? coverCandidates : fallbackPool;
+      // Score year-fit across the FULL title pool, not the per-issue matches.
+      // Per-issue matching is unreliable for the featured cover because GCD and
+      // ComicVine number relaunch volumes differently (see Phase 1 comment), so
+      // it both excludes correct covers and admits wrong-era ones. The full
+      // pool + year scoring + the `claimed` no-reuse mechanism below correctly
+      // separates a 1938 / 2011 / 2017 same-title set into their own volumes.
+      const effectivePool = fallbackPool;
 
       const scoreCover = (row, { allowClaimed }) => {
         if (!row.storage_path) return -Infinity;
@@ -636,6 +669,15 @@ async function processBatch(seriesBatch) {
     const { series, issueCount, yearStart, yearEnd, resolvedPublisher } = entry;
     const featuredCoverPath = coverPathByEntry.get(series.id) ?? null;
 
+    if (DRY_RUN) {
+      console.log(
+        `[dry-run] ${series.title} (${yearStart}-${yearEnd}) → ` +
+          `featured=${featuredCoverPath ?? "NULL"} | pub=${resolvedPublisher} | issues=${issueCount}`
+      );
+      updated += 1;
+      continue;
+    }
+
     const { error: updErr } = await supabase
       .from("series")
       .update({
@@ -743,6 +785,10 @@ async function run() {
       console.error("Batch returned 0 updates — stopping to avoid infinite loop.");
       break;
     }
+
+    // --only-ids is a one-shot targeted refresh: process the named rows once
+    // and stop (re-fetching would just return the same rows and loop forever).
+    if (ONLY_IDS) break;
   }
 
   console.log("DONE. Total updated:", total);

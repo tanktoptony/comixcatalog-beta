@@ -40,6 +40,20 @@ jobs:
       - name: Install deps
         run: npm ci
 
+      # Persist the --force resume cursor across runs. Each GitHub runner is
+      # ephemeral, so scripts/.refresh-cursor (written per-batch by the script)
+      # would otherwise vanish when a run ends — meaning a cancelled/evicted run
+      # restarts from id 0 next week. The unique run_id key forces a fresh save
+      # each run; restore-keys pulls the most recent prior cursor. On a clean
+      # completion the script unlinks the cursor, so the next run starts fresh.
+      - name: Restore refresh cursor
+        uses: actions/cache@v4
+        with:
+          path: scripts/.refresh-cursor
+          key: refresh-cursor-${{ github.run_id }}
+          restore-keys: |
+            refresh-cursor-
+
       # Cache refresh writes only to series.*_cached columns. Safe to re-run.
       # The --force flag rebuilds even rows that have search_refreshed_at set
       # — needed because incremental refresh would skip rows that haven't

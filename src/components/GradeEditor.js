@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { estimateCoverPrice } from "@/lib/coverPrice";
 
@@ -84,7 +85,13 @@ function GradeBadge({ grade, company, condition }) {
 
 export { GradeBadge };
 
-export default function GradeEditor({ collectionId, initialData = {}, canonicalCover = null, releaseYear = null, onSave }) {
+export default function GradeEditor({ collectionId, initialData = {}, canonicalCover = null, releaseYear = null, isPro = false, onSave }) {
+  // Pro gate: professional grading (slab company, numeric grade, cert number)
+  // and per-book photo upload are Collector Pro features. Free collectors still
+  // track raw condition, what they paid, market value, and notes — enough to
+  // manage a collection, which is the free hook. Client-side gate for now;
+  // server-side enforcement (RLS / Pro-checked write path) is a follow-up.
+  const canGrade = isPro;
   const [open, setOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
@@ -259,9 +266,8 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
       {open && (
         <div className="grade-editor-panel">
 
-          {/* Your photo of the book — disabled until the
-              user_collections.user_cover_url migration runs. */}
-          {USER_COVER_UPLOAD_ENABLED && (
+          {/* Your photo of the book — Pro feature. */}
+          {USER_COVER_UPLOAD_ENABLED && canGrade && (
             <div className="grade-field grade-cover-field">
               <label className="grade-label">Your photo of this book</label>
               <div className="grade-cover-row">
@@ -316,75 +322,122 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
             </div>
           )}
 
-          {/* Slab company */}
-          <div className="grade-field">
-            <label className="grade-label">Grading Company</label>
-            <select
-              className="grade-select"
-              value={slabCompany}
-              onChange={(e) => {
-                setSlabCompany(e.target.value);
-                if (!e.target.value) {
-                  setGradeNumeric("");
-                  setCertNumber("");
-                }
-              }}
-            >
-              {SLAB_COMPANIES.map((c) => (
-                <option key={c.value} value={c.value}>{c.label}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Slabbed: numeric grade + cert */}
-          {isSlabbed ? (
+          {canGrade ? (
             <>
+              {/* Slab company */}
               <div className="grade-field">
-                <label className="grade-label">Grade</label>
+                <label className="grade-label">Grading Company</label>
                 <select
                   className="grade-select"
-                  value={gradeNumeric}
-                  onChange={(e) => setGradeNumeric(e.target.value)}
+                  value={slabCompany}
+                  onChange={(e) => {
+                    setSlabCompany(e.target.value);
+                    if (!e.target.value) {
+                      setGradeNumeric("");
+                      setCertNumber("");
+                    }
+                  }}
                 >
-                  <option value="">Select grade</option>
-                  {CGC_GRADES.map((g) => (
-                    <option key={g} value={g}>{g.toFixed(1)}</option>
+                  {SLAB_COMPANIES.map((c) => (
+                    <option key={c.value} value={c.value}>{c.label}</option>
                   ))}
                 </select>
               </div>
 
-              <div className="grade-field">
-                <label className="grade-label">Cert Number</label>
-                <input
-                  className="grade-input"
-                  type="text"
-                  placeholder="e.g. 4389276001"
-                  value={certNumber}
-                  onChange={(e) => setCertNumber(e.target.value)}
-                />
-              </div>
+              {/* Slabbed: numeric grade + cert */}
+              {isSlabbed ? (
+                <>
+                  <div className="grade-field">
+                    <label className="grade-label">Grade</label>
+                    <select
+                      className="grade-select"
+                      value={gradeNumeric}
+                      onChange={(e) => setGradeNumeric(e.target.value)}
+                    >
+                      <option value="">Select grade</option>
+                      {CGC_GRADES.map((g) => (
+                        <option key={g} value={g}>{g.toFixed(1)}</option>
+                      ))}
+                    </select>
+                  </div>
 
-              {/* Grade preview badge */}
-              {gradeNumeric && (
-                <div style={{ marginBottom: 10 }}>
-                  <GradeBadge grade={Number(gradeNumeric)} company={slabCompany} />
+                  <div className="grade-field">
+                    <label className="grade-label">Cert Number</label>
+                    <input
+                      className="grade-input"
+                      type="text"
+                      placeholder="e.g. 4389276001"
+                      value={certNumber}
+                      onChange={(e) => setCertNumber(e.target.value)}
+                    />
+                  </div>
+
+                  {/* Grade preview badge */}
+                  {gradeNumeric && (
+                    <div style={{ marginBottom: 10 }}>
+                      <GradeBadge grade={Number(gradeNumeric)} company={slabCompany} />
+                    </div>
+                  )}
+                </>
+              ) : (
+                /* Raw: condition dropdown */
+                <div className="grade-field">
+                  <label className="grade-label">Condition</label>
+                  <select
+                    className="grade-select"
+                    value={condition}
+                    onChange={(e) => setCondition(e.target.value)}
+                  >
+                    {RAW_CONDITIONS.map((c) => (
+                      <option key={c.value} value={c.value}>{c.label}</option>
+                    ))}
+                  </select>
                 </div>
               )}
             </>
           ) : (
-            /* Raw: condition dropdown */
-            <div className="grade-field">
-              <label className="grade-label">Condition</label>
-              <select
-                className="grade-select"
-                value={condition}
-                onChange={(e) => setCondition(e.target.value)}
+            <>
+              {/* Free tier: raw condition only (slab grading is Pro). */}
+              <div className="grade-field">
+                <label className="grade-label">Condition</label>
+                <select
+                  className="grade-select"
+                  value={condition}
+                  onChange={(e) => setCondition(e.target.value)}
+                >
+                  {RAW_CONDITIONS.map((c) => (
+                    <option key={c.value} value={c.value}>{c.label}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* In-context Pro upsell where the grading controls would be. */}
+              <div
+                className="grade-pro-upsell"
+                style={{
+                  border: "1px solid rgba(255,215,0,0.35)",
+                  background: "rgba(255,215,0,0.06)",
+                  borderRadius: 8,
+                  padding: "10px 12px",
+                  marginBottom: 12,
+                }}
               >
-                {RAW_CONDITIONS.map((c) => (
-                  <option key={c.value} value={c.value}>{c.label}</option>
-                ))}
-              </select>
-            </div>
+                <div style={{ fontWeight: 700, fontSize: "0.85rem", marginBottom: 4 }}>
+                  Professional grading is a Pro feature
+                </div>
+                <p style={{ fontSize: "0.8rem", opacity: 0.8, margin: "0 0 8px" }}>
+                  Track CGC/CBCS/PGX slab grades, cert numbers, and upload your own
+                  photo of each book.
+                </p>
+                <Link
+                  href="/upgrade"
+                  className="grade-hint-link"
+                  style={{ fontWeight: 700, color: "var(--cc-gold, #FFD700)" }}
+                >
+                  Upgrade to Collector Pro →
+                </Link>
+              </div>
+            </>
           )}
 
           {/* Purchase price */}

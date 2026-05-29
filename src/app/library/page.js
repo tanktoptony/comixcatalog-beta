@@ -98,6 +98,7 @@ function LibraryPageContent() {
   const [sortBy, setSortBy] = useState("title-asc");
   const [viewMode, setViewMode] = useState("list");
   const [pdfExporting, setPdfExporting] = useState(false);
+  const [csvExporting, setCsvExporting] = useState(false);
   // Capture the upgrade flag once at mount. After router.replace() strips the
   // query param (in the effect below), this state still holds — so the banner
   // stays visible until the user dismisses it.
@@ -151,6 +152,42 @@ function LibraryPageContent() {
       alert("PDF export failed. Please try again.");
     } finally {
       setPdfExporting(false);
+    }
+  }
+
+  async function handleExportCsv() {
+    if (!user) return;
+    if (!isPro) {
+      window.location.href = "/upgrade";
+      return;
+    }
+    setCsvExporting(true);
+    try {
+      const res = await fetch("/api/export/csv", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_id: user.id }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        if (res.status === 402 || err.upgrade) {
+          window.location.href = "/upgrade";
+          return;
+        }
+        alert(err.error || "CSV export failed");
+        return;
+      }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `comixcatalog-collection-${new Date().toISOString().split("T")[0]}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      alert("CSV export failed. Please try again.");
+    } finally {
+      setCsvExporting(false);
     }
   }
 
@@ -475,6 +512,19 @@ function LibraryPageContent() {
                     ? "Export PDF"
                     : "Export PDF (Pro)"}
               </button>
+              <button
+                className="library-secondary-btn"
+                onClick={handleExportCsv}
+                disabled={csvExporting}
+                type="button"
+                title={isPro ? "Export your collection as a CSV (Discogs-style)" : "Pro feature — click to upgrade"}
+              >
+                {csvExporting
+                  ? "Exporting…"
+                  : isPro
+                    ? "Export CSV"
+                    : "Export CSV (Pro)"}
+              </button>
               <Link href="/library/add" className="library-primary-btn">
                 Add Comic
               </Link>
@@ -512,6 +562,23 @@ function LibraryPageContent() {
             fd.append("file", file);
             fd.append("user_id", user.id);
             const res = await fetch("/api/csv-import", { method: "POST", body: fd });
+            // Pro-gated row cap. 402 = exceeded the free cap; surface the
+            // server's explanation in the import-summary panel AND offer a
+            // direct route to /upgrade so users can act on it.
+            if (res.status === 402) {
+              const json = await res.json().catch(() => ({}));
+              const proceed = window.confirm(
+                `${json.error || "Upgrade required to import this many rows."}\n\nGo to the upgrade page now?`
+              );
+              if (proceed) window.location.href = "/upgrade";
+              setCsvResult({
+                created: 0,
+                reused: 0,
+                skipped: json.attempted ?? 0,
+                errors: [{ row: "-", message: json.error || "Upgrade to Pro to import more rows" }],
+              });
+              return;
+            }
             const json = await res.json();
             setCsvResult(json.results || null);
           }}
@@ -527,7 +594,13 @@ function LibraryPageContent() {
               onChange={(e) => setSelectedFile(e.target.files[0] || null)}
             />
           </label>
-          <button type="submit" className="library-secondary-btn">Upload CSV</button>
+          <button
+            type="submit"
+            className="library-secondary-btn"
+            title={isPro ? "Pro: up to 200 rows per import" : "Free: up to 25 rows per import. Upgrade to Pro for 200."}
+          >
+            Upload CSV
+          </button>
         </form>
       </section>
 
@@ -816,6 +889,7 @@ function LibraryPageContent() {
                       {tab === "owned" && (
                         <GradeEditor
                           collectionId={item.id}
+                          isPro={isPro}
                           initialData={liveGrade}
                           canonicalCover={comic.cover || null}
                           releaseYear={comic.year || null}
@@ -907,6 +981,7 @@ function LibraryPageContent() {
                       <div className="comic-card-grade">
                         <GradeEditor
                           collectionId={item.id}
+                          isPro={isPro}
                           initialData={liveGrade}
                           canonicalCover={comic.cover || null}
                           releaseYear={comic.year || null}

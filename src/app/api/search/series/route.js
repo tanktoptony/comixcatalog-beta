@@ -81,6 +81,15 @@ export async function GET(req) {
       .ilike("title_normalized", `%${normalizedQ}%`)
       .not("gcd_id", "is", null)
       .gt("issue_count_cached", 0)
+      // Quality gate: require a real year. Publisher attribution is unreliable
+      // (cv_publisher was mass-stamped by the cover ingest's title-only match,
+      // and gcd_series.publisher_gcd_id is scrambled), so we can't filter
+      // foreign/garbage by publisher. But undated rows are overwhelmingly
+      // foreign reprints, fragments, and junk — while every marquee series a
+      // user actually searches is dated. Dropping null-year rows removes most
+      // of the cruft (e.g. the 3 undated foreign "Thundercats" fragments) with
+      // near-zero false positives on real books.
+      .not("year_start_cached", "is", null)
       .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
       .order("issue_count_cached", { ascending: false })
       .limit(60);
@@ -104,6 +113,16 @@ export async function GET(req) {
       const aExact = aTitle === normalizedQForScoring ? 1 : 0;
       const bExact = bTitle === normalizedQForScoring ? 1 : 0;
       if (bExact !== aExact) return bExact - aExact;
+
+      // Surface the volume that has a real (year-aware matched) cover first —
+      // it's the canonical edition a collector recognizes. This only REORDERS
+      // within a title cluster, never hides a volume. (Hiding uncovered rows
+      // would suppress legit runs like the 2024 Dynamite ThunderCats, since
+      // only ~2.5% of series carry a cached cover.) For marquee titles where
+      // every volume is covered, this is a no-op and issue-count ordering wins.
+      const aCover = a.featured_cover_path_cached ? 1 : 0;
+      const bCover = b.featured_cover_path_cached ? 1 : 0;
+      if (bCover !== aCover) return bCover - aCover;
 
       const aTier = significanceTier(a.issue_count_cached ?? 0);
       const bTier = significanceTier(b.issue_count_cached ?? 0);

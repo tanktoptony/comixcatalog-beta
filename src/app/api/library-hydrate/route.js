@@ -8,6 +8,14 @@ function parseYear(value) {
   return match ? Number(match[0]) : null;
 }
 
+// publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
+// approximation) fills most of that gap. Without this fallback a library item
+// shows "Unknown" year ~⅔ of the time AND loses its cover (the year-aware
+// matcher below requires a non-null year).
+function bestYearFor(row) {
+  return parseYear(row?.publication_date) ?? parseYear(row?.key_date);
+}
+
 function norm(value) {
   return String(value ?? "").trim().toLowerCase();
 }
@@ -50,7 +58,7 @@ export async function POST(req) {
       gcdIds.length > 0
         ? supabase
             .from("gcd_issues")
-            .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date")
+            .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
             .in("gcd_id", gcdIds)
         : { data: [] },
     ]);
@@ -137,7 +145,7 @@ export async function POST(req) {
         seriesGcdIds.length > 0
           ? supabase
               .from("series")
-              .select("gcd_id, title, publisher:publisher_id(name)")
+              .select("gcd_id, title, resolved_publisher_cached, publisher:publisher_id(name)")
               .in("gcd_id", seriesGcdIds)
           : { data: [] },
         publisherGcdIds.length > 0
@@ -161,8 +169,14 @@ export async function POST(req) {
           gcd_id: issue.gcd_id,
           issue_number: issue.issue_number,
           publication_date: issue.publication_date,
+          key_date: issue.key_date,
           seriesTitle: seriesRow?.title ?? null,
+          // resolved_publisher_cached is the year-aware, audited value — prefer
+          // it. The publisher_gcd_id fallback draws on GCD's scrambled publisher
+          // links (US Marvel books mislinked to foreign houses), so it's last
+          // resort only.
           publisher:
+            seriesRow?.resolved_publisher_cached ??
             seriesRow?.publisher?.name ??
             publisherLookup[String(issue.publisher_gcd_id)] ??
             null,
@@ -201,7 +215,7 @@ export async function POST(req) {
 
       for (const row of intermediate) {
         const coverKey = `${norm(row.seriesTitle)}::${norm(row.issue_number)}`;
-        const issueYear = parseYear(row.publication_date);
+        const issueYear = bestYearFor(row);
         const candidates = coversByKey.get(coverKey) ?? [];
 
         let storagePath = null;

@@ -7,6 +7,14 @@ function parseYear(value) {
   return match ? Number(match[0]) : null;
 }
 
+// publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
+// approximation) fills most of that gap. Without this fallback a collector's
+// owned issues show "Unknown" year ~⅔ of the time AND lose their cover (the
+// year-aware matcher below requires a non-null year).
+function bestYearFor(row) {
+  return parseYear(row?.publication_date) ?? parseYear(row?.key_date);
+}
+
 function norm(value) {
   return String(value ?? "").trim().toLowerCase();
 }
@@ -100,7 +108,7 @@ export async function GET(req) {
   if (gcdIds.length > 0) {
     const { data: issues } = await supabase
       .from("gcd_issues")
-      .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date")
+      .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
       .in("gcd_id", gcdIds);
 
     const issueList = issues || [];
@@ -116,7 +124,7 @@ export async function GET(req) {
       seriesGcdIds.length > 0
         ? supabase
             .from("series")
-            .select("gcd_id, title, publisher:publisher_id(name)")
+            .select("gcd_id, title, resolved_publisher_cached, publisher:publisher_id(name)")
             .in("gcd_id", seriesGcdIds)
         : Promise.resolve({ data: [] }),
       publisherGcdIds.length > 0
@@ -139,9 +147,13 @@ export async function GET(req) {
       return {
         gcd_id: issue.gcd_id,
         issue_number: issue.issue_number,
-        year: parseYear(issue.publication_date),
+        year: bestYearFor(issue),
         seriesTitle: seriesRow?.title ?? null,
+        // resolved_publisher_cached is the year-aware, audited value — prefer it.
+        // The publisher_gcd_id fallback draws on GCD's scrambled publisher links
+        // (US Marvel books mislinked to foreign houses), so it's last resort only.
         publisher:
+          seriesRow?.resolved_publisher_cached ??
           seriesRow?.publisher?.name ??
           publisherLookup[String(issue.publisher_gcd_id)] ??
           null,

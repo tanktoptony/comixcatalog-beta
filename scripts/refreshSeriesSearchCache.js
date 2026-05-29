@@ -16,6 +16,7 @@ dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 
 import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "../src/lib/publisher.js";
+import { getSeriesOverride } from "../src/lib/seriesOverrides.js";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -129,6 +130,21 @@ function bestYearFor(row) {
   return parseYear(row.publication_date) ?? parseYear(row.key_date);
 }
 
+// Normalized title key for matching `series.title` against
+// `canonical_covers.series_title`. GCD (which feeds `series`) tends to drop the
+// leading article — "Flash", "Amazing Spider-Man" — while ComicVine (which
+// feeds canonical_covers) keeps it — "The Flash", "The Amazing Spider-Man". A
+// raw lowercased compare left 723 "The Flash" covers stranded from ~25 "Flash"
+// series rows (and the same across the catalog), tanking coverage. Strip a
+// leading "the " and collapse whitespace on BOTH sides so they line up. Kept
+// conservative — the year-span scorer + per-volume `claimed` set still prevent
+// a same-normalized-title cover from landing on the wrong era/volume.
+function normTitle(value) {
+  let s = String(value ?? "").trim().toLowerCase();
+  if (s.startsWith("the ")) s = s.slice(4);
+  return s.replace(/\s+/g, " ");
+}
+
 // In --force mode we walk the table by id cursor instead of filtering on
 // search_refreshed_at, so the script can chew through everything without
 // needing the giant UPDATE … SET search_refreshed_at = NULL to commit first.
@@ -232,6 +248,24 @@ async function processBatch(seriesBatch) {
     ...new Set(seriesBatch.map((s) => s.title).filter(Boolean)),
   ];
 
+  // The canonical_covers fetch below filters by exact series_title, but GCD and
+  // ComicVine disagree on the leading article ("Flash" vs "The Flash"). normTitle
+  // reconciles them in-memory — but only for covers we actually FETCHED. So
+  // expand the fetch set with the article variant of each title (add "The X"
+  // for "X", and "X" for "The X"), or the right covers never get pulled and the
+  // in-memory keying has nothing to match. This is what was leaving 723 "The
+  // Flash" covers stranded from the "Flash" series rows.
+  const coverFetchTitles = [
+    ...new Set(
+      seriesTitles.flatMap((t) => {
+        const variants = [t];
+        if (/^the\s+/i.test(t)) variants.push(t.replace(/^the\s+/i, ""));
+        else variants.push(`The ${t}`);
+        return variants;
+      })
+    ),
+  ];
+
   const issueRows = [];
   const PAGE_SIZE = 1000;
   let from = 0;
@@ -311,7 +345,7 @@ async function processBatch(seriesBatch) {
           supabase
             .from("canonical_covers")
             .select("series_title, storage_path, publisher, cover_date, issue_number, series_year")
-            .in("series_title", seriesTitles)
+            .in("series_title", coverFetchTitles)
             .order("id", { ascending: true })
             .range(from, from + COVER_PAGE - 1)
       );
@@ -328,7 +362,7 @@ async function processBatch(seriesBatch) {
   const coversByTitleKey = new Map();
   const coversByTitleAndIssue = new Map();
   for (const row of coverRows) {
-    const titleKey = String(row.series_title ?? "").trim().toLowerCase();
+    const titleKey = normTitle(row.series_title);
     if (!titleKey) continue;
     if (!coversByTitleKey.has(titleKey)) coversByTitleKey.set(titleKey, []);
     coversByTitleKey.get(titleKey).push(row);
@@ -401,7 +435,7 @@ async function processBatch(seriesBatch) {
       ),
     ];
 
-    const titleKey = String(series.title ?? "").trim().toLowerCase();
+    const titleKey = normTitle(series.title);
 
     // Per-issue cover matching: for each issue this series has, look up only
     // canonical_covers whose (series_title, issue_number) actually match.
@@ -493,13 +527,25 @@ async function processBatch(seriesBatch) {
       }
     }
 
+    // Curated override for the marketable core. Both raw publisher signals are
+    // corrupt for the titles collectors search, so pinned values in
+    // src/lib/seriesOverrides.js win over the computed ones. A non-US override
+    // publisher (e.g. "Marvel UK") drops the row from US search via the
+    // allowlist; hide:true forces exclusion via a null publisher.
+    const override = getSeriesOverride(series.gcd_id);
+    const finalPublisher = override?.hide
+      ? null
+      : (override?.publisher ?? resolvedPublisher);
+    const finalYearStart = override?.year_start ?? yearStart;
+    const finalYearEnd = override?.year_end ?? yearEnd;
+
     return {
       series,
       titleKey,
       issueCount,
-      yearStart,
-      yearEnd,
-      resolvedPublisher,
+      yearStart: finalYearStart,
+      yearEnd: finalYearEnd,
+      resolvedPublisher: finalPublisher,
       coverCandidates,
       fallbackPool,
     };

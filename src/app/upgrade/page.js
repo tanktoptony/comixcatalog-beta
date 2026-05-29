@@ -34,15 +34,15 @@ const TIERS = [
     via: "stripe",
     viaLabel: "via Stripe · cancel anytime",
     headline: "The full toolkit for serious collectors",
-    description: "Everything you need to manage a real collection — grades, slabs, values, and a PDF you can hand to your insurance agent.",
+    description: "Everything you need to manage a real collection — professional grading, slab tracking, your own photos, and a PDF you can hand to your insurance agent.",
     features: [
-      "Insurance & appraisal PDF export — cover art, grades, cert numbers, market-value totals, date-stamped",
-      "Grading & condition UI — CGC/CBCS/PGX slab tracking, 0.5–10.0 numeric grades, raw condition labels",
-      "Upload your own photo for each book in your collection",
-      "Purchase price & market value tracking — see your collection's total value at a glance",
-      "Want-list price alerts — get notified when a book drops to your target price",
-      "Early marketplace access — buy and sell when it launches (Pro subscribers first)",
-      "Collector Pro badge on your profile",
+      { label: "Insurance & appraisal PDF export — cover art, grades, cert numbers, value totals, date-stamped" },
+      { label: "Professional grading — CGC/CBCS/PGX slab tracking, 0.5–10.0 numeric grades, cert numbers" },
+      { label: "Upload your own photo for each book in your collection" },
+      { label: "Collector Pro badge on your profile" },
+      { label: "Want-list price alerts — get notified when a book drops to your target price", soon: true },
+      { label: "Automatic market valuation from recent sold comps", soon: true },
+      { label: "Early marketplace access — buy and sell when it launches (Pro subscribers first)", soon: true },
     ],
     cta: "Upgrade to Collector Pro",
     tier: "pro",
@@ -58,15 +58,14 @@ const TIERS = [
     headline: "Pro features + marketplace priority, forever",
     description: "Everything in Collector Pro, plus permanent recognition and the best deal on the marketplace — locked in as long as you stay subscribed.",
     features: [
-      "Everything in Collector Pro",
-      "Reduced marketplace fee — 3% instead of 8%, locked in permanently",
-      "Priority listing placement — your books appear above standard Pro listings",
-      "Verified Collector badge included — links your CGC/CBCS grades to your profile ($10 value)",
-      "Permanent Founding Collector badge — stays on your profile even if you downgrade",
-      "Your name on the ComixCatalog founders page",
-      "Locked-in $20/mo pricing — your rate never increases, ever",
-      "Direct roadmap access — feature voting and early previews",
-      "Patreon Collector Beta access included",
+      { label: "Everything in Collector Pro" },
+      { label: "Permanent Founding Collector badge — stays on your profile even if you downgrade" },
+      { label: "Locked-in $20/mo pricing — your rate never increases, ever" },
+      { label: "Your name on the ComixCatalog founders page" },
+      { label: "Direct roadmap access — feature voting and early previews" },
+      { label: "Reduced marketplace fee — 3% instead of 8%, locked in permanently", soon: true },
+      { label: "Priority listing placement — your books appear above standard Pro listings", soon: true },
+      { label: "Verified Collector badge — links your CGC/CBCS grades to your profile ($10 value)", soon: true },
     ],
     cta: "Claim a Founding Collector Spot",
     tier: "founding",
@@ -189,9 +188,33 @@ export default function UpgradePage() {
             <p className="upgrade-tier-description">{tier.description}</p>
 
             <ul className="upgrade-tier-features">
-              {tier.features.map((f, i) => (
-                <li key={i}>{f}</li>
-              ))}
+              {tier.features.map((f, i) => {
+                const label = typeof f === "string" ? f : f.label;
+                const soon = typeof f === "object" && f.soon;
+                return (
+                  <li key={i} style={soon ? { opacity: 0.7 } : undefined}>
+                    {label}
+                    {soon && (
+                      <span
+                        style={{
+                          marginLeft: 6,
+                          fontSize: "0.7rem",
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.04em",
+                          padding: "1px 6px",
+                          borderRadius: 999,
+                          border: "1px solid rgba(255,255,255,0.25)",
+                          opacity: 0.85,
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        Coming soon
+                      </span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
 
             <div className="upgrade-tier-action">
@@ -235,8 +258,9 @@ export default function UpgradePage() {
           <p>
             Patreon is for community support — the Supporter tier gives you a badge and Discord
             access but doesn&rsquo;t unlock site features. Collector Pro and Founding Collector are
-            billed through Stripe and unlock the actual tools: PDF export, grading, photo upload,
-            and everything coming in Phase 2.
+            billed through Stripe and unlock the actual tools — PDF export, professional grading,
+            and per-book photo upload today, with price alerts, automatic valuation, and the
+            marketplace arriving as Phase 2 ships.
           </p>
         </div>
         <div className="upgrade-faq-item">

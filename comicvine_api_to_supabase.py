@@ -41,8 +41,9 @@ HEADERS = {
 #   1. Sleep ~VOL_SLEEP_SECONDS BETWEEN volumes (defaults 1.0s, ~60 vol/min).
 #   2. Track total search/volume requests in REQUEST_BUDGET.
 #   3. Exit cleanly when REQUEST_BUDGET is exhausted, BEFORE the next 420.
-#   4. Raise RateLimited if a request returns HTTP 420 anyway — outer loop
-#      bails so we don't burn 200 more failed retries.
+#   4. On HTTP 420, back off and retry (15/30/60/120s) — a 420 is usually a
+#      velocity blip, not a spent budget. Only raise RateLimited if every
+#      retry still 420s, in which case the outer loop bails cleanly.
 class RateLimited(Exception):
     """Raised when ComicVine returns HTTP 420 Enhance Your Calm."""
 
@@ -74,6 +75,35 @@ def parse_cli() -> argparse.Namespace:
             "Path to a JSON file with a list of {name, publisher, year} entries. "
             "When omitted, falls back to the hardcoded TARGET_VOLUMES list."
         ),
+    )
+    p.add_argument(
+        "--needs-volume-id-out",
+        type=str,
+        default="needs_volume_id.json",
+        help=(
+            "Path to a JSON file where targets that couldn't be auto-resolved "
+            "(ambiguous match or publisher mismatch) are recorded, along with "
+            "the candidate ComicVine volume IDs to choose from. Merges with any "
+            "existing file (dedup by name+year) so runs accumulate. Resolve "
+            "later by re-running with --volume-id."
+        ),
+    )
+    p.add_argument(
+        "--done-file",
+        type=str,
+        default=".ingest-done.json",
+        help=(
+            "Ledger of targets already fully processed (resolved + ingested). "
+            "Targets in here are skipped BEFORE a search call is spent, so each "
+            "re-run walks down the list instead of re-grinding the top. Updated "
+            "as the run progresses (survives Ctrl-C). Delete it (or use "
+            "--ignore-done) to force a full re-sweep."
+        ),
+    )
+    p.add_argument(
+        "--ignore-done",
+        action="store_true",
+        help="Ignore the --done-file ledger this run (re-process every target).",
     )
     p.add_argument(
         "--skip-existing",
@@ -254,21 +284,40 @@ def cv_get(endpoint: str, params: dict) -> dict:
         "format": "json",
         **params,
     }
-    resp = requests.get(
-        f"{BASE_API}/{endpoint}",
-        params=full_params,
-        headers=HEADERS,
-        timeout=60,
-    )
 
-    # ComicVine returns HTTP 420 "Enhance Your Calm" when you've blown the
-    # rate window. Don't retry — raise so the outer loop bails cleanly.
-    if resp.status_code == 420:
-        raise RateLimited(
-            f"ComicVine returned 420 (rate-limited). "
-            f"Calls so far: search={REQUEST_COUNTER['search']}, "
-            f"volume={REQUEST_COUNTER['volume']}, issues={REQUEST_COUNTER['issues']}."
+    # ComicVine's HTTP 420 "Enhance Your Calm" is usually a VELOCITY signal
+    # (requests too close together, or their backend being moody) — it clears
+    # after a short pause and can fire even on a fresh hourly window. So a 420
+    # is NOT proof the budget is spent. Back off and retry a few times; only if
+    # every spaced retry still 420s do we treat it as a genuine cap and raise
+    # RateLimited so the outer loop bails. This is what stops a single stray
+    # 420 from aborting an otherwise-healthy run at call #22.
+    backoffs = [15, 30, 60, 120]  # seconds between retries; len = max retries
+    attempt = 0
+    while True:
+        resp = requests.get(
+            f"{BASE_API}/{endpoint}",
+            params=full_params,
+            headers=HEADERS,
+            timeout=60,
         )
+        if resp.status_code != 420:
+            break
+        if attempt >= len(backoffs):
+            raise RateLimited(
+                f"ComicVine returned 420 (rate-limited) and stayed limited "
+                f"through {len(backoffs)} backoff retries — window looks "
+                f"genuinely exhausted. Calls so far: "
+                f"search={REQUEST_COUNTER['search']}, "
+                f"volume={REQUEST_COUNTER['volume']}, issues={REQUEST_COUNTER['issues']}."
+            )
+        wait = backoffs[attempt]
+        attempt += 1
+        print(
+            f"  ⏳ ComicVine 420 (attempt {attempt}/{len(backoffs)}); "
+            f"backing off {wait}s then retrying…"
+        )
+        time.sleep(wait)
 
     resp.raise_for_status()
     data = resp.json()
@@ -296,6 +345,93 @@ def _norm_publisher(value: str | None) -> str:
     return s
 
 
+def _norm_title(value: str | None) -> str:
+    """Loose title comparison so a GCD title matches its ComicVine volume even
+    when a leading article differs — GCD 'Flash' vs ComicVine 'The Flash' was
+    silently dropping the real DC volume before publisher matching could run.
+    Strips a leading 'the ', collapses whitespace. Conservative on purpose: the
+    publisher gate and year disambiguation downstream still guard against a
+    wrong volume slipping through."""
+    s = (value or "").strip().lower()
+    if s.startswith("the "):
+        s = s[4:]
+    return re.sub(r"\s+", " ", s)
+
+
+# --- Done-ledger: which targets we've already fully processed ---------------
+# --skip-existing skips re-UPLOADING covers, but the target still costs a SEARCH
+# call every run, so re-runs re-grind the top of the list and never reach the
+# bottom. This ledger records targets we've already handled and lets the loop
+# skip them BEFORE searching, so successive runs sweep down the list.
+def _done_key(target: dict) -> str:
+    return f"{target.get('name')}{target.get('publisher')}{target.get('year')}"
+
+
+def _load_done(path: str) -> set:
+    try:
+        return set(json.loads(Path(path).read_text(encoding="utf-8")))
+    except Exception:
+        return set()
+
+
+def _save_done(path: str, done: set) -> None:
+    # Atomic write so a Ctrl-C mid-write can't corrupt the ledger.
+    tmp = f"{path}.tmp"
+    Path(tmp).write_text(json.dumps(sorted(done), ensure_ascii=False), encoding="utf-8")
+    os.replace(tmp, path)
+
+
+# Targets we refused to auto-resolve because the ComicVine match was ambiguous
+# (multiple volumes) or the publisher didn't line up. These need a manual
+# --volume-id, so instead of letting them scroll past in the terminal we record
+# them — WITH the candidate volume IDs to pick from — and flush to a file at the
+# end of the run. (A truly-not-found title with no ComicVine volume at all is
+# NOT recorded here: there's no volume-id to disambiguate to.)
+NEEDS_VOLUME_ID: list[dict] = []
+
+
+def _slim_candidate(v: dict) -> dict:
+    return {
+        "id": v.get("id"),
+        "name": v.get("name"),
+        "publisher": (v.get("publisher") or {}).get("name"),
+        "start_year": _start_year_of(v),
+    }
+
+
+def _record_needs_volume_id(name, publisher, year, reason, candidates):
+    NEEDS_VOLUME_ID.append(
+        {
+            "name": name,
+            "publisher": publisher,
+            "year": year,
+            "reason": reason,
+            "candidates": [_slim_candidate(v) for v in candidates],
+        }
+    )
+
+
+def write_needs_volume_id(path: str) -> None:
+    """Merge NEEDS_VOLUME_ID into the file at `path`, dedup by (name, year),
+    newest record wins. Keeps a running list across resumed runs."""
+    existing: list[dict] = []
+    fp = Path(path)
+    if fp.exists():
+        try:
+            existing = json.loads(fp.read_text(encoding="utf-8")) or []
+        except Exception:
+            existing = []
+    merged: dict[tuple, dict] = {}
+    for rec in existing + NEEDS_VOLUME_ID:
+        merged[(rec.get("name"), rec.get("year"))] = rec
+    out = list(merged.values())
+    fp.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(
+        f"\nRecorded {len(NEEDS_VOLUME_ID)} target(s) needing a manual --volume-id "
+        f"this run ({len(out)} total) → {path}"
+    )
+
+
 def find_volume(name: str, publisher: str | None = None, year: int | None = None) -> dict | None:
     """Resolve a ComicVine volume by (name, publisher, year). Hard-fails when
     the publisher constraint can't be satisfied — never falls through to a
@@ -317,8 +453,9 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
 
     target_pub = _norm_publisher(publisher)
 
+    target_title = _norm_title(name)
     name_matches = [
-        v for v in results if (v.get("name") or "").lower() == name.lower()
+        v for v in results if _norm_title(v.get("name")) == target_title
     ]
     pub_matches = [
         v
@@ -340,6 +477,7 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
             f"observed publishers for this title: {observed_list or '(none)'}; "
             f"skipping. Pass --volume-id to disambiguate."
         )
+        _record_needs_volume_id(name, publisher, year, "publisher_mismatch", name_matches)
         return None
 
     candidates = pub_matches if pub_matches else name_matches
@@ -353,6 +491,7 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
                 f"  ✗ {len(exact)} ComicVine volumes match {name!r} starting in {year}; "
                 f"refusing to guess. Pass --volume-id."
             )
+            _record_needs_volume_id(name, publisher, year, "multiple_same_start_year", exact)
             return None
 
         near = []
@@ -367,6 +506,7 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
                 f"  ✗ {len(near)} ComicVine volumes match {name!r} near year {year}; "
                 f"refusing to guess. Pass --volume-id."
             )
+            _record_needs_volume_id(name, publisher, year, "multiple_near_year", near)
             return None
 
     # Year unspecified or no near match — only return if there's exactly one
@@ -384,6 +524,7 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
             f"  ✗ {len(candidates)} ComicVine volumes named {name!r} "
             f"(start years: {observed_years}); refusing to guess. Pass --volume-id."
         )
+        _record_needs_volume_id(name, publisher, year, "multiple_candidates", candidates)
         return None
     return None
 
@@ -592,7 +733,22 @@ def main():
     limit_per_volume = args.limit if args.limit is not None else LIMIT_TEST
     rate_limited = False
 
+    # Done-ledger only applies to --targets runs (a single --volume-id has no
+    # list to sweep). --ignore-done starts fresh without touching the file.
+    use_ledger = bool(args.targets) and not args.ignore_done
+    done = _load_done(args.done_file) if use_ledger else set()
+    if use_ledger and done:
+        print(f"Done-ledger: {len(done)} target(s) already processed — will skip before searching.")
+    skipped_done = 0
+
     for target in targets:
+        # Skip already-processed targets BEFORE spending a search call. This is
+        # what makes successive runs advance down the list instead of re-grinding
+        # the top. (Skip happens before the budget check so done targets are free.)
+        if use_ledger and not target.get("volume_id") and _done_key(target) in done:
+            skipped_done += 1
+            continue
+
         # Budget check: stop BEFORE making the next search if we're already
         # past the cap. Cleaner than getting a 420 mid-run.
         search_volume_used = REQUEST_COUNTER["search"] + REQUEST_COUNTER["volume"]
@@ -618,6 +774,14 @@ def main():
 
             if not volume:
                 print(f"  volume not found: {volume_name}")
+                # Mark not-found targets done too — re-searching them next run
+                # just burns the same search call for nothing. (Ambiguous ones
+                # are already captured in needs_volume_id.json for manual fixup;
+                # delete the ledger / use --ignore-done to retry after a matcher
+                # improvement.)
+                if use_ledger and not target.get("volume_id"):
+                    done.add(_done_key(target))
+                    _save_done(args.done_file, done)
                 continue
 
             print(
@@ -737,6 +901,12 @@ def main():
 
                 time.sleep(0.5)
 
+            # Reached the end of this volume's issues without a rate-limit or
+            # crash — it's fully handled. Mark it so re-runs skip it pre-search.
+            if use_ledger and not target.get("volume_id"):
+                done.add(_done_key(target))
+                _save_done(args.done_file, done)
+
         except RateLimited as e:
             # Hard stop: ComicVine slammed the door. Continuing would just
             # generate 200 more 420s and burn the rolling window further.
@@ -754,19 +924,23 @@ def main():
         # blow the budget in seconds.
         time.sleep(max(0.0, args.vol_sleep))
 
+    ledger_note = (
+        f" | skipped {skipped_done} already-done (ledger), {len(done)} total in {args.done_file}"
+        if use_ledger else ""
+    )
     if rate_limited:
         print(
             f"\nPartial run. Counters: "
             f"search={REQUEST_COUNTER['search']} "
             f"volume={REQUEST_COUNTER['volume']} "
-            f"issues={REQUEST_COUNTER['issues']}"
+            f"issues={REQUEST_COUNTER['issues']}{ledger_note}"
         )
     else:
         print(
             f"\nFinished cleanly. Counters: "
             f"search={REQUEST_COUNTER['search']} "
             f"volume={REQUEST_COUNTER['volume']} "
-            f"issues={REQUEST_COUNTER['issues']}"
+            f"issues={REQUEST_COUNTER['issues']}{ledger_note}"
         )
 
     with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:
@@ -794,6 +968,9 @@ def main():
 
     print(f"\nDone. Upserted {len(uploaded_rows)} issue rows total.")
     print(f"CSV written to {CSV_PATH}")
+
+    if NEEDS_VOLUME_ID:
+        write_needs_volume_id(args.needs_volume_id_out)
 
 
 if __name__ == "__main__":

@@ -2,26 +2,61 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "@/lib/publisher";
 
-async function fetchCanonicalMatch(supabase, seriesTitle, issueNumber, targetYear) {
+// Volume-disambiguation tolerance. canonical_covers is keyed only by
+// (series_title, issue_number), so "Teenage Mutant Ninja Turtles" #2 exists
+// for both the 1984 Mirage volume and the 2011 IDW volume. We reject any cover
+// whose series_year (the year ITS volume began) falls outside this issue's
+// series year span — the same guard /api/series/[id] applies — so an old issue
+// can't pick up a modern-reboot cover. Covers with a null series_year are kept
+// (can't disambiguate) and left to pickBestCoverRow's year ranking.
+const COVER_YEAR_TOLERANCE = 1;
+
+function inSeriesSpan(row, seriesYearMin, seriesYearMax) {
+  if (seriesYearMin == null || seriesYearMax == null) return true;
+  if (row.series_year == null) return true;
+  const sy = Number(row.series_year);
+  return (
+    sy >= seriesYearMin - COVER_YEAR_TOLERANCE &&
+    sy <= seriesYearMax + COVER_YEAR_TOLERANCE
+  );
+}
+
+async function fetchCanonicalMatch(
+  supabase,
+  seriesTitle,
+  issueNumber,
+  targetYear,
+  seriesYearMin = null,
+  seriesYearMax = null
+) {
   if (!seriesTitle) return { storage_path: null, publisher: null };
 
   const { data: exactRows } = await supabase
     .from("canonical_covers")
-    .select("storage_path, publisher, cover_date")
+    .select("storage_path, publisher, cover_date, series_year")
     .eq("series_title", seriesTitle)
     .eq("issue_number", issueNumber);
 
-  const best = pickBestCoverRow(exactRows, targetYear);
+  const exactInSpan = (exactRows ?? []).filter((r) =>
+    inSeriesSpan(r, seriesYearMin, seriesYearMax)
+  );
+  const best = pickBestCoverRow(exactInSpan, targetYear);
   if (best) return best;
 
+  // Fallback: no in-span cover for this exact issue number, so borrow a
+  // representative cover from the same volume (still span-gated — a wrong-era
+  // reboot cover is worse than the placeholder).
   const { data: seriesRows } = await supabase
     .from("canonical_covers")
-    .select("storage_path, publisher, cover_date")
+    .select("storage_path, publisher, cover_date, series_year")
     .eq("series_title", seriesTitle)
     .not("publisher", "is", null)
-    .limit(20);
+    .limit(40);
 
-  const bestFallback = pickBestCoverRow(seriesRows, targetYear);
+  const fallbackInSpan = (seriesRows ?? []).filter((r) =>
+    inSeriesSpan(r, seriesYearMin, seriesYearMax)
+  );
+  const bestFallback = pickBestCoverRow(fallbackInSpan, targetYear);
   return bestFallback ?? { storage_path: null, publisher: null };
 }
 
@@ -29,6 +64,13 @@ function parseYear(value) {
   if (!value) return null;
   const match = String(value).match(/\b(18|19|20)\d{2}\b/);
   return match ? Number(match[0]) : null;
+}
+
+// publication_date is null on ~65% of gcd_issues. key_date is GCD's sortable
+// approximation that's populated far more reliably — fall back to it so the
+// issue's year (and the year-aware cover match) resolve instead of going blank.
+function bestYearFor(row) {
+  return parseYear(row?.publication_date) ?? parseYear(row?.key_date);
 }
 
 function pickBestCoverRow(rows, targetYear) {
@@ -129,7 +171,8 @@ export async function GET(req, context) {
           publisher_gcd_id,
           issue_number,
           title,
-          publication_date
+          publication_date,
+          key_date
         `)
         .eq("gcd_id", gcdId)
         .single();
@@ -147,6 +190,7 @@ export async function GET(req, context) {
             title,
             publisher_id,
             cv_publisher,
+            resolved_publisher_cached,
             publisher:publisher_id (
               id,
               name,
@@ -197,15 +241,61 @@ export async function GET(req, context) {
       const seriesId = seriesRow?.id ?? null;
       const seriesTitle = seriesRow?.title ?? issue.title ?? null;
 
-      const issueYear = parseYear(issue.publication_date);
+      // Pull the full series issue list up front. One fetch serves two needs:
+      // the volume's year span (to span-gate the cover match below, preventing
+      // cross-volume bleed) and the prev/next/related navigation further down.
+      let seriesIssuesMapped = [];
+      let seriesYearMin = null;
+      let seriesYearMax = null;
+      if (issue.series_gcd_id) {
+        const { data: allIssues } = await supabase
+          .from("gcd_issues")
+          .select(`
+            gcd_id,
+            issue_number,
+            title,
+            publication_date,
+            key_date
+          `)
+          .eq("series_gcd_id", issue.series_gcd_id)
+          .order("gcd_id", { ascending: true })
+          .limit(500);
+
+        const mappedRaw = (allIssues ?? []).map((row) => ({
+          id: `gcd-${row.gcd_id}`,
+          issue_number: row.issue_number,
+          title: row.title ?? null,
+          release_year: bestYearFor(row),
+        }));
+
+        seriesIssuesMapped = dedupeSeriesIssueRows(mappedRaw).sort(
+          (a, b) => issueSortValue(a.issue_number) - issueSortValue(b.issue_number)
+        );
+
+        const spanYears = mappedRaw
+          .map((row) => row.release_year)
+          .filter((y) => y != null);
+        seriesYearMin = spanYears.length ? Math.min(...spanYears) : null;
+        seriesYearMax = spanYears.length ? Math.max(...spanYears) : null;
+      }
+
+      const issueYear = bestYearFor(issue);
       const canonicalMatch = await fetchCanonicalMatch(
         supabase,
         seriesTitle,
         issue.issue_number,
-        issueYear
+        issueYear,
+        seriesYearMin,
+        seriesYearMax
       );
 
-      // Publisher resolution priority (most-trusted → least):
+      // Prefer the precomputed cached value — same posture as the series route
+      // (/api/series/[id]). It went through the year-aware audit pipeline, so
+      // the issue page and the series page agree on the publisher instead of
+      // diverging when a collector clicks through. Only re-resolve when the
+      // cache is null.
+      //
+      // Re-resolution priority (most-trusted → least):
       //   1. Per-issue indicia publisher from gcd_issues (what was physically
       //      printed in this specific book — what the collector cares about)
       //   2. Series-level GCD publisher
@@ -216,16 +306,18 @@ export async function GET(req, context) {
       //
       // The old code ranked ComicVine first, which made the 1984 Mirage
       // TMNT #1 read as "IDW Publishing" because IDW currently holds the IP.
-      const publisherName = resolvePublisher({
-        cv: gcdPublisherName,
-        candidates: [
-          seriesLevelPublisherName,
-          seriesRow?.publisher?.name ?? null,
-          seriesRow?.cv_publisher ?? null,
-          canonicalMatch.publisher ?? null,
-        ],
-        seriesTitle,
-      });
+      const publisherName =
+        seriesRow?.resolved_publisher_cached ||
+        resolvePublisher({
+          cv: gcdPublisherName,
+          candidates: [
+            seriesLevelPublisherName,
+            seriesRow?.publisher?.name ?? null,
+            seriesRow?.cv_publisher ?? null,
+            canonicalMatch.publisher ?? null,
+          ],
+          seriesTitle,
+        });
 
       const cover = canonicalMatch.storage_path
         ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${canonicalMatch.storage_path}`
@@ -235,30 +327,8 @@ export async function GET(req, context) {
       let nextIssue = null;
       let relatedIssues = [];
 
-      if (issue.series_gcd_id) {
-        const { data: allIssues } = await supabase
-          .from("gcd_issues")
-          .select(`
-            gcd_id,
-            issue_number,
-            title,
-            publication_date
-          `)
-          .eq("series_gcd_id", issue.series_gcd_id)
-          .order("gcd_id", { ascending: true })
-          .limit(500);
-
-        const mappedRaw = (allIssues ?? []).map((row) => ({
-          id: `gcd-${row.gcd_id}`,
-          issue_number: row.issue_number,
-          title: row.title ?? null,
-          release_year: parseYear(row.publication_date),
-        }));
-
-        const mapped = dedupeSeriesIssueRows(mappedRaw).sort(
-          (a, b) => issueSortValue(a.issue_number) - issueSortValue(b.issue_number)
-        );
-
+      if (seriesIssuesMapped.length > 0) {
+        const mapped = seriesIssuesMapped;
         const currentIssueKey = normalizeIssueNumber(issue.issue_number);
         const currentIndex = mapped.findIndex(
           (row) => normalizeIssueNumber(row.issue_number) === currentIssueKey
@@ -287,7 +357,7 @@ export async function GET(req, context) {
           series_id: seriesId,
           series_title: seriesTitle,
           issue_number: issue.issue_number,
-          release_year: parseYear(issue.publication_date),
+          release_year: bestYearFor(issue),
           publication_date: issue.publication_date ?? null,
           publisher: publisherName,
           cover,

@@ -316,8 +316,12 @@ export async function GET(req) {
       }
     }
 
-    const comics = pageSlice.map(({ __score, __source, ...row }) => {
-      if (__source !== "gcd") return row;
+    const comics = pageSlice.map(({ __score, ...row }) => {
+      // Keep __source on the response. Stripping it made the frontend default
+      // every result to "user" (Header.js / SearchPageClient.js both do
+      // `row.__source || "user"`), so canonical gcd issues were mislabeled
+      // "User Added". Now "gcd" rows correctly carry their source.
+      if (row.__source !== "gcd") return row;
       const key = `${normalizeSearch(row.series_title)}::${normalizeIssueNumber(row.issue_number)}`;
       const storagePath = pickBestCoverPath(canonicalCandidatesByKey[key], row.release_year);
       return {

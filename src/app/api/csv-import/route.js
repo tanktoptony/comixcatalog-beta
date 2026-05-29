@@ -1,6 +1,14 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import Papa from "papaparse";
+import { ADMIN_ID } from "@/lib/admin";
+
+// Tiered row caps. Free is the hook (you can try CSV import); Pro raises the
+// ceiling for bulk imports of a real collection. The Pro cap matches the
+// historical 200-row global cap so existing Pro users see no regression; free
+// gets a lower bar that's enough to evaluate the feature.
+const FREE_ROW_CAP = 25;
+const PRO_ROW_CAP = 200;
 
 export async function POST(req) {
   const supabase = createClient(
@@ -64,9 +72,33 @@ export async function POST(req) {
 
     const rows = parsed.data;
 
-    if (rows.length > 200) {
+    // Pro-tier check: lift the row cap from FREE_ROW_CAP to PRO_ROW_CAP for
+    // Pro/founding subscribers (and ADMIN_ID). Matches the auth posture of
+    // /api/export/pdf and /api/export/csv — we return 402 with upgrade: true so
+    // the library UI can redirect to /upgrade.
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("is_pro")
+      .eq("id", user_id)
+      .single();
+    const isProOrAdmin =
+      Boolean(profile?.is_pro) || user_id === ADMIN_ID;
+    const rowCap = isProOrAdmin ? PRO_ROW_CAP : FREE_ROW_CAP;
+
+    if (rows.length > rowCap) {
+      if (!isProOrAdmin) {
+        return NextResponse.json(
+          {
+            error: `Free import is limited to ${FREE_ROW_CAP} rows. Upgrade to Collector Pro to import up to ${PRO_ROW_CAP}.`,
+            upgrade: true,
+            limit: FREE_ROW_CAP,
+            attempted: rows.length,
+          },
+          { status: 402 }
+        );
+      }
       return NextResponse.json(
-        { error: "CSV exceeds 200 row limit" },
+        { error: `CSV exceeds ${PRO_ROW_CAP} row limit`, limit: PRO_ROW_CAP },
         { status: 400 }
       );
     }

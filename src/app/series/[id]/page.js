@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
+import { useLibrary } from "@/context/LibraryContext";
 
 function issueSortValue(issueNumber) {
   // Comics often store dual-numbered issues like "30 (471)" (Vol 2 / Vol 1
@@ -30,6 +32,11 @@ export default function SeriesPage() {
   const [series, setSeries] = useState(null);
   const [loading, setLoading] = useState(true);
   const [sortMode, setSortMode] = useState("issue-asc");
+
+  const { user, isPro } = useAuth();
+  const { collectionIds, wishlistIds, addToCollection } = useLibrary();
+  const [bulkAdding, setBulkAdding] = useState(false);
+  const [bulkResult, setBulkResult] = useState(null);
 
   useEffect(() => {
     if (!id) return;
@@ -89,6 +96,53 @@ export default function SeriesPage() {
 
     return deduped;
     }, [series, sortMode]);
+
+  // Run completion math. issue.id is already the library key
+  // ("gcd-<gcd_id>" for GCD issues, plain uuid for local user comics) — same
+  // shape LibraryContext stores in collectionIds / wishlistIds.
+  const runStats = useMemo(() => {
+    if (!sortedIssues.length) return { owned: 0, wishlisted: 0, total: 0, missing: [] };
+    let owned = 0;
+    let wishlisted = 0;
+    const missing = [];
+    for (const issue of sortedIssues) {
+      const key = String(issue?.id ?? "");
+      if (!key) continue;
+      if (collectionIds?.has(key)) owned += 1;
+      else if (wishlistIds?.has(key)) wishlisted += 1;
+      else missing.push(issue);
+    }
+    return { owned, wishlisted, total: sortedIssues.length, missing };
+  }, [sortedIssues, collectionIds, wishlistIds]);
+
+  const runPct = runStats.total > 0 ? Math.round((runStats.owned / runStats.total) * 100) : 0;
+
+  async function handleAddAllMissingToWantlist() {
+    if (!user?.id || !isPro || runStats.missing.length === 0) return;
+    // Long runs (1000+ Action Comics, 700+ Spider-Man) can blow up the
+    // optimistic-state churn. Confirm first for >50.
+    if (runStats.missing.length > 50) {
+      const ok = window.confirm(
+        `You're about to add ${runStats.missing.length} issues to your wantlist. This may take a moment. Continue?`
+      );
+      if (!ok) return;
+    }
+    setBulkAdding(true);
+    setBulkResult(null);
+    let added = 0;
+    let failed = 0;
+    for (const issue of runStats.missing) {
+      try {
+        await addToCollection(String(issue.id), "wishlist");
+        added += 1;
+      } catch (err) {
+        console.error("Run-completion bulk add failed for", issue.id, err);
+        failed += 1;
+      }
+    }
+    setBulkAdding(false);
+    setBulkResult({ added, failed });
+  }
 
   if (loading) {
     return (
@@ -165,6 +219,129 @@ export default function SeriesPage() {
         </div>
 
 
+        {/* ── Run completion ────────────────────────────────────────────
+            Only render when the viewer is signed in and there's at least one
+            owned/wishlisted issue from this run — otherwise it's noise on
+            series the user has no relationship to. */}
+        {user && sortedIssues.length > 0 && (runStats.owned > 0 || runStats.wishlisted > 0) && (
+          <div
+            style={{
+              marginBottom: 20,
+              padding: "14px 16px",
+              borderRadius: 10,
+              background: "rgba(255,215,0,0.06)",
+              border: "1px solid rgba(255,215,0,0.25)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+                gap: 12,
+                flexWrap: "wrap",
+                marginBottom: 8,
+              }}
+            >
+              <div style={{ fontWeight: 700 }}>
+                Run completion: you own {runStats.owned} of {runStats.total}
+                {runStats.wishlisted > 0 && (
+                  <span style={{ opacity: 0.7, fontWeight: 500 }}>
+                    {" "}· {runStats.wishlisted} on wantlist
+                  </span>
+                )}
+              </div>
+              <div style={{ fontWeight: 700, color: "var(--cc-gold, #FFD700)" }}>
+                {runPct}%
+              </div>
+            </div>
+            <div
+              style={{
+                height: 6,
+                borderRadius: 999,
+                background: "rgba(255,255,255,0.08)",
+                overflow: "hidden",
+                marginBottom: runStats.missing.length > 0 ? 12 : 0,
+              }}
+            >
+              <div
+                style={{
+                  height: "100%",
+                  width: `${runPct}%`,
+                  background:
+                    runPct === 100
+                      ? "linear-gradient(90deg, #FFD700, #FFC400)"
+                      : "linear-gradient(90deg, #4CAF50, #2196F3)",
+                  transition: "width 0.4s ease",
+                }}
+              />
+            </div>
+            {runStats.missing.length > 0 && (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: 12,
+                  flexWrap: "wrap",
+                }}
+              >
+                <div style={{ fontSize: "0.9rem", opacity: 0.85 }}>
+                  Missing {runStats.missing.length} issue{runStats.missing.length === 1 ? "" : "s"}.
+                  {!isPro && (
+                    <span style={{ opacity: 0.7 }}>
+                      {" "}Upgrade to add them all to your wantlist in one click.
+                    </span>
+                  )}
+                </div>
+                {isPro ? (
+                  <button
+                    type="button"
+                    onClick={handleAddAllMissingToWantlist}
+                    disabled={bulkAdding}
+                    style={{
+                      padding: "8px 14px",
+                      borderRadius: 8,
+                      border: "1px solid rgba(76,175,80,0.4)",
+                      background: "linear-gradient(90deg, #4CAF50, #2196F3)",
+                      color: "#fff",
+                      fontWeight: 700,
+                      cursor: bulkAdding ? "not-allowed" : "pointer",
+                      opacity: bulkAdding ? 0.7 : 1,
+                      flexShrink: 0,
+                    }}
+                  >
+                    {bulkAdding
+                      ? `Adding… (${runStats.missing.length})`
+                      : `+ Add all ${runStats.missing.length} to wantlist`}
+                  </button>
+                ) : (
+                  <Link
+                    href="/upgrade"
+                    style={{
+                      padding: "8px 14px",
+                      borderRadius: 8,
+                      border: "1px solid var(--cc-gold, #FFD700)",
+                      color: "var(--cc-gold, #FFD700)",
+                      fontWeight: 700,
+                      textDecoration: "none",
+                      flexShrink: 0,
+                    }}
+                  >
+                    Upgrade to Pro →
+                  </Link>
+                )}
+              </div>
+            )}
+            {bulkResult && (
+              <div style={{ marginTop: 8, fontSize: "0.85rem", opacity: 0.85 }}>
+                ✓ Added {bulkResult.added} to your wantlist
+                {bulkResult.failed > 0 && ` (${bulkResult.failed} failed)`}.
+              </div>
+            )}
+          </div>
+        )}
+
         <div
           style={{
             display: "flex",
@@ -204,15 +381,55 @@ export default function SeriesPage() {
           </div>
         ) : (
           <div className="comic-grid">
-            {sortedIssues.map((issue) => (
+            {sortedIssues.map((issue) => {
+              const key = String(issue?.id ?? "");
+              const isOwned = collectionIds?.has(key);
+              const isWanted = !isOwned && wishlistIds?.has(key);
+              return (
               <article key={issue.id} className="comic-card">
                 <Link href={`/issue/${issue.id}`} className="card-link">
-                  <div className="comic-card-cover">
+                  <div className="comic-card-cover" style={{ position: "relative" }}>
                     <img
                       src={issue.cover || "/fallback-cover.png"}
                       alt={`${series.title} #${issue.issue_number}`}
                       loading="lazy"
                     />
+                    {isOwned && (
+                      <span
+                        style={{
+                          position: "absolute",
+                          top: 6,
+                          left: 6,
+                          padding: "2px 7px",
+                          borderRadius: 999,
+                          fontSize: "0.65rem",
+                          fontWeight: 800,
+                          background: "linear-gradient(90deg, #4CAF50, #2196F3)",
+                          color: "#fff",
+                          letterSpacing: "0.04em",
+                        }}
+                      >
+                        OWNED
+                      </span>
+                    )}
+                    {isWanted && (
+                      <span
+                        style={{
+                          position: "absolute",
+                          top: 6,
+                          left: 6,
+                          padding: "2px 7px",
+                          borderRadius: 999,
+                          fontSize: "0.65rem",
+                          fontWeight: 800,
+                          background: "rgba(255,255,255,0.18)",
+                          color: "#fff",
+                          letterSpacing: "0.04em",
+                        }}
+                      >
+                        WANTLIST
+                      </span>
+                    )}
                   </div>
 
                   <div className="comic-card-title">
@@ -231,7 +448,8 @@ export default function SeriesPage() {
                   </div>
                 </Link>
               </article>
-            ))}
+              );
+            })}
           </div>
         )}
       </section>

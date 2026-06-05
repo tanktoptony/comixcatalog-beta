@@ -72,6 +72,10 @@ export const US_PUBLISHER_ALLOWLIST = [
   "EC Comics",
   "Fawcett Comics",
   "Atlas Comics",
+  // Topps Comics (1992–1998): notable US house responsible for Bram Stoker's
+  // Dracula, X-Files, Jurassic Park, Mars Attacks, Zorro, Mary Shelley's
+  // Frankenstein, The Mummy, etc. — collected runs that should surface.
+  "Topps Comics",
 ];
 
 const MASTER_EXACT_MAP = {
@@ -293,6 +297,16 @@ const MASTER_EXACT_MAP = {
 
   "atlas": "Atlas Comics",
   "atlas comics": "Atlas Comics",
+
+  "topps": "Topps Comics",
+  "topps comics": "Topps Comics",
+  "topps comics inc": "Topps Comics",
+  "topps comics inc.": "Topps Comics",
+  "topps company": "Topps Comics",
+  "topps company inc": "Topps Comics",
+  "the topps company inc": "Topps Comics",
+  "the topps company inc.": "Topps Comics",
+  "the topps company, inc.": "Topps Comics",
 };
 
 // Distributors, regional reprinters, and generic "<series> Publishing Co Inc"

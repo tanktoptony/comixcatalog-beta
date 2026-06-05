@@ -4884,6 +4884,19 @@ button.nav-link {
   background: rgba(255,255,255,0.04);
   color: inherit;
   padding: 0.8rem 0.9rem;
+  /* Tells the browser to render native form controls (including the native
+     <select> dropdown panel) in dark mode. Without this the option list falls
+     back to OS default white-on-grey, which is unreadable on the dark theme. */
+  color-scheme: dark;
+}
+
+/* Explicit <option> styling — belt-and-suspenders for browsers/OSes where
+   color-scheme alone doesn't carry through to the dropdown panel (some older
+   Chromium on Windows, some Linux DEs). Native <option> elements accept very
+   limited styling, but background-color + color are reliably honored. */
+.library-select option {
+  background-color: #0d1733;
+  color: #fff;
 }
 
 .library-filter-chip {

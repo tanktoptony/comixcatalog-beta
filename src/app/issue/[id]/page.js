@@ -38,7 +38,10 @@ export default function IssuePage() {
       setLoading(true);
 
       try {
-        const res = await fetch(`/api/issues/${id}`, { cache: "no-store" });
+        // Pass viewer id so the API can compute per-arc ownership counts for
+        // the "Part of [Arc Name] — you own X of Y" badge.
+        const userParam = user?.id ? `?user_id=${encodeURIComponent(user.id)}` : "";
+        const res = await fetch(`/api/issues/${id}${userParam}`, { cache: "no-store" });
         const data = await res.json();
 
         if (!res.ok || !data?.issue) {
@@ -56,7 +59,7 @@ export default function IssuePage() {
     }
 
     loadIssue();
-  }, [id]);
+  }, [id, user?.id]);
 
   const issueTitle = useMemo(() => {
     if (!issue) return "";
@@ -155,6 +158,64 @@ export default function IssuePage() {
           </div>
         )}
 
+        {/* ── Story-arc membership badges ──────────────────────────────
+            For each arc this issue belongs to, show name + ownership
+            progress + click-through to the arc completion page. Most
+            issues will be in zero arcs; a few notable books are in
+            multiple (e.g. cross-event tie-ins). */}
+        {issue.arcs && issue.arcs.length > 0 && (
+          <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 20 }}>
+            {issue.arcs.map((arc) => (
+              <Link
+                key={arc.id}
+                href={arc.href}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 12,
+                  padding: "10px 14px",
+                  borderRadius: 10,
+                  background: "rgba(255,215,0,0.06)",
+                  border: "1px solid rgba(255,215,0,0.25)",
+                  textDecoration: "none",
+                  color: "inherit",
+                }}
+              >
+                {arc.image_url && (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    src={arc.image_url}
+                    alt=""
+                    style={{ width: 40, height: 60, objectFit: "cover", borderRadius: 4, flexShrink: 0 }}
+                  />
+                )}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div
+                    style={{
+                      fontSize: "0.7rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      opacity: 0.7,
+                    }}
+                  >
+                    Part of Story Arc
+                  </div>
+                  <div style={{ fontWeight: 700, fontSize: "1rem", marginTop: 2 }}>
+                    {arc.name}
+                  </div>
+                  <div style={{ fontSize: "0.85rem", opacity: 0.85, marginTop: 2 }}>
+                    {user
+                      ? `You own ${arc.owned} of ${arc.total}${arc.owned === arc.total && arc.total > 0 ? " — complete!" : ""}`
+                      : `${arc.total} issue${arc.total === 1 ? "" : "s"} — sign in to track completion`}
+                  </div>
+                </div>
+                <div style={{ color: "var(--cc-gold, #FFD700)", fontWeight: 700, fontSize: "1.2rem" }}>→</div>
+              </Link>
+            ))}
+          </div>
+        )}
+
         <div
           style={{
             display: "grid",
@@ -229,8 +290,11 @@ export default function IssuePage() {
 
             <p className="muted" style={{ marginBottom: "18px" }}>
               {issue.publisher || "Unknown Publisher"}
-              {issue.release_year ? ` · ${issue.release_year}` : ""}
-              {issue.publication_date ? ` · ${issue.publication_date}` : ""}
+              {/* display_date is the API's canonical English "Month YYYY"
+                  rendering, derived from key_date. Replaces the redundant
+                  release_year + raw publication_date pair that used to leak
+                  foreign-language month names (e.g. "septembre 2008"). */}
+              {issue.display_date ? ` · ${issue.display_date}` : ""}
             </p>
 
             <div

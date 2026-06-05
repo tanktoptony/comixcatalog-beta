@@ -8592,5 +8592,2236 @@
     "year": 2022,
     "reason": "publisher_mismatch",
     "candidates": []
+  },
+  {
+    "name": "The Walking Dead #1 Cynthiana, Kentucky Edition",
+    "publisher": "Image Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Star Wars: Return of the Jedi - Jabba's Palace",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Sea of Thieves Origins",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Magic: Ajani Goldmane",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Geminar",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: Hulk - Devil Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Keif Llama Gas War",
+    "publisher": "Oni Press",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "DC vs. Vampires - Hunters",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Starhenge Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Archer and Armstrong",
+    "publisher": "Valiant Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51094,
+        "name": "Archer and Armstrong",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2012
+      }
+    ]
+  },
+  {
+    "name": "Yakitate!! Japan",
+    "publisher": "VIZ Media",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126507,
+        "name": "Yakitate!! Japan",
+        "publisher": "Shogakukan",
+        "start_year": 2002
+      },
+      {
+        "id": 29615,
+        "name": "Yakitate!! Japan",
+        "publisher": "Viz",
+        "start_year": 2006
+      }
+    ]
+  },
+  {
+    "name": "Free Comic Book Day 2023: Avengers / X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Locke & Key / The Sandman Universe: Hell & Gone",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Wildstorm Cliffhanger Sketchbook",
+    "publisher": "WildStorm",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62233,
+        "name": "Wildstorm Cliffhanger Sketchbook",
+        "publisher": "Wizard",
+        "start_year": 1997
+      }
+    ]
+  },
+  {
+    "name": "Sins of Sinister Dominion",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Rugrats: C Is for Chanukah 2018 Special",
+    "publisher": "BOOM! Studios",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "End of Nations",
+    "publisher": "WildStorm",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44072,
+        "name": "End of Nations",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ]
+  },
+  {
+    "name": "Men of War",
+    "publisher": "DC Comics",
+    "year": 1963,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 42601,
+        "name": "Men of War",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 2888,
+        "name": "Men of War",
+        "publisher": "DC Comics",
+        "start_year": 1977
+      }
+    ]
+  },
+  {
+    "name": "X-Men Annual",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 146988,
+        "name": "X-Men Annual",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 153608,
+        "name": "X-Men Annual ",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ]
+  },
+  {
+    "name": "Steam Wars TPB",
+    "publisher": "Antarctic Press",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: King in Black - Iron Man / Doctor Doom",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Transformers: Generation 2: Halloween Special Edition",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Star Trek, The Psychocrystals [Dynabrite Comics]",
+    "publisher": "Gold Key",
+    "year": 1978,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Infinity: A Tale of the Inferno",
+    "publisher": "Caliber Comics",
+    "year": 2019,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 121763,
+        "name": "Infinity: A Tale of the Inferno",
+        "publisher": "Caliber Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 120124,
+        "name": "Infinity: A Tale of the Inferno",
+        "publisher": "Caliber Comics",
+        "start_year": 2019
+      }
+    ]
+  },
+  {
+    "name": "True Believers: The Criminally Insane - Dracula",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Earth-Prime: The Flash",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: Marvel Knights 20th Anniversary - Luke Cage, Hero for Hire",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Arrowsmith",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31630,
+        "name": "Arrowsmith",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 155213,
+        "name": "Arrowsmith",
+        "publisher": "ECC Ediciones",
+        "start_year": 2015
+      }
+    ]
+  },
+  {
+    "name": "Black Adam - The Justice Society Files: Dr. Fate",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Honey Badger vs. the World",
+    "publisher": "Antarctic Press",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Marvel New Stories Start Now Previews",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Ballistic Studios Swimsuit Special",
+    "publisher": "Image Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Fantastic Four No. 1 [Marvel Legends Masterworks Figure Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Teen Titans Go! / DC Super Hero Girls Giant",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Protectors Inc. Trade Paperback",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Body Count",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27188,
+        "name": "Body Count",
+        "publisher": "Aircel Publishing",
+        "start_year": 1989
+      },
+      {
+        "id": 37637,
+        "name": "Body Count",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ]
+  },
+  {
+    "name": "Batman: Night of the Monster Men Wal-Mart Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Batman / Spawn",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Infamia",
+    "publisher": "Caliber Comics",
+    "year": 2019,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 120123,
+        "name": "Infamia",
+        "publisher": "Caliber Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 121750,
+        "name": "Infamia",
+        "publisher": "Caliber Comics",
+        "start_year": 2019
+      }
+    ]
+  },
+  {
+    "name": "True Believers: King in Black - Black Cat",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "SFSX (Safe Sex)",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Dr. Strange, Surgeon Supreme",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Batman: Overdrive / Batman Tales: Once Upon a Crime (Special Edition)",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Chip Pocket Manga",
+    "publisher": "Antarctic Press",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "'Tis the Season to Be Freezin'",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: X-Men - Saturnyne",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Walking Dead #98 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: Black Widow - Yelena Belova",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Portland Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Simpsons Comics Presents Simpsons Go for the Gold",
+    "publisher": "Titan Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Orcs!",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 133716,
+        "name": "ORCS!",
+        "publisher": "Boom! Studios",
+        "start_year": 2021
+      },
+      {
+        "id": 146704,
+        "name": "ORCS!",
+        "publisher": "Boom! Studios",
+        "start_year": 2021
+      }
+    ]
+  },
+  {
+    "name": "Horror Book",
+    "publisher": "Image Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Twelve Devils Dancing",
+    "publisher": "Action Lab Entertainment",
+    "year": 2019,
+    "reason": "multiple_near_year",
+    "candidates": [
+      {
+        "id": 115446,
+        "name": "Twelve Devils Dancing",
+        "publisher": "Action Lab",
+        "start_year": 2018
+      },
+      {
+        "id": 112219,
+        "name": "Twelve Devils Dancing",
+        "publisher": "Action Lab",
+        "start_year": 2018
+      }
+    ]
+  },
+  {
+    "name": "Catwoman: The Legacy Cowl",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Graveyard Club: Revenge Game",
+    "publisher": "BOOM! Studios",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Legion: Secret Files",
+    "publisher": "DC Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: Conan - The Tower of the Elephant",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Agent 47",
+    "publisher": "Dynamite Entertainment",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: Captain Marvel - Ms. Marvel",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Midlife (Or How to Hero at Fifty!)",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Clash of the Guards",
+    "publisher": "Rebellion",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Firefly: 'Verses",
+    "publisher": "BOOM! Studios",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Mighty Morphin Power Rangers / Usagi Yojimbo",
+    "publisher": "BOOM! Studios",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Walt Disney Mickey Mouse Surprise Party",
+    "publisher": "Gold Key",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Michael Turner's Soulfire Genesis",
+    "publisher": "Aspen Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Penny Dreadful",
+    "publisher": "Titan Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 100587,
+        "name": "Penny Dreadful",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 90207,
+        "name": "Penny Dreadful",
+        "publisher": "Titan Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 99044,
+        "name": "Penny Dreadful",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      }
+    ]
+  },
+  {
+    "name": "Star Wars: Age of Republic - Anakin Skywalker",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Marvel Comics Illustrated Version of Captain America",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Amazing Spider-Man Masterworks",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Houdini: The Man from Beyond",
+    "publisher": "Image Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "One for One: X",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "7174 AD",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Custom M&M 2024 Comic",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Gatecrasher",
+    "publisher": "Image Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27460,
+        "name": "Gatecrasher",
+        "publisher": "Black Bull",
+        "start_year": 2000
+      }
+    ]
+  },
+  {
+    "name": "TMNT: Best of Leatherhead",
+    "publisher": "IDW Publishing",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Saint Germaine",
+    "publisher": "Image Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53013,
+        "name": "Saint Germaine",
+        "publisher": "Caliber Comics",
+        "start_year": 1997
+      }
+    ]
+  },
+  {
+    "name": "Superman: The Silver Age Omnibus",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Jack Kirby Treasury",
+    "publisher": "Eclipse Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63113,
+        "name": "Jack Kirby Treasury",
+        "publisher": "Pure Imagination",
+        "start_year": 1982
+      }
+    ]
+  },
+  {
+    "name": "Trinity Special: World�s Finest",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Farscape Archive Edition",
+    "publisher": "BOOM! Studios",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159625,
+        "name": "Farscape Archive Edition",
+        "publisher": "Archaia",
+        "start_year": 2024
+      }
+    ]
+  },
+  {
+    "name": "Airboy-Mr. Monster Special",
+    "publisher": "Eclipse Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Savage Tales Featuring Ka-zar",
+    "publisher": "Marvel Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Marvel's Voices: Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Full Tilt Boogie",
+    "publisher": "Rebellion",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Black Hole",
+    "publisher": "Gold Key",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 7234,
+        "name": "Black Hole",
+        "publisher": "Fantagraphics",
+        "start_year": 1995
+      },
+      {
+        "id": 54095,
+        "name": "Black Hole",
+        "publisher": "Conrad Editora",
+        "start_year": 2007
+      },
+      {
+        "id": 49278,
+        "name": "The Black Hole",
+        "publisher": "Western Publishing",
+        "start_year": 1979
+      },
+      {
+        "id": 21545,
+        "name": "Black Hole",
+        "publisher": "Pantheon Books",
+        "start_year": 2005
+      },
+      {
+        "id": 136303,
+        "name": "The Black Hole",
+        "publisher": "IPC Magazines Ltd.",
+        "start_year": 1980
+      }
+    ]
+  },
+  {
+    "name": "True Believers: Conan - Resurrection",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Shazam! (Special Edition)",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Li'l Battlestar Galactica One-Shot",
+    "publisher": "Dynamite Entertainment",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Custom Kabam 2023 Comic [Chee'ilth]",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Dark Avengers Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Untold Tales of Spider-Man: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Best of 2000AD",
+    "publisher": "Rebellion",
+    "year": 2022,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 159792,
+        "name": "Best of 2000AD",
+        "publisher": "Rebellion",
+        "start_year": 2020
+      },
+      {
+        "id": 165612,
+        "name": "Best of 2000AD",
+        "publisher": "Rebellion",
+        "start_year": 2025
+      }
+    ]
+  },
+  {
+    "name": "Lobo Big Fraggin' Compendium",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Iron Man Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22049,
+        "name": "Iron Man Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ]
+  },
+  {
+    "name": "The House of Dolmann",
+    "publisher": "Rebellion",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Chaos!: Smiley the Psychotic Button",
+    "publisher": "Dynamite Entertainment",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Peepshow",
+    "publisher": "Fantagraphics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6944,
+        "name": "Peepshow",
+        "publisher": "Drawn & Quarterly",
+        "start_year": 1992
+      }
+    ]
+  },
+  {
+    "name": "Robin: Tim Drake Compendium",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Marvelmania Monthly Magazine Preview",
+    "publisher": "Marvel Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Notzilla",
+    "publisher": "Antarctic Press",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Image Introduces... Dog Soldiers",
+    "publisher": "Image Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Archie's Joke Book",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Marvel & Disney: What If...? Donald Duck Became Thor",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Marvel Preview 1993",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Fourth World Omnibus",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "A1 Presents Odyssey",
+    "publisher": "Titan Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Indigo Children",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 149141,
+        "name": "Indigo Children",
+        "publisher": "Image",
+        "start_year": 2023
+      },
+      {
+        "id": 156666,
+        "name": "Indigo Children",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ]
+  },
+  {
+    "name": "Walt Disney's Goofy",
+    "publisher": "Dell Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Titans: Beast World: Evolution",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Punx Manga Special",
+    "publisher": "Valiant Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25842,
+        "name": "Punx Manga Special",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1996
+      }
+    ]
+  },
+  {
+    "name": "Walt Disney's Mickey Mouse Album [Dynabrite Comics]",
+    "publisher": "Gold Key",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Planeta Blu",
+    "publisher": "Dark Horse Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The New Mickey Mouse Club Fun Book",
+    "publisher": "Gold Key",
+    "year": 1977,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64537,
+        "name": "New Mickey Mouse Club Fun Book",
+        "publisher": "Golden Press",
+        "start_year": 1977
+      }
+    ]
+  },
+  {
+    "name": "Justice League of America: Black Baptism",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Giant-Size Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18222,
+        "name": "Giant-Size Hulk",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 127023,
+        "name": "Giant-Size Hulk",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 28956,
+        "name": "Giant-Size Hulk",
+        "publisher": "Marvel",
+        "start_year": 1975
+      }
+    ]
+  },
+  {
+    "name": "Marvel's Greatest Creators: Avengers - The Origin of Mantis!",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Hulk Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Walt Disney's Donald Duck No Such Varmint [Dynabrite Comics]",
+    "publisher": "Gold Key",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Flash Gordon the Movie",
+    "publisher": "Gold Key",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Awaken Skies",
+    "publisher": "Aspen Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111553,
+        "name": "Awaken Skies",
+        "publisher": "Aspen MLT",
+        "start_year": 2018
+      }
+    ]
+  },
+  {
+    "name": "Young Justice Omnibus",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "DC vs. Vampires: All-Out War",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Captain Marvel: Higher, Further, Faster 1 Halloween Trick-or-Read 2023",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: Conan - Curse of the Golden Skull!",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Espers Interface",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Freshmen: Summer Vacation Special",
+    "publisher": "Image Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Dark Red: Halloween ComicFest Edition",
+    "publisher": "AfterShock Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "AAFES 15th Edition [Iron Man]",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Marvel Masterworks: Ant-Man / Giant-Man",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Big Baby Huey",
+    "publisher": "Harvey Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Spider-Man When Heroes Clash",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Jungle Girl",
+    "publisher": "Fawcett Comics",
+    "year": 1942,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19166,
+        "name": "Jungle Girl",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2007
+      },
+      {
+        "id": 38373,
+        "name": "Jungle Girl",
+        "publisher": "Fawcett Publications",
+        "start_year": 1942
+      }
+    ]
+  },
+  {
+    "name": "X-Men Siege and Destroy",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Hulk Pantheon Raid",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Royal City Compendium",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Baker Street Compilation - \"Honour Among Punks\"",
+    "publisher": "Caliber Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Fallen Friend",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Fellspyre Chronicles",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Power of Shazam!",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5515,
+        "name": "The Power of SHAZAM!",
+        "publisher": "DC Comics",
+        "start_year": 1995
+      },
+      {
+        "id": 31691,
+        "name": "The Power of Shazam!",
+        "publisher": "DC Comics",
+        "start_year": 1994
+      }
+    ]
+  },
+  {
+    "name": "Splatoon",
+    "publisher": "VIZ Media",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 105256,
+        "name": "Splatoon",
+        "publisher": "Soleil",
+        "start_year": 2017
+      },
+      {
+        "id": 102790,
+        "name": "Splatoon",
+        "publisher": "Shogakukan",
+        "start_year": 2016
+      },
+      {
+        "id": 106549,
+        "name": "Splatoon",
+        "publisher": "Viz",
+        "start_year": 2017
+      },
+      {
+        "id": 152472,
+        "name": "Splatoon",
+        "publisher": "Carlsen Verlag",
+        "start_year": 2018
+      },
+      {
+        "id": 152459,
+        "name": "Splatoon",
+        "publisher": "Norma Editorial",
+        "start_year": null
+      }
+    ]
+  },
+  {
+    "name": "Hans Vogel Is Dead",
+    "publisher": "Dark Horse Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Untold Tales of I Hate Fairyland",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Archie Horror Presents: The Cursed Library",
+    "publisher": "Archie Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Batman: Detective Comics",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 150502,
+        "name": "Batman: Detective Comics",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 121066,
+        "name": "Batman: Detective Comics",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 98510,
+        "name": "Batman: Detective Comics",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 145333,
+        "name": "Batman: Detective Comics",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ]
+  },
+  {
+    "name": "Iron Man & Force Works: Collector's Preview",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Alley Cat Lingerie Edition",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Unwritten Compendium",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Star Wars: Return of the Jedi - Max Rebo",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "On the Spot",
+    "publisher": "Fawcett Comics",
+    "year": 1948,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 38407,
+        "name": "On the Spot",
+        "publisher": "Fawcett Publications",
+        "start_year": 1948
+      }
+    ]
+  },
+  {
+    "name": "Inferno Girl Red",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 146215,
+        "name": "Inferno Girl Red",
+        "publisher": "Image",
+        "start_year": 2023
+      },
+      {
+        "id": 157023,
+        "name": "Inferno Girl Red",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ]
+  },
+  {
+    "name": "Batman / Catwoman: The Gotham War: Scorched Earth",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: X-Men - Nanny & Orphan Maker",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Many Deaths of Laila Starr: Pen & Ink",
+    "publisher": "BOOM! Studios",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Ambassadors",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 149098,
+        "name": "The Ambassadors",
+        "publisher": "Image",
+        "start_year": 2023
+      },
+      {
+        "id": 152998,
+        "name": "The Ambassadors",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ]
+  },
+  {
+    "name": "Star Wars: The Acolyte - Kelnacca",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Material",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 84983,
+        "name": "Material",
+        "publisher": "Image",
+        "start_year": 2015
+      },
+      {
+        "id": 82206,
+        "name": "Material",
+        "publisher": "Image",
+        "start_year": 2015
+      }
+    ]
+  },
+  {
+    "name": "Iron Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2905,
+        "name": "Iron Man Annual",
+        "publisher": "Marvel",
+        "start_year": 1970
+      },
+      {
+        "id": 71801,
+        "name": "Iron Man Annual",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 136620,
+        "name": "Iron Man Annual",
+        "publisher": "Marvel",
+        "start_year": 2021
+      }
+    ]
+  },
+  {
+    "name": "Eternals: Never Die, Never Win Edition",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Mondo Urbano",
+    "publisher": "Oni Press",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Comics Novel",
+    "publisher": "Fawcett Comics",
+    "year": 1947,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26281,
+        "name": "Comics Novel",
+        "publisher": "Fawcett Publications",
+        "start_year": 1947
+      }
+    ]
+  },
+  {
+    "name": "Red Sonja",
+    "publisher": "Dynamite Entertainment",
+    "year": 2024,
+    "reason": "multiple_near_year",
+    "candidates": [
+      {
+        "id": 152491,
+        "name": "Red Sonja",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2023
+      },
+      {
+        "id": 160269,
+        "name": "Red Sonja",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2023
+      }
+    ]
+  },
+  {
+    "name": "The Clock",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 124097,
+        "name": "The Clock",
+        "publisher": "Image",
+        "start_year": 2020
+      },
+      {
+        "id": 130739,
+        "name": "The Clock",
+        "publisher": "Image",
+        "start_year": 2020
+      }
+    ]
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Richmond Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Line of Defense 3000AD",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: Black Widow - Red Guardian",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Disney Villains: Maleficent",
+    "publisher": "Dynamite Entertainment",
+    "year": 2024,
+    "reason": "multiple_near_year",
+    "candidates": [
+      {
+        "id": 150506,
+        "name": "Disney Villains: Maleficent",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2023
+      },
+      {
+        "id": 168048,
+        "name": "Disney Villains: Maleficent",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2025
+      }
+    ]
+  },
+  {
+    "name": "Battle Action",
+    "publisher": "Rebellion",
+    "year": 1954,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 159558,
+        "name": "Battle Action",
+        "publisher": "Rebellion",
+        "start_year": 2024
+      },
+      {
+        "id": 151305,
+        "name": "Battle Action",
+        "publisher": "Rebellion",
+        "start_year": 2023
+      },
+      {
+        "id": 145827,
+        "name": "Battle Action",
+        "publisher": "Rebellion",
+        "start_year": 2022
+      }
+    ]
+  },
+  {
+    "name": "The Spirit",
+    "publisher": "DC Comics",
+    "year": 1988,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18509,
+        "name": "The Spirit",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 32663,
+        "name": "The Spirit",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 31032,
+        "name": "The Spirit",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      }
+    ]
+  },
+  {
+    "name": "Battle Action",
+    "publisher": "Rebellion",
+    "year": 1952,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 159558,
+        "name": "Battle Action",
+        "publisher": "Rebellion",
+        "start_year": 2024
+      },
+      {
+        "id": 151305,
+        "name": "Battle Action",
+        "publisher": "Rebellion",
+        "start_year": 2023
+      },
+      {
+        "id": 145827,
+        "name": "Battle Action",
+        "publisher": "Rebellion",
+        "start_year": 2022
+      }
+    ]
+  },
+  {
+    "name": "X-O Manowar (2017)",
+    "publisher": "Valiant Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Unity",
+    "publisher": "Valiant Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69121,
+        "name": "Unity",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2013
+      },
+      {
+        "id": 4830,
+        "name": "Unity",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1992
+      }
+    ]
+  },
+  {
+    "name": "Marvel Adventures Flip Magazine",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Marvel Heroes Flip Magazine",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Marvel Super Adventure",
+    "publisher": "Marvel Comics",
+    "year": 1981,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47550,
+        "name": "Marvel Super Adventure",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1981
+      }
+    ]
+  },
+  {
+    "name": "DC Universe Online Legends",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 38217,
+        "name": "DC Universe Online Legends",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 46678,
+        "name": "DC Universe Online Legends",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      }
+    ]
+  },
+  {
+    "name": "Dragon Ball Z",
+    "publisher": "VIZ Media",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26289,
+        "name": "Dragon Ball Z",
+        "publisher": "Viz",
+        "start_year": 2003
+      },
+      {
+        "id": 31296,
+        "name": "Dragon Ball Z",
+        "publisher": "Viz",
+        "start_year": 2000
+      },
+      {
+        "id": 49358,
+        "name": "Dragon Ball Z",
+        "publisher": "Viz",
+        "start_year": 2008
+      },
+      {
+        "id": 156771,
+        "name": "Dragon Ball Z",
+        "publisher": "Éditions Glénat",
+        "start_year": 2008
+      }
+    ]
+  },
+  {
+    "name": "Huckleberry Hound",
+    "publisher": "Gold Key",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78507,
+        "name": "Huckleberry Hound",
+        "publisher": "Federal",
+        "start_year": null
+      },
+      {
+        "id": 11592,
+        "name": "Huckleberry Hound",
+        "publisher": "Western Publishing",
+        "start_year": 1960
+      },
+      {
+        "id": 35233,
+        "name": "Huckleberry Hound",
+        "publisher": "Charlton",
+        "start_year": 1970
+      }
+    ]
+  },
+  {
+    "name": "Will Eisner's The Spirit Archives",
+    "publisher": "DC Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Mystery Comics Digest",
+    "publisher": "Gold Key",
+    "year": 1972,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2589,
+        "name": "Mystery Comics Digest",
+        "publisher": "Western Publishing",
+        "start_year": 1972
+      }
+    ]
+  },
+  {
+    "name": "Ultimate Tales Flip Magazine",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Snow White with the Red Hair",
+    "publisher": "VIZ Media",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 118823,
+        "name": "Snow White With the Red Hair",
+        "publisher": "Viz",
+        "start_year": 2019
+      }
+    ]
+  },
+  {
+    "name": "Tex Ritter Western",
+    "publisher": "Charlton Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28367,
+        "name": "Tex Ritter Western",
+        "publisher": "Fawcett Publications",
+        "start_year": 1950
+      }
+    ]
+  },
+  {
+    "name": "Batman and Robin Eternal",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Buffy the Vampire Slayer Season 9",
+    "publisher": "Dark Horse Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Bleach 3-in-1",
+    "publisher": "VIZ Media",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "DV8",
+    "publisher": "Image Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6537,
+        "name": "DV8",
+        "publisher": "DC Comics",
+        "start_year": 1996
+      }
+    ]
+  },
+  {
+    "name": "Marvel Tales Flip Magazine",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Fury",
+    "publisher": "Marvel Comics",
+    "year": 1977,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 150604,
+        "name": "Fury",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 9108,
+        "name": "Fury",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 25997,
+        "name": "Fury",
+        "publisher": "Marvel",
+        "start_year": 1994
+      }
+    ]
+  },
+  {
+    "name": "Marvel Team-Up",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2576,
+        "name": "Marvel Team-Up",
+        "publisher": "Marvel",
+        "start_year": 1972
+      },
+      {
+        "id": 6011,
+        "name": "Marvel Team-Up",
+        "publisher": "Marvel",
+        "start_year": 1997
+      },
+      {
+        "id": 18024,
+        "name": "Marvel Team-Up",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 118139,
+        "name": "Marvel Team-Up",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ]
+  },
+  {
+    "name": "Brightest Day",
+    "publisher": "DC Comics",
+    "year": 2010,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 37337,
+        "name": "Brightest Day",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 32561,
+        "name": "Brightest Day",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      }
+    ]
+  },
+  {
+    "name": "Forgotten Realms Comic Book",
+    "publisher": "DC Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Friendly Ghost, Casper",
+    "publisher": "Harvey Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The Occult Files of Dr. Spektor",
+    "publisher": "Gold Key",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2655,
+        "name": "The Occult Files Of Dr. Spektor",
+        "publisher": "Western Publishing",
+        "start_year": 1973
+      }
+    ]
+  },
+  {
+    "name": "Postal",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 82848,
+        "name": "Postal",
+        "publisher": "Image",
+        "start_year": 2015
+      },
+      {
+        "id": 79870,
+        "name": "Postal",
+        "publisher": "Image",
+        "start_year": 2015
+      }
+    ]
+  },
+  {
+    "name": "Suicide Risk",
+    "publisher": "BOOM! Studios",
+    "year": 2013,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 69939,
+        "name": "Suicide Risk",
+        "publisher": "Boom! Studios",
+        "start_year": 2013
+      },
+      {
+        "id": 60700,
+        "name": "Suicide Risk",
+        "publisher": "Boom! Studios",
+        "start_year": 2013
+      }
+    ]
+  },
+  {
+    "name": "World of Warcraft",
+    "publisher": "WildStorm",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70150,
+        "name": "World of Warcraft",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 111270,
+        "name": "World of Warcraft",
+        "publisher": "Blizzard Entertainment",
+        "start_year": 2018
+      },
+      {
+        "id": 19669,
+        "name": "World of Warcraft",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 62211,
+        "name": "World of Warcraft",
+        "publisher": "Panini Verlag",
+        "start_year": 2008
+      },
+      {
+        "id": 61410,
+        "name": "World of Warcraft",
+        "publisher": "Comix-Art",
+        "start_year": 2011
+      }
+    ]
+  },
+  {
+    "name": "Godzilla: Rulers of Earth",
+    "publisher": "IDW Publishing",
+    "year": 2013,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 70069,
+        "name": "Godzilla: Rulers of Earth",
+        "publisher": "IDW Publishing",
+        "start_year": 2013
+      },
+      {
+        "id": 64248,
+        "name": "Godzilla: Rulers of Earth",
+        "publisher": "IDW Publishing",
+        "start_year": 2013
+      }
+    ]
+  },
+  {
+    "name": "Comics' Greatest World: X",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "The X-Files: Season 10",
+    "publisher": "IDW Publishing",
+    "year": 2013,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 63725,
+        "name": "The X-Files: Season 10",
+        "publisher": "IDW Publishing",
+        "start_year": 2013
+      },
+      {
+        "id": 70073,
+        "name": "X-Files: Season 10",
+        "publisher": "IDW Publishing",
+        "start_year": 2013
+      }
+    ]
+  },
+  {
+    "name": "Magic",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 135280,
+        "name": "Magic",
+        "publisher": "Boom! Studios",
+        "start_year": 2021
+      },
+      {
+        "id": 139578,
+        "name": "Magic",
+        "publisher": "Boom! Studios",
+        "start_year": 2021
+      }
+    ]
+  },
+  {
+    "name": "Wasted Space",
+    "publisher": "Vault Comics",
+    "year": 2018,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 109981,
+        "name": "Wasted Space",
+        "publisher": "Vault Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 113910,
+        "name": "Wasted Space",
+        "publisher": "Vault Comics",
+        "start_year": 2018
+      }
+    ]
   }
 ]

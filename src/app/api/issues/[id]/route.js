@@ -73,6 +73,32 @@ function bestYearFor(row) {
   return parseYear(row?.publication_date) ?? parseYear(row?.key_date);
 }
 
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+// Build a clean English "Month YYYY" (or just "YYYY") display string from
+// key_date. Avoids GCD's raw publication_date, which carries the original
+// indicia language ("septembre 2008" on Civil War #1 — French cover) and
+// rendered verbatim used to leak that into the UI. key_date is consistently
+// YYYY-MM-DD with -00 for unknown month/day, so it's the right source.
+function formatDisplayDate(row) {
+  const keyDate = String(row?.key_date ?? "");
+  const m = keyDate.match(/^(\d{4})-(\d{2})/);
+  if (m) {
+    const year = Number(m[1]);
+    const monthIdx = Number(m[2]) - 1;
+    if (monthIdx >= 0 && monthIdx <= 11) {
+      return `${MONTH_NAMES[monthIdx]} ${year}`;
+    }
+    return String(year);
+  }
+  // No usable key_date — emit just the year if we can derive one at all.
+  const year = bestYearFor(row);
+  return year != null ? String(year) : null;
+}
+
 function pickBestCoverRow(rows, targetYear) {
   if (!rows?.length) return null;
   let best = null;
@@ -149,6 +175,10 @@ function dedupeSeriesIssueRows(rows) {
 export async function GET(req, context) {
   try {
     const { id } = await context.params;
+    // Optional viewer id, used to compute per-arc ownership for the "Part of
+    // [Arc Name] — you own X of Y" badge surfaced below.
+    const { searchParams } = new URL(req.url);
+    const viewerId = searchParams.get("user_id") || null;
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -350,6 +380,78 @@ export async function GET(req, context) {
         }
       }
 
+      // ── Story-arc enrichment ─────────────────────────────────────────
+      // Which arcs is THIS issue part of? Then for each, fetch the arc's
+      // total issue count and (if a viewer is signed in) how many they own.
+      // The result powers the "Part of X-Cutioner's Song — you own 1 of 14"
+      // badge on the issue page, with a click-through to /arc/<id>.
+      let arcs = [];
+      const { data: arcMemberships } = await supabase
+        .from("story_arc_issues")
+        .select("story_arc_id")
+        .eq("gcd_issue_id", gcdId);
+
+      const arcIds = [...new Set((arcMemberships ?? []).map((r) => r.story_arc_id))];
+      if (arcIds.length > 0) {
+        // Arc metadata
+        const { data: arcRows } = await supabase
+          .from("story_arcs")
+          .select("id, cv_id, name, image_url")
+          .in("id", arcIds);
+
+        // All issues across these arcs — we need them both for the total
+        // count (matchable to our catalog) and for the viewer's owned count.
+        const { data: allArcIssues } = await supabase
+          .from("story_arc_issues")
+          .select("story_arc_id, gcd_issue_id")
+          .in("story_arc_id", arcIds);
+
+        // Ownership lookup. Only Pro/Pro-equivalent users should see counts
+        // long-term (TBD); for MVP we surface ownership to any signed-in
+        // viewer to validate the feature end-to-end.
+        const ownedByArc = new Map();
+        if (viewerId && allArcIssues?.length) {
+          const arcGcdIds = [
+            ...new Set(allArcIssues.map((r) => r.gcd_issue_id).filter(Boolean)),
+          ];
+          if (arcGcdIds.length > 0) {
+            const { data: ownedRows } = await supabase
+              .from("user_collections")
+              .select("gcd_issue_id")
+              .eq("user_id", viewerId)
+              .eq("status", "owned")
+              .in("gcd_issue_id", arcGcdIds);
+            const ownedSet = new Set(
+              (ownedRows ?? []).map((r) => Number(r.gcd_issue_id))
+            );
+            for (const r of allArcIssues) {
+              if (r.gcd_issue_id == null) continue;
+              if (!ownedSet.has(Number(r.gcd_issue_id))) continue;
+              ownedByArc.set(r.story_arc_id, (ownedByArc.get(r.story_arc_id) ?? 0) + 1);
+            }
+          }
+        }
+
+        // Total count per arc — restricted to matchable issues (gcd_issue_id
+        // not null) so the denominator is honest about what we can actually
+        // verify ownership for.
+        const matchableByArc = new Map();
+        for (const r of allArcIssues ?? []) {
+          if (r.gcd_issue_id == null) continue;
+          matchableByArc.set(r.story_arc_id, (matchableByArc.get(r.story_arc_id) ?? 0) + 1);
+        }
+
+        arcs = (arcRows ?? []).map((a) => ({
+          id: a.id,
+          cv_id: a.cv_id,
+          name: a.name,
+          image_url: a.image_url,
+          total: matchableByArc.get(a.id) ?? 0,
+          owned: ownedByArc.get(a.id) ?? 0,
+          href: `/arc/cv-${a.cv_id}`,
+        }));
+      }
+
       return NextResponse.json({
         issue: {
           id: `gcd-${issue.gcd_id}`,
@@ -359,12 +461,14 @@ export async function GET(req, context) {
           issue_number: issue.issue_number,
           release_year: bestYearFor(issue),
           publication_date: issue.publication_date ?? null,
+          display_date: formatDisplayDate(issue),
           publisher: publisherName,
           cover,
           created_by: null,
           prev_issue: prevIssue,
           next_issue: nextIssue,
           related_issues: relatedIssues,
+          arcs,
           market: {
             listings_count: 0,
             low: null,
@@ -408,6 +512,7 @@ export async function GET(req, context) {
         issue_number: comic.issue_number ?? null,
         release_year: comic.release_year ?? null,
         publication_date: null,
+        display_date: comic.release_year ? String(comic.release_year) : null,
         publisher: comic.publisher ?? null,
         cover: userCoverPath
           ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${userCoverPath}`
@@ -416,6 +521,7 @@ export async function GET(req, context) {
         prev_issue: null,
         next_issue: null,
         related_issues: [],
+        arcs: [],
         market: {
           listings_count: 0,
           low: null,

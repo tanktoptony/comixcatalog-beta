@@ -85,6 +85,12 @@ function LibraryPageContent() {
 
   const [search, setSearch] = useState("");
   const [shareCopied, setShareCopied] = useState(false);
+  // Duplicates panel — collapsed by default to stay out of the way; expands
+  // on click so users who don't have dupes never see clutter.
+  const [dupesOpen, setDupesOpen] = useState(false);
+  // Wantlist export busy flag (separate from the full-collection csv export
+  // so the two buttons can spin independently).
+  const [wantlistExporting, setWantlistExporting] = useState(false);
 
   function handleShare() {
     if (!profile?.username) return;
@@ -152,6 +158,42 @@ function LibraryPageContent() {
       alert("PDF export failed. Please try again.");
     } finally {
       setPdfExporting(false);
+    }
+  }
+
+  async function handleExportWantlist() {
+    if (!user) return;
+    if (!isPro) {
+      window.location.href = "/upgrade";
+      return;
+    }
+    setWantlistExporting(true);
+    try {
+      const res = await fetch("/api/export/wantlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_id: user.id }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        if (res.status === 402 || err.upgrade) {
+          window.location.href = "/upgrade";
+          return;
+        }
+        alert(err.error || "Wantlist export failed");
+        return;
+      }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `comixcatalog-wantlist-${new Date().toISOString().split("T")[0]}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      alert("Wantlist export failed. Please try again.");
+    } finally {
+      setWantlistExporting(false);
     }
   }
 
@@ -432,6 +474,70 @@ function LibraryPageContent() {
     return { totalInView: rawCurrent.length, renderedInView: hydratedCurrent.length, ownedCount, wishlistCount, uniqueSeries, uniquePublishers, newestYear };
   }, [collections, comicIndex, tab]);
 
+  // Hybrid-duplicate detection.
+  //
+  // Same-key duplicates (two rows for the same comic_id or two rows for the
+  // same gcd_issue_id) are impossible — both the in-app add path and CSV
+  // import explicitly upsert/lookup-then-insert. What CAN slip through is
+  // a *hybrid* duplicate: the same logical issue stored once as a local
+  // `comics` row (typed in or CSV-imported before we had the GCD match) and
+  // again as a `gcd_issue_id` row (added later via search after ingestion).
+  // Two different library keys, same physical book.
+  //
+  // We group owned rows by normalized (title, issue_number) — sourced from
+  // the hydrated `comic` object, since the raw library row doesn't carry
+  // human-readable metadata. Rows whose comic hasn't hydrated yet are skipped
+  // (they'll re-evaluate once hydration lands). A group counts as a dupe only
+  // when at least one local AND one gcd row coexist — pure same-source pairs
+  // would mean our dedup broke, which we want to know about separately and
+  // is not what this panel is for.
+  const duplicates = useMemo(() => {
+    function normTitle(s) {
+      return String(s || "").trim().toLowerCase().replace(/\s+/g, " ");
+    }
+    function normIssue(s) {
+      return String(s || "").trim().toLowerCase();
+    }
+    const groups = new Map();
+    for (const item of collections) {
+      if (item.status !== "owned") continue;
+      const key = makeLibraryKey(item);
+      if (!key) continue;
+      const comic = comicIndex[key];
+      if (!comic) continue; // skip until hydrated
+      const t = normTitle(comic.title);
+      const n = normIssue(comic.issue_number);
+      if (!t || !n) continue;
+      const gkey = `${t}::${n}`;
+      if (!groups.has(gkey)) groups.set(gkey, []);
+      groups.get(gkey).push({ item, comic, libraryKey: key });
+    }
+    const dupeGroups = [];
+    for (const [gkey, rows] of groups.entries()) {
+      if (rows.length < 2) continue;
+      const localCount = rows.filter((r) => r.item.gcd_issue_id == null).length;
+      const gcdCount = rows.filter((r) => r.item.gcd_issue_id != null).length;
+      // Only surface true hybrids — mixed sources. Two pure-local or two
+      // pure-gcd rows would indicate a dedup bug; we don't pitch those as
+      // "library health" because the cleanup path is different.
+      if (localCount === 0 || gcdCount === 0) continue;
+      const sample = rows[0];
+      dupeGroups.push({
+        key: gkey,
+        count: rows.length,
+        rows,
+        title: sample.comic.title,
+        issue: sample.comic.issue_number,
+        localCount,
+        gcdCount,
+      });
+    }
+    dupeGroups.sort((a, b) => b.count - a.count);
+    return dupeGroups;
+  }, [collections, comicIndex]);
+
+  const dupeTotal = duplicates.reduce((sum, g) => sum + (g.count - 1), 0);
+
   return (
     <main className="library-shell">
       {upgradeBanner === "success" && (
@@ -525,6 +631,21 @@ function LibraryPageContent() {
                     ? "Export CSV"
                     : "Export CSV (Pro)"}
               </button>
+              {tab === "wishlist" && stats.wishlistCount > 0 && (
+                <button
+                  className="library-secondary-btn"
+                  onClick={handleExportWantlist}
+                  disabled={wantlistExporting}
+                  type="button"
+                  title={isPro ? "Printable shopping list for cons & shops" : "Pro feature — click to upgrade"}
+                >
+                  {wantlistExporting
+                    ? "Exporting…"
+                    : isPro
+                      ? "Export Wantlist"
+                      : "Export Wantlist (Pro)"}
+                </button>
+              )}
               <Link href="/library/add" className="library-primary-btn">
                 Add Comic
               </Link>
@@ -630,6 +751,106 @@ function LibraryPageContent() {
           <div className="library-stat-label">Newest Year in View</div>
         </div>
       </section>
+
+      {/* ── Library health: hybrid duplicates ─────────────────────────────
+          Surfaces when an issue is tracked once locally and once via GCD —
+          a real data-hygiene problem caused by adding a book before our
+          catalog had a match, then again after. Same-key dupes are blocked
+          by the write path, so this is the only meaningful dupe class. */}
+      {duplicates.length > 0 && (
+        <section
+          style={{
+            margin: "0 0 18px",
+            padding: "12px 16px",
+            borderRadius: 10,
+            background: "rgba(255,193,7,0.06)",
+            border: "1px solid rgba(255,193,7,0.25)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 12,
+              flexWrap: "wrap",
+            }}
+          >
+            <div>
+              <strong style={{ color: "var(--cc-gold, #FFD700)" }}>
+                ⚠ Library health:
+              </strong>{" "}
+              <span style={{ opacity: 0.85 }}>
+                {duplicates.length} issue{duplicates.length === 1 ? "" : "s"}{" "}
+                {duplicates.length === 1 ? "is" : "are"} tracked twice
+                {" "}— once as a local entry and once linked to our catalog.
+                {" "}Merging removes {dupeTotal} extra row{dupeTotal === 1 ? "" : "s"}.
+              </span>
+            </div>
+            {isPro ? (
+              <button
+                type="button"
+                className="library-secondary-btn"
+                onClick={() => setDupesOpen((v) => !v)}
+                style={{ flexShrink: 0 }}
+              >
+                {dupesOpen ? "Hide details" : "Review"}
+              </button>
+            ) : (
+              <Link
+                href="/upgrade"
+                className="library-secondary-btn"
+                style={{ flexShrink: 0, textDecoration: "none" }}
+              >
+                Review with Pro →
+              </Link>
+            )}
+          </div>
+          {isPro && dupesOpen && (
+            <ul style={{ margin: "12px 0 0", padding: 0, listStyle: "none" }}>
+              {duplicates.map((g) => {
+                // Prefer the GCD row as the "canonical" link target — it
+                // carries cover art and our catalog metadata. Falls back to
+                // any row's library key if GCD link is unavailable.
+                const gcdRow = g.rows.find((r) => r.item.gcd_issue_id != null);
+                const href = gcdRow
+                  ? `/issue/gcd-${gcdRow.item.gcd_issue_id}`
+                  : `/comic/${g.rows[0].item.comic_id}`;
+                return (
+                  <li
+                    key={g.key}
+                    style={{
+                      padding: "8px 0",
+                      borderTop: "1px solid rgba(255,255,255,0.06)",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      gap: 12,
+                      fontSize: "0.9rem",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div>
+                      <Link
+                        href={href}
+                        style={{ color: "var(--cc-gold, #FFD700)", textDecoration: "none", fontWeight: 600 }}
+                      >
+                        {g.title} #{g.issue}
+                      </Link>
+                    </div>
+                    <div style={{ opacity: 0.7, fontSize: "0.8rem", textAlign: "right" }}>
+                      {g.localCount} local + {g.gcdCount} catalog
+                    </div>
+                  </li>
+                );
+              })}
+              <li style={{ paddingTop: 10, opacity: 0.6, fontSize: "0.8rem" }}>
+                Auto-merge is coming. For now, open each issue and remove the older
+                local entry — your catalog-linked row keeps the cover art and metadata.
+              </li>
+            </ul>
+          )}
+        </section>
+      )}
 
       {csvResult && (
         <section className="library-import-summary">

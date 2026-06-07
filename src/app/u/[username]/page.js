@@ -77,6 +77,20 @@ export default async function PublicProfilePage({ params }) {
     ? Math.round((slabCount / collection.length) * 100)
     : 0;
 
+  // Unique series count — Phase 1 unify alignment with /library. Keyed on
+  // normalized (title, publisher) so two volumes of the same title under
+  // different publishers count as separate series (e.g. "Captain America"
+  // Marvel vs "Captain America" Atlas reprint).
+  const uniqueSeries = new Set(
+    collection
+      .map((item) => {
+        const t = (item.display?.title || "").trim().toLowerCase();
+        const p = (item.display?.publisher || "").trim().toLowerCase();
+        return t ? `${t}::${p}` : null;
+      })
+      .filter(Boolean)
+  ).size;
+
   const publisherCounts = {};
   collection.forEach((item) => {
     const p = item.display?.publisher;
@@ -224,6 +238,12 @@ export default async function PublicProfilePage({ params }) {
               )}
               <dt>Slab ratio</dt>
               <dd>{slabPercent}%</dd>
+              {uniqueSeries > 0 && (
+                <>
+                  <dt>Unique series</dt>
+                  <dd>{uniqueSeries}</dd>
+                </>
+              )}
               {isOwner && hasCostData && (
                 <>
                   <dt>Cost basis</dt>

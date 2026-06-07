@@ -409,6 +409,18 @@ def _record_needs_volume_id(name, publisher, year, reason, candidates):
             "candidates": [_slim_candidate(v) for v in candidates],
         }
     )
+    # Track ambiguous failures separately so the caller knows NOT to mark
+    # them done in the ledger. Without this, a target that fails because of
+    # multiple candidates gets marked done permanently — and a later
+    # matcher improvement (e.g. issue-count tiebreaker) can never retry it.
+    AMBIGUOUS_THIS_RUN.add((name, publisher, year))
+
+
+# Set populated by _record_needs_volume_id during the run. The main loop
+# consults this after find_volume returns None to decide whether the failure
+# was a "couldn't find anything" (mark done) or "ambiguous, fixable" (don't
+# mark done, give the next run / next matcher a chance).
+AMBIGUOUS_THIS_RUN: set[tuple] = set()
 
 
 def write_needs_volume_id(path: str) -> None:
@@ -432,6 +444,59 @@ def write_needs_volume_id(path: str) -> None:
     )
 
 
+def _pick_by_issue_count(
+    candidates: list[dict],
+    name: str,
+    year: int | None,
+    publisher: str | None,
+    near_year: bool = False,
+) -> dict | None:
+    """Tiebreaker for multiple same-year (or near-year) volumes: pick the
+    one with the most issues.
+
+    Rationale: when ComicVine catalogs e.g. "Spider-Boy" 2024 as multiple
+    volumes — main ongoing, FCBD special, variant-cover edition — the main
+    ongoing series has 10+ issues while the others have 1 each. Issue
+    count is the most reliable mechanical signal for "this is the series
+    you actually wanted." A 2-3× gap in issue counts is treated as a
+    confident pick; a tied or near-tied count bails (returns None) so the
+    user can still disambiguate manually for genuinely ambiguous cases
+    like two competing ongoing runs from the same year.
+    """
+    annotated = []
+    for v in candidates:
+        n = v.get("count_of_issues")
+        try:
+            n = int(n) if n is not None else 0
+        except (TypeError, ValueError):
+            n = 0
+        annotated.append((n, v))
+    annotated.sort(key=lambda x: x[0], reverse=True)
+    top_n = annotated[0][0]
+    second_n = annotated[1][0] if len(annotated) > 1 else 0
+
+    # Confident pick: top has clearly more issues than the runner-up.
+    # Threshold = at least 2 more issues AND ≥ 2× the runner-up.
+    if top_n >= second_n + 2 and (second_n == 0 or top_n >= 2 * second_n):
+        chosen = annotated[0][1]
+        proximity = "near" if near_year else "starting in"
+        print(
+            f"  ⚖ {len(candidates)} volumes match {name!r} {proximity} "
+            f"{year}; picking id={chosen.get('id')} by issue count "
+            f"(top={top_n}, runner-up={second_n})."
+        )
+        return chosen
+
+    # Tied or near-tied issue counts — genuinely ambiguous. Surface to user.
+    proximity = "near year" if near_year else "starting in"
+    print(
+        f"  ✗ {len(candidates)} ComicVine volumes match {name!r} {proximity} "
+        f"{year}; issue counts too close to break the tie "
+        f"(top={top_n}, runner-up={second_n}). Pass --volume-id."
+    )
+    return None
+
+
 def find_volume(name: str, publisher: str | None = None, year: int | None = None) -> dict | None:
     """Resolve a ComicVine volume by (name, publisher, year). Hard-fails when
     the publisher constraint can't be satisfied — never falls through to a
@@ -445,7 +510,7 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
         {
             "query": name,
             "resources": "volume",
-            "field_list": "id,name,publisher,start_year,api_detail_url",
+            "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
             "limit": 20,
         },
     )
@@ -487,11 +552,17 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
         if len(exact) == 1:
             return exact[0]
         if len(exact) > 1:
-            print(
-                f"  ✗ {len(exact)} ComicVine volumes match {name!r} starting in {year}; "
-                f"refusing to guess. Pass --volume-id."
-            )
-            _record_needs_volume_id(name, publisher, year, "multiple_same_start_year", exact)
+            # Pick the volume with the most issues. The "main" ongoing series
+            # almost always has more issues than a one-shot, FCBD special,
+            # variant-cover edition, or tie-in mini that ComicVine catalogs as
+            # a separate volume in the same launch year. Previously we bailed
+            # here, but for blockbuster Marvel/DC titles (Spider-Boy 2024,
+            # Captain America 2023) that meant the user had to manually look
+            # up volume_ids for the most predictable case in the dataset.
+            chosen = _pick_by_issue_count(exact, name, year, publisher)
+            if chosen is not None:
+                return chosen
+            _record_needs_volume_id(name, publisher, year, "multiple_same_start_year_tied", exact)
             return None
 
         near = []
@@ -502,11 +573,10 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
         if len(near) == 1:
             return near[0]
         if len(near) > 1:
-            print(
-                f"  ✗ {len(near)} ComicVine volumes match {name!r} near year {year}; "
-                f"refusing to guess. Pass --volume-id."
-            )
-            _record_needs_volume_id(name, publisher, year, "multiple_near_year", near)
+            chosen = _pick_by_issue_count(near, name, year, publisher, near_year=True)
+            if chosen is not None:
+                return chosen
+            _record_needs_volume_id(name, publisher, year, "multiple_near_year_tied", near)
             return None
 
     # Year unspecified or no near match — only return if there's exactly one
@@ -774,12 +844,18 @@ def main():
 
             if not volume:
                 print(f"  volume not found: {volume_name}")
-                # Mark not-found targets done too — re-searching them next run
-                # just burns the same search call for nothing. (Ambiguous ones
-                # are already captured in needs_volume_id.json for manual fixup;
-                # delete the ledger / use --ignore-done to retry after a matcher
-                # improvement.)
-                if use_ledger and not target.get("volume_id"):
+                # Only mark "true not-found" failures done. Ambiguous-match
+                # failures (multiple volumes named X with same publisher and
+                # year) might be resolvable by a future matcher improvement
+                # — marking them done would silently lock them out forever.
+                # AMBIGUOUS_THIS_RUN is populated by _record_needs_volume_id
+                # in every ambiguous-branch return of find_volume.
+                was_ambiguous = (
+                    volume_name,
+                    publisher_name,
+                    target.get("year"),
+                ) in AMBIGUOUS_THIS_RUN
+                if use_ledger and not target.get("volume_id") and not was_ambiguous:
                     done.add(_done_key(target))
                     _save_done(args.done_file, done)
                 continue

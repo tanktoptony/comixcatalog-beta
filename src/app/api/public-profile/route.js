@@ -75,6 +75,7 @@ export async function GET(req) {
       created_at,
       comic_id,
       gcd_issue_id,
+      user_cover_url,
       comics!user_collections_comic_id_fkey (
         id,
         issue_number,
@@ -189,7 +190,7 @@ export async function GET(req) {
       const issueYear = row.year;
 
       let storagePath = null;
-      if (candidates.length > 0 && issueYear != null) {
+      if (candidates.length > 0) {
         // cover_date is THIS issue's publication date — it's the authoritative
         // year signal for per-issue matching. series_year is when the series
         // started; for long-running annuals it's many years off this issue's
@@ -200,29 +201,60 @@ export async function GET(req) {
           return c.series_year != null ? Number(c.series_year) : null;
         };
 
-        let best = null;
-        let bestDiff = Infinity;
-        for (const c of candidates) {
-          const cy = yearOf(c);
-          if (cy == null) continue;
-          const diff = Math.abs(cy - issueYear);
-          if (diff > COVER_YEAR_TOLERANCE) continue;
-          if (diff < bestDiff) {
-            best = c;
-            bestDiff = diff;
+        // When the user's issueYear is known, find the closest-by-year cover
+        // within tolerance. When issueYear is null (gcd_issues has no
+        // publication_date AND no key_date — happens on freshly-cataloged
+        // current releases like Absolute Batman #2), fall back to the
+        // most-recently-dated candidate. Without this fallback, the row
+        // renders coverless even though the canonical cover exists.
+        if (issueYear != null) {
+          let best = null;
+          let bestDiff = Infinity;
+          for (const c of candidates) {
+            const cy = yearOf(c);
+            if (cy == null) continue;
+            const diff = Math.abs(cy - issueYear);
+            if (diff > COVER_YEAR_TOLERANCE) continue;
+            if (diff < bestDiff) {
+              best = c;
+              bestDiff = diff;
+            }
           }
+          if (best) storagePath = best.storage_path;
+        } else {
+          // Fallback: prefer the most recent dated candidate. Among those
+          // with no date at all, take whichever's first.
+          let best = null;
+          let bestYear = -Infinity;
+          for (const c of candidates) {
+            const cy = yearOf(c);
+            if (cy != null && cy > bestYear) {
+              best = c;
+              bestYear = cy;
+            } else if (!best) {
+              best = c;
+            }
+          }
+          if (best) storagePath = best.storage_path;
         }
-        if (best) storagePath = best.storage_path;
       }
 
+      const canonicalUrl = storagePath
+        ? `${supabaseUrl}/storage/v1/object/public/canonical-covers/${storagePath}`
+        : null;
       gcdDisplayLookup[row.gcd_id] = {
         title: row.seriesTitle ?? "Untitled",
         issueNumber: row.issue_number ?? "",
         year: row.year,
         publisher: row.publisher,
-        coverUrl: storagePath
-          ? `${supabaseUrl}/storage/v1/object/public/canonical-covers/${storagePath}`
-          : null,
+        // Legacy single `coverUrl` kept for back-compat (defaults to canonical
+        // because GCD-linked rows are catalog-grade by definition). Render
+        // sites that care about the canonical-vs-personal distinction should
+        // read the three separate fields below.
+        coverUrl: canonicalUrl,
+        canonicalCoverUrl: canonicalUrl,
+        // personalCoverUrl is set per-row later (it's on user_collections, not
+        // on the GCD lookup which is shared across users).
         href: `/issue/gcd-${row.gcd_id}`,
         sourceType: "gcd",
       };
@@ -250,11 +282,29 @@ export async function GET(req) {
     }
   }
 
+  // Build URL helpers — cheap, reused per row.
+  const personalUrlFromPath = (path) =>
+    path ? `${supabaseUrl}/storage/v1/object/public/comic-covers/${path}` : null;
+
   const normalizedCollection = (collection || [])
     .map((item) => {
+      // Personal cover lives on the user_collections row itself and applies
+      // equally to GCD-linked and local-only rows. Resolved once per item.
+      const personalCoverUrl = personalUrlFromPath(item.user_cover_url);
+
       if (item.gcd_issue_id != null) {
-        const display = gcdDisplayLookup[item.gcd_issue_id];
-        if (!display) return null;
+        const baseDisplay = gcdDisplayLookup[item.gcd_issue_id];
+        if (!baseDisplay) return null;
+        // Public-profile context: canonical wins for the primary cover; the
+        // caller can still surface personalCoverUrl as an overlay/badge if
+        // they want to highlight that the owner has a photo of their copy.
+        const display = {
+          ...baseDisplay,
+          personalCoverUrl,
+          communityCoverUrl: null,
+          // Keep coverUrl pointing at the canonical (already set in the GCD
+          // lookup) so existing UI keeps rendering as before.
+        };
         return { ...item, display };
       }
 
@@ -266,7 +316,7 @@ export async function GET(req) {
       const issueYear = comic.release_year ?? null;
       const COVER_YEAR_TOLERANCE = 1;
 
-      let canonicalUrl = null;
+      let canonicalCoverUrl = null;
       if (candidates.length > 0) {
         const yearOf = (c) => {
           const cd = parseYear(c.cover_date);
@@ -283,13 +333,17 @@ export async function GET(req) {
           if (diff > COVER_YEAR_TOLERANCE) continue;
           if (diff < bestDiff) { best = c; bestDiff = diff; }
         }
-        if (best) canonicalUrl = `${supabaseUrl}/storage/v1/object/public/canonical-covers/${best.storage_path}`;
+        if (best) canonicalCoverUrl = `${supabaseUrl}/storage/v1/object/public/canonical-covers/${best.storage_path}`;
       }
 
+      // Community cover: comic_covers.image_path — uploaded by some user (often
+      // the owner themselves) when adding to /library/add. Treated as the
+      // weakest catalog-quality fallback for local-only rows where we have no
+      // canonical at all.
       const primaryCover =
         comic.comic_covers?.find((c) => c.is_primary) ||
         comic.comic_covers?.[0];
-      const userCoverFallback = primaryCover
+      const communityCoverUrl = primaryCover
         ? `${supabaseUrl}/storage/v1/object/public/comic-covers/${primaryCover.image_path}`
         : null;
 
@@ -298,7 +352,12 @@ export async function GET(req) {
         issueNumber: comic.issue_number ?? "",
         year: comic.release_year ?? null,
         publisher: comic.publisher ?? null,
-        coverUrl: canonicalUrl ?? userCoverFallback,
+        // Public-profile priority: canonical > community fallback. Personal
+        // surfaces as an overlay if the UI wants it.
+        coverUrl: canonicalCoverUrl ?? communityCoverUrl,
+        canonicalCoverUrl,
+        personalCoverUrl,
+        communityCoverUrl,
         href: `/comic/${comic.id}`,
         sourceType: "local",
       };

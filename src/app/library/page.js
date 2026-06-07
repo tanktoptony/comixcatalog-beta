@@ -8,6 +8,7 @@ import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor, { GradeBadge } from "@/components/GradeEditor";
 import EmptyState from "@/components/EmptyState";
+import CatalogLinkPicker from "@/components/CatalogLinkPicker";
 
 const hydrationCache = new Map();
 
@@ -91,6 +92,18 @@ function LibraryPageContent() {
   // Wantlist export busy flag (separate from the full-collection csv export
   // so the two buttons can spin independently).
   const [wantlistExporting, setWantlistExporting] = useState(false);
+  // Catalog-link state — Pro feature that upgrades local-only `comics` rows
+  // to canonical `gcd_issue_id` rows. Audit is on-demand (button click), not
+  // automatic, because the matcher does several round-trips and we don't
+  // want to fire it on every library page load.
+  const [catalogAudit, setCatalogAudit] = useState(null); // {summary, entries} | null
+  const [catalogAuditing, setCatalogAuditing] = useState(false);
+  const [catalogOpen, setCatalogOpen] = useState(false);
+  const [catalogApplying, setCatalogApplying] = useState(false);
+  const [catalogResult, setCatalogResult] = useState(null);
+  // Picker modal state — holds the entry being resolved (one of the audit's
+  // entries[] items). Null = modal closed.
+  const [pickerEntry, setPickerEntry] = useState(null);
 
   function handleShare() {
     if (!profile?.username) return;
@@ -158,6 +171,112 @@ function LibraryPageContent() {
       alert("PDF export failed. Please try again.");
     } finally {
       setPdfExporting(false);
+    }
+  }
+
+  async function handleCatalogAudit() {
+    if (!user) return;
+    if (!isPro) {
+      window.location.href = "/upgrade";
+      return;
+    }
+    setCatalogAuditing(true);
+    setCatalogResult(null);
+    try {
+      const res = await fetch(
+        `/api/library/catalog-link?user_id=${encodeURIComponent(user.id)}`,
+        { cache: "no-store" }
+      );
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        if (res.status === 402 || err.upgrade) {
+          window.location.href = "/upgrade";
+          return;
+        }
+        alert(err.error || "Audit failed");
+        return;
+      }
+      const data = await res.json();
+      setCatalogAudit(data);
+      setCatalogOpen(true);
+    } catch {
+      alert("Audit failed. Please try again.");
+    } finally {
+      setCatalogAuditing(false);
+    }
+  }
+
+  async function handleApplyConfidentLinks() {
+    if (!user || !catalogAudit) return;
+    const confident = catalogAudit.entries.filter((e) => e.status === "confident");
+    if (confident.length === 0) return;
+    const ok = window.confirm(
+      `Link ${confident.length} book${confident.length === 1 ? "" : "s"} to our catalog? ` +
+      `This unlocks story arc badges, run completion, and future automatic valuation for these books.`
+    );
+    if (!ok) return;
+    setCatalogApplying(true);
+    try {
+      const res = await fetch("/api/library/catalog-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          user_id: user.id,
+          links: confident.map((e) => ({
+            collection_id: e.collection_id,
+            gcd_issue_id: e.candidate.gcd_issue_id,
+          })),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        alert(data.error || "Link failed");
+        return;
+      }
+      setCatalogResult(data);
+      // Re-fetch the library so badges and counts re-evaluate against the
+      // newly-linked rows. Without this the user has to refresh manually.
+      await refreshLibrary?.();
+      // Re-audit so confident list is now empty.
+      await handleCatalogAudit();
+    } catch {
+      alert("Apply failed. Please try again.");
+    } finally {
+      setCatalogApplying(false);
+    }
+  }
+
+  async function handleApplySingleLink(collection_id, gcd_issue_id) {
+    if (!user) return;
+    try {
+      const res = await fetch("/api/library/catalog-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          user_id: user.id,
+          links: [{ collection_id, gcd_issue_id }],
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        alert(data.error || "Link failed");
+        return;
+      }
+      if (data.linked > 0) {
+        setCatalogResult({ linked: data.linked, skipped: data.skipped, errors: data.errors });
+        await refreshLibrary?.();
+        await handleCatalogAudit();
+        setPickerEntry(null);
+      } else if (data.errors?.[0]?.reason === "collision") {
+        alert(
+          "Couldn't link — you already have another row pointing at this catalog entry. " +
+          "Remove one of them first if you didn't mean to track this book twice."
+        );
+      } else {
+        alert(data.errors?.[0]?.message || "Link failed");
+      }
+    } catch {
+      alert("Link failed. Please try again.");
     }
   }
 
@@ -397,6 +516,21 @@ function LibraryPageContent() {
       .map(([name, count]) => ({ name, count }));
   }, [libraryItems]);
 
+  // Phase 1 unify: dominantDecade for the "Era focus" sidebar widget.
+  // Mirrors the public-profile's compute so /library and /u/[name] surface
+  // the same insight under the same name.
+  const dominantDecade = useMemo(() => {
+    const decadeCounts = {};
+    for (const item of libraryItems) {
+      const year = Number(item.comic?.year);
+      if (!year) continue;
+      const decade = Math.floor(year / 10) * 10;
+      decadeCounts[decade] = (decadeCounts[decade] || 0) + 1;
+    }
+    const top = Object.entries(decadeCounts).sort((a, b) => b[1] - a[1])[0];
+    return top ? top[0] : null;
+  }, [libraryItems]);
+
   const filteredItems = useMemo(() => {
     let result = [...libraryItems];
 
@@ -455,6 +589,7 @@ function LibraryPageContent() {
 
     const ownedCount = collections.filter((c) => c.status === "owned").length;
     const wishlistCount = collections.filter((c) => c.status === "wishlist").length;
+    const forSaleCount = collections.filter((c) => c.status === "for_sale").length;
 
     const uniqueSeries = new Set(
       hydratedCurrent.map(
@@ -471,8 +606,47 @@ function LibraryPageContent() {
       ? Math.max(...withYear.map((item) => Number(item.comic.year)))
       : "—";
 
-    return { totalInView: rawCurrent.length, renderedInView: hydratedCurrent.length, ownedCount, wishlistCount, uniqueSeries, uniquePublishers, newestYear };
-  }, [collections, comicIndex, tab]);
+    // Phase 1 unify: bring Slabbed + Collection Value stats from the public
+    // profile onto /library so the owner's management view matches what
+    // visitors see. Slabbed = count of owned rows with a slab_company set.
+    // Collection Value = sum of (market_value OR auto_market_value) across
+    // owned rows. We exclude wantlist/for_sale from value because the user
+    // hasn't bought those yet (or is reselling at potentially different prices).
+    const ownedItems = collections.filter((c) => c.status === "owned");
+    const slabbedCount = ownedItems.filter((c) => c.slab_company).length;
+    const slabRatio = ownedItems.length > 0
+      ? Math.round((slabbedCount / ownedItems.length) * 100)
+      : 0;
+
+    let collectionValue = 0;
+    for (const item of ownedItems) {
+      const userValue = Number(item.market_value);
+      if (!Number.isNaN(userValue) && userValue > 0) {
+        collectionValue += userValue;
+        continue;
+      }
+      // auto_market_value comes via marketValues[item.id] (already keyed by
+      // collection.id from /api/library-hydrate). Fall through to that.
+      const auto = marketValues?.[item.id]?.value;
+      if (auto != null && !Number.isNaN(Number(auto))) {
+        collectionValue += Number(auto);
+      }
+    }
+
+    return {
+      totalInView: rawCurrent.length,
+      renderedInView: hydratedCurrent.length,
+      ownedCount,
+      wishlistCount,
+      forSaleCount,
+      uniqueSeries,
+      uniquePublishers,
+      newestYear,
+      slabbedCount,
+      slabRatio,
+      collectionValue,
+    };
+  }, [collections, comicIndex, tab, marketValues]);
 
   // Hybrid-duplicate detection.
   //
@@ -590,7 +764,7 @@ function LibraryPageContent() {
           <div className="library-kicker">Collection Management</div>
           <h1 className="library-title">My Library</h1>
           <p className="library-subtitle">
-            Manage your collection, wishlist, and CSV imports from one place.
+            Manage your collection, wantlist, and CSV imports from one place.
           </p>
           {profile?.username && (
             <button
@@ -666,7 +840,7 @@ function LibraryPageContent() {
             className={`library-tab ${tab === "wishlist" ? "active" : ""}`}
             onClick={() => setTab("wishlist")}
           >
-            Wishlist {stats.wishlistCount > 0 && <span className="library-tab-count">{stats.wishlistCount}</span>}
+            Wantlist {stats.wishlistCount > 0 && <span className="library-tab-count">{stats.wishlistCount}</span>}
           </button>
         </div>
 
@@ -728,7 +902,7 @@ function LibraryPageContent() {
       <section className="library-stats-row">
         <div className="library-stat-card">
           <div className="library-stat-number">{stats.totalInView}</div>
-          <div className="library-stat-label">{tab === "owned" ? "Books in Collection" : "Books in Wishlist"}</div>
+          <div className="library-stat-label">{tab === "owned" ? "Books in Collection" : "Books on Wantlist"}</div>
         </div>
         <div className="library-stat-card">
           <div className="library-stat-number">{stats.uniqueSeries}</div>
@@ -744,12 +918,280 @@ function LibraryPageContent() {
         </div>
         <div className="library-stat-card">
           <div className="library-stat-number">{stats.wishlistCount}</div>
-          <div className="library-stat-label">Total Wishlist</div>
+          <div className="library-stat-label">Total Wantlist</div>
+        </div>
+        <div className="library-stat-card">
+          <div className="library-stat-number">{stats.slabbedCount}</div>
+          <div className="library-stat-label">Slabbed</div>
+        </div>
+        <div className="library-stat-card">
+          <div className="library-stat-number">
+            {stats.collectionValue > 0
+              ? new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                  maximumFractionDigits: 0,
+                }).format(stats.collectionValue)
+              : "—"}
+          </div>
+          <div className="library-stat-label">Collection Value</div>
         </div>
         <div className="library-stat-card">
           <div className="library-stat-number">{stats.newestYear}</div>
           <div className="library-stat-label">Newest Year in View</div>
         </div>
+      </section>
+
+      {/* ── Catalog linking (Pro) ─────────────────────────────────────────
+          Local-only books (added by CSV import or the manual /library/add
+          form before a GCD match existed) are invisible to arc completion,
+          run tracking, and future automatic valuation. This panel scans
+          for matches in our catalog and offers a one-click upgrade. */}
+      <section
+        style={{
+          margin: "0 0 18px",
+          padding: "12px 16px",
+          borderRadius: 10,
+          background: "rgba(76,175,80,0.05)",
+          border: "1px solid rgba(76,175,80,0.20)",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 12,
+            flexWrap: "wrap",
+          }}
+        >
+          <div>
+            <strong style={{ color: "#4CAF50" }}>🔗 Catalog linking:</strong>{" "}
+            <span style={{ opacity: 0.85 }}>
+              {catalogAudit
+                ? `${catalogAudit.summary.confident} confident match${catalogAudit.summary.confident === 1 ? "" : "es"}, ${catalogAudit.summary.ambiguous} need manual review, ${catalogAudit.summary.no_match} not in catalog yet.`
+                : "Find books in your collection that aren't yet linked to our catalog. Linking unlocks story arc badges, run completion, and future valuation."}
+            </span>
+          </div>
+          {isPro ? (
+            <button
+              type="button"
+              className="library-secondary-btn"
+              onClick={handleCatalogAudit}
+              disabled={catalogAuditing || catalogApplying}
+              style={{ flexShrink: 0 }}
+            >
+              {catalogAuditing ? "Scanning…" : catalogAudit ? "Re-scan" : "Scan my library"}
+            </button>
+          ) : (
+            <Link
+              href="/upgrade"
+              className="library-secondary-btn"
+              style={{ flexShrink: 0, textDecoration: "none" }}
+            >
+              Available with Pro →
+            </Link>
+          )}
+        </div>
+
+        {isPro && catalogAudit && (catalogAudit.summary.confident > 0 || catalogAudit.summary.ambiguous > 0) && (
+          <div style={{ marginTop: 12 }}>
+            {catalogAudit.summary.confident > 0 && (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: 12,
+                  flexWrap: "wrap",
+                  padding: "10px 12px",
+                  borderRadius: 8,
+                  background: "rgba(76,175,80,0.10)",
+                  border: "1px solid rgba(76,175,80,0.30)",
+                  marginBottom: 10,
+                }}
+              >
+                <div style={{ fontSize: "0.9rem" }}>
+                  <strong>{catalogAudit.summary.confident} confident match{catalogAudit.summary.confident === 1 ? "" : "es"}</strong>
+                  {" "}can be linked in one click.
+                </div>
+                <button
+                  type="button"
+                  onClick={handleApplyConfidentLinks}
+                  disabled={catalogApplying}
+                  style={{
+                    padding: "8px 14px",
+                    borderRadius: 8,
+                    border: "1px solid rgba(76,175,80,0.4)",
+                    background: "linear-gradient(90deg, #4CAF50, #2196F3)",
+                    color: "#fff",
+                    fontWeight: 700,
+                    cursor: catalogApplying ? "not-allowed" : "pointer",
+                    opacity: catalogApplying ? 0.7 : 1,
+                    flexShrink: 0,
+                  }}
+                >
+                  {catalogApplying ? "Linking…" : `Link all ${catalogAudit.summary.confident}`}
+                </button>
+              </div>
+            )}
+
+            {catalogResult && (
+              <div
+                style={{
+                  fontSize: "0.85rem",
+                  opacity: 0.85,
+                  marginBottom: 10,
+                }}
+              >
+                ✓ Linked {catalogResult.linked} book{catalogResult.linked === 1 ? "" : "s"} to the catalog.
+                {catalogResult.skipped > 0 && ` (${catalogResult.skipped} skipped.)`}
+              </div>
+            )}
+
+            <button
+              type="button"
+              className="library-secondary-btn"
+              onClick={() => setCatalogOpen((v) => !v)}
+              style={{ marginBottom: 4 }}
+            >
+              {catalogOpen ? "Hide details" : "Show details"}
+            </button>
+
+            {catalogOpen && (
+              <div style={{ marginTop: 12 }}>
+                {catalogAudit.summary.confident > 0 && (
+                  <>
+                    <div style={{ fontWeight: 700, fontSize: "0.85rem", opacity: 0.7, marginBottom: 6 }}>
+                      Confident matches
+                    </div>
+                    <ul style={{ margin: "0 0 14px", padding: 0, listStyle: "none" }}>
+                      {catalogAudit.entries
+                        .filter((e) => e.status === "confident")
+                        .map((e) => (
+                          <li
+                            key={e.collection_id}
+                            style={{
+                              padding: "6px 0",
+                              borderTop: "1px solid rgba(255,255,255,0.06)",
+                              display: "flex",
+                              justifyContent: "space-between",
+                              gap: 12,
+                              fontSize: "0.85rem",
+                            }}
+                          >
+                            <div>
+                              {e.comic?.series_title} #{e.comic?.issue_number}
+                              {e.comic?.release_year ? ` (${e.comic.release_year})` : ""}
+                            </div>
+                            <div style={{ opacity: 0.65, fontSize: "0.8rem" }}>
+                              → {e.candidate?.series_title} #{e.candidate?.issue_number}
+                            </div>
+                          </li>
+                        ))}
+                    </ul>
+                  </>
+                )}
+
+                {catalogAudit.summary.ambiguous > 0 && (
+                  <>
+                    <div style={{ fontWeight: 700, fontSize: "0.85rem", opacity: 0.7, marginBottom: 6 }}>
+                      Ambiguous — multiple catalog candidates
+                    </div>
+                    <ul style={{ margin: "0 0 14px", padding: 0, listStyle: "none" }}>
+                      {catalogAudit.entries
+                        .filter((e) => e.status === "ambiguous")
+                        .map((e) => (
+                          <li
+                            key={e.collection_id}
+                            style={{
+                              padding: "8px 0",
+                              borderTop: "1px solid rgba(255,255,255,0.06)",
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                              gap: 12,
+                              flexWrap: "wrap",
+                              fontSize: "0.85rem",
+                            }}
+                          >
+                            <div style={{ flex: "1 1 auto", minWidth: 0 }}>
+                              <div style={{ fontWeight: 600 }}>
+                                {e.comic?.series_title} #{e.comic?.issue_number}
+                                {e.comic?.release_year ? ` (${e.comic.release_year})` : ""}
+                              </div>
+                              <div style={{ opacity: 0.6, fontSize: "0.8rem" }}>
+                                {e.candidates?.length} possible match{e.candidates?.length === 1 ? "" : "es"}
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              className="library-secondary-btn"
+                              onClick={() => setPickerEntry(e)}
+                              style={{ flexShrink: 0 }}
+                            >
+                              Choose match…
+                            </button>
+                          </li>
+                        ))}
+                    </ul>
+                  </>
+                )}
+
+                {catalogAudit.summary.no_match > 0 && (
+                  <>
+                    <div style={{ fontWeight: 700, fontSize: "0.85rem", opacity: 0.7, marginBottom: 6 }}>
+                      Not auto-matched — search the catalog manually
+                    </div>
+                    <ul style={{ margin: "0 0 6px", padding: 0, listStyle: "none" }}>
+                      {catalogAudit.entries
+                        .filter((e) => e.status === "no_match" && e.comic)
+                        .map((e) => (
+                          <li
+                            key={e.collection_id}
+                            style={{
+                              padding: "8px 0",
+                              borderTop: "1px solid rgba(255,255,255,0.06)",
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                              gap: 12,
+                              flexWrap: "wrap",
+                              fontSize: "0.85rem",
+                            }}
+                          >
+                            <div style={{ flex: "1 1 auto", minWidth: 0 }}>
+                              <div style={{ fontWeight: 600 }}>
+                                {e.comic?.series_title} #{e.comic?.issue_number}
+                                {e.comic?.release_year ? ` (${e.comic.release_year})` : ""}
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              className="library-secondary-btn"
+                              onClick={() => setPickerEntry(e)}
+                              style={{ flexShrink: 0 }}
+                            >
+                              Search…
+                            </button>
+                          </li>
+                        ))}
+                    </ul>
+                    <div style={{ fontSize: "0.75rem", opacity: 0.55, marginTop: 6 }}>
+                      Books that aren&rsquo;t in our catalog yet stay as local entries — they still appear in your collection, they just don&rsquo;t link to canonical art or arc badges until ingested.
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+
+        {isPro && catalogAudit && catalogAudit.summary.total === 0 && (
+          <div style={{ marginTop: 8, fontSize: "0.85rem", opacity: 0.7 }}>
+            ✓ All your owned books are already linked to the catalog. Nothing to do here.
+          </div>
+        )}
       </section>
 
       {/* ── Library health: hybrid duplicates ─────────────────────────────
@@ -882,7 +1324,7 @@ function LibraryPageContent() {
             <div className="library-sidebar-title">Search Library</div>
             <input
               className="library-search-input"
-              placeholder={`Search ${tab === "owned" ? "collection" : "wishlist"}...`}
+              placeholder={`Search ${tab === "owned" ? "collection" : "wantlist"}...`}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -922,12 +1364,79 @@ function LibraryPageContent() {
               </button>
             ))}
           </div>
+
+          {/* Phase 1 unify: insight widgets matching the public profile. Each
+              one hides when there's no signal so the sidebar doesn't show
+              empty rows for a brand-new collector. */}
+          {(dominantDecade || stats.ownedCount > 0) && (
+            <div className="library-sidebar-section">
+              <div className="library-sidebar-title">About this collection</div>
+              <dl
+                style={{
+                  margin: 0,
+                  display: "grid",
+                  gridTemplateColumns: "auto 1fr",
+                  rowGap: 6,
+                  columnGap: 12,
+                  fontSize: "0.85rem",
+                }}
+              >
+                {dominantDecade && (
+                  <>
+                    <dt style={{ opacity: 0.65 }}>Era focus</dt>
+                    <dd style={{ margin: 0, textAlign: "right", fontWeight: 600 }}>
+                      {dominantDecade}s
+                    </dd>
+                  </>
+                )}
+                {stats.ownedCount > 0 && (
+                  <>
+                    <dt style={{ opacity: 0.65 }}>Slab ratio</dt>
+                    <dd style={{ margin: 0, textAlign: "right", fontWeight: 600 }}>
+                      {stats.slabRatio}%
+                    </dd>
+                  </>
+                )}
+                {stats.uniqueSeries > 0 && (
+                  <>
+                    <dt style={{ opacity: 0.65 }}>Unique series</dt>
+                    <dd style={{ margin: 0, textAlign: "right", fontWeight: 600 }}>
+                      {stats.uniqueSeries}
+                    </dd>
+                  </>
+                )}
+              </dl>
+            </div>
+          )}
+
+          {availablePublishers.length > 0 && (
+            <div className="library-sidebar-section">
+              <div className="library-sidebar-title">Top publishers</div>
+              <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                {availablePublishers.slice(0, 5).map((pub) => (
+                  <li
+                    key={pub.name}
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      padding: "4px 0",
+                      fontSize: "0.85rem",
+                      borderTop: "1px solid rgba(255,255,255,0.05)",
+                    }}
+                  >
+                    <span style={{ opacity: 0.85 }}>{pub.name}</span>
+                    <span style={{ fontWeight: 600, opacity: 0.65 }}>{pub.count}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </aside>
 
         <section className="library-results-panel">
           <div className="library-results-header">
             <div className="library-results-copy">
-              <h2>{tab === "owned" ? "Collection" : "Wishlist"}</h2>
+              <h2>{tab === "owned" ? "Collection" : "Wantlist"}</h2>
               <p>{filteredItems.length} item{filteredItems.length === 1 ? "" : "s"}</p>
             </div>
             <div className="library-results-controls">
@@ -1061,7 +1570,7 @@ function LibraryPageContent() {
                         <span>•</span>
                         <span>{comic.year || "Unknown Year"}</span>
                         <span>•</span>
-                        <span>{tab === "owned" ? "In Collection" : "On Wishlist"}</span>
+                        <span>{tab === "owned" ? "In Collection" : "On Wantlist"}</span>
                         {liveGrade.slab_company && (
                           <>
                             <span>•</span>
@@ -1222,6 +1731,17 @@ function LibraryPageContent() {
           )}
         </section>
       </section>
+
+      {/* Catalog-link picker modal — opens when the user clicks "Choose match…"
+          or "Search…" on a row in the catalog-linking audit panel. */}
+      {pickerEntry && (
+        <CatalogLinkPicker
+          entry={pickerEntry}
+          userId={user.id}
+          onApply={(gcd_issue_id) => handleApplySingleLink(pickerEntry.collection_id, gcd_issue_id)}
+          onClose={() => setPickerEntry(null)}
+        />
+      )}
     </main>
   );
 }

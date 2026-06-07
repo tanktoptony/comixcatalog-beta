@@ -43,6 +43,7 @@ const TIERS = [
       { label: "Story arc completion — \"You own 11 of 14 from X-Cutioner's Song\" with bulk-add-to-wantlist" },
       { label: "Wantlist CSV export — printable shopping list for cons and shops, sorted by title" },
       { label: "Library health audit — find books accidentally tracked twice (local entry + catalog entry for the same issue)" },
+      { label: "Catalog linking — auto-match your manually-added books to our catalog so arc badges, run completion, and valuation light up retroactively" },
       { label: "CSV import up to 200 rows per upload (vs. 25 on free)" },
       { label: "Full-collection CSV export (Discogs-style)" },
       { label: "Collector Pro badge on your profile" },

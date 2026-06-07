@@ -112,12 +112,14 @@ export async function POST(req) {
           if (best) canonicalUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${best.storage_path}`;
         }
 
-        // Fall back to user-uploaded comic_covers if no canonical cover found
+        // Community cover (comic_covers.image_path) — UGC contribution. Kept
+        // as a separate field so render sites can decide whether to use it
+        // (e.g. library = yes as last fallback; catalog views = no).
         const userCoverPath =
           comic.comic_covers?.find((c) => c.is_primary)?.image_path ??
           comic.comic_covers?.[0]?.image_path ??
           null;
-        const userCoverFallback = userCoverPath
+        const communityCover = userCoverPath
           ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${userCoverPath}`
           : null;
 
@@ -130,7 +132,11 @@ export async function POST(req) {
           issueNumber: comic.issue_number ?? "",
           year: comic.release_year ?? null,
           publisher: comic.publisher ?? null,
-          cover: canonicalUrl ?? userCoverFallback,
+          // Legacy single field — picks canonical, falls back to community so
+          // existing render code keeps working.
+          cover: canonicalUrl ?? communityCover,
+          canonicalCover: canonicalUrl,
+          communityCover,
         };
       }
     }
@@ -219,7 +225,7 @@ export async function POST(req) {
         const candidates = coversByKey.get(coverKey) ?? [];
 
         let storagePath = null;
-        if (candidates.length > 0 && issueYear != null) {
+        if (candidates.length > 0) {
           // For a specific issue, cover_date is the authoritative year signal —
           // it's THIS issue's publication date. series_year is when the
           // *series* started, which for long-running annuals (X-Men Annual
@@ -231,22 +237,43 @@ export async function POST(req) {
             return c.series_year != null ? Number(c.series_year) : null;
           };
 
-          let best = null;
-          let bestDiff = Infinity;
-          for (const c of candidates) {
-            const cy = yearOf(c);
-            if (cy == null) continue;
-            const diff = Math.abs(cy - issueYear);
-            if (diff > COVER_YEAR_TOLERANCE) continue;
-            if (diff < bestDiff) {
-              best = c;
-              bestDiff = diff;
+          if (issueYear != null) {
+            let best = null;
+            let bestDiff = Infinity;
+            for (const c of candidates) {
+              const cy = yearOf(c);
+              if (cy == null) continue;
+              const diff = Math.abs(cy - issueYear);
+              if (diff > COVER_YEAR_TOLERANCE) continue;
+              if (diff < bestDiff) {
+                best = c;
+                bestDiff = diff;
+              }
             }
+            if (best) storagePath = best.storage_path;
+          } else {
+            // gcd_issues has no publication_date AND no key_date — happens on
+            // freshly-cataloged current releases. Fall back to the most
+            // recent dated candidate rather than dropping the cover.
+            let best = null;
+            let bestYear = -Infinity;
+            for (const c of candidates) {
+              const cy = yearOf(c);
+              if (cy != null && cy > bestYear) {
+                best = c;
+                bestYear = cy;
+              } else if (!best) {
+                best = c;
+              }
+            }
+            if (best) storagePath = best.storage_path;
           }
-          if (best) storagePath = best.storage_path;
         }
 
         const libraryKey = `gcd-${row.gcd_id}`;
+        const canonicalCover = storagePath
+          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
+          : null;
 
         items[libraryKey] = {
           libraryKey,
@@ -257,9 +284,9 @@ export async function POST(req) {
           issueNumber: row.issue_number ?? "",
           year: issueYear,
           publisher: row.publisher ?? null,
-          cover: storagePath
-            ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
-            : null,
+          cover: canonicalCover,
+          canonicalCover,
+          communityCover: null, // GCD-linked rows don't have community covers
         };
       }
     }

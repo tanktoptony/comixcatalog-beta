@@ -10823,5 +10823,85 @@
         "start_year": 2018
       }
     ]
+  },
+  {
+    "name": "Spider-Boy",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 157980,
+        "name": "Spider-Boy",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 154415,
+        "name": "Spider-Boy",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ]
+  },
+  {
+    "name": "Captain America",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 151915,
+        "name": "Captain America ",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 153610,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ]
+  },
+  {
+    "name": "Geiger",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 141212,
+        "name": "Geiger",
+        "publisher": "Image",
+        "start_year": 2021
+      },
+      {
+        "id": 135290,
+        "name": "Geiger",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ]
+  },
+  {
+    "name": "Stray Dogs",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "multiple_same_start_year",
+    "candidates": [
+      {
+        "id": 134046,
+        "name": "Stray Dogs",
+        "publisher": "Image",
+        "start_year": 2021
+      },
+      {
+        "id": 138941,
+        "name": "Stray Dogs",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ]
   }
 ]

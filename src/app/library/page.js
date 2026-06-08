@@ -9,6 +9,8 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor, { GradeBadge } from "@/components/GradeEditor";
 import EmptyState from "@/components/EmptyState";
 import CatalogLinkPicker from "@/components/CatalogLinkPicker";
+import CollectionStatsStrip from "@/components/CollectionStatsStrip";
+import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 
 const hydrationCache = new Map();
 
@@ -53,7 +55,7 @@ export default function LibraryPage() {
 }
 
 function LibraryPageContent() {
-  const { collections, loading, loadError, refreshLibrary } = useLibrary();
+  const { collections, loading, loadError, refreshLibrary, removeFromCollection } = useLibrary();
   const { user, isPro, profile } = useAuth();
   const supabase = getSupabaseClient();
 
@@ -66,6 +68,29 @@ function LibraryPageContent() {
     const t = searchParams.get("tab");
     return t === "wishlist" || t === "owned" ? t : "owned";
   });
+
+  // Phase 3 unify — preview mode. URL `?view=public` (or localStorage memory
+  // of the last choice) flips the library into a render that mirrors what
+  // visitors see at /u/<username>: management chrome hidden (no CSV upload,
+  // no inline GradeEditor, no Add Comic button, no catalog-linking panel),
+  // stats clamped to public visibility per the owner's privacy toggles.
+  // The toggle button at the top of the header lets the owner round-trip.
+  const [viewMode, setViewMode] = useState(() => {
+    const param = searchParams.get("view");
+    if (param === "public" || param === "manage") return param;
+    if (typeof window !== "undefined") {
+      const stored = window.localStorage.getItem("library-view-mode");
+      if (stored === "public" || stored === "manage") return stored;
+    }
+    return "manage";
+  });
+  const isPublicPreview = viewMode === "public";
+
+  // Persist the last choice so a refresh keeps the same mode.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem("library-view-mode", viewMode);
+  }, [viewMode]);
   const [comicIndex, setComicIndex] = useState(() => Object.fromEntries(hydrationCache));
 
   // hydrationCache is module-scoped and survives navigation/sign-out, which
@@ -243,6 +268,32 @@ function LibraryPageContent() {
       alert("Apply failed. Please try again.");
     } finally {
       setCatalogApplying(false);
+    }
+  }
+
+  // Unlink action — removes a GCD-linked row from user_collections so the
+  // user can re-add it via search if they want a different match. Soft "undo"
+  // for a bad catalog-link choice. We don't try to convert it back to a
+  // local `comics` row because (a) we'd be reconstructing data from GCD that
+  // would just match the same way next time, (b) clean delete is the least
+  // surprising behavior. Their `user_cover_url` photo is lost with the row,
+  // which is the trade-off for keeping this simple.
+  async function handleUnlinkRow(item) {
+    if (!item?.id) return;
+    const label = `${item.comic?.title ?? "this book"}${item.comic?.issueNumber ? ` #${item.comic.issueNumber}` : ""}`;
+    const ok = window.confirm(
+      `Unlink ${label} from the catalog?\n\n` +
+      `This removes the row from your collection entirely. If you uploaded a photo of your copy, it'll be lost. ` +
+      `You can re-add the book via search anytime.`
+    );
+    if (!ok) return;
+    try {
+      await removeFromCollection?.(item.libraryKey ?? item.id);
+      // re-run the audit so the panel reflects the unlinked state
+      if (catalogAudit) await handleCatalogAudit();
+    } catch (err) {
+      console.error("Unlink failed:", err);
+      alert("Unlink failed. Please try again.");
     }
   }
 
@@ -473,6 +524,23 @@ function LibraryPageContent() {
     };
   }, [librarySignature]);
 
+  // All-status hydrated view of the collection — used by the unified stats
+  // strip and insight sidebar, which need owned/wantlist/for_sale counts
+  // simultaneously. Separate from libraryItems (tab-filtered) which the grid
+  // consumes.
+  const allHydrated = useMemo(() => {
+    return collections.map((item) => {
+      const key = makeLibraryKey(item);
+      const comic = key ? comicIndex[key] : null;
+      return {
+        ...item,
+        comic: comic
+          ? { title: comic.title, publisher: comic.publisher, year: comic.year }
+          : null,
+      };
+    });
+  }, [collections, comicIndex]);
+
   const libraryItems = useMemo(() => {
     return collections
       .filter((item) => item.status === tab)
@@ -516,20 +584,8 @@ function LibraryPageContent() {
       .map(([name, count]) => ({ name, count }));
   }, [libraryItems]);
 
-  // Phase 1 unify: dominantDecade for the "Era focus" sidebar widget.
-  // Mirrors the public-profile's compute so /library and /u/[name] surface
-  // the same insight under the same name.
-  const dominantDecade = useMemo(() => {
-    const decadeCounts = {};
-    for (const item of libraryItems) {
-      const year = Number(item.comic?.year);
-      if (!year) continue;
-      const decade = Math.floor(year / 10) * 10;
-      decadeCounts[decade] = (decadeCounts[decade] || 0) + 1;
-    }
-    const top = Object.entries(decadeCounts).sort((a, b) => b[1] - a[1])[0];
-    return top ? top[0] : null;
-  }, [libraryItems]);
+  // Era-focus / top-publishers / slab-ratio used to be computed here.
+  // CollectionInsightSidebar now owns that math — same logic, single source.
 
   const filteredItems = useMemo(() => {
     let result = [...libraryItems];
@@ -759,14 +815,99 @@ function LibraryPageContent() {
           </div>
         </div>
       )}
+      {/* View-mode toggle — owner round-trips between Manage and Public
+          preview. Public preview = exactly what visitors see at /u/<name>,
+          but rendered on the same data without losing scroll position. */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginBottom: 12,
+        }}
+      >
+        <div
+          role="tablist"
+          aria-label="View mode"
+          style={{
+            display: "inline-flex",
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: 8,
+            padding: 3,
+          }}
+        >
+          <button
+            type="button"
+            role="tab"
+            aria-selected={viewMode === "manage"}
+            onClick={() => setViewMode("manage")}
+            style={{
+              padding: "6px 12px",
+              borderRadius: 6,
+              border: "none",
+              background: viewMode === "manage" ? "var(--cc-gold, #FFD700)" : "transparent",
+              color: viewMode === "manage" ? "#0d1733" : "rgba(255,255,255,0.7)",
+              fontWeight: 700,
+              fontSize: "0.8rem",
+              cursor: "pointer",
+            }}
+          >
+            Manage
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={viewMode === "public"}
+            onClick={() => setViewMode("public")}
+            style={{
+              padding: "6px 12px",
+              borderRadius: 6,
+              border: "none",
+              background: viewMode === "public" ? "var(--cc-gold, #FFD700)" : "transparent",
+              color: viewMode === "public" ? "#0d1733" : "rgba(255,255,255,0.7)",
+              fontWeight: 700,
+              fontSize: "0.8rem",
+              cursor: "pointer",
+            }}
+            title="See your collection the way visitors do"
+          >
+            Public preview
+          </button>
+        </div>
+      </div>
+
+      {isPublicPreview && (
+        <div
+          style={{
+            marginBottom: 14,
+            padding: "10px 14px",
+            borderRadius: 8,
+            background: "rgba(33,150,243,0.08)",
+            border: "1px solid rgba(33,150,243,0.25)",
+            fontSize: "0.85rem",
+            opacity: 0.9,
+          }}
+        >
+          👁 You&rsquo;re in <strong>Public preview</strong>. This is how visitors see your
+          collection at <code>/u/{profile?.username}</code> — management controls are hidden,
+          stats respect your privacy toggles. Click <strong>Manage</strong> above to edit.
+        </div>
+      )}
+
       <section className="library-page-header">
         <div>
-          <div className="library-kicker">Collection Management</div>
-          <h1 className="library-title">My Library</h1>
+          <div className="library-kicker">
+            {isPublicPreview ? "Public Showcase" : "Collection Management"}
+          </div>
+          <h1 className="library-title">
+            {isPublicPreview && profile?.display_name ? profile.display_name : "My Library"}
+          </h1>
           <p className="library-subtitle">
-            Manage your collection, wantlist, and CSV imports from one place.
+            {isPublicPreview
+              ? "What other collectors and visitors see when they visit your profile."
+              : "Manage your collection, wantlist, and CSV imports from one place."}
           </p>
-          {profile?.username && (
+          {profile?.username && !isPublicPreview && (
             <button
               type="button"
               className={`library-share-btn ${shareCopied ? "library-share-btn--copied" : ""}`}
@@ -777,7 +918,7 @@ function LibraryPageContent() {
           )}
         </div>
         <div className="library-header-actions">
-          {user && (
+          {user && !isPublicPreview && (
             <>
               <button
                 className="library-secondary-btn"
@@ -844,6 +985,7 @@ function LibraryPageContent() {
           </button>
         </div>
 
+        {!isPublicPreview && (
         <form
           onSubmit={async (e) => {
             e.preventDefault();
@@ -897,56 +1039,35 @@ function LibraryPageContent() {
             Upload CSV
           </button>
         </form>
+        )}
       </section>
 
-      <section className="library-stats-row">
-        <div className="library-stat-card">
-          <div className="library-stat-number">{stats.totalInView}</div>
-          <div className="library-stat-label">{tab === "owned" ? "Books in Collection" : "Books on Wantlist"}</div>
-        </div>
-        <div className="library-stat-card">
-          <div className="library-stat-number">{stats.uniqueSeries}</div>
-          <div className="library-stat-label">Unique Series</div>
-        </div>
-        <div className="library-stat-card">
-          <div className="library-stat-number">{stats.uniquePublishers}</div>
-          <div className="library-stat-label">Publishers</div>
-        </div>
-        <div className="library-stat-card">
-          <div className="library-stat-number">{stats.ownedCount}</div>
-          <div className="library-stat-label">Total Owned</div>
-        </div>
-        <div className="library-stat-card">
-          <div className="library-stat-number">{stats.wishlistCount}</div>
-          <div className="library-stat-label">Total Wantlist</div>
-        </div>
-        <div className="library-stat-card">
-          <div className="library-stat-number">{stats.slabbedCount}</div>
-          <div className="library-stat-label">Slabbed</div>
-        </div>
-        <div className="library-stat-card">
-          <div className="library-stat-number">
-            {stats.collectionValue > 0
-              ? new Intl.NumberFormat("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                  maximumFractionDigits: 0,
-                }).format(stats.collectionValue)
-              : "—"}
-          </div>
-          <div className="library-stat-label">Collection Value</div>
-        </div>
-        <div className="library-stat-card">
-          <div className="library-stat-number">{stats.newestYear}</div>
-          <div className="library-stat-label">Newest Year in View</div>
-        </div>
-      </section>
+      {/* Unified stats strip (Phase 2 of library/profile unify). Same
+          component used on /u/[username] so the two surfaces never drift
+          on stat shape, label wording, or computation. Owner sees
+          everything (no privacy clamping); the public profile applies
+          profile.show_wantlist / show_for_sale / show_value. */}
+      <CollectionStatsStrip
+        collection={allHydrated}
+        autoMarketValues={marketValues}
+        visibility={
+          isPublicPreview
+            ? {
+                wantlist: profile?.show_wantlist !== false,
+                for_sale: profile?.show_for_sale !== false,
+                value: profile?.show_value !== false,
+              }
+            : {}
+        }
+      />
 
       {/* ── Catalog linking (Pro) ─────────────────────────────────────────
           Local-only books (added by CSV import or the manual /library/add
           form before a GCD match existed) are invisible to arc completion,
           run tracking, and future automatic valuation. This panel scans
-          for matches in our catalog and offers a one-click upgrade. */}
+          for matches in our catalog and offers a one-click upgrade.
+          Hidden in public preview — it's a management action. */}
+      {!isPublicPreview && (
       <section
         style={{
           margin: "0 0 18px",
@@ -1193,13 +1314,15 @@ function LibraryPageContent() {
           </div>
         )}
       </section>
+      )}
 
       {/* ── Library health: hybrid duplicates ─────────────────────────────
           Surfaces when an issue is tracked once locally and once via GCD —
           a real data-hygiene problem caused by adding a book before our
           catalog had a match, then again after. Same-key dupes are blocked
-          by the write path, so this is the only meaningful dupe class. */}
-      {duplicates.length > 0 && (
+          by the write path, so this is the only meaningful dupe class.
+          Hidden in public preview — also a management action. */}
+      {!isPublicPreview && duplicates.length > 0 && (
         <section
           style={{
             margin: "0 0 18px",
@@ -1365,72 +1488,13 @@ function LibraryPageContent() {
             ))}
           </div>
 
-          {/* Phase 1 unify: insight widgets matching the public profile. Each
-              one hides when there's no signal so the sidebar doesn't show
-              empty rows for a brand-new collector. */}
-          {(dominantDecade || stats.ownedCount > 0) && (
-            <div className="library-sidebar-section">
-              <div className="library-sidebar-title">About this collection</div>
-              <dl
-                style={{
-                  margin: 0,
-                  display: "grid",
-                  gridTemplateColumns: "auto 1fr",
-                  rowGap: 6,
-                  columnGap: 12,
-                  fontSize: "0.85rem",
-                }}
-              >
-                {dominantDecade && (
-                  <>
-                    <dt style={{ opacity: 0.65 }}>Era focus</dt>
-                    <dd style={{ margin: 0, textAlign: "right", fontWeight: 600 }}>
-                      {dominantDecade}s
-                    </dd>
-                  </>
-                )}
-                {stats.ownedCount > 0 && (
-                  <>
-                    <dt style={{ opacity: 0.65 }}>Slab ratio</dt>
-                    <dd style={{ margin: 0, textAlign: "right", fontWeight: 600 }}>
-                      {stats.slabRatio}%
-                    </dd>
-                  </>
-                )}
-                {stats.uniqueSeries > 0 && (
-                  <>
-                    <dt style={{ opacity: 0.65 }}>Unique series</dt>
-                    <dd style={{ margin: 0, textAlign: "right", fontWeight: 600 }}>
-                      {stats.uniqueSeries}
-                    </dd>
-                  </>
-                )}
-              </dl>
-            </div>
-          )}
-
-          {availablePublishers.length > 0 && (
-            <div className="library-sidebar-section">
-              <div className="library-sidebar-title">Top publishers</div>
-              <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
-                {availablePublishers.slice(0, 5).map((pub) => (
-                  <li
-                    key={pub.name}
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      padding: "4px 0",
-                      fontSize: "0.85rem",
-                      borderTop: "1px solid rgba(255,255,255,0.05)",
-                    }}
-                  >
-                    <span style={{ opacity: 0.85 }}>{pub.name}</span>
-                    <span style={{ fontWeight: 600, opacity: 0.65 }}>{pub.count}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          {/* Unified insight widgets (Phase 2). Same component used on the
+              public profile; owner sees Cost basis (shown=true), public
+              viewers don't. */}
+          <CollectionInsightSidebar
+            collection={allHydrated}
+            showCostBasis={true}
+          />
         </aside>
 
         <section className="library-results-panel">
@@ -1616,7 +1680,7 @@ function LibraryPageContent() {
                           )}
                       </div>
 
-                      {tab === "owned" && (
+                      {tab === "owned" && !isPublicPreview && (
                         <GradeEditor
                           collectionId={item.id}
                           isPro={isPro}
@@ -1634,13 +1698,27 @@ function LibraryPageContent() {
                     </div>
 
                     <div className="library-list-actions">
-                      {tab === "owned" && (
+                      {tab === "owned" && !isPublicPreview && (
                         <button
                           className="library-row-btn"
                           onClick={() => toggleForSale(item)}
                           type="button"
                         >
                           {item.status === "for_sale" ? "Remove Sale Flag" : "Mark For Sale"}
+                        </button>
+                      )}
+                      {/* Unlink — only on GCD-linked rows, only in manage mode.
+                          Undoes a bad catalog-link by removing the row so user
+                          can re-add via search. */}
+                      {!isPublicPreview && item.gcd_issue_id != null && (
+                        <button
+                          className="library-row-btn"
+                          onClick={() => handleUnlinkRow(item)}
+                          type="button"
+                          title="Unlink this row from the catalog and remove it"
+                          style={{ color: "rgba(255,200,150,0.85)" }}
+                        >
+                          Unlink
                         </button>
                       )}
                       <Link href={getLibraryHref(item, comic)} className="library-row-btn primary">
@@ -1707,7 +1785,7 @@ function LibraryPageContent() {
                       </div>
                     )}
 
-                    {tab === "owned" && (
+                    {tab === "owned" && !isPublicPreview && (
                       <div className="comic-card-grade">
                         <GradeEditor
                           collectionId={item.id}

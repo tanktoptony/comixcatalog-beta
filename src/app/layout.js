@@ -92,8 +92,16 @@ export const metadata = {
 
 // Next 16 moved themeColor (and a few others) out of `metadata` and into a
 // separate `viewport` export. Same value, new home — kills the build warning.
+//
+// `width: "device-width"` and `initialScale: 1` are the critical mobile
+// fix: without them, mobile browsers render the page at a default ~980px
+// "desktop" width and scale it down, producing the "zoomed in, won't side
+// scroll" symptom users reported on issue/series pages. With both set, the
+// page renders at the device's actual viewport.
 export const viewport = {
   themeColor: "#15171f",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }) {

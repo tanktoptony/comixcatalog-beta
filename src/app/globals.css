@@ -27,19 +27,26 @@ html, body {
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
+  /* Global horizontal-overflow guard. Any rogue fixed-width child (carryover
+     from a desktop-only layout, a wide table, an over-large inline image)
+     would otherwise force the entire page to side-scroll on mobile. Phones
+     are then stuck with both the page-zoom-out AND a horizontal scrollbar,
+     which is the bug users reported on /issue/* pages. */
+  overflow-x: hidden;
+}
+
+body {
   background: #020617;
   color: var(--x-text-main);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
 }
 
-.page-wrapper {
-  max-width: 1200px;
-  margin: 1rem auto 4rem;
-  padding: 0 1rem;
-}
+/* The dead first .page-wrapper rule (max-width: 1200px) lived here and was
+   overridden by the canonical rule further down (1240px). Removed during
+   the mobile-styling pass; canonical definition is the only one now. */
 
 /* ===========================================================
    HEADER

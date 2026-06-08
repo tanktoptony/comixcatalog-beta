@@ -6,15 +6,9 @@ import Image from "next/image";
 import EditProfileButton from "@/components/EditProfileButton";
 import MessageButton from "@/components/MessageButton";
 import ProfileTabs from "@/components/ProfileTabs";
+import CollectionStatsStrip from "@/components/CollectionStatsStrip";
+import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import { createClient } from "@supabase/supabase-js";
-
-function formatCurrency(n, opts = {}) {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: opts.cents ? 2 : 0,
-  }).format(n);
-}
 
 function formatJoinDate(iso) {
   if (!iso) return null;
@@ -53,64 +47,9 @@ export default async function PublicProfilePage({ params }) {
   const { profile, collection, visibility = {} } = await res.json();
 
   const isOwner = currentUser?.id === profile.id;
-
-  const ownedItems = collection.filter((c) => c.status === "owned");
-  const wantlistCount = collection.filter((c) => c.status === "wishlist").length;
-  const forSaleCount = collection.filter((c) => c.status === "for_sale").length;
-  const ownedCount = ownedItems.length;
-
-  const totalMarketValue = ownedItems.reduce(
-    (sum, c) => sum + (Number(c.market_value) || 0),
-    0
-  );
-  const hasMarketValue = ownedItems.some(
-    (c) => c.market_value != null && Number(c.market_value) > 0
-  );
-
-  const costBasis = ownedItems
-    .filter((c) => c.purchase_price != null)
-    .reduce((sum, c) => sum + Number(c.purchase_price), 0);
-  const hasCostData = ownedItems.some((c) => c.purchase_price != null);
-
-  const slabCount = collection.filter((c) => c.slab_company).length;
-  const slabPercent = collection.length
-    ? Math.round((slabCount / collection.length) * 100)
-    : 0;
-
-  // Unique series count — Phase 1 unify alignment with /library. Keyed on
-  // normalized (title, publisher) so two volumes of the same title under
-  // different publishers count as separate series (e.g. "Captain America"
-  // Marvel vs "Captain America" Atlas reprint).
-  const uniqueSeries = new Set(
-    collection
-      .map((item) => {
-        const t = (item.display?.title || "").trim().toLowerCase();
-        const p = (item.display?.publisher || "").trim().toLowerCase();
-        return t ? `${t}::${p}` : null;
-      })
-      .filter(Boolean)
-  ).size;
-
-  const publisherCounts = {};
-  collection.forEach((item) => {
-    const p = item.display?.publisher;
-    if (!p) return;
-    publisherCounts[p] = (publisherCounts[p] || 0) + 1;
-  });
-  const sortedPublishers = Object.entries(publisherCounts).sort(
-    (a, b) => b[1] - a[1]
-  );
-  const topPublishers = sortedPublishers.slice(0, 5);
-
-  const decadeCounts = {};
-  collection.forEach((item) => {
-    const year = item.display?.year;
-    if (!year) return;
-    const decade = Math.floor(year / 10) * 10;
-    decadeCounts[decade] = (decadeCounts[decade] || 0) + 1;
-  });
-  const dominantDecade =
-    Object.entries(decadeCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+  // Stats + insights are computed inside CollectionStatsStrip and
+  // CollectionInsightSidebar from the raw `collection` array. We used to
+  // do all that math inline here; Phase 2 unify centralizes it.
 
   const joinDate = formatJoinDate(profile.created_at);
   const avatarSrc = profile.avatar_url
@@ -188,33 +127,9 @@ export default async function PublicProfilePage({ params }) {
         </div>
       </section>
 
-      {/* HEADLINE STATS STRIP */}
-      <section className="profile-headline-stats">
-        <div className="profile-stat-pill">
-          <div className="profile-stat-pill-num">{ownedCount}</div>
-          <div className="profile-stat-pill-label">Owned</div>
-        </div>
-        <div className="profile-stat-pill">
-          <div className="profile-stat-pill-num">{wantlistCount}</div>
-          <div className="profile-stat-pill-label">Wantlist</div>
-        </div>
-        <div className="profile-stat-pill">
-          <div className="profile-stat-pill-num">{forSaleCount}</div>
-          <div className="profile-stat-pill-label">For Sale</div>
-        </div>
-        {hasMarketValue && visibility.value !== false && (
-          <div className="profile-stat-pill highlight">
-            <div className="profile-stat-pill-num">
-              {formatCurrency(totalMarketValue)}
-            </div>
-            <div className="profile-stat-pill-label">Collection Value</div>
-          </div>
-        )}
-        <div className="profile-stat-pill">
-          <div className="profile-stat-pill-num">{slabCount}</div>
-          <div className="profile-stat-pill-label">Slabbed</div>
-        </div>
-      </section>
+      {/* HEADLINE STATS STRIP — unified component (Phase 2 of unify). Same
+          6-card strip used on /library so future stat changes don't drift. */}
+      <CollectionStatsStrip collection={collection} visibility={visibility} />
 
       {/* BODY: tabs + sidebar */}
       <div className="profile-body">
@@ -227,45 +142,11 @@ export default async function PublicProfilePage({ params }) {
         </div>
 
         <aside className="profile-sidebar">
-          <div className="profile-side-card">
-            <h3 className="profile-side-title">About this collector</h3>
-            <dl className="profile-side-dl">
-              {dominantDecade && (
-                <>
-                  <dt>Era focus</dt>
-                  <dd>{dominantDecade}s</dd>
-                </>
-              )}
-              <dt>Slab ratio</dt>
-              <dd>{slabPercent}%</dd>
-              {uniqueSeries > 0 && (
-                <>
-                  <dt>Unique series</dt>
-                  <dd>{uniqueSeries}</dd>
-                </>
-              )}
-              {isOwner && hasCostData && (
-                <>
-                  <dt>Cost basis</dt>
-                  <dd>{formatCurrency(costBasis)}</dd>
-                </>
-              )}
-            </dl>
-          </div>
-
-          {topPublishers.length > 0 && (
-            <div className="profile-side-card">
-              <h3 className="profile-side-title">Top publishers</h3>
-              <ul className="profile-publisher-list">
-                {topPublishers.map(([name, count]) => (
-                  <li key={name} className="profile-publisher-row">
-                    <span className="profile-publisher-name">{name}</span>
-                    <span className="profile-publisher-count">{count}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          {/* Unified sidebar widgets — same component used on /library. */}
+          <CollectionInsightSidebar
+            collection={collection}
+            showCostBasis={isOwner}
+          />
 
           {isOwner && collection.length === 0 && (
             <div className="profile-side-card">

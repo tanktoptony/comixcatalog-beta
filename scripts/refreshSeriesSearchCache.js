@@ -747,63 +747,122 @@ async function processBatch(seriesBatch) {
   return updated;
 }
 
+// Coverage report — reframed away from the catalog-wide
+// featured_cover_path_cached % vanity metric (217k series, ~99% of which
+// no user will ever look at, so the % is structurally pinned at single
+// digits regardless of how much we ingest).
+//
+// New metrics tie to user-facing experience:
+//   • Raw catalog volume (covers + distinct titles) — proves ingest is
+//     working.
+//   • Featured-series coverage — out of curated homepage titles, what's
+//     missing? Directly visible.
+//   • Series-that-users-actually-collect coverage — among series someone
+//     has added to a user_collections row, what % have a cover? This is
+//     the only "% of series" that actually matters.
 async function reportCoverage() {
-  const { count: totalSeries, error: totalErr } = await supabase
+  const { count: totalSeries } = await supabase
     .from("series")
     .select("id", { count: "exact", head: true })
     .not("gcd_id", "is", null);
 
-  if (totalErr) {
-    console.error("Coverage report failed (total):", totalErr);
-    return;
-  }
-
-  const { count: nullStart, error: nullStartErr } = await supabase
-    .from("series")
-    .select("id", { count: "exact", head: true })
-    .not("gcd_id", "is", null)
-    .is("year_start_cached", null);
-
-  if (nullStartErr) {
-    console.error("Coverage report failed (null year_start):", nullStartErr);
-    return;
-  }
-
-  const { count: unrefreshed, error: unrefreshedErr } = await supabase
+  const { count: unrefreshed } = await supabase
     .from("series")
     .select("id", { count: "exact", head: true })
     .not("gcd_id", "is", null)
     .is("search_refreshed_at", null);
 
-  if (unrefreshedErr) {
-    console.error("Coverage report failed (unrefreshed):", unrefreshedErr);
-    return;
-  }
-
-  const { count: nullCover, error: nullCoverErr } = await supabase
+  const { count: nullStart } = await supabase
     .from("series")
     .select("id", { count: "exact", head: true })
     .not("gcd_id", "is", null)
-    .is("featured_cover_path_cached", null);
+    .is("year_start_cached", null);
 
-  if (nullCoverErr) {
-    console.error("Coverage report failed (null cover):", nullCoverErr);
-    return;
+  const { count: coverRows } = await supabase
+    .from("canonical_covers")
+    .select("id", { count: "exact", head: true })
+    .not("storage_path", "is", null);
+
+  // Distinct series_title values in canonical_covers — the real "how many
+  // series do we have ANY cover for" number. Paginated to dodge the 1000-
+  // row PostgREST cap.
+  const distinctCoverTitles = new Set();
+  let from = 0;
+  const PAGE = 1000;
+  while (true) {
+    const { data } = await supabase
+      .from("canonical_covers")
+      .select("series_title")
+      .not("storage_path", "is", null)
+      .range(from, from + PAGE - 1);
+    if (!data?.length) break;
+    for (const r of data) distinctCoverTitles.add(r.series_title);
+    if (data.length < PAGE) break;
+    from += PAGE;
   }
 
-  const withYear = (totalSeries ?? 0) - (nullStart ?? 0);
-  const yearPct = totalSeries ? ((withYear / totalSeries) * 100).toFixed(1) : "0.0";
-  const withCover = (totalSeries ?? 0) - (nullCover ?? 0);
-  const coverPct = totalSeries ? ((withCover / totalSeries) * 100).toFixed(1) : "0.0";
+  // Coverage among series users actually collect. We pull distinct
+  // gcd_issue_id from user_collections, map back to series, and check
+  // featured_cover_path_cached. This is the % that matters.
+  const userGcdIds = new Set();
+  from = 0;
+  while (true) {
+    const { data } = await supabase
+      .from("user_collections")
+      .select("gcd_issue_id")
+      .not("gcd_issue_id", "is", null)
+      .range(from, from + PAGE - 1);
+    if (!data?.length) break;
+    for (const r of data) userGcdIds.add(Number(r.gcd_issue_id));
+    if (data.length < PAGE) break;
+    from += PAGE;
+  }
 
-  console.log("──────── Coverage ────────");
-  console.log(`Total series (with gcd_id): ${totalSeries ?? 0}`);
-  console.log(`With year_start_cached:     ${withYear} (${yearPct}%)`);
-  console.log(`Missing year_start_cached:  ${nullStart ?? 0}`);
-  console.log(`With featured_cover_path:   ${withCover} (${coverPct}%)`);
-  console.log(`Missing featured_cover:     ${nullCover ?? 0}`);
-  console.log(`Still unrefreshed:          ${unrefreshed ?? 0}`);
-  console.log("──────────────────────────");
+  let collectedSeriesGcdIds = new Set();
+  if (userGcdIds.size > 0) {
+    const ids = [...userGcdIds];
+    for (let i = 0; i < ids.length; i += PAGE) {
+      const chunk = ids.slice(i, i + PAGE);
+      const { data } = await supabase
+        .from("gcd_issues")
+        .select("series_gcd_id")
+        .in("gcd_id", chunk);
+      for (const r of data ?? []) {
+        if (r.series_gcd_id != null) collectedSeriesGcdIds.add(r.series_gcd_id);
+      }
+    }
+  }
+
+  let collectedWithCover = 0;
+  if (collectedSeriesGcdIds.size > 0) {
+    const ids = [...collectedSeriesGcdIds];
+    for (let i = 0; i < ids.length; i += PAGE) {
+      const chunk = ids.slice(i, i + PAGE);
+      const { data } = await supabase
+        .from("series")
+        .select("gcd_id, featured_cover_path_cached")
+        .in("gcd_id", chunk)
+        .not("featured_cover_path_cached", "is", null);
+      collectedWithCover += data?.length ?? 0;
+    }
+  }
+  const collectedPct = collectedSeriesGcdIds.size > 0
+    ? ((collectedWithCover / collectedSeriesGcdIds.size) * 100).toFixed(1)
+    : "—";
+
+  console.log("──────── Cache state ────────");
+  console.log(`Total series in catalog: ${totalSeries ?? 0}`);
+  console.log(`Year-cached:             ${(totalSeries ?? 0) - (nullStart ?? 0)} / ${totalSeries ?? 0}`);
+  console.log(`Awaiting refresh:        ${unrefreshed ?? 0}`);
+  console.log();
+  console.log("──────── Cover state (volume) ────────");
+  console.log(`canonical_covers rows:   ${coverRows ?? 0}`);
+  console.log(`Distinct cover'd series: ${distinctCoverTitles.size}`);
+  console.log();
+  console.log("──────── Coverage where it matters ────────");
+  console.log(`Series users have collected:           ${collectedSeriesGcdIds.size}`);
+  console.log(`  …of which have featured_cover_path:  ${collectedWithCover} (${collectedPct}%)`);
+  console.log("──────────────────────────────────────────");
 }
 
 async function run() {

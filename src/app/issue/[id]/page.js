@@ -219,7 +219,10 @@ export default function IssuePage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "320px minmax(0, 1fr)",
+            // auto-fit with minmax(280px, ...) gives us a 2-col layout on
+            // desktop and stacks to 1 col under ~600px (cover + info fit in
+            // a phone viewport instead of forcing horizontal scroll).
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))",
             gap: "28px",
             alignItems: "start",
             marginBottom: "28px",
@@ -300,7 +303,9 @@ export default function IssuePage() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                // Listings/Median/Low-High stat cards — collapse to fewer
+                // columns on narrow phones rather than squeezing.
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(140px, 100%), 1fr))",
                 gap: "12px",
                 marginBottom: "22px",
               }}
@@ -330,7 +335,8 @@ export default function IssuePage() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "1.2fr 1fr",
+                // Issue Info + Quick Actions — stack under ~520px.
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))",
                 gap: "18px",
                 marginBottom: "22px",
               }}
@@ -383,7 +389,10 @@ export default function IssuePage() {
                   <div
                     style={{
                       display: "grid",
-                      gridTemplateColumns: "1.3fr 0.9fr 0.7fr 0.7fr",
+                      // Marketplace listings header — keeps 4 columns on
+                      // anything ~480+, otherwise wraps. Buyers on mobile see
+                      // the columns reflow not horizontally scroll.
+                      gridTemplateColumns: "repeat(auto-fit, minmax(min(110px, 100%), 1fr))",
                       gap: "12px",
                       padding: "12px 14px",
                       fontWeight: 700,
@@ -410,7 +419,9 @@ export default function IssuePage() {
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+                    // Nearby Issues thumbnails — 4-up on desktop, 2-up on
+                    // mobile (covers stay legible at ~140px min).
+                    gridTemplateColumns: "repeat(auto-fit, minmax(min(140px, 100%), 1fr))",
                     gap: "12px",
                     marginTop: "12px",
                   }}

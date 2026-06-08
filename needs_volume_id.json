@@ -8770,7 +8770,7 @@
     "name": "X-Men Annual",
     "publisher": "Marvel Comics",
     "year": 2023,
-    "reason": "multiple_same_start_year",
+    "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
         "id": 146988,
@@ -10025,7 +10025,7 @@
     "name": "Inferno Girl Red",
     "publisher": "Image Comics",
     "year": 2023,
-    "reason": "multiple_same_start_year",
+    "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
         "id": 146215,
@@ -10187,7 +10187,7 @@
     "name": "The Clock",
     "publisher": "Image Comics",
     "year": 2020,
-    "reason": "multiple_same_start_year",
+    "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
         "id": 124097,
@@ -10228,7 +10228,7 @@
     "name": "Disney Villains: Maleficent",
     "publisher": "Dynamite Entertainment",
     "year": 2024,
-    "reason": "multiple_near_year",
+    "reason": "multiple_near_year_tied",
     "candidates": [
       {
         "id": 150506,
@@ -10901,6 +10901,235 @@
         "name": "Stray Dogs",
         "publisher": "Image",
         "start_year": 2021
+      }
+    ]
+  },
+  {
+    "name": "Birds of Prey: Uncovered",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Espers Undertow",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Madam Satan: Hell on Earth",
+    "publisher": "Archie Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Damsels In Excess",
+    "publisher": "Aspen Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75889,
+        "name": "Damsels In Excess",
+        "publisher": "Aspen MLT",
+        "start_year": 2014
+      },
+      {
+        "id": 84526,
+        "name": "Damsels In Excess",
+        "publisher": "Aspen MLT",
+        "start_year": 2015
+      }
+    ]
+  },
+  {
+    "name": "The Joker / Harley Quinn: Uncovered",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Tomorrow Girl TPB",
+    "publisher": "Antarctic Press",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "TMNT: Official Movie Adaptation",
+    "publisher": "Mirage Studios",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Youngblood [Youngblood Yearbook]",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Michael Turner's Soulfire Primer",
+    "publisher": "Aspen Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49884,
+        "name": "Michael Turner's Soulfire Primer",
+        "publisher": "Aspen MLT",
+        "start_year": 2012
+      }
+    ]
+  },
+  {
+    "name": "Dear Mini: A Graphic Memoir",
+    "publisher": "Fantagraphics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: Fantastic Four - Klaw",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Geiger Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Cat + Crazy",
+    "publisher": "Dark Horse Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Vampirella",
+    "publisher": "Dynamite Entertainment",
+    "year": 1970,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 138427,
+        "name": "Vampirella",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2021
+      },
+      {
+        "id": 120227,
+        "name": "Vampirella",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2019
+      },
+      {
+        "id": 98538,
+        "name": "Vampirella",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2017
+      },
+      {
+        "id": 88585,
+        "name": "Vampirella",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2016
+      },
+      {
+        "id": 36956,
+        "name": "Vampirella",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2010
+      },
+      {
+        "id": 74523,
+        "name": "Vampirella",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2014
+      },
+      {
+        "id": 163026,
+        "name": "Vampirella",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2025
+      },
+      {
+        "id": 156869,
+        "name": "Vampirella",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2024
+      }
+    ]
+  },
+  {
+    "name": "Shadowman Classic Omnibus",
+    "publisher": "Valiant Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 139595,
+        "name": "Shadowman Classic Omnibus",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2021
+      }
+    ]
+  },
+  {
+    "name": "Kaiju Cooking",
+    "publisher": "Antarctic Press",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Ghosts Giant",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Okko",
+    "publisher": "Archaia",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 121189,
+        "name": "Okko",
+        "publisher": "Delcourt",
+        "start_year": 2004
+      }
+    ]
+  },
+  {
+    "name": "Casper the Friendly Ghost",
+    "publisher": "Harvey Comics",
+    "year": 1976,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 29901,
+        "name": "Casper The Friendly Ghost",
+        "publisher": "Harvey",
+        "start_year": 1949
+      },
+      {
+        "id": 33390,
+        "name": "Casper the Friendly Ghost",
+        "publisher": "Harvey",
+        "start_year": 1991
       }
     ]
   }

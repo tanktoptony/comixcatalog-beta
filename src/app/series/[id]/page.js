@@ -175,7 +175,9 @@ export default function SeriesPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "220px 1fr",
+            // Same auto-fit pattern as the issue page hero — collapses to
+            // a single column under ~520px so phones don't horizontal-scroll.
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
             gap: "24px",
             alignItems: "start",
             marginBottom: "28px",

@@ -14,15 +14,18 @@ export default function AppError({ error, reset }) {
         <div className="error-kicker">Something went wrong</div>
         <h1 className="error-title">This page hit a snag.</h1>
         <p className="error-sub">
-          The rest of ComixCatalog is still working. Try again, head back to your library,
-          or refresh the page.
+          The rest of ComixCatalog is still working. Try again, head back home,
+          or search for what you were looking for.
         </p>
         <div className="error-actions">
           <button type="button" className="error-btn primary" onClick={() => reset()}>
             Try again
           </button>
-          <Link href="/library" className="error-btn">
-            Back to library
+          <Link href="/" className="error-btn">
+            Back home
+          </Link>
+          <Link href="/search" className="error-btn">
+            Search
           </Link>
         </div>
         {error?.digest && (

@@ -245,7 +245,25 @@ export default function IssuePage() {
               }}
             >
               {!user && (
-                <div className="muted">Sign in to save this issue to your library.</div>
+                <>
+                  <Link
+                    href={`/signup?next=${encodeURIComponent(`/issue/${id}`)}`}
+                    className="add-comic-btn"
+                    style={{ display: "inline-block", textAlign: "center", textDecoration: "none" }}
+                  >
+                    Save to your library
+                  </Link>
+                  <Link
+                    href={`/signup?next=${encodeURIComponent(`/issue/${id}`)}`}
+                    className="add-comic-btn"
+                    style={{ display: "inline-block", textAlign: "center", textDecoration: "none" }}
+                  >
+                    Add to wantlist
+                  </Link>
+                  <div className="muted" style={{ fontSize: "0.85rem", marginTop: 4 }}>
+                    Free to start &mdash; sign up in 30 seconds.
+                  </div>
+                </>
               )}
 
               {user && !inCollection && !inWishlist && (

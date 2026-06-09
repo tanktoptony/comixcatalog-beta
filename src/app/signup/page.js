@@ -6,20 +6,17 @@ import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import OAuthButtons from "@/components/OAuthButtons";
 
-const AVATAR_KEYS = [
-  "hero_01","hero_02","hero_03","hero_04",
-  "hero_05","hero_06","hero_07","hero_08",
-  "hero_09","hero_10","hero_11","hero_12",
-  "hero_13","hero_14","hero_15","hero_16",
-];
-
+// Avatar selection deferred to /profile/edit. Signup is now 3 fields
+// (username, email, password). The legacy hero_XX set in /public/avatars/
+// is on its way out — target is user-uploaded photos. The auth callback
+// upserts profiles with avatar_key=null; the Header/profile views render
+// an initial-letter chip as the default.
 export default function SignUpPage() {
   const supabase = getSupabaseClient();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [avatarKey, setAvatarKey] = useState("hero_01");
 
   const [saving, setSaving] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -100,7 +97,6 @@ export default function SignUpPage() {
             : undefined,
         data: {
           username: usernameNormalized,
-          avatar_key: avatarKey,
         },
       },
     });
@@ -157,7 +153,6 @@ export default function SignUpPage() {
           {
             id: user.id,
             username: usernameNormalized,
-            avatar_key: avatarKey,
             is_public: true,
           },
           { onConflict: "id" }
@@ -184,7 +179,6 @@ export default function SignUpPage() {
     setSaving(false);
     setPassword("");
     setUsername("");
-    setAvatarKey("hero_01");
   }
 
   return (
@@ -250,30 +244,6 @@ export default function SignUpPage() {
             placeholder=" "
           />
           <label htmlFor="signup-password">Password</label>
-        </div>
-
-        <div className="auth-group">
-          <label className="auth-static-label">Choose an avatar</label>
-          <div className="avatar-grid">
-            {AVATAR_KEYS.map((key) => {
-              const selected = key === avatarKey;
-              return (
-                <button
-                  key={key}
-                  type="button"
-                  className={`avatar-choice ${selected ? "is-selected" : ""}`}
-                  onClick={() => setAvatarKey(key)}
-                >
-                  <Image
-                    src={`/avatars/${key}.png`}
-                    alt={key}
-                    width={46}
-                    height={46}
-                  />
-                </button>
-              );
-            })}
-          </div>
         </div>
 
         <button

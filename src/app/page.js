@@ -1,12 +1,22 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
 import ActivityFeed from "@/components/ActivityFeed";
 
 export default function HomePage() {
   const { user } = useAuth();
+  const router = useRouter();
+  const [heroQuery, setHeroQuery] = useState("");
+
+  function handleHeroSearch(e) {
+    e.preventDefault();
+    const q = heroQuery.trim();
+    router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/search");
+  }
 
   return (
     <>
@@ -15,23 +25,40 @@ export default function HomePage() {
         <div className="lp-hero-content">
           <p className="lp-eyebrow">Built by collectors, for collectors · Chicago</p>
           <h1 className="lp-h1">
-            The database, collection manager, and marketplace for comic books.
+            Your collection, and its value, in one place.
           </h1>
           <p className="lp-sub">
-            What Discogs is for music — but for comics. Search any issue, catalog
-            what you own, track its value, and buy or sell with full grade transparency.
+            Track every issue, grade, and variant you own &mdash; plus what
+            you&rsquo;re hunting. Live values from real sold comps. The database,
+            collection manager, and marketplace for comic books.
           </p>
+
+          {/* Hero search — the activation surface. Anonymous visitors can act
+              before signing up; this is how Discogs/Letterboxd onboard. */}
+          <form className="lp-hero-search" onSubmit={handleHeroSearch} role="search">
+            <input
+              type="search"
+              className="lp-hero-search-input"
+              placeholder="Search any comic — Absolute Batman, Saga #1, Amazing Spider-Man 300…"
+              value={heroQuery}
+              onChange={(e) => setHeroQuery(e.target.value)}
+              aria-label="Search comic series and issues"
+            />
+            <button type="submit" className="lp-hero-search-btn">
+              Search
+            </button>
+          </form>
+
           <div className="lp-ctas">
             <Link href={user ? "/library" : "/signup"} className="lp-cta-primary">
               {user ? "Go to your library" : "Start free"}
             </Link>
-            <Link href="/upgrade" className="lp-cta-ghost">
-              See Founding Collector →
+            <Link href="/search" className="lp-cta-ghost">
+              Browse the database →
             </Link>
           </div>
         </div>
         <div className="lp-hero-img">
-          {/* Replace hero-comics.jpg with your own photo at public/img/hero-comics.jpg */}
           <img src="/img/hero/comic-collage.jpg" alt="Comic book collection" />
           <div className="lp-hero-img-fade" />
         </div>
@@ -45,12 +72,12 @@ export default function HomePage() {
         </div>
         <div className="lp-proof-divider" />
         <div className="lp-proof-item">
-          <span className="lp-proof-num">Millions</span>
-          <span className="lp-proof-label">of issues indexed</span>
+          <span className="lp-proof-num">2.5M+</span>
+          <span className="lp-proof-label">issues indexed</span>
         </div>
         <div className="lp-proof-divider" />
         <div className="lp-proof-item">
-          <span className="lp-proof-num">35,000+</span>
+          <span className="lp-proof-num">90,000+</span>
           <span className="lp-proof-label">cover scans archived</span>
         </div>
       </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
@@ -139,7 +140,25 @@ export default function ComicDetailPage() {
 
             <div style={{ display: "grid", gap: "10px", marginTop: "18px" }}>
               {!user && (
-                <div className="muted">Sign in to save this to your library.</div>
+                <>
+                  <Link
+                    href={`/signup?next=${encodeURIComponent(`/comic/${id}`)}`}
+                    className="add-comic-btn"
+                    style={{ display: "inline-block", textAlign: "center", textDecoration: "none" }}
+                  >
+                    Save to your library
+                  </Link>
+                  <Link
+                    href={`/signup?next=${encodeURIComponent(`/comic/${id}`)}`}
+                    className="add-comic-btn"
+                    style={{ display: "inline-block", textAlign: "center", textDecoration: "none" }}
+                  >
+                    Add to wantlist
+                  </Link>
+                  <div className="muted" style={{ fontSize: "0.85rem", marginTop: 4 }}>
+                    Free to start &mdash; sign up in 30 seconds.
+                  </div>
+                </>
               )}
               {user && !inCollection && !inWishlist && (
                 <>

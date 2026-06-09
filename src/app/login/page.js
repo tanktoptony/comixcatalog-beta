@@ -30,6 +30,12 @@ export default function LoginPage() {
   const [resendMsg, setResendMsg] = useState(null);
   const [resending, setResending] = useState(false);
 
+  // ?next=/some/path is the post-login return URL — set by buttons that
+  // bounce anonymous users to /login from deep pages (issue page "Save",
+  // series page "Add", etc). Restricted to same-origin paths to avoid open
+  // redirect abuse.
+  const [nextPath, setNextPath] = useState(null);
+
   // Read one-shot query-string flags on mount. Avoids pulling in
   // useSearchParams (which would force a Suspense boundary refactor) and
   // gives us banner state for: ?reset=success (just changed password),
@@ -38,6 +44,10 @@ export default function LoginPage() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
+    const rawNext = params.get("next");
+    if (rawNext && rawNext.startsWith("/") && !rawNext.startsWith("//")) {
+      setNextPath(rawNext);
+    }
     if (params.get("reset") === "success") {
       setFlashBanner({
         kind: "success",
@@ -120,6 +130,16 @@ export default function LoginPage() {
       }
 
       if (debug) console.log("LOGIN USER:", user.id);
+
+      // If an anon flow asked us to bounce them back to a specific page
+      // (via ?next=...), honor that first — beats sending a user who
+      // clicked "Save to library" from /issue/42 all the way to /u/them
+      // and forcing them to navigate back.
+      if (nextPath) {
+        router.replace(nextPath);
+        router.refresh();
+        return;
+      }
 
       // Auth succeeded — that's enough to call this a successful login.
       // Profile lookup used to happen here (with another 15s timeout),
@@ -343,7 +363,13 @@ export default function LoginPage() {
       )}
 
       <p className="auth-footer">
-        Don’t have an account? <Link href="/signup" className="link">Sign up</Link>
+        Don’t have an account?{" "}
+        <Link
+          href={nextPath ? `/signup?next=${encodeURIComponent(nextPath)}` : "/signup"}
+          className="link"
+        >
+          Sign up
+        </Link>
       </p>
     </section>
   );

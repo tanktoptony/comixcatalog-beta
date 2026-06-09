@@ -457,24 +457,33 @@ export default function SearchPageClient() {
                 {!isSeries && (
                   <div className="comic-card-actions">
                     {!inCollection && !inWishlist && (
-                      <>
-                        <button
+                      user ? (
+                        <>
+                          <button
+                            className="comic-btn"
+                            onClick={() => addToCollection(item.id, "owned")}
+                          >
+                            + Collection
+                          </button>
+                          <button
+                            className="comic-btn"
+                            onClick={() => addToCollection(item.id, "wishlist")}
+                          >
+                            + Wantlist
+                          </button>
+                        </>
+                      ) : (
+                        // Anon: route to signup with a return path. Beats
+                        // disabled buttons with hover-only tooltip — anon
+                        // visitors on touch devices never see those.
+                        <Link
+                          href={`/signup?next=${encodeURIComponent("/search")}`}
                           className="comic-btn"
-                          disabled={!user}
-                          title={!user ? "Log in to add to collection" : undefined}
-                          onClick={() => addToCollection(item.id, "owned")}
+                          style={{ textDecoration: "none", textAlign: "center" }}
                         >
-                          + Collection
-                        </button>
-                        <button
-                          className="comic-btn"
-                          disabled={!user}
-                          title={!user ? "Log in to add to wishlist" : undefined}
-                          onClick={() => addToCollection(item.id, "wishlist")}
-                        >
-                          + Wishlist
-                        </button>
-                      </>
+                          + Save
+                        </Link>
+                      )
                     )}
 
                     {inCollection && (

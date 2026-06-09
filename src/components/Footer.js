@@ -22,6 +22,7 @@ const COLUMNS = [
   {
     title: "Community",
     links: [
+      { label: "Crate Dig — Chicago", href: "/crate-dig" },
       { label: "Community Guidelines", href: "/community/guidelines", todo: true },
       { label: "Forum", href: "/forum", todo: true },
       { label: "Reads", href: "/reads" },
@@ -90,13 +91,9 @@ export default function Footer() {
             <nav key={col.title} className="footer-col" aria-label={col.title}>
               <h3 className="footer-col-title">{col.title}</h3>
               <ul className="footer-col-list">
-                {col.links.map((link) => (
+                {col.links.filter((link) => !link.todo).map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="footer-link"
-                      data-todo={link.todo ? "true" : undefined}
-                    >
+                    <Link href={link.href} className="footer-link">
                       {link.label}
                     </Link>
                   </li>
@@ -204,11 +201,6 @@ export default function Footer() {
               <a href="mailto:comixcatalog@gmail.com" className="footer-meta-link">
                 comixcatalog@gmail.com
               </a>
-              <span className="footer-meta-sep" aria-hidden="true">·</span>
-              <Link href="/status" className="footer-meta-link footer-status">
-                <span className="footer-status-dot" aria-hidden="true" />
-                All systems operational
-              </Link>
             </p>
           </div>
         </div>

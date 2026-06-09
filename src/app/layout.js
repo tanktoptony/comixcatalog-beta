@@ -48,22 +48,18 @@ export const metadata = {
     description: DEFAULT_DESCRIPTION,
     url: SITE_URL,
     locale: "en_US",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "ComixCatalog — the database, collection manager, and marketplace for comic books.",
-      },
-    ],
+    // The og:image itself is wired by src/app/opengraph-image.js — Next
+    // generates the 1200×630 dynamically with real cover art from the
+    // canonical-covers bucket. No static asset to maintain.
   },
   // Twitter / X card. summary_large_image gives the big preview tile
   // collectors are used to seeing on Discogs / Letterboxd / etc.
+  // Image is shared via opengraph-image.js — Twitter falls back to it
+  // when twitter:image is absent.
   twitter: {
     card: "summary_large_image",
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: ["/og-image.jpg"],
     creator: "@comixcatalog",
     site: "@comixcatalog",
   },

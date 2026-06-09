@@ -131,6 +131,23 @@ export default async function PublicProfilePage({ params }) {
           6-card strip used on /library so future stat changes don't drift. */}
       <CollectionStatsStrip collection={collection} visibility={visibility} />
 
+      {/* Anon-visitor conversion banner: paid posts will deep-link to public
+          profiles, so the anon-visitor exit path matters. Owners + signed-in
+          viewers don't see this. */}
+      {!currentUser && (
+        <section className="profile-anon-cta">
+          <div className="profile-anon-cta-inner">
+            <div>
+              <strong>Track your own collection.</strong>{" "}
+              Free to start &mdash; catalog every issue, grade, and value in one place.
+            </div>
+            <Link href="/signup" className="profile-anon-cta-btn">
+              Start free →
+            </Link>
+          </div>
+        </section>
+      )}
+
       {/* BODY: tabs + sidebar */}
       <div className="profile-body">
         <div className="profile-body-main">

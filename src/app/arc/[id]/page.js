@@ -280,7 +280,7 @@ export default function StoryArcPage() {
             {" "}from this arc.
             {!isPro && (
               <span style={{ opacity: 0.7 }}>
-                {" "}Upgrade to add them all to your wantlist in one click.
+                {" "}Skip {missingIssues.length} clicks &mdash; Pro adds the whole missing run to your wantlist in one tap.
               </span>
             )}
           </div>

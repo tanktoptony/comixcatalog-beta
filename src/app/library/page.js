@@ -8,6 +8,7 @@ import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor, { GradeBadge } from "@/components/GradeEditor";
 import EmptyState from "@/components/EmptyState";
+import FirstRunLibrary from "@/components/FirstRunLibrary";
 import CatalogLinkPicker from "@/components/CatalogLinkPicker";
 import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
@@ -75,7 +76,7 @@ function LibraryPageContent() {
   // no inline GradeEditor, no Add Comic button, no catalog-linking panel),
   // stats clamped to public visibility per the owner's privacy toggles.
   // The toggle button at the top of the header lets the owner round-trip.
-  const [viewMode, setViewMode] = useState(() => {
+  const [previewMode, setPreviewMode] = useState(() => {
     const param = searchParams.get("view");
     if (param === "public" || param === "manage") return param;
     if (typeof window !== "undefined") {
@@ -84,13 +85,13 @@ function LibraryPageContent() {
     }
     return "manage";
   });
-  const isPublicPreview = viewMode === "public";
+  const isPublicPreview = previewMode === "public";
 
   // Persist the last choice so a refresh keeps the same mode.
   useEffect(() => {
     if (typeof window === "undefined") return;
-    window.localStorage.setItem("library-view-mode", viewMode);
-  }, [viewMode]);
+    window.localStorage.setItem("library-view-mode", previewMode);
+  }, [previewMode]);
   const [comicIndex, setComicIndex] = useState(() => Object.fromEntries(hydrationCache));
 
   // hydrationCache is module-scoped and survives navigation/sign-out, which
@@ -839,14 +840,14 @@ function LibraryPageContent() {
           <button
             type="button"
             role="tab"
-            aria-selected={viewMode === "manage"}
-            onClick={() => setViewMode("manage")}
+            aria-selected={previewMode === "manage"}
+            onClick={() => setPreviewMode("manage")}
             style={{
               padding: "6px 12px",
               borderRadius: 6,
               border: "none",
-              background: viewMode === "manage" ? "var(--cc-gold, #FFD700)" : "transparent",
-              color: viewMode === "manage" ? "#0d1733" : "rgba(255,255,255,0.7)",
+              background: previewMode === "manage" ? "var(--cc-gold, #FFD700)" : "transparent",
+              color: previewMode === "manage" ? "#0d1733" : "rgba(255,255,255,0.7)",
               fontWeight: 700,
               fontSize: "0.8rem",
               cursor: "pointer",
@@ -857,14 +858,14 @@ function LibraryPageContent() {
           <button
             type="button"
             role="tab"
-            aria-selected={viewMode === "public"}
-            onClick={() => setViewMode("public")}
+            aria-selected={previewMode === "public"}
+            onClick={() => setPreviewMode("public")}
             style={{
               padding: "6px 12px",
               borderRadius: 6,
               border: "none",
-              background: viewMode === "public" ? "var(--cc-gold, #FFD700)" : "transparent",
-              color: viewMode === "public" ? "#0d1733" : "rgba(255,255,255,0.7)",
+              background: previewMode === "public" ? "var(--cc-gold, #FFD700)" : "transparent",
+              color: previewMode === "public" ? "#0d1733" : "rgba(255,255,255,0.7)",
               fontWeight: 700,
               fontSize: "0.8rem",
               cursor: "pointer",
@@ -1555,7 +1556,17 @@ function LibraryPageContent() {
               // items in this tab (true empty) or just no items matching the
               // current search/filter (filtered empty).
               const totalInTab = collections.filter((c) => c.status === tab).length;
+              // First-run activation: if the user has zero items in their
+              // *entire* collection (not just this tab), show the search-led
+              // FirstRunLibrary screen instead of the generic empty state.
+              // The Wantlist tab still gets its own message because a
+              // wantlist-empty-but-owned-nonempty user is a different mental
+              // state from "I just signed up".
+              const totalInAnyTab = collections.length;
               if (totalInTab === 0) {
+                if (tab === "owned" && totalInAnyTab === 0) {
+                  return <FirstRunLibrary />;
+                }
                 return tab === "owned" ? (
                   <EmptyState
                     icon="📚"

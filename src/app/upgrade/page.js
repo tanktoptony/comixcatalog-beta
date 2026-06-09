@@ -30,7 +30,7 @@ const TIERS = [
     name: "Collector Pro",
     price: "$8",
     period: "/ month",
-    badge: "Most popular",
+    badge: "Recommended",
     via: "stripe",
     viaLabel: "via Stripe · cancel anytime",
     headline: "The full toolkit for serious collectors",
@@ -144,11 +144,12 @@ export default function UpgradePage() {
       <section className="upgrade-hero">
         <div className="upgrade-kicker">Membership</div>
         <h1 className="upgrade-title">
-          Choose how you support ComixCatalog.
+          Catalog like a pro. $8/mo.
         </h1>
         <p className="upgrade-sub">
-          Built solo in Chicago — no ads, no VC money. Collector Pro unlocks the full toolset.
-          Founding Collector locks in your rate forever and gets you the best deal on the marketplace when it launches.
+          Track every grade, slab cert, and value across your whole collection.
+          Generate an insurance-ready PDF in one click. Cancel anytime &mdash;
+          no ads, no data sales, no VC money.
         </p>
       </section>
 

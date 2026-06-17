@@ -268,6 +268,14 @@ export async function GET(req) {
         if (cd && !Number.isNaN(cd)) return cd;
         return c.series_year != null ? Number(c.series_year) : null;
       };
+      // Year-bounded closest match. Without an upper bound, a single
+      // canonical_cover from one Venom volume gets falsely assigned to all
+      // 11 Venom volumes in search results because it's the "closest" of one.
+      // Tolerance=5yrs is generous enough to handle late-issue covers
+      // (Venom 2003 vol ran through 2004 issues), strict enough to avoid
+      // a 14yr cross-volume bleed. When the only candidate is too far off,
+      // return null and let the styled empty-card placeholder show instead.
+      const MAX_YEAR_DELTA = 5;
       const pickClosest = (candidates, targetYear) => {
         if (!candidates || candidates.length === 0) return null;
         if (targetYear == null) return candidates[0].storage_path;
@@ -279,7 +287,8 @@ export async function GET(req) {
           const diff = Math.abs(cy - targetYear);
           if (diff < bestDiff) { best = c; bestDiff = diff; }
         }
-        return (best ?? candidates[0]).storage_path;
+        if (best && bestDiff <= MAX_YEAR_DELTA) return best.storage_path;
+        return null;
       };
 
       for (const row of missingCover) {

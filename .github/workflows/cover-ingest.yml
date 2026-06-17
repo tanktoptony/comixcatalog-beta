@@ -59,10 +59,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # NOTE: no `cache: 'pip'` — setup-python@v5 requires requirements.txt
+      # or pyproject.toml for cache key. We install requests + python-dotenv
+      # inline (~5s on each run), so caching saves nothing and broke the job.
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cache: 'pip'
 
       - name: Install Python deps
         run: |

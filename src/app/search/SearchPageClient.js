@@ -297,6 +297,12 @@ export default function SearchPageClient() {
                         href={`/series/${s.id}`}
                         className="comic-card"
                       >
+                        <div className="comic-card-cover">
+                          {s.cover && (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={s.cover} alt={s.title || ""} />
+                          )}
+                        </div>
                         <div className="comic-card-title">
                           {s.title || "Untitled Series"}
                         </div>

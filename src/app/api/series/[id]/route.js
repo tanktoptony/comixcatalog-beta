@@ -191,22 +191,47 @@ export async function GET(req, context) {
       ),
     ];
 
+    // Two-path canonical-cover lookup:
+    //   1. ID path — match canonical_covers.series_gcd_id == series.gcd_id.
+    //      Volume-exact; immune to title drift (mojibake, casing, comma vs
+    //      colon — the "G.I. Joe, a Real American Hero" Marvel run vs
+    //      "G.I. Joe: A Real American Hero" IDW form bit us until this).
+    //   2. Title path — for canonical_covers rows the backfill couldn't tag.
+    // Union the results; downstream dedupe (candidatesByIssue) handles
+    // duplicates from rows that match both paths.
     let canonicalRows = [];
     if (issueNumbers.length > 0) {
-      const { data, error } = await supabase
-        .from("canonical_covers")
-        .select("series_title, issue_number, series_year, cover_date, storage_path, publisher")
-        .eq("series_title", series.title)
-        .in("issue_number", issueNumbers);
-
-      if (error) {
-        console.error(
-          "GET /api/series/[id] canonical cover lookup failed:",
-          error
+      const queries = [];
+      if (series.gcd_id != null) {
+        queries.push(
+          supabase
+            .from("canonical_covers")
+            .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
+            .eq("series_gcd_id", series.gcd_id)
+            .in("issue_number", issueNumbers)
         );
-      } else {
-        canonicalRows = data ?? [];
       }
+      if (series.title) {
+        queries.push(
+          supabase
+            .from("canonical_covers")
+            .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
+            .eq("series_title", series.title)
+            .in("issue_number", issueNumbers)
+        );
+      }
+      const settled = await Promise.all(queries);
+      const merged = new Map();
+      for (const { data, error } of settled) {
+        if (error) {
+          console.error("GET /api/series/[id] canonical cover lookup failed:", error);
+          continue;
+        }
+        for (const row of data ?? []) {
+          merged.set(`${row.series_gcd_id ?? "_"}::${row.series_title ?? "_"}::${row.issue_number}::${row.storage_path ?? "_"}`, row);
+        }
+      }
+      canonicalRows = [...merged.values()];
     }
 
     const canonicalPublisherName =
@@ -230,16 +255,17 @@ export async function GET(req, context) {
         seriesTitle: series.title,
       });
 
+    // Key by issue_number only. We already constrained canonicalRows to
+    // this series (via series_gcd_id OR exact series_title), so cross-series
+    // pollution isn't possible. Keying by the canonical row's series_title
+    // would break the ID-path case where canonical's title differs from
+    // series.title (e.g. Marvel's "G.I. Joe, a Real American Hero" vs CV's
+    // "G.I. Joe: A Real American Hero").
     const candidatesByIssue = canonicalRows.reduce((acc, row) => {
-      const key =
-        `${normalizeSeriesTitle(row.series_title)}::${normalizeIssueNumber(row.issue_number)}`;
-
+      if (!row?.storage_path) return acc;
+      const key = normalizeIssueNumber(row.issue_number);
       if (!acc[key]) acc[key] = [];
-
-      if (row?.storage_path) {
-        acc[key].push(row);
-      }
-
+      acc[key].push(row);
       return acc;
     }, {});
 
@@ -257,14 +283,13 @@ export async function GET(req, context) {
     const mappedIssuesRaw = issueRows.map((issue) => {
       const gcdYear = bestYearFor(issue);
 
-      const legacyKey =
-        `${normalizeSeriesTitle(series.title)}::${normalizeIssueNumber(issue.issue_number)}`;
+      const issueKey = normalizeIssueNumber(issue.issue_number);
 
       // For the fallback path, only accept covers whose series_year sits
       // inside this series's actual year span (with a small tolerance). If
       // every candidate fails that test, return no cover rather than the
       // wrong one. This stops cross-volume bleed at the per-issue level.
-      const allCandidates = candidatesByIssue[legacyKey] ?? [];
+      const allCandidates = candidatesByIssue[issueKey] ?? [];
       const inSpanCandidates =
         seriesYearMin != null && seriesYearMax != null
           ? allCandidates.filter(

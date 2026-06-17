@@ -209,43 +209,93 @@ export async function GET(req) {
     cleaned.sort(compareSeries);
     const top = dedupeById(cleaned).slice(0, 12);
 
-    // Cover fallback: for rows where featured_cover_path_cached is null,
-    // look up any canonical_cover by series_title so the autocomplete isn't
-    // left with empty tiles when the refresh script didn't find a match.
+    // Cover fallback for rows where featured_cover_path_cached is null.
+    //
+    // Two-path with year disambiguation. The old approach (title-string only,
+    // pick first hit) caused G.I. Joe ARAH's 5 volumes to share one cover
+    // because they share a title. Now:
+    //   1. ID path — match series.gcd_id == canonical_covers.series_gcd_id
+    //      (set by migration 0009 backfill). Volume-exact.
+    //   2. Title path — when ID path comes up empty, fall back to title-match
+    //      AND pick the canonical whose series_year is closest to the
+    //      series row's year_start_cached. Stops cross-volume bleed.
     const missingCover = top.filter((row) => !row.featured_cover_path_cached);
     const fallbackPathById = new Map();
     if (missingCover.length > 0) {
-      const fallbackTitles = [
+      const missingGcdIds = [
+        ...new Set(missingCover.map((r) => r.gcd_id).filter(Boolean)),
+      ];
+      const missingTitles = [
         ...new Set(missingCover.map((r) => r.title).filter(Boolean)),
       ];
-      if (fallbackTitles.length > 0) {
-        const { data: coverRows, error: coverErr } = await supabase
+
+      const byIdKey = new Map();   // gcd_id -> [{path, series_year, cover_date}]
+      const byTitleKey = new Map(); // titleLower -> [{path, series_year, cover_date, publisher}]
+
+      // ID path query
+      if (missingGcdIds.length > 0) {
+        const { data: idRows } = await supabase
           .from("canonical_covers")
-          .select("series_title, storage_path, publisher")
-          .in("series_title", fallbackTitles)
+          .select("series_gcd_id, storage_path, series_year, cover_date")
+          .in("series_gcd_id", missingGcdIds)
           .not("storage_path", "is", null)
-          .limit(fallbackTitles.length * 8);
-
-        if (!coverErr && coverRows) {
-          const byTitlePub = new Map();
-          const byTitle = new Map();
-          for (const c of coverRows) {
-            if (!c.storage_path) continue;
-            const titleKey = String(c.series_title ?? "").toLowerCase();
-            const pubKey = String(c.publisher ?? "").toLowerCase();
-            const tpKey = `${titleKey}|${pubKey}`;
-            if (!byTitlePub.has(tpKey)) byTitlePub.set(tpKey, c.storage_path);
-            if (!byTitle.has(titleKey)) byTitle.set(titleKey, c.storage_path);
-          }
-
-          for (const row of missingCover) {
-            const titleKey = String(row.title ?? "").toLowerCase();
-            const pubKey = String(row.resolved_publisher_cached ?? "").toLowerCase();
-            const path =
-              byTitlePub.get(`${titleKey}|${pubKey}`) ?? byTitle.get(titleKey) ?? null;
-            if (path) fallbackPathById.set(row.id, path);
-          }
+          .limit(missingGcdIds.length * 20);
+        for (const c of idRows ?? []) {
+          if (!c.storage_path) continue;
+          if (!byIdKey.has(c.series_gcd_id)) byIdKey.set(c.series_gcd_id, []);
+          byIdKey.get(c.series_gcd_id).push(c);
         }
+      }
+
+      // Title path query
+      if (missingTitles.length > 0) {
+        const { data: titleRows } = await supabase
+          .from("canonical_covers")
+          .select("series_title, storage_path, series_year, cover_date, publisher")
+          .in("series_title", missingTitles)
+          .not("storage_path", "is", null)
+          .limit(missingTitles.length * 20);
+        for (const c of titleRows ?? []) {
+          if (!c.storage_path) continue;
+          const k = String(c.series_title ?? "").toLowerCase();
+          if (!byTitleKey.has(k)) byTitleKey.set(k, []);
+          byTitleKey.get(k).push(c);
+        }
+      }
+
+      const yearOf = (c) => {
+        const cd = c.cover_date ? Number(String(c.cover_date).slice(0, 4)) : null;
+        if (cd && !Number.isNaN(cd)) return cd;
+        return c.series_year != null ? Number(c.series_year) : null;
+      };
+      const pickClosest = (candidates, targetYear) => {
+        if (!candidates || candidates.length === 0) return null;
+        if (targetYear == null) return candidates[0].storage_path;
+        let best = null;
+        let bestDiff = Infinity;
+        for (const c of candidates) {
+          const cy = yearOf(c);
+          if (cy == null) continue;
+          const diff = Math.abs(cy - targetYear);
+          if (diff < bestDiff) { best = c; bestDiff = diff; }
+        }
+        return (best ?? candidates[0]).storage_path;
+      };
+
+      for (const row of missingCover) {
+        // ID path first.
+        const idCandidates = row.gcd_id ? byIdKey.get(row.gcd_id) : null;
+        let path = pickClosest(idCandidates, row.year_start_cached);
+        if (!path) {
+          // Title path — narrow to publisher-matching candidates first if any.
+          const titleCandidates = byTitleKey.get(String(row.title ?? "").toLowerCase()) ?? [];
+          const pubKey = String(row.resolved_publisher_cached ?? "").toLowerCase();
+          const pubFiltered = pubKey
+            ? titleCandidates.filter((c) => String(c.publisher ?? "").toLowerCase() === pubKey)
+            : [];
+          path = pickClosest(pubFiltered.length ? pubFiltered : titleCandidates, row.year_start_cached);
+        }
+        if (path) fallbackPathById.set(row.id, path);
       }
     }
 

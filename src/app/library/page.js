@@ -24,6 +24,20 @@ function getLibraryHref(item, comic) {
   return "/library";
 }
 
+// Defensive normalize for user_cover_url. Older GradeEditor versions stored
+// just the filename (`<uuid>.jpg`) instead of the full Supabase URL, which
+// the browser then resolved as a relative path → 404. Existing DB rows were
+// backfilled to absolute URLs, but new writes from any unrelated source
+// path could regress this — so we normalize at render-time too.
+function resolveUserCover(value) {
+  if (!value) return null;
+  if (/^https?:\/\//i.test(value)) return value;
+  const supa = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (!supa) return null;
+  // Bare filename: presumed to live at the root of the comic-covers bucket.
+  return `${supa}/storage/v1/object/public/comic-covers/${value.replace(/^\/+/, "")}`;
+}
+
 function normalizePublisherName(value) {
   const raw = String(value || "").trim();
   const lower = raw.toLowerCase();
@@ -76,16 +90,30 @@ function LibraryPageContent() {
   // no inline GradeEditor, no Add Comic button, no catalog-linking panel),
   // stats clamped to public visibility per the owner's privacy toggles.
   // The toggle button at the top of the header lets the owner round-trip.
-  const [previewMode, setPreviewMode] = useState(() => {
-    const param = searchParams.get("view");
-    if (param === "public" || param === "manage") return param;
-    if (typeof window !== "undefined") {
-      const stored = window.localStorage.getItem("library-view-mode");
-      if (stored === "public" || stored === "manage") return stored;
-    }
-    return "manage";
-  });
+  // Initialize deterministically so server + initial client render match.
+  // The previous version read localStorage in the useState initializer,
+  // which only exists on the client — server returned "manage", client
+  // could return "public", and React hydration would scream. Now we always
+  // start at "manage" and sync from URL/storage in an effect on mount.
+  const [previewMode, setPreviewMode] = useState("manage");
   const isPublicPreview = previewMode === "public";
+
+  // Sync after mount: URL ?view= overrides stored preference.
+  useEffect(() => {
+    const param = searchParams.get("view");
+    if (param === "public" || param === "manage") {
+      setPreviewMode(param);
+      return;
+    }
+    const stored = window.localStorage.getItem("library-view-mode");
+    if (stored === "public" || stored === "manage") {
+      setPreviewMode(stored);
+    }
+    // searchParams is intentionally not in deps — we only want the URL/
+    // storage handshake on initial mount. Manual toggles update state
+    // directly via setPreviewMode in the tab onClick handlers.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Persist the last choice so a refresh keeps the same mode.
   useEffect(() => {
@@ -1616,7 +1644,9 @@ function LibraryPageContent() {
                 };
 
                 const displayCover =
-                  liveGrade.user_cover_url || comic.cover || "/fallback-cover.png";
+                  resolveUserCover(liveGrade.user_cover_url) ||
+                  comic.cover ||
+                  "/fallback-cover.png";
 
                 return (
                   <article
@@ -1759,7 +1789,9 @@ function LibraryPageContent() {
                 };
 
                 const displayCover =
-                  liveGrade.user_cover_url || comic.cover || "/fallback-cover.png";
+                  resolveUserCover(liveGrade.user_cover_url) ||
+                  comic.cover ||
+                  "/fallback-cover.png";
 
                 return (
                   <article

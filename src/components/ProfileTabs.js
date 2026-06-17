@@ -188,17 +188,9 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
             </label>
             <select
               id="profile-sort"
+              className="profile-sort-select"
               value={sortMode}
               onChange={(e) => setSortMode(e.target.value)}
-              style={{
-                padding: "6px 10px",
-                borderRadius: 6,
-                border: "1px solid rgba(255,255,255,0.15)",
-                background: "rgba(255,255,255,0.04)",
-                color: "#fff",
-                fontSize: "0.85rem",
-                colorScheme: "dark",
-              }}
             >
               {SORT_OPTIONS.map((opt) => (
                 <option key={opt.value} value={opt.value}>

@@ -4,7 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
-import OAuthButtons from "@/components/OAuthButtons";
+import { launchProfileFlags } from "@/lib/launchFlags";
+// import OAuthButtons from "@/components/OAuthButtons"; // re-enable with the <OAuthButtons /> usage below
 
 // Avatar selection deferred to /profile/edit. Signup is now 3 fields
 // (username, email, password). The legacy hero_XX set in /public/avatars/
@@ -87,19 +88,42 @@ export default function SignUpPage() {
 
     setSaving(true);
 
-    const { data, error } = await supabase.auth.signUp({
-      email: emailNormalized,
-      password,
-      options: {
-        emailRedirectTo:
-          typeof window !== "undefined"
-            ? `${window.location.origin}/auth/callback`
-            : undefined,
-        data: {
-          username: usernameNormalized,
-        },
-      },
-    });
+    // Race signUp against a hard 15s timeout. Supabase's auth service
+    // returns 504 upstream-request-timeout when its built-in SMTP relay
+    // is throttled (which is happening pre-Resend-setup). Without this
+    // race the signup spinner runs forever and the user gives up.
+    let data, error;
+    try {
+      const result = await Promise.race([
+        supabase.auth.signUp({
+          email: emailNormalized,
+          password,
+          options: {
+            emailRedirectTo:
+              typeof window !== "undefined"
+                ? `${window.location.origin}/auth/callback`
+                : undefined,
+            data: {
+              username: usernameNormalized,
+            },
+          },
+        }),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error("Supabase signup timed out")), 15000)
+        ),
+      ]);
+      data = result?.data;
+      error = result?.error;
+    } catch (timeoutErr) {
+      console.error("SIGNUP TIMEOUT:", timeoutErr);
+      setSaving(false);
+      setErrorMsg(
+        "Email service is temporarily unavailable — your confirmation " +
+          "email can't be sent right now. Email comixcatalog@gmail.com " +
+          "and we'll get you in manually."
+      );
+      return;
+    }
 
     console.log("SIGNUP DATA:", data);
     console.log("SIGNUP ERROR:", error);
@@ -154,6 +178,10 @@ export default function SignUpPage() {
             id: user.id,
             username: usernameNormalized,
             is_public: true,
+            // Launch promo flags (Pro + Founding). Single source of truth
+            // in src/lib/launchFlags.js — flip AUTO_PRO_AND_FOUNDING_ON_SIGNUP
+            // to false there when signups should hit the paywall again.
+            ...launchProfileFlags(),
           },
           { onConflict: "id" }
         );
@@ -197,11 +225,12 @@ export default function SignUpPage() {
       <h1 className="auth-title">Create your account</h1>
       <p className="auth-subtitle">Free to start tracking your collection &mdash; values, grades, runs.</p>
 
-      {/* OAuth above the email form — friction-free path is the lead.
-          /auth/callback already handles the post-OAuth profile creation,
-          including the redirect to /complete-profile when Google didn't
-          supply a username (which it never does). */}
-      <OAuthButtons />
+      {/* OAuth temporarily hidden — pre-launch users were finding the
+          Google flow clunky (extra redirects, /complete-profile gate,
+          occasional session race). Re-enable by uncommenting the line
+          below once that path is sharper. Component + auth callback
+          remain in place. */}
+      {/* <OAuthButtons /> */}
 
       <form onSubmit={handleSignup} className="auth-form">
         <div className="auth-field">

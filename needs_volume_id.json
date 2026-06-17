@@ -11132,5 +11132,53 @@
         "start_year": 1991
       }
     ]
+  },
+  {
+    "name": "Star Trek: The Mirror War: Data",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Friday",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126593,
+        "name": "Friday",
+        "publisher": "Panelsyndicate",
+        "start_year": 2020
+      }
+    ]
+  },
+  {
+    "name": "Demon Days: X-Men Creator's Cut",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": []
+  },
+  {
+    "name": "Heartbreak Soup",
+    "publisher": "Titan Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55646,
+        "name": "Heartbreak Soup",
+        "publisher": "Fantagraphics",
+        "start_year": 2007
+      },
+      {
+        "id": 44259,
+        "name": "Heartbreak Soup",
+        "publisher": "Fantagraphics",
+        "start_year": 1987
+      }
+    ]
   }
 ]

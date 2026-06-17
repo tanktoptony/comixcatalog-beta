@@ -110,6 +110,7 @@ export default function StoryArcPage() {
   const missingIssues = issues.filter(
     (i) => i.gcd_issue_id != null && !i.owned && !i.wishlisted
   );
+  const wishlistedCount = issues.filter((i) => i.wishlisted && !i.owned).length;
 
   async function handleAddAllMissingToWantlist() {
     if (!user?.id || !isPro || missingIssues.length === 0) return;
@@ -209,6 +210,11 @@ export default function StoryArcPage() {
                   You own {ownership.owned} of {ownership.matchable}
                   {ownership.matchable !== ownership.total &&
                     ` (of ${ownership.total} total in arc)`}
+                  {wishlistedCount > 0 && (
+                    <span style={{ opacity: 0.7, fontWeight: 500 }}>
+                      {" "}· {wishlistedCount} on wantlist
+                    </span>
+                  )}
                 </div>
                 <div style={{ fontWeight: 700, color: "var(--cc-gold, #FFD700)" }}>
                   {pct}%
@@ -276,8 +282,8 @@ export default function StoryArcPage() {
           }}
         >
           <div style={{ fontSize: "0.95rem" }}>
-            <strong>You&rsquo;re missing {missingIssues.length} issue{missingIssues.length === 1 ? "" : "s"}</strong>
-            {" "}from this arc.
+            <strong>{missingIssues.length} issue{missingIssues.length === 1 ? "" : "s"} not yet tracked</strong>
+            {" "}from this arc{wishlistedCount > 0 ? ` (${wishlistedCount} already on your wantlist)` : ""}.
             {!isPro && (
               <span style={{ opacity: 0.7 }}>
                 {" "}Skip {missingIssues.length} clicks &mdash; Pro adds the whole missing run to your wantlist in one tap.

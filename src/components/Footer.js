@@ -22,7 +22,7 @@ const COLUMNS = [
   {
     title: "Community",
     links: [
-      { label: "Crate Dig — Chicago", href: "/crate-dig" },
+      { label: "Crate Dig — Chicago", href: "/crate-dig", todo: true },
       { label: "Community Guidelines", href: "/community/guidelines", todo: true },
       { label: "Forum", href: "/forum", todo: true },
       { label: "Reads", href: "/reads" },

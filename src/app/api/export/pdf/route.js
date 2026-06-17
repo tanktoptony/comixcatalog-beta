@@ -1,9 +1,15 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { PDFDocument, rgb, StandardFonts, PageSizes } from "pdf-lib";
+import sharp from "sharp";
 import { ADMIN_ID } from "@/lib/admin";
 
 export const maxDuration = 60;
+
+// Cover thumbnails in the report render at IMG_W=38pt (~50px at 96dpi).
+// Resizing to 200px wide gives 4x headroom for clarity at zoom without
+// blowing up the PDF. A 57MB PDF (51 books, full-res JPGs) drops to ~1MB.
+const COVER_RESIZE_WIDTH = 200;
 
 const NAVY   = rgb(0.043, 0.118, 0.420);
 const GOLD   = rgb(0.957, 0.816, 0.247);
@@ -32,22 +38,68 @@ function condAbbrev(cond) {
   return m ? m[1] : cond.split(" ")[0];
 }
 
+// pdf-lib's StandardFonts (Helvetica family) use WinAnsi encoding, which is
+// roughly Latin-1 — anything outside it (smart quotes, em-dashes, ellipsis
+// characters, accented letters in some publisher names, the U+FFFD replacement
+// glyph from upstream decoding errors) throws "WinAnsi cannot encode" at draw
+// time and crashes the whole PDF. Rather than bundle a Unicode font (would
+// add ~300KB and complicate the bundle), we map common typography chars to
+// ASCII equivalents, then strip anything still outside Latin-1.
+function pdfSafe(text) {
+  if (text == null) return "";
+  let s = String(text);
+  // Common typographic substitutions — preserve meaning, drop encoding
+  s = s
+    .replace(/[‘’‚‛]/g, "'")  // single quotes / primes
+    .replace(/[“”„‟]/g, '"')  // double quotes
+    .replace(/[–—―]/g, "-")        // en/em/horizontal dash
+    .replace(/…/g, "...")                       // ellipsis
+    .replace(/ /g, " ")                         // non-breaking space
+    .replace(/[•‣◦]/g, "*")         // bullet variants
+    .replace(/·/g, "-")                         // middle dot
+    .replace(/[�]/g, "?")                       // replacement char
+    .replace(/®/g, "(R)")                       // registered
+    .replace(/™/g, "(TM)")                      // trademark
+    .replace(/©/g, "(C)");                      // copyright
+  // Anything still outside Latin-1 (CJK, emoji, exotic Unicode) → "?"
+  // We'd rather render a placeholder than crash the whole report.
+  s = s.replace(/[^\x00-\xFF]/g, "?");
+  return s;
+}
+
 async function fetchImageBytes(url) {
   if (!url) return null;
   try {
     const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
     if (!res.ok) return null;
-    const bytes = new Uint8Array(await res.arrayBuffer());
-    const ct = res.headers.get("content-type") || "";
-    const isPng = ct.includes("png") || url.toLowerCase().endsWith(".png");
-    return { bytes, isPng };
+    const raw = Buffer.from(await res.arrayBuffer());
+
+    // Resize + re-encode as JPEG. sharp handles the input format detection
+    // (PNG, JPEG, WebP, HEIC) so we no longer need to track isPng — the
+    // output is always JPEG, which pdf-lib embeds via embedJpg().
+    // q=80 is a sweet spot for thumbnails: visually clean, ~5-10KB per cover.
+    try {
+      const resized = await sharp(raw)
+        .resize({ width: COVER_RESIZE_WIDTH, withoutEnlargement: true })
+        .jpeg({ quality: 80, mozjpeg: true })
+        .toBuffer();
+      return { bytes: new Uint8Array(resized), isPng: false };
+    } catch (sharpErr) {
+      // sharp can't handle this image (corrupt, unsupported format, etc).
+      // Fall back to the raw bytes — embed will either work at original
+      // size or fail gracefully inside the per-row try/catch downstream.
+      console.warn("Cover resize failed, embedding raw:", url, sharpErr?.message);
+      const ct = res.headers.get("content-type") || "";
+      const isPng = ct.includes("png") || url.toLowerCase().endsWith(".png");
+      return { bytes: new Uint8Array(raw), isPng };
+    }
   } catch {
     return null;
   }
 }
 
 function wrapText(text, font, size, maxWidth) {
-  const words = String(text || "").split(" ");
+  const words = pdfSafe(text).split(" ");
   const lines = [];
   let line = "";
   for (const word of words) {
@@ -64,12 +116,14 @@ function wrapText(text, font, size, maxWidth) {
 }
 
 function truncate(text, font, size, maxWidth) {
-  let s = String(text || "");
+  let s = pdfSafe(text);
   if (font.widthOfTextAtSize(s, size) <= maxWidth) return s;
-  while (s.length > 0 && font.widthOfTextAtSize(s + "…", size) > maxWidth) {
+  // Use "..." not "…" — even though we sanitize, this keeps the truncation
+  // marker visually identical pre/post sanitize.
+  while (s.length > 0 && font.widthOfTextAtSize(s + "...", size) > maxWidth) {
     s = s.slice(0, -1);
   }
-  return s + "…";
+  return s + "...";
 }
 
 function gradeColor(g) {
@@ -273,7 +327,7 @@ export async function POST(req) {
 
     const reportDate = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
     const fields = [
-      ["COLLECTOR", username],
+      ["COLLECTOR", pdfSafe(username)],
       ["REPORT DATE", reportDate],
       ["TOTAL BOOKS", String(items.length)],
       buildFinancialField("TOTAL PAID", "purchase_price"),
@@ -302,7 +356,7 @@ export async function POST(req) {
       dy -= 13;
     }
 
-    cover.drawText(`Generated by ComixCatalog  ·  ${reportDate}`, {
+    cover.drawText(`Generated by ComixCatalog  -  ${reportDate}`, {
       x: MARGIN + 18, y: 28, size: 8, font: reg, color: WHITE, opacity: 0.35,
     });
 
@@ -449,19 +503,20 @@ export async function POST(req) {
       page.drawText(truncate(item.publisher || "—", reg, ts, CW.pub - 4), {
         x: CX.pub, y: ty + 4, size: ts, font: reg, color: DGRAY,
       });
-      // Year
-      page.drawText(item.year ? String(item.year) : "—", {
+      // Year — em-dash placeholder swapped for ASCII so we don't depend on
+      // pdfSafe() reaching this path (this drawText is not wrapped in truncate).
+      page.drawText(item.year ? String(item.year) : "-", {
         x: CX.year, y: ty + 4, size: ts, font: reg, color: DGRAY,
       });
 
       // Grade badge
-      let gradeLabel = "—";
+      let gradeLabel = "-";
       let gc = MGRAY;
       if (item.grade_numeric != null) {
         gradeLabel = String(item.grade_numeric);
         gc = gradeColor(item.grade_numeric);
       } else if (item.condition) {
-        gradeLabel = condAbbrev(item.condition) ?? "—";
+        gradeLabel = pdfSafe(condAbbrev(item.condition)) || "-";
       }
       const glW = Math.max(bold.widthOfTextAtSize(gradeLabel, ts) + 10, 20);
       page.drawRectangle({
@@ -548,7 +603,19 @@ export async function POST(req) {
       },
     });
   } catch (err) {
-    console.error("PDF export error:", err);
-    return NextResponse.json({ error: "PDF generation failed" }, { status: 500 });
+    // Surface the actual reason so failures don't all read "PDF generation
+    // failed" with nothing actionable. The stack is logged server-side; the
+    // short message reaches the client toast so the user knows whether to
+    // retry, contact support, or report a bug.
+    console.error("PDF export error:", {
+      message: err?.message,
+      name: err?.name,
+      stack: err?.stack,
+    });
+    const detail = err?.message || (typeof err === "string" ? err : "Unknown error");
+    return NextResponse.json(
+      { error: `PDF generation failed: ${detail}` },
+      { status: 500 }
+    );
   }
 }

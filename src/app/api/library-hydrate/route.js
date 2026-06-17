@@ -176,6 +176,7 @@ export async function POST(req) {
           issue_number: issue.issue_number,
           publication_date: issue.publication_date,
           key_date: issue.key_date,
+          seriesGcdId: issue.series_gcd_id ?? null,
           seriesTitle: seriesRow?.title ?? null,
           // resolved_publisher_cached is the year-aware, audited value — prefer
           // it. The publisher_gcd_id fallback draws on GCD's scrambled publisher
@@ -194,16 +195,57 @@ export async function POST(req) {
         ...new Set(intermediate.map((r) => r.issue_number).filter((v) => v != null)),
       ];
 
-      // Year-aware cover lookup. canonical_covers is indexed by
-      // (series_title, issue_number) but those alone aren't enough to
-      // disambiguate volumes — Mirage TMNT 1984 #2 and IDW TMNT 2011 #2 are
-      // both stored under "Teenage Mutant Ninja Turtles" #2. We pull
-      // series_year from canonical_covers and require it to match the issue's
-      // publication year (with a small tolerance) before using the cover.
-      // No match = no cover; fallback placeholder beats the wrong volume.
+      // Year-aware cover lookup. Two-path strategy:
+      //
+      //   1. ID-based (preferred): join canonical_covers.series_gcd_id ==
+      //      gcd_issues.series_gcd_id. Survives mojibake, curly quotes,
+      //      slash-spacing, and any other title-string fragility. New covers
+      //      and backfilled ones use this path.
+      //
+      //   2. Title-based (fallback): the legacy join on series_title for
+      //      canonical_covers rows where series_gcd_id is still NULL — until
+      //      backfill is fully run. Capped to series_gcd_id IS NULL so we
+      //      don't double-fetch.
+      //
+      // Both maps key on the same `(seriesGcdId|normTitle)::issue_number`
+      // shape so the per-row resolver below treats them uniformly.
       const COVER_YEAR_TOLERANCE = 1;
-      const coversByKey = new Map();
+      const coversById = new Map();
+      const coversByTitle = new Map();
 
+      const intermediateGcdIds = [
+        ...new Set(intermediate.map((r) => r.seriesGcdId).filter((v) => v != null)),
+      ];
+
+      // ID-first lookup. If migration 0009 hasn't been applied yet, this
+      // query errors with "column does not exist" — we swallow that quietly
+      // and let the title-based fallback do the work. Once the migration
+      // lands and backfill runs, this becomes the primary path for everyone.
+      if (intermediateGcdIds.length > 0 && issueNumbers.length > 0) {
+        const { data: covers, error } = await supabase
+          .from("canonical_covers")
+          .select("series_gcd_id, series_title, issue_number, series_year, cover_date, storage_path")
+          .in("series_gcd_id", intermediateGcdIds)
+          .in("issue_number", issueNumbers)
+          .not("storage_path", "is", null);
+
+        if (!error) {
+          for (const c of covers ?? []) {
+            const key = `${c.series_gcd_id}::${norm(c.issue_number)}`;
+            if (!coversById.has(key)) coversById.set(key, []);
+            coversById.get(key).push(c);
+          }
+        }
+        // error path: column missing pre-migration, or transient PG hiccup.
+        // Either way the title fallback below handles it.
+      }
+
+      // Title-string lookup. Used unconditionally as the fallback. We do NOT
+      // filter by `series_gcd_id IS NULL` here — that would require the
+      // column to exist (breaking on un-migrated prod) and also locks the
+      // hydration to the migration order. Letting this return everything
+      // is harmless because the per-row resolver below prefers the
+      // coversById map first; the title map only fills gaps.
       if (seriesTitles.length > 0 && issueNumbers.length > 0) {
         const { data: covers } = await supabase
           .from("canonical_covers")
@@ -214,15 +256,24 @@ export async function POST(req) {
 
         for (const c of covers ?? []) {
           const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
-          if (!coversByKey.has(key)) coversByKey.set(key, []);
-          coversByKey.get(key).push(c);
+          if (!coversByTitle.has(key)) coversByTitle.set(key, []);
+          coversByTitle.get(key).push(c);
         }
       }
 
       for (const row of intermediate) {
-        const coverKey = `${norm(row.seriesTitle)}::${norm(row.issue_number)}`;
         const issueYear = bestYearFor(row);
-        const candidates = coversByKey.get(coverKey) ?? [];
+        // Prefer ID-keyed lookup; fall back to title-keyed only when the
+        // ID path returns nothing (or the row has no series_gcd_id at all).
+        const idKey =
+          row.seriesGcdId != null
+            ? `${row.seriesGcdId}::${norm(row.issue_number)}`
+            : null;
+        const titleKey = `${norm(row.seriesTitle)}::${norm(row.issue_number)}`;
+        const candidates =
+          (idKey && coversById.get(idKey)) ||
+          coversByTitle.get(titleKey) ||
+          [];
 
         let storagePath = null;
         if (candidates.length > 0) {

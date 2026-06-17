@@ -49,6 +49,9 @@ export async function GET(request) {
       username,
       avatar_key: avatarKey,
       is_public: true,
+      // Launch promo flags applied via the same helper as the email/password
+      // signup path so OAuth users get the identical treatment.
+      ...launchProfileFlags(),
     },
     { onConflict: "id" }
   );

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { getSupabaseClient } from "@/lib/supabase/client";
-import OAuthButtons from "@/components/OAuthButtons";
+// import OAuthButtons from "@/components/OAuthButtons"; // re-enable with the <OAuthButtons /> usage below
 
 function withTimeout(promise, ms, label = "Request") {
   return Promise.race([
@@ -284,10 +284,12 @@ export default function LoginPage() {
         </div>
       )}
 
-      {/* OAuth providers — placed above the form so the friction-free path
-          is the first thing scanners see. The component handles its own
-          "or" divider so the email/password block below feels secondary. */}
-      <OAuthButtons />
+      {/* OAuth temporarily hidden — users were finding the Google flow
+          clunky during pre-launch (extra redirects, /complete-profile
+          interstitial, occasional session race). Re-enable by uncommenting
+          the line below once the OAuth callback path is sharper.
+          The component + /auth/callback wiring all still exist. */}
+      {/* <OAuthButtons /> */}
 
       <form onSubmit={handleLogin} className="auth-form">
         <div className="auth-field">

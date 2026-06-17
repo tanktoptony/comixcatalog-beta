@@ -12,6 +12,16 @@ from dotenv import load_dotenv
 
 load_dotenv(".env.local")
 
+# Windows console defaults to cp1252, which crashes on any character outside
+# Latin-1 (mojibake from prior bad ingests, em-dashes, smart quotes, accented
+# publisher names). Force stdout/stderr to UTF-8 so the script never dies just
+# because it tried to print a weird character.
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 print("ENV LOADED:", os.path.exists(".env.local"))
 print("CV KEY PRESENT:", bool(os.getenv("COMICVINE_API_KEY")))
 
@@ -347,15 +357,36 @@ def _norm_publisher(value: str | None) -> str:
 
 def _norm_title(value: str | None) -> str:
     """Loose title comparison so a GCD title matches its ComicVine volume even
-    when a leading article differs — GCD 'Flash' vs ComicVine 'The Flash' was
-    silently dropping the real DC volume before publisher matching could run.
-    Strips a leading 'the ', collapses whitespace. Conservative on purpose: the
-    publisher gate and year disambiguation downstream still guard against a
-    wrong volume slipping through."""
+    when punctuation, spacing, or typography differs.
+
+    History:
+    - First version only stripped a leading 'the' and collapsed whitespace.
+      That fixed GCD 'Flash' vs CV 'The Flash' but missed everything else.
+    - Real-world failures observed:
+        'Batman / Superman: Authority Special' (us) vs 'Batman/Superman: …' (CV)
+        'Locke & Key' (us) vs 'Locke and Key' (CV)
+        smart quotes vs straight, em-dashes vs hyphens, colons absent in one
+    - So now we normalize aggressively: lowercase, strip leading 'the', map
+      common typography to ASCII, expand '&' → 'and', then treat every
+      non-alphanumeric run as a single space.
+
+    The publisher gate (line ~528) and year disambiguation downstream still
+    guard against the wrong volume slipping through under a looser title match.
+    """
     s = (value or "").strip().lower()
     if s.startswith("the "):
         s = s[4:]
-    return re.sub(r"\s+", " ", s)
+    # Map common typography → ASCII before nuking punctuation. Order matters:
+    # '&' must expand to 'and' before we strip it.
+    s = s.replace("&", " and ")
+    s = re.sub(r"[‘’‚‛`]", "'", s)
+    s = re.sub(r"[“”„‟]", '"', s)
+    s = re.sub(r"[—–―]", "-", s)
+    # Every run of non-alphanumeric → single space. This collapses
+    # "Batman / Superman" and "Batman/Superman" to the same string and
+    # makes ":" optional in subtitles.
+    s = re.sub(r"[^a-z0-9]+", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
 
 
 # --- Done-ledger: which targets we've already fully processed ---------------
@@ -692,6 +723,81 @@ def update_series_cv_publisher(series_title: str | None, cv_publisher: str | Non
         print(f"  cv_publisher patch error ({series_title!r}): {e}")
 
 
+# Cache for series_gcd_id lookups — same target shouldn't requery per issue.
+_SERIES_GCD_ID_CACHE: dict[tuple, int | None] = {}
+
+
+def _resolve_series_gcd_id(
+    target_name: str | None,
+    cv_volume_name: str | None,
+    year: int | None,
+) -> int | None:
+    """Find the gcd_series id for a target so canonical_covers can store it
+    alongside the cover row. Joins downstream (library-hydrate etc.) prefer
+    this integer over fragile series_title string matching.
+
+    Strategy: try the target name first (came from our DB via the gap file,
+    so the closest match). Fall back to the CV-returned volume name. When
+    multiple series share the same title, prefer the one whose
+    year_start_cached is closest to the target year.
+
+    Returns None if no confident match — downstream code handles this by
+    falling back to the legacy title-string join.
+    """
+    if not target_name and not cv_volume_name:
+        return None
+    key = (target_name, cv_volume_name, year)
+    if key in _SERIES_GCD_ID_CACHE:
+        return _SERIES_GCD_ID_CACHE[key]
+
+    def _query(title: str) -> list[dict]:
+        try:
+            resp = requests.get(
+                f"{SUPABASE_URL}/rest/v1/series",
+                headers={
+                    "apikey": SUPABASE_SERVICE_ROLE_KEY,
+                    "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+                },
+                params={
+                    "select": "gcd_id,title,year_start_cached",
+                    "title": f"eq.{title}",
+                    "gcd_id": "not.is.null",
+                    "limit": "20",
+                },
+                timeout=15,
+            )
+            if resp.status_code != 200:
+                return []
+            return resp.json() or []
+        except Exception:
+            return []
+
+    candidates = []
+    for nm in (target_name, cv_volume_name):
+        if nm:
+            candidates = _query(nm)
+            if candidates:
+                break
+
+    chosen = None
+    if len(candidates) == 1:
+        chosen = candidates[0].get("gcd_id")
+    elif len(candidates) > 1 and year is not None:
+        best, best_delta = None, 999
+        for c in candidates:
+            ys = c.get("year_start_cached")
+            if ys is None:
+                continue
+            delta = abs(int(ys) - int(year))
+            if delta < best_delta:
+                best, best_delta = c, delta
+        if best and best_delta <= 1:
+            chosen = best.get("gcd_id")
+
+    _SERIES_GCD_ID_CACHE[key] = chosen
+    return chosen
+
+
 def upsert_cover_row(row: dict) -> None:
     url = f"{SUPABASE_URL}/rest/v1/{SUPABASE_TABLE}"
     headers = {
@@ -875,6 +981,13 @@ def main():
             if cv_pub_name:
                 update_series_cv_publisher(volume.get("name"), cv_pub_name)
 
+            # Resolve gcd_series id for this volume so canonical_covers rows
+            # can be joined by integer ID instead of fragile title string.
+            # Falls back to None silently — downstream code tolerates it.
+            target_gcd_id = _resolve_series_gcd_id(
+                volume_name, volume.get("name"), target.get("year")
+            )
+
             volume_id = volume["id"]
             issues = fetch_issues_for_volume(volume_id)
             print(f"  fetched {len(issues)} issues")
@@ -959,6 +1072,7 @@ def main():
                     "comicvine_volume_id": comicvine_volume_id,
                     "series_year": series_year,
                     "series_title": volume.get("name"),
+                    "series_gcd_id": target_gcd_id,
                     "issue_title": issue_title,
                     "issue_number": issue_number,
                     "publisher": ((volume.get("publisher") or {}).get("name")),
@@ -1029,6 +1143,7 @@ def main():
                 "comicvine_volume_id",
                 "series_year",
                 "series_title",
+                "series_gcd_id",
                 "issue_title",
                 "issue_number",
                 "publisher",

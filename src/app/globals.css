@@ -8513,6 +8513,35 @@ button.nav-link {
   }
 }
 
+/* ── Sort dropdown (ProfileTabs) ────────────────────────────────────────
+   Native <select> options DO NOT inherit the parent's color/background in
+   Chrome or Edge — they get the OS-default popup, which on a light-themed
+   system + our dark site renders white-text-on-white-bg (invisible). Set
+   color-scheme so the browser knows we want the dark variant of the
+   widget, AND explicitly color the <option> children so even browsers
+   that ignore color-scheme render readable text. */
+.profile-sort-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-size: 0.85rem;
+  color-scheme: dark;
+  cursor: pointer;
+}
+.profile-sort-select:hover {
+  border-color: rgba(244, 208, 63, 0.4);
+}
+.profile-sort-select:focus {
+  outline: none;
+  border-color: #F4D03F;
+}
+.profile-sort-select option {
+  background: #15171f;
+  color: #fff;
+}
+
 /* ── Anon-visitor conversion banner on /u/[username] ──────────────────── */
 .profile-anon-cta {
   margin: 1.25rem auto;
@@ -8546,6 +8575,76 @@ button.nav-link {
 .profile-anon-cta-btn:hover {
   filter: brightness(1.06);
   transform: translateY(-1px);
+}
+
+/* ── /crate-dig STUB — page is wallpapered while details are confirmed.
+   The full editorial layout below is preserved so we can flip the page
+   back live by replacing the stub component with the original markup. */
+.cd-stub {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+}
+.cd-stub-inner {
+  max-width: 620px;
+  text-align: center;
+}
+.cd-stub-pill {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(244, 208, 63, 0.1);
+  border: 1px solid rgba(244, 208, 63, 0.4);
+  color: #F4D03F;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.cd-stub-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 900;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.cd-stub-body {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 2rem;
+}
+.cd-stub-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.cd-stub-btn {
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+.cd-stub-btn.primary {
+  background: #F4D03F;
+  color: #0B1E6B;
+}
+.cd-stub-btn.ghost {
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.cd-stub-hint {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+.cd-stub-hint a {
+  color: #F4D03F;
 }
 
 /* ── /crate-dig — Chicago in-person event landing ─────────────────────── */

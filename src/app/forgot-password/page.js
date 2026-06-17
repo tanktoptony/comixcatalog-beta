@@ -51,21 +51,42 @@ export default function ForgotPasswordPage() {
           ? `${window.location.origin}/reset-password`
           : undefined;
 
-      const { error } = await supabase.auth.resetPasswordForEmail(
-        emailNormalized,
-        { redirectTo }
-      );
+      // Race the Supabase call against a hard 12s timeout. When Supabase's
+      // built-in SMTP is throttled/broken, /auth/v1/recover hangs and
+      // returns 504 — which manifested as an infinite "Sending…" spinner
+      // for real users. Better to surface a specific error than gaslight
+      // them with a loading state.
+      const result = await Promise.race([
+        supabase.auth.resetPasswordForEmail(emailNormalized, { redirectTo }),
+        new Promise((_, reject) =>
+          setTimeout(
+            () => reject(new Error("Supabase auth timed out")),
+            12000
+          )
+        ),
+      ]);
 
       // Even on Supabase-side errors we present success: anti-enumeration.
       // Real failure modes (network, malformed email) bubble up via catch.
-      if (error) {
-        console.warn("resetPasswordForEmail error:", error);
+      if (result?.error) {
+        console.warn("resetPasswordForEmail error:", result.error);
       }
 
       setSent(true);
     } catch (err) {
       console.error("Forgot password flow crashed:", err);
-      setErrorMsg("Something went wrong. Please try again in a moment.");
+      // 504 / timeout means our email provider is misconfigured upstream,
+      // not the user's fault. Distinguish from a generic crash so they
+      // don't waste time retrying.
+      const msg = err?.message || "";
+      if (msg.includes("timed out") || msg.includes("504")) {
+        setErrorMsg(
+          "Email service is temporarily unavailable. Reach out at " +
+            "comixcatalog@gmail.com and we'll reset your password manually."
+        );
+      } else {
+        setErrorMsg("Something went wrong. Please try again in a moment.");
+      }
     } finally {
       setSubmitting(false);
     }
@@ -75,10 +96,10 @@ export default function ForgotPasswordPage() {
     <section className="auth-panel">
       <Link href="/" className="auth-brand" aria-label="ComixCatalog home">
         <Image
-          src="/icons/cc_badge.png"
+          src="/img/logos/cc_badge.png"
           alt="ComixCatalog"
-          width={64}
-          height={64}
+          width={56}
+          height={56}
           className="auth-brand-badge"
           priority
         />
@@ -122,21 +143,23 @@ export default function ForgotPasswordPage() {
           <form onSubmit={handleSubmit} className="auth-form">
             <div className="auth-field">
               <input
+                id="forgot-email"
                 type="email"
                 className="auth-input"
-                placeholder="Email"
+                placeholder=" "
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"
                 required
               />
+              <label htmlFor="forgot-email">Email address</label>
             </div>
 
             {errorMsg && <div className="auth-error">{errorMsg}</div>}
 
             <button
               type="submit"
-              className="auth-submit"
+              className="primary-btn auth-submit"
               disabled={submitting}
             >
               {submitting ? "Sending…" : "Send reset link"}

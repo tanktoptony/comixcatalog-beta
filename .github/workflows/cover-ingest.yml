@@ -1,0 +1,121 @@
+name: Cover ingest
+
+# Continuous ComicVine cover ingestion. Cron fires every 6 hours
+# (00:00, 06:00, 12:00, 18:00 UTC). Each run walks all four gap files in
+# sequence with --max-search-calls 180 — comfortably under the 200/hour
+# free-tier cap, with the per-vol sleep keeping us under the 1 req/sec
+# velocity cap.
+#
+# Daily math:
+#   4 runs × ~60 min × ~180 search calls = ~720 successful new covers/day
+#   Monthly budget: ~21,600 covers + ledger entries.
+#   GHA budget:     4 runs × 60 min = 240 min/day = 120 hr/month
+#                   (under the 2000-min private-repo cap; unlimited if public).
+#
+# What runs each cycle:
+#   1. gap-featured.json   — homepage carousel curated picks (highest UX impact)
+#   2. gap-manual.json     — ad-hoc adds (Batman/Joker style targeted hunts)
+#   3. gap-width.json      — broadens coverage across new series
+#   4. gap-depth.json      — fills in issues for series we already cover
+#
+# Persistence:
+#   .ingest-done.json (ledger of completed targets) is cached between runs
+#   so each cycle resumes where the prior left off. If the cache evicts
+#   (no run for 7 days), the next run starts fresh and re-confirms via
+#   --skip-existing — slower the first day, no data loss.
+#
+# To trigger manually: Actions tab → Cover ingest → Run workflow.
+# To pause: comment out the schedule block or disable the workflow in UI.
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    # 60 min per cycle leaves us a tight budget but stays inside free tier.
+    # The ingester self-exits via --max-search-calls before this timeout in
+    # normal operation; the timeout is the backstop for stalls.
+    timeout-minutes: 60
+
+    # Concurrency guard: if a prior run is still going when the next cron
+    # fires, skip the new one rather than running two ingesters against the
+    # same ledger. cancel-in-progress=false means we don't kill the running
+    # one mid-volume (would orphan partial uploads).
+    concurrency:
+      group: cover-ingest
+      cancel-in-progress: false
+
+    env:
+      # Python ingester reads SUPABASE_URL (not NEXT_PUBLIC_SUPABASE_URL)
+      # and SUPABASE_SERVICE_ROLE_KEY directly. COMICVINE_API_KEY is
+      # required — without it the script raises on startup.
+      SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      COMICVINE_API_KEY: ${{ secrets.COMICVINE_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests python-dotenv
+
+      # Resume the done-ledger from prior runs. The ledger is the
+      # difference between "this run takes 6 hours" and "this run picks up
+      # where the last one stopped." Key includes the day so we get a fresh
+      # save daily and don't lose progress to cache thrash mid-week.
+      - name: Restore ingest ledger
+        uses: actions/cache@v4
+        with:
+          path: .ingest-done.json
+          key: ingest-done-${{ github.run_id }}
+          restore-keys: |
+            ingest-done-
+
+      - name: Show current ledger size
+        run: |
+          if [ -f .ingest-done.json ]; then
+            python -c "import json; d=json.load(open('.ingest-done.json'));print(f'Ledger entries (resumed from prior run): {len(d)}')"
+          else
+            echo "Ledger empty — starting fresh."
+          fi
+
+      # Cycle: featured → manual → width → depth.
+      # Each step uses --max-search-calls 180 and --skip-existing so
+      # already-covered targets cost ~0 requests. continue-on-error lets a
+      # failing step (rate-limit, transient 5xx) not block the next file.
+      - name: Ingest featured-gap targets
+        if: hashFiles('gap-featured.json') != ''
+        continue-on-error: true
+        run: python comicvine_api_to_supabase.py --targets gap-featured.json --skip-existing --max-search-calls 180 --vol-sleep 1.0
+
+      - name: Ingest manual-gap targets
+        if: hashFiles('gap-manual.json') != ''
+        continue-on-error: true
+        run: python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --max-search-calls 180 --vol-sleep 1.0
+
+      - name: Ingest width-gap targets
+        if: hashFiles('gap-width.json') != ''
+        continue-on-error: true
+        run: python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --max-search-calls 180 --vol-sleep 1.0
+
+      - name: Ingest depth-gap targets
+        if: hashFiles('gap-depth.json') != ''
+        continue-on-error: true
+        run: python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --max-search-calls 180 --vol-sleep 1.0
+
+      - name: Final ledger size
+        if: always()
+        run: |
+          if [ -f .ingest-done.json ]; then
+            python -c "import json; d=json.load(open('.ingest-done.json'));print(f'Ledger entries (after this run): {len(d)}')"
+          fi

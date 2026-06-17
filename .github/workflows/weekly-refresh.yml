@@ -13,6 +13,12 @@ on:
     - cron: '0 9 * * 1'
   workflow_dispatch: {}
 
+# GitHub defaults the GITHUB_TOKEN to read-only since 2023. The "commit gap
+# targets if changed" step pushes regenerated gap-*.json files back to main
+# — needs explicit contents:write or the job dies with HTTP 403 (exit 128).
+permissions:
+  contents: write
+
 jobs:
   refresh:
     runs-on: ubuntu-latest

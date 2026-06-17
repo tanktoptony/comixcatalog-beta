@@ -334,17 +334,66 @@ input[type="file"] {
   box-shadow: 0 8px 20px rgba(250, 204, 21, 0.25);
 }
 
+/* Cover container. The background gradient + decorative layers below are
+ * the "empty state" — visible when the cover image is missing or broken.
+ * When an <img> loads on top, it covers everything via z-index:1. So we
+ * get a graceful styled fallback with zero per-component work. */
 .comic-card-cover {
+  position: relative;
   width: 100%;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  background: #000;
+  background: linear-gradient(135deg, #1a1d28 0%, #0a0c12 100%);
+  isolation: isolate;
+}
+
+/* Halftone-ish dot pattern + subtle warm radial — gives the empty card a
+ * comic-paper texture instead of a flat black square. Pure CSS so no extra
+ * HTTP request. Layered carefully to stay under the eventual img. */
+.comic-card-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 215, 0, 0.06) 0%, transparent 55%),
+    radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.04) 0%, transparent 50%),
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: auto, auto, 6px 6px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* "ComixCatalog" wordmark watermark on empty cards — quiet brand reinforcement
+ * for cards without art. Sits under the img so it disappears the moment a
+ * real cover loads. */
+.comic-card-cover::after {
+  content: "ComixCatalog";
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 215, 0, 0.18);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
 }
 
 .comic-card-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative;
+  z-index: 1;
+  /* When img 404s, browsers render the alt text inside the img bounds —
+   * styled with the parent link's yellow underline, which looks broken.
+   * Hide that visually (font-size:0 + transparent color) while keeping
+   * alt readable for screen readers. */
+  font-size: 0;
+  color: transparent;
 }
 
 /* Library card text refinement */

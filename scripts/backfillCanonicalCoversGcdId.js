@@ -80,21 +80,26 @@ async function lookupSeries(title) {
   return data;
 }
 
-function pickByYear(candidates, targetYear, tolerance = 1) {
+// Multi-volume disambiguation. ComicVine's series_year is the START year of
+// the volume the cover belongs to; series.year_start_cached is the same thing
+// from the GCD side. Same volume → same start year, usually.
+//
+// Strategy: pick the candidate with the smallest year delta. Accept the pick
+// when it's a runaway winner (closest is <=2 yrs AND clearly closer than the
+// runner-up by >=2 yrs) OR when the closest is within absolute tolerance=3.
+// Above that, the volumes are too far apart to risk a wrong assignment.
+function pickByYear(candidates, targetYear, tolerance = 3) {
   if (candidates.length === 0) return null;
   if (candidates.length === 1) return candidates[0];
-  if (targetYear == null) return null; // ambiguous, no year to disambiguate
-  let best = null;
-  let bestDelta = Infinity;
-  for (const c of candidates) {
-    if (c.year_start_cached == null) continue;
-    const delta = Math.abs(c.year_start_cached - targetYear);
-    if (delta < bestDelta) {
-      best = c;
-      bestDelta = delta;
-    }
-  }
-  if (best && bestDelta <= tolerance) return best;
+  if (targetYear == null) return null;
+  const scored = candidates
+    .filter((c) => c.year_start_cached != null)
+    .map((c) => ({ c, delta: Math.abs(c.year_start_cached - targetYear) }))
+    .sort((a, b) => a.delta - b.delta);
+  if (scored.length === 0) return null;
+  const [best, runnerUp] = scored;
+  if (best.delta <= tolerance) return best.c;
+  if (runnerUp && runnerUp.delta - best.delta >= 2 && best.delta <= 5) return best.c;
   return null;
 }
 

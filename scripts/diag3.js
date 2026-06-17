@@ -1,0 +1,11 @@
+import dotenv from "dotenv";
+import { createClient } from "@supabase/supabase-js";
+dotenv.config({ path: ".env.local" });
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+const titles = ["Conan the Barbarian","Rom","Silver Surfer","Teenage Mutant Ninja Turtles","Batman","Elvira's House of Mystery","Black Hood","What If...?","Bill & Ted's Excellent Comic Book","The Uncanny X-Men","The Adventures of Bayou Billy","Teenage Mutant Ninja Turtles Adventures"];
+const { count } = await supabase.from("canonical_covers").select("*", { count: "exact", head: true }).in("series_title", titles).not("storage_path", "is", null);
+console.log("total rows matching:", count);
+const { data } = await supabase.from("canonical_covers").select("series_title, issue_number").in("series_title", titles).not("storage_path", "is", null);
+console.log("returned rows:", data.length);
+const conan183 = data.filter(r => r.series_title === "Conan the Barbarian" && String(r.issue_number) === "183");
+console.log("Conan #183 in returned rows:", conan183.length);

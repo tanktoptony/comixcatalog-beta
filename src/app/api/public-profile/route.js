@@ -168,75 +168,123 @@ export async function GET(req) {
     // Year-aware cover lookup — same disambiguation as /api/library-hydrate.
     // Without it, multiple volumes of the same series_title share covers and
     // a 2011 IDW TMNT issue ends up with a 1984 Mirage cover.
+    //
+    // Two-path: prefer ID-based join (canonical_covers.series_gcd_id, set by
+    // migration 0009 backfill + new ingests). Falls back to title-string for
+    // legacy rows still NULL. The ID path is immune to mojibake / casing /
+    // punctuation drift between CV titles and our series titles.
     const COVER_YEAR_TOLERANCE = 1;
+    const coversByIdKey = new Map();
     const coversByKey = new Map();
-    if (seriesTitles.length > 0) {
-      const { data: covers } = await supabase
-        .from("canonical_covers")
-        .select("series_title, issue_number, series_year, cover_date, storage_path")
-        .in("series_title", seriesTitles)
-        .not("storage_path", "is", null);
 
-      for (const c of covers ?? []) {
+    // PostgREST silently caps responses at 1000 rows. A user with broad
+    // title coverage (Batman + Conan + Spider-Man + …) easily exceeds that
+    // — Conan alone returned 1700+ rows — and the truncated set drops
+    // specific issues like Conan #183. Always paginate via .range().
+    const PAGE = 1000;
+    async function fetchAllPages(buildQuery) {
+      const all = [];
+      let from = 0;
+      while (true) {
+        const { data, error } = await buildQuery().range(from, from + PAGE - 1);
+        if (error) throw error;
+        if (!data || data.length === 0) break;
+        all.push(...data);
+        if (data.length < PAGE) break;
+        from += PAGE;
+      }
+      return all;
+    }
+
+    if (seriesGcdIds.length > 0) {
+      const idCovers = await fetchAllPages(() =>
+        supabase
+          .from("canonical_covers")
+          .select("series_gcd_id, issue_number, series_year, cover_date, storage_path")
+          .in("series_gcd_id", seriesGcdIds)
+          .not("storage_path", "is", null)
+          .order("id")
+      );
+      for (const c of idCovers) {
+        const key = `${c.series_gcd_id}::${norm(c.issue_number)}`;
+        if (!coversByIdKey.has(key)) coversByIdKey.set(key, []);
+        coversByIdKey.get(key).push(c);
+      }
+    }
+    if (seriesTitles.length > 0) {
+      const covers = await fetchAllPages(() =>
+        supabase
+          .from("canonical_covers")
+          .select("series_title, issue_number, series_year, cover_date, storage_path")
+          .in("series_title", seriesTitles)
+          .not("storage_path", "is", null)
+          .order("id")
+      );
+      for (const c of covers) {
         const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
         if (!coversByKey.has(key)) coversByKey.set(key, []);
         coversByKey.get(key).push(c);
       }
     }
 
+    // cover_date is THIS issue's publication date — it's the authoritative
+    // year signal for per-issue matching. series_year is when the series
+    // started; for long-running annuals it's many years off this issue's
+    // actual year, which would falsely reject correct covers.
+    const yearOf = (c) => {
+      const cd = parseYear(c.cover_date);
+      if (cd != null) return cd;
+      return c.series_year != null ? Number(c.series_year) : null;
+    };
+
+    // Pick the best storage_path from a candidate pool using year disambiguation.
+    // Returns null if no candidate passes tolerance — caller can then try a
+    // fallback pool (e.g. title path after ID path comes up empty).
+    function pickStoragePath(candidates, issueYear) {
+      if (!candidates || candidates.length === 0) return null;
+      if (issueYear != null) {
+        let best = null;
+        let bestDiff = Infinity;
+        for (const c of candidates) {
+          const cy = yearOf(c);
+          if (cy == null) continue;
+          const diff = Math.abs(cy - issueYear);
+          if (diff > COVER_YEAR_TOLERANCE) continue;
+          if (diff < bestDiff) { best = c; bestDiff = diff; }
+        }
+        return best?.storage_path ?? null;
+      }
+      // No issueYear: prefer most recent dated, else first.
+      let best = null;
+      let bestYear = -Infinity;
+      for (const c of candidates) {
+        const cy = yearOf(c);
+        if (cy != null && cy > bestYear) { best = c; bestYear = cy; }
+        else if (!best) best = c;
+      }
+      return best?.storage_path ?? null;
+    }
+
     for (const row of intermediate) {
+      const issueRow = issueList.find((i) => i.gcd_id === row.gcd_id);
+      const idKey = issueRow?.series_gcd_id
+        ? `${issueRow.series_gcd_id}::${norm(row.issue_number)}`
+        : null;
       const coverKey = `${norm(row.seriesTitle)}::${norm(row.issue_number)}`;
-      const candidates = coversByKey.get(coverKey) ?? [];
       const issueYear = row.year;
 
-      let storagePath = null;
-      if (candidates.length > 0) {
-        // cover_date is THIS issue's publication date — it's the authoritative
-        // year signal for per-issue matching. series_year is when the series
-        // started; for long-running annuals it's many years off this issue's
-        // actual year, which would falsely reject correct covers.
-        const yearOf = (c) => {
-          const cd = parseYear(c.cover_date);
-          if (cd != null) return cd;
-          return c.series_year != null ? Number(c.series_year) : null;
-        };
-
-        // When the user's issueYear is known, find the closest-by-year cover
-        // within tolerance. When issueYear is null (gcd_issues has no
-        // publication_date AND no key_date — happens on freshly-cataloged
-        // current releases like Absolute Batman #2), fall back to the
-        // most-recently-dated candidate. Without this fallback, the row
-        // renders coverless even though the canonical cover exists.
-        if (issueYear != null) {
-          let best = null;
-          let bestDiff = Infinity;
-          for (const c of candidates) {
-            const cy = yearOf(c);
-            if (cy == null) continue;
-            const diff = Math.abs(cy - issueYear);
-            if (diff > COVER_YEAR_TOLERANCE) continue;
-            if (diff < bestDiff) {
-              best = c;
-              bestDiff = diff;
-            }
-          }
-          if (best) storagePath = best.storage_path;
-        } else {
-          // Fallback: prefer the most recent dated candidate. Among those
-          // with no date at all, take whichever's first.
-          let best = null;
-          let bestYear = -Infinity;
-          for (const c of candidates) {
-            const cy = yearOf(c);
-            if (cy != null && cy > bestYear) {
-              best = c;
-              bestYear = cy;
-            } else if (!best) {
-              best = c;
-            }
-          }
-          if (best) storagePath = best.storage_path;
-        }
+      // Try ID path first. If it yields no usable path (no candidates OR
+      // candidates outside year tolerance), fall back to title path. The
+      // fallback is required: ID path is only as complete as the backfill,
+      // and even within the backfilled set, year tolerance can reject
+      // correct candidates whose cover_date drifts (annuals, late-release
+      // specials, etc.).
+      let storagePath = pickStoragePath(
+        (idKey && coversByIdKey.get(idKey)) || null,
+        issueYear
+      );
+      if (!storagePath) {
+        storagePath = pickStoragePath(coversByKey.get(coverKey) || null, issueYear);
       }
 
       const canonicalUrl = storagePath

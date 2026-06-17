@@ -20,7 +20,8 @@
   {
     "name": "Batman & The Joker: The Deadly Duo",
     "publisher": "DC Comics",
-    "year": 2023
+    "year": 2023,
+    "volume_id": 145776
   },
   {
     "name": "Bill & Ted's Excellent Comic Book",
@@ -63,5 +64,35 @@
     "publisher": "DC Comics",
     "year": 1992,
     "volume_id": 7170
+  },
+  {
+    "name": "Conan the Barbarian",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "volume_id": 2471
+  },
+  {
+    "name": "Rom",
+    "publisher": "Marvel Comics",
+    "year": 1979,
+    "volume_id": 3010
+  },
+  {
+    "name": "Silver Surfer",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "volume_id": 3857
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles",
+    "publisher": "Mirage",
+    "year": 1984,
+    "volume_id": 20281
+  },
+  {
+    "name": "Adventures of Bayou Billy",
+    "publisher": "Archie Comics",
+    "year": 1989,
+    "volume_id": 10995
   }
 ]

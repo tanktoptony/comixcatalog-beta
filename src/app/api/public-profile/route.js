@@ -125,7 +125,7 @@ export async function GET(req) {
       seriesGcdIds.length > 0
         ? supabase
             .from("series")
-            .select("gcd_id, title, resolved_publisher_cached, publisher:publisher_id(name)")
+            .select("gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)")
             .in("gcd_id", seriesGcdIds)
         : Promise.resolve({ data: [] }),
       publisherGcdIds.length > 0
@@ -149,6 +149,8 @@ export async function GET(req) {
         gcd_id: issue.gcd_id,
         issue_number: issue.issue_number,
         year: bestYearFor(issue),
+        seriesYearStart: seriesRow?.year_start_cached ?? null,
+        seriesYearEnd: seriesRow?.year_end_cached ?? null,
         seriesTitle: seriesRow?.title ?? null,
         // resolved_publisher_cached is the year-aware, audited value — prefer it.
         // The publisher_gcd_id fallback draws on GCD's scrambled publisher links
@@ -240,7 +242,7 @@ export async function GET(req) {
     // Pick the best storage_path from a candidate pool using year disambiguation.
     // Returns null if no candidate passes tolerance — caller can then try a
     // fallback pool (e.g. title path after ID path comes up empty).
-    function pickStoragePath(candidates, issueYear) {
+    function pickStoragePath(candidates, issueYear, seriesYearStart, seriesYearEnd) {
       if (!candidates || candidates.length === 0) return null;
       if (issueYear != null) {
         let best = null;
@@ -254,12 +256,29 @@ export async function GET(req) {
         }
         return best?.storage_path ?? null;
       }
-      // No issueYear: prefer most recent dated, else first.
+      // No issueYear: use the SERIES's active years as the window. Stops
+      // 1985 Transformers issues from grabbing IDW/2025 reboot covers when
+      // gcd_issues.publication_date is null. Pick the earliest in-window
+      // match.
+      if (seriesYearStart != null) {
+        const lo = seriesYearStart - COVER_YEAR_TOLERANCE;
+        const hi = (seriesYearEnd ?? seriesYearStart + 30) + COVER_YEAR_TOLERANCE;
+        let best = null;
+        let bestYear = Infinity;
+        for (const c of candidates) {
+          const cy = yearOf(c);
+          if (cy == null) continue;
+          if (cy < lo || cy > hi) continue;
+          if (cy < bestYear) { best = c; bestYear = cy; }
+        }
+        if (best) return best.storage_path;
+      }
+      // Last resort: earliest dated candidate (safer than newest).
       let best = null;
-      let bestYear = -Infinity;
+      let bestYear = Infinity;
       for (const c of candidates) {
         const cy = yearOf(c);
-        if (cy != null && cy > bestYear) { best = c; bestYear = cy; }
+        if (cy != null && cy < bestYear) { best = c; bestYear = cy; }
         else if (!best) best = c;
       }
       return best?.storage_path ?? null;
@@ -274,17 +293,21 @@ export async function GET(req) {
       const issueYear = row.year;
 
       // Try ID path first. If it yields no usable path (no candidates OR
-      // candidates outside year tolerance), fall back to title path. The
-      // fallback is required: ID path is only as complete as the backfill,
-      // and even within the backfilled set, year tolerance can reject
-      // correct candidates whose cover_date drifts (annuals, late-release
-      // specials, etc.).
+      // candidates outside year tolerance), fall back to title path with
+      // the series's active year-window as the bound.
       let storagePath = pickStoragePath(
         (idKey && coversByIdKey.get(idKey)) || null,
-        issueYear
+        issueYear,
+        row.seriesYearStart,
+        row.seriesYearEnd
       );
       if (!storagePath) {
-        storagePath = pickStoragePath(coversByKey.get(coverKey) || null, issueYear);
+        storagePath = pickStoragePath(
+          coversByKey.get(coverKey) || null,
+          issueYear,
+          row.seriesYearStart,
+          row.seriesYearEnd
+        );
       }
 
       const canonicalUrl = storagePath

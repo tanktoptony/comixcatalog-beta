@@ -151,7 +151,7 @@ export async function POST(req) {
         seriesGcdIds.length > 0
           ? supabase
               .from("series")
-              .select("gcd_id, title, resolved_publisher_cached, publisher:publisher_id(name)")
+              .select("gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)")
               .in("gcd_id", seriesGcdIds)
           : { data: [] },
         publisherGcdIds.length > 0
@@ -178,6 +178,8 @@ export async function POST(req) {
           key_date: issue.key_date,
           seriesGcdId: issue.series_gcd_id ?? null,
           seriesTitle: seriesRow?.title ?? null,
+          seriesYearStart: seriesRow?.year_start_cached ?? null,
+          seriesYearEnd: seriesRow?.year_end_cached ?? null,
           // resolved_publisher_cached is the year-aware, audited value — prefer
           // it. The publisher_gcd_id fallback draws on GCD's scrambled publisher
           // links (US Marvel books mislinked to foreign houses), so it's last
@@ -302,15 +304,36 @@ export async function POST(req) {
               }
             }
             if (best) storagePath = best.storage_path;
-          } else {
-            // gcd_issues has no publication_date AND no key_date — happens on
-            // freshly-cataloged current releases. Fall back to the most
-            // recent dated candidate rather than dropping the cover.
+          } else if (row.seriesYearStart != null) {
+            // gcd_issues has no per-issue date but we know the SERIES's run.
+            // Use that as the year hint — stops cross-volume bleed where a
+            // 1985 Transformers issue (issue date missing) grabs a 2025
+            // reboot cover because "most recent dated" wins by default.
+            // Accept any cover whose year falls anywhere inside the series's
+            // active run (plus tolerance) and pick the earliest such match.
+            const lo = row.seriesYearStart - COVER_YEAR_TOLERANCE;
+            const hi = (row.seriesYearEnd ?? row.seriesYearStart + 30) + COVER_YEAR_TOLERANCE;
             let best = null;
-            let bestYear = -Infinity;
+            let bestYear = Infinity;
             for (const c of candidates) {
               const cy = yearOf(c);
-              if (cy != null && cy > bestYear) {
+              if (cy == null) continue;
+              if (cy < lo || cy > hi) continue;
+              if (cy < bestYear) {
+                best = c;
+                bestYear = cy;
+              }
+            }
+            if (best) storagePath = best.storage_path;
+          } else {
+            // Last resort: no issue year, no series year. Take the earliest
+            // dated candidate (safer than newest — at least matches the
+            // first printing if anything).
+            let best = null;
+            let bestYear = Infinity;
+            for (const c of candidates) {
+              const cy = yearOf(c);
+              if (cy != null && cy < bestYear) {
                 best = c;
                 bestYear = cy;
               } else if (!best) {

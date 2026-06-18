@@ -286,7 +286,50 @@ export async function GET(req) {
       }))
       .sort((a, b) => b.__score - a.__score);
 
-    const pageSlice = ranked.slice(offset, offset + limit);
+    // Printing-variant dedup. GCD models each printing of the same comic as
+    // its own gcd_series row (direct edition, newsstand, 2nd print, foreign
+    // distribution). Result: searching "spider-man 35" returns 8 identical
+    // tiles for what's effectively one comic. Collapse on
+    // (normalized title, issue#, year, normalized publisher) and keep the
+    // highest-scoring representative. The total survives via variant_count
+    // for transparency. User-added rows are NEVER collapsed — they're each
+    // a real distinct copy in someone's collection.
+    const normPub = (s) =>
+      String(s ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    const variantGroups = new Map();
+    const collapsed = [];
+    for (const row of ranked) {
+      if (row.__source !== "gcd") {
+        collapsed.push(row);
+        continue;
+      }
+      const key = [
+        normalizeSearch(row.series_title),
+        normalizeIssueNumber(row.issue_number),
+        row.release_year ?? "",
+        normPub(row.publisher),
+      ].join("::");
+      if (!variantGroups.has(key)) {
+        variantGroups.set(key, { row, count: 1 });
+        collapsed.push(row);
+      } else {
+        variantGroups.get(key).count += 1;
+      }
+    }
+    // Stamp variant_count on the representative row for any group with >1 variant
+    for (const row of collapsed) {
+      if (row.__source !== "gcd") continue;
+      const key = [
+        normalizeSearch(row.series_title),
+        normalizeIssueNumber(row.issue_number),
+        row.release_year ?? "",
+        normPub(row.publisher),
+      ].join("::");
+      const grp = variantGroups.get(key);
+      if (grp && grp.count > 1) row.variant_count = grp.count;
+    }
+
+    const pageSlice = collapsed.slice(offset, offset + limit);
 
     const gcdSlice = pageSlice.filter((row) => row.__source === "gcd");
     const sliceSeriesTitles = [

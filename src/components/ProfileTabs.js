@@ -1,8 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import EmptyState from "./EmptyState";
+
+const VIEW_STORAGE_KEY = "cc:profile-view";
+
+// Compress an array of issue-number strings into ranges like "#1, #3, #5-9".
+function formatIssueRanges(issues) {
+  const nums = [];
+  const nonNum = [];
+  for (const i of issues) {
+    const v = issueSortValue(i);
+    if (v === Number.MAX_SAFE_INTEGER) nonNum.push(String(i));
+    else nums.push(v);
+  }
+  nums.sort((a, b) => a - b);
+  const ranges = [];
+  let start = null, prev = null;
+  for (const n of nums) {
+    if (start === null) { start = n; prev = n; continue; }
+    if (n === prev + 1) { prev = n; continue; }
+    ranges.push(start === prev ? `#${start}` : `#${start}-${prev}`);
+    start = n; prev = n;
+  }
+  if (start !== null) ranges.push(start === prev ? `#${start}` : `#${start}-${prev}`);
+  return [...ranges, ...nonNum.map(s => `#${s}`)].join(", ");
+}
 
 const TAB_DEFS = [
   { id: "owned", label: "Owned", visibilityKey: "collection" },
@@ -70,8 +94,26 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
     visibleTabs[0]?.id || "owned"
   );
   // Default: title A–Z. Collectors typically want to scan a shelf by series.
-  // We could remember per-user in localStorage as a follow-up.
   const [sortMode, setSortMode] = useState("title-asc");
+  // View mode: "grid" (cards) or "rows" (one row per series, expand to see issues).
+  // Default to rows on narrow viewports; persists in localStorage.
+  const [viewMode, setViewMode] = useState("grid");
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(VIEW_STORAGE_KEY);
+      if (stored === "grid" || stored === "rows") {
+        setViewMode(stored);
+        return;
+      }
+    } catch {}
+    if (typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches) {
+      setViewMode("rows");
+    }
+  }, []);
+  const updateViewMode = (next) => {
+    setViewMode(next);
+    try { localStorage.setItem(VIEW_STORAGE_KEY, next); } catch {}
+  };
 
   const grouped = useMemo(() => {
     const owned = [];
@@ -171,39 +213,48 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
 
       <div className="profile-tab-panel">
         {activeTab !== "activity" && activeItems.length > 0 && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              gap: 10,
-              marginBottom: 14,
-            }}
-          >
-            <label
-              htmlFor="profile-sort"
-              style={{ fontSize: "0.8rem", opacity: 0.65 }}
-            >
-              Sort
-            </label>
-            <select
-              id="profile-sort"
-              className="profile-sort-select"
-              value={sortMode}
-              onChange={(e) => setSortMode(e.target.value)}
-            >
-              {SORT_OPTIONS.map((opt) => (
-                <option key={opt.value} value={opt.value}>
-                  {opt.label}
-                </option>
-              ))}
-            </select>
+          <div className="profile-toolbar">
+            <div className="profile-view-toggle" role="group" aria-label="View">
+              <button
+                type="button"
+                className={`profile-view-btn ${viewMode === "grid" ? "is-active" : ""}`}
+                onClick={() => updateViewMode("grid")}
+                aria-pressed={viewMode === "grid"}
+              >
+                Grid
+              </button>
+              <button
+                type="button"
+                className={`profile-view-btn ${viewMode === "rows" ? "is-active" : ""}`}
+                onClick={() => updateViewMode("rows")}
+                aria-pressed={viewMode === "rows"}
+              >
+                Rows
+              </button>
+            </div>
+            <div className="profile-sort-wrap">
+              <label htmlFor="profile-sort" className="profile-sort-label">Sort</label>
+              <select
+                id="profile-sort"
+                className="profile-sort-select"
+                value={sortMode}
+                onChange={(e) => setSortMode(e.target.value)}
+              >
+                {SORT_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         )}
         {activeTab === "activity" ? (
           <ActivityList items={collection.slice(0, 20)} />
         ) : activeItems.length === 0 ? (
           <EmptyTab tab={activeTab} isOwner={isOwner} />
+        ) : viewMode === "rows" ? (
+          <SeriesRowsView items={activeItems} activeTab={activeTab} />
         ) : (
           <div className="comic-grid">
             {activeItems.map((item) => {

@@ -290,9 +290,16 @@ input[type="file"] {
 
 .comic-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 16px;
   padding: 10px 0;
+}
+
+@media (min-width: 640px) {
+  .comic-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 24px;
+  }
 }
 
 .comic-card-title {

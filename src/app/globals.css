@@ -5614,25 +5614,165 @@ button.nav-link {
 
 @media (max-width: 640px) {
   .library-shell {
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
-  .library-stats-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .library-page-header,
-  .library-results-header,
-  .library-topbar {
+  /* Header stacks vertically — title block on top, actions below.
+     Otherwise "My Library" + 3 export buttons + "Add Comic" all crash. */
+  .library-page-header {
+    flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
   }
 
-  .library-header-actions,
-  .library-results-controls,
-  .library-upload-bar,
+  .library-title {
+    font-size: 1.5rem;
+  }
+
+  .library-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Actions wrap into a 2-col grid for predictable layout. The Add Comic
+     primary button spans full-width so it stays prominent and tappable. */
+  .library-header-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .library-header-actions .library-primary-btn {
+    grid-column: 1 / -1;
+  }
+
+  .library-header-actions .library-secondary-btn,
+  .library-header-actions .library-primary-btn {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.85rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Topbar (tabs + CSV upload form) stacks. */
+  .library-topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
   .library-tabs {
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .library-tab {
+    text-align: center;
+    padding: 0.65rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Stats: 2-col, tighter padding + smaller type. */
+  .library-stats-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .library-stat-card {
+    padding: 0.7rem 0.6rem;
+    border-radius: 10px;
+  }
+
+  .library-stat-number {
+    font-size: 1.15rem;
+  }
+
+  .library-stat-label {
+    font-size: 0.72rem;
+  }
+
+  /* Results header (h2 + sort controls) wraps cleanly. */
+  .library-results-header {
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+
+  .library-results-copy h2 {
+    font-size: 1.15rem;
+  }
+
+  .library-results-controls,
+  .library-upload-bar {
+    width: 100%;
     flex-wrap: wrap;
+  }
+
+  /* List row stays 2-col (cover + content) per the 900px rule; tighten
+     padding + cover size so it fits on 360-375px viewports. */
+  .library-list-row {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 0.7rem;
+    padding: 0.65rem;
+    border-radius: 12px;
+  }
+
+  .library-list-cover {
+    width: 56px;
+  }
+
+  .library-list-title {
+    font-size: 0.95rem;
+  }
+
+  .library-list-meta {
+    font-size: 0.8rem;
+    gap: 0.3rem;
+  }
+
+  .library-list-actions {
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .library-row-btn {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  /* Sidebar (filters) — drop the sticky behavior on mobile since it
+     swallows half the viewport when expanded. */
+  .library-sidebar {
+    position: static;
+    padding: 0.85rem;
+  }
+
+  .library-upgrade-banner {
+    padding: 0.7rem 0.85rem;
+    font-size: 0.85rem;
+    gap: 0.65rem;
+  }
+}
+
+/* Very-narrow phones (iPhone SE / older Android). Stats become a single
+   row of larger cards rather than cramming 2 unreadable ones. */
+@media (max-width: 380px) {
+  .library-stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .library-stat-card {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0.6rem 0.85rem;
+  }
+
+  .library-stat-number {
+    font-size: 1.1rem;
   }
 }
 

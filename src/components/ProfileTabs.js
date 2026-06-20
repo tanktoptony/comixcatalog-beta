@@ -329,6 +329,139 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
   );
 }
 
+function SeriesRowsView({ items, activeTab }) {
+  // Group by series (title + year as disambiguator for multi-volume runs).
+  // We use display.title because that's already the resolved series title
+  // (not the issue title), matching how cards label themselves.
+  const groups = useMemo(() => {
+    const map = new Map();
+    for (const item of items) {
+      const d = item.display;
+      if (!d) continue;
+      const title = d.title || "Untitled";
+      const year = d.year || "";
+      const key = `${title}|${year}`;
+      let g = map.get(key);
+      if (!g) {
+        g = { key, title, year, items: [], cover: null };
+        map.set(key, g);
+      }
+      g.items.push(item);
+      // Use the first canonical/community cover we see as the row signifier;
+      // personal photos look noisy at thumbnail size, so prefer catalog covers.
+      if (!g.cover) {
+        g.cover = d.canonicalCoverUrl || d.communityCoverUrl || d.coverUrl || null;
+      }
+    }
+    return [...map.values()].sort((a, b) => a.title.localeCompare(b.title));
+  }, [items]);
+
+  const [expanded, setExpanded] = useState(() => new Set());
+  const toggle = (key) =>
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+
+  const isForSale = activeTab === "for_sale";
+
+  return (
+    <ul className="series-rows">
+      {groups.map((g) => {
+        const open = expanded.has(g.key);
+        const issueNums = g.items.map((it) => it.display?.issueNumber).filter(Boolean);
+        const summary = issueNums.length
+          ? formatIssueRanges(issueNums)
+          : `${g.items.length} item${g.items.length === 1 ? "" : "s"}`;
+        const totalValue = g.items.reduce((sum, it) => {
+          const v = Number(it.market_value);
+          return Number.isFinite(v) && v > 0 ? sum + v : sum;
+        }, 0);
+
+        return (
+          <li key={g.key} className={`series-row ${open ? "is-open" : ""}`}>
+            <button
+              type="button"
+              className="series-row-head"
+              onClick={() => toggle(g.key)}
+              aria-expanded={open}
+            >
+              <div className="series-row-thumb">
+                {g.cover ? (
+                  <img src={g.cover} alt="" loading="lazy" />
+                ) : (
+                  <div className="series-row-thumb-empty" />
+                )}
+              </div>
+              <div className="series-row-body">
+                <div className="series-row-title">
+                  {g.title}
+                  {g.year ? <span className="series-row-year"> ({g.year})</span> : null}
+                </div>
+                <div className="series-row-meta">
+                  <span className="series-row-count">{g.items.length} issue{g.items.length === 1 ? "" : "s"}</span>
+                  <span className="series-row-dot">·</span>
+                  <span className="series-row-summary">{summary}</span>
+                  {totalValue > 0 && (
+                    <>
+                      <span className="series-row-dot">·</span>
+                      <span className="series-row-value">${totalValue.toLocaleString()}</span>
+                    </>
+                  )}
+                </div>
+              </div>
+              <span className="series-row-chevron" aria-hidden>
+                {open ? "▾" : "▸"}
+              </span>
+            </button>
+            {open && (
+              <div className="comic-grid series-row-grid">
+                {g.items.map((item) => {
+                  const d = item.display;
+                  if (!d) return null;
+                  const coverUrl = isForSale
+                    ? d.personalCoverUrl || d.canonicalCoverUrl || d.communityCoverUrl || d.coverUrl || "/fallback-cover.png"
+                    : d.canonicalCoverUrl || d.communityCoverUrl || d.personalCoverUrl || d.coverUrl || "/fallback-cover.png";
+                  const value =
+                    item.market_value != null && Number(item.market_value) > 0
+                      ? Number(item.market_value)
+                      : null;
+                  return (
+                    <Link key={item.id} href={d.href} className="comic-card">
+                      <div className="comic-card-cover" style={{ position: "relative" }}>
+                        <img src={coverUrl} alt={d.title} />
+                        {item.slab_company && item.grade_numeric ? (
+                          <span className="profile-grade-badge">
+                            {item.slab_company} {Number(item.grade_numeric).toFixed(1)}
+                          </span>
+                        ) : null}
+                      </div>
+                      <div className="comic-card-title">
+                        {d.title}
+                        {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                      </div>
+                      <div className="comic-card-meta">
+                        {d.year || "Unknown"}
+                        {value != null ? (
+                          <span className="profile-card-value">
+                            {" · "}${value.toLocaleString()}
+                          </span>
+                        ) : null}
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 function EmptyTab({ tab, isOwner }) {
   if (tab === "owned") {
     return (

@@ -6,6 +6,7 @@ import Image from "next/image";
 import EditProfileButton from "@/components/EditProfileButton";
 import MessageButton from "@/components/MessageButton";
 import ProfileTabs from "@/components/ProfileTabs";
+import ProfileAnonCta from "@/components/ProfileAnonCta";
 import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import { createClient } from "@supabase/supabase-js";
@@ -131,22 +132,12 @@ export default async function PublicProfilePage({ params }) {
           6-card strip used on /library so future stat changes don't drift. */}
       <CollectionStatsStrip collection={collection} visibility={visibility} />
 
-      {/* Anon-visitor conversion banner: paid posts will deep-link to public
-          profiles, so the anon-visitor exit path matters. Owners + signed-in
-          viewers don't see this. */}
-      {!currentUser && (
-        <section className="profile-anon-cta">
-          <div className="profile-anon-cta-inner">
-            <div>
-              <strong>Track your own collection.</strong>{" "}
-              Free to start &mdash; catalog every issue, grade, and value in one place.
-            </div>
-            <Link href="/signup" className="profile-anon-cta-btn">
-              Start free →
-            </Link>
-          </div>
-        </section>
-      )}
+      {/* Anon-visitor conversion banner. Client-gated via ProfileAnonCta
+          because server-side `supabase.auth.getUser()` here can't read the
+          auth cookie (createClient w/ ANON_KEY isn't cookie-aware), so the
+          server-side `currentUser` is always null and the banner would
+          render for signed-in viewers too. */}
+      <ProfileAnonCta />
 
       {/* BODY: tabs + sidebar */}
       <div className="profile-body">

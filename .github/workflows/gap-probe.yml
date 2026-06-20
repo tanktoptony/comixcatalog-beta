@@ -1,0 +1,59 @@
+name: Gap probe (weekly)
+
+# Weekly auto-discovery of volumes the cover-ingest should know about.
+# Runs Mondays 08:00 UTC and on manual dispatch. Two sources:
+#   1. scripts/probeNewReleases.js  — last 14 days of CV releases, allowlisted
+#      publishers, dedupes against canonical_covers + gap-manual.
+#   2. scripts/generateUserCollectedGap.js --append-to-manual — any series
+#      a user added to their collection that we still lack coverage for.
+#
+# Both append directly into gap-manual.json. On commit, the next scheduled
+# cover-ingest cycle picks them up. No human in the loop required.
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      COMICVINE_API_KEY: ${{ secrets.COMICVINE_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Probe ComicVine for recent releases (14 days)
+        run: node scripts/probeNewReleases.js --days=14 --apply
+
+      - name: Probe user-collected series with no canonical coverage
+        run: node scripts/generateUserCollectedGap.js --append-to-manual
+        continue-on-error: true
+
+      - name: Commit gap-manual additions
+        run: |
+          if git diff --quiet gap-manual.json; then
+            echo "No gap-manual changes — nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gap-manual.json
+          git commit -m "gap-manual: weekly auto-append (new releases + user-collected)"
+          git push

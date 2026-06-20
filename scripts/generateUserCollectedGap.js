@@ -151,6 +151,31 @@ async function main() {
     return true;
   });
 
+  if (args.has("--append-to-manual")) {
+    // Auto-append mode: merge into gap-manual.json instead of writing a
+    // separate file. Used by the weekly auto-gap GHA so user-collected
+    // series get picked up by the next cover-ingest cycle without a
+    // human in the loop. Dedupes by (name, publisher, year) against
+    // existing gap-manual entries.
+    const manualPath = "gap-manual.json";
+    let existing = [];
+    try { existing = JSON.parse(fs.readFileSync(manualPath, "utf-8")); } catch {}
+    const existingKeys = new Set(
+      existing.map((e) => `${e.name}::${e.publisher}::${e.year}`)
+    );
+    const additions = targets.filter(
+      (t) => !existingKeys.has(`${t.name}::${t.publisher}::${t.year}`)
+    );
+    if (additions.length === 0) {
+      console.log("\nNothing new to append to gap-manual.json.");
+      return;
+    }
+    const merged = [...existing, ...additions];
+    fs.writeFileSync(manualPath, JSON.stringify(merged, null, 2) + "\n", "utf-8");
+    console.log(`\nAppended ${additions.length} new target(s) to gap-manual.json (now ${merged.length}).`);
+    return;
+  }
+
   fs.writeFileSync("gap-user-collected.json", JSON.stringify(targets, null, 2), "utf-8");
 
   console.log(`\nWrote gap-user-collected.json — ${targets.length} target(s).`);

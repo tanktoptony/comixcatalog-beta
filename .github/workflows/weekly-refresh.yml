@@ -64,8 +64,14 @@ jobs:
       # The --force flag rebuilds even rows that have search_refreshed_at set
       # — needed because incremental refresh would skip rows that haven't
       # changed in gcd_issues but DO have new canonical_covers.
+      #
+      # --max-batches=700 caps a single run at ~70k series (batch size 100).
+      # GH runner throughput is ~20k/hr, so 70k fits comfortably in ~3.5h and
+      # leaves headroom for the commit step before the 4h job timeout. The
+      # cursor persists between runs via actions/cache, so the full 217k
+      # rotation completes over ~3 weekly cycles.
       - name: Refresh series search cache
-        run: node scripts/refreshSeriesSearchCache.js --force
+        run: node scripts/refreshSeriesSearchCache.js --force --max-batches=700
 
       # Regenerate the featured-gaps list. Not used by the workflow itself
       # but committed for visibility — you can grep through commits or run

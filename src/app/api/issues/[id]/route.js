@@ -27,8 +27,26 @@ async function fetchCanonicalMatch(
   issueNumber,
   targetYear,
   seriesYearMin = null,
-  seriesYearMax = null
+  seriesYearMax = null,
+  seriesGcdId = null
 ) {
+  // ID path first: covers tagged with this gcd_series win every time, even
+  // when CV's series_title differs from GCD's (e.g. CV "The Maxx" vs GCD
+  // "The Maxx Trade Paperback"). Falls through to title path when the cc
+  // row hasn't been tagged yet.
+  if (seriesGcdId) {
+    const { data: idRows } = await supabase
+      .from("canonical_covers")
+      .select("storage_path, publisher, cover_date, series_year")
+      .eq("series_gcd_id", seriesGcdId)
+      .eq("issue_number", issueNumber);
+    const idInSpan = (idRows ?? []).filter((r) =>
+      inSeriesSpan(r, seriesYearMin, seriesYearMax)
+    );
+    const bestById = pickBestCoverRow(idInSpan, targetYear);
+    if (bestById) return bestById;
+  }
+
   if (!seriesTitle) return { storage_path: null, publisher: null };
 
   const { data: exactRows } = await supabase
@@ -316,7 +334,8 @@ export async function GET(req, context) {
         issue.issue_number,
         issueYear,
         seriesYearMin,
-        seriesYearMax
+        seriesYearMax,
+        issue.series_gcd_id
       );
 
       // Prefer the precomputed cached value — same posture as the series route

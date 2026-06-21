@@ -170,6 +170,29 @@ function LibraryPageContent() {
   const [publisherFilter, setPublisherFilter] = useState("all");
   const [sortBy, setSortBy] = useState("title-asc");
   const [viewMode, setViewMode] = useState("list");
+  // Persist view choice in localStorage. Defaults to "list"; on mobile
+  // we'd prefer "rows" for density but don't force it (user can pick).
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem("library-view");
+      if (stored === "list" || stored === "grid" || stored === "rows") {
+        setViewMode(stored);
+      }
+    } catch {}
+  }, []);
+  const updateViewMode = (next) => {
+    setViewMode(next);
+    try { window.localStorage.setItem("library-view", next); } catch {}
+  };
+  // Track expanded series in Rows view. Keyed by series-group key.
+  const [expandedSeries, setExpandedSeries] = useState(() => new Set());
+  const toggleSeriesExpanded = (key) =>
+    setExpandedSeries((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
   const [pdfExporting, setPdfExporting] = useState(false);
   const [csvExporting, setCsvExporting] = useState(false);
   // Capture the upgrade flag once at mount. After router.replace() strips the
@@ -1548,15 +1571,22 @@ function LibraryPageContent() {
               <div className="library-view-toggle">
                 <button
                   type="button"
+                  className={`library-view-btn ${viewMode === "rows" ? "active" : ""}`}
+                  onClick={() => updateViewMode("rows")}
+                >
+                  Rows
+                </button>
+                <button
+                  type="button"
                   className={`library-view-btn ${viewMode === "list" ? "active" : ""}`}
-                  onClick={() => setViewMode("list")}
+                  onClick={() => updateViewMode("list")}
                 >
                   List
                 </button>
                 <button
                   type="button"
                   className={`library-view-btn ${viewMode === "grid" ? "active" : ""}`}
-                  onClick={() => setViewMode("grid")}
+                  onClick={() => updateViewMode("grid")}
                 >
                   Grid
                 </button>
@@ -1771,6 +1801,183 @@ function LibraryPageContent() {
               })}
             </div>
           )}
+
+          {/* ── ROWS VIEW (series-collapse) ──
+              One row per (title, year) group with a thumb + issue summary.
+              Click to expand and reveal the existing list-row rendering
+              (with full GradeEditor for owned items). Best for collectors
+              with dense runs across many series and for mobile density. */}
+          {!loading && filteredItems.length > 0 && viewMode === "rows" && (() => {
+            const groups = new Map();
+            for (const item of filteredItems) {
+              const c = item.comic || {};
+              const title = c.title || "Untitled";
+              const year = c.year || "";
+              const key = `${title}|${year}`;
+              let g = groups.get(key);
+              if (!g) {
+                g = { key, title, year, publisher: c.publisher, cover: null, items: [] };
+                groups.set(key, g);
+              }
+              g.items.push(item);
+              if (!g.cover) {
+                const liveGrade = gradeData[item.id];
+                const userCover = USER_COVER_UPLOAD_ENABLED
+                  ? resolveUserCover(liveGrade?.user_cover_url ?? item.user_cover_url)
+                  : null;
+                g.cover = c.cover || userCover || null;
+              }
+            }
+            const groupList = [...groups.values()].sort((a, b) =>
+              a.title.localeCompare(b.title)
+            );
+
+            // Compress numeric issue#s into "#1, #3-7" style ranges.
+            const formatRanges = (items) => {
+              const nums = [], extras = [];
+              for (const it of items) {
+                const raw = String(it.comic?.issueNumber || "").trim();
+                if (!raw) continue;
+                const m = raw.match(/^-?\d+(\.\d+)?/);
+                if (m) nums.push(Number(m[0]));
+                else extras.push(raw);
+              }
+              nums.sort((a, b) => a - b);
+              const ranges = [];
+              let start = null, prev = null;
+              for (const n of nums) {
+                if (start === null) { start = n; prev = n; continue; }
+                if (n === prev + 1) { prev = n; continue; }
+                ranges.push(start === prev ? `#${start}` : `#${start}-${prev}`);
+                start = n; prev = n;
+              }
+              if (start !== null) ranges.push(start === prev ? `#${start}` : `#${start}-${prev}`);
+              return [...ranges, ...extras.map(s => `#${s}`)].join(", ");
+            };
+
+            return (
+              <ul className="series-rows">
+                {groupList.map((g) => {
+                  const open = expandedSeries.has(g.key);
+                  const summary = formatRanges(g.items)
+                    || `${g.items.length} item${g.items.length === 1 ? "" : "s"}`;
+                  const totalValue = g.items.reduce((sum, it) => {
+                    const v = Number(gradeData[it.id]?.market_value ?? it.market_value);
+                    return Number.isFinite(v) && v > 0 ? sum + v : sum;
+                  }, 0);
+                  return (
+                    <li key={g.key} className={`series-row ${open ? "is-open" : ""}`}>
+                      <button
+                        type="button"
+                        className="series-row-head"
+                        onClick={() => toggleSeriesExpanded(g.key)}
+                        aria-expanded={open}
+                      >
+                        <div className="series-row-thumb">
+                          {g.cover ? (
+                            <img src={g.cover} alt="" loading="lazy" />
+                          ) : (
+                            <div className="series-row-thumb-empty" />
+                          )}
+                        </div>
+                        <div className="series-row-body">
+                          <div className="series-row-title">
+                            {g.title}
+                            {g.year ? <span className="series-row-year"> ({g.year})</span> : null}
+                          </div>
+                          <div className="series-row-meta">
+                            <span className="series-row-count">
+                              {g.items.length} issue{g.items.length === 1 ? "" : "s"}
+                            </span>
+                            <span className="series-row-dot">·</span>
+                            <span className="series-row-summary">{summary}</span>
+                            {totalValue > 0 && (
+                              <>
+                                <span className="series-row-dot">·</span>
+                                <span className="series-row-value">${totalValue.toLocaleString()}</span>
+                              </>
+                            )}
+                          </div>
+                        </div>
+                        <span className="series-row-chevron" aria-hidden>
+                          {open ? "▾" : "▸"}
+                        </span>
+                      </button>
+                      {open && (
+                        <div className="series-row-grid library-list">
+                          {g.items.map((item) => {
+                            const comic = item.comic;
+                            const liveGrade = gradeData[item.id] ?? {
+                              grade_numeric: item.grade_numeric ?? null,
+                              condition: item.condition ?? null,
+                              slab_company: item.slab_company ?? null,
+                              slab_cert_number: item.slab_cert_number ?? null,
+                              notes: item.notes ?? null,
+                              purchase_price: item.purchase_price ?? null,
+                              market_value: item.market_value ?? null,
+                              user_cover_url: USER_COVER_UPLOAD_ENABLED ? (item.user_cover_url ?? null) : null,
+                            };
+                            const displayCover =
+                              resolveUserCover(liveGrade.user_cover_url) ||
+                              comic.cover ||
+                              "/fallback-cover.png";
+                            return (
+                              <article
+                                key={`${item.id}-${item.libraryKey}-${item.status}`}
+                                className="library-list-row"
+                              >
+                                <Link href={getLibraryHref(item, comic)} className="library-list-cover">
+                                  <img src={displayCover} alt={comic.title} loading="lazy" />
+                                </Link>
+                                <div className="library-list-main">
+                                  <Link href={getLibraryHref(item, comic)} className="library-list-title">
+                                    {comic.title}
+                                    {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                                  </Link>
+                                  <div className="library-list-meta">
+                                    <span>{comic.year || "Unknown Year"}</span>
+                                    {liveGrade.slab_company && (
+                                      <>
+                                        <span>•</span>
+                                        <span>{liveGrade.slab_company} {Number(liveGrade.grade_numeric).toFixed(1)}</span>
+                                      </>
+                                    )}
+                                    {liveGrade.market_value > 0 && (
+                                      <>
+                                        <span>•</span>
+                                        <span style={{ color: "#4ade80" }}>${Number(liveGrade.market_value).toLocaleString()}</span>
+                                      </>
+                                    )}
+                                  </div>
+                                  {tab === "owned" && !isPublicPreview && (
+                                    <div style={{ marginTop: 6 }}>
+                                      <GradeEditor
+                                        collectionId={item.id}
+                                        isPro={isPro}
+                                        initialData={liveGrade}
+                                        canonicalCover={comic.cover || null}
+                                        releaseYear={comic.year || null}
+                                        onSave={(updated) =>
+                                          setGradeData((prev) => ({
+                                            ...prev,
+                                            [item.id]: { ...liveGrade, ...updated },
+                                          }))
+                                        }
+                                      />
+                                    </div>
+                                  )}
+                                </div>
+                              </article>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            );
+          })()}
 
           {/* ── GRID VIEW ── */}
           {!loading && filteredItems.length > 0 && viewMode === "grid" && (

@@ -1812,13 +1812,16 @@ function LibraryPageContent() {
             for (const item of filteredItems) {
               const c = item.comic || {};
               const title = c.title || "Untitled";
-              const year = c.year || "";
-              const key = `${title}|${year}`;
+              // Group by title only — all volumes of e.g. "Fantastic Four"
+              // collapse into one row regardless of launch year. Matches the
+              // profile Rows view behavior.
+              const key = title;
               let g = groups.get(key);
               if (!g) {
-                g = { key, title, year, publisher: c.publisher, cover: null, items: [] };
+                g = { key, title, years: new Set(), publisher: c.publisher, cover: null, items: [] };
                 groups.set(key, g);
               }
+              if (c.year) g.years.add(Number(c.year));
               g.items.push(item);
               if (!g.cover) {
                 const liveGrade = gradeData[item.id];
@@ -1828,9 +1831,11 @@ function LibraryPageContent() {
                 g.cover = c.cover || userCover || null;
               }
             }
-            const groupList = [...groups.values()].sort((a, b) =>
-              a.title.localeCompare(b.title)
-            );
+            const groupList = [...groups.values()].map((g) => {
+              const years = [...g.years].filter((y) => Number.isFinite(y)).sort((a, b) => a - b);
+              g.year = years.length === 0 ? "" : years.length === 1 ? years[0] : `${years[0]}–${years[years.length - 1]}`;
+              return g;
+            }).sort((a, b) => a.title.localeCompare(b.title));
 
             // Compress numeric issue#s into "#1, #3-7" style ranges.
             const formatRanges = (items) => {

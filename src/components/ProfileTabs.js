@@ -339,21 +339,29 @@ function SeriesRowsView({ items, activeTab }) {
       const d = item.display;
       if (!d) continue;
       const title = d.title || "Untitled";
-      const year = d.year || "";
-      const key = `${title}|${year}`;
+      // Group by series title alone — different volumes of "Fantastic Four"
+      // (1961, 1998, 2022) all collapse into a single row. Collectors think
+      // of these as the same shelf; multi-volume splitting fragmented the
+      // list past the point of usefulness.
+      const key = title;
       let g = map.get(key);
       if (!g) {
-        g = { key, title, year, items: [], cover: null };
+        g = { key, title, years: new Set(), items: [], cover: null };
         map.set(key, g);
       }
+      if (d.year) g.years.add(Number(d.year));
       g.items.push(item);
-      // Use the first canonical/community cover we see as the row signifier;
-      // personal photos look noisy at thumbnail size, so prefer catalog covers.
       if (!g.cover) {
         g.cover = d.canonicalCoverUrl || d.communityCoverUrl || d.coverUrl || null;
       }
     }
-    return [...map.values()].sort((a, b) => a.title.localeCompare(b.title));
+    // Materialize year display: single year if items all share one, otherwise
+    // "min-max" range.
+    return [...map.values()].map((g) => {
+      const years = [...g.years].filter((y) => Number.isFinite(y)).sort((a, b) => a - b);
+      g.year = years.length === 0 ? "" : years.length === 1 ? years[0] : `${years[0]}–${years[years.length - 1]}`;
+      return g;
+    }).sort((a, b) => a.title.localeCompare(b.title));
   }, [items]);
 
   const [expanded, setExpanded] = useState(() => new Set());

@@ -114,6 +114,90 @@ export default function AboutPage() {
       </section>
 
       <section className="gs-section">
+        <h2 className="gs-section-title">Pricing</h2>
+        <p className="gs-questions-text">
+          Free forever for personal collection tracking. Optional paid tiers
+          unlock pro features and back the build.
+        </p>
+        <div className="tier-grid">
+          <div className="tier-card">
+            <div className="tier-card-name">Free</div>
+            <div className="tier-card-price">$0</div>
+            <div className="tier-card-cadence">forever</div>
+            <ul className="tier-card-list">
+              <li>Unlimited collection + wantlist</li>
+              <li>Public collector profile</li>
+              <li>Search every series &amp; issue</li>
+              <li>Track condition, slab, value</li>
+              <li>Inbox + community</li>
+            </ul>
+            <Link href="/signup" className="tier-card-cta">Start free</Link>
+          </div>
+
+          <div className="tier-card tier-card-featured">
+            <div className="tier-card-tag">Most popular</div>
+            <div className="tier-card-name">Collector Pro</div>
+            <div className="tier-card-price">$8</div>
+            <div className="tier-card-cadence">per month</div>
+            <ul className="tier-card-list">
+              <li><strong>Everything in Free</strong></li>
+              <li>Insurance / appraisal PDF export</li>
+              <li>CSV export (Discogs-style)</li>
+              <li>Wantlist shopping-list PDF for cons</li>
+              <li>Unlimited CSV import</li>
+              <li>Priority feature voting</li>
+            </ul>
+            <Link href="/upgrade" className="tier-card-cta tier-card-cta-primary">
+              Upgrade to Pro
+            </Link>
+          </div>
+
+          <div className="tier-card">
+            <div className="tier-card-name">Vault</div>
+            <div className="tier-card-price">$18</div>
+            <div className="tier-card-cadence">per month · Phase 2</div>
+            <ul className="tier-card-list">
+              <li><strong>Everything in Pro</strong></li>
+              <li>Private collection sharing link</li>
+              <li>Portfolio-value history charts</li>
+              <li>Priority marketplace placement</li>
+              <li>Want-list price alerts</li>
+            </ul>
+            <div className="tier-card-cta tier-card-cta-disabled">
+              Coming Phase 2
+            </div>
+          </div>
+
+          <div className="tier-card tier-card-founding">
+            <div className="tier-card-tag">Limited</div>
+            <div className="tier-card-name">Founding Collector</div>
+            <div className="tier-card-price">$20</div>
+            <div className="tier-card-cadence">per month · via Patreon</div>
+            <ul className="tier-card-list">
+              <li><strong>Grandfathered Pro access</strong></li>
+              <li>Permanent ★ badge on your profile</li>
+              <li>Name listed on the Founders page</li>
+              <li>Roadmap input + early access</li>
+              <li>Backs the build directly</li>
+            </ul>
+            <a
+              href="https://www.patreon.com/cw/ComixCatalog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tier-card-cta tier-card-cta-founding"
+            >
+              Become a Founder
+            </a>
+          </div>
+        </div>
+        <p className="gs-questions-text" style={{ marginTop: 18, fontSize: "0.85rem", opacity: 0.7 }}>
+          Marketplace transaction fee: 5–8% per sale (for reference, Discogs
+          takes 8%). Verified Collector badge: $10 one-time, links your CGC
+          registry to your profile.
+        </p>
+      </section>
+
+      <section className="gs-section">
         <h2 className="gs-section-title">Where it comes from</h2>
         <p className="gs-questions-text">
           ComixCatalog is being built independently in Chicago by a

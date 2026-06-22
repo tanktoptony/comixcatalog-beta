@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
 import ActivityFeed from "@/components/ActivityFeed";
+import OnboardingModal from "@/components/OnboardingModal";
 
 export default function HomePage() {
   const { user } = useAuth();
@@ -20,6 +21,10 @@ export default function HomePage() {
 
   return (
     <>
+      {/* First-visit onboarding modal — self-gates via localStorage so it
+          only fires once. Component returns null when seen or signed out. */}
+      <OnboardingModal />
+
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="lp-hero">
         <div className="lp-hero-content">

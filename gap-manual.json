@@ -95,90 +95,1213 @@
     "year": 1989,
     "volume_id": 10995
   },
-  { "name": "G.I. Joe", "publisher": "Ziff-Davis", "year": 1951, "volume_id": 1457 },
-  { "name": "G.I. Joe", "publisher": "Image Comics", "year": 2001, "volume_id": 9112 },
-  { "name": "G.I. Joe", "publisher": "IDW Publishing", "year": 2008, "volume_id": 23490 },
-  { "name": "G.I. Joe", "publisher": "IDW Publishing", "year": 2011, "volume_id": 40103 },
-  { "name": "G.I. Joe", "publisher": "IDW Publishing", "year": 2013, "volume_id": 57548 },
-  { "name": "G.I. Joe", "publisher": "IDW Publishing", "year": 2014, "volume_id": 77110 },
-  { "name": "G.I. Joe", "publisher": "IDW Publishing", "year": 2016, "volume_id": 97390 },
-  { "name": "G.I. Joe", "publisher": "IDW Publishing", "year": 2019, "volume_id": 121351 },
-  { "name": "G.I. Joe", "publisher": "Image Comics", "year": 2024, "volume_id": 161047 },
-  { "name": "G.I. Joe: Cobra", "publisher": "IDW Publishing", "year": 2010, "volume_id": 31328 },
-  { "name": "Venom", "publisher": "Marvel Comics", "year": 2003, "volume_id": 11068 },
-  { "name": "Venom", "publisher": "Marvel Comics", "year": 2011, "volume_id": 39301 },
-  { "name": "Venom", "publisher": "Marvel Comics", "year": 2016, "volume_id": 95845 },
-  { "name": "Venom", "publisher": "Marvel Comics", "year": 2018, "volume_id": 110770 },
-  { "name": "Venom", "publisher": "Marvel Comics", "year": 2021, "volume_id": 140084 },
-  { "name": "Venom", "publisher": "Marvel Comics", "year": 2025, "volume_id": 167333 },
-  { "name": "Venom: Lethal Protector", "publisher": "Marvel Comics", "year": 1993, "volume_id": 5059 },
-  { "name": "Venom: Lethal Protector", "publisher": "Marvel Comics", "year": 2022, "volume_id": 141992 },
-  { "name": "Venom: Lethal Protector II", "publisher": "Marvel Comics", "year": 2023, "volume_id": 149054 },
-  { "name": "Venom War", "publisher": "Marvel Comics", "year": 2024, "volume_id": 159190 },
-  { "name": "The Amazing Spider-Man: Skating on Thin Ice", "publisher": "Marvel Comics", "year": 1990, "volume_id": 31031 },
-  { "name": "The Amazing Spider-Man: Skating on Thin Ice: Double Trouble", "publisher": "Marvel Comics", "year": 1990, "volume_id": 57421 },
-  { "name": "The Amazing Spider-Man: Chaos in Calgary", "publisher": "Marvel Comics", "year": 1992, "volume_id": 57422 },
-  { "name": "The Amazing Spider-Man: Deadball", "publisher": "Marvel Comics", "year": 1993, "volume_id": 57420 },
-  { "name": "The Amazing Spider-Man: Hit and Run!", "publisher": "Marvel Comics", "year": 1992, "volume_id": 29272 },
-  { "name": "Batman", "publisher": "DC Comics", "year": 1940, "volume_id": 796 },
-  { "name": "Classic Star Wars", "publisher": "Dark Horse Comics", "year": 1992, "volume_id": 4861 },
-  { "name": "Classic Star Wars", "publisher": "Dark Horse Comics", "year": 1994, "volume_id": 71434 },
-  { "name": "Classic Star Wars: A New Hope", "publisher": "Dark Horse Comics", "year": 1994, "volume_id": 5376 },
-  { "name": "Classic Star Wars: The Early Adventures", "publisher": "Dark Horse Comics", "year": 1994, "volume_id": 5377 },
-  { "name": "Classic Star Wars: The Return of the Jedi", "publisher": "Dark Horse Comics", "year": 1994, "volume_id": 5379 },
-  { "name": "Classic Star Wars: The Empire Strikes Back", "publisher": "Dark Horse Comics", "year": 1994, "volume_id": 5378 },
-  { "name": "Cloak and Dagger", "publisher": "Marvel Comics", "year": 1985, "volume_id": 3475 },
-  { "name": "Marvel Tales", "publisher": "Marvel Comics", "year": 1966, "volume_id": 2293 },
-  { "name": "Marvel Tales Starring Spider-Man", "publisher": "Marvel Comics", "year": 1981, "volume_id": 138122 },
-  { "name": "Marvel Tales Featuring Spider-Man", "publisher": "Marvel Comics", "year": 1990, "volume_id": 137722 },
-  { "name": "Star Wars: Droids", "publisher": "Dark Horse Comics", "year": 1994, "volume_id": 5399 },
-  { "name": "Star Wars: Droids", "publisher": "Dark Horse Comics", "year": 1995, "volume_id": 5624 },
-  { "name": "Star Wars: Droids: Special", "publisher": "Dark Horse Comics", "year": 1995, "volume_id": 28408 },
-  { "name": "Star Wars: Tales of the Jedi", "publisher": "Dark Horse Comics", "year": 1993, "volume_id": 28243 },
-  { "name": "Star Wars: Tales of the Jedi - Dark Lords of the Sith", "publisher": "Dark Horse Comics", "year": 1994, "volume_id": 5400 },
-  { "name": "Star Wars: Tales of the Jedi - The Sith War", "publisher": "Dark Horse Comics", "year": 1995, "volume_id": 28239 },
-  { "name": "Star Wars: Tales of the Jedi: The Freedon Nadd Uprising", "publisher": "Dark Horse Comics", "year": 1994, "volume_id": 5401 },
-  { "name": "Star Wars: Tales of the Jedi - The Golden Age of the Sith", "publisher": "Dark Horse Comics", "year": 1996, "volume_id": 20896 },
-  { "name": "Star Wars: Tales of the Jedi - The Fall of the Sith Empire", "publisher": "Dark Horse Comics", "year": 1997, "volume_id": 28244 },
-  { "name": "Star Wars: Dark Empire", "publisher": "Dark Horse Comics", "year": 1991, "volume_id": 22516 },
-  { "name": "Star Wars: Dark Empire II", "publisher": "Dark Horse Comics", "year": 1994, "volume_id": 5398 },
-  { "name": "Transformers Universe", "publisher": "Marvel Comics", "year": 1986, "volume_id": 33530 },
-  { "name": "The Maxx", "publisher": "Image", "year": 1993, "volume_id": 5168 },
-  { "name": "Absolute Batman", "publisher": "DC Comics", "year": 2024, "volume_id": 160294 },
-  { "name": "Absolute Batman 2025 Annual", "publisher": "DC Comics", "year": 2025, "volume_id": 168013 },
-  { "name": "Absolute Batman: Ark-M", "publisher": "DC Comics", "year": 2026, "volume_id": 169970 },
-  { "name": "The Amazing Spider-Man Annual", "publisher": "Marvel Comics", "year": 1964, "volume_id": 2189 },
-  { "name": "Amazing Spider-Man Annual", "publisher": "Marvel Comics", "year": 2015, "volume_id": 78715 },
-  { "name": "Amazing Spider-Man Annual", "publisher": "Marvel Comics", "year": 2017, "volume_id": 95808 },
-  { "name": "Amazing Spider-Man Annual", "publisher": "Marvel Comics", "year": 2018, "volume_id": 113685 },
-  { "name": "The Amazing Spider-Man Annual", "publisher": "Marvel Comics", "year": 2023, "volume_id": 152648 },
-  { "name": "The Amazing Spider-Man Annual", "publisher": "Marvel Comics", "year": 2024, "volume_id": 158693 },
-  { "name": "The Amazing Spider-Man '96", "publisher": "Marvel Comics", "year": 1996, "volume_id": 60436 },
-  { "name": "The Amazing Spider-Man '97", "publisher": "Marvel Comics", "year": 1997, "volume_id": 60438 },
-  { "name": "The Amazing Spider-Man 1999", "publisher": "Marvel Comics", "year": 1999, "volume_id": 60440 },
-  { "name": "The Amazing Spider-Man 2000", "publisher": "Marvel Comics", "year": 2000, "volume_id": 60441 },
-  { "name": "The Amazing Spider-Man 2001", "publisher": "Marvel Comics", "year": 2001, "volume_id": 60442 },
-  { "name": "Fantastic Four Unlimited", "publisher": "Marvel Comics", "year": 1993, "volume_id": 5009 },
-  { "name": "The Sandman", "publisher": "DC Comics", "year": 1989, "volume_id": 4207 },
-  { "name": "The Spectacular Spider-Man", "publisher": "Marvel Comics", "year": 1976, "volume_id": 2870 },
-  { "name": "Peter Parker, the Spectacular Spider-Man", "publisher": "Marvel Comics", "year": 1980, "volume_id": 139754 },
-  { "name": "Spectacular Spider-Man", "publisher": "Marvel Comics", "year": 2003, "volume_id": 11069 },
-  { "name": "Peter Parker: The Spectacular Spider-Man", "publisher": "Marvel Comics", "year": 2017, "volume_id": 102272 },
-  { "name": "The Spectacular Spider-Man Annual", "publisher": "Marvel Comics", "year": 1979, "volume_id": 3012 },
-  { "name": "Police Academy", "publisher": "Marvel Comics", "year": 1989, "volume_id": 4237 },
-  { "name": "Slapstick", "publisher": "Marvel Comics", "year": 1992, "volume_id": 4811 },
-  { "name": "The Ren & Stimpy Show", "publisher": "Marvel Comics", "year": 1992, "volume_id": 4808 },
-  { "name": "Terminator: Secondary Objectives", "publisher": "Dark Horse Comics", "year": 1991, "volume_id": 4641 },
-  { "name": "Transformers: The Movie", "publisher": "Marvel Comics", "year": 1986, "volume_id": 3655 },
-  { "name": "What If...?", "publisher": "Marvel Comics", "year": 1989, "volume_id": 4249 },
-  { "name": "What If?", "publisher": "Marvel Comics", "year": 1977, "volume_id": 2918 },
-  { "name": "What The--?!", "publisher": "Marvel Comics", "year": 1988, "volume_id": 4079 },
-  { "name": "Hot Stuff", "publisher": "Harvey", "year": 1991, "volume_id": 28256 },
-  { "name": "Superboy", "publisher": "DC Comics", "year": 1990, "volume_id": 4378 },
-  { "name": "The Uncanny X-Men", "publisher": "Marvel Comics", "year": 1981, "volume_id": 3092 },
-  { "name": "The G.I. Joe Order of Battle", "publisher": "Marvel Comics", "year": 1986, "volume_id": 3634 },
-  { "name": "The Transformers: Headmasters", "publisher": "Marvel Comics", "year": 1987, "volume_id": 3864 },
-  { "name": "Teenage Mutant Ninja Turtles Adventures", "publisher": "Archie Comics", "year": 1988, "volume_id": 20314 },
-  { "name": "The Maxx (TPB)", "publisher": "Image", "year": 1995, "volume_id": 32752 },
-  { "name": "Darkhold: Pages from the Book of Sins", "publisher": "Marvel Comics", "year": 1992, "volume_id": 4784 }
+  {
+    "name": "G.I. Joe",
+    "publisher": "Ziff-Davis",
+    "year": 1951,
+    "volume_id": 1457
+  },
+  {
+    "name": "G.I. Joe",
+    "publisher": "Image Comics",
+    "year": 2001,
+    "volume_id": 9112
+  },
+  {
+    "name": "G.I. Joe",
+    "publisher": "IDW Publishing",
+    "year": 2008,
+    "volume_id": 23490
+  },
+  {
+    "name": "G.I. Joe",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "volume_id": 40103
+  },
+  {
+    "name": "G.I. Joe",
+    "publisher": "IDW Publishing",
+    "year": 2013,
+    "volume_id": 57548
+  },
+  {
+    "name": "G.I. Joe",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "volume_id": 77110
+  },
+  {
+    "name": "G.I. Joe",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "volume_id": 97390
+  },
+  {
+    "name": "G.I. Joe",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "volume_id": 121351
+  },
+  {
+    "name": "G.I. Joe",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "volume_id": 161047
+  },
+  {
+    "name": "G.I. Joe: Cobra",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "volume_id": 31328
+  },
+  {
+    "name": "Venom",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "volume_id": 11068
+  },
+  {
+    "name": "Venom",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "volume_id": 39301
+  },
+  {
+    "name": "Venom",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "volume_id": 95845
+  },
+  {
+    "name": "Venom",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "volume_id": 110770
+  },
+  {
+    "name": "Venom",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "volume_id": 140084
+  },
+  {
+    "name": "Venom",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "volume_id": 167333
+  },
+  {
+    "name": "Venom: Lethal Protector",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "volume_id": 5059
+  },
+  {
+    "name": "Venom: Lethal Protector",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "volume_id": 141992
+  },
+  {
+    "name": "Venom: Lethal Protector II",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "volume_id": 149054
+  },
+  {
+    "name": "Venom War",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "volume_id": 159190
+  },
+  {
+    "name": "The Amazing Spider-Man: Skating on Thin Ice",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "volume_id": 31031
+  },
+  {
+    "name": "The Amazing Spider-Man: Skating on Thin Ice: Double Trouble",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "volume_id": 57421
+  },
+  {
+    "name": "The Amazing Spider-Man: Chaos in Calgary",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "volume_id": 57422
+  },
+  {
+    "name": "The Amazing Spider-Man: Deadball",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "volume_id": 57420
+  },
+  {
+    "name": "The Amazing Spider-Man: Hit and Run!",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "volume_id": 29272
+  },
+  {
+    "name": "Batman",
+    "publisher": "DC Comics",
+    "year": 1940,
+    "volume_id": 796
+  },
+  {
+    "name": "Classic Star Wars",
+    "publisher": "Dark Horse Comics",
+    "year": 1992,
+    "volume_id": 4861
+  },
+  {
+    "name": "Classic Star Wars",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "volume_id": 71434
+  },
+  {
+    "name": "Classic Star Wars: A New Hope",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "volume_id": 5376
+  },
+  {
+    "name": "Classic Star Wars: The Early Adventures",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "volume_id": 5377
+  },
+  {
+    "name": "Classic Star Wars: The Return of the Jedi",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "volume_id": 5379
+  },
+  {
+    "name": "Classic Star Wars: The Empire Strikes Back",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "volume_id": 5378
+  },
+  {
+    "name": "Cloak and Dagger",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "volume_id": 3475
+  },
+  {
+    "name": "Marvel Tales",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "volume_id": 2293
+  },
+  {
+    "name": "Marvel Tales Starring Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 1981,
+    "volume_id": 138122
+  },
+  {
+    "name": "Marvel Tales Featuring Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "volume_id": 137722
+  },
+  {
+    "name": "Star Wars: Droids",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "volume_id": 5399
+  },
+  {
+    "name": "Star Wars: Droids",
+    "publisher": "Dark Horse Comics",
+    "year": 1995,
+    "volume_id": 5624
+  },
+  {
+    "name": "Star Wars: Droids: Special",
+    "publisher": "Dark Horse Comics",
+    "year": 1995,
+    "volume_id": 28408
+  },
+  {
+    "name": "Star Wars: Tales of the Jedi",
+    "publisher": "Dark Horse Comics",
+    "year": 1993,
+    "volume_id": 28243
+  },
+  {
+    "name": "Star Wars: Tales of the Jedi - Dark Lords of the Sith",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "volume_id": 5400
+  },
+  {
+    "name": "Star Wars: Tales of the Jedi - The Sith War",
+    "publisher": "Dark Horse Comics",
+    "year": 1995,
+    "volume_id": 28239
+  },
+  {
+    "name": "Star Wars: Tales of the Jedi: The Freedon Nadd Uprising",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "volume_id": 5401
+  },
+  {
+    "name": "Star Wars: Tales of the Jedi - The Golden Age of the Sith",
+    "publisher": "Dark Horse Comics",
+    "year": 1996,
+    "volume_id": 20896
+  },
+  {
+    "name": "Star Wars: Tales of the Jedi - The Fall of the Sith Empire",
+    "publisher": "Dark Horse Comics",
+    "year": 1997,
+    "volume_id": 28244
+  },
+  {
+    "name": "Star Wars: Dark Empire",
+    "publisher": "Dark Horse Comics",
+    "year": 1991,
+    "volume_id": 22516
+  },
+  {
+    "name": "Star Wars: Dark Empire II",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "volume_id": 5398
+  },
+  {
+    "name": "Transformers Universe",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "volume_id": 33530
+  },
+  {
+    "name": "The Maxx",
+    "publisher": "Image",
+    "year": 1993,
+    "volume_id": 5168
+  },
+  {
+    "name": "Absolute Batman",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "volume_id": 160294
+  },
+  {
+    "name": "Absolute Batman 2025 Annual",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "volume_id": 168013
+  },
+  {
+    "name": "Absolute Batman: Ark-M",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 169970
+  },
+  {
+    "name": "The Amazing Spider-Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 1964,
+    "volume_id": 2189
+  },
+  {
+    "name": "Amazing Spider-Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": 78715
+  },
+  {
+    "name": "Amazing Spider-Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "volume_id": 95808
+  },
+  {
+    "name": "Amazing Spider-Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "volume_id": 113685
+  },
+  {
+    "name": "The Amazing Spider-Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "volume_id": 152648
+  },
+  {
+    "name": "The Amazing Spider-Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "volume_id": 158693
+  },
+  {
+    "name": "The Amazing Spider-Man '96",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "volume_id": 60436
+  },
+  {
+    "name": "The Amazing Spider-Man '97",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "volume_id": 60438
+  },
+  {
+    "name": "The Amazing Spider-Man 1999",
+    "publisher": "Marvel Comics",
+    "year": 1999,
+    "volume_id": 60440
+  },
+  {
+    "name": "The Amazing Spider-Man 2000",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "volume_id": 60441
+  },
+  {
+    "name": "The Amazing Spider-Man 2001",
+    "publisher": "Marvel Comics",
+    "year": 2001,
+    "volume_id": 60442
+  },
+  {
+    "name": "Fantastic Four Unlimited",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "volume_id": 5009
+  },
+  {
+    "name": "The Sandman",
+    "publisher": "DC Comics",
+    "year": 1989,
+    "volume_id": 4207
+  },
+  {
+    "name": "The Spectacular Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 1976,
+    "volume_id": 2870
+  },
+  {
+    "name": "Peter Parker, the Spectacular Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "volume_id": 139754
+  },
+  {
+    "name": "Spectacular Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "volume_id": 11069
+  },
+  {
+    "name": "Peter Parker: The Spectacular Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "volume_id": 102272
+  },
+  {
+    "name": "The Spectacular Spider-Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 1979,
+    "volume_id": 3012
+  },
+  {
+    "name": "Police Academy",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "volume_id": 4237
+  },
+  {
+    "name": "Slapstick",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "volume_id": 4811
+  },
+  {
+    "name": "The Ren & Stimpy Show",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "volume_id": 4808
+  },
+  {
+    "name": "Terminator: Secondary Objectives",
+    "publisher": "Dark Horse Comics",
+    "year": 1991,
+    "volume_id": 4641
+  },
+  {
+    "name": "Transformers: The Movie",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "volume_id": 3655
+  },
+  {
+    "name": "What If...?",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "volume_id": 4249
+  },
+  {
+    "name": "What If?",
+    "publisher": "Marvel Comics",
+    "year": 1977,
+    "volume_id": 2918
+  },
+  {
+    "name": "What The--?!",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "volume_id": 4079
+  },
+  {
+    "name": "Hot Stuff",
+    "publisher": "Harvey",
+    "year": 1991,
+    "volume_id": 28256
+  },
+  {
+    "name": "Superboy",
+    "publisher": "DC Comics",
+    "year": 1990,
+    "volume_id": 4378
+  },
+  {
+    "name": "The Uncanny X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1981,
+    "volume_id": 3092
+  },
+  {
+    "name": "The G.I. Joe Order of Battle",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "volume_id": 3634
+  },
+  {
+    "name": "The Transformers: Headmasters",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "volume_id": 3864
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles Adventures",
+    "publisher": "Archie Comics",
+    "year": 1988,
+    "volume_id": 20314
+  },
+  {
+    "name": "The Maxx (TPB)",
+    "publisher": "Image",
+    "year": 1995,
+    "volume_id": 32752
+  },
+  {
+    "name": "Darkhold: Pages from the Book of Sins",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "volume_id": 4784
+  },
+  {
+    "name": "X-Men Infinity Comic ",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 169961
+  },
+  {
+    "name": "Miles Morales: Spider-Man - Brooklyn's Finest Infinity Comic",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 169967
+  },
+  {
+    "name": "Absolute Catwoman",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 172741
+  },
+  {
+    "name": "Absolute Green Lantern",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "volume_id": 169121
+  },
+  {
+    "name": "Alias: Red Band",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 170950
+  },
+  {
+    "name": "Alien: King Killer",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 171252
+  },
+  {
+    "name": "Altered States: Warlords",
+    "publisher": "Dynamite Entertainment",
+    "year": null,
+    "volume_id": 172742
+  },
+  {
+    "name": "Amazing Spider-Man No. 546 Facsimile Edition",
+    "publisher": "Marvel",
+    "year": null,
+    "volume_id": 172743
+  },
+  {
+    "name": "Archie x Army of Darkness",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 170468
+  },
+  {
+    "name": "Avengers: Armageddon",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 172746
+  },
+  {
+    "name": "Baby Garfield",
+    "publisher": "Boom! Studios",
+    "year": 2026,
+    "volume_id": 171014
+  },
+  {
+    "name": "Barbara Gordon: Breakout",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 171903
+  },
+  {
+    "name": "Batman: Gargoyle of Gotham",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "volume_id": 153563
+  },
+  {
+    "name": "Batman/Superman: World's Finest: Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": null,
+    "volume_id": 172748
+  },
+  {
+    "name": "Ben 10",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 171767
+  },
+  {
+    "name": "Bishop",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 172749
+  },
+  {
+    "name": "Black Cat",
+    "publisher": "Marvel",
+    "year": 2025,
+    "volume_id": 166313
+  },
+  {
+    "name": "Bleeding Hearts",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 170540
+  },
+  {
+    "name": "Blood & Thunder",
+    "publisher": "Image",
+    "year": 2025,
+    "volume_id": 164193
+  },
+  {
+    "name": "Captain Marvel: Dark Past",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 171253
+  },
+  {
+    "name": "Civil War: Unmasked",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 171769
+  },
+  {
+    "name": "D'Orc",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 170470
+  },
+  {
+    "name": "Daredevil",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 171255
+  },
+  {
+    "name": "Destination Kill",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": 171914
+  },
+  {
+    "name": "Disney Villains: Gaston",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 170817
+  },
+  {
+    "name": "Disney Villains: Ursula",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 170661
+  },
+  {
+    "name": "Emperor Aquaman",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 170952
+  },
+  {
+    "name": "Fall of the House of Slaughter",
+    "publisher": "Boom! Studios",
+    "year": 2026,
+    "volume_id": 171774
+  },
+  {
+    "name": "The Forged",
+    "publisher": "Image",
+    "year": 2023,
+    "volume_id": 148892
+  },
+  {
+    "name": "Free Planet",
+    "publisher": "Image",
+    "year": 2025,
+    "volume_id": 164196
+  },
+  {
+    "name": "The Fury of Firestorm",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 171425
+  },
+  {
+    "name": "Gehenna in Tokyo",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 172750
+  },
+  {
+    "name": "Ghost Pepper",
+    "publisher": "Image",
+    "year": 2025,
+    "volume_id": 165542
+  },
+  {
+    "name": "G.I. Joe: A Real American Hero",
+    "publisher": "Image",
+    "year": 2023,
+    "volume_id": 154808
+  },
+  {
+    "name": "Godzilla's The Odyssey",
+    "publisher": "IDW Publishing",
+    "year": 2026,
+    "volume_id": 172751
+  },
+  {
+    "name": "Green Lantern Corps",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "volume_id": 162400
+  },
+  {
+    "name": "He-Man and the Masters of the Universe: The Wings of Fate",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "volume_id": 172752
+  },
+  {
+    "name": "Jay & Silent Bob: Jays of Future Past",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 172753
+  },
+  {
+    "name": "Justice League: Dream Girls - A DC Pride Event",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 172460
+  },
+  {
+    "name": "Lady Mechanika: The Mechanical Menagerie",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 171778
+  },
+  {
+    "name": "M.A.S.K.",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 172754
+  },
+  {
+    "name": "M1: Monster Racing League",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 172755
+  },
+  {
+    "name": "Monsters in Love: A Pride Anthology",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "volume_id": 172756
+  },
+  {
+    "name": "The Muppets Noir",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 170595
+  },
+  {
+    "name": "Red Sonja: She-Devil with a Sword",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 171780
+  },
+  {
+    "name": "Sentry",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 171026
+  },
+  {
+    "name": "Skate Ali",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "volume_id": 172758
+  },
+  {
+    "name": "Space Ghost",
+    "publisher": "Dynamite Entertainment",
+    "year": 2025,
+    "volume_id": 166218
+  },
+  {
+    "name": "Speed Racer",
+    "publisher": "Mad Cave Studios",
+    "year": 2025,
+    "volume_id": 166017
+  },
+  {
+    "name": "Star Wars: Shadow of Maul",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 170791
+  },
+  {
+    "name": "Supergirl",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "volume_id": 164287
+  },
+  {
+    "name": "Supernatural: Castiel",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 172759
+  },
+  {
+    "name": "The Center Holds",
+    "publisher": "Boom! Studios",
+    "year": 2026,
+    "volume_id": 170553
+  },
+  {
+    "name": "The Thing on the Doorstep",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 170555
+  },
+  {
+    "name": "Thor",
+    "publisher": "Marvel",
+    "year": 2025,
+    "volume_id": 166460
+  },
+  {
+    "name": "Thundercats X Silverhawks",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 171434
+  },
+  {
+    "name": "Tigress Island",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 170958
+  },
+  {
+    "name": "Witchblade",
+    "publisher": "Image",
+    "year": 2024,
+    "volume_id": 158904
+  },
+  {
+    "name": "Wolverine",
+    "publisher": "Marvel",
+    "year": 2024,
+    "volume_id": 159705
+  },
+  {
+    "name": "X-Men",
+    "publisher": "Marvel",
+    "year": 2024,
+    "volume_id": 158814
+  },
+  {
+    "name": "Youngblood",
+    "publisher": "Image",
+    "year": 2025,
+    "volume_id": 168419
+  },
+  {
+    "name": "Alien: The Friendliest Facehugger Infinity Comic",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 171675
+  },
+  {
+    "name": "Marvel Rivals Infinity Comic",
+    "publisher": "Marvel",
+    "year": 2024,
+    "volume_id": 161678
+  },
+  {
+    "name": "Redwing: Independence Day Infinity Comic",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 172740
+  },
+  {
+    "name": "Absolute Green Arrow",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 172003
+  },
+  {
+    "name": "Batwoman",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 171015
+  },
+  {
+    "name": "Deathstroke the Terminator",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 171017
+  },
+  {
+    "name": "End of Life",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 170590
+  },
+  {
+    "name": "Lobo",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 171022
+  },
+  {
+    "name": "New Titans",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 171032
+  },
+  {
+    "name": "Superman Unlimited",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "volume_id": 164402
+  },
+  {
+    "name": "The Amazing Spider-Man",
+    "publisher": "Marvel",
+    "year": 2025,
+    "volume_id": 163325
+  },
+  {
+    "name": "Deadly Hands of K'un-Lun",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 170588
+  },
+  {
+    "name": "Imperial Guardians",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 170933
+  },
+  {
+    "name": "Inglorious X-Force",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 170252
+  },
+  {
+    "name": "Magik and Colossus",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 170477
+  },
+  {
+    "name": "Predator: Bloodshed",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 170670
+  },
+  {
+    "name": "The Punisher",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 170671
+  },
+  {
+    "name": "Sorcerer Supreme",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 169659
+  },
+  {
+    "name": "Spectacular Spider-Man: Brand New Day",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 171926
+  },
+  {
+    "name": " Spider-Man: Long Way Home",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 173101
+  },
+  {
+    "name": "Uncanny X-Men",
+    "publisher": "Marvel",
+    "year": 2024,
+    "volume_id": 159189
+  },
+  {
+    "name": "What If...? Thor",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 173102
+  },
+  {
+    "name": "Wonder Man",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 171266
+  },
+  {
+    "name": "X-Men United",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 170960
+  },
+  {
+    "name": "Adventure Time",
+    "publisher": "Oni Press",
+    "year": 2025,
+    "volume_id": 163334
+  },
+  {
+    "name": "Avatar: The Last Airbender—The Kyoshi Warriors",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "volume_id": 171766
+  },
+  {
+    "name": "Concrete: Stars Over Sand",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "volume_id": 173106
+  },
+  {
+    "name": "Dead Teenagers",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": 171016
+  },
+  {
+    "name": "Dog Tag",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "volume_id": 171772
+  },
+  {
+    "name": "Drawing Blood",
+    "publisher": "Image",
+    "year": 2024,
+    "volume_id": 157850
+  },
+  {
+    "name": "EC Catacomb of Torment",
+    "publisher": "Oni Press",
+    "year": 2025,
+    "volume_id": 165540
+  },
+  {
+    "name": "Excommunicated",
+    "publisher": "Vault Comics",
+    "year": 2026,
+    "volume_id": 171931
+  },
+  {
+    "name": "Geiger",
+    "publisher": "Image",
+    "year": 2021,
+    "volume_id": 141212
+  },
+  {
+    "name": "Hellboy in Love: Obsidian",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "volume_id": 173108
+  },
+  {
+    "name": "Hello Darkness",
+    "publisher": "Boom! Studios",
+    "year": 2024,
+    "volume_id": 159025
+  },
+  {
+    "name": "If Destruction Be Our Lot",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 171776
+  },
+  {
+    "name": "Invincible Universe: Battle Beast",
+    "publisher": "Image",
+    "year": 2025,
+    "volume_id": 164334
+  },
+  {
+    "name": "Land of Never",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "volume_id": 173109
+  },
+  {
+    "name": "MAD Magazine",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "volume_id": 109775
+  },
+  {
+    "name": "Magic: The Gathering: Untold Stories—Jace",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "volume_id": 171262
+  },
+  {
+    "name": "Monster High: Boomuda Triangle",
+    "publisher": "IDW Publishing",
+    "year": 2026,
+    "volume_id": 170315
+  },
+  {
+    "name": "Mumm-Ra the Ever-Living",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 171512
+  },
+  {
+    "name": "Murder Drones",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": 170666
+  },
+  {
+    "name": "Odin",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 172009
+  },
+  {
+    "name": "Of the Earth",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 172010
+  },
+  {
+    "name": "The Phantom vs. The Red Dragons",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "volume_id": 173111
+  },
+  {
+    "name": "Redcoat",
+    "publisher": "Image",
+    "year": 2024,
+    "volume_id": 157526
+  },
+  {
+    "name": "Hot Stuff, the Little Devil",
+    "publisher": "Harvey Comics",
+    "year": 1957
+  },
+  {
+    "name": "G.I. Joe, a Real American Hero",
+    "publisher": "Marvel Comics",
+    "year": 1982
+  },
+  {
+    "name": "G.I. Joe Comics Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1986
+  },
+  {
+    "name": "G.I. Joe Special Missions",
+    "publisher": "Marvel Comics",
+    "year": 1986
+  },
+  {
+    "name": "Classic Star Wars: Return of the Jedi",
+    "publisher": "Dark Horse Comics",
+    "year": 1994
+  },
+  {
+    "name": "Star Wars: Tales of the Jedi - The Freedon Nadd Uprising",
+    "publisher": "Dark Horse Comics",
+    "year": 1994
+  },
+  {
+    "name": "Star Wars: Droids Special",
+    "publisher": "Dark Horse Comics",
+    "year": 1995
+  },
+  {
+    "name": "The Maxx Trade Paperback",
+    "publisher": "Image Comics",
+    "year": 1995
+  },
+  {
+    "name": "The Amazing Spider-Man: Hit and Run",
+    "publisher": "Marvel Comics",
+    "year": 1991
+  }
 ]

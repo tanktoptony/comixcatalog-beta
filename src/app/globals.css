@@ -9992,3 +9992,241 @@ button.nav-link {
     flex-direction: column;
   }
 }
+
+.tier-card-cta-alt {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  background: rgba(168, 85, 247, 0.12);
+  color: #d8b4fe;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  transition: 0.15s ease;
+}
+
+.tier-card-cta-alt:hover {
+  background: rgba(168, 85, 247, 0.22);
+  border-color: rgba(168, 85, 247, 0.55);
+}
+
+.tier-card-note {
+  font-size: 0.72rem;
+  opacity: 0.6;
+  margin: 10px 0 0;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* ============================================================
+   ADMIN TOOLS
+   ============================================================ */
+
+.admin-shell {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.admin-header {
+  margin-bottom: 1.5rem;
+}
+
+.admin-kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #F4D03F;
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+
+.admin-title {
+  font-size: 1.8rem;
+  margin: 0 0 6px;
+  color: #fff;
+}
+
+.admin-lede {
+  opacity: 0.7;
+  margin: 0;
+}
+
+.admin-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-card-title {
+  font-size: 1.05rem;
+  margin: 0 0 14px;
+  color: #fff;
+}
+
+.admin-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.admin-input {
+  flex: 1;
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  font-size: 0.95rem;
+}
+
+.admin-btn {
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.admin-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.admin-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.admin-btn-primary {
+  background: #F4D03F;
+  color: #0B1E6B;
+  border-color: #F4D03F;
+}
+
+.admin-btn-primary:hover:not(:disabled) {
+  background: #F7DD6B;
+}
+
+.admin-btn-danger {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+}
+
+.admin-btn-danger:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.28);
+}
+
+.admin-err {
+  color: #fca5a5;
+  font-size: 0.9rem;
+  margin: 8px 0 0;
+}
+
+.admin-target {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+  margin-top: 6px;
+}
+
+.admin-target-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.admin-target-label {
+  opacity: 0.6;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.admin-target-value {
+  color: #fff;
+  font-weight: 600;
+}
+
+.admin-target-value.mono,
+.admin-target .mono {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.admin-pill {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.admin-pill.on {
+  background: rgba(74, 222, 128, 0.18);
+  color: #86efac;
+  border: 1px solid rgba(74, 222, 128, 0.4);
+}
+
+.admin-pill.off {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.admin-pill.founding {
+  background: rgba(244, 208, 63, 0.15);
+  color: #F4D03F;
+  border: 1px solid rgba(244, 208, 63, 0.4);
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.admin-message {
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.admin-message.ok {
+  background: rgba(74, 222, 128, 0.12);
+  color: #86efac;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.admin-message.err {
+  background: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.admin-footnote {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  line-height: 1.55;
+}
+
+.admin-footnote code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8em;
+}

@@ -148,8 +148,21 @@ export default function AboutPage() {
               <li>Priority feature voting</li>
             </ul>
             <Link href="/upgrade" className="tier-card-cta tier-card-cta-primary">
-              Upgrade to Pro
+              Upgrade with Stripe
             </Link>
+            <a
+              href="https://www.patreon.com/cw/ComixCatalog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tier-card-cta tier-card-cta-alt"
+              style={{ marginTop: 8 }}
+            >
+              or join via Patreon
+            </a>
+            <p className="tier-card-note">
+              Patreon members at the $8+ Collector Beta tier get the same
+              in-app Pro perks — grandfathered automatically.
+            </p>
           </div>
 
           <div className="tier-card">

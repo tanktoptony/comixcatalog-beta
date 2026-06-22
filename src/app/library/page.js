@@ -1730,25 +1730,32 @@ function LibraryPageContent() {
                             </span>
                           </>
                         )}
-                        {/* Auto-value from market_comps — only render when no
-                            user override exists. Sample size is shown so users
-                            can judge confidence (e.g. "auto, 1 sale" is weak). */}
+                        {/* Auto-value — only when no user override exists.
+                            Two sources, distinguished by source field:
+                              market-comp → median of recent eBay sold-comps
+                              cover-price → era-based floor estimate (no comps yet) */}
                         {liveGrade.market_value == null &&
-                          marketValues[item.id]?.value != null && (
-                            <>
-                              <span>•</span>
-                              <span
-                                style={{ color: "var(--cc-gold)" }}
-                                title={`Median of ${marketValues[item.id].sample_size} recent sale${marketValues[item.id].sample_size === 1 ? "" : "s"} in bucket ${marketValues[item.id].bucket_used}${marketValues[item.id].fallback ? " (fallback bucket)" : ""}`}
-                              >
-                                Worth ~${Number(marketValues[item.id].value).toFixed(2)}{" "}
-                                <span style={{ opacity: 0.6, fontSize: "0.85em" }}>
-                                  (auto, {marketValues[item.id].sample_size}
-                                  {marketValues[item.id].sample_size === 1 ? " sale" : " sales"})
+                          marketValues[item.id]?.value != null && (() => {
+                            const mv = marketValues[item.id];
+                            const isComp = mv.source === "market-comp";
+                            const tooltip = isComp
+                              ? `Median of ${mv.sample_size} recent sale${mv.sample_size === 1 ? "" : "s"} in bucket ${mv.bucket_used}${mv.fallback ? " (fallback bucket)" : ""}`
+                              : "No recent sales data yet — showing era-based cover-price floor. Real comps will replace this when sold listings exist.";
+                            const label = isComp
+                              ? `auto, ${mv.sample_size} ${mv.sample_size === 1 ? "sale" : "sales"}`
+                              : "cover price";
+                            return (
+                              <>
+                                <span>•</span>
+                                <span style={{ color: "var(--cc-gold)" }} title={tooltip}>
+                                  Worth ~${Number(mv.value).toFixed(2)}{" "}
+                                  <span style={{ opacity: 0.6, fontSize: "0.85em" }}>
+                                    ({label})
+                                  </span>
                                 </span>
-                              </span>
-                            </>
-                          )}
+                              </>
+                            );
+                          })()}
                       </div>
 
                       {tab === "owned" && !isPublicPreview && (

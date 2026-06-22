@@ -178,50 +178,120 @@ async function buildQueue() {
 // For --dry-run, returns synthetic comps that exercise the full pipeline.
 // ─────────────────────────────────────────────────────────────────────────
 
+// ── eBay OAuth (client_credentials, application-level token) ──────────
+// Caches the token in-process for its lifetime. Token TTL is 2h for
+// production, similar for sandbox. We refresh on 401.
+const EBAY_ENV = (process.env.EBAY_ENV || "sandbox").toLowerCase();
+const EBAY_HOST = EBAY_ENV === "production" ? "api.ebay.com" : "api.sandbox.ebay.com";
+const EBAY_OAUTH_URL = `https://${EBAY_HOST}/identity/v1/oauth2/token`;
+const EBAY_INSIGHTS_URL = `https://${EBAY_HOST}/buy/marketplace_insights/v1_beta/item_sales/search`;
+const EBAY_SCOPE = "https://api.ebay.com/oauth/api_scope/buy.marketplace.insights";
+
+let _ebayTokenCache = { token: null, expiresAt: 0 };
+
+async function getEbayToken() {
+  if (_ebayTokenCache.token && Date.now() < _ebayTokenCache.expiresAt - 30_000) {
+    return _ebayTokenCache.token;
+  }
+  const id = process.env.EBAY_CLIENT_ID;
+  const secret = process.env.EBAY_CLIENT_SECRET;
+  if (!id || !secret) {
+    throw new Error("EBAY_CLIENT_ID / EBAY_CLIENT_SECRET missing in .env.local");
+  }
+  const basic = Buffer.from(`${id}:${secret}`).toString("base64");
+  const body = new URLSearchParams({
+    grant_type: "client_credentials",
+    scope: EBAY_SCOPE,
+  }).toString();
+
+  const resp = await fetch(EBAY_OAUTH_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${basic}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body,
+  });
+  const text = await resp.text();
+  if (!resp.ok) {
+    throw new Error(`eBay OAuth ${resp.status}: ${text}`);
+  }
+  const json = JSON.parse(text);
+  _ebayTokenCache = {
+    token: json.access_token,
+    expiresAt: Date.now() + json.expires_in * 1000,
+  };
+  return _ebayTokenCache.token;
+}
+
+// 90-day window for sold-comps. Insights filter syntax:
+//   filter=lastSoldDate:[YYYY-MM-DDTHH:MM:SS.000Z..YYYY-MM-DDTHH:MM:SS.000Z]
+function soldDateFilter() {
+  const now = new Date();
+  const ninety = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
+  const fmt = (d) => d.toISOString().split(".")[0] + ".000Z";
+  return `lastSoldDate:[${fmt(ninety)}..${fmt(now)}]`;
+}
+
 async function fetchSoldListings({ series_title, issue_number }) {
   if (DRY_RUN) {
-    // Generate plausible synth comps so the pipeline exercises end-to-end.
-    // Three samples per issue: one CGC 9.8, one CGC 9.6, one raw NM.
+    // Synth path stays for offline pipeline testing.
     const baseId = `synth-${series_title.replace(/\W/g, "")}-${issue_number}`;
     const today = new Date().toISOString().slice(0, 10);
     return [
-      {
-        listing_id: `${baseId}-A`,
-        title: `${series_title} #${issue_number} CGC 9.8 White Pages`,
-        sold_price: 120.0,
-        sold_date: today,
-        listing_url: `https://example.com/listing/${baseId}-A`,
-      },
-      {
-        listing_id: `${baseId}-B`,
-        title: `${series_title} #${issue_number} CGC 9.6`,
-        sold_price: 75.0,
-        sold_date: today,
-        listing_url: `https://example.com/listing/${baseId}-B`,
-      },
-      {
-        listing_id: `${baseId}-C`,
-        title: `${series_title} ${issue_number} RAW NM`,
-        sold_price: 30.0,
-        sold_date: today,
-        listing_url: `https://example.com/listing/${baseId}-C`,
-      },
+      { listing_id: `${baseId}-A`, title: `${series_title} #${issue_number} CGC 9.8 White Pages`, sold_price: 120.0, sold_date: today, listing_url: `https://example.com/listing/${baseId}-A` },
+      { listing_id: `${baseId}-B`, title: `${series_title} #${issue_number} CGC 9.6`, sold_price: 75.0, sold_date: today, listing_url: `https://example.com/listing/${baseId}-B` },
+      { listing_id: `${baseId}-C`, title: `${series_title} ${issue_number} RAW NM`, sold_price: 30.0, sold_date: today, listing_url: `https://example.com/listing/${baseId}-C` },
     ];
   }
 
-  // ── REAL API CALL GOES HERE ──
-  // Pseudocode:
-  //   const query = `${series_title} ${issue_number}`;
-  //   const resp = await fetch(
-  //     `https://api.ebay.com/buy/marketplace_insights/v1_beta/item_sales/search` +
-  //     `?q=${encodeURIComponent(query)}&filter=conditionIds:{4000|5000|6000}` +
-  //     `&filter=soldDateRange:[${ninetyDaysAgo}..]`,
-  //     { headers: { Authorization: `Bearer ${EBAY_OAUTH_TOKEN}` } }
-  //   );
-  //   return resp.json().itemSales.map(s => ({...}));
-  throw new Error(
-    "eBay API not implemented. Use --dry-run, or wire the call when credentials land."
-  );
+  const token = await getEbayToken();
+  // eBay Insights search. Build query "<series_title> #<issue_number>" and
+  // category-scope to Comics (category_ids=63) to cut down on unrelated
+  // matches when issue_number is a common number like "1".
+  const query = `${series_title} ${issue_number}`;
+  const params = new URLSearchParams({
+    q: query,
+    category_ids: "63",          // Comics
+    limit: "50",
+    filter: soldDateFilter(),
+  });
+  const url = `${EBAY_INSIGHTS_URL}?${params.toString()}`;
+
+  let resp = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "X-EBAY-C-MARKETPLACE-ID": "EBAY_US",
+      Accept: "application/json",
+    },
+  });
+
+  // One retry on 401 in case token expired between cache check and call.
+  if (resp.status === 401) {
+    _ebayTokenCache = { token: null, expiresAt: 0 };
+    const fresh = await getEbayToken();
+    resp = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${fresh}`,
+        "X-EBAY-C-MARKETPLACE-ID": "EBAY_US",
+        Accept: "application/json",
+      },
+    });
+  }
+
+  const text = await resp.text();
+  if (!resp.ok) {
+    throw new Error(`eBay Insights ${resp.status}: ${text.slice(0, 400)}`);
+  }
+  const json = JSON.parse(text);
+  const sales = json.itemSales ?? [];
+  return sales.map((s) => ({
+    listing_id: s.itemId,
+    title: s.title ?? "",
+    sold_price: Number(s.lastSoldPrice?.value ?? 0),
+    sold_date: (s.lastSoldDate ?? "").slice(0, 10),
+    listing_url: s.itemWebUrl ?? s.itemAffiliateWebUrl ?? null,
+  }));
 }
 
 // ─────────────────────────────────────────────────────────────────────────

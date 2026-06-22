@@ -165,22 +165,6 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="tier-card">
-            <div className="tier-card-name">Vault</div>
-            <div className="tier-card-price">$18</div>
-            <div className="tier-card-cadence">per month · Phase 2</div>
-            <ul className="tier-card-list">
-              <li><strong>Everything in Pro</strong></li>
-              <li>Private collection sharing link</li>
-              <li>Portfolio-value history charts</li>
-              <li>Priority marketplace placement</li>
-              <li>Want-list price alerts</li>
-            </ul>
-            <div className="tier-card-cta tier-card-cta-disabled">
-              Coming Phase 2
-            </div>
-          </div>
-
           <div className="tier-card tier-card-founding">
             <div className="tier-card-tag">Limited</div>
             <div className="tier-card-name">Founding Collector</div>

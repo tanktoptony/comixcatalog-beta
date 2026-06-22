@@ -142,3 +142,30 @@ export function median(values) {
   const mid = Math.floor(arr.length / 2);
   return arr.length % 2 === 0 ? (arr[mid - 1] + arr[mid]) / 2 : arr[mid];
 }
+
+// Era-based cover-price estimate. Used as a floor fallback when no sold-comp
+// data exists for an issue. Returns USD as a number. Rough by design — this
+// is "every book gets *some* number" not "this is the true value." For modern
+// books it's pretty close (cover prices are standardized); for vintage it's a
+// reasonable Marvel/DC-flavored approximation that misses outliers like
+// magazine-sized books, treasury editions, and international printings.
+export function coverPriceForYear(year) {
+  const y = Number(year);
+  if (!Number.isFinite(y) || y < 1900 || y > 2100) return null;
+  if (y < 1962) return 0.10;
+  if (y < 1965) return 0.12;
+  if (y < 1969) return 0.15;
+  if (y < 1971) return 0.20;
+  if (y < 1976) return 0.25;
+  if (y < 1980) return 0.40;
+  if (y < 1984) return 0.60;
+  if (y < 1987) return 0.75;
+  if (y < 1991) return 1.00;
+  if (y < 1996) return 1.50;
+  if (y < 2000) return 1.95;
+  if (y < 2005) return 2.50;
+  if (y < 2010) return 2.99;
+  if (y < 2016) return 3.99;
+  if (y < 2022) return 4.99;
+  return 5.99;
+}

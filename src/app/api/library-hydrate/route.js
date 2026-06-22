@@ -374,13 +374,25 @@ export async function POST(req) {
     if (collectionGrades.length > 0) {
       const valueMap = await getMarketValuesBulk({
         supabase,
-        items: collectionGrades.map((g) => ({
-          collection_id: g.collection_id,
-          gcd_issue_id: g.gcd_issue_id,
-          grade_numeric: g.grade_numeric,
-          slab_company: g.slab_company,
-          condition: g.condition,
-        })),
+        items: collectionGrades.map((g) => {
+          // Look up the issue's year from the resolved items map. Falls
+          // through to null for local comics (collection_grades doesn't
+          // carry comic_id, so we can't bridge — they'll just skip the
+          // cover-price fallback). The release_year goes to getMarketValue
+          // as a floor estimate when no comps clear minSamples.
+          const libraryKey = g.gcd_issue_id ? `gcd-${g.gcd_issue_id}` : null;
+          const release_year = libraryKey && items[libraryKey]?.year != null
+            ? Number(items[libraryKey].year)
+            : null;
+          return {
+            collection_id: g.collection_id,
+            gcd_issue_id: g.gcd_issue_id,
+            grade_numeric: g.grade_numeric,
+            slab_company: g.slab_company,
+            condition: g.condition,
+            release_year,
+          };
+        }),
       });
       for (const [collectionId, result] of valueMap) {
         marketValues[collectionId] = result;

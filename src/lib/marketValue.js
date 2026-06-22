@@ -6,7 +6,7 @@
 // The pure-utility primitives (snapToCgcGrade, gradeBucket, bucketFallbacks,
 // median) live in src/lib/valuation.js. This file glues them to Supabase.
 
-import { gradeBucket, bucketFallbacks, median } from "@/lib/valuation";
+import { gradeBucket, bucketFallbacks, median, coverPriceForYear } from "@/lib/valuation";
 
 // Tuning knobs. Conservative defaults — we'd rather return null than show
 // a wildly noisy median based on one weird sale.
@@ -39,6 +39,7 @@ export async function getMarketValue({
   grade_numeric,
   slab_company,
   condition,
+  release_year,
   windowDays = DEFAULT_WINDOW_DAYS,
   minSamples = MIN_SAMPLES,
 } = {}) {
@@ -87,12 +88,28 @@ export async function getMarketValue({
         sample_size: data.length,
         bucket_used: candidate,
         fallback: i > 0,
+        source: "market-comp",
         newest_comp_date: dates[dates.length - 1] ?? null,
         oldest_comp_date: dates[0] ?? null,
       };
     }
   }
 
+  // No comps cleared minSamples — try cover-price era fallback so every
+  // issue gets *some* number. Caller can distinguish this from a real
+  // comp-derived value via `source === "cover-price"`.
+  const cover = coverPriceForYear(release_year);
+  if (cover != null) {
+    return {
+      value: cover,
+      sample_size: 0,
+      bucket_used: null,
+      fallback: true,
+      source: "cover-price",
+      newest_comp_date: null,
+      oldest_comp_date: null,
+    };
+  }
   return emptyResult();
 }
 
@@ -102,6 +119,7 @@ function emptyResult() {
     sample_size: 0,
     bucket_used: null,
     fallback: false,
+    source: null,
     newest_comp_date: null,
     oldest_comp_date: null,
   };
@@ -143,6 +161,7 @@ export async function getMarketValuesBulk({
           grade_numeric: item.grade_numeric,
           slab_company: item.slab_company,
           condition: item.condition,
+          release_year: item.release_year,
           windowDays,
           minSamples,
         });

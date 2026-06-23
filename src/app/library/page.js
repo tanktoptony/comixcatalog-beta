@@ -1744,12 +1744,25 @@ function LibraryPageContent() {
                           marketValues[item.id]?.value != null && (() => {
                             const mv = marketValues[item.id];
                             const isComp = mv.source === "market-comp";
-                            const tooltip = isComp
-                              ? `Median of ${mv.sample_size} recent sale${mv.sample_size === 1 ? "" : "s"} in bucket ${mv.bucket_used}${mv.fallback ? " (fallback bucket)" : ""}`
-                              : "No recent sales data yet — showing era-based cover-price floor. Real comps will replace this when sold listings exist.";
-                            const label = isComp
-                              ? `auto, ${mv.sample_size} ${mv.sample_size === 1 ? "sale" : "sales"}`
-                              : "cover price";
+                            // Browse API gives active asking prices, not sold.
+                            // Disclose that honestly so collectors don't treat
+                            // "median asking" as "actual market value."
+                            const isListed = isComp && mv.comp_source === "ebay-listed";
+                            const isSold   = isComp && mv.comp_source === "ebay";
+                            let tooltip, label;
+                            if (isSold) {
+                              tooltip = `Median of ${mv.sample_size} recent sold listing${mv.sample_size === 1 ? "" : "s"} in bucket ${mv.bucket_used}${mv.fallback ? " (fallback bucket)" : ""}`;
+                              label = `auto, ${mv.sample_size} ${mv.sample_size === 1 ? "sale" : "sales"}`;
+                            } else if (isListed) {
+                              tooltip = `Median of ${mv.sample_size} active eBay listing${mv.sample_size === 1 ? "" : "s"} in bucket ${mv.bucket_used}. Asking prices, not sold — typically skew high. Sold-comp data unlocks when our Marketplace Insights access lands.`;
+                              label = `asking, ${mv.sample_size} ${mv.sample_size === 1 ? "listing" : "listings"}`;
+                            } else if (isComp) {
+                              tooltip = `Median of ${mv.sample_size} comp${mv.sample_size === 1 ? "" : "s"} in bucket ${mv.bucket_used}`;
+                              label = `auto, ${mv.sample_size}`;
+                            } else {
+                              tooltip = "No recent sales data yet — showing era-based cover-price floor. Real comps will replace this once eBay data is fetched.";
+                              label = "cover price";
+                            }
                             return (
                               <>
                                 <span>•</span>

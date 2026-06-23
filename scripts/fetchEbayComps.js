@@ -179,13 +179,23 @@ async function buildQueue() {
 // ─────────────────────────────────────────────────────────────────────────
 
 // ── eBay OAuth (client_credentials, application-level token) ──────────
-// Caches the token in-process for its lifetime. Token TTL is 2h for
-// production, similar for sandbox. We refresh on 401.
+// Two API paths:
+//   EBAY_API=insights → Marketplace Insights (sold-comps, requires special
+//                        approval beyond the basic developer account)
+//   EBAY_API=browse   → Browse API (active listings only, generic scope
+//                        every prod app has by default)
+// Defaults to "browse" because that's what works without approval.
+// Token cached in-process; refreshed on 401.
 const EBAY_ENV = (process.env.EBAY_ENV || "sandbox").toLowerCase();
+const EBAY_API = (process.env.EBAY_API || "browse").toLowerCase();
 const EBAY_HOST = EBAY_ENV === "production" ? "api.ebay.com" : "api.sandbox.ebay.com";
 const EBAY_OAUTH_URL = `https://${EBAY_HOST}/identity/v1/oauth2/token`;
 const EBAY_INSIGHTS_URL = `https://${EBAY_HOST}/buy/marketplace_insights/v1_beta/item_sales/search`;
-const EBAY_SCOPE = "https://api.ebay.com/oauth/api_scope/buy.marketplace.insights";
+const EBAY_BROWSE_URL = `https://${EBAY_HOST}/buy/browse/v1/item_summary/search`;
+const EBAY_SCOPE = EBAY_API === "insights"
+  ? "https://api.ebay.com/oauth/api_scope/buy.marketplace.insights"
+  : "https://api.ebay.com/oauth/api_scope";
+const COMP_SOURCE_LABEL = EBAY_API === "insights" ? "ebay" : "ebay-listed";
 
 let _ebayTokenCache = { token: null, expiresAt: 0 };
 
@@ -246,17 +256,18 @@ async function fetchSoldListings({ series_title, issue_number }) {
   }
 
   const token = await getEbayToken();
-  // eBay Insights search. Build query "<series_title> #<issue_number>" and
-  // category-scope to Comics (category_ids=63) to cut down on unrelated
-  // matches when issue_number is a common number like "1".
+  // Query: "<series_title> #<issue_number>" scoped to category_ids=63 (Comics).
+  // For Insights we also filter by lastSoldDate (90-day window). For Browse
+  // there's no sold-date concept — only active listings are returned, so the
+  // date filter is omitted and listing freshness is "right now."
   const query = `${series_title} ${issue_number}`;
   const params = new URLSearchParams({
     q: query,
-    category_ids: "63",          // Comics
+    category_ids: "63",
     limit: "50",
-    filter: soldDateFilter(),
   });
-  const url = `${EBAY_INSIGHTS_URL}?${params.toString()}`;
+  if (EBAY_API === "insights") params.set("filter", soldDateFilter());
+  const url = `${EBAY_API === "insights" ? EBAY_INSIGHTS_URL : EBAY_BROWSE_URL}?${params.toString()}`;
 
   let resp = await fetch(url, {
     headers: {
@@ -281,15 +292,33 @@ async function fetchSoldListings({ series_title, issue_number }) {
 
   const text = await resp.text();
   if (!resp.ok) {
-    throw new Error(`eBay Insights ${resp.status}: ${text.slice(0, 400)}`);
+    throw new Error(`eBay ${EBAY_API} ${resp.status}: ${text.slice(0, 400)}`);
   }
   const json = JSON.parse(text);
-  const sales = json.itemSales ?? [];
-  return sales.map((s) => ({
+
+  // Response shapes differ between Insights and Browse.
+  //   Insights: { itemSales: [{ itemId, title, lastSoldPrice:{value}, lastSoldDate, itemWebUrl }] }
+  //   Browse:   { itemSummaries: [{ itemId, title, price:{value}, itemWebUrl, ... }] }
+  // We normalize to our canonical { listing_id, title, sold_price, sold_date, listing_url } shape.
+  // For Browse there's no sold_date — listings are active "now," so we stamp today.
+  if (EBAY_API === "insights") {
+    const sales = json.itemSales ?? [];
+    return sales.map((s) => ({
+      listing_id: s.itemId,
+      title: s.title ?? "",
+      sold_price: Number(s.lastSoldPrice?.value ?? 0),
+      sold_date: (s.lastSoldDate ?? "").slice(0, 10),
+      listing_url: s.itemWebUrl ?? s.itemAffiliateWebUrl ?? null,
+    }));
+  }
+
+  const summaries = json.itemSummaries ?? [];
+  const today = new Date().toISOString().slice(0, 10);
+  return summaries.map((s) => ({
     listing_id: s.itemId,
     title: s.title ?? "",
-    sold_price: Number(s.lastSoldPrice?.value ?? 0),
-    sold_date: (s.lastSoldDate ?? "").slice(0, 10),
+    sold_price: Number(s.price?.value ?? 0),
+    sold_date: today,
     listing_url: s.itemWebUrl ?? s.itemAffiliateWebUrl ?? null,
   }));
 }
@@ -324,7 +353,7 @@ function buildCompRows({ gcd_issue_id, series_title, issue_number, listings }) {
       sold_price: listing.sold_price,
       sold_currency: "USD",
       sold_date: listing.sold_date,
-      source: DRY_RUN ? "dry-run" : "ebay",
+      source: DRY_RUN ? "dry-run" : COMP_SOURCE_LABEL,
       external_listing_id: String(listing.listing_id),
       listing_url: listing.listing_url ?? null,
       listing_title: listing.title,
@@ -358,6 +387,8 @@ async function run() {
   console.log("=== fetchEbayComps ===");
   console.log(`  dry-run:        ${DRY_RUN}`);
   console.log(`  apply (writes): ${APPLY || !DRY_RUN}`);
+  console.log(`  env:            ${EBAY_ENV}`);
+  console.log(`  api:            ${EBAY_API}  (source label: ${COMP_SOURCE_LABEL})`);
   console.log(`  limit:          ${LIMIT ?? "(none)"}`);
   console.log(`  max-age-days:   ${MAX_AGE_DAYS}`);
   console.log();

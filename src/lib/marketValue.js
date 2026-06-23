@@ -67,7 +67,7 @@ export async function getMarketValue({
     const candidate = tryBuckets[i];
     const { data, error } = await supabase
       .from("market_comps")
-      .select("sold_price, sold_date")
+      .select("sold_price, sold_date, source")
       .eq("gcd_issue_id", Number(gcd_issue_id))
       .eq("grade_bucket", candidate)
       .gte("sold_date", sinceIso)
@@ -83,12 +83,23 @@ export async function getMarketValue({
       const prices = data.map((r) => Number(r.sold_price));
       const value = median(prices);
       const dates = data.map((r) => r.sold_date).sort();
+      // Dominant underlying source — "ebay" = sold comps (Insights), or
+      // "ebay-listed" = active asking prices (Browse, used while Insights
+      // access is pending). UI uses this to disclose "sold price" vs
+      // "listed price" accurately.
+      const sourceCounts = {};
+      for (const r of data) {
+        const s = r.source || "unknown";
+        sourceCounts[s] = (sourceCounts[s] || 0) + 1;
+      }
+      const dominantSource = Object.entries(sourceCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || "unknown";
       return {
         value: value != null ? roundCurrency(value) : null,
         sample_size: data.length,
         bucket_used: candidate,
         fallback: i > 0,
         source: "market-comp",
+        comp_source: dominantSource,
         newest_comp_date: dates[dates.length - 1] ?? null,
         oldest_comp_date: dates[0] ?? null,
       };
@@ -106,6 +117,7 @@ export async function getMarketValue({
       bucket_used: null,
       fallback: true,
       source: "cover-price",
+      comp_source: null,
       newest_comp_date: null,
       oldest_comp_date: null,
     };
@@ -120,6 +132,7 @@ function emptyResult() {
     bucket_used: null,
     fallback: false,
     source: null,
+    comp_source: null,
     newest_comp_date: null,
     oldest_comp_date: null,
   };

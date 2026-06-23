@@ -76,6 +76,9 @@ export async function GET(req) {
       comic_id,
       gcd_issue_id,
       user_cover_url,
+      variant_label,
+      copy_number,
+      variant_of_gcd_id,
       comics!user_collections_comic_id_fkey (
         id,
         issue_number,

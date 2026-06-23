@@ -6238,6 +6238,14 @@ button.nav-link {
   flex-direction: column;
   gap: 4px;
 }
+.grade-field-row {
+  display: flex;
+  gap: 10px;
+}
+@media (max-width: 480px) {
+  .grade-field-row { flex-direction: column; gap: 0; }
+  .grade-field-row .grade-field { flex: 1 !important; }
+}
 .grade-label {
   font-size: 0.72rem;
   text-transform: uppercase;

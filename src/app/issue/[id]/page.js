@@ -19,7 +19,7 @@ function money(value) {
 
 export default function IssuePage() {
   const { id } = useParams();
-  const { collectionIds, wishlistIds, addToCollection, removeFromCollection } =
+  const { collectionIds, wishlistIds, addToCollection, addAnotherCopy, removeFromCollection } =
     useLibrary();
 
   const [issue, setIssue] = useState(null);
@@ -285,12 +285,28 @@ export default function IssuePage() {
               )}
 
               {user && inCollection && (
-                <button
-                  className="add-comic-btn"
-                  onClick={() => removeFromCollection(libraryId)}
-                >
-                  Remove from Collection
-                </button>
+                <>
+                  <button
+                    className="add-comic-btn"
+                    onClick={() => {
+                      const label = window.prompt(
+                        "Variant or edition for this extra copy? (e.g. Newsstand, Cover B). Leave blank for same as base.",
+                        ""
+                      );
+                      if (label === null) return; // user cancelled
+                      addAnotherCopy(libraryId, { variant_label: label.trim() || null });
+                    }}
+                    title="Track another copy of this issue (different variant, or just another physical copy)"
+                  >
+                    + Add another copy
+                  </button>
+                  <button
+                    className="add-comic-btn"
+                    onClick={() => removeFromCollection(libraryId)}
+                  >
+                    Remove from Collection
+                  </button>
+                </>
               )}
 
               {user && inWishlist && (

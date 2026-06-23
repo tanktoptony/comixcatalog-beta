@@ -315,6 +315,48 @@ export function LibraryProvider({ children }) {
     }
   }
 
+  // Add an additional copy of an issue already (or not yet) in the collection.
+  // Unlike addToCollection which dedupes by (user, gcd_issue_id), this always
+  // inserts a NEW row. Auto-increments copy_number based on existing copies
+  // sharing the same (user, gcd_issue_id, variant_label). Variant label
+  // defaults to null (= same printing as base entry).
+  async function addAnotherCopy(inputId, { variant_label = null } = {}) {
+    if (!user?.id) return;
+    const { comic_id, gcd_issue_id } = parseLibraryInput(inputId);
+    const supabase = getSupabaseClient();
+
+    // Find existing copies to determine next copy_number.
+    let query = supabase
+      .from("user_collections")
+      .select("copy_number")
+      .eq("user_id", user.id);
+    if (gcd_issue_id != null) query = query.eq("gcd_issue_id", gcd_issue_id);
+    else if (comic_id != null) query = query.eq("comic_id", comic_id);
+    if (variant_label) query = query.eq("variant_label", variant_label);
+    else query = query.is("variant_label", null);
+
+    const { data: existing } = await query;
+    const maxCopy = (existing ?? []).reduce(
+      (m, r) => Math.max(m, Number(r.copy_number) || 1),
+      0
+    );
+    const nextCopy = maxCopy + 1;
+
+    const { error } = await supabase.from("user_collections").insert({
+      user_id: user.id,
+      status: "owned",
+      comic_id: comic_id ?? null,
+      gcd_issue_id: gcd_issue_id ?? null,
+      variant_label,
+      copy_number: nextCopy,
+    });
+    if (error) {
+      console.error("addAnotherCopy failed", error);
+      return;
+    }
+    await refreshLibrary();
+  }
+
   return (
     <LibraryContext.Provider
       value={{
@@ -324,6 +366,7 @@ export function LibraryProvider({ children }) {
         collectionIds,
         wishlistIds,
         addToCollection,
+        addAnotherCopy,
         removeFromCollection,
         refreshLibrary,
       }}

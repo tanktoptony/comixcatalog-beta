@@ -109,6 +109,13 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
   );
   const [userCoverUrl, setUserCoverUrl] = useState(initialData.user_cover_url || null);
   const [uploading, setUploading] = useState(false);
+  // Variant + multi-copy fields. variantLabel is freeform (collector types
+  // "Newsstand", "Cover B", etc.). copyNumber distinguishes duplicates of
+  // the same (issue, variant) — defaults to 1.
+  const [variantLabel, setVariantLabel] = useState(initialData.variant_label || "");
+  const [copyNumber, setCopyNumber] = useState(
+    initialData.copy_number != null ? String(initialData.copy_number) : "1"
+  );
 
   // Sync photo when initialData updates (e.g. after library hydration)
   useEffect(() => {
@@ -192,6 +199,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
 
       const parsedPrice = purchasePrice.trim() !== "" ? Number(purchasePrice) : null;
       const parsedMarket = marketValue.trim() !== "" ? Number(marketValue) : null;
+      const parsedCopy = copyNumber.trim() !== "" ? Number(copyNumber) : 1;
       const payload = {
         condition: isSlabbed ? null : condition || null,
         grade_numeric: isSlabbed && gradeNumeric !== "" ? Number(gradeNumeric) : null,
@@ -200,6 +208,8 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
         notes: notes.trim() || null,
         purchase_price: parsedPrice != null && !Number.isNaN(parsedPrice) ? parsedPrice : null,
         market_value: parsedMarket != null && !Number.isNaN(parsedMarket) ? parsedMarket : null,
+        variant_label: variantLabel.trim() || null,
+        copy_number: Number.isFinite(parsedCopy) && parsedCopy >= 1 ? Math.floor(parsedCopy) : 1,
       };
 
       const { error: supabaseError } = await supabase
@@ -228,6 +238,8 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
     setNotes(initialData.notes || "");
     setPurchasePrice(initialData.purchase_price != null ? String(initialData.purchase_price) : "");
     setMarketValue(initialData.market_value != null ? String(initialData.market_value) : "");
+    setVariantLabel(initialData.variant_label || "");
+    setCopyNumber(initialData.copy_number != null ? String(initialData.copy_number) : "1");
     setError(null);
     setOpen(false);
   }
@@ -439,6 +451,34 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
               </div>
             </>
           )}
+
+          {/* Variant + copy number — distinguishes "Cover B" from "Newsstand"
+              and "Copy 1 of 2" from "Copy 2 of 2" when the collector owns
+              multiple copies of the same physical issue. */}
+          <div className="grade-field-row">
+            <div className="grade-field" style={{ flex: 2 }}>
+              <label className="grade-label">Variant / Edition</label>
+              <input
+                className="grade-input"
+                type="text"
+                placeholder="e.g. Newsstand, Cover B, 1:25 Incentive"
+                value={variantLabel}
+                onChange={(e) => setVariantLabel(e.target.value)}
+                maxLength={60}
+              />
+            </div>
+            <div className="grade-field" style={{ flex: 1 }}>
+              <label className="grade-label">Copy #</label>
+              <input
+                className="grade-input"
+                type="number"
+                min="1"
+                step="1"
+                value={copyNumber}
+                onChange={(e) => setCopyNumber(e.target.value)}
+              />
+            </div>
+          </div>
 
           {/* Purchase price */}
           <div className="grade-field">

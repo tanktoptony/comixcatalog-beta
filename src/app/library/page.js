@@ -1698,6 +1698,12 @@ function LibraryPageContent() {
                       <Link href={getLibraryHref(item, comic)} className="library-list-title">
                         {comic.title}
                         {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                        {item.variant_label ? (
+                          <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
+                        ) : null}
+                        {item.copy_number > 1 ? (
+                          <span style={{ opacity: 0.55, fontWeight: 500, fontSize: "0.85em" }}> · Copy {item.copy_number}</span>
+                        ) : null}
                       </Link>
 
                       <div className="library-list-meta">
@@ -1945,6 +1951,12 @@ function LibraryPageContent() {
                                   <Link href={getLibraryHref(item, comic)} className="library-list-title">
                                     {comic.title}
                                     {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                                    {item.variant_label ? (
+                                      <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
+                                    ) : null}
+                                    {item.copy_number > 1 ? (
+                                      <span style={{ opacity: 0.55, fontWeight: 500, fontSize: "0.85em" }}> · Copy {item.copy_number}</span>
+                                    ) : null}
                                   </Link>
                                   <div className="library-list-meta">
                                     <span>{comic.year || "Unknown Year"}</span>
@@ -2031,9 +2043,13 @@ function LibraryPageContent() {
                       <div className="comic-card-title">
                         {comic.title}
                         {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                        {item.variant_label ? (
+                          <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
+                        ) : null}
                       </div>
                       <div className="comic-card-meta">
                         {comic.publisher || "Unknown Publisher"} • {comic.year || "Unknown"}
+                        {item.copy_number > 1 ? ` · Copy ${item.copy_number}` : ""}
                       </div>
                     </Link>
 

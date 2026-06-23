@@ -310,9 +310,13 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                   <div className="comic-card-title">
                     {d.title}
                     {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                    {item.variant_label ? (
+                      <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
+                    ) : null}
                   </div>
                   <div className="comic-card-meta">
                     {d.year || "Unknown"}
+                    {item.copy_number > 1 ? ` · Copy ${item.copy_number}` : ""}
                     {value != null ? (
                       <span className="profile-card-value">
                         {" · "}${value.toLocaleString()}
@@ -449,9 +453,13 @@ function SeriesRowsView({ items, activeTab }) {
                       <div className="comic-card-title">
                         {d.title}
                         {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                        {item.variant_label ? (
+                          <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
+                        ) : null}
                       </div>
                       <div className="comic-card-meta">
                         {d.year || "Unknown"}
+                        {item.copy_number > 1 ? ` · Copy ${item.copy_number}` : ""}
                         {value != null ? (
                           <span className="profile-card-value">
                             {" · "}${value.toLocaleString()}

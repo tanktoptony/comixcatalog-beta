@@ -24,6 +24,11 @@ export default function IssuePage() {
 
   const [issue, setIssue] = useState(null);
   const [loading, setLoading] = useState(true);
+  // Inline modal for "+ Add another copy". window.prompt() doesn't work
+  // under Next.js Turbopack — explicit React state instead.
+  const [addCopyOpen, setAddCopyOpen] = useState(false);
+  const [addCopyLabel, setAddCopyLabel] = useState("");
+  const [addCopyBusy, setAddCopyBusy] = useState(false);
 
   const { user } = useAuth();
   const libraryId = String(issue?.id || id || "");
@@ -289,12 +294,8 @@ export default function IssuePage() {
                   <button
                     className="add-comic-btn"
                     onClick={() => {
-                      const label = window.prompt(
-                        "Variant or edition for this extra copy? (e.g. Newsstand, Cover B). Leave blank for same as base.",
-                        ""
-                      );
-                      if (label === null) return; // user cancelled
-                      addAnotherCopy(libraryId, { variant_label: label.trim() || null });
+                      setAddCopyLabel("");
+                      setAddCopyOpen(true);
                     }}
                     title="Track another copy of this issue (different variant, or just another physical copy)"
                   >
@@ -488,6 +489,86 @@ export default function IssuePage() {
           </div>
         </div>
       </section>
+
+      {/* + Add another copy modal. window.prompt() doesn't work in
+          Next.js Turbopack so we use a React-managed dialog. */}
+      {addCopyOpen && (
+        <div
+          className="onboarding-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="add-copy-title"
+          onClick={(e) => {
+            if (e.target === e.currentTarget && !addCopyBusy) setAddCopyOpen(false);
+          }}
+        >
+          <div className="onboarding-card" style={{ maxWidth: 420, textAlign: "left" }}>
+            <button
+              type="button"
+              className="onboarding-close"
+              onClick={() => !addCopyBusy && setAddCopyOpen(false)}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h2 id="add-copy-title" className="onboarding-title" style={{ textAlign: "left" }}>
+              Add another copy
+            </h2>
+            <p className="onboarding-body" style={{ textAlign: "left" }}>
+              Track an additional copy of this issue. Optionally label the
+              variant — Newsstand, Cover B, 1:25 Incentive, etc. Leave blank
+              if it&rsquo;s the same printing as your existing copy.
+            </p>
+            <input
+              type="text"
+              className="admin-input"
+              placeholder="Variant label (optional)"
+              value={addCopyLabel}
+              onChange={(e) => setAddCopyLabel(e.target.value)}
+              maxLength={60}
+              autoFocus
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  if (!addCopyBusy) {
+                    (async () => {
+                      setAddCopyBusy(true);
+                      await addAnotherCopy(libraryId, { variant_label: addCopyLabel.trim() || null });
+                      setAddCopyBusy(false);
+                      setAddCopyOpen(false);
+                    })();
+                  }
+                }
+                if (e.key === "Escape" && !addCopyBusy) setAddCopyOpen(false);
+              }}
+              style={{ marginBottom: 14 }}
+            />
+            <div className="onboarding-actions">
+              <button
+                type="button"
+                className="onboarding-cta"
+                disabled={addCopyBusy}
+                onClick={async () => {
+                  setAddCopyBusy(true);
+                  await addAnotherCopy(libraryId, { variant_label: addCopyLabel.trim() || null });
+                  setAddCopyBusy(false);
+                  setAddCopyOpen(false);
+                }}
+              >
+                {addCopyBusy ? "Adding…" : "Add copy"}
+              </button>
+              <button
+                type="button"
+                className="onboarding-secondary"
+                disabled={addCopyBusy}
+                onClick={() => setAddCopyOpen(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

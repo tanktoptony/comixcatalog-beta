@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { PDFDocument, rgb, StandardFonts, PageSizes } from "pdf-lib";
 import sharp from "sharp";
 import { ADMIN_ID } from "@/lib/admin";
+import { coverPriceForYear } from "@/lib/valuation";
 
 export const maxDuration = 60;
 
@@ -226,6 +227,7 @@ export async function POST(req) {
         const series = seriesMap[issue.series_gcd_id];
         return {
           gcd_id: issue.gcd_id,
+          series_gcd_id: issue.series_gcd_id ?? null,
           issueNumber: issue.issue_number ?? "",
           seriesTitle: series?.title ?? issue.title ?? "Untitled",
           publisher: series?.publisher?.name ?? null,
@@ -233,23 +235,48 @@ export async function POST(req) {
         };
       });
 
-      // Batch canonical cover lookup
-      const uniqueTitles = [...new Set(gcdWithMeta.map((i) => i.seriesTitle))];
-      const { data: canonRows } = uniqueTitles.length
-        ? await supabase
-            .from("canonical_covers")
-            .select("series_title, issue_number, storage_path")
-            .in("series_title", uniqueTitles)
-            .not("storage_path", "is", null)
-        : { data: [] };
+      // ── Two-path canonical cover lookup ──
+      // Path A (ID-based): match canonical_covers.series_gcd_id to gcd_issues.series_gcd_id.
+      //   This is the reliable path that resolves around CV vs GCD title drift
+      //   ("The Maxx" vs "The Maxx Trade Paperback", etc.). Same pattern as
+      //   the issues API (commit 674ca66).
+      // Path B (title-based): legacy fallback for cc rows not yet tagged with
+      //   series_gcd_id (still ~2% of rows).
+      const seriesGcdIdsForCovers = [...new Set(
+        gcdWithMeta.map((i) => i.series_gcd_id).filter(Boolean)
+      )];
+      const uniqueTitles = [...new Set(gcdWithMeta.map((i) => i.seriesTitle).filter(Boolean))];
 
-      const canonMap = {};
-      for (const row of canonRows || []) {
-        canonMap[`${row.series_title}::${row.issue_number}`] = row.storage_path;
+      const [idResult, titleResult] = await Promise.all([
+        seriesGcdIdsForCovers.length
+          ? supabase
+              .from("canonical_covers")
+              .select("series_gcd_id, issue_number, storage_path")
+              .in("series_gcd_id", seriesGcdIdsForCovers)
+              .not("storage_path", "is", null)
+          : Promise.resolve({ data: [] }),
+        uniqueTitles.length
+          ? supabase
+              .from("canonical_covers")
+              .select("series_title, issue_number, storage_path")
+              .in("series_title", uniqueTitles)
+              .not("storage_path", "is", null)
+          : Promise.resolve({ data: [] }),
+      ]);
+
+      const canonByIdKey = {};
+      for (const row of idResult.data || []) {
+        canonByIdKey[`${row.series_gcd_id}::${row.issue_number}`] = row.storage_path;
+      }
+      const canonByTitleKey = {};
+      for (const row of titleResult.data || []) {
+        canonByTitleKey[`${row.series_title}::${row.issue_number}`] = row.storage_path;
       }
 
       for (const item of gcdWithMeta) {
-        const sp = canonMap[`${item.seriesTitle}::${item.issueNumber}`] ?? null;
+        const idKey = item.series_gcd_id ? `${item.series_gcd_id}::${item.issueNumber}` : null;
+        const titleKey = `${item.seriesTitle}::${item.issueNumber}`;
+        const sp = (idKey && canonByIdKey[idKey]) || canonByTitleKey[titleKey] || null;
         comicMeta[`gcd:${item.gcd_id}`] = {
           title: item.seriesTitle,
           issueNumber: item.issueNumber,
@@ -263,10 +290,28 @@ export async function POST(req) {
     }
 
     // ── Assemble sorted items ──
+    // effective_market_value resolves the per-row value used in totals:
+    //   1. user-entered market_value (override) wins if present
+    //   2. otherwise era-based cover-price floor by year
+    //   3. otherwise null (no signal)
+    // This stamps a value on every row so an unset collection no longer
+    // shows "TOTAL MARKET VALUE: $0" — every issue contributes at least
+    // its cover-price floor. We also track value_source so the PDF can
+    // disclose the data source on the cover page.
     const items = collRows
       .map((row) => {
         const key = row.comic_id ? `comic:${row.comic_id}` : `gcd:${row.gcd_issue_id}`;
         const meta = comicMeta[key] ?? {};
+        const userOverride = row.market_value != null && !Number.isNaN(Number(row.market_value))
+          ? Number(row.market_value)
+          : null;
+        const coverFloor = userOverride == null ? coverPriceForYear(meta.year) : null;
+        const effective = userOverride != null
+          ? userOverride
+          : (coverFloor != null ? coverFloor : null);
+        const value_source = userOverride != null
+          ? "user"
+          : (coverFloor != null ? "cover-price" : null);
         return {
           ...row,
           title: meta.title ?? "Untitled",
@@ -275,6 +320,8 @@ export async function POST(req) {
           year: meta.year ?? null,
           // Prefer the collector's own photo — it's their specific copy.
           coverUrl: row.user_cover_url || meta.coverUrl || null,
+          effective_market_value: effective,
+          value_source,
         };
       })
       .sort((a, b) => a.title.localeCompare(b.title));
@@ -317,12 +364,31 @@ export async function POST(req) {
       return `$${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     }
     function buildFinancialField(label, col) {
-      const { total, count } = sumColumn(collRows, col);
+      const { total, count } = sumColumn(items, col);
       const value = count > 0 ? money(total) : "Not recorded";
       const caption = count > 0 && count < items.length
         ? `Based on ${count} of ${items.length} books`
         : null;
       return [label, value, caption];
+    }
+
+    // Market-value field uses effective_market_value (user override → cover-
+    // price floor). Caption discloses the mix so the report stays honest:
+    // a $0 collection becomes "$N — X user-entered, Y from cover-price floor."
+    function buildMarketValueField() {
+      const userCount = items.filter((i) => i.value_source === "user").length;
+      const coverCount = items.filter((i) => i.value_source === "cover-price").length;
+      const total = items.reduce((sum, i) => sum + (Number(i.effective_market_value) || 0), 0);
+      const value = (userCount + coverCount) > 0 ? money(total) : "Not recorded";
+      let caption = null;
+      if (userCount > 0 && coverCount > 0) {
+        caption = `${userCount} user-entered + ${coverCount} cover-price floor`;
+      } else if (coverCount > 0) {
+        caption = `Cover-price floor (no user-entered values yet)`;
+      } else if (userCount > 0 && userCount < items.length) {
+        caption = `Based on ${userCount} of ${items.length} books`;
+      }
+      return ["TOTAL MARKET VALUE", value, caption];
     }
 
     const reportDate = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
@@ -331,7 +397,7 @@ export async function POST(req) {
       ["REPORT DATE", reportDate],
       ["TOTAL BOOKS", String(items.length)],
       buildFinancialField("TOTAL PAID", "purchase_price"),
-      buildFinancialField("TOTAL MARKET VALUE", "market_value"),
+      buildMarketValueField(),
     ];
 
     let fy = H - 220;
@@ -348,7 +414,7 @@ export async function POST(req) {
 
     cover.drawRectangle({ x: MARGIN + 18, y: fy - 8, width: W - (MARGIN + 18) * 2, height: 1, color: GOLD, opacity: 0.3 });
 
-    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Purchase-price and market-value totals reflect self-reported figures entered by the collector and do not constitute a formal written appraisal.";
+    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Purchase-price totals reflect self-reported figures entered by the collector. Market-value totals combine self-reported values with an era-based cover-price floor estimate for issues without a user-entered value. Neither constitutes a formal written appraisal.";
     const dLines = wrapText(disclaimer, reg, 8.5, W - (MARGIN + 18) * 2);
     let dy = fy - 28;
     for (const line of dLines) {
@@ -546,13 +612,18 @@ export async function POST(req) {
         x: CX.paid, y: ty + 4, size: ts, font: reg, color: DGRAY,
       });
 
-      // Market value
-      const valueLabel = item.market_value != null && !Number.isNaN(Number(item.market_value))
-        ? money(Number(item.market_value))
+      // Market value — uses effective_market_value (user override → cover-
+      // price floor). Cover-price rows draw in italic to visually distinguish
+      // estimates from collector-entered values; user-entered rows stay bold.
+      const valueLabel = item.effective_market_value != null
+        ? money(Number(item.effective_market_value))
         : "—";
       const valueHasNumber = valueLabel !== "—";
-      page.drawText(truncate(valueLabel, bold, ts, CW.value - 4), {
-        x: CX.value, y: ty + 4, size: ts, font: bold, color: valueHasNumber ? NAVY : MGRAY,
+      const isEstimate = valueHasNumber && item.value_source === "cover-price";
+      page.drawText(truncate(valueLabel, isEstimate ? italic : bold, ts, CW.value - 4), {
+        x: CX.value, y: ty + 4, size: ts,
+        font: isEstimate ? italic : bold,
+        color: valueHasNumber ? (isEstimate ? MGRAY : NAVY) : MGRAY,
       });
 
       pageY -= ROW_H;
@@ -577,7 +648,10 @@ export async function POST(req) {
 
     const tRowY = totalsBottom + TOTALS_H / 2 - 3;
     const totalPaidAll    = sumColumn(items, "purchase_price").total;
-    const totalValueAll   = sumColumn(items, "market_value").total;
+    const totalValueAll   = items.reduce(
+      (sum, i) => sum + (Number(i.effective_market_value) || 0),
+      0
+    );
 
     page.drawText("TOTAL", {
       x: CX.cert, y: tRowY + 4, size: 8.5, font: bold, color: NAVY,

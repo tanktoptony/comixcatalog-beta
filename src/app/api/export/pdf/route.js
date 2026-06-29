@@ -4,6 +4,7 @@ import { PDFDocument, rgb, StandardFonts, PageSizes } from "pdf-lib";
 import sharp from "sharp";
 import { ADMIN_ID } from "@/lib/admin";
 import { coverPriceForYear } from "@/lib/valuation";
+import { getMarketValuesBulk } from "@/lib/marketValue";
 
 export const maxDuration = 60;
 
@@ -289,15 +290,31 @@ export async function POST(req) {
       }
     }
 
+    // ── Pre-resolve auto valuations for everything with a gcd_issue_id ──
+    // Same fallback chain as the library page (getMarketValue):
+    //   1. user-entered market_value (override) — handled below
+    //   2. market_comps median (sold-comp / asking-price from eBay)
+    //   3. era-based cover-price floor — handled below
+    // We pass each issue's grade signal so the median bucket is right.
+    const marketValueMap = await getMarketValuesBulk({
+      supabase,
+      items: collRows
+        .filter((r) => r.gcd_issue_id != null)
+        .map((r) => ({
+          collection_id: r.id,
+          gcd_issue_id: r.gcd_issue_id,
+          grade_numeric: r.grade_numeric,
+          slab_company: r.slab_company,
+          condition: r.condition,
+          release_year:
+            comicMeta[`gcd:${r.gcd_issue_id}`]?.year ?? null,
+        })),
+    });
+
     // ── Assemble sorted items ──
-    // effective_market_value resolves the per-row value used in totals:
-    //   1. user-entered market_value (override) wins if present
-    //   2. otherwise era-based cover-price floor by year
-    //   3. otherwise null (no signal)
-    // This stamps a value on every row so an unset collection no longer
-    // shows "TOTAL MARKET VALUE: $0" — every issue contributes at least
-    // its cover-price floor. We also track value_source so the PDF can
-    // disclose the data source on the cover page.
+    // effective_market_value priority: user override > market_comps median >
+    // cover-price floor. Every issue ends up with *some* number so PDF totals
+    // mirror the library page's collection-value stat.
     const items = collRows
       .map((row) => {
         const key = row.comic_id ? `comic:${row.comic_id}` : `gcd:${row.gcd_issue_id}`;
@@ -305,20 +322,26 @@ export async function POST(req) {
         const userOverride = row.market_value != null && !Number.isNaN(Number(row.market_value))
           ? Number(row.market_value)
           : null;
-        const coverFloor = userOverride == null ? coverPriceForYear(meta.year) : null;
+        const mv = marketValueMap.get(row.id);
+        // getMarketValue already applied the cover-price fallback when no
+        // comps cleared minSamples — so mv.value carries either the comp
+        // median (source="market-comp") or the cover floor (source="cover-price").
+        const autoValue = mv?.value != null ? Number(mv.value) : null;
         const effective = userOverride != null
           ? userOverride
-          : (coverFloor != null ? coverFloor : null);
-        const value_source = userOverride != null
-          ? "user"
-          : (coverFloor != null ? "cover-price" : null);
+          : (autoValue != null ? autoValue : coverPriceForYear(meta.year));
+        let value_source;
+        if (userOverride != null) value_source = "user";
+        else if (mv?.source === "market-comp") {
+          value_source = mv.comp_source === "ebay-listed" ? "ebay-listed" : "ebay-sold";
+        } else if (effective != null) value_source = "cover-price";
+        else value_source = null;
         return {
           ...row,
           title: meta.title ?? "Untitled",
           issueNumber: meta.issueNumber ?? "",
           publisher: meta.publisher ?? "Unknown",
           year: meta.year ?? null,
-          // Prefer the collector's own photo — it's their specific copy.
           coverUrl: row.user_cover_url || meta.coverUrl || null,
           effective_market_value: effective,
           value_source,

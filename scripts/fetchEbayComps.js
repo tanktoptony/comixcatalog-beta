@@ -344,13 +344,28 @@ function buildCompRows({ gcd_issue_id, series_title, issue_number, listings }) {
     const targetIssue = String(issue_number).trim();
     if (parsedIssue !== targetIssue) continue;
 
+    // Grade clamp: CGC scale is 0.5-10.0, stored as numeric(3,1) (max 99.9).
+    // Title parser sometimes mis-extracts numbers from titles ("100 ISSUE
+    // LOT") as a grade. Drop the bad reading rather than crash the batch.
+    let safeGrade = parsed.grade_numeric;
+    if (safeGrade != null) {
+      const n = Number(safeGrade);
+      if (!Number.isFinite(n) || n < 0.5 || n > 10) safeGrade = null;
+    }
+
+    // Price sanity: numeric(10,2) tops out at 99,999,999.99 but a comic
+    // listing > $50k is almost certainly a parser/data error. Drop those
+    // rather than poison the median.
+    const safePrice = Number(listing.sold_price);
+    if (!Number.isFinite(safePrice) || safePrice <= 0 || safePrice > 50000) continue;
+
     rows.push({
       gcd_issue_id,
       grade_bucket: parsed.grade_bucket,
       slab_company: parsed.slab_company,
-      grade_numeric: parsed.grade_numeric,
+      grade_numeric: safeGrade,
       condition_label: parsed.condition_label,
-      sold_price: listing.sold_price,
+      sold_price: safePrice,
       sold_currency: "USD",
       sold_date: listing.sold_date,
       source: DRY_RUN ? "dry-run" : COMP_SOURCE_LABEL,
@@ -366,17 +381,28 @@ async function upsertComps(rows) {
   if (rows.length === 0) return { upserted: 0 };
   if (DRY_RUN && !APPLY) return { upserted: 0, skipped_write: true };
 
-  const { error, count } = await supabase
+  // Try a batch upsert first — fastest path. If it fails (one bad row
+  // poisons the whole batch under PostgREST), fall back to per-row so
+  // good rows still get through.
+  const { error: batchErr, count } = await supabase
     .from("market_comps")
-    .upsert(rows, {
-      onConflict: "source,external_listing_id",
-      count: "exact",
-    });
-  if (error) {
-    console.error("upsert failed:", error);
-    return { upserted: 0, error: error.message };
+    .upsert(rows, { onConflict: "source,external_listing_id", count: "exact" });
+  if (!batchErr) return { upserted: count ?? rows.length };
+
+  // Per-row fallback. Slow but resilient.
+  let ok = 0, bad = 0;
+  for (const row of rows) {
+    const { error } = await supabase
+      .from("market_comps")
+      .upsert([row], { onConflict: "source,external_listing_id" });
+    if (error) {
+      bad++;
+      if (bad <= 3) {
+        console.warn(`  upsert skipped (${error.code}): ${row.listing_title?.slice(0, 60)}`);
+      }
+    } else ok++;
   }
-  return { upserted: count ?? rows.length };
+  return { upserted: ok, skipped: bad };
 }
 
 // ─────────────────────────────────────────────────────────────────────────

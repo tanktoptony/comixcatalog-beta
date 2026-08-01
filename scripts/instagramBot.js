@@ -257,7 +257,8 @@ async function postToInstagram({ imageUrl, caption }) {
 
   const createRes = await fetch(
     `https://graph.facebook.com/v21.0/${igUserId}/media?` +
-      new URLSearchParams({ image_url: imageUrl, caption, access_token: token })
+      new URLSearchParams({ image_url: imageUrl, caption, access_token: token }),
+    { method: "POST" }
   );
   const createJson = await createRes.json();
   if (!createRes.ok || !createJson.id) {
@@ -266,7 +267,8 @@ async function postToInstagram({ imageUrl, caption }) {
 
   const publishRes = await fetch(
     `https://graph.facebook.com/v21.0/${igUserId}/media_publish?` +
-      new URLSearchParams({ creation_id: createJson.id, access_token: token })
+      new URLSearchParams({ creation_id: createJson.id, access_token: token }),
+    { method: "POST" }
   );
   const publishJson = await publishRes.json();
   if (!publishRes.ok || !publishJson.id) {

@@ -1,3 +1,4 @@
+import Script from "next/script";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,6 +7,9 @@ import { LibraryProvider } from "../context/LibraryContext";
 import { AuthProvider } from "../context/AuthContext";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://comixcatalog.com";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+// Production only — keeps localhost/dev traffic out of real GA data.
+const GA_ENABLED = Boolean(GA_MEASUREMENT_ID) && process.env.NODE_ENV === "production";
 const SITE_NAME = "ComixCatalog";
 const DEFAULT_TITLE = "ComixCatalog — Catalog. Collect. Connect.";
 const DEFAULT_DESCRIPTION =
@@ -104,6 +108,22 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="page-shell">
+        {GA_ENABLED && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}');
+              `}
+            </Script>
+          </>
+        )}
         <AuthProvider>
           <LibraryProvider>
             <PatreonBanner />

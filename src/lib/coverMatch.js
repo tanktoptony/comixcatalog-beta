@@ -93,7 +93,7 @@ export function createCoverMatcher(supabase) {
     for (let from = 0; ; from += pageSize) {
       const { data, error } = await supabase
         .from("gcd_issues")
-        .select("gcd_id, issue_number")
+        .select("gcd_id, issue_number, title, publication_date, key_date, publisher_gcd_id")
         .eq("series_gcd_id", numericSeriesId)
         .order("gcd_id")
         .range(from, from + pageSize - 1);
@@ -116,6 +116,21 @@ export function createCoverMatcher(supabase) {
     if (candidates.length === 0) {
       const base = baseIssueNumber(raw);
       if (base) candidates = issues.filter((issue) => baseIssueNumber(issue.issue_number) === base);
+    }
+    if (candidates.length > 1) {
+      const signatures = new Set(candidates.map((issue) => JSON.stringify([
+        issue.issue_number,
+        issue.title,
+        issue.publication_date,
+        issue.key_date,
+        issue.publisher_gcd_id,
+      ])));
+      // The local GCD mirror contains occasional duplicate rows with identical
+      // catalog metadata but different gcd_id values. Treat those as one issue
+      // and pick the stable lowest ID; genuinely distinct variants stay ambiguous.
+      if (signatures.size === 1) {
+        candidates = candidates.toSorted((a, b) => Number(a.gcd_id) - Number(b.gcd_id)).slice(0, 1);
+      }
     }
     if (candidates.length === 1) {
       return { gcdIssueId: Number(candidates[0].gcd_id), matchConfidence: "resolved" };

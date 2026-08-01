@@ -25,7 +25,8 @@ test("issue resolution prefers exact and rejects ambiguous base variants", async
   const tables = {
     series: [{ gcd_id: 10, title: "Example", year_start_cached: 1993 }],
     gcd_issues: [
-      { gcd_id: 100, series_gcd_id: 10, issue_number: "1" },
+      { gcd_id: 100, series_gcd_id: 10, issue_number: "1", publication_date: "1993" },
+      { gcd_id: 103, series_gcd_id: 10, issue_number: "1", publication_date: "1993" },
       { gcd_id: 101, series_gcd_id: 10, issue_number: "2 [Direct]" },
       { gcd_id: 102, series_gcd_id: 10, issue_number: "2 [Newsstand]" },
     ],

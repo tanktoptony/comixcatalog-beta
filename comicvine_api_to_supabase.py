@@ -44,6 +44,11 @@ HEADERS = {
 }
 
 
+def _safe_error(error: Exception) -> str:
+    """Prevent API credentials embedded in failed request URLs from reaching logs."""
+    return re.sub(r"([?&]api_key=)[^&\s]+", r"\1[REDACTED]", str(error))
+
+
 # ── Rate-limit budgeting ─────────────────────────────────────────────────
 # ComicVine free-tier is 200 requests/resource/hour. Each volume costs at
 # minimum 1 search + 1 detail + N issue pages. To stay safely under the
@@ -846,7 +851,7 @@ def _load_gcd_issues(series_gcd_id: int) -> list[dict]:
                 "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
             },
             params={
-                "select": "gcd_id,issue_number",
+                "select": "gcd_id,issue_number,title,publication_date,key_date,publisher_gcd_id",
                 "series_gcd_id": f"eq.{series_gcd_id}",
                 "order": "gcd_id.asc",
                 "limit": str(page_size),
@@ -877,6 +882,21 @@ def _resolve_gcd_issue_id(
         base = _base_issue_number(raw)
         if base:
             candidates = [i for i in issues if _base_issue_number(i.get("issue_number")) == base]
+    if len(candidates) > 1:
+        signatures = {
+            (
+                issue.get("issue_number"),
+                issue.get("title"),
+                issue.get("publication_date"),
+                issue.get("key_date"),
+                issue.get("publisher_gcd_id"),
+            )
+            for issue in candidates
+        }
+        # The local GCD mirror occasionally duplicates identical catalog rows.
+        # Collapse only exact metadata duplicates; real variants stay ambiguous.
+        if len(signatures) == 1:
+            candidates = [min(candidates, key=lambda issue: int(issue["gcd_id"]))]
     if len(candidates) == 1:
         return int(candidates[0]["gcd_id"]), "resolved"
     return None, "series-only"
@@ -1204,7 +1224,7 @@ def main():
             rate_limited = True
             break
         except Exception as e:
-            print(f"  series failed: {e}")
+            print(f"  series failed: {_safe_error(e)}")
             # fall through to per-volume sleep below
 
         # Sleep BETWEEN volumes regardless of success/failure. The skip path
@@ -1232,32 +1252,36 @@ def main():
             f"issues={REQUEST_COUNTER['issues']}{ledger_note}"
         )
 
-    with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(
-            f,
-            fieldnames=[
-                "source",
-                "source_issue_url",
-                "external_issue_id",
-                "comicvine_volume_id",
-                "series_year",
-                "series_title",
-                "series_gcd_id",
-                "issue_title",
-                "issue_number",
-                "publisher",
-                "cover_date",
-                "in_store_date",
-                "description",
-                "original_cover_url",
-                "storage_path",
-            ],
-        )
-        writer.writeheader()
-        writer.writerows(uploaded_rows)
+    if not args.dry_run:
+        with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(
+                f,
+                fieldnames=[
+                    "source",
+                    "source_issue_url",
+                    "external_issue_id",
+                    "comicvine_volume_id",
+                    "series_year",
+                    "series_title",
+                    "series_gcd_id",
+                    "gcd_issue_id",
+                    "match_confidence",
+                    "issue_title",
+                    "issue_number",
+                    "publisher",
+                    "cover_date",
+                    "in_store_date",
+                    "description",
+                    "original_cover_url",
+                    "storage_path",
+                ],
+            )
+            writer.writeheader()
+            writer.writerows(uploaded_rows)
 
     print(f"\nDone. Upserted {len(uploaded_rows)} issue rows total.")
-    print(f"CSV written to {CSV_PATH}")
+    if not args.dry_run:
+        print(f"CSV written to {CSV_PATH}")
 
     if NEEDS_VOLUME_ID:
         write_needs_volume_id(args.needs_volume_id_out)

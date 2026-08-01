@@ -103,19 +103,36 @@ async function lookupValue(gcdIssueId) {
   return { value: median(data.map((r) => r.sold_price)), sampleSize: data.length };
 }
 
-function hashtagsFor(publisher, year) {
-  const decade = year ? `${Math.floor(year / 10) * 10}s` : null;
-  const pubTag = publisher
-    ? publisher.toLowerCase().replace(/[^a-z0-9]/g, "")
-    : null;
-  return ["#comics", "#keyissues", "#comicbooks", pubTag && `#${pubTag}`, decade && `#${decade}comics`]
-    .filter(Boolean)
-    .join(" ");
+function tagify(value) {
+  return value ? value.toLowerCase().replace(/[^a-z0-9]/g, "") : null;
 }
 
-export function buildCaption({ title, issueNumber, year, publisher, valueLine, kicker }) {
+// "#keyissues" only applies when the post is actually about a comp-verified
+// key issue — claiming every post is a "key issue" would be exactly the
+// marketer-hype-over-collector-trust move the brand explicitly avoids
+// (see NORTH_STAR.md §2.5). Everything else gets collector-community tags
+// instead, plus a series-specific tag (previously missing entirely) and a
+// branded tag so the account's own posts become searchable over time.
+function hashtagsFor(publisher, year, title, isKeyIssue) {
+  const decade = year ? `${Math.floor(year / 10) * 10}s` : null;
+  const pubTag = tagify(publisher);
+  const titleTag = tagify(title);
+  const tags = [
+    "#comics",
+    "#comicbooks",
+    isKeyIssue ? "#keyissues" : "#comicbookcollector",
+    "#comicbookcollecting",
+    titleTag && `#${titleTag}`,
+    pubTag && `#${pubTag}`,
+    decade && `#${decade}comics`,
+    "#comixcatalog",
+  ].filter(Boolean);
+  return [...new Set(tags)].join(" "); // de-dupe in case title/publisher collide
+}
+
+export function buildCaption({ title, issueNumber, year, publisher, valueLine, kicker, postType }) {
   const header = `${title}${issueNumber ? ` #${issueNumber}` : ""}${year ? ` (${year})` : ""}`;
-  const lines = [kicker, header, publisher, valueLine, "", "Catalogued on ComixCatalog — link in bio", hashtagsFor(publisher, year)]
+  const lines = [kicker, header, publisher, valueLine, "", "Catalogued on ComixCatalog — link in bio", hashtagsFor(publisher, year, title, postType === "Key Issue Value Check")]
     .filter((l) => l !== undefined && l !== null);
   return lines.join("\n");
 }
@@ -301,6 +318,7 @@ async function run() {
     publisher: post.publisher,
     valueLine,
     kicker,
+    postType: post.type,
   });
 
   console.log(`Selected: ${post.type} — ${post.title} #${post.issueNumber} (${post.year ?? "?"})`);

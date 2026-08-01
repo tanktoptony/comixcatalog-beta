@@ -64,6 +64,7 @@ async function run() {
       publisher: post.publisher,
       valueLine,
       kicker,
+      postType: post.type,
     });
 
     console.log(`Type: ${post.type}`);

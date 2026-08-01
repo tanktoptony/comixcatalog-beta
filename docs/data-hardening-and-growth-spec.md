@@ -144,19 +144,37 @@ Wire the "Database Contributors leaderboard" that currently exists only as a foo
 
 ## 5. Sequencing
 
-```
-Immediate, no dependency:
-  §4c  ingestStatus.js fix (10 min)
-  §2a  Sentry wiring
-  §2b  GA funnel events
+Only two things structurally depend on §1 landing first — everything else can run in parallel starting immediately. Don't park the whole plan waiting on data hardening; run it as one lane among several.
 
-Phase 1 — Data hardening (do this before UGC or SEO structured data):
+```
+Lane A — Data hardening (own this critical path, nothing below blocks it):
   §1a → §1b → §1c → §1d → §1e
 
-Phase 2 — parallel tracks once §1 lands:
-  Revenue:   §2c → §2d → §2e
-  Marketing: §3a → §3b → §3c
-  Data:      §4a → §4b → §4d
+Lane B — Runs in parallel from day one, no dependency on Lane A:
+  §4c  ingestStatus.js fix (10 min, do first, trivial)
+  §2a  Sentry wiring
+  §2b  GA funnel events
+  §2c  Patreon consolidation (founder-led)
+  §2d  À la carte PDF + Verified Collector badge
+  §2e  Founding Collector fee cap (founder decision)
+  §3c  Monthly value-recap content
+  §4b  Depth-first cover targeting (feeds NEW ingestion — doesn't touch OLD
+       mismatched rows, so it's independent of Lane A, though pairs
+       naturally with §1a once that's shipped)
+
+Lane C — Genuinely gated on Lane A finishing (§1a-§1e), start only after:
+  §3a  Programmatic SEO — shipping Product JSON-LD with wrong covers bakes
+       the error into Google's index at scale; worse than not shipping.
+  §4a  UGC cover upload — uploads on top of unreliable matching inherit
+       the ambiguity problem instead of fixing it.
+  §4d  Contributor recognition (depends on §4a's upload data existing)
+
+§3b ("what's my collection worth" hook page) is a judgment call, not a hard
+gate: it does render cover thumbnails, so it inherits the same risk as §3a
+at a much smaller, lower-stakes scale (a handful of comics in an anonymous
+session, not an indexed page living forever). Reasonable to ship in Lane B
+and accept the small cosmetic risk, or hold for Lane C if a wrong cover in
+a first-impression funnel feels too costly — founder's call.
 ```
 
 Community/outreach (CGC Forums, Facebook groups, Discord, C2E2 or its nearest current equivalent) runs in parallel the whole time — it's the founder's own time, not engineering capacity, and doesn't block or get blocked by anything above.

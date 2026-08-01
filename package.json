@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:cover-match": "node --test src/lib/coverMatch.test.js",
     "covers:gap-featured": "node scripts/generateFeaturedGapTargets.js",
     "covers:gap-both": "node scripts/generateCoverGapTargets.js --mode=both --limit=500",
     "covers:refresh-cache": "node scripts/refreshSeriesSearchCache.js --force",

@@ -131,6 +131,11 @@ def parse_cli() -> argparse.Namespace:
         help="Optional cap on issues per volume (debug only).",
     )
     p.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Resolve and print matches without uploading images or writing database rows.",
+    )
+    p.add_argument(
         "--volume-id",
         type=str,
         default=None,
@@ -725,6 +730,18 @@ def update_series_cv_publisher(series_title: str | None, cv_publisher: str | Non
 
 # Cache for series_gcd_id lookups — same target shouldn't requery per issue.
 _SERIES_GCD_ID_CACHE: dict[tuple, int | None] = {}
+_GCD_ISSUES_BY_SERIES_CACHE: dict[int, list[dict]] = {}
+
+
+def _base_issue_number(value: object) -> str | None:
+    """Mirror src/lib/coverMatch.js; guarded by cover-match-cases.json."""
+    match = re.match(r"^(\d+(?:\.\d+)?)", str(value or "").strip())
+    return match.group(1) if match else None
+
+
+def _normalize_cover_match_title(value: object) -> str:
+    """Mirror normalizeTitle() in src/lib/coverMatch.js."""
+    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
 
 
 def _resolve_series_gcd_id(
@@ -752,23 +769,38 @@ def _resolve_series_gcd_id(
 
     def _query(title: str) -> list[dict]:
         try:
+            headers = {
+                "apikey": SUPABASE_SERVICE_ROLE_KEY,
+                "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+            }
+            base_params = {
+                "select": "gcd_id,title,year_start_cached",
+                "gcd_id": "not.is.null",
+                "limit": "100",
+            }
             resp = requests.get(
                 f"{SUPABASE_URL}/rest/v1/series",
-                headers={
-                    "apikey": SUPABASE_SERVICE_ROLE_KEY,
-                    "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
-                },
-                params={
-                    "select": "gcd_id,title,year_start_cached",
-                    "title": f"eq.{title}",
-                    "gcd_id": "not.is.null",
-                    "limit": "20",
-                },
+                headers=headers,
+                params={**base_params, "title": f"eq.{title}"},
+                timeout=15,
+            )
+            if resp.status_code == 200 and resp.json():
+                return resp.json()
+
+            normalized = _normalize_cover_match_title(title)
+            pattern = "*" + "*".join(normalized.split()) + "*"
+            resp = requests.get(
+                f"{SUPABASE_URL}/rest/v1/series",
+                headers=headers,
+                params={**base_params, "title": f"ilike.{pattern}"},
                 timeout=15,
             )
             if resp.status_code != 200:
                 return []
-            return resp.json() or []
+            return [
+                row for row in (resp.json() or [])
+                if _normalize_cover_match_title(row.get("title")) == normalized
+            ]
         except Exception:
             return []
 
@@ -791,11 +823,63 @@ def _resolve_series_gcd_id(
             delta = abs(int(ys) - int(year))
             if delta < best_delta:
                 best, best_delta = c, delta
-        if best and best_delta <= 1:
+        if best and best_delta <= 3:
             chosen = best.get("gcd_id")
 
     _SERIES_GCD_ID_CACHE[key] = chosen
     return chosen
+
+
+def _load_gcd_issues(series_gcd_id: int) -> list[dict]:
+    series_gcd_id = int(series_gcd_id)
+    if series_gcd_id in _GCD_ISSUES_BY_SERIES_CACHE:
+        return _GCD_ISSUES_BY_SERIES_CACHE[series_gcd_id]
+
+    rows: list[dict] = []
+    page_size = 1000
+    offset = 0
+    while True:
+        resp = requests.get(
+            f"{SUPABASE_URL}/rest/v1/gcd_issues",
+            headers={
+                "apikey": SUPABASE_SERVICE_ROLE_KEY,
+                "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+            },
+            params={
+                "select": "gcd_id,issue_number",
+                "series_gcd_id": f"eq.{series_gcd_id}",
+                "order": "gcd_id.asc",
+                "limit": str(page_size),
+                "offset": str(offset),
+            },
+            timeout=30,
+        )
+        resp.raise_for_status()
+        page = resp.json() or []
+        rows.extend(page)
+        if len(page) < page_size:
+            break
+        offset += page_size
+    _GCD_ISSUES_BY_SERIES_CACHE[series_gcd_id] = rows
+    return rows
+
+
+def _resolve_gcd_issue_id(
+    series_gcd_id: int | None, issue_number: object
+) -> tuple[int | None, str]:
+    """Mirror resolveGcdIssueId() in src/lib/coverMatch.js."""
+    if series_gcd_id is None:
+        return None, "unresolved"
+    issues = _load_gcd_issues(int(series_gcd_id))
+    raw = str(issue_number or "").strip()
+    candidates = [i for i in issues if str(i.get("issue_number") or "").strip() == raw]
+    if not candidates:
+        base = _base_issue_number(raw)
+        if base:
+            candidates = [i for i in issues if _base_issue_number(i.get("issue_number")) == base]
+    if len(candidates) == 1:
+        return int(candidates[0]["gcd_id"]), "resolved"
+    return None, "series-only"
 
 
 def upsert_cover_row(row: dict) -> None:
@@ -911,7 +995,7 @@ def main():
 
     # Done-ledger only applies to --targets runs (a single --volume-id has no
     # list to sweep). --ignore-done starts fresh without touching the file.
-    use_ledger = bool(args.targets) and not args.ignore_done
+    use_ledger = bool(args.targets) and not args.ignore_done and not args.dry_run
     done = _load_done(args.done_file) if use_ledger else set()
     if use_ledger and done:
         print(f"Done-ledger: {len(done)} target(s) already processed — will skip before searching.")
@@ -978,14 +1062,16 @@ def main():
             )
 
             cv_pub_name = (volume.get("publisher") or {}).get("name")
-            if cv_pub_name:
+            if cv_pub_name and not args.dry_run:
                 update_series_cv_publisher(volume.get("name"), cv_pub_name)
 
             # Resolve gcd_series id for this volume so canonical_covers rows
             # can be joined by integer ID instead of fragile title string.
             # Falls back to None silently — downstream code tolerates it.
             target_gcd_id = _resolve_series_gcd_id(
-                volume_name, volume.get("name"), target.get("year")
+                volume_name,
+                volume.get("name"),
+                target.get("year") or volume.get("start_year"),
             )
 
             volume_id = volume["id"]
@@ -1043,8 +1129,16 @@ def main():
                 except Exception:
                     comicvine_volume_id = None
 
+                gcd_issue_id, match_confidence = _resolve_gcd_issue_id(
+                    target_gcd_id, issue_number
+                )
+                print(
+                    f"    match: series_gcd_id={target_gcd_id} "
+                    f"gcd_issue_id={gcd_issue_id} confidence={match_confidence}"
+                )
+
                 storage_path = None
-                if cover_url:
+                if cover_url and not args.dry_run:
                     try:
                         ext = guess_ext(cover_url)
                         safe_series = slugify(volume.get("name"))
@@ -1073,6 +1167,8 @@ def main():
                     "series_year": series_year,
                     "series_title": volume.get("name"),
                     "series_gcd_id": target_gcd_id,
+                    "gcd_issue_id": gcd_issue_id,
+                    "match_confidence": match_confidence,
                     "issue_title": issue_title,
                     "issue_number": issue_number,
                     "publisher": ((volume.get("publisher") or {}).get("name")),
@@ -1083,11 +1179,14 @@ def main():
                     "storage_path": storage_path,
                 }
 
-                try:
-                    upsert_cover_row(row)
+                if args.dry_run:
                     uploaded_rows.append(row)
-                except Exception as e:
-                    print(f"    db upsert failed: {e}")
+                else:
+                    try:
+                        upsert_cover_row(row)
+                        uploaded_rows.append(row)
+                    except Exception as e:
+                        print(f"    db upsert failed: {e}")
 
                 time.sleep(0.5)
 

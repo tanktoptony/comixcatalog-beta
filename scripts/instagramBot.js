@@ -18,7 +18,7 @@
 import dotenv from "dotenv";
 import path from "path";
 import fs from "fs";
-import { fileURLToPath } from "url";
+import { fileURLToPath, pathToFileURL } from "url";
 import { createClient } from "@supabase/supabase-js";
 import { FEATURED_SERIES } from "../src/lib/featuredSeries.js";
 
@@ -39,7 +39,21 @@ function coverUrl(storagePath) {
   return `${SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`;
 }
 
-function loadLedger() {
+// Loose publisher comparison — strips suffixes so "Marvel Comics" matches
+// "Marvel". Same normalization pattern used elsewhere in this repo's
+// ingestion scripts (e.g. scripts/findUncoveredSeries.js).
+function normPublisher(value) {
+  if (!value) return "";
+  return String(value)
+    .toLowerCase()
+    .replace(/\b(comics|entertainment|publishing|inc\.?|llc|ltd|company|co\.?|s\.a\.?)\b/g, "")
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+// Exported (alongside the pickers/caption builder below) so
+// scripts/previewInstagramQueue.js can reuse the real selection logic
+// for a multi-day preview without duplicating it.
+export function loadLedger() {
   try {
     return new Set(JSON.parse(fs.readFileSync(LEDGER_PATH, "utf8")));
   } catch {
@@ -57,7 +71,7 @@ function appendLedger(key) {
 // coverPriceForYear but reimplemented here to avoid a @/ alias import
 // (that file imports nothing else, so this stays a 1:1 copy, not a fork
 // of real logic — keep in sync if the pricing curve there changes).
-function coverPriceForYear(year) {
+export function coverPriceForYear(year) {
   const y = Number(year);
   if (!Number.isFinite(y) || y < 1900 || y > 2100) return null;
   if (y >= 2020) return 4;
@@ -99,7 +113,7 @@ function hashtagsFor(publisher, year) {
     .join(" ");
 }
 
-function buildCaption({ title, issueNumber, year, publisher, valueLine, kicker }) {
+export function buildCaption({ title, issueNumber, year, publisher, valueLine, kicker }) {
   const header = `${title}${issueNumber ? ` #${issueNumber}` : ""}${year ? ` (${year})` : ""}`;
   const lines = [kicker, header, publisher, valueLine, "", "Catalogued on ComixCatalog — link in bio", hashtagsFor(publisher, year)]
     .filter((l) => l !== undefined && l !== null);
@@ -107,7 +121,7 @@ function buildCaption({ title, issueNumber, year, publisher, valueLine, kicker }
 }
 
 // ── Content type 1: Cover Spotlight — random pick from the curated list ────
-async function pickCoverSpotlight(seenKeys) {
+export async function pickCoverSpotlight(seenKeys) {
   const candidates = [...FEATURED_SERIES].sort(() => Math.random() - 0.5);
   for (const entry of candidates) {
     const { data: series } = await supabase
@@ -115,10 +129,20 @@ async function pickCoverSpotlight(seenKeys) {
       .select("id, gcd_id, title, year_start_cached, resolved_publisher_cached, featured_cover_path_cached")
       .eq("title", entry.title)
       .not("featured_cover_path_cached", "is", null)
-      .limit(5);
-    const match = (series ?? []).find(
+      .limit(20);
+
+    // Publisher-gated: a bare title match can land on a foreign reprint
+    // edition sharing the same title (caught live via a French "Spider-Man"
+    // edition during preview testing) — filter to the publisher
+    // featuredSeries.js actually specifies before falling back to year.
+    const entryPub = normPublisher(entry.publisher);
+    const publisherMatches = (series ?? []).filter(
+      (s) => !entryPub || normPublisher(s.resolved_publisher_cached) === entryPub
+    );
+    const candidatePool = publisherMatches.length > 0 ? publisherMatches : [];
+    const match = candidatePool.find(
       (s) => !entry.prefer_year || Math.abs((s.year_start_cached ?? 0) - entry.prefer_year) <= 2
-    ) ?? series?.[0];
+    ) ?? candidatePool[0];
     if (!match) continue;
     const key = `spotlight:${match.gcd_id}`;
     if (seenKeys.has(key)) continue;
@@ -149,7 +173,7 @@ async function pickCoverSpotlight(seenKeys) {
 }
 
 // ── Content type 2: New to the Catalog — most recent resolved cover add ────
-async function pickNewToCatalog(seenKeys) {
+export async function pickNewToCatalog(seenKeys) {
   const { data } = await supabase
     .from("canonical_covers")
     .select("gcd_issue_id, series_title, issue_number, series_year, publisher, storage_path, created_at")
@@ -175,7 +199,7 @@ async function pickNewToCatalog(seenKeys) {
 }
 
 // ── Content type 3: Key Issue Value Check — a resolved issue with real comps ─
-async function pickValueCheck(seenKeys) {
+export async function pickValueCheck(seenKeys) {
   const { data } = await supabase
     .from("market_comps")
     .select("gcd_issue_id")
@@ -291,7 +315,15 @@ async function run() {
   console.log(`Posted. Instagram media id: ${publishedId}`);
 }
 
-run().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// Only auto-run when executed directly (`node scripts/instagramBot.js`),
+// not when imported as a module (e.g. by previewInstagramQueue.js) — an
+// unguarded call here would fire a real post attempt as a side effect of
+// just importing the file's functions. pathToFileURL handles platform-
+// specific URL formatting correctly (Windows needs file:///C:/..., a
+// manually-built string gets this wrong).
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  run().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

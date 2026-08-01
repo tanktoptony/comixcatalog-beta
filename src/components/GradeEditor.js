@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { estimateCoverPrice } from "@/lib/coverPrice";
+import { trackEvent } from "@/lib/analytics";
 
 const USER_COVER_UPLOAD_ENABLED = true;
 
@@ -218,6 +219,10 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
         .eq("id", collectionId);
 
       if (supabaseError) throw supabaseError;
+
+      if (payload.grade_numeric != null || payload.condition != null) {
+        trackEvent("grade_set", { slabbed: isSlabbed });
+      }
 
       onSave?.(payload);
       setOpen(false);

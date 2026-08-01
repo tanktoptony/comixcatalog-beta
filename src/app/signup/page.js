@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { launchProfileFlags } from "@/lib/launchFlags";
+import { trackEvent } from "@/lib/analytics";
 // import OAuthButtons from "@/components/OAuthButtons"; // re-enable with the <OAuthButtons /> usage below
 
 // Avatar selection deferred to /profile/edit. Signup is now 3 fields
@@ -167,6 +168,12 @@ export default function SignUpPage() {
 
     const user = data?.user ?? null;
     const session = data?.session ?? null;
+
+    // Signup itself succeeded here regardless of what happens with the
+    // profile upsert below (which has its own, separate failure branch).
+    trackEvent("signup_completed", {
+      email_confirmation_required: !session,
+    });
 
     // Only try client-side profile creation if we actually have a session.
     // If email confirmation is required, session may be null here even though signup succeeded.

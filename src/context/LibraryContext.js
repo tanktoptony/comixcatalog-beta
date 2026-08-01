@@ -2,6 +2,7 @@
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useAuth } from "./AuthContext";
+import { trackEvent } from "@/lib/analytics";
 
 const LibraryContext = createContext(null);
 
@@ -273,6 +274,12 @@ export function LibraryProvider({ children }) {
     await refreshLibrary();
     return;
   }
+
+  // Named collection_add (not "first_"), fired on every add — GA4 can
+  // derive first-occurrence in reporting from the raw event stream. A
+  // literal "first" name here would be misleading since this fires on
+  // every add, not just the first ever.
+  trackEvent("collection_add", { status });
 }
 
   async function removeFromCollection(inputId) {

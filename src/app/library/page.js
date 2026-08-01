@@ -7,6 +7,7 @@ import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { authedFetch } from "@/lib/apiClient";
+import { trackEvent } from "@/lib/analytics";
 import GradeEditor, { GradeBadge } from "@/components/GradeEditor";
 import EmptyState from "@/components/EmptyState";
 import FirstRunLibrary from "@/components/FirstRunLibrary";
@@ -212,6 +213,7 @@ function LibraryPageContent() {
   useEffect(() => {
     const flag = searchParams.get("upgrade");
     if (flag === "success" || flag === "cancelled") {
+      if (flag === "success") trackEvent("pro_upgrade");
       router.replace("/library", { scroll: false });
     }
   }, [searchParams, router]);
@@ -245,6 +247,7 @@ function LibraryPageContent() {
       a.download = `comixcatalog-collection-${new Date().toISOString().split("T")[0]}.pdf`;
       a.click();
       URL.revokeObjectURL(url);
+      trackEvent("pdf_export");
     } catch {
       alert("PDF export failed. Please try again.");
     } finally {

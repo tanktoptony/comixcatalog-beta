@@ -14,6 +14,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import Papa from "papaparse";
 import { ADMIN_ID } from "@/lib/admin";
+import { getAuthedUser } from "@/lib/authServer";
 
 function parseYear(value) {
   if (!value) return null;
@@ -35,11 +36,11 @@ function csvSafe(value) {
 
 export async function POST(req) {
   try {
-    const body = await req.json().catch(() => ({}));
-    const { user_id } = body;
-    if (!user_id) {
-      return NextResponse.json({ error: "user_id required" }, { status: 400 });
+    const authedUser = await getAuthedUser(req);
+    if (!authedUser) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+    const user_id = authedUser.id;
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,

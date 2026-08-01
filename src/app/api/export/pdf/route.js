@@ -5,6 +5,7 @@ import sharp from "sharp";
 import { ADMIN_ID } from "@/lib/admin";
 import { coverPriceForYear } from "@/lib/valuation";
 import { getMarketValuesBulk } from "@/lib/marketValue";
+import { getAuthedUser } from "@/lib/authServer";
 
 export const maxDuration = 60;
 
@@ -139,11 +140,11 @@ function gradeColor(g) {
 
 export async function POST(req) {
   try {
-    const body = await req.json();
-    const { user_id } = body;
-    if (!user_id) {
-      return NextResponse.json({ error: "user_id required" }, { status: 400 });
+    const authedUser = await getAuthedUser(req);
+    if (!authedUser) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+    const user_id = authedUser.id;
 
     const supabase = getSupabase();
 

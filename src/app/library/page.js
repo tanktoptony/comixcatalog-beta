@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import { authedFetch } from "@/lib/apiClient";
 import GradeEditor, { GradeBadge } from "@/components/GradeEditor";
 import EmptyState from "@/components/EmptyState";
 import FirstRunLibrary from "@/components/FirstRunLibrary";
@@ -223,10 +224,10 @@ function LibraryPageContent() {
     }
     setPdfExporting(true);
     try {
-      const res = await fetch("/api/export/pdf", {
+      const res = await authedFetch("/api/export/pdf", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: user.id }),
+        body: JSON.stringify({}),
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
@@ -260,8 +261,8 @@ function LibraryPageContent() {
     setCatalogAuditing(true);
     setCatalogResult(null);
     try {
-      const res = await fetch(
-        `/api/library/catalog-link?user_id=${encodeURIComponent(user.id)}`,
+      const res = await authedFetch(
+        "/api/library/catalog-link",
         { cache: "no-store" }
       );
       if (!res.ok) {
@@ -294,11 +295,10 @@ function LibraryPageContent() {
     if (!ok) return;
     setCatalogApplying(true);
     try {
-      const res = await fetch("/api/library/catalog-link", {
+      const res = await authedFetch("/api/library/catalog-link", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          user_id: user.id,
           links: confident.map((e) => ({
             collection_id: e.collection_id,
             gcd_issue_id: e.candidate.gcd_issue_id,
@@ -352,11 +352,10 @@ function LibraryPageContent() {
   async function handleApplySingleLink(collection_id, gcd_issue_id) {
     if (!user) return;
     try {
-      const res = await fetch("/api/library/catalog-link", {
+      const res = await authedFetch("/api/library/catalog-link", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          user_id: user.id,
           links: [{ collection_id, gcd_issue_id }],
         }),
       });
@@ -391,10 +390,10 @@ function LibraryPageContent() {
     }
     setWantlistExporting(true);
     try {
-      const res = await fetch("/api/export/wantlist", {
+      const res = await authedFetch("/api/export/wantlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: user.id }),
+        body: JSON.stringify({}),
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
@@ -427,10 +426,10 @@ function LibraryPageContent() {
     }
     setCsvExporting(true);
     try {
-      const res = await fetch("/api/export/csv", {
+      const res = await authedFetch("/api/export/csv", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: user.id }),
+        body: JSON.stringify({}),
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
@@ -1049,8 +1048,7 @@ function LibraryPageContent() {
             }
             const fd = new FormData();
             fd.append("file", file);
-            fd.append("user_id", user.id);
-            const res = await fetch("/api/csv-import", { method: "POST", body: fd });
+            const res = await authedFetch("/api/csv-import", { method: "POST", body: fd });
             // Pro-gated row cap. 402 = exceeded the free cap; surface the
             // server's explanation in the import-summary panel AND offer a
             // direct route to /upgrade so users can act on it.

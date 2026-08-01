@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
+import { authedFetch } from "@/lib/apiClient";
 
 const PATREON_URL = "https://www.patreon.com/cw/ComixCatalog";
 
@@ -95,10 +96,10 @@ export default function UpgradePage() {
     setBusy(tier);
     setErr(null);
     try {
-      const res = await fetch("/api/stripe/checkout", {
+      const res = await authedFetch("/api/stripe/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: user.id, tier }),
+        body: JSON.stringify({ tier }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.url) {
@@ -118,10 +119,10 @@ export default function UpgradePage() {
     setBusy("manage");
     setErr(null);
     try {
-      const res = await fetch("/api/stripe/portal", {
+      const res = await authedFetch("/api/stripe/portal", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: user.id }),
+        body: JSON.stringify({}),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.url) {

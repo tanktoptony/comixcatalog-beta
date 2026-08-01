@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getAuthedUser } from "@/lib/authServer";
 
 export async function GET(req) {
   const { searchParams } = new URL(req.url);
@@ -37,14 +38,19 @@ export async function GET(req) {
  * POST /api/blog/comments
  */
 export async function POST(req) {
+  const authedUser = await getAuthedUser(req);
+  if (!authedUser) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 
-  const { post_id, user_id, content } = await req.json();
+  const { post_id, content } = await req.json();
 
-  if (!post_id || !user_id || !content) {
+  if (!post_id || !content) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
@@ -52,7 +58,7 @@ export async function POST(req) {
     .from("blog_comments")
     .insert({
       post_id,
-      user_id,
+      user_id: authedUser.id,
       content,
     })
     .select()

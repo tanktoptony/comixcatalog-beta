@@ -14,6 +14,7 @@
 
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getAuthedUser } from "@/lib/authServer";
 
 function norm(value) {
   return String(value ?? "").trim().toLowerCase();
@@ -45,8 +46,11 @@ function pickBestCover(candidates, targetYear) {
 export async function GET(req, context) {
   try {
     const { id } = await context.params;
-    const { searchParams } = new URL(req.url);
-    const viewerId = searchParams.get("user_id") || null;
+    // Optional auth — anonymous visitors can still view the arc page, they
+    // just don't get ownership badges. A spoofable query param would let
+    // anyone see whether an arbitrary victim owns a given issue.
+    const authedViewer = await getAuthedUser(req);
+    const viewerId = authedViewer?.id ?? null;
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,

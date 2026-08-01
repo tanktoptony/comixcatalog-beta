@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { ADMIN_ID } from "@/lib/admin";
+import { authedFetch } from "@/lib/apiClient";
 
 export default function AdminPage() {
   const { user, loading } = useAuth();
@@ -31,8 +32,8 @@ export default function AdminPage() {
     setTarget(null);
     setMessage(null);
     if (!username.trim()) return;
-    const res = await fetch(
-      `/api/admin/toggle-pro?actor_id=${encodeURIComponent(user.id)}&username=${encodeURIComponent(username.trim())}`
+    const res = await authedFetch(
+      `/api/admin/toggle-pro?username=${encodeURIComponent(username.trim())}`
     );
     const json = await res.json();
     if (!res.ok) {
@@ -46,11 +47,10 @@ export default function AdminPage() {
     if (!target) return;
     setWorking(true);
     setMessage(null);
-    const res = await fetch("/api/admin/toggle-pro", {
+    const res = await authedFetch("/api/admin/toggle-pro", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        actor_id: user.id,
         target_username: target.username,
         is_pro: nextValue,
       }),

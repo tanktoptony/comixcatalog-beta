@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { ADMIN_ID } from "@/lib/admin";
+import { authedFetch } from "@/lib/apiClient";
 
 export default function NewBlogPostPage() {
 
@@ -39,15 +40,10 @@ export default function NewBlogPostPage() {
     setSaving(true);
     setError(null);
 
-    console.log("Sending user_id:", user?.id);
-
-    const res = await fetch("/api/blog", {
+    const res = await authedFetch("/api/blog", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...form,
-        user_id: user.id,
-      }),
+      body: JSON.stringify(form),
     });
 
     const data = await res.json();

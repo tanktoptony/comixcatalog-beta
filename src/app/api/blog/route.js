@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getAuthedUser } from "@/lib/authServer";
 
 const ADMIN_ID = "9ec650a2-8870-4175-82da-99d72cab9efc";
 
@@ -56,14 +57,15 @@ export async function GET(req) {
 }
 
 export async function POST(req) {
+  const authedUser = await getAuthedUser(req);
+  if (!authedUser || authedUser.id !== ADMIN_ID) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
+  }
+
   const supabase = getAdminClient();
 
   const body = await req.json();
-  const { title, slug, content, excerpt, user_id } = body;
-
-  if (user_id !== ADMIN_ID) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
-  }
+  const { title, slug, content, excerpt } = body;
 
   if (!title || !slug || !content) {
     return NextResponse.json(
@@ -81,7 +83,7 @@ export async function POST(req) {
       excerpt,
       published: true,
       published_at: new Date().toISOString(),
-      author_id: user_id,
+      author_id: authedUser.id,
     })
     .select()
     .single();
@@ -98,6 +100,11 @@ export async function POST(req) {
 }
 
 export async function DELETE(req) {
+  const authedUser = await getAuthedUser(req);
+  if (!authedUser || authedUser.id !== ADMIN_ID) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
+  }
+
   const supabase = getAdminClient();
 
   const { searchParams } = new URL(req.url);
@@ -105,13 +112,6 @@ export async function DELETE(req) {
 
   if (!id) {
     return NextResponse.json({ error: "Missing id" }, { status: 400 });
-  }
-
-  const body = await req.json().catch(() => null);
-  const user_id = body?.user_id;
-
-  if (user_id !== ADMIN_ID) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
   }
 
   const { error } = await supabase

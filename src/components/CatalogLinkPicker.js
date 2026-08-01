@@ -23,6 +23,7 @@
 // happen to have a #0 still shows up.
 
 import { useEffect, useRef, useState } from "react";
+import { authedFetch } from "@/lib/apiClient";
 
 export default function CatalogLinkPicker({
   entry, // {collection_id, comic: {series_title, issue_number, release_year}, candidates? }
@@ -75,11 +76,10 @@ export default function CatalogLinkPicker({
     lastQueryRef.current = q;
     try {
       const url = new URL("/api/library/catalog-link/search", window.location.origin);
-      url.searchParams.set("user_id", userId);
       url.searchParams.set("mode", "series");
       url.searchParams.set("q", q);
       if (originalIssue) url.searchParams.set("issue", originalIssue);
-      const res = await fetch(url.toString(), { cache: "no-store" });
+      const res = await authedFetch(url.toString(), { cache: "no-store" });
       if (!res.ok) {
         setSeriesResults([]);
         return;
@@ -109,11 +109,10 @@ export default function CatalogLinkPicker({
     setIssueSearching(true);
     try {
       const url = new URL("/api/library/catalog-link/search", window.location.origin);
-      url.searchParams.set("user_id", userId);
       url.searchParams.set("mode", "issue");
       url.searchParams.set("series_gcd_id", String(series_gcd_id));
       url.searchParams.set("issue", String(issue));
-      const res = await fetch(url.toString(), { cache: "no-store" });
+      const res = await authedFetch(url.toString(), { cache: "no-store" });
       if (!res.ok) {
         setIssueResults([]);
         return;

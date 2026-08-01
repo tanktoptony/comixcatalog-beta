@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import Papa from "papaparse";
 import { ADMIN_ID } from "@/lib/admin";
+import { getAuthedUser } from "@/lib/authServer";
 
 // Tiered row caps. Free is the hook (you can try CSV import); Pro raises the
 // ceiling for bulk imports of a real collection. The Pro cap matches the
@@ -17,13 +18,18 @@ export async function POST(req) {
   );
 
   try {
+    const authedUser = await getAuthedUser(req);
+    if (!authedUser) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    const user_id = authedUser.id;
+
     const formData = await req.formData();
     const file = formData.get("file");
-    const user_id = formData.get("user_id");
 
-    if (!file || !user_id) {
+    if (!file) {
       return NextResponse.json(
-        { error: "Missing file or user_id" },
+        { error: "Missing file" },
         { status: 400 }
       );
     }

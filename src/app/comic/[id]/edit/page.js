@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { authedFetch } from "@/lib/apiClient";
 
 export default function EditComicPage() {
   const { id } = useParams();
@@ -70,13 +71,10 @@ export default function EditComicPage() {
     setSaving(true);
     setError(null);
 
-    const res = await fetch(`/api/comics/${id}`, {
+    const res = await authedFetch(`/api/comics/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...form,
-        user_id: user.id,
-      }),
+      body: JSON.stringify(form),
     });
 
     const data = await res.json();
@@ -95,12 +93,10 @@ export default function EditComicPage() {
 
     setDeleting(true);
 
-    const res = await fetch(`/api/comics/${id}`, {
+    const res = await authedFetch(`/api/comics/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        user_id: user.id,
-      }),
+      body: JSON.stringify({}),
     });
 
     if (!res.ok) {

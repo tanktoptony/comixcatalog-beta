@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import Markdown from "@/components/Markdown";
+import { authedFetch } from "@/lib/apiClient";
 
 export default function BlogPostPage() {
   const { slug } = useParams();
@@ -57,12 +58,11 @@ export default function BlogPostPage() {
     setPosting(true);
     setError(null);
     try {
-      const res = await fetch("/api/blog/comments", {
+      const res = await authedFetch("/api/blog/comments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           post_id: post.id,
-          user_id: user.id,
           content: content.trim(),
         }),
       });
@@ -84,12 +84,10 @@ export default function BlogPostPage() {
   async function handleDelete() {
     if (!confirm("Delete this post?")) return;
 
-    const res = await fetch(`/api/blog?id=${post.id}`, {
+    const res = await authedFetch(`/api/blog?id=${post.id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        user_id: user?.id,
-      }),
+      body: JSON.stringify({}),
     });
 
     if (res.ok) {

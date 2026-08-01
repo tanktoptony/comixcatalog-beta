@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
+import { authedFetch } from "@/lib/apiClient";
 
 function money(value) {
   if (value == null || value === "") return "—";
@@ -43,10 +44,11 @@ export default function IssuePage() {
       setLoading(true);
 
       try {
-        // Pass viewer id so the API can compute per-arc ownership counts for
-        // the "Part of [Arc Name] — you own X of Y" badge.
-        const userParam = user?.id ? `?user_id=${encodeURIComponent(user.id)}` : "";
-        const res = await fetch(`/api/issues/${id}${userParam}`, { cache: "no-store" });
+        // authedFetch sends the caller's session so the API can compute
+        // per-arc ownership counts for the "Part of [Arc Name] — you own
+        // X of Y" badge — server derives identity from the verified token,
+        // not a query param.
+        const res = await authedFetch(`/api/issues/${id}`, { cache: "no-store" });
         const data = await res.json();
 
         if (!res.ok || !data?.issue) {

@@ -19,6 +19,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { ADMIN_ID } from "@/lib/admin";
+import { getAuthedUser } from "@/lib/authServer";
 
 function normTitle(v) {
   return String(v ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -49,13 +50,14 @@ async function assertPro(supabase, user_id) {
 
 export async function GET(req) {
   try {
-    const { searchParams } = new URL(req.url);
-    const user_id = searchParams.get("user_id");
-    const mode = searchParams.get("mode") || "series";
-
-    if (!user_id) {
-      return NextResponse.json({ error: "user_id required" }, { status: 400 });
+    const authedUser = await getAuthedUser(req);
+    if (!authedUser) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+    const user_id = authedUser.id;
+
+    const { searchParams } = new URL(req.url);
+    const mode = searchParams.get("mode") || "series";
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,

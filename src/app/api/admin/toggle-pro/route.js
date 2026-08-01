@@ -6,6 +6,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { ADMIN_ID } from "@/lib/admin";
+import { getAuthedUser } from "@/lib/authServer";
 
 export const dynamic = "force-dynamic";
 
@@ -18,12 +19,14 @@ function srv() {
 }
 
 export async function POST(req) {
-  const body = await req.json().catch(() => ({}));
-  const { actor_id, target_username, is_pro } = body;
-
-  if (!actor_id || actor_id !== ADMIN_ID) {
+  const authedUser = await getAuthedUser(req);
+  if (!authedUser || authedUser.id !== ADMIN_ID) {
     return NextResponse.json({ error: "Not authorized" }, { status: 403 });
   }
+
+  const body = await req.json().catch(() => ({}));
+  const { target_username, is_pro } = body;
+
   if (!target_username || typeof target_username !== "string") {
     return NextResponse.json({ error: "Missing target_username" }, { status: 400 });
   }
@@ -64,13 +67,14 @@ export async function POST(req) {
 // GET — look up current state without modifying. UI uses this to fetch
 // before showing the toggle so the admin sees the right starting state.
 export async function GET(req) {
-  const url = new URL(req.url);
-  const actor_id = url.searchParams.get("actor_id");
-  const target_username = url.searchParams.get("username");
-
-  if (!actor_id || actor_id !== ADMIN_ID) {
+  const authedUser = await getAuthedUser(req);
+  if (!authedUser || authedUser.id !== ADMIN_ID) {
     return NextResponse.json({ error: "Not authorized" }, { status: 403 });
   }
+
+  const url = new URL(req.url);
+  const target_username = url.searchParams.get("username");
+
   if (!target_username) {
     return NextResponse.json({ error: "Missing username" }, { status: 400 });
   }

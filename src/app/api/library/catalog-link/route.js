@@ -20,6 +20,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { ADMIN_ID } from "@/lib/admin";
+import { getAuthedUser } from "@/lib/authServer";
 import {
   normTitle,
   normIssue,
@@ -45,11 +46,11 @@ async function assertPro(supabase, user_id) {
 // ─────────────────────────────────────────────────────────────────────────
 export async function GET(req) {
   try {
-    const { searchParams } = new URL(req.url);
-    const user_id = searchParams.get("user_id");
-    if (!user_id) {
-      return NextResponse.json({ error: "user_id required" }, { status: 400 });
+    const authedUser = await getAuthedUser(req);
+    if (!authedUser) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+    const user_id = authedUser.id;
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -250,10 +251,16 @@ export async function GET(req) {
 // ─────────────────────────────────────────────────────────────────────────
 export async function POST(req) {
   try {
+    const authedUser = await getAuthedUser(req);
+    if (!authedUser) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    const user_id = authedUser.id;
+
     const body = await req.json().catch(() => ({}));
-    const { user_id, links } = body;
-    if (!user_id || !Array.isArray(links) || links.length === 0) {
-      return NextResponse.json({ error: "user_id + links[] required" }, { status: 400 });
+    const { links } = body;
+    if (!Array.isArray(links) || links.length === 0) {
+      return NextResponse.json({ error: "links[] required" }, { status: 400 });
     }
 
     const supabase = createClient(

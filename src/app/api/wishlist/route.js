@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getAuthedUser } from "@/lib/authServer";
 
 function getSupabase() {
   return createClient(
@@ -8,16 +9,14 @@ function getSupabase() {
   );
 }
 
-// GET /api/wishlist?user_id=xxx
 export async function GET(req) {
-  const supabase = getSupabase();
-  const { searchParams } = new URL(req.url);
-  const user_id = searchParams.get("user_id");
-
-  if (!user_id) {
-    return NextResponse.json({ error: "Missing user_id" }, { status: 400 });
+  const authedUser = await getAuthedUser(req);
+  if (!authedUser) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
+  const user_id = authedUser.id;
 
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("user_collections")
     .select("*")

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getStripe, PRO_PRICE_ID, FOUNDING_PRICE_ID, getSiteUrl } from "@/lib/stripe";
 import { ADMIN_ID } from "@/lib/admin";
+import { getAuthedUser } from "@/lib/authServer";
 
 function getSupabase() {
   return createClient(
@@ -12,12 +13,14 @@ function getSupabase() {
 
 export async function POST(req) {
   try {
-    const body = await req.json().catch(() => ({}));
-    const { user_id, tier = "pro" } = body;
-
-    if (!user_id) {
-      return NextResponse.json({ error: "user_id required" }, { status: 400 });
+    const authedUser = await getAuthedUser(req);
+    if (!authedUser) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+    const user_id = authedUser.id;
+
+    const body = await req.json().catch(() => ({}));
+    const { tier = "pro" } = body;
 
     const priceId = tier === "founding" ? FOUNDING_PRICE_ID : PRO_PRICE_ID;
     if (!priceId) {

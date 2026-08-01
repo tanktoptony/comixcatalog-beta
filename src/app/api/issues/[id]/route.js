@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "@/lib/publisher";
+import { getAuthedUser } from "@/lib/authServer";
 
 // Volume-disambiguation tolerance. canonical_covers is keyed only by
 // (series_title, issue_number), so "Teenage Mutant Ninja Turtles" #2 exists
@@ -194,9 +195,11 @@ export async function GET(req, context) {
   try {
     const { id } = await context.params;
     // Optional viewer id, used to compute per-arc ownership for the "Part of
-    // [Arc Name] — you own X of Y" badge surfaced below.
-    const { searchParams } = new URL(req.url);
-    const viewerId = searchParams.get("user_id") || null;
+    // [Arc Name] — you own X of Y" badge surfaced below. Derived from a
+    // verified session, not a spoofable query param — otherwise anyone could
+    // check whether an arbitrary victim owns a given issue.
+    const authedViewer = await getAuthedUser(req);
+    const viewerId = authedViewer?.id ?? null;
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,

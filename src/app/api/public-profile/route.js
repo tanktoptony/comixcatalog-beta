@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getAuthedUser } from "@/lib/authServer";
 
 function parseYear(value) {
   if (!value) return null;
@@ -27,7 +28,12 @@ export async function GET(req) {
 
   const { searchParams } = new URL(req.url);
   const username = searchParams.get("username");
-  const viewerId = searchParams.get("viewer_id") || null;
+  // Optional auth — anonymous visitors can still view public profiles.
+  // A viewer_id can only mean "you are the owner" if it's backed by a real
+  // verified session; a spoofable query param would let anyone see a
+  // non-public profile's private data by guessing its owner's id.
+  const authedViewer = await getAuthedUser(req);
+  const viewerId = authedViewer?.id ?? null;
 
   if (!username) {
     return NextResponse.json({ error: "Username required" }, { status: 400 });

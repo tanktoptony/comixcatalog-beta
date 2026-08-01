@@ -1,16 +1,19 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getAuthedUser } from "@/lib/authServer";
 
 export async function DELETE(req, context) {
   const { id } = context.params;
+
+  const authedUser = await getAuthedUser(req);
+  if (!authedUser) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
 
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
-
-  const body = await req.json();
-  const { user_id } = body;
 
   const { data: comment } = await supabase
     .from("blog_comments")
@@ -18,7 +21,7 @@ export async function DELETE(req, context) {
     .eq("id", id)
     .single();
 
-  if (!comment || String(comment.user_id) !== String(user_id)) {
+  if (!comment || String(comment.user_id) !== String(authedUser.id)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
   }
 

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getAuthedUser } from "@/lib/authServer";
 
 function getSupabase() {
   return createClient(
@@ -70,13 +71,14 @@ export async function GET(req, context) {
 export async function PATCH(req, context) {
   try {
     const { id } = await context.params;
-    const supabase = getSupabase();
-    const body = await req.json();
-    const { series_title, issue_number, publisher, release_year, user_id } = body;
-
-    if (!user_id) {
+    const authedUser = await getAuthedUser(req);
+    if (!authedUser) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+
+    const supabase = getSupabase();
+    const body = await req.json();
+    const { series_title, issue_number, publisher, release_year } = body;
 
     // Verify ownership
     const { data: existing } = await supabase
@@ -85,7 +87,7 @@ export async function PATCH(req, context) {
       .eq("id", id)
       .single();
 
-    if (!existing || existing.created_by !== user_id) {
+    if (!existing || existing.created_by !== authedUser.id) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
@@ -116,13 +118,12 @@ export async function PATCH(req, context) {
 export async function DELETE(req, context) {
   try {
     const { id } = await context.params;
-    const supabase = getSupabase();
-    const body = await req.json();
-    const { user_id } = body;
-
-    if (!user_id) {
+    const authedUser = await getAuthedUser(req);
+    if (!authedUser) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+
+    const supabase = getSupabase();
 
     // Verify ownership
     const { data: existing } = await supabase
@@ -131,7 +132,7 @@ export async function DELETE(req, context) {
       .eq("id", id)
       .single();
 
-    if (!existing || existing.created_by !== user_id) {
+    if (!existing || existing.created_by !== authedUser.id) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 

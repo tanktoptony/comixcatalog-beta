@@ -18,6 +18,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useLibrary } from "@/context/LibraryContext";
+import { authedFetch } from "@/lib/apiClient";
 
 export default function StoryArcPage() {
   const { id } = useParams();
@@ -38,8 +39,7 @@ export default function StoryArcPage() {
       setLoading(true);
       setNotFoundFlag(false);
       try {
-        const userParam = user?.id ? `?user_id=${encodeURIComponent(user.id)}` : "";
-        const res = await fetch(`/api/story-arc/${id}${userParam}`, { cache: "no-store" });
+        const res = await authedFetch(`/api/story-arc/${id}`, { cache: "no-store" });
         if (!res.ok) {
           if (!cancelled) setNotFoundFlag(true);
           return;

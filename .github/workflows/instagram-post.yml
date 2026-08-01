@@ -1,0 +1,51 @@
+name: Instagram daily post
+
+# Daily auto-post — see docs/instagram-bot-plan.md for the full plan and
+# the one-time Meta/Instagram account setup this depends on.
+#
+# workflow_dispatch lets you trigger manually from the Actions tab to
+# test before trusting the daily cron, or to force a post on demand.
+on:
+  schedule:
+    - cron: '0 17 * * *'
+  workflow_dispatch: {}
+
+# The bot commits its de-dup ledger (scripts/.instagram-posted.json) back
+# to main after a successful post, same pattern as gap-manual.json.
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      # Configure these as repo secrets:
+      #   Settings → Secrets and variables → Actions → New repository secret
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      INSTAGRAM_BUSINESS_ACCOUNT_ID: ${{ secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID }}
+      INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Post to Instagram
+        run: node scripts/instagramBot.js
+
+      - name: Commit updated de-dup ledger
+        run: |
+          git config user.name "comixcatalog-bot"
+          git config user.email "actions@github.com"
+          git add scripts/.instagram-posted.json
+          git diff --staged --quiet || git commit -m "instagram-bot: record posted issue"
+          git push

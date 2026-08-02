@@ -22,6 +22,33 @@ function inSeriesSpan(row, seriesYearMin, seriesYearMax) {
   );
 }
 
+// Fetch every canonical_covers row for a series (scoped by series_gcd_id when
+// available, else series_title) — paginated so large runs aren't silently
+// truncated. Needed because the caller ranks candidates by "closest cover_date
+// to targetYear"; ranking over a partial, unordered slice produces a
+// deterministically wrong "closest" pick instead of a merely-incomplete one.
+async function fetchAllSeriesCovers(supabase, seriesGcdId, seriesTitle) {
+  const rows = [];
+  const pageSize = 1000;
+  let offset = 0;
+  for (;;) {
+    let query = supabase
+      .from("canonical_covers")
+      .select("storage_path, publisher, cover_date, series_year")
+      .not("publisher", "is", null)
+      .range(offset, offset + pageSize - 1);
+    query = seriesGcdId
+      ? query.eq("series_gcd_id", seriesGcdId)
+      : query.eq("series_title", seriesTitle);
+    const { data, error } = await query;
+    if (error || !data?.length) break;
+    rows.push(...data);
+    if (data.length < pageSize) break;
+    offset += pageSize;
+  }
+  return rows;
+}
+
 async function fetchCanonicalMatch(
   supabase,
   seriesTitle,
@@ -64,15 +91,21 @@ async function fetchCanonicalMatch(
 
   // Fallback: no in-span cover for this exact issue number, so borrow a
   // representative cover from the same volume (still span-gated — a wrong-era
-  // reboot cover is worse than the placeholder).
-  const { data: seriesRows } = await supabase
-    .from("canonical_covers")
-    .select("storage_path, publisher, cover_date, series_year")
-    .eq("series_title", seriesTitle)
-    .not("publisher", "is", null)
-    .limit(40);
+  // reboot cover is worse than the placeholder). Prefer series_gcd_id (same
+  // volume-exact posture as the ID path above); title is the fallback for
+  // canonical rows the backfill hasn't tagged with series_gcd_id yet.
+  //
+  // MUST see every candidate before ranking by "closest year" — a prior
+  // version capped this at 40 rows with no ORDER BY. Postgres/PostgREST row
+  // order is unspecified without one, and it happened to land on
+  // issue_number's lexicographic-string order ("10","100",...,"109","11",
+  // "110",...). For a 237-row series that silently limited the candidate
+  // pool to issues ~10-118, so the "closest year" search never saw anything
+  // past 1980 — every later issue landed on whichever row was first to reach
+  // that ceiling, regardless of how wrong the era actually was.
+  const seriesRows = await fetchAllSeriesCovers(supabase, seriesGcdId, seriesTitle);
 
-  const fallbackInSpan = (seriesRows ?? []).filter((r) =>
+  const fallbackInSpan = seriesRows.filter((r) =>
     inSeriesSpan(r, seriesYearMin, seriesYearMax)
   );
   const bestFallback = pickBestCoverRow(fallbackInSpan, targetYear);

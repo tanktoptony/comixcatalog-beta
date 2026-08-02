@@ -16,7 +16,7 @@ export default function SellPage() {
           workflows.
         </p>
         <Link href="/founding-collectors" className="primary-btn">
-          Join as a Founding Collector
+          Claim Free Lifetime Pro
         </Link>
       </section>
     </main>

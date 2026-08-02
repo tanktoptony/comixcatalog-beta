@@ -208,7 +208,6 @@ export async function GET(req, context) {
             .from("canonical_covers")
             .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
             .eq("series_gcd_id", series.gcd_id)
-            .in("issue_number", issueNumbers)
         );
       }
       if (series.title) {
@@ -217,7 +216,7 @@ export async function GET(req, context) {
             .from("canonical_covers")
             .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
             .eq("series_title", series.title)
-            .in("issue_number", issueNumbers)
+            .is("series_gcd_id", null)
         );
       }
       const settled = await Promise.all(queries);

@@ -710,7 +710,7 @@ const UserMenu = forwardRef(function UserMenu(
             role="menuitem"
             onClick={handleItem()}
           >
-            {isPro ? "Manage Pro" : "Upgrade to Pro"}
+            {isPro ? "Manage Pro" : "Collector Pro — $8/mo"}
           </Link>
 
           <div className="user-menu-divider" />

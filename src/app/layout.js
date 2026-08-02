@@ -2,7 +2,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import PatreonBanner from "../components/PatreonBanner";
+import FoundingBanner from "../components/FoundingBanner";
 import { LibraryProvider } from "../context/LibraryContext";
 import { AuthProvider } from "../context/AuthContext";
 
@@ -126,7 +126,7 @@ export default function RootLayout({ children }) {
         )}
         <AuthProvider>
           <LibraryProvider>
-            <PatreonBanner />
+            <FoundingBanner />
             <Header />
             <main className="page-wrapper">{children}</main>
             <Footer />

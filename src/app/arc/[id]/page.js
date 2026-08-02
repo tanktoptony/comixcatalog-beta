@@ -324,7 +324,7 @@ export default function StoryArcPage() {
                 flexShrink: 0,
               }}
             >
-              Upgrade to Pro →
+              Unlock Pro for $8/month →
             </Link>
           )}
           {bulkResult && (

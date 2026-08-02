@@ -45,3 +45,11 @@ next-env.d.ts
 # local tooling
 /.claude/
 codebase.txt
+
+# local pipeline/runtime state
+__pycache__/
+*.py[cod]
+/reports/
+/comicvine_api_output/ingest-loop-*.log
+/scripts/.instagram-posted.json
+/scripts/tony_stack_targets.json

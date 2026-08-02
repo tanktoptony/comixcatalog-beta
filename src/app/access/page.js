@@ -33,7 +33,7 @@ export default function AccessPage() {
   return (
     <main className="access-page">
       <h1>ComixCatalog Beta Access</h1>
-      <p>This beta is currently available to Patreon members only.</p>
+      <p>Enter your private beta access code.</p>
 
       <form onSubmit={handleSubmit}>
         <input

@@ -451,7 +451,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
                   className="grade-hint-link"
                   style={{ fontWeight: 700, color: "var(--cc-gold, #FFD700)" }}
                 >
-                  Upgrade to Collector Pro →
+                  Unlock Collector Pro for $8/month →
                 </Link>
               </div>
             </>

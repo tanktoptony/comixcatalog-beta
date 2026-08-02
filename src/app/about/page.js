@@ -148,49 +148,35 @@ export default function AboutPage() {
               <li>Priority feature voting</li>
             </ul>
             <Link href="/upgrade" className="tier-card-cta tier-card-cta-primary">
-              Upgrade with Stripe
+              Choose Collector Pro — $8/month
             </Link>
-            <a
-              href="https://www.patreon.com/cw/ComixCatalog"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="tier-card-cta tier-card-cta-alt"
-              style={{ marginTop: 8 }}
-            >
-              or join via Patreon
-            </a>
             <p className="tier-card-note">
-              Patreon members at the $8+ Collector Beta tier get the same
-              in-app Pro perks — grandfathered automatically.
+              Or claim a free lifetime Pro pass while Founding Collector spots remain.
             </p>
           </div>
 
           <div className="tier-card tier-card-founding">
             <div className="tier-card-tag">Limited</div>
             <div className="tier-card-name">Founding Collector</div>
-            <div className="tier-card-price">$20</div>
-            <div className="tier-card-cadence">per month · via Patreon</div>
+            <div className="tier-card-price">$0</div>
+            <div className="tier-card-cadence">for life · limited availability</div>
             <ul className="tier-card-list">
-              <li><strong>Grandfathered Pro access</strong></li>
+              <li><strong>Collector Pro for life</strong></li>
               <li>Permanent ★ badge on your profile</li>
               <li>Name listed on the Founders page</li>
-              <li>Roadmap input + early access</li>
-              <li>Backs the build directly</li>
+              <li>No card or recurring payment</li>
+              <li>Qualify by cataloging 10 comics</li>
             </ul>
-            <a
-              href="https://www.patreon.com/cw/ComixCatalog"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/founding-collectors"
               className="tier-card-cta tier-card-cta-founding"
             >
-              Become a Founder
-            </a>
+              Claim Lifetime Pro
+            </Link>
           </div>
         </div>
         <p className="gs-questions-text" style={{ marginTop: 18, fontSize: "0.85rem", opacity: 0.7 }}>
-          Marketplace transaction fee: 5–8% per sale (for reference, Discogs
-          takes 8%). Verified Collector badge: $10 one-time, links your CGC
-          registry to your profile.
+          Marketplace pricing will be published before seller tools open. No marketplace fee is charged today.
         </p>
       </section>
 
@@ -203,20 +189,17 @@ export default function AboutPage() {
           building the platform comic collectors actually want.
         </p>
         <p className="gs-questions-text" style={{ marginTop: 14 }}>
-          The first wave of <strong>Founding Collectors</strong> is open on
-          Patreon — limited spots, permanent badge, name on the founders
-          page, early access to every feature we ship. If you want to help
-          accelerate the build, that&rsquo;s where to do it.
+          The first 100 active <strong>Founding Collectors</strong> receive
+          Collector Pro for life. Create an account and catalog 10 comics
+          while passes remain—no card required.
         </p>
         <div style={{ marginTop: 20 }}>
-          <a
-            href="https://www.patreon.com/cw/ComixCatalog"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/founding-collectors"
             className="gs-btn gs-btn-primary"
           >
-            Become a Founding Collector
-          </a>
+            See Remaining Passes
+          </Link>
         </div>
       </section>
 

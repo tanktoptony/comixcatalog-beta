@@ -10238,3 +10238,27 @@ button.nav-link {
   border-radius: 4px;
   font-size: 0.8em;
 }
+
+/* Founding Collector campaign */
+.founding-banner { background: linear-gradient(90deg, #f4d03f, #ffbd4a, #f4d03f); color: #09142e; border-bottom: 1px solid rgba(0,0,0,.18); }
+.founding-banner-inner { max-width: 1280px; margin: auto; padding: 8px clamp(1rem,3vw,2rem); display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.founding-banner-count { background: #09142e; color: #f4d03f; border-radius: 999px; min-width: 38px; padding: 5px 10px; text-align: center; font-weight: 900; }
+.founding-banner p { margin: 0; font-size: .9rem; }
+.founding-banner-cta { color: #09142e; font-weight: 900; text-decoration: underline; text-underline-offset: 3px; }
+.founding-page { max-width: 920px; margin: 0 auto; padding: clamp(2rem,6vw,5rem) 1rem; }
+.founding-hero, .founding-details { padding: clamp(1.5rem,4vw,3rem); border: 1px solid rgba(244,208,63,.3); border-radius: 18px; background: linear-gradient(155deg,rgba(11,30,107,.55),rgba(0,6,18,.96)); }
+.founding-details { margin-top: 22px; }
+.founding-number { margin-top: 24px; color: #f4d03f; font-size: clamp(4.5rem,14vw,8rem); font-weight: 900; line-height: .85; }
+.founding-hero h1 { margin: 12px 0 16px; font-size: clamp(1.8rem,5vw,3.25rem); }
+.founding-hero > p { max-width: 690px; line-height: 1.7; opacity: .82; }
+.founding-claim-box { max-width: 520px; margin-top: 24px; }
+.founding-progress { height: 10px; margin: 10px 0 20px; border-radius: 999px; background: rgba(255,255,255,.1); overflow: hidden; }
+.founding-progress span { display: block; height: 100%; background: #f4d03f; }
+.founding-success, .founding-message { margin-top: 22px; padding: 14px 16px; border: 1px solid rgba(244,208,63,.4); border-radius: 10px; color: #f4d03f; }
+.founding-details li { margin: 9px 0; }
+.founding-terms { margin-top: 24px; font-size: .82rem; line-height: 1.65; opacity: .62; }
+.upgrade-founding-offer { margin-top: 18px; }
+.upgrade-founding-offer a { color: #f4d03f; }
+.footer-newsletter-message { margin: 8px 0 0; font-size: .78rem; }
+.footer-newsletter-message.done { color: #86efac; }
+.footer-newsletter-message.error { color: #fca5a5; }

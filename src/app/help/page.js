@@ -77,10 +77,9 @@ export default function HelpPage() {
             q="When does the marketplace open?"
             a={
               <>
-                Phase 2, targeting late May 2026. It launches Pro-only with
-                slabbed listings first; raw listings open after the trust
-                infrastructure is in place. Founding Collectors get the lowest
-                fee tier permanently.
+                The marketplace is still in development. We&rsquo;ll publish the
+                opening schedule and seller fees before listings go live.
+                Founding Collectors will be invited to early testing.
               </>
             }
           />

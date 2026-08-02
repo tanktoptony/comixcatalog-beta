@@ -3,13 +3,11 @@ import { createClient } from "@supabase/supabase-js";
 
 export const dynamic = "force-dynamic";
 
-const FOUNDING_CAP = 100;
-
 export default async function CollectorsPage() {
   try {
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      process.env.SUPABASE_SERVICE_ROLE_KEY
     );
 
     const [profilesResult, countResult] = await Promise.all([
@@ -21,12 +19,13 @@ export default async function CollectorsPage() {
         .order("username", { ascending: true }),
       supabase
         .from("profiles")
-        .select("id", { count: "exact", head: true }),
+        .select("id", { count: "exact", head: true })
+        .eq("is_founding_collector", true),
     ]);
 
     const { data, error } = profilesResult;
-    const totalSignups = countResult.count ?? 0;
-    const spotsRemaining = Math.max(0, FOUNDING_CAP - totalSignups);
+    const campaignClaims = Math.max(0, (countResult.count ?? 0) - 2);
+    const spotsRemaining = Math.max(0, 83 - campaignClaims);
 
     if (error) {
       console.error("CollectorsPage profiles error:", error);
@@ -43,11 +42,11 @@ export default async function CollectorsPage() {
           <h1 className="profile-section-title">Founding Collectors</h1>
           <p style={{ marginTop: "0.5rem", color: "var(--x-gold)", fontWeight: 700, fontSize: "1rem" }}>
             {spotsRemaining > 0
-              ? `${spotsRemaining} of ${FOUNDING_CAP} spots remaining`
+              ? `${spotsRemaining} free lifetime Pro passes remaining`
               : "All founding collector spots have been claimed."}
           </p>
           <p style={{ marginTop: "0.25rem", color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>
-            Everyone who signs up before we hit {FOUNDING_CAP} members earns permanent Founding Collector status.
+            Create an account, catalog 10 comics, and claim an available pass—no card required.
           </p>
         </div>
 

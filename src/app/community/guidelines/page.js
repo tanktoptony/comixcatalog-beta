@@ -16,7 +16,7 @@ export default function CommunityGuidelinesPage() {
           and do not submit intentionally misleading comic data.
         </p>
         <Link href="/founding-collectors" className="primary-btn">
-          Become a Founding Collector
+          Claim Free Lifetime Pro
         </Link>
       </section>
     </main>

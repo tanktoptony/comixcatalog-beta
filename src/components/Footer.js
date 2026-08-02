@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 // Footer columns. `data-todo` flags the routes that don't exist yet so we
 // can spot them visually during pre-launch QA. Drop the flag once the page
@@ -82,6 +83,24 @@ const SOCIALS = [
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const [newsletter, setNewsletter] = useState({ email: "", state: "idle", message: "" });
+
+  async function subscribe(event) {
+    event.preventDefault();
+    setNewsletter((current) => ({ ...current, state: "busy", message: "" }));
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: newsletter.email }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || "Signup failed");
+      setNewsletter({ email: "", state: "done", message: "You're on the list—welcome." });
+    } catch (error) {
+      setNewsletter((current) => ({ ...current, state: "error", message: error.message }));
+    }
+  }
 
   return (
     <footer className="site-footer">
@@ -111,24 +130,22 @@ export default function Footer() {
             </p>
             <form
               className="footer-newsletter-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                // TODO: wire to a newsletter endpoint (Resend / Mailgun /
-                // Supabase edge function) once we pick a provider.
-                alert("Newsletter signup is coming soon — thanks for the interest!");
-              }}
+              onSubmit={subscribe}
             >
               <input
                 type="email"
                 placeholder="Enter email address"
                 className="footer-newsletter-input"
                 aria-label="Email address"
+                value={newsletter.email}
+                onChange={(event) => setNewsletter((current) => ({ ...current, email: event.target.value }))}
                 required
               />
-              <button type="submit" className="footer-newsletter-btn">
-                Sign Up
+              <button type="submit" className="footer-newsletter-btn" disabled={newsletter.state === "busy"}>
+                {newsletter.state === "busy" ? "Joining…" : "Sign Up"}
               </button>
             </form>
+            {newsletter.message && <p className={`footer-newsletter-message ${newsletter.state}`}>{newsletter.message}</p>}
 
             <div className="footer-socials" aria-label="Follow ComixCatalog">
               {SOCIALS.map((s) => (
@@ -157,23 +174,21 @@ export default function Footer() {
 
         <div className="footer-divider" aria-hidden="true" />
 
-        <a
-          href="https://www.patreon.com/cw/ComixCatalog"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/founding-collectors"
           className="footer-patreon"
         >
           <div className="footer-patreon-text">
             <span className="footer-patreon-kicker">Founding Collector</span>
             <span className="footer-patreon-headline">
-              Back the build on Patreon
+              Free Pro for life
             </span>
             <span className="footer-patreon-sub">
-              Permanent badge, founders-page recognition, early access.
+              Catalog 10 comics and claim one of the remaining founding passes.
             </span>
           </div>
-          <span className="footer-patreon-cta">Join →</span>
-        </a>
+          <span className="footer-patreon-cta">Claim →</span>
+        </Link>
 
         <div className="footer-divider" aria-hidden="true" />
 

@@ -5,27 +5,7 @@ import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 
-const PATREON_URL = "https://www.patreon.com/cw/ComixCatalog";
-
 const TIERS = [
-  {
-    id: "supporter",
-    name: "Supporter",
-    price: "$3",
-    period: "/ month",
-    badge: null,
-    via: "patreon",
-    viaLabel: "via Patreon",
-    headline: "Back the build",
-    description: "Help keep ComixCatalog alive and independent. No features unlocked — just direct support for a solo project.",
-    features: [
-      "Supporter badge on your profile",
-      "Discord access & behind-the-scenes updates",
-      "Satisfaction of supporting indie software",
-    ],
-    cta: "Support on Patreon",
-    href: PATREON_URL,
-  },
   {
     id: "pro",
     name: "Collector Pro",
@@ -52,31 +32,8 @@ const TIERS = [
       { label: "Automatic market valuation from recent sold comps", soon: true },
       { label: "Early marketplace access — buy and sell when it launches (Pro subscribers first)", soon: true },
     ],
-    cta: "Upgrade to Collector Pro",
+    cta: "Start Collector Pro — $8/month",
     tier: "pro",
-  },
-  {
-    id: "founding",
-    name: "Founding Collector",
-    price: "$20",
-    period: "/ month",
-    badge: "Limited — first 100",
-    via: "stripe",
-    viaLabel: "via Stripe · cancel anytime",
-    headline: "Pro features + marketplace priority, forever",
-    description: "Everything in Collector Pro, plus permanent recognition and the best deal on the marketplace — locked in as long as you stay subscribed.",
-    features: [
-      { label: "Everything in Collector Pro" },
-      { label: "Permanent Founding Collector badge — stays on your profile even if you downgrade" },
-      { label: "Locked-in $20/mo pricing — your rate never increases, ever" },
-      { label: "Your name on the ComixCatalog founders page" },
-      { label: "Direct roadmap access — feature voting and early previews" },
-      { label: "Reduced marketplace fee — 3% instead of 8%, locked in permanently", soon: true },
-      { label: "Priority listing placement — your books appear above standard Pro listings", soon: true },
-      { label: "Verified Collector badge — links your CGC/CBCS grades to your profile ($10 value)", soon: true },
-    ],
-    cta: "Claim a Founding Collector Spot",
-    tier: "founding",
   },
 ];
 
@@ -85,12 +42,24 @@ export default function UpgradePage() {
   const [busy, setBusy] = useState(null); // stores tier id while loading
   const [err, setErr] = useState(null);
   const [mounted, setMounted] = useState(false);
+  const [foundingRemaining, setFoundingRemaining] = useState(83);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    // Hydration guard: auth state is client-only and the initial server render
+    // must not guess which membership actions to show.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+    fetch("/api/founding/status", { cache: "no-store" })
+      .then((response) => response.ok ? response.json() : null)
+      .then((data) => {
+        if (Number.isFinite(data?.remaining)) setFoundingRemaining(data.remaining);
+      })
+      .catch(() => {});
+  }, []);
 
   async function handleCheckout(tier) {
     if (!user) {
-      window.location.href = `/login?next=/upgrade`;
+      window.location.assign(`/login?next=/upgrade`);
       return;
     }
     setBusy(tier);
@@ -106,7 +75,7 @@ export default function UpgradePage() {
         setErr(data.error || "Could not start checkout");
         return;
       }
-      window.location.href = data.url;
+      window.location.assign(data.url);
     } catch {
       setErr("Network error — please try again.");
     } finally {
@@ -143,7 +112,7 @@ export default function UpgradePage() {
     <main className="upgrade-shell">
 
       <section className="upgrade-hero">
-        <div className="upgrade-kicker">Membership</div>
+        <div className="upgrade-kicker">Simple pricing</div>
         <h1 className="upgrade-title">
           Catalog like a pro. $8/mo.
         </h1>
@@ -151,6 +120,9 @@ export default function UpgradePage() {
           Track every grade, slab cert, and value across your whole collection.
           Generate an insurance-ready PDF in one click. Cancel anytime &mdash;
           no ads, no data sales, no VC money.
+        </p>
+        <p className="upgrade-founding-offer">
+          <Link href="/founding-collectors"><strong>{foundingRemaining} free lifetime Pro passes remain.</strong> Catalog 10 comics to qualify →</Link>
         </p>
       </section>
 
@@ -176,7 +148,7 @@ export default function UpgradePage() {
       )}
 
       <section className="upgrade-tiers">
-        {TIERS.map((tier) => (
+        {TIERS.filter((tier) => tier.id === "pro").map((tier) => (
           <div
             key={tier.id}
             className={`upgrade-tier-card ${tier.badge ? "upgrade-tier-card--featured" : ""}`}
@@ -231,15 +203,6 @@ export default function UpgradePage() {
                 <button type="button" className="upgrade-cta" disabled suppressHydrationWarning>
                   {tier.cta}
                 </button>
-              ) : tier.via === "patreon" ? (
-                <a
-                  href={tier.href}
-                  className="upgrade-cta upgrade-cta--secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {tier.cta}
-                </a>
               ) : alreadyPro ? (
                 <button type="button" className="upgrade-cta" disabled>
                   {isFounding && tier.id === "founding" ? "Your current plan" : isPro && tier.id === "pro" ? "Your current plan" : "Already a member"}
@@ -263,40 +226,22 @@ export default function UpgradePage() {
 
       <section className="upgrade-faq">
         <div className="upgrade-faq-item">
-          <h3>What&rsquo;s the difference between Patreon and Stripe?</h3>
-          <p>
-            Patreon is for community support — the Supporter tier gives you a badge and Discord
-            access but doesn&rsquo;t unlock site features. Collector Pro and Founding Collector are
-            billed through Stripe and unlock the actual tools — PDF export, professional grading,
-            and per-book photo upload today, with price alerts, automatic valuation, and the
-            marketplace arriving as Phase 2 ships.
-          </p>
-        </div>
-        <div className="upgrade-faq-item">
-          <h3>I&rsquo;m already a Patreon Collector Beta subscriber. Do I get Pro?</h3>
-          <p>
-            Not automatically — Patreon and the site are separate systems right now.
-            Upgrade here to unlock site features. If you&rsquo;re a longtime Collector Beta
-            patron, reach out at{" "}
-            <a href="mailto:comixcatalog@gmail.com">comixcatalog@gmail.com</a>{" "}
-            and we&rsquo;ll sort you out.
-          </p>
+          <h3>How does the Founding Collector offer work?</h3>
+          <p>Create a free account, catalog 10 comics, then claim an available pass. Founding Collectors keep the standard Collector Pro feature set for the lifetime of their account and the ComixCatalog service, with no card required.</p>
         </div>
         <div className="upgrade-faq-item">
           <h3>Can I cancel?</h3>
           <p>
             Yes — cancel anytime from the Stripe billing portal (button above if you&rsquo;re
             already subscribed). No cancellation fees. Your Pro features stay active until the
-            end of your billing period. Founding Collector pricing is locked in permanently
-            as long as you stay subscribed.
+            end of your billing period. Free lifetime Founding passes do not require billing.
           </p>
         </div>
         <div className="upgrade-faq-item">
           <h3>Why $8 for Pro?</h3>
           <p>
             ComixCatalog is built solo. $8 keeps the servers running and features shipping — no
-            ads, no data sales, no VC pressure to flip the product. It matches the Patreon
-            Collector Beta tier intentionally.
+            ads, no data sales, and no VC pressure to flip the product.
           </p>
         </div>
       </section>

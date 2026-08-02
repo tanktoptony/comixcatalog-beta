@@ -133,15 +133,14 @@ export default function HomePage() {
       {/* ── FOUNDING COLLECTOR ───────────────────────────────── */}
       <section className="lp-founding">
         <div className="lp-founding-inner">
-          <p className="lp-founding-kicker">Limited · First 100 only</p>
+          <p className="lp-founding-kicker">Limited · Lifetime passes are going fast</p>
           <h2 className="lp-founding-h2">Founding Collector</h2>
           <p className="lp-founding-body">
-            Lock in $20/mo forever — including the lowest marketplace fee rate (3% vs. 8%),
-            priority listing placement, and a permanent badge that never goes away.
-            This is how ComixCatalog gets built.
+            Catalog 10 comics and claim Collector Pro for life—free, with no
+            card required. You&rsquo;ll also receive a permanent Founding Collector badge.
           </p>
-          <Link href="/upgrade" className="lp-founding-cta">
-            Claim a Founding Collector spot →
+          <Link href="/founding-collectors" className="lp-founding-cta">
+            Claim lifetime Pro →
           </Link>
         </div>
       </section>

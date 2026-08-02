@@ -330,7 +330,7 @@ export default function SeriesPage() {
                       flexShrink: 0,
                     }}
                   >
-                    Upgrade to Pro →
+                    Unlock Pro for $8/month →
                   </Link>
                 )}
               </div>

@@ -114,15 +114,14 @@ export default function UpgradePage() {
       <section className="upgrade-hero">
         <div className="upgrade-kicker">Simple pricing</div>
         <h1 className="upgrade-title">
-          Catalog like a pro. $8/mo.
+          Join now. Keep Pro for life.
         </h1>
         <p className="upgrade-sub">
-          Track every grade, slab cert, and value across your whole collection.
-          Generate an insurance-ready PDF in one click. Cancel anytime &mdash;
-          no ads, no data sales, no VC money.
+          The first 100 members receive Collector Pro for life at no charge.
+          After the founding memberships are gone, Collector Pro is $8/month.
         </p>
         <p className="upgrade-founding-offer">
-          <Link href="/founding-collectors"><strong>{foundingRemaining} free lifetime Pro passes remain.</strong> Catalog 10 comics to qualify →</Link>
+          <Link href="/signup"><strong>{foundingRemaining} free lifetime Pro memberships remain.</strong> Create your account and receive yours automatically →</Link>
         </p>
       </section>
 
@@ -207,6 +206,10 @@ export default function UpgradePage() {
                 <button type="button" className="upgrade-cta" disabled>
                   {isFounding && tier.id === "founding" ? "Your current plan" : isPro && tier.id === "pro" ? "Your current plan" : "Already a member"}
                 </button>
+              ) : foundingRemaining > 0 ? (
+                <Link href={user ? "/founding-collectors" : "/signup"} className="upgrade-cta">
+                  Get Pro free for life
+                </Link>
               ) : (
                 <button
                   type="button"
@@ -227,7 +230,7 @@ export default function UpgradePage() {
       <section className="upgrade-faq">
         <div className="upgrade-faq-item">
           <h3>How does the Founding Collector offer work?</h3>
-          <p>Create a free account, catalog 10 comics, then claim an available pass. Founding Collectors keep the standard Collector Pro feature set for the lifetime of their account and the ComixCatalog service, with no card required.</p>
+          <p>Create an account while a spot remains. Lifetime Collector Pro and the Founding Collector badge are added automatically, with no card required.</p>
         </div>
         <div className="upgrade-faq-item">
           <h3>Can I cancel?</h3>

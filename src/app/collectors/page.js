@@ -19,8 +19,7 @@ export default async function CollectorsPage() {
         .order("username", { ascending: true }),
       supabase
         .from("profiles")
-        .select("id", { count: "exact", head: true })
-        .eq("is_founding_collector", true),
+        .select("id", { count: "exact", head: true }),
     ]);
 
     const { data, error } = profilesResult;
@@ -41,11 +40,11 @@ export default async function CollectorsPage() {
           <h1 className="profile-section-title">Founding Collectors</h1>
           <p style={{ marginTop: "0.5rem", color: "var(--x-gold)", fontWeight: 700, fontSize: "1rem" }}>
             {spotsRemaining > 0
-              ? `${spotsRemaining} free lifetime Pro passes remaining`
+              ? `${spotsRemaining} free lifetime Pro memberships remaining`
               : "All founding collector spots have been claimed."}
           </p>
           <p style={{ marginTop: "0.25rem", color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>
-            Create an account, catalog 10 comics, and claim an available pass—no card required.
+            Join while spots remain and lifetime Pro is added automatically—no card required.
           </p>
         </div>
 

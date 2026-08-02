@@ -17,7 +17,7 @@ export default function ContributeGuidelinesPage() {
           should be reviewed carefully before being accepted.
         </p>
         <Link href="/founding-collectors" className="primary-btn">
-          Claim Free Lifetime Pro
+          Join for Free Lifetime Pro
         </Link>
       </section>
     </main>

@@ -40,7 +40,7 @@ export default function MarketplacePage() {
 
       <div className="mkt-bottom-cta">
         <h2>Want first dibs?</h2>
-        <p>Claim a remaining Founding Collector pass for free lifetime Pro and an invitation to early marketplace testing.</p>
+        <p>Join while a Founding Collector membership remains for free lifetime Pro and an invitation to early marketplace testing.</p>
         <div className="mkt-bottom-cta-row"><Link href="/founding-collectors" className="mkt-cta-primary">See remaining passes →</Link><Link href="/signup" className="mkt-cta-ghost">Sign up free</Link></div>
       </div>
     </section>

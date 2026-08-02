@@ -1058,14 +1058,14 @@ function LibraryPageContent() {
             if (res.status === 402) {
               const json = await res.json().catch(() => ({}));
               const proceed = window.confirm(
-                `${json.error || "Collector Pro ($8/month) is required to import this many rows."}\n\nSee Pro options now?`
+                `${json.error || "Collector Pro is required to import this many rows."}\n\nSee membership options now?`
               );
               if (proceed) window.location.href = "/upgrade";
               setCsvResult({
                 created: 0,
                 reused: 0,
                 skipped: json.attempted ?? 0,
-                errors: [{ row: "-", message: json.error || "Collector Pro ($8/month) allows larger imports" }],
+                errors: [{ row: "-", message: json.error || "Collector Pro allows larger imports" }],
               });
               return;
             }
@@ -1087,7 +1087,7 @@ function LibraryPageContent() {
           <button
             type="submit"
             className="library-secondary-btn"
-            title={isPro ? "Pro: up to 200 rows per import" : "Free: up to 25 rows. Collector Pro is $8/month and allows 200."}
+            title={isPro ? "Pro: up to 200 rows per import" : "Free: up to 25 rows. Collector Pro allows up to 200."}
           >
             Upload CSV
           </button>

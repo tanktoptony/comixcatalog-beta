@@ -184,10 +184,10 @@ export default function Footer() {
               Free Pro for life
             </span>
             <span className="footer-patreon-sub">
-              Catalog 10 comics and claim one of the remaining founding passes.
+              Join while spots remain and your lifetime membership is automatic.
             </span>
           </div>
-          <span className="footer-patreon-cta">Claim →</span>
+          <span className="footer-patreon-cta">Join →</span>
         </Link>
 
         <div className="footer-divider" aria-hidden="true" />

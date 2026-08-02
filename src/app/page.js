@@ -136,11 +136,11 @@ export default function HomePage() {
           <p className="lp-founding-kicker">Limited · Lifetime passes are going fast</p>
           <h2 className="lp-founding-h2">Founding Collector</h2>
           <p className="lp-founding-body">
-            Catalog 10 comics and claim Collector Pro for life—free, with no
-            card required. You&rsquo;ll also receive a permanent Founding Collector badge.
+            Join while spots remain and receive Collector Pro for life—free,
+            automatically, with no card required. You&rsquo;ll also receive a permanent Founding Collector badge.
           </p>
           <Link href="/founding-collectors" className="lp-founding-cta">
-            Claim lifetime Pro →
+            See the founding offer →
           </Link>
         </div>
       </section>

@@ -116,67 +116,45 @@ export default function AboutPage() {
       <section className="gs-section">
         <h2 className="gs-section-title">Pricing</h2>
         <p className="gs-questions-text">
-          Free forever for personal collection tracking. Optional paid tiers
-          unlock pro features and back the build.
+          There is one launch offer and one standard Pro price. The launch
+          offer requires no card or payment.
         </p>
         <div className="tier-grid">
-          <div className="tier-card">
-            <div className="tier-card-name">Free</div>
+          <div className="tier-card tier-card-founding">
+            <div className="tier-card-tag">Available now · First 100 members</div>
+            <div className="tier-card-name">Founding Collector</div>
             <div className="tier-card-price">$0</div>
-            <div className="tier-card-cadence">forever</div>
+            <div className="tier-card-cadence">Collector Pro for life</div>
             <ul className="tier-card-list">
-              <li>Unlimited collection + wantlist</li>
-              <li>Public collector profile</li>
-              <li>Search every series &amp; issue</li>
-              <li>Track condition, slab, value</li>
-              <li>Inbox + community</li>
+              <li><strong>Join while a membership remains</strong></li>
+              <li>Pro access is added automatically</li>
+              <li>No card or recurring payment</li>
+              <li>Permanent Founding Collector badge</li>
             </ul>
-            <Link href="/signup" className="tier-card-cta">Start free</Link>
+            <Link href="/signup" className="tier-card-cta tier-card-cta-founding">
+              Join and get lifetime Pro
+            </Link>
           </div>
 
           <div className="tier-card tier-card-featured">
-            <div className="tier-card-tag">Most popular</div>
+            <div className="tier-card-tag">Standard price after launch spots are gone</div>
             <div className="tier-card-name">Collector Pro</div>
             <div className="tier-card-price">$8</div>
             <div className="tier-card-cadence">per month</div>
             <ul className="tier-card-list">
-              <li><strong>Everything in Free</strong></li>
+              <li><strong>The same standard Pro toolkit</strong></li>
               <li>Insurance / appraisal PDF export</li>
               <li>CSV export (Discogs-style)</li>
               <li>Wantlist shopping-list PDF for cons</li>
               <li>Unlimited CSV import</li>
-              <li>Priority feature voting</li>
             </ul>
-            <Link href="/upgrade" className="tier-card-cta tier-card-cta-primary">
-              Choose Collector Pro — $8/month
-            </Link>
-            <p className="tier-card-note">
-              Or claim a free lifetime Pro pass while Founding Collector spots remain.
-            </p>
-          </div>
-
-          <div className="tier-card tier-card-founding">
-            <div className="tier-card-tag">Limited</div>
-            <div className="tier-card-name">Founding Collector</div>
-            <div className="tier-card-price">$0</div>
-            <div className="tier-card-cadence">for life · limited availability</div>
-            <ul className="tier-card-list">
-              <li><strong>Collector Pro for life</strong></li>
-              <li>Permanent ★ badge on your profile</li>
-              <li>Name listed on the Founders page</li>
-              <li>No card or recurring payment</li>
-              <li>Qualify by cataloging 10 comics</li>
-            </ul>
-            <Link
-              href="/founding-collectors"
-              className="tier-card-cta tier-card-cta-founding"
-            >
-              Claim Lifetime Pro
+            <Link href="/founding-collectors" className="tier-card-cta tier-card-cta-primary">
+              See remaining free memberships
             </Link>
           </div>
         </div>
         <p className="gs-questions-text" style={{ marginTop: 18, fontSize: "0.85rem", opacity: 0.7 }}>
-          Marketplace pricing will be published before seller tools open. No marketplace fee is charged today.
+          Basic membership remains free. Marketplace pricing will be published before seller tools open; no marketplace fee is charged today.
         </p>
       </section>
 
@@ -189,9 +167,9 @@ export default function AboutPage() {
           building the platform comic collectors actually want.
         </p>
         <p className="gs-questions-text" style={{ marginTop: 14 }}>
-          The first 100 active <strong>Founding Collectors</strong> receive
-          Collector Pro for life. Create an account and catalog 10 comics
-          while passes remain—no card required.
+          The first 100 members become <strong>Founding Collectors</strong> and
+          receive Collector Pro for life automatically. Create an account
+          while memberships remain—no card required.
         </p>
         <div style={{ marginTop: 20 }}>
           <Link

@@ -5,6 +5,7 @@ import os
 import re
 import sys
 import time
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
@@ -119,6 +120,17 @@ def parse_cli() -> argparse.Namespace:
         "--ignore-done",
         action="store_true",
         help="Ignore the --done-file ledger this run (re-process every target).",
+    )
+    p.add_argument(
+        "--done-ttl-days",
+        type=int,
+        default=DONE_TTL_DAYS,
+        help=(
+            "Days a done-ledger entry stays valid before it's rechecked again. "
+            "Keeps ongoing/currently-publishing series (new issues every month) "
+            "from being permanently frozen out the first time they finish a "
+            "clean pass. Finished series just get a cheap no-op recheck."
+        ),
     )
     p.add_argument(
         "--skip-existing",
@@ -441,18 +453,56 @@ def _done_key(target: dict) -> str:
     return f"{target.get('name')}{target.get('publisher')}{target.get('year')}"
 
 
-def _load_done(path: str) -> set:
+# Stored as {key: iso_timestamp_processed}, not a bare set. A finished 1994
+# series can stay "done" forever, but an ongoing monthly book (Absolute
+# Batman, etc.) publishes new issues every month -- marking it done with no
+# expiry would hide it from every future run the moment it first finishes a
+# clean pass, silently freezing it at whatever issue count it had that day.
+# DONE_TTL_DAYS expires an entry so ongoing series get periodically rechecked
+# instead. Cost of rechecking a truly-finished series is ~1 API call
+# (--skip-existing makes its issue loop free) -- cheap insurance.
+DONE_TTL_DAYS = 30
+
+
+def _now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _load_done(path: str) -> dict:
     try:
-        return set(json.loads(Path(path).read_text(encoding="utf-8")))
+        raw = json.loads(Path(path).read_text(encoding="utf-8"))
     except Exception:
-        return set()
+        return {}
+    if isinstance(raw, list):
+        # Pre-TTL ledger format: a bare list of keys with no timestamps.
+        # Treat everything as freshly-done rather than already-expired -- the
+        # TTL is for periodic rechecking going forward, not for undoing the
+        # sweep progress this ledger already represents on upgrade.
+        now = _now_iso()
+        return {key: now for key in raw}
+    return raw if isinstance(raw, dict) else {}
 
 
-def _save_done(path: str, done: set) -> None:
+def _save_done(path: str, done: dict) -> None:
     # Atomic write so a Ctrl-C mid-write can't corrupt the ledger.
     tmp = f"{path}.tmp"
-    Path(tmp).write_text(json.dumps(sorted(done), ensure_ascii=False), encoding="utf-8")
+    Path(tmp).write_text(
+        json.dumps(dict(sorted(done.items())), ensure_ascii=False), encoding="utf-8"
+    )
     os.replace(tmp, path)
+
+
+def _is_done_fresh(done: dict, key: str, ttl_days: int) -> bool:
+    stamp = done.get(key)
+    if not stamp:
+        return False
+    try:
+        processed = datetime.fromisoformat(stamp)
+    except ValueError:
+        return False
+    if processed.tzinfo is None:
+        processed = processed.replace(tzinfo=timezone.utc)
+    return datetime.now(timezone.utc) - processed < timedelta(days=ttl_days)
 
 
 # Targets we refused to auto-resolve because the ComicVine match was ambiguous
@@ -1095,7 +1145,7 @@ def main():
     # Done-ledger only applies to --targets runs (a single --volume-id has no
     # list to sweep). --ignore-done starts fresh without touching the file.
     use_ledger = bool(args.targets) and not args.ignore_done and not args.dry_run
-    done = _load_done(args.done_file) if use_ledger else set()
+    done = _load_done(args.done_file) if use_ledger else {}
     if use_ledger and done:
         print(f"Done-ledger: {len(done)} target(s) already processed — will skip before searching.")
     skipped_done = 0
@@ -1104,7 +1154,7 @@ def main():
         # Skip already-processed targets BEFORE spending a search call. This is
         # what makes successive runs advance down the list instead of re-grinding
         # the top. (Skip happens before the budget check so done targets are free.)
-        if use_ledger and not args.volume_id and _done_key(target) in done:
+        if use_ledger and not args.volume_id and _is_done_fresh(done, _done_key(target), args.done_ttl_days):
             skipped_done += 1
             continue
 
@@ -1145,7 +1195,7 @@ def main():
                     target.get("year"),
                 ) in AMBIGUOUS_THIS_RUN
                 if use_ledger and not args.volume_id and not was_ambiguous:
-                    done.add(_done_key(target))
+                    done[_done_key(target)] = _now_iso()
                     _save_done(args.done_file, done)
                 continue
 
@@ -1293,7 +1343,7 @@ def main():
             # Reached the end of this volume's issues without a rate-limit or
             # crash — it's fully handled. Mark it so re-runs skip it pre-search.
             if use_ledger and not args.volume_id:
-                done.add(_done_key(target))
+                done[_done_key(target)] = _now_iso()
                 _save_done(args.done_file, done)
 
         except RateLimited as e:

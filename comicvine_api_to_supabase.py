@@ -736,6 +736,7 @@ def update_series_cv_publisher(series_title: str | None, cv_publisher: str | Non
 # Cache for series_gcd_id lookups — same target shouldn't requery per issue.
 _SERIES_GCD_ID_CACHE: dict[tuple, int | None] = {}
 _GCD_ISSUES_BY_SERIES_CACHE: dict[int, list[dict]] = {}
+_GCD_PUBLISHER_NAMES_CACHE: dict[int, str] | None = None
 
 
 def _base_issue_number(value: object) -> str | None:
@@ -746,13 +747,67 @@ def _base_issue_number(value: object) -> str | None:
 
 def _normalize_cover_match_title(value: object) -> str:
     """Mirror normalizeTitle() in src/lib/coverMatch.js."""
-    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+    normalized = re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+    return " ".join(token for token in normalized.split() if token not in {"the", "a", "an"})
+
+
+def _publisher_family(value: object) -> str | None:
+    normalized = re.sub(r"[^a-z0-9]+", "", str(value or "").lower())
+    families = (
+        ("marvel", ("marvel", "timelycomics", "atlascomics")),
+        ("dc", ("dc", "dccomics", "detectivecomics", "nationalperiodicalpublications")),
+        ("dark-horse", ("darkhorse",)), ("image", ("image",)),
+        ("idw", ("idw",)), ("boom", ("boom",)),
+        ("dynamite", ("dynamite",)), ("valiant", ("valiant",)),
+        ("oni", ("oni",)), ("archie", ("archie",)),
+    )
+    return next((family for family, prefixes in families if normalized.startswith(prefixes)), None)
+
+
+def _publishers_compatible(left: object, right: object) -> bool:
+    left_normalized = re.sub(r"[^a-z0-9]+", "", str(left or "").lower())
+    right_normalized = re.sub(r"[^a-z0-9]+", "", str(right or "").lower())
+    if not left_normalized or not right_normalized:
+        return False
+    left_family, right_family = _publisher_family(left), _publisher_family(right)
+    if left_family or right_family:
+        return left_family is not None and left_family == right_family
+    return left_normalized == right_normalized
+
+
+def _gcd_publisher_names() -> dict[int, str]:
+    global _GCD_PUBLISHER_NAMES_CACHE
+    if _GCD_PUBLISHER_NAMES_CACHE is not None:
+        return _GCD_PUBLISHER_NAMES_CACHE
+    rows, offset, page_size = {}, 0, 1000
+    headers = {
+        "apikey": SUPABASE_SERVICE_ROLE_KEY,
+        "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+    }
+    while True:
+        resp = requests.get(
+            f"{SUPABASE_URL}/rest/v1/gcd_publishers",
+            headers=headers,
+            params={"select": "gcd_id,name", "order": "gcd_id.asc", "limit": page_size, "offset": offset},
+            timeout=30,
+        )
+        if resp.status_code != 200:
+            break
+        page = resp.json() or []
+        for row in page:
+            rows[int(row["gcd_id"])] = row.get("name")
+        if len(page) < page_size:
+            break
+        offset += page_size
+    _GCD_PUBLISHER_NAMES_CACHE = rows
+    return rows
 
 
 def _resolve_series_gcd_id(
     target_name: str | None,
     cv_volume_name: str | None,
     year: int | None,
+    publisher: str | None,
 ) -> int | None:
     """Find the gcd_series id for a target so canonical_covers can store it
     alongside the cover row. Joins downstream (library-hydrate etc.) prefer
@@ -768,7 +823,7 @@ def _resolve_series_gcd_id(
     """
     if not target_name and not cv_volume_name:
         return None
-    key = (target_name, cv_volume_name, year)
+    key = (target_name, cv_volume_name, year, publisher)
     if key in _SERIES_GCD_ID_CACHE:
         return _SERIES_GCD_ID_CACHE[key]
 
@@ -779,14 +834,13 @@ def _resolve_series_gcd_id(
                 "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
             }
             base_params = {
-                "select": "gcd_id,title,year_start_cached",
-                "gcd_id": "not.is.null",
+                "select": "gcd_id,name,year_began,publisher_gcd_id",
                 "limit": "100",
             }
             resp = requests.get(
-                f"{SUPABASE_URL}/rest/v1/series",
+                f"{SUPABASE_URL}/rest/v1/gcd_series",
                 headers=headers,
-                params={**base_params, "title": f"eq.{title}"},
+                params={**base_params, "name": f"eq.{title}"},
                 timeout=15,
             )
             if resp.status_code == 200 and resp.json():
@@ -795,16 +849,16 @@ def _resolve_series_gcd_id(
             normalized = _normalize_cover_match_title(title)
             pattern = "*" + "*".join(normalized.split()) + "*"
             resp = requests.get(
-                f"{SUPABASE_URL}/rest/v1/series",
+                f"{SUPABASE_URL}/rest/v1/gcd_series",
                 headers=headers,
-                params={**base_params, "title": f"ilike.{pattern}"},
+                params={**base_params, "name": f"ilike.{pattern}"},
                 timeout=15,
             )
             if resp.status_code != 200:
                 return []
             return [
                 row for row in (resp.json() or [])
-                if _normalize_cover_match_title(row.get("title")) == normalized
+                if _normalize_cover_match_title(row.get("name")) == normalized
             ]
         except Exception:
             return []
@@ -816,20 +870,31 @@ def _resolve_series_gcd_id(
             if candidates:
                 break
 
+    if publisher:
+        publisher_names = _gcd_publisher_names()
+        candidates = [
+            candidate for candidate in candidates
+            if _publishers_compatible(
+                publisher, publisher_names.get(int(candidate.get("publisher_gcd_id") or 0))
+            )
+        ]
+
     chosen = None
     if len(candidates) == 1:
         chosen = candidates[0].get("gcd_id")
     elif len(candidates) > 1 and year is not None:
-        best, best_delta = None, 999
+        ranked = []
         for c in candidates:
-            ys = c.get("year_start_cached")
+            ys = c.get("year_began")
             if ys is None:
                 continue
             delta = abs(int(ys) - int(year))
-            if delta < best_delta:
-                best, best_delta = c, delta
-        if best and best_delta <= 3:
-            chosen = best.get("gcd_id")
+            ranked.append((delta, int(c.get("gcd_id")), c))
+        ranked.sort(key=lambda item: (item[0], item[1]))
+        if ranked and ranked[0][0] <= 3:
+            runner_delta = ranked[1][0] if len(ranked) > 1 else None
+            if runner_delta is None or runner_delta - ranked[0][0] >= 2:
+                chosen = ranked[0][2].get("gcd_id")
 
     _SERIES_GCD_ID_CACHE[key] = chosen
     return chosen
@@ -1025,7 +1090,7 @@ def main():
         # Skip already-processed targets BEFORE spending a search call. This is
         # what makes successive runs advance down the list instead of re-grinding
         # the top. (Skip happens before the budget check so done targets are free.)
-        if use_ledger and not target.get("volume_id") and _done_key(target) in done:
+        if use_ledger and not args.volume_id and _done_key(target) in done:
             skipped_done += 1
             continue
 
@@ -1065,7 +1130,7 @@ def main():
                     publisher_name,
                     target.get("year"),
                 ) in AMBIGUOUS_THIS_RUN
-                if use_ledger and not target.get("volume_id") and not was_ambiguous:
+                if use_ledger and not args.volume_id and not was_ambiguous:
                     done.add(_done_key(target))
                     _save_done(args.done_file, done)
                 continue
@@ -1092,6 +1157,7 @@ def main():
                 volume_name,
                 volume.get("name"),
                 target.get("year") or volume.get("start_year"),
+                cv_pub_name,
             )
 
             volume_id = volume["id"]
@@ -1212,7 +1278,7 @@ def main():
 
             # Reached the end of this volume's issues without a rate-limit or
             # crash — it's fully handled. Mark it so re-runs skip it pre-search.
-            if use_ledger and not target.get("volume_id"):
+            if use_ledger and not args.volume_id:
                 done.add(_done_key(target))
                 _save_done(args.done_file, done)
 

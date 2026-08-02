@@ -356,13 +356,46 @@ def _start_year_of(vol: dict) -> int | None:
 def _norm_publisher(value: str | None) -> str:
     """Loose publisher comparison — strips suffixes like 'Comics',
     'Entertainment', 'Inc.', and non-alphanumerics. Lets 'Marvel Comics' match
-    'Marvel', 'DC Comics' match 'DC', etc."""
+    'Marvel', 'DC Comics' match 'DC', etc.
+
+    'Media'/'Publications'/'Productions'/'Studios' were added after an Aug
+    2026 audit of needs_volume_id.json showed 'VIZ Media' vs CV's 'Viz',
+    'Fawcett Comics' vs CV's 'Fawcett Publications', 'Top Cow Comics' vs CV's
+    'Top Cow Productions', and 'Mirage Studios' vs CV's 'Mirage' silently
+    failing the publisher gate — same company, just a different generic
+    corporate-form word. These are safe to strip because they're generic
+    English words, not company-identifying — unlike e.g. aliasing 'Marvel' to
+    'Marvel UK', which would swallow a genuinely different regional licensee."""
     if not value:
         return ""
     s = value.strip().lower()
-    s = re.sub(r"\b(comics|entertainment|publishing|inc\.?|llc|ltd|company|co\.?)\b", "", s)
+    s = re.sub(
+        r"\b(comics|entertainment|publishing|publications|productions|studios|media|inc\.?|llc|ltd|company|co\.?)\b",
+        "",
+        s,
+    )
     s = re.sub(r"[^a-z0-9]+", "", s)
     return s
+
+
+# Same real-world publisher, catalogued by ComicVine under a different era's
+# masthead — verified against actual collisions in needs_volume_id.json
+# (Aug 2026 audit), NOT a general fuzzy/prefix match. Deliberately exact-set
+# membership only: a prefix check on "marvel" would wrongly swallow "Marvel
+# UK/Panini UK" (a real, frequent collision in the same audit) — a genuinely
+# different regional licensee whose issues don't correspond 1:1 to the US
+# run. Every pair below was individually confirmed to be the same publisher,
+# not a same-named-but-different reprint house.
+PUBLISHER_ALIASES: tuple[frozenset[str], ...] = (
+    frozenset({"goldkey", "western"}),  # Gold Key was Western Publishing's own imprint.
+    frozenset({"wildstorm", "dc"}),  # WildStorm was a DC imprint 1999-2010.
+    frozenset({"valiant", "valiantacclaim", "dmgvaliant"}),  # Same line under different owners/eras.
+    frozenset({"aspen", "aspenmlt"}),  # Aspen Comics is published by Aspen MLT, Inc.
+)
+
+
+def _publisher_aliases_match(target: str, candidate: str) -> bool:
+    return any(target in group and candidate in group for group in PUBLISHER_ALIASES)
 
 
 def _norm_title(value: str | None) -> str:
@@ -563,14 +596,27 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
     name_matches = [
         v for v in results if _norm_title(v.get("name")) == target_title
     ]
-    pub_matches = [
-        v
-        for v in name_matches
-        if not target_pub or _norm_publisher((v.get("publisher") or {}).get("name")) == target_pub
-    ]
+    def _pub_ok(v: dict) -> bool:
+        if not target_pub:
+            return True
+        cv_pub = _norm_publisher((v.get("publisher") or {}).get("name"))
+        return cv_pub == target_pub or _publisher_aliases_match(target_pub, cv_pub)
 
-    # If the user specified a publisher and no name+publisher match exists,
-    # refuse — better to skip than to upload a Spanish reprint as Marvel.
+    pub_matches = [v for v in name_matches if _pub_ok(v)]
+
+    # No ComicVine volume matched the TITLE at all (not a publisher problem —
+    # there's nothing to disambiguate to). Don't record to needs_volume_id.json
+    # (there's no candidate list to offer) and don't mark ambiguous, so the
+    # caller's not-found branch marks it done in the ledger instead of
+    # re-spending a search call on it every run forever.
+    if publisher and not name_matches:
+        return None
+
+    # Title matched, but none of those volumes are under the requested
+    # publisher (and no known alias covers the gap) — refuse rather than
+    # upload a Spanish reprint as Marvel. THIS is worth recording: a future
+    # matcher/alias improvement might resolve it, so it stays ambiguous
+    # (retried) instead of permanently done.
     if publisher and not pub_matches:
         observed_pubs: set[str] = set()
         for v in name_matches:
@@ -736,7 +782,6 @@ def update_series_cv_publisher(series_title: str | None, cv_publisher: str | Non
 # Cache for series_gcd_id lookups — same target shouldn't requery per issue.
 _SERIES_GCD_ID_CACHE: dict[tuple, int | None] = {}
 _GCD_ISSUES_BY_SERIES_CACHE: dict[int, list[dict]] = {}
-_GCD_PUBLISHER_NAMES_CACHE: dict[int, str] | None = None
 
 
 def _base_issue_number(value: object) -> str | None:
@@ -775,34 +820,6 @@ def _publishers_compatible(left: object, right: object) -> bool:
     return left_normalized == right_normalized
 
 
-def _gcd_publisher_names() -> dict[int, str]:
-    global _GCD_PUBLISHER_NAMES_CACHE
-    if _GCD_PUBLISHER_NAMES_CACHE is not None:
-        return _GCD_PUBLISHER_NAMES_CACHE
-    rows, offset, page_size = {}, 0, 1000
-    headers = {
-        "apikey": SUPABASE_SERVICE_ROLE_KEY,
-        "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
-    }
-    while True:
-        resp = requests.get(
-            f"{SUPABASE_URL}/rest/v1/gcd_publishers",
-            headers=headers,
-            params={"select": "gcd_id,name", "order": "gcd_id.asc", "limit": page_size, "offset": offset},
-            timeout=30,
-        )
-        if resp.status_code != 200:
-            break
-        page = resp.json() or []
-        for row in page:
-            rows[int(row["gcd_id"])] = row.get("name")
-        if len(page) < page_size:
-            break
-        offset += page_size
-    _GCD_PUBLISHER_NAMES_CACHE = rows
-    return rows
-
-
 def _resolve_series_gcd_id(
     target_name: str | None,
     cv_volume_name: str | None,
@@ -834,13 +851,13 @@ def _resolve_series_gcd_id(
                 "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
             }
             base_params = {
-                "select": "gcd_id,name,year_began,publisher_gcd_id",
-                "limit": "100",
+                "select": "gcd_id,title,year_start_cached,resolved_publisher_cached",
+                "gcd_id": "not.is.null", "limit": "100",
             }
             resp = requests.get(
-                f"{SUPABASE_URL}/rest/v1/gcd_series",
+                f"{SUPABASE_URL}/rest/v1/series",
                 headers=headers,
-                params={**base_params, "name": f"eq.{title}"},
+                params={**base_params, "title": f"eq.{title}"},
                 timeout=15,
             )
             if resp.status_code == 200 and resp.json():
@@ -849,16 +866,16 @@ def _resolve_series_gcd_id(
             normalized = _normalize_cover_match_title(title)
             pattern = "*" + "*".join(normalized.split()) + "*"
             resp = requests.get(
-                f"{SUPABASE_URL}/rest/v1/gcd_series",
+                f"{SUPABASE_URL}/rest/v1/series",
                 headers=headers,
-                params={**base_params, "name": f"ilike.{pattern}"},
+                params={**base_params, "title": f"ilike.{pattern}"},
                 timeout=15,
             )
             if resp.status_code != 200:
                 return []
             return [
                 row for row in (resp.json() or [])
-                if _normalize_cover_match_title(row.get("name")) == normalized
+                if _normalize_cover_match_title(row.get("title")) == normalized
             ]
         except Exception:
             return []
@@ -871,12 +888,9 @@ def _resolve_series_gcd_id(
                 break
 
     if publisher:
-        publisher_names = _gcd_publisher_names()
         candidates = [
             candidate for candidate in candidates
-            if _publishers_compatible(
-                publisher, publisher_names.get(int(candidate.get("publisher_gcd_id") or 0))
-            )
+            if _publishers_compatible(publisher, candidate.get("resolved_publisher_cached"))
         ]
 
     chosen = None
@@ -885,7 +899,7 @@ def _resolve_series_gcd_id(
     elif len(candidates) > 1 and year is not None:
         ranked = []
         for c in candidates:
-            ys = c.get("year_began")
+            ys = c.get("year_start_cached")
             if ys is None:
                 continue
             delta = abs(int(ys) - int(year))

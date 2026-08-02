@@ -1792,130 +1792,10 @@ input[type="file"] {
 }
 
 /* ==========================================================================
-   PATREON BANNER — site-wide, dismissible, Founding Collector campaign push
+   FOOTER FOUNDING CALLOUT — sits between the columns and the brand strip
    ========================================================================== */
 
-.patreon-banner {
-  position: relative;
-  background: linear-gradient(
-    90deg,
-    #f4d03f 0%,
-    #ffb84d 50%,
-    #f4d03f 100%
-  );
-  color: #0b1230;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  font-weight: 500;
-}
-
-.patreon-banner-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px clamp(1rem, 3vw, 2rem);
-}
-
-.patreon-banner-pill {
-  flex-shrink: 0;
-  background: #0b1230;
-  color: #f4d03f;
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 4px 9px;
-  border-radius: 999px;
-}
-
-.patreon-banner-copy {
-  flex: 1;
-  margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.45;
-  min-width: 0;
-}
-
-.patreon-banner-copy strong {
-  font-weight: 800;
-}
-
-.patreon-banner-cta {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  background: #0b1230;
-  color: #f4d03f;
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  padding: 8px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: transform 0.15s ease, filter 0.15s ease;
-}
-
-.patreon-banner-cta:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.15);
-}
-
-.patreon-banner-close {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  color: rgba(11, 18, 48, 0.7);
-  border: 0;
-  width: 28px;
-  height: 28px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.15s ease, color 0.15s ease;
-}
-
-.patreon-banner-close:hover {
-  background: rgba(11, 18, 48, 0.12);
-  color: #0b1230;
-}
-
-@media (max-width: 760px) {
-  .patreon-banner-inner {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .patreon-banner-copy {
-    flex: 1 1 100%;
-    order: 3;
-    font-size: 0.85rem;
-  }
-
-  .patreon-banner-pill {
-    order: 1;
-  }
-
-  .patreon-banner-cta {
-    order: 2;
-    margin-left: auto;
-  }
-
-  .patreon-banner-close {
-    order: 0;
-    margin-left: auto;
-  }
-}
-
-/* ==========================================================================
-   FOOTER PATREON CALLOUT — sits between the columns and the brand strip
-   ========================================================================== */
-
-.footer-patreon {
+.footer-founding {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1934,19 +1814,19 @@ input[type="file"] {
   transition: transform 0.15s ease, border-color 0.15s ease;
 }
 
-.footer-patreon:hover {
+.footer-founding:hover {
   transform: translateY(-2px);
   border-color: rgba(244, 208, 63, 0.7);
 }
 
-.footer-patreon-text {
+.footer-founding-text {
   display: flex;
   flex-direction: column;
   gap: 2px;
   min-width: 0;
 }
 
-.footer-patreon-kicker {
+.footer-founding-kicker {
   font-size: 0.65rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1954,18 +1834,18 @@ input[type="file"] {
   font-weight: 800;
 }
 
-.footer-patreon-headline {
+.footer-founding-headline {
   font-size: 1.05rem;
   font-weight: 700;
   color: #fff;
 }
 
-.footer-patreon-sub {
+.footer-founding-sub {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.65);
 }
 
-.footer-patreon-cta {
+.footer-founding-cta {
   flex-shrink: 0;
   background: var(--x-gold, #f4d03f);
   color: #000;
@@ -1978,11 +1858,11 @@ input[type="file"] {
 }
 
 @media (max-width: 540px) {
-  .footer-patreon {
+  .footer-founding {
     flex-direction: column;
     align-items: stretch;
   }
-  .footer-patreon-cta {
+  .footer-founding-cta {
     text-align: center;
   }
 }
@@ -9677,8 +9557,8 @@ button.nav-link {
 }
 
 .tier-card-founding {
-  border-color: rgba(168, 85, 247, 0.45);
-  background: rgba(168, 85, 247, 0.04);
+  border-color: rgba(74, 222, 128, 0.45);
+  background: rgba(74, 222, 128, 0.04);
 }
 
 .tier-card-tag {
@@ -9698,8 +9578,8 @@ button.nav-link {
 }
 
 .tier-card-founding .tier-card-tag {
-  background: #c084fc;
-  color: #1a0830;
+  background: #4ade80;
+  color: #062017;
 }
 
 .tier-card-name {
@@ -9793,14 +9673,14 @@ button.nav-link {
 }
 
 .tier-card-cta-founding {
-  background: rgba(168, 85, 247, 0.18);
-  color: #d8b4fe;
-  border-color: rgba(168, 85, 247, 0.4);
+  background: rgba(74, 222, 128, 0.18);
+  color: #86efac;
+  border-color: rgba(74, 222, 128, 0.4);
 }
 
 .tier-card-cta-founding:hover {
-  background: rgba(168, 85, 247, 0.28);
-  border-color: rgba(168, 85, 247, 0.6);
+  background: rgba(74, 222, 128, 0.28);
+  border-color: rgba(74, 222, 128, 0.6);
 }
 
 .tier-card-cta-disabled {

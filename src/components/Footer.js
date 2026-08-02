@@ -176,18 +176,18 @@ export default function Footer() {
 
         <Link
           href="/founding-collectors"
-          className="footer-patreon"
+          className="footer-founding"
         >
-          <div className="footer-patreon-text">
-            <span className="footer-patreon-kicker">Founding Collector</span>
-            <span className="footer-patreon-headline">
+          <div className="footer-founding-text">
+            <span className="footer-founding-kicker">Founding Collector</span>
+            <span className="footer-founding-headline">
               Free Pro for life
             </span>
-            <span className="footer-patreon-sub">
+            <span className="footer-founding-sub">
               Join while spots remain and your lifetime membership is automatic.
             </span>
           </div>
-          <span className="footer-patreon-cta">Join →</span>
+          <span className="footer-founding-cta">Join →</span>
         </Link>
 
         <div className="footer-divider" aria-hidden="true" />

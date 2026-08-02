@@ -24,8 +24,7 @@ export default async function CollectorsPage() {
     ]);
 
     const { data, error } = profilesResult;
-    const campaignClaims = Math.max(0, (countResult.count ?? 0) - 2);
-    const spotsRemaining = Math.max(0, 83 - campaignClaims);
+    const spotsRemaining = Math.max(0, 100 - (countResult.count ?? 0));
 
     if (error) {
       console.error("CollectorsPage profiles error:", error);

@@ -3,8 +3,6 @@ import { createClient } from "@supabase/supabase-js";
 import { getAuthedUser } from "@/lib/authServer";
 
 const CAP = 100;
-const RESERVED_BASELINE = 17;
-const LEGACY_DONORS = 2;
 const REQUIRED_BOOKS = 10;
 
 function getSupabase() {
@@ -20,9 +18,8 @@ async function getAvailability(supabase) {
     .select("id", { count: "exact", head: true })
     .eq("is_founding_collector", true);
   if (error) throw error;
-  const campaignClaims = Math.max(0, (Number(count) || 0) - LEGACY_DONORS);
-  const claimed = RESERVED_BASELINE + campaignClaims;
-  return { cap: CAP, claimed, remaining: Math.max(0, 83 - campaignClaims) };
+  const claimed = Number(count) || 0;
+  return { cap: CAP, claimed, remaining: Math.max(0, CAP - claimed) };
 }
 
 export async function GET(req) {

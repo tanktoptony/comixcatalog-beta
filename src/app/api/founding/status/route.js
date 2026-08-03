@@ -12,10 +12,14 @@ function getSupabase() {
 }
 
 async function getAvailability(supabase) {
+  // Must count actual founding-collector claims, not total signups — a
+  // regular (non-founding) signup was previously eating a founding slot in
+  // this count, which would eventually show "sold out" based on total users
+  // rather than actual claims.
   const { count, error } = await supabase
     .from("profiles")
     .select("id", { count: "exact", head: true })
-    .not("id", "is", null);
+    .eq("is_founding_collector", true);
   if (error) throw error;
   const claimed = Number(count) || 0;
   return { cap: CAP, claimed, remaining: Math.max(0, CAP - claimed) };

@@ -9529,8 +9529,8 @@ button.nav-link {
 
 .tier-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
   margin-top: 24px;
 }
 
@@ -9890,15 +9890,15 @@ button.nav-link {
   font-weight: 600;
   font-size: 0.85rem;
   text-decoration: none;
-  background: rgba(168, 85, 247, 0.12);
-  color: #d8b4fe;
-  border: 1px solid rgba(168, 85, 247, 0.35);
+  background: rgba(74, 222, 128, 0.12);
+  color: #86efac;
+  border: 1px solid rgba(74, 222, 128, 0.35);
   transition: 0.15s ease;
 }
 
 .tier-card-cta-alt:hover {
-  background: rgba(168, 85, 247, 0.22);
-  border-color: rgba(168, 85, 247, 0.55);
+  background: rgba(74, 222, 128, 0.22);
+  border-color: rgba(74, 222, 128, 0.55);
 }
 
 .tier-card-note {

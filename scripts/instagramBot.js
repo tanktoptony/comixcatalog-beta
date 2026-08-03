@@ -265,6 +265,33 @@ async function selectPost() {
   return null;
 }
 
+// Container creation returns immediately, but Instagram fetches + transcodes
+// the image asynchronously — status_code stays IN_PROGRESS until it's actually
+// ready. Publishing before that hits error 9007 ("media is not ready for
+// publishing"). Poll until FINISHED (or ERROR/EXPIRED) instead of publishing
+// right away.
+async function waitForContainerReady(containerId, token, { timeoutMs = 90000, intervalMs = 3000 } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  for (;;) {
+    const res = await fetch(
+      `https://graph.facebook.com/v21.0/${containerId}?` +
+        new URLSearchParams({ fields: "status_code", access_token: token })
+    );
+    const json = await res.json();
+    if (!res.ok) {
+      throw new Error(`Container status check failed: ${JSON.stringify(json)}`);
+    }
+    if (json.status_code === "FINISHED") return;
+    if (json.status_code === "ERROR" || json.status_code === "EXPIRED") {
+      throw new Error(`Media container failed to process: ${JSON.stringify(json)}`);
+    }
+    if (Date.now() >= deadline) {
+      throw new Error(`Media container never finished processing (last status_code=${json.status_code})`);
+    }
+    await new Promise((resolve) => setTimeout(resolve, intervalMs));
+  }
+}
+
 async function postToInstagram({ imageUrl, caption }) {
   const igUserId = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
   const token = process.env.INSTAGRAM_ACCESS_TOKEN;
@@ -281,6 +308,8 @@ async function postToInstagram({ imageUrl, caption }) {
   if (!createRes.ok || !createJson.id) {
     throw new Error(`Media container creation failed: ${JSON.stringify(createJson)}`);
   }
+
+  await waitForContainerReady(createJson.id, token);
 
   const publishRes = await fetch(
     `https://graph.facebook.com/v21.0/${igUserId}/media_publish?` +

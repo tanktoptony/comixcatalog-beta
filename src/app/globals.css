@@ -5895,7 +5895,8 @@ button.nav-link {
 /* ── Three-tier upgrade cards ──────────────────────────────── */
 .upgrade-tiers {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 420px));
+  justify-content: center;
   gap: 1.25rem;
   align-items: start;
   padding-top: 1rem;

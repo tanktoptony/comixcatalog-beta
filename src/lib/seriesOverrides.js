@@ -127,6 +127,33 @@ export const SERIES_OVERRIDES = {
   21643: { publisher: "Topps Comics" }, // 1995 Mars Attacks 7-issue mini (mislabeled IDW)
   46792: { publisher: "Topps Comics" }, // 1996 Mars Attacks one-shot (mislabeled IDW)
   5901: { publisher: "Topps Comics" }, // 1997 Xena: Warrior Princess 3-issue mini (mislabeled Dynamite)
+
+  // ── Absolute Universe (2024-2025) — duplicate GCD series rows ───────────
+  // Found 2026-08-03 investigating stale/wrong issue counts on the Absolute
+  // line. Each real ongoing series (Batman/Superman/Wonder Woman) has 3-5
+  // *other* `series` rows sharing the exact same title — issue_count 1 or 3,
+  // years null or a single 2025 year, no distinct subtitle. These are almost
+  // certainly GCD data-entry duplicates (alternate format/printing tracking
+  // records), not real distinct volumes: the cross-volume cover-claim logic
+  // in refreshSeriesSearchCache.js was assigning them the same cover as the
+  // real series (nothing else in canonical_covers matches their bogus
+  // title+year combo), and they clutter search with 4-6 near-identical
+  // results for one actual book. The real rows (kept, not overridden):
+  //   216143 Absolute Batman        (11+ issues, 2024-2025)
+  //   217177 Absolute Superman      (10+ issues, 2025)
+  //   216727 Absolute Wonder Woman  (10+ issues, 2024-2025)
+  226633: { hide: true }, // dup of Absolute Batman (216143) — 1 issue, 2025
+  226632: { hide: true }, // dup of Absolute Batman (216143) — 1 issue, 2025
+  225230: { hide: true }, // dup of Absolute Batman (216143) — 1 issue, 2025
+  224764: { hide: true }, // dup of Absolute Batman (216143) — 3 issues, no year
+  225372: { hide: true }, // dup of Absolute Batman (216143) — 1 issue, 2025
+  225232: { hide: true }, // dup of Absolute Superman (217177) — 1 issue, 2025
+  224766: { hide: true }, // dup of Absolute Superman (217177) — 3 issues, no year
+  226414: { hide: true }, // dup of Absolute Superman (217177) — 1 issue, no year
+  226794: { hide: true }, // dup of Absolute Wonder Woman (216727) — 1 issue, 2025
+  226793: { hide: true }, // dup of Absolute Wonder Woman (216727) — 1 issue, 2025
+  224767: { hide: true }, // dup of Absolute Wonder Woman (216727) — 3 issues, no year
+  225233: { hide: true }, // dup of Absolute Wonder Woman (216727) — 1 issue, 2025
 };
 
 // Look up an override by gcd_id (number or string-safe).

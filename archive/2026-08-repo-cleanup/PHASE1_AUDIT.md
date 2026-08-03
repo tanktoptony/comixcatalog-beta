@@ -1,6 +1,7 @@
 # Phase 1 Pre-Launch Audit
 
-> Page-by-page comparison of ComixCatalog against the Discogs reference in [NORTH_STAR.md](./NORTH_STAR.md).
+> Page-by-page comparison of ComixCatalog against the Discogs reference in [NORTH_STAR.md](../../docs/north-star/NORTH_STAR.md).
+> **Archived 2026-08-03:** Phase 1 is complete per CLAUDE.md. This audit's unchecked items are historical, not current blockers — see [archive README](./README.md).
 > Each page lists: **Discogs equivalent**, **current state**, **gaps**, and **priority** (P1 = launch blocker, P2 = soon-after, P3 = later phase).
 >
 > Use this as a checklist. Cross items off as they're addressed. Add new gaps as you spot them.

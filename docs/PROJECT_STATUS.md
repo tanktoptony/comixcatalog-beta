@@ -73,6 +73,14 @@ See `docs/LAUNCH_CHECKLIST.md` for the authoritative, evidence-tracked list. Hea
 - **Stripe** — test + live keys both present in `.env.local`; mode-sensitivity has caused bugs before (`stripe_customer_id` under the wrong mode).
 - **GCD data** — `gcd_issues`/`gcd_series` are a static mirror from an earlier bulk dump; no live incremental sync yet (see `docs/gcd-incremental-sync-plan.md`, status: planning).
 
+### Local cover-ingest policy (reviewed 2026-08-04)
+
+`scripts/ingest-loop.ps1` is **manual/occasional supplementary throughput**, not a durable service. Do not rely on it to survive reboots or stalls, and do not install it as a Windows Scheduled Task. The durable channel is `.github/workflows/cover-ingest.yml`, which runs every six hours with a 60-minute timeout and a concurrency guard.
+
+- Investigation found no ingest-related Scheduled Task. The local live log ended mid-Python invocation with an empty error log, which is consistent with an external termination or hung child rather than a catchable PowerShell exception.
+- The wrapper does not make child-process outcomes authoritative: PowerShell's `ErrorActionPreference = "Stop"` does not throw for a native `python` nonzero exit in this invocation pattern, and the loop records `$LASTEXITCODE` without failing on it. Some expected ingester stops (including exhausted ComicVine rate-limit retries) return exit 0. Adding restart-on-failure around those semantics would create misleading health signals and another machine-specific automation surface.
+- Start it manually only when extra local throughput is useful. Treat a stopped or stale log as an invitation to inspect and restart manually; GitHub Actions continues independently.
+
 ## 7. Operational state
 
 - Git: single contributor (occasionally multiple concurrent AI sessions under the same identity). Direct pushes to `main` are still allowed — see `docs/operations/engineering-workflow.md` — but a branch+PR convention now exists for non-trivial/risky changes, backed by `.github/workflows/pr-ci.yml` (lint/test/build/docs:check) and GitHub auto-merge on green. Not enforced via branch protection by design (2026-08-04).

@@ -1,6 +1,5 @@
-// Read-only planner for removing legacy `comics` rows that already have a
-// direct GCD issue identity. This intentionally has no apply mode: review the
-// output before adding or running a destructive migration.
+// Planner and guarded migration for removing legacy `comics` rows that already
+// have a direct GCD issue identity. Dry-run is the default.
 //
 // A row is eligible only when every independently checkable invariant holds:
 //   - comics.gcd_id resolves to gcd_issues.gcd_id
@@ -10,10 +9,12 @@
 //   - comics.created_by is null (never delete an attributed contribution)
 //
 // It also inventories collection references and cover rows attached to the
-// eligible set. No insert, update, delete, storage, or RPC call is made.
+// eligible set. Apply mode aborts unless the full scan is exception-free and
+// the operator confirms the exact eligible count.
 //
 // Usage:
 //   node --max-old-space-size=2048 scripts/planComicsGcdDedupe.js
+//   node --max-old-space-size=2048 scripts/planComicsGcdDedupe.js --apply --confirm=755161
 
 
 import dotenv from "dotenv";
@@ -27,6 +28,9 @@ import { createClient } from "@supabase/supabase-js";
 
 const PAGE_SIZE = 400;
 const SAMPLE_LIMIT = 20;
+const APPLY = process.argv.includes("--apply");
+const confirmArg = process.argv.find((arg) => arg.startsWith("--confirm="));
+const CONFIRMED_COUNT = confirmArg ? Number(confirmArg.split("=")[1]) : null;
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
 const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -96,7 +100,7 @@ function addSample(samples, row, reason, details = {}) {
 }
 
 async function run() {
-  console.log("MODE: read-only GCD-ID dedupe plan (this script has no apply mode)");
+  console.log(APPLY ? "MODE: APPLY GCD-ID dedupe" : "MODE: read-only GCD-ID dedupe plan");
 
   console.log("\nLoading collection references...");
   const collectionRows = await fetchAllById(
@@ -262,8 +266,81 @@ async function run() {
   console.log("\nEligible cover samples:");
   console.log(JSON.stringify(coverSamples, null, 2));
 
-  console.log("\nDry-run complete. No database or storage writes were attempted.");
-  console.log("Review these counts before implementing a separately approved apply phase.");
+  if (!APPLY) {
+    console.log("\nDry-run complete. No database or storage writes were attempted.");
+    console.log("Apply requires --apply plus --confirm=<exact eligible count>.");
+    return;
+  }
+
+  const rejected =
+    stats.attributed +
+    stats.missingGcdIssue +
+    stats.issueMismatch +
+    stats.missingLocalSeries +
+    stats.seriesMismatch;
+  const blockers = [];
+  if (!Number.isSafeInteger(CONFIRMED_COUNT) || CONFIRMED_COUNT < 1) {
+    blockers.push("missing or invalid --confirm=<exact eligible count>");
+  }
+  if (stats.eligible !== CONFIRMED_COUNT) {
+    blockers.push(`eligible count ${stats.eligible} does not equal confirmation ${CONFIRMED_COUNT}`);
+  }
+  if (rejected !== 0) blockers.push(`${rejected} GCD-linked rows failed identity checks`);
+  if (stats.collectionRefs !== 0) blockers.push(`${stats.collectionRefs} collection references exist`);
+  if (eligibleCoverRows !== 0) blockers.push(`${eligibleCoverRows} attached cover rows exist`);
+
+  if (blockers.length > 0) {
+    console.error("\nAPPLY ABORTED:");
+    for (const blocker of blockers) console.error(`  - ${blocker}`);
+    process.exitCode = 2;
+    return;
+  }
+
+  const ids = [...eligibleByComicId.keys()];
+  let deleted = 0;
+  console.log(`\nDeleting ${ids.length.toLocaleString()} fully validated legacy rows...`);
+  for (let i = 0; i < ids.length; i += PAGE_SIZE) {
+    const batch = ids.slice(i, i + PAGE_SIZE);
+    let lastError = null;
+    let complete = false;
+
+    for (let attempt = 1; attempt <= 3 && !complete; attempt += 1) {
+      const { data, error } = await supabase
+        .from("comics")
+        .delete()
+        .in("id", batch)
+        .select("id");
+      if (!error && (data ?? []).length === batch.length) {
+        complete = true;
+        break;
+      }
+
+      lastError = error ?? new Error(`delete returned ${(data ?? []).length}/${batch.length} rows`);
+      const { data: remaining, error: checkError } = await supabase
+        .from("comics")
+        .select("id")
+        .in("id", batch);
+      if (checkError) throw new Error(`delete verification failed: ${checkError.message}`);
+      if ((remaining ?? []).length === 0) {
+        complete = true;
+        break;
+      }
+      if (attempt < 3) await new Promise((resolve) => setTimeout(resolve, attempt * 1000));
+    }
+
+    if (!complete) {
+      throw new Error(
+        `delete batch ${i / PAGE_SIZE + 1} failed after retries: ${lastError?.message ?? lastError}`
+      );
+    }
+
+    deleted += batch.length;
+    if (deleted % 10000 < PAGE_SIZE) {
+      process.stdout.write(`  deleted ${deleted.toLocaleString()}/${ids.length.toLocaleString()}\r`);
+    }
+  }
+  process.stdout.write("\n");
+  console.log(`Apply complete: ${deleted.toLocaleString()} legacy comics deleted.`);
 }
 
 run().catch((error) => {

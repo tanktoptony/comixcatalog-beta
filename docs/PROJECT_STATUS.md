@@ -32,7 +32,7 @@ This is not a roadmap and not a pitch. It's a snapshot. Update `Last verified` w
 | `canonical_covers` | 106,983 | up from ~63k noted in CLAUDE.md's body text (Phase 2 body copy is stale — the header/strategy-plan number of "~90-96k" was closer) |
 | `market_comps` | 6,054 | **see §3 — CLAUDE.md says this table is empty; it isn't** |
 | `user_collections` | 681 | real usage, pre-launch beta scale |
-| `comics` (user/local-contributed) | 755,401 | **flagged below — CLAUDE.md says ~140 after May 2026 dedupe** |
+| `comics` (user/local-contributed) | 240 | legacy GCD-linked residue removed 2026-08-04; 209 rows have `created_by` |
 | `profiles` | 17 | all 17 currently show `is_pro = true` and `is_founding_collector = true` |
 
 Coverage metrics (live):
@@ -41,7 +41,7 @@ Coverage metrics (live):
 - `canonical_covers` with `gcd_issue_id` set: 44,882 / 106,983 (42%).
 - `canonical_covers` with `series_gcd_id` set: 87,276 / 106,983 (82%).
 
-**Open question, not investigated further (out of scope for this cleanup pass):** CLAUDE.md states the May 2026 dedupe (`scripts/dedupeComicsByContent.js`) removed 1.65M legacy rows and left `comics` at ~140 genuine user-contributed rows. Live count is 755,401. Either legacy rows were reintroduced by a later ingest, the dedupe didn't fully apply, or the doc's figure was wrong at the time. Worth a founder look before launch — it doesn't block subscription/PDF/valuation, but it means the doc's picture of `comics` table cleanliness is outdated.
+**Resolved 2026-08-04 — the May dedupe was partial, and the “~140” figure was not the post-dedupe table count.** Investigation showed 755,161 surviving rows had direct `gcd_id` links and predated the May cleanup; the named cover-ingestion paths do not write `comics`. A full-table dry-run and repeated apply-time validation confirmed every one of those rows against `gcd_issues`, normalized issue number, and the independent `series.gcd_id` bridge. All 755,161 had `created_by = null`, with zero `user_collections` references and zero attached `comic_covers`; they were deleted in verified batches. Post-delete audit: 240 `comics` rows remain, 209 are attributed, no `gcd_id` rows remain, and all 228 collection rows that reference local comics are unchanged. See `docs/operations/comics-gcd-dedupe-plan.md`.
 
 ## 3. Valuation pipeline — corrects CLAUDE.md
 
@@ -72,6 +72,14 @@ See `docs/LAUNCH_CHECKLIST.md` for the authoritative, evidence-tracked list. Hea
 - **ComicVine API** — free tier only, ~200 req/hour ceiling. Constrains cover-ingestion throughput.
 - **Stripe** — test + live keys both present in `.env.local`; mode-sensitivity has caused bugs before (`stripe_customer_id` under the wrong mode).
 - **GCD data** — `gcd_issues`/`gcd_series` are a static mirror from an earlier bulk dump; no live incremental sync yet (see `docs/gcd-incremental-sync-plan.md`, status: planning).
+
+### Local cover-ingest policy (reviewed 2026-08-04)
+
+`scripts/ingest-loop.ps1` is **manual/occasional supplementary throughput**, not a durable service. Do not rely on it to survive reboots or stalls, and do not install it as a Windows Scheduled Task. The durable channel is `.github/workflows/cover-ingest.yml`, which runs every six hours with a 60-minute timeout and a concurrency guard.
+
+- Investigation found no ingest-related Scheduled Task. The local live log ended mid-Python invocation with an empty error log, which is consistent with an external termination or hung child rather than a catchable PowerShell exception.
+- The wrapper does not make child-process outcomes authoritative: PowerShell's `ErrorActionPreference = "Stop"` does not throw for a native `python` nonzero exit in this invocation pattern, and the loop records `$LASTEXITCODE` without failing on it. Some expected ingester stops (including exhausted ComicVine rate-limit retries) return exit 0. Adding restart-on-failure around those semantics would create misleading health signals and another machine-specific automation surface.
+- Start it manually only when extra local throughput is useful. Treat a stopped or stale log as an invitation to inspect and restart manually; GitHub Actions continues independently.
 
 ## 7. Operational state
 

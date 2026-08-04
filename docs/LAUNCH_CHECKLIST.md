@@ -25,9 +25,9 @@ Every item needs Owner / Evidence / Last checked / Blocker filled in before it c
 
 - [ ] **Priority cover coverage >= 90%** (launch-priority universe: user collections, wantlists, featured titles, frequently searched series, current releases, high-value issues — NOT the full raw catalog)
   - Owner:
-  - Evidence: formal plan (2026-08-01) scored "Cover ingestion and linking" at 88% overall readiness. Live-queried 2026-08-03: 44,882/106,983 (42%) of `canonical_covers` have `gcd_issue_id`, 87,276/106,983 (82%) have `series_gcd_id`. These are global figures, not scoped to the launch-priority universe — someone needs to run the priority-scoped measurement `scripts/checkTargetSeriesCoverage.js` (or equivalent) against just that universe to get a real number against this gate.
-  - Last checked: 2026-08-03 (global figures only)
-  - Blocker: no priority-scoped measurement on record
+  - Evidence: post-repair live query found **18,182/25,391 issues covered (71.61%) across 168 de-duplicated series**, up from 17,165/25,391 (67.60%) immediately before the pass. The priority ingest processed 97 volumes and upserted 413 cover rows; shared issue numbers/variants produced 1,017 newly covered GCD issue rows. Universe: every GCD-resolvable series referenced by `user_collections` (owned/for-sale and wishlist split by status), all 79 curated entries resolved with `src/lib/featuredSeries.js` + `scripts/generateFeaturedGapTargets.js` title/publisher/nearest-year rules, its 15-entry current-heat tier, and series with a >=$100 user valuation or sold comp. Coverage used `scripts/checkTargetSeriesCoverage.js`'s normalized issue-number, ±1-year, publisher-gated rule. Details and known search/current-release limitations: `reports/priority-cover-coverage-2026-08-04.md`.
+  - Last checked: 2026-08-04 (priority-scoped live query)
+  - Blocker: measured coverage (71.61%) is 18.4 points below the 90% gate. Also unresolved: no live current-release or search-frequency signal (see report), so the true number could differ once those are added.
 
 - [ ] **Known publisher mismatches: 0**
   - Owner:

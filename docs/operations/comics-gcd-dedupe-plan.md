@@ -1,6 +1,6 @@
 # `comics` GCD-ID dedupe plan
 
-**Status:** dry-run verified; no deletion authorized or performed  
+**Status:** completed and post-delete verified
 **Verified:** 2026-08-04
 
 ## Result
@@ -24,8 +24,26 @@ also excludes any row with `created_by` set.
 
 ## Safety boundary
 
-The planner contains no apply mode and makes SELECT calls only. A destructive
-phase should be a separate reviewed change. It can delete the verified set
-without collection rewiring or cover preservation, but it must repeat the same
-eligibility checks immediately before deletion and abort if any rejection,
-collection reference, or cover attachment appears.
+Dry-run is the default and makes SELECT calls only. Destructive mode requires
+both `--apply` and `--confirm=<exact eligible count>`. It repeats the complete
+eligibility scan immediately before deletion and aborts if the count changes or
+if any rejection, collection reference, or cover attachment appears. Deletion
+then runs in bounded, verified, retryable batches.
+
+## Applied result
+
+The guarded apply completed on 2026-08-04 and deleted all 755,161 eligible
+legacy rows. The post-delete production audit found:
+
+- 240 `comics` rows remain; 209 have `created_by` set.
+- Zero remaining `comics` rows have `gcd_id` set.
+- All 228 `user_collections` rows referencing local comics remain unchanged.
+- The sampled deleted legacy URL returns 404, while its canonical GCD issue
+  remains available.
+
+During manual spot-checking, Green Lantern ComicVine volume 4363 was also found
+to have its covers fragmented across incorrect same-title GCD series. The
+targeted `repairCanonicalCoverVolumeLinks.js` repair retagged 176 rows to the
+verified Green Lantern GCD series 3986 (7 were already correct). Production
+coverage improved from 7 to 180 covered issues out of 182; the two uncovered
+entries are specially numbered variants.

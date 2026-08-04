@@ -8,13 +8,21 @@ import { getAuthedUser } from "@/lib/authServer";
 // for both the 1984 Mirage volume and the 2011 IDW volume. We reject any cover
 // whose series_year (the year ITS volume began) falls outside this issue's
 // series year span — the same guard /api/series/[id] applies — so an old issue
-// can't pick up a modern-reboot cover. Covers with a null series_year are kept
-// (can't disambiguate) and left to pickBestCoverRow's year ranking.
+// can't pick up a modern-reboot cover.
+//
+// Covers with a null series_year used to be kept regardless ("can't
+// disambiguate, let pickBestCoverRow's date ranking sort it out") — that was
+// the bug behind Nova (1994) #4 showing the 2013 Marvel NOW! cover: Nova has
+// 17 distinct volumes sharing the title, the only title-matched candidate for
+// that issue had series_year=null, so it sailed through untested and became
+// the only (wrong) option pickBestCoverRow ever saw. /api/series/[id] never
+// had this hole — it already requires a non-null, in-span series_year. Match
+// that here: a candidate we can't place in a volume is excluded, not kept.
 const COVER_YEAR_TOLERANCE = 1;
 
 function inSeriesSpan(row, seriesYearMin, seriesYearMax) {
   if (seriesYearMin == null || seriesYearMax == null) return true;
-  if (row.series_year == null) return true;
+  if (row.series_year == null) return false;
   const sy = Number(row.series_year);
   return (
     sy >= seriesYearMin - COVER_YEAR_TOLERANCE &&

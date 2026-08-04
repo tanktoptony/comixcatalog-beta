@@ -26,21 +26,31 @@ function git(args) {
 
 // --- args ---------------------------------------------------------------
 
-const sinceArg = (process.argv.find((a) => a.startsWith("--since=")) || "--since=24h").slice(
+const rawSinceArg = (process.argv.find((a) => a.startsWith("--since=")) || "--since=24h").slice(
   "--since=".length
 );
+
+// git's --since doesn't understand bare shorthand like "24h"/"2d" — it wants
+// approxidate syntax ("24 hours ago"). Silently returns zero commits rather
+// than erroring on an unparseable date, so this was a real bug (not just a
+// style nit): translate the documented shorthand into what git actually
+// accepts, rather than let it fail quiet-wrong.
+const shorthandMatch = /^(\d+)([hd])$/.exec(rawSinceArg);
+const sinceArg = shorthandMatch
+  ? `${shorthandMatch[1]} ${shorthandMatch[2] === "h" ? "hours" : "days"} ago`
+  : rawSinceArg;
 
 // A ref (commit SHA / branch / tag) walks `<ref>..HEAD`; anything else is
 // treated as a `git log --since=` date expression ("24h", "2026-08-03", ...).
 let revRange;
 let sinceLabel;
 try {
-  git(["rev-parse", "--verify", "--quiet", `${sinceArg}^{commit}`]);
-  revRange = [`${sinceArg}..HEAD`];
-  sinceLabel = `since ${sinceArg}`;
+  git(["rev-parse", "--verify", "--quiet", `${rawSinceArg}^{commit}`]);
+  revRange = [`${rawSinceArg}..HEAD`];
+  sinceLabel = `since ${rawSinceArg}`;
 } catch {
   revRange = ["HEAD", `--since=${sinceArg}`];
-  sinceLabel = `in the last ${sinceArg}`;
+  sinceLabel = `in the last ${rawSinceArg}`;
 }
 
 // --- risk classification -------------------------------------------------
@@ -98,17 +108,24 @@ function commitRisk(files) {
 // --- gather commits --------------------------------------------------------
 
 const SEP = "\x1e"; // record separator, unlikely to appear in a commit message
+// --first-parent walks only the mainline: a merge commit shows up once, not
+// again for each individual commit it brought in (this repo's PR/worktree
+// convention lands most changes as merges, not --no-merges squashes).
 const log = git([
   "log",
   ...revRange,
-  "--no-merges",
+  "--first-parent",
   `--format=%H${SEP}%an${SEP}%ai${SEP}%s`,
 ]).trim();
 
 const commits = log
   ? log.split("\n").map((line) => {
       const [sha, author, date, subject] = line.split(SEP);
-      const files = git(["diff-tree", "--no-commit-id", "--name-only", "-r", sha])
+      // Diff against the first parent specifically (not `diff-tree -r`, which
+      // shows nothing for a merge commit unless told how to handle multiple
+      // parents) — this is "what did landing this commit/merge change on
+      // mainline," which works the same way for a regular commit too.
+      const files = git(["diff", "--name-only", `${sha}^`, sha])
         .trim()
         .split("\n")
         .filter(Boolean);

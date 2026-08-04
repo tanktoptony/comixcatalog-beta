@@ -13,10 +13,11 @@ name: Cover ingest
 #                   (under the 2000-min private-repo cap; unlimited if public).
 #
 # What runs each cycle:
-#   1. gap-featured.json   — homepage carousel curated picks (highest UX impact)
-#   2. gap-manual.json     — ad-hoc adds (Batman/Joker style targeted hunts)
-#   3. gap-width.json      — broadens coverage across new series
-#   4. gap-depth.json      — fills in issues for series we already cover
+#   1. gap-priority.json   — live launch-gate universe (highest impact)
+#   2. gap-featured.json   — homepage carousel curated picks
+#   3. gap-manual.json     — ad-hoc adds (Batman/Joker style targeted hunts)
+#   4. gap-width.json      — broadens coverage across new series
+#   5. gap-depth.json      — fills in issues for series we already cover
 #
 # Persistence:
 #   .ingest-done.json (ledger of completed targets) is cached between runs
@@ -91,10 +92,15 @@ jobs:
             echo "Ledger empty — starting fresh."
           fi
 
-      # Cycle: featured → manual → width → depth.
+      # Cycle: launch priority → featured → manual → width → depth.
       # Each step uses --max-search-calls 180 and --skip-existing so
       # already-covered targets cost ~0 requests. continue-on-error lets a
       # failing step (rate-limit, transient 5xx) not block the next file.
+      - name: Ingest launch-priority gap targets
+        if: hashFiles('gap-priority.json') != ''
+        continue-on-error: true
+        run: python comicvine_api_to_supabase.py --targets gap-priority.json --skip-existing --max-search-calls 180 --vol-sleep 1.0
+
       - name: Ingest featured-gap targets
         if: hashFiles('gap-featured.json') != ''
         continue-on-error: true

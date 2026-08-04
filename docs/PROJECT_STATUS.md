@@ -75,6 +75,7 @@ See `docs/LAUNCH_CHECKLIST.md` for the authoritative, evidence-tracked list. Hea
 
 ## 7. Operational state
 
-- Git: single contributor, commits go straight to `main`, no open-PR review workflow currently in use.
-- GitHub Actions: `weekly-refresh.yml`, `cover-ingest.yml`, `gap-probe.yml`, `instagram-post.yml` — all scheduled/cron-triggered, not PR-triggered. No CI runs on push/PR today.
+- Git: single contributor (occasionally multiple concurrent AI sessions under the same identity). Direct pushes to `main` are still allowed — see `docs/operations/engineering-workflow.md` — but a branch+PR convention now exists for non-trivial/risky changes, backed by `.github/workflows/pr-ci.yml` (lint/test/build/docs:check) and GitHub auto-merge on green. Not enforced via branch protection by design (2026-08-04).
+- GitHub Actions: `weekly-refresh.yml`, `cover-ingest.yml`, `gap-probe.yml`, `instagram-post.yml` — scheduled/cron-triggered. `pr-ci.yml` is the first PR-triggered workflow (2026-08-04).
+- On-demand engineering report: `npm run report:engineering` — git-native risk/collision report, see `docs/operations/engineering-workflow.md`.
 - Working tree as of this writing has unrelated in-progress edits (CLAUDE.md, several `src/app` layout/page files, two scripts) — not part of this cleanup, left untouched.

@@ -1,0 +1,69 @@
+name: PR checks
+
+# Runs on every PR into main. This repo doesn't require PRs (see
+# docs/operations/engineering-workflow.md) — direct pushes to main still
+# work — but when a PR is opened, these checks gate GitHub's "auto-merge"
+# so it actually waits for something before landing the change.
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+# Read-only: none of lint/test/build/docs:check write to the database or
+# need repo write access.
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      # `next build` prerenders some pages server-side and crashes with
+      # "supabaseUrl is required" if these are unset (confirmed locally —
+      # see src/lib/supabase/client.js and server.js). Both are the public
+      # anon key pair already exposed to browsers in production, not the
+      # service-role secret, so this workflow's blast radius stays read-only.
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history so the lint step below can diff against the base
+          # branch. A shallow (default) checkout has no merge-base to diff
+          # against.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      # Repo-wide `npm run lint` currently fails on ~29 pre-existing errors
+      # unrelated to any given PR (confirmed 2026-08-04) — running it
+      # unscoped would make every PR permanently red and auto-merge would
+      # never fire. Lint only the JS/JSX files the PR actually touches
+      # instead; fixing the pre-existing backlog is separate, tracked work.
+      - name: Lint changed files
+        run: |
+          CHANGED=$(git diff --name-only --diff-filter=ACMR "origin/${{ github.base_ref }}"...HEAD -- '*.js' '*.jsx')
+          if [ -z "$CHANGED" ]; then
+            echo "No JS/JSX changes in this PR — skipping lint."
+          else
+            echo "$CHANGED"
+            npx eslint $CHANGED
+          fi
+
+      - name: Cover-match tests
+        run: npm run test:cover-match
+
+      - name: Build
+        run: npm run build
+
+      - name: Docs link check
+        run: npm run docs:check

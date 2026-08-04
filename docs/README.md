@@ -22,6 +22,7 @@ A document must never claim something is shipped just because an earlier session
 | What's blocking the Aug 31–Sep 11 launch? | [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) |
 | Schema, domain vocabulary, engineering gotchas | [CLAUDE.md](../CLAUDE.md) |
 | What's the product direction long-term? | [north-star/NORTH_STAR.md](north-star/NORTH_STAR.md) |
+| How do branches/PRs work here, how do I get an engineering report? | [operations/engineering-workflow.md](operations/engineering-workflow.md) |
 
 ## Active specs
 
@@ -33,6 +34,10 @@ These describe work that's still in progress or planned, each with its own statu
 - [stripe-testing-guide.md](stripe-testing-guide.md) — manual QA checklist for the Pro subscription flow. Should be re-walked as part of the "Payment lifecycle tests" launch gate.
 - [unify-library-profile.md](unify-library-profile.md) — labeled "design" status as of June 2026; verify against current `/library` and `/u/[username]` code before treating any of it as done.
 - [marketplace-launch-spec.md](marketplace-launch-spec.md) — **post-launch scope.** Targets Phase 4 (Nov 2026 per CLAUDE.md). Not a September launch dependency — see LAUNCH_CHECKLIST.md's out-of-scope section.
+
+## Operations
+
+- [operations/engineering-workflow.md](operations/engineering-workflow.md) — branch/PR convention (soft, not enforced), `pr-ci.yml`, and the on-demand `npm run report:engineering` script.
 
 ## Session reviews
 

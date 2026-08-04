@@ -46,9 +46,14 @@ next-env.d.ts
 /.claude/
 codebase.txt
 
+# per-task git worktrees for running concurrent agents in isolation —
+# see docs/operations/engineering-workflow.md
+/.worktrees/
+
 # local pipeline/runtime state
 __pycache__/
 *.py[cod]
 /reports/
 /comicvine_api_output/ingest-loop-*.log
 /scripts/tony_stack_targets.json
+/scripts/fixtures/valuation-calibration-sample.json

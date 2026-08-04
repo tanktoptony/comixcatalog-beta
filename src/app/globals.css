@@ -7370,6 +7370,39 @@ button.nav-link {
   color: #fff;
   font-weight: 700;
 }
+.blog-post-body .md-figure {
+  margin: 8px 0 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.blog-post-body .md-figure-link {
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.blog-post-body .md-figure-link:hover {
+  transform: translateY(-2px);
+}
+.blog-post-body .md-img {
+  max-width: 220px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(244, 208, 63, 0.25);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  display: block;
+}
+.blog-post-body .md-figure-link:hover .md-img {
+  border-color: rgba(244, 208, 63, 0.6);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(244, 208, 63, 0.15);
+}
+.blog-post-body .md-figcaption {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--x-gold);
+  letter-spacing: 0.01em;
+}
 
 /* ── Comments thread ── */
 

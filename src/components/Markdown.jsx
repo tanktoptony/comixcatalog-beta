@@ -8,6 +8,7 @@
  *   - **bold** and *italic* inline
  *   - [label](url) links
  *   - `inline code`
+ *   - standalone image lines: ![alt](src) or a linked image [![alt](src)](href)
  *
  * Renders to React elements (not HTML), so user content is automatically
  * escaped. Swap to `react-markdown` later if you need full CommonMark.
@@ -44,6 +45,24 @@ function parseBlocks(src) {
       continue;
     }
 
+    const linkedImageMatch = line
+      .trim()
+      .match(/^\[!\[([^\]]*)\]\(([^)]+)\)\]\(([^)]+)\)$/);
+    if (linkedImageMatch) {
+      const [, alt, src, href] = linkedImageMatch;
+      blocks.push({ type: "img", alt, src, href });
+      i += 1;
+      continue;
+    }
+
+    const imageMatch = line.trim().match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (imageMatch) {
+      const [, alt, src] = imageMatch;
+      blocks.push({ type: "img", alt, src, href: null });
+      i += 1;
+      continue;
+    }
+
     if (/^[-*]\s+/.test(line)) {
       const items = [];
       while (i < lines.length && /^[-*]\s+/.test(lines[i])) {
@@ -62,7 +81,8 @@ function parseBlocks(src) {
       lines[i].trim() &&
       !lines[i].startsWith("## ") &&
       !lines[i].startsWith("### ") &&
-      !/^[-*]\s+/.test(lines[i])
+      !/^[-*]\s+/.test(lines[i]) &&
+      !/^\[?!\[[^\]]*\]\([^)]+\)\]?(\([^)]+\))?$/.test(lines[i].trim())
     ) {
       para.push(lines[i]);
       i += 1;
@@ -89,6 +109,21 @@ function renderBlock(block, key) {
       );
     case "p":
       return <p key={key} className="md-p">{renderInline(block.text)}</p>;
+    case "img": {
+      const img = <img src={block.src} alt={block.alt || ""} className="md-img" loading="lazy" />;
+      return (
+        <figure key={key} className="md-figure">
+          {block.href ? (
+            <a href={block.href} className="md-figure-link">
+              {img}
+            </a>
+          ) : (
+            img
+          )}
+          {block.alt && <figcaption className="md-figcaption">{block.alt}</figcaption>}
+        </figure>
+      );
+    }
     default:
       return null;
   }

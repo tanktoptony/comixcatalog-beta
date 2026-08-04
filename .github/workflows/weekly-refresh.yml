@@ -79,17 +79,21 @@ jobs:
       - name: Regenerate featured gap targets
         run: node scripts/generateFeaturedGapTargets.js
 
-      # Diff-only commit. If nothing changed (no new covers, no new gaps),
-      # this no-ops. If something did change, the gap-featured.json gets
-      # committed so the file in main reflects current state.
+      # Rebuild the launch-gate queue from current collections, wantlists,
+      # featured/current-heat titles, valuations, comps and cover state.
+      - name: Regenerate launch-priority gap targets
+        run: node scripts/generatePriorityCoverTargets.js
+
+      # Diff-only commit. If nothing changed (no new covers or gaps), this
+      # no-ops. Otherwise both tracked queues in main reflect current state.
       - name: Commit gap targets if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [[ -n "$(git status --porcelain gap-featured.json)" ]]; then
-            git add gap-featured.json
-            git commit -m "chore: weekly featured-gap targets refresh"
+          if [[ -n "$(git status --porcelain gap-featured.json gap-priority.json)" ]]; then
+            git add gap-featured.json gap-priority.json
+            git commit -m "chore: weekly cover-gap targets refresh"
             git push
           else
-            echo "No featured-gap changes this week."
+            echo "No cover-gap changes this week."
           fi

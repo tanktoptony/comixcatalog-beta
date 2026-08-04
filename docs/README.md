@@ -34,6 +34,12 @@ These describe work that's still in progress or planned, each with its own statu
 - [unify-library-profile.md](unify-library-profile.md) — labeled "design" status as of June 2026; verify against current `/library` and `/u/[username]` code before treating any of it as done.
 - [marketplace-launch-spec.md](marketplace-launch-spec.md) — **post-launch scope.** Targets Phase 4 (Nov 2026 per CLAUDE.md). Not a September launch dependency — see LAUNCH_CHECKLIST.md's out-of-scope section.
 
+## Session reviews
+
+Dated, point-in-time records — not living status docs (those are PROJECT_STATUS.md / LAUNCH_CHECKLIST.md above) and not specs. Each covers a specific day/session's commits with a review and a next-steps list; superseded by newer reviews, not updated in place.
+
+- [2026-08-03-review-and-next-steps.md](2026-08-03-review-and-next-steps.md) — full-day review across two concurrent AI sessions (14 commits: cover-ingest ledger/matching fixes, Instagram bot fixes, orphaned-series-row fix + backfill, pricing CSS, Absolute-line dedup, docs restructure). Full detail in `reports/ComixCatalog-Daily-Report-2026-08-03.pdf` (local only).
+
 ## Agent task templates
 
 Self-contained prompts meant to be pasted into a fresh agent session, not status documents.

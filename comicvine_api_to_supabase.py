@@ -937,7 +937,10 @@ def _resolve_series_gcd_id(
             if candidates:
                 break
 
-    if publisher:
+    # A sole title match is already unambiguous. Publisher metadata is strict
+    # (missing values and unknown imprints are incompatible), so only use it
+    # to disambiguate when there is actually more than one candidate.
+    if publisher and len(candidates) > 1:
         candidates = [
             candidate for candidate in candidates
             if _publishers_compatible(publisher, candidate.get("resolved_publisher_cached"))

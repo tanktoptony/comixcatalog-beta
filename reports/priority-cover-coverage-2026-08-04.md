@@ -2,7 +2,9 @@
 
 ## Result
 
-The measurable launch-priority universe is **17,035 / 25,241 issues covered (67.49%)** across **166 distinct GCD series**. The gate requires at least 90%, so it is not met.
+After the priority repair pass, the measurable launch-priority universe is **18,182 / 25,391 issues covered (71.61%)** across **168 distinct GCD series**. The gate requires at least 90%, so it is not met.
+
+The table below is the pre-repair baseline captured earlier the same day; live collection activity subsequently moved the denominator from 25,241 to 25,391 issues and the universe from 166 to 168 series.
 
 | Priority source | Distinct series | Covered issues | Total issues | Coverage |
 | --- | ---: | ---: | ---: | ---: |
@@ -14,6 +16,12 @@ The measurable launch-priority universe is **17,035 / 25,241 issues covered (67.
 | De-duplicated union | 166 | 17,035 | 25,241 | 67.49% |
 
 Category rows overlap. Only the de-duplicated union is the gate numerator and denominator.
+
+## Repair pass
+
+`scripts/generatePriorityCoverTargets.js` regenerated the same measurable universe at 17,165/25,391 (67.60%) and produced 106 series targets. `comicvine_api_to_supabase.py --targets gap-priority.json --skip-existing` then processed 97 volumes, skipped nine ledger-complete targets, upserted 413 cover rows, and left three ambiguous targets for manual volume selection. The post-run generator measured 18,182/25,391 (71.61%), a gain of 1,017 covered GCD issue rows or 4.01 percentage points. Shared issue numbers and GCD variants allow one new canonical cover to satisfy more than one denominator row.
+
+The reduced live queue contains 98 series. It is committed as `gap-priority.json`, runs before generic queues in `.github/workflows/cover-ingest.yml`, and is regenerated weekly by `.github/workflows/weekly-refresh.yml`.
 
 ## Universe derivation
 

@@ -157,7 +157,7 @@ function renderInline(text) {
     }
     const token = m[0];
     if (token.startsWith("**")) {
-      out.push(<strong key={key++}>{token.slice(2, -2)}</strong>);
+      out.push(<strong key={key++}>{renderInline(token.slice(2, -2))}</strong>);
     } else if (token.startsWith("`")) {
       out.push(<code key={key++} className="md-code">{token.slice(1, -1)}</code>);
     } else if (token.startsWith("[")) {
@@ -179,7 +179,7 @@ function renderInline(text) {
         out.push(token);
       }
     } else if (token.startsWith("*")) {
-      out.push(<em key={key++}>{token.slice(1, -1)}</em>);
+      out.push(<em key={key++}>{renderInline(token.slice(1, -1))}</em>);
     }
     lastIndex = m.index + token.length;
   }

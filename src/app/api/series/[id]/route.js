@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "@/lib/publisher";
+import { stripPunctuation } from "@/lib/titleMatch";
 
 function parseYear(value) {
   if (!value) return null;
@@ -218,6 +219,21 @@ export async function GET(req, context) {
             .eq("series_title", series.title)
             .is("series_gcd_id", null)
         );
+
+        // Punctuation variant — ComicVine frequently drops colons/commas GCD
+        // keeps ("DC Comics: Bombshells" → "DC Comics Bombshells"), which
+        // silently stranded every cover for that title from this exact-match
+        // lookup. Only queried when it actually differs from the raw title.
+        const strippedTitle = stripPunctuation(series.title);
+        if (strippedTitle && strippedTitle !== series.title) {
+          queries.push(
+            supabase
+              .from("canonical_covers")
+              .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
+              .eq("series_title", strippedTitle)
+              .is("series_gcd_id", null)
+          );
+        }
       }
       const settled = await Promise.all(queries);
       const merged = new Map();

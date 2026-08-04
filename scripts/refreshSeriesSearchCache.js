@@ -17,6 +17,7 @@ dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "../src/lib/publisher.js";
 import { getSeriesOverride } from "../src/lib/seriesOverrides.js";
+import { normTitle, stripPunctuation } from "../src/lib/titleMatch.js";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -130,20 +131,12 @@ function bestYearFor(row) {
   return parseYear(row.publication_date) ?? parseYear(row.key_date);
 }
 
-// Normalized title key for matching `series.title` against
-// `canonical_covers.series_title`. GCD (which feeds `series`) tends to drop the
-// leading article — "Flash", "Amazing Spider-Man" — while ComicVine (which
-// feeds canonical_covers) keeps it — "The Flash", "The Amazing Spider-Man". A
-// raw lowercased compare left 723 "The Flash" covers stranded from ~25 "Flash"
-// series rows (and the same across the catalog), tanking coverage. Strip a
-// leading "the " and collapse whitespace on BOTH sides so they line up. Kept
-// conservative — the year-span scorer + per-volume `claimed` set still prevent
-// a same-normalized-title cover from landing on the wrong era/volume.
-function normTitle(value) {
-  let s = String(value ?? "").trim().toLowerCase();
-  if (s.startsWith("the ")) s = s.slice(4);
-  return s.replace(/\s+/g, " ");
-}
+// normTitle()/stripPunctuation() imported from ../src/lib/titleMatch.js —
+// shared with src/app/api/series/[id]/route.js. Handles two known GCD-vs-
+// ComicVine title disagreements: leading article ("The Flash" vs "Flash")
+// and punctuation ("DC Comics: Bombshells" vs "DC Comics Bombshells"). Kept
+// conservative — the year-span scorer + per-volume `claimed` set still
+// prevent a same-normalized-title cover from landing on the wrong era/volume.
 
 // In --force mode we walk the table by id cursor instead of filtering on
 // search_refreshed_at, so the script can chew through everything without
@@ -261,6 +254,12 @@ async function processBatch(seriesBatch) {
         const variants = [t];
         if (/^the\s+/i.test(t)) variants.push(t.replace(/^the\s+/i, ""));
         else variants.push(`The ${t}`);
+        // Punctuation variant — ComicVine frequently drops colons/commas
+        // GCD keeps ("DC Comics: Bombshells" → "DC Comics Bombshells").
+        // Only add it when it actually differs, to avoid a redundant
+        // duplicate entry in the .in() list for the common case.
+        const stripped = stripPunctuation(t);
+        if (stripped && stripped !== t) variants.push(stripped);
         return variants;
       })
     ),

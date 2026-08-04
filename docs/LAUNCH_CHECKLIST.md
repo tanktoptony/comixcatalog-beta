@@ -27,7 +27,7 @@ Every item needs Owner / Evidence / Last checked / Blocker filled in before it c
   - Owner:
   - Evidence: live read-only priority query found **17,035/25,241 issues covered (67.49%) across 166 de-duplicated series**. Universe: every GCD-resolvable series referenced by `user_collections` (owned/for-sale and wishlist split by status), all 79 curated entries resolved with `src/lib/featuredSeries.js` + `scripts/generateFeaturedGapTargets.js` title/publisher/nearest-year rules, its 15-entry current-heat tier, and series with a >=$100 user valuation or sold comp. Coverage used `scripts/checkTargetSeriesCoverage.js`'s normalized issue-number, ±1-year, publisher-gated rule. A 14-day live `gcd_issues` current-release query returned no rows; frequently searched series are not persisted/queryable (browser-only Google Analytics), so both limitations are explicit in the falsifiable report: `reports/priority-cover-coverage-2026-08-04.md`.
   - Last checked: 2026-08-04 (priority-scoped live query)
-  - Blocker: no priority-scoped measurement on record
+  - Blocker: measured coverage (67.49%) is 22.5 points below the 90% gate — not a measurement gap anymore, a real coverage gap. Also unresolved: no live current-release or search-frequency signal (see report), so the true number could differ once those are added.
 
 - [ ] **Known publisher mismatches: 0**
   - Owner:

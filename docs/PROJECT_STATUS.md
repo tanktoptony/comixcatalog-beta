@@ -41,7 +41,7 @@ Coverage metrics (live):
 - `canonical_covers` with `gcd_issue_id` set: 44,882 / 106,983 (42%).
 - `canonical_covers` with `series_gcd_id` set: 87,276 / 106,983 (82%).
 
-**Open question, not investigated further (out of scope for this cleanup pass):** CLAUDE.md states the May 2026 dedupe (`scripts/dedupeComicsByContent.js`) removed 1.65M legacy rows and left `comics` at ~140 genuine user-contributed rows. Live count is 755,401. Either legacy rows were reintroduced by a later ingest, the dedupe didn't fully apply, or the doc's figure was wrong at the time. Worth a founder look before launch — it doesn't block subscription/PDF/valuation, but it means the doc's picture of `comics` table cleanliness is outdated.
+**Investigated 2026-08-04 — the dedupe was partial, and the “~140” figure was not the post-dedupe table count.** `scripts/dedupeComicsByContent.js` is a manually invoked, one-time migration (`--apply` enables writes; no workflow schedules it). It deleted only rows that its conservative title + issue + optional-year matcher could map unambiguously to `gcd_issues`; unmatched rows were intentionally retained. Live read-only counts show 755,401 rows, of which 755,250 predate the dedupe commit, 755,161 have a non-null `gcd_id`, 755,311 have a null `series_title`, and 755,192 have a null `created_by`. Only 151 rows were created on or after 2026-05-16, and all 151 have a real `created_by`, so later ingestion cannot explain the 755k residue. The named ingestion paths also do not write `comics`: `cover-ingest.yml` runs `comicvine_api_to_supabase.py`, whose default/used target is `canonical_covers`, while `gap-probe.yml` only updates `gap-manual.json`. Conclusion: roughly 755k legacy-shaped rows survived the May content match; they were not reintroduced afterward. The script would be broadly idempotent if rerun, but a new dry-run/dedupe decision is intentionally deferred because its deletes and collection rewiring are high-risk.
 
 ## 3. Valuation pipeline — corrects CLAUDE.md
 
@@ -83,6 +83,7 @@ See `docs/LAUNCH_CHECKLIST.md` for the authoritative, evidence-tracked list. Hea
 
 ## 7. Operational state
 
-- Git: single contributor, commits go straight to `main`, no open-PR review workflow currently in use.
-- GitHub Actions: `weekly-refresh.yml`, `cover-ingest.yml`, `gap-probe.yml`, `instagram-post.yml` — all scheduled/cron-triggered, not PR-triggered. No CI runs on push/PR today.
+- Git: single contributor (occasionally multiple concurrent AI sessions under the same identity). Direct pushes to `main` are still allowed — see `docs/operations/engineering-workflow.md` — but a branch+PR convention now exists for non-trivial/risky changes, backed by `.github/workflows/pr-ci.yml` (lint/test/build/docs:check) and GitHub auto-merge on green. Not enforced via branch protection by design (2026-08-04).
+- GitHub Actions: `weekly-refresh.yml`, `cover-ingest.yml`, `gap-probe.yml`, `instagram-post.yml` — scheduled/cron-triggered. `pr-ci.yml` is the first PR-triggered workflow (2026-08-04).
+- On-demand engineering report: `npm run report:engineering` — git-native risk/collision report, see `docs/operations/engineering-workflow.md`.
 - Working tree as of this writing has unrelated in-progress edits (CLAUDE.md, several `src/app` layout/page files, two scripts) — not part of this cleanup, left untouched.

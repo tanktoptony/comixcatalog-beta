@@ -10,6 +10,8 @@
 // Featuring Spider-Man").
 //
 // Dry-run by default. Pass --apply to write.
+// Add --unambiguous-only to require exact normalized title + publisher and to
+// exclude pairs with multiple plausible covers. This is the safe write mode.
 
 import "dotenv/config";
 import { config } from "dotenv";
@@ -17,6 +19,7 @@ import { createClient } from "@supabase/supabase-js";
 config({ path: ".env.local" });
 
 const APPLY = process.argv.includes("--apply");
+const UNAMBIGUOUS_ONLY = process.argv.includes("--unambiguous-only");
 
 const sb = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -30,6 +33,13 @@ function norm(s) {
     .replace(/\b(the|a|an)\b/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function normPublisher(s) {
+  return String(s || "")
+    .toLowerCase()
+    .replace(/\b(comics|entertainment|publishing|inc\.?|llc|ltd|company|co\.?)\b/g, "")
+    .replace(/[^a-z0-9]+/g, "");
 }
 
 function titleSimilar(gcdTitle, ccTitle) {
@@ -103,6 +113,16 @@ async function fetchAllPages(builder, pageSize = 1000) {
     if (data) for (const s of data) seriesMeta.set(s.gcd_id, s);
   }
 
+  const appSeriesMeta = new Map();
+  for (let i = 0; i < seriesIds.length; i += 500) {
+    const chunk = seriesIds.slice(i, i + 500);
+    const { data } = await sb
+      .from("series")
+      .select("gcd_id, resolved_publisher_cached")
+      .in("gcd_id", chunk);
+    if (data) for (const s of data) appSeriesMeta.set(s.gcd_id, s);
+  }
+
   // 5. Find which of the needed pairs already have a canonical_cover tagged.
   let resolved = 0;
   const unresolved = [];
@@ -118,7 +138,7 @@ async function fetchAllPages(builder, pageSize = 1000) {
   console.log(`  ${resolved} already covered, ${unresolved.length} need linking`);
 
   // 6. For each unresolved, find candidate canonical_covers by issue# + title-similar + plausible year.
-  let linked = 0, ambiguous = 0, noMatch = 0;
+  let linked = 0, ambiguous = 0, skippedAmbiguous = 0, noMatch = 0;
   const updates = [];
   for (const need of unresolved) {
     const sMeta = seriesMeta.get(need.series);
@@ -130,7 +150,7 @@ async function fetchAllPages(builder, pageSize = 1000) {
     // lot of rows this way).
     const { data: candidates } = await sb
       .from("canonical_covers")
-      .select("id, series_title, series_year, issue_number, comicvine_volume_id, series_gcd_id")
+      .select("id, series_title, series_year, issue_number, publisher, comicvine_volume_id, series_gcd_id")
       .eq("issue_number", need.issue);
     if (!candidates || candidates.length === 0) { noMatch++; continue; }
 
@@ -140,6 +160,17 @@ async function fetchAllPages(builder, pageSize = 1000) {
 
     const matches = candidates.filter(c => {
       if (!titleSimilar(sMeta.name, c.series_title)) return false;
+      if (UNAMBIGUOUS_ONLY) {
+        // The broad linker deliberately supports related CV volume titles,
+        // but unattended writes must not confuse regular issues with annuals
+        // or two different "Star Wars: ..." series.
+        if (norm(sMeta.name) !== norm(c.series_title)) return false;
+        const targetPublisher = appSeriesMeta.get(need.series)?.resolved_publisher_cached;
+        if (
+          targetPublisher &&
+          normPublisher(targetPublisher) !== normPublisher(c.publisher)
+        ) return false;
+      }
       if (c.series_year && yearLow && yearHigh) {
         if (c.series_year < yearLow || c.series_year > yearHigh + 1) return false;
       }
@@ -157,12 +188,19 @@ async function fetchAllPages(builder, pageSize = 1000) {
         return da - db;
       });
       ambiguous++;
+      if (UNAMBIGUOUS_ONLY) {
+        skippedAmbiguous++;
+        continue;
+      }
     }
     updates.push({ id: matches[0].id, series: need.series, issue: need.issue, title: matches[0].series_title });
     linked++;
   }
 
-  console.log(`\nLinkable: ${linked}  (${ambiguous} resolved from ambiguous)  NoMatch: ${noMatch}`);
+  console.log(
+    `\nLinkable: ${linked}  (${ambiguous} ambiguous found, ` +
+    `${skippedAmbiguous} excluded)  NoMatch: ${noMatch}`
+  );
   if (linked > 0) {
     console.log("\nSample of planned links:");
     for (const u of updates.slice(0, 15)) {

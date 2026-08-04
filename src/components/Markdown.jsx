@@ -133,15 +133,12 @@ function renderBlock(block, key) {
 // Handles **bold**, *italic*, `code`, and [text](url). Returns an array of
 // React nodes (strings + elements). React handles XSS escaping for us.
 
-const INLINE_RE = new RegExp(
-  [
-    "(\\*\\*[^*]+\\*\\*)", // bold
-    "(\\*[^*\\n]+\\*)", // italic
-    "(`[^`\\n]+`)", // inline code
-    "(\\[[^\\]]+\\]\\([^\\)]+\\))", // link
-  ].join("|"),
-  "g"
-);
+const INLINE_PATTERN = [
+  "(\\*\\*[^*]+\\*\\*)", // bold
+  "(\\*[^*\\n]+\\*)", // italic
+  "(`[^`\\n]+`)", // inline code
+  "(\\[[^\\]]+\\]\\([^\\)]+\\))", // link
+].join("|");
 
 function renderInline(text) {
   if (!text) return null;
@@ -150,8 +147,13 @@ function renderInline(text) {
   let m;
   let key = 0;
 
-  INLINE_RE.lastIndex = 0;
-  while ((m = INLINE_RE.exec(text)) !== null) {
+  // A fresh RegExp per call — renderInline recurses into bold/italic content,
+  // and a single shared `g`-flag regex's `lastIndex` would get clobbered by
+  // the inner call, making the outer loop re-match its own already-consumed
+  // token forever (confirmed: froze the tab on any **bold** text once
+  // recursion was added).
+  const inlineRe = new RegExp(INLINE_PATTERN, "g");
+  while ((m = inlineRe.exec(text)) !== null) {
     if (m.index > lastIndex) {
       out.push(text.slice(lastIndex, m.index));
     }

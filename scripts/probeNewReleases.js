@@ -99,6 +99,50 @@ async function fetchVolumeMeta(volumeId) {
   return data?.results || null;
 }
 
+// Match series.title_normalized semantics exactly (see scripts/fetchStoryArc.js
+// normTitle()) — lowercase, strip everything but a-z0-9.
+function normTitle(value) {
+  return String(value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+// Covers can only ever show up on a series page that exists. probeNewReleases
+// finds ComicVine releases and cover-ingest uploads their images, but neither
+// step has ever created the `series` row those covers need — a brand-new
+// title (an annual, a one-shot, a genuinely new ongoing) that isn't already
+// in the GCD-dump-derived `series` table just gets orphaned covers with
+// nowhere to display. Checked both exact and normalized title so this only
+// fires on a TRUE miss, not an ambiguous multi-volume title (e.g. "Gambit"
+// has 17 series rows already — that's a different, already-handled problem,
+// not a missing series).
+async function seriesRowExists(sb, title) {
+  const { data: exact } = await sb.from('series').select('id').eq('title', title).limit(1);
+  if (exact?.length) return true;
+  const norm = normTitle(title);
+  const { data: normMatch } = await sb.from('series').select('id').eq('title_normalized', norm).limit(1);
+  return Boolean(normMatch?.length);
+}
+
+// Minimal row only — title/publisher/year, same fields find_volume() already
+// resolves in comicvine_api_to_supabase.py. resolved_publisher_cached is set
+// directly from ComicVine's publisher name (not left for later re-resolution)
+// because these are exclusively new-release titles from the last DAYS window
+// — always modern era, where CLAUDE.md's year-aware publisher rule already
+// says to trust cv over GCD indicia. issue_count_cached / year_end_cached /
+// featured_cover_path_cached are left null for the next scheduled
+// refreshSeriesSearchCache.js pass to fill in once covers exist.
+async function createMinimalSeriesRow(sb, { name, publisher, year }) {
+  // title_normalized is a Postgres GENERATED column — Postgres computes it
+  // from `title` itself; setting it explicitly is a hard insert error, not
+  // just ignored.
+  const { error } = await sb.from('series').insert({
+    title: name,
+    cv_publisher: publisher,
+    resolved_publisher_cached: publisher,
+    year_start_cached: year,
+  });
+  if (error) throw error;
+}
+
 (async () => {
   const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
   const sinceDate = isoDaysAgo(DAYS);
@@ -148,13 +192,17 @@ async function fetchVolumeMeta(volumeId) {
       continue;
     }
 
-    candidates.push({
-      name: meta.name,
-      publisher: publisherName,
-      year: meta.start_year ? Number(meta.start_year) : null,
-      volume_id: vol.id,
-    });
-    console.log(`  + ${meta.name} (${publisherName}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s)`);
+    const year = meta.start_year ? Number(meta.start_year) : null;
+    candidates.push({ name: meta.name, publisher: publisherName, year, volume_id: vol.id });
+
+    if (await seriesRowExists(sb, meta.name)) {
+      console.log(`  + ${meta.name} (${publisherName}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s)`);
+    } else if (APPLY) {
+      await createMinimalSeriesRow(sb, { name: meta.name, publisher: publisherName, year });
+      console.log(`  + ${meta.name} (${publisherName}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s) [created series row — no catalog entry existed]`);
+    } else {
+      console.log(`  + ${meta.name} (${publisherName}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s) [would create series row — no catalog entry exists]`);
+    }
   }
 
   console.log(`\n${candidates.length} new volume(s) to add (checked ${checked}).`);

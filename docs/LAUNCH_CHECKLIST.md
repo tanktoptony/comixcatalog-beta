@@ -25,8 +25,8 @@ Every item needs Owner / Evidence / Last checked / Blocker filled in before it c
 
 - [ ] **Priority cover coverage >= 90%** (launch-priority universe: user collections, wantlists, featured titles, frequently searched series, current releases, high-value issues — NOT the full raw catalog)
   - Owner:
-  - Evidence: formal plan (2026-08-01) scored "Cover ingestion and linking" at 88% overall readiness. Live-queried 2026-08-03: 44,882/106,983 (42%) of `canonical_covers` have `gcd_issue_id`, 87,276/106,983 (82%) have `series_gcd_id`. These are global figures, not scoped to the launch-priority universe — someone needs to run the priority-scoped measurement `scripts/checkTargetSeriesCoverage.js` (or equivalent) against just that universe to get a real number against this gate.
-  - Last checked: 2026-08-03 (global figures only)
+  - Evidence: live read-only priority query found **17,035/25,241 issues covered (67.49%) across 166 de-duplicated series**. Universe: every GCD-resolvable series referenced by `user_collections` (owned/for-sale and wishlist split by status), all 79 curated entries resolved with `src/lib/featuredSeries.js` + `scripts/generateFeaturedGapTargets.js` title/publisher/nearest-year rules, its 15-entry current-heat tier, and series with a >=$100 user valuation or sold comp. Coverage used `scripts/checkTargetSeriesCoverage.js`'s normalized issue-number, ±1-year, publisher-gated rule. A 14-day live `gcd_issues` current-release query returned no rows; frequently searched series are not persisted/queryable (browser-only Google Analytics), so both limitations are explicit in the falsifiable report: `reports/priority-cover-coverage-2026-08-04.md`.
+  - Last checked: 2026-08-04 (priority-scoped live query)
   - Blocker: no priority-scoped measurement on record
 
 - [ ] **Known publisher mismatches: 0**

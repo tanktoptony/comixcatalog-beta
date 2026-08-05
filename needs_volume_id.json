@@ -11180,5 +11180,95 @@
         "start_year": 1987
       }
     ]
+  },
+  {
+    "name": "Superman",
+    "publisher": "DC Comics",
+    "year": 1993,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 773,
+        "name": "Superman",
+        "publisher": "DC Comics",
+        "start_year": 1939
+      },
+      {
+        "id": 91298,
+        "name": "Superman",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 3816,
+        "name": "Superman",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      }
+    ]
+  },
+  {
+    "name": "Superman",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 773,
+        "name": "Superman",
+        "publisher": "DC Comics",
+        "start_year": 1939
+      },
+      {
+        "id": 91298,
+        "name": "Superman",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 3816,
+        "name": "Superman",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      }
+    ]
+  },
+  {
+    "name": "Justice League",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 42488,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 94280,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 111428,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 92373,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 3796,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      }
+    ]
   }
 ]

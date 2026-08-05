@@ -29,6 +29,7 @@ A document must never claim something is shipped just because an earlier session
 These describe work that's still in progress or planned, each with its own status line — check the doc's own header for current status before trusting anything in the body.
 
 - [data-hardening-and-growth-spec.md](data-hardening-and-growth-spec.md) — cover/publisher matching architecture fix, in progress.
+- [variant-architecture-context.md](variant-architecture-context.md) — **planning input, not yet a spec.** Research/context for an upcoming planning session on variant-cover picker UI + collected-editions-as-pseudo-series; read before starting that session.
 - [gcd-incremental-sync-plan.md](gcd-incremental-sync-plan.md) — planning stage, blocked on a human-cleared prerequisite before any live request against comics.org.
 - [instagram-bot-plan.md](instagram-bot-plan.md) — automation is live (`.github/workflows/instagram-post.yml`); doc may lag the shipped state.
 - [stripe-testing-guide.md](stripe-testing-guide.md) — manual QA checklist for the Pro subscription flow. Should be re-walked as part of the "Payment lifecycle tests" launch gate.

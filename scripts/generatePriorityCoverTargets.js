@@ -22,10 +22,16 @@ const normPub = (v) => norm(v)
   .replace(/\b(comics|entertainment|publishing|inc\.?|llc|ltd|company|co\.?)\b/g, "")
   .replace(/[^a-z0-9]+/g, "");
 function year(v) { const m = String(v ?? "").match(/\b(18|19|20)\d{2}\b/); return m ? Number(m[0]) : null; }
-async function all(build) {
+// Postgres/PostgREST gives no row-order guarantee to a query with no ORDER
+// BY, including across separate .range() page requests for what looks like
+// "the same" query - confirmed 2026-08-05 when this fetch silently returned
+// 9/34 real rows for one series on one run and a different count on the next,
+// with no code change in between. Multi-page OFFSET pagination is only safe
+// with a stable sort key, so every paginated query orders by its primary key.
+async function all(build, orderCol = "id") {
   const rows = [];
   for (let from = 0; ; from += PAGE) {
-    const { data, error } = await build().range(from, from + PAGE - 1);
+    const { data, error } = await build().order(orderCol, { ascending: true }).range(from, from + PAGE - 1);
     if (error) throw error;
     if (!data?.length) break;
     rows.push(...data);
@@ -33,11 +39,11 @@ async function all(build) {
   }
   return rows;
 }
-async function chunks(table, select, field, values) {
+async function chunks(table, select, field, values, orderCol = "id") {
   const rows = [];
   for (let i = 0; i < values.length; i += CHUNK) {
     const part = values.slice(i, i + CHUNK);
-    rows.push(...await all(() => sb.from(table).select(select).in(field, part)));
+    rows.push(...await all(() => sb.from(table).select(select).in(field, part), orderCol));
   }
   return rows;
 }
@@ -51,14 +57,14 @@ function tag(map, id, source) {
 async function prioritySources() {
   const sources = new Map();
   const library = await all(() => sb.from("user_collections")
-    .select("id,status,gcd_issue_id,comic_id,market_value,auto_market_value").order("id"));
+    .select("id,status,gcd_issue_id,comic_id,market_value,auto_market_value"));
   const comicIds = [...new Set(library.map((x) => x.comic_id).filter(Boolean))];
   const comics = comicIds.length ? await chunks("comics", "id,gcd_id,series_id", "id", comicIds) : [];
   const issueIds = [...new Set([
     ...library.map((x) => x.gcd_issue_id).filter(Boolean).map(Number),
     ...comics.map((x) => x.gcd_id).filter(Boolean).map(Number),
   ])];
-  const issues = issueIds.length ? await chunks("gcd_issues", "gcd_id,series_gcd_id", "gcd_id", issueIds) : [];
+  const issues = issueIds.length ? await chunks("gcd_issues", "gcd_id,series_gcd_id", "gcd_id", issueIds, "gcd_id") : [];
   const issueSeries = new Map(issues.map((x) => [Number(x.gcd_id), Number(x.series_gcd_id)]));
   const seriesUuids = [...new Set(comics.map((x) => x.series_id).filter(Boolean))];
   const localSeries = seriesUuids.length ? await chunks("series", "id,gcd_id", "id", seriesUuids) : [];
@@ -80,7 +86,7 @@ async function prioritySources() {
   const comps = await all(() => sb.from("market_comps").select("gcd_issue_id,sold_price")
     .not("gcd_issue_id", "is", null).gte("sold_price", HIGH_VALUE));
   const compIds = [...new Set(comps.map((x) => Number(x.gcd_issue_id)))];
-  const compIssues = compIds.length ? await chunks("gcd_issues", "gcd_id,series_gcd_id", "gcd_id", compIds) : [];
+  const compIssues = compIds.length ? await chunks("gcd_issues", "gcd_id,series_gcd_id", "gcd_id", compIds, "gcd_id") : [];
   for (const issue of compIssues) tag(sources, issue.series_gcd_id, "high-value");
 
   const titles = [...new Set(FEATURED_SERIES.map((x) => x.title))];
@@ -104,7 +110,7 @@ async function run() {
   const ids = [...sources.keys()];
   const series = await chunks("series", "gcd_id,title,resolved_publisher_cached,year_start_cached", "gcd_id", ids);
   const byId = new Map(series.map((x) => [Number(x.gcd_id), x]));
-  const issues = await chunks("gcd_issues", "gcd_id,series_gcd_id,issue_number,publication_date", "series_gcd_id", ids);
+  const issues = await chunks("gcd_issues", "gcd_id,series_gcd_id,issue_number,publication_date", "series_gcd_id", ids, "gcd_id");
   const covers = await chunks("canonical_covers", "series_title,issue_number,series_year,cover_date,publisher,storage_path", "series_title", [...new Set(series.map((x) => x.title))]);
   // ID-linked covers too: GCD and ComicVine frequently disagree on title
   // punctuation for the same series (e.g. GCD "G.I. Joe, a Real American
@@ -133,7 +139,25 @@ async function run() {
       const key = norm(c.issue_number); if (!candidates.has(key)) candidates.set(key, []);
       candidates.get(key).push(c.series_year ?? year(c.cover_date));
     }
-    const seriesIssues = issuesBySeries.get(id) ?? [];
+    // GCD logs every variant/reprint/foreign-edition as its own gcd_issues
+    // row sharing the SAME issue_number - "The Amazing Spider-Man" (2022)
+    // has 850 raw rows but only 99 distinct issue numbers. Counting raw rows
+    // inflated "missing" 8-9x for variant-heavy modern runs: confirmed
+    // 2026-08-05 when a real ingest against the reported #1 target (797
+    // missing) uploaded zero covers because ComicVine's actual volume only
+    // has 72 issues, ALL already ingested - ~800 of those "missing" issues
+    // never existed to ingest. Dedupe to one row per normalized issue number
+    // before counting; when duplicates disagree on publication_date, keep
+    // whichever has one (arbitrary among same-dated dupes - a variant's own
+    // cover date doesn't change what issue number needs a cover).
+    const rawIssues = issuesBySeries.get(id) ?? [];
+    const dedupedIssues = new Map();
+    for (const x of rawIssues) {
+      const key = norm(x.issue_number);
+      const existing = dedupedIssues.get(key);
+      if (!existing || (!existing.publication_date && x.publication_date)) dedupedIssues.set(key, x);
+    }
+    const seriesIssues = [...dedupedIssues.values()];
     let covered = 0;
     for (const issue of seriesIssues) {
       const key = norm(issue.issue_number);

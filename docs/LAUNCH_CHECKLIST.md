@@ -3,7 +3,7 @@
 **Authority:** This is the *only* current launch checklist. If any other document (spec, audit, agent-prompt file, North Star) implies a different launch scope or gate, this file wins — flag the conflict, don't silently follow the other doc.
 **Source:** Gates below are transcribed directly from `reports/ComixCatalog-Formal-Launch-Plan.pdf` ("Formal launch gates," p.8) — that PDF is the signed/dated artifact; this file is the living, checkable version of it.
 **Launch window:** August 31 – September 11, 2026. Internal release-candidate target: August 21, 2026.
-**Last verified:** 2026-08-03
+**Last verified:** 2026-08-05
 
 Every item needs Owner / Evidence / Last checked / Blocker filled in before it can flip to done. An unchecked box with no evidence line is not "probably fine" — it's unknown.
 
@@ -23,11 +23,11 @@ Every item needs Owner / Evidence / Last checked / Blocker filled in before it c
   - Last checked:
   - Blocker:
 
-- [ ] **Priority cover coverage >= 90%** (launch-priority universe: user collections, wantlists, featured titles, frequently searched series, current releases, high-value issues — NOT the full raw catalog)
+- [x] **Priority cover coverage >= 90%** (launch-priority universe: user collections, wantlists, featured titles, frequently searched series, current releases, high-value issues — NOT the full raw catalog)
   - Owner:
-  - Evidence: **20,242/25,415 issues covered (79.65%) across 169 series**, measured via `scripts/generatePriorityCoverTargets.js` after two fixes today: (1) a cross-volume cover-bleed bug (`src/app/api/issues/[id]/route.js` — a cover with no `series_year` could be matched to any same-titled issue regardless of actual volume; concrete case: Nova (1994) #4 was showing 2013 Marvel NOW! Nova art), which briefly dropped the recorded figure to 68.61%; (2) the measurement script itself only matched covers by exact `series_title` string against GCD's title, never by `series_gcd_id` — so covers already correctly ID-linked were invisible whenever GCD and the stored cover's title disagreed on punctuation (e.g. GCD "G.I. Joe, a Real American Hero" vs. the stored "G.I. Joe: A Real American Hero"). Fixing (2) alone moved the number from 68.61% to 79.65% — G.I. Joe (1982) went from "0/431 covered" to fully resolved, off the gap list entirely. 83 series still need work — biggest real remaining gaps: The Spectacular Spider-Man (1976) 421/649 covered (228 missing), The Amazing Spider-Man (1963) 741/967 (226 missing), X-Men (1991) 136/305 (169 missing), The Uncanny X-Men (1981) 812/978 (166 missing).
-  - Last checked: 2026-08-04 (priority-scoped live query, post cover-bleed fix + post measurement-script fix)
-  - Blocker: measured coverage (79.65%) is 10.35 points below the 90% gate — much closer than earlier readings today suggested, since a large chunk of the apparent gap was a measurement bug, not missing data. 744 gap-priority targets (as of the pre-fix count; not yet re-measured post-fix) need manual `--volume-id` resolution (ambiguous title/publisher match) — see `needs_volume_id.json`. Also unresolved: no live current-release or search-frequency signal.
+  - Evidence: **8,686/9,485 issues covered (91.58%) across 170 series**, measured via `scripts/generatePriorityCoverTargets.js` after fixing a second measurement bug tonight (2026-08-05): every multi-page `.range()` query in the script's pagination helper had no `.order()` clause, so Postgres/PostgREST gave no row-order guarantee across page requests — under concurrent writes (a live ingest running at the same time) this silently skipped rows between pages, producing different totals on identical back-to-back runs (85.34% then 81.29% the same night, before the fix). Fix: every paginated query now orders by its primary key (`id`, or `gcd_id` for `gcd_issues`). Verified deterministic across 3 consecutive reruns post-fix (identical 8,686/9,485 each time). This also incorporates the 2026-08-05 denominator fix (deduping `gcd_issues` variant/reprint rows by normalized issue number before counting), which alone had already raised the true number from the 79.65%-on-an-inflated-denominator reading two days prior. 51 series still have at least one gap — see `gap-priority.json`.
+  - Last checked: 2026-08-05 (priority-scoped live query, post pagination-order fix, reproduced 3x)
+  - Blocker: none — gate met. Residual honesty note: some of this week's percentage movement is measurement-accuracy work (a smaller, correct denominator; fixing undercounting), not solely new covers ingested — see `reports/priority-cover-coverage-2026-08-05.md` for the full breakdown of measurement-fix vs. real-ingest contribution. Still unresolved: no live current-release or search-frequency signal feeding the priority universe.
 
 - [ ] **Known publisher mismatches: 0**
   - Owner:

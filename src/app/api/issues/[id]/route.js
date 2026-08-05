@@ -46,7 +46,7 @@ async function fetchCanonicalMatch(
   if (seriesGcdId) {
     const { data: idRows } = await supabase
       .from("canonical_covers")
-      .select("storage_path, publisher, cover_date, series_year")
+      .select("id, storage_path, publisher, cover_date, series_year")
       .eq("series_gcd_id", seriesGcdId)
       .eq("issue_number", issueNumber);
     const idInSpan = (idRows ?? []).filter((r) =>
@@ -60,7 +60,7 @@ async function fetchCanonicalMatch(
 
   const { data: exactRows } = await supabase
     .from("canonical_covers")
-    .select("storage_path, publisher, cover_date, series_year")
+    .select("id, storage_path, publisher, cover_date, series_year")
     .eq("series_title", seriesTitle)
     .eq("issue_number", issueNumber);
 
@@ -377,6 +377,22 @@ export async function GET(req, context) {
         ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${canonicalMatch.storage_path}`
         : null;
 
+      let variants = [];
+      if (canonicalMatch.id) {
+        const { data: variantRows } = await supabase
+          .from("cover_variants")
+          .select("id, storage_path, sort_order")
+          .eq("canonical_cover_id", canonicalMatch.id)
+          .order("sort_order", { ascending: true });
+        variants = (variantRows ?? []).map((variant) => ({
+          id: variant.id,
+          storageUrl: variant.storage_path
+            ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${variant.storage_path}`
+            : null,
+          sortOrder: variant.sort_order,
+        }));
+      }
+
       let prevIssue = null;
       let nextIssue = null;
       let relatedIssues = [];
@@ -488,6 +504,7 @@ export async function GET(req, context) {
           display_date: formatDisplayDate(issue),
           publisher: publisherName,
           cover,
+          variants,
           created_by: null,
           prev_issue: prevIssue,
           next_issue: nextIssue,
@@ -541,6 +558,7 @@ export async function GET(req, context) {
         cover: userCoverPath
           ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${userCoverPath}`
           : null,
+        variants: [],
         created_by: comic.created_by ?? null,
         prev_issue: null,
         next_issue: null,

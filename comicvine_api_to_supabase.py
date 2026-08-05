@@ -203,6 +203,12 @@ def parse_cli() -> argparse.Namespace:
             "between issues. Default 1.0 keeps us under the rolling rate cap."
         ),
     )
+    p.add_argument(
+        "--max-variant-images-per-issue",
+        type=int,
+        default=10,
+        help="Maximum associated ComicVine images to capture per issue (default: 10).",
+    )
     return p.parse_args()
 
 
@@ -746,7 +752,7 @@ def fetch_issues_for_volume(volume_id: int) -> list[dict]:
             {
                 "filter": f"volume:{volume_id}",
                 "sort": "issue_number:asc",
-                "field_list": "id,name,issue_number,cover_date,store_date,image,description,volume,api_detail_url",
+                "field_list": "id,name,issue_number,cover_date,store_date,image,associated_images,description,volume,api_detail_url",
                 "limit": 100,
                 "offset": offset,
             },
@@ -1034,7 +1040,7 @@ def _resolve_gcd_issue_id(
     return None, "series-only"
 
 
-def upsert_cover_row(row: dict) -> None:
+def upsert_cover_row(row: dict) -> dict | None:
     url = f"{SUPABASE_URL}/rest/v1/{SUPABASE_TABLE}"
     headers = {
         "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
@@ -1051,6 +1057,31 @@ def upsert_cover_row(row: dict) -> None:
     )
     if resp.status_code not in (200, 201):
         raise RuntimeError(f"DB upsert failed: {resp.status_code} {resp.text}")
+    rows = resp.json() if resp.content else []
+    return rows[0] if rows else None
+
+
+def fetch_canonical_cover_row(source_issue_url: str) -> dict | None:
+    url = f"{SUPABASE_URL}/rest/v1/{SUPABASE_TABLE}"
+    headers = {"Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}", "apikey": SUPABASE_SERVICE_ROLE_KEY}
+    resp = requests.get(url, headers=headers, params={"select": "id,gcd_issue_id,original_cover_url,storage_path", "source_issue_url": f"eq.{source_issue_url}", "limit": 1}, timeout=60)
+    if resp.status_code != 200:
+        raise RuntimeError(f"Canonical cover lookup failed: {resp.status_code} {resp.text}")
+    rows = resp.json()
+    return rows[0] if rows else None
+
+
+def upsert_variant_row(row: dict) -> None:
+    url = f"{SUPABASE_URL}/rest/v1/cover_variants"
+    headers = {
+        "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+        "apikey": SUPABASE_SERVICE_ROLE_KEY,
+        "Content-Type": "application/json",
+        "Prefer": "resolution=merge-duplicates,return=minimal",
+    }
+    resp = requests.post(url, headers=headers, params={"on_conflict": "source,source_image_id"}, json=[row], timeout=60)
+    if resp.status_code not in (200, 201):
+        raise RuntimeError(f"Variant upsert failed: {resp.status_code} {resp.text}")
 
 
 def get_volume(volume_id: int) -> dict:
@@ -1247,16 +1278,19 @@ def main():
                 issue_number_key = (
                     str(issue.get("issue_number") or "").strip().lower()
                 )
-                if issue_number_key and issue_number_key in already_uploaded:
-                    print(
-                        f"  [{idx}/{len(issues)}] skip (already uploaded) "
-                        f"#{issue.get('issue_number')}"
-                    )
-                    continue
                 issue_id = issue.get("id")
                 issue_title = issue.get("name") or f"Issue {issue.get('issue_number')}"
                 issue_number = issue.get("issue_number")
                 api_detail_url = issue.get("api_detail_url")
+                existing_cover = None
+                if issue_number_key and issue_number_key in already_uploaded:
+                    existing_cover = fetch_canonical_cover_row(
+                        api_detail_url or f"comicvine-issue-{issue_id}"
+                    )
+                    print(
+                        f"  [{idx}/{len(issues)}] existing cover; refreshing variants "
+                        f"#{issue.get('issue_number')}"
+                    )
                 image = issue.get("image") or {}
                 cover_url = (
                     image.get("original_url")
@@ -1291,7 +1325,9 @@ def main():
                 )
 
                 storage_path = None
-                if cover_url and not args.dry_run:
+                if existing_cover and existing_cover.get("storage_path"):
+                    storage_path = existing_cover["storage_path"]
+                elif cover_url and not args.dry_run:
                     try:
                         ext = guess_ext(cover_url)
                         safe_series = slugify(volume.get("name"))
@@ -1332,14 +1368,60 @@ def main():
                     "storage_path": storage_path,
                 }
 
+                canonical_row = existing_cover
                 if args.dry_run:
                     uploaded_rows.append(row)
                 else:
                     try:
-                        upsert_cover_row(row)
+                        canonical_row = upsert_cover_row(row)
+                        if not canonical_row:
+                            canonical_row = fetch_canonical_cover_row(row["source_issue_url"])
                         uploaded_rows.append(row)
                     except Exception as e:
                         print(f"    db upsert failed: {e}")
+
+                # ComicVine returns additional cover art in associated_images
+                # on the same bulk issue response. Keep the primary cover in
+                # canonical_covers and store only additional images here.
+                if canonical_row and canonical_row.get("id"):
+                    primary_url = cover_url or canonical_row.get("original_cover_url")
+                    variants = issue.get("associated_images") or []
+                    for variant_idx, variant in enumerate(variants):
+                        variant_url = (variant or {}).get("original_url") or (variant or {}).get("super_url")
+                        source_image_id = (variant or {}).get("id")
+                        if not variant_url or source_image_id is None or variant_url == primary_url:
+                            continue
+                        if variant_idx >= args.max_variant_images_per_issue:
+                            break
+                        variant_storage_path = None
+                        if not args.dry_run:
+                            try:
+                                ext = guess_ext(variant_url)
+                                safe_series = slugify(volume.get("name"))
+                                safe_issue = slugify(issue_title)
+                                variant_storage_path = (
+                                    f"comicvine/{safe_series}/vol-{comicvine_volume_id}/"
+                                    f"{issue_id}-{safe_issue}-variant-{variant_idx + 1}{ext}"
+                                )
+                                variant_bytes = download_image_bytes(variant_url)
+                                upload_to_supabase_storage(variant_storage_path, variant_bytes, guess_content_type(ext))
+                            except Exception as e:
+                                print(f"    variant image upload failed: {e}")
+                        if not args.dry_run:
+                            try:
+                                upsert_variant_row({
+                                    "canonical_cover_id": canonical_row["id"],
+                                    "gcd_issue_id": int(gcd_issue_id) if gcd_issue_id is not None else None,
+                                    "source": "comicvine",
+                                    "source_image_id": str(source_image_id),
+                                    "original_url": variant_url,
+                                    "storage_path": variant_storage_path,
+                                    "caption": (variant or {}).get("caption"),
+                                    "image_tags": (variant or {}).get("image_tags"),
+                                    "sort_order": variant_idx,
+                                })
+                            except Exception as e:
+                                print(f"    variant db upsert failed: {e}")
 
                 time.sleep(0.5)
 

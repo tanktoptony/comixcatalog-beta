@@ -23,6 +23,21 @@ const trackedMd = execSync("git ls-files --cached --others --exclude-standard", 
 
 const linkPattern = /\[[^\]]*\]\(([^)]+)\)/g;
 
+// A link into a gitignored path (e.g. reports/) is never wrong by itself —
+// those files are deliberately local-only and will never exist in a fresh
+// CI checkout no matter who's touching the repo. Confirmed 2026-08-05:
+// docs/README.md's link to reports/ComixCatalog-Formal-Launch-Plan.pdf
+// failed every single PR's docs:check for this reason, unrelated to any
+// PR's own diff.
+function isGitignored(absPath) {
+  try {
+    execSync(`git check-ignore -q "${absPath}"`, { cwd: repoRoot });
+    return true; // exit 0 = ignored
+  } catch {
+    return false; // exit 1 = not ignored (still broken)
+  }
+}
+
 let brokenCount = 0;
 
 for (const relFile of trackedMd) {
@@ -47,7 +62,7 @@ for (const relFile of trackedMd) {
       if (!target) continue;
 
       const resolved = path.resolve(path.dirname(absFile), target);
-      if (!existsSync(resolved)) {
+      if (!existsSync(resolved) && !isGitignored(resolved)) {
         console.error(`${relFile}:${idx + 1}  broken link -> ${match[1]}`);
         brokenCount++;
       }

@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
+import { getSupabaseClient } from "@/lib/supabase/client";
 
 function money(value) {
   if (value == null || value === "") return "—";
@@ -20,7 +21,7 @@ function money(value) {
 
 export default function IssuePage() {
   const { id } = useParams();
-  const { collectionIds, wishlistIds, addToCollection, addAnotherCopy, removeFromCollection } =
+  const { collections, collectionIds, wishlistIds, addToCollection, addAnotherCopy, removeFromCollection } =
     useLibrary();
 
   const [issue, setIssue] = useState(null);
@@ -30,6 +31,9 @@ export default function IssuePage() {
   const [addCopyOpen, setAddCopyOpen] = useState(false);
   const [addCopyLabel, setAddCopyLabel] = useState("");
   const [addCopyBusy, setAddCopyBusy] = useState(false);
+  const [selectedCover, setSelectedCover] = useState(null);
+  const [variantLabel, setVariantLabel] = useState("");
+  const [variantSaveState, setVariantSaveState] = useState(null);
 
   const { user } = useAuth();
   const libraryId = String(issue?.id || id || "");
@@ -57,6 +61,7 @@ export default function IssuePage() {
         }
 
         setIssue(data.issue);
+        setSelectedCover(data.issue.cover || null);
       } catch (err) {
         console.error("Issue page load failed:", err);
         setIssue(null);
@@ -72,6 +77,26 @@ export default function IssuePage() {
     if (!issue) return "";
     return `${issue.series_title}${issue.issue_number ? ` #${issue.issue_number}` : ""}`;
   }, [issue]);
+
+  const collectionRow = collections?.find(
+    (row) => issue?.source === "gcd" && Number(row.gcd_issue_id) === Number(String(issue.id || "").replace(/^gcd-/, ""))
+  ) ?? null;
+
+  async function saveOwnedVariant() {
+    if (!collectionRow?.id || issue?.source !== "gcd") return;
+    setVariantSaveState("saving");
+    try {
+      const { error } = await getSupabaseClient().from("user_collections").update({
+        variant_of_gcd_id: Number(String(issue.id).replace(/^gcd-/, "")),
+        variant_label: variantLabel.trim() || null,
+      }).eq("id", collectionRow.id);
+      if (error) throw error;
+      setVariantSaveState("saved");
+    } catch (error) {
+      console.error("Variant selection save failed:", error);
+      setVariantSaveState("error");
+    }
+  }
 
   if (loading) {
     return (
@@ -238,11 +263,33 @@ export default function IssuePage() {
           <div>
             <div className="issue-cover-frame">
               <img
-                src={issue.cover || "/fallback-cover.png"}
+                src={selectedCover || issue.cover || "/fallback-cover.png"}
                 alt={issueTitle}
                 className="issue-cover-img"
               />
             </div>
+
+            {issue.variants?.length > 0 && (
+              <div style={{ marginTop: 14 }}>
+                <div className="muted" style={{ fontSize: "0.8rem", marginBottom: 8 }}>Additional covers</div>
+                <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 4 }}>
+                  {issue.variants.map((variant, index) => (
+                    <button key={variant.id} type="button" onClick={() => setSelectedCover(variant.storageUrl)} aria-label={`Variant ${index + 1}`} style={{ padding: 2, border: selectedCover === variant.storageUrl ? "2px solid var(--cc-gold, #ffd700)" : "2px solid transparent", borderRadius: 6, background: "none", cursor: "pointer", flexShrink: 0 }}>
+                      <img src={variant.storageUrl || "/fallback-cover.png"} alt={`Variant ${index + 1}`} style={{ width: 54, height: 80, objectFit: "cover", borderRadius: 4 }} />
+                    </button>
+                  ))}
+                </div>
+                {user && inCollection && collectionRow?.id && (
+                  <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
+                    <input value={variantLabel} onChange={(event) => setVariantLabel(event.target.value)} placeholder="Printing label (optional)" maxLength={80} className="admin-input" style={{ flex: "1 1 180px" }} />
+                    <button type="button" className="add-comic-btn" onClick={saveOwnedVariant} disabled={variantSaveState === "saving"}>
+                      {variantSaveState === "saved" ? "Saved" : "This is the printing I own"}
+                    </button>
+                  </div>
+                )}
+                {variantSaveState === "error" && <div className="muted" style={{ color: "#fca5a5", marginTop: 6 }}>Could not save this printing.</div>}
+              </div>
+            )}
 
             <div
               style={{

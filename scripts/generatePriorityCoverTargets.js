@@ -106,14 +106,28 @@ async function run() {
   const byId = new Map(series.map((x) => [Number(x.gcd_id), x]));
   const issues = await chunks("gcd_issues", "gcd_id,series_gcd_id,issue_number,publication_date", "series_gcd_id", ids);
   const covers = await chunks("canonical_covers", "series_title,issue_number,series_year,cover_date,publisher,storage_path", "series_title", [...new Set(series.map((x) => x.title))]);
-  const issuesBySeries = new Map(), coversByTitle = new Map();
+  // ID-linked covers too: GCD and ComicVine frequently disagree on title
+  // punctuation for the same series (e.g. GCD "G.I. Joe, a Real American
+  // Hero" vs. the stored cover rows' "G.I. Joe: A Real American Hero") -
+  // series_title-only matching silently missed those entirely even though
+  // they're already correctly tagged with this series' own gcd_id. Mirrors
+  // the ID-first pattern in /api/issues/[id] and /api/series/[id].
+  const coversById = await chunks("canonical_covers", "series_gcd_id,issue_number,series_year,cover_date,publisher,storage_path", "series_gcd_id", ids);
+  const issuesBySeries = new Map(), coversByTitle = new Map(), coversByIdMap = new Map();
   for (const x of issues) { const id = Number(x.series_gcd_id); if (!issuesBySeries.has(id)) issuesBySeries.set(id, []); issuesBySeries.get(id).push(x); }
   for (const x of covers) { if (!x.storage_path) continue; const t = norm(x.series_title); if (!coversByTitle.has(t)) coversByTitle.set(t, []); coversByTitle.get(t).push(x); }
+  for (const x of coversById) { if (!x.storage_path) continue; const id = Number(x.series_gcd_id); if (!coversByIdMap.has(id)) coversByIdMap.set(id, []); coversByIdMap.get(id).push(x); }
   const targets = [];
   let total = 0, coveredTotal = 0;
   for (const id of ids) {
     const s = byId.get(id); if (!s) continue;
     const candidates = new Map(), pub = normPub(s.resolved_publisher_cached);
+    // ID-linked covers are already unambiguously this volume via series_gcd_id
+    // - no year-tolerance gate needed (that gate exists to disambiguate title
+    // collisions across volumes, which an ID match has no risk of). Tracked
+    // separately so a linked cover with no parseable year still counts.
+    const idCoveredKeys = new Set();
+    for (const c of coversByIdMap.get(id) ?? []) idCoveredKeys.add(norm(c.issue_number));
     for (const c of coversByTitle.get(norm(s.title)) ?? []) {
       if (pub && normPub(c.publisher) !== pub) continue;
       const key = norm(c.issue_number); if (!candidates.has(key)) candidates.set(key, []);
@@ -122,7 +136,9 @@ async function run() {
     const seriesIssues = issuesBySeries.get(id) ?? [];
     let covered = 0;
     for (const issue of seriesIssues) {
-      const years = candidates.get(norm(issue.issue_number));
+      const key = norm(issue.issue_number);
+      if (idCoveredKeys.has(key)) { covered += 1; continue; }
+      const years = candidates.get(key);
       const wanted = year(issue.publication_date) ?? s.year_start_cached ?? null;
       if (years?.length && (wanted == null || years.some((y) => y != null && Math.abs(y - wanted) <= YEAR_TOLERANCE))) covered += 1;
     }

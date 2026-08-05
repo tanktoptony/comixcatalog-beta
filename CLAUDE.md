@@ -267,7 +267,7 @@ Patreon Founding Collectors get grandfathered Pro status in-app via `is_founding
 - [x] Variant-aware issue count dedupe (`baseIssueNumber()` collapses bracketed/slash-year suffixes)
 - [x] `key_date` fallback for year coverage — 79.4% → 85.5%
 - [x] Cache refresh hardened with retry-on-57014 and cursor persistence (`scripts/.refresh-cursor`)
-- [x] North Star alignment audit ([docs/north-star/PHASE1_AUDIT.md](docs/north-star/PHASE1_AUDIT.md))
+- [x] North Star alignment audit ([archive/2026-08-repo-cleanup/PHASE1_AUDIT.md](archive/2026-08-repo-cleanup/PHASE1_AUDIT.md) — archived 2026-08-03, Phase 1 is complete so this is a historical record, not a live checklist)
 
 ### Phase 2 — Revenue Engine ← CURRENT PHASE (target: July 2026)
 

@@ -1,0 +1,42 @@
+#!/bin/sh
+# Blocks commits made directly in the PRIMARY checkout on any branch other
+# than main. Real incident 2026-08-04: multiple agent sessions (Codex,
+# Claude) checked out branch after branch in this same shared folder
+# instead of an isolated `git worktree add .worktrees/<topic>`, producing
+# uncommitted cross-contamination and a checkout stuck off main. The
+# worktree convention was already documented
+# (docs/operations/engineering-workflow.md) but nothing enforced it, so it
+# was skipped. This does.
+#
+# Worktrees are exempt (that's the whole point — branch work belongs
+# there). Detected because a worktree's `.git` is a FILE pointing at
+# gitdir: ..., not a directory.
+#
+# Escape hatch for a deliberate, conscious exception:
+#   SKIP_BRANCH_GUARD=1 git commit ...
+
+if [ -n "$SKIP_BRANCH_GUARD" ]; then
+  exit 0
+fi
+
+if [ -d ".git" ]; then
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  if [ "$branch" != "main" ] && [ "$branch" != "HEAD" ]; then
+    echo "" >&2
+    echo "BLOCKED: primary checkout is on branch '$branch', not main." >&2
+    echo "" >&2
+    echo "This directory is shared by every agent session. Branch work here" >&2
+    echo "collides with whatever else is running. Use an isolated worktree:" >&2
+    echo "" >&2
+    echo "  git branch agent/<topic> main" >&2
+    echo "  git worktree add .worktrees/<topic> agent/<topic>" >&2
+    echo "" >&2
+    echo "...then commit from .worktrees/<topic> instead." >&2
+    echo "" >&2
+    echo "Deliberate one-off exception: SKIP_BRANCH_GUARD=1 git commit ..." >&2
+    echo "" >&2
+    exit 1
+  fi
+fi
+
+exit 0

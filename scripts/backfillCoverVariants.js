@@ -5,6 +5,9 @@ dotenv.config({ path: process.env.COMIXCATALOG_ENV_FILE || ".env.local" });
 
 const apply = process.argv.includes("--apply");
 const countOnly = process.argv.includes("--count-only");
+const volumeSleepSeconds = Number(process.argv.find((arg) => arg.startsWith("--vol-sleep-seconds="))?.split("=")[1] || 20);
+const requestedVolumeIds = process.argv.find((arg) => arg.startsWith("--volume-ids="))?.split("=")[1]
+  ?.split(",").map((value) => Number(value.trim())).filter(Number.isInteger) || null;
 const maxPerIssue = Number(process.argv.find((arg) => arg.startsWith("--max-variant-images-per-issue="))?.split("=")[1] || 10);
 const supabaseUrl = (process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || "").replace(/\/$/, "");
 const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -65,7 +68,14 @@ async function getIssues(volumeId) {
       limit: "100",
       offset: String(offset),
     });
-    const response = await fetch(url, { headers: cvHeaders });
+    let response;
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      response = await fetch(url, { headers: cvHeaders });
+      if (response.status !== 420 || attempt === 4) break;
+      const delay = 60 * 2 ** attempt;
+      console.warn(`ComicVine rate-limited volume ${volumeId}; retrying in ${delay}s`);
+      await new Promise((resolve) => setTimeout(resolve, delay * 1000));
+    }
     if (!response.ok) throw new Error(`ComicVine volume ${volumeId} failed (${response.status})`);
     const payload = await response.json();
     issues.push(...(payload.results || []));
@@ -75,14 +85,15 @@ async function getIssues(volumeId) {
 }
 
 async function main() {
-  const volumeIds = await getVolumeIds();
+  const volumeIds = requestedVolumeIds?.length ? requestedVolumeIds : await getVolumeIds();
   report.volumes = volumeIds.length;
   console.log(`${apply ? "APPLY" : "DRY RUN"}: ${volumeIds.length} distinct ComicVine volumes`);
   console.log(`Estimated ComicVine issue-list requests: ${volumeIds.length} minimum (about ${(volumeIds.length / 180).toFixed(1)} hours at the existing 180-request/hour budget)`);
   if (countOnly) return;
   console.log(`Estimated ComicVine issue-list requests: ${volumeIds.length} minimum`);
-  for (const volumeId of volumeIds) {
+  for (const [volumeIndex, volumeId] of volumeIds.entries()) {
     try {
+      console.log(`[${volumeIndex + 1}/${volumeIds.length}] volume ${volumeId}`);
       const issues = await getIssues(volumeId);
       report.issues += issues.length;
       for (const issue of issues) {
@@ -106,6 +117,9 @@ async function main() {
     } catch (error) {
       report.errors.push({ volumeId, error: String(error.message || error) });
       console.error(`Volume ${volumeId} failed: ${error.message || error}`);
+    }
+    if (volumeIndex < volumeIds.length - 1 && volumeSleepSeconds > 0) {
+      await new Promise((resolve) => setTimeout(resolve, volumeSleepSeconds * 1000));
     }
   }
   console.log(JSON.stringify(report, null, 2));

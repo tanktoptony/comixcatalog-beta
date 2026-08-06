@@ -92,7 +92,14 @@ export async function GET(req) {
       .not("year_start_cached", "is", null)
       .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
       .order("issue_count_cached", { ascending: false })
-      .limit(60);
+      // Widened from 60: a low-issue-count collected edition sharing an exact
+      // title with a dozen 50-900-issue volumes (e.g. 17 distinct "Justice
+      // League" series) can rank well outside the old cutoff and never reach
+      // the per-title grouping/significance-tier logic below at all. 200
+      // comfortably covers known worst-case title collisions (verified: the
+      // 2022 Justice League collected edition, gcd_id 184847, ranks 97th
+      // among 243 "Justice League"-matching rows).
+      .limit(200);
 
     if (error) {
       console.error("GET /api/search/series failed:", error);

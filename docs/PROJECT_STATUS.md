@@ -32,7 +32,7 @@ This is not a roadmap and not a pitch. It's a snapshot. Update `Last verified` w
 | `canonical_covers` | 106,983 | up from ~63k noted in CLAUDE.md's body text (Phase 2 body copy is stale — the header/strategy-plan number of "~90-96k" was closer) |
 | `market_comps` | 6,054 | **see §3 — CLAUDE.md says this table is empty; it isn't** |
 | `user_collections` | 681 | real usage, pre-launch beta scale |
-| `comics` (user/local-contributed) | 755,401 | **flagged below — CLAUDE.md says ~140 after May 2026 dedupe** |
+| `comics` (user/local-contributed) | 240 | legacy GCD-linked residue removed 2026-08-04; 209 rows have `created_by` |
 | `profiles` | 17 | all 17 currently show `is_pro = true` and `is_founding_collector = true` |
 
 Coverage metrics (live):
@@ -41,7 +41,7 @@ Coverage metrics (live):
 - `canonical_covers` with `gcd_issue_id` set: 44,882 / 106,983 (42%).
 - `canonical_covers` with `series_gcd_id` set: 87,276 / 106,983 (82%).
 
-**Investigated 2026-08-04 — the dedupe was partial, and the “~140” figure was not the post-dedupe table count.** `scripts/dedupeComicsByContent.js` is a manually invoked, one-time migration (`--apply` enables writes; no workflow schedules it). It deleted only rows that its conservative title + issue + optional-year matcher could map unambiguously to `gcd_issues`; unmatched rows were intentionally retained. Live read-only counts show 755,401 rows, of which 755,250 predate the dedupe commit, 755,161 have a non-null `gcd_id`, 755,311 have a null `series_title`, and 755,192 have a null `created_by`. Only 151 rows were created on or after 2026-05-16, and all 151 have a real `created_by`, so later ingestion cannot explain the 755k residue. The named ingestion paths also do not write `comics`: `cover-ingest.yml` runs `comicvine_api_to_supabase.py`, whose default/used target is `canonical_covers`, while `gap-probe.yml` only updates `gap-manual.json`. Conclusion: roughly 755k legacy-shaped rows survived the May content match; they were not reintroduced afterward. The script would be broadly idempotent if rerun, but a new dry-run/dedupe decision is intentionally deferred because its deletes and collection rewiring are high-risk.
+**Resolved 2026-08-04 — the May dedupe was partial, and the “~140” figure was not the post-dedupe table count.** Investigation showed 755,161 surviving rows had direct `gcd_id` links and predated the May cleanup; the named cover-ingestion paths do not write `comics`. A full-table dry-run and repeated apply-time validation confirmed every one of those rows against `gcd_issues`, normalized issue number, and the independent `series.gcd_id` bridge. All 755,161 had `created_by = null`, with zero `user_collections` references and zero attached `comic_covers`; they were deleted in verified batches. Post-delete audit: 240 `comics` rows remain, 209 are attributed, no `gcd_id` rows remain, and all 228 collection rows that reference local comics are unchanged. See `docs/operations/comics-gcd-dedupe-plan.md`.
 
 ## 3. Valuation pipeline — corrects CLAUDE.md
 

@@ -122,17 +122,30 @@ export async function GET(req) {
       const pool = byTitlePub.get(key) ?? [];
       if (pool.length === 0) continue; // no match in DB, or no cover — silently drop
 
+      // GCD sometimes carries multiple series entries under the identical
+      // title (foreign licensed editions, stalled/incomplete duplicate
+      // indexer entries) that all resolve to the same normalized publisher
+      // string — e.g. "Ultimate Spider-Man" has a German Panini edition and
+      // a 2-issue stub sitting alongside the real 19-issue Marvel US run,
+      // all three tagged "Marvel Comics". When prefer_year ties between
+      // rows, Postgres row order is NOT guaranteed without an ORDER BY, so
+      // picking pool[0] flips between requests — different page loads were
+      // showing different (sometimes the wrong, incomplete) series. Break
+      // ties deterministically by issue_count_cached: the fullest series is
+      // almost always the real, actively-tracked one, not a stub/foreign dupe.
       let best = pool[0];
-      if (pool.length > 1 && entry.prefer_year != null) {
-        let bestDelta = Infinity;
-        for (const row of pool) {
-          const ys = row.year_start_cached;
-          if (ys == null) continue;
-          const delta = Math.abs(ys - entry.prefer_year);
-          if (delta < bestDelta) {
-            best = row;
-            bestDelta = delta;
-          }
+      let bestYearDelta = Infinity;
+      let bestIssueCount = -1;
+      for (const row of pool) {
+        const ys = row.year_start_cached;
+        const yearDelta = entry.prefer_year != null && ys != null ? Math.abs(ys - entry.prefer_year) : Infinity;
+        const issueCount = row.issue_count_cached ?? 0;
+        const isBetter =
+          yearDelta < bestYearDelta || (yearDelta === bestYearDelta && issueCount > bestIssueCount);
+        if (isBetter) {
+          best = row;
+          bestYearDelta = yearDelta;
+          bestIssueCount = issueCount;
         }
       }
 

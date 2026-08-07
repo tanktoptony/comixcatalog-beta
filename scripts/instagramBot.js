@@ -113,10 +113,22 @@ function tagify(value) {
 // (see NORTH_STAR.md §2.5). Everything else gets collector-community tags
 // instead, plus a series-specific tag (previously missing entirely) and a
 // branded tag so the account's own posts become searchable over time.
-function hashtagsFor(publisher, year, title, isKeyIssue) {
+//
+// EXTRA_HASHTAG_POOL rotates 2 tags in on top of the fixed set so the tag
+// block doesn't look identical post to post — dayIndex-driven like the CTA
+// rotation below, so the two rotations naturally fall out of sync.
+// "#vintagecomics" is handled separately (below) rather than living in this
+// pool, since it needs to only fire when the book is actually old — the
+// pool has no notion of which post it's rotating into.
+const EXTRA_HASHTAG_POOL = ["#longbox", "#backissues", "#comicshop", "#graphicnovels", "#comicart"];
+const VINTAGE_CUTOFF_YEAR = 1990;
+
+function hashtagsFor(publisher, year, title, isKeyIssue, dayIndex = Math.floor(Date.now() / 86400000)) {
   const decade = year ? `${Math.floor(year / 10) * 10}s` : null;
   const pubTag = tagify(publisher);
   const titleTag = tagify(title);
+  const poolStart = ((dayIndex % EXTRA_HASHTAG_POOL.length) + EXTRA_HASHTAG_POOL.length) % EXTRA_HASHTAG_POOL.length;
+  const extras = [EXTRA_HASHTAG_POOL[poolStart], EXTRA_HASHTAG_POOL[(poolStart + 1) % EXTRA_HASHTAG_POOL.length]];
   const tags = [
     "#comics",
     "#comicbooks",
@@ -125,15 +137,100 @@ function hashtagsFor(publisher, year, title, isKeyIssue) {
     titleTag && `#${titleTag}`,
     pubTag && `#${pubTag}`,
     decade && `#${decade}comics`,
+    ...extras,
+    year && year < VINTAGE_CUTOFF_YEAR ? "#vintagecomics" : null,
     "#comixcatalog",
   ].filter(Boolean);
   return [...new Set(tags)].join(" "); // de-dupe in case title/publisher collide
 }
 
-export function buildCaption({ title, issueNumber, year, publisher, valueLine, kicker, postType }) {
+// Marvel/Image solicit text often leads with an ALL CAPS credits-drop
+// sentence ("BATMAN LEGEND SCOTT SNYDER AND ICONIC ARTIST NICK DRAGOTTA...")
+// before the actual synopsis — reads as shouty marketing hype in an IG
+// caption, cutting against the collector-trust voice NORTH_STAR.md calls
+// for. Rewriting it to sentence-case was tried and rejected: lowercasing
+// creator names mid-sentence (SCOTT SNYDER → "scott snyder") looks like a
+// bug, not a fix. Dropping shouty sentences outright is safer — the
+// (normal-case) sentence that follows is usually the real synopsis anyway.
+function stripShoutySentences(text) {
+  const sentences = text.match(/[^.!?]+[.!?]*/g) || [text];
+  return sentences
+    .filter((sentence) => {
+      const letters = sentence.replace(/[^A-Za-z]/g, "");
+      if (letters.length < 8) return true; // too short to judge reliably, keep
+      const upperCount = (sentence.match(/[A-Z]/g) || []).length;
+      return upperCount / letters.length < 0.6;
+    })
+    .join("")
+    .trim();
+}
+
+// GCD's `description` field is raw HTML and wildly inconsistent in shape:
+// a clean synopsis paragraph for most modern single-story issues, solicit
+// text followed by a "List of covers and their creators" table for
+// Marvel/Image, or (mostly older/UK anthology) a <ol>/<li> list of several
+// unrelated backup features. Only the first case makes a coherent caption
+// line, so this bails out to null rather than posting a garbled fragment —
+// callers fall back to the existing title/publisher/value-only caption.
+export function synopsisFromDescription(html, { maxLen = 200 } = {}) {
+  if (!html) return null;
+
+  let text = html.split(/<h4>/i)[0]; // drop Marvel/Image's trailing covers table
+
+  const liCount = (text.match(/<li[\s>]/gi) || []).length;
+  if (liCount > 1) return null; // multi-story anthology issue, not a single blurb
+
+  text = text
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&rsquo;|&lsquo;/g, "'")
+    .replace(/&rdquo;|&ldquo;/g, '"')
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  text = stripShoutySentences(text);
+
+  if (text.length < 20) return null;
+  if (text.length <= maxLen) return text;
+
+  const truncated = text.slice(0, maxLen);
+  const lastSpace = truncated.lastIndexOf(" ");
+  return `${truncated.slice(0, lastSpace > 0 ? lastSpace : maxLen)}…`;
+}
+
+// Rotated by dayIndex so the CTA sentence varies without needing per-post
+// randomness (keeps the preview tool's future-day simulation deterministic).
+const CTA_VARIANTS = [
+  "Catalogued on ComixCatalog — link in bio",
+  "Built by collectors, for collectors — ComixCatalog, link in bio",
+  "Track your own collection on ComixCatalog — link in bio",
+];
+
+export function buildCaption({
+  title,
+  issueNumber,
+  year,
+  publisher,
+  valueLine,
+  kicker,
+  postType,
+  synopsis,
+  dayIndex = Math.floor(Date.now() / 86400000),
+}) {
   const header = `${title}${issueNumber ? ` #${issueNumber}` : ""}${year ? ` (${year})` : ""}`;
-  const lines = [kicker, header, publisher, valueLine, "", "Catalogued on ComixCatalog — link in bio", hashtagsFor(publisher, year, title, postType === "Key Issue Value Check")]
-    .filter((l) => l !== undefined && l !== null);
+  const cta = CTA_VARIANTS[((dayIndex + 1) % CTA_VARIANTS.length + CTA_VARIANTS.length) % CTA_VARIANTS.length];
+  const lines = [
+    kicker,
+    header,
+    publisher,
+    valueLine,
+    synopsis,
+    "",
+    cta,
+    hashtagsFor(publisher, year, title, postType === "Key Issue Value Check", dayIndex),
+  ].filter((l) => l !== undefined && l !== null);
   return lines.join("\n");
 }
 
@@ -170,7 +267,7 @@ export async function pickCoverSpotlight(seenKeys) {
     // claiming the wrong issue # is worse than omitting it.
     const { data: coverRow } = await supabase
       .from("canonical_covers")
-      .select("gcd_issue_id, issue_number")
+      .select("gcd_issue_id, issue_number, description")
       .eq("storage_path", match.featured_cover_path_cached)
       .limit(1)
       .maybeSingle();
@@ -184,6 +281,7 @@ export async function pickCoverSpotlight(seenKeys) {
       year: match.year_start_cached,
       publisher: match.resolved_publisher_cached,
       gcdIssueId: coverRow?.gcd_issue_id ?? null,
+      description: coverRow?.description ?? null,
     };
   }
   return null;
@@ -193,7 +291,7 @@ export async function pickCoverSpotlight(seenKeys) {
 export async function pickNewToCatalog(seenKeys) {
   const { data } = await supabase
     .from("canonical_covers")
-    .select("gcd_issue_id, series_title, issue_number, series_year, publisher, storage_path, created_at")
+    .select("gcd_issue_id, series_title, issue_number, series_year, publisher, storage_path, created_at, description")
     .eq("match_confidence", "resolved")
     .not("storage_path", "is", null)
     .order("created_at", { ascending: false })
@@ -210,6 +308,7 @@ export async function pickNewToCatalog(seenKeys) {
       year: row.series_year,
       publisher: row.publisher,
       gcdIssueId: row.gcd_issue_id,
+      description: row.description ?? null,
     };
   }
   return null;
@@ -231,7 +330,7 @@ export async function pickValueCheck(seenKeys) {
     if (!valueInfo) continue;
     const { data: cover } = await supabase
       .from("canonical_covers")
-      .select("series_title, issue_number, series_year, publisher, storage_path")
+      .select("series_title, issue_number, series_year, publisher, storage_path, description")
       .eq("gcd_issue_id", gcdIssueId)
       .not("storage_path", "is", null)
       .limit(1)
@@ -247,6 +346,7 @@ export async function pickValueCheck(seenKeys) {
       publisher: cover.publisher,
       gcdIssueId,
       valueInfo,
+      description: cover.description ?? null,
     };
   }
   return null;
@@ -348,6 +448,7 @@ async function run() {
     valueLine,
     kicker,
     postType: post.type,
+    synopsis: synopsisFromDescription(post.description),
   });
 
   console.log(`Selected: ${post.type} — ${post.title} #${post.issueNumber} (${post.year ?? "?"})`);

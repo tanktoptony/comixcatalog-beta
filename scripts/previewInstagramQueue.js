@@ -11,18 +11,21 @@ import {
   pickValueCheck,
   buildCaption,
   coverPriceForYear,
+  synopsisFromDescription,
 } from "./instagramBot.js";
 
 const COUNT = Number(process.argv[2]) || 10;
 
 // Same rotation as the real bot: today's real day-of-epoch index, then +1
 // per simulated day, so the preview matches what the cron would actually
-// pick on each of the next N real days.
-const realDayIndex = Math.floor(Date.now() / 86400000) % 3;
+// pick (and how it would rotate CTA/hashtags) on each of the next N real
+// days. Kept as the raw epoch day (not yet mod 3) so it can feed both the
+// picker-order rotation (mod 3) and buildCaption's own rotation below.
+const epochDay = Math.floor(Date.now() / 86400000);
 const pickers = [pickCoverSpotlight, pickNewToCatalog, pickValueCheck];
 
 async function selectForDay(dayOffset, seenKeys) {
-  const dayIndex = (realDayIndex + dayOffset) % 3;
+  const dayIndex = (epochDay + dayOffset) % 3;
   const order = [...pickers.slice(dayIndex), ...pickers.slice(0, dayIndex)];
   for (const picker of order) {
     const post = await picker(seenKeys);
@@ -65,6 +68,8 @@ async function run() {
       valueLine,
       kicker,
       postType: post.type,
+      synopsis: synopsisFromDescription(post.description),
+      dayIndex: epochDay + day,
     });
 
     console.log(`Type: ${post.type}`);

@@ -90,13 +90,32 @@ async function prioritySources() {
   for (const issue of compIssues) tag(sources, issue.series_gcd_id, "high-value");
 
   const titles = [...new Set(FEATURED_SERIES.map((x) => x.title))];
-  const pool = await chunks("series", "gcd_id,title,resolved_publisher_cached,year_start_cached", "title", titles);
+  const pool = await chunks("series", "gcd_id,title,resolved_publisher_cached,year_start_cached,issue_count_cached", "title", titles);
   for (const entry of FEATURED_SERIES) {
     const candidates = pool.filter((x) => x.title === entry.title && normPub(x.resolved_publisher_cached) === normPub(entry.publisher));
+    // GCD sometimes carries multiple series rows tied on the exact same
+    // year (a malformed/duplicate indexer entry alongside the real one —
+    // confirmed 2026-08-08: two "Geiger"/Image/2021 rows, one with 6 real
+    // issues, one with 2 from a mis-keyed GCD entry). abs(year-delta) alone
+    // doesn't break that tie, so Array.sort's unspecified order for equal
+    // keys picked whichever row Postgres happened to return first —
+    // flipping between runs. Break remaining ties by issue_count_cached;
+    // the fuller series is almost always the real one.
     let best = candidates[0] ?? null;
-    if (candidates.length > 1 && entry.prefer_year != null) {
-      best = candidates.filter((x) => x.year_start_cached != null)
-        .sort((a, b) => Math.abs(a.year_start_cached - entry.prefer_year) - Math.abs(b.year_start_cached - entry.prefer_year))[0] ?? null;
+    if (candidates.length > 1) {
+      let bestYearDelta = Infinity;
+      let bestIssueCount = -1;
+      for (const c of candidates) {
+        const yearDelta = entry.prefer_year != null && c.year_start_cached != null
+          ? Math.abs(c.year_start_cached - entry.prefer_year)
+          : Infinity;
+        const issueCount = c.issue_count_cached ?? 0;
+        if (yearDelta < bestYearDelta || (yearDelta === bestYearDelta && issueCount > bestIssueCount)) {
+          best = c;
+          bestYearDelta = yearDelta;
+          bestIssueCount = issueCount;
+        }
+      }
     }
     if (!best?.gcd_id) continue;
     tag(sources, best.gcd_id, "featured");

@@ -44,7 +44,7 @@ async function run() {
   const titles = [...new Set(FEATURED_SERIES.map((e) => e.title))];
   const { data: rows } = await supabase
     .from("series")
-    .select("title, year_start_cached, resolved_publisher_cached, featured_cover_path_cached")
+    .select("title, year_start_cached, resolved_publisher_cached, featured_cover_path_cached, issue_count_cached")
     .in("title", titles);
 
   // Group by (title, publisher) for prefer-year selection.
@@ -60,22 +60,31 @@ async function run() {
     const key = `${entry.title.toLowerCase()}::${entry.publisher.toLowerCase()}`;
     const candidates = pool.get(key) ?? [];
 
-    // Pick the best (closest prefer_year) row for this entry.
+    // Pick the best (closest prefer_year, most-complete on ties) row for
+    // this entry. GCD sometimes carries multiple series rows tied on the
+    // exact same year (a malformed/duplicate indexer entry alongside the
+    // real one — confirmed 2026-08-08: two "Geiger"/Image/2021 rows, one
+    // with 6 real issues, one with 2 from a mis-keyed GCD entry). Breaking
+    // ties by issue_count_cached instead of leaving them to whichever row
+    // Postgres happened to return first keeps this deterministic — same
+    // fix applied to /api/comics/route.js and generatePriorityCoverTargets.js.
     let best = null;
     if (candidates.length === 1) {
       best = candidates[0];
-    } else if (candidates.length > 1 && entry.prefer_year != null) {
-      let bestDelta = Infinity;
+    } else if (candidates.length > 1) {
+      let bestYearDelta = Infinity;
+      let bestIssueCount = -1;
       for (const r of candidates) {
-        if (r.year_start_cached == null) continue;
-        const delta = Math.abs(r.year_start_cached - entry.prefer_year);
-        if (delta < bestDelta) {
+        const yearDelta = entry.prefer_year != null && r.year_start_cached != null
+          ? Math.abs(r.year_start_cached - entry.prefer_year)
+          : Infinity;
+        const issueCount = r.issue_count_cached ?? 0;
+        if (yearDelta < bestYearDelta || (yearDelta === bestYearDelta && issueCount > bestIssueCount)) {
           best = r;
-          bestDelta = delta;
+          bestYearDelta = yearDelta;
+          bestIssueCount = issueCount;
         }
       }
-    } else if (candidates.length > 1) {
-      best = candidates[0];
     }
 
     if (best && !best.featured_cover_path_cached) {

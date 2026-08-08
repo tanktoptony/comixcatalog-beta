@@ -121,31 +121,13 @@ export default function Footer() {
             </nav>
           ))}
 
-          {/* 4th column: stay updated + socials */}
+          {/* 4th column: socials. Newsletter signup form hidden (not
+              deleted) — it promised monthly emails but no email-sending
+              infra exists yet to ever honor that promise. /api/newsletter
+              and the newsletter_subscribers table are untouched, so the
+              form can come back once real sending is wired up. */}
           <div className="footer-col footer-col-newsletter">
-            <h3 className="footer-col-title">Stay Updated</h3>
-            <p className="footer-newsletter-blurb">
-              New ingestions, marketplace launches, and feature drops — once a
-              month, no spam.
-            </p>
-            <form
-              className="footer-newsletter-form"
-              onSubmit={subscribe}
-            >
-              <input
-                type="email"
-                placeholder="Enter email address"
-                className="footer-newsletter-input"
-                aria-label="Email address"
-                value={newsletter.email}
-                onChange={(event) => setNewsletter((current) => ({ ...current, email: event.target.value }))}
-                required
-              />
-              <button type="submit" className="footer-newsletter-btn" disabled={newsletter.state === "busy"}>
-                {newsletter.state === "busy" ? "Joining…" : "Sign Up"}
-              </button>
-            </form>
-            {newsletter.message && <p className={`footer-newsletter-message ${newsletter.state}`}>{newsletter.message}</p>}
+            <h3 className="footer-col-title">Follow</h3>
 
             <div className="footer-socials" aria-label="Follow ComixCatalog">
               {SOCIALS.map((s) => (

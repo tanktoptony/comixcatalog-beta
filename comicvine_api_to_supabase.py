@@ -811,8 +811,17 @@ def _escape_ilike(value: str) -> str:
     return (value or "").replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
 
 
-def update_series_cv_publisher(series_title: str | None, cv_publisher: str | None) -> None:
-    if not series_title or not cv_publisher:
+def update_series_cv_publisher(gcd_id: int | None, cv_publisher: str | None) -> None:
+    """Scoped to the exact series row by gcd_id. Previously this matched by
+    `title ilike <name>`, which hits EVERY series row sharing that literal
+    title — GCD routinely has several per title across different
+    eras/publishers/countries (five "Vampirella" rows: 1969 Warren, a 1974
+    Mexican reprint, a German licensed edition, etc.). Ingesting any one
+    ComicVine volume was blasting its publisher ("Dynamite Entertainment")
+    onto all of them, corrupting resolved_publisher_cached for series that
+    have nothing to do with the one actually ingested. No confident gcd_id
+    match → skip the write rather than fall back to the unscoped blast."""
+    if not gcd_id or not cv_publisher:
         return
     url = f"{SUPABASE_URL}/rest/v1/series"
     headers = {
@@ -825,14 +834,14 @@ def update_series_cv_publisher(series_title: str | None, cv_publisher: str | Non
         resp = requests.patch(
             url,
             headers=headers,
-            params={"title": f"ilike.{_escape_ilike(series_title)}"},
+            params={"gcd_id": f"eq.{gcd_id}"},
             json={"cv_publisher": cv_publisher},
             timeout=30,
         )
         if resp.status_code not in (200, 204):
-            print(f"  cv_publisher patch failed ({series_title!r}): {resp.status_code} {resp.text[:200]}")
+            print(f"  cv_publisher patch failed (gcd_id={gcd_id}): {resp.status_code} {resp.text[:200]}")
     except Exception as e:
-        print(f"  cv_publisher patch error ({series_title!r}): {e}")
+        print(f"  cv_publisher patch error (gcd_id={gcd_id}): {e}")
 
 
 # Cache for series_gcd_id lookups — same target shouldn't requery per issue.
@@ -1245,18 +1254,21 @@ def main():
             )
 
             cv_pub_name = (volume.get("publisher") or {}).get("name")
-            if cv_pub_name and not args.dry_run:
-                update_series_cv_publisher(volume.get("name"), cv_pub_name)
 
             # Resolve gcd_series id for this volume so canonical_covers rows
             # can be joined by integer ID instead of fragile title string.
             # Falls back to None silently — downstream code tolerates it.
+            # Resolved BEFORE the cv_publisher write below so that write can
+            # be scoped to this exact row instead of every same-titled one.
             target_gcd_id = _resolve_series_gcd_id(
                 volume_name,
                 volume.get("name"),
                 target.get("year") or volume.get("start_year"),
                 cv_pub_name,
             )
+
+            if cv_pub_name and not args.dry_run:
+                update_series_cv_publisher(target_gcd_id, cv_pub_name)
 
             volume_id = volume["id"]
             issues = fetch_issues_for_volume(volume_id)

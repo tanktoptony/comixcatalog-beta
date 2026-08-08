@@ -24,6 +24,7 @@ import { config } from 'dotenv';
 import fs from 'fs';
 import path from 'path';
 import { createClient } from '@supabase/supabase-js';
+import { normalizePublisherLabel } from '../src/lib/publisher.js';
 
 config({ path: '.env.local' });
 
@@ -37,26 +38,13 @@ if (!CV_KEY) {
   process.exit(1);
 }
 
-// Publisher allowlist — match the ones already curated in featuredSeries +
-// the gap-width generator. Anything else gets skipped (avoids noise from
-// foreign-language reprints and obscure indies).
-const ALLOWED_PUBLISHERS = new Set([
-  'Marvel', 'Marvel Comics',
-  'DC Comics',
-  'Image', 'Image Comics',
-  'IDW Publishing', 'IDW',
-  'Dark Horse Comics', 'Dark Horse',
-  'BOOM! Studios', 'Boom! Studios',
-  'Dynamite Entertainment', 'Dynamite',
-  'Valiant Comics', 'Valiant',
-  'Oni Press',
-  'AfterShock Comics',
-  'Vault Comics',
-  'Mad Cave Studios',
-  'AWA Studios',
-  'Skybound',
-  'Black Mask Studios',
-]);
+// Publisher allowlist check used to be a hand-copied ~15-entry Set here,
+// separate from src/lib/publisher.js's real ~40-entry US_PUBLISHER_ALLOWLIST.
+// It drifted stale — Titan Comics, Ahoy Comics, Antarctic Press, Vertigo,
+// WildStorm, Fantagraphics, VIZ Media, Charlton, and ~15 others were missing,
+// so real US publishers were being wrongly skipped as "not allowlisted"
+// (confirmed 2026-08-08: a 292-volume probe wrongly rejected Titan Comics 4
+// times). Use the canonical resolver instead of a second copy of the list.
 
 const GAP_MANUAL_PATH = path.resolve('gap-manual.json');
 
@@ -187,21 +175,26 @@ async function createMinimalSeriesRow(sb, { name, publisher, year }) {
     if (!meta) continue;
 
     const publisherName = meta.publisher?.name || '';
-    if (!ALLOWED_PUBLISHERS.has(publisherName)) {
+    const canonicalPublisher = normalizePublisherLabel(publisherName);
+    if (!canonicalPublisher) {
       console.log(`  skip vol ${vol.id} "${meta.name}" — publisher "${publisherName}" not allowlisted`);
       continue;
     }
 
+    // Store the canonical name, not ComicVine's raw string — gap-manual.json
+    // needs to match resolved_publisher_cached's form for the ingester's
+    // publisher gate to work (same convention the other gap-*.json
+    // generators already follow).
     const year = meta.start_year ? Number(meta.start_year) : null;
-    candidates.push({ name: meta.name, publisher: publisherName, year, volume_id: vol.id });
+    candidates.push({ name: meta.name, publisher: canonicalPublisher, year, volume_id: vol.id });
 
     if (await seriesRowExists(sb, meta.name)) {
-      console.log(`  + ${meta.name} (${publisherName}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s)`);
+      console.log(`  + ${meta.name} (${canonicalPublisher}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s)`);
     } else if (APPLY) {
-      await createMinimalSeriesRow(sb, { name: meta.name, publisher: publisherName, year });
-      console.log(`  + ${meta.name} (${publisherName}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s) [created series row — no catalog entry existed]`);
+      await createMinimalSeriesRow(sb, { name: meta.name, publisher: canonicalPublisher, year });
+      console.log(`  + ${meta.name} (${canonicalPublisher}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s) [created series row — no catalog entry existed]`);
     } else {
-      console.log(`  + ${meta.name} (${publisherName}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s) [would create series row — no catalog entry exists]`);
+      console.log(`  + ${meta.name} (${canonicalPublisher}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s) [would create series row — no catalog entry exists]`);
     }
   }
 

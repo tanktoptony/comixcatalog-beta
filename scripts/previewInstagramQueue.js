@@ -9,7 +9,9 @@ import {
   pickCoverSpotlight,
   pickNewToCatalog,
   pickValueCheck,
+  pickBrandPost,
   buildCaption,
+  buildBrandCaption,
   coverPriceForYear,
   synopsisFromDescription,
 } from "./instagramBot.js";
@@ -19,13 +21,18 @@ const COUNT = Number(process.argv[2]) || 10;
 // Same rotation as the real bot: today's real day-of-epoch index, then +1
 // per simulated day, so the preview matches what the cron would actually
 // pick (and how it would rotate CTA/hashtags) on each of the next N real
-// days. Kept as the raw epoch day (not yet mod 3) so it can feed both the
-// picker-order rotation (mod 3) and buildCaption's own rotation below.
+// days. Kept as the raw epoch day (not yet mod pickers.length) so it can
+// feed both the picker-order rotation and buildCaption's own rotation below.
+// Mirrors selectPost()'s 7-slot cycle in instagramBot.js — keep in sync.
 const epochDay = Math.floor(Date.now() / 86400000);
-const pickers = [pickCoverSpotlight, pickNewToCatalog, pickValueCheck];
+const pickers = [
+  pickCoverSpotlight, pickNewToCatalog, pickValueCheck,
+  pickCoverSpotlight, pickNewToCatalog, pickValueCheck,
+  pickBrandPost,
+];
 
 async function selectForDay(dayOffset, seenKeys) {
-  const dayIndex = (epochDay + dayOffset) % 3;
+  const dayIndex = (epochDay + dayOffset) % pickers.length;
   const order = [...pickers.slice(dayIndex), ...pickers.slice(0, dayIndex)];
   for (const picker of order) {
     const post = await picker(seenKeys);
@@ -46,31 +53,41 @@ async function run() {
 
     seenKeys.add(post.dedupeKey); // simulate this day's pick being "used"
 
-    const kicker = {
-      "Cover Spotlight": "✦ Cover Spotlight",
-      "New to the Catalog": "✦ New to the Catalog",
-      "Key Issue Value Check": "✦ Value Check",
-    }[post.type];
-    const valueLine = post.valueInfo
-      ? `Est. value (raw NM-ish, ${post.valueInfo.sampleSize} sales): $${post.valueInfo.value.toFixed(0)}`
-      : post.type === "Key Issue Value Check"
-        ? null
-        : (() => {
-            const floor = coverPriceForYear(post.year);
-            return floor ? `Est. cover-price floor: $${floor.toFixed(2)}` : null;
-          })();
+    let caption;
+    if (post.type === "Brand") {
+      caption = buildBrandCaption({
+        kicker: post.kicker,
+        headline: post.headline,
+        captionBody: post.captionBody,
+        dayIndex: epochDay + day,
+      });
+    } else {
+      const kicker = {
+        "Cover Spotlight": "✦ Cover Spotlight",
+        "New to the Catalog": "✦ New to the Catalog",
+        "Key Issue Value Check": "✦ Value Check",
+      }[post.type];
+      const valueLine = post.valueInfo
+        ? `Est. value (raw NM-ish, ${post.valueInfo.sampleSize} sales): $${post.valueInfo.value.toFixed(0)}`
+        : post.type === "Key Issue Value Check"
+          ? null
+          : (() => {
+              const floor = coverPriceForYear(post.year);
+              return floor ? `Est. cover-price floor: $${floor.toFixed(2)}` : null;
+            })();
 
-    const caption = buildCaption({
-      title: post.title,
-      issueNumber: post.issueNumber,
-      year: post.year,
-      publisher: post.publisher,
-      valueLine,
-      kicker,
-      postType: post.type,
-      synopsis: synopsisFromDescription(post.description),
-      dayIndex: epochDay + day,
-    });
+      caption = buildCaption({
+        title: post.title,
+        issueNumber: post.issueNumber,
+        year: post.year,
+        publisher: post.publisher,
+        valueLine,
+        kicker,
+        postType: post.type,
+        synopsis: synopsisFromDescription(post.description),
+        dayIndex: epochDay + day,
+      });
+    }
 
     console.log(`Type: ${post.type}`);
     console.log(`Image: ${post.imageUrl}`);

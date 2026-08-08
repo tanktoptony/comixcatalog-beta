@@ -21,6 +21,8 @@ import fs from "fs";
 import { fileURLToPath, pathToFileURL } from "url";
 import { createClient } from "@supabase/supabase-js";
 import { FEATURED_SERIES } from "../src/lib/featuredSeries.js";
+import { renderBrandCard } from "./lib/brandCard.js";
+import { pickBrandPost as pickBrandPostContent } from "./lib/brandPostContent.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "..", ".env.local") });
@@ -352,11 +354,75 @@ export async function pickValueCheck(seenKeys) {
   return null;
 }
 
+function slugifyForPath(value) {
+  return String(value ?? "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80) || "post";
+}
+
+const BRAND_HASHTAGS = "#comiccollecting #comicbookdatabase #collectiblecomics #comicbookcollector #comixcatalog";
+
+// Not a comic post — no title/issue/publisher fields, so this is a
+// deliberately separate, simpler caption builder rather than another branch
+// bolted onto buildCaption(). Reuses the same CTA rotation for consistency.
+export function buildBrandCaption({ kicker, headline, captionBody, dayIndex = Math.floor(Date.now() / 86400000) }) {
+  const cta = CTA_VARIANTS[((dayIndex + 1) % CTA_VARIANTS.length + CTA_VARIANTS.length) % CTA_VARIANTS.length];
+  const lines = [`✦ ${kicker}`, headline, "", captionBody, "", cta, BRAND_HASHTAGS].filter(
+    (l) => l !== undefined && l !== null && l !== ""
+  );
+  return lines.join("\n");
+}
+
+// Wraps brandPostContent's text-only pickBrandPost with the image side:
+// render the card, upload it to the same public bucket the comic posts'
+// user-photo uploads already use (no new bucket/policy needed), return the
+// same shape the comic pickers return so selectPost()'s fallback loop and
+// run()'s posting logic don't need to know the difference until caption time.
+export async function pickBrandPost(seenKeys) {
+  const dayIndex = Math.floor(Date.now() / 86400000);
+  const content = await pickBrandPostContent(supabase, seenKeys, dayIndex);
+  if (!content) return null;
+
+  const png = await renderBrandCard({
+    kicker: content.kicker,
+    headline: content.headline,
+    subtext: content.subtext,
+    accent: content.accent,
+  });
+  const storagePath = `brand-cards/${slugifyForPath(content.dedupeKey)}.png`;
+  const { error: uploadError } = await supabase.storage
+    .from("comic-covers")
+    .upload(storagePath, png, { contentType: "image/png", upsert: true });
+  if (uploadError) {
+    console.error(`Brand card upload failed: ${uploadError.message}`);
+    return null;
+  }
+
+  return {
+    type: "Brand",
+    dedupeKey: content.dedupeKey,
+    imageUrl: `${SUPABASE_URL}/storage/v1/object/public/comic-covers/${storagePath}`,
+    kicker: content.kicker,
+    headline: content.headline,
+    captionBody: content.captionBody,
+  };
+}
+
 async function selectPost() {
   const seenKeys = loadLedger();
   // Rotate types by day-of-year so it's not random-feeling day to day.
-  const dayIndex = Math.floor(Date.now() / 86400000) % 3;
-  const pickers = [pickCoverSpotlight, pickNewToCatalog, pickValueCheck];
+  // 7-slot cycle: the 3 comic pickers get two slots each (still leading
+  // most days) and the brand picker gets 1 — roughly once a week rather
+  // than competing evenly, so the feed doesn't turn into a stats-spam
+  // account. Easy to change the ratio later by adjusting this array.
+  const pickers = [
+    pickCoverSpotlight, pickNewToCatalog, pickValueCheck,
+    pickCoverSpotlight, pickNewToCatalog, pickValueCheck,
+    pickBrandPost,
+  ];
+  const dayIndex = Math.floor(Date.now() / 86400000) % pickers.length;
   const order = [...pickers.slice(dayIndex), ...pickers.slice(0, dayIndex)];
   for (const picker of order) {
     const post = await picker(seenKeys);
@@ -430,28 +496,38 @@ async function run() {
     return;
   }
 
-  const kicker = { "Cover Spotlight": "✦ Cover Spotlight", "New to the Catalog": "✦ New to the Catalog", "Key Issue Value Check": "✦ Value Check" }[post.type];
-  const valueLine = post.valueInfo
-    ? `Est. value (raw NM-ish, ${post.valueInfo.sampleSize} sales): $${post.valueInfo.value.toFixed(0)}`
-    : post.type === "Key Issue Value Check"
-      ? null
-      : (() => {
-          const floor = coverPriceForYear(post.year);
-          return floor ? `Est. cover-price floor: $${floor.toFixed(2)}` : null;
-        })();
+  let caption;
+  if (post.type === "Brand") {
+    caption = buildBrandCaption({
+      kicker: post.kicker,
+      headline: post.headline,
+      captionBody: post.captionBody,
+    });
+    console.log(`Selected: Brand — ${post.kicker}: ${post.headline}`);
+  } else {
+    const kicker = { "Cover Spotlight": "✦ Cover Spotlight", "New to the Catalog": "✦ New to the Catalog", "Key Issue Value Check": "✦ Value Check" }[post.type];
+    const valueLine = post.valueInfo
+      ? `Est. value (raw NM-ish, ${post.valueInfo.sampleSize} sales): $${post.valueInfo.value.toFixed(0)}`
+      : post.type === "Key Issue Value Check"
+        ? null
+        : (() => {
+            const floor = coverPriceForYear(post.year);
+            return floor ? `Est. cover-price floor: $${floor.toFixed(2)}` : null;
+          })();
 
-  const caption = buildCaption({
-    title: post.title,
-    issueNumber: post.issueNumber,
-    year: post.year,
-    publisher: post.publisher,
-    valueLine,
-    kicker,
-    postType: post.type,
-    synopsis: synopsisFromDescription(post.description),
-  });
+    caption = buildCaption({
+      title: post.title,
+      issueNumber: post.issueNumber,
+      year: post.year,
+      publisher: post.publisher,
+      valueLine,
+      kicker,
+      postType: post.type,
+      synopsis: synopsisFromDescription(post.description),
+    });
+    console.log(`Selected: ${post.type} — ${post.title} #${post.issueNumber} (${post.year ?? "?"})`);
+  }
 
-  console.log(`Selected: ${post.type} — ${post.title} #${post.issueNumber} (${post.year ?? "?"})`);
   console.log(`Image: ${post.imageUrl}`);
   console.log(`Caption:\n${caption}\n`);
 

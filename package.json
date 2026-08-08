@@ -21,6 +21,7 @@
     "covers:weekly": "npm run covers:refresh-cache && npm run covers:gap-featured"
   },
   "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.86.0",
     "better-sqlite3": "^12.5.0",
@@ -33,6 +34,7 @@
     "pdf-lib": "^1.17.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "satori": "^0.29.0",
     "sql.js": "^1.13.0",
     "stripe": "^22.1.0",
     "wa-sqlite": "^1.0.0"

@@ -93,8 +93,8 @@ export default function HomePage() {
         <p className="lp-problem-body">
           Track grades, variants, newsstand vs. direct, CGC and CBCS cert numbers,
           purchase prices, and current market values across hundreds or thousands
-          of books. Export an insurance-ready PDF in a click. Sell when you&rsquo;re
-          ready, with verified grades on every listing.
+          of books. Export an insurance-ready PDF in a click. Verified grades
+          today &mdash; a trusted marketplace next.
         </p>
       </section>
 
@@ -124,8 +124,9 @@ export default function HomePage() {
           <div className="lp-feature-icon">◈</div>
           <h3>Marketplace</h3>
           <p>
-            Buy and sell with full transparency — grade, condition, variant type,
-            and cert number on every listing. Verified collectors, no guesswork.
+            Grade, condition, variant type, and cert number on every listing —
+            verified collectors, no guesswork. Launching soon, starting with
+            Pro members.
           </p>
         </div>
       </section>

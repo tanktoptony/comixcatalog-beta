@@ -344,6 +344,46 @@ export default function SeriesPage() {
           </div>
         )}
 
+        {/* Anonymous-visitor nudge — mirrors the issue page's pattern.
+            Previously this whole engagement slot only rendered for signed-in
+            users who already owned/wishlisted something from this run, so an
+            anonymous visitor (or a logged-in user new to this series) saw no
+            prompt to start tracking at all. */}
+        {!user && sortedIssues.length > 0 && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: 12,
+              flexWrap: "wrap",
+              marginBottom: 20,
+              padding: "14px 16px",
+              borderRadius: 10,
+              background: "rgba(255,215,0,0.06)",
+              border: "1px solid rgba(255,215,0,0.25)",
+            }}
+          >
+            <div style={{ fontSize: "0.9rem", opacity: 0.9 }}>
+              Track your progress on this {sortedIssues.length}-issue run — see what you own and what you&rsquo;re missing.
+            </div>
+            <Link
+              href={`/signup?next=${encodeURIComponent(`/series/${id}`)}`}
+              style={{
+                padding: "8px 14px",
+                borderRadius: 8,
+                border: "1px solid var(--cc-gold, #FFD700)",
+                color: "var(--cc-gold, #FFD700)",
+                fontWeight: 700,
+                textDecoration: "none",
+                flexShrink: 0,
+              }}
+            >
+              Start tracking — free →
+            </Link>
+          </div>
+        )}
+
         <div
           style={{
             display: "flex",

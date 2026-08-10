@@ -407,6 +407,7 @@ def _norm_publisher(value: str | None) -> str:
 PUBLISHER_ALIASES: tuple[frozenset[str], ...] = (
     frozenset({"goldkey", "western"}),  # Gold Key was Western Publishing's own imprint.
     frozenset({"wildstorm", "dc"}),  # WildStorm was a DC imprint 1999-2010.
+    frozenset({"wildstorm", "image"}),  # WildStorm was founded within Image 1992-1998, pre-DC.
     frozenset({"valiant", "valiantacclaim", "dmgvaliant"}),  # Same line under different owners/eras.
     frozenset({"aspen", "aspenmlt"}),  # Aspen Comics is published by Aspen MLT, Inc.
 )

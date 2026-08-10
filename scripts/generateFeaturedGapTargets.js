@@ -44,8 +44,31 @@ async function run() {
   const titles = [...new Set(FEATURED_SERIES.map((e) => e.title))];
   const { data: rows } = await supabase
     .from("series")
-    .select("title, year_start_cached, resolved_publisher_cached, featured_cover_path_cached, issue_count_cached")
+    .select("gcd_id, title, year_start_cached, resolved_publisher_cached, featured_cover_path_cached, issue_count_cached")
     .in("title", titles);
+
+  // featured_cover_path_cached is a single decorative thumbnail cached once
+  // onto the series row — it says nothing about whether any *issue* in the
+  // series actually has a canonical_covers row. Confirmed 2026-08-10: 22 of
+  // 79 FEATURED_SERIES entries (Batman, Thor, X-Men, Immortal Hulk, Deadpool,
+  // Daredevil among them) all had a non-null featured_cover_path_cached while
+  // canonical_covers had ZERO rows for their series_gcd_id — so this
+  // generator silently thought they were done and never queued them. Must
+  // check real coverage, not the cached thumbnail flag.
+  const gcdIds = [...new Set((rows ?? []).map((r) => r.gcd_id).filter((v) => v != null))];
+  const coveredGcdIds = new Set();
+  const PAGE = 1000;
+  for (let from = 0; ; from += PAGE) {
+    const { data: coverRows, error } = await supabase
+      .from("canonical_covers")
+      .select("series_gcd_id")
+      .in("series_gcd_id", gcdIds)
+      .not("storage_path", "is", null)
+      .range(from, from + PAGE - 1);
+    if (error) throw error;
+    for (const c of coverRows ?? []) coveredGcdIds.add(c.series_gcd_id);
+    if (!coverRows || coverRows.length < PAGE) break;
+  }
 
   // Group by (title, publisher) for prefer-year selection.
   const pool = new Map();
@@ -87,7 +110,8 @@ async function run() {
       }
     }
 
-    if (best && !best.featured_cover_path_cached) {
+    const hasRealCoverage = best?.gcd_id != null && coveredGcdIds.has(best.gcd_id);
+    if (best && (!best.featured_cover_path_cached || !hasRealCoverage)) {
       gaps.push({
         name: entry.title,
         publisher: entry.publisher,

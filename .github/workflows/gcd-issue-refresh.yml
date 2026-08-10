@@ -1,0 +1,66 @@
+name: GCD issue refresh (weekly)
+
+# Targeted top-up of gcd_issues from GCD's own live API - NOT a fresh bulk
+# dump. Our gcd_issues mirror was populated once from an old GCD Postgres
+# dump and never refreshed, so ongoing series silently fall behind (confirmed
+# 2026-08-10: Absolute Superman's real run already had 22 issues on GCD's
+# live site; our mirror only had 10). scripts/refreshGcdIssuesFromApi.js
+# fetches each series' current issue list directly from comics.org/api/ and
+# inserts only what's missing.
+#
+# Runs before cover-ingest.yml (Wednesday) so any newly-discovered issues
+# already exist in gcd_issues by the time that workflow tries to match
+# covers against them - covers can't attach to an issue we don't know about.
+#
+# Scope is deliberately narrow for now (--source=featured, ~79 series max):
+# GCD's public API rate limit is real, tight, and undocumented - it tripped
+# during manual testing on 2026-08-10 after well under 100 requests, with a
+# Retry-After in the tens of minutes. Widening scope to the full catalog is
+# a later step once this has run cleanly a few times and the actual
+# sustained rate is better understood - not something to guess at upfront.
+#
+# To trigger manually: Actions tab → GCD issue refresh → Run workflow.
+
+on:
+  schedule:
+    # Wednesday 18:00 UTC - two hours before cover-ingest.yml (20:00 UTC),
+    # same day as US new releases, giving GCD's volunteer indexers some
+    # runway first. Adjust once real data shows same-day indexing lag.
+    - cron: '0 18 * * 3'
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'Target source (featured = curated homepage list)'
+        default: 'featured'
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    concurrency:
+      group: gcd-issue-refresh
+      cancel-in-progress: false
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Refresh featured-series issue lists from GCD
+        run: node scripts/refreshGcdIssuesFromApi.js --source=${{ github.event.inputs.source || 'featured' }}
+        continue-on-error: true

@@ -1287,6 +1287,16 @@ def main():
                         f"  skip-existing: {len(already_uploaded)} issues already have covers"
                     )
 
+            # Confirmed 2026-08-09 audit: marking a target done just because
+            # the loop reached the end (no crash/rate-limit) let volumes with
+            # zero real covers get permanently skipped — 5 of 40 sampled
+            # done-ledger entries had 0 canonical_covers rows despite having
+            # real issues (e.g. Deadpool 2021: 8 issues, 0 covers, still
+            # marked done). Track real success so the done-mark below can
+            # tell "nothing new landed" apart from "genuinely finished."
+            new_issue_attempts = 0
+            new_issue_successes = 0
+
             for idx, issue in enumerate(issues, start=1):
                 issue_number_key = (
                     str(issue.get("issue_number") or "").strip().lower()
@@ -1360,6 +1370,11 @@ def main():
                     except Exception as e:
                         print(f"    image upload failed: {e}")
                         storage_path = None
+
+                if not (issue_number_key and issue_number_key in already_uploaded):
+                    new_issue_attempts += 1
+                    if storage_path:
+                        new_issue_successes += 1
 
                 row = {
                     "source": "comicvine",
@@ -1439,10 +1454,23 @@ def main():
                 time.sleep(0.5)
 
             # Reached the end of this volume's issues without a rate-limit or
-            # crash — it's fully handled. Mark it so re-runs skip it pre-search.
+            # crash. Only mark it done if that actually meant something: either
+            # every issue was already covered from a prior run, or at least one
+            # newly-attempted issue actually got a cover this run. A volume
+            # where every new issue failed (bad image URL, upload error, no
+            # GCD match) looks identical to a healthy run at the "no crash"
+            # level — mark that done and it's stuck silently forever. Let it
+            # get retried instead.
+            fully_stuck = new_issue_attempts > 0 and new_issue_successes == 0
             if use_ledger and not args.volume_id:
-                done[_done_key(target)] = _now_iso()
-                _save_done(args.done_file, done)
+                if fully_stuck:
+                    print(
+                        f"  ⚠ not marking done: {new_issue_attempts} new issue(s) attempted, "
+                        f"0 got a cover this run — will retry next time instead of getting stuck."
+                    )
+                else:
+                    done[_done_key(target)] = _now_iso()
+                    _save_done(args.done_file, done)
 
         except RateLimited as e:
             # Hard stop: ComicVine slammed the door. Continuing would just

@@ -886,6 +886,45 @@ def _publishers_compatible(left: object, right: object) -> bool:
     return left_normalized == right_normalized
 
 
+def _lookup_gcd_id_by_pinned_volume(volume_id: int | None) -> int | None:
+    """Check series.comicvine_volume_id for a confirmed pin before falling
+    back to _resolve_series_gcd_id's title-based search.
+
+    See scripts/migrations/0022_series_comicvine_volume_id.sql: GCD carries
+    many distinct series entries sharing an identical title (foreign
+    reprints, book-club editions, unrelated one-shots — "Ultimate
+    Spider-Man" alone has 30 entries under Marvel Comics), so a fresh
+    title/publisher/year search can land on a DIFFERENT wrong entry each
+    ingest run even though ComicVine's own volume match stays consistent.
+    Once a series' correct volume is confirmed (via
+    scripts/backfillSeriesComicvineVolumeId.js or a relink repair script),
+    this pin removes that ambiguity entirely for every future run.
+    """
+    if not volume_id:
+        return None
+    try:
+        headers = {
+            "apikey": SUPABASE_SERVICE_ROLE_KEY,
+            "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+        }
+        resp = requests.get(
+            f"{SUPABASE_URL}/rest/v1/series",
+            headers=headers,
+            params={
+                "select": "gcd_id",
+                "comicvine_volume_id": f"eq.{volume_id}",
+                "gcd_id": "not.is.null",
+                "limit": "1",
+            },
+            timeout=15,
+        )
+        if resp.status_code == 200 and resp.json():
+            return resp.json()[0].get("gcd_id")
+    except Exception:
+        pass
+    return None
+
+
 def _resolve_series_gcd_id(
     target_name: str | None,
     cv_volume_name: str | None,
@@ -1261,12 +1300,20 @@ def main():
             # Falls back to None silently — downstream code tolerates it.
             # Resolved BEFORE the cv_publisher write below so that write can
             # be scoped to this exact row instead of every same-titled one.
-            target_gcd_id = _resolve_series_gcd_id(
-                volume_name,
-                volume.get("name"),
-                target.get("year") or volume.get("start_year"),
-                cv_pub_name,
-            )
+            #
+            # Check the permanent pin first — see
+            # _lookup_gcd_id_by_pinned_volume's docstring for why this must
+            # come before the title-based fallback, not after.
+            target_gcd_id = _lookup_gcd_id_by_pinned_volume(volume.get("id"))
+            if target_gcd_id:
+                print(f"  using pinned series_gcd_id: {target_gcd_id}")
+            else:
+                target_gcd_id = _resolve_series_gcd_id(
+                    volume_name,
+                    volume.get("name"),
+                    target.get("year") or volume.get("start_year"),
+                    cv_pub_name,
+                )
 
             if cv_pub_name and not args.dry_run:
                 update_series_cv_publisher(target_gcd_id, cv_pub_name)

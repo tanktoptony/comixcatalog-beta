@@ -110,10 +110,11 @@ function renderBlock(block, key) {
     case "p":
       return <p key={key} className="md-p">{renderInline(block.text)}</p>;
     case "img": {
+      if (!isSafeUrl(block.src)) return null;
       const img = <img src={block.src} alt={block.alt || ""} className="md-img" loading="lazy" />;
       return (
         <figure key={key} className="md-figure">
-          {block.href ? (
+          {block.href && isSafeUrl(block.href) ? (
             <a href={block.href} className="md-figure-link">
               {img}
             </a>
@@ -132,6 +133,13 @@ function renderBlock(block, key) {
 // ── Inline parser ───────────────────────────────────────────────────────────
 // Handles **bold**, *italic*, `code`, and [text](url). Returns an array of
 // React nodes (strings + elements). React handles XSS escaping for us.
+
+// React doesn't block javascript:/data: URLs in href/src, so a malicious
+// link or image URL in content would otherwise execute on click/load.
+// Only http(s), mailto, and relative/anchor URLs are allowed through.
+function isSafeUrl(url) {
+  return /^(https?:|mailto:|\/|#)/i.test(url.trim());
+}
 
 const INLINE_PATTERN = [
   "(\\*\\*[^*]+\\*\\*)", // bold
@@ -164,7 +172,7 @@ function renderInline(text) {
       out.push(<code key={key++} className="md-code">{token.slice(1, -1)}</code>);
     } else if (token.startsWith("[")) {
       const linkMatch = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-      if (linkMatch) {
+      if (linkMatch && isSafeUrl(linkMatch[2])) {
         const [, label, url] = linkMatch;
         const external = /^https?:\/\//i.test(url);
         out.push(

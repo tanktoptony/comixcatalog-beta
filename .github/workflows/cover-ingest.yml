@@ -1,50 +1,65 @@
 name: Cover ingest
 
-# Continuous ComicVine cover ingestion. Cron fires every 6 hours
-# (00:00, 06:00, 12:00, 18:00 UTC). Each run walks all four gap files in
-# sequence with --max-search-calls 180 — comfortably under the 200/hour
-# free-tier cap, with the per-vol sleep keeping us under the 1 req/sec
-# velocity cap.
+# Weekly ComicVine cover ingestion, aligned to US new-comic-book day
+# (Wednesday). Replaces the old every-6-hours cron (2026-08-10) — that
+# cadence had no relationship to when new content actually exists, and a
+# meaningful fraction of each 60-minute window was spent just walking past
+# an already-done ledger before reaching anything new. One larger weekly
+# run, timed to give ComicVine/GCD a day to index Wednesday's releases,
+# makes real progress in one sitting instead of four fragmented attempts.
 #
-# Daily math:
-#   4 runs × ~60 min × ~180 search calls = ~720 successful new covers/day
-#   Monthly budget: ~21,600 covers + ledger entries.
-#   GHA budget:     4 runs × 60 min = 240 min/day = 120 hr/month
-#                   (under the 2000-min private-repo cap; unlimited if public).
-#
-# What runs each cycle:
+# What runs each cycle (same 5 lanes as before, still in priority order):
 #   1. gap-priority.json   — live launch-gate universe (highest impact)
 #   2. gap-featured.json   — homepage carousel curated picks
 #   3. gap-manual.json     — ad-hoc adds (Batman/Joker style targeted hunts)
 #   4. gap-width.json      — broadens coverage across new series
 #   5. gap-depth.json      — fills in issues for series we already cover
 #
-# Persistence:
-#   .ingest-done.json (ledger of completed targets) is cached between runs
-#   so each cycle resumes where the prior left off. If the cache evicts
-#   (no run for 7 days), the next run starts fresh and re-confirms via
-#   --skip-existing — slower the first day, no data loss.
+# Budget: ComicVine's free-tier cap is ~200 req/hour regardless of how it's
+# spent. One weekly run with hours of wall-clock time available (vs. a
+# cramped 60-min window 4x/day) can sustain something much closer to that
+# real hourly rate for longer, so max-search-calls per lane is raised
+# accordingly. These numbers are a first approximation — no full weekly run
+# has completed yet to tune against real data. The ingester's own 420
+# backoff is the actual safety net regardless of these caps.
+#
+# Persistence (changed 2026-08-10): both .ingest-done.json and
+# needs_volume_id.json are now git-committed at the end of every run,
+# replacing the old GHA-cache-only approach for the done ledger and the
+# previously-nonexistent persistence for the needs-volume-id backlog. That
+# split (a git-tracked snapshot vs. a cache-only "live" copy that grew
+# without ever being committed) was confirmed to be actively losing data —
+# needs_volume_id.json's growth was silently discarded every single cycle.
+# Now there is exactly one copy of each, always visible in git.
 #
 # To trigger manually: Actions tab → Cover ingest → Run workflow.
 # To pause: comment out the schedule block or disable the workflow in UI.
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    # Wednesday 20:00 UTC (~3-4pm US Eastern) — same-day buffer after US
+    # new-release Wednesday for ComicVine/GCD to index the day's releases.
+    # Adjust if real-world data shows a better offset once this has run a
+    # few times.
+    - cron: '0 20 * * 3'
   workflow_dispatch: {}
+
+permissions:
+  contents: write
 
 jobs:
   ingest:
     runs-on: ubuntu-latest
-    # 60 min per cycle leaves us a tight budget but stays inside free tier.
-    # The ingester self-exits via --max-search-calls before this timeout in
-    # normal operation; the timeout is the backstop for stalls.
-    timeout-minutes: 60
+    # GitHub-hosted runners hard-cap at 360 minutes regardless of plan;
+    # leave a buffer under that so a slow final step can still finish and
+    # reach the commit step rather than getting killed mid-write.
+    timeout-minutes: 340
 
-    # Concurrency guard: if a prior run is still going when the next cron
-    # fires, skip the new one rather than running two ingesters against the
-    # same ledger. cancel-in-progress=false means we don't kill the running
-    # one mid-volume (would orphan partial uploads).
+    # Concurrency guard: if a prior run is still going when the next
+    # schedule fires (shouldn't happen weekly, but workflow_dispatch could
+    # overlap), skip the new one rather than running two ingesters against
+    # the same ledger. cancel-in-progress=false means we don't kill the
+    # running one mid-volume (would orphan partial uploads).
     concurrency:
       group: cover-ingest
       cancel-in-progress: false
@@ -59,6 +74,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # NOTE: no `cache: 'pip'` — setup-python@v5 requires requirements.txt
       # or pyproject.toml for cache key. We install requests + python-dotenv
@@ -72,54 +89,45 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests python-dotenv
 
-      # Resume the done-ledger from prior runs. The ledger is the
-      # difference between "this run takes 6 hours" and "this run picks up
-      # where the last one stopped." Key includes the day so we get a fresh
-      # save daily and don't lose progress to cache thrash mid-week.
-      - name: Restore ingest ledger
-        uses: actions/cache@v4
-        with:
-          path: .ingest-done.json
-          key: ingest-done-${{ github.run_id }}
-          restore-keys: |
-            ingest-done-
-
       - name: Show current ledger size
         run: |
           if [ -f .ingest-done.json ]; then
-            python -c "import json; d=json.load(open('.ingest-done.json'));print(f'Ledger entries (resumed from prior run): {len(d)}')"
+            python -c "import json; d=json.load(open('.ingest-done.json'));print(f'Ledger entries (from git): {len(d)}')"
           else
             echo "Ledger empty — starting fresh."
           fi
+          if [ -f needs_volume_id.json ]; then
+            python -c "import json; d=json.load(open('needs_volume_id.json'));print(f'needs_volume_id.json entries (from git): {len(d)}')"
+          fi
 
       # Cycle: launch priority → featured → manual → width → depth.
-      # Each step uses --max-search-calls 180 and --skip-existing so
-      # already-covered targets cost ~0 requests. continue-on-error lets a
-      # failing step (rate-limit, transient 5xx) not block the next file.
+      # --skip-existing so already-covered targets cost ~0 requests.
+      # continue-on-error lets a failing step (rate-limit, transient 5xx)
+      # not block the next file.
       - name: Ingest launch-priority gap targets
         if: hashFiles('gap-priority.json') != ''
         continue-on-error: true
-        run: python comicvine_api_to_supabase.py --targets gap-priority.json --skip-existing --max-search-calls 180 --vol-sleep 1.0
+        run: python comicvine_api_to_supabase.py --targets gap-priority.json --skip-existing --max-search-calls 1500 --vol-sleep 1.0
 
       - name: Ingest featured-gap targets
         if: hashFiles('gap-featured.json') != ''
         continue-on-error: true
-        run: python comicvine_api_to_supabase.py --targets gap-featured.json --skip-existing --max-search-calls 180 --vol-sleep 1.0
+        run: python comicvine_api_to_supabase.py --targets gap-featured.json --skip-existing --max-search-calls 1500 --vol-sleep 1.0
 
       - name: Ingest manual-gap targets
         if: hashFiles('gap-manual.json') != ''
         continue-on-error: true
-        run: python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --max-search-calls 180 --vol-sleep 1.0
+        run: python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --max-search-calls 1500 --vol-sleep 1.0
 
       - name: Ingest width-gap targets
         if: hashFiles('gap-width.json') != ''
         continue-on-error: true
-        run: python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --max-search-calls 180 --vol-sleep 1.0
+        run: python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --max-search-calls 1500 --vol-sleep 1.0
 
       - name: Ingest depth-gap targets
         if: hashFiles('gap-depth.json') != ''
         continue-on-error: true
-        run: python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --max-search-calls 180 --vol-sleep 1.0
+        run: python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --max-search-calls 1500 --vol-sleep 1.0
 
       - name: Final ledger size
         if: always()
@@ -127,3 +135,20 @@ jobs:
           if [ -f .ingest-done.json ]; then
             python -c "import json; d=json.load(open('.ingest-done.json'));print(f'Ledger entries (after this run): {len(d)}')"
           fi
+          if [ -f needs_volume_id.json ]; then
+            python -c "import json; d=json.load(open('needs_volume_id.json'));print(f'needs_volume_id.json entries (after this run): {len(d)}')"
+          fi
+
+      - name: Commit ledger updates
+        if: always()
+        run: |
+          if git diff --quiet .ingest-done.json needs_volume_id.json 2>/dev/null; then
+            echo "No ledger changes — nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .ingest-done.json needs_volume_id.json
+          git commit -m "cover-ingest: weekly ledger update ($(date -u +%Y-%m-%d))"
+          git pull --rebase
+          git push

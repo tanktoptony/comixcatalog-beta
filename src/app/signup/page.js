@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
@@ -15,6 +16,7 @@ import { trackEvent } from "@/lib/analytics";
 // an initial-letter chip as the default.
 export default function SignUpPage() {
   const supabase = getSupabaseClient();
+  const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -203,8 +205,20 @@ export default function SignUpPage() {
         setSaving(false);
         return;
       }
+
+      // A session here means Supabase auto-confirmed the account (no email
+      // confirmation configured, or it's off) — the user is already logged
+      // in. Showing "check your email" and leaving them stranded on this
+      // form was the bug: nothing ever sent them into the logged-in app.
+      // Redirect straight into it, same landing logic /login uses.
+      router.replace(`/u/${usernameNormalized}`);
+      router.refresh();
+      return;
     }
 
+    // No session: email confirmation is actually required, so this message
+    // is accurate — Supabase already sent the confirmation email as part of
+    // the signUp() call above.
     setSubmittedEmail(emailNormalized);
 
     setSuccessMsg(

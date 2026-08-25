@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { FEATURED_SERIES } from "@/lib/featuredSeries";
+import { baseIssueNumber } from "@/lib/coverMatch";
 
 // Weekly rotation seed: ISO-week index since epoch. Same value for all
 // requests within one calendar week → carousel looks identical to a user
@@ -65,9 +66,11 @@ function rotateFeaturedSeries(week) {
 //
 // Each FEATURED_SERIES entry is matched to a real `series` row by
 // (title, publisher) with prefer_year picking the right volume when multiple
-// runs share a title. Entries that don't match anything in DB, or whose match
-// has no cover yet, are silently dropped — the carousel only shows what we
-// can actually render.
+// runs share a title. Entries that don't match anything in DB, whose match
+// has no cover yet, or — as of 2026-08-25 — isn't FULLY covered (every issue
+// has a canonical cover) are silently dropped. A "featured" pick with visible
+// gaps when you click in is worse than not featuring it at all; the carousel
+// only shows series we can actually deliver on completely.
 
 export async function GET(req) {
   try {
@@ -94,7 +97,7 @@ export async function GET(req) {
     const { data: candidates, error } = await supabase
       .from("series")
       .select(
-        "id, title, resolved_publisher_cached, year_start_cached, year_end_cached, issue_count_cached, featured_cover_path_cached"
+        "id, gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, issue_count_cached, featured_cover_path_cached"
       )
       .in("title", distinctTitles)
       .not("featured_cover_path_cached", "is", null);
@@ -152,9 +155,73 @@ export async function GET(req) {
       resolved.push({ entry, row: best });
     }
 
+    // Full-coverage gate: a featured pick with visible cover gaps once you
+    // click in looks worse than not featuring it. Drop any entry that isn't
+    // 100% covered — every real (variant-deduped) issue number has a
+    // canonical cover — rather than judging by the single hero image alone.
+    const gcdIds = [...new Set(resolved.map(({ row }) => row.gcd_id).filter((v) => v != null))];
+
+    const issuesByGcdId = new Map();
+    const coveredByGcdId = new Map();
+    if (gcdIds.length > 0) {
+      const PAGE = 1000;
+      const fetchAllPages = async (build) => {
+        const rows = [];
+        for (let from = 0; ; from += PAGE) {
+          const { data, error: pageError } = await build().range(from, from + PAGE - 1);
+          if (pageError) throw pageError;
+          if (!data?.length) break;
+          rows.push(...data);
+          if (data.length < PAGE) break;
+        }
+        return rows;
+      };
+
+      const [issueRows, coverRows] = await Promise.all([
+        fetchAllPages(() =>
+          supabase.from("gcd_issues").select("series_gcd_id, issue_number").in("series_gcd_id", gcdIds).order("gcd_id")
+        ),
+        fetchAllPages(() =>
+          supabase
+            .from("canonical_covers")
+            .select("series_gcd_id, issue_number")
+            .in("series_gcd_id", gcdIds)
+            .not("storage_path", "is", null)
+            .order("id")
+        ),
+      ]);
+
+      for (const row of issueRows) {
+        const key = row.series_gcd_id;
+        const base = baseIssueNumber(row.issue_number);
+        if (base == null) continue;
+        if (!issuesByGcdId.has(key)) issuesByGcdId.set(key, new Set());
+        issuesByGcdId.get(key).add(base);
+      }
+      for (const row of coverRows) {
+        const key = row.series_gcd_id;
+        const base = baseIssueNumber(row.issue_number);
+        if (base == null) continue;
+        if (!coveredByGcdId.has(key)) coveredByGcdId.set(key, new Set());
+        coveredByGcdId.get(key).add(base);
+      }
+    }
+
+    const fullyCovered = resolved.filter(({ row }) => {
+      if (row.gcd_id == null) return false; // can't verify completeness — don't feature it
+      const issues = issuesByGcdId.get(row.gcd_id);
+      if (!issues || issues.size === 0) return false;
+      const covered = coveredByGcdId.get(row.gcd_id);
+      if (!covered) return false;
+      for (const issueNum of issues) {
+        if (!covered.has(issueNum)) return false;
+      }
+      return true;
+    });
+
     // The natural order is FEATURED_SERIES order (which encodes tier 1 → 4),
     // so we don't need to sort beyond that. Pagination is just a slice.
-    const sliced = resolved.slice(offset, offset + limit);
+    const sliced = fullyCovered.slice(offset, offset + limit);
 
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const comics = sliced.map(({ row }) => ({

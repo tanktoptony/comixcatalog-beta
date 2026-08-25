@@ -431,6 +431,22 @@ async function selectPost() {
   return null;
 }
 
+// Graph API normally replies with JSON, but under transient outages (edge
+// gateway errors, WAF interstitials) it replies with an HTML error page
+// instead — res.json() then throws a raw "Unexpected token '<'" SyntaxError
+// that hides the real (retryable) cause. Read as text first so a non-JSON
+// body becomes a clear, truncated error instead of a crash.
+async function readJson(res) {
+  const text = await res.text();
+  try {
+    return JSON.parse(text);
+  } catch {
+    throw new Error(
+      `Non-JSON response (status ${res.status}): ${text.slice(0, 300)}`
+    );
+  }
+}
+
 // Container creation returns immediately, but Instagram fetches + transcodes
 // the image asynchronously — status_code stays IN_PROGRESS until it's actually
 // ready. Publishing before that hits error 9007 ("media is not ready for
@@ -443,7 +459,7 @@ async function waitForContainerReady(containerId, token, { timeoutMs = 90000, in
       `https://graph.facebook.com/v21.0/${containerId}?` +
         new URLSearchParams({ fields: "status_code", access_token: token })
     );
-    const json = await res.json();
+    const json = await readJson(res);
     if (!res.ok) {
       throw new Error(`Container status check failed: ${JSON.stringify(json)}`);
     }
@@ -455,6 +471,32 @@ async function waitForContainerReady(containerId, token, { timeoutMs = 90000, in
       throw new Error(`Media container never finished processing (last status_code=${json.status_code})`);
     }
     await new Promise((resolve) => setTimeout(resolve, intervalMs));
+  }
+}
+
+// Even after status_code reports FINISHED, media_publish can still bounce
+// with error_subcode 2207027 ("media is not ready for publishing, please
+// wait for a moment") — hit live on 2026-08-25. Meta's own guidance for this
+// subcode is to retry after a short wait rather than treat it as fatal, so
+// retry a few times before giving up.
+const TRANSIENT_PUBLISH_SUBCODE = 2207027;
+
+async function publishContainer(igUserId, containerId, token, { retries = 4, delayMs = 5000 } = {}) {
+  for (let attempt = 0; ; attempt++) {
+    const publishRes = await fetch(
+      `https://graph.facebook.com/v21.0/${igUserId}/media_publish?` +
+        new URLSearchParams({ creation_id: containerId, access_token: token }),
+      { method: "POST" }
+    );
+    const publishJson = await readJson(publishRes);
+    if (publishRes.ok && publishJson.id) return publishJson.id;
+
+    const subcode = publishJson?.error?.error_subcode;
+    if (subcode === TRANSIENT_PUBLISH_SUBCODE && attempt < retries) {
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+      continue;
+    }
+    throw new Error(`Publish failed: ${JSON.stringify(publishJson)}`);
   }
 }
 
@@ -470,23 +512,14 @@ async function postToInstagram({ imageUrl, caption }) {
       new URLSearchParams({ image_url: imageUrl, caption, access_token: token }),
     { method: "POST" }
   );
-  const createJson = await createRes.json();
+  const createJson = await readJson(createRes);
   if (!createRes.ok || !createJson.id) {
     throw new Error(`Media container creation failed: ${JSON.stringify(createJson)}`);
   }
 
   await waitForContainerReady(createJson.id, token);
 
-  const publishRes = await fetch(
-    `https://graph.facebook.com/v21.0/${igUserId}/media_publish?` +
-      new URLSearchParams({ creation_id: createJson.id, access_token: token }),
-    { method: "POST" }
-  );
-  const publishJson = await publishRes.json();
-  if (!publishRes.ok || !publishJson.id) {
-    throw new Error(`Publish failed: ${JSON.stringify(publishJson)}`);
-  }
-  return publishJson.id;
+  return publishContainer(igUserId, createJson.id, token);
 }
 
 async function run() {

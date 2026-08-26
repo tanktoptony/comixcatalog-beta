@@ -266,7 +266,6 @@ export async function POST(req) {
   const issue_number = formData.get("issue_number");
   const publisher_name = formData.get("publisher");
   const release_year = formData.get("release_year");
-  const coverFile = formData.get("cover");
   const created_by = formData.get("created_by");
 
   if (!series_title || !issue_number || !publisher_name) {
@@ -329,23 +328,6 @@ export async function POST(req) {
       .single();
 
     if (comicError) throw comicError;
-
-    if (coverFile && coverFile.size > 0) {
-      const path = `${comic.id}.jpg`;
-
-      const { error: uploadError } = await supabase.storage
-        .from("comic-covers")
-        .upload(path, coverFile, { upsert: true });
-
-      if (!uploadError) {
-        await supabase.from("comic_covers").insert({
-          comic_id: comic.id,
-          image_path: path,
-          is_primary: true,
-          uploaded_by: created_by,
-        });
-      }
-    }
 
     return NextResponse.json({ comic }, { status: 201 });
   } catch (err) {

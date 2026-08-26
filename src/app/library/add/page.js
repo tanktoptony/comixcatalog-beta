@@ -17,7 +17,6 @@ export default function AddComicPage() {
     release_year: "",
   });
 
-  const [coverFile, setCoverFile] = useState(null);
   const [error, setError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -37,7 +36,6 @@ export default function AddComicPage() {
     fd.append("issue_number", form.issue_number);
     fd.append("publisher", form.publisher);
     if (form.release_year) fd.append("release_year", form.release_year);
-    if (coverFile) fd.append("cover", coverFile);
     fd.append("created_by", user.id);
 
     const res = await fetch("/api/comics", {
@@ -135,25 +133,6 @@ export default function AddComicPage() {
                 }
               />
             </div>
-          </div>
-
-          <div className="cc-field">
-            <label>Cover image</label>
-            <div className="cc-file-row">
-              <label className="cc-file-btn">
-                Choose image
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => setCoverFile(e.target.files?.[0] ?? null)}
-                  hidden
-                />
-              </label>
-              <span className="cc-file-name">
-                {coverFile ? coverFile.name : "No file selected"}
-              </span>
-            </div>
-            <span className="cc-hint">JPG or PNG, optional. Used until the issue is matched to a canonical scan.</span>
           </div>
 
           {error && <div className="cc-form-error">{error}</div>}

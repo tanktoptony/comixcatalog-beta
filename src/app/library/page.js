@@ -14,6 +14,7 @@ import FirstRunLibrary from "@/components/FirstRunLibrary";
 import CatalogLinkPicker from "@/components/CatalogLinkPicker";
 import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
+import RunCompletionWidget from "@/components/RunCompletionWidget";
 
 const hydrationCache = new Map();
 
@@ -100,10 +101,16 @@ function LibraryPageContent() {
   const [previewMode, setPreviewMode] = useState("manage");
   const isPublicPreview = previewMode === "public";
 
-  // Sync after mount: URL ?view= overrides stored preference.
+  // Sync after mount: URL ?view= overrides stored preference. This is a
+  // deliberate one-time read of browser-only state (URL/localStorage) —
+  // see the comment above previewMode's declaration for why this can't be
+  // a lazy useState initializer instead (that shape previously caused a
+  // server/client hydration mismatch, since window doesn't exist on the
+  // server render pass).
   useEffect(() => {
     const param = searchParams.get("view");
     if (param === "public" || param === "manage") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPreviewMode(param);
       return;
     }
@@ -126,11 +133,17 @@ function LibraryPageContent() {
 
   // hydrationCache is module-scoped and survives navigation/sign-out, which
   // means a previous account's hydrated covers can flash before the new
-  // user's data loads. Wipe it whenever the active user changes.
-  useEffect(() => {
+  // user's data loads. Wipe it whenever the active user changes — adjusted
+  // during render (React's documented pattern for "reset state when an
+  // identity prop changes") rather than in an effect, so there's no extra
+  // stale-cache render in between. hydrationCache.clear() is idempotent, so
+  // it's safe to run from render.
+  const [lastHydrationUserId, setLastHydrationUserId] = useState(user?.id ?? null);
+  if (lastHydrationUserId !== (user?.id ?? null)) {
+    setLastHydrationUserId(user?.id ?? null);
     hydrationCache.clear();
     setComicIndex({});
-  }, [user?.id]);
+  }
   const [csvResult, setCsvResult] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [gradeData, setGradeData] = useState({});
@@ -174,10 +187,15 @@ function LibraryPageContent() {
   const [viewMode, setViewMode] = useState("list");
   // Persist view choice in localStorage. Defaults to "list"; on mobile
   // we'd prefer "rows" for density but don't force it (user can pick).
+  // Deliberately NOT a lazy useState initializer — same server/client
+  // hydration mismatch risk documented above for previewMode (window
+  // doesn't exist during the server render pass), so this reads localStorage
+  // in an effect after mount instead.
   useEffect(() => {
     try {
       const stored = window.localStorage.getItem("library-view");
       if (stored === "list" || stored === "grid" || stored === "rows") {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setViewMode(stored);
       }
     } catch {}
@@ -1540,6 +1558,9 @@ function LibraryPageContent() {
               </button>
             ))}
           </div>
+
+          {/* /library is always the signed-in owner's own page. */}
+          <RunCompletionWidget />
 
           {/* Unified insight widgets (Phase 2). Same component used on the
               public profile; owner sees Cost basis (shown=true), public

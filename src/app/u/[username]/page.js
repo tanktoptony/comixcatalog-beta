@@ -9,6 +9,7 @@ import ProfileTabs from "@/components/ProfileTabs";
 import ProfileAnonCta from "@/components/ProfileAnonCta";
 import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
+import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { createClient } from "@supabase/supabase-js";
 
 function formatJoinDate(iso) {
@@ -150,6 +151,12 @@ export default async function PublicProfilePage({ params }) {
         </div>
 
         <aside className="profile-sidebar">
+          {/* Owner-only: always reflects the signed-in viewer's own
+              collection (server-derived from auth), never the profile
+              being viewed, so this stays correct even when isOwner is true
+              only because you're looking at your own page. */}
+          {isOwner && <RunCompletionWidget />}
+
           {/* Unified sidebar widgets — same component used on /library. */}
           <CollectionInsightSidebar
             collection={collection}

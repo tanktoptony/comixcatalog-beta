@@ -1147,6 +1147,14 @@ def main():
     args = parse_cli()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     uploaded_rows = []
+    # "Upserted N issue rows" below counts every row we touched, including
+    # issues that already had a cover and just got their storage_path/variant
+    # data re-upserted via --skip-existing's "refreshing variants" path. That
+    # overstated a real run 63x (1,971 reported vs 31 actually-new rows,
+    # confirmed 2026-08-25) because upsert_cover_row() runs unconditionally
+    # even for already-covered issues. Track genuinely-new separately so the
+    # final summary line isn't misleading about how much ground was covered.
+    total_new_issue_successes = 0
 
     if args.volume_id:
         vid = parse_volume_id(args.volume_id)
@@ -1508,6 +1516,7 @@ def main():
             # GCD match) looks identical to a healthy run at the "no crash"
             # level — mark that done and it's stuck silently forever. Let it
             # get retried instead.
+            total_new_issue_successes += new_issue_successes
             fully_stuck = new_issue_attempts > 0 and new_issue_successes == 0
             if use_ledger and not args.volume_id:
                 if fully_stuck:
@@ -1582,7 +1591,11 @@ def main():
             writer.writeheader()
             writer.writerows(uploaded_rows)
 
-    print(f"\nDone. Upserted {len(uploaded_rows)} issue rows total.")
+    print(
+        f"\nDone. Upserted {len(uploaded_rows)} issue rows total "
+        f"({total_new_issue_successes} newly covered, "
+        f"{len(uploaded_rows) - total_new_issue_successes} already had a cover and were re-upserted)."
+    )
     if not args.dry_run:
         print(f"CSV written to {CSV_PATH}")
 

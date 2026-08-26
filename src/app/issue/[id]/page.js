@@ -7,6 +7,7 @@ import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import GradeEditor from "@/components/GradeEditor";
 
 function money(value) {
   if (value == null || value === "") return "—";
@@ -34,8 +35,9 @@ export default function IssuePage() {
   const [selectedCover, setSelectedCover] = useState(null);
   const [variantLabel, setVariantLabel] = useState("");
   const [variantSaveState, setVariantSaveState] = useState(null);
+  const [gradeData, setGradeData] = useState(null);
 
-  const { user } = useAuth();
+  const { user, isPro } = useAuth();
   const libraryId = String(issue?.id || id || "");
 
   const inCollection = collectionIds?.has(libraryId);
@@ -453,6 +455,31 @@ export default function IssuePage() {
                 </div>
               </div>
             </div>
+
+            {/* Condition & Grade — including "your photo of this book," which
+                is otherwise easy to never discover (previously only lived on
+                /library and /comic/[id], never on the page where users
+                actually add canonical issues to their collection). */}
+            {user && inCollection && collectionRow?.id && (
+              <div className="metadata-section" style={{ margin: 0, marginBottom: "22px" }}>
+                <h3 className="issue-section-title">Condition & Grade</h3>
+                <GradeEditor
+                  collectionId={collectionRow.id}
+                  isPro={isPro}
+                  canonicalCover={selectedCover || issue.cover || null}
+                  releaseYear={issue?.release_year ?? null}
+                  initialData={{
+                    grade_numeric: gradeData?.grade_numeric ?? collectionRow.grade_numeric ?? null,
+                    condition: gradeData?.condition ?? collectionRow.condition ?? null,
+                    slab_company: gradeData?.slab_company ?? collectionRow.slab_company ?? null,
+                    slab_cert_number: gradeData?.slab_cert_number ?? collectionRow.slab_cert_number ?? null,
+                    notes: gradeData?.notes ?? collectionRow.notes ?? null,
+                    user_cover_url: gradeData?.user_cover_url ?? collectionRow.user_cover_url ?? null,
+                  }}
+                  onSave={(updated) => setGradeData((prev) => ({ ...prev, ...updated }))}
+                />
+              </div>
+            )}
 
             <div className="metadata-section" style={{ margin: 0, marginBottom: "22px" }}>
               <h3 className="issue-section-title">Copies for Sale</h3>

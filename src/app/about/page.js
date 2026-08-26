@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "What is ComixCatalog?",
   description:
-    "ComixCatalog is what Discogs is for music — but for comic books. A community-built database, a personal collection manager, and a trusted peer-to-peer marketplace, all in one place.",
+    "ComixCatalog is what Discogs is for music — but for comic books. A community-built database and a personal collection manager today, with a peer-to-peer marketplace launching soon.",
 };
 
 const PILLARS = [
@@ -21,9 +21,9 @@ const PILLARS = [
   },
   {
     label: "Transact",
-    headline: "A marketplace built for collectors.",
+    headline: "A marketplace built for collectors — launching soon.",
     body:
-      "List books for sale, buy from other verified collectors, with seller ratings and verified-grade badges on slabbed copies. Less marketplace noise, more clarity around grade, variant, and condition.",
+      "List books for sale, buy from other verified collectors, with seller ratings and verified-grade badges on slabbed copies. Less marketplace noise, more clarity around grade, variant, and condition. Launching soon, starting with Pro members.",
   },
 ];
 
@@ -41,7 +41,7 @@ const AUDIENCES = [
   {
     title: "Sellers",
     body:
-      "List key issues, newsstand books, or full collections through the integrated marketplace with Stripe-powered payouts and built-in reputation.",
+      "Once the marketplace launches, list key issues, newsstand books, or full collections, with Stripe-powered payouts and built-in reputation. In development now — see the marketplace page for rollout details.",
   },
 ];
 
@@ -53,8 +53,8 @@ export default function AboutPage() {
         <h1 className="gs-title">What is ComixCatalog?</h1>
         <p className="gs-lede">
           ComixCatalog is what Discogs is for music — but for comic books.
-          A community-built database, a personal collection manager, and a
-          trusted peer-to-peer marketplace, all in one place.
+          A community-built database and a personal collection manager
+          today, with a peer-to-peer marketplace launching soon.
         </p>
       </header>
 

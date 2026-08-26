@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { useLibrary } from "@/context/LibraryContext";
 
 export default function AddComicPage() {
   const router = useRouter();
   const { user, loading } = useAuth();
+  const { addToCollection } = useLibrary();
 
   const [form, setForm] = useState({
     series_title: "",
@@ -58,7 +60,11 @@ export default function AddComicPage() {
       return;
     }
 
-    router.push(`/comic/${data.comic.id}`);
+    // This page promises "add to your personal collection," not just "create
+    // a catalog entry" — the /api/comics POST only does the latter, so we
+    // finish the job here instead of leaving it to a second manual click.
+    await addToCollection(data.comic.id, "owned");
+    router.push("/library");
   }
 
   return (

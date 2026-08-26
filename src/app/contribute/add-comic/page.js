@@ -83,8 +83,10 @@ export default function ContributeAddComicPage() {
       <section className="cc-form-card">
         <h1 className="cc-form-title">Contribute a comic</h1>
         <p className="cc-form-sub">
-          Help fill gaps in the database. Submitted issues become part of the
-          public catalog after a quick review.
+          Help fill gaps in the database. This adds a new entry to the public
+          catalog immediately — it does not add anything to your own
+          collection. Looking to log a book you own instead?{" "}
+          <a href="/library/add">Add it to your library</a>.
         </p>
 
         <form onSubmit={handleSubmit} className="cc-form">

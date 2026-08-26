@@ -1,10 +1,19 @@
 "use client";
 
-// First-visit onboarding modal. Fires once per browser session on the
-// homepage for signed-in users who haven't seen it yet. Dismissable; the
-// "Skip for now" path still flags the modal as seen so it never re-fires.
-// We deliberately don't tie this to "empty collection" — even users with
-// items benefit from learning grading, sharing, and Pro perks exist.
+// First-visit onboarding modal. Mounted once in the root layout (not a
+// single page) so it can actually fire wherever a signed-in user's first
+// page load happens to land — which, after signup, is /u/[username], not
+// the homepage. Mounting it homepage-only meant it essentially never fired,
+// since a signed-in user has little reason to revisit "/". Dismissable;
+// the "Skip for now" path still flags the modal as seen so it never
+// re-fires automatically. We deliberately don't tie this to "empty
+// collection" — even users with items benefit from learning grading,
+// sharing, and Pro perks exist.
+//
+// Repeat-visit access: dispatch a `window` "cc:open-onboarding" event (see
+// the header's "How this works" button) to force it open regardless of the
+// seen-flag — the one persistent, always-available way back into this
+// guidance for anyone who dismissed it once and later got lost.
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -52,6 +61,17 @@ export default function OnboardingModal() {
     const t = setTimeout(() => setOpen(true), 800);
     return () => clearTimeout(t);
   }, [user, loading]);
+
+  // Manual re-open, regardless of the seen-flag — the header's "How this
+  // works" button dispatches this. Always starts back at step 0.
+  useEffect(() => {
+    function handleForceOpen() {
+      setStep(0);
+      setOpen(true);
+    }
+    window.addEventListener("cc:open-onboarding", handleForceOpen);
+    return () => window.removeEventListener("cc:open-onboarding", handleForceOpen);
+  }, []);
 
   const dismiss = () => {
     setOpen(false);

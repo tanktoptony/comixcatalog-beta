@@ -102,10 +102,16 @@ export default function Header() {
     router.push(href);
   }
 
-  useEffect(() => {
+  // Reset search chrome + the avatar dropdown whenever the route changes.
+  // Adjusted during render (React's documented "reset state when a value
+  // changes" pattern) instead of an effect — clearSearch/closeMenu are just
+  // setState calls, safe to run conditionally mid-render.
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (lastPathname !== pathname) {
+    setLastPathname(pathname);
     clearSearch();
     closeMenu();
-  }, [pathname]);
+  }
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -133,6 +139,13 @@ export default function Header() {
     const q = query.trim();
 
     if (!q) {
+      // Deliberately left as setState-in-effect: this branch is the guard
+      // clause for the debounced fetch below it, not a standalone derived
+      // reset — splitting it out into a render-time adjustment would
+      // duplicate the "is query empty" check across two places and risk
+      // the two falling out of sync. The fetch branch below already sets
+      // state from an async callback, which is the sanctioned pattern.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSeriesResults([]);
       setComicResults([]);
       setSearchLoading(false);
@@ -207,9 +220,18 @@ export default function Header() {
     return items;
   }, [seriesResults, comicResults]);
 
-  useEffect(() => {
+  // Reset the keyboard-highlighted result whenever the query or result sets
+  // change — adjusted during render rather than in an effect, same pattern
+  // as the pathname reset above.
+  const [lastHighlightDeps, setLastHighlightDeps] = useState([query, seriesResults, comicResults]);
+  if (
+    lastHighlightDeps[0] !== query ||
+    lastHighlightDeps[1] !== seriesResults ||
+    lastHighlightDeps[2] !== comicResults
+  ) {
+    setLastHighlightDeps([query, seriesResults, comicResults]);
     setHighlightedIndex(-1);
-  }, [query, seriesResults, comicResults]);
+  }
 
   function submitSearch() {
     const q = query.trim();
@@ -455,6 +477,24 @@ export default function Header() {
             focus on data ingestion. Re-enable by swapping back to InboxNavButton. */}
         {user && (
           <div className="header-user-actions">
+            {/* Persistent, always-available re-entry point into the
+                onboarding guidance — the one thing a returning user who
+                dismissed it once (or never understood the site to begin
+                with) can always find, regardless of what page they're on.
+                See OnboardingModal.js's "cc:open-onboarding" listener. */}
+            <button
+              type="button"
+              className="nav-icon-btn"
+              title="How this works"
+              aria-label="How this works"
+              onClick={() => {
+                closeMenu();
+                window.dispatchEvent(new Event("cc:open-onboarding"));
+              }}
+            >
+              <HelpIcon />
+            </button>
+
             <button
               type="button"
               className="nav-icon-btn nav-icon-btn-disabled"
@@ -469,8 +509,8 @@ export default function Header() {
               href="/library"
               className="nav-icon-btn"
               onClick={closeMenu}
-              title="My Library"
-              aria-label="My Library"
+              title="Manage Collection"
+              aria-label="Manage Collection"
             >
               <LibraryIcon />
             </Link>
@@ -509,6 +549,26 @@ function LibraryIcon() {
       <path d="M4 4h4v16H4z" />
       <path d="M9 4h4v16H9z" />
       <path d="M15 5l3.5-1 3 14-3.5 1z" />
+    </svg>
+  );
+}
+
+function HelpIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M9.5 9a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 1.7-2.4 3.3" />
+      <line x1="12" y1="17" x2="12.01" y2="17" />
     </svg>
   );
 }
@@ -654,6 +714,14 @@ const UserMenu = forwardRef(function UserMenu(
 
           <div className="user-menu-divider" />
 
+          <Link
+            href="/library"
+            className="user-menu-item"
+            role="menuitem"
+            onClick={handleItem()}
+          >
+            Manage Collection
+          </Link>
           {username && (
             <Link
               href={`/u/${username}`}
@@ -661,17 +729,9 @@ const UserMenu = forwardRef(function UserMenu(
               role="menuitem"
               onClick={handleItem()}
             >
-              My Profile
+              My Public Profile
             </Link>
           )}
-          <Link
-            href="/library"
-            className="user-menu-item"
-            role="menuitem"
-            onClick={handleItem()}
-          >
-            My Library
-          </Link>
           <Link
             href="/collectors"
             className="user-menu-item"

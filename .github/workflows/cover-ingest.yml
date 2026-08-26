@@ -34,6 +34,17 @@ name: Cover ingest
 #
 # To trigger manually: Actions tab → Cover ingest → Run workflow.
 # To pause: comment out the schedule block or disable the workflow in UI.
+#
+# Health check (added 2026-08-25): every lane step above uses
+# continue-on-error, so a run that adds zero covers — the exact failure
+# mode that went unnoticed for weeks earlier this month — still shows the
+# job as green. The "Check pipeline health" step at the end has no
+# continue-on-error: if it fails, the job goes red and GitHub's default
+# failure notification actually tells someone. It checks two independent
+# things that have both already happened in production: the pipeline going
+# silent (checkCoverIngestHealth.js --mode=stall) and ComicVine ingest
+# re-introducing the GCD duplicate-title mis-linking bug on a fresh volume
+# (--mode=mislink, a repairAllCoverSeriesLinks.js --dry-run pass).
 
 on:
   schedule:
@@ -71,6 +82,10 @@ jobs:
       SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
       COMICVINE_API_KEY: ${{ secrets.COMICVINE_API_KEY }}
+      # The Node health-check step at the end (checkCoverIngestHealth.js +
+      # repairAllCoverSeriesLinks.js) uses the same @/lib-style env names as
+      # every other scripts/*.js file, not the Python-only SUPABASE_URL above.
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
 
     steps:
       - uses: actions/checkout@v4
@@ -88,6 +103,17 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install requests python-dotenv
+
+      # Node is only needed for the health-check step at the end
+      # (checkCoverIngestHealth.js + repairAllCoverSeriesLinks.js), not the
+      # Python ingester itself.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node deps
+        run: npm ci
 
       - name: Show current ledger size
         run: |
@@ -152,3 +178,15 @@ jobs:
           git commit -m "cover-ingest: weekly ledger update ($(date -u +%Y-%m-%d))"
           git pull --rebase
           git push
+
+      # No continue-on-error here on purpose — this is the one step in the
+      # whole job allowed to fail it. Everything above stays green even on
+      # a totally unproductive run; this is what turns that into a real,
+      # noticed failure (GitHub's default failure-notification email).
+      - name: Check pipeline health (stall)
+        if: always()
+        run: node scripts/checkCoverIngestHealth.js --mode=stall
+
+      - name: Check pipeline health (mis-linked volumes)
+        if: always()
+        run: node scripts/checkCoverIngestHealth.js --mode=mislink

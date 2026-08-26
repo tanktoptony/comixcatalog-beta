@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { estimateCoverPrice } from "@/lib/coverPrice";
@@ -33,6 +33,17 @@ const CGC_GRADES = [
   5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0,
   9.2, 9.4, 9.6, 9.8, 10.0,
 ];
+
+// Public cert-lookup pages, confirmed live (2026-08-25) — not deep-linkable
+// by cert number for either service (no documented query-string param), so
+// this opens the registry's own lookup tool rather than pretending we can
+// prefill it. PGX has no confirmed public lookup tool as of this writing;
+// omit rather than link somewhere that might not exist.
+const CERT_LOOKUP_URLS = {
+  CGC: "https://www.cgccomics.com/certlookup/",
+  "CGC SS": "https://www.cgccomics.com/certlookup/",
+  CBCS: "https://www.cbcscomics.com/",
+};
 
 function gradeColor(grade) {
   if (!grade) return "rgba(255,255,255,0.2)";
@@ -109,6 +120,18 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
     initialData.market_value != null ? String(initialData.market_value) : ""
   );
   const [userCoverUrl, setUserCoverUrl] = useState(initialData.user_cover_url || null);
+  // Tracks the initialData prop itself (not derived state) so we can detect
+  // a genuine prop change during render and re-sync userCoverUrl — e.g. when
+  // library hydration delivers a freshly-uploaded photo for the same
+  // component instance. Adjusting state during render (React's documented
+  // pattern for this) instead of in a useEffect avoids the extra
+  // render-then-effect-then-render pass that tripped the
+  // set-state-in-effect lint rule.
+  const [syncedCoverUrl, setSyncedCoverUrl] = useState(initialData.user_cover_url || null);
+  if (syncedCoverUrl !== (initialData.user_cover_url || null)) {
+    setSyncedCoverUrl(initialData.user_cover_url || null);
+    setUserCoverUrl(initialData.user_cover_url || null);
+  }
   const [uploading, setUploading] = useState(false);
   // Variant + multi-copy fields. variantLabel is freeform (collector types
   // "Newsstand", "Cover B", etc.). copyNumber distinguishes duplicates of
@@ -117,11 +140,6 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
   const [copyNumber, setCopyNumber] = useState(
     initialData.copy_number != null ? String(initialData.copy_number) : "1"
   );
-
-  // Sync photo when initialData updates (e.g. after library hydration)
-  useEffect(() => {
-    setUserCoverUrl(initialData.user_cover_url || null);
-  }, [initialData.user_cover_url]);
 
   const isSlabbed = !!slabCompany;
 
@@ -387,6 +405,18 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
                       value={certNumber}
                       onChange={(e) => setCertNumber(e.target.value)}
                     />
+                    {certNumber.trim() && CERT_LOOKUP_URLS[slabCompany] && (
+                      <div className="grade-hint">
+                        <a
+                          href={CERT_LOOKUP_URLS[slabCompany]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="grade-hint-link"
+                        >
+                          Verify this cert on {slabCompany === "CGC SS" ? "CGC" : slabCompany}&rsquo;s registry →
+                        </a>
+                      </div>
+                    )}
                   </div>
 
                   {/* Grade preview badge */}

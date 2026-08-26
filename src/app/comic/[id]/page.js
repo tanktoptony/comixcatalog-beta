@@ -11,7 +11,7 @@ export default function ComicDetailPage() {
   const { id } = useParams();
   const { collections, collectionIds, wishlistIds, addToCollection, removeFromCollection } =
     useLibrary();
-  const { user } = useAuth();
+  const { user, isPro } = useAuth();
   const router = useRouter();
 
   const [comic, setComic] = useState(null);
@@ -215,6 +215,7 @@ export default function ComicDetailPage() {
                 <h3 className="issue-section-title">Condition & Grade</h3>
                 <GradeEditor
                   collectionId={collectionRow.id}
+                  isPro={isPro}
                   releaseYear={comic?.year ?? null}
                   initialData={{
                     grade_numeric: gradeData?.grade_numeric ?? collectionRow.grade_numeric ?? null,

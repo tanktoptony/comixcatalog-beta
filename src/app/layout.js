@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FoundingBanner from "../components/FoundingBanner";
+import OnboardingModal from "../components/OnboardingModal";
 import { LibraryProvider } from "../context/LibraryContext";
 import { AuthProvider } from "../context/AuthContext";
 
@@ -128,6 +129,10 @@ export default function RootLayout({ children }) {
           <LibraryProvider>
             <FoundingBanner />
             <Header />
+            {/* Mounted once, globally, so it can fire wherever a signed-in
+                user's first page load actually lands (post-signup that's
+                /u/[username], not "/") — see OnboardingModal.js. */}
+            <OnboardingModal />
             <main className="page-wrapper">{children}</main>
             <Footer />
           </LibraryProvider>

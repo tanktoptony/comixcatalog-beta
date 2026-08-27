@@ -62,3 +62,4 @@ __pycache__/
 /comicvine_api_output/ingest-loop-*.log
 /scripts/tony_stack_targets.json
 /scripts/fixtures/valuation-calibration-sample.json
+/.ambiguous-pins-done.json

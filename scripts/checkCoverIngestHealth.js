@@ -109,7 +109,12 @@ function checkMislink() {
   console.log(output);
   if (result.stderr) console.error(result.stderr);
 
-  const match = output.match(/Resolved \(unambiguous winner\):\s*(\d+)\s*volumes/);
+  // Parses the stable TOTAL_RESOLVED_VOLUMES line, not the human-readable
+  // summary prose above it (which changed shape 2026-08-27 when the
+  // pin-priority feature split "resolved" into pin-driven + overlap-driven
+  // counts — this line exists specifically so that reword didn't need a
+  // matching regex change here too, but did this once since it moved).
+  const match = output.match(/TOTAL_RESOLVED_VOLUMES:\s*(\d+)/);
   const resolvedCount = match ? Number(match[1]) : null;
 
   if (resolvedCount == null) {

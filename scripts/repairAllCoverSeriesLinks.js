@@ -82,6 +82,48 @@ function mode(values) {
   return best;
 }
 
+// BUG FOUND AND FIXED LIVE 2026-08-27: the first version of this function
+// built a naive `Map<volume, gcd_id>` — when more than one `series` row
+// pins the SAME comicvine_volume_id to DIFFERENT gcd_ids (a pre-existing
+// duplicate-series data problem: 448 distinct volumes confirmed to have
+// genuinely conflicting pins, e.g. ComicVine volume 796 "Batman" 1940 had
+// TWELVE different series rows each pinned to a different gcd_id), the
+// LAST row the DB happened to return silently won — non-deterministic
+// between runs, since no ORDER BY made that order stable. That bad
+// assumption already got applied for real once (30,454 rows, including
+// Batman, Spider-Man, Superman) before this was caught, live, by the
+// smoke test suite immediately after — see scripts/resolveAmbiguousPins.js
+// for the year-cross-referenced remediation of that damage.
+//
+// Fix: a pin is only trustworthy when it's UNIQUE. A volume with multiple
+// DISTINCT candidate gcd_ids is excluded from this map entirely and falls
+// through to the overlap-scoring logic below instead — the same safety net
+// this script already relied on before pins existed at all.
+async function fetchPinnedGcdIdByVolume() {
+  const rows = await fetchAllPages(() =>
+    supabase.from("series").select("comicvine_volume_id, gcd_id")
+      .not("comicvine_volume_id", "is", null).not("gcd_id", "is", null)
+  );
+  const candidatesByVolume = new Map();
+  for (const row of rows) {
+    if (!candidatesByVolume.has(row.comicvine_volume_id)) {
+      candidatesByVolume.set(row.comicvine_volume_id, new Set());
+    }
+    candidatesByVolume.get(row.comicvine_volume_id).add(row.gcd_id);
+  }
+  const map = new Map();
+  let ambiguousSkipped = 0;
+  for (const [volume, gcdIds] of candidatesByVolume) {
+    if (gcdIds.size === 1) {
+      map.set(volume, [...gcdIds][0]);
+    } else {
+      ambiguousSkipped++;
+    }
+  }
+  console.log(`  (${ambiguousSkipped} volume(s) have conflicting pins across multiple series rows — excluded, falls through to overlap-scoring)`);
+  return map;
+}
+
 async function run() {
   console.log("Loading all covers with a comicvine_volume_id...");
   const covers = await fetchAllPages(() =>
@@ -97,6 +139,24 @@ async function run() {
   }
   console.log(`Distinct ComicVine volumes: ${byVolume.size}`);
 
+  // A confirmed series.comicvine_volume_id pin is a STRONGER signal than
+  // issue overlap — it's a human/prior-repair-verified "this exact ComicVine
+  // volume is this exact GCD series," and comicvine_api_to_supabase.py
+  // already treats it as authoritative (_lookup_gcd_id_by_pinned_volume,
+  // checked before its own fuzzy title fallback). This script didn't know
+  // about pins at all until 2026-08-27, when Absolute Batman's real,
+  // pin-correct link (series_gcd_id 226633 — GCD's own metadata for it only
+  // ever synced issue #1, so its overlap against the volume's 23 real covers
+  // was a mere 4%) got silently overridden by an UNPINNED duplicate-title
+  // GCD entry (216143, 11 issues, 48% overlap — still under the 85%
+  // threshold, but the highest-scoring wrong answer available once 226633's
+  // own low overlap put it in "needs resolution" in the first place). A pin
+  // now short-circuits both the overlap-based "already clean" check AND the
+  // candidate-scoring loop below — it wins regardless of overlap, full stop.
+  console.log("Loading confirmed series.comicvine_volume_id pins...");
+  const pinnedGcdIdByVolume = await fetchPinnedGcdIdByVolume();
+  console.log(`Pinned volumes: ${pinnedGcdIdByVolume.size}`);
+
   // Pass 1: cheap check against currently-existing tags only.
   const existingTagIds = [...new Set(covers.map((c) => c.series_gcd_id).filter((v) => v != null))];
   console.log(`Distinct series_gcd_id values currently in use: ${existingTagIds.length}`);
@@ -104,9 +164,32 @@ async function run() {
 
   const needsResolution = [];
   let alreadyClean = 0;
+  let pinnedRelinks = 0;
+  let pinnedRelinkRows = 0;
+  const plan = [];
   for (const [volume, rows] of byVolume) {
     const volIssueNumbers = new Set(rows.map((r) => baseIssueNumber(r.issue_number)).filter(Boolean));
     if (volIssueNumbers.size === 0) continue;
+
+    const pinnedGcdId = pinnedGcdIdByVolume.get(volume);
+    if (pinnedGcdId != null) {
+      const rowsToFix = rows.filter((r) => r.series_gcd_id !== pinnedGcdId);
+      if (rowsToFix.length > 0) {
+        pinnedRelinks++;
+        pinnedRelinkRows += rowsToFix.length;
+        plan.push({
+          volume,
+          title: mode(rows.map((r) => r.series_title)),
+          winner: pinnedGcdId,
+          overlap: null, // pin-driven, not overlap-scored
+          rowIds: rowsToFix.map((r) => r.id),
+        });
+      } else {
+        alreadyClean++;
+      }
+      continue;
+    }
+
     const distinctTags = new Set(rows.map((r) => r.series_gcd_id).filter((v) => v != null));
     if (distinctTags.size === 1) {
       const [onlyTag] = distinctTags;
@@ -119,7 +202,8 @@ async function run() {
     needsResolution.push({ volume, rows, volIssueNumbers, title: mode(rows.map((r) => r.series_title)) });
   }
   console.log(`Already clean (skip): ${alreadyClean}`);
-  console.log(`Needs resolution: ${needsResolution.length}`);
+  console.log(`Pin-driven relinks: ${pinnedRelinks} volumes, ${pinnedRelinkRows} rows`);
+  console.log(`Needs resolution (unpinned, overlap-scored): ${needsResolution.length}`);
 
   // Pass 2: expand candidates via gcd_series title match for volumes that
   // didn't resolve cleanly against their existing tag(s).
@@ -148,9 +232,10 @@ async function run() {
   for (const [k, v] of newIssueSets) issueSets.set(k, v);
 
   // Score every needs-resolution volume against ALL candidates (existing
-  // tags + title-expansion pool).
-  let resolved = 0, skippedNoCandidate = 0, skippedAmbiguous = 0, totalRowsToUpdate = 0;
-  const plan = [];
+  // tags + title-expansion pool). `plan` already holds pin-driven relinks
+  // from the loop above — this appends the overlap-scored ones to the same
+  // array so the summary and apply step below cover both in one pass.
+  let resolved = 0, skippedNoCandidate = 0, skippedAmbiguous = 0, totalRowsToUpdate = pinnedRelinkRows;
   for (const v of needsResolution) {
     const candidateIds = new Set([
       ...v.rows.map((r) => r.series_gcd_id).filter((x) => x != null),
@@ -172,14 +257,25 @@ async function run() {
     plan.push({ volume: v.volume, title: v.title, winner: best.gcdId, overlap: best.overlap, rowIds: rowsToFix.map((r) => r.id) });
   }
 
-  console.log(`\nResolved (unambiguous winner): ${resolved} volumes, ${totalRowsToUpdate} rows to relink`);
+  console.log(
+    `\nResolved: ${pinnedRelinks} volume(s) pin-driven (${pinnedRelinkRows} rows) + ` +
+      `${resolved} volume(s) overlap-driven (${totalRowsToUpdate - pinnedRelinkRows} rows) = ` +
+      `${totalRowsToUpdate} total rows to relink`
+  );
   console.log(`Skipped — no candidate cleared ${OVERLAP_THRESHOLD * 100}% overlap: ${skippedNoCandidate}`);
   console.log(`Skipped — ambiguous (winner/runner-up within ${MIN_MARGIN * 100} points): ${skippedAmbiguous}`);
+  // Single machine-parseable line for checkCoverIngestHealth.js --mode=mislink
+  // to regex out — added 2026-08-27 alongside the pin-priority feature above,
+  // since that change also reworded the human-readable summary this used to
+  // scrape directly. Keep this line's format stable even if the prose above
+  // changes again.
+  console.log(`TOTAL_RESOLVED_VOLUMES: ${pinnedRelinks + resolved}`);
 
   if (plan.length > 0) {
     console.log("\nTop 20 by rows affected:");
     for (const p of plan.sort((a, b) => b.rowIds.length - a.rowIds.length).slice(0, 20)) {
-      console.log(`  ${p.title} -> series_gcd_id ${p.winner} (overlap ${(p.overlap * 100).toFixed(0)}%), ${p.rowIds.length} row(s)`);
+      const scoreLabel = p.overlap == null ? "pinned" : `overlap ${(p.overlap * 100).toFixed(0)}%`;
+      console.log(`  ${p.title} -> series_gcd_id ${p.winner} (${scoreLabel}), ${p.rowIds.length} row(s)`);
     }
   }
 

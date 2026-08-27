@@ -33,7 +33,7 @@
 
 import dotenv from "dotenv";
 import path from "path";
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync, existsSync } from "fs";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -70,7 +70,23 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-async function runMode(modeName, outPath) {
+// Series already logged in needs_volume_id.json failed a real ComicVine
+// lookup once (publisher mismatch or an unresolved multi-candidate tie).
+// Re-emitting them into gap-width/gap-depth every regeneration just burns
+// the same search calls on the same guaranteed-skip targets again — worse,
+// with a fixed --limit, a growing backlog of permanent failures crowds out
+// fresh candidates that could actually succeed. Anything in the backlog is
+// either being handled by scripts/resolveNeedsVolumeIdBacklog.js (single
+// candidate → pinned into gap-pinned.json) or is a genuine unresolved case
+// that re-attempting here won't fix either way.
+function loadExclusionKeys() {
+  const backlogPath = path.resolve(__dirname, "..", "needs_volume_id.json");
+  if (!existsSync(backlogPath)) return new Set();
+  const backlog = JSON.parse(readFileSync(backlogPath, "utf8"));
+  return new Set(backlog.map((e) => `${e.name} ${e.publisher}`));
+}
+
+async function runMode(modeName, outPath, excludeKeys) {
   const preset = MODE_PRESETS[modeName];
   if (!preset) {
     console.error(`Unknown mode: ${modeName}. Valid: depth, width.`);
@@ -91,24 +107,49 @@ async function runMode(modeName, outPath) {
   // Pull series that are visible in browse (US allowlist + has issues) but
   // lack a featured cover. Depth-mode prefers big runs (high user impact);
   // width-mode prefers small runs (% needle movement).
-  const { data, error } = await supabase
-    .from("series")
-    .select("id, title, resolved_publisher_cached, year_start_cached, issue_count_cached")
-    .is("featured_cover_path_cached", null)
-    .gte("issue_count_cached", minIssues)
-    .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
-    .not("title", "is", null)
-    .order(preset.order.column, { ascending: preset.order.ascending })
-    .limit(LIMIT);
+  //
+  // Over-fetch beyond LIMIT so filtering out known-dead-end backlog entries
+  // (see loadExclusionKeys) still leaves a full LIMIT of fresh candidates,
+  // instead of silently shrinking the output every time the backlog grows.
+  //
+  // PostgREST silently caps any query without explicit .range() at 1000
+  // rows regardless of .limit() — see CLAUDE.md's engineering reminders,
+  // this has bitten two other scripts already. Paginate in 1000-row pages
+  // up to FETCH_LIMIT instead of trusting .limit() alone.
+  const FETCH_LIMIT = Math.min(LIMIT * 3, 10000);
+  const PAGE = 1000;
+  const data = [];
+  for (let from = 0; from < FETCH_LIMIT; from += PAGE) {
+    const to = Math.min(from + PAGE, FETCH_LIMIT) - 1;
+    const { data: page, error } = await supabase
+      .from("series")
+      .select("id, title, resolved_publisher_cached, year_start_cached, issue_count_cached")
+      .is("featured_cover_path_cached", null)
+      .gte("issue_count_cached", minIssues)
+      .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
+      .not("title", "is", null)
+      .order(preset.order.column, { ascending: preset.order.ascending })
+      .range(from, to);
 
-  if (error) {
-    console.error("Query failed:", error);
-    process.exit(1);
+    if (error) {
+      console.error("Query failed:", error);
+      process.exit(1);
+    }
+    data.push(...page);
+    if (page.length < PAGE) break;
   }
 
-  console.log(`Got ${data.length} candidate series.`);
+  console.log(`Got ${data.length} candidate series (before exclusions).`);
 
-  const targets = data.map((s) => ({
+  const filtered = data.filter(
+    (s) => !excludeKeys.has(`${s.title} ${s.resolved_publisher_cached}`)
+  );
+  const excludedCount = data.length - filtered.length;
+  if (excludedCount > 0) {
+    console.log(`Excluded ${excludedCount} already in needs_volume_id.json's backlog.`);
+  }
+
+  const targets = filtered.slice(0, LIMIT).map((s) => ({
     name: s.title,
     publisher: s.resolved_publisher_cached,
     year: s.year_start_cached,
@@ -144,11 +185,16 @@ async function run() {
     process.exit(2);
   }
 
+  const excludeKeys = loadExclusionKeys();
+  if (excludeKeys.size > 0) {
+    console.log(`Loaded ${excludeKeys.size} known-mismatch series to exclude from needs_volume_id.json.`);
+  }
+
   if (MODE === "both") {
     const depthOut = path.resolve(__dirname, "..", "gap-depth.json");
     const widthOut = path.resolve(__dirname, "..", "gap-width.json");
-    const depthCount = await runMode("depth", depthOut);
-    const widthCount = await runMode("width", widthOut);
+    const depthCount = await runMode("depth", depthOut, excludeKeys);
+    const widthCount = await runMode("width", widthOut, excludeKeys);
 
     console.log("\n══════ NEXT STEPS ══════");
     console.log("Run these in two terminals. They share the ComicVine rate budget");
@@ -164,7 +210,7 @@ async function run() {
     "..",
     args.out ?? `gap-${MODE}.json`
   );
-  const count = await runMode(MODE, outPath);
+  const count = await runMode(MODE, outPath, excludeKeys);
 
   console.log(`\nNext step:`);
   console.log(

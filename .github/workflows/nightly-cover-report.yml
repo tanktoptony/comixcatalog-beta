@@ -1,0 +1,64 @@
+name: Nightly cover report
+
+# Visual checkpoint of what cover-ingest.yml actually did in the last 24
+# hours: a thumbnail grid grouped by series, committed to the repo. Built
+# 2026-08-26 alongside the hourly-cadence redesign — "always ingesting"
+# only means something if there's an easy way to see whether it's actually
+# happening, not just a green checkmark on a workflow run.
+#
+# Runs at 06:00 UTC (~1am US Eastern / 10-11pm US Pacific the prior
+# evening) — after a full US day plus enough of the following early-morning
+# hourly runs to catch anything from late in the US day.
+#
+# Output: reports/covers-YYYY-MM-DD.html (dated) and reports/covers-latest.html
+# (stable link — always the most recent report). An explicit zero-covers
+# state is intentional, not a bug: a silent day of nothing is exactly the
+# failure mode this whole pipeline shore-up was responding to.
+#
+# To trigger manually: Actions tab → Nightly cover report → Run workflow.
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Generate nightly cover report
+        run: node scripts/generateNightlyCoverReport.js
+
+      - name: Commit report
+        run: |
+          if [ -z "$(git status --porcelain reports/)" ]; then
+            echo "No report changes — nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/
+          git commit -m "reports: nightly cover report ($(date -u +%Y-%m-%d))"
+          git pull --rebase
+          git push

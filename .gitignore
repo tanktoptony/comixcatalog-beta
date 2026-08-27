@@ -53,7 +53,12 @@ codebase.txt
 # local pipeline/runtime state
 __pycache__/
 *.py[cod]
-/reports/
+# Blanket-ignored except the nightly cover report, which is meant to be
+# committed (2026-08-26) — a visual "what actually happened" checkpoint,
+# not local scratch output. /reports/* (not /reports/) so the negation
+# below can still see inside the directory.
+/reports/*
+!/reports/covers-*.html
 /comicvine_api_output/ingest-loop-*.log
 /scripts/tony_stack_targets.json
 /scripts/fixtures/valuation-calibration-sample.json

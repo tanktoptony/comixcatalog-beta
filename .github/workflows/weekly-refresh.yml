@@ -84,14 +84,27 @@ jobs:
       - name: Regenerate launch-priority gap targets
         run: node scripts/generatePriorityCoverTargets.js
 
+      # gap-width.json / gap-depth.json — the two lanes cover-ingest.yml
+      # uses to find brand-new zero-cover series — went stale for 11 weeks
+      # (June 8 - August 26) because nothing regenerated them. Featured and
+      # priority are narrow, curated sets that saturate fast; width/depth
+      # are the only lanes that can move the "43k series with zero covers"
+      # number, so they need the same weekly refresh treatment. --limit is
+      # much higher than the old manual default (500) since the candidate
+      # pool is tens of thousands wide — a bigger committed list gives
+      # cover-ingest.yml's --skip-existing runs real headroom between
+      # regenerations instead of exhausting the same 500 every cycle.
+      - name: Regenerate width/depth gap targets
+        run: node scripts/generateCoverGapTargets.js --mode=both --limit=5000
+
       # Diff-only commit. If nothing changed (no new covers or gaps), this
-      # no-ops. Otherwise both tracked queues in main reflect current state.
+      # no-ops. Otherwise all four tracked queues in main reflect current state.
       - name: Commit gap targets if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [[ -n "$(git status --porcelain gap-featured.json gap-priority.json)" ]]; then
-            git add gap-featured.json gap-priority.json
+          if [[ -n "$(git status --porcelain gap-featured.json gap-priority.json gap-width.json gap-depth.json)" ]]; then
+            git add gap-featured.json gap-priority.json gap-width.json gap-depth.json
             git commit -m "chore: weekly cover-gap targets refresh"
             git push
           else

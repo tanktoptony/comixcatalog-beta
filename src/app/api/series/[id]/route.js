@@ -349,9 +349,51 @@ export async function GET(req, context) {
       };
     });
 
-    const mappedIssues = dedupeIssuesByBase(mappedIssuesRaw);
+    // Orphan-cover backfill: gcd_issues is a point-in-time GCD mirror and goes
+    // stale for any series still actively publishing — GCD's own data is also
+    // prone to splitting one real series across several series_gcd_ids as new
+    // issues get added (the "Absolute Batman" case, 2026-08-27: ComicVine had
+    // all 23 real issues correctly ingested and tagged to this series_gcd_id,
+    // but gcd_issues here only ever synced issue #1, so 22 real, correctly
+    // linked covers were sitting in canonical_covers completely invisible on
+    // the page). Only the ID-path canonicalRows are eligible — volume-exact,
+    // same guarantee the cover-matching above already relies on — never the
+    // looser title-path rows, which could pull in wrong-volume phantom issues
+    // for a series that only ever matched by title.
+    const knownBaseIssues = new Set(
+      mappedIssuesRaw.map((issue) => baseIssueNumber(issue.issue_number)).filter(Boolean)
+    );
+    const orphanCoversByBase = new Map();
+    if (series.gcd_id != null) {
+      for (const row of canonicalRows) {
+        if (row.series_gcd_id !== series.gcd_id || !row.storage_path) continue;
+        const base = baseIssueNumber(row.issue_number);
+        if (!base || knownBaseIssues.has(base)) continue;
+        const existing = orphanCoversByBase.get(base);
+        const rowYear = parseYear(row.cover_date) ?? Number(row.series_year ?? 0);
+        if (!existing || rowYear < existing.year) {
+          orphanCoversByBase.set(base, { row, year: rowYear });
+        }
+      }
+    }
+    const orphanIssues = [...orphanCoversByBase.entries()].map(([base, { row }]) => ({
+      id: `cv-${series.gcd_id}-${base}`,
+      title: null,
+      issue_number: row.issue_number,
+      release_year: parseYear(row.cover_date) ?? Number(row.series_year ?? null) ?? null,
+      publication_date: null,
+      cover: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${row.storage_path}`,
+    }));
+
+    const mappedIssues = dedupeIssuesByBase([...mappedIssuesRaw, ...orphanIssues]);
     const featuredCover =
       mappedIssues.find((issue) => issue.cover)?.cover ?? null;
+
+    const allYears = mappedIssues
+      .map((issue) => issue.release_year)
+      .filter((year) => year != null);
+    const fullYearStart = allYears.length ? Math.min(yearStart ?? Infinity, ...allYears) : yearStart;
+    const fullYearEnd = allYears.length ? Math.max(yearEnd ?? -Infinity, ...allYears) : yearEnd;
 
     return NextResponse.json({
       series: {
@@ -359,8 +401,8 @@ export async function GET(req, context) {
         title: series.title ?? "Untitled Series",
         publisher: resolvedPublisher,
         issue_count: mappedIssues.length,
-        year_start: yearStart,
-        year_end: yearEnd,
+        year_start: fullYearStart,
+        year_end: fullYearEnd,
         featured_cover: featuredCover,
         issues: mappedIssues,
       },

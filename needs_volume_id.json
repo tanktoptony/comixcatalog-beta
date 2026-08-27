@@ -1522,7 +1522,7 @@
     "name": "Daffy Duck",
     "publisher": "Gold Key",
     "year": 1962,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
         "id": 29907,
@@ -1531,22 +1531,10 @@
         "start_year": 1976
       },
       {
-        "id": 59318,
-        "name": "Daffy Duck",
-        "publisher": "Magazine Management",
-        "start_year": 1975
-      },
-      {
         "id": 9559,
         "name": "Daffy Duck",
         "publisher": "Western Publishing",
         "start_year": 1959
-      },
-      {
-        "id": 57898,
-        "name": "Daffy Duck",
-        "publisher": "Condor Verlag",
-        "start_year": 1985
       }
     ]
   },
@@ -9994,6 +9982,20 @@
         "name": "Archie Meets the Punisher",
         "publisher": "Marvel",
         "start_year": 1994
+      }
+    ]
+  },
+  {
+    "name": "The Original Sad Sack",
+    "publisher": "Harvey Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33345,
+        "name": "Original Sad Sack",
+        "publisher": "Lorne-Harvey",
+        "start_year": 1991
       }
     ]
   }

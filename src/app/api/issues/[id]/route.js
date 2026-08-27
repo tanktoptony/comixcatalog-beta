@@ -147,6 +147,18 @@ function normalizeIssueNumber(value) {
   return String(value ?? "").trim().toLowerCase();
 }
 
+// Strip variant/printing suffixes to the base number — same rule
+// /api/series/[id] uses to collapse "1", "1 [Newsstand]" together and to
+// decide which canonical_covers rows are "the same issue" for orphan
+// synthesis below.
+function baseIssueNumber(value) {
+  if (value == null) return null;
+  const s = String(value).trim();
+  if (!s) return null;
+  const m = s.match(/^(\d+(?:\.\d+)?)/);
+  return m ? m[1] : null;
+}
+
 function issueSortValue(issueNumber) {
   const raw = String(issueNumber ?? "").trim();
 
@@ -175,6 +187,44 @@ function isReasonableIssueNumber(issueNumber) {
 
   const match = raw.match(/^(\d+(\.\d+)?)/);
   return !!match;
+}
+
+// Combines a series' real gcd_issues rows with any "orphan" canonical_covers
+// rows — covers that exist and are correctly linked via series_gcd_id but
+// have no matching gcd_issues row (GCD's mirror is a point-in-time snapshot
+// and goes stale for actively-publishing series; see /api/series/[id] for
+// the full writeup — Absolute Batman, 2026-08-27, GCD only ever synced issue
+// #1 of a real 23-issue run). Both prev/next navigation branches below need
+// this same combined list — a viewer can land on either a gcd- or cv- issue
+// and must be able to page through the whole run either way.
+function buildCombinedIssueList(seriesGcdId, gcdIssueRows, coverRows) {
+  const realIssues = (gcdIssueRows ?? []).map((row) => ({
+    id: `gcd-${row.gcd_id}`,
+    issue_number: row.issue_number,
+    title: row.title ?? null,
+    release_year: bestYearFor(row),
+  }));
+  const knownBases = new Set(
+    realIssues.map((r) => baseIssueNumber(r.issue_number)).filter(Boolean)
+  );
+  const orphanByBase = new Map();
+  for (const row of coverRows ?? []) {
+    if (!row.storage_path) continue;
+    const base = baseIssueNumber(row.issue_number);
+    if (!base || knownBases.has(base)) continue;
+    const existing = orphanByBase.get(base);
+    const y = parseYear(row.cover_date) ?? Number(row.series_year ?? 0);
+    if (!existing || y < existing.year) orphanByBase.set(base, { row, year: y });
+  }
+  const orphanIssues = [...orphanByBase.entries()].map(([base, { row }]) => ({
+    id: `cv-${seriesGcdId}-${base}`,
+    issue_number: row.issue_number,
+    title: null,
+    release_year: parseYear(row.cover_date) ?? Number(row.series_year ?? null) ?? null,
+  }));
+  return dedupeSeriesIssueRows([...realIssues, ...orphanIssues]).sort(
+    (a, b) => issueSortValue(a.issue_number) - issueSortValue(b.issue_number)
+  );
 }
 
 function dedupeSeriesIssueRows(rows) {
@@ -301,32 +351,38 @@ export async function GET(req, context) {
       let seriesYearMin = null;
       let seriesYearMax = null;
       if (issue.series_gcd_id) {
-        const { data: allIssues } = await supabase
-          .from("gcd_issues")
-          .select(`
-            gcd_id,
-            issue_number,
-            title,
-            publication_date,
-            key_date
-          `)
-          .eq("series_gcd_id", issue.series_gcd_id)
-          .order("gcd_id", { ascending: true })
-          .limit(500);
+        const [{ data: allIssues }, { data: seriesCoverRows }] = await Promise.all([
+          supabase
+            .from("gcd_issues")
+            .select(`
+              gcd_id,
+              issue_number,
+              title,
+              publication_date,
+              key_date
+            `)
+            .eq("series_gcd_id", issue.series_gcd_id)
+            .order("gcd_id", { ascending: true })
+            .limit(500),
+          supabase
+            .from("canonical_covers")
+            .select("issue_number, storage_path, cover_date, series_year")
+            .eq("series_gcd_id", issue.series_gcd_id)
+            .not("storage_path", "is", null),
+        ]);
 
-        const mappedRaw = (allIssues ?? []).map((row) => ({
-          id: `gcd-${row.gcd_id}`,
-          issue_number: row.issue_number,
-          title: row.title ?? null,
-          release_year: bestYearFor(row),
-        }));
-
-        seriesIssuesMapped = dedupeSeriesIssueRows(mappedRaw).sort(
-          (a, b) => issueSortValue(a.issue_number) - issueSortValue(b.issue_number)
+        seriesIssuesMapped = buildCombinedIssueList(
+          issue.series_gcd_id,
+          allIssues,
+          seriesCoverRows
         );
 
-        const spanYears = mappedRaw
-          .map((row) => row.release_year)
+        // Span-gate the cover match below using the REAL gcd_issues dates
+        // only — an orphan issue is already ID-matched via series_gcd_id and
+        // trivially in span, so widening this on synthetic years would only
+        // loosen the guard for no benefit.
+        const spanYears = (allIssues ?? [])
+          .map((row) => bestYearFor(row))
           .filter((y) => y != null);
         seriesYearMin = spanYears.length ? Math.min(...spanYears) : null;
         seriesYearMax = spanYears.length ? Math.max(...spanYears) : null;
@@ -510,6 +566,170 @@ export async function GET(req, context) {
           next_issue: nextIssue,
           related_issues: relatedIssues,
           arcs,
+          market: {
+            listings_count: 0,
+            low: null,
+            median: null,
+            high: null,
+          },
+        },
+      });
+    }
+
+    // Synthetic id for an "orphan" issue: a canonical_covers row correctly
+    // linked via series_gcd_id but with no matching gcd_issues row for its
+    // series (see /api/series/[id] and buildCombinedIssueList above — GCD's
+    // metadata mirror is a point-in-time snapshot that goes stale for
+    // actively-publishing series). Format: cv-<series_gcd_id>-<base issue
+    // number>, e.g. "cv-226633-2".
+    if (String(id).startsWith("cv-")) {
+      const match = String(id).match(/^cv-(\d+)-(.+)$/);
+      const seriesGcdId = match ? Number(match[1]) : NaN;
+      const issueBase = match ? match[2] : null;
+      if (!match || !Number.isInteger(seriesGcdId) || seriesGcdId <= 0) {
+        return NextResponse.json({ error: "Invalid issue id" }, { status: 400 });
+      }
+
+      const [seriesResult, gcdSeriesResult, coverRowsResult, gcdIssuesResult] =
+        await Promise.all([
+          supabase
+            .from("series")
+            .select(`
+              id,
+              gcd_id,
+              title,
+              publisher_id,
+              cv_publisher,
+              resolved_publisher_cached,
+              publisher:publisher_id (
+                id,
+                name,
+                gcd_id
+              )
+            `)
+            .eq("gcd_id", seriesGcdId)
+            .single(),
+          supabase
+            .from("gcd_series")
+            .select("publisher_gcd_id")
+            .eq("gcd_id", seriesGcdId)
+            .single(),
+          supabase
+            .from("canonical_covers")
+            .select("id, issue_number, storage_path, publisher, cover_date, series_year")
+            .eq("series_gcd_id", seriesGcdId)
+            .not("storage_path", "is", null),
+          supabase
+            .from("gcd_issues")
+            .select("gcd_id, issue_number, title, publication_date, key_date")
+            .eq("series_gcd_id", seriesGcdId)
+            .order("gcd_id", { ascending: true })
+            .limit(500),
+        ]);
+
+      const seriesRow = seriesResult.data;
+      const seriesLevelPublisherGcdId = gcdSeriesResult.data?.publisher_gcd_id ?? null;
+      const seriesId = seriesRow?.id ?? null;
+      const seriesTitle = seriesRow?.title ?? null;
+
+      // Same "earliest print wins" tie-break /api/series/[id] uses when more
+      // than one cover exists for the same base issue number.
+      const matchingRows = (coverRowsResult.data ?? []).filter(
+        (row) => baseIssueNumber(row.issue_number) === issueBase
+      );
+      matchingRows.sort(
+        (a, b) => (parseYear(a.cover_date) ?? 0) - (parseYear(b.cover_date) ?? 0)
+      );
+      const canonicalMatch = matchingRows[0] ?? null;
+
+      if (!canonicalMatch) {
+        return NextResponse.json({ error: "Issue not found" }, { status: 404 });
+      }
+
+      let seriesLevelPublisherName = null;
+      if (seriesLevelPublisherGcdId) {
+        const { data: gcdPublisherRows } = await supabase
+          .from("gcd_publishers")
+          .select("gcd_id, name")
+          .eq("gcd_id", seriesLevelPublisherGcdId);
+        seriesLevelPublisherName = gcdPublisherRows?.[0]?.name ?? null;
+      }
+
+      const publisherName =
+        seriesRow?.resolved_publisher_cached ||
+        resolvePublisher({
+          cv: canonicalMatch.publisher ?? null,
+          candidates: [
+            seriesLevelPublisherName,
+            seriesRow?.publisher?.name ?? null,
+            seriesRow?.cv_publisher ?? null,
+          ],
+          seriesTitle,
+        });
+
+      const releaseYear =
+        parseYear(canonicalMatch.cover_date) ??
+        Number(canonicalMatch.series_year ?? null) ??
+        null;
+
+      const cover = canonicalMatch.storage_path
+        ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${canonicalMatch.storage_path}`
+        : null;
+
+      let variants = [];
+      if (canonicalMatch.id) {
+        const { data: variantRows } = await supabase
+          .from("cover_variants")
+          .select("id, storage_path, sort_order")
+          .eq("canonical_cover_id", canonicalMatch.id)
+          .order("sort_order", { ascending: true });
+        variants = (variantRows ?? []).map((variant) => ({
+          id: variant.id,
+          storageUrl: variant.storage_path
+            ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${variant.storage_path}`
+            : null,
+          sortOrder: variant.sort_order,
+        }));
+      }
+
+      const combined = buildCombinedIssueList(
+        seriesGcdId,
+        gcdIssuesResult.data,
+        coverRowsResult.data
+      );
+      let prevIssue = null;
+      let nextIssue = null;
+      let relatedIssues = [];
+      const currentIndex = combined.findIndex((row) => row.id === id);
+      if (currentIndex > 0) prevIssue = combined[currentIndex - 1];
+      if (currentIndex >= 0 && currentIndex < combined.length - 1) {
+        nextIssue = combined[currentIndex + 1];
+      }
+      if (currentIndex >= 0) {
+        relatedIssues = combined
+          .filter((_, idx) => idx >= currentIndex - 2 && idx <= currentIndex + 2)
+          .filter((row) => row.id !== id)
+          .slice(0, 4);
+      }
+
+      return NextResponse.json({
+        issue: {
+          id,
+          source: "canonical",
+          series_id: seriesId,
+          series_title: seriesTitle,
+          issue_number: canonicalMatch.issue_number,
+          release_year: releaseYear,
+          publication_date: null,
+          display_date: releaseYear != null ? String(releaseYear) : null,
+          publisher: publisherName,
+          cover,
+          variants,
+          created_by: null,
+          prev_issue: prevIssue,
+          next_issue: nextIssue,
+          related_issues: relatedIssues,
+          arcs: [],
           market: {
             listings_count: 0,
             low: null,

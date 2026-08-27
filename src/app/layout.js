@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { Big_Shoulders_Display } from "next/font/google";
+import { Big_Shoulders } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -12,7 +12,7 @@ import { AuthProvider } from "../context/AuthContext";
 // with /library's plain grotesk, part of the workshop/showcase split
 // (2026-08-27). Exposed as a CSS var rather than a global font-family swap
 // so it stays opt-in per element; /library never references it.
-const displayFont = Big_Shoulders_Display({
+const displayFont = Big_Shoulders({
   subsets: ["latin"],
   weight: ["700", "800"],
   variable: "--font-display",

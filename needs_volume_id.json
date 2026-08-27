@@ -10004,5 +10004,19 @@
         "start_year": 1991
       }
     ]
+  },
+  {
+    "name": "30 Days of Night Annual 2004",
+    "publisher": "IDW Publishing",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111088,
+        "name": "30 days of night: Annual 2004",
+        "publisher": "Infinity Verlag",
+        "start_year": 2005
+      }
+    ]
   }
 ]

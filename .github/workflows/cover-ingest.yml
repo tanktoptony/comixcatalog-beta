@@ -80,20 +80,28 @@ name: Cover ingest
 # writes a new tracked side-effect file.
 
 on:
+  # Treat this schedule as best-effort, not authoritative (concluded
+  # 2026-08-27 after a 3rd recurrence — see below). GitHub's own docs say
+  # scheduled workflows on public repos can be delayed or dropped under
+  # load; a forcing re-commit "fixed" it twice before but each fix silently
+  # stopped working again within hours, which looks a lot more like
+  # coincidental catch-up timing than an actual resolution. The real fix is
+  # an external trigger: a free HTTP cron service (e.g. cron-job.org) POSTs
+  # to this workflow's dispatches endpoint
+  # (repos/tanktoptony/comixcatalog-beta/actions/workflows/cover-ingest.yml/dispatches)
+  # on a real wall-clock schedule, independent of GitHub's scheduler
+  # entirely. Keep this `schedule:` block anyway as a free second chance —
+  # it costs nothing and occasionally still fires on time.
   schedule:
-    # Top of every hour. NOTE: after changing a workflow's cron before
-    # (2026-08-10), GitHub kept firing the OLD schedule for 15 days despite
-    # main showing the new one — only started respecting it after a further
-    # commit touched this file (2026-08-25). It happened again immediately
-    # after this file moved from weekly to hourly (2026-08-27, PR #35) — 1.5
-    # hours and one missed hourly trigger with zero new runs, forcing this
-    # exact comment-only commit to make GitHub re-read the schedule. If this
-    # keeps recurring, it may be worth an occasional workflow_dispatch nudge
-    # instead of trusting the cron alone. If runs aren't landing hourly
-    # within a day of this merging, don't assume the file is wrong; check
-    # `gh run list --workflow=cover-ingest.yml` for the actual fired cadence
-    # and consider a workflow_dispatch or a trivial re-commit to force GitHub
-    # to pick it up.
+    # Top of every hour. History: changing this cron before (2026-08-10)
+    # left GitHub firing the OLD schedule for 15 days despite main showing
+    # the new one; a further commit touching this file eventually got it
+    # respected (2026-08-25). It happened again after this file moved from
+    # weekly to hourly (2026-08-27, PR #35) — 1.5 hours dark, one missed
+    # trigger, "fixed" by another forcing commit (PR #36) — except that fix
+    # only produced one immediate catch-up run and then went dark again for
+    # 2+ more hourly windows. Three recurrences of the same shape is a
+    # pattern, not a fluke — see the external-trigger note above.
     - cron: '0 * * * *'
   workflow_dispatch: {}
 
@@ -244,6 +252,19 @@ jobs:
       # CSV dirty on any run that actually uploaded covers, which then
       # failed `git pull --rebase` with "you have unstaged changes" and
       # silently dropped the whole run's progress (first hit 2026-08-26).
+      # -X theirs on the rebase (added 2026-08-27): we're about to add a
+      # second, independent trigger source alongside GitHub's own cron (see
+      # the "External trigger" note above the schedule block), which makes
+      # two runs racing each other more likely, not less. That already
+      # happened once — two runs one second apart hit a real content
+      # conflict in .ingest-done.json and the whole job hard-failed,
+      # silently dropping that run's ledger progress. These are idempotent
+      # status-tracking files (a "done" set, a needs-volume-id backlog) —
+      # `-X theirs` keeps THIS run's own version of any conflicting line
+      # rather than aborting. Worst case a just-uploaded "done" mark from the
+      # other run gets overwritten and that target gets re-attempted next
+      # cycle; --skip-existing makes that near-free. That's a far better
+      # failure mode than losing an entire run's progress to a hard exit.
       - name: Commit ledger updates
         if: always()
         run: |
@@ -255,7 +276,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "cover-ingest: ledger update ($(date -u +'%Y-%m-%d %H:%M UTC'))"
-          git pull --rebase
+          git pull --rebase -X theirs
           git push
 
       # No continue-on-error here on purpose — this is the one step in the

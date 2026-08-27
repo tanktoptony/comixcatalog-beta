@@ -35,17 +35,48 @@ const mode = modeArg ? modeArg.split("=")[1] : "stall";
 const lookbackArg = args.find((a) => a.startsWith("--lookback-days="));
 const LOOKBACK_DAYS = lookbackArg ? Number(lookbackArg.split("=")[1]) : 8;
 
+// Retries a transient Supabase hiccup instead of treating it as a real
+// stall — the whole point of this script is to be a trustworthy failure
+// signal (see the file header). It failed with an empty/transient error on
+// 2026-08-27 and hard-exited, which would have looked identical to "zero
+// covers in 24h" to anyone glancing at a red run without reading the log.
+// A flaky safety net teaches you to ignore red, which is worse than no net
+// at all. Mirrors runWithRetry() from refreshSeriesSearchCache.js, but
+// count-only queries put `count` on the response object, not `data` — that
+// generic helper returns `data` directly and would silently drop it (same
+// gap hit building generateNightlyCoverReport.js's all-time-total query).
+async function countWithRetry(supabase, since, maxAttempts = 4) {
+  let lastError = null;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const { count, error } = await supabase
+      .from("canonical_covers")
+      .select("id", { count: "exact", head: true })
+      .gte("created_at", since);
+    if (!error) return count;
+    lastError = error;
+    if (attempt === maxAttempts) break;
+    const backoffMs = [1000, 3000, 8000][attempt - 1] ?? 8000;
+    console.error(
+      `  ⚠ stall check transient error (attempt ${attempt}/${maxAttempts}): ` +
+        `${error.message || error.code || "unknown error"} — retrying in ${backoffMs}ms`
+    );
+    await new Promise((r) => setTimeout(r, backoffMs));
+  }
+  throw lastError;
+}
+
 async function checkStall() {
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
   const since = new Date(Date.now() - LOOKBACK_DAYS * 24 * 60 * 60 * 1000).toISOString();
 
-  const { count, error } = await supabase
-    .from("canonical_covers")
-    .select("id", { count: "exact", head: true })
-    .gte("created_at", since);
-
-  if (error) {
-    console.error("checkCoverIngestHealth (stall): query failed:", error.message);
+  let count;
+  try {
+    count = await countWithRetry(supabase, since);
+  } catch (error) {
+    console.error(
+      "checkCoverIngestHealth (stall): query failed after retries:",
+      error.message || error.code || "unknown error"
+    );
     process.exit(1);
   }
 

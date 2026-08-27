@@ -1033,8 +1033,12 @@ function LibraryPageContent() {
                       : "Export Wantlist (Pro)"}
                 </button>
               )}
-              <Link href="/library/add" className="library-primary-btn">
-                Add Comic
+              <Link
+                href="/library/add"
+                className="library-primary-btn"
+                title="For a book not already in our catalog — search above first if you're not sure."
+              >
+                + Add manually
               </Link>
             </>
           )}

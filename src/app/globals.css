@@ -10205,3 +10205,114 @@ button.nav-link {
 .footer-newsletter-message { margin: 8px 0 0; font-size: .78rem; }
 .footer-newsletter-message.done { color: #86efac; }
 .footer-newsletter-message.error { color: #fca5a5; }
+
+/* -----------------------------------------------------------------------
+   Profile "Top Shelf" + Collection Value plaque (workshop/showcase split,
+   2026-08-27). /library stays a data-dense management view; /u/[username]
+   is a visual showcase — these two sections are the concrete difference:
+   collection value gets a dedicated flex/badge treatment here instead of
+   sitting as one of six equal stat cards (CollectionStatsStrip still owns
+   that shared row on both pages; its "value" card is explicitly suppressed
+   on the profile page via visibility={{ value: false }} to avoid showing
+   the number twice), and the highest-value pieces get pulled out front
+   instead of waiting in the regular grid/rows tabs below.
+----------------------------------------------------------------------- */
+
+.profile-value-plaque {
+  margin: 4px 0 24px;
+  padding: 20px 28px;
+  border-radius: 16px;
+  text-align: center;
+  display: inline-block;
+  background: linear-gradient(160deg, rgba(216,176,75,0.14), rgba(216,176,75,0.03));
+  border: 1px solid rgba(216,176,75,0.4);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+.profile-value-plaque-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--cc-gold-soft, #ecd48c);
+  font-weight: 700;
+}
+
+.profile-value-plaque-amount {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--cc-gold, #d8b04b);
+  line-height: 1.15;
+  margin-top: 2px;
+}
+
+.profile-value-plaque-meta {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 2px;
+}
+
+.profile-top-shelf {
+  margin-bottom: 28px;
+}
+
+.profile-top-shelf-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.profile-top-shelf-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.profile-top-shelf-sub {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+}
+
+.profile-top-shelf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.profile-top-shelf-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.profile-top-shelf-cover {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+.profile-top-shelf-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-top-shelf-title-line {
+  font-size: 0.82rem;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-top-shelf-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cc-gold-soft, #ecd48c);
+}

@@ -740,6 +740,134 @@ export async function GET(req, context) {
       });
     }
 
+    // Synthetic id for an issue on a GCD-less series — a brand-new or
+    // never-catalogued real series with no gcd_series/gcd_issues row at all
+    // (see the !series.gcd_id branch in /api/series/[id]). No series_gcd_id
+    // exists to ID-match on, so this resolves purely by (series.title, base
+    // issue number) against canonical_covers. Format:
+    // cvt-<encodeURIComponent(series title)>-<base issue number>.
+    if (String(id).startsWith("cvt-")) {
+      const match = String(id).match(/^cvt-(.+)-([^-]+)$/);
+      if (!match) {
+        return NextResponse.json({ error: "Invalid issue id" }, { status: 400 });
+      }
+      const seriesTitle = decodeURIComponent(match[1]);
+      const issueBase = match[2];
+
+      const [seriesResult, coverRowsResult] = await Promise.all([
+        supabase
+          .from("series")
+          .select(`
+            id,
+            title,
+            publisher_id,
+            cv_publisher,
+            resolved_publisher_cached,
+            publisher:publisher_id ( id, name, gcd_id )
+          `)
+          .eq("title", seriesTitle)
+          .is("gcd_id", null)
+          .single(),
+        supabase
+          .from("canonical_covers")
+          .select("issue_number, storage_path, publisher, cover_date, series_year")
+          .eq("series_title", seriesTitle)
+          .is("series_gcd_id", null)
+          .not("storage_path", "is", null),
+      ]);
+
+      const seriesRow = seriesResult.data;
+      const seriesId = seriesRow?.id ?? null;
+
+      const matchingRows = (coverRowsResult.data ?? []).filter(
+        (row) => baseIssueNumber(row.issue_number) === issueBase
+      );
+      matchingRows.sort(
+        (a, b) => (parseYear(a.cover_date) ?? 0) - (parseYear(b.cover_date) ?? 0)
+      );
+      const canonicalMatch = matchingRows[0] ?? null;
+
+      if (!canonicalMatch) {
+        return NextResponse.json({ error: "Issue not found" }, { status: 404 });
+      }
+
+      const publisherName =
+        seriesRow?.resolved_publisher_cached ||
+        resolvePublisher({
+          cv: canonicalMatch.publisher ?? null,
+          candidates: [seriesRow?.publisher?.name ?? null, seriesRow?.cv_publisher ?? null],
+          seriesTitle,
+        });
+
+      const releaseYear =
+        parseYear(canonicalMatch.cover_date) ??
+        Number(canonicalMatch.series_year ?? null) ??
+        null;
+
+      const cover = canonicalMatch.storage_path
+        ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${canonicalMatch.storage_path}`
+        : null;
+
+      // Combined list for Next/Prev — the same title-matched pool, deduped
+      // by base issue number (earliest print wins), sorted numerically.
+      const byBase = new Map();
+      for (const row of coverRowsResult.data ?? []) {
+        const base = baseIssueNumber(row.issue_number);
+        if (!base) continue;
+        const existing = byBase.get(base);
+        const y = parseYear(row.cover_date) ?? Number(row.series_year ?? 0);
+        if (!existing || y < existing.year) byBase.set(base, { row, year: y });
+      }
+      const combined = [...byBase.entries()]
+        .map(([base, { row }]) => ({
+          id: `cvt-${encodeURIComponent(seriesTitle)}-${base}`,
+          issue_number: row.issue_number,
+        }))
+        .sort((a, b) => issueSortValue(a.issue_number) - issueSortValue(b.issue_number));
+
+      let prevIssue = null;
+      let nextIssue = null;
+      let relatedIssues = [];
+      const currentIndex = combined.findIndex((row) => row.id === id);
+      if (currentIndex > 0) prevIssue = combined[currentIndex - 1];
+      if (currentIndex >= 0 && currentIndex < combined.length - 1) {
+        nextIssue = combined[currentIndex + 1];
+      }
+      if (currentIndex >= 0) {
+        relatedIssues = combined
+          .filter((_, idx) => idx >= currentIndex - 2 && idx <= currentIndex + 2)
+          .filter((row) => row.id !== id)
+          .slice(0, 4);
+      }
+
+      return NextResponse.json({
+        issue: {
+          id,
+          source: "canonical",
+          series_id: seriesId,
+          series_title: seriesTitle,
+          issue_number: canonicalMatch.issue_number,
+          release_year: releaseYear,
+          publication_date: null,
+          display_date: releaseYear != null ? String(releaseYear) : null,
+          publisher: publisherName,
+          cover,
+          variants: [],
+          created_by: null,
+          prev_issue: prevIssue,
+          next_issue: nextIssue,
+          related_issues: relatedIssues,
+          arcs: [],
+          market: {
+            listings_count: 0,
+            low: null,
+            median: null,
+            high: null,
+          },
+        },
+      });
+    }
+
     const { data: comic, error: comicError } = await supabase
       .from("comics")
       .select(`

@@ -92,17 +92,85 @@ export async function GET(req, context) {
       return NextResponse.json({ error: "Series not found" }, { status: 404 });
     }
 
+    // No GCD linkage at all — a brand-new or never-catalogued real series.
+    // GCD's metadata mirror is a point-in-time dump plus a weekly top-up
+    // scoped to ~79 curated titles (see gcd-issue-refresh.yml); anything
+    // outside that list that launched after the dump simply has no
+    // gcd_series/gcd_issues row, full stop — not stale, absent. This used
+    // to unconditionally return zero issues here, even when real
+    // ComicVine-sourced covers already exist and are correctly title-tagged
+    // (found 2026-08-27: Swamp Thing 1989, Godzilla Conquers the Multiverse,
+    // Big Rig and others had a bare series row and real ingested covers but
+    // showed "0 issues" because this branch never looked at canonical_covers
+    // at all). Pure title-path only — there's no series_gcd_id to ID-match
+    // on, so this can't reach the volume-exact guarantee the gcd_id path
+    // below relies on; that's the same trade-off the title-path already
+    // makes there.
     if (!series.gcd_id) {
+      const titleQueries = [];
+      if (series.title) {
+        titleQueries.push(
+          supabase
+            .from("canonical_covers")
+            .select("issue_number, series_year, cover_date, storage_path, publisher")
+            .eq("series_title", series.title)
+            .is("series_gcd_id", null)
+        );
+        const strippedTitle = stripPunctuation(series.title);
+        if (strippedTitle && strippedTitle !== series.title) {
+          titleQueries.push(
+            supabase
+              .from("canonical_covers")
+              .select("issue_number, series_year, cover_date, storage_path, publisher")
+              .eq("series_title", strippedTitle)
+              .is("series_gcd_id", null)
+          );
+        }
+      }
+      const settled = await Promise.all(titleQueries);
+      const byBase = new Map();
+      for (const { data, error } of settled) {
+        if (error) {
+          console.error("GET /api/series/[id] gcd-less title lookup failed:", error);
+          continue;
+        }
+        for (const row of data ?? []) {
+          if (!row.storage_path) continue;
+          const base = baseIssueNumber(row.issue_number);
+          if (!base) continue;
+          const existing = byBase.get(base);
+          const rowYear = parseYear(row.cover_date) ?? Number(row.series_year ?? 0);
+          if (!existing || rowYear < existing.year) byBase.set(base, { row, year: rowYear });
+        }
+      }
+      const mappedIssues = [...byBase.entries()]
+        .map(([base, { row }]) => ({
+          id: `cvt-${encodeURIComponent(series.title ?? "")}-${base}`,
+          title: null,
+          issue_number: row.issue_number,
+          release_year: parseYear(row.cover_date) ?? Number(row.series_year ?? null) ?? null,
+          publication_date: null,
+          cover: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${row.storage_path}`,
+        }))
+        .sort((a, b) => Number(a.issue_number) - Number(b.issue_number) || 0);
+
+      const years = mappedIssues.map((i) => i.release_year).filter((y) => y != null);
+      const cvPublisher = settled.flatMap((r) => r.data ?? []).find((r) => r.publisher)?.publisher ?? null;
+
       return NextResponse.json({
         series: {
           id: series.id,
           title: series.title ?? "Untitled Series",
-          publisher: series.publisher?.name ?? "Unknown Publisher",
-          issue_count: 0,
-          year_start: null,
-          year_end: null,
-          featured_cover: null,
-          issues: [],
+          publisher:
+            series.resolved_publisher_cached ||
+            series.publisher?.name ||
+            cvPublisher ||
+            "Unknown Publisher",
+          issue_count: mappedIssues.length,
+          year_start: years.length ? Math.min(...years) : null,
+          year_end: years.length ? Math.max(...years) : null,
+          featured_cover: mappedIssues.find((i) => i.cover)?.cover ?? null,
+          issues: mappedIssues,
         },
       });
     }

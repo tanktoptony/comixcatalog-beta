@@ -9968,5 +9968,33 @@
         "start_year": 1987
       }
     ]
+  },
+  {
+    "name": "The King Is a Fink",
+    "publisher": "Fawcett Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 87727,
+        "name": "King Is a Fink",
+        "publisher": "Coronet Books",
+        "start_year": 1972
+      }
+    ]
+  },
+  {
+    "name": "Archie Meets the Punisher",
+    "publisher": "Archie Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22522,
+        "name": "Archie Meets the Punisher",
+        "publisher": "Marvel",
+        "start_year": 1994
+      }
+    ]
   }
 ]

@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { Big_Shoulders } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,6 +7,17 @@ import FoundingBanner from "../components/FoundingBanner";
 import OnboardingModal from "../components/OnboardingModal";
 import { LibraryProvider } from "../context/LibraryContext";
 import { AuthProvider } from "../context/AuthContext";
+
+// Display face for the public profile ("The Case") — a deliberate contrast
+// with /library's plain grotesk, part of the workshop/showcase split
+// (2026-08-27). Exposed as a CSS var rather than a global font-family swap
+// so it stays opt-in per element; /library never references it.
+const displayFont = Big_Shoulders({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://comixcatalog.com";
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
@@ -108,7 +120,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="page-shell">
+      <body className={`page-shell ${displayFont.variable}`}>
         {GA_ENABLED && (
           <>
             <Script

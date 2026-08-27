@@ -19,6 +19,18 @@ function formatJoinDate(iso) {
   return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
 }
 
+function formatCurrency(n) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(n);
+}
+
+function topShelfCoverUrl(d) {
+  return d.canonicalCoverUrl || d.communityCoverUrl || d.personalCoverUrl || d.coverUrl || "/fallback-cover.png";
+}
+
 export default async function PublicProfilePage({ params }) {
   const { username } = await params;
   if (!username) notFound();
@@ -53,6 +65,26 @@ export default async function PublicProfilePage({ params }) {
   // CollectionInsightSidebar from the raw `collection` array. We used to
   // do all that math inline here; Phase 2 unify centralizes it.
 
+  // Workshop/showcase split (2026-08-27): collection value gets pulled out
+  // of the shared stats strip into its own flex plaque here, and the
+  // highest-value owned pieces get a dedicated "Top Shelf" row up front —
+  // /library stays the data-dense management view, this page is the visual
+  // one. `item.market_value` on the public-profile collection is already
+  // server-resolved (auto or user-entered, whichever applies) — see
+  // CollectionStatsStrip's rowValue() comment for why no autoMarketValues
+  // map is needed here the way /library passes one.
+  const showValue = visibility.value !== false;
+  const ownedItems = collection.filter((item) => item.status === "owned");
+  let collectionValue = 0;
+  for (const item of ownedItems) {
+    const v = Number(item.market_value);
+    if (!Number.isNaN(v) && v > 0) collectionValue += v;
+  }
+  const topShelf = ownedItems
+    .filter((item) => item.display && Number(item.market_value) > 0)
+    .sort((a, b) => Number(b.market_value) - Number(a.market_value))
+    .slice(0, 5);
+
   const joinDate = formatJoinDate(profile.created_at);
   const avatarSrc = profile.avatar_url
     ? profile.avatar_url
@@ -76,7 +108,10 @@ export default async function PublicProfilePage({ params }) {
 
           <div className="profile-info">
             <div className="profile-username-row">
-              <h1 className="profile-username">
+              <h1
+                className="profile-username"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 {profile.display_name || username}
               </h1>
               <div className="profile-badges">
@@ -129,9 +164,74 @@ export default async function PublicProfilePage({ params }) {
         </div>
       </section>
 
+      {/* Collection value as a flex plaque, not one of six equal stat cards —
+          the workshop/showcase differentiator. Suppressed from the shared
+          strip below via visibility.value=false so it isn't shown twice;
+          still respects the owner's privacy toggle (showValue). */}
+      {showValue && collectionValue > 0 && (
+        <div className="profile-value-plaque">
+          <div className="profile-value-plaque-label">Collection Value</div>
+          <div
+            className="profile-value-plaque-amount"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            {formatCurrency(collectionValue)}
+          </div>
+          <div className="profile-value-plaque-meta">
+            {ownedItems.length} book{ownedItems.length === 1 ? "" : "s"}
+          </div>
+        </div>
+      )}
+
+      {/* Top Shelf — highest-value owned pieces, pulled out front instead of
+          waiting in the regular grid/rows tabs below. Empty when nothing has
+          a market value yet (no comps, nothing user-priced) — no filler
+          section rendered in that case. */}
+      {topShelf.length > 0 && (
+        <section className="profile-top-shelf">
+          <div className="profile-top-shelf-header">
+            <h2
+              className="profile-top-shelf-title"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Top Shelf
+            </h2>
+            <span className="profile-top-shelf-sub">Highest-value pieces</span>
+          </div>
+          <div className="profile-top-shelf-grid">
+            {topShelf.map((item) => {
+              const d = item.display;
+              return (
+                <Link key={item.id} href={d.href} className="profile-top-shelf-card">
+                  <div className="profile-top-shelf-cover">
+                    <img src={topShelfCoverUrl(d)} alt={d.title} />
+                    {item.slab_company && item.grade_numeric ? (
+                      <span className="profile-grade-badge">
+                        {item.slab_company} {Number(item.grade_numeric).toFixed(1)}
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="profile-top-shelf-title-line">
+                    {d.title}
+                    {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                  </div>
+                  <div className="profile-top-shelf-value">
+                    {formatCurrency(Number(item.market_value))}
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
       {/* HEADLINE STATS STRIP — unified component (Phase 2 of unify). Same
-          6-card strip used on /library so future stat changes don't drift. */}
-      <CollectionStatsStrip collection={collection} visibility={visibility} />
+          6-card strip used on /library so future stat changes don't drift.
+          value is suppressed here — see the plaque above. */}
+      <CollectionStatsStrip
+        collection={collection}
+        visibility={{ ...visibility, value: false }}
+      />
 
       {/* Anon-visitor conversion banner. Client-gated via ProfileAnonCta
           because server-side `supabase.auth.getUser()` here can't read the

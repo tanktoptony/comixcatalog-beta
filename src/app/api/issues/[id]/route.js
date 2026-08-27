@@ -747,11 +747,19 @@ export async function GET(req, context) {
     // issue number) against canonical_covers. Format:
     // cvt-<encodeURIComponent(series title)>-<base issue number>.
     if (String(id).startsWith("cvt-")) {
+      // Next.js decodes dynamic route params once automatically, so `id`
+      // here already has real spaces/punctuation, not %-escapes — match[1]
+      // IS the raw series title, no further decodeURIComponent needed. This
+      // bit us live: decoding again here while re-*encoding* when building
+      // the combined list below (for the outbound prev/next ids) meant the
+      // two never matched on the same representation, so findIndex always
+      // returned -1 and Next/Prev was silently null for every GCD-less
+      // issue. Caught by testing the actual endpoint, not just the count.
       const match = String(id).match(/^cvt-(.+)-([^-]+)$/);
       if (!match) {
         return NextResponse.json({ error: "Invalid issue id" }, { status: 400 });
       }
-      const seriesTitle = decodeURIComponent(match[1]);
+      const seriesTitle = match[1];
       const issueBase = match[2];
 
       const [seriesResult, coverRowsResult] = await Promise.all([
@@ -810,6 +818,9 @@ export async function GET(req, context) {
 
       // Combined list for Next/Prev — the same title-matched pool, deduped
       // by base issue number (earliest print wins), sorted numerically.
+      // `base` (unencoded) is the comparison key against the current issue's
+      // own already-decoded base; `id` (encoded) is what actually goes out
+      // in the response for the frontend's own links to build hrefs from.
       const byBase = new Map();
       for (const row of coverRowsResult.data ?? []) {
         const base = baseIssueNumber(row.issue_number);
@@ -820,6 +831,7 @@ export async function GET(req, context) {
       }
       const combined = [...byBase.entries()]
         .map(([base, { row }]) => ({
+          base,
           id: `cvt-${encodeURIComponent(seriesTitle)}-${base}`,
           issue_number: row.issue_number,
         }))
@@ -828,7 +840,7 @@ export async function GET(req, context) {
       let prevIssue = null;
       let nextIssue = null;
       let relatedIssues = [];
-      const currentIndex = combined.findIndex((row) => row.id === id);
+      const currentIndex = combined.findIndex((row) => row.base === issueBase);
       if (currentIndex > 0) prevIssue = combined[currentIndex - 1];
       if (currentIndex >= 0 && currentIndex < combined.length - 1) {
         nextIssue = combined[currentIndex + 1];
@@ -836,13 +848,21 @@ export async function GET(req, context) {
       if (currentIndex >= 0) {
         relatedIssues = combined
           .filter((_, idx) => idx >= currentIndex - 2 && idx <= currentIndex + 2)
-          .filter((row) => row.id !== id)
+          .filter((row) => row.base !== issueBase)
           .slice(0, 4);
       }
+      // Strip the internal `base` comparison key before it goes out —
+      // callers only need id/issue_number.
+      const stripBase = (row) => (row ? { id: row.id, issue_number: row.issue_number } : null);
+      prevIssue = stripBase(prevIssue);
+      nextIssue = stripBase(nextIssue);
+      relatedIssues = relatedIssues.map(stripBase);
 
       return NextResponse.json({
         issue: {
-          id,
+          // Canonical encoded form, not necessarily byte-identical to
+          // whatever the request URL happened to contain.
+          id: `cvt-${encodeURIComponent(seriesTitle)}-${issueBase}`,
           source: "canonical",
           series_id: seriesId,
           series_title: seriesTitle,

@@ -15,7 +15,8 @@
     "covers:gap-priority": "node scripts/generatePriorityCoverTargets.js",
     "report:engineering": "node scripts/generateEngineeringReport.js",
     "covers:gap-featured": "node scripts/generateFeaturedGapTargets.js",
-    "covers:gap-both": "node scripts/generateCoverGapTargets.js --mode=both --limit=500",
+    "covers:gap-both": "node scripts/generateCoverGapTargets.js --mode=both --limit=5000",
+    "covers:resolve-pins": "node scripts/resolveNeedsVolumeIdBacklog.js",
     "covers:refresh-cache": "node scripts/refreshSeriesSearchCache.js --force",
     "covers:refresh-cache-test": "node scripts/refreshSeriesSearchCache.js --force --max-batches=1",
     "covers:weekly": "npm run covers:refresh-cache && npm run covers:gap-featured"

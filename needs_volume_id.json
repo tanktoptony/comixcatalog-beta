@@ -1,19 +1,5 @@
 [
   {
-    "name": "Gremlins",
-    "publisher": "Gold Key",
-    "year": 1984,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 50571,
-        "name": "Gremlins",
-        "publisher": "Western Publishing",
-        "start_year": 1984
-      }
-    ]
-  },
-  {
     "name": "What If? Avengers Disassembled",
     "publisher": "Marvel Comics",
     "year": 2007,
@@ -192,34 +178,6 @@
     ]
   },
   {
-    "name": "The Darkness / The Incredible Hulk",
-    "publisher": "Image Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 133723,
-        "name": "The Darkness / The Incredible Hulk",
-        "publisher": "Infinity Verlag",
-        "start_year": 2004
-      }
-    ]
-  },
-  {
-    "name": "Masks: Too Hot for TV!",
-    "publisher": "WildStorm",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 56374,
-        "name": "Masks: Too Hot for TV!",
-        "publisher": "DC Comics",
-        "start_year": 2004
-      }
-    ]
-  },
-  {
     "name": "Marvel Special Edition Featuring Star Wars: The Empire Strikes Back",
     "publisher": "Marvel Comics",
     "year": 1980,
@@ -359,20 +317,6 @@
     "candidates": []
   },
   {
-    "name": "X-O Manowar Yearbook",
-    "publisher": "Valiant Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 23184,
-        "name": "X-O Manowar Yearbook",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1995
-      }
-    ]
-  },
-  {
     "name": "The Real Ghostbusters 3-D Slimer Special",
     "publisher": "Now Comics",
     "year": 1993,
@@ -380,53 +324,11 @@
     "candidates": []
   },
   {
-    "name": "Walter Lantz Woody Woodpecker Christmas Parade",
-    "publisher": "Gold Key",
-    "year": 1969,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 27593,
-        "name": "Walter Lantz Woody Woodpecker Christmas Parade",
-        "publisher": "Western Publishing",
-        "start_year": 1969
-      }
-    ]
-  },
-  {
     "name": "Cartoon Laffs",
     "publisher": "Fawcett Comics",
     "year": 1952,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "We're on Your Side, Charlie Brown",
-    "publisher": "Fawcett Comics",
-    "year": 1966,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 59317,
-        "name": "We're on Your Side, Charlie Brown",
-        "publisher": "Coronet Books",
-        "start_year": 1969
-      }
-    ]
-  },
-  {
-    "name": "Ballistic / Wolverine",
-    "publisher": "Top Cow Comics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18374,
-        "name": "Ballistic / Wolverine",
-        "publisher": "Top Cow Productions",
-        "start_year": 1997
-      }
-    ]
   },
   {
     "name": "The Invaders Annual",
@@ -506,20 +408,6 @@
     "candidates": []
   },
   {
-    "name": "Cowboy in Africa",
-    "publisher": "Gold Key",
-    "year": 1968,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24801,
-        "name": "Cowboy in Africa",
-        "publisher": "Western Publishing",
-        "start_year": 1967
-      }
-    ]
-  },
-  {
     "name": "Spider-Man / Daredevil",
     "publisher": "Marvel Comics",
     "year": 2002,
@@ -547,53 +435,11 @@
     ]
   },
   {
-    "name": "Clash of the Titans",
-    "publisher": "Gold Key",
-    "year": 1981,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 48990,
-        "name": "Clash of the Titans",
-        "publisher": "Western Publishing",
-        "start_year": 1981
-      }
-    ]
-  },
-  {
-    "name": "Young Marriage",
-    "publisher": "Fawcett Comics",
-    "year": 1950,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 38429,
-        "name": "Young Marriage",
-        "publisher": "Fawcett Publications",
-        "start_year": 1950
-      }
-    ]
-  },
-  {
     "name": "Walt Disney Presents Winnie-the-Pooh Fun and Fantasy [Dynabrite Comics]",
     "publisher": "Gold Key",
     "year": 1979,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Walt Disney Mickey Mouse",
-    "publisher": "Gold Key",
-    "year": 1976,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47688,
-        "name": "Walt Disney Mickey Mouse",
-        "publisher": "Western Publishing",
-        "start_year": 1976
-      }
-    ]
   },
   {
     "name": "Magdalena / Angelus",
@@ -623,39 +469,11 @@
     ]
   },
   {
-    "name": "Captain Marvel Thrill Book",
-    "publisher": "Fawcett Comics",
-    "year": 1941,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 38334,
-        "name": "Captain Marvel Thrill Book",
-        "publisher": "Fawcett Publications",
-        "start_year": 1941
-      }
-    ]
-  },
-  {
     "name": "The Authority / Lobo: Jingle Hell",
     "publisher": "WildStorm",
     "year": 2004,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Divine Right Collected Edition",
-    "publisher": "WildStorm",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 95509,
-        "name": "Divine Right Collected Edition",
-        "publisher": "Image",
-        "start_year": 1998
-      }
-    ]
   },
   {
     "name": "Donatello, Teenage Mutant Ninja Turtle",
@@ -726,20 +544,6 @@
     "year": 2004,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Elektra Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22047,
-        "name": "Elektra Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ]
   },
   {
     "name": "Archie's Girls, Betty and Veronica [So Much Fun]",
@@ -1005,20 +809,6 @@
     "candidates": []
   },
   {
-    "name": "Captain Billy's Whiz Bang",
-    "publisher": "Fawcett Comics",
-    "year": 1919,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 145898,
-        "name": "Captain Billy's Whiz Bang",
-        "publisher": "Fawcett Publications",
-        "start_year": 1919
-      }
-    ]
-  },
-  {
     "name": "Betty and Veronica Comics Digest Magazine",
     "publisher": "Archie Comics",
     "year": 1983,
@@ -1274,20 +1064,6 @@
     ]
   },
   {
-    "name": "Spider-Man Comics Weekly",
-    "publisher": "Marvel Comics",
-    "year": 1973,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47684,
-        "name": "Spider-Man Comics Weekly",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1973
-      }
-    ]
-  },
-  {
     "name": "Return of the Jedi Weekly",
     "publisher": "Marvel Comics",
     "year": 1983,
@@ -1324,20 +1100,6 @@
         "name": "Whiz Comics",
         "publisher": "L. Miller & Son, Ltd",
         "start_year": 1950
-      }
-    ]
-  },
-  {
-    "name": "Super Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 1976,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47679,
-        "name": "Super Spider-Man",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1977
       }
     ]
   },
@@ -1679,20 +1441,6 @@
     ]
   },
   {
-    "name": "Harvey Hits",
-    "publisher": "Harvey Comics",
-    "year": 1957,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 102027,
-        "name": "Harvey Hits",
-        "publisher": "Joe Books",
-        "start_year": 2017
-      }
-    ]
-  },
-  {
     "name": "Tweety and Sylvester",
     "publisher": "Gold Key",
     "year": 1963,
@@ -1742,48 +1490,6 @@
     "year": 1985,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Captain Marvel Jr.",
-    "publisher": "Fawcett Comics",
-    "year": 1942,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62308,
-        "name": "Captain Marvel Jr.",
-        "publisher": "L. Miller & Son, Ltd",
-        "start_year": 1950
-      }
-    ]
-  },
-  {
-    "name": "Dennis the Menace Bonus Magazine Series",
-    "publisher": "Fawcett Comics",
-    "year": 1970,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 36588,
-        "name": "Dennis the Menace Bonus Magazine Series",
-        "publisher": "Fawcett Publications",
-        "start_year": 1970
-      }
-    ]
-  },
-  {
-    "name": "Star Wars Weekly",
-    "publisher": "Marvel Comics",
-    "year": 1978,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47786,
-        "name": "Star Wars Weekly",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1978
-      }
-    ]
   },
   {
     "name": "All-American Men of War",
@@ -1841,20 +1547,6 @@
         "name": "Daffy Duck",
         "publisher": "Condor Verlag",
         "start_year": 1985
-      }
-    ]
-  },
-  {
-    "name": "Smokehouse Monthly",
-    "publisher": "Fawcett Comics",
-    "year": 1928,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 145899,
-        "name": "Smokehouse Monthly",
-        "publisher": "Fawcett Publications",
-        "start_year": 1928
       }
     ]
   },
@@ -1986,20 +1678,6 @@
     ]
   },
   {
-    "name": "Super Spider-Man TV Comic",
-    "publisher": "Marvel Comics",
-    "year": 1981,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47672,
-        "name": "Super Spider-Man TV Comic",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1981
-      }
-    ]
-  },
-  {
     "name": "Turok, Son of Stone",
     "publisher": "Gold Key",
     "year": 1962,
@@ -2027,53 +1705,11 @@
     "candidates": []
   },
   {
-    "name": "Rupert Weekly",
-    "publisher": "Marvel Comics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 128677,
-        "name": "Rupert Weekly",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1982
-      }
-    ]
-  },
-  {
     "name": "Sugar & Spike",
     "publisher": "DC Comics",
     "year": 1956,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Boris Karloff Tales of Mystery",
-    "publisher": "Gold Key",
-    "year": 1963,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2087,
-        "name": "Boris Karloff Tales of Mystery",
-        "publisher": "Western Publishing",
-        "start_year": 1963
-      }
-    ]
-  },
-  {
-    "name": "Case Closed",
-    "publisher": "VIZ Media",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34391,
-        "name": "Case Closed",
-        "publisher": "Viz",
-        "start_year": 2004
-      }
-    ]
   },
   {
     "name": "Ripley's Believe It or Not!",
@@ -2391,48 +2027,6 @@
     ]
   },
   {
-    "name": "Walt Disney Chip 'n' Dale",
-    "publisher": "Gold Key",
-    "year": 1967,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22729,
-        "name": "Walt Disney Chip 'n' Dale",
-        "publisher": "Western Publishing",
-        "start_year": 1967
-      }
-    ]
-  },
-  {
-    "name": "Walt Disney Huey, Dewey and Louie Junior Woodchucks",
-    "publisher": "Gold Key",
-    "year": 1966,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2306,
-        "name": "Walt Disney Huey, Dewey and Louie Junior Woodchucks",
-        "publisher": "Western Publishing",
-        "start_year": 1966
-      }
-    ]
-  },
-  {
-    "name": "Yosemite Sam",
-    "publisher": "Gold Key",
-    "year": 1970,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 11170,
-        "name": "Yosemite Sam",
-        "publisher": "Western Publishing",
-        "start_year": 1970
-      }
-    ]
-  },
-  {
     "name": "B&V Friends Double Digest Magazine",
     "publisher": "Archie Comics",
     "year": 2011,
@@ -2636,20 +2230,6 @@
     "year": 1995,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Spider-Man and Hulk Weekly",
-    "publisher": "Marvel Comics",
-    "year": 1980,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47674,
-        "name": "Spider-Man and Hulk Weekly",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1980
-      }
-    ]
   },
   {
     "name": "Naruto",
@@ -2951,20 +2531,6 @@
         "name": "Popeye",
         "publisher": "Greantori",
         "start_year": 1983
-      }
-    ]
-  },
-  {
-    "name": "Super Comics",
-    "publisher": "Gold Key",
-    "year": 1938,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19800,
-        "name": "Super Comics",
-        "publisher": "Dell",
-        "start_year": 1938
       }
     ]
   },
@@ -3365,20 +2931,6 @@
     ]
   },
   {
-    "name": "Walt Disney Daisy and Donald",
-    "publisher": "Gold Key",
-    "year": 1973,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2654,
-        "name": "Walt Disney Daisy and Donald",
-        "publisher": "Western Publishing",
-        "start_year": 1973
-      }
-    ]
-  },
-  {
     "name": "Walter Lantz Woody Woodpecker",
     "publisher": "Dell Comics",
     "year": 1952,
@@ -3413,20 +2965,6 @@
     "candidates": []
   },
   {
-    "name": "Walt Disney Comics Digest",
-    "publisher": "Gold Key",
-    "year": 1968,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2423,
-        "name": "Walt Disney Comics Digest",
-        "publisher": "Western Publishing",
-        "start_year": 1968
-      }
-    ]
-  },
-  {
     "name": "Walt Disney's Mickey Mouse",
     "publisher": "Dell Comics",
     "year": 1952,
@@ -3455,20 +2993,6 @@
         "name": "Walt Disney's Mickey Mouse",
         "publisher": "Disney/Holding",
         "start_year": 1958
-      }
-    ]
-  },
-  {
-    "name": "Pat Sullivan's Felix the Cat",
-    "publisher": "Harvey Comics",
-    "year": 1955,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 58681,
-        "name": "Pat Sullivan's Felix the Cat",
-        "publisher": "Yaffa / Page",
-        "start_year": 1965
       }
     ]
   },
@@ -3585,34 +3109,6 @@
         "name": "Walt Disney Showcase",
         "publisher": "Western Publishing",
         "start_year": 1970
-      }
-    ]
-  },
-  {
-    "name": "Rampage Monthly",
-    "publisher": "Marvel Comics",
-    "year": 1978,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34318,
-        "name": "Rampage Monthly",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1978
-      }
-    ]
-  },
-  {
-    "name": "Wolverine Unleashed",
-    "publisher": "Marvel Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37845,
-        "name": "Wolverine Unleashed",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1996
       }
     ]
   },
@@ -3770,20 +3266,6 @@
     "year": 1961,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Spider-Man and Zoids",
-    "publisher": "Marvel Comics",
-    "year": 1986,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37825,
-        "name": "Spider-Man and Zoids",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1986
-      }
-    ]
   },
   {
     "name": "Spider-Man El Hombre Ara�a",
@@ -3976,20 +3458,6 @@
     ]
   },
   {
-    "name": "Action Force",
-    "publisher": "Marvel Comics",
-    "year": 1987,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22813,
-        "name": "Action Force",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1987
-      }
-    ]
-  },
-  {
     "name": "The Unbeatable Squirrel Girl",
     "publisher": "Marvel Comics",
     "year": 2015,
@@ -4026,20 +3494,6 @@
         "name": "Prince Valiant",
         "publisher": "Fantagraphics",
         "start_year": 1987
-      }
-    ]
-  },
-  {
-    "name": "Dennis the Menace Pocket Full of Fun",
-    "publisher": "Fawcett Comics",
-    "year": 1969,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 38357,
-        "name": "Dennis the Menace Pocket Full of Fun",
-        "publisher": "Fawcett Publications",
-        "start_year": 1969
       }
     ]
   },
@@ -4090,20 +3544,6 @@
     "candidates": []
   },
   {
-    "name": "The Super-Heroes",
-    "publisher": "Marvel Comics",
-    "year": 1975,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 30872,
-        "name": "The Super-Heroes",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1975
-      }
-    ]
-  },
-  {
     "name": "Star Wars Knights of the Old Republic",
     "publisher": "Dark Horse Comics",
     "year": 2006,
@@ -4116,34 +3556,6 @@
     "year": 2005,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "L'Uomo Ragno Classic",
-    "publisher": "Marvel Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 126625,
-        "name": "L'Uomo Ragno Classic",
-        "publisher": "Marvel Italia",
-        "start_year": 1991
-      }
-    ]
-  },
-  {
-    "name": "Turok, Dinosaur Hunter",
-    "publisher": "Valiant Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 5072,
-        "name": "Turok, Dinosaur Hunter",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1993
-      }
-    ]
   },
   {
     "name": "The New 52: Futures End",
@@ -4162,20 +3574,6 @@
         "name": "The New 52: Futures End",
         "publisher": "DC Comics",
         "start_year": 2014
-      }
-    ]
-  },
-  {
-    "name": "Golden Comics Digest",
-    "publisher": "Gold Key",
-    "year": 1969,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 11469,
-        "name": "Golden Comics Digest",
-        "publisher": "Western Publishing",
-        "start_year": 1969
       }
     ]
   },
@@ -4425,20 +3823,6 @@
     "candidates": []
   },
   {
-    "name": "Hulk Comic",
-    "publisher": "Marvel Comics",
-    "year": 1979,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37309,
-        "name": "Hulk Comic",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1979
-      }
-    ]
-  },
-  {
     "name": "Blondie",
     "publisher": "Charlton Comics",
     "year": 1969,
@@ -4528,20 +3912,6 @@
     "candidates": []
   },
   {
-    "name": "Hayate the Combat Butler",
-    "publisher": "VIZ Media",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 29568,
-        "name": "Hayate the Combat Butler",
-        "publisher": "Viz",
-        "start_year": 2006
-      }
-    ]
-  },
-  {
     "name": "Marvel Superheroes [Marvel Super-Heroes]",
     "publisher": "Marvel Comics",
     "year": 1979,
@@ -4565,34 +3935,6 @@
         "name": "The Spider-Man Comic",
         "publisher": "Marvel UK/Panini UK",
         "start_year": 1985
-      }
-    ]
-  },
-  {
-    "name": "Walt Disney Scamp",
-    "publisher": "Gold Key",
-    "year": 1967,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2363,
-        "name": "Walt Disney Scamp",
-        "publisher": "Western Publishing",
-        "start_year": 1967
-      }
-    ]
-  },
-  {
-    "name": "Yona of the Dawn",
-    "publisher": "VIZ Media",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 92708,
-        "name": "Yona of the Dawn",
-        "publisher": "Viz",
-        "start_year": 2016
       }
     ]
   },
@@ -4826,20 +4168,6 @@
     "candidates": []
   },
   {
-    "name": "Marvel Heroes Reborn",
-    "publisher": "Marvel Comics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37984,
-        "name": "Marvel Heroes Reborn",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1997
-      }
-    ]
-  },
-  {
     "name": "Casper & Nightmare",
     "publisher": "Harvey Comics",
     "year": 1964,
@@ -4918,20 +4246,6 @@
     "year": 1957,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Rin-ne",
-    "publisher": "VIZ Media",
-    "year": 2009,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 38946,
-        "name": "RIN-NE",
-        "publisher": "Viz",
-        "start_year": 2009
-      }
-    ]
   },
   {
     "name": "Raggedy Ann + Andy",
@@ -5146,20 +4460,6 @@
     "candidates": []
   },
   {
-    "name": "The Complete Fantastic Four",
-    "publisher": "Marvel Comics",
-    "year": 1977,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52553,
-        "name": "Complete Fantastic Four",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1977
-      }
-    ]
-  },
-  {
     "name": "Western Hero",
     "publisher": "Fawcett Comics",
     "year": 1949,
@@ -5202,20 +4502,6 @@
         "name": "Bonanza",
         "publisher": "Dell",
         "start_year": 1962
-      }
-    ]
-  },
-  {
-    "name": "Forces in Combat",
-    "publisher": "Marvel Comics",
-    "year": 1980,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34688,
-        "name": "Forces In Combat",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1980
       }
     ]
   },
@@ -5414,20 +4700,6 @@
         "name": "The Jetsons",
         "publisher": "DC Comics",
         "start_year": 2017
-      }
-    ]
-  },
-  {
-    "name": "Acorn Green",
-    "publisher": "Marvel Comics",
-    "year": 1986,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37826,
-        "name": "Acorn Green",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1986
       }
     ]
   },
@@ -5831,20 +5103,6 @@
     "candidates": []
   },
   {
-    "name": "Twin Star Exorcists: Onmyoji",
-    "publisher": "VIZ Media",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 101747,
-        "name": "Twin Star Exorcists: Onmyoji",
-        "publisher": "Panini Verlag",
-        "start_year": 2016
-      }
-    ]
-  },
-  {
     "name": "Archie & Friends Double Digest Magazine",
     "publisher": "Archie Comics",
     "year": 2011,
@@ -6058,34 +5316,6 @@
     "candidates": []
   },
   {
-    "name": "TMNT: Teenage Mutant Ninja Turtles",
-    "publisher": "Mirage Studios",
-    "year": 2001,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20322,
-        "name": "TMNT:  Teenage Mutant Ninja Turtles",
-        "publisher": "Mirage",
-        "start_year": 2001
-      }
-    ]
-  },
-  {
-    "name": "Rupert and Friends",
-    "publisher": "Marvel Comics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 45503,
-        "name": "Rupert and Friends",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1991
-      }
-    ]
-  },
-  {
     "name": "Slam Dunk",
     "publisher": "VIZ Media",
     "year": 2008,
@@ -6223,20 +5453,6 @@
     "year": 2012,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "The Marvel Bumper Comic",
-    "publisher": "Marvel Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47779,
-        "name": "Marvel Bumper Comic",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1988
-      }
-    ]
   },
   {
     "name": "Doctor Solar, Man of the Atom",
@@ -6390,20 +5606,6 @@
     "candidates": []
   },
   {
-    "name": "The H.A.R.D. Corps",
-    "publisher": "Valiant Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 4826,
-        "name": "The H.A.R.D. Corps",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1992
-      }
-    ]
-  },
-  {
     "name": "Wildcats",
     "publisher": "WildStorm",
     "year": 2008,
@@ -6476,20 +5678,6 @@
     ]
   },
   {
-    "name": "Walt Disney Moby Duck",
-    "publisher": "Gold Key",
-    "year": 1967,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2361,
-        "name": "Walt Disney Moby Duck",
-        "publisher": "Western Publishing",
-        "start_year": 1967
-      }
-    ]
-  },
-  {
     "name": "Judge Dredd",
     "publisher": "IDW Publishing",
     "year": 1989,
@@ -6516,20 +5704,6 @@
     ]
   },
   {
-    "name": "Natsume's Book of Friends",
-    "publisher": "VIZ Media",
-    "year": 2010,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 30917,
-        "name": "Natsume's Book of Friends",
-        "publisher": "Viz",
-        "start_year": 2010
-      }
-    ]
-  },
-  {
     "name": "Batman '66",
     "publisher": "DC Comics",
     "year": 2013,
@@ -6546,20 +5720,6 @@
         "name": "Batman '66",
         "publisher": "DC Comics",
         "start_year": 2013
-      }
-    ]
-  },
-  {
-    "name": "Kimi ni todoke: From Me to You",
-    "publisher": "VIZ Media",
-    "year": 2009,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34893,
-        "name": "Kimi ni Todoke: From Me to You",
-        "publisher": "Viz",
-        "start_year": 2009
       }
     ]
   },
@@ -6589,20 +5749,6 @@
     "year": 1977,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Oresama Teacher",
-    "publisher": "VIZ Media",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 39220,
-        "name": "Oresama Teacher",
-        "publisher": "Viz",
-        "start_year": 2011
-      }
-    ]
   },
   {
     "name": "Time before Time",
@@ -6715,20 +5861,6 @@
     ]
   },
   {
-    "name": "Fat Albert",
-    "publisher": "Gold Key",
-    "year": 1974,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 29840,
-        "name": "Fat Albert",
-        "publisher": "Western Publishing",
-        "start_year": 1974
-      }
-    ]
-  },
-  {
     "name": "The Authority",
     "publisher": "WildStorm",
     "year": 1999,
@@ -6796,34 +5928,6 @@
     "year": 2010,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Fantastic Four Pocket Book",
-    "publisher": "Marvel Comics",
-    "year": 1980,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62700,
-        "name": "Fantastic Four Pocket Book",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1980
-      }
-    ]
-  },
-  {
-    "name": "Spider-Man Pocket Book",
-    "publisher": "Marvel Comics",
-    "year": 1980,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 77007,
-        "name": "Spider-Man Pocket Book",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1980
-      }
-    ]
   },
   {
     "name": "G.I. Joe Special Missions",
@@ -6967,20 +6071,6 @@
         "name": "Haunt",
         "publisher": "Image",
         "start_year": 2009
-      }
-    ]
-  },
-  {
-    "name": "Chiller Pocket Book",
-    "publisher": "Marvel Comics",
-    "year": 1980,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 53666,
-        "name": "Chiller Pocket Book",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1980
       }
     ]
   },
@@ -7333,20 +6423,6 @@
     ]
   },
   {
-    "name": "Doctor Who: Classic Comics",
-    "publisher": "Marvel Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26980,
-        "name": "Doctor Who: Classic Comics",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1992
-      }
-    ]
-  },
-  {
     "name": "Marvel Knights 4",
     "publisher": "Marvel Comics",
     "year": 2004,
@@ -7573,20 +6649,6 @@
     "year": 2021,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Delver",
-    "publisher": "Dark Horse Comics",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 117209,
-        "name": "Delver",
-        "publisher": "Iron Circus Comics",
-        "start_year": 2019
-      }
-    ]
   },
   {
     "name": "Strange Space Mysteries",
@@ -7893,20 +6955,6 @@
     "candidates": []
   },
   {
-    "name": "Spider-Girl Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22052,
-        "name": "Spider-Girl Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ]
-  },
-  {
     "name": "Genetiks",
     "publisher": "Archaia",
     "year": 2012,
@@ -7974,20 +7022,6 @@
     "year": 2022,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Big Bruisers",
-    "publisher": "WildStorm",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26597,
-        "name": "Big Bruisers",
-        "publisher": "Image",
-        "start_year": 1996
-      }
-    ]
   },
   {
     "name": "Iron Man: Road to Iron Man 2020 Halloween Comic Fest 2019",
@@ -8101,20 +7135,6 @@
     "candidates": []
   },
   {
-    "name": "Tug & Buster",
-    "publisher": "Image Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64611,
-        "name": "TUG & Buster",
-        "publisher": "Art & Soul",
-        "start_year": 1995
-      }
-    ]
-  },
-  {
     "name": "The Trials of Loki: Marvel Tales",
     "publisher": "Marvel Comics",
     "year": 2021,
@@ -8203,20 +7223,6 @@
     "year": 2023,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Aspen Showcase: Benoist",
-    "publisher": "Aspen Comics",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 125078,
-        "name": "Aspen Showcase: Benoist",
-        "publisher": "Aspen MLT",
-        "start_year": 2008
-      }
-    ]
   },
   {
     "name": "Buffy '97",
@@ -8433,20 +7439,6 @@
     "candidates": []
   },
   {
-    "name": "The New Brighton Archeological Society",
-    "publisher": "Image Comics",
-    "year": 2009,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 94654,
-        "name": "New Brighton Archeological Society",
-        "publisher": "Maneki Neko Books",
-        "start_year": 2016
-      }
-    ]
-  },
-  {
     "name": "Incoming",
     "publisher": "Marvel Comics",
     "year": 2020,
@@ -8459,20 +7451,6 @@
     "year": 2022,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Carmilla",
-    "publisher": "Dark Horse Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 27205,
-        "name": "Carmilla",
-        "publisher": "Aircel Publishing",
-        "start_year": 1991
-      }
-    ]
   },
   {
     "name": "Cat Girl",
@@ -8657,20 +7635,6 @@
     "candidates": []
   },
   {
-    "name": "Archer and Armstrong",
-    "publisher": "Valiant Comics",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 51094,
-        "name": "Archer and Armstrong",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2012
-      }
-    ]
-  },
-  {
     "name": "Yakitate!! Japan",
     "publisher": "VIZ Media",
     "year": 2006,
@@ -8705,20 +7669,6 @@
     "candidates": []
   },
   {
-    "name": "Wildstorm Cliffhanger Sketchbook",
-    "publisher": "WildStorm",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62233,
-        "name": "Wildstorm Cliffhanger Sketchbook",
-        "publisher": "Wizard",
-        "start_year": 1997
-      }
-    ]
-  },
-  {
     "name": "Sins of Sinister Dominion",
     "publisher": "Marvel Comics",
     "year": 2023,
@@ -8731,20 +7681,6 @@
     "year": 2018,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "End of Nations",
-    "publisher": "WildStorm",
-    "year": 2010,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 44072,
-        "name": "End of Nations",
-        "publisher": "DC Comics",
-        "start_year": 2012
-      }
-    ]
   },
   {
     "name": "Men of War",
@@ -9262,39 +8198,11 @@
     "candidates": []
   },
   {
-    "name": "Gatecrasher",
-    "publisher": "Image Comics",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 27460,
-        "name": "Gatecrasher",
-        "publisher": "Black Bull",
-        "start_year": 2000
-      }
-    ]
-  },
-  {
     "name": "TMNT: Best of Leatherhead",
     "publisher": "IDW Publishing",
     "year": 2022,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Saint Germaine",
-    "publisher": "Image Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 53013,
-        "name": "Saint Germaine",
-        "publisher": "Caliber Comics",
-        "start_year": 1997
-      }
-    ]
   },
   {
     "name": "Superman: The Silver Age Omnibus",
@@ -9304,39 +8212,11 @@
     "candidates": []
   },
   {
-    "name": "The Jack Kirby Treasury",
-    "publisher": "Eclipse Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 63113,
-        "name": "Jack Kirby Treasury",
-        "publisher": "Pure Imagination",
-        "start_year": 1982
-      }
-    ]
-  },
-  {
     "name": "Trinity Special: World�s Finest",
     "publisher": "DC Comics",
     "year": 2024,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Farscape Archive Edition",
-    "publisher": "BOOM! Studios",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 159625,
-        "name": "Farscape Archive Edition",
-        "publisher": "Archaia",
-        "start_year": 2024
-      }
-    ]
   },
   {
     "name": "Airboy-Mr. Monster Special",
@@ -9474,20 +8354,6 @@
     "candidates": []
   },
   {
-    "name": "Iron Man Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22049,
-        "name": "Iron Man Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ]
-  },
-  {
     "name": "The House of Dolmann",
     "publisher": "Rebellion",
     "year": 2022,
@@ -9500,20 +8366,6 @@
     "year": 2015,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Peepshow",
-    "publisher": "Fantagraphics",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 6944,
-        "name": "Peepshow",
-        "publisher": "Drawn & Quarterly",
-        "start_year": 1992
-      }
-    ]
   },
   {
     "name": "Robin: Tim Drake Compendium",
@@ -9613,20 +8465,6 @@
     "candidates": []
   },
   {
-    "name": "Punx Manga Special",
-    "publisher": "Valiant Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 25842,
-        "name": "Punx Manga Special",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1996
-      }
-    ]
-  },
-  {
     "name": "Walt Disney's Mickey Mouse Album [Dynabrite Comics]",
     "publisher": "Gold Key",
     "year": 1979,
@@ -9639,20 +8477,6 @@
     "year": 2023,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "The New Mickey Mouse Club Fun Book",
-    "publisher": "Gold Key",
-    "year": 1977,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64537,
-        "name": "New Mickey Mouse Club Fun Book",
-        "publisher": "Golden Press",
-        "start_year": 1977
-      }
-    ]
   },
   {
     "name": "Justice League of America: Black Baptism",
@@ -9714,20 +8538,6 @@
     "year": 1980,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Awaken Skies",
-    "publisher": "Aspen Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 111553,
-        "name": "Awaken Skies",
-        "publisher": "Aspen MLT",
-        "start_year": 2018
-      }
-    ]
   },
   {
     "name": "Young Justice Omnibus",
@@ -10008,20 +8818,6 @@
     "candidates": []
   },
   {
-    "name": "On the Spot",
-    "publisher": "Fawcett Comics",
-    "year": 1948,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 38407,
-        "name": "On the Spot",
-        "publisher": "Fawcett Publications",
-        "start_year": 1948
-      }
-    ]
-  },
-  {
     "name": "Inferno Girl Red",
     "publisher": "Image Comics",
     "year": 2023,
@@ -10148,20 +8944,6 @@
     "year": 2010,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Comics Novel",
-    "publisher": "Fawcett Comics",
-    "year": 1947,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26281,
-        "name": "Comics Novel",
-        "publisher": "Fawcett Publications",
-        "start_year": 1947
-      }
-    ]
   },
   {
     "name": "Red Sonja",
@@ -10364,20 +9146,6 @@
     "candidates": []
   },
   {
-    "name": "Marvel Super Adventure",
-    "publisher": "Marvel Comics",
-    "year": 1981,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47550,
-        "name": "Marvel Super Adventure",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1981
-      }
-    ]
-  },
-  {
     "name": "DC Universe Online Legends",
     "publisher": "DC Comics",
     "year": 2011,
@@ -10463,53 +9231,11 @@
     "candidates": []
   },
   {
-    "name": "Mystery Comics Digest",
-    "publisher": "Gold Key",
-    "year": 1972,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2589,
-        "name": "Mystery Comics Digest",
-        "publisher": "Western Publishing",
-        "start_year": 1972
-      }
-    ]
-  },
-  {
     "name": "Ultimate Tales Flip Magazine",
     "publisher": "Marvel Comics",
     "year": 2005,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "Snow White with the Red Hair",
-    "publisher": "VIZ Media",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 118823,
-        "name": "Snow White With the Red Hair",
-        "publisher": "Viz",
-        "start_year": 2019
-      }
-    ]
-  },
-  {
-    "name": "Tex Ritter Western",
-    "publisher": "Charlton Comics",
-    "year": 1954,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 28367,
-        "name": "Tex Ritter Western",
-        "publisher": "Fawcett Publications",
-        "start_year": 1950
-      }
-    ]
   },
   {
     "name": "Batman and Robin Eternal",
@@ -10644,20 +9370,6 @@
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": []
-  },
-  {
-    "name": "The Occult Files of Dr. Spektor",
-    "publisher": "Gold Key",
-    "year": 1973,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2655,
-        "name": "The Occult Files Of Dr. Spektor",
-        "publisher": "Western Publishing",
-        "start_year": 1973
-      }
-    ]
   },
   {
     "name": "Postal",
@@ -11068,20 +9780,6 @@
         "name": "Vampirella",
         "publisher": "Dynamite Entertainment",
         "start_year": 2024
-      }
-    ]
-  },
-  {
-    "name": "Shadowman Classic Omnibus",
-    "publisher": "Valiant Comics",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 139595,
-        "name": "Shadowman Classic Omnibus",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2021
       }
     ]
   },

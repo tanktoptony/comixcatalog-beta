@@ -314,6 +314,47 @@ async function processBatch(seriesBatch) {
     issuesBySeriesGcdId.get(key).push(row);
   }
 
+  // ID-path canonical_covers, keyed by series_gcd_id — separate from the
+  // title-keyed fetch below (which only feeds featured-cover picking).
+  // gcd_issues is a point-in-time GCD mirror and goes stale for any series
+  // still actively publishing; a cover can be correctly linked via
+  // series_gcd_id with no gcd_issues row to match it (Absolute Batman,
+  // 2026-08-27: ComicVine had all 23 real issues ingested and tagged, GCD
+  // only ever synced issue #1). /api/series/[id] and /api/issues/[id]
+  // already surface those as "orphan" issues on the series/issue pages —
+  // this mirrors that into issue_count_cached so the homepage carousel
+  // (which reads the cached count, not a live one) stops undercounting the
+  // same series. Only the ID path counts here, same reasoning as those two
+  // routes: it's volume-exact, unlike the looser title match below.
+  const idPathCoverRows = [];
+  if (seriesGcdIds.length > 0) {
+    const ID_PAGE = 1000;
+    let idFrom = 0;
+    while (true) {
+      const page = await runWithRetry(
+        `canonical_covers (id-path) page from=${idFrom}`,
+        () =>
+          supabase
+            .from("canonical_covers")
+            .select("series_gcd_id, issue_number, storage_path")
+            .in("series_gcd_id", seriesGcdIds)
+            .not("storage_path", "is", null)
+            .order("id", { ascending: true })
+            .range(idFrom, idFrom + ID_PAGE - 1)
+      );
+      if (!page || page.length === 0) break;
+      idPathCoverRows.push(...page);
+      if (page.length < ID_PAGE) break;
+      idFrom += ID_PAGE;
+    }
+  }
+  const idPathCoversBySeriesGcdId = new Map();
+  for (const row of idPathCoverRows) {
+    const key = String(row.series_gcd_id);
+    if (!idPathCoversBySeriesGcdId.has(key)) idPathCoversBySeriesGcdId.set(key, []);
+    idPathCoversBySeriesGcdId.get(key).push(row);
+  }
+
   // Fetch canonical_covers for all titles in this batch. We deliberately do NOT
   // filter on issue_number at SQL level — with 100 series × ~50 issues, the URL
   // grows past undici's ~16KB header cap and the request fails with
@@ -407,7 +448,17 @@ async function processBatch(seriesBatch) {
     }
     const dedupedIssues = [...issueByBase.values()];
 
-    const issueCount = dedupedIssues.length;
+    // Orphan covers: ID-path canonical_covers rows for this series_gcd_id
+    // whose base issue number has no gcd_issues counterpart above. See the
+    // idPathCoversBySeriesGcdId comment for why this exists.
+    const idPathCovers = idPathCoversBySeriesGcdId.get(String(series.gcd_id)) ?? [];
+    const orphanBases = new Set();
+    for (const row of idPathCovers) {
+      const base = baseIssueNumber(row.issue_number);
+      if (base && !issueByBase.has(base)) orphanBases.add(base);
+    }
+
+    const issueCount = dedupedIssues.length + orphanBases.size;
 
     // Year span uses the RAW row set, not the deduped one. Rationale: a
     // chunk of rows have a valid publication_date but a null/empty

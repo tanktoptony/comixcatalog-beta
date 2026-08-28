@@ -10235,5 +10235,19 @@
         "start_year": 2016
       }
     ]
+  },
+  {
+    "name": "Citizen V Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22045,
+        "name": "Citizen V Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ]
   }
 ]

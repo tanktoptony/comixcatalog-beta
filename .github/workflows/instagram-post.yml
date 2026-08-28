@@ -21,6 +21,21 @@ on:
     - cron: '0 * * * *'
   workflow_dispatch: {}
 
+# Serialize runs — caught by a Codex review pass 2026-08-28 (see the
+# senior-audit skill this incident became the seed case for): the
+# "already posted today" guard reads scripts/.instagram-last-post-date.json
+# at the START of a run, so two overlapping runs (a manual dispatch landing
+# mid-way through a scheduled run, or a delayed scheduled run overlapping
+# the next one) can both read the same not-yet-posted state, both pass the
+# guard, and both publish before either commits its update — silently
+# breaking the one-post-per-day guarantee the guard exists to enforce.
+# cancel-in-progress: false (not true) — a queued run should still get its
+# turn once the current one finishes and commits, not be discarded; the
+# guard then correctly no-ops it if the day's post already happened.
+concurrency:
+  group: instagram-post
+  cancel-in-progress: false
+
 # The bot commits its de-dup ledger (scripts/.instagram-posted.json) and
 # last-post-date guard (scripts/.instagram-last-post-date.json) back to
 # main after a successful post, same pattern as gap-manual.json.

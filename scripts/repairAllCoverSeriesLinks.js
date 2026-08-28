@@ -99,10 +99,23 @@ function mode(values) {
 // DISTINCT candidate gcd_ids is excluded from this map entirely and falls
 // through to the overlap-scoring logic below instead — the same safety net
 // this script already relied on before pins existed at all.
+//
+// SECOND BUG FOUND LIVE 2026-08-28, same run as the fix above: this fetch
+// had no .order() on it, unlike the canonical_covers fetch in run() below.
+// fetchAllPages() paginates with .range(from, from+999) — without a stable
+// sort, Postgres doesn't guarantee those page boundaries stay put while the
+// `series` table is being concurrently written to (new series rows land
+// continuously from live ingest and backfill scripts). A row landing on
+// the wrong side of a shifting page boundary gets silently skipped, which
+// can make a genuinely ambiguous volume look unambiguous for one run and
+// correctly ambiguous the next — this is what caused the same title
+// (Fightin' Army) to resolve to two different gcd_ids in back-to-back
+// invocations minutes apart. Ordering by id makes pagination deterministic
+// regardless of concurrent writes elsewhere in the table.
 async function fetchPinnedGcdIdByVolume() {
   const rows = await fetchAllPages(() =>
     supabase.from("series").select("comicvine_volume_id, gcd_id")
-      .not("comicvine_volume_id", "is", null).not("gcd_id", "is", null)
+      .not("comicvine_volume_id", "is", null).not("gcd_id", "is", null).order("id")
   );
   const candidatesByVolume = new Map();
   for (const row of rows) {

@@ -1,17 +1,29 @@
 name: Instagram daily post
 
-# Daily auto-post — see docs/instagram-bot-plan.md for the full plan and
-# the one-time Meta/Instagram account setup this depends on.
+# One real post per day — see docs/instagram-bot-plan.md for the full plan
+# and the one-time Meta/Instagram account setup this depends on.
+#
+# Runs hourly, not once a day, even though the intent is one post/day.
+# Confirmed live 2026-08-28: the single daily `0 17 * * *` firing silently
+# didn't happen at all (>19h gap through the scheduled slot, no run in
+# GitHub's history) — the same "treat GitHub's schedule trigger as
+# best-effort, not authoritative" flakiness already documented on
+# cover-ingest.yml's hourly cron. One shot a day means one missed day per
+# dropped firing; running hourly gives ~24 chances for GitHub's scheduler
+# to actually fire instead of 1. instagramBot.js's "already posted today"
+# guard (scripts/.instagram-last-post-date.json) makes the other ~23
+# firings safe no-ops rather than 23 extra posts.
 #
 # workflow_dispatch lets you trigger manually from the Actions tab to
-# test before trusting the daily cron, or to force a post on demand.
+# test, or to force today's post immediately if the schedule missed it.
 on:
   schedule:
-    - cron: '0 17 * * *'
+    - cron: '0 * * * *'
   workflow_dispatch: {}
 
-# The bot commits its de-dup ledger (scripts/.instagram-posted.json) back
-# to main after a successful post, same pattern as gap-manual.json.
+# The bot commits its de-dup ledger (scripts/.instagram-posted.json) and
+# last-post-date guard (scripts/.instagram-last-post-date.json) back to
+# main after a successful post, same pattern as gap-manual.json.
 permissions:
   contents: write
 
@@ -46,6 +58,14 @@ jobs:
         run: |
           git config user.name "comixcatalog-bot"
           git config user.email "actions@github.com"
-          git add scripts/.instagram-posted.json
-          git diff --staged --quiet || git commit -m "instagram-bot: record posted issue"
+          git add scripts/.instagram-posted.json scripts/.instagram-last-post-date.json
+          if git diff --staged --quiet; then
+            echo "Nothing to commit (guard skipped this run — already posted today)."
+            exit 0
+          fi
+          git commit -m "instagram-bot: record posted issue"
+          # Hourly cadence means this can race cover-ingest.yml's own hourly
+          # commits to main — rebase onto whatever landed since checkout
+          # rather than fail the push outright.
+          git pull --rebase
           git push

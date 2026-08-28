@@ -29,6 +29,7 @@ dotenv.config({ path: path.resolve(__dirname, "..", ".env.local") });
 
 const DRY_RUN = process.argv.includes("--dry-run");
 const LEDGER_PATH = path.resolve(__dirname, ".instagram-posted.json");
+const LAST_POST_DATE_PATH = path.resolve(__dirname, ".instagram-last-post-date.json");
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -67,6 +68,36 @@ function appendLedger(key) {
   const ledger = loadLedger();
   ledger.add(key);
   fs.writeFileSync(LEDGER_PATH, JSON.stringify([...ledger], null, 2) + "\n");
+}
+
+// "Already posted today" guard — added 2026-08-28 after the daily cron
+// (`0 17 * * *`) silently failed to fire at all for a full day (confirmed
+// via GitHub's own run history: no run between 2026-08-28T01:18 and 20:24,
+// a >19h gap through the scheduled 17:00 slot). GitHub's schedule trigger is
+// already documented as unreliable for this repo (see cover-ingest.yml's
+// header) — same failure mode, just previously unnoticed here because
+// nothing else was watching for it.
+//
+// Fix: the workflow now runs hourly instead of once a day (~24 chances for
+// GitHub's flaky scheduler to actually fire instead of 1), and this guard
+// makes that safe — it's a no-op every hour except the first successful one
+// each day, so it can never post twice in a day even if the schedule DOES
+// fire reliably plus someone workflow_dispatches it by hand.
+function todayStamp() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function alreadyPostedToday() {
+  try {
+    const { date } = JSON.parse(fs.readFileSync(LAST_POST_DATE_PATH, "utf8"));
+    return date === todayStamp();
+  } catch {
+    return false;
+  }
+}
+
+function recordPostedToday() {
+  fs.writeFileSync(LAST_POST_DATE_PATH, JSON.stringify({ date: todayStamp() }, null, 2) + "\n");
 }
 
 // Simple era-based cover-price floor — mirrors src/lib/valuation.js's
@@ -523,6 +554,12 @@ async function postToInstagram({ imageUrl, caption }) {
 }
 
 async function run() {
+  // Skipped for --dry-run so testing/preview still works any time of day.
+  if (!DRY_RUN && alreadyPostedToday()) {
+    console.log(`Already posted today (${todayStamp()}) — skipping. Expected most hours now that this runs hourly; see the "already posted today" guard comment above.`);
+    return;
+  }
+
   const post = await selectPost();
   if (!post) {
     console.log("No eligible content found (ledger may have exhausted all candidates).");
@@ -571,6 +608,7 @@ async function run() {
 
   const publishedId = await postToInstagram({ imageUrl: post.imageUrl, caption });
   appendLedger(post.dedupeKey);
+  recordPostedToday();
   console.log(`Posted. Instagram media id: ${publishedId}`);
 }
 

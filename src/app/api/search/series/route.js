@@ -48,6 +48,60 @@ function dedupeById(rows) {
   return out;
 }
 
+const SERIES_SELECT = `
+  id,
+  gcd_id,
+  title,
+  issue_count_cached,
+  year_start_cached,
+  year_end_cached,
+  resolved_publisher_cached,
+  featured_cover_path_cached
+`;
+
+// Found live 2026-08-28: series.title_normalized has no index at all, so
+// every search did a full sequential scan of ~208k rows (measured: 1.1s
+// for a single EXACT-match query). Worse, ordering by issue_count_cached
+// DESC and truncating at a fixed limit happened BEFORE relevance was ever
+// considered — real exact/near-exact matches like "The Amazing Spider-Man"
+// (1983) and "Your Friendly Neighborhood Spider-Man" (2025) were silently
+// dropped from a "spiderman" search because 200+ unrelated
+// substring-containing one-shots outranked them by issue count first.
+// See scripts/migrations/0023_series_search_relevance.sql for the full
+// incident writeup and the search_series_by_relevance() function this
+// calls, which ranks by (exact match, trigram similarity, issue count) —
+// in that priority order — before any limit is applied.
+//
+// Falls back to the old ILIKE-and-hope query if the migration hasn't been
+// run yet (function not found) or any other RPC error — never worse than
+// the pre-fix behavior, just not yet fixed until the migration lands.
+async function fetchSeriesCandidates(supabase, normalizedQ) {
+  const { data, error } = await supabase.rpc("search_series_by_relevance", {
+    normalized_term: normalizedQ,
+    allowed_publishers: US_PUBLISHER_ALLOWLIST,
+    result_limit: 400,
+  });
+  if (!error) return data ?? [];
+
+  console.error(
+    "search_series_by_relevance RPC unavailable, falling back to ILIKE search — " +
+      "run scripts/migrations/0023_series_search_relevance.sql to fix this:",
+    error.message
+  );
+  const { data: fallbackRows, error: fallbackError } = await supabase
+    .from("series")
+    .select(SERIES_SELECT)
+    .ilike("title_normalized", `%${normalizedQ}%`)
+    .not("gcd_id", "is", null)
+    .gt("issue_count_cached", 0)
+    .not("year_start_cached", "is", null)
+    .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
+    .order("issue_count_cached", { ascending: false })
+    .limit(200);
+  if (fallbackError) throw fallbackError;
+  return fallbackRows ?? [];
+}
+
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
@@ -66,43 +120,11 @@ export async function GET(req) {
       process.env.SUPABASE_SERVICE_ROLE_KEY
     );
 
-    const { data: rows, error } = await supabase
-      .from("series")
-      .select(`
-        id,
-        gcd_id,
-        title,
-        issue_count_cached,
-        year_start_cached,
-        year_end_cached,
-        resolved_publisher_cached,
-        featured_cover_path_cached
-      `)
-      .ilike("title_normalized", `%${normalizedQ}%`)
-      .not("gcd_id", "is", null)
-      .gt("issue_count_cached", 0)
-      // Quality gate: require a real year. Publisher attribution is unreliable
-      // (cv_publisher was mass-stamped by the cover ingest's title-only match,
-      // and gcd_series.publisher_gcd_id is scrambled), so we can't filter
-      // foreign/garbage by publisher. But undated rows are overwhelmingly
-      // foreign reprints, fragments, and junk — while every marquee series a
-      // user actually searches is dated. Dropping null-year rows removes most
-      // of the cruft (e.g. the 3 undated foreign "Thundercats" fragments) with
-      // near-zero false positives on real books.
-      .not("year_start_cached", "is", null)
-      .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
-      .order("issue_count_cached", { ascending: false })
-      // Widened from 60: a low-issue-count collected edition sharing an exact
-      // title with a dozen 50-900-issue volumes (e.g. 17 distinct "Justice
-      // League" series) can rank well outside the old cutoff and never reach
-      // the per-title grouping/significance-tier logic below at all. 200
-      // comfortably covers known worst-case title collisions (verified: the
-      // 2022 Justice League collected edition, gcd_id 184847, ranks 97th
-      // among 243 "Justice League"-matching rows).
-      .limit(200);
-
-    if (error) {
-      console.error("GET /api/search/series failed:", error);
+    let rows;
+    try {
+      rows = await fetchSeriesCandidates(supabase, normalizedQ);
+    } catch (fetchError) {
+      console.error("GET /api/search/series failed:", fetchError);
       return NextResponse.json({ series: [] });
     }
 
@@ -239,35 +261,40 @@ export async function GET(req) {
       const byIdKey = new Map();   // gcd_id -> [{path, series_year, cover_date}]
       const byTitleKey = new Map(); // titleLower -> [{path, series_year, cover_date, publisher}]
 
-      // ID path query
-      if (missingGcdIds.length > 0) {
-        const { data: idRows } = await supabase
-          .from("canonical_covers")
-          .select("series_gcd_id, storage_path, series_year, cover_date")
-          .in("series_gcd_id", missingGcdIds)
-          .not("storage_path", "is", null)
-          .limit(missingGcdIds.length * 20);
-        for (const c of idRows ?? []) {
-          if (!c.storage_path) continue;
-          if (!byIdKey.has(c.series_gcd_id)) byIdKey.set(c.series_gcd_id, []);
-          byIdKey.get(c.series_gcd_id).push(c);
-        }
-      }
+      // ID path and title path are independent of each other — run them
+      // concurrently instead of back-to-back (was two sequential awaits;
+      // this was one of several serial round trips found while chasing the
+      // "slow, staggered" search complaint 2026-08-28 — see 0023's comment
+      // for the bigger fix, this is the cheap complementary one).
+      const [idQuery, titleQuery] = await Promise.all([
+        missingGcdIds.length > 0
+          ? supabase
+              .from("canonical_covers")
+              .select("series_gcd_id, storage_path, series_year, cover_date")
+              .in("series_gcd_id", missingGcdIds)
+              .not("storage_path", "is", null)
+              .limit(missingGcdIds.length * 20)
+          : Promise.resolve({ data: [] }),
+        missingTitles.length > 0
+          ? supabase
+              .from("canonical_covers")
+              .select("series_title, storage_path, series_year, cover_date, publisher")
+              .in("series_title", missingTitles)
+              .not("storage_path", "is", null)
+              .limit(missingTitles.length * 20)
+          : Promise.resolve({ data: [] }),
+      ]);
 
-      // Title path query
-      if (missingTitles.length > 0) {
-        const { data: titleRows } = await supabase
-          .from("canonical_covers")
-          .select("series_title, storage_path, series_year, cover_date, publisher")
-          .in("series_title", missingTitles)
-          .not("storage_path", "is", null)
-          .limit(missingTitles.length * 20);
-        for (const c of titleRows ?? []) {
-          if (!c.storage_path) continue;
-          const k = String(c.series_title ?? "").toLowerCase();
-          if (!byTitleKey.has(k)) byTitleKey.set(k, []);
-          byTitleKey.get(k).push(c);
-        }
+      for (const c of idQuery.data ?? []) {
+        if (!c.storage_path) continue;
+        if (!byIdKey.has(c.series_gcd_id)) byIdKey.set(c.series_gcd_id, []);
+        byIdKey.get(c.series_gcd_id).push(c);
+      }
+      for (const c of titleQuery.data ?? []) {
+        if (!c.storage_path) continue;
+        const k = String(c.series_title ?? "").toLowerCase();
+        if (!byTitleKey.has(k)) byTitleKey.set(k, []);
+        byTitleKey.get(k).push(c);
       }
 
       const yearOf = (c) => {

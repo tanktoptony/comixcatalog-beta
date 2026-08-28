@@ -10119,5 +10119,19 @@
         "start_year": 2016
       }
     ]
+  },
+  {
+    "name": "Twenty",
+    "publisher": "Dynamite Entertainment",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37951,
+        "name": "Twenty",
+        "publisher": "Last Gasp",
+        "start_year": 1999
+      }
+    ]
   }
 ]

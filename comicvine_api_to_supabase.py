@@ -899,6 +899,23 @@ def _lookup_gcd_id_by_pinned_volume(volume_id: int | None) -> int | None:
     Once a series' correct volume is confirmed (via
     scripts/backfillSeriesComicvineVolumeId.js or a relink repair script),
     this pin removes that ambiguity entirely for every future run.
+
+    BUG FOUND AND FIXED 2026-08-28: this used to fetch with `limit: 1` and
+    trust whatever row came back — but 448+ ComicVine volumes have MULTIPLE
+    series rows pinned to DIFFERENT gcd_ids (the same duplicate-series
+    problem the docstring above describes, just on the series-row side
+    instead of the title-search side). With no ORDER BY, "the first row
+    Postgres returns" is not stable across requests, so this function was
+    silently flip-flopping canonical_covers.series_gcd_id for any
+    ambiguously-pinned volume every time the hourly ingest touched it —
+    actively undoing scripts/repairAllCoverSeriesLinks.js's fixes (and the
+    same night's resolveAmbiguousPins.js remediation) on the very next run.
+    That's what the cover-ingest health check started catching post-2026-08-27
+    (the "mislink" mode dry-run kept finding fresh damage on titles that had
+    already been fixed hours earlier). Fixed the same way as the Node-side
+    fetchPinnedGcdIdByVolume(): a pin is only trusted when every matching
+    series row agrees on the same gcd_id. Ambiguous ones fall through to
+    _resolve_series_gcd_id's title search instead of guessing.
     """
     if not volume_id:
         return None
@@ -914,12 +931,19 @@ def _lookup_gcd_id_by_pinned_volume(volume_id: int | None) -> int | None:
                 "select": "gcd_id",
                 "comicvine_volume_id": f"eq.{volume_id}",
                 "gcd_id": "not.is.null",
-                "limit": "1",
+                "limit": "200",
             },
             timeout=15,
         )
-        if resp.status_code == 200 and resp.json():
-            return resp.json()[0].get("gcd_id")
+        if resp.status_code == 200:
+            gcd_ids = {row.get("gcd_id") for row in resp.json() if row.get("gcd_id") is not None}
+            if len(gcd_ids) == 1:
+                return gcd_ids.pop()
+            if len(gcd_ids) > 1:
+                print(
+                    f"  pinned volume {volume_id} has {len(gcd_ids)} conflicting gcd_id "
+                    "pins across series rows — not trusting any, falling back to title search"
+                )
     except Exception:
         pass
     return None

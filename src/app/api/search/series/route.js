@@ -136,6 +136,29 @@ export async function GET(req) {
       return NextResponse.json({ series: [] });
     }
 
+    // Found live 2026-08-28 spot-checking "Amazing Spider-Man" results: GCD
+    // splits one real ComicVine volume into multiple gcd_series rows with
+    // non-overlapping year ranges (confirmed: 9 fragment rows, 1-7 issues
+    // each, scattered across 1974-2013, all pinned to the same
+    // comicvine_volume_id as the real 441-issue 1963-1998 run). The
+    // dedup fingerprint below only keys on (publisher, year range), so
+    // fragments with distinct years never collapse and show up as if they
+    // were separate volumes a collector would recognize. A shared,
+    // non-null comicvine_volume_id is a much stronger "these are the same
+    // real book" signal than year overlap — fetch it here and let it
+    // override the year-based fingerprint below.
+    const volumeIdByRowId = new Map();
+    if (rows.length > 0) {
+      const { data: volumeRows } = await supabase
+        .from("series")
+        .select("id, comicvine_volume_id")
+        .in("id", rows.map((r) => r.id))
+        .not("comicvine_volume_id", "is", null);
+      for (const v of volumeRows ?? []) {
+        volumeIdByRowId.set(v.id, v.comicvine_volume_id);
+      }
+    }
+
     const significanceTier = (count) => {
       if (count >= 50) return 3;
       if (count >= 15) return 2;
@@ -192,7 +215,21 @@ export async function GET(req) {
       const kept = [];
       const fingerprints = new Set();
 
+      const seenVolumeIds = new Set();
       for (const row of sorted) {
+        // Strongest signal first: same comicvine_volume_id = same real book,
+        // no matter what publisher/year GCD's fragment happens to carry.
+        // `sorted` is already ranked best-first (compareSeries), so the
+        // first row for a given volume wins and later fragments are
+        // dropped as duplicates.
+        const volumeId = volumeIdByRowId.get(row.id);
+        if (volumeId != null) {
+          if (seenVolumeIds.has(volumeId)) continue;
+          seenVolumeIds.add(volumeId);
+          kept.push(row);
+          continue;
+        }
+
         const pub = String(row.resolved_publisher_cached ?? "").toLowerCase();
         const yearStart = row.year_start_cached ?? "";
         const yearEnd = row.year_end_cached ?? "";

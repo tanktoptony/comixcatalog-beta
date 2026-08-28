@@ -9,14 +9,28 @@
 //
 // Usage: node scripts/generateNightlyCoverReport.js [--hours=24]
 //
-// Output: reports/covers-YYYY-MM-DD.html (dated snapshot) and
-// reports/covers-latest.html (always the most recent one, for a stable link).
+// Output: reports/covers-YYYY-MM-DD.html (dated snapshot),
+// reports/covers-latest.html (always the most recent one, for a stable
+// link), and reports/cover-coverage-history.json (one row appended per
+// run — the trend line for the canonical coverage metric).
+//
+// Added 2026-08-28: this report used to answer "is the pipeline running?"
+// (covers added, series touched) but not "how far from done are we?" — a
+// gap that led directly to someone eyeballing two unrelated raw counts
+// (total covers vs. total series) and getting a wildly wrong distance-to-
+// done estimate. scripts/lib/coverageMetrics.js computes the real,
+// tracked-over-time number (allowlisted-corpus coverage — see that file's
+// header for why it's the one that matters); this script now surfaces it
+// at the top of every report and logs it to history.json so "where are
+// covers at?" has one place to look instead of a fresh ad-hoc query every
+// time.
 
 import dotenv from "dotenv";
 import path from "path";
-import { writeFileSync, mkdirSync } from "fs";
+import { writeFileSync, mkdirSync, readFileSync, existsSync } from "fs";
 import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
+import { computeCoverageMetrics } from "./lib/coverageMetrics.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
@@ -125,6 +139,79 @@ async function run() {
   console.log(`New covers in the last ${HOURS}h: ${covers.length}`);
   console.log(`Series touched: ${seriesSet.size}`);
   console.log(`All-time total: ${allTimeTotal}`);
+
+  // The canonical "how far from done are we?" number — see
+  // scripts/lib/coverageMetrics.js for why this (not raw covers/issues) is
+  // the one to track. Best-effort: a failure here shouldn't kill the whole
+  // nightly report when the covers-added data above is still useful on
+  // its own.
+  let coverage = null;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      coverage = await computeCoverageMetrics(supabase);
+      break;
+    } catch (err) {
+      if (attempt === 3) {
+        console.error("Coverage metrics computation failed after retries:", err?.message || err);
+        break;
+      }
+      const backoffMs = [2000, 5000][attempt - 1];
+      console.log(`  ⚠ coverage metrics transient error (attempt ${attempt}/3): ${err?.message || err} — retrying in ${backoffMs}ms`);
+      await new Promise((r) => setTimeout(r, backoffMs));
+    }
+  }
+
+  let coverageTrend = null; // { deltaIssues, deltaPct } vs. the previous history row, if any
+  if (coverage) {
+    console.log(
+      `Allowlisted coverage: ${coverage.coveredIssues}/${coverage.totalAllowlistedIssues} ` +
+        `(${coverage.allowlistedCoveragePct.toFixed(2)}%), ${coverage.remainingIssues} issues remaining`
+    );
+
+    const historyPath = path.resolve(__dirname, "..", "reports", "cover-coverage-history.json");
+    let history = [];
+    if (existsSync(historyPath)) {
+      try {
+        history = JSON.parse(readFileSync(historyPath, "utf8"));
+      } catch {
+        history = [];
+      }
+    }
+
+    const previous = history[history.length - 1];
+    if (previous && previous.date !== reportDate) {
+      coverageTrend = {
+        deltaIssues: coverage.coveredIssues - previous.coveredIssues,
+        deltaPct: coverage.allowlistedCoveragePct - previous.allowlistedCoveragePct,
+      };
+    }
+
+    const entry = {
+      date: reportDate,
+      generatedAt: new Date().toISOString(),
+      coveredIssues: coverage.coveredIssues,
+      totalAllowlistedIssues: coverage.totalAllowlistedIssues,
+      remainingIssues: coverage.remainingIssues,
+      allowlistedCoveragePct: Number(coverage.allowlistedCoveragePct.toFixed(2)),
+      seriesWithCoverCount: coverage.seriesWithCoverCount,
+      allowlistedSeriesCount: coverage.allowlistedSeriesCount,
+      newCoversInWindow: covers.length,
+    };
+    // Re-running the same day (manual dispatch after the scheduled run)
+    // replaces today's row rather than duplicating it — one row per
+    // calendar day keeps this a clean daily trend line.
+    const existingIdx = history.findIndex((h) => h.date === reportDate);
+    if (existingIdx >= 0) history[existingIdx] = entry;
+    else history.push(entry);
+
+    // ~2 years of daily rows — plenty for trend-tracking without the file
+    // growing without bound.
+    const MAX_HISTORY_ROWS = 730;
+    if (history.length > MAX_HISTORY_ROWS) history = history.slice(-MAX_HISTORY_ROWS);
+
+    writeFileSync(historyPath, JSON.stringify(history, null, 2) + "\n");
+    console.log(`Wrote ${historyPath} (${history.length} rows)`);
+  }
 
   // Group by series so a single run's issues appear together in the grid,
   // largest runs first (most visually interesting / highest-impact first).
@@ -263,6 +350,20 @@ async function run() {
   .empty-headline { font-size: 1.1rem; font-weight: 700; margin: 0 0 8px; }
   .empty-body { color: var(--cc-text-muted); font-size: 0.88rem; max-width: 520px; margin: 0 auto; line-height: 1.5; }
 
+  .progress-section {
+    background: var(--cc-surface); border: 1px solid var(--cc-line);
+    border-radius: 12px; padding: 20px 22px; margin-bottom: 32px;
+  }
+  .progress-section h2 { font-size: 1rem; margin: 0 0 4px; }
+  .progress-note { color: var(--cc-text-muted); font-size: 0.82rem; margin: 0 0 16px; }
+  .progress-bar-track {
+    height: 10px; border-radius: 999px; background: var(--cc-surface-2);
+    border: 1px solid var(--cc-line); overflow: hidden; margin-bottom: 16px;
+  }
+  .progress-bar-fill { height: 100%; background: var(--cc-gold); }
+  .progress-trend { color: var(--cc-gold); font-weight: 700; }
+  .progress-trend.flat { color: var(--cc-text-muted); font-weight: 600; }
+
   footer { margin-top: 40px; color: var(--cc-text-muted); font-size: 0.78rem; }
 </style>
 </head>
@@ -288,6 +389,31 @@ async function run() {
         <div class="stat-label">All-time total covers</div>
       </div>
     </div>
+
+    ${coverage ? `
+    <section class="progress-section">
+      <h2>Allowlisted-corpus coverage — the real target</h2>
+      <p class="progress-note">Every issue from a real, commercially-released US-market series (~45 publishers, variant-deduped). Excludes foreign reprints, licensed editions, and GCD ephemera — see scripts/lib/coverageMetrics.js for why this is the number that matters.</p>
+      <div class="progress-bar-track"><div class="progress-bar-fill" style="width:${coverage.allowlistedCoveragePct.toFixed(2)}%"></div></div>
+      <div class="stat-row" style="margin:0;">
+        <div class="stat-tile">
+          <div class="stat-num">${coverage.allowlistedCoveragePct.toFixed(1)}%</div>
+          <div class="stat-label">Covered${coverageTrend ? ` <span class="${coverageTrend.deltaPct === 0 ? "progress-trend flat" : "progress-trend"}">${coverageTrend.deltaPct > 0 ? "+" : ""}${coverageTrend.deltaPct.toFixed(2)}pt/day</span>` : ""}</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-num">${coverage.coveredIssues.toLocaleString()}</div>
+          <div class="stat-label">Covered issues</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-num">${coverage.remainingIssues.toLocaleString()}</div>
+          <div class="stat-label">Remaining issues</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-num">${coverage.seriesWithCoverCount.toLocaleString()} / ${coverage.allowlistedSeriesCount.toLocaleString()}</div>
+          <div class="stat-label">Series with &ge;1 cover</div>
+        </div>
+      </div>
+    </section>` : ""}
 
     ${covers.length === 0 ? emptyStateHtml : groupsHtml}
 

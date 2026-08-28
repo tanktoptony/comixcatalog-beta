@@ -113,6 +113,22 @@ Note: `target_volumes_seed.py` was referenced in older briefings but has been re
 
 ---
 
+## Cover Coverage — Canonical Metric
+
+**When asked "where are covers at?" — don't re-derive this from scratch or eyeball two unrelated raw counts.** Read `reports/cover-coverage-history.json` (latest entry + trend vs. the prior row) and, if the user wants the last day/two's activity too, glance at `reports/covers-latest.html` or recent `canonical_covers` inserts. Both are regenerated nightly (06:00 UTC, `.github/workflows/nightly-cover-report.yml` → `scripts/generateNightlyCoverReport.js`) and committed to the repo, so this should almost never require a fresh DB query. If the history file looks stale (>2 days old), run `node scripts/reportCatalogCoverage.js` for a live number.
+
+**The one number that matters is allowlisted-corpus coverage** — covered issues ÷ every issue from a real, commercially-released US-market series (~45 publishers in `US_PUBLISHER_ALLOWLIST`, variant-deduped), computed in `scripts/lib/coverageMetrics.js`. Baseline as of 2026-08-28: **87,799 / 255,070 covered (34.42%)**, 167,271 issues remaining, 3,218 of 47,236 allowlisted series have at least one cover.
+
+Two other numbers exist and are both traps if used alone:
+- **Raw** (`canonical_covers` rows ÷ all 2.4M `gcd_issues`): denominator is mostly foreign reprints/licensed editions/GCD ephemera nobody will ever search for. Always looks catastrophically low (~4.6%) — not actionable, don't lead with it.
+- **Total covers vs. total series** (e.g. "109k covers, 207k series, so ~100k to go"): **this comparison is invalid** — one is per-issue, the other is per-series, and a series can have anywhere from 1 to 900+ issues. This exact mistake happened live on 2026-08-28; don't repeat it.
+
+Don't confuse this with the separate "launch-gate priority" coverage number sometimes seen in scripts (covers ÷ issues tied to real user collections/wishlists/featured picks) — that one's denominator is small and cherry-picked, always looks great, and says nothing about the other ~44k untouched series.
+
+At current ComicVine free-tier ingest pace (hourly cron, rate-limited), closing the ~167k-issue gap is a multi-month project, not a sprint — see `reports/cover-coverage-history.json`'s day-over-day `allowlistedCoveragePct` delta for the actual real-world pace rather than guessing.
+
+---
+
 ## Database Schema — Know These Exactly
 
 ### Column Names (these have caused bugs — use exact names)

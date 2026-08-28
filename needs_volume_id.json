@@ -10133,5 +10133,49 @@
         "start_year": 1999
       }
     ]
+  },
+  {
+    "name": "Fury",
+    "publisher": "Dell Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47401,
+        "name": "Fury",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1977
+      },
+      {
+        "id": 150604,
+        "name": "Fury",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 9108,
+        "name": "Fury",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 166277,
+        "name": "Fury",
+        "publisher": "Mandragora",
+        "start_year": 2005
+      },
+      {
+        "id": 25997,
+        "name": "Fury",
+        "publisher": "Marvel",
+        "start_year": 1994
+      },
+      {
+        "id": 30134,
+        "name": "Fury",
+        "publisher": "Western Publishing",
+        "start_year": 1962
+      }
+    ]
   }
 ]

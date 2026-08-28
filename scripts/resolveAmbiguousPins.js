@@ -81,9 +81,13 @@ async function fetchVolumeStartYear(volumeId) {
 }
 
 async function findAmbiguousVolumes() {
+  // .order("id") added 2026-08-28 — see repairAllCoverSeriesLinks.js's
+  // fetchPinnedGcdIdByVolume() for why an unordered range-paginated fetch
+  // against a concurrently-written table can silently skip rows and make a
+  // genuinely ambiguous volume look unambiguous.
   const rows = await fetchAllPages(() =>
     supabase.from("series").select("comicvine_volume_id, gcd_id, title")
-      .not("comicvine_volume_id", "is", null).not("gcd_id", "is", null)
+      .not("comicvine_volume_id", "is", null).not("gcd_id", "is", null).order("id")
   );
   const byVolume = new Map();
   for (const row of rows) {

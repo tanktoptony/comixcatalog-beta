@@ -10052,5 +10052,39 @@
         "start_year": 2025
       }
     ]
+  },
+  {
+    "name": "Little White Mouse: Entropy Dreaming",
+    "publisher": "Caliber Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40096,
+        "name": "Little White Mouse: Entropy Dreaming",
+        "publisher": null,
+        "start_year": null
+      }
+    ]
+  },
+  {
+    "name": "Realm of Kings",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 29846,
+        "name": "Realm of Kings",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 35346,
+        "name": "Realm of Kings",
+        "publisher": "Marvel",
+        "start_year": 2010
+      }
+    ]
   }
 ]

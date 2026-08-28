@@ -10215,5 +10215,25 @@
         "start_year": 2010
       }
     ]
+  },
+  {
+    "name": "Pussycat",
+    "publisher": "Marvel Comics",
+    "year": 1968,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33415,
+        "name": "Pussycat",
+        "publisher": "Galassia",
+        "start_year": 1975
+      },
+      {
+        "id": 95433,
+        "name": "Pussycat",
+        "publisher": "NBM",
+        "start_year": 2016
+      }
+    ]
   }
 ]

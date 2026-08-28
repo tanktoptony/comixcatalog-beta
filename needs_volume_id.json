@@ -10177,5 +10177,43 @@
         "start_year": 1962
       }
     ]
+  },
+  {
+    "name": "Cloak and Dagger",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 111450,
+        "name": "Cloak and Dagger",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 3219,
+        "name": "Cloak and Dagger",
+        "publisher": "Marvel",
+        "start_year": 1983
+      },
+      {
+        "id": 3475,
+        "name": "Cloak and Dagger",
+        "publisher": "Marvel",
+        "start_year": 1985
+      },
+      {
+        "id": 112372,
+        "name": "Cloak and Dagger",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 32266,
+        "name": "Cloak and Dagger",
+        "publisher": "Marvel",
+        "start_year": 2010
+      }
+    ]
   }
 ]

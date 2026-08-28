@@ -67,10 +67,18 @@ const SERIES_SELECT = `
 // (1983) and "Your Friendly Neighborhood Spider-Man" (2025) were silently
 // dropped from a "spiderman" search because 200+ unrelated
 // substring-containing one-shots outranked them by issue count first.
-// See scripts/migrations/0023_series_search_relevance.sql for the full
-// incident writeup and the search_series_by_relevance() function this
-// calls, which ranks by (exact match, trigram similarity, issue count) —
-// in that priority order — before any limit is applied.
+// See scripts/migrations/0023_series_search_relevance.sql and 0024's
+// follow-up fix for the full incident writeup and the
+// search_series_by_relevance() function this calls, which ranks by
+// (exact match, starts-with, contains — each capped-length-penalized, not
+// diluted by raw trigram similarity) before any limit is applied.
+//
+// result_limit=1000: verified live 2026-08-28 that real worst-case totals
+// for busy franchise names top out around 687 (Batman) — 1000 covers that
+// with margin. Also matches PostgREST's own default response cap (see
+// CLAUDE.md's "PostgREST 1000-row cap is silent" note) — requesting more
+// than 1000 would just get silently truncated by the platform regardless,
+// so 1000 is the actual practical ceiling here, not an arbitrary choice.
 //
 // Falls back to the old ILIKE-and-hope query if the migration hasn't been
 // run yet (function not found) or any other RPC error — never worse than
@@ -79,7 +87,7 @@ async function fetchSeriesCandidates(supabase, normalizedQ) {
   const { data, error } = await supabase.rpc("search_series_by_relevance", {
     normalized_term: normalizedQ,
     allowed_publishers: US_PUBLISHER_ALLOWLIST,
-    result_limit: 400,
+    result_limit: 1000,
   });
   if (!error) return data ?? [];
 

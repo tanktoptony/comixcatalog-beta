@@ -59,6 +59,7 @@ __pycache__/
 # below can still see inside the directory.
 /reports/*
 !/reports/covers-*.html
+!/reports/cover-coverage-history.json
 /comicvine_api_output/ingest-loop-*.log
 /scripts/tony_stack_targets.json
 /scripts/fixtures/valuation-calibration-sample.json

@@ -113,6 +113,39 @@ function isPlaceholderIssueNumber(value) {
   return s === "[nn]" || s === "nn" || s === "(nn)";
 }
 
+// Same fix as /api/search/series (see scripts/migrations/0023_series_search_relevance.sql
+// for the full incident writeup): title_normalized has no index, so this
+// used to be a full sequential scan every search, ordered by issue_count_cached
+// BEFORE relevance was considered — a real series backing the exact issue
+// someone searched for could rank outside the old top-30 cutoff on a
+// heavily-collided title and never surface. Falls back to the old ILIKE
+// query if the migration hasn't been run yet.
+async function fetchSeriesCandidates(supabase, normalizedQ) {
+  const { data, error } = await supabase.rpc("search_series_by_relevance", {
+    normalized_term: normalizedQ,
+    allowed_publishers: US_PUBLISHER_ALLOWLIST,
+    result_limit: 150,
+  });
+  if (!error) return data ?? [];
+
+  console.error(
+    "search_series_by_relevance RPC unavailable, falling back to ILIKE search — " +
+      "run scripts/migrations/0023_series_search_relevance.sql to fix this:",
+    error.message
+  );
+  const { data: fallbackRows, error: fallbackError } = await supabase
+    .from("series")
+    .select("gcd_id, title, resolved_publisher_cached, issue_count_cached")
+    .ilike("title_normalized", `%${normalizedQ}%`)
+    .not("gcd_id", "is", null)
+    .gt("issue_count_cached", 0)
+    .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
+    .order("issue_count_cached", { ascending: false })
+    .limit(30);
+  if (fallbackError) throw fallbackError;
+  return fallbackRows ?? [];
+}
+
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
@@ -134,65 +167,51 @@ export async function GET(req) {
       process.env.SUPABASE_SERVICE_ROLE_KEY
     );
 
-    let userRows = [];
-    if (offset === 0) {
-      const { data: userComics, error: userError } = await supabase
-        .from("comics")
-        .select(`
-          id,
-          series_title,
-          publisher,
-          issue_number,
-          release_year,
-          variant_name,
-          created_by,
-          comic_covers (
-            image_path,
-            is_primary
-          )
-        `)
-        .ilike("series_title", `%${titleQuery}%`)
-        .order("created_at", { ascending: false })
-        .limit(20);
+    // User-comics search and series-candidate search are independent —
+    // run them concurrently instead of back-to-back (found while chasing
+    // the "slow, staggered" search complaint 2026-08-28; this route did
+    // up to 5 sequential round trips per request before this pass).
+    const [userComicsResult, seriesCandidates] = await Promise.all([
+      offset === 0
+        ? supabase
+            .from("comics")
+            .select(`
+              id,
+              series_title,
+              publisher,
+              issue_number,
+              release_year,
+              variant_name,
+              created_by,
+              comic_covers (
+                image_path,
+                is_primary
+              )
+            `)
+            .ilike("series_title", `%${titleQuery}%`)
+            .order("created_at", { ascending: false })
+            .limit(20)
+        : Promise.resolve({ data: [] }),
+      fetchSeriesCandidates(supabase, normalizedQ).catch((err) => {
+        console.error("series search for comics failed:", err);
+        return [];
+      }),
+    ]);
 
-      if (userError) {
-        console.error("user comics search failed:", userError);
-      } else {
-        userRows = (userComics ?? []).map((comic) => ({
-          id: comic.id,
-          series_title: comic.series_title ?? null,
-          publisher: comic.publisher ?? null,
-          issue_number: comic.issue_number,
-          release_year: comic.release_year,
-          variant_name: comic.variant_name,
-          created_by: comic.created_by ?? null,
-          cover_path:
-            comic.comic_covers?.find((c) => c.is_primary)?.image_path ?? null,
-          __source: "user",
-        }));
-      }
-    }
+    const userRows = (userComicsResult.data ?? []).map((comic) => ({
+      id: comic.id,
+      series_title: comic.series_title ?? null,
+      publisher: comic.publisher ?? null,
+      issue_number: comic.issue_number,
+      release_year: comic.release_year,
+      variant_name: comic.variant_name,
+      created_by: comic.created_by ?? null,
+      cover_path:
+        comic.comic_covers?.find((c) => c.is_primary)?.image_path ?? null,
+      __source: "user",
+    }));
 
-    const { data: matchedSeries, error: seriesError } = await supabase
-      .from("series")
-      .select(`
-        gcd_id,
-        title,
-        resolved_publisher_cached,
-        issue_count_cached
-      `)
-      .ilike("title_normalized", `%${normalizedQ}%`)
-      .not("gcd_id", "is", null)
-      .gt("issue_count_cached", 0)
-      .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
-      .order("issue_count_cached", { ascending: false })
-      .limit(30);
-
-    if (seriesError) {
-      console.error("series search for comics failed:", seriesError);
-    }
-
-    const scoredSeries = (matchedSeries ?? [])
+    const scoredSeries = seriesCandidates
       .map((s) => ({
         ...s,
         __score: scoreSeriesTitle(s.title, normalizedQForScoring),

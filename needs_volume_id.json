@@ -10099,5 +10099,25 @@
         "start_year": 2010
       }
     ]
+  },
+  {
+    "name": "Captain America: White",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 22032,
+        "name": "Captain America: White",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 88195,
+        "name": "Captain America: White",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ]
   }
 ]

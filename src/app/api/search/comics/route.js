@@ -113,18 +113,21 @@ function isPlaceholderIssueNumber(value) {
   return s === "[nn]" || s === "nn" || s === "(nn)";
 }
 
-// Same fix as /api/search/series (see scripts/migrations/0023_series_search_relevance.sql
-// for the full incident writeup): title_normalized has no index, so this
-// used to be a full sequential scan every search, ordered by issue_count_cached
-// BEFORE relevance was considered — a real series backing the exact issue
-// someone searched for could rank outside the old top-30 cutoff on a
-// heavily-collided title and never surface. Falls back to the old ILIKE
-// query if the migration hasn't been run yet.
+// Same fix as /api/search/series (see scripts/migrations/0023 and 0024's
+// follow-up fix for the full incident writeup): title_normalized has no
+// index, so this used to be a full sequential scan every search, ordered
+// by issue_count_cached BEFORE relevance was considered — a real series
+// backing the exact issue someone searched for could rank outside the old
+// top-30 cutoff on a heavily-collided title and never surface.
+// result_limit=1000 for the same reason as the series route: verified
+// worst-case real totals top out around 687, and 1000 is PostgREST's own
+// default response cap regardless of what's requested. Falls back to the
+// old ILIKE query if the migration hasn't been run yet.
 async function fetchSeriesCandidates(supabase, normalizedQ) {
   const { data, error } = await supabase.rpc("search_series_by_relevance", {
     normalized_term: normalizedQ,
     allowed_publishers: US_PUBLISHER_ALLOWLIST,
-    result_limit: 150,
+    result_limit: 1000,
   });
   if (!error) return data ?? [];
 

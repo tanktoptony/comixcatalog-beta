@@ -1,4 +1,4 @@
-// One-shot publisher for the May 2026 build update post. Uses the
+// One-shot publisher for the August 2026 build update post. Uses the
 // service-role key (bypasses RLS) and inserts directly into blog_posts.
 //
 // Usage:
@@ -25,36 +25,23 @@ const supabase = createClient(
 );
 
 const POST = {
-  title: "What's new — May 2026 build update",
-  slug: "may-2026-build-update",
+  title: "What's new — August 2026 build update",
+  slug: "august-2026-build-update",
   excerpt:
-    "Profile customization, a redesigned navbar, faster cover ingestion, and 35,000+ scans archived. Here's what landed in the last few weeks — and what's next.",
-  content: `A lot landed in the last few weeks. The site moves fast right now, and the easiest way to keep up is here.
+    "Search finally works the way it should — faster, and it doesn't bury or duplicate the book you're looking for. Plus 109,000+ covers archived and climbing. Here's what changed.",
+  content: `Search has been the biggest complaint we've heard, and the biggest fix this month. Here's what changed.
 
 ## What's new
 
-**Profile customization.** Your collector profile now supports a custom avatar (drag-and-drop image upload), display name, location, bio, and website link. Privacy toggles let you keep your collection visible while hiding your wantlist or value totals — useful if you're tired of getting DMs about books you didn't list for sale.
+**Search is actually fast now.** Every search used to mean scanning all ~208,000 series with no index behind it — that "staggered loading" feeling was a literal full-table scan on every keystroke pause. Fixed with a real index. An exact-title search that used to take over a second now returns in about 150 milliseconds.
 
-**Redesigned navbar.** The header is cleaner: a wide search bar with quick icon access to Browse, Marketplace, your Library, and your Profile. Inbox slot is reserved for marketplace messaging when that ships in Phase 2.
+**Search stopped losing the book you wanted.** Search a title with a lot of entries — a heavily-published run like Spider-Man or Batman — and the volume you actually wanted could get buried behind hundreds of one-shots and crossovers that just happened to share a word, and never make it into your results at all. Search now ranks by real relevance to what you typed before anything gets cut off, not by issue count.
 
-**Login and signup.** Faster (30-second auth tolerance for slow networks), recoverable (auto-redirects home if a profile lookup hangs), and prettier (matched to the rest of the site).
+**Fewer duplicate volumes cluttering results.** The Grand Comics Database occasionally splits one real comic-book run across multiple internal entries — same book, same publisher, same everything, just fractured into pieces. Those fragments were showing up in search as if they were separate volumes. We're now collapsing the ones we can positively identify, so results better reflect what's actually out there to collect.
 
-**Cover archive: 35,000+ scans and growing.** ComicVine ingestion is now idempotent — re-running the script is free for already-covered volumes, so we can incrementally fill gaps without duplicating work. Recent additions: the full Marvel *Uncanny X-Men* run from 1981–2011 (around 405 issues, all covers archived).
+**109,000+ covers archived, growing every hour.** Cover ingestion now runs continuously instead of in occasional bursts. We're tracking it against a real target too — every issue from a commercially-released US-market run — and we're about a third of the way through that, with hundreds more landing every day.
 
-**Series pages got smarter.** Cover-picking now disambiguates by year for runs with multiple volumes, so you stop seeing 1984 Mirage TMNT covers on 2011 IDW issues. Issue-level publication years now fall back to ComicVine cover dates when GCD's data is missing.
-
-**Empty states everywhere.** Hit a clean "Browse the database →" CTA the first time you land on an empty library tab, profile section, or zero-result search.
-
-## What's next
-
-The roadmap for the next 60 days:
-
-- **Insurance/appraisal PDF report** — the primary Pro-tier feature. Itemized PDF with cover thumbnails, grades, slab cert numbers, and a date-stamped total. No other comic platform does this.
-- **Founding Collector slots open** — limited to the first 100 supporters at $20/mo. Permanent badge, lowest marketplace fee tier, name on the founders page.
-- **Follow / followers system** — see what other collectors are adding, build a wantlist that surfaces to potential sellers.
-- **Marketplace soft launch** — Pro users only, slabbed books only, verified grades on every listing.
-
-If you're collecting seriously, this site is being built for you, in public, by one collector in Chicago. Patreon backers see updates a day early and shape the roadmap. [Become a Founding Collector →](https://www.patreon.com/cw/ComixCatalog)`,
+If you're collecting seriously, this site is being built for you, in public, by one collector in Chicago. [Become a Founding Collector →](https://www.patreon.com/cw/ComixCatalog)`,
 };
 
 async function run() {

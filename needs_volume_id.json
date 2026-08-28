@@ -270,8 +270,21 @@
     "name": "X-Force / Cable: Messiah War",
     "publisher": "Marvel Comics",
     "year": 2009,
-    "reason": "publisher_mismatch",
-    "candidates": []
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 26055,
+        "name": "X-Force/Cable: Messiah War",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 28936,
+        "name": "X-Force/Cable: Messiah War",
+        "publisher": "Marvel",
+        "start_year": 2009
+      }
+    ]
   },
   {
     "name": "The Underside",

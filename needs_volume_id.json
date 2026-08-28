@@ -10032,5 +10032,25 @@
         "start_year": 2002
       }
     ]
+  },
+  {
+    "name": "Space Ghost",
+    "publisher": "Dynamite Entertainment",
+    "year": 1967,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 157974,
+        "name": "Space Ghost",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2024
+      },
+      {
+        "id": 166218,
+        "name": "Space Ghost",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2025
+      }
+    ]
   }
 ]

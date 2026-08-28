@@ -117,7 +117,25 @@ export const viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }) {
+// Server-rendered so the founding-collector count is correct on first paint
+// instead of flashing a stale guess before a client fetch corrects it (bug
+// found 2026-08-27 — FoundingBanner used to seed useState with a hardcoded
+// 83, so every visitor briefly saw a wrong "spots remaining" number before
+// it self-corrected). cache: "no-store" forces this layout to render
+// per-request rather than being statically frozen at build/deploy time.
+async function getFoundingRemaining() {
+  try {
+    const res = await fetch(`${SITE_URL}/api/founding/status`, { cache: "no-store" });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return Number.isFinite(data?.remaining) ? data.remaining : null;
+  } catch {
+    return null;
+  }
+}
+
+export default async function RootLayout({ children }) {
+  const foundingRemaining = await getFoundingRemaining();
   return (
     <html lang="en">
       <body className={`page-shell ${displayFont.variable}`}>
@@ -139,7 +157,7 @@ export default function RootLayout({ children }) {
         )}
         <AuthProvider>
           <LibraryProvider>
-            <FoundingBanner />
+            <FoundingBanner initialRemaining={foundingRemaining} />
             <Header />
             {/* Mounted once, globally, so it can fire wherever a signed-in
                 user's first page load actually lands (post-signup that's

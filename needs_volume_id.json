@@ -10325,5 +10325,25 @@
         "start_year": 1997
       }
     ]
+  },
+  {
+    "name": "C.H.I.X.",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 18264,
+        "name": "C.H.I.X.",
+        "publisher": "Image",
+        "start_year": 1998
+      },
+      {
+        "id": 18262,
+        "name": "C.H.I.X.",
+        "publisher": "Image",
+        "start_year": 1998
+      }
+    ]
   }
 ]

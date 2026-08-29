@@ -10393,5 +10393,19 @@
         "start_year": 2005
       }
     ]
+  },
+  {
+    "name": "Crimson Skies",
+    "publisher": "Top Cow Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62151,
+        "name": "Crimson Skies",
+        "publisher": "Image",
+        "start_year": 2000
+      }
+    ]
   }
 ]

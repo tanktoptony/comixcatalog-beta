@@ -312,6 +312,10 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                       <span
                         style={{
                           position: "absolute",
+                          // See .profile-grade-badge's z-index comment in
+                          // globals.css — same fix needed for any inline
+                          // absolute-positioned badge inside .comic-card-cover.
+                          zIndex: 2,
                           bottom: 6,
                           left: 6,
                           padding: "2px 6px",

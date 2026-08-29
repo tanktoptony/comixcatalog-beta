@@ -16,7 +16,26 @@ import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
 
+// Module-scoped so it survives across component re-mounts within a tab
+// (see the user-change-clear logic below for why that's usually right).
+// Entries carry a `cachedAt` timestamp and are treated as stale past
+// HYDRATION_CACHE_MAX_AGE_MS — added 2026-08-29 after a real incident: a
+// tab left open for hours during live backend cover-relinking work cached
+// an empty/mid-repair cover result and never re-checked it, since the
+// original cache had no expiry at all. The underlying data was correct
+// again within seconds (verified live against /api/library-hydrate
+// directly), but the browser tab never found out. A hard refresh always
+// fixed it (fresh page load = fresh module = empty cache) — this makes
+// that automatic instead of requiring one.
+const HYDRATION_CACHE_MAX_AGE_MS = 10 * 60 * 1000;
 const hydrationCache = new Map();
+
+function freshCacheEntry(key) {
+  const entry = hydrationCache.get(key);
+  if (!entry) return null;
+  if (Date.now() - entry.cachedAt > HYDRATION_CACHE_MAX_AGE_MS) return null;
+  return entry.data;
+}
 
 const USER_COVER_UPLOAD_ENABLED = true;
 
@@ -162,7 +181,14 @@ function LibraryPageContent() {
     if (typeof window === "undefined") return;
     window.localStorage.setItem("library-view-mode", previewMode);
   }, [previewMode]);
-  const [comicIndex, setComicIndex] = useState(() => Object.fromEntries(hydrationCache));
+  const [comicIndex, setComicIndex] = useState(() => {
+    const initial = {};
+    for (const key of hydrationCache.keys()) {
+      const data = freshCacheEntry(key);
+      if (data) initial[key] = data;
+    }
+    return initial;
+  });
 
   // hydrationCache is module-scoped and survives navigation/sign-out, which
   // means a previous account's hydrated covers can flash before the new
@@ -563,8 +589,9 @@ function LibraryPageContent() {
       const missingKeys = new Set();
       const cachedAdditions = {};
       for (const key of uniqueKeys) {
-        if (hydrationCache.has(key)) {
-          cachedAdditions[key] = hydrationCache.get(key);
+        const fresh = freshCacheEntry(key);
+        if (fresh) {
+          cachedAdditions[key] = fresh;
         } else {
           missingKeys.add(key);
         }
@@ -621,7 +648,7 @@ function LibraryPageContent() {
             cover: item.cover || "/fallback-cover.png",
           };
           fresh[key] = normalized;
-          hydrationCache.set(key, normalized);
+          hydrationCache.set(key, { data: normalized, cachedAt: Date.now() });
         }
 
         if (!cancelled) {

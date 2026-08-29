@@ -10249,5 +10249,19 @@
         "start_year": 1998
       }
     ]
+  },
+  {
+    "name": "Thor Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22055,
+        "name": "Thor Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ]
   }
 ]

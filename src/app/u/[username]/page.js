@@ -31,6 +31,19 @@ function topShelfCoverUrl(d) {
   return d.canonicalCoverUrl || d.communityCoverUrl || d.personalCoverUrl || d.coverUrl || "/fallback-cover.png";
 }
 
+function formatAddedAgo(iso) {
+  if (!iso) return null;
+  const then = new Date(iso).getTime();
+  if (Number.isNaN(then)) return null;
+  const days = Math.floor((Date.now() - then) / 86400000);
+  if (days <= 0) return "Added today";
+  if (days === 1) return "Added yesterday";
+  if (days < 30) return `Added ${days}d ago`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `Added ${months}mo ago`;
+  return `Added ${Math.floor(months / 12)}y ago`;
+}
+
 export default async function PublicProfilePage({ params }) {
   const { username } = await params;
   if (!username) notFound();
@@ -84,6 +97,14 @@ export default async function PublicProfilePage({ params }) {
     .filter((item) => item.display && Number(item.market_value) > 0)
     .sort((a, b) => Number(b.market_value) - Number(a.market_value))
     .slice(0, 5);
+
+  // Recently Added — "default to the last 5-10 books collected" on the
+  // profile, distinct from Top Shelf (best pieces): the collection query
+  // is already ordered by created_at DESC (see /api/public-profile), so
+  // ownedItems already IS newest-first — no extra sort needed here. Overlap
+  // with Top Shelf is fine and expected (a just-added grail should show up
+  // in both); this section is about recency, not exclusivity.
+  const recentlyAdded = ownedItems.filter((item) => item.display).slice(0, 8);
 
   const joinDate = formatJoinDate(profile.created_at);
   const avatarSrc = profile.avatar_url
@@ -218,6 +239,49 @@ export default async function PublicProfilePage({ params }) {
                   <div className="profile-top-shelf-value">
                     {formatCurrency(Number(item.market_value))}
                   </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* Recently Added — the profile's other default view alongside Top
+          Shelf: not "the best," just "the newest," so a collection with
+          nothing valued yet (no comps, no user-priced items) still gets a
+          showcase section instead of jumping straight to bare stats. */}
+      {recentlyAdded.length > 0 && (
+        <section className="profile-top-shelf">
+          <div className="profile-top-shelf-header">
+            <h2
+              className="profile-top-shelf-title"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Recently Added
+            </h2>
+            <span className="profile-top-shelf-sub">Latest to the collection</span>
+          </div>
+          <div className="profile-top-shelf-grid">
+            {recentlyAdded.map((item) => {
+              const d = item.display;
+              const addedLine = formatAddedAgo(item.created_at);
+              return (
+                <Link key={item.id} href={d.href} className="profile-top-shelf-card">
+                  <div className="profile-top-shelf-cover">
+                    <img src={topShelfCoverUrl(d)} alt={d.title} />
+                    {item.slab_company && item.grade_numeric ? (
+                      <span className="profile-grade-badge">
+                        {item.slab_company} {Number(item.grade_numeric).toFixed(1)}
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="profile-top-shelf-title-line">
+                    {d.title}
+                    {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                  </div>
+                  {addedLine && (
+                    <div className="profile-recent-added-caption">{addedLine}</div>
+                  )}
                 </Link>
               );
             })}

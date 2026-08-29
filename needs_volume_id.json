@@ -10291,5 +10291,19 @@
         "start_year": 1988
       }
     ]
+  },
+  {
+    "name": "War Heroes Classics",
+    "publisher": "Harvey Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64857,
+        "name": "War Heroes Classics",
+        "publisher": "Lorne-Harvey",
+        "start_year": 1991
+      }
+    ]
   }
 ]

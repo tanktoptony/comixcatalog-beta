@@ -120,8 +120,8 @@ export default async function PublicProfilePage({ params }) {
             <Image
               src={avatarSrc}
               alt={`${username} avatar`}
-              width={120}
-              height={120}
+              width={132}
+              height={132}
               className="rounded-full"
               unoptimized={Boolean(profile.avatar_url)}
             />
@@ -182,27 +182,32 @@ export default async function PublicProfilePage({ params }) {
               )}
             </div>
           </div>
+
+          {/* Collection value as a flex plaque INSIDE the hero row, not a
+              separate strip below it — the mockup ("Workshop and The Case")
+              composed the avatar, name, and value plaque as one hero
+              moment, and splitting the plaque out into its own block below
+              broke that composition, part of why the page read as
+              underwhelming rather than a showcase. Suppressed from the
+              shared stats strip further down via visibility.value=false so
+              it isn't shown twice; still respects the owner's privacy
+              toggle (showValue). */}
+          {showValue && collectionValue > 0 && (
+            <div className="profile-value-plaque">
+              <div className="profile-value-plaque-label">Collection Value</div>
+              <div
+                className="profile-value-plaque-amount"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {formatCurrency(collectionValue)}
+              </div>
+              <div className="profile-value-plaque-meta">
+                {ownedItems.length} book{ownedItems.length === 1 ? "" : "s"}
+              </div>
+            </div>
+          )}
         </div>
       </section>
-
-      {/* Collection value as a flex plaque, not one of six equal stat cards —
-          the workshop/showcase differentiator. Suppressed from the shared
-          strip below via visibility.value=false so it isn't shown twice;
-          still respects the owner's privacy toggle (showValue). */}
-      {showValue && collectionValue > 0 && (
-        <div className="profile-value-plaque">
-          <div className="profile-value-plaque-label">Collection Value</div>
-          <div
-            className="profile-value-plaque-amount"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            {formatCurrency(collectionValue)}
-          </div>
-          <div className="profile-value-plaque-meta">
-            {ownedItems.length} book{ownedItems.length === 1 ? "" : "s"}
-          </div>
-        </div>
-      )}
 
       {/* Top Shelf — highest-value owned pieces, pulled out front instead of
           waiting in the regular grid/rows tabs below. Empty when nothing has

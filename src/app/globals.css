@@ -2745,15 +2745,33 @@ input[type="file"] {
 /* -----------------------------
    PROFILE HERO
 ------------------------------ */
+/* Restored 2026-08-29 to match the intensity the "Workshop and The Case"
+ * design mockup actually specified — the first build of this hero (2026-
+ * 08-27) shipped noticeably quieter than the spec (80px avatar vs 132px,
+ * 2rem name vs 3.4rem, no ambient glow at all), which read as "underwhelming"
+ * exactly the way an earlier, unrelated softened-styling pass did. This is
+ * "The Case" — the showcase page — it's supposed to feel like a flex, not
+ * a settings panel. */
 .profile-hero-panel {
-  padding: 2rem 0 1.5rem;
+  position: relative;
+  padding: 2.5rem 0 2rem;
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+}
+
+.profile-hero-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 900px 400px at 18% 0%, rgba(216,176,75,0.16), transparent 70%);
+  pointer-events: none;
 }
 
 .profile-hero {
+  position: relative;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -2767,22 +2785,31 @@ input[type="file"] {
    AVATAR
 ------------------------------ */
 .profile-avatar img {
-  width: 80px;
-  height: 80px;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
-  border: 2px solid rgba(244, 208, 63, 0.6);
-  box-shadow: 0 0 16px rgba(244, 208, 63, 0.15);
+  border: 3px solid rgba(244, 208, 63, 0.85);
+  box-shadow: 0 0 0 6px rgba(244,208,63,0.08), 0 0 40px rgba(244,208,63,0.22);
   flex-shrink: 0;
-  max-width: 80px;
+  max-width: 132px;
+}
+
+@media (max-width: 640px) {
+  .profile-avatar img {
+    width: 96px;
+    height: 96px;
+    max-width: 96px;
+  }
 }
 
 /* -----------------------------
    USERNAME
 ------------------------------ */
 .profile-username {
-  font-size: 2rem;
+  font-size: clamp(2rem, 5vw, 3.4rem);
   font-weight: 800;
   letter-spacing: -0.01em;
+  line-height: 1;
   color: #fff;
   overflow-wrap: break-word;
   margin: 0;
@@ -10285,14 +10312,15 @@ button.nav-link {
 ----------------------------------------------------------------------- */
 
 .profile-value-plaque {
-  margin: 4px 0 24px;
-  padding: 20px 28px;
+  /* Flex item inside .profile-hero (see page.js) — sits beside the avatar
+     and info block as one hero composition, not a separate strip below it. */
+  flex-shrink: 0;
+  padding: 22px 34px;
   border-radius: 16px;
   text-align: center;
-  display: inline-block;
   background: linear-gradient(160deg, rgba(216,176,75,0.14), rgba(216,176,75,0.03));
   border: 1px solid rgba(216,176,75,0.4);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
 }
 
 .profile-value-plaque-label {

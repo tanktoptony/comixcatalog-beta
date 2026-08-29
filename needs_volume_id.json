@@ -10305,5 +10305,25 @@
         "start_year": 1991
       }
     ]
+  },
+  {
+    "name": "Juggernaut",
+    "publisher": "Marvel Comics",
+    "year": 1999,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 130568,
+        "name": "Juggernaut",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 18263,
+        "name": "Juggernaut",
+        "publisher": "Marvel",
+        "start_year": 1997
+      }
+    ]
   }
 ]

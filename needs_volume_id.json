@@ -10379,5 +10379,19 @@
         "start_year": 1962
       }
     ]
+  },
+  {
+    "name": "Kamui",
+    "publisher": "Eclipse Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66281,
+        "name": "Kamui",
+        "publisher": "Broccoli Books",
+        "start_year": 2005
+      }
+    ]
   }
 ]

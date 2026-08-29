@@ -302,6 +302,37 @@ input[type="file"] {
   }
 }
 
+/* "The Case" pure gallery wall — the owned tab on a public profile, no
+ * card chrome, no text, just cover art (see ProfileTabs.js's isWall).
+ * Tighter columns + gap than the normal card grid since there's no title/
+ * meta text to give tiles breathing room for anymore. */
+.comic-grid--wall {
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+}
+
+@media (min-width: 640px) {
+  .comic-grid--wall {
+    grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+    gap: 12px;
+  }
+}
+
+.comic-card--wall {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.comic-card--wall:hover {
+  transform: translateY(-3px);
+}
+
+.comic-card--wall .comic-card-cover {
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
 .comic-card-title {
   font-size: 0.85rem;
   font-weight: 600;
@@ -5129,6 +5160,41 @@ button.nav-link {
 .library-filter-chip.active {
   background: rgba(255,255,255,0.12);
   border-color: rgba(255,255,255,0.22);
+}
+
+.library-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 0 0.5rem;
+}
+
+.library-pagination-btn {
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: inherit;
+  padding: 0.55rem 1.1rem;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: 0.18s ease;
+}
+
+.library-pagination-btn:hover:not(:disabled) {
+  background: rgba(255,255,255,0.08);
+}
+
+.library-pagination-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.library-pagination-status {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  font-variant-numeric: tabular-nums;
 }
 
 .library-secondary-btn.ready {
@@ -10315,4 +10381,9 @@ button.nav-link {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--cc-gold-soft, #ecd48c);
+}
+
+.profile-recent-added-caption {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
 }

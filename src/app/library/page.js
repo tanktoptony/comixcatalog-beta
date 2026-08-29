@@ -62,6 +62,39 @@ function makeLibraryKey(item) {
   return null;
 }
 
+// Shared across all three view modes (list/grid/rows) — each computes its
+// own totalCount/pageSize (item count for list/grid, group count for rows)
+// and renders nothing when everything fits on one page, so a small
+// collection never sees pagination chrome it doesn't need.
+function PaginationBar({ page, setPage, totalCount, pageSize }) {
+  const totalPages = Math.max(1, Math.ceil(totalCount / pageSize));
+  if (totalPages <= 1) return null;
+  const clamped = Math.min(page, totalPages);
+  return (
+    <div className="library-pagination">
+      <button
+        type="button"
+        className="library-pagination-btn"
+        onClick={() => setPage((p) => Math.max(1, p - 1))}
+        disabled={clamped <= 1}
+      >
+        ← Prev
+      </button>
+      <span className="library-pagination-status">
+        Page {clamped} of {totalPages}
+      </span>
+      <button
+        type="button"
+        className="library-pagination-btn"
+        onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+        disabled={clamped >= totalPages}
+      >
+        Next →
+      </button>
+    </div>
+  );
+}
+
 export default function LibraryPage() {
   // useSearchParams below requires a Suspense boundary in Next 15+ for static
   // rendering. Without this, `next build` fails with a CSR-bailout prerender error.
@@ -204,6 +237,18 @@ function LibraryPageContent() {
     setViewMode(next);
     try { window.localStorage.setItem("library-view", next); } catch {}
   };
+  // Pagination — the Workshop used to render every filtered item in one
+  // shot regardless of collection size, which stopped being manageable once
+  // a collection ran into the hundreds. list/grid paginate by item count;
+  // rows paginate by series-group count instead (a group's issues shouldn't
+  // split across pages just because the item count crossed a boundary).
+  // One shared `page` cursor across all three view modes — each view mode's
+  // render block computes its own page count from its own denominator, so
+  // switching view modes doesn't need to reconcile different units, it just
+  // clamps back to page 1 on the same effect that resets it for filters.
+  const LIBRARY_PAGE_SIZE = 24;
+  const LIBRARY_ROWS_PAGE_SIZE = 20;
+  const [page, setPage] = useState(1);
   // Track expanded series in Rows view. Keyed by series-group key.
   const [expandedSeries, setExpandedSeries] = useState(() => new Set());
   const toggleSeriesExpanded = (key) =>
@@ -700,6 +745,14 @@ function LibraryPageContent() {
 
     return result;
   }, [libraryItems, search, publisherFilter, sortBy]);
+
+  // Land back on page 1 whenever the underlying result set or its shape
+  // changes — otherwise switching tabs (or typing a new search) can strand
+  // you on a page number that no longer exists for the new filtered set.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPage(1);
+  }, [tab, search, publisherFilter, sortBy, viewMode]);
 
   const isHydrating = useMemo(() => {
     if (collections.length === 0) return false;
@@ -1684,7 +1737,7 @@ function LibraryPageContent() {
           {/* ── LIST VIEW ── */}
           {!loading && filteredItems.length > 0 && viewMode === "list" && (
             <div className="library-list">
-              {filteredItems.map((item) => {
+              {filteredItems.slice((page - 1) * LIBRARY_PAGE_SIZE, page * LIBRARY_PAGE_SIZE).map((item) => {
                 const comic = item.comic;
 
                 // Merge live grade state with DB values
@@ -1853,6 +1906,9 @@ function LibraryPageContent() {
               })}
             </div>
           )}
+          {!loading && filteredItems.length > 0 && viewMode === "list" && (
+            <PaginationBar page={page} setPage={setPage} totalCount={filteredItems.length} pageSize={LIBRARY_PAGE_SIZE} />
+          )}
 
           {/* ── ROWS VIEW (series-collapse) ──
               One row per (title, year) group with a thumb + issue summary.
@@ -1889,6 +1945,14 @@ function LibraryPageContent() {
               return g;
             }).sort((a, b) => a.title.localeCompare(b.title));
 
+            // Paginate by GROUP, not raw item count — a series' issues
+            // shouldn't split across pages just because the running item
+            // total crossed LIBRARY_PAGE_SIZE mid-group.
+            const pagedGroupList = groupList.slice(
+              (page - 1) * LIBRARY_ROWS_PAGE_SIZE,
+              page * LIBRARY_ROWS_PAGE_SIZE
+            );
+
             // Compress numeric issue#s into "#1, #3-7" style ranges.
             const formatRanges = (items) => {
               const nums = [], extras = [];
@@ -1913,8 +1977,9 @@ function LibraryPageContent() {
             };
 
             return (
+              <>
               <ul className="series-rows">
-                {groupList.map((g) => {
+                {pagedGroupList.map((g) => {
                   const open = expandedSeries.has(g.key);
                   const summary = formatRanges(g.items)
                     || `${g.items.length} item${g.items.length === 1 ? "" : "s"}`;
@@ -2039,13 +2104,15 @@ function LibraryPageContent() {
                   );
                 })}
               </ul>
+              <PaginationBar page={page} setPage={setPage} totalCount={groupList.length} pageSize={LIBRARY_ROWS_PAGE_SIZE} />
+              </>
             );
           })()}
 
           {/* ── GRID VIEW ── */}
           {!loading && filteredItems.length > 0 && viewMode === "grid" && (
             <div className="comic-grid">
-              {filteredItems.map((item) => {
+              {filteredItems.slice((page - 1) * LIBRARY_PAGE_SIZE, page * LIBRARY_PAGE_SIZE).map((item) => {
                 const comic = item.comic;
                 const liveGrade = gradeData[item.id] ?? {
                   grade_numeric: item.grade_numeric ?? null,
@@ -2123,6 +2190,9 @@ function LibraryPageContent() {
                 );
               })}
             </div>
+          )}
+          {!loading && filteredItems.length > 0 && viewMode === "grid" && (
+            <PaginationBar page={page} setPage={setPage} totalCount={filteredItems.length} pageSize={LIBRARY_PAGE_SIZE} />
           )}
         </section>
       </section>

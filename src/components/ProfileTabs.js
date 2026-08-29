@@ -99,9 +99,14 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
   // Default to rows on narrow viewports; persists in localStorage.
   const [viewMode, setViewMode] = useState("grid");
   useEffect(() => {
+    // Reading localStorage/matchMedia can only happen after mount (SSR has
+    // neither), so this legitimately needs to setState from inside an
+    // effect rather than a lazy useState initializer — same pattern already
+    // suppressed the same way in src/app/library/page.js's view-mode effect.
     try {
       const stored = localStorage.getItem(VIEW_STORAGE_KEY);
       if (stored === "grid" || stored === "rows") {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setViewMode(stored);
         return;
       }
@@ -256,10 +261,19 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
         ) : viewMode === "rows" ? (
           <SeriesRowsView items={activeItems} activeTab={activeTab} />
         ) : (
-          <div className="comic-grid">
+          <div className={`comic-grid${activeTab === "owned" ? " comic-grid--wall" : ""}`}>
             {activeItems.map((item) => {
               const d = item.display;
               if (!d) return null;
+              // "The Case" is a showcase, not a management view — the owned
+              // grid renders as a pure cover-art wall (no title/year/value
+              // text under each tile), matching the design direction that
+              // shipped Top Shelf + the value plaque (see git history on
+              // this page for "Workshop/Case split"). Wishlist and For Sale
+              // keep the full metadata card: a wishlist entry with no price
+              // or year context isn't useful to a visitor the way an owned
+              // showcase tile is.
+              const isWall = activeTab === "owned";
               // Context-aware cover selection:
               //   For Sale tab → personal first (buyer wants to see the actual
               //                  copy, slab, condition — not a stock cover).
@@ -278,8 +292,15 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                   ? Number(item.market_value)
                   : null;
 
+              const fullTitle = `${d.title}${d.issueNumber ? ` #${d.issueNumber}` : ""}`;
+
               return (
-                <Link key={item.id} href={d.href} className="comic-card">
+                <Link
+                  key={item.id}
+                  href={d.href}
+                  className={`comic-card${isWall ? " comic-card--wall" : ""}`}
+                  title={isWall ? fullTitle : undefined}
+                >
                   <div className="comic-card-cover" style={{ position: "relative" }}>
                     <img src={coverUrl} alt={d.title} />
                     {item.slab_company && item.grade_numeric ? (
@@ -307,22 +328,26 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                       </span>
                     )}
                   </div>
-                  <div className="comic-card-title">
-                    {d.title}
-                    {d.issueNumber ? ` #${d.issueNumber}` : ""}
-                    {item.variant_label ? (
-                      <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
-                    ) : null}
-                  </div>
-                  <div className="comic-card-meta">
-                    {d.year || "Unknown"}
-                    {item.copy_number > 1 ? ` · Copy ${item.copy_number}` : ""}
-                    {value != null ? (
-                      <span className="profile-card-value">
-                        {" · "}${value.toLocaleString()}
-                      </span>
-                    ) : null}
-                  </div>
+                  {!isWall && (
+                    <>
+                      <div className="comic-card-title">
+                        {d.title}
+                        {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                        {item.variant_label ? (
+                          <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
+                        ) : null}
+                      </div>
+                      <div className="comic-card-meta">
+                        {d.year || "Unknown"}
+                        {item.copy_number > 1 ? ` · Copy ${item.copy_number}` : ""}
+                        {value != null ? (
+                          <span className="profile-card-value">
+                            {" · "}${value.toLocaleString()}
+                          </span>
+                        ) : null}
+                      </div>
+                    </>
+                  )}
                 </Link>
               );
             })}

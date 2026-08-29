@@ -6680,6 +6680,11 @@ button.nav-link {
 /* Grade badge overlay on owned cards (profile only) */
 .profile-grade-badge {
   position: absolute;
+  /* .comic-card-cover img sets z-index:1 explicitly — without a competing
+     z-index here this badge paints BEHIND the cover regardless of DOM
+     order. Found live 2026-08-29 (series-page OWNED badge had the same
+     bug, fixed inline there; this is the shared-class version). */
+  z-index: 2;
   top: 8px;
   right: 8px;
   background: rgba(11, 18, 56, 0.92);

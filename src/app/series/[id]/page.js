@@ -440,6 +440,12 @@ export default function SeriesPage() {
                       <span
                         style={{
                           position: "absolute",
+                          // .comic-card-cover img sets z-index:1 explicitly
+                          // (globals.css) — without a competing z-index here,
+                          // that explicit layer paints over this badge
+                          // regardless of DOM order, hiding it completely
+                          // behind the cover. Found live 2026-08-29.
+                          zIndex: 2,
                           top: 6,
                           left: 6,
                           padding: "2px 7px",
@@ -458,6 +464,7 @@ export default function SeriesPage() {
                       <span
                         style={{
                           position: "absolute",
+                          zIndex: 2,
                           top: 6,
                           left: 6,
                           padding: "2px 7px",

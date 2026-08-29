@@ -10277,5 +10277,19 @@
         "start_year": 1998
       }
     ]
+  },
+  {
+    "name": "The Rocketeer Adventure Magazine",
+    "publisher": "Dark Horse Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4120,
+        "name": "The Rocketeer Adventure Magazine",
+        "publisher": "Comico",
+        "start_year": 1988
+      }
+    ]
   }
 ]

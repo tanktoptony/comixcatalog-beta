@@ -1,0 +1,41 @@
+name: Snapshot collection value
+
+# Feeds collection_value_history — the data plumbing for a value-over-time
+# graph on /library and /u/[username] (see scripts/migrations/
+# 0025_collection_value_history.sql for the full rationale). There's no way
+# to backfill "value 30 days ago" thirty days from now, so this needs to
+# start running before the graph UI exists, not after.
+#
+# Every 6 hours, not once a day: GitHub's schedule trigger has proven
+# unreliable for this repo's other cron jobs (cover-ingest.yml,
+# instagram-post.yml both needed the same fix) — more chances to fire beats
+# hoping the one daily slot doesn't get dropped. Safe to run this often
+# because the script upserts on (user_id, snapshot_date): a day with 4 runs
+# just keeps "today"'s row current, it doesn't produce 4 data points.
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Snapshot collection value
+        run: node scripts/snapshotCollectionValue.js

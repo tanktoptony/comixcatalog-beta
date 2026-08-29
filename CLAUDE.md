@@ -207,7 +207,15 @@ PK `id` (uuid). FK: loose `gcd_issue_id` (nullable — eBay titles don't always 
 Columns: `grade_bucket` (text, NOT NULL — output of `gradeBucket()`), `slab_company`, `grade_numeric` (numeric 3,1), `condition_label`, `sold_price` (numeric 10,2 NOT NULL), `sold_currency` (default 'USD'), `sold_date` (date NOT NULL), `source` (text NOT NULL — 'ebay' / 'heritage' / future), `external_listing_id` (text NOT NULL — dedup key), `listing_url`, `listing_title`, `fetched_at`, `created_at`.
 - Unique index on `(source, external_listing_id)` — refetching same eBay listing UPSERTs.
 - Hot-path index on `(gcd_issue_id, grade_bucket, sold_date DESC)` for median lookups over last 90 days.
-- **Currently empty** — populated by `scripts/fetchEbayComps.js` once eBay Insights API access is approved.
+- **No longer empty, but not real sold comps yet** (corrected 2026-08-29 — this doc previously said "currently empty," which was stale). Live count: 6,054 rows as of this writing, 100% `source = 'ebay-listed'` — active ASKING prices via eBay's Browse API (the interim fallback `getMarketValue()` already anticipated, see its comment on `comp_source`), not sold prices from the still-pending Insights API. Treat `auto_market_value` derived from these as a real-but-weaker signal (a listing price, not a confirmed sale) until `source = 'ebay'` rows actually land.
+
+#### `collection_value_history` (shipped 2026-08-29 — migration 0025)
+PK `id` (uuid). FK `user_id` → `auth.users.id`.
+Columns: `snapshot_date` (date), `total_value` (numeric 12,2), `owned_count` (int4), `created_at`.
+- Unique on `(user_id, snapshot_date)` — one row per user per calendar day, upserted by `scripts/snapshotCollectionValue.js` on a 6-hour schedule (`.github/workflows/snapshot-collection-value.yml`). Re-running the same day just keeps that day's row current.
+- Value computation deliberately mirrors `getMarketValue()` in `src/lib/marketValue.js` exactly (same bucket-fallback chain, same cover-price floor) — duplicated rather than imported because that file pulls in a `@/` path alias that doesn't resolve from a raw Node script, same constraint as `ebayTitleParser.js`. Keep both in sync if the valuation logic changes.
+- RLS: owner-only `SELECT` for now. Written only via the service-role key (bypasses RLS), so no write policy needed.
+- Exists to feed a value-over-time graph on `/library` / `/u/[username]` (Phase 3 roadmap item) — the graph UI itself isn't built yet as of this writing. The table has to run for a while before that graph is worth showing; there's no way to backfill history, so this started running before the UI that will consume it.
 
 ### Storage buckets
 - `comic-covers` — user-submitted covers via `comic_covers.image_path`. Also where per-library-item user photos will live (under `library/<collection_id>.<ext>` once the migration lands).

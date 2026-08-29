@@ -10263,5 +10263,19 @@
         "start_year": 1998
       }
     ]
+  },
+  {
+    "name": "Rogue Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22050,
+        "name": "Rogue Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ]
   }
 ]

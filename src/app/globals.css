@@ -9554,10 +9554,16 @@ button.nav-link {
   display: block;
 }
 
+/* Was a near-invisible 4%-white gradient — on a near-black page that reads
+ * as "nothing rendered" even when it's the intentional no-cover-yet state,
+ * not a bug. Branded gold tint instead, matching .comic-card-cover's own
+ * empty-state treatment elsewhere, so a real gap in cover coverage looks
+ * like a deliberate placeholder rather than a broken tile. */
 .series-row-thumb-empty {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  background: linear-gradient(135deg, rgba(216,176,75,0.14), rgba(9,12,17,0.5));
+  border: 1px solid rgba(216,176,75,0.18);
 }
 
 .series-row-body {

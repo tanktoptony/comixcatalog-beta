@@ -104,7 +104,13 @@ export default async function PublicProfilePage({ params }) {
   // ownedItems already IS newest-first — no extra sort needed here. Overlap
   // with Top Shelf is fine and expected (a just-added grail should show up
   // in both); this section is about recency, not exclusivity.
-  const recentlyAdded = ownedItems.filter((item) => item.display).slice(0, 8);
+  //
+  // 6, not 8 — .profile-top-shelf-grid is `auto-fill, minmax(140px, 1fr)`
+  // with no fixed column count, so at normal desktop widths it renders 7
+  // columns. 8 items left a lonely single card stranded on its own second
+  // row. 6 fits inside that first row with room to spare regardless of
+  // count-per-row, so there's no orphan.
+  const recentlyAdded = ownedItems.filter((item) => item.display).slice(0, 6);
 
   const joinDate = formatJoinDate(profile.created_at);
   const avatarSrc = profile.avatar_url

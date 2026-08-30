@@ -8,6 +8,32 @@ function parseYear(value) {
   return match ? Number(match[0]) : null;
 }
 
+// PostgREST silently caps any unpaginated response at 1000 rows. A single
+// series' cover query stays well under that, but a real collection's full
+// hydration batch spans dozens of series at once — combined that easily
+// exceeds 1000 canonical_covers rows, and whichever series lose the
+// truncation coin flip silently lose their covers. This bit
+// refreshSeriesSearchCache.js and /api/public-profile's cover fetch before
+// (both fixed the same way); library-hydrate never got the fix, which is
+// why the SET of "missing" covers shifted between checks — it wasn't the
+// same comics each time, it was whichever ones got truncated out that
+// request. Found + fixed 2026-08-30 by reproducing a full-collection batch
+// request directly against prod.
+async function fetchAllPages(buildQuery) {
+  const PAGE = 1000;
+  const all = [];
+  let from = 0;
+  for (;;) {
+    const { data, error } = await buildQuery().range(from, from + PAGE - 1);
+    if (error) throw error;
+    if (!data || data.length === 0) break;
+    all.push(...data);
+    if (data.length < PAGE) break;
+    from += PAGE;
+  }
+  return all;
+}
+
 // publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
 // approximation) fills most of that gap. Without this fallback a library item
 // shows "Unknown" year ~⅔ of the time AND loses its cover (the year-aware
@@ -48,20 +74,32 @@ export async function POST(req) {
 
     const items = {};
 
-    const [localResult, gcdIssuesResult] = await Promise.all([
+    // A large collection's first hydration (empty cache) can send well over
+    // 1000 missing ids in one batch — paginate these too, not just the
+    // cover fan-out queries below, so a big library doesn't silently lose
+    // its tail past whichever id the 1000-row cap lands on.
+    const [localData, gcdIssuesData] = await Promise.all([
       comicIds.length > 0
-        ? supabase
-            .from("comics")
-            .select("id, series_title, publisher, issue_number, release_year, comic_covers(image_path, is_primary)")
-            .in("id", comicIds)
-        : { data: [] },
+        ? fetchAllPages(() =>
+            supabase
+              .from("comics")
+              .select("id, series_title, publisher, issue_number, release_year, comic_covers(image_path, is_primary)")
+              .in("id", comicIds)
+              .order("id")
+          )
+        : [],
       gcdIds.length > 0
-        ? supabase
-            .from("gcd_issues")
-            .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
-            .in("gcd_id", gcdIds)
-        : { data: [] },
+        ? fetchAllPages(() =>
+            supabase
+              .from("gcd_issues")
+              .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
+              .in("gcd_id", gcdIds)
+              .order("gcd_id")
+          )
+        : [],
     ]);
+    const localResult = { data: localData };
+    const gcdIssuesResult = { data: gcdIssuesData };
 
     // ── Local comics — canonical cover lookup ──
     const localComics = localResult.data ?? [];
@@ -73,14 +111,17 @@ export async function POST(req) {
       const localCoversByKey = new Map();
 
       if (localSeriesTitles.length > 0 && localIssueNumbers.length > 0) {
-        const { data: localCovers } = await supabase
-          .from("canonical_covers")
-          .select("series_title, issue_number, series_year, cover_date, storage_path")
-          .in("series_title", localSeriesTitles)
-          .in("issue_number", localIssueNumbers)
-          .not("storage_path", "is", null);
+        const localCovers = await fetchAllPages(() =>
+          supabase
+            .from("canonical_covers")
+            .select("series_title, issue_number, series_year, cover_date, storage_path")
+            .in("series_title", localSeriesTitles)
+            .in("issue_number", localIssueNumbers)
+            .not("storage_path", "is", null)
+            .order("id")
+        );
 
-        for (const c of localCovers ?? []) {
+        for (const c of localCovers) {
           const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
           if (!localCoversByKey.has(key)) localCoversByKey.set(key, []);
           localCoversByKey.get(key).push(c);
@@ -224,22 +265,25 @@ export async function POST(req) {
       // and let the title-based fallback do the work. Once the migration
       // lands and backfill runs, this becomes the primary path for everyone.
       if (intermediateGcdIds.length > 0 && issueNumbers.length > 0) {
-        const { data: covers, error } = await supabase
-          .from("canonical_covers")
-          .select("series_gcd_id, series_title, issue_number, series_year, cover_date, storage_path")
-          .in("series_gcd_id", intermediateGcdIds)
-          .in("issue_number", issueNumbers)
-          .not("storage_path", "is", null);
-
-        if (!error) {
-          for (const c of covers ?? []) {
+        try {
+          const covers = await fetchAllPages(() =>
+            supabase
+              .from("canonical_covers")
+              .select("series_gcd_id, series_title, issue_number, series_year, cover_date, storage_path")
+              .in("series_gcd_id", intermediateGcdIds)
+              .in("issue_number", issueNumbers)
+              .not("storage_path", "is", null)
+              .order("id")
+          );
+          for (const c of covers) {
             const key = `${c.series_gcd_id}::${norm(c.issue_number)}`;
             if (!coversById.has(key)) coversById.set(key, []);
             coversById.get(key).push(c);
           }
+        } catch {
+          // column missing pre-migration, or transient PG hiccup — either
+          // way the title fallback below handles it.
         }
-        // error path: column missing pre-migration, or transient PG hiccup.
-        // Either way the title fallback below handles it.
       }
 
       // Title-string lookup. Used unconditionally as the fallback. We do NOT
@@ -249,14 +293,17 @@ export async function POST(req) {
       // is harmless because the per-row resolver below prefers the
       // coversById map first; the title map only fills gaps.
       if (seriesTitles.length > 0 && issueNumbers.length > 0) {
-        const { data: covers } = await supabase
-          .from("canonical_covers")
-          .select("series_title, issue_number, series_year, cover_date, storage_path")
-          .in("series_title", seriesTitles)
-          .in("issue_number", issueNumbers)
-          .not("storage_path", "is", null);
+        const covers = await fetchAllPages(() =>
+          supabase
+            .from("canonical_covers")
+            .select("series_title, issue_number, series_year, cover_date, storage_path")
+            .in("series_title", seriesTitles)
+            .in("issue_number", issueNumbers)
+            .not("storage_path", "is", null)
+            .order("id")
+        );
 
-        for (const c of covers ?? []) {
+        for (const c of covers) {
           const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
           if (!coversByTitle.has(key)) coversByTitle.set(key, []);
           coversByTitle.get(key).push(c);

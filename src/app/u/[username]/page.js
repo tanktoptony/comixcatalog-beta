@@ -93,9 +93,24 @@ export default async function PublicProfilePage({ params }) {
     const v = Number(item.market_value);
     if (!Number.isNaN(v) && v > 0) collectionValue += v;
   }
+  // Top Shelf isn't price-only — see key_issues table (migration 0026) and
+  // CLAUDE.md's caveat that our current auto_market_value comes from eBay
+  // *listing* prices, not confirmed sales. A curated key issue (1st
+  // appearance, major death) belongs here even if the market hasn't caught
+  // up to it yet, or comps just haven't landed. Ranking: any key issue
+  // outranks any non-key issue regardless of price, mega-keys (tier 1)
+  // outrank well-known keys (tier 2), and value breaks remaining ties.
+  const topShelfScore = (item) => {
+    const value = Number(item.market_value) || 0;
+    if (item.key_issue) {
+      const tierBonus = item.key_issue.tier === 1 ? 2_000_000 : 1_000_000;
+      return tierBonus + value;
+    }
+    return value;
+  };
   const topShelf = ownedItems
-    .filter((item) => item.display && Number(item.market_value) > 0)
-    .sort((a, b) => Number(b.market_value) - Number(a.market_value))
+    .filter((item) => item.display && (item.key_issue || Number(item.market_value) > 0))
+    .sort((a, b) => topShelfScore(b) - topShelfScore(a))
     .slice(0, 5);
 
   // Recently Added — "default to the last 5-10 books collected" on the
@@ -237,7 +252,11 @@ export default async function PublicProfilePage({ params }) {
                 <Link key={item.id} href={d.href} className="profile-top-shelf-card">
                   <div className="profile-top-shelf-cover">
                     <img src={topShelfCoverUrl(d)} alt={d.title} />
-                    {item.slab_company && item.grade_numeric ? (
+                    {item.key_issue ? (
+                      <span className="profile-key-badge" title={item.key_issue.reason}>
+                        KEY
+                      </span>
+                    ) : item.slab_company && item.grade_numeric ? (
                       <span className="profile-grade-badge">
                         {item.slab_company} {Number(item.grade_numeric).toFixed(1)}
                       </span>
@@ -247,9 +266,17 @@ export default async function PublicProfilePage({ params }) {
                     {d.title}
                     {d.issueNumber ? ` #${d.issueNumber}` : ""}
                   </div>
-                  <div className="profile-top-shelf-value">
-                    {formatCurrency(Number(item.market_value))}
-                  </div>
+                  {/* A key issue with no price yet (no comps, nothing
+                      user-priced) still needs a caption — "$0" would read as
+                      broken. Show why it's here instead; once it does have a
+                      real value, the price takes over as more useful info. */}
+                  {Number(item.market_value) > 0 ? (
+                    <div className="profile-top-shelf-value">
+                      {formatCurrency(Number(item.market_value))}
+                    </div>
+                  ) : item.key_issue ? (
+                    <div className="profile-recent-added-caption">{item.key_issue.reason}</div>
+                  ) : null}
                 </Link>
               );
             })}

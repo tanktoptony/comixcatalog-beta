@@ -113,6 +113,25 @@ export async function GET(req) {
     ),
   ];
 
+  // Key-issue lookup (migration 0026) — "featured" shouldn't be price-only,
+  // see keyIssuesSeed.js. A tiny reference table, cheap to check per-request
+  // rather than caching; revisit if this profile route ever needs to shed
+  // round-trips.
+  const keyIssueLookup = {};
+  if (gcdIds.length > 0) {
+    const { data: keyIssues } = await supabase
+      .from("key_issues")
+      .select("gcd_issue_id, character, reason, tier")
+      .in("gcd_issue_id", gcdIds);
+    for (const row of keyIssues ?? []) {
+      keyIssueLookup[row.gcd_issue_id] = {
+        character: row.character,
+        reason: row.reason,
+        tier: row.tier,
+      };
+    }
+  }
+
   const gcdDisplayLookup = {};
 
   if (gcdIds.length > 0) {
@@ -385,7 +404,7 @@ export async function GET(req) {
           // Keep coverUrl pointing at the canonical (already set in the GCD
           // lookup) so existing UI keeps rendering as before.
         };
-        return { ...item, display };
+        return { ...item, display, key_issue: keyIssueLookup[item.gcd_issue_id] ?? null };
       }
 
       const comic = item.comics;

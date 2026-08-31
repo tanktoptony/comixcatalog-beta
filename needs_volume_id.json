@@ -10583,5 +10583,19 @@
         "start_year": 1985
       }
     ]
+  },
+  {
+    "name": "Marvel Dabel Brothers Sampler",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63620,
+        "name": "Marvel Dabel Brothers Sampler",
+        "publisher": "Dabel Brothers Productions",
+        "start_year": 2006
+      }
+    ]
   }
 ]

@@ -10,14 +10,14 @@
     "year": 2023
   },
   {
+    "name": "Marvel Tales",
+    "publisher": "Marvel Comics",
+    "year": 1966
+  },
+  {
     "name": "The Spectacular Spider-Man",
     "publisher": "Marvel Comics",
     "year": 1976
-  },
-  {
-    "name": "Teenage Mutant Ninja Turtles",
-    "publisher": "Mirage Studios",
-    "year": 1984
   },
   {
     "name": "G.I. Joe Comics Magazine",
@@ -50,19 +50,24 @@
     "year": 1957
   },
   {
+    "name": "Daredevil",
+    "publisher": "Marvel Comics",
+    "year": 1964
+  },
+  {
     "name": "Batman",
     "publisher": "DC Comics",
     "year": 1940
   },
   {
-    "name": "Saga",
-    "publisher": "Image Comics",
-    "year": 2012
-  },
-  {
     "name": "Spider-Man",
     "publisher": "Marvel Comics",
     "year": 1990
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles",
+    "publisher": "Mirage Studios",
+    "year": 1984
   },
   {
     "name": "The Amazing Spider-Man",
@@ -85,14 +90,14 @@
     "year": 2022
   },
   {
-    "name": "Immortal Hulk",
-    "publisher": "Marvel Comics",
-    "year": 2018
-  },
-  {
     "name": "Spider-Man",
     "publisher": "Marvel Comics",
     "year": 2022
+  },
+  {
+    "name": "Immortal Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2018
   },
   {
     "name": "Venom",
@@ -205,19 +210,9 @@
     "year": 1992
   },
   {
-    "name": "The Walking Dead",
-    "publisher": "Image Comics",
-    "year": 2003
-  },
-  {
     "name": "Fantastic Four",
     "publisher": "Marvel Comics",
     "year": 2022
-  },
-  {
-    "name": "Monstress",
-    "publisher": "Image Comics",
-    "year": 2015
   },
   {
     "name": "Nightwing",
@@ -225,14 +220,9 @@
     "year": 2016
   },
   {
-    "name": "Sonic the Hedgehog",
-    "publisher": "IDW Publishing",
-    "year": 2018
-  },
-  {
-    "name": "Star Wars: Darth Vader",
-    "publisher": "Marvel Comics",
-    "year": 2020
+    "name": "The Walking Dead",
+    "publisher": "Image Comics",
+    "year": 2003
   },
   {
     "name": "Watchmen",

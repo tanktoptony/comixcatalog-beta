@@ -10265,11 +10265,32 @@ button.nav-link {
 }
 
 /* Founding Collector campaign */
-.founding-banner { background: linear-gradient(90deg, #f4d03f, #ffbd4a, #f4d03f); color: #09142e; border-bottom: 1px solid rgba(0,0,0,.18); }
-.founding-banner-inner { max-width: 1280px; margin: auto; padding: 8px clamp(1rem,3vw,2rem); display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
-.founding-banner-count { background: #09142e; color: #f4d03f; border-radius: 999px; min-width: 38px; padding: 5px 10px; text-align: center; font-weight: 900; }
+/* Was a flat yellow-orange-yellow marquee gradient — read as a cheap
+   coupon-site banner against the rest of the site's dark-surface-plus-gold-
+   accent language (profile hero, key badges, nav). Dark ground with a gold
+   top hairline and a glowing gold count pill matches that language instead
+   of fighting it. */
+.founding-banner {
+  background: linear-gradient(180deg, rgba(20,26,15,0.98), rgba(9,12,10,0.98));
+  color: #f4e9c8;
+  border-bottom: 1px solid rgba(244,208,63,0.35);
+  box-shadow: 0 1px 0 rgba(244,208,63,0.12), inset 0 1px 0 rgba(244,208,63,0.5);
+}
+.founding-banner-inner { max-width: 1280px; margin: auto; padding: 9px clamp(1rem,3vw,2rem); display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.founding-banner-count {
+  background: radial-gradient(circle at 35% 30%, #ffe9a8, #f4d03f 65%);
+  color: #14100a;
+  border-radius: 999px;
+  min-width: 38px;
+  padding: 5px 10px;
+  text-align: center;
+  font-weight: 900;
+  box-shadow: 0 0 12px rgba(244,208,63,0.4);
+}
 .founding-banner p { margin: 0; font-size: .9rem; }
-.founding-banner-cta { color: #09142e; font-weight: 900; text-decoration: underline; text-underline-offset: 3px; }
+.founding-banner p strong { color: #f4d03f; }
+.founding-banner-cta { color: #14100a; background: #f4d03f; font-weight: 800; padding: 4px 12px; border-radius: 4px; text-decoration: none; }
+.founding-banner-cta:hover { background: #ffe082; }
 .founding-page { max-width: 920px; margin: 0 auto; padding: clamp(2rem,6vw,5rem) 1rem; }
 .founding-page .section-label.badge-x {
   display: inline-block;

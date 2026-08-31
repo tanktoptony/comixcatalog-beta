@@ -10265,32 +10265,31 @@ button.nav-link {
 }
 
 /* Founding Collector campaign */
-/* Was a flat yellow-orange-yellow marquee gradient — read as a cheap
-   coupon-site banner against the rest of the site's dark-surface-plus-gold-
-   accent language (profile hero, key badges, nav). Dark ground with a gold
-   top hairline and a glowing gold count pill matches that language instead
-   of fighting it. */
+/* v1 was a flat yellow-orange-yellow marquee gradient. v2 tried to make it
+   "premium" with a dark gradient + a glowing pill + a filled button, but
+   the gradient's hue (olive-tinted) didn't match the site's actual header
+   (rgba(9,12,17) — blue-black, no green), and the filled shapes (pill,
+   button) made the whole strip read as one more hard-edged colored block
+   stacked on the header below it. Fixed by dropping the gradient for the
+   exact flat header color (no visible seam, one continuous surface) and
+   dropping the filled shapes for plain gold text + an underline-on-hover
+   link — closer to how Discogs' own site chrome reads: quiet ground,
+   confident but unboxed type. */
 .founding-banner {
-  background: linear-gradient(180deg, rgba(20,26,15,0.98), rgba(9,12,10,0.98));
-  color: #f4e9c8;
-  border-bottom: 1px solid rgba(244,208,63,0.35);
-  box-shadow: 0 1px 0 rgba(244,208,63,0.12), inset 0 1px 0 rgba(244,208,63,0.5);
+  background: rgb(9,12,17);
+  color: #cbd0dc;
+  border-bottom: 1px solid rgba(216,176,75,0.2);
 }
-.founding-banner-inner { max-width: 1280px; margin: auto; padding: 9px clamp(1rem,3vw,2rem); display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.founding-banner-inner { max-width: 1280px; margin: auto; padding: 10px clamp(1rem,3vw,2rem); display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
 .founding-banner-count {
-  background: radial-gradient(circle at 35% 30%, #ffe9a8, #f4d03f 65%);
-  color: #14100a;
-  border-radius: 999px;
-  min-width: 38px;
-  padding: 5px 10px;
-  text-align: center;
-  font-weight: 900;
-  box-shadow: 0 0 12px rgba(244,208,63,0.4);
+  color: #d8b04b;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
 }
-.founding-banner p { margin: 0; font-size: .9rem; }
-.founding-banner p strong { color: #f4d03f; }
-.founding-banner-cta { color: #14100a; background: #f4d03f; font-weight: 800; padding: 4px 12px; border-radius: 4px; text-decoration: none; }
-.founding-banner-cta:hover { background: #ffe082; }
+.founding-banner p { margin: 0; font-size: .85rem; }
+.founding-banner p strong { color: #f4e3ae; font-weight: 600; }
+.founding-banner-cta { color: #d8b04b; font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(216,176,75,0.4); padding-bottom: 1px; }
+.founding-banner-cta:hover { color: #f4d03f; border-bottom-color: #f4d03f; }
 .founding-page { max-width: 920px; margin: 0 auto; padding: clamp(2rem,6vw,5rem) 1rem; }
 .founding-page .section-label.badge-x {
   display: inline-block;
@@ -10420,7 +10419,16 @@ button.nav-link {
 
 .profile-top-shelf-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  /* auto-fill + 1fr tracks always creates as many columns as fit the
+     container, whether or not there's a card to put in each one — a row
+     short of a full house (6 cards where 7 fit) left a phantom empty
+     column eating the row's right side, reading as left-aligned rather
+     than balanced. auto-fit collapses the empty column instead of
+     reserving it, and a capped max (vs. unbounded 1fr) plus
+     justify-content keeps a partial row centered instead of stretching
+     the remaining cards to fill the gap. */
+  grid-template-columns: repeat(auto-fit, minmax(140px, 180px));
+  justify-content: center;
   gap: 16px;
 }
 

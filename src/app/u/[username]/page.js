@@ -120,12 +120,13 @@ export default async function PublicProfilePage({ params }) {
   // with Top Shelf is fine and expected (a just-added grail should show up
   // in both); this section is about recency, not exclusivity.
   //
-  // 6, not 8 — .profile-top-shelf-grid is `auto-fill, minmax(140px, 1fr)`
-  // with no fixed column count, so at normal desktop widths it renders 7
-  // columns. 8 items left a lonely single card stranded on its own second
-  // row. 6 fits inside that first row with room to spare regardless of
-  // count-per-row, so there's no orphan.
-  const recentlyAdded = ownedItems.filter((item) => item.display).slice(0, 6);
+  // 7 — matches the column count .profile-top-shelf-grid renders at normal
+  // desktop widths, so a full set fills the row exactly. (Previously 6 to
+  // dodge a lonely orphan card on a second row when 8 spilled past 7
+  // columns; the grid itself now self-balances a short row via
+  // auto-fit + justify-content instead of leaving a phantom empty column,
+  // so this number no longer has to be conservative to look right.)
+  const recentlyAdded = ownedItems.filter((item) => item.display).slice(0, 7);
 
   const joinDate = formatJoinDate(profile.created_at);
   const avatarSrc = profile.avatar_url

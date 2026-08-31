@@ -2754,12 +2754,24 @@ input[type="file"] {
  * a settings panel. */
 .profile-hero-panel {
   position: relative;
+  /* Full-bleed: .profile-page caps at max-width:1280px with its own
+     padding, and this panel was rendering as a normal-flow child of
+     that box — its dark background + border-bottom only ever covered
+     the inset content column, not the viewport, on anything wider than
+     1280px (which is most desktops). The header and founding-banner
+     already do the "full-width outer strip, max-width inner content"
+     split; this panel was missing that split entirely. html/body's
+     global overflow-x:hidden (top of this file) makes the 100vw trick
+     safe against the scrollbar-width edge case. */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   padding: 2.5rem 0 2rem;
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255,255,255,0.07);
   /* No overflow:hidden — the panel has zero horizontal padding of its
-     own (relies on .profile-page's), so the avatar's decorative glow
-     (box-shadow blur radius ~60px) sits well within that hard clip
+     own (relies on .profile-hero's, below), so the avatar's decorative
+     glow (box-shadow blur radius ~60px) sits well within that hard clip
      boundary and gets cut on the left, on top of/independent from the
      ambient ::before gradient. The gradient below is already tuned to
      fade to transparent before it would reach this edge anyway (see its
@@ -2797,6 +2809,12 @@ input[type="file"] {
 
 .profile-hero {
   position: relative;
+  /* Matches .profile-page's own max-width/padding so content lines up
+     with everything below it, now that .profile-hero-panel itself
+     bleeds full-width for its background. */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 2.5rem);
   display: flex;
   gap: 2rem;
   align-items: center;

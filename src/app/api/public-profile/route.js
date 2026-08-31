@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getAuthedUser } from "@/lib/authServer";
+import { getMarketValuesBulk } from "@/lib/marketValue";
 
 function parseYear(value) {
   if (!value) return null;
@@ -465,9 +466,43 @@ export async function GET(req) {
     })
     .filter(Boolean);
 
+  // market_value straight off the row is the USER's manual override —
+  // almost nobody sets one, so without this it's null for nearly every
+  // item and the Collection Value plaque / Top Shelf / stats strip all
+  // read as $0 regardless of real auto-priced value. /api/library-hydrate
+  // already resolves this the right way (getMarketValuesBulk against
+  // market_comps, same grade-bucket + cover-price-floor chain as
+  // getMarketValue()); this route just never called it. Found live
+  // 2026-08-31 comparing a real profile against a design mockup that
+  // happened to include the plaque with real numbers, which the actual
+  // page wasn't producing for any auto-priced item.
+  const gradeSignals = normalizedCollection
+    .filter((item) => item.status === "owned" && item.gcd_issue_id != null)
+    .map((item) => ({
+      collection_id: item.id,
+      gcd_issue_id: item.gcd_issue_id,
+      grade_numeric: item.grade_numeric,
+      slab_company: item.slab_company,
+      condition: item.condition,
+      release_year: item.display?.year ?? null,
+    }));
+
+  let autoValueByCollectionId = new Map();
+  if (gradeSignals.length > 0) {
+    autoValueByCollectionId = await getMarketValuesBulk({ supabase, items: gradeSignals });
+  }
+
+  const pricedCollection = normalizedCollection.map((item) => {
+    const existing = Number(item.market_value);
+    if (!Number.isNaN(existing) && existing > 0) return item; // user override wins
+    const auto = autoValueByCollectionId.get(item.id);
+    if (auto?.value > 0) return { ...item, market_value: auto.value };
+    return item;
+  });
+
   // Apply per-section privacy. Owners see everything. Non-owners get items
   // filtered by status, and value fields zeroed out if show_value is off.
-  const visibleCollection = normalizedCollection
+  const visibleCollection = pricedCollection
     .filter((item) => {
       if (item.status === "owned" && !visibility.collection) return false;
       if (item.status === "wishlist" && !visibility.wantlist) return false;

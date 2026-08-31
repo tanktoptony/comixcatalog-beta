@@ -9977,76 +9977,6 @@
     ]
   },
   {
-    "name": "The King Is a Fink",
-    "publisher": "Fawcett Comics",
-    "year": 1969,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 87727,
-        "name": "King Is a Fink",
-        "publisher": "Coronet Books",
-        "start_year": 1972
-      }
-    ]
-  },
-  {
-    "name": "Archie Meets the Punisher",
-    "publisher": "Archie Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22522,
-        "name": "Archie Meets the Punisher",
-        "publisher": "Marvel",
-        "start_year": 1994
-      }
-    ]
-  },
-  {
-    "name": "The Original Sad Sack",
-    "publisher": "Harvey Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 33345,
-        "name": "Original Sad Sack",
-        "publisher": "Lorne-Harvey",
-        "start_year": 1991
-      }
-    ]
-  },
-  {
-    "name": "30 Days of Night Annual 2004",
-    "publisher": "IDW Publishing",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 111088,
-        "name": "30 days of night: Annual 2004",
-        "publisher": "Infinity Verlag",
-        "start_year": 2005
-      }
-    ]
-  },
-  {
-    "name": "Deicide",
-    "publisher": "DC Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 51211,
-        "name": "Deicide",
-        "publisher": "Humanoids",
-        "start_year": 2002
-      }
-    ]
-  },
-  {
     "name": "Space Ghost",
     "publisher": "Dynamite Entertainment",
     "year": 1967,
@@ -10063,20 +9993,6 @@
         "name": "Space Ghost",
         "publisher": "Dynamite Entertainment",
         "start_year": 2025
-      }
-    ]
-  },
-  {
-    "name": "Little White Mouse: Entropy Dreaming",
-    "publisher": "Caliber Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 40096,
-        "name": "Little White Mouse: Entropy Dreaming",
-        "publisher": null,
-        "start_year": null
       }
     ]
   },
@@ -10237,76 +10153,6 @@
     ]
   },
   {
-    "name": "Citizen V Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22045,
-        "name": "Citizen V Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ]
-  },
-  {
-    "name": "Thor Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22055,
-        "name": "Thor Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ]
-  },
-  {
-    "name": "Rogue Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22050,
-        "name": "Rogue Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ]
-  },
-  {
-    "name": "The Rocketeer Adventure Magazine",
-    "publisher": "Dark Horse Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 4120,
-        "name": "The Rocketeer Adventure Magazine",
-        "publisher": "Comico",
-        "start_year": 1988
-      }
-    ]
-  },
-  {
-    "name": "War Heroes Classics",
-    "publisher": "Harvey Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64857,
-        "name": "War Heroes Classics",
-        "publisher": "Lorne-Harvey",
-        "start_year": 1991
-      }
-    ]
-  },
-  {
     "name": "Juggernaut",
     "publisher": "Marvel Comics",
     "year": 1999,
@@ -10363,48 +10209,6 @@
         "name": "Vengeance of Vampirella",
         "publisher": "Dynamite Entertainment",
         "start_year": 2021
-      }
-    ]
-  },
-  {
-    "name": "King Leonardo and His Short Subjects",
-    "publisher": "Dell Comics",
-    "year": 1962,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 43127,
-        "name": "King Leonardo and His Short Subjects",
-        "publisher": "Western Publishing",
-        "start_year": 1962
-      }
-    ]
-  },
-  {
-    "name": "Kamui",
-    "publisher": "Eclipse Comics",
-    "year": 1987,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 66281,
-        "name": "Kamui",
-        "publisher": "Broccoli Books",
-        "start_year": 2005
-      }
-    ]
-  },
-  {
-    "name": "Crimson Skies",
-    "publisher": "Top Cow Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62151,
-        "name": "Crimson Skies",
-        "publisher": "Image",
-        "start_year": 2000
       }
     ]
   }

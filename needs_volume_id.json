@@ -10597,5 +10597,115 @@
         "start_year": 2006
       }
     ]
+  },
+  {
+    "name": "The Killer",
+    "publisher": "Archaia",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 22655,
+        "name": "The Killer",
+        "publisher": "Archaia",
+        "start_year": 2006
+      },
+      {
+        "id": 65785,
+        "name": "The Killer",
+        "publisher": "Archaia",
+        "start_year": 2007
+      },
+      {
+        "id": 124983,
+        "name": "The Killer",
+        "publisher": "Archaia",
+        "start_year": 2007
+      }
+    ]
+  },
+  {
+    "name": "Western Gunfighters",
+    "publisher": "Marvel Comics",
+    "year": 1958,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2479,
+        "name": "Western Gunfighters",
+        "publisher": "Marvel",
+        "start_year": 1970
+      },
+      {
+        "id": 1797,
+        "name": "Western Gunfighters",
+        "publisher": "Marvel",
+        "start_year": 1956
+      }
+    ]
+  },
+  {
+    "name": "The Flintstones and Friends",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 128686,
+        "name": "The Flintstones and Friends",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1988
+      }
+    ]
+  },
+  {
+    "name": "Horizon",
+    "publisher": "DC Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88598,
+        "name": "Horizon",
+        "publisher": "Borderline Press",
+        "start_year": 2016
+      },
+      {
+        "id": 161135,
+        "name": "The Horizon",
+        "publisher": "Kibook Ediciones",
+        "start_year": 2023
+      },
+      {
+        "id": 67298,
+        "name": "Horizon",
+        "publisher": "Arboris",
+        "start_year": 1997
+      },
+      {
+        "id": 55336,
+        "name": "Horizon",
+        "publisher": "self published",
+        "start_year": 2012
+      },
+      {
+        "id": 170415,
+        "name": "The Horizon",
+        "publisher": "Cross Cult",
+        "start_year": 2026
+      },
+      {
+        "id": 92183,
+        "name": "Horizon",
+        "publisher": "Image",
+        "start_year": 2016
+      },
+      {
+        "id": 156446,
+        "name": "The Horizon",
+        "publisher": "Ultra Media",
+        "start_year": 2020
+      }
+    ]
   }
 ]

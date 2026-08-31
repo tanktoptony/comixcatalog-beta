@@ -1,0 +1,36 @@
+name: Cron watchdog
+
+# GitHub Actions' `schedule:` trigger has silently failed to fire on this
+# repo four separate times now (Instagram, cover-ingest, and now
+# weekly-refresh/gap-probe on 2026-08-31 — the cover-ingest pipeline ran dry
+# because its weekly gap-list regeneration just didn't fire, and the health
+# check correctly flagged it as a real stall). Rather than re-discovering
+# and re-patching this per workflow, this runs frequently and cheaply
+# (a couple of API calls, no checkout) and force-triggers any watched
+# workflow whose last success is older than its expected cadence + a grace
+# window. See scripts/cronWatchdog.js for the actual check.
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/cronWatchdog.js
+          sparse-checkout-cone-mode: false
+
+      - name: Check watched workflows and re-trigger if overdue
+        run: node scripts/cronWatchdog.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}

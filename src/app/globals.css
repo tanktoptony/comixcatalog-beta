@@ -2774,7 +2774,16 @@ input[type="file"] {
      fade's math — distance-to-edge vs. fade-complete-radius — true at
      any panel width, not just the one size this was eyeballed against.
   */
-  background: radial-gradient(ellipse 45% 70% at 18% 0%, rgba(216,176,75,0.16), transparent 60%);
+  /* Second, subtler glow at lower-right for depth — its bottom/right
+     falloff lands on the panel's own natural edges (hero section ends
+     there regardless), so no containment math needed on that side; only
+     the horizontal distance-to-edge-vs-fade-radius check from the primary
+     glow's comment applies (85% position, 20% half-width, 65% stop =
+     13% fade-complete radius, well inside the 15% distance to the right
+     edge). */
+  background:
+    radial-gradient(ellipse 45% 70% at 18% 0%, rgba(216,176,75,0.16), transparent 60%),
+    radial-gradient(ellipse 40% 60% at 85% 90%, rgba(198,89,45,0.08), transparent 65%);
   pointer-events: none;
 }
 
@@ -2795,13 +2804,13 @@ input[type="file"] {
    AVATAR
 ------------------------------ */
 .profile-avatar img {
-  width: 132px;
-  height: 132px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   border: 3px solid rgba(244, 208, 63, 0.85);
-  box-shadow: 0 0 0 6px rgba(244,208,63,0.08), 0 0 40px rgba(244,208,63,0.22);
+  box-shadow: 0 0 0 8px rgba(216,176,75,0.09), 0 0 60px rgba(216,176,75,0.32);
   flex-shrink: 0;
-  max-width: 132px;
+  max-width: 140px;
 }
 
 @media (max-width: 640px) {
@@ -2823,6 +2832,7 @@ input[type="file"] {
   color: #fff;
   overflow-wrap: break-word;
   margin: 0;
+  text-shadow: 0 0 34px rgba(244,208,63,0.22);
 }
 
 /* -----------------------------
@@ -2885,13 +2895,14 @@ input[type="file"] {
   align-items: center;
   padding: 8px 16px;
   border-radius: 999px;
-  background: var(--x-gold);
-  color: #000;
-  font-weight: 600;
+  background: linear-gradient(135deg, #f4d03f, #d8a63a);
+  color: #14100a;
+  font-weight: 700;
   font-size: 0.85rem;
   line-height: 1.2;
-  border: 1px solid var(--x-gold);
+  border: none;
   cursor: pointer;
+  box-shadow: 0 4px 18px rgba(216,176,75,0.35);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -6505,16 +6516,11 @@ button.nav-link {
   white-space: nowrap;
 }
 
-.profile-badge.founding {
-  background: linear-gradient(135deg, #f4d03f 0%, #d4a017 100%);
-  color: #0b1238;
-  box-shadow: 0 1px 6px rgba(244, 208, 63, 0.35);
-}
-
+.profile-badge.founding,
 .profile-badge.pro {
-  background: rgba(244, 208, 63, 0.15);
+  background: linear-gradient(135deg, #2a2110, #161008);
   color: #f4d03f;
-  border: 1px solid rgba(244, 208, 63, 0.5);
+  border: 1px solid rgba(216,176,75,0.4);
 }
 
 .profile-actions {
@@ -10396,6 +10402,7 @@ button.nav-link {
   color: var(--cc-gold, #d8b04b);
   line-height: 1.15;
   margin-top: 2px;
+  text-shadow: 0 0 24px rgba(244,208,63,0.25);
 }
 
 .profile-value-plaque-meta {

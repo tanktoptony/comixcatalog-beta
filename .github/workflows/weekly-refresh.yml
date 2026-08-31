@@ -13,6 +13,21 @@ on:
     - cron: '0 9 * * 1'
   workflow_dispatch: {}
 
+# Found live 2026-08-31: GitHub's schedule trigger doesn't just sometimes
+# skip firing entirely (see cron-watchdog.yml) — it can also fire hours
+# late. That late run overlapped with an already-completed manual dispatch
+# of this SAME workflow, and both had independently regenerated the same
+# four gap-*.json files. The rebase-before-push fix in the commit step
+# (added same day, for a DIFFERENT collision — this workflow vs
+# gap-probe.yml, which touch disjoint files) can't cleanly resolve two
+# runs of the SAME workflow rewriting the SAME files; that produced a real
+# merge conflict, not just a fast-forward. A concurrency group is the
+# correct fix for that case: GitHub queues a second trigger behind an
+# in-progress run instead of letting both run at once.
+concurrency:
+  group: weekly-refresh
+  cancel-in-progress: false
+
 # GitHub defaults the GITHUB_TOKEN to read-only since 2023. The "commit gap
 # targets if changed" step pushes regenerated gap-*.json files back to main
 # — needs explicit contents:write or the job dies with HTTP 403 (exit 128).

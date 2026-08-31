@@ -23,6 +23,15 @@ on:
     - cron: '0 8 * * 1'
   workflow_dispatch: {}
 
+# Same reasoning as weekly-refresh.yml's concurrency group: a late-firing
+# schedule trigger can overlap a manual dispatch of this same workflow,
+# and two runs both rewriting gap-manual.json/gap-pinned.json/
+# needs_volume_id.json produces a real merge conflict, not just a
+# fast-forward the rebase-before-push step below can resolve.
+concurrency:
+  group: gap-probe
+  cancel-in-progress: false
+
 permissions:
   contents: write
 

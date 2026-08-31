@@ -10707,5 +10707,31 @@
         "start_year": 2020
       }
     ]
+  },
+  {
+    "name": "Marvel Special",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127454,
+        "name": "Marvel Special",
+        "publisher": "JuniorPress BV",
+        "start_year": 1981
+      },
+      {
+        "id": 150232,
+        "name": "Marvel Special",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      },
+      {
+        "id": 125198,
+        "name": "Marvel Special",
+        "publisher": "Panini Comics",
+        "start_year": 2012
+      }
+    ]
   }
 ]

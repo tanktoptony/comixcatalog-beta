@@ -10407,5 +10407,135 @@
         "start_year": 2000
       }
     ]
+  },
+  {
+    "name": "Justice League",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 42488,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 94280,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 92373,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 111428,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 3796,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      }
+    ]
+  },
+  {
+    "name": "Robin",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 146582,
+        "name": "Robin",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      },
+      {
+        "id": 135660,
+        "name": "Robin",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 4975,
+        "name": "Robin",
+        "publisher": "DC Comics",
+        "start_year": 1993
+      },
+      {
+        "id": 4563,
+        "name": "Robin",
+        "publisher": "DC Comics",
+        "start_year": 1991
+      }
+    ]
+  },
+  {
+    "name": "Watchmen",
+    "publisher": "DC Comics",
+    "year": 1989,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3622,
+        "name": "Watchmen",
+        "publisher": "DC Comics",
+        "start_year": 1986
+      },
+      {
+        "id": 29927,
+        "name": "Watchmen",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      }
+    ]
+  },
+  {
+    "name": "Hunter X Hunter",
+    "publisher": "VIZ Media",
+    "year": 2002,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 166704,
+        "name": "Hunter x Hunter",
+        "publisher": "Viz",
+        "start_year": 2025
+      },
+      {
+        "id": 30751,
+        "name": "Hunter X Hunter",
+        "publisher": "Viz",
+        "start_year": 2005
+      }
+    ]
+  },
+  {
+    "name": "Hunter X Hunter",
+    "publisher": "VIZ Media",
+    "year": 2000,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 166704,
+        "name": "Hunter x Hunter",
+        "publisher": "Viz",
+        "start_year": 2025
+      },
+      {
+        "id": 30751,
+        "name": "Hunter X Hunter",
+        "publisher": "Viz",
+        "start_year": 2005
+      }
+    ]
   }
 ]

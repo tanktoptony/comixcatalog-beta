@@ -2764,7 +2764,17 @@ input[type="file"] {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 900px 400px at 18% 0%, rgba(216,176,75,0.16), transparent 70%);
+  /* The ellipse's fade-to-transparent point (450px half-width * 70%
+     = 315px from center) never actually finished before hitting the
+     panel's left edge (center sits only ~216px in on a ~1200px panel,
+     18% of container width) — overflow:hidden on the panel cut the
+     glow off mid-fade instead of letting it resolve to transparent
+     first. That's the hard gold-against-dark seam right where the
+     avatar sits. Percentage sizing (instead of fixed px) keeps the
+     fade's math — distance-to-edge vs. fade-complete-radius — true at
+     any panel width, not just the one size this was eyeballed against.
+  */
+  background: radial-gradient(ellipse 45% 70% at 18% 0%, rgba(216,176,75,0.16), transparent 60%);
   pointer-events: none;
 }
 

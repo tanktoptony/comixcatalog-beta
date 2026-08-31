@@ -68,4 +68,11 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add gap-manual.json gap-pinned.json needs_volume_id.json
           git commit -m "gap-manual: weekly auto-append (new releases + user-collected + resolved pins)"
+          # This and weekly-refresh.yml both run long jobs then push at the
+          # end, touching different files but the same ref — if their runs
+          # overlap even by seconds (dispatched together, or both picked up
+          # by cron-watchdog at once), whichever pushes second gets rejected
+          # with "fetch first". Found live 2026-08-31. Rebase picks up the
+          # other's commit cleanly since the file sets don't overlap.
+          git pull --rebase origin main
           git push

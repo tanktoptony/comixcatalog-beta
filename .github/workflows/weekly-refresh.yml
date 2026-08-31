@@ -106,6 +106,12 @@ jobs:
           if [[ -n "$(git status --porcelain gap-featured.json gap-priority.json gap-width.json gap-depth.json)" ]]; then
             git add gap-featured.json gap-priority.json gap-width.json gap-depth.json
             git commit -m "chore: weekly cover-gap targets refresh"
+            # gap-probe.yml runs the same day and also pushes at the end of a
+            # long job, touching a disjoint file set — if the two runs
+            # overlap, whichever pushes second gets rejected with "fetch
+            # first". Found live 2026-08-31. Rebase picks up the other's
+            # commit cleanly since the file sets don't overlap.
+            git pull --rebase origin main
             git push
           else
             echo "No cover-gap changes this week."

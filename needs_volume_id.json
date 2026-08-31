@@ -10569,5 +10569,19 @@
         "start_year": 1989
       }
     ]
+  },
+  {
+    "name": "The A-Team Summer Special",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 154882,
+        "name": "The A-Team Summer Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1985
+      }
+    ]
   }
 ]

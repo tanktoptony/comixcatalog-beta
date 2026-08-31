@@ -10395,6 +10395,11 @@ button.nav-link {
 }
 
 .profile-top-shelf {
+  /* .profile-hero-panel has no bottom margin (its own border-bottom is the
+     divider), so without a matching top margin here the section directly
+     below it — Top Shelf, or Recently Added when Top Shelf is empty —
+     sat flush against that divider line with zero breathing room. */
+  margin-top: 28px;
   margin-bottom: 28px;
 }
 

@@ -11365,5 +11365,25 @@
         "start_year": 1957
       }
     ]
+  },
+  {
+    "name": "Trout",
+    "publisher": "Dark Horse Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51723,
+        "name": "Trout",
+        "publisher": "Oni Press",
+        "start_year": 2001
+      },
+      {
+        "id": 60892,
+        "name": "Trout",
+        "publisher": "Arcana Studio",
+        "start_year": 2011
+      }
+    ]
   }
 ]

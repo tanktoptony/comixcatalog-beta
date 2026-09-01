@@ -10801,5 +10801,51 @@
         "start_year": 1990
       }
     ]
+  },
+  {
+    "name": "Project: A-Ko",
+    "publisher": "Antarctic Press",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24340,
+        "name": "Project A-Ko",
+        "publisher": "Malibu",
+        "start_year": 1994
+      },
+      {
+        "id": 142839,
+        "name": "Project A-Ko",
+        "publisher": "Central Park Media",
+        "start_year": 1995
+      }
+    ]
+  },
+  {
+    "name": "Worzel Gummidge",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47727,
+        "name": "Worzel Gummidge",
+        "publisher": "Purnell",
+        "start_year": 1979
+      },
+      {
+        "id": 53975,
+        "name": "Worzel Gummidge",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1983
+      },
+      {
+        "id": 53976,
+        "name": "Worzel Gummidge",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1981
+      }
+    ]
   }
 ]

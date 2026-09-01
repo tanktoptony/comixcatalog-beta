@@ -11311,5 +11311,19 @@
         "start_year": 2001
       }
     ]
+  },
+  {
+    "name": "Steampunk Red Riding Hood",
+    "publisher": "Antarctic Press",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72027,
+        "name": "Steampunk Red Riding Hood",
+        "publisher": "TidalWave Productions",
+        "start_year": 2014
+      }
+    ]
   }
 ]

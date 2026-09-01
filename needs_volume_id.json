@@ -10939,5 +10939,45 @@
         "start_year": 2000
       }
     ]
+  },
+  {
+    "name": "Lady Mechanika",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 108448,
+        "name": "Lady Mechanika",
+        "publisher": "Splitter",
+        "start_year": 2017
+      },
+      {
+        "id": 35855,
+        "name": "Lady Mechanika",
+        "publisher": "Benitez Productions",
+        "start_year": 2010
+      },
+      {
+        "id": 96456,
+        "name": "Lady Mechanika",
+        "publisher": "Éditions Glénat",
+        "start_year": 2016
+      }
+    ]
+  },
+  {
+    "name": "Marvel Comic",
+    "publisher": "Marvel Comics",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47378,
+        "name": "Marvel Comic",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ]
   }
 ]

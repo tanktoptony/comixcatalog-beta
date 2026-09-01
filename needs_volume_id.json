@@ -11253,5 +11253,19 @@
         "start_year": 2010
       }
     ]
+  },
+  {
+    "name": "Genus",
+    "publisher": "Antarctic Press",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27107,
+        "name": "Genus",
+        "publisher": "Sin Factory Comix",
+        "start_year": 1993
+      }
+    ]
   }
 ]

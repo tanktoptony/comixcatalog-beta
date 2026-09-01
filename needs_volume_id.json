@@ -10893,5 +10893,25 @@
         "start_year": 1956
       }
     ]
+  },
+  {
+    "name": "Sins of Sinister",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 153615,
+        "name": "Sins of Sinister ",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 147646,
+        "name": "Sins of Sinister",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ]
   }
 ]

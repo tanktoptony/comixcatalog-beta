@@ -11081,5 +11081,49 @@
         "start_year": 1986
       }
     ]
+  },
+  {
+    "name": "The Authority",
+    "publisher": "DC Comics",
+    "year": 2001,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 7499,
+        "name": "The Authority",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      },
+      {
+        "id": 11205,
+        "name": "The Authority",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 18250,
+        "name": "The Authority",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 22539,
+        "name": "The Authority",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 61398,
+        "name": "The Authority",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 132667,
+        "name": "The Authority",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      }
+    ]
   }
 ]

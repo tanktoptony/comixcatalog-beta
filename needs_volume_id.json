@@ -11325,5 +11325,45 @@
         "start_year": 2014
       }
     ]
+  },
+  {
+    "name": "Thor: Wolves of the North",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 37834,
+        "name": "Thor: Wolves of the North",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 40600,
+        "name": "Thor: Wolves of the North",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ]
+  },
+  {
+    "name": "King of the Royal Mounted",
+    "publisher": "Dell Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 125256,
+        "name": "King of the Royal Mounted ",
+        "publisher": "Feature Publications",
+        "start_year": 1950
+      },
+      {
+        "id": 125006,
+        "name": "King of the Royal Mounted",
+        "publisher": "Magazine Management",
+        "start_year": 1957
+      }
+    ]
   }
 ]

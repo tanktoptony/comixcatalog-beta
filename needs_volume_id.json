@@ -10913,5 +10913,31 @@
         "start_year": 2023
       }
     ]
+  },
+  {
+    "name": "Fortune and Glory",
+    "publisher": "Dark Horse Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 118246,
+        "name": "Fortune and Glory",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 18068,
+        "name": "Fortune And Glory",
+        "publisher": "Oni Press",
+        "start_year": 1999
+      },
+      {
+        "id": 55722,
+        "name": "Fortune and Glory",
+        "publisher": "Oni Press",
+        "start_year": 2000
+      }
+    ]
   }
 ]

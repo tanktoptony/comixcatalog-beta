@@ -11233,5 +11233,25 @@
         "start_year": 2019
       }
     ]
+  },
+  {
+    "name": "Mouse Guard: Legends of the Guard",
+    "publisher": "Archaia",
+    "year": 2010,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 52715,
+        "name": "Mouse Guard: Legends of the Guard",
+        "publisher": "Archaia",
+        "start_year": 2010
+      },
+      {
+        "id": 33562,
+        "name": "Mouse Guard: Legends of the Guard",
+        "publisher": "Archaia",
+        "start_year": 2010
+      }
+    ]
   }
 ]

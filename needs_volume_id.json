@@ -10847,5 +10847,51 @@
         "start_year": 1981
       }
     ]
+  },
+  {
+    "name": "Green Lantern Annual",
+    "publisher": "DC Comics",
+    "year": 1987,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4740,
+        "name": "Green Lantern Annual",
+        "publisher": "DC Comics",
+        "start_year": 1992
+      },
+      {
+        "id": 51615,
+        "name": "Green Lantern Annual",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 63534,
+        "name": "Green Lantern Annual",
+        "publisher": "DC Comics",
+        "start_year": 1998
+      },
+      {
+        "id": 120397,
+        "name": "The Green Lantern Annual",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ]
+  },
+  {
+    "name": "Cowboy Western Comics",
+    "publisher": "Charlton Comics",
+    "year": 1948,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 128627,
+        "name": "Cowboy Western Comics",
+        "publisher": "L. Miller & Son, Ltd",
+        "start_year": 1956
+      }
+    ]
   }
 ]

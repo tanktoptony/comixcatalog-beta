@@ -11125,5 +11125,25 @@
         "start_year": 2020
       }
     ]
+  },
+  {
+    "name": "Amelia Cole versus the End of Everything",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 91873,
+        "name": "Amelia Cole Versus The End of Everything",
+        "publisher": "MonkeyBrain Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 87198,
+        "name": "Amelia Cole Versus The End of Everything",
+        "publisher": "MonkeyBrain Comics",
+        "start_year": 2016
+      }
+    ]
   }
 ]

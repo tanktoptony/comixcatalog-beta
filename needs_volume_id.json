@@ -10979,5 +10979,107 @@
         "start_year": 1979
       }
     ]
+  },
+  {
+    "name": "Sisterhood",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22783,
+        "name": "The Sisterhood",
+        "publisher": "Archaia",
+        "start_year": 2008
+      },
+      {
+        "id": 167718,
+        "name": "Sisterhood",
+        "publisher": "Bad Press Ltd",
+        "start_year": 2019
+      }
+    ]
+  },
+  {
+    "name": "Fantastic Four: The Prodigal Sun",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 120005,
+        "name": "Fantastic Four: The Prodigal Sun",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 122671,
+        "name": "Fantastic Four: The Prodigal Sun",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ]
+  },
+  {
+    "name": "Blondie",
+    "publisher": "Harvey Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70328,
+        "name": "Blondie",
+        "publisher": "Beaumont",
+        "start_year": null
+      },
+      {
+        "id": 95349,
+        "name": "Blondie",
+        "publisher": "Yaffa / Page",
+        "start_year": null
+      },
+      {
+        "id": 154571,
+        "name": "Blondie ",
+        "publisher": "Semic/Nordisk Forlag AS",
+        "start_year": 1980
+      },
+      {
+        "id": 70771,
+        "name": "Blondie",
+        "publisher": "Associated Newspapers",
+        "start_year": 1953
+      },
+      {
+        "id": 141403,
+        "name": "Blondie",
+        "publisher": "Romanforlaget",
+        "start_year": 1968
+      },
+      {
+        "id": 8238,
+        "name": "Blondie",
+        "publisher": "Hemmets Journal AB",
+        "start_year": 1941
+      },
+      {
+        "id": 33815,
+        "name": "Blondie",
+        "publisher": "Hjemmet",
+        "start_year": 1997
+      },
+      {
+        "id": 49338,
+        "name": "Blondie",
+        "publisher": "IDW Publishing",
+        "start_year": 2010
+      },
+      {
+        "id": 80410,
+        "name": "Blondie",
+        "publisher": "Blackthorne",
+        "start_year": 1986
+      }
+    ]
   }
 ]

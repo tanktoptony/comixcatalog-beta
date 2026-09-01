@@ -11399,5 +11399,39 @@
         "start_year": 1986
       }
     ]
+  },
+  {
+    "name": "Cemetery Girl",
+    "publisher": "Dynamite Entertainment",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71087,
+        "name": "Cemetery Girl",
+        "publisher": "Penguin Random House Canada",
+        "start_year": 2014
+      }
+    ]
+  },
+  {
+    "name": "Planetary",
+    "publisher": "DC Comics",
+    "year": 2001,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 102831,
+        "name": "Planetary",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 7506,
+        "name": "Planetary",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      }
+    ]
   }
 ]

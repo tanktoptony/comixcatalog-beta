@@ -11145,5 +11145,25 @@
         "start_year": 2016
       }
     ]
+  },
+  {
+    "name": "The Maxx",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5168,
+        "name": "The Maxx",
+        "publisher": "Image",
+        "start_year": 1993
+      },
+      {
+        "id": 32752,
+        "name": "The Maxx",
+        "publisher": "Image",
+        "start_year": 1995
+      }
+    ]
   }
 ]

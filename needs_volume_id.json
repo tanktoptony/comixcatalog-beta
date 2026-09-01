@@ -11267,5 +11267,49 @@
         "start_year": 1993
       }
     ]
+  },
+  {
+    "name": "Michael Turner's Fathom",
+    "publisher": "Image Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22498,
+        "name": "Michael Turner's Fathom",
+        "publisher": "Aspen MLT",
+        "start_year": 2008
+      },
+      {
+        "id": 40435,
+        "name": "Michael Turner's Fathom",
+        "publisher": "Aspen MLT",
+        "start_year": 2011
+      },
+      {
+        "id": 70442,
+        "name": "Michael Turner's Fathom",
+        "publisher": "Aspen MLT",
+        "start_year": 2013
+      },
+      {
+        "id": 18086,
+        "name": "Michael Turner's Fathom",
+        "publisher": "Aspen MLT",
+        "start_year": 2005
+      },
+      {
+        "id": 65632,
+        "name": "Michael Turner's Fathom",
+        "publisher": "Aspen MLT",
+        "start_year": 2013
+      },
+      {
+        "id": 66096,
+        "name": "Michael Turner's Fathom",
+        "publisher": "Aspen MLT",
+        "start_year": 2001
+      }
+    ]
   }
 ]

@@ -11511,5 +11511,19 @@
         "start_year": 1995
       }
     ]
+  },
+  {
+    "name": "WildC.A.T.s Compendium",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32738,
+        "name": "WildC.A.T.S: Compendium",
+        "publisher": "Image",
+        "start_year": 1993
+      }
+    ]
   }
 ]

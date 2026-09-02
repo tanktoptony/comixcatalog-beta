@@ -11467,5 +11467,49 @@
         "start_year": 2020
       }
     ]
+  },
+  {
+    "name": "Dominion",
+    "publisher": "Dark Horse Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21495,
+        "name": "Dominion",
+        "publisher": "Eclipse",
+        "start_year": 1989
+      },
+      {
+        "id": 80684,
+        "name": "Dominion",
+        "publisher": "Humanoids",
+        "start_year": 2015
+      },
+      {
+        "id": 55523,
+        "name": "Dominion",
+        "publisher": "Image",
+        "start_year": 2002
+      },
+      {
+        "id": 55018,
+        "name": "Dominion",
+        "publisher": "Boom! Studios",
+        "start_year": 2008
+      },
+      {
+        "id": 23463,
+        "name": "Dominion",
+        "publisher": "Boom! Studios",
+        "start_year": 2007
+      },
+      {
+        "id": 154430,
+        "name": "Dominion",
+        "publisher": "Egmont Ehapa Verlag",
+        "start_year": 1995
+      }
+    ]
   }
 ]

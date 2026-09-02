@@ -11453,5 +11453,19 @@
         "start_year": 2009
       }
     ]
+  },
+  {
+    "name": "Hellboy Winter Special",
+    "publisher": "Dark Horse Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167552,
+        "name": "Hellboy Winter Special",
+        "publisher": "Cross Cult",
+        "start_year": 2020
+      }
+    ]
   }
 ]

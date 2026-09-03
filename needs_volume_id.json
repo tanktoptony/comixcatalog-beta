@@ -11525,5 +11525,19 @@
         "start_year": 1993
       }
     ]
+  },
+  {
+    "name": "Captain America Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22044,
+        "name": "Captain America Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ]
   }
 ]

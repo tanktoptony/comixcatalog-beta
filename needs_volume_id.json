@@ -11559,5 +11559,19 @@
         "start_year": 2009
       }
     ]
+  },
+  {
+    "name": "Batman by James Tynion IV Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173580,
+        "name": "Batman by James Tynion IV Omnibus",
+        "publisher": null,
+        "start_year": null
+      }
+    ]
   }
 ]

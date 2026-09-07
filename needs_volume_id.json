@@ -11383,5 +11383,71 @@
         "start_year": 2005
       }
     ]
+  },
+  {
+    "name": "Wolverine Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22059,
+        "name": "Wolverine Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ]
+  },
+  {
+    "name": "Swinging Island",
+    "publisher": "Dynamite Entertainment",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 121140,
+        "name": "Swinging Island",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 164444,
+        "name": "Swinging Island",
+        "publisher": "Dynamite (France)",
+        "start_year": 2024
+      },
+      {
+        "id": 176660,
+        "name": "Swinging Island",
+        "publisher": "Splitter",
+        "start_year": 2026
+      }
+    ]
+  },
+  {
+    "name": "Wildcats",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 9418,
+        "name": "Wildcats",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      },
+      {
+        "id": 22470,
+        "name": "WildCats",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 18003,
+        "name": "WildCats",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      }
+    ]
   }
 ]

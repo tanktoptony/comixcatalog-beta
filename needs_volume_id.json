@@ -11463,5 +11463,63 @@
         "start_year": 1994
       }
     ]
+  },
+  {
+    "name": "Jupiter's Legacy",
+    "publisher": "Dark Horse Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60294,
+        "name": "Jupiter's Legacy",
+        "publisher": "Image",
+        "start_year": 2013
+      },
+      {
+        "id": 147335,
+        "name": "Jupiter's Legacy",
+        "publisher": "Panini Verlag",
+        "start_year": 2016
+      },
+      {
+        "id": 81245,
+        "name": "Jupiter's Legacy",
+        "publisher": "Image",
+        "start_year": 2015
+      },
+      {
+        "id": 130978,
+        "name": "Jupiter's Legacy",
+        "publisher": "Image",
+        "start_year": 2020
+      }
+    ]
+  },
+  {
+    "name": "Inferno",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 139289,
+        "name": "Inferno",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 144140,
+        "name": "Inferno",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 82202,
+        "name": "Inferno",
+        "publisher": "Marvel",
+        "start_year": 2015
+      }
+    ]
   }
 ]

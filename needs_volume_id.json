@@ -11325,5 +11325,63 @@
         "start_year": 1990
       }
     ]
+  },
+  {
+    "name": "World's Finest",
+    "publisher": "DC Comics",
+    "year": 1979,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 29128,
+        "name": "World's Finest",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 31792,
+        "name": "World's Finest",
+        "publisher": "DC Comics",
+        "start_year": 1990
+      },
+      {
+        "id": 129996,
+        "name": "World's Finest",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      },
+      {
+        "id": 34648,
+        "name": "World's Finest",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 50887,
+        "name": "World's Finest",
+        "publisher": "DC Comics",
+        "start_year": 1992
+      }
+    ]
+  },
+  {
+    "name": "Housewives at Play",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25398,
+        "name": "Housewives at Play",
+        "publisher": "Eros Comix",
+        "start_year": 1999
+      },
+      {
+        "id": 28274,
+        "name": "Housewives At Play",
+        "publisher": "Eros Comix",
+        "start_year": 2005
+      }
+    ]
   }
 ]

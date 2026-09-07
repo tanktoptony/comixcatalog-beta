@@ -11297,5 +11297,33 @@
         "start_year": 1979
       }
     ]
+  },
+  {
+    "name": "Berni Wrightson, Master of the Macabre",
+    "publisher": "Eclipse Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3264,
+        "name": "Berni Wrightson: Master of the Macabre",
+        "publisher": "Pacific Comics",
+        "start_year": 1983
+      }
+    ]
+  },
+  {
+    "name": "Strip",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26583,
+        "name": "Strip",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1990
+      }
+    ]
   }
 ]

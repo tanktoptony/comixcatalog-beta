@@ -11185,5 +11185,77 @@
         "start_year": 1987
       }
     ]
+  },
+  {
+    "name": "Detective Comics",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18058,
+        "name": "Detective Comics",
+        "publisher": "DC Comics",
+        "start_year": 1937
+      },
+      {
+        "id": 91098,
+        "name": "Detective Comics",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 42594,
+        "name": "Detective Comics",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      }
+    ]
+  },
+  {
+    "name": "What If? Civil War",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 20155,
+        "name": "What If? Civil War",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 30060,
+        "name": "What If? Civil War",
+        "publisher": "Marvel",
+        "start_year": 2008
+      }
+    ]
+  },
+  {
+    "name": "Demon",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3784,
+        "name": "The Demon",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 4358,
+        "name": "The Demon",
+        "publisher": "DC Comics",
+        "start_year": 1990
+      },
+      {
+        "id": 2548,
+        "name": "The Demon",
+        "publisher": "DC Comics",
+        "start_year": 1972
+      }
+    ]
   }
 ]

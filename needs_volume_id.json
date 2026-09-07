@@ -11449,5 +11449,19 @@
         "start_year": 2006
       }
     ]
+  },
+  {
+    "name": "Death's Head II Gold",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20488,
+        "name": "Death's Head II Gold",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1994
+      }
+    ]
   }
 ]

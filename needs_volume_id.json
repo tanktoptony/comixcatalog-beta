@@ -11583,5 +11583,37 @@
         "start_year": 2020
       }
     ]
+  },
+  {
+    "name": "Valentine",
+    "publisher": "Image Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64649,
+        "name": "Valentine",
+        "publisher": "Red Eye Press",
+        "start_year": 1997
+      },
+      {
+        "id": 69667,
+        "name": "Valentine",
+        "publisher": "Thrillbent",
+        "start_year": 2013
+      },
+      {
+        "id": 96052,
+        "name": "Valentine",
+        "publisher": "Europe Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 48681,
+        "name": "Valentine",
+        "publisher": "Egmont Ehapa Verlag",
+        "start_year": 2006
+      }
+    ]
   }
 ]

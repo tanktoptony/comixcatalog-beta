@@ -11257,5 +11257,45 @@
         "start_year": 1972
       }
     ]
+  },
+  {
+    "name": "Vampirella Strikes",
+    "publisher": "Dynamite Entertainment",
+    "year": 2024,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 55333,
+        "name": "Vampirella Strikes",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2013
+      },
+      {
+        "id": 142917,
+        "name": "Vampirella Strikes",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2022
+      },
+      {
+        "id": 68929,
+        "name": "Vampirella Strikes",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2013
+      }
+    ]
+  },
+  {
+    "name": "Bugs Bunny Comics-Go-Round",
+    "publisher": "Gold Key",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20974,
+        "name": "Bugs Bunny Comics-Go-Round",
+        "publisher": "Golden Press",
+        "start_year": 1979
+      }
+    ]
   }
 ]

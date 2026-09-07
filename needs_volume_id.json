@@ -11521,5 +11521,67 @@
         "start_year": 2015
       }
     ]
+  },
+  {
+    "name": "Iron man",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2407,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 1968
+      },
+      {
+        "id": 18220,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2005
+      },
+      {
+        "id": 160522,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 165197,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 6504,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 18800,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 1996
+      },
+      {
+        "id": 170313,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2026
+      },
+      {
+        "id": 53725,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 130396,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2020
+      }
+    ]
   }
 ]

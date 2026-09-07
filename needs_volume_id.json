@@ -10213,202 +10213,6 @@
     ]
   },
   {
-    "name": "The King Is a Fink",
-    "publisher": "Fawcett Comics",
-    "year": 1969,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 87727,
-        "name": "King Is a Fink",
-        "publisher": "Coronet Books",
-        "start_year": 1972
-      }
-    ]
-  },
-  {
-    "name": "Archie Meets the Punisher",
-    "publisher": "Archie Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22522,
-        "name": "Archie Meets the Punisher",
-        "publisher": "Marvel",
-        "start_year": 1994
-      }
-    ]
-  },
-  {
-    "name": "The Original Sad Sack",
-    "publisher": "Harvey Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 33345,
-        "name": "Original Sad Sack",
-        "publisher": "Lorne-Harvey",
-        "start_year": 1991
-      }
-    ]
-  },
-  {
-    "name": "30 Days of Night Annual 2004",
-    "publisher": "IDW Publishing",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 111088,
-        "name": "30 days of night: Annual 2004",
-        "publisher": "Infinity Verlag",
-        "start_year": 2005
-      }
-    ]
-  },
-  {
-    "name": "Deicide",
-    "publisher": "DC Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 51211,
-        "name": "Deicide",
-        "publisher": "Humanoids",
-        "start_year": 2002
-      }
-    ]
-  },
-  {
-    "name": "Little White Mouse: Entropy Dreaming",
-    "publisher": "Caliber Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 40096,
-        "name": "Little White Mouse: Entropy Dreaming",
-        "publisher": null,
-        "start_year": null
-      }
-    ]
-  },
-  {
-    "name": "Citizen V Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22045,
-        "name": "Citizen V Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ]
-  },
-  {
-    "name": "Thor Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22055,
-        "name": "Thor Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ]
-  },
-  {
-    "name": "Rogue Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22050,
-        "name": "Rogue Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ]
-  },
-  {
-    "name": "The Rocketeer Adventure Magazine",
-    "publisher": "Dark Horse Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 4120,
-        "name": "The Rocketeer Adventure Magazine",
-        "publisher": "Comico",
-        "start_year": 1988
-      }
-    ]
-  },
-  {
-    "name": "War Heroes Classics",
-    "publisher": "Harvey Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64857,
-        "name": "War Heroes Classics",
-        "publisher": "Lorne-Harvey",
-        "start_year": 1991
-      }
-    ]
-  },
-  {
-    "name": "King Leonardo and His Short Subjects",
-    "publisher": "Dell Comics",
-    "year": 1962,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 43127,
-        "name": "King Leonardo and His Short Subjects",
-        "publisher": "Western Publishing",
-        "start_year": 1962
-      }
-    ]
-  },
-  {
-    "name": "Kamui",
-    "publisher": "Eclipse Comics",
-    "year": 1987,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 66281,
-        "name": "Kamui",
-        "publisher": "Broccoli Books",
-        "start_year": 2005
-      }
-    ]
-  },
-  {
-    "name": "Crimson Skies",
-    "publisher": "Top Cow Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62151,
-        "name": "Crimson Skies",
-        "publisher": "Image",
-        "start_year": 2000
-      }
-    ]
-  },
-  {
     "name": "Justice League",
     "publisher": "DC Comics",
     "year": 2023,
@@ -10571,34 +10375,6 @@
     ]
   },
   {
-    "name": "The A-Team Summer Special",
-    "publisher": "Marvel Comics",
-    "year": 1985,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 154882,
-        "name": "The A-Team Summer Special",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1985
-      }
-    ]
-  },
-  {
-    "name": "Marvel Dabel Brothers Sampler",
-    "publisher": "Marvel Comics",
-    "year": 2006,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 63620,
-        "name": "Marvel Dabel Brothers Sampler",
-        "publisher": "Dabel Brothers Productions",
-        "start_year": 2006
-      }
-    ]
-  },
-  {
     "name": "The Killer",
     "publisher": "Archaia",
     "year": 2017,
@@ -10641,20 +10417,6 @@
         "name": "Western Gunfighters",
         "publisher": "Marvel",
         "start_year": 1956
-      }
-    ]
-  },
-  {
-    "name": "The Flintstones and Friends",
-    "publisher": "Marvel Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 128686,
-        "name": "The Flintstones and Friends",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1988
       }
     ]
   },
@@ -10755,20 +10517,6 @@
     ]
   },
   {
-    "name": "Doctor Who Holiday Special",
-    "publisher": "Marvel Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 46296,
-        "name": "Doctor Who Holiday Special",
-        "publisher": "Polystyle",
-        "start_year": 1973
-      }
-    ]
-  },
-  {
     "name": "The Many Adventures of Miranda Mercury",
     "publisher": "Archaia",
     "year": 2011,
@@ -10785,20 +10533,6 @@
         "name": "The Many Adventures Of Miranda Mercury",
         "publisher": "Archaia",
         "start_year": 2008
-      }
-    ]
-  },
-  {
-    "name": "The Complete Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 1990,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52577,
-        "name": "Complete Spider-Man",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1990
       }
     ]
   },
@@ -10881,20 +10615,6 @@
     ]
   },
   {
-    "name": "Cowboy Western Comics",
-    "publisher": "Charlton Comics",
-    "year": 1948,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 128627,
-        "name": "Cowboy Western Comics",
-        "publisher": "L. Miller & Son, Ltd",
-        "start_year": 1956
-      }
-    ]
-  },
-  {
     "name": "Sins of Sinister",
     "publisher": "Marvel Comics",
     "year": 2023,
@@ -10963,20 +10683,6 @@
         "name": "Lady Mechanika",
         "publisher": "Éditions Glénat",
         "start_year": 2016
-      }
-    ]
-  },
-  {
-    "name": "Marvel Comic",
-    "publisher": "Marvel Comics",
-    "year": 1979,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47378,
-        "name": "Marvel Comic",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1979
       }
     ]
   },
@@ -11167,34 +10873,6 @@
     ]
   },
   {
-    "name": "Batman / Spawn Unplugged",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 148912,
-        "name": "Batman/Spawn Unplugged",
-        "publisher": "Image",
-        "start_year": 2023
-      }
-    ]
-  },
-  {
-    "name": "Evol Baby",
-    "publisher": "BOOM! Studios",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 95074,
-        "name": "Evol Baby",
-        "publisher": "Boom-Aru Publications",
-        "start_year": 1992
-      }
-    ]
-  },
-  {
     "name": "Walt Disney's Comics and Stories",
     "publisher": "BOOM! Studios",
     "year": 2009,
@@ -11255,20 +10933,6 @@
     ]
   },
   {
-    "name": "Genus",
-    "publisher": "Antarctic Press",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 27107,
-        "name": "Genus",
-        "publisher": "Sin Factory Comix",
-        "start_year": 1993
-      }
-    ]
-  },
-  {
     "name": "Michael Turner's Fathom",
     "publisher": "Image Comics",
     "year": 2001,
@@ -11309,20 +10973,6 @@
         "name": "Michael Turner's Fathom",
         "publisher": "Aspen MLT",
         "start_year": 2001
-      }
-    ]
-  },
-  {
-    "name": "Steampunk Red Riding Hood",
-    "publisher": "Antarctic Press",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 72027,
-        "name": "Steampunk Red Riding Hood",
-        "publisher": "TidalWave Productions",
-        "start_year": 2014
       }
     ]
   },
@@ -11387,20 +11037,6 @@
     ]
   },
   {
-    "name": "The A-Team Annual",
-    "publisher": "Marvel Comics",
-    "year": 1990,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 59172,
-        "name": "A-Team Annual",
-        "publisher": "World Distributors",
-        "start_year": 1986
-      }
-    ]
-  },
-  {
     "name": "Cemetery Girl",
     "publisher": "Dynamite Entertainment",
     "year": 2019,
@@ -11455,20 +11091,6 @@
     ]
   },
   {
-    "name": "Hellboy Winter Special",
-    "publisher": "Dark Horse Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 167552,
-        "name": "Hellboy Winter Special",
-        "publisher": "Cross Cult",
-        "start_year": 2020
-      }
-    ]
-  },
-  {
     "name": "Dominion",
     "publisher": "Dark Horse Comics",
     "year": 1993,
@@ -11513,34 +11135,6 @@
     ]
   },
   {
-    "name": "WildC.A.T.s Compendium",
-    "publisher": "DC Comics",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 32738,
-        "name": "WildC.A.T.S: Compendium",
-        "publisher": "Image",
-        "start_year": 1993
-      }
-    ]
-  },
-  {
-    "name": "Captain America Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22044,
-        "name": "Captain America Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ]
-  },
-  {
     "name": "Azrael",
     "publisher": "DC Comics",
     "year": 2016,
@@ -11557,20 +11151,6 @@
         "name": "Azrael",
         "publisher": "DC Comics",
         "start_year": 2009
-      }
-    ]
-  },
-  {
-    "name": "Batman by James Tynion IV Omnibus",
-    "publisher": "DC Comics",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 173580,
-        "name": "Batman by James Tynion IV Omnibus",
-        "publisher": null,
-        "start_year": null
       }
     ]
   },

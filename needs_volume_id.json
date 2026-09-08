@@ -11615,5 +11615,31 @@
         "start_year": 2006
       }
     ]
+  },
+  {
+    "name": "Injustice: Gods Among Us",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 55835,
+        "name": "Injustice: Gods Among Us",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 56384,
+        "name": "Injustice: Gods Among Us",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 69117,
+        "name": "Injustice: Gods Among Us",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      }
+    ]
   }
 ]

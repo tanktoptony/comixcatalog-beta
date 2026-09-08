@@ -11641,5 +11641,31 @@
         "start_year": 2013
       }
     ]
+  },
+  {
+    "name": "Xena",
+    "publisher": "Topps Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71037,
+        "name": "Xena",
+        "publisher": "Dino Comics",
+        "start_year": 1998
+      },
+      {
+        "id": 44571,
+        "name": "Xena",
+        "publisher": "Brainstorm",
+        "start_year": 1995
+      },
+      {
+        "id": 44596,
+        "name": "Xena",
+        "publisher": "Hjemmet",
+        "start_year": 1999
+      }
+    ]
   }
 ]

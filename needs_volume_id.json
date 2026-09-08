@@ -11913,5 +11913,33 @@
         "start_year": 2008
       }
     ]
+  },
+  {
+    "name": "Negro Romance",
+    "publisher": "Charlton Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30189,
+        "name": "Negro Romance",
+        "publisher": "Fawcett Publications",
+        "start_year": 1950
+      }
+    ]
+  },
+  {
+    "name": "Giantkillers",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 106506,
+        "name": "Giantkillers",
+        "publisher": "Ominous Press",
+        "start_year": 2017
+      }
+    ]
   }
 ]

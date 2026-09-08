@@ -11733,5 +11733,19 @@
         "start_year": 2019
       }
     ]
+  },
+  {
+    "name": "Death Wish",
+    "publisher": "Rebellion",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62359,
+        "name": "Death Wish",
+        "publisher": "Gredown",
+        "start_year": 1985
+      }
+    ]
   }
 ]

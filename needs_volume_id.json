@@ -11747,5 +11747,37 @@
         "start_year": 1985
       }
     ]
+  },
+  {
+    "name": "Shangri-La",
+    "publisher": "Image Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140144,
+        "name": "Shangri-La",
+        "publisher": "Magnetic Press",
+        "start_year": 2021
+      },
+      {
+        "id": 114688,
+        "name": "Shangri-La",
+        "publisher": "Magnetic Press",
+        "start_year": 2021
+      },
+      {
+        "id": 137864,
+        "name": "Shangri-La",
+        "publisher": "Splitter",
+        "start_year": 2021
+      },
+      {
+        "id": 172000,
+        "name": "Shangri-La",
+        "publisher": "Ankama",
+        "start_year": 2016
+      }
+    ]
   }
 ]

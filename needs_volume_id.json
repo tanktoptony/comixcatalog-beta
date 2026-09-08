@@ -11681,5 +11681,57 @@
         "start_year": 1987
       }
     ]
+  },
+  {
+    "name": "Disney-Pixar/Muppets Presents: Incredibles - City of Incredibles",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55676,
+        "name": "Disney-Pixar/Muppets Presents: Incredibles - City of Incredibles",
+        "publisher": "Disney",
+        "start_year": 2012
+      }
+    ]
+  },
+  {
+    "name": "Bloodshot",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 11899,
+        "name": "Bloodshot",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1997
+      },
+      {
+        "id": 50367,
+        "name": "Bloodshot",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2012
+      },
+      {
+        "id": 5067,
+        "name": "Bloodshot",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1993
+      },
+      {
+        "id": 121568,
+        "name": "Bloodshot",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2019
+      },
+      {
+        "id": 123399,
+        "name": "Bloodshot",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2019
+      }
+    ]
   }
 ]

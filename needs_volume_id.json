@@ -11667,5 +11667,19 @@
         "start_year": 1999
       }
     ]
+  },
+  {
+    "name": "Action Force Annual",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37827,
+        "name": "Action Force Annual",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1987
+      }
+    ]
   }
 ]

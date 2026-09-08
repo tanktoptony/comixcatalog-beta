@@ -11779,5 +11779,25 @@
         "start_year": 2016
       }
     ]
+  },
+  {
+    "name": "Uncanny X-Force: The Apocalypse Solution",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 40452,
+        "name": "Uncanny X-Force: The Apocalypse Solution",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 52450,
+        "name": "Uncanny X-Force: The Apocalypse Solution",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ]
   }
 ]

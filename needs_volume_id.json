@@ -11813,5 +11813,19 @@
         "start_year": 1998
       }
     ]
+  },
+  {
+    "name": "Disney-Pixar/Muppets Presents: Family Reunion",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55680,
+        "name": "Disney-Pixar/Muppets Presents: Family Reunion",
+        "publisher": "Disney",
+        "start_year": 2011
+      }
+    ]
   }
 ]

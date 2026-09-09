@@ -2,7 +2,7 @@
 
 **Authority:** This is the *only* current launch checklist. If any other document (spec, audit, agent-prompt file, North Star) implies a different launch scope or gate, this file wins — flag the conflict, don't silently follow the other doc.
 **Source:** Gates below are transcribed directly from `reports/ComixCatalog-Formal-Launch-Plan.pdf` ("Formal launch gates," p.8) — that PDF is the signed/dated artifact; this file is the living, checkable version of it.
-**Launch window:** August 31 – September 11, 2026. Internal release-candidate target: August 21, 2026.
+**Launch window:** ~~August 31 – September 11, 2026~~ — **superseded 2026-09-08.** That window assumed full-time hours; the founder is working this part-time around a separate software job, so there is no fixed launch date right now. Treat the gates below as a quality bar to work through at a sustainable pace, not a countdown. Internal release-candidate target: August 21, 2026 (also passed, same reason).
 **Last verified:** 2026-08-05
 
 Every item needs Owner / Evidence / Last checked / Blocker filled in before it can flip to done. An unchecked box with no evidence line is not "probably fine" — it's unknown.

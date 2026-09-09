@@ -11969,5 +11969,43 @@
         "start_year": 1963
       }
     ]
+  },
+  {
+    "name": "Freak",
+    "publisher": "Image Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111606,
+        "name": "The Freak",
+        "publisher": "self published",
+        "start_year": 2018
+      },
+      {
+        "id": 117889,
+        "name": "The Freak",
+        "publisher": "Adhouse Books",
+        "start_year": 2019
+      },
+      {
+        "id": 164376,
+        "name": "The Freak",
+        "publisher": "Oni Press",
+        "start_year": 2025
+      },
+      {
+        "id": 41242,
+        "name": "Freak",
+        "publisher": "Yen Press",
+        "start_year": 2006
+      },
+      {
+        "id": 137968,
+        "name": "FREAK",
+        "publisher": "After Dark Comics",
+        "start_year": 2021
+      }
+    ]
   }
 ]

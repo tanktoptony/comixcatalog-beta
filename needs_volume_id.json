@@ -11955,5 +11955,19 @@
         "start_year": 1997
       }
     ]
+  },
+  {
+    "name": "Rawhide",
+    "publisher": "Dell Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56936,
+        "name": "Rawhide",
+        "publisher": "Western Publishing",
+        "start_year": 1963
+      }
+    ]
   }
 ]

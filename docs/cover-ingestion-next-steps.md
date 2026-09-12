@@ -1,23 +1,25 @@
 # Cover Ingestion — Next Steps
 
 **Companion to:** [docs/cover-ingestion-audit-findings.md](./cover-ingestion-audit-findings.md) (the evidence this list is built from).
-**Status (2026-08-10):** Punch list, not started. Ranked by leverage, not by order-you-must-do-them.
+**Status (2026-09-12, corrected — see note below):** Items 1, 2, and 5 were fixed the same day this list was written (2026-08-10) and this doc simply never got updated — found during a 2026-09-12 docs audit, a month later, with the fixes already live and working. Items 3 and 4 are still genuinely open. Ranked by leverage, not by order-you-must-do-them.
+
+> **Why this matters beyond the individual items:** this doc sat wrong for a month across however many agent sessions touched this repo in between, none of which checked it against what had actually shipped. That's the concrete failure mode behind the "leaky cross-agent workflow" problem raised 2026-09-12 — docs don't travel with the work unless something forces a check. See `PROJECT_STATUS.md` / the engineering-workflow doc for whatever process fix comes out of that.
 
 ---
 
 ## Punch list
 
-**1. Fix `needs_volume_id.json` persistence (small, highest leverage).** Add it to the `actions/cache` path (or a commit step) in `cover-ingest.yml`. Right now this is the actual bottleneck on width/depth ever producing a new cover — the ambiguous-match backlog can't be reviewed because it evaporates every 6 hours. One workflow-file edit unblocks the review mechanism.
+**1. ✅ Fixed 2026-08-10** — `needs_volume_id.json` persistence. Landed in `ff963a2` / `f9fea19` the same afternoon this punch list was written. `cover-ingest.yml`'s commit step now `git add -A`s it every run (see that workflow's own header comment).
 
-**2. Decide what to do about the done-ledger's 72.5% wrong rate (bigger, needs a decision first).** Two different fixes, not the same problem:
-- Going forward: tighten the done-mark so a target only counts as done when its per-issue upload actually succeeded, not just "the loop didn't crash."
-- Backward: the 1,240+ already-done entries need a re-verification pass to find which ones are silently incomplete (the 5 zero-cover cases found in the audit are probably the tip of it).
+**2. ✅ Fixed 2026-08-10** — done-ledger's wrong-rate problem. Both halves landed within 30 minutes of each other:
+- Going forward: `ff963a2` ("trustworthy done-ledger") — `comicvine_api_to_supabase.py` now tracks `new_issue_attempts`/`new_issue_successes` per volume and only marks a target done if it was already fully covered or at least one new issue actually got a cover this run (see the `fully_stuck` check, ~line 1544). A volume where every attempt fails no longer gets silently locked out.
+- Backward: `f9fea19` ("backward-clean the done-ledger of already-stuck entries") — swept the pre-fix backlog same day.
 
-**3. Fix `ingestStatus.js`'s intermittent null-count bug (small).** Stop trusting any single run of it until this lands — it's actively misleading right now.
+**3. Still open.** `ingestStatus.js`'s intermittent null-count bug. No fix commit found against this file since it was written (2026-06-16) — stop trusting any single run of it until this lands.
 
-**4. Quantify the publisher-corruption backlog properly (small-medium).** Reuse the ingester's own `_norm_publisher()`/alias logic instead of the audit's ad hoc string match — that's what actually answers "how many of the 7,448 flagged rows are really wrong."
+**4. Still open.** Quantify the publisher-corruption backlog properly using the ingester's own `_norm_publisher()`/alias logic instead of the audit's ad hoc string match.
 
-**5. Design the weekly-Wednesday cadence (the founder's actual stated ask, still fully undesigned).** Move off the every-6-hours cron toward a deliberate weekly pass timed to US new-release day, per the original spec's §5.
+**5. ✅ Fixed 2026-08-10, then superseded 2026-08-27.** The Wednesday-aligned weekly cadence landed same-day as items 1-2 (`ff963a2`), but `cover-ingest.yml` was later changed to hourly (2026-08-27) once the width/depth gap-target lists started refreshing reliably — see that workflow's own header for the reasoning. Cadence is now hourly ingest + twice-weekly (Mon/Thu, changed 2026-09-12) gap-list regeneration, not weekly-Wednesday. This item is closed, just not the way originally planned.
 
 **Not urgent:** read-path consolidation (§1e of the original spec, `resolveCoverForIssue()` across 10 API routes) — a real gap but about display correctness, not ingestion throughput, so it doesn't block anything above it.
 
@@ -48,4 +50,4 @@ Some "volume not found" failures aren't a ComicVine matching problem at all — 
 **These should stop being retried every 6 hours forever.** Right now they'll land in `needs_volume_id.json` (once persistence is fixed) right alongside the true-ambiguity cases, but they're not actually ambiguous — they're wrong or unresolved-at-the-source. Worth a `--volume-id`-style manual disposition step that lets a reviewer mark a target "source data problem, not a ComicVine problem" so it stops cycling back into the queue.
 
 ### Net effect on the punch list
-Item 1 (persist `needs_volume_id.json`) is still worth doing first — it's the only way any of this becomes reviewable instead of evaporating. But by itself it only resolves Class A. Class B needs incremental, evidence-based alias-table additions (small, ongoing). Class C needs a way to mark a target "not ComicVine's fault" so it stops being re-attempted forever.
+Item 1 (persist `needs_volume_id.json`) shipped 2026-08-10, so Class A is now reviewable instead of evaporating — `gap-probe.yml`'s `resolveNeedsVolumeIdBacklog.js` walks it weekly. Class B still needs incremental, evidence-based alias-table additions (small, ongoing, not tracked as a discrete item anywhere — worth its own line if it keeps recurring). Class C still needs a way to mark a target "not ComicVine's fault" so it stops being re-attempted forever — not built as of this writing.

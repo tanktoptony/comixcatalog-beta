@@ -19,7 +19,7 @@ A document must never claim something is shipped just because an earlier session
 | Question | Document |
 |---|---|
 | What exists right now? | [PROJECT_STATUS.md](PROJECT_STATUS.md) |
-| What's blocking the Aug 31–Sep 11 launch? | [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) |
+| What's blocking launch? (no fixed date as of 2026-09-08 — part-time pace, gates are a quality bar not a countdown) | [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) |
 | Schema, domain vocabulary, engineering gotchas | [CLAUDE.md](../CLAUDE.md) |
 | What's the product direction long-term? | [north-star/NORTH_STAR.md](north-star/NORTH_STAR.md) |
 | How do branches/PRs work here, how do I get an engineering report? | [operations/engineering-workflow.md](operations/engineering-workflow.md) |
@@ -29,16 +29,20 @@ A document must never claim something is shipped just because an earlier session
 These describe work that's still in progress or planned, each with its own status line — check the doc's own header for current status before trusting anything in the body.
 
 - [data-hardening-and-growth-spec.md](data-hardening-and-growth-spec.md) — cover/publisher matching architecture fix, in progress.
-- [variant-architecture-context.md](variant-architecture-context.md) — **planning input, not yet a spec.** Research/context for an upcoming planning session on variant-cover picker UI + collected-editions-as-pseudo-series; read before starting that session.
+- [variant-architecture-context.md](variant-architecture-context.md) — research/context doc from 2026-08-05, superseded by variant-and-collected-editions-spec.md below. Keep for background only.
+- [variant-and-collected-editions-spec.md](variant-and-collected-editions-spec.md) — **shipped.** The variant-covers half is live: `cover_variants` table (migration `0020_cover_variants.sql`, 2026-08-05), populated via ComicVine's `associated_images` field, read by `src/app/api/issues/[id]/route.js`. CLAUDE.md's roadmap doesn't reflect this yet — see the 2026-09-12 audit note there. Collected-editions-as-pseudo-series half not independently verified this pass.
 - [gcd-incremental-sync-plan.md](gcd-incremental-sync-plan.md) — planning stage, blocked on a human-cleared prerequisite before any live request against comics.org.
+- [cover-ingestion-audit-spec.md](cover-ingestion-audit-spec.md) / [cover-ingestion-audit-findings.md](cover-ingestion-audit-findings.md) — 2026-08-09 audit of the ComicVine ingest pipeline. Findings converted into the punch list below.
+- [cover-ingestion-next-steps.md](cover-ingestion-next-steps.md) — **mostly done, doc not updated until 2026-09-12.** Items 1, 2, and 5 were fixed the same day the punch list was written (`ff963a2`, `f9fea19`, 2026-08-10) but the doc sat unmarked for a month — a live example of the cross-agent doc-sync gap noted in PROJECT_STATUS.md. Items 3 (`ingestStatus.js` null-count bug) and 4 (quantify publisher-corruption backlog) remain genuinely open.
 - [instagram-bot-plan.md](instagram-bot-plan.md) — automation is live (`.github/workflows/instagram-post.yml`); doc may lag the shipped state.
 - [stripe-testing-guide.md](stripe-testing-guide.md) — manual QA checklist for the Pro subscription flow. Should be re-walked as part of the "Payment lifecycle tests" launch gate.
 - [unify-library-profile.md](unify-library-profile.md) — labeled "design" status as of June 2026; verify against current `/library` and `/u/[username]` code before treating any of it as done.
-- [marketplace-launch-spec.md](marketplace-launch-spec.md) — **post-launch scope.** Targets Phase 4 (Nov 2026 per CLAUDE.md). Not a September launch dependency — see LAUNCH_CHECKLIST.md's out-of-scope section.
+- [marketplace-launch-spec.md](marketplace-launch-spec.md) — **post-launch scope.** Targets a later phase per CLAUDE.md. Not a near-term launch dependency — see LAUNCH_CHECKLIST.md's out-of-scope section.
 
 ## Operations
 
 - [operations/engineering-workflow.md](operations/engineering-workflow.md) — branch/PR convention (soft, not enforced), `pr-ci.yml`, and the on-demand `npm run report:engineering` script.
+- [operations/comics-gcd-dedupe-plan.md](operations/comics-gcd-dedupe-plan.md) — the May/August `comics` table dedupe plan; historical reference for that cleanup.
 
 ## Session reviews
 
@@ -51,6 +55,7 @@ Dated, point-in-time records — not living status docs (those are PROJECT_STATU
 Self-contained prompts meant to be pasted into a fresh agent session, not status documents.
 
 - [data-hardening-and-growth-agent-prompts.md](data-hardening-and-growth-agent-prompts.md)
+- [variant-and-collected-editions-agent-prompts.md](variant-and-collected-editions-agent-prompts.md)
 - [marketplace-launch-agent-prompts.md](marketplace-launch-agent-prompts.md) — **known stale detail:** its shared preamble references the repo at `c:\dev\comixcatalog-beta`; the actual working copy is elsewhere. Re-verify paths before handing this to an agent.
 
 ## Product direction (aspirational — not status)

@@ -1,6 +1,6 @@
 # ComixCatalog — Claude Code Project Briefing
 
-> Solo founder project. Built in Chicago. Goal: replace bartending income with recurring revenue by end of summer 2026.
+> Solo founder project, part-time around a separate day job as of 2026-09-08. Built in Chicago. Goal: replace bartending income with recurring revenue. No fixed date — see `docs/LAUNCH_CHECKLIST.md`'s header; the "end of summer 2026" target here assumed full-time hours that aren't the current reality.
 > Tagline: "Built by collectors, for collectors."
 > Site: comixcatalog.com | @comixcatalog
 
@@ -40,7 +40,7 @@ The app is **stable and content-rich** (217k series, 2.5M issues, year-aware pub
 | Comic metadata | Grand Comics Database (GCD) |
 | Cover images | ComicVine API (free tier only — no paid tier appears available; supplemented by GCD covers and future user uploads) |
 | Valuation data | **eBay Marketplace Insights API** (sold-comps) — replacing stalled GoCollect integration. Awaiting account approval as of May 21, 2026. CGC pop reports and Heritage Auctions are future supplemental sources. |
-| Automation | **GitHub Actions weekly cron** for cache refresh + featured-gap regeneration. Monday 09:00 UTC. Requires `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` as repo secrets. |
+| Automation | **`cover-ingest.yml` runs hourly** (real ComicVine ingest). **`weekly-refresh.yml` + `gap-probe.yml` run Mon+Thu 08:00/09:00 UTC** (changed from Monday-only 2026-09-12 — once-a-week gap-list regen was getting fully consumed by the hourly ingest in ~4 days, causing a recurring multi-day stall). `cron-watchdog.yml` force-triggers either if its last success exceeds a 5-day grace window. Requires `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` as repo secrets. |
 | Styling | Tailwind CSS |
 | Config | `next.config.mjs`, `tailwind.config.cjs`, `postcss.config.cjs` |
 
@@ -198,6 +198,13 @@ PK `id` (uuid). Columns: `name`, `created_at`, `gcd_id` (int4 — bridge to `gcd
 PK `id` (uuid). Columns: `source`, `source_issue_url`, `external_issue_id`, `series_title`, `issue_title`, `issue_number`, `publisher`, `cover_date`, `in_store_date`, `description`, `original_cover_url`, `storage_path` (inside `canonical-covers` storage bucket), `comicvine_volume_id` (uuid), `series_year` (int4), `created_at`.
 - Lookup is by `(series_title, issue_number)` — there's no FK to `series` or `gcd_issues`. Mismatched titles are a real failure mode; the matcher in `/api/series/[id]` applies a year-span tolerance to prevent cross-volume bleed (e.g. 2022 cover landing on 1993 Robin #1).
 
+#### `cover_variants` (shipped 2026-08-05 — migration `0020_cover_variants.sql`)
+PK `id` (uuid). FK `canonical_cover_id` → `canonical_covers.id`, loose `gcd_issue_id` (nullable, same reasoning as `market_comps`).
+Columns: `source` ('comicvine'), `source_image_id`, `original_url`, `storage_path`, `caption`, `image_tags`, `sort_order`, `created_at`.
+- Populated by `comicvine_api_to_supabase.py` from ComicVine's `associated_images` field on the same bulk issue-list call the ingester already makes — no extra API cost. Read by `src/app/api/issues/[id]/route.js`.
+- **`caption`/`image_tags` are not reliable variant labels** — ComicVine returns `caption: null` and a bucket-name `image_tags: "All Images"` for most issues. Any variant-picker UI needs to work as a grid of unlabeled thumbnails, not a labeled dropdown. See `docs/variant-and-collected-editions-spec.md`.
+- This corrects the roadmap below, which still listed proper variant schema as deferred/future work as of this writing — the schema and ingestion-time population are done; a user-facing variant picker UI is the remaining piece.
+
 #### `blog_comments`
 PK `id` (uuid). FKs `user_id` → `auth.users.id`, `post_id` → blog posts table.
 Columns: `content`, `created_at`.
@@ -293,7 +300,7 @@ Patreon Founding Collectors get grandfathered Pro status in-app via `is_founding
 - [x] Cache refresh hardened with retry-on-57014 and cursor persistence (`scripts/.refresh-cursor`)
 - [x] North Star alignment audit ([archive/2026-08-repo-cleanup/PHASE1_AUDIT.md](archive/2026-08-repo-cleanup/PHASE1_AUDIT.md) — archived 2026-08-03, Phase 1 is complete so this is a historical record, not a live checklist)
 
-### Phase 2 — Revenue Engine ← CURRENT PHASE (target: July 2026)
+### Phase 2 — Revenue Engine ← CURRENT PHASE (no fixed target date — see header note above)
 
 Three parallel tracks. Track C is what unblocks Stripe.
 
@@ -334,15 +341,15 @@ Three bugs fixed:
 2. **Dropdown identity always visible** — UserMenu now falls through to `user.email` if no profile.username exists. The bare "Account" fallback string is unreachable.
 3. **Switch Account affordance** — new button between "Manage Pro" and "Sign out" that signs out and lands directly on `/login` via `window.location.href` (avoiding the `router.replace("/")` race that would otherwise send users to homepage).
 
-### Phase 3 — Daily Engagement (target: Sept 2026)
+### Phase 3 — Daily Engagement (sequenced after Phase 2, no fixed date)
 - Portfolio value tracking with over-time charts (Phase 2's `market_comps` snapshots feed this directly)
 - Want list price alerts (email/push when threshold crossed)
 - Collection intelligence ("You own 11 of 15 Uncanny X-Men key issues — here are the 4 you're missing")
 - Run completion percentage / gamification
 - Duplicate detection
-- Proper variant schema (variant_of_gcd_id, variant_name, variant_type) once a paid variant data source is established
+- ~~Proper variant schema~~ — **shipped 2026-08-05**, see `cover_variants` table above. Remaining work is a user-facing variant-picker UI (grid of unlabeled thumbnails, per `docs/variant-and-collected-editions-spec.md`), not the schema/ingestion.
 
-### Phase 4 — Marketplace Soft Launch (target: Nov 2026)
+### Phase 4 — Marketplace Soft Launch (sequenced after Phase 3, no fixed date)
 - Pro users only initially
 - Verified grade badges on listings
 - Seller reputation scores

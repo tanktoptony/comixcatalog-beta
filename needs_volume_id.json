@@ -12013,5 +12013,19 @@
         "start_year": 1990
       }
     ]
+  },
+  {
+    "name": "Artful Daggers",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54337,
+        "name": "Artful Daggers",
+        "publisher": "MonkeyBrain Comics",
+        "start_year": 2013
+      }
+    ]
   }
 ]

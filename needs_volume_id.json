@@ -11831,5 +11831,187 @@
         "start_year": 2011
       }
     ]
+  },
+  {
+    "name": "Berni Wrightson, Master of the Macabre",
+    "publisher": "Eclipse Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3264,
+        "name": "Berni Wrightson: Master of the Macabre",
+        "publisher": "Pacific Comics",
+        "start_year": 1983
+      }
+    ]
+  },
+  {
+    "name": "Wolverine Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22059,
+        "name": "Wolverine Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ]
+  },
+  {
+    "name": "Death's Head II Gold",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20488,
+        "name": "Death's Head II Gold",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1994
+      }
+    ]
+  },
+  {
+    "name": "Action Force Annual",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37827,
+        "name": "Action Force Annual",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1987
+      }
+    ]
+  },
+  {
+    "name": "Disney-Pixar/Muppets Presents: Incredibles - City of Incredibles",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55676,
+        "name": "Disney-Pixar/Muppets Presents: Incredibles - City of Incredibles",
+        "publisher": "Disney",
+        "start_year": 2012
+      }
+    ]
+  },
+  {
+    "name": "Death Wish",
+    "publisher": "Rebellion",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62359,
+        "name": "Death Wish",
+        "publisher": "Gredown",
+        "start_year": 1985
+      }
+    ]
+  },
+  {
+    "name": "Spider-Man Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22053,
+        "name": "Spider-Man Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ]
+  },
+  {
+    "name": "Disney-Pixar/Muppets Presents: Family Reunion",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55680,
+        "name": "Disney-Pixar/Muppets Presents: Family Reunion",
+        "publisher": "Disney",
+        "start_year": 2011
+      }
+    ]
+  },
+  {
+    "name": "Negro Romance",
+    "publisher": "Charlton Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30189,
+        "name": "Negro Romance",
+        "publisher": "Fawcett Publications",
+        "start_year": 1950
+      }
+    ]
+  },
+  {
+    "name": "Giantkillers",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 106506,
+        "name": "Giantkillers",
+        "publisher": "Ominous Press",
+        "start_year": 2017
+      }
+    ]
+  },
+  {
+    "name": "American Entertainment: The Darkness Prelude Special",
+    "publisher": "Top Cow Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158818,
+        "name": "American Entertainment: The Darkness Prelude Special",
+        "publisher": "Image",
+        "start_year": 1997
+      }
+    ]
+  },
+  {
+    "name": "Rawhide",
+    "publisher": "Dell Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56936,
+        "name": "Rawhide",
+        "publisher": "Western Publishing",
+        "start_year": 1963
+      }
+    ]
+  },
+  {
+    "name": "Strip",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26583,
+        "name": "Strip",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1990
+      }
+    ]
   }
 ]

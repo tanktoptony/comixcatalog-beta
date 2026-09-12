@@ -1,7 +1,11 @@
 name: Gap probe (weekly)
 
-# Weekly auto-discovery of volumes the cover-ingest should know about.
-# Runs Mondays 08:00 UTC and on manual dispatch. Three sources:
+# Auto-discovery of volumes the cover-ingest should know about.
+# Runs Mondays and Thursdays 08:00 UTC (Thursday added 2026-09-12, same
+# reason as weekly-refresh.yml — a once-a-week regen gets fully consumed
+# by hourly cover-ingest.yml runs in ~4 days, leaving a multi-day stretch
+# of correctly-failing stall alerts before the next Monday) and on manual
+# dispatch. Three sources:
 #   1. scripts/probeNewReleases.js  — last 14 days of CV releases, allowlisted
 #      publishers, dedupes against canonical_covers + gap-manual.
 #   2. scripts/generateUserCollectedGap.js --append-to-manual — any series
@@ -20,7 +24,7 @@ name: Gap probe (weekly)
 
 on:
   schedule:
-    - cron: '0 8 * * 1'
+    - cron: '0 8 * * 1,4'
   workflow_dispatch: {}
 
 # Same reasoning as weekly-refresh.yml's concurrency group: a late-firing

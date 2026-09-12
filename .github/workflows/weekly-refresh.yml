@@ -1,16 +1,23 @@
 name: Weekly cache refresh
 
-# Every Monday at 09:00 UTC. Picks Monday so the carousel rotation (which
-# also flips Monday via week-index math in /api/comics) and the cache
-# refresh land together — a Monday visitor sees both a new mix AND any
-# new covers that landed during the prior week.
+# Monday AND Thursday at 09:00 UTC (changed from Monday-only 2026-09-12).
+# Monday still anchors the carousel rotation (which also flips Monday via
+# week-index math in /api/comics) so a Monday visitor sees both a new mix
+# AND any new covers from the prior week. Thursday was added because a
+# week-by-week look at reports/cover-coverage-history.json showed the
+# gap-*.json lists this workflow regenerates get fully consumed by
+# cover-ingest.yml's hourly runs in ~4 days: a real burst Mon-Wed, then
+# newCoversInWindow=0 Thu/Fri through the following Monday — 3 dead days a
+# week where the hourly ingest has nothing left to find and the stall
+# health check correctly (and repeatedly) fails. A Thursday refill closes
+# that gap before the weekend dead zone instead of waiting for Monday.
 #
 # Workflow-dispatch lets you trigger manually from the Actions tab too —
 # useful when you've just run a ComicVine ingest and want to surface the
-# new covers immediately rather than waiting for Monday.
+# new covers immediately rather than waiting for the next scheduled run.
 on:
   schedule:
-    - cron: '0 9 * * 1'
+    - cron: '0 9 * * 1,4'
   workflow_dispatch: {}
 
 # Found live 2026-08-31: GitHub's schedule trigger doesn't just sometimes

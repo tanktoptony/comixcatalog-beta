@@ -19,12 +19,16 @@
 // automatically inside GitHub Actions).
 
 const WATCHED = [
-  // Weekly cron (Mon 09:00 UTC). 8-day max age = one week + one day grace,
-  // so a single missed Monday gets caught by the next day's watchdog tick
-  // instead of waiting a full extra week for the next scheduled Monday.
-  { file: "weekly-refresh.yml", maxAgeHours: 24 * 8 },
-  // Weekly cron (Mon 08:00 UTC), same grace window.
-  { file: "gap-probe.yml", maxAgeHours: 24 * 8 },
+  // Mon+Thu cron (09:00 UTC), changed from Monday-only 2026-09-12 because
+  // a once-a-week regen was getting fully consumed by hourly cover-ingest
+  // runs in ~4 days. Grace window tightened to match: 5-day max age =
+  // the ~3.5-day Mon/Thu interval + a day of slack, so a single missed
+  // run gets caught by the next watchdog tick well before the following
+  // scheduled day, instead of the old 8-day window (sized for weekly
+  // cadence) sitting quiet through most of a dead week.
+  { file: "weekly-refresh.yml", maxAgeHours: 24 * 5 },
+  // Mon+Thu cron (08:00 UTC), same grace window.
+  { file: "gap-probe.yml", maxAgeHours: 24 * 5 },
 ];
 
 const DRY_RUN = process.argv.includes("--dry-run");

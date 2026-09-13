@@ -12081,5 +12081,31 @@
         "start_year": 1989
       }
     ]
+  },
+  {
+    "name": "American Splendor",
+    "publisher": "Dark Horse Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28361,
+        "name": "American Splendor",
+        "publisher": "Harvey Pekar",
+        "start_year": 1976
+      },
+      {
+        "id": 23553,
+        "name": "American Splendor",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 21818,
+        "name": "American Splendor",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      }
+    ]
   }
 ]

@@ -114,6 +114,15 @@ export default function LoginPage() {
           setShowResend(true);
         } else if (message.includes("invalid login credentials")) {
           setErrorMsg("Invalid email or password.");
+        } else if (
+          message.includes("rate limit") ||
+          message.includes("too many requests") ||
+          message.includes("for security purposes") ||
+          error.status === 429
+        ) {
+          setErrorMsg(
+            "Too many login attempts. Please wait a few minutes and try again."
+          );
         } else {
           setErrorMsg(error.message || "Unable to log in.");
         }

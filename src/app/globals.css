@@ -8036,6 +8036,28 @@ button.nav-link {
 }
 .auth-footer .link:hover { text-decoration: underline; }
 
+/* Low-friction ToS/Privacy notice under signup (email/password + OAuth) —
+   informational, not a blocking checkbox. */
+.auth-legal-notice {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.45);
+}
+.auth-legal-notice .link {
+  color: var(--x-gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+.auth-legal-notice .link:hover { text-decoration: underline; }
+
+/* Tighter fit when nested in the OAuth button stack (flex gap already
+   provides spacing there). */
+.oauth-stack .auth-legal-notice {
+  margin-top: 2px;
+}
+
 .auth-link-button {
   background: none;
   border: none;

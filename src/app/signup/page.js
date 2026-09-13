@@ -84,8 +84,8 @@ export default function SignUpPage() {
       return;
     }
 
-    if (password.length < 6) {
-      setErrorMsg("Password must be at least 6 characters.");
+    if (password.length < 8) {
+      setErrorMsg("Password must be at least 8 characters.");
       return;
     }
 
@@ -145,9 +145,14 @@ export default function SignUpPage() {
       const message = error.message?.toLowerCase() || "";
       const name = error.name?.toLowerCase() || "";
 
-      if (message.includes("rate limit")) {
+      if (
+        message.includes("rate limit") ||
+        message.includes("too many requests") ||
+        message.includes("for security purposes") ||
+        error.status === 429
+      ) {
         setErrorMsg(
-          "We’ve sent too many confirmation emails recently. Please wait a few minutes and try again."
+          "Too many signup attempts. Please wait a few minutes and try again."
         );
       } else if (message.includes("already registered") || message.includes("already exists")) {
         setErrorMsg(
@@ -288,6 +293,7 @@ export default function SignUpPage() {
             className="auth-input"
             type="password"
             required
+            minLength={8}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="new-password"
@@ -304,6 +310,12 @@ export default function SignUpPage() {
           {saving ? "Creating account…" : "Create account"}
         </button>
       </form>
+
+      <p className="auth-legal-notice">
+        By creating an account, you agree to our{" "}
+        <Link href="/terms" className="link">Terms of Service</Link> and{" "}
+        <Link href="/privacy" className="link">Privacy Policy</Link>.
+      </p>
 
       {errorMsg && <div className="auth-error">{errorMsg}</div>}
 

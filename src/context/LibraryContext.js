@@ -105,7 +105,11 @@ export function LibraryProvider({ children }) {
   useEffect(() => {
     // Clear immediately on user change so a previous account's collections
     // never paint under a new session. Without this, collections from the
-    // signed-out user linger until refreshLibrary resolves.
+    // signed-out user linger until refreshLibrary resolves. Genuinely needs
+    // to be an effect (not a render-time state sync) since it also kicks
+    // off an async refetch — same accepted exception pattern already used
+    // elsewhere in this codebase (Header.js, ProfileTabs.js, library/page.js).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCollections([]);
     setLoading(true);
     refreshLibrary();

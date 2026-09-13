@@ -26,6 +26,7 @@
 // error from Supabase — handled below as a visible toast.
 
 import { useState } from "react";
+import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
 const PROVIDER_META = {
@@ -125,6 +126,15 @@ export default function OAuthButtons() {
     <div className="oauth-stack">
       <OAuthButton provider="google" />
       {/* Future: <OAuthButton provider="discord" />, <OAuthButton provider="apple" /> */}
+
+      {/* OAuth completes signup for a first-time user just like the email/
+          password form does (both land in /auth/callback and can create a
+          profile row), so it needs the same agreement notice. */}
+      <p className="auth-legal-notice">
+        By continuing, you agree to our{" "}
+        <Link href="/terms" className="link">Terms of Service</Link> and{" "}
+        <Link href="/privacy" className="link">Privacy Policy</Link>.
+      </p>
 
       <div className="oauth-divider" aria-hidden="true">
         <span>or</span>

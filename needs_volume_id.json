@@ -12309,5 +12309,37 @@
         "start_year": 1939
       }
     ]
+  },
+  {
+    "name": "The Champions",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 130979,
+        "name": "Champions",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 94612,
+        "name": "Champions",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 2746,
+        "name": "The Champions",
+        "publisher": "Marvel",
+        "start_year": 1975
+      },
+      {
+        "id": 116243,
+        "name": "Champions",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ]
   }
 ]

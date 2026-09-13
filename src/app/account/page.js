@@ -29,10 +29,15 @@ export default function AccountSettingsPage() {
   const [privacyMsg, setPrivacyMsg] = useState(null);
 
   // Mirror profile.is_public into local state once profile resolves so the
-  // checkbox is checked correctly on first render.
-  useEffect(() => {
-    if (profile) setIsPublic(Boolean(profile.is_public));
-  }, [profile]);
+  // checkbox is checked correctly on first render. Adjusted during render
+  // (React's documented "reset state when a value changes" pattern, same
+  // convention as Header.js's pathname/highlight resets) rather than in an
+  // effect, so there's no extra stale-checkbox render in between.
+  const [syncedProfile, setSyncedProfile] = useState(null);
+  if (profile && profile !== syncedProfile) {
+    setSyncedProfile(profile);
+    setIsPublic(Boolean(profile.is_public));
+  }
 
   // Bounce unauthenticated visitors. Wait for AuthContext to finish hydrating
   // first; otherwise a logged-in user hard-refreshing flashes /login briefly.
@@ -117,7 +122,7 @@ export default function AccountSettingsPage() {
       <section className="account-section">
         <h2 className="account-section-title">Change email</h2>
         <p className="account-section-desc">
-          Current: <strong>{user.email}</strong>. You'll receive a confirmation
+          Current: <strong>{user.email}</strong>. You&rsquo;ll receive a confirmation
           email at the new address; the change takes effect after you click it.
         </p>
         <ChangeEmail supabase={supabase} currentEmail={user.email} />
@@ -130,6 +135,7 @@ export default function AccountSettingsPage() {
           can&rsquo;t be undone.
         </p>
         <DeleteAccount
+          supabase={supabase}
           onDeleted={async () => {
             await signOut();
             if (typeof window !== "undefined") window.location.href = "/";
@@ -275,7 +281,7 @@ function ChangeEmail({ supabase, currentEmail }) {
 // Two-step confirmation. Click reveals an input that requires "DELETE" to
 // enable the actual destructive button. Forces deliberate action so accidental
 // clicks can't cascade.
-function DeleteAccount({ onDeleted }) {
+function DeleteAccount({ supabase, onDeleted }) {
   const [expanded, setExpanded] = useState(false);
   const [confirmText, setConfirmText] = useState("");
   const [busy, setBusy] = useState(false);
@@ -286,7 +292,22 @@ function DeleteAccount({ onDeleted }) {
     setBusy(true);
     setMsg(null);
     try {
-      const res = await fetch("/api/account/delete", { method: "POST" });
+      // The server route has no cookie to identify us by (see
+      // src/lib/supabase/server.js) — forward our own access token so it
+      // can verify who's calling.
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      if (!session?.access_token) {
+        setMsg({ kind: "error", text: "Your session has expired. Please log in again." });
+        return;
+      }
+
+      const res = await fetch("/api/account/delete", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${session.access_token}` },
+      });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
         setMsg({ kind: "error", text: body.error || "Could not delete account." });
@@ -316,7 +337,7 @@ function DeleteAccount({ onDeleted }) {
     <div className="account-form">
       <p className="account-section-desc">
         Type <strong>DELETE</strong> below to confirm. This deletes your auth
-        record, your profile, your collection, and any covers you've uploaded.
+        record, your profile, your collection, and any covers you&rsquo;ve uploaded.
       </p>
       <input
         type="text"

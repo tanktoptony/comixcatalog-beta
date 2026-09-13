@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase/server";
+import { launchProfileFlags } from "@/lib/launchFlags";
 
 export async function GET(request) {
   const requestUrl = new URL(request.url);

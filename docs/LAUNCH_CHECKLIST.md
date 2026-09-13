@@ -3,7 +3,7 @@
 **Authority:** This is the *only* current launch checklist. If any other document (spec, audit, agent-prompt file, North Star) implies a different launch scope or gate, this file wins — flag the conflict, don't silently follow the other doc.
 **Source:** Gates below are transcribed directly from `reports/ComixCatalog-Formal-Launch-Plan.pdf` ("Formal launch gates," p.8) — that PDF is the signed/dated artifact; this file is the living, checkable version of it.
 **Launch window:** ~~August 31 – September 11, 2026~~ — **superseded 2026-09-08.** That window assumed full-time hours; the founder is working this part-time around a separate software job, so there is no fixed launch date right now. Treat the gates below as a quality bar to work through at a sustainable pace, not a countdown. Internal release-candidate target: August 21, 2026 (also passed, same reason).
-**Last verified:** 2026-09-13 (3 of 10 gates re-checked this pass — priority coverage, publisher mismatches, valuation labels; the other 7 are still whatever they were on 2026-08-05 or earlier, see each gate's own Last checked line)
+**Last verified:** 2026-09-13 (6 of 10 gates now have real evidence — priority coverage, publisher mismatches, valuation labels from an earlier pass this same day, plus P0 defects / P1 defects / core workflow success from an end-to-end auth + core-workflow QA pass documented below; the remaining 4 are still whatever they were on 2026-08-05 or earlier, see each gate's own Last checked line)
 
 Every item needs Owner / Evidence / Last checked / Blocker filled in before it can flip to done. An unchecked box with no evidence line is not "probably fine" — it's unknown.
 
@@ -13,15 +13,24 @@ Every item needs Owner / Evidence / Last checked / Blocker filled in before it c
 
 - [ ] **Open P0 defects: 0**
   - Owner:
-  - Evidence:
-  - Last checked:
-  - Blocker:
+  - Evidence: First real end-to-end QA pass on the auth surface (2026-09-13), driven live against a headless-Chromium session (Playwright, not just a code trace) plus direct DB verification via the service-role key. Found and fixed 3 live P0s, all confirmed resolved by re-running the same repro after the fix:
+    1. `src/app/auth/callback/route.js` called `launchProfileFlags()` without importing it — every email-confirmation completion for a signup with a username in metadata (i.e. essentially every real signup, wherever Supabase email confirmation is on) threw `ReferenceError` server-side instead of finishing signup. Fixed: added the import.
+    2. `src/lib/supabase/server.js`'s `supabaseServer()` called `cookies()` synchronously — Next 16 made it async, so every call threw `TypeError: cookieStore.get is not a function`. This crashed `/auth/callback` (compounding with #1 above — this crash fired *before* reaching the missing-import line) and `/api/account/delete` (reproduced live: real 500 "Could not read session"). Separately, even with `await` added the cookie it read (`sb-access-token`) was never real — the browser client persists sessions in localStorage, not cookies, so no server route using it could ever identify a caller. Fixed by switching to explicit bearer-token forwarding (client sends `Authorization: Bearer <access_token>` from `supabase.auth.getSession()`; the route validates it via `supabase.auth.getUser(token)`).
+    3. `/api/account/delete` never deleted `comics`/`comic_covers` rows the user created (e.g. via CSV import or "+ Add manually"), so `auth.admin.deleteUser()` failed on a foreign-key violation the moment a user had added even one local comic — an unrecoverable "Database error deleting user," permanently blocking that account's deletion. Found via a live repro (CSV-imported a comic, then couldn't delete the test account) and confirmed via direct queries against `comics`/`comic_covers`/`profiles`/`auth.users`. Fixed: delete comic_covers → comics → user_collections → profile → auth.users in FK-safe order; re-verified the same account then deleted cleanly end to end.
+    All 3 fixes are in this PR (`agent/qa-auth-pass`) along with a 4th fix classified P1 (see below). `npm run build` and `npx eslint` on all 5 changed files are clean (0 errors).
+  - Last checked: 2026-09-13
+  - Blocker: this pass covered auth (signup/login/logout/session-persistence/switch-account/reset-password/protected-route-redirects) plus a slice of core workflows (search, series, issue, library add/grade/remove, wantlist, CSV import/export, PDF export, public profile, upgrade page) — it did **not** cover the rest of the site (marketplace, forum, blog, admin, complete-profile, inbox) or the variant-picker UI. Zero P0s remain *in the surface tested*; sitewide P0-zero is not yet claimed.
 
 - [ ] **Open P1 defects: 0**
   - Owner:
-  - Evidence:
-  - Last checked:
-  - Blocker:
+  - Evidence: Same 2026-09-13 pass. One P1 fixed, several left open and documented (none block a core flow outright — all have a workaround or are cosmetic-adjacent):
+    - **Fixed:** `src/app/library/page.js` had no auth guard — an anonymous visitor hitting `/library` directly saw a fully-rendered "My Library" management shell (CSV upload buttons, Manage/Public-preview toggle, "Add your first comic" prompts) with no indication they weren't logged in; every mutating handler silently no-op'd via its own internal `if (!user) return`. No data leak (no query ever ran for an anonymous visitor), but confusing and inconsistent with `/account`'s own redirect-to-login guard. Fixed: added the same `loading`/`redirect-to-/login?next=/library` guard `/account` uses; verified live.
+    - **Open — CSV import data quality:** importing a CSV with a populated `series_title`/`issue_number`/`publisher` (e.g. "The Amazing Spider-Man,1,Marvel") creates a local `comics` row with `series_title`/`publisher`/`release_year` all `null`, rendering as "Untitled #1 · Unknown Publisher · Unknown Year" in the library instead of matching the real catalog or preserving the imported values. Reproduced live twice. Root cause is in the CSV import/matching path, which this pass didn't otherwise touch or trace — needs a real look, not a guess.
+    - **Open — signup password minimum inconsistent:** `/signup` accepts a 6-character password; `/reset-password` and the account-settings change-password form both require 8. Minor UX inconsistency, not a security gap (whichever is weaker is still what's enforced), easy fix but a product call on which number is canonical.
+    - **Open — corrupted/fully-invalid local session on a protected route:** if both the access and refresh token in `localStorage` are invalid (not the same as normal expiry, which the SDK's silent refresh already handles fine), `/library` shows a technical "Couldn't load your library: JWT cryptographic operation failed. Retry" instead of detecting the broken session and bouncing to `/login`. No crash, no data exposure, Retry is present — just not a clean recovery path. Rare in practice (requires actual token tampering, not just time passing).
+    - **Open — cosmetic:** the onboarding modal can pop up over the signup form mid-submission and over the header immediately after a fresh login (it's mounted at the root layout and fires 800ms after `user` becomes truthy, regardless of which page that lands on). Working as designed, just poorly timed relative to the auth moment itself. Also, deleting an account races the account page's own logged-out-redirect effect against the explicit post-delete `window.location.href = "/"`, producing a brief `/login` flash and one benign console 403 before landing correctly on `/` — final state is always correct.
+  - Last checked: 2026-09-13
+  - Blocker: the CSV import data-quality bug is the one item here that's more than cosmetic — it directly affects the "imports" workflow this same launch gate names, and needs someone to actually trace the import/matching code (out of scope for this auth-focused pass).
 
 - [x] **Priority cover coverage >= 90%** (launch-priority universe: user collections, wantlists, featured titles, frequently searched series, current releases, high-value issues — NOT the full raw catalog)
   - Owner:
@@ -37,9 +46,15 @@ Every item needs Owner / Evidence / Last checked / Blocker filled in before it c
 
 - [ ] **Core workflow success >= 99%** (signup, search, series, issues, library, variants, wantlist, imports, exports, profiles, subscriptions per the plan's "whole-site polish" pass)
   - Owner:
-  - Evidence:
-  - Last checked:
-  - Blocker: no end-to-end test pass recorded yet
+  - Evidence: First real end-to-end test pass, 2026-09-13 — driven live in headless Chromium (Playwright), not a code trace, against production Supabase (test accounts created and fully deleted afterward; no residual data, Founding Collector count confirmed back to its pre-pass 74-remaining/26-claimed baseline). Auth was tested at an explicitly elevated bar per founder direction ("abso-fucking-lutely pristine"):
+    - **Auth (all confirmed working, 1 P0 chain found+fixed — see P0 gate):** signup (new account, weak-password and duplicate-email validation), login (correct password, wrong password shows "Invalid email or password."), logout (synchronous state clear, lands on `/`, stays logged out after refresh), session persistence across a hard refresh, the 2026-05-21 initial-session-race fix in `AuthContext` (confirmed intact by both code inspection and behavior), Switch Account (signs out, lands on `/login` via `window.location.href`, not `router.replace` — confirmed in `Header.js` and live), `/account` correctly redirects logged-out visitors to `/login`, `/library` did not (P1, fixed — see above), forgot-password/reset-password request UI (couldn't complete the loop without real inbox access to the reset link — request-side behavior only).
+    - **Search → series → issue → library:** navigated header search and `/search` into a series page into an issue page; Add to Collection, Add to Wishlist, Remove from Collection, Remove from Wishlist, and the inline grade editor (Grading Company/Condition/Variant/Copy #/Paid/Market Value/Notes) all worked with zero console errors.
+    - **Imports/exports:** CSV export and PDF export both trigger real downloads with correct filenames and no errors. CSV import completes without crashing but has a real data-quality P1 (see P1 gate) — imported rows lose series/publisher/year data.
+    - **Profiles:** `/u/[username]` renders collection stats, Founding/Pro badges correctly for both a fresh signup and post-login.
+    - **Subscriptions (UI/redirect only, per this gate's scope — deep Stripe lifecycle testing belongs to the separate payment-lifecycle gate):** `/upgrade` correctly reflects already-Founding-Collector status and messaging.
+    - **Not tested this pass:** the variant-picker UI, marketplace, forum, blog, admin, complete-profile, inbox.
+  - Last checked: 2026-09-13
+  - Blocker: not claiming 99% — this was one manual/scripted pass finding 3 P0s (fixed) and multiple P1s (one fixed, several open, see above) in the surface it covered, which argues for another pass after the CSV-import bug is fixed rather than a percentage nobody re-measured. Variant workflow and the rest of the site (marketplace, forum, blog, admin) remain completely unwalked.
 
 - [ ] **API/server error rate < 1%**
   - Owner:

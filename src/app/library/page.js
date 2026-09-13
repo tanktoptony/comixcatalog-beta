@@ -126,7 +126,7 @@ export default function LibraryPage() {
 
 function LibraryPageContent() {
   const { collections, loading, loadError, refreshLibrary, removeFromCollection } = useLibrary();
-  const { user, isPro, profile } = useAuth();
+  const { user, isPro, profile, loading: authLoading } = useAuth();
   const supabase = getSupabaseClient();
 
   const router = useRouter();
@@ -919,6 +919,27 @@ function LibraryPageContent() {
   }, [collections, comicIndex]);
 
   const dupeTotal = duplicates.reduce((sum, g) => sum + (g.count - 1), 0);
+
+  // Logged-out visitors get bounced to /login. This is the account owner's
+  // collection-management view (CSV import/export, grade editing, catalog
+  // linking) — not a public page (that's /u/[username]'s "public preview").
+  // Without this guard, an anonymous visitor sees a fully-rendered "My
+  // Library" shell (0 items, CSV upload buttons, Manage toggle) with no
+  // indication they need to log in, and every mutating action silently
+  // no-ops via its own internal `if (!user) return;` guard. Wait for
+  // AuthContext to finish hydrating first so a logged-in user's hard
+  // refresh doesn't flash /login (same pattern as /account).
+  useEffect(() => {
+    if (!authLoading && !user) router.replace("/login?next=/library");
+  }, [authLoading, user, router]);
+
+  if (authLoading || !user) {
+    return (
+      <main className="library-shell">
+        <p style={{ opacity: 0.7, padding: 24 }}>Loading…</p>
+      </main>
+    );
+  }
 
   return (
     <main className="library-shell">

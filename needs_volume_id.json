@@ -12295,5 +12295,19 @@
         "start_year": 1998
       }
     ]
+  },
+  {
+    "name": "Silver Streak Comics",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25365,
+        "name": "Silver Streak Comics",
+        "publisher": "Lev Gleason",
+        "start_year": 1939
+      }
+    ]
   }
 ]

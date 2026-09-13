@@ -12361,5 +12361,83 @@
         "start_year": 2024
       }
     ]
+  },
+  {
+    "name": "Aphrodite IX",
+    "publisher": "Top Cow Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60768,
+        "name": "Aphrodite IX",
+        "publisher": "Image",
+        "start_year": 2013
+      },
+      {
+        "id": 131843,
+        "name": "Aphrodite IX",
+        "publisher": "Infinity Verlag",
+        "start_year": 2002
+      },
+      {
+        "id": 18912,
+        "name": "Aphrodite IX",
+        "publisher": "Image",
+        "start_year": 2000
+      },
+      {
+        "id": 87658,
+        "name": "Aphrodite IX",
+        "publisher": "Panini Verlag",
+        "start_year": 2014
+      },
+      {
+        "id": 41772,
+        "name": "Aphrodite IX",
+        "publisher": "Panini Brasil",
+        "start_year": 2007
+      }
+    ]
+  },
+  {
+    "name": "Magic Knight Rayearth",
+    "publisher": "Dark Horse Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70048,
+        "name": "Magic Knight Rayearth",
+        "publisher": "Tokyopop",
+        "start_year": 1998
+      },
+      {
+        "id": 40624,
+        "name": "Magic Knight Rayearth",
+        "publisher": "Tokyopop",
+        "start_year": 2007
+      },
+      {
+        "id": 47908,
+        "name": "Magic Knight Rayearth",
+        "publisher": "Tokyopop",
+        "start_year": 2000
+      }
+    ]
+  },
+  {
+    "name": "Sabina",
+    "publisher": "Dynamite Entertainment",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 90772,
+        "name": "Sabina",
+        "publisher": "Bich",
+        "start_year": 1994
+      }
+    ]
   }
 ]

@@ -12281,5 +12281,19 @@
         "start_year": 2007
       }
     ]
+  },
+  {
+    "name": "Gambit Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22048,
+        "name": "Gambit Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ]
   }
 ]

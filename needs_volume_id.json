@@ -12215,5 +12215,71 @@
         "start_year": 1998
       }
     ]
+  },
+  {
+    "name": "Midnight Nation",
+    "publisher": "Top Cow Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 9443,
+        "name": "Midnight Nation",
+        "publisher": "Image",
+        "start_year": 2000
+      }
+    ]
+  },
+  {
+    "name": "He Done Her Wrong",
+    "publisher": "Dell Comics",
+    "year": 1963,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55617,
+        "name": "He Done Her Wrong",
+        "publisher": "Fantagraphics",
+        "start_year": 2005
+      }
+    ]
+  },
+  {
+    "name": "Batman and the Outsiders",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 118841,
+        "name": "Batman & the Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 98883,
+        "name": "Batman and the Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 3194,
+        "name": "Batman and the Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 1983
+      },
+      {
+        "id": 124427,
+        "name": "Batman and the Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      },
+      {
+        "id": 19660,
+        "name": "Batman and the Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ]
   }
 ]

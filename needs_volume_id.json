@@ -12027,5 +12027,25 @@
         "start_year": 2013
       }
     ]
+  },
+  {
+    "name": "Transformers Universe",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 33961,
+        "name": "Transformers Universe",
+        "publisher": "Marvel",
+        "start_year": 1987
+      },
+      {
+        "id": 33530,
+        "name": "Transformers Universe",
+        "publisher": "Marvel",
+        "start_year": 1986
+      }
+    ]
   }
 ]

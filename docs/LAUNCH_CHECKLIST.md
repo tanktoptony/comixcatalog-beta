@@ -43,9 +43,9 @@ Every item needs Owner / Evidence / Last checked / Blocker filled in before it c
 
 - [ ] **API/server error rate < 1%**
   - Owner:
-  - Evidence:
-  - Last checked:
-  - Blocker: no monitoring/alerting dashboard confirmed wired (Sentry or equivalent — status unknown, not verified this pass)
+  - Evidence: **Instrumentation now wired (PR agent/monitoring-setup, 2026-09-12)** — confirmed nothing existed before this (no `@sentry/*` packages, no `instrumentation.js`, no Vercel Analytics/Speed Insights, grep came up empty). Added `@sentry/nextjs` with client (`src/instrumentation-client.js`), server (`src/sentry.server.config.js`), and edge (`src/sentry.edge.config.js`) init, wired through `src/instrumentation.js`'s `register()`/`onRequestError`, and `next.config.mjs` wrapped with `withSentryConfig`. Verified locally: dev server boots and serves normally with no `SENTRY_DSN` set (SDK no-ops safely, confirmed via a deliberate thrown error in a temporary test route — the app kept serving subsequent requests with no crash), and `npm run build` compiles cleanly with the Sentry wrapper (a separate, pre-existing `/opengraph-image` build failure is unrelated — sharp/libvips colourspace error in this sandbox, not caused by this change). This only closes the "is anything wired" half of the gate — the actual **<1% rate** cannot be verified until this runs against real production traffic with a real DSN, which requires founder action (see Blocker).
+  - Last checked: 2026-09-12 (instrumentation only — no live error-rate data exists yet)
+  - Blocker: **instrumentation ready, not yet live.** Founder still needs to: (1) create a Sentry project at sentry.io, (2) set `NEXT_PUBLIC_SENTRY_DSN` + `SENTRY_DSN` in `.env.local`, as Vercel project env vars, and as GitHub Actions secrets (see `.env.example`), (3) optionally set `SENTRY_ORG`/`SENTRY_PROJECT`/`SENTRY_AUTH_TOKEN` for source-map upload, (4) optionally enable Sentry's Vercel integration instead of/in addition to the manual DSN (it can auto-provision the env vars — see PR description). Until a real DSN is set, zero events reach Sentry and the <1% figure remains unverified, not "passing."
 
 - [ ] **Payment lifecycle tests: 100%** (checkout, webhook, portal, cancellation, failed-payment, authorization)
   - Owner:

@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2",
+    "@sentry/nextjs": "^10.74.0",
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.86.0",
     "better-sqlite3": "^12.5.0",

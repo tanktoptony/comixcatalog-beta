@@ -12341,5 +12341,25 @@
         "start_year": 2019
       }
     ]
+  },
+  {
+    "name": "Misery",
+    "publisher": "Image Comics",
+    "year": 1995,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 165250,
+        "name": "Misery",
+        "publisher": "Image",
+        "start_year": 2025
+      },
+      {
+        "id": 158559,
+        "name": "Misery",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ]
   }
 ]

@@ -33,41 +33,43 @@ export default function LoginPage() {
   // ?next=/some/path is the post-login return URL — set by buttons that
   // bounce anonymous users to /login from deep pages (issue page "Save",
   // series page "Add", etc). Restricted to same-origin paths to avoid open
-  // redirect abuse.
-  const [nextPath, setNextPath] = useState(null);
+  // redirect abuse. Read via a lazy initializer (runs once, during the
+  // client render) rather than an effect — avoids useSearchParams (which
+  // would force a Suspense boundary refactor) and the
+  // react-hooks/set-state-in-effect lint rule, since this is genuinely
+  // deriving initial state, not synchronizing with an external system.
+  const [nextPath] = useState(() => {
+    if (typeof window === "undefined") return null;
+    const rawNext = new URLSearchParams(window.location.search).get("next");
+    return rawNext && rawNext.startsWith("/") && !rawNext.startsWith("//") ? rawNext : null;
+  });
 
-  // Read one-shot query-string flags on mount. Avoids pulling in
-  // useSearchParams (which would force a Suspense boundary refactor) and
-  // gives us banner state for: ?reset=success (just changed password),
-  // ?error=confirmation_failed (auth callback hit a snag), etc.
-  const [flashBanner, setFlashBanner] = useState(null);
+  // Same one-shot pattern for the query-string banner flags: ?reset=success
+  // (just changed password), ?error=confirmation_failed / session_failed
+  // (auth callback hit a snag).
+  const [flashBanner, setFlashBanner] = useState(() => {
+    if (typeof window === "undefined") return null;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("reset") === "success") {
+      return { kind: "success", text: "Password updated. Log in with your new password." };
+    }
+    if (params.get("error") === "confirmation_failed") {
+      return { kind: "error", text: "Confirmation link was invalid or expired. Sign in and we can resend." };
+    }
+    if (params.get("error") === "session_failed") {
+      return { kind: "error", text: "Couldn't establish a session. Please try logging in again." };
+    }
+    return null;
+  });
+
+  // Stripping the query string is a real external-system side effect
+  // (browser history), not a state update, so it stays in an effect —
+  // this is what the lint rule actually wants separated out.
   useEffect(() => {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
-    const rawNext = params.get("next");
-    if (rawNext && rawNext.startsWith("/") && !rawNext.startsWith("//")) {
-      setNextPath(rawNext);
-    }
-    if (params.get("reset") === "success") {
-      setFlashBanner({
-        kind: "success",
-        text: "Password updated. Log in with your new password.",
-      });
-    } else if (params.get("error") === "confirmation_failed") {
-      setFlashBanner({
-        kind: "error",
-        text: "Confirmation link was invalid or expired. Sign in and we can resend.",
-      });
-    } else if (params.get("error") === "session_failed") {
-      setFlashBanner({
-        kind: "error",
-        text: "Couldn't establish a session. Please try logging in again.",
-      });
-    }
-    // Strip the query so a refresh doesn't keep re-showing the banner.
     if (params.has("reset") || params.has("error")) {
-      const cleaned = window.location.pathname;
-      window.history.replaceState({}, "", cleaned);
+      window.history.replaceState({}, "", window.location.pathname);
     }
   }, []);
 
@@ -114,15 +116,6 @@ export default function LoginPage() {
           setShowResend(true);
         } else if (message.includes("invalid login credentials")) {
           setErrorMsg("Invalid email or password.");
-        } else if (
-          message.includes("rate limit") ||
-          message.includes("too many requests") ||
-          message.includes("for security purposes") ||
-          error.status === 429
-        ) {
-          setErrorMsg(
-            "Too many login attempts. Please wait a few minutes and try again."
-          );
         } else {
           setErrorMsg(error.message || "Unable to log in.");
         }

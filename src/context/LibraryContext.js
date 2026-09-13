@@ -20,24 +20,6 @@ function makeLibraryKey(item) {
   return null;
 }
 
-// Detects a corrupted/fully-invalid local session — both access and refresh
-// tokens garbage in localStorage, not normal expiry (the SDK's silent
-// refresh already handles that case before a query is ever sent). Supabase
-// surfaces this as an opaque server-side error like "JWT cryptographic
-// operation failed" rather than a clean "invalid session" — without this
-// check that raw message leaks straight to the library UI instead of
-// bouncing the user to /login the way every other unauthenticated path does.
-function isAuthTokenError(err) {
-  if (!err) return false;
-  const message = String(err.message || "").toLowerCase();
-  return (
-    message.includes("jwt") ||
-    message.includes("invalid refresh token") ||
-    message.includes("invalid token") ||
-    message.includes("session missing")
-  );
-}
-
 function parseLibraryInput(input) {
   const raw = String(input || "").trim();
 
@@ -105,20 +87,6 @@ export function LibraryProvider({ children }) {
           hint: error.hint,
           code: error.code,
         });
-
-        if (isAuthTokenError(error)) {
-          // Corrupted local session (garbage access/refresh tokens) — not a
-          // real data error. Clear it locally (no server roundtrip needed,
-          // and the tokens are junk anyway) so the SIGNED_OUT event flips
-          // AuthContext's `user` to null, which the /library and /account
-          // guards already redirect on. Leave loadError unset — the user
-          // is about to be bounced, not shown a retry button for a session
-          // that can't be repaired by retrying.
-          supabase.auth.signOut({ scope: "local" });
-          setCollections([]);
-          return;
-        }
-
         setCollections([]);
         setLoadError(error.message || "Failed to load library");
         return;
@@ -127,13 +95,6 @@ export function LibraryProvider({ children }) {
       setCollections(data ?? []);
     } catch (err) {
       console.error("refreshLibrary crashed:", err);
-
-      if (isAuthTokenError(err)) {
-        getSupabaseClient().auth.signOut({ scope: "local" });
-        setCollections([]);
-        return;
-      }
-
       setCollections([]);
       setLoadError(err?.message || "Failed to load library");
     } finally {
@@ -144,7 +105,11 @@ export function LibraryProvider({ children }) {
   useEffect(() => {
     // Clear immediately on user change so a previous account's collections
     // never paint under a new session. Without this, collections from the
-    // signed-out user linger until refreshLibrary resolves.
+    // signed-out user linger until refreshLibrary resolves. Genuinely needs
+    // to be an effect (not a render-time state sync) since it also kicks
+    // off an async refetch — same accepted exception pattern already used
+    // elsewhere in this codebase (Header.js, ProfileTabs.js, library/page.js).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCollections([]);
     setLoading(true);
     refreshLibrary();

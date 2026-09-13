@@ -12453,5 +12453,25 @@
         "start_year": 2001
       }
     ]
+  },
+  {
+    "name": "Avengers: The Enemy Within",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 69786,
+        "name": "Avengers: The Enemy Within",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 61317,
+        "name": "Avengers: The Enemy Within",
+        "publisher": "Marvel",
+        "start_year": 2013
+      }
+    ]
   }
 ]

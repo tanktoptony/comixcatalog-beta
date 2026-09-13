@@ -9957,16 +9957,16 @@
         "start_year": 2012
       },
       {
-        "id": 111428,
-        "name": "Justice League",
-        "publisher": "DC Comics",
-        "start_year": 2018
-      },
-      {
         "id": 92373,
         "name": "Justice League",
         "publisher": "DC Comics",
         "start_year": 2016
+      },
+      {
+        "id": 111428,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2018
       },
       {
         "id": 3796,
@@ -12045,6 +12045,40 @@
         "name": "Transformers Universe",
         "publisher": "Marvel",
         "start_year": 1986
+      }
+    ]
+  },
+  {
+    "name": "Warheads",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20499,
+        "name": "Warheads",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1992
+      }
+    ]
+  },
+  {
+    "name": "Damage Control",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 4350,
+        "name": "Damage Control",
+        "publisher": "Marvel",
+        "start_year": 1989
+      },
+      {
+        "id": 4349,
+        "name": "Damage Control",
+        "publisher": "Marvel",
+        "start_year": 1989
       }
     ]
   }

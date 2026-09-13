@@ -8,11 +8,11 @@
 
 ## The North Star
 
-**ComixCatalog is what Discogs is for music, but for comic books.**
+**ComixCatalog is a Discogs body wearing comic-shop clothes.** (Reframed 2026-09-13 — full reasoning in `docs/north-star/NORTH_STAR.md` §1/§1.2, don't duplicate it here, just don't contradict it.)
 
-That's the one-sentence product truth. Every feature decision should be evaluated against it. Discogs succeeded by combining a comprehensive community-built database, personal collection management, and a trusted peer-to-peer marketplace into one platform with a strong collector identity. That's exactly what this is — for comics.
+The architecture is still Discogs: a comprehensive community-built database, personal collection management, and a trusted peer-to-peer marketplace, one platform, strong collector identity. When in doubt about whether a **capability** belongs, ask "does Discogs do this, and does it make sense for comics?"
 
-When in doubt about scope, priority, or design direction: ask "does Discogs do this, and does it make sense for comics?"
+But that comparison is retired as the *external* pitch — "catalog + tracker + future marketplace, kind of like Discogs" makes a new visitor translate before they care. Externally this is **"the comic shop that belongs to you"** — Collect / Discover / Connect, not catalog / track / marketplace. How a shipped capability gets *named and explained* (copy, onboarding, empty states, notifications) runs through the comic-shop test, not the Discogs one. Two different questions — see NORTH_STAR.md §1.2 before writing user-facing copy.
 
 ---
 

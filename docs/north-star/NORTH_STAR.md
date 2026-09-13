@@ -1,9 +1,9 @@
 # ComixCatalog North Star — Design Standard & Sitemap
 
 > Aspirational. This document anchors what ComixCatalog should look like, feel like, and *do* once it's mature.
-> Source of truth: **Discogs** (discogs.com), captured 2026-04-26. Screenshots saved to `docs/north-star/discogs-reference/`.
+> Architecture source of truth: **Discogs** (discogs.com), captured 2026-04-26. Screenshots saved to `docs/north-star/discogs-reference/`.
 >
-> **Use this doc:** before adding a major feature, check whether Discogs has a parallel for it and how they solve it. Match their information density, their navigation grammar, and their collector-first tone — adapted for comics.
+> **Two different tests now, added 2026-09-13 — see §1.2:** whether a *capability* belongs uses the Discogs test below. How that capability is *presented* — copy, onboarding, naming, tone — uses the comic-shop test. Don't run features through the wrong one; that's how you end up with a feature that's architecturally right but explained like enterprise software.
 >
 > Pair this with [CLAUDE.md](../../CLAUDE.md), which is the engineering brief. CLAUDE.md = "what we are now." NORTH_STAR.md = "what we're aiming at."
 
@@ -11,13 +11,15 @@
 
 ## 1. The One-Sentence Truth
 
-> **ComixCatalog is what Discogs is for music, but for comic books.**
+> **ComixCatalog is a Discogs body wearing comic-shop clothes.**
 
-When in doubt about a feature, ask: *does Discogs do this, and does it make sense for comics?* If yes — build it. If they don't, think hard about whether it belongs.
+The skeleton — catalog + personal collection + peer marketplace, one platform, nothing bolted on — is Discogs, and stays Discogs. That's proven architecture, not up for debate per feature. What changed 2026-09-13: **we stopped leading with that comparison out loud.** Telling a new visitor "we're a catalog, a collection tracker, and a future marketplace, sort of like Discogs" makes them do translation work before they know why to care. "Your comic shop, online" doesn't need translating — see §1.2.
+
+When in doubt about whether a **capability** belongs, ask: *does Discogs do this, and does it make sense for comics?* If yes — build it. If they don't, think hard about whether it belongs. (For how that capability gets *named and explained* once it exists, use the comic-shop test in §1.2 instead.)
 
 ### 1.1 Competitive references
 
-**Primary reference: Discogs.** Music collectors' platform. Database + collection manager + peer marketplace, all in one. The standard we're trying to meet on UX and information density.
+**Primary architecture reference: Discogs.** Music collectors' platform. Database + collection manager + peer marketplace, all in one. The standard we're trying to meet on UX and information density. This is the internal reference — it answers "should this exist," not "how do we talk about it."
 
 **Closest comics-space competitor: [mycomicshop.com](https://www.mycomicshop.com).** A long-running comics retailer that does much of what we're building — searchable database, want-list tracking with email alerts, marketplace, customer collection records — but **clunkily**. The site reads as a 2010-era retail catalog: dense tables, retailer-led layout, dated typography, no real collector identity layer (no public profiles in the Discogs sense), no slab-grade-first UX, no portfolio-style value tracking. They prove the demand exists; their UX shows the gap we're filling.
 
@@ -29,6 +31,47 @@ When in doubt about a feature, ask: *does Discogs do this, and does it make sens
 - **Marketplace as peer-to-peer.** mycomicshop sells *to* collectors. We let collectors transact *with* collectors and take a smaller cut.
 
 When evaluating a feature, also check: *would this make ComixCatalog feel less like mycomicshop and more like Discogs?*
+
+**Not a competitor, the thing the marketplace makes unnecessary: eBay and Facebook Marketplace.** These are generalist tools — a seller describing a CGC 9.8 slabbed variant is filling out fields built for selling a couch. ComixCatalog's marketplace (P3, not built yet) isn't trying to out-eBay eBay on reach or traffic. It's fitting the seller into a paradigm that already understands grade, slab company, newsstand vs. direct, variant, and run, so a listing is correct by construction instead of the seller doing translation work eBay was never designed for. This is what makes ComixCatalog "the alternative that makes it easier," not a head-to-head competitor claim.
+
+### 1.2 The comic-shop layer (voice, presentation, onboarding — added 2026-09-13)
+
+**External framing:** *"The comic shop that belongs to you"* / *"Your comic shop, online."* Retire "the Discogs for comics" as the front-door pitch — keep it for investor conversations, press, or anyone who explicitly asks for a quick comparison, but a first-time visitor should never have to hear it to understand what this is.
+
+**Why "comic shop" and not "database" or "platform":** a comic shop has never been just shelves. It's where collectors browse, show each other books, get recommendations, debate runs, discover what other people collect, and arrange trades or purchases. That gives every feature — including the social ones — a single recognizable place to live, instead of reading as three unrelated products (catalog / tracker / marketplace) a visitor has to mentally assemble.
+
+**Product hierarchy (replaces "catalog / track / marketplace" as the pitch structure):**
+- **Collect** — build and understand your shelves (personal collection, grading, notes, provenance, value tracking, wantlist)
+- **Discover** — explore comics and find what's next (catalog, search, series/issue pages)
+- **Connect** — meet collectors, message, trade, buy, and sell (public profiles, following, activity feed, marketplace)
+
+**Feature → comic-shop-behavior map** (use this for copy, onboarding language, and empty states — not for deciding whether to build something):
+
+| ComixCatalog feature | Comic-shop equivalent |
+|---|---|
+| Complete catalog | The shelves and back-issue bins |
+| Search and discovery | Browsing the store |
+| Personal collection | Your own shelves |
+| Wishlist | Your want list |
+| Grades, notes, provenance | The condition info on the book |
+| Value tracking | Knowing what your collection is worth |
+| Public profile | Your shelves and collector identity |
+| Collection sharing | Showing someone what you own |
+| Following collectors | Recognizing the regulars |
+| Activity feed | Seeing what's newly arrived or being collected |
+| Messaging | Talking across the counter |
+| Wishlist matching | "I have something you're looking for" |
+| Marketplace (buy/sell/trade) | The buying, selling, and trading counter |
+| Reviews / comments | Recommending and discussing books |
+
+**Social features get built and named as shop behavior, not as a social network.** Avoid ever marketing this as "a social network for comic collectors" — that reads as another feed demanding attention, and it isn't the goal. Concretely: don't ship a generic empty inbox. Every conversation should start from an object — a comic in someone's collection, a marketplace listing, a wantlist, a completed run, a public collection or curated list — so a first message is naturally specific: *"I have the issue missing from your run,"* *"Would you consider selling or trading this copy?,"* *"Is that the newsstand edition?,"* *"How did you like this series?"* This is the concrete design constraint for whatever replaces the wallpapered-over inbox in Phase 4.
+
+**Homepage direction (starting point, not final copy):**
+> **Your comic shop. Online.**
+> Catalog your collection, discover missing issues, track what your books are worth, and connect with collectors — all in one place.
+> `[Build Your Collection]` `[Browse the Catalog]`
+>
+> Everything a collector needs, under one roof: browse the shelves, build your collection, track every book, complete your want list, buy and sell with confidence.
 
 ---
 
@@ -383,4 +426,6 @@ When picking the next thing to build:
 3. **Stay inside §2 (visual standard).** New components must match the existing color/typography/layout grammar.
 4. **Update CLAUDE.md** with what you actually built. Update *this* doc only when the north star itself shifts.
 
-The bar isn't "does it work." The bar is "does it feel like Discogs would feel if Discogs were for comics."
+Two bars, not one, per §1.2:
+- **Architecture bar:** "does it feel like Discogs would feel if Discogs were for comics."
+- **Presentation bar:** "does it feel like the collector's ideal comic shop" — copy, naming, onboarding, empty states, notification language. A feature can clear the first bar and fail the second (right capability, explained like enterprise software) — check both.

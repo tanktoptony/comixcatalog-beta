@@ -402,16 +402,22 @@ export async function POST(req) {
     function buildMarketValueField() {
       const userCount = items.filter((i) => i.value_source === "user").length;
       const coverCount = items.filter((i) => i.value_source === "cover-price").length;
+      const ebayAskingCount = items.filter((i) => i.value_source === "ebay-listed").length;
+      const ebaySoldCount = items.filter((i) => i.value_source === "ebay-sold").length;
       const total = items.reduce((sum, i) => sum + (Number(i.effective_market_value) || 0), 0);
-      const value = (userCount + coverCount) > 0 ? money(total) : "Not recorded";
-      let caption = null;
-      if (userCount > 0 && coverCount > 0) {
-        caption = `${userCount} user-entered + ${coverCount} cover-price floor`;
-      } else if (coverCount > 0) {
-        caption = `Cover-price floor (no user-entered values yet)`;
-      } else if (userCount > 0 && userCount < items.length) {
-        caption = `Based on ${userCount} of ${items.length} books`;
-      }
+      const anyValued = userCount + coverCount + ebayAskingCount + ebaySoldCount > 0;
+      const value = anyValued ? money(total) : "Not recorded";
+      // Every value_source that contributes to the total gets named here —
+      // this caption is the one place a reader sees the full mix, so a
+      // silently-omitted category (ebay-listed asking prices, in particular)
+      // would misrepresent how solid "total market value" actually is.
+      const parts = [];
+      if (userCount > 0) parts.push(`${userCount} user-entered`);
+      if (ebaySoldCount > 0) parts.push(`${ebaySoldCount} eBay sold comp${ebaySoldCount === 1 ? "" : "s"}`);
+      if (ebayAskingCount > 0) parts.push(`${ebayAskingCount} eBay asking price${ebayAskingCount === 1 ? "" : "s"} (not sold)`);
+      if (coverCount > 0) parts.push(`${coverCount} cover-price floor`);
+      const allUserEntered = userCount > 0 && userCount === items.length;
+      const caption = allUserEntered ? null : (parts.length > 0 ? parts.join(" + ") : null);
       return ["TOTAL MARKET VALUE", value, caption];
     }
 
@@ -438,7 +444,7 @@ export async function POST(req) {
 
     cover.drawRectangle({ x: MARGIN + 18, y: fy - 8, width: W - (MARGIN + 18) * 2, height: 1, color: GOLD, opacity: 0.3 });
 
-    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Purchase-price totals reflect self-reported figures entered by the collector. Market-value totals combine self-reported values with an era-based cover-price floor estimate for issues without a user-entered value. Neither constitutes a formal written appraisal.";
+    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Purchase-price totals reflect self-reported figures entered by the collector. Market-value totals combine self-reported values, eBay-derived comps, and an era-based cover-price floor estimate for issues without a user-entered value. eBay comps are current asking prices, not confirmed sold prices, unless individually noted otherwise — they typically skew high. Neither total constitutes a formal written appraisal.";
     const dLines = wrapText(disclaimer, reg, 8.5, W - (MARGIN + 18) * 2);
     let dy = fy - 28;
     for (const line of dLines) {
@@ -637,13 +643,14 @@ export async function POST(req) {
       });
 
       // Market value — uses effective_market_value (user override → cover-
-      // price floor). Cover-price rows draw in italic to visually distinguish
-      // estimates from collector-entered values; user-entered rows stay bold.
+      // price floor). Cover-price and eBay-asking rows draw in italic to
+      // visually distinguish unconfirmed estimates from solid values
+      // (collector-entered, or a real eBay sold comp); those stay bold.
       const valueLabel = item.effective_market_value != null
         ? money(Number(item.effective_market_value))
         : "—";
       const valueHasNumber = valueLabel !== "—";
-      const isEstimate = valueHasNumber && item.value_source === "cover-price";
+      const isEstimate = valueHasNumber && (item.value_source === "cover-price" || item.value_source === "ebay-listed");
       page.drawText(truncate(valueLabel, isEstimate ? italic : bold, ts, CW.value - 4), {
         x: CX.value, y: ty + 4, size: ts,
         font: isEstimate ? italic : bold,

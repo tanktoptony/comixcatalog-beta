@@ -12127,5 +12127,53 @@
         "start_year": 2007
       }
     ]
+  },
+  {
+    "name": "Fast Fiction",
+    "publisher": "Eclipse Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62694,
+        "name": "Fast Fiction",
+        "publisher": null,
+        "start_year": 1949
+      },
+      {
+        "id": 81882,
+        "name": "Fast Fiction",
+        "publisher": "Fast Fiction",
+        "start_year": 1982
+      }
+    ]
+  },
+  {
+    "name": "The Goon - Bunch of Old Crap: An Omnibus",
+    "publisher": "Dark Horse Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119345,
+        "name": "The Goon: Bunch of Old Crap, An Omnibus",
+        "publisher": "Exploding Albatross Funnybooks",
+        "start_year": 2019
+      }
+    ]
+  },
+  {
+    "name": "You're the Greatest, Charlie Brown",
+    "publisher": "Fawcett Comics",
+    "year": 1971,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66148,
+        "name": "You're the Greatest, Charlie Brown",
+        "publisher": "Scholastic Book Services",
+        "start_year": 1979
+      }
+    ]
   }
 ]

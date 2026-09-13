@@ -88,10 +88,23 @@ export default function IssuePage() {
     if (!collectionRow?.id || issue?.source !== "gcd") return;
     setVariantSaveState("saving");
     try {
-      const { error } = await getSupabaseClient().from("user_collections").update({
-        variant_of_gcd_id: Number(String(issue.id).replace(/^gcd-/, "")),
-        variant_label: variantLabel.trim() || null,
-      }).eq("id", collectionRow.id);
+      // `variant_of_gcd_id` is a forward-hook for a future GCD-native
+      // variant-issue link (see migration 0010) — it points to a *different*
+      // base gcd_issue, which this page never has. Writing this issue's own
+      // id into it (the old behavior) was a no-op self-reference that also
+      // ignored which cover thumbnail the collector actually clicked. The
+      // thing the user is picking here is which `cover_variants` image is
+      // their printing, so persist that into `user_cover_url` — the field
+      // already used sitewide as "the image representing this specific
+      // copy" (library, public profile, PDF export). Only write it when a
+      // thumbnail was actually selected, so confirming just a label doesn't
+      // clobber a personal photo the collector uploaded elsewhere.
+      const payload = { variant_label: variantLabel.trim() || null };
+      if (selectedCover) payload.user_cover_url = selectedCover;
+      const { error } = await getSupabaseClient()
+        .from("user_collections")
+        .update(payload)
+        .eq("id", collectionRow.id);
       if (error) throw error;
       setVariantSaveState("saved");
     } catch (error) {

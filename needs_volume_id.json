@@ -12439,5 +12439,19 @@
         "start_year": 1994
       }
     ]
+  },
+  {
+    "name": "Hammer of the Gods",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19790,
+        "name": "Hammer of the Gods",
+        "publisher": "Insight Studios Group",
+        "start_year": 2001
+      }
+    ]
   }
 ]

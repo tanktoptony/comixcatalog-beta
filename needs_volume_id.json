@@ -12107,5 +12107,25 @@
         "start_year": 2008
       }
     ]
+  },
+  {
+    "name": "Civil War: War Crimes",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 18539,
+        "name": "Civil War: War Crimes",
+        "publisher": "Marvel",
+        "start_year": 2007
+      },
+      {
+        "id": 38044,
+        "name": "Civil War: War Crimes",
+        "publisher": "Marvel",
+        "start_year": 2007
+      }
+    ]
   }
 ]

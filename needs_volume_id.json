@@ -12195,5 +12195,25 @@
         "start_year": 1998
       }
     ]
+  },
+  {
+    "name": "Tales of the Darkness",
+    "publisher": "Top Cow Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20321,
+        "name": "Tales of the Darkness",
+        "publisher": "Image",
+        "start_year": 1998
+      },
+      {
+        "id": 51422,
+        "name": "Tales of The Darkness",
+        "publisher": "Splitter",
+        "start_year": 1998
+      }
+    ]
   }
 ]

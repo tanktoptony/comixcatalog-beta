@@ -12473,5 +12473,57 @@
         "start_year": 2013
       }
     ]
+  },
+  {
+    "name": "Prophet",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 45269,
+        "name": "Prophet",
+        "publisher": "Image",
+        "start_year": 2012
+      },
+      {
+        "id": 18185,
+        "name": "Prophet",
+        "publisher": "Image",
+        "start_year": 1993
+      },
+      {
+        "id": 19782,
+        "name": "Prophet",
+        "publisher": "Image",
+        "start_year": 1995
+      },
+      {
+        "id": 32261,
+        "name": "Prophet",
+        "publisher": "Image",
+        "start_year": 1995
+      }
+    ]
+  },
+  {
+    "name": "The Darkness: Prelude",
+    "publisher": "Top Cow Comics",
+    "year": 2003,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 156393,
+        "name": "The Darkness: Prelude",
+        "publisher": "Top Cow Productions",
+        "start_year": 2003
+      },
+      {
+        "id": 61171,
+        "name": "The Darkness: Prelude",
+        "publisher": "Top Cow Productions",
+        "start_year": 2003
+      }
+    ]
   }
 ]

@@ -12175,5 +12175,25 @@
         "start_year": 1979
       }
     ]
+  },
+  {
+    "name": "Divine Right",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 93248,
+        "name": "Divine Right",
+        "publisher": "Splitter",
+        "start_year": 1998
+      },
+      {
+        "id": 127388,
+        "name": "Divine Right",
+        "publisher": "JuniorPress BV",
+        "start_year": 1998
+      }
+    ]
   }
 ]

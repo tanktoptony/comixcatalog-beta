@@ -3,7 +3,7 @@
 **Authority:** This is the *only* current launch checklist. If any other document (spec, audit, agent-prompt file, North Star) implies a different launch scope or gate, this file wins — flag the conflict, don't silently follow the other doc.
 **Source:** Gates below are transcribed directly from `reports/ComixCatalog-Formal-Launch-Plan.pdf` ("Formal launch gates," p.8) — that PDF is the signed/dated artifact; this file is the living, checkable version of it.
 **Launch window:** ~~August 31 – September 11, 2026~~ — **superseded 2026-09-08.** That window assumed full-time hours; the founder is working this part-time around a separate software job, so there is no fixed launch date right now. Treat the gates below as a quality bar to work through at a sustainable pace, not a countdown. Internal release-candidate target: August 21, 2026 (also passed, same reason).
-**Last verified:** 2026-08-05
+**Last verified:** 2026-09-13 (3 of 10 gates re-checked this pass — priority coverage, publisher mismatches, valuation labels; the other 7 are still whatever they were on 2026-08-05 or earlier, see each gate's own Last checked line)
 
 Every item needs Owner / Evidence / Last checked / Blocker filled in before it can flip to done. An unchecked box with no evidence line is not "probably fine" — it's unknown.
 
@@ -25,15 +25,15 @@ Every item needs Owner / Evidence / Last checked / Blocker filled in before it c
 
 - [x] **Priority cover coverage >= 90%** (launch-priority universe: user collections, wantlists, featured titles, frequently searched series, current releases, high-value issues — NOT the full raw catalog)
   - Owner:
-  - Evidence: **8,886/9,597 issues covered (92.59%) across 170 series**, measured via `scripts/generatePriorityCoverTargets.js` after fixing a second measurement bug tonight (2026-08-05): every multi-page `.range()` query in the script's pagination helper had no `.order()` clause, so Postgres/PostgREST gave no row-order guarantee across page requests — under concurrent writes (a live ingest running at the same time) this silently skipped rows between pages, producing different totals on identical back-to-back runs (85.34% then 81.29% the same night, before the fix). Fix: every paginated query now orders by its primary key (`id`, or `gcd_id` for `gcd_issues`). Verified deterministic across 3 consecutive reruns post-fix. Also found and fixed tonight: one real `user_collections` row (issue "Superman #78") was linked to a mislabeled duplicate GCD series entry (`gcd_id` 28776, incorrectly cached as "DC Comics") instead of the real DC Superman vol. 2 run (`gcd_id` 3386) — re-linking it moved the reading from 91.58% to 92.56% and turned a false "90/119 missing" into a true "5/231 missing." Also resolved tonight: Justice League (2022, `gcd_id` 184847) turned out to be GCD's entry for the 3 *collected editions* of the "Prisms"/"United Order"/"Leagues of Chaos" story arcs (from the main 2018 ongoing), not a periodical series — ComicVine catalogs each as its own one-shot volume rather than one 3-issue volume, so the normal `--volume-id` path couldn't match it. Manually matched and ingested all 3 real collected-edition covers by issue ID. 50 series still have at least one gap — see `gap-priority.json`.
-  - Last checked: 2026-08-05 (priority-scoped live query, post pagination-order fix + Superman re-link + Justice League manual ingest, reproduced 3x)
-  - Blocker: none — gate met. Residual honesty note: some of this week's percentage movement is measurement-accuracy and data-correctness work (a smaller, correct denominator; fixing undercounting; fixing one mislinked series), not solely new covers ingested — a full real ComicVine ingest pass against the 50 non-held targets this session added **zero new rows** (all already covered), meaning the remaining gaps in those series may not exist in ComicVine's data at all, same pattern as the original denominator bug. See `reports/priority-cover-coverage-2026-08-05.md` for the full breakdown. Still unresolved: no live current-release or search-frequency signal feeding the priority universe.
+  - Evidence: **12,011/12,928 issues covered (92.91%) across 202 series**, re-verified live 2026-09-13 via `scripts/generatePriorityCoverTargets.js` (previous reading of 92.59%/9,597 issues was from 2026-08-05, over a month stale). Universe grew by ~3,300 issues since then (more collection/wishlist activity feeding the priority set) and coverage held/improved anyway. 51 series still have at least one gap — see `gap-priority.json` (regenerated same pass).
+  - Last checked: 2026-09-13 (live re-run, single pass — prior entry's 3x-reproduction rigor not repeated this time, re-run again if this becomes load-bearing for a go/no-go call)
+  - Blocker: none — gate met.
 
 - [ ] **Known publisher mismatches: 0**
   - Owner:
-  - Evidence: `reports/canonical-cover-link-repair-*.json` shows repeated repair runs through 2026-08-02 — repair is active/ongoing, not yet at a documented zero-mismatch state.
-  - Last checked:
-  - Blocker:
+  - Evidence: **Partially re-verified 2026-09-13.** `node scripts/checkCoverIngestHealth.js --mode=mislink` (the automated regression check that runs every cover-ingest cycle) found 0 newly mis-linked volumes — the day-to-day auto-repair mechanism is healthy. That is not the same as zero historical mismatches: the same run surfaced 2,783 volumes still in an unresolved/ambiguous overlap-scoring state (2,533 below the 85% confidence threshold, 21 genuinely too-close-to-call), none of which are *confirmed* wrong so much as *not yet confirmed right*. `reports/canonical-cover-link-repair-*.json` still shows this as an active, ongoing backlog, not a closed one.
+  - Last checked: 2026-09-13
+  - Blocker: the 2,783-volume ambiguous backlog needs a real closure plan (batch review, better disambiguation heuristics, or an explicit "acceptable residual ambiguity" call) — not just the regression check staying green.
 
 - [ ] **Core workflow success >= 99%** (signup, search, series, issues, library, variants, wantlist, imports, exports, profiles, subscriptions per the plan's "whole-site polish" pass)
   - Owner:
@@ -53,11 +53,11 @@ Every item needs Owner / Evidence / Last checked / Blocker filled in before it c
   - Last checked:
   - Blocker:
 
-- [ ] **Valuations with source labels: 100%**
+- [x] **Valuations with source labels: 100%**
   - Owner:
-  - Evidence: verified 2026-08-03 — `src/app/library/page.js:1740-1766` already distinguishes `"asking, N listings"` (eBay Browse, asking price) from `"auto, N sales"` (would-be sold comps) from `"cover price"` (era-based fallback), each with an explanatory tooltip. This is the one launch-gate item with strong code-level evidence already in hand. Still needs a check that every other display surface (PDF export, series/issue pages, if they show valuation) does the same.
-  - Last checked: 2026-08-03 (library page only)
-  - Blocker: PDF export and any other valuation display surfaces not yet checked
+  - Evidence: library page verified 2026-08-03 (`src/app/library/page.js:1740-1766` — asking/sold/cover-price, each with a tooltip). **PDF export fixed 2026-09-13** — it computed `value_source` per item but silently dropped eBay comps from both the cover-page caption and the disclaimer, and rendered `ebay-listed` (asking, unconfirmed) values in solid bold identical to a real sale. Fixed: caption now names every source including eBay asking-vs-sold counts, the disclaimer states eBay comps are current asking prices unless noted otherwise, and asking-price rows now render in italic alongside cover-price estimates. Series/issue pages confirmed to not display market value at all — nothing to label there.
+  - Last checked: 2026-09-13
+  - Blocker: none — gate met.
 
 - [ ] **Backup and recovery test: Passed**
   - Owner:

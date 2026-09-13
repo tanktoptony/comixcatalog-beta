@@ -4,6 +4,23 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
+// Best-effort starting point for the username field — Google (and any
+// future OAuth provider) never supplies one directly, but usually gives us
+// a name or email we can derive a suggestion from. The user can freely
+// edit or replace it; this only saves a first-time OAuth signer a little
+// typing, it never auto-submits anything.
+function suggestUsername(user) {
+  const raw =
+    user?.user_metadata?.preferred_username ||
+    user?.user_metadata?.full_name ||
+    user?.user_metadata?.name ||
+    user?.email?.split("@")[0] ||
+    "";
+
+  const normalized = raw.trim().toLowerCase().replace(/[^a-z0-9_]/g, "");
+  return normalized.length >= 3 ? normalized.slice(0, 20) : "";
+}
+
 export default function CompleteProfilePage() {
   const supabase = getSupabaseClient();
   const router = useRouter();
@@ -42,6 +59,12 @@ export default function CompleteProfilePage() {
 
       if (profile?.username) {
         router.replace(`/u/${profile.username}`);
+        return;
+      }
+
+      const suggested = suggestUsername(user);
+      if (suggested) {
+        setUsername((current) => current || suggested);
       }
     }
 
@@ -130,6 +153,11 @@ export default function CompleteProfilePage() {
   return (
     <section className="auth-panel">
       <h1 className="auth-title">Choose Your Username</h1>
+      <p className="auth-subtitle">
+        You&rsquo;re signed in. Google doesn&rsquo;t hand over a username, so
+        pick one to finish setting up your ComixCatalog profile. It&rsquo;s
+        what people will see at comixcatalog.com/u/&lt;username&gt;.
+      </p>
 
       <form onSubmit={handleSubmit} className="auth-form">
         <div className="auth-group">

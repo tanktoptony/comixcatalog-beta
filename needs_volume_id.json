@@ -12297,5 +12297,59 @@
         "start_year": 2019
       }
     ]
+  },
+  {
+    "name": "Fantastic Comics",
+    "publisher": "Image Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37222,
+        "name": "Fantastic Comics",
+        "publisher": "Ajax-Farrell",
+        "start_year": 1954
+      },
+      {
+        "id": 19504,
+        "name": "Fantastic Comics",
+        "publisher": "Fox Comics (US)",
+        "start_year": 1940
+      }
+    ]
+  },
+  {
+    "name": "X-Statix",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 9478,
+        "name": "X-Statix",
+        "publisher": "Marvel",
+        "start_year": 2002
+      },
+      {
+        "id": 35058,
+        "name": "X-Statix",
+        "publisher": "Marvel",
+        "start_year": 2003
+      }
+    ]
+  },
+  {
+    "name": "Roy Rogers",
+    "publisher": "Dark Horse Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62003,
+        "name": "Roy Rogers",
+        "publisher": "Horwitz",
+        "start_year": 1954
+      }
+    ]
   }
 ]

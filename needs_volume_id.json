@@ -12431,5 +12431,19 @@
         "start_year": 2001
       }
     ]
+  },
+  {
+    "name": "Unusual Suspense",
+    "publisher": "Charlton Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85917,
+        "name": "Unusual Suspense",
+        "publisher": null,
+        "start_year": null
+      }
+    ]
   }
 ]

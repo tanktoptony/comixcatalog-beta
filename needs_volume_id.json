@@ -12351,5 +12351,51 @@
         "start_year": 1954
       }
     ]
+  },
+  {
+    "name": "Tales of Forbidden Worlds",
+    "publisher": "Charlton Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 87363,
+        "name": "Tales of Forbidden Worlds",
+        "publisher": "Avalon Communications",
+        "start_year": 2002
+      }
+    ]
+  },
+  {
+    "name": "Nemesis",
+    "publisher": "Dark Horse Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61787,
+        "name": "Nemesis",
+        "publisher": "Panini Verlag",
+        "start_year": 2011
+      },
+      {
+        "id": 86923,
+        "name": "Nemesis",
+        "publisher": "Kodansha",
+        "start_year": 2010
+      },
+      {
+        "id": 68640,
+        "name": "Nemesis",
+        "publisher": "Avalon Communications",
+        "start_year": 1997
+      },
+      {
+        "id": 91687,
+        "name": "Nemesis",
+        "publisher": "Soleil",
+        "start_year": 1997
+      }
+    ]
   }
 ]

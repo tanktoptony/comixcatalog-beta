@@ -1,8 +1,28 @@
 [
   {
-    "name": "Absolute Wonder Woman",
+    "name": "Absolute Martian Manhunter",
     "publisher": "DC Comics",
+    "year": 2025
+  },
+  {
+    "name": "Ultimate Spider-Man",
+    "publisher": "Marvel Comics",
     "year": 2024
+  },
+  {
+    "name": "Ultimate Invasion",
+    "publisher": "Marvel Comics",
+    "year": 2023
+  },
+  {
+    "name": "House of X",
+    "publisher": "Marvel Comics",
+    "year": 2019
+  },
+  {
+    "name": "Daredevil",
+    "publisher": "Marvel Comics",
+    "year": 2019
   },
   {
     "name": "Moon Knight",
@@ -13,6 +33,16 @@
     "name": "Batman",
     "publisher": "DC Comics",
     "year": 2016
+  },
+  {
+    "name": "Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2023
+  },
+  {
+    "name": "Detective Comics",
+    "publisher": "DC Comics",
+    "year": 2019
   },
   {
     "name": "Spider-Man",
@@ -35,7 +65,7 @@
     "year": 2023
   },
   {
-    "name": "Iron Man",
+    "name": "Thor",
     "publisher": "Marvel Comics",
     "year": 2020
   },
@@ -55,6 +85,11 @@
     "year": 2023
   },
   {
+    "name": "The Flash",
+    "publisher": "DC Comics",
+    "year": 2023
+  },
+  {
     "name": "Green Lantern",
     "publisher": "DC Comics",
     "year": 2023
@@ -62,17 +97,42 @@
   {
     "name": "Justice League",
     "publisher": "DC Comics",
-    "year": 2022
+    "year": 2023
+  },
+  {
+    "name": "Aquaman",
+    "publisher": "DC Comics",
+    "year": 2019
   },
   {
     "name": "Robin",
     "publisher": "DC Comics",
-    "year": 2021
+    "year": 2015
   },
   {
     "name": "Poison Ivy",
     "publisher": "DC Comics",
-    "year": 2022
+    "year": 2023
+  },
+  {
+    "name": "Saga",
+    "publisher": "Image Comics",
+    "year": 2012
+  },
+  {
+    "name": "The Walking Dead",
+    "publisher": "Image Comics",
+    "year": 2003
+  },
+  {
+    "name": "Invincible",
+    "publisher": "Image Comics",
+    "year": 2004
+  },
+  {
+    "name": "Spawn",
+    "publisher": "Image Comics",
+    "year": 2006
   },
   {
     "name": "Something Is Killing the Children",
@@ -80,9 +140,19 @@
     "year": 2020
   },
   {
+    "name": "The Department of Truth",
+    "publisher": "Image Comics",
+    "year": 2021
+  },
+  {
     "name": "Geiger",
     "publisher": "Image Comics",
     "year": 2021
+  },
+  {
+    "name": "Radiant Black",
+    "publisher": "Image Comics",
+    "year": 2022
   },
   {
     "name": "Killadelphia",
@@ -98,5 +168,10 @@
     "name": "Mighty Morphin Power Rangers",
     "publisher": "BOOM! Studios",
     "year": 2016
+  },
+  {
+    "name": "Watchmen",
+    "publisher": "DC Comics",
+    "year": 1989
   }
 ]

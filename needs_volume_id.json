@@ -12411,5 +12411,25 @@
         "start_year": 2003
       }
     ]
+  },
+  {
+    "name": "Cartoon Network",
+    "publisher": "DC Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 134424,
+        "name": "Cartoon Network",
+        "publisher": "Full Stop Media",
+        "start_year": 2001
+      },
+      {
+        "id": 133769,
+        "name": "Cartoon Network",
+        "publisher": "Bladkompaniet A.S.",
+        "start_year": 2001
+      }
+    ]
   }
 ]

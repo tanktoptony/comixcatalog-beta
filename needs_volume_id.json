@@ -12539,5 +12539,19 @@
         "start_year": 1962
       }
     ]
+  },
+  {
+    "name": "Crack Comics",
+    "publisher": "Image Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18074,
+        "name": "Crack Comics",
+        "publisher": "Quality Comics",
+        "start_year": 1940
+      }
+    ]
   }
 ]

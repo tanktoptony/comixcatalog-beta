@@ -12237,5 +12237,19 @@
         "start_year": 1996
       }
     ]
+  },
+  {
+    "name": "Warheads",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20499,
+        "name": "Warheads",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1992
+      }
+    ]
   }
 ]

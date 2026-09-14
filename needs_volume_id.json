@@ -12397,5 +12397,19 @@
         "start_year": 1997
       }
     ]
+  },
+  {
+    "name": "The Adventures of John Doe",
+    "publisher": "Charlton Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63658,
+        "name": "The Adventures of John Doe",
+        "publisher": "Avalon Communications",
+        "start_year": 2003
+      }
+    ]
   }
 ]

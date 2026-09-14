@@ -12567,5 +12567,19 @@
         "start_year": 2005
       }
     ]
+  },
+  {
+    "name": "Fox Comics Special",
+    "publisher": "Fantagraphics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62186,
+        "name": "Fox Comics Special",
+        "publisher": "Fox Comics (AU)",
+        "start_year": 1989
+      }
+    ]
   }
 ]

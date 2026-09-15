@@ -12385,15 +12385,15 @@
         "start_year": 2010
       },
       {
-        "id": 68640,
-        "name": "Nemesis",
-        "publisher": "Avalon Communications",
-        "start_year": 1997
-      },
-      {
         "id": 91687,
         "name": "Nemesis",
         "publisher": "Soleil",
+        "start_year": 1997
+      },
+      {
+        "id": 68640,
+        "name": "Nemesis",
+        "publisher": "Avalon Communications",
         "start_year": 1997
       }
     ]
@@ -12613,6 +12613,20 @@
         "name": "Top-Notch Comics",
         "publisher": "Archie Comics",
         "start_year": 1939
+      }
+    ]
+  },
+  {
+    "name": "Spider-Man: Big Time",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41489,
+        "name": "Spider-Man: Big Time",
+        "publisher": "Marvel Digital Comics Unlimited",
+        "start_year": 2010
       }
     ]
   }

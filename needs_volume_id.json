@@ -12445,5 +12445,25 @@
         "start_year": null
       }
     ]
+  },
+  {
+    "name": "Spider-Man: The Short Halloween",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 33421,
+        "name": "Spider-Man: The Short Halloween",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 26677,
+        "name": "Spider-Man: The Short Halloween",
+        "publisher": "Marvel",
+        "start_year": 2009
+      }
+    ]
   }
 ]

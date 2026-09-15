@@ -12553,5 +12553,39 @@
         "start_year": 1999
       }
     ]
+  },
+  {
+    "name": "The Lone Ranger Annual",
+    "publisher": "Dynamite Entertainment",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156460,
+        "name": "The Lone Ranger Annual",
+        "publisher": "World Distributors",
+        "start_year": 1956
+      }
+    ]
+  },
+  {
+    "name": "Turok, Son of Stone",
+    "publisher": "Dark Horse Comics",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 26288,
+        "name": "Turok Son of Stone",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 36039,
+        "name": "Turok, Son of Stone",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2010
+      }
+    ]
   }
 ]

@@ -12601,5 +12601,19 @@
         "start_year": 1985
       }
     ]
+  },
+  {
+    "name": "Top Notch Comics",
+    "publisher": "Fantagraphics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26706,
+        "name": "Top-Notch Comics",
+        "publisher": "Archie Comics",
+        "start_year": 1939
+      }
+    ]
   }
 ]

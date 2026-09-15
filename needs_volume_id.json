@@ -12587,5 +12587,19 @@
         "start_year": 2010
       }
     ]
+  },
+  {
+    "name": "Masters of the Universe Summer Special",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85838,
+        "name": "Masters of the Universe Summer Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1985
+      }
+    ]
   }
 ]

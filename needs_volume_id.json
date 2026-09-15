@@ -12465,5 +12465,19 @@
         "start_year": 2009
       }
     ]
+  },
+  {
+    "name": "Marvel Super Heroes Summer Fun",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129015,
+        "name": "Marvel Super Heroes Summer Fun",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1991
+      }
+    ]
   }
 ]

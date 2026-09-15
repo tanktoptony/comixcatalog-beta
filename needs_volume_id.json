@@ -12479,5 +12479,79 @@
         "start_year": 1991
       }
     ]
+  },
+  {
+    "name": "Hunt for Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 114714,
+        "name": "Hunt For Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 110091,
+        "name": "Hunt For Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ]
+  },
+  {
+    "name": "Marvel Rising",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 110222,
+        "name": "Marvel Rising",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 115063,
+        "name": "Marvel Rising",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ]
+  },
+  {
+    "name": "Dream Thief",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 61309,
+        "name": "Dream Thief",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 72119,
+        "name": "Dream Thief",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2014
+      }
+    ]
+  },
+  {
+    "name": "M. Rex Preview",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63556,
+        "name": "M. Rex Preview",
+        "publisher": "Avalon Studios",
+        "start_year": 1999
+      }
+    ]
   }
 ]

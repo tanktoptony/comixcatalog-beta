@@ -12629,5 +12629,25 @@
         "start_year": 2010
       }
     ]
+  },
+  {
+    "name": "Adventures of Little Archie",
+    "publisher": "Archie Comics",
+    "year": 2008,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 11901,
+        "name": "The Adventures of Little Archie",
+        "publisher": "Archie Comics",
+        "start_year": 1959
+      },
+      {
+        "id": 47288,
+        "name": "Adventures of Little Archie",
+        "publisher": "Archie Comics",
+        "start_year": 2004
+      }
+    ]
   }
 ]

@@ -12649,5 +12649,71 @@
         "start_year": 2005
       }
     ]
+  },
+  {
+    "name": "Journey Into Mystery",
+    "publisher": "Marvel Comics",
+    "year": 1999,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 1497,
+        "name": "Journey into Mystery",
+        "publisher": "Marvel",
+        "start_year": 1952
+      },
+      {
+        "id": 2573,
+        "name": "Journey into Mystery",
+        "publisher": "Marvel",
+        "start_year": 1972
+      },
+      {
+        "id": 39761,
+        "name": "Journey into Mystery",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 7168,
+        "name": "Journey into Mystery",
+        "publisher": "Marvel",
+        "start_year": 1996
+      }
+    ]
+  },
+  {
+    "name": "SpyGal: Thrills, Frills & Espionage",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47368,
+        "name": "SpyGal: Thrills, Frills & Espionage",
+        "publisher": "Marvel Digital Comics Unlimited",
+        "start_year": 2012
+      }
+    ]
+  },
+  {
+    "name": "Daken: Dark Wolverine - Empire",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 49035,
+        "name": "Daken: Dark Wolverine: Empire",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 39214,
+        "name": "Daken: Dark Wolverine: Empire",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ]
   }
 ]

@@ -12635,5 +12635,19 @@
         "start_year": 1939
       }
     ]
+  },
+  {
+    "name": "Tomb Raider / Witchblade / Magdalena / Vampirella",
+    "publisher": "Image Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20036,
+        "name": "Tomb Raider / Witchblade / Magdalena / Vampirella",
+        "publisher": "Top Cow Productions",
+        "start_year": 2005
+      }
+    ]
   }
 ]

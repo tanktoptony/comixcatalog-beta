@@ -10263,16 +10263,16 @@
         "start_year": 2022
       },
       {
-        "id": 4975,
-        "name": "Robin",
-        "publisher": "DC Comics",
-        "start_year": 1993
-      },
-      {
         "id": 135660,
         "name": "Robin",
         "publisher": "DC Comics",
         "start_year": 2021
+      },
+      {
+        "id": 4975,
+        "name": "Robin",
+        "publisher": "DC Comics",
+        "start_year": 1993
       },
       {
         "id": 4563,
@@ -12385,15 +12385,15 @@
         "start_year": 2010
       },
       {
-        "id": 91687,
-        "name": "Nemesis",
-        "publisher": "Soleil",
-        "start_year": 1997
-      },
-      {
         "id": 68640,
         "name": "Nemesis",
         "publisher": "Avalon Communications",
+        "start_year": 1997
+      },
+      {
+        "id": 91687,
+        "name": "Nemesis",
+        "publisher": "Soleil",
         "start_year": 1997
       }
     ]

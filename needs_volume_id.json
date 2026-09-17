@@ -12715,5 +12715,19 @@
         "start_year": 2011
       }
     ]
+  },
+  {
+    "name": "You're My Hero, Charlie Brown!",
+    "publisher": "Fawcett Comics",
+    "year": 1968,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60185,
+        "name": "You're My Hero, Charlie Brown!",
+        "publisher": "Coronet Books",
+        "start_year": 1968
+      }
+    ]
   }
 ]

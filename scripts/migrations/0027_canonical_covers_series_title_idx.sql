@@ -1,0 +1,33 @@
+-- Fixes recurring Postgres statement timeouts (SQLSTATE 57014) that have been
+-- failing cover-ingest.yml's health-check step and weekly-refresh.yml's search
+-- cache rebuild since canonical_covers passed ~119k rows.
+--
+-- Both failures trace to the same shape of query, most visibly in
+-- scripts/refreshSeriesSearchCache.js:
+--
+--   SELECT series_title, storage_path, ...
+--     FROM canonical_covers
+--    WHERE series_title IN (<up to 100 titles>)
+--    ORDER BY id
+--    LIMIT 1000 OFFSET <n>
+--
+-- canonical_covers had indexes on series_gcd_id and gcd_issue_id (migrations
+-- 0009 and 0018) but none on series_title, so every one of those pages had to
+-- scan. Measured against live data 2026-09-18: a light 97-title batch took
+-- 741ms with ORDER BY id vs 185ms without it, and a single heavy batch (Batman,
+-- Detective Comics, Amazing Spider-Man et al) took 9.7s across 12 pages with
+-- individual pages spiking to 2.6s — close enough to the statement timeout that
+-- ordinary contention from the hourly ingest pushes it over. It gets worse as
+-- the table grows, which is why the failures became more frequent rather than
+-- staying flat.
+--
+-- The index is (series_title, id) rather than (series_title) alone so the
+-- ORDER BY id is satisfied by the index too, rather than forcing a sort of the
+-- matched rows.
+--
+-- CONCURRENTLY so this does not lock canonical_covers against the hourly
+-- ingest while it builds. Note: CREATE INDEX CONCURRENTLY cannot run inside a
+-- transaction block — run this statement on its own, not wrapped in BEGIN/COMMIT.
+
+CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_canonical_covers_series_title_id
+  ON canonical_covers (series_title, id);

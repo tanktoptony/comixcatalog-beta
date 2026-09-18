@@ -12749,5 +12749,25 @@
         "start_year": 2012
       }
     ]
+  },
+  {
+    "name": "Amelia Cole and the Hidden War",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60948,
+        "name": "Amelia Cole and the Hidden War",
+        "publisher": "MonkeyBrain Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 72008,
+        "name": "Amelia Cole and the Hidden War",
+        "publisher": "MonkeyBrain Comics",
+        "start_year": 2014
+      }
+    ]
   }
 ]

@@ -631,9 +631,20 @@ async function processBatch(seriesBatch) {
       // separates a 1938 / 2011 / 2017 same-title set into their own volumes.
       const effectivePool = fallbackPool;
 
-      const scoreCover = (row, { allowClaimed }) => {
+      // Claimed covers are a HARD exclusion at every tier, not a scoring
+      // penalty. Once one series in this title group has been assigned a
+      // storage_path, no sibling volume may reuse it — otherwise the same
+      // cover ends up on multiple series rows (confirmed live: Ninjak had 6
+      // series sharing one cover that legitimately belongs to only one
+      // comicvine volume; Shadowman had up to 5). A series that would have
+      // "won" a sibling's cover under the old soft-penalty logic now gets
+      // null instead — see the route.js fallback at request time, which
+      // degrades gracefully (ID-path-exact match first, then a hard
+      // year-tolerance-bounded title match) rather than showing a
+      // definitely-wrong cover.
+      const scoreCover = (row) => {
         if (!row.storage_path) return -Infinity;
-        if (!allowClaimed && claimed.has(row.storage_path)) return -Infinity;
+        if (claimed.has(row.storage_path)) return -Infinity;
         let score = 0;
 
         const coverYear = parseYear(row.cover_date);
@@ -658,11 +669,11 @@ async function processBatch(seriesBatch) {
         return score;
       };
 
-      const pickBest = ({ allowClaimed }) => {
+      const pickBest = () => {
         let best = null;
         let bestScore = -Infinity;
         for (const row of effectivePool) {
-          const s = scoreCover(row, { allowClaimed });
+          const s = scoreCover(row);
           if (s > bestScore) {
             best = row;
             bestScore = s;
@@ -679,15 +690,13 @@ async function processBatch(seriesBatch) {
       // lands on 1940 issues. Better to leave the cover null than mismatched.
       const COVER_SCORE_THRESHOLD = 200;
 
-      let { row: bestCover, score: bestScore } = pickBest({ allowClaimed: false });
+      let { row: bestCover, score: bestScore } = pickBest();
       if (!bestCover || bestScore < COVER_SCORE_THRESHOLD) {
-        const reattempt = pickBest({ allowClaimed: true });
-        if (reattempt.row && reattempt.score >= COVER_SCORE_THRESHOLD) {
-          bestCover = reattempt.row;
-          bestScore = reattempt.score;
-        } else {
-          bestCover = null;
-        }
+        // No allowClaimed reattempt here — a claimed cover stays excluded
+        // even when the strict tier finds nothing else that clears the
+        // threshold. Falling through to null (or Tier 3 below) is correct;
+        // reusing a sibling volume's cover is not.
+        bestCover = null;
       }
 
       // Tier 3 fallback — when no cover clears the strict year-fit threshold,
@@ -719,6 +728,14 @@ async function processBatch(seriesBatch) {
         let softScore = -Infinity;
         for (const row of effectivePool) {
           if (!row.storage_path) continue;
+          // Hard exclusion, same as the strict tier above — a claimed cover
+          // can never win here either, even as "the only candidate in
+          // range." A soft -200 penalty used to let this tier assign an
+          // already-claimed cover to a second series when the score still
+          // came out ahead (e.g. the only candidate within
+          // FALLBACK_YEAR_TOLERANCE); this is exactly how Ninjak/Shadowman
+          // ended up with multiple series rows sharing one cover.
+          if (claimed.has(row.storage_path)) continue;
 
           if (yearStart != null) {
             const coverYear =
@@ -738,9 +755,6 @@ async function processBatch(seriesBatch) {
           }
           const issueStr = String(row.issue_number ?? "").trim();
           if (issueStr === "1" || issueStr === "#1") s += 50;
-          // Prefer unclaimed even at this tier so we don't all point at the
-          // same one cover for 50 different "Batman" volumes.
-          if (claimed.has(row.storage_path)) s -= 200;
           if (s > softScore) {
             softBest = row;
             softScore = s;

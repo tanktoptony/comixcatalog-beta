@@ -13095,5 +13095,66 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": []
+  },
+  {
+    "name": "Afterlife with Archie - Halloween Comicfest Edition",
+    "publisher": "Archie Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "Harley Quinn 21 Special Edition",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "Superman 1 Special Edition",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "Batman Adventures",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 20465,
+        "name": "Batman Adventures",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 4716,
+        "name": "The Batman Adventures",
+        "publisher": "DC Comics",
+        "start_year": 1992
+      },
+      {
+        "id": 78037,
+        "name": "The Batman Adventures",
+        "publisher": "DC Comics",
+        "start_year": 2014
+      }
+    ]
+  },
+  {
+    "name": "Marvel's Agents of S.H.I.E.L.D.: The Chase",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "Black-Eyed Kids Black & White Halloween Special",
+    "publisher": "AfterShock Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": []
   }
 ]

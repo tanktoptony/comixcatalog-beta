@@ -12920,12 +12920,6 @@
         "name": "Spider-Man",
         "publisher": "Marvel",
         "start_year": 1987
-      },
-      {
-        "id": 145364,
-        "name": "Spider-Man",
-        "publisher": "Marvel",
-        "start_year": 2022
       }
     ]
   },
@@ -13002,6 +12996,62 @@
     "name": "Batman: Legends of the Dark Knight Halloween Special Edition",
     "publisher": "DC Comics",
     "year": 2014,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "Street Fighter: Sakura vs Karin",
+    "publisher": "Udon Entertainment Corp.",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "Wolfskin",
+    "publisher": "Avatar Press",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "Street Fighter Swimsuit Special",
+    "publisher": "Udon Entertainment Corp.",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 94292,
+        "name": "Street Fighter Swimsuit Special",
+        "publisher": "UDON",
+        "start_year": 2016
+      }
+    ]
+  },
+  {
+    "name": "DC Super Hero Girls Free Comic Book Day 2017 Special Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "Book of Death: The Fall of the Valiant Universe",
+    "publisher": "Valiant Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "The Boys Dynamite Edition",
+    "publisher": "Dynamite Entertainment",
+    "year": 2009,
     "reason": "no_title_match",
     "candidates": []
   }

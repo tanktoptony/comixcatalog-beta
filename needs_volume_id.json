@@ -13054,5 +13054,46 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": []
+  },
+  {
+    "name": "Marvel's Greatest Creators: Power Pack",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "True Believers: Shattered Empire",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": []
+  },
+  {
+    "name": "Scarlet",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 34249,
+        "name": "Scarlet",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 46226,
+        "name": "Scarlet",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ]
+  },
+  {
+    "name": "Darth Vader: Doctor Aphra No. 1 Halloween Comic Fest 2016",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": []
   }
 ]

@@ -12790,5 +12790,63 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": []
+  },
+  {
+    "name": "Street Fighter",
+    "publisher": "Image Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 162587,
+        "name": "Street Fighter",
+        "publisher": "Moztros Producciones",
+        "start_year": 2022
+      },
+      {
+        "id": 18369,
+        "name": "Street Fighter",
+        "publisher": "Malibu",
+        "start_year": 1994
+      },
+      {
+        "id": 49906,
+        "name": "Street Fighter",
+        "publisher": "Editora Escala",
+        "start_year": 1994
+      },
+      {
+        "id": 18305,
+        "name": "Street Fighter",
+        "publisher": "UDON",
+        "start_year": 2003
+      },
+      {
+        "id": 136851,
+        "name": "Street Fighter",
+        "publisher": "Urban Comics",
+        "start_year": 2017
+      }
+    ]
+  },
+  {
+    "name": "Street Fighter Unlimited",
+    "publisher": "Udon Entertainment Corp.",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 93682,
+        "name": "Street Fighter Unlimited",
+        "publisher": "UDON",
+        "start_year": 2016
+      },
+      {
+        "id": 85643,
+        "name": "Street Fighter Unlimited",
+        "publisher": "UDON",
+        "start_year": 2015
+      }
+    ]
   }
 ]

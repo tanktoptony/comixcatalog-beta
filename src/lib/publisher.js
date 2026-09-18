@@ -85,6 +85,17 @@ export const US_PUBLISHER_ALLOWLIST = [
   // 0.4% cover coverage vs a 34.4% sitewide baseline as a direct result).
   "Malibu Comics",
   "Chaos! Comics",
+  // Udon Entertainment Corp. (Street Fighter's main modern publisher since
+  // 2003) was missing the same way — 57 series rows already exist with
+  // resolved_publisher_cached correctly set to "Udon Entertainment Corp."
+  // (2 as "Udon Comics") via resolvePublisher()'s raw-passthrough fallback,
+  // but with no allowlist entry they were categorically excluded from
+  // search/browse and from generateCoverGapTargets.js's candidate pool.
+  // Found while investigating the Street Fighter "0 coverage across every
+  // publisher" complaint — most of that gap is a genuine never-targeted
+  // franchise, but Udon specifically was also an allowlist gap.
+  "Udon Entertainment Corp.",
+  "Udon Comics",
 ];
 
 const MASTER_EXACT_MAP = {

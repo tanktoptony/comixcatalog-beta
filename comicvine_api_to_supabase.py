@@ -512,12 +512,13 @@ def _is_done_fresh(done: dict, key: str, ttl_days: int) -> bool:
     return datetime.now(timezone.utc) - processed < timedelta(days=ttl_days)
 
 
-# Targets we refused to auto-resolve because the ComicVine match was ambiguous
-# (multiple volumes) or the publisher didn't line up. These need a manual
-# --volume-id, so instead of letting them scroll past in the terminal we record
-# them — WITH the candidate volume IDs to pick from — and flush to a file at the
-# end of the run. (A truly-not-found title with no ComicVine volume at all is
-# NOT recorded here: there's no volume-id to disambiguate to.)
+# Targets we refused to auto-resolve: the ComicVine match was ambiguous
+# (multiple volumes), the publisher didn't line up, or the title matched
+# NOTHING on ComicVine at all (reason "no_title_match", candidates: []).
+# All three need a human (or a smarter matcher later) to look at them, so
+# instead of letting them scroll past in the terminal we record them —
+# with whatever candidate volume IDs exist to pick from, which is an empty
+# list for the zero-match case — and flush to a file at the end of the run.
 NEEDS_VOLUME_ID: list[dict] = []
 
 
@@ -540,17 +541,25 @@ def _record_needs_volume_id(name, publisher, year, reason, candidates):
             "candidates": [_slim_candidate(v) for v in candidates],
         }
     )
-    # Track ambiguous failures separately so the caller knows NOT to mark
-    # them done in the ledger. Without this, a target that fails because of
-    # multiple candidates gets marked done permanently — and a later
-    # matcher improvement (e.g. issue-count tiebreaker) can never retry it.
+    # Track every recorded failure (ambiguous OR zero-match) so the caller
+    # knows NOT to mark it done in the ledger. Without this, a target that
+    # fails for any of these reasons gets marked done permanently — and a
+    # later matcher improvement (issue-count tiebreaker, a title alias, a
+    # human pinning a volume_id) can never retry it. Name kept as
+    # AMBIGUOUS_THIS_RUN for git-blame continuity, but it now covers the
+    # zero-title-match case too (reason "no_title_match") — see
+    # _record_needs_volume_id's docstring-equivalent comment above.
     AMBIGUOUS_THIS_RUN.add((name, publisher, year))
 
 
 # Set populated by _record_needs_volume_id during the run. The main loop
 # consults this after find_volume returns None to decide whether the failure
-# was a "couldn't find anything" (mark done) or "ambiguous, fixable" (don't
-# mark done, give the next run / next matcher a chance).
+# was recorded to needs_volume_id.json (don't mark done — give the next run,
+# a future matcher, or a human with --volume-id a chance) or genuinely had
+# nothing to record (mark done). As of the 2026-09 fix below, a true
+# zero-title-match IS recorded (with candidates: []), so it no longer falls
+# into the "mark done" bucket either — see find_volume()'s `if not
+# name_matches` branch.
 AMBIGUOUS_THIS_RUN: set[tuple] = set()
 
 
@@ -661,12 +670,22 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
 
     pub_matches = [v for v in name_matches if _pub_ok(v)]
 
-    # No ComicVine volume matched the TITLE at all (not a publisher problem —
-    # there's nothing to disambiguate to). Don't record to needs_volume_id.json
-    # (there's no candidate list to offer) and don't mark ambiguous, so the
-    # caller's not-found branch marks it done in the ledger instead of
-    # re-spending a search call on it every run forever.
-    if publisher and not name_matches:
+    # No ComicVine volume matched the TITLE at all. This used to be treated
+    # as a dead end — no candidate list to offer, so nothing was recorded to
+    # needs_volume_id.json, and the caller's not-found branch fell through to
+    # marking the target done in .ingest-done.json FOREVER. That's wrong: a
+    # true zero-title-match is usually just a string-format mismatch between
+    # our gap-file title and ComicVine's own volume title (confirmed live:
+    # "Magnus Robot Fighter Yearbook" vs ComicVine's "Magnus Yearbook", and
+    # "Rai and the Future Force" vs ComicVine having no volume under that
+    # exact name at all) — exactly the kind of thing a human, or a smarter
+    # matcher later, can fix by pinning the right volume_id. So record it
+    # to needs_volume_id.json (with an empty candidate list and a reason
+    # that distinguishes it from the ambiguous-match cases above) and let
+    # the caller's AMBIGUOUS_THIS_RUN check keep it out of the done-ledger
+    # instead of silently disappearing it.
+    if not name_matches:
+        _record_needs_volume_id(name, publisher, year, "no_title_match", [])
         return None
 
     # Title matched, but none of those volumes are under the requested
@@ -1298,12 +1317,17 @@ def main():
 
             if not volume:
                 print(f"  volume not found: {volume_name}")
-                # Only mark "true not-found" failures done. Ambiguous-match
-                # failures (multiple volumes named X with same publisher and
-                # year) might be resolvable by a future matcher improvement
-                # — marking them done would silently lock them out forever.
-                # AMBIGUOUS_THIS_RUN is populated by _record_needs_volume_id
-                # in every ambiguous-branch return of find_volume.
+                # Only mark done if find_volume() had genuinely nothing to
+                # record (shouldn't happen in practice — every return-None
+                # branch in find_volume() now calls _record_needs_volume_id,
+                # including the true zero-title-match case fixed 2026-09).
+                # Ambiguous-match AND zero-match failures might be
+                # resolvable later (matcher improvement, title alias, a
+                # human pinning --volume-id) — marking them done would
+                # silently lock them out of every future run forever, with
+                # no trace anywhere. AMBIGUOUS_THIS_RUN is populated by
+                # _record_needs_volume_id in every recording branch of
+                # find_volume(), zero-match included.
                 was_ambiguous = (
                     volume_name,
                     publisher_name,

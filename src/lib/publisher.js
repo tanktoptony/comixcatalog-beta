@@ -76,6 +76,15 @@ export const US_PUBLISHER_ALLOWLIST = [
   // Dracula, X-Files, Jurassic Park, Mars Attacks, Zorro, Mary Shelley's
   // Frankenstein, The Mummy, etc. — collected runs that should surface.
   "Topps Comics",
+  // Malibu Comics (1986–1996, home of the Ultraverse) and Chaos! Comics
+  // (1993–2001, home of Evil Ernie/Chastity/Lady Death) were missing
+  // entirely — not a data-import gap, 243 Malibu and 173 Chaos! series
+  // rows already existed with fine metadata, but with no allowlist entry
+  // and no normalization mapping they were categorically excluded from
+  // search, ingest targeting, and the coverage denominator (Malibu sat at
+  // 0.4% cover coverage vs a 34.4% sitewide baseline as a direct result).
+  "Malibu Comics",
+  "Chaos! Comics",
 ];
 
 const MASTER_EXACT_MAP = {
@@ -307,6 +316,24 @@ const MASTER_EXACT_MAP = {
   "the topps company inc": "Topps Comics",
   "the topps company inc.": "Topps Comics",
   "the topps company, inc.": "Topps Comics",
+
+  // Malibu Comics — confirmed live in resolved_publisher_cached/gcd_publishers
+  // as these six raw variants across 243 series rows; none previously
+  // normalized to anything.
+  "malibu": "Malibu Comics",
+  "malibu comics": "Malibu Comics",
+  "malibu comics entertainment inc.": "Malibu Comics",
+  "malibu comics entertainment inc": "Malibu Comics",
+  "malibu graphics inc.": "Malibu Comics",
+  "malibu graphics inc": "Malibu Comics",
+  "malibu graphics publishing group": "Malibu Comics",
+
+  // Chaos! Comics — confirmed live across 173 series rows (170 "Chaos!
+  // Comics" + 3 "Chaos! Comics and Gareb Shamus Enterprises Inc. DBA Wizard
+  // Press", a Wizard-magazine co-published special-edition imprint).
+  "chaos! comics": "Chaos! Comics",
+  "chaos comics": "Chaos! Comics",
+  "chaos! comics and gareb shamus enterprises inc. dba wizard press": "Chaos! Comics",
 };
 
 // Distributors, regional reprinters, and generic "<series> Publishing Co Inc"
@@ -393,6 +420,14 @@ export function normalizePublisherLabel(value) {
   if (lower.includes("fawcett")) return "Fawcett Comics";
   // "Atlas" is ambiguous — the 50s Marvel-predecessor and the 70s Atlas/Seaboard
   // are both real. Only exact-match here, no substring fallback.
+
+  // Malibu (Ultraverse) and Chaos! (Evil Ernie/Chastity) — placed after the
+  // DC/Image substring checks above so co-published crossover editions
+  // ("DC Comics; Malibu Comics Entertainment Inc.", "An Image Comics title
+  // published in cooperation with Malibu Comics.") keep resolving to the
+  // lead publisher instead of being reattributed here.
+  if (lower.includes("malibu")) return "Malibu Comics";
+  if (lower.includes("chaos")) return "Chaos! Comics";
 
   return null;
 }

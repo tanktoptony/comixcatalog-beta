@@ -12977,5 +12977,32 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": []
+  },
+  {
+    "name": "Cinema Purgatorio",
+    "publisher": "Avatar Press",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 105618,
+        "name": "Cinema Purgatorio",
+        "publisher": "Panini España",
+        "start_year": 2017
+      },
+      {
+        "id": 170220,
+        "name": "Cinema Purgatorio",
+        "publisher": "Dantes Verlag",
+        "start_year": 2022
+      }
+    ]
+  },
+  {
+    "name": "Batman: Legends of the Dark Knight Halloween Special Edition",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": []
   }
 ]

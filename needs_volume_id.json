@@ -15256,5 +15256,108 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-20T18:06:10.520139+00:00",
     "retry_after": "2026-09-21T18:06:10.520157+00:00"
+  },
+  {
+    "name": "Secret Wars Too",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 86122,
+        "name": "Secret Wars, Too",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 93678,
+        "name": "Secret Wars, Too",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T19:00:43.805965+00:00",
+    "retry_after": "2026-09-21T19:00:43.805978+00:00"
+  },
+  {
+    "name": "Platinum Grit",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33604,
+        "name": "Platinum Grit",
+        "publisher": "Dead Numbat Productions",
+        "start_year": 2005
+      },
+      {
+        "id": 21264,
+        "name": "Platinum Grit",
+        "publisher": "Dead Numbat Productions",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T19:01:19.584148+00:00",
+    "retry_after": "2026-09-21T19:01:19.584165+00:00"
+  },
+  {
+    "name": "Farscape Omnibus",
+    "publisher": "Archaia",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 107651,
+        "name": "Farscape Omnibus",
+        "publisher": "Boom! Studios",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T19:01:20.961023+00:00",
+    "retry_after": "2026-09-21T19:01:20.961039+00:00"
+  },
+  {
+    "name": "The Fantastic Worlds of Frank Frazetta",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T19:01:33.543885+00:00",
+    "retry_after": "2026-09-21T19:01:33.543901+00:00"
+  },
+  {
+    "name": "Star Wars: Jedi",
+    "publisher": "Dark Horse Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T19:01:55.004574+00:00",
+    "retry_after": "2026-09-21T19:01:55.004590+00:00"
+  },
+  {
+    "name": "Tumbleweeds & Company",
+    "publisher": "Fawcett Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T19:02:29.093436+00:00",
+    "retry_after": "2026-09-21T19:02:29.093452+00:00"
+  },
+  {
+    "name": "True Believers: Kanan",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T19:02:57.926237+00:00",
+    "retry_after": "2026-09-21T19:02:57.926252+00:00"
   }
 ]

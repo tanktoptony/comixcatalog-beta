@@ -355,12 +355,29 @@ export async function GET(req) {
       // a 14yr cross-volume bleed. When the only candidate is too far off,
       // return null and let the styled empty-card placeholder show instead.
       const MAX_YEAR_DELTA = 5;
+      // No storage_path may appear on two tiles in one response. The cached
+      // column now guarantees this at the DB level (see
+      // reconcileDuplicateFeaturedCovers in
+      // scripts/refreshSeriesSearchCache.js), but this request-time fallback
+      // is a second, independent way for one cover to land on several rows:
+      // every "X-O Manowar" volume missing a cached cover resolves the same
+      // title-path candidate and picks the same closest-year winner, so the
+      // user sees the identical thumbnail 12 times. Seed the used set with
+      // the covers already committed on this page's rows, then let each
+      // fallback claim a path at most once.
+      const usedPaths = new Set(
+        top.map((r) => r.featured_cover_path_cached).filter(Boolean)
+      );
       const pickClosest = (candidates, targetYear) => {
         if (!candidates || candidates.length === 0) return null;
-        if (targetYear == null) return candidates[0].storage_path;
+        const available = candidates.filter(
+          (c) => c.storage_path && !usedPaths.has(c.storage_path)
+        );
+        if (available.length === 0) return null;
+        if (targetYear == null) return available[0].storage_path;
         let best = null;
         let bestDiff = Infinity;
-        for (const c of candidates) {
+        for (const c of available) {
           const cy = yearOf(c);
           if (cy == null) continue;
           const diff = Math.abs(cy - targetYear);
@@ -383,7 +400,10 @@ export async function GET(req) {
             : [];
           path = pickClosest(pubFiltered.length ? pubFiltered : titleCandidates, row.year_start_cached);
         }
-        if (path) fallbackPathById.set(row.id, path);
+        if (path) {
+          usedPaths.add(path);
+          fallbackPathById.set(row.id, path);
+        }
       }
     }
 

@@ -15637,5 +15637,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-20T21:03:45.490955+00:00",
     "retry_after": "2026-09-21T21:03:45.490966+00:00"
+  },
+  {
+    "name": "G.I. Joe Summer Special",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T22:00:55.521443+00:00",
+    "retry_after": "2026-09-21T22:00:55.521463+00:00"
+  },
+  {
+    "name": "Wonder Woman Faces \"The Menace of the Mole Men\" [Giant Comics to Color]",
+    "publisher": "Gold Key",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T22:00:56.060400+00:00",
+    "retry_after": "2026-09-21T22:00:56.060420+00:00"
+  },
+  {
+    "name": "Serenity: One for One",
+    "publisher": "Dark Horse Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T22:01:03.168621+00:00",
+    "retry_after": "2026-09-21T22:01:03.168639+00:00"
+  },
+  {
+    "name": "The Black Bat Omnibus",
+    "publisher": "Dynamite Entertainment",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T22:02:41.017683+00:00",
+    "retry_after": "2026-09-21T22:02:41.017701+00:00"
+  },
+  {
+    "name": "Evil Ernie",
+    "publisher": "Dynamite Entertainment",
+    "year": 2013,
+    "reason": "multiple_near_year_tied",
+    "candidates": [
+      {
+        "id": 52863,
+        "name": "Evil Ernie",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2012
+      },
+      {
+        "id": 77430,
+        "name": "Evil Ernie",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T22:03:07.296107+00:00",
+    "retry_after": "2026-09-21T22:03:07.296125+00:00"
+  },
+  {
+    "name": "Fathom 0",
+    "publisher": "Top Cow Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T22:03:23.027031+00:00",
+    "retry_after": "2026-09-21T22:03:23.027050+00:00"
   }
 ]

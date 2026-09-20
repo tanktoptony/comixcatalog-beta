@@ -67,3 +67,61 @@ There was no written path for taking a series from "has a `series` row but zero 
 4. **Known gotcha: `gcd_id`-less series can't be auto-pinned.** A series row created via a minimal-row path — `probeNewReleases.js`'s inline series creation, or `backfillMissingSeriesRows.js` (both build a row from an orphaned `canonical_covers` title with no `series_gcd_id` link) — has `gcd_id: null`. Several downstream scripts filter on `gcd_id IS NOT NULL`: `backfillSeriesComicvineVolumeId.js` (`.not("gcd_id", "is", null)`) and the ComicVine-volume-id backfill paths in `comicvine_api_to_supabase.py` (`"gcd_id": "not.is.null"`, lines ~952 and ~1003). A `gcd_id`-less row can still be ingested by name via `gap-manual.json`/`gap-priority.json` (those match by title/publisher/year, not `gcd_id`), but it can never get its `comicvine_volume_id` pinned by the normal automated backfill path. This is a known limitation, not something fixed here — flagging it for whoever eventually tackles it.
 
 5. **Distinguishing backlog reasons in `needs_volume_id.json`.** As of the 2026-09-17 ingest-skip-bug fix, a genuine zero-title-match (ComicVine has nothing under that exact title) now correctly lands in `needs_volume_id.json` with `"reason": "no_title_match"` and an empty `candidates` list, instead of being silently marked done in `.ingest-done.json` forever with no trace anywhere. This is a distinct case from the ambiguous-match reasons (`multiple_candidates`, `multiple_same_start_year_tied`, etc.) which do have candidates to disambiguate from. `resolveNeedsVolumeIdBacklog.js` already only auto-resolves single-candidate entries, so it correctly leaves `no_title_match` rows alone — anyone auditing this backlog should expect to see both shapes and know they need different handling (a `--volume-id` pick for the ambiguous ones, real research into whether the target itself is wrong for the zero-match ones).
+
+---
+
+## 8. Mid-run title split: one ComicVine volume, two GCD series (added 2026-09-20)
+
+**Status: open, deliberately not fixed. Verified against live data this session.**
+
+A 6th distinct missing-cover mechanism, and the only remaining bulk gap in
+user-collected coverage. Worked example, Rai:
+
+| | GCD | ComicVine |
+|---|---|---|
+| `Rai` | series `gcd_id 4493`, 1992, issues **#0-8** | volume `4828` "Rai", issues **#0-33** |
+| `Rai and the Future Force` | series `gcd_id 5067`, 1993, issues **#9-23** | *(no separate volume)* |
+
+The title changed mid-run. GCD modelled that as two series rows; ComicVine
+kept one volume. All 34 covers for volume 4828 are already uploaded and all
+34 carry `series_gcd_id = 4493`. So a user who owns *Rai and the Future
+Force* #9-23 sees no covers at all, even though the exact cover images are
+sitting in `canonical_covers` — `series_gcd_id 5067` has zero rows, and the
+title fallback can't match "Rai" against "Rai and the Future Force" either.
+That is 8 of the 18 remaining uncovered user-collected issues as of
+2026-09-20.
+
+**Do not fix this by pinning volume 4828 to series 5067.** The ingester
+resolves exactly one `gcd_id` per volume run, so the next ingest would
+rewrite all 34 covers to 5067 and break #0-8 for series 4493 — trading 8
+broken issues for 9 different broken ones.
+
+**A direct DB re-point of #9-23 to 5067 is also not durable.** It gets
+reverted within the hour, by design. `series` row 4493 has
+`comicvine_volume_id = 4828`, so `repairAllCoverSeriesLinks.js` — which
+`cover-ingest.yml` runs for real (no `--dry-run`) every cycle — takes its
+pin path, flags every row in volume 4828 whose `series_gcd_id` isn't 4493,
+and relinks them straight back. Any manual split is undone before the next
+cron hour is out.
+
+**What an actual fix requires:** issue-range-aware attribution, i.e.
+dropping the one-volume-one-series assumption in both
+`comicvine_api_to_supabase.py` (`_resolve_series_gcd_id`, ~line 1093, which
+returns a single `gcd_id` for the whole volume) and
+`repairAllCoverSeriesLinks.js` (both the pin path and the overlap scoring,
+which treat a volume spanning two `gcd_id`s as damage to be repaired rather
+than a legitimate state). Those two are the attribution logic for ~107k
+covers catalog-wide, and the repair script has already needed four
+emergency passes this month for the duplicate-title mis-linking bug — so
+loosening its "one volume, one series" invariant is exactly the change most
+likely to reintroduce that. Not worth attempting for 8 issues without a
+dedicated pass and a real before/after audit across the whole volume set.
+
+**Scope check before anyone picks this up:** find other affected volumes by
+looking for GCD series whose issue numbering starts well above #1 and whose
+publisher/era matches an existing ComicVine volume ending where it begins.
+`Rai and the Future Force` (#9-23) is the confirmed case; the same shape
+would catch other mid-run renames. Worth quantifying first — if it's a
+handful of volumes, a curated exceptions table keyed on
+`(comicvine_volume_id, issue_range) -> series_gcd_id`, consulted by both
+scripts above, is far safer than making the general resolver range-aware.

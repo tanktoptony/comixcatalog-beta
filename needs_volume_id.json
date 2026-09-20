@@ -15472,5 +15472,170 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-20T20:46:19.995230+00:00",
     "retry_after": "2026-09-21T20:46:19.995246+00:00"
+  },
+  {
+    "name": "Think About It Tomorrow, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T21:01:02.686620+00:00",
+    "retry_after": "2026-09-21T21:01:02.686635+00:00"
+  },
+  {
+    "name": "Our Army at War (War One-Shot)",
+    "publisher": "DC Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T21:01:09.081124+00:00",
+    "retry_after": "2026-09-21T21:01:09.081140+00:00"
+  },
+  {
+    "name": "Crock",
+    "publisher": "Fawcett Comics",
+    "year": 1977,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T21:01:09.332556+00:00",
+    "retry_after": "2026-09-21T21:01:09.332570+00:00"
+  },
+  {
+    "name": "Rat Queens Special",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T21:02:26.084071+00:00",
+    "retry_after": "2026-09-21T21:02:26.084108+00:00"
+  },
+  {
+    "name": "Super Ninja High School",
+    "publisher": "Antarctic Press",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T21:02:32.628571+00:00",
+    "retry_after": "2026-09-21T21:02:32.628587+00:00"
+  },
+  {
+    "name": "The Batman Adventures Silver Edition",
+    "publisher": "DC Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T21:02:57.918022+00:00",
+    "retry_after": "2026-09-21T21:02:57.918037+00:00"
+  },
+  {
+    "name": "Shazam! Double Trouble [Giant Comics to Color]",
+    "publisher": "Gold Key",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T21:03:27.088350+00:00",
+    "retry_after": "2026-09-21T21:03:27.088365+00:00"
+  },
+  {
+    "name": "Mandrake the Magician",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57386,
+        "name": "Mandrake the Magician",
+        "publisher": "Nostalgia Press",
+        "start_year": 1970
+      },
+      {
+        "id": 104217,
+        "name": "Mandrake the Magician",
+        "publisher": "Yaffa / Page",
+        "start_year": null
+      },
+      {
+        "id": 104220,
+        "name": "Mandrake the Magician",
+        "publisher": "Thule Forlag",
+        "start_year": 2005
+      },
+      {
+        "id": 169576,
+        "name": "Mandrake the Magician",
+        "publisher": "Tony Raiola",
+        "start_year": 1993
+      },
+      {
+        "id": 105661,
+        "name": "Mandrake the Magician",
+        "publisher": "Feature Productions",
+        "start_year": 1949
+      },
+      {
+        "id": 88328,
+        "name": "Mandrake the Magician",
+        "publisher": "L. Miller & Son, Ltd",
+        "start_year": 1961
+      },
+      {
+        "id": 104221,
+        "name": "Mandrake the Magician",
+        "publisher": "Frew Publications",
+        "start_year": 1990
+      },
+      {
+        "id": 103853,
+        "name": "Mandrake the Magician",
+        "publisher": "Young's Merchandising",
+        "start_year": null
+      },
+      {
+        "id": 50299,
+        "name": "Mandrake the Magician",
+        "publisher": "Marvel",
+        "start_year": 1995
+      },
+      {
+        "id": 169555,
+        "name": "Mandrake the Magician",
+        "publisher": "Tony Raiola",
+        "start_year": 1993
+      },
+      {
+        "id": 104123,
+        "name": "Mandrake the Magician",
+        "publisher": "Yaffa / Page",
+        "start_year": 1964
+      },
+      {
+        "id": 2323,
+        "name": "Mandrake the Magician",
+        "publisher": "King Features Syndicate",
+        "start_year": 1966
+      },
+      {
+        "id": 104219,
+        "name": "Mandrake the Magician",
+        "publisher": "Budget Books",
+        "start_year": 1987
+      },
+      {
+        "id": 103797,
+        "name": "Mandrake the Magician",
+        "publisher": "Consolidated Press",
+        "start_year": 1940
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T21:03:45.490955+00:00",
+    "retry_after": "2026-09-21T21:03:45.490966+00:00"
   }
 ]

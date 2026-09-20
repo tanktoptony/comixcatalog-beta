@@ -15189,5 +15189,72 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-20T17:04:08.708117+00:00",
     "retry_after": "2026-09-21T17:04:08.708133+00:00"
+  },
+  {
+    "name": "Stay With It, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T18:00:06.312223+00:00",
+    "retry_after": "2026-09-21T18:00:06.312241+00:00"
+  },
+  {
+    "name": "The Real Ghostbusters 3-D Annual",
+    "publisher": "Now Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T18:00:26.254367+00:00",
+    "retry_after": "2026-09-21T18:00:26.254386+00:00"
+  },
+  {
+    "name": "Dennis the Menace vs. Everybody",
+    "publisher": "Fawcett Comics",
+    "year": 1976,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54916,
+        "name": "Dennis the Menace vs. Everybody",
+        "publisher": "Henry Holt and Co.",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T18:00:26.552219+00:00",
+    "retry_after": "2026-09-21T18:00:26.552237+00:00"
+  },
+  {
+    "name": "Guardians of the Galaxy: Best Story Ever - Hasbro Custom Edition [Marvel Legends]",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T18:00:59.247623+00:00",
+    "retry_after": "2026-09-21T18:00:59.247641+00:00"
+  },
+  {
+    "name": "Hasbro / Captain America Annual",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T18:01:25.315875+00:00",
+    "retry_after": "2026-09-21T18:01:25.315892+00:00"
+  },
+  {
+    "name": "Rising Stars Preview",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T18:01:37.039154+00:00",
+    "retry_after": "2026-09-21T18:01:37.039171+00:00"
   }
 ]

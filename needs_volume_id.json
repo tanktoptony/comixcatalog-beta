@@ -14878,5 +14878,107 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-20T14:02:48.561990+00:00",
     "retry_after": "2026-09-21T14:02:48.562007+00:00"
+  },
+  {
+    "name": "Goosebumps: Monsters at Midnight #1 : Halloween Comic Fest Edition",
+    "publisher": "IDW Publishing",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T14:32:04.888387+00:00",
+    "retry_after": "2026-09-21T14:32:04.888404+00:00"
+  },
+  {
+    "name": "Dark Nights: Metal Special Edition",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T14:32:10.046238+00:00",
+    "retry_after": "2026-09-21T14:32:10.046256+00:00"
+  },
+  {
+    "name": "X-O Manowar / Harbinger",
+    "publisher": "Valiant Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T14:32:10.358701+00:00",
+    "retry_after": "2026-09-21T14:32:10.358716+00:00"
+  },
+  {
+    "name": "Rick and Morty vs. Dungeons & Dragons Directors Cut",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T14:32:13.627904+00:00",
+    "retry_after": "2026-09-21T14:32:13.627919+00:00"
+  },
+  {
+    "name": "Pilot Season: Declassified 2010",
+    "publisher": "Image Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T14:32:18.135247+00:00",
+    "retry_after": "2026-09-21T14:32:18.135263+00:00"
+  },
+  {
+    "name": "Lobo",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18356,
+        "name": "Lobo",
+        "publisher": "DC Comics",
+        "start_year": 1993
+      },
+      {
+        "id": 77220,
+        "name": "Lobo",
+        "publisher": "DC Comics",
+        "start_year": 2014
+      },
+      {
+        "id": 171022,
+        "name": "Lobo",
+        "publisher": "DC Comics",
+        "start_year": 2026
+      },
+      {
+        "id": 19236,
+        "name": "Lobo",
+        "publisher": "DC Comics",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T14:32:47.390905+00:00",
+    "retry_after": "2026-09-21T14:32:47.390919+00:00"
+  },
+  {
+    "name": "First Man",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 114285,
+        "name": "The First Man",
+        "publisher": "Pegasus",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T14:33:18.146441+00:00",
+    "retry_after": "2026-09-21T14:33:18.146456+00:00"
   }
 ]

@@ -15060,5 +15060,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-20T15:03:03.171726+00:00",
     "retry_after": "2026-09-21T15:03:03.171742+00:00"
+  },
+  {
+    "name": "DC Essentials: DC: The New Frontier",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T16:00:50.490400+00:00",
+    "retry_after": "2026-09-21T16:00:50.490418+00:00"
+  },
+  {
+    "name": "Kabuki",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6089,
+        "name": "Kabuki",
+        "publisher": "Image",
+        "start_year": 1997
+      },
+      {
+        "id": 46892,
+        "name": "Kabuki",
+        "publisher": "Digital Manga Publishing",
+        "start_year": 2008
+      },
+      {
+        "id": 69990,
+        "name": "Kabuki ½",
+        "publisher": "Image",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T16:01:12.193200+00:00",
+    "retry_after": "2026-09-21T16:01:12.193218+00:00"
+  },
+  {
+    "name": "Spawn/The Savage Dragon",
+    "publisher": "Image Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T16:01:13.949803+00:00",
+    "retry_after": "2026-09-21T16:01:13.949819+00:00"
+  },
+  {
+    "name": "Newbury & Hobbes",
+    "publisher": "Titan Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T16:02:52.080200+00:00",
+    "retry_after": "2026-09-21T16:02:52.080217+00:00"
   }
 ]

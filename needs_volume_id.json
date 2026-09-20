@@ -15359,5 +15359,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-20T19:02:57.926237+00:00",
     "retry_after": "2026-09-21T19:02:57.926252+00:00"
+  },
+  {
+    "name": "Action Time Buddies",
+    "publisher": "Antarctic Press",
+    "year": 2013,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 60775,
+        "name": "Action Time Buddies",
+        "publisher": "Antarctic Press",
+        "start_year": 2013
+      },
+      {
+        "id": 59557,
+        "name": "Action Time Buddies",
+        "publisher": "Antarctic Press",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T20:01:19.377198+00:00",
+    "retry_after": "2026-09-21T20:01:19.377215+00:00"
+  },
+  {
+    "name": "Elephantmen: Shots",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T20:04:35.342689+00:00",
+    "retry_after": "2026-09-21T20:04:35.342706+00:00"
+  },
+  {
+    "name": "Daredevil Vol. 1, No. 81 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T20:04:36.237503+00:00",
+    "retry_after": "2026-09-21T20:04:36.237517+00:00"
+  },
+  {
+    "name": "Flash Gordon Omnibus",
+    "publisher": "Dynamite Entertainment",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T20:04:36.760147+00:00",
+    "retry_after": "2026-09-21T20:04:36.760163+00:00"
   }
 ]

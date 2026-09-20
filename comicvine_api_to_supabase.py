@@ -122,6 +122,15 @@ def parse_cli() -> argparse.Namespace:
         help="Ignore the --done-file ledger this run (re-process every target).",
     )
     p.add_argument(
+        "--ignore-backoff",
+        action="store_true",
+        help=(
+            "Ignore the retry-backoff windows recorded in the "
+            "--needs-volume-id-out backlog and re-attempt every unresolved "
+            "target this run, however recently it last failed."
+        ),
+    )
+    p.add_argument(
         "--done-ttl-days",
         type=int,
         default=DONE_TTL_DAYS,
@@ -410,6 +419,14 @@ PUBLISHER_ALIASES: tuple[frozenset[str], ...] = (
     frozenset({"wildstorm", "image"}),  # WildStorm was founded within Image 1992-1998, pre-DC.
     frozenset({"valiant", "valiantacclaim", "dmgvaliant"}),  # Same line under different owners/eras.
     frozenset({"aspen", "aspenmlt"}),  # Aspen Comics is published by Aspen MLT, Inc.
+    # ComicVine files Udon under the bare masthead "UDON" (normalizes to
+    # "udon"); our own data says "Udon Entertainment Corp.", which normalizes
+    # to "udoncorp" because _norm_publisher strips the generic "entertainment"
+    # but not "corp". Added 2026-09-19 after the Udon / Street Fighter targets
+    # queued in September produced 23 targets that could never resolve, e.g.
+    # "no ComicVine volume named 'Street Fighter Swimsuit Special' with
+    # publisher 'Udon Entertainment Corp.'; observed publishers: ['UDON']".
+    frozenset({"udon", "udoncorp"}),
 )
 
 
@@ -522,6 +539,98 @@ def _is_done_fresh(done: dict, key: str, ttl_days: int) -> bool:
 NEEDS_VOLUME_ID: list[dict] = []
 
 
+# --- Retry backoff for targets that can't be resolved ----------------------
+# The failures above are deliberately NOT written to the done-ledger, so they
+# stay retryable. Without a cooldown that backfires badly: an unresolvable
+# target sits permanently at the head of the not-yet-done queue and gets
+# re-searched EVERY run, burning the whole per-lane --max-search-calls budget
+# before a single resolvable target is reached. That is exactly what killed the
+# hourly pipeline for ~26 hours on 2026-09-19 -- three consecutive runs
+# reported "search=30 volume=0 issues=0" against a byte-identical set of
+# failures, and zero covers landed in canonical_covers for a full day.
+#
+# So each backlog record now also carries attempts / last_attempt_at /
+# retry_after, and the main loop skips a target still inside its cooldown
+# window BEFORE spending a search call -- the same place, and for the same
+# reason, as the done-ledger skip. Nothing is lost: the target stays in
+# needs_volume_id.json and comes back for another attempt once the window
+# expires. The record's existing fields (name/publisher/year/reason/candidates)
+# are untouched, so scripts/resolveNeedsVolumeIdBacklog.js still reads the file
+# exactly as before -- it filters on `candidates.length === 1` and carries
+# whole records through, so the extra keys ride along harmlessly.
+BACKLOG_BACKOFF_DAYS: tuple[int, ...] = (1, 3, 7, 14, 30)
+
+# The backlog, loaded once at startup and keyed by (name, publisher, year) --
+# the same identity resolveNeedsVolumeIdBacklog.js keys on. This is the only
+# in-memory copy for the run; write_needs_volume_id() flushes it back out.
+NEEDS_VOLUME_ID_PRIOR: dict[tuple, dict] = {}
+
+# Targets that DID resolve this run. Dropped from the backlog on write, so a
+# target fixed by a new publisher alias, a pinned volume id, or a matcher
+# improvement stops dragging stale cooldown state around forever.
+RESOLVED_THIS_RUN: set[tuple] = set()
+
+
+def _backlog_key(name, publisher, year) -> tuple:
+    return (name, publisher, year)
+
+
+def _retry_after_iso(attempts: int) -> str:
+    """Escalating cooldown: 1 day after the first failure, then 3, 7, 14 and 30
+    days, capped there. A target that keeps failing then costs one search call
+    a month instead of one an hour, while still being retried forever -- which
+    is the whole difference between this and the old "mark it done and lose it
+    forever" bug this file already fixed once."""
+    idx = min(max(attempts, 1), len(BACKLOG_BACKOFF_DAYS)) - 1
+    return (
+        datetime.now(timezone.utc) + timedelta(days=BACKLOG_BACKOFF_DAYS[idx])
+    ).isoformat()
+
+
+def load_needs_volume_id_prior(path: str) -> int:
+    """Read the backlog into NEEDS_VOLUME_ID_PRIOR. Records written before
+    backoff existed have no retry_after; they get bootstrapped to attempts=1
+    (their presence in this file IS the record of a prior failed attempt), so
+    the first run after this ships already skips them instead of paying for one
+    more full round of the identical failures. Returns how many were
+    bootstrapped."""
+    NEEDS_VOLUME_ID_PRIOR.clear()
+    try:
+        raw = json.loads(Path(path).read_text(encoding="utf-8")) or []
+    except Exception:
+        return 0
+    if not isinstance(raw, list):
+        return 0
+    bootstrapped = 0
+    for rec in raw:
+        if not isinstance(rec, dict):
+            continue
+        if not rec.get("retry_after"):
+            rec["attempts"] = int(rec.get("attempts") or 1)
+            rec["retry_after"] = _retry_after_iso(rec["attempts"])
+            bootstrapped += 1
+        NEEDS_VOLUME_ID_PRIOR[
+            _backlog_key(rec.get("name"), rec.get("publisher"), rec.get("year"))
+        ] = rec
+    return bootstrapped
+
+
+def _is_backing_off(key: tuple) -> bool:
+    rec = NEEDS_VOLUME_ID_PRIOR.get(key)
+    if not rec:
+        return False
+    stamp = rec.get("retry_after")
+    if not stamp:
+        return False
+    try:
+        retry_after = datetime.fromisoformat(stamp)
+    except (TypeError, ValueError):
+        return False
+    if retry_after.tzinfo is None:
+        retry_after = retry_after.replace(tzinfo=timezone.utc)
+    return datetime.now(timezone.utc) < retry_after
+
+
 def _slim_candidate(v: dict) -> dict:
     return {
         "id": v.get("id"),
@@ -532,6 +641,11 @@ def _slim_candidate(v: dict) -> dict:
 
 
 def _record_needs_volume_id(name, publisher, year, reason, candidates):
+    # Carry the attempt count forward from the previous record so the cooldown
+    # escalates (1 -> 3 -> 7 -> 14 -> 30 days) instead of resetting to one day
+    # every time the same target fails again.
+    prior = NEEDS_VOLUME_ID_PRIOR.get(_backlog_key(name, publisher, year)) or {}
+    attempts = int(prior.get("attempts") or 0) + 1
     NEEDS_VOLUME_ID.append(
         {
             "name": name,
@@ -539,6 +653,9 @@ def _record_needs_volume_id(name, publisher, year, reason, candidates):
             "year": year,
             "reason": reason,
             "candidates": [_slim_candidate(v) for v in candidates],
+            "attempts": attempts,
+            "last_attempt_at": _now_iso(),
+            "retry_after": _retry_after_iso(attempts),
         }
     )
     # Track every recorded failure (ambiguous OR zero-match) so the caller
@@ -565,22 +682,27 @@ AMBIGUOUS_THIS_RUN: set[tuple] = set()
 
 def write_needs_volume_id(path: str) -> None:
     """Merge NEEDS_VOLUME_ID into the file at `path`, dedup by (name, year),
-    newest record wins. Keeps a running list across resumed runs."""
-    existing: list[dict] = []
+    newest record wins. Keeps a running list across resumed runs.
+
+    Reads the prior contents from NEEDS_VOLUME_ID_PRIOR (loaded once at
+    startup) rather than re-reading the file here, so the backoff metadata
+    bootstrapped onto legacy records at load time actually gets persisted.
+    Targets that resolved this run are dropped."""
     fp = Path(path)
-    if fp.exists():
-        try:
-            existing = json.loads(fp.read_text(encoding="utf-8")) or []
-        except Exception:
-            existing = []
     merged: dict[tuple, dict] = {}
-    for rec in existing + NEEDS_VOLUME_ID:
+    dropped = 0
+    for rec in list(NEEDS_VOLUME_ID_PRIOR.values()) + NEEDS_VOLUME_ID:
+        key = _backlog_key(rec.get("name"), rec.get("publisher"), rec.get("year"))
+        if key in RESOLVED_THIS_RUN:
+            dropped += 1
+            continue
         merged[(rec.get("name"), rec.get("year"))] = rec
     out = list(merged.values())
     fp.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    resolved_note = f", dropped {dropped} now-resolved" if dropped else ""
     print(
         f"\nRecorded {len(NEEDS_VOLUME_ID)} target(s) needing a manual --volume-id "
-        f"this run ({len(out)} total) → {path}"
+        f"this run ({len(out)} total{resolved_note}) → {path}"
     )
 
 
@@ -1284,12 +1406,55 @@ def main():
         print(f"Done-ledger: {len(done)} target(s) already processed — will skip before searching.")
     skipped_done = 0
 
+    # Backoff ledger: load the needs-volume-id backlog up front so a target
+    # still inside its cooldown window can be skipped before a search call is
+    # spent on it. --targets runs only (a single --volume-id has no queue to
+    # protect). Deliberately NOT gated on --dry-run, so a dry run reports the
+    # same queue position a real run would reach.
+    backlog_bootstrapped = load_needs_volume_id_prior(args.needs_volume_id_out)
+    use_backoff = bool(args.targets) and not args.ignore_backoff
+    if use_backoff and NEEDS_VOLUME_ID_PRIOR:
+        bootstrap_note = (
+            f", {backlog_bootstrapped} given a first cooldown window"
+            if backlog_bootstrapped
+            else ""
+        )
+        print(
+            f"Retry-backoff: {len(NEEDS_VOLUME_ID_PRIOR)} unresolved target(s) in "
+            f"{args.needs_volume_id_out}{bootstrap_note} — those still inside "
+            f"their window are skipped before searching."
+        )
+    skipped_backoff = 0
+
     for target in targets:
         # Skip already-processed targets BEFORE spending a search call. This is
         # what makes successive runs advance down the list instead of re-grinding
         # the top. (Skip happens before the budget check so done targets are free.)
         if use_ledger and not args.volume_id and _is_done_fresh(done, _done_key(target), args.done_ttl_days):
             skipped_done += 1
+            continue
+
+        # Cooldown skip: this target failed to resolve recently and is still
+        # inside its retry-backoff window. Skipping it BEFORE the budget check
+        # (exactly like the done-ledger skip above) is the entire point — it is
+        # what stops a wall of currently-unresolvable targets from eating the
+        # whole --max-search-calls budget every run and starving every
+        # resolvable target behind them.
+        #
+        # A target carrying an explicit volume_id (the gap-pinned.json lane)
+        # is fetched by id and costs no search call, so the budget this
+        # backoff protects isn't at stake — never gate those on it.
+        if (
+            use_backoff
+            and not args.volume_id
+            and not target.get("volume_id")
+            and _is_backing_off(
+                _backlog_key(
+                    target.get("name"), target.get("publisher"), target.get("year")
+                )
+            )
+        ):
+            skipped_backoff += 1
             continue
 
         # Budget check: stop BEFORE making the next search if we're already
@@ -1347,6 +1512,14 @@ def main():
                 (volume.get("publisher") or {}).get("name"),
                 "| issue count:",
                 volume.get("count_of_issues"),
+            )
+
+            # Resolved — drop any stale backlog entry (and its cooldown) for
+            # this target on write. Covers the case where a publisher alias,
+            # a pinned volume id, or a matcher improvement fixes something
+            # that used to fail.
+            RESOLVED_THIS_RUN.add(
+                _backlog_key(volume_name, publisher_name, target.get("year"))
             )
 
             cv_pub_name = (volume.get("publisher") or {}).get("name")
@@ -1597,6 +1770,11 @@ def main():
         f" | skipped {skipped_done} already-done (ledger), {len(done)} total in {args.done_file}"
         if use_ledger else ""
     )
+    if use_backoff:
+        ledger_note += (
+            f" | skipped {skipped_backoff} in retry-backoff, "
+            f"{len(NEEDS_VOLUME_ID_PRIOR)} total in {args.needs_volume_id_out}"
+        )
     if rate_limited:
         print(
             f"\nPartial run. Counters: "
@@ -1647,7 +1825,11 @@ def main():
     if not args.dry_run:
         print(f"CSV written to {CSV_PATH}")
 
-    if NEEDS_VOLUME_ID:
+    # Also write when nothing new failed this run: the run may have
+    # bootstrapped cooldown windows onto legacy records, or resolved targets
+    # that should now leave the backlog. Without this, a clean run would throw
+    # both away and the same targets would be re-attempted next hour.
+    if NEEDS_VOLUME_ID or RESOLVED_THIS_RUN or backlog_bootstrapped:
         write_needs_volume_id(args.needs_volume_id_out)
 
 

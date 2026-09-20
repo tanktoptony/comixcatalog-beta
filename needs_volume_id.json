@@ -15710,5 +15710,101 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-20T22:03:23.027031+00:00",
     "retry_after": "2026-09-21T22:03:23.027050+00:00"
+  },
+  {
+    "name": "Parts Unknown: Killing Attractions",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T23:00:54.969036+00:00",
+    "retry_after": "2026-09-21T23:00:54.969055+00:00"
+  },
+  {
+    "name": "Archie Firsts",
+    "publisher": "Dark Horse Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T23:00:55.493386+00:00",
+    "retry_after": "2026-09-21T23:00:55.493404+00:00"
+  },
+  {
+    "name": "Star-Spangled War Stories (War One-Shot)",
+    "publisher": "DC Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T23:01:11.633645+00:00",
+    "retry_after": "2026-09-21T23:01:11.633661+00:00"
+  },
+  {
+    "name": "Xena: Warrior Princess: The Classic Years Omnibus",
+    "publisher": "Dynamite Entertainment",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T23:01:12.341705+00:00",
+    "retry_after": "2026-09-21T23:01:12.341721+00:00"
+  },
+  {
+    "name": "Captain America vs. Baron Zemo!",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T23:02:57.803666+00:00",
+    "retry_after": "2026-09-21T23:02:57.803684+00:00"
+  },
+  {
+    "name": "Ninja Tales",
+    "publisher": "BOOM! Studios",
+    "year": 2007,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 149145,
+        "name": "Ninja Tales",
+        "publisher": "Boom! Studios",
+        "start_year": 2007
+      },
+      {
+        "id": 23473,
+        "name": "Ninja Tales",
+        "publisher": "Boom! Studios",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T23:03:44.660158+00:00",
+    "retry_after": "2026-09-21T23:03:44.660174+00:00"
+  },
+  {
+    "name": "Nellie the Nurse",
+    "publisher": "Dell Comics",
+    "year": 1958,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1061,
+        "name": "Nellie the Nurse",
+        "publisher": "Marvel",
+        "start_year": 1945
+      },
+      {
+        "id": 30472,
+        "name": "Nellie the Nurse",
+        "publisher": "Marvel",
+        "start_year": 1957
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-20T23:04:02.468240+00:00",
+    "retry_after": "2026-09-21T23:04:02.468256+00:00"
   }
 ]

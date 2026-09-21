@@ -16216,5 +16216,88 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T04:03:31.752790+00:00",
     "retry_after": "2026-09-22T04:03:31.752808+00:00"
+  },
+  {
+    "name": "True Believers: Doctor Strange - Last Days of Magic",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T05:00:56.412940+00:00",
+    "retry_after": "2026-09-22T05:00:56.412957+00:00"
+  },
+  {
+    "name": "F.E.A.R.",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T05:01:14.782869+00:00",
+    "retry_after": "2026-09-22T05:01:14.782886+00:00"
+  },
+  {
+    "name": "Pardon Me, Miss!",
+    "publisher": "Dell Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T05:02:16.085912+00:00",
+    "retry_after": "2026-09-22T05:02:16.085928+00:00"
+  },
+  {
+    "name": "Insane Clown Posse [The Upz & Downz of the Wicked Clownz]",
+    "publisher": "Chaos! Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T05:02:20.887346+00:00",
+    "retry_after": "2026-09-22T05:02:20.887361+00:00"
+  },
+  {
+    "name": "Tales Designed to Thrizzle",
+    "publisher": "Fantagraphics",
+    "year": 2014,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 24783,
+        "name": "Tales Designed To Thrizzle",
+        "publisher": "Fantagraphics",
+        "start_year": 2005
+      },
+      {
+        "id": 45717,
+        "name": "Tales Designed To Thrizzle",
+        "publisher": "Fantagraphics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T05:02:42.877479+00:00",
+    "retry_after": "2026-09-22T05:02:42.877495+00:00"
+  },
+  {
+    "name": "Celadore",
+    "publisher": "DC Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T05:02:58.810486+00:00",
+    "retry_after": "2026-09-22T05:02:58.810502+00:00"
+  },
+  {
+    "name": "Faceache",
+    "publisher": "Rebellion",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T05:02:59.111070+00:00",
+    "retry_after": "2026-09-22T05:02:59.111086+00:00"
   }
 ]

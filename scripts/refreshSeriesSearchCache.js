@@ -40,12 +40,48 @@ const MAX_BATCHES = MAX_BATCHES_ARG
 // committing it to the live cache.
 const DRY_RUN = process.argv.includes("--dry-run");
 
-// --only-ids=<uuid,uuid,...> processes exactly those series rows in a single
-// batch and stops. Targeted re-refresh after a matcher fix, no full pass.
+// --only-ids=<uuid,uuid,...> processes exactly those series rows. Targeted
+// re-refresh after a matcher fix, no full pass.
+//
+// --only-ids-file=<path> is the same thing, read from a newline-separated
+// file, and it is NOT capped at one batch: the id list is chunked into
+// BATCH_SIZE groups and walked to exhaustion. This exists because the
+// previous cover-collision fix was "verified" with --only-ids on 46 rows,
+// which fit in a single batch and therefore could not exercise the
+// cross-batch case that was actually broken. A targeted run over the
+// ~14k series that have any cover data at all is the only way to test a
+// matcher change at catalog scale without sitting through the full 207k
+// pass (~6h of per-row UPDATE round trips).
 const ONLY_IDS_ARG = process.argv.find((a) => a.startsWith("--only-ids="));
-const ONLY_IDS = ONLY_IDS_ARG
-  ? ONLY_IDS_ARG.split("=")[1].split(",").map((s) => s.trim()).filter(Boolean)
-  : null;
+const ONLY_IDS_FILE_ARG = process.argv.find((a) =>
+  a.startsWith("--only-ids-file=")
+);
+// --reconcile-only skips the recompute entirely and runs just the global
+// duplicate-cover reconciliation pass (see reconcileDuplicateFeaturedCovers).
+const RECONCILE_ONLY = process.argv.includes("--reconcile-only");
+// --skip-reconcile suppresses the reconciliation pass at the end of a run.
+// Only useful when chaining several partial runs and reconciling once after.
+const SKIP_RECONCILE = process.argv.includes("--skip-reconcile");
+
+// `import` declarations are hoisted, so readFileSync (imported further down
+// alongside the cursor-file helpers) is already bound here.
+const ONLY_IDS = (() => {
+  if (ONLY_IDS_FILE_ARG) {
+    const file = ONLY_IDS_FILE_ARG.slice("--only-ids-file=".length);
+    return readFileSync(file, "utf8")
+      .split(/\r?\n/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+  }
+  if (ONLY_IDS_ARG) {
+    return ONLY_IDS_ARG.split("=")[1]
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+  }
+  return null;
+})();
+let onlyIdsCursor = 0;
 
 // Wraps a Supabase query builder in a retry loop. Supabase's PostgREST
 // occasionally surfaces transient errors that are safe to retry: 57014
@@ -188,6 +224,7 @@ async function fetchSeriesBatch() {
       gcd_id,
       title,
       cv_publisher,
+      comicvine_volume_id,
       publisher:publisher_id (
         name,
         gcd_id
@@ -196,7 +233,12 @@ async function fetchSeriesBatch() {
     .not("gcd_id", "is", null);
 
   if (ONLY_IDS) {
-    query = query.in("id", ONLY_IDS);
+    // Walk the id list BATCH_SIZE at a time rather than truncating it to one
+    // batch — see the --only-ids-file comment for why that cap was a problem.
+    const chunk = ONLY_IDS.slice(onlyIdsCursor, onlyIdsCursor + BATCH_SIZE);
+    if (chunk.length === 0) return [];
+    onlyIdsCursor += chunk.length;
+    query = query.in("id", chunk);
     const data = await runWithRetry("series batch fetch (only-ids)", () =>
       query.limit(BATCH_SIZE)
     );
@@ -326,6 +368,16 @@ async function processBatch(seriesBatch) {
   // (which reads the cached count, not a live one) stops undercounting the
   // same series. Only the ID path counts here, same reasoning as those two
   // routes: it's volume-exact, unlike the looser title match below.
+  //
+  // 2026-09-20: this fetch now also feeds the FEATURED-cover pick (Tier 1),
+  // not just the orphan-issue count. The featured pick used to pool
+  // candidates by raw series_title across every same-titled volume in the
+  // catalog, which is how one X-O Manowar cover ended up cached on 12
+  // distinct series rows. Selecting the scoring columns here lets Phase 2
+  // pick from covers that are genuinely attributed to THIS gcd_id.
+  const COVER_SCORING_COLUMNS =
+    "series_gcd_id, comicvine_volume_id, series_title, storage_path, publisher, cover_date, issue_number, series_year";
+
   const idPathCoverRows = [];
   if (seriesGcdIds.length > 0) {
     const ID_PAGE = 1000;
@@ -336,7 +388,7 @@ async function processBatch(seriesBatch) {
         () =>
           supabase
             .from("canonical_covers")
-            .select("series_gcd_id, issue_number, storage_path")
+            .select(COVER_SCORING_COLUMNS)
             .in("series_gcd_id", seriesGcdIds)
             .not("storage_path", "is", null)
             .order("id", { ascending: true })
@@ -355,6 +407,46 @@ async function processBatch(seriesBatch) {
     idPathCoversBySeriesGcdId.get(key).push(row);
   }
 
+  // Tier 2 pool — covers tagged with the ComicVine volume this series row is
+  // pinned to (migration 0022). Still volume-exact, and it rescues the very
+  // common case where GCD fragments one real run across several series rows
+  // (the search route dedupes those by comicvine_volume_id for exactly this
+  // reason) but the cover ingest only ever tagged series_gcd_id on one of
+  // them. Covers ~1,000 series that Tier 1 alone would leave blank.
+  const seriesCvVolumeIds = [
+    ...new Set(
+      seriesBatch.map((s) => s.comicvine_volume_id).filter((v) => v != null)
+    ),
+  ];
+  const cvPathCoverRows = [];
+  if (seriesCvVolumeIds.length > 0) {
+    const CV_PAGE = 1000;
+    let cvFrom = 0;
+    while (true) {
+      const page = await runWithRetry(
+        `canonical_covers (cv-volume) page from=${cvFrom}`,
+        () =>
+          supabase
+            .from("canonical_covers")
+            .select(COVER_SCORING_COLUMNS)
+            .in("comicvine_volume_id", seriesCvVolumeIds)
+            .not("storage_path", "is", null)
+            .order("id", { ascending: true })
+            .range(cvFrom, cvFrom + CV_PAGE - 1)
+      );
+      if (!page || page.length === 0) break;
+      cvPathCoverRows.push(...page);
+      if (page.length < CV_PAGE) break;
+      cvFrom += CV_PAGE;
+    }
+  }
+  const coversByCvVolumeId = new Map();
+  for (const row of cvPathCoverRows) {
+    const key = String(row.comicvine_volume_id);
+    if (!coversByCvVolumeId.has(key)) coversByCvVolumeId.set(key, []);
+    coversByCvVolumeId.get(key).push(row);
+  }
+
   // Fetch canonical_covers for all titles in this batch. We deliberately do NOT
   // filter on issue_number at SQL level — with 100 series × ~50 issues, the URL
   // grows past undici's ~16KB header cap and the request fails with
@@ -370,6 +462,15 @@ async function processBatch(seriesBatch) {
   // because the 1999-volume rows happened to be past row #1000 in the response.
   // Fix: paginate with .range() exactly the same way the gcd_issues fetch
   // pages elsewhere in this script.
+  //
+  // 2026-09-20: this pool is NO LONGER the featured-cover candidate pool.
+  // It still supplies the publisher signal (canonicalPublisher below feeds
+  // resolved_publisher_cached, which the search allowlist filters on, so
+  // narrowing it would silently drop series out of search), and it supplies
+  // the Tier 3 fallback — but Tier 3 is restricted to rows whose
+  // series_gcd_id IS NULL, i.e. covers that no series row owns. A cover
+  // tagged to some other gcd_id belongs to that series and must never be
+  // handed to a same-titled sibling; that is the whole bug.
   let coverRows = [];
   if (seriesTitles.length > 0) {
     const COVER_PAGE = 1000;
@@ -384,7 +485,7 @@ async function processBatch(seriesBatch) {
         () =>
           supabase
             .from("canonical_covers")
-            .select("series_title, storage_path, publisher, cover_date, issue_number, series_year")
+            .select(COVER_SCORING_COLUMNS)
             .in("series_title", coverFetchTitles)
             .order("id", { ascending: true })
             .range(from, from + COVER_PAGE - 1)
@@ -401,11 +502,22 @@ async function processBatch(seriesBatch) {
   // exactly the candidate covers that correspond to its own issue numbers.
   const coversByTitleKey = new Map();
   const coversByTitleAndIssue = new Map();
+  // Tier 3 source: same title index, but only covers that no series row
+  // owns via series_gcd_id. Kept as a separate map so the publisher signal
+  // above can still see the full title pool.
+  const unownedCoversByTitleKey = new Map();
   for (const row of coverRows) {
     const titleKey = normTitle(row.series_title);
     if (!titleKey) continue;
     if (!coversByTitleKey.has(titleKey)) coversByTitleKey.set(titleKey, []);
     coversByTitleKey.get(titleKey).push(row);
+
+    if (row.series_gcd_id == null) {
+      if (!unownedCoversByTitleKey.has(titleKey)) {
+        unownedCoversByTitleKey.set(titleKey, []);
+      }
+      unownedCoversByTitleKey.get(titleKey).push(row);
+    }
 
     const issueKey = `${titleKey}::${String(row.issue_number ?? "").trim()}`;
     if (!coversByTitleAndIssue.has(issueKey)) coversByTitleAndIssue.set(issueKey, []);
@@ -533,12 +645,47 @@ async function processBatch(seriesBatch) {
     // pool. Phase 2 then never fell back to this full pool, and the year
     // scorer picked the least-wrong old cover. Always populate the full pool
     // and let Phase 2 score year-fit across all of it.
-    const fallbackPool = coversByTitleKey.get(titleKey) ?? [];
+    const titlePool = coversByTitleKey.get(titleKey) ?? [];
 
     const canonicalPublisher =
       coverCandidates.find((r) => r.publisher)?.publisher
-      ?? fallbackPool.find((r) => r.publisher)?.publisher
+      ?? titlePool.find((r) => r.publisher)?.publisher
       ?? null;
+
+    // ── Featured-cover candidate pools, scoped to THIS series row ─────────
+    // Tier 1: canonical_covers.series_gcd_id == series.gcd_id.
+    // Tier 2: canonical_covers.comicvine_volume_id == series.comicvine_volume_id.
+    // Both are volume-exact attributions written by the ingester, so a cover
+    // in either tier provably belongs to this row and no year threshold is
+    // required — the scorer only decides WHICH of this series' own covers
+    // looks most like a featured cover.
+    const idPool = [];
+    const seenIdPoolPaths = new Set();
+    for (const row of idPathCovers) {
+      if (!row.storage_path || seenIdPoolPaths.has(row.storage_path)) continue;
+      seenIdPoolPaths.add(row.storage_path);
+      idPool.push(row);
+    }
+    if (series.comicvine_volume_id != null) {
+      const cvRows = coversByCvVolumeId.get(String(series.comicvine_volume_id)) ?? [];
+      for (const row of cvRows) {
+        if (!row.storage_path || seenIdPoolPaths.has(row.storage_path)) continue;
+        seenIdPoolPaths.add(row.storage_path);
+        idPool.push(row);
+      }
+    }
+
+    // Tier 3: title-matched covers that carry NO series_gcd_id, i.e. covers
+    // no series row owns. Excludes any cover pinned to a different ComicVine
+    // volume than this series is. Still year-bounded in Phase 2.
+    const fallbackPool = (unownedCoversByTitleKey.get(titleKey) ?? []).filter(
+      (row) =>
+        !(
+          series.comicvine_volume_id != null &&
+          row.comicvine_volume_id != null &&
+          Number(row.comicvine_volume_id) !== Number(series.comicvine_volume_id)
+        )
+    );
 
     // Year-aware publisher resolution — must match the logic in
     // scripts/repairSeriesPublishersWithCv.js. Without this, every cache
@@ -597,6 +744,7 @@ async function processBatch(seriesBatch) {
       yearEnd: finalYearEnd,
       resolvedPublisher: finalPublisher,
       coverCandidates,
+      idPool,
       fallbackPool,
     };
   });
@@ -621,27 +769,20 @@ async function processBatch(seriesBatch) {
     const claimed = new Set();
 
     for (const entry of chronological) {
-      const { yearStart, yearEnd, resolvedPublisher, coverCandidates, fallbackPool } = entry;
+      const { yearStart, yearEnd, resolvedPublisher, idPool, fallbackPool } = entry;
       const normPub = normalizePublisherForMatch(resolvedPublisher);
-      // Score year-fit across the FULL title pool, not the per-issue matches.
-      // Per-issue matching is unreliable for the featured cover because GCD and
-      // ComicVine number relaunch volumes differently (see Phase 1 comment), so
-      // it both excludes correct covers and admits wrong-era ones. The full
-      // pool + year scoring + the `claimed` no-reuse mechanism below correctly
-      // separates a 1938 / 2011 / 2017 same-title set into their own volumes.
-      const effectivePool = fallbackPool;
+      // Tier 1+2 pool: covers attributed to this series row by
+      // series_gcd_id or comicvine_volume_id. Built in Phase 1.
+      const effectivePool = idPool;
 
-      // Claimed covers are a HARD exclusion at every tier, not a scoring
-      // penalty. Once one series in this title group has been assigned a
-      // storage_path, no sibling volume may reuse it — otherwise the same
-      // cover ends up on multiple series rows (confirmed live: Ninjak had 6
-      // series sharing one cover that legitimately belongs to only one
-      // comicvine volume; Shadowman had up to 5). A series that would have
-      // "won" a sibling's cover under the old soft-penalty logic now gets
-      // null instead — see the route.js fallback at request time, which
-      // degrades gracefully (ID-path-exact match first, then a hard
-      // year-tolerance-bounded title match) rather than showing a
-      // definitely-wrong cover.
+      // `claimed` is a cheap in-batch de-dupe, NOT the guarantee. It cannot
+      // be: --force walks series by UUID id, so same-title siblings scatter
+      // randomly across hundreds of batches and each batch starts with an
+      // empty set. That is exactly why the previous fix (which made this a
+      // hard exclusion instead of a soft penalty) still left 12 X-O Manowar
+      // rows sharing one cover. The real guarantee is the global
+      // reconciliation pass at the end of run(); this set just avoids
+      // creating collisions we would immediately have to undo.
       const scoreCover = (row) => {
         if (!row.storage_path) return -Infinity;
         if (claimed.has(row.storage_path)) return -Infinity;
@@ -682,32 +823,25 @@ async function processBatch(seriesBatch) {
         return { row: best, score: bestScore };
       };
 
-      // Quality threshold: only commit a cover if it actually fits this volume.
-      // 200 = the year-in-range bonus, so this requires the cover_date to fall
-      // within yearStart..yearEnd. Without this, cross-volume bleed happens —
-      // a 2016 Batman cover ends up on the 1940 Batman row because there's no
-      // disqualifying constraint, and the user clicks a 2016-looking tile and
-      // lands on 1940 issues. Better to leave the cover null than mismatched.
-      const COVER_SCORE_THRESHOLD = 200;
+      // No year threshold on the ID pool. The old 200-point threshold (the
+      // year-in-range bonus) existed to stop cross-volume bleed when the
+      // pool was every same-titled cover in the catalog. The pool is now
+      // scoped to covers that are ID-attributed to this exact series row,
+      // so year fit is no longer a proxy for "does this belong here" — it
+      // only breaks ties. Requiring it here would throw away legitimate
+      // covers whenever gcd_issues has no usable date (65% of rows have a
+      // null publication_date), which is precisely the coverage Tier 1
+      // is meant to recover.
+      let { row: bestCover } = pickBest();
 
-      let { row: bestCover, score: bestScore } = pickBest();
-      if (!bestCover || bestScore < COVER_SCORE_THRESHOLD) {
-        // No allowClaimed reattempt here — a claimed cover stays excluded
-        // even when the strict tier finds nothing else that clears the
-        // threshold. Falling through to null (or Tier 3 below) is correct;
-        // reusing a sibling volume's cover is not.
-        bestCover = null;
-      }
-
-      // Tier 3 fallback — when no cover clears the strict year-fit threshold,
-      // accept any cover that shares the title. We prefer publisher match and
-      // issue #1, but ignore year fit entirely. This is how we get coverage
-      // from 0.7% to ~3.4% without ingesting new data: ~5,800 series have a
-      // cover sitting in canonical_covers right now that the strict matcher
-      // throws away (year window or null year disqualifies it). Better to
-      // show a wrong-volume cover than a blank placeholder — search users
-      // recognize the title from the cover, click through, and find the
-      // right run on the series page (which uses its own per-issue match).
+      // Tier 3 fallback — when the series has no ID-attributed cover at all,
+      // fall back to title matching, but ONLY over covers whose
+      // series_gcd_id is null (see the fallbackPool construction in Phase 1).
+      // ~9% of canonical_covers rows are unattributed like this, and they
+      // are the only ones it is safe to hand out by title: a cover that
+      // already names a series_gcd_id belongs to that series, and giving it
+      // to a same-titled sibling is the bug this whole change exists to fix.
+      // Year fit is still bounded below.
       if (!bestCover) {
         // Tier-3 fallback now ALSO enforces a year-distance ceiling. Without
         // it, the 2022 Spider-Man series gets stuck with a 1990 McFarlane
@@ -726,15 +860,9 @@ async function processBatch(seriesBatch) {
         const FALLBACK_YEAR_TOLERANCE = 10;
         let softBest = null;
         let softScore = -Infinity;
-        for (const row of effectivePool) {
+        for (const row of fallbackPool) {
           if (!row.storage_path) continue;
-          // Hard exclusion, same as the strict tier above — a claimed cover
-          // can never win here either, even as "the only candidate in
-          // range." A soft -200 penalty used to let this tier assign an
-          // already-claimed cover to a second series when the score still
-          // came out ahead (e.g. the only candidate within
-          // FALLBACK_YEAR_TOLERANCE); this is exactly how Ninjak/Shadowman
-          // ended up with multiple series rows sharing one cover.
+          // Hard exclusion, same as the strict tier above.
           if (claimed.has(row.storage_path)) continue;
 
           if (yearStart != null) {
@@ -809,6 +937,176 @@ async function processBatch(seriesBatch) {
   }
 
   return updated;
+}
+
+// Global reconciliation of the "one cover, one series" invariant.
+//
+// WHY THIS IS A SEPARATE PASS AND NOT IN-MEMORY BOOKKEEPING:
+// processBatch()'s `claimed` set lives inside one batch of 100 series. In
+// --force mode (what weekly-refresh.yml runs) fetchSeriesBatch orders by
+// series.id, which is a UUID, so same-title siblings scatter randomly across
+// ~2,000 batches and every batch starts with an empty `claimed` set. The
+// previous attempt at this bug hardened `claimed` from a scoring penalty into
+// an exclusion and still shipped 12 X-O Manowar rows sharing one cover,
+// because per-batch state cannot see across batches by construction. Any fix
+// that lives in that set has the same hole.
+//
+// A DB-level partial unique index was the other option considered. Rejected:
+// the writer does one UPDATE per series row, so a unique violation would
+// surface mid-run as a failed write that leaves the row at its STALE value
+// rather than null, and legitimate hand-offs (series A gives up a path,
+// series B takes it) would deadlock on ordering — B's update fails because
+// A has not been rewritten yet. This pass instead reads the FINAL committed
+// state of the whole table, so it is correct regardless of batching, write
+// order, partial runs, or rows left over from an older matcher. It is also
+// idempotent and runnable on its own with --reconcile-only, which is how the
+// invariant gets verified.
+async function reconcileDuplicateFeaturedCovers() {
+  const PAGE = 1000;
+  const rows = [];
+  let from = 0;
+  while (true) {
+    const page = await runWithRetry("reconcile: series page", () =>
+      supabase
+        .from("series")
+        .select(
+          "id, gcd_id, title, comicvine_volume_id, year_start_cached, issue_count_cached, featured_cover_path_cached"
+        )
+        .not("featured_cover_path_cached", "is", null)
+        .order("id", { ascending: true })
+        .range(from, from + PAGE - 1)
+    );
+    if (!page || page.length === 0) break;
+    rows.push(...page);
+    if (page.length < PAGE) break;
+    from += PAGE;
+  }
+
+  const byPath = new Map();
+  for (const row of rows) {
+    const p = row.featured_cover_path_cached;
+    if (!byPath.has(p)) byPath.set(p, []);
+    byPath.get(p).push(row);
+  }
+
+  const contested = [...byPath.entries()].filter(([, group]) => group.length > 1);
+  console.log("──────── Reconciliation ────────");
+  console.log(`Series with a cached cover: ${rows.length}`);
+  console.log(`Distinct cover paths:       ${byPath.size}`);
+  console.log(`Paths held by >1 series:    ${contested.length}`);
+
+  if (contested.length === 0) {
+    console.log("Invariant already holds — nothing to reconcile.");
+    console.log("────────────────────────────────");
+    return 0;
+  }
+
+  // Pull the canonical_covers row(s) behind each contested path so the winner
+  // can be chosen on real attribution rather than on whichever batch ran first.
+  const contestedPaths = contested.map(([p]) => p);
+  const coverMetaByPath = new Map();
+  const CHUNK = 200;
+  for (let i = 0; i < contestedPaths.length; i += CHUNK) {
+    const chunk = contestedPaths.slice(i, i + CHUNK);
+    const data = await runWithRetry("reconcile: cover meta", () =>
+      supabase
+        .from("canonical_covers")
+        .select("storage_path, series_gcd_id, comicvine_volume_id, cover_date, series_year")
+        .in("storage_path", chunk)
+    );
+    for (const c of data ?? []) {
+      if (!coverMetaByPath.has(c.storage_path)) coverMetaByPath.set(c.storage_path, []);
+      coverMetaByPath.get(c.storage_path).push(c);
+    }
+  }
+
+  const coverYearOf = (meta) => {
+    for (const c of meta) {
+      const y = parseYear(c.cover_date) ?? (c.series_year != null ? Number(c.series_year) : null);
+      if (y != null && !Number.isNaN(y)) return y;
+    }
+    return null;
+  };
+
+  // Rank: 3 = the cover names this series' gcd_id, 2 = it names this series'
+  // pinned ComicVine volume, 1 = neither, but the years are close, 0 = no
+  // claim at all. Ties break on year distance, then issue count, then id so
+  // the result is deterministic and a rerun is a no-op.
+  const rankFor = (series, meta) => {
+    for (const c of meta) {
+      if (c.series_gcd_id != null && Number(c.series_gcd_id) === Number(series.gcd_id)) {
+        return 3;
+      }
+    }
+    if (series.comicvine_volume_id != null) {
+      for (const c of meta) {
+        if (
+          c.comicvine_volume_id != null &&
+          Number(c.comicvine_volume_id) === Number(series.comicvine_volume_id)
+        ) {
+          return 2;
+        }
+      }
+    }
+    const cy = coverYearOf(meta);
+    if (cy != null && series.year_start_cached != null && Math.abs(cy - series.year_start_cached) <= 10) {
+      return 1;
+    }
+    return 0;
+  };
+
+  const losers = [];
+  for (const [path, group] of contested) {
+    const meta = coverMetaByPath.get(path) ?? [];
+    const cy = coverYearOf(meta);
+    const scored = group.map((series) => ({
+      series,
+      rank: rankFor(series, meta),
+      yearDist:
+        cy != null && series.year_start_cached != null
+          ? Math.abs(cy - series.year_start_cached)
+          : Number.POSITIVE_INFINITY,
+    }));
+    scored.sort((a, b) => {
+      if (b.rank !== a.rank) return b.rank - a.rank;
+      if (a.yearDist !== b.yearDist) return a.yearDist - b.yearDist;
+      const ac = a.series.issue_count_cached ?? 0;
+      const bc = b.series.issue_count_cached ?? 0;
+      if (bc !== ac) return bc - ac;
+      return String(a.series.id).localeCompare(String(b.series.id));
+    });
+    for (const entry of scored.slice(1)) losers.push(entry.series);
+  }
+
+  console.log(`Series rows to null out:    ${losers.length}`);
+  if (DRY_RUN) {
+    console.log("[dry-run] no writes performed.");
+    console.log("────────────────────────────────");
+    return losers.length;
+  }
+
+  let nulled = 0;
+  const UPDATE_CHUNK = 100;
+  for (let i = 0; i < losers.length; i += UPDATE_CHUNK) {
+    const chunk = losers.slice(i, i + UPDATE_CHUNK);
+    const { error } = await supabase
+      .from("series")
+      .update({ featured_cover_path_cached: null })
+      .in(
+        "id",
+        chunk.map((s) => s.id)
+      );
+    if (error) {
+      console.error("Reconcile update failed:", error);
+      continue;
+    }
+    nulled += chunk.length;
+    process.stdout.write(`\r  nulled ${nulled}/${losers.length}`);
+  }
+  process.stdout.write("\n");
+  console.log(`Reconciled. ${nulled} duplicate assignments cleared.`);
+  console.log("────────────────────────────────");
+  return nulled;
 }
 
 // Coverage report — reframed away from the catalog-wide
@@ -933,6 +1231,17 @@ async function run() {
   console.log("URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);
   if (FORCE) console.log("Mode: --force (ignoring search_refreshed_at, walking by id cursor)");
 
+  if (RECONCILE_ONLY) {
+    await reconcileDuplicateFeaturedCovers();
+    return;
+  }
+
+  if (ONLY_IDS) {
+    console.log(
+      `Mode: --only-ids (${ONLY_IDS.length} series, ${Math.ceil(ONLY_IDS.length / BATCH_SIZE)} batches)`
+    );
+  }
+
   let total = 0;
   let batchesRun = 0;
 
@@ -954,16 +1263,17 @@ async function run() {
       console.error("Batch returned 0 updates — stopping to avoid infinite loop.");
       break;
     }
-
-    // --only-ids is a one-shot targeted refresh: process the named rows once
-    // and stop (re-fetching would just return the same rows and loop forever).
-    if (ONLY_IDS) break;
   }
 
   console.log("DONE. Total updated:", total);
 
   // Clean run — drop the resume cursor so the next --force starts fresh.
   if (FORCE) clearCursor();
+
+  // Enforce the "one cover, one series" invariant across the whole table.
+  // Runs after every pass, including partial ones, because a partial pass
+  // can leave a stale duplicate behind on a row it never visited.
+  if (!SKIP_RECONCILE) await reconcileDuplicateFeaturedCovers();
 
   await reportCoverage();
 }

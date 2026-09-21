@@ -17283,5 +17283,297 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T18:18:14.732109+00:00",
     "retry_after": "2026-09-22T18:18:14.732122+00:00"
+  },
+  {
+    "name": "The Incredible Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 6558,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2000
+      },
+      {
+        "id": 2406,
+        "name": "The Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 1968
+      },
+      {
+        "id": 43516,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 2077,
+        "name": "The Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 1962
+      },
+      {
+        "id": 151522,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 24715,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 105325,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 156186,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T19:00:49.768344+00:00",
+    "retry_after": "2026-09-22T19:00:49.768359+00:00"
+  },
+  {
+    "name": "Hasbro / Infinity Gauntlet",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T19:01:05.466424+00:00",
+    "retry_after": "2026-09-22T19:01:05.466442+00:00"
+  },
+  {
+    "name": "Secret Origins Replica Edition",
+    "publisher": "DC Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T19:01:17.678433+00:00",
+    "retry_after": "2026-09-22T19:01:17.678449+00:00"
+  },
+  {
+    "name": "Justice League of America",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 57485,
+        "name": "Justice League of America",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 2014,
+        "name": "Justice League of America",
+        "publisher": "DC Comics",
+        "start_year": 1960
+      },
+      {
+        "id": 99040,
+        "name": "Justice League of America",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 82720,
+        "name": "Justice League of America",
+        "publisher": "DC Comics",
+        "start_year": 2015
+      },
+      {
+        "id": 18127,
+        "name": "Justice League of America",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T19:01:29.550794+00:00",
+    "retry_after": "2026-09-22T19:01:29.550808+00:00"
+  },
+  {
+    "name": "Savage Dragon vs. Savage Megaton Man",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T19:01:59.613142+00:00",
+    "retry_after": "2026-09-22T19:01:59.613164+00:00"
+  },
+  {
+    "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T19:02:13.971051+00:00",
+    "retry_after": "2026-09-22T19:02:13.971066+00:00"
+  },
+  {
+    "name": "Simpsons Comics",
+    "publisher": "Titan Comics",
+    "year": 2003,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 139448,
+        "name": "Simpsons Comics",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 55836,
+        "name": "Simpsons Comics",
+        "publisher": "Titan Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T19:03:15.317018+00:00",
+    "retry_after": "2026-09-22T19:03:15.317034+00:00"
+  },
+  {
+    "name": "Simpsons Comics",
+    "publisher": "Titan Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 139448,
+        "name": "Simpsons Comics",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 55836,
+        "name": "Simpsons Comics",
+        "publisher": "Titan Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T19:03:15.369592+00:00",
+    "retry_after": "2026-09-22T19:03:15.369601+00:00"
+  },
+  {
+    "name": "X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2001,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2133,
+        "name": "The X-Men",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 10731,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 34221,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 137402,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 4605,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 1991
+      },
+      {
+        "id": 62383,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 122077,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T19:10:22.505642+00:00",
+    "retry_after": "2026-09-22T19:10:22.505657+00:00"
+  },
+  {
+    "name": "X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2133,
+        "name": "The X-Men",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 10731,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 34221,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 137402,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 4605,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 1991
+      },
+      {
+        "id": 62383,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 122077,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T19:10:22.573356+00:00",
+    "retry_after": "2026-09-22T19:10:22.573371+00:00"
   }
 ]

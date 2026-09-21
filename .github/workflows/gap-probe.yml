@@ -32,8 +32,23 @@ on:
 # and two runs both rewriting gap-manual.json/gap-pinned.json/
 # needs_volume_id.json produces a real merge conflict, not just a
 # fast-forward the rebase-before-push step below can resolve.
+# Shared with cover-ingest.yml on purpose (added 2026-09-21). Both
+# workflows write needs_volume_id.json and then do commit -> pull --rebase
+# -> push. gap-probe's cron ('0 8 * * 1,4') lands on the same minute as
+# cover-ingest's hourly '0 * * * *', so on Mondays and Thursdays they ran
+# concurrently: gap-probe committed, cover-ingest pushed its hourly ledger
+# update in between, and gap-probe's rebase then hit a real content
+# conflict in needs_volume_id.json and failed the job. Observed live
+# 2026-09-21 15:10 UTC.
+#
+# The collision got much more likely once the retry-backoff work (PR #86)
+# started rewriting needs_volume_id.json every single hour to refresh
+# attempts/retry_after, where before it only changed when a new target
+# failed. Sharing one concurrency group serialises the two workflows so
+# neither can push between the other's commit and pull. A disjoint-file
+# rebase still auto-merges fine; this only prevents the same-file case.
 concurrency:
-  group: gap-probe
+  group: ingest-data-writes
   cancel-in-progress: false
 
 permissions:

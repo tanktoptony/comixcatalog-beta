@@ -105,6 +105,26 @@ on:
     - cron: '0 * * * *'
   workflow_dispatch: {}
 
+# SHARED with gap-probe.yml (2026-09-21). Both workflows write
+# needs_volume_id.json and then commit -> pull --rebase -> push, and
+# gap-probe's '0 8 * * 1,4' cron lands on the same minute as this
+# workflow's hourly '0 * * * *'. On 2026-09-21 15:10 UTC they interleaved:
+# gap-probe committed, this workflow pushed its ledger update in between,
+# and gap-probe's rebase hit a real content conflict in
+# needs_volume_id.json and failed the job. PR #86's retry-backoff made that
+# far more likely by rewriting the file hourly to refresh
+# attempts/retry_after, where before it only changed on a new failure.
+#
+# Declared at WORKFLOW level rather than job level so it is unambiguously
+# the same concurrency namespace as gap-probe.yml's workflow-level group.
+# This workflow has exactly one job ("ingest"), so workflow-level and
+# job-level are behaviourally identical here; the move is purely to remove
+# any doubt that the two actually contend. Still serialises this workflow
+# against itself exactly as the old "cover-ingest" group did.
+concurrency:
+  group: ingest-data-writes
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -122,9 +142,6 @@ jobs:
     # scheduled trigger queues behind it rather than running in parallel
     # against the same ledger. cancel-in-progress=false means we don't kill
     # the running one mid-volume (would orphan partial uploads).
-    concurrency:
-      group: cover-ingest
-      cancel-in-progress: false
 
     env:
       # Python ingester reads SUPABASE_URL (not NEXT_PUBLIC_SUPABASE_URL)

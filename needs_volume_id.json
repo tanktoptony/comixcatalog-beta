@@ -17575,5 +17575,147 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T19:10:22.573356+00:00",
     "retry_after": "2026-09-22T19:10:22.573371+00:00"
+  },
+  {
+    "name": "Suicide Squad Most Wanted: Deadshot 1 Special Edition",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:01:49.930086+00:00",
+    "retry_after": "2026-09-22T20:01:49.930102+00:00"
+  },
+  {
+    "name": "9-11 - The World's Finest Comic Book Writers & Artists Tell Stories to Remember",
+    "publisher": "DC Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:01:55.654595+00:00",
+    "retry_after": "2026-09-22T20:01:55.654609+00:00"
+  },
+  {
+    "name": "RuneScape: Untold Tales of the God Wars FCBD Edition",
+    "publisher": "Titan Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:04:00.944840+00:00",
+    "retry_after": "2026-09-22T20:04:00.944858+00:00"
+  },
+  {
+    "name": "Deadpool & Cable Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:04:43.149896+00:00",
+    "retry_after": "2026-09-22T20:04:43.149913+00:00"
+  },
+  {
+    "name": "Marvel Family 1 (Facsimile Edition)",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:05:00.147204+00:00",
+    "retry_after": "2026-09-22T20:05:00.147224+00:00"
+  },
+  {
+    "name": "Superman Adventures",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5767,
+        "name": "Superman Adventures",
+        "publisher": "DC Comics",
+        "start_year": 1996
+      },
+      {
+        "id": 85967,
+        "name": "Superman Adventures",
+        "publisher": "DC Comics",
+        "start_year": 2015
+      },
+      {
+        "id": 55671,
+        "name": "Superman Adventures",
+        "publisher": "DC Comics",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:05:18.386046+00:00",
+    "retry_after": "2026-09-22T20:05:18.386063+00:00"
+  },
+  {
+    "name": "Doctor Who: Free Comic Book Day Issue, 2019",
+    "publisher": "Titan Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:05:18.851098+00:00",
+    "retry_after": "2026-09-22T20:05:18.851115+00:00"
+  },
+  {
+    "name": "Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4250,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 1988
+      },
+      {
+        "id": 35263,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 58822,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 29930,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 10809,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2003
+      },
+      {
+        "id": 125121,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 159705,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:25:52.450327+00:00",
+    "retry_after": "2026-09-22T20:25:52.450344+00:00"
   }
 ]

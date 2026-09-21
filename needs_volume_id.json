@@ -15097,9 +15097,9 @@
         "start_year": 1999
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T16:01:12.193200+00:00",
-    "retry_after": "2026-09-21T16:01:12.193218+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T16:17:14.050276+00:00",
+    "retry_after": "2026-09-24T16:17:14.050293+00:00"
   },
   {
     "name": "Spawn/The Savage Dragon",
@@ -15107,9 +15107,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T16:01:13.949803+00:00",
-    "retry_after": "2026-09-21T16:01:13.949819+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T16:17:16.472962+00:00",
+    "retry_after": "2026-09-24T16:17:16.472979+00:00"
   },
   {
     "name": "Newbury & Hobbes",
@@ -15117,9 +15117,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T16:02:52.080200+00:00",
-    "retry_after": "2026-09-21T16:02:52.080217+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T16:17:16.415776+00:00",
+    "retry_after": "2026-09-24T16:17:16.415792+00:00"
   },
   {
     "name": "Bugs Bunny All Picture Comics [Tall Comic Book]",
@@ -16939,5 +16939,55 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T16:03:04.647836+00:00",
     "retry_after": "2026-09-22T16:03:04.647855+00:00"
+  },
+  {
+    "name": "Evil Ernie Youth Gone Wild Director's Cut",
+    "publisher": "Chaos! Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T16:17:38.530394+00:00",
+    "retry_after": "2026-09-22T16:17:38.530411+00:00"
+  },
+  {
+    "name": "Spider-Man Family Featuring Spider-Man's Amazing Friends",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T16:17:47.226558+00:00",
+    "retry_after": "2026-09-22T16:17:47.226575+00:00"
+  },
+  {
+    "name": "100 Bullets / Crime Line Sampler Flip-Book",
+    "publisher": "DC Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T16:17:47.814079+00:00",
+    "retry_after": "2026-09-22T16:17:47.814096+00:00"
+  },
+  {
+    "name": "M.G.M.'s Tom and Jerry Picnic Time",
+    "publisher": "Dell Comics",
+    "year": 1958,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T16:17:48.401807+00:00",
+    "retry_after": "2026-09-22T16:17:48.401824+00:00"
+  },
+  {
+    "name": "The Lone Ranger/Zorro: The Death of Zorro",
+    "publisher": "Dynamite Entertainment",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T16:18:01.404569+00:00",
+    "retry_after": "2026-09-22T16:18:01.404586+00:00"
   }
 ]

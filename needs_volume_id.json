@@ -15008,9 +15008,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T15:01:22.528027+00:00",
-    "retry_after": "2026-09-21T15:01:22.528043+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T16:00:53.329658+00:00",
+    "retry_after": "2026-09-24T16:00:53.329695+00:00"
   },
   {
     "name": "Image Comics Hardcover",
@@ -15018,9 +15018,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T15:02:07.480419+00:00",
-    "retry_after": "2026-09-21T15:02:07.480434+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T16:00:50.055211+00:00",
+    "retry_after": "2026-09-24T16:00:50.055232+00:00"
   },
   {
     "name": "DC Comics Presents: Blink",
@@ -15028,9 +15028,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T15:02:12.945464+00:00",
-    "retry_after": "2026-09-21T15:02:12.945481+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T16:00:53.053525+00:00",
+    "retry_after": "2026-09-24T16:00:53.053543+00:00"
   },
   {
     "name": "Legends of Aukera",
@@ -15038,9 +15038,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T15:02:21.206023+00:00",
-    "retry_after": "2026-09-21T15:02:21.206041+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T16:00:52.815226+00:00",
+    "retry_after": "2026-09-24T16:00:52.815243+00:00"
   },
   {
     "name": "Mandrake the Magician Dailies",
@@ -15048,9 +15048,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T15:02:34.234421+00:00",
-    "retry_after": "2026-09-21T15:02:34.234439+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T16:00:52.728255+00:00",
+    "retry_after": "2026-09-24T16:00:52.728273+00:00"
   },
   {
     "name": "Ponytail Galore",
@@ -15058,9 +15058,9 @@
     "year": 1965,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T15:03:03.171726+00:00",
-    "retry_after": "2026-09-21T15:03:03.171742+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T16:00:52.955438+00:00",
+    "retry_after": "2026-09-24T16:00:52.955456+00:00"
   },
   {
     "name": "DC Essentials: DC: The New Frontier",
@@ -15068,9 +15068,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T16:00:50.490400+00:00",
-    "retry_after": "2026-09-21T16:00:50.490418+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T16:00:52.590823+00:00",
+    "retry_after": "2026-09-24T16:00:52.590841+00:00"
   },
   {
     "name": "Kabuki",
@@ -16892,5 +16892,52 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T15:01:11.471630+00:00",
     "retry_after": "2026-09-22T15:01:11.471646+00:00"
+  },
+  {
+    "name": "Walt Disney's Uncle Scrooge the Golden Fleecing [Dynabrite Comics]",
+    "publisher": "Gold Key",
+    "year": 1978,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T16:01:14.638240+00:00",
+    "retry_after": "2026-09-22T16:01:14.638259+00:00"
+  },
+  {
+    "name": "Cyberpunk 2077",
+    "publisher": "Dark Horse Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 137856,
+        "name": "Cyberpunk 2077",
+        "publisher": "Panini Verlag",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T16:01:31.283389+00:00",
+    "retry_after": "2026-09-22T16:01:31.283407+00:00"
+  },
+  {
+    "name": "DC Comics Essentials: Batman: The Black Mirror",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T16:02:31.402222+00:00",
+    "retry_after": "2026-09-22T16:02:31.402240+00:00"
+  },
+  {
+    "name": "Star Wars: Rogue One - Cassian & K2-SO Special",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T16:03:04.647836+00:00",
+    "retry_after": "2026-09-22T16:03:04.647855+00:00"
   }
 ]

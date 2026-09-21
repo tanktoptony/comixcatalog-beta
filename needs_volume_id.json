@@ -17717,5 +17717,212 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T20:25:52.450327+00:00",
     "retry_after": "2026-09-22T20:25:52.450344+00:00"
+  },
+  {
+    "name": "Giant-Sized Wacky Races",
+    "publisher": "Dynamite Entertainment",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:48:32.899409+00:00",
+    "retry_after": "2026-09-22T20:48:32.899422+00:00"
+  },
+  {
+    "name": "Wolverine the Nuke Hunters",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:48:38.241745+00:00",
+    "retry_after": "2026-09-22T20:48:38.241759+00:00"
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Louisville Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:49:10.923487+00:00",
+    "retry_after": "2026-09-22T20:49:10.923509+00:00"
+  },
+  {
+    "name": "The Marvel Comics Illustrated Version of Star Wars Return of the Jedi",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:49:11.349495+00:00",
+    "retry_after": "2026-09-22T20:49:11.349507+00:00"
+  },
+  {
+    "name": "Victorian Undead: Sherlock Holmes vs Jekyll and Hyde",
+    "publisher": "WildStorm",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:50:19.647994+00:00",
+    "retry_after": "2026-09-22T20:50:19.648006+00:00"
+  },
+  {
+    "name": "Dan Curtis Giveaways The Occult Files of Dr. Spektor",
+    "publisher": "Gold Key",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:50:24.789997+00:00",
+    "retry_after": "2026-09-22T20:50:24.790012+00:00"
+  },
+  {
+    "name": "Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4250,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 1988
+      },
+      {
+        "id": 35263,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 58822,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 29930,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 10809,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2003
+      },
+      {
+        "id": 125121,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 159705,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:53:58.249694+00:00",
+    "retry_after": "2026-09-22T20:53:58.249706+00:00"
+  },
+  {
+    "name": "Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4250,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 1988
+      },
+      {
+        "id": 35263,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 58822,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 29930,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 10809,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2003
+      },
+      {
+        "id": 125121,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 159705,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:54:10.836257+00:00",
+    "retry_after": "2026-09-22T20:54:10.836298+00:00"
+  },
+  {
+    "name": "Star Wars",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2914,
+        "name": "Star Wars",
+        "publisher": "Marvel",
+        "start_year": 1977
+      },
+      {
+        "id": 79398,
+        "name": "Star Wars",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 123860,
+        "name": "Star Wars",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 164202,
+        "name": "Star Wars",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 93987,
+        "name": "Star Wars",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T20:54:11.376355+00:00",
+    "retry_after": "2026-09-22T20:54:11.376369+00:00"
   }
 ]

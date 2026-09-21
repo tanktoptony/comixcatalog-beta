@@ -7,6 +7,8 @@ import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
+import AdSlot from "@/components/AdSlot";
+import { SLOT } from "@/lib/houseAds";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
 
@@ -593,6 +595,8 @@ export default function IssuePage() {
           </div>
         </div>
       </section>
+
+      <AdSlot position={SLOT.ISSUE_INLINE_1} pageKey={String(id)} className="ad-slot--issue" />
 
       {/* + Add another copy modal. window.prompt() doesn't work in
           Next.js Turbopack so we use a React-managed dialog. */}

@@ -1,9 +1,24 @@
 // scripts/generateUserCollectedGap.js
 //
 // Builds gap-user-collected.json: only series that at least one user has
-// added to their library AND that don't yet have a featured cover.
-// This is the only ingest target that directly affects what real users
-// see in their library or on shared profile links.
+// added to their library AND that still have at least one *owned issue*
+// without a cover. This is the only ingest target that directly affects
+// what real users see in their library or on shared profile links.
+//
+// Issue-level, not series-level (changed 2026-09-20): this used to gap on
+// `series.featured_cover_path_cached` alone, i.e. "does this series have
+// any one cover at all". That is far too coarse for the thing users
+// actually see. Measured on 2026-09-20: 157 of 173 user-collected series
+// had a featured cover, so the file held 15 targets — while
+// scripts/reportUserCollectedCoverCoverage.js showed 557 of 662 owned
+// issues with no cover (15.86% coverage). The New Warriors, Amazing
+// Spider-Man, Silver Surfer and Fantastic Four were each missing 30-40
+// owned issues and were all excluded from this file because the series
+// happened to own a single featured cover. The test below now matches
+// that report script's metric exactly, and follows the same "ANY issue
+// missing" rule scripts/generateUserGap.js has always used.
+// The ingester's --skip-existing is per-issue, so re-walking a volume we
+// partially cover is cheap and fills exactly these holes.
 //
 // Why this exists: the existing gap-width / gap-depth files surface
 // catalog-wide gaps, but the long tail there is dominated by
@@ -49,6 +64,12 @@ const GARBAGE_PATTERNS = [
 
 const args = new Set(process.argv.slice(2));
 const PAGE = 1000;
+// PostgREST chokes on very long `in.(...)` lists in a URL, so the
+// canonical_covers lookups below go out in chunks rather than one request
+// with every series id inline.
+const COVER_CHUNK = 100;
+
+const norm = (value) => String(value ?? "").trim().toLowerCase();
 
 async function paginate(builder) {
   const out = [];
@@ -82,13 +103,14 @@ async function main() {
     return;
   }
 
-  // 2. Map those issues to their series_gcd_id.
+  // 2. Map those issues to their series_gcd_id. issue_number comes along
+  //    too — the gap test in step 5 is per-issue, not per-series.
   const issueRows = [];
   for (let i = 0; i < uniqueIssueIds.length; i += PAGE) {
     const slice = uniqueIssueIds.slice(i, i + PAGE);
     const { data, error } = await supabase
       .from("gcd_issues")
-      .select("gcd_id, series_gcd_id")
+      .select("gcd_id, series_gcd_id, issue_number")
       .in("gcd_id", slice);
     if (error) throw error;
     issueRows.push(...(data ?? []));
@@ -98,28 +120,103 @@ async function main() {
   ];
   console.log(`Distinct series users have collected from: ${seriesGcdIds.length}`);
 
-  // 3. Pull series rows + cached cover state. Skip ones that already have a
-  //    featured_cover_path_cached — those aren't a gap.
+  // 3. Pull series rows + cached cover state. gcd_id is selected (not just
+  //    id) because steps 4-5 join owned issues back to their series by it.
   const seriesRows = [];
   for (let i = 0; i < seriesGcdIds.length; i += PAGE) {
     const slice = seriesGcdIds.slice(i, i + PAGE);
     const { data, error } = await supabase
       .from("series")
       .select(
-        "id, title, resolved_publisher_cached, year_start_cached, featured_cover_path_cached"
+        "id, gcd_id, title, resolved_publisher_cached, year_start_cached, featured_cover_path_cached"
       )
       .in("gcd_id", slice);
     if (error) throw error;
     seriesRows.push(...(data ?? []));
   }
   console.log(`Series rows resolved: ${seriesRows.length}`);
+  const seriesByGcdId = new Map(seriesRows.map((s) => [Number(s.gcd_id), s]));
 
-  const withCover = seriesRows.filter((s) => s.featured_cover_path_cached).length;
-  const gaps = seriesRows.filter((s) => !s.featured_cover_path_cached);
+  // 4. Which (series, issue_number) pairs already have a real cover? Two
+  //    lookups, mirroring reportUserCollectedCoverCoverage.js: by
+  //    series_gcd_id (the correct link) and by series_title (the fallback
+  //    for covers whose gcd_id backfill never ran). A cover found either
+  //    way is a cover the user sees, so both count.
+  const coverBySeriesId = new Set();
+  const coverByTitle = new Set();
+  for (let i = 0; i < seriesGcdIds.length; i += COVER_CHUNK) {
+    const slice = seriesGcdIds.slice(i, i + COVER_CHUNK);
+    const rows = await paginate(() =>
+      supabase
+        .from("canonical_covers")
+        .select("series_gcd_id, series_title, issue_number")
+        .in("series_gcd_id", slice)
+        .not("storage_path", "is", null)
+        .order("id")
+    );
+    for (const cover of rows) {
+      coverBySeriesId.add(
+        `${Number(cover.series_gcd_id)}::${norm(cover.issue_number)}`
+      );
+      coverByTitle.add(`${norm(cover.series_title)}::${norm(cover.issue_number)}`);
+    }
+  }
+  const seriesTitles = [
+    ...new Set(seriesRows.map((s) => s.title).filter(Boolean)),
+  ];
+  for (let i = 0; i < seriesTitles.length; i += COVER_CHUNK) {
+    const slice = seriesTitles.slice(i, i + COVER_CHUNK);
+    const rows = await paginate(() =>
+      supabase
+        .from("canonical_covers")
+        .select("series_title, issue_number")
+        .in("series_title", slice)
+        .not("storage_path", "is", null)
+        .order("id")
+    );
+    for (const cover of rows) {
+      coverByTitle.add(`${norm(cover.series_title)}::${norm(cover.issue_number)}`);
+    }
+  }
+
+  // 5. A series is a gap if ANY issue a user actually owns from it has no
+  //    cover. Same rule as generateUserGap.js: a run that covers #1-50 but
+  //    not #75 is still a gap, and --skip-existing makes re-walking it cheap.
+  const gapSeriesGcdIds = new Set();
+  let missingIssueCount = 0;
+  for (const issue of issueRows) {
+    const series = seriesByGcdId.get(Number(issue.series_gcd_id));
+    if (!series) continue;
+    const hasCover =
+      coverBySeriesId.has(
+        `${Number(issue.series_gcd_id)}::${norm(issue.issue_number)}`
+      ) || coverByTitle.has(`${norm(series.title)}::${norm(issue.issue_number)}`);
+    if (!hasCover) {
+      missingIssueCount += 1;
+      gapSeriesGcdIds.add(Number(issue.series_gcd_id));
+    }
+  }
+  const issueLevelGapSeries = gapSeriesGcdIds.size;
+
+  // Keep the old series-level criterion as a union member, not a
+  // replacement: a series with no featured cover at all is still worth a
+  // pass even in the unlikely case every owned issue already resolved.
+  const noFeaturedCover = seriesRows.filter(
+    (s) => !s.featured_cover_path_cached
+  ).length;
+  for (const series of seriesRows) {
+    if (!series.featured_cover_path_cached) {
+      gapSeriesGcdIds.add(Number(series.gcd_id));
+    }
+  }
+
+  const gaps = seriesRows.filter((s) => gapSeriesGcdIds.has(Number(s.gcd_id)));
   console.log(
-    `  already have featured cover: ${withCover} (${((withCover / seriesRows.length) * 100).toFixed(1)}%)`
+    `Owned issues with no cover: ${missingIssueCount} of ${issueRows.length}`
   );
-  console.log(`  missing featured cover (= gap): ${gaps.length}`);
+  console.log(`  series with >=1 uncovered owned issue: ${issueLevelGapSeries}`);
+  console.log(`  series with no featured cover at all:  ${noFeaturedCover}`);
+  console.log(`  gap series (union of both):            ${gaps.length}`);
 
   // 4. Build the ingester target entries. Skip rows missing publisher or
   //    title (ingester can't search without them).

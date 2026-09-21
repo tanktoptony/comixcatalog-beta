@@ -17059,5 +17059,229 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T17:03:18.501403+00:00",
     "retry_after": "2026-09-22T17:03:18.501422+00:00"
+  },
+  {
+    "name": "Spawn",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4937,
+        "name": "Spawn",
+        "publisher": "Image",
+        "start_year": 1992
+      },
+      {
+        "id": 127843,
+        "name": "Spawn",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      },
+      {
+        "id": 43255,
+        "name": "Spawn",
+        "publisher": "Panini Verlag",
+        "start_year": 1997
+      },
+      {
+        "id": 125306,
+        "name": "Spawn",
+        "publisher": "Mandragora",
+        "start_year": 1997
+      },
+      {
+        "id": 53869,
+        "name": "Spawn",
+        "publisher": "Hjemmet",
+        "start_year": 1996
+      },
+      {
+        "id": 48314,
+        "name": "Spawn",
+        "publisher": "Abril",
+        "start_year": 1996
+      },
+      {
+        "id": 53868,
+        "name": "Spawn",
+        "publisher": "Planeta DeAgostini",
+        "start_year": 1994
+      },
+      {
+        "id": 127267,
+        "name": "Spawn",
+        "publisher": "JuniorPress BV",
+        "start_year": 1996
+      },
+      {
+        "id": 53870,
+        "name": "Spawn",
+        "publisher": "Egmont Comics",
+        "start_year": 1996
+      },
+      {
+        "id": 91700,
+        "name": "Spawn",
+        "publisher": "Delcourt",
+        "start_year": 2016
+      },
+      {
+        "id": 145228,
+        "name": "Spawn",
+        "publisher": "Grupo Editorial Vid",
+        "start_year": 1997
+      },
+      {
+        "id": 164079,
+        "name": "Spawn",
+        "publisher": "Trielle Komix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T18:03:16.460092+00:00",
+    "retry_after": "2026-09-22T18:03:16.460109+00:00"
+  },
+  {
+    "name": "Custom Sony Interactive Entertainment 2023 UK English Print Comic [Spider-Man 2]",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T18:13:04.049066+00:00",
+    "retry_after": "2026-09-22T18:13:04.049084+00:00"
+  },
+  {
+    "name": "AAFES 6 [New Avengers: Fireline]",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T18:13:24.165446+00:00",
+    "retry_after": "2026-09-22T18:13:24.165463+00:00"
+  },
+  {
+    "name": "Ultimate Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 48343,
+        "name": "Ultimate Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2012
+      },
+      {
+        "id": 27381,
+        "name": "Ultimate Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 155969,
+        "name": "Ultimate Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 7257,
+        "name": "Ultimate Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T18:13:24.727059+00:00",
+    "retry_after": "2026-09-22T18:13:24.727076+00:00"
+  },
+  {
+    "name": "Pretty Deadly Vault Edition",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T18:13:34.291973+00:00",
+    "retry_after": "2026-09-22T18:13:34.291988+00:00"
+  },
+  {
+    "name": "Edgar Rice Burroughs' Tarzan: The Russ Manning Years",
+    "publisher": "Dark Horse Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T18:13:46.026145+00:00",
+    "retry_after": "2026-09-22T18:13:46.026159+00:00"
+  },
+  {
+    "name": "Walt Disney's Gyro Gearloose",
+    "publisher": "Dell Comics",
+    "year": 1962,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T18:13:57.764572+00:00",
+    "retry_after": "2026-09-22T18:13:57.764588+00:00"
+  },
+  {
+    "name": "Justice League Adventures [Free Comic Book Day Edition]",
+    "publisher": "DC Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T18:14:03.071071+00:00",
+    "retry_after": "2026-09-22T18:14:03.071088+00:00"
+  },
+  {
+    "name": "Oliver",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 116672,
+        "name": "Oliver",
+        "publisher": "Image",
+        "start_year": 2019
+      },
+      {
+        "id": 128909,
+        "name": "Oliver",
+        "publisher": "Image",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T18:15:14.488923+00:00",
+    "retry_after": "2026-09-22T18:15:14.488936+00:00"
+  },
+  {
+    "name": "Starman",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5259,
+        "name": "Starman",
+        "publisher": "DC Comics",
+        "start_year": 1994
+      },
+      {
+        "id": 4028,
+        "name": "Starman",
+        "publisher": "DC Comics",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T18:18:14.732109+00:00",
+    "retry_after": "2026-09-22T18:18:14.732122+00:00"
   }
 ]

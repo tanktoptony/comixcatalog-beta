@@ -19,7 +19,7 @@ const displayFont = Big_Shoulders({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://comixcatalog.com";
+import { SITE_URL } from "@/lib/siteUrl";
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 // Production only — keeps localhost/dev traffic out of real GA data.
 const GA_ENABLED = Boolean(GA_MEASUREMENT_ID) && process.env.NODE_ENV === "production";

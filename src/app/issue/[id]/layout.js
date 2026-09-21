@@ -2,7 +2,7 @@
 // the page uses, so the title and OG card reflect the actual issue. The page
 // itself stays a client component for the interactive add-to-collection logic.
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://comixcatalog.com";
+import { SITE_URL } from "@/lib/siteUrl";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;

@@ -1,7 +1,7 @@
 // Tells crawlers what they can index. Next App Router auto-routes this to
 // /robots.txt at build time.
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://comixcatalog.com";
+import { SITE_URL } from "@/lib/siteUrl";
 
 export default function robots() {
   return {

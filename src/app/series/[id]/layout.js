@@ -1,4 +1,4 @@
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://comixcatalog.com";
+import { SITE_URL } from "@/lib/siteUrl";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;

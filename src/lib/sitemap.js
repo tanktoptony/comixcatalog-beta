@@ -17,9 +17,9 @@
 import { supabaseServer } from "@/lib/supabase/server";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import ARTICLES from "@/app/reads/articles";
+import { SITE_URL } from "@/lib/siteUrl";
 
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://comixcatalog.com";
+export { SITE_URL };
 
 export const SERIES_CHUNKS = "0123456789abcdef".split("");
 

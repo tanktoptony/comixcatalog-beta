@@ -1,6 +1,6 @@
 import FoundingCollectorsClient from "@/components/FoundingCollectorsClient";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://comixcatalog.com";
+import { SITE_URL } from "@/lib/siteUrl";
 
 // Server-rendered for the same reason as the layout's FoundingBanner fetch
 // (see layout.js): fetch fresh per request (cache: "no-store") so the

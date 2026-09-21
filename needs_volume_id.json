@@ -15806,5 +15806,25 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-20T23:08:40.605953+00:00",
     "retry_after": "2026-09-21T23:08:40.605970+00:00"
+  },
+  {
+    "name": "Image Firsts: Godland",
+    "publisher": "Image Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T00:01:44.336914+00:00",
+    "retry_after": "2026-09-22T00:01:44.336934+00:00"
+  },
+  {
+    "name": "AAFES 13th Edition [The Avengers]",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T00:05:05.468758+00:00",
+    "retry_after": "2026-09-22T00:05:05.468777+00:00"
   }
 ]

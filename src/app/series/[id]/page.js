@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useLibrary } from "@/context/LibraryContext";
+import { trackEvent } from "@/lib/analytics";
 
 function issueSortValue(issueNumber) {
   // Comics often store dual-numbered issues like "30 (471)" (Vol 2 / Vol 1
@@ -33,7 +34,7 @@ export default function SeriesPage() {
   const [loading, setLoading] = useState(true);
   const [sortMode, setSortMode] = useState("issue-asc");
 
-  const { user, isPro } = useAuth();
+  const { user, isPro, loading: authLoading } = useAuth();
   const { collectionIds, wishlistIds, addToCollection } = useLibrary();
   const [bulkAdding, setBulkAdding] = useState(false);
   const [bulkResult, setBulkResult] = useState(null);
@@ -64,6 +65,19 @@ export default function SeriesPage() {
 
     loadSeries();
   }, [id]);
+
+  // Funnel: one view event per loaded series, after auth has settled so
+  // logged_in is real rather than "not resolved yet".
+  useEffect(() => {
+    if (!series?.id || authLoading) return;
+    trackEvent("series_view", {
+      series_id: series.id,
+      series_title: series.title,
+      publisher: series.publisher,
+      logged_in: Boolean(user),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [series?.id, authLoading]);
 
   const sortedIssues = useMemo(() => {
     if (!series?.issues) return [];

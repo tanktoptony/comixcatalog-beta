@@ -204,18 +204,20 @@ walked.
 GA is wired (`NEXT_PUBLIC_GA_MEASUREMENT_ID`, loaded production-only from
 `src/app/layout.js`, thin `trackEvent` wrapper in `src/lib/analytics.js`).
 
-It fires exactly five custom events, and **every one of them happens after
-the user has already signed up**:
+Until 2026-09-21 it fired exactly five custom events, all post-signup
+(`signup_completed`, `pro_upgrade`, `pdf_export`, `grade_set`,
+`collection_add`), so it could answer "what do existing users do" but not
+"where do strangers drop off".
 
-`signup_completed`, `pro_upgrade`, `pdf_export`, `grade_set`,
-`collection_add`
-
-So GA can answer "what do our existing users do" and cannot answer "where do
-strangers drop off", which is the actual growth question. **The highest-value
-analytics work is instrumenting the pre-signup funnel**, not adding more
-post-conversion events: landing view, search performed, search result
-clicked, series/issue viewed anonymously, signup started (vs completed),
-newsletter form seen vs submitted.
+**The pre-signup funnel is now instrumented** (PR `agent/growth-funnel`,
+2026-09-21). The full event inventory lives at the top of
+`src/lib/analytics.js` and is the place to keep it current. New events:
+`cta_click` (home CTAs), `search` (GA4's recommended name, with
+`search_term` + `result_count`), `search_result_click`, `series_view`,
+`issue_view`, `signup_started` (first form focus) and `signup_error` (with a
+`reason`). Every one carries `logged_in` where it makes sense, so anonymous
+and signed-in behaviour can be split in GA. Not yet instrumented: newsletter
+form seen/submitted, because the form is not rendered (see 8b).
 
 Note `trackEvent` no-ops silently when `gtag` is absent (ad blockers, local
 dev), so expect real-world undercounting and do not treat GA as a source of
@@ -227,16 +229,19 @@ truth for absolute numbers.
 normalised email, `source`, `subscribed_at`, `unsubscribed_at` for
 unsubscribes, RLS enabled with all privileges revoked from `anon` and
 `authenticated` so only the server-side service client writes. The API route
-is `src/app/api/newsletter/route.js` and the form lives in
-`src/components/Footer.js`.
+is `src/app/api/newsletter/route.js`. The form's code is in
+`src/components/Footer.js` but **it is not rendered**: it was hidden (not
+deleted) because it promised monthly emails nothing could send. So there is
+currently no signup surface at all.
 
 Two concrete gaps:
 
-1. **1 subscriber, sourced `footer`.** The only signup surface is the
-   footer, the lowest-visibility position on the site. The `source` column
-   exists specifically to compare placements — use it. Candidate surfaces:
-   post-signup, after a first collection add, on `/reads/[slug]` blog posts,
-   an interstitial on the public profile share link.
+1. **1 subscriber, sourced `footer`**, from before the form was hidden. When
+   it comes back, the footer is the lowest-visibility position on the site.
+   The `source` column exists specifically to compare placements — use it.
+   Candidate surfaces: post-signup, after a first collection add, on
+   `/reads/[slug]` blog posts, an interstitial on the public profile share
+   link.
 2. **There is no email-sending infrastructure at all.** No Resend, SendGrid,
    Postmark, Mailgun or nodemailer anywhere in `package.json`, `src/` or
    `scripts/`. The only mail currently sent is Supabase's own auth mail
@@ -268,51 +273,63 @@ readers rather than for the founder's own changelog. Reading guides and
 "which issues matter" content target searches people actually run; build
 updates do not.
 
-### 8d. SEO foundation — audit, do not rebuild
+### 8d. SEO foundation
 
-Already present: `src/app/robots.js`, `src/app/sitemap.js`, and
-`generateMetadata`/openGraph on `src/app/layout.js`,
-`src/app/issue/[id]/layout.js`, `src/app/series/[id]/layout.js`,
-`src/app/reads/[slug]/page.js`.
+Already present: `src/app/robots.js` and `generateMetadata`/openGraph on
+`src/app/layout.js`, `src/app/issue/[id]/layout.js`,
+`src/app/series/[id]/layout.js`, `src/app/reads/[slug]/page.js`. Series
+titles, descriptions and canonicals were spot-checked distinct per page on
+2026-09-21.
 
-So the work here is verifying quality, not building from zero: confirm the
-sitemap actually enumerates series/issue/blog routes at the current catalog
-size, that canonical URLs are right, and that titles/descriptions are
-distinct per page rather than templated identically. **With ~47k allowlisted
-series, sitemap completeness and correctness is the single biggest organic
-surface the site has** — and note §2a, a sitemap builder that reads rows
-without pagination will silently emit only 1,000 URLs.
+**The sitemap was the gap.** Until 2026-09-21 `src/app/sitemap.js` emitted
+19 static URLs and nothing else: no series, no blog posts, no reading
+guides. It is now a sitemap index (`src/app/sitemap.xml/route.js`, same
+entry URL robots.txt and Search Console already use) pointing at
+`/sitemaps/static.xml` (static routes + `/reads/*` + published `/blog/*`)
+and 16 `/sitemaps/series-<hex>.xml` chunks split by UUID prefix, each
+cached a day. Logic is in `src/lib/sitemap.js`. Verified live against the
+dev server: all 16 chunks sum to **45,985** series URLs, zero duplicates,
+equal to the exact count of allowlisted series, so the §2a 1000-row cap is
+not in play. Issues (2.5M) are still not enumerated, deliberately.
+
+Still worth doing: resubmit `/sitemap.xml` in Search Console after this
+deploys and watch the indexed-page count over the following weeks. That is
+the number that says whether it worked.
 
 ### 8e. Sequencing suggestion
 
 Ordered by "blocks the next thing" rather than by appeal:
 
-1. Pick and wire an email provider. Nothing about "monthly emails" can start
-   until this exists.
-2. Instrument the pre-signup funnel in GA. Everything after this is guesswork
-   without it.
-3. Audit the sitemap for completeness (check for the 1000-row truncation).
-4. Add newsletter signup surfaces beyond the footer, using `source` to
-   measure which placements work.
+1. ~~Instrument the pre-signup funnel in GA.~~ Done 2026-09-21 (8a).
+2. ~~Fix the sitemap.~~ Done 2026-09-21 (8d). Resubmit in Search Console.
+3. Build the `<AdSlot />` house-ad slots (named positions on home, search,
+   series, issue pages). Filled with house ads first (Founding Collectors,
+   newsletter, contribute); this doubles as the newsletter-surface work in
+   8b and is the plumbing any future sponsor or ad network drops into.
+   **Note before any paid ad goes in a slot:** `src/app/upgrade/page.js`
+   tells Pro subscribers the $8 buys "no ads". That copy is a positioning
+   decision the founder makes on purpose, not a side effect.
+4. Pick and wire an email provider (Resend is the obvious fit). Nothing about
+   "monthly emails" can start until this exists. Then re-show the newsletter
+   form, tagging placements by `source`.
 5. Resume the blog, weighted toward reader-facing content over build updates.
 
 ---
 
 ## 7. State as of 2026-09-21
 
-**Open PRs — all CI-green, none merged, none with auto-merge:**
+**PRs #84, #88, #89, #90 and this handoff (#91) all merged 2026-09-21.**
+Nothing is open. For the record, what they were:
 
-- **#84** — migration 0027, the `canonical_covers(series_title, id)` index.
-  *The index is already applied in production;* this PR is bookkeeping plus a
-  CLAUDE.md correction.
-- **#88** — wires the user-collected cover lane in first, and fixes the metric
-  that reported 15.86% instead of 97.28%. Also fixes `gap-probe.yml` calling
-  the gap generator only with `--append-to-manual`, which returns early and
-  never writes the file (why it sat a month stale).
-- **#89** — shared concurrency group for the two workflows that both write
-  `needs_volume_id.json`. **Not verifiable locally**; the real proof is the
-  next Mon/Thu 08:00 window.
-- **#90** — pages the series-page cover lookups; adds
+- **#84** — migration 0027, the `canonical_covers(series_title, id)` index
+  (already applied in production before the PR; bookkeeping + CLAUDE.md fix).
+- **#88** — user-collected cover lane wired first; fixed the metric that
+  reported 15.86% instead of 97.28%; fixed `gap-probe.yml` never writing its
+  file.
+- **#89** — shared concurrency group for the two workflows that write
+  `needs_volume_id.json`. **Still only provable at the next Mon/Thu 08:00
+  window**: check that the collision did not recur.
+- **#90** — paged the series-page cover lookups; added
   `src/lib/supabase/fetchAllPages.js`.
 
 **Live in production:** cover collisions are fixed (7,550 series, 7,550

@@ -16729,5 +16729,127 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T11:02:22.310075+00:00",
     "retry_after": "2026-09-22T11:02:22.310092+00:00"
+  },
+  {
+    "name": "True Believers: Ant-Man and the Wasp -- The Birth of Giant-Man",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T12:01:07.915000+00:00",
+    "retry_after": "2026-09-22T12:01:07.915016+00:00"
+  },
+  {
+    "name": "True Believers: Ant-Man Incredible Shrinking Doom",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T12:02:05.531956+00:00",
+    "retry_after": "2026-09-22T12:02:05.531974+00:00"
+  },
+  {
+    "name": "Marvel Rising: Squirrel Girl / Ms. Marvel",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T12:02:05.869313+00:00",
+    "retry_after": "2026-09-22T12:02:05.869328+00:00"
+  },
+  {
+    "name": "Eerie Comics",
+    "publisher": "Dark Horse Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78952,
+        "name": "Eerie Comics",
+        "publisher": "Yojimbo Press LLC",
+        "start_year": 2014
+      },
+      {
+        "id": 52151,
+        "name": "Eerie Comics",
+        "publisher": "Thorpe & Porter",
+        "start_year": 1952
+      },
+      {
+        "id": 52894,
+        "name": "Eerie Comics",
+        "publisher": "Avon",
+        "start_year": 1947
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T12:02:06.441981+00:00",
+    "retry_after": "2026-09-22T12:02:06.441995+00:00"
+  },
+  {
+    "name": "You've Got to Be Kidding, Snoopy!",
+    "publisher": "Fawcett Comics",
+    "year": 1978,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T12:02:38.042245+00:00",
+    "retry_after": "2026-09-22T12:02:38.042261+00:00"
+  },
+  {
+    "name": "Dark Web",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 150051,
+        "name": "Dark Web ",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 146735,
+        "name": "Dark Web",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T12:02:55.210773+00:00",
+    "retry_after": "2026-09-22T12:02:55.210789+00:00"
+  },
+  {
+    "name": "Shazam! (2019 Special Edition)",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T12:02:55.676977+00:00",
+    "retry_after": "2026-09-22T12:02:55.676992+00:00"
+  },
+  {
+    "name": "Marvel's Greatest Creators: Luke Cage, Power Man - Piranha!",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T12:03:25.991241+00:00",
+    "retry_after": "2026-09-22T12:03:25.991255+00:00"
+  },
+  {
+    "name": "Superman Fights the Prankster and Puzzler's Perilous Plots",
+    "publisher": "Gold Key",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T12:03:26.535346+00:00",
+    "retry_after": "2026-09-22T12:03:26.535361+00:00"
   }
 ]

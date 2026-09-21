@@ -15886,5 +15886,95 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T01:02:16.539121+00:00",
     "retry_after": "2026-09-22T01:02:16.539133+00:00"
+  },
+  {
+    "name": "Avengers: Ultron Forever",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 85553,
+        "name": "Avengers: Ultron Forever",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 81085,
+        "name": "Avengers: Ultron Forever",
+        "publisher": "Marvel",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T02:00:41.443941+00:00",
+    "retry_after": "2026-09-22T02:00:41.443955+00:00"
+  },
+  {
+    "name": "AAFES 11th Edition [Captain America: The First Avenger]",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T02:00:57.223809+00:00",
+    "retry_after": "2026-09-22T02:00:57.223826+00:00"
+  },
+  {
+    "name": "Sonic & Knuckles: Mecha Madness Special",
+    "publisher": "Archie Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T02:01:04.472626+00:00",
+    "retry_after": "2026-09-22T02:01:04.472643+00:00"
+  },
+  {
+    "name": "In This Corner...Dennis the Menace",
+    "publisher": "Fawcett Comics",
+    "year": 1959,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55130,
+        "name": "In This Corner... Dennis the Menace",
+        "publisher": "Henry Holt and Co.",
+        "start_year": 1958
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T02:01:13.447630+00:00",
+    "retry_after": "2026-09-22T02:01:13.447643+00:00"
+  },
+  {
+    "name": "Office Laffs",
+    "publisher": "Fawcett Comics",
+    "year": 1957,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T02:01:13.842966+00:00",
+    "retry_after": "2026-09-22T02:01:13.842978+00:00"
+  },
+  {
+    "name": "Fear Itself: Thor",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T02:02:00.690352+00:00",
+    "retry_after": "2026-09-22T02:02:00.690367+00:00"
+  },
+  {
+    "name": "X-Men: Future History - The Messiah War Sourcebook",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T02:02:32.975463+00:00",
+    "retry_after": "2026-09-22T02:02:32.975477+00:00"
   }
 ]

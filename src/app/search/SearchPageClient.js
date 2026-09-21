@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { useLibrary } from "../../context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import EmptyState from "@/components/EmptyState";
+import { trackEvent } from "@/lib/analytics";
 
 const PAGE_SIZE = 36;
 
@@ -67,9 +68,14 @@ export default function SearchPageClient() {
   const [query, setQuery] = useState(urlQuery);
   const [page, setPage] = useState(0);
 
-  useEffect(() => {
+  // Sync the input from the URL (header search, back/forward) by deriving
+  // during render rather than in an effect, so there is no extra render
+  // with the stale query in between.
+  const [syncedUrlQuery, setSyncedUrlQuery] = useState(urlQuery);
+  if (urlQuery !== syncedUrlQuery) {
+    setSyncedUrlQuery(urlQuery);
     setQuery(urlQuery);
-  }, [urlQuery]);
+  }
 
   const [supabaseComics, setSupabaseComics] = useState([]);
   const [seriesResults, setSeriesResults] = useState([]);
@@ -111,6 +117,15 @@ export default function SearchPageClient() {
 
         if (cancelled) return;
 
+        // First page of a real query only — pagination is not a new search.
+        if (query && page === 0) {
+          trackEvent("search", {
+            search_term: query,
+            result_count: comics.length,
+            logged_in: Boolean(user),
+          });
+        }
+
         setHasMore(comics.length === PAGE_SIZE);
 
         setSupabaseComics((prev) => {
@@ -143,22 +158,29 @@ export default function SearchPageClient() {
       cancelled = true;
       clearTimeout(timeout);
     };
+    // `user` is read for the event only; re-fetching on auth changes would
+    // double-load the page.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query, page]);
 
   // ── Reset page/filter on new query (keep old results visible until new ones arrive) ──
-  useEffect(() => {
+  // Same derive-during-render pattern as the URL sync above: reset paging
+  // state the moment the query changes, before the fetch effect runs.
+  const [lastQuery, setLastQuery] = useState(query);
+  if (query !== lastQuery) {
+    setLastQuery(query);
     setPage(0);
     setHasMore(true);
     setLoadError(null);
     setPublisherFilter(null);
-  }, [query]);
+    // Suggestions only clear when the box empties; while typing, the old
+    // list stays up until the debounced fetch below replaces it.
+    if (!query) setSeriesResults([]);
+  }
 
   // ── Series suggestions ───────────────────────────────────────────────────────
   useEffect(() => {
-    if (!query) {
-      setSeriesResults([]);
-      return;
-    }
+    if (!query) return;
 
     let cancelled = false;
 
@@ -296,6 +318,13 @@ export default function SearchPageClient() {
                         key={s.id}
                         href={`/series/${s.id}`}
                         className="comic-card"
+                        onClick={() =>
+                          trackEvent("search_result_click", {
+                            result_type: "series_match",
+                            result_id: s.id,
+                            search_term: query,
+                          })
+                        }
                       >
                         <div className="comic-card-cover">
                           {s.cover && (
@@ -400,7 +429,7 @@ export default function SearchPageClient() {
 
         {/* Real results */}
         {!isFirstLoad &&
-          results.map((item) => {
+          results.map((item, index) => {
             const isSeries = item.__source === "series";
             const isUserAdded = item.__source === "user";
             const inCollection = !isSeries && collectionIds.has(item.id);
@@ -414,7 +443,18 @@ export default function SearchPageClient() {
 
             return (
               <article key={item.id} className="comic-card">
-                <Link href={comicHref} className="card-link">
+                <Link
+                  href={comicHref}
+                  className="card-link"
+                  onClick={() =>
+                    trackEvent("search_result_click", {
+                      result_type: isSeries ? "series" : isUserAdded ? "comic" : "issue",
+                      result_id: item.id,
+                      search_term: query,
+                      position: index,
+                    })
+                  }
+                >
                   <div className="comic-card-cover">
                     <img
                       src={coverSrc}

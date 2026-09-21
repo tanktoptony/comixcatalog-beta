@@ -6,15 +6,22 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
 import ActivityFeed from "@/components/ActivityFeed";
+import { trackEvent } from "@/lib/analytics";
 
 export default function HomePage() {
   const { user } = useAuth();
   const router = useRouter();
   const [heroQuery, setHeroQuery] = useState("");
 
+  // Funnel: which landing CTA actually moves people. Search itself is
+  // measured on /search (the `search` event), not here.
+  const cta = (location) => () =>
+    trackEvent("cta_click", { location, logged_in: Boolean(user) });
+
   function handleHeroSearch(e) {
     e.preventDefault();
     const q = heroQuery.trim();
+    trackEvent("cta_click", { location: "hero_search", logged_in: Boolean(user) });
     router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/search");
   }
 
@@ -50,10 +57,14 @@ export default function HomePage() {
           </form>
 
           <div className="lp-ctas">
-            <Link href={user ? "/library" : "/signup"} className="lp-cta-primary">
+            <Link
+              href={user ? "/library" : "/signup"}
+              className="lp-cta-primary"
+              onClick={cta("hero_primary")}
+            >
               {user ? "Go to your library" : "Start free"}
             </Link>
-            <Link href="/search" className="lp-cta-ghost">
+            <Link href="/search" className="lp-cta-ghost" onClick={cta("hero_browse")}>
               Browse the database →
             </Link>
           </div>
@@ -135,7 +146,11 @@ export default function HomePage() {
             Join while spots remain and receive Collector Pro for life—free,
             automatically, with no card required. You&rsquo;ll also receive a permanent Founding Collector badge.
           </p>
-          <Link href="/founding-collectors" className="lp-founding-cta">
+          <Link
+            href="/founding-collectors"
+            className="lp-founding-cta"
+            onClick={cta("founding")}
+          >
             See the founding offer →
           </Link>
         </div>
@@ -148,7 +163,11 @@ export default function HomePage() {
       <section className="lp-bottom-cta">
         <h2>Start building your collection.</h2>
         <p>Free to join. No credit card required.</p>
-        <Link href={user ? "/library" : "/signup"} className="lp-cta-primary">
+        <Link
+          href={user ? "/library" : "/signup"}
+          className="lp-cta-primary"
+          onClick={cta("bottom_primary")}
+        >
           {user ? "Go to your library" : "Create a free account"}
         </Link>
       </section>

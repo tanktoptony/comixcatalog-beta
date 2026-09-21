@@ -194,6 +194,8 @@ Companion to `docs/data-hardening-and-growth-spec.md`. Each prompt below is **se
 > **Human review required before merge: NO** for metadata/sitemap code; this section already has a detailed spec in `docs/marketplace-launch-spec.md` §5b — read that section in full, it's the actual source of truth for this workstream, treat this prompt as a pointer to it.
 >
 > **Goal:** Execute `docs/marketplace-launch-spec.md` §5b now rather than waiting for marketplace launch. Per-page metadata, sitemap expansion, JSON-LD.
+
+> **Status 2026-09-21:** the sitemap half is done (sitemap index at `/sitemap.xml`, 45,985 series URLs + blog + reads; see `docs/operations/OPERATIONS_HANDOFF.md` §8d). `app/sitemap.js` no longer exists; the logic is in `src/lib/sitemap.js`. Per-page metadata already existed. JSON-LD is the remaining piece.
 >
 > **Prereq — important:** Read `docs/data-hardening-and-growth-spec.md` §1 first. Do not ship JSON-LD `Product` schema with cover images until §1's matching fixes have landed, or you'll be telling Google (and every social-share preview) about wrong covers at scale, which is worse than not having structured data at all.
 >

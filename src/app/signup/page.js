@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,6 +30,22 @@ export default function SignUpPage() {
   const [resending, setResending] = useState(false);
 
   const [submittedEmail, setSubmittedEmail] = useState("");
+
+  // Funnel: fire signup_started once per visit, on the first field focus.
+  // Distinguishes "landed on /signup and left" from "tried and failed".
+  const startedRef = useRef(false);
+  function markStarted() {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    trackEvent("signup_started", {
+      next: new URLSearchParams(window.location.search).get("next") || "",
+    });
+  }
+
+  function failSignup(reason, message) {
+    trackEvent("signup_error", { reason });
+    setErrorMsg(message);
+  }
 
   async function handleResendConfirmation() {
     const emailToResend = (submittedEmail || email).trim().toLowerCase();
@@ -78,14 +94,15 @@ export default function SignUpPage() {
     const emailNormalized = email.trim().toLowerCase();
 
     if (!/^[a-z0-9_]{3,20}$/.test(usernameNormalized)) {
-      setErrorMsg(
+      failSignup(
+        "invalid_username",
         "Username must be 3–20 characters (letters, numbers, underscore)."
       );
       return;
     }
 
     if (password.length < 8) {
-      setErrorMsg("Password must be at least 8 characters.");
+      failSignup("weak_password", "Password must be at least 8 characters.");
       return;
     }
 
@@ -120,7 +137,8 @@ export default function SignUpPage() {
     } catch (timeoutErr) {
       console.error("SIGNUP TIMEOUT:", timeoutErr);
       setSaving(false);
-      setErrorMsg(
+      failSignup(
+        "timeout",
         "Email service is temporarily unavailable — your confirmation " +
           "email can't be sent right now. Email comixcatalog@gmail.com " +
           "and we'll get you in manually."
@@ -151,11 +169,13 @@ export default function SignUpPage() {
         message.includes("for security purposes") ||
         error.status === 429
       ) {
-        setErrorMsg(
+        failSignup(
+          "rate_limited",
           "Too many signup attempts. Please wait a few minutes and try again."
         );
       } else if (message.includes("already registered") || message.includes("already exists")) {
-        setErrorMsg(
+        failSignup(
+          "already_registered",
           "An account may already exist with this email. Try logging in or resending your confirmation email."
         );
       } else if (
@@ -163,11 +183,15 @@ export default function SignUpPage() {
         message.includes("fetch") ||
         error.status === 504
       ) {
-        setErrorMsg(
+        failSignup(
+          "service_timeout",
           "Signup service timed out. Please wait a few minutes and try again."
         );
       } else {
-        setErrorMsg(error.message || "Unable to create account. Please try again.");
+        failSignup(
+          "unknown",
+          error.message || "Unable to create account. Please try again."
+        );
       }
 
       return;
@@ -265,6 +289,7 @@ export default function SignUpPage() {
             className="auth-input"
             type="text"
             required
+            onFocus={markStarted}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             autoComplete="username"
@@ -279,6 +304,7 @@ export default function SignUpPage() {
             className="auth-input"
             type="email"
             required
+            onFocus={markStarted}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             autoComplete="email"
@@ -293,6 +319,7 @@ export default function SignUpPage() {
             className="auth-input"
             type="password"
             required
+            onFocus={markStarted}
             minLength={8}
             value={password}
             onChange={(e) => setPassword(e.target.value)}

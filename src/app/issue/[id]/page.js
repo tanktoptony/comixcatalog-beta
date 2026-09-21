@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
+import { trackEvent } from "@/lib/analytics";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
 
@@ -37,7 +38,7 @@ export default function IssuePage() {
   const [variantSaveState, setVariantSaveState] = useState(null);
   const [gradeData, setGradeData] = useState(null);
 
-  const { user, isPro } = useAuth();
+  const { user, isPro, loading: authLoading } = useAuth();
   const libraryId = String(issue?.id || id || "");
 
   const inCollection = collectionIds?.has(libraryId);
@@ -74,6 +75,20 @@ export default function IssuePage() {
 
     loadIssue();
   }, [id, user?.id]);
+
+  // Funnel: one view event per loaded issue. Keyed on issue.id, not the
+  // load effect above, which re-runs when auth resolves.
+  useEffect(() => {
+    if (!issue?.id || authLoading) return;
+    trackEvent("issue_view", {
+      issue_id: issue.id,
+      series_id: issue.series_id,
+      series_title: issue.series_title,
+      issue_number: issue.issue_number,
+      logged_in: Boolean(user),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [issue?.id, authLoading]);
 
   const issueTitle = useMemo(() => {
     if (!issue) return "";

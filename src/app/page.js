@@ -7,6 +7,8 @@ import { useAuth } from "@/context/AuthContext";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
 import ActivityFeed from "@/components/ActivityFeed";
 import { trackEvent } from "@/lib/analytics";
+import AdSlot from "@/components/AdSlot";
+import { SLOT } from "@/lib/houseAds";
 
 export default function HomePage() {
   const { user } = useAuth();
@@ -158,6 +160,8 @@ export default function HomePage() {
 
       {/* ── RECENT ACTIVITY ──────────────────────────────────── */}
       <ActivityFeed />
+
+      <AdSlot position={SLOT.HOME_INLINE} pageKey="home" className="ad-slot--home" />
 
       {/* ── BOTTOM CTA ───────────────────────────────────────── */}
       <section className="lp-bottom-cta">

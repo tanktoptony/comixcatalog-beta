@@ -302,13 +302,18 @@ Ordered by "blocks the next thing" rather than by appeal:
 
 1. ~~Instrument the pre-signup funnel in GA.~~ Done 2026-09-21 (8a).
 2. ~~Fix the sitemap.~~ Done 2026-09-21 (8d). Resubmit in Search Console.
-3. Build the `<AdSlot />` house-ad slots (named positions on home, search,
-   series, issue pages). Filled with house ads first (Founding Collectors,
-   newsletter, contribute); this doubles as the newsletter-surface work in
-   8b and is the plumbing any future sponsor or ad network drops into.
-   **Note before any paid ad goes in a slot:** `src/app/upgrade/page.js`
-   tells Pro subscribers the $8 buys "no ads". That copy is a positioning
-   decision the founder makes on purpose, not a side effect.
+3. ~~Build the `<AdSlot />` house-ad slots.~~ Done 2026-09-21 (PR
+   `agent/adslot`). `src/components/AdSlot.js` + inventory in
+   `src/lib/houseAds.js`; positions `HOME_INLINE`, `SEARCH_INLINE_1` (after
+   two grid rows), `SERIES_INLINE_1` (after one row), `ISSUE_INLINE_1`
+   (page bottom). Grid placement is CSS `grid-row`, not "after N cards", so
+   it never orphans a card at any width. Four house ads (Founding, Pro
+   value, contribute, reading guides), upsells hidden from Pro/Founding.
+   Events `house_ad_view` / `house_ad_click` give CTR per creative per
+   position. **A newsletter creative is not in rotation yet** because the
+   form is hidden (8b); add it with step 4. **Before any paid ad goes in a
+   slot:** `src/app/upgrade/page.js` tells Pro subscribers the $8 buys "no
+   ads". That copy is a positioning decision the founder makes on purpose.
 4. Pick and wire an email provider (Resend is the obvious fit). Nothing about
    "monthly emails" can start until this exists. Then re-show the newsletter
    form, tagging placements by `source`.

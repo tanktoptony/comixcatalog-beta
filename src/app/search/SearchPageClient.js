@@ -7,6 +7,8 @@ import { useLibrary } from "../../context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import EmptyState from "@/components/EmptyState";
 import { trackEvent } from "@/lib/analytics";
+import AdSlot from "@/components/AdSlot";
+import { SLOT } from "@/lib/houseAds";
 
 const PAGE_SIZE = 36;
 
@@ -554,6 +556,11 @@ export default function SearchPageClient() {
               </article>
             );
           })}
+        {/* House-ad row, pinned by CSS to grid row 3 (after two full rows of
+            results at any column count). */}
+        {!isFirstLoad && results.length > 0 && (
+          <AdSlot position={SLOT.SEARCH_INLINE_1} pageKey={query || "browse"} className="ad-slot--row3" />
+        )}
 
         {/* Inline skeleton cards while loading more */}
         {isLoading &&

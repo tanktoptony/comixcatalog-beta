@@ -12,6 +12,8 @@
 //   issue_view           { issue_id, series_id, series_title, issue_number, logged_in }
 //   signup_started       { next }        first interaction with the signup form
 //   signup_error         { reason }      validation or Supabase failure on submit
+//   house_ad_view        { position, campaign, logged_in }  <AdSlot /> mounted
+//   house_ad_click       { position, campaign, logged_in }  its link clicked
 //
 // Post-signup (existing users):
 //   signup_completed, pro_upgrade, pdf_export, grade_set, collection_add

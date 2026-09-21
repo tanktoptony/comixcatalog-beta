@@ -3292,6 +3292,10 @@ input[type="file"] {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* background-clip: text only paints inside the line box, and at
+     line-height 1.02 descenders (the g in "guesswork") fall outside
+     it and get cut off. Pad the box; the margin below absorbs it. */
+  padding-bottom: 0.14em;
 }
 .mkt-lede {
   font-size: 1.15rem;
@@ -9032,6 +9036,10 @@ button.nav-link {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* background-clip: text only paints inside the line box, and at
+     line-height 1.02 descenders (the g in "guesswork") fall outside
+     it and get cut off. Pad the box; the margin below absorbs it. */
+  padding-bottom: 0.14em;
 }
 .cd-lede {
   font-size: 1.15rem;
@@ -10542,4 +10550,86 @@ button.nav-link {
 .profile-recent-added-caption {
   font-size: 0.78rem;
   color: rgba(255,255,255,0.5);
+}
+
+/* ── AdSlot: named house-ad positions (src/components/AdSlot.js) ───────── */
+.ad-slot {
+  grid-column: 1 / -1; /* full row when placed inside .comic-grid */
+  margin: 8px 0;
+}
+/* Inside an auto-fill grid the column count depends on viewport width, so
+   "after N cards" can't be chosen in JS without orphaning a card. Pinning
+   the slot to an explicit row makes auto-placement flow around it: it
+   always lands after exactly one (or two) full rows, wherever it sits in
+   the DOM. */
+.ad-slot--row2 { grid-row: 2; }
+.ad-slot--row3 { grid-row: 3; }
+.ad-slot-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.1rem 1.4rem;
+  border: 1px solid rgba(244, 208, 63, 0.22);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(244, 208, 63, 0.08) 0%, rgba(230, 168, 23, 0.03) 100%);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 140ms ease, background-color 140ms ease, transform 140ms ease;
+}
+.ad-slot-link:hover {
+  border-color: rgba(244, 208, 63, 0.5);
+  background: linear-gradient(135deg, rgba(244, 208, 63, 0.13) 0%, rgba(230, 168, 23, 0.05) 100%);
+  transform: translateY(-1px);
+}
+.ad-slot-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.ad-slot-kicker {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--x-gold, #f4d03f);
+}
+.ad-slot-headline {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #fff;
+}
+.ad-slot-body {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.68);
+}
+.ad-slot-cta {
+  flex: none;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: var(--x-gold, #f4d03f);
+  color: #0b1e6b;
+  font-size: 0.85rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.ad-slot--home {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+.ad-slot--issue {
+  margin: 1.5rem 0 0;
+}
+@media (max-width: 640px) {
+  .ad-slot-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+    padding: 1rem 1.1rem;
+  }
+  .ad-slot-headline { font-size: 1rem; }
 }

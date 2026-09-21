@@ -6,6 +6,8 @@ import { useParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useLibrary } from "@/context/LibraryContext";
 import { trackEvent } from "@/lib/analytics";
+import AdSlot from "@/components/AdSlot";
+import { SLOT } from "@/lib/houseAds";
 
 function issueSortValue(issueNumber) {
   // Comics often store dual-numbered issues like "30 (471)" (Vol 2 / Vol 1
@@ -437,6 +439,10 @@ export default function SeriesPage() {
           </div>
         ) : (
           <div className="comic-grid">
+            {/* House-ad row. CSS pins it to grid row 2, so it lands after
+                the first full row of issues at any column count; DOM
+                position is irrelevant. */}
+            <AdSlot position={SLOT.SERIES_INLINE_1} pageKey={String(id)} className="ad-slot--row2" />
             {sortedIssues.map((issue) => {
               const key = String(issue?.id ?? "");
               const isOwned = collectionIds?.has(key);

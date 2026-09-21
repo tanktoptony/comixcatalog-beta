@@ -16066,5 +16066,105 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T03:04:07.572903+00:00",
     "retry_after": "2026-09-22T03:04:07.572917+00:00"
+  },
+  {
+    "name": "True Believers: Deadpool Variants",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:35:34.648338+00:00",
+    "retry_after": "2026-09-22T03:35:34.648354+00:00"
+  },
+  {
+    "name": "Chrono Mechanics",
+    "publisher": "Image Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49490,
+        "name": "Chrono Mechanics",
+        "publisher": "Alias Enterprises",
+        "start_year": 2006
+      },
+      {
+        "id": 49489,
+        "name": "Chrono Mechanics",
+        "publisher": "Alias Enterprises",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:36:37.916413+00:00",
+    "retry_after": "2026-09-22T03:36:37.916431+00:00"
+  },
+  {
+    "name": "Wizard Ace Edition #16: Marvel Comics #1",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:36:44.563021+00:00",
+    "retry_after": "2026-09-22T03:36:44.563037+00:00"
+  },
+  {
+    "name": "Six Black Horses [6 Black Horses]",
+    "publisher": "Dell Comics",
+    "year": 1963,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:36:45.156014+00:00",
+    "retry_after": "2026-09-22T03:36:45.156030+00:00"
+  },
+  {
+    "name": "Ultimate Spider-Man Web-Warriors / Avengers Assemble Season 2",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:36:55.729674+00:00",
+    "retry_after": "2026-09-22T03:36:55.729690+00:00"
+  },
+  {
+    "name": "Marvel and DC Present Featuring the Uncanny X-Men and the New Teen Titans",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19011,
+        "name": "Marvel and DC Present featuring The Uncanny X-Men and The New Teen Titans",
+        "publisher": "Marvel Comics and DC Comics",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:36:56.217136+00:00",
+    "retry_after": "2026-09-22T03:36:56.217152+00:00"
+  },
+  {
+    "name": "Superman / Wonder Woman 2013 [Wendy's Kids' Meal]",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:37:56.643098+00:00",
+    "retry_after": "2026-09-22T03:37:56.643112+00:00"
+  },
+  {
+    "name": "Top Cow 2001 Preview",
+    "publisher": "Image Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:38:01.791277+00:00",
+    "retry_after": "2026-09-22T03:38:01.791291+00:00"
   }
 ]

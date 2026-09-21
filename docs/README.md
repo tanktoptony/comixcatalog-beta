@@ -23,6 +23,7 @@ A document must never claim something is shipped just because an earlier session
 | Schema, domain vocabulary, engineering gotchas | [CLAUDE.md](../CLAUDE.md) |
 | What's the product direction long-term? | [north-star/NORTH_STAR.md](north-star/NORTH_STAR.md) |
 | How do branches/PRs work here, how do I get an engineering report? | [operations/engineering-workflow.md](operations/engineering-workflow.md) |
+- `operations/OPERATIONS_HANDOFF.md` - context for operations/efficiency work: the three recurring failure classes (PostgREST 1000-row cap, ingest head-of-line blockage, Actions scheduler flakiness), workflow inventory, conventions, and open state as of 2026-09-21.
 
 ## Active specs
 

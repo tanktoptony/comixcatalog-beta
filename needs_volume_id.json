@@ -18153,5 +18153,176 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T21:11:44.110699+00:00",
     "retry_after": "2026-09-22T21:11:44.110713+00:00"
+  },
+  {
+    "name": "The Amazing Spider-Man Vol.1 No. 437 [Spider-Man Classics Action Figure Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T22:00:57.042031+00:00",
+    "retry_after": "2026-09-22T22:00:57.042052+00:00"
+  },
+  {
+    "name": "Marvel Knights Fantastic Four: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T22:01:15.751017+00:00",
+    "retry_after": "2026-09-22T22:01:15.751037+00:00"
+  },
+  {
+    "name": "James Bond 007 / Goldeneye Special James Bond Convention Limited Preview",
+    "publisher": "Topps Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T22:01:29.249726+00:00",
+    "retry_after": "2026-09-22T22:01:29.249745+00:00"
+  },
+  {
+    "name": "Insane Clown Posse [The Amazing Jeckel Brothers]",
+    "publisher": "Chaos! Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T22:01:38.500756+00:00",
+    "retry_after": "2026-09-22T22:01:38.500774+00:00"
+  },
+  {
+    "name": "The Michael Moorcock Library - The Chronicles of Corum",
+    "publisher": "Titan Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T22:01:39.146801+00:00",
+    "retry_after": "2026-09-22T22:01:39.146819+00:00"
+  },
+  {
+    "name": "True Believers: Kirby 100th - Captain America",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T22:01:43.623047+00:00",
+    "retry_after": "2026-09-22T22:01:43.623064+00:00"
+  },
+  {
+    "name": "X-Men",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2133,
+        "name": "The X-Men",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 10731,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 34221,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 137402,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 4605,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 1991
+      },
+      {
+        "id": 62383,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 122077,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T22:01:57.683983+00:00",
+    "retry_after": "2026-09-22T22:01:57.684001+00:00"
+  },
+  {
+    "name": "Little Lotta",
+    "publisher": "Harvey Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 11409,
+        "name": "Little Lotta",
+        "publisher": "Harvey",
+        "start_year": 1992
+      },
+      {
+        "id": 11408,
+        "name": "Little Lotta",
+        "publisher": "Harvey",
+        "start_year": 1955
+      },
+      {
+        "id": 147023,
+        "name": "Little Lotta",
+        "publisher": "Harvey",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T22:01:58.092107+00:00",
+    "retry_after": "2026-09-22T22:01:58.092121+00:00"
+  },
+  {
+    "name": "The Walking Dead",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18166,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2003
+      },
+      {
+        "id": 52411,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2012
+      },
+      {
+        "id": 30345,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T22:06:49.329605+00:00",
+    "retry_after": "2026-09-22T22:06:49.329622+00:00"
   }
 ]

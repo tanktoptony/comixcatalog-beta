@@ -17924,5 +17924,234 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T20:54:11.376355+00:00",
     "retry_after": "2026-09-22T20:54:11.376369+00:00"
+  },
+  {
+    "name": "Amazing Spider-Man #252 Facsimile Edition",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T21:00:59.087826+00:00",
+    "retry_after": "2026-09-22T21:00:59.087846+00:00"
+  },
+  {
+    "name": "Mandrake the Magician - Fred Fredericks Dailies",
+    "publisher": "Titan Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T21:00:59.691899+00:00",
+    "retry_after": "2026-09-22T21:00:59.691918+00:00"
+  },
+  {
+    "name": "Marvel Masterworks: Vision and the Scarlet Witch",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T21:01:18.473700+00:00",
+    "retry_after": "2026-09-22T21:01:18.473718+00:00"
+  },
+  {
+    "name": "FCBD 2014 Valiant Universe Handbook",
+    "publisher": "Valiant Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T21:01:23.136846+00:00",
+    "retry_after": "2026-09-22T21:01:23.136862+00:00"
+  },
+  {
+    "name": "Sing for Your Supper, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1981,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T21:01:23.513226+00:00",
+    "retry_after": "2026-09-22T21:01:23.513242+00:00"
+  },
+  {
+    "name": "Star Wars",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2914,
+        "name": "Star Wars",
+        "publisher": "Marvel",
+        "start_year": 1977
+      },
+      {
+        "id": 79398,
+        "name": "Star Wars",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 123860,
+        "name": "Star Wars",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 164202,
+        "name": "Star Wars",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 93987,
+        "name": "Star Wars",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T21:01:29.359108+00:00",
+    "retry_after": "2026-09-22T21:01:29.359123+00:00"
+  },
+  {
+    "name": "Stan Lee Presents The Marvel Comics Illustrated Version of Daredevil",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T21:01:58.392379+00:00",
+    "retry_after": "2026-09-22T21:01:58.392395+00:00"
+  },
+  {
+    "name": "Jonah Hex",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2887,
+        "name": "Jonah Hex",
+        "publisher": "DC Comics",
+        "start_year": 1977
+      },
+      {
+        "id": 18677,
+        "name": "Jonah Hex",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T21:07:05.672432+00:00",
+    "retry_after": "2026-09-22T21:07:05.672449+00:00"
+  },
+  {
+    "name": "Batman",
+    "publisher": "DC Comics",
+    "year": 1995,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 796,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 1940
+      },
+      {
+        "id": 97898,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 48729,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T21:07:06.311610+00:00",
+    "retry_after": "2026-09-22T21:07:06.311630+00:00"
+  },
+  {
+    "name": "Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4250,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 1988
+      },
+      {
+        "id": 35263,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 58822,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 29930,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 10809,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2003
+      },
+      {
+        "id": 125121,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 159705,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T21:07:34.307870+00:00",
+    "retry_after": "2026-09-22T21:07:34.307884+00:00"
+  },
+  {
+    "name": "Simpsons Comics",
+    "publisher": "Titan Comics",
+    "year": 2005,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 139448,
+        "name": "Simpsons Comics",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 55836,
+        "name": "Simpsons Comics",
+        "publisher": "Titan Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T21:11:44.110699+00:00",
+    "retry_after": "2026-09-22T21:11:44.110713+00:00"
   }
 ]

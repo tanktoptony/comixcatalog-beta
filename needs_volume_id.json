@@ -16556,5 +16556,88 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T09:41:29.039171+00:00",
     "retry_after": "2026-09-22T09:41:29.039190+00:00"
+  },
+  {
+    "name": "Gapo the Clown",
+    "publisher": "Caliber Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T10:00:55.875538+00:00",
+    "retry_after": "2026-09-22T10:00:55.875556+00:00"
+  },
+  {
+    "name": "Ragnar�k",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T10:01:09.673417+00:00",
+    "retry_after": "2026-09-22T10:01:09.673434+00:00"
+  },
+  {
+    "name": "True Believers: Kirby 100th - Inhumans",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T10:01:35.888112+00:00",
+    "retry_after": "2026-09-22T10:01:35.888127+00:00"
+  },
+  {
+    "name": "True Believers: Amazing Spider-Man Dark Kingdom",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T10:02:04.295323+00:00",
+    "retry_after": "2026-09-22T10:02:04.295339+00:00"
+  },
+  {
+    "name": "Dark Knight III: The Master Race Book One - Director's Cut",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T10:02:26.115427+00:00",
+    "retry_after": "2026-09-22T10:02:26.115442+00:00"
+  },
+  {
+    "name": "Nightglider",
+    "publisher": "Topps Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T10:02:26.411529+00:00",
+    "retry_after": "2026-09-22T10:02:26.411545+00:00"
+  },
+  {
+    "name": "Superman/Batman",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 73547,
+        "name": "Superman/Batman",
+        "publisher": "DC Comics",
+        "start_year": 2014
+      },
+      {
+        "id": 10938,
+        "name": "Superman/Batman",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T10:02:26.972497+00:00",
+    "retry_after": "2026-09-22T10:02:26.972512+00:00"
   }
 ]

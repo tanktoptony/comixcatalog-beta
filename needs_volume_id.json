@@ -18324,5 +18324,145 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T22:06:49.329605+00:00",
     "retry_after": "2026-09-22T22:06:49.329622+00:00"
+  },
+  {
+    "name": "Mercy Sparx, Volume 2: Under New Management Issue #1: Free Comic Book Day Edition",
+    "publisher": "Devil's Due",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:01:19.991365+00:00",
+    "retry_after": "2026-09-22T23:01:19.991384+00:00"
+  },
+  {
+    "name": "Wolverine: Wolverine Goes to Hell",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 39248,
+        "name": "Wolverine: Wolverine Goes to Hell",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 45481,
+        "name": "Wolverine: Wolverine Goes to Hell",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:01:56.656205+00:00",
+    "retry_after": "2026-09-22T23:01:56.656223+00:00"
+  },
+  {
+    "name": "Captain America: The Movie Special",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:02:22.743926+00:00",
+    "retry_after": "2026-09-22T23:02:22.743942+00:00"
+  },
+  {
+    "name": "Roachmill Collection, No. 2: The Greatest Stories Ever Told",
+    "publisher": "Dark Horse Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:02:26.932895+00:00",
+    "retry_after": "2026-09-22T23:02:26.932910+00:00"
+  },
+  {
+    "name": "Batman",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 796,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 1940
+      },
+      {
+        "id": 97898,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 42721,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:04:22.020121+00:00",
+    "retry_after": "2026-09-22T23:04:22.020136+00:00"
+  },
+  {
+    "name": "Batman",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 796,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 1940
+      },
+      {
+        "id": 97898,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 42721,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:07:27.279790+00:00",
+    "retry_after": "2026-09-22T23:07:27.279805+00:00"
+  },
+  {
+    "name": "Captain Atom",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3782,
+        "name": "Captain Atom",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 42917,
+        "name": "Captain Atom",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 54369,
+        "name": "Captain Atom",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:15:22.137223+00:00",
+    "retry_after": "2026-09-22T23:15:22.137239+00:00"
   }
 ]

@@ -10852,8 +10852,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556015+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:00:48.582701+00:00",
+    "retry_after": "2026-09-24T14:00:48.582717+00:00"
   },
   {
     "name": "Stray Dogs",
@@ -11573,8 +11574,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556138+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:00:47.287381+00:00",
+    "retry_after": "2026-09-24T14:00:47.287399+00:00"
   },
   {
     "name": "Robin",
@@ -11607,8 +11609,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556141+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:00:47.880783+00:00",
+    "retry_after": "2026-09-24T14:00:47.880798+00:00"
   },
   {
     "name": "Watchmen",
@@ -11629,8 +11632,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556144+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:00:49.099235+00:00",
+    "retry_after": "2026-09-24T14:00:49.099250+00:00"
   },
   {
     "name": "Hunter X Hunter",
@@ -12609,8 +12613,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556265+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:00:46.755213+00:00",
+    "retry_after": "2026-09-24T14:00:46.755227+00:00"
   },
   {
     "name": "What If? Civil War",
@@ -13311,8 +13316,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556445+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:00:45.580615+00:00",
+    "retry_after": "2026-09-24T14:00:45.580657+00:00"
   },
   {
     "name": "American Splendor",
@@ -14315,8 +14321,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556787+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:00:50.056609+00:00",
+    "retry_after": "2026-09-24T14:00:50.056643+00:00"
   },
   {
     "name": "Street Fighter Special",
@@ -14324,8 +14331,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556794+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:00:50.645760+00:00",
+    "retry_after": "2026-09-24T14:00:50.645777+00:00"
   },
   {
     "name": "Street Fighter",
@@ -14364,30 +14372,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556803+00:00"
-  },
-  {
-    "name": "Street Fighter Unlimited",
-    "publisher": "Udon Entertainment Corp.",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 93682,
-        "name": "Street Fighter Unlimited",
-        "publisher": "UDON",
-        "start_year": 2016
-      },
-      {
-        "id": 85643,
-        "name": "Street Fighter Unlimited",
-        "publisher": "UDON",
-        "start_year": 2015
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556816+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:00:51.197341+00:00",
+    "retry_after": "2026-09-24T14:00:51.197356+00:00"
   },
   {
     "name": "Transformers / Ghostbusters [ashcan]",
@@ -14474,8 +14461,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556877+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:00:44.961768+00:00",
+    "retry_after": "2026-09-24T14:00:44.961785+00:00"
   },
   {
     "name": "Dragonfly & Dragonflyman [Free Comic Book Day]",
@@ -14483,8 +14471,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556884+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:33.921251+00:00",
+    "retry_after": "2026-09-24T14:02:33.921267+00:00"
   },
   {
     "name": "Plume Gold Edition",
@@ -14492,8 +14481,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556893+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:34.420210+00:00",
+    "retry_after": "2026-09-24T14:02:34.420225+00:00"
   },
   {
     "name": "IglooBBQ",
@@ -14501,8 +14491,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556899+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:34.883262+00:00",
+    "retry_after": "2026-09-24T14:02:34.883277+00:00"
   },
   {
     "name": "True Believers: Star Wars - The Original Marvel Years",
@@ -14510,8 +14501,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556905+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:35.418381+00:00",
+    "retry_after": "2026-09-24T14:02:35.418396+00:00"
   },
   {
     "name": "The Lost World of the Warlord",
@@ -14519,8 +14511,9 @@
     "year": 1983,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556913+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:36.002263+00:00",
+    "retry_after": "2026-09-24T14:02:36.002279+00:00"
   },
   {
     "name": "DC Comics Essentials: Wonder Woman Special Edition",
@@ -14528,8 +14521,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556921+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:36.520584+00:00",
+    "retry_after": "2026-09-24T14:02:36.520599+00:00"
   },
   {
     "name": "Bomb Queen: WMD: Woman of Mass Destruction",
@@ -14537,8 +14531,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556927+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:37.064016+00:00",
+    "retry_after": "2026-09-24T14:02:37.064031+00:00"
   },
   {
     "name": "Cinema Purgatorio",
@@ -14559,8 +14554,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556933+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:37.716438+00:00",
+    "retry_after": "2026-09-24T14:02:37.716453+00:00"
   },
   {
     "name": "Batman: Legends of the Dark Knight Halloween Special Edition",
@@ -14568,8 +14564,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556942+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:38.199190+00:00",
+    "retry_after": "2026-09-24T14:02:38.199205+00:00"
   },
   {
     "name": "Street Fighter: Sakura vs Karin",
@@ -14577,8 +14574,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556949+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:38.908970+00:00",
+    "retry_after": "2026-09-24T14:02:38.908985+00:00"
   },
   {
     "name": "Wolfskin",
@@ -14586,24 +14584,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556955+00:00"
-  },
-  {
-    "name": "Street Fighter Swimsuit Special",
-    "publisher": "Udon Entertainment Corp.",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 94292,
-        "name": "Street Fighter Swimsuit Special",
-        "publisher": "UDON",
-        "start_year": 2016
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556965+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:39.257578+00:00",
+    "retry_after": "2026-09-24T14:02:39.257593+00:00"
   },
   {
     "name": "DC Super Hero Girls Free Comic Book Day 2017 Special Edition",
@@ -14611,8 +14594,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556970+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:48.362397+00:00",
+    "retry_after": "2026-09-24T14:02:48.362413+00:00"
   },
   {
     "name": "Book of Death: The Fall of the Valiant Universe",
@@ -14620,8 +14604,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556976+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:48.958560+00:00",
+    "retry_after": "2026-09-24T14:02:48.958575+00:00"
   },
   {
     "name": "True Believers: Amazing Spider-Man",
@@ -14629,8 +14614,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556982+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:49.454470+00:00",
+    "retry_after": "2026-09-24T14:02:49.454486+00:00"
   },
   {
     "name": "The Boys Dynamite Edition",
@@ -14638,8 +14624,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556987+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:50.119481+00:00",
+    "retry_after": "2026-09-24T14:02:50.119497+00:00"
   },
   {
     "name": "Marvel's Greatest Creators: Power Pack",
@@ -14647,8 +14634,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556993+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:50.746889+00:00",
+    "retry_after": "2026-09-24T14:02:50.746906+00:00"
   },
   {
     "name": "True Believers: Shattered Empire",
@@ -14656,8 +14644,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556999+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:51.308782+00:00",
+    "retry_after": "2026-09-24T14:02:51.308797+00:00"
   },
   {
     "name": "Scarlet",
@@ -14678,8 +14667,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557004+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:51.861715+00:00",
+    "retry_after": "2026-09-24T14:02:51.861730+00:00"
   },
   {
     "name": "Darth Vader: Doctor Aphra No. 1 Halloween Comic Fest 2016",
@@ -14687,8 +14677,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557010+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:52.587351+00:00",
+    "retry_after": "2026-09-24T14:02:52.587367+00:00"
   },
   {
     "name": "Afterlife with Archie - Halloween Comicfest Edition",
@@ -14696,8 +14687,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557016+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:53.226972+00:00",
+    "retry_after": "2026-09-24T14:02:53.226988+00:00"
   },
   {
     "name": "Harley Quinn 21 Special Edition",
@@ -14705,8 +14697,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557021+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:53.676155+00:00",
+    "retry_after": "2026-09-24T14:02:53.676171+00:00"
   },
   {
     "name": "Superman 1 Special Edition",
@@ -14714,8 +14707,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557028+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:54.141284+00:00",
+    "retry_after": "2026-09-24T14:02:54.141299+00:00"
   },
   {
     "name": "Batman Adventures",
@@ -14742,8 +14736,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557038+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:54.629877+00:00",
+    "retry_after": "2026-09-24T14:02:54.629893+00:00"
   },
   {
     "name": "Marvel's Agents of S.H.I.E.L.D.: The Chase",
@@ -14751,8 +14746,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557044+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:55.183786+00:00",
+    "retry_after": "2026-09-24T14:02:55.183801+00:00"
   },
   {
     "name": "Black-Eyed Kids Black & White Halloween Special",
@@ -14760,8 +14756,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557053+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:55.677441+00:00",
+    "retry_after": "2026-09-24T14:02:55.677457+00:00"
   },
   {
     "name": "Batman: Li'l Gotham Batman Day 2018 Special Edition",
@@ -14769,8 +14766,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557059+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:56.489050+00:00",
+    "retry_after": "2026-09-24T14:02:56.489066+00:00"
   },
   {
     "name": "Hasbro / Civil War",
@@ -14778,8 +14776,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557068+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:57.066398+00:00",
+    "retry_after": "2026-09-24T14:02:57.066414+00:00"
   },
   {
     "name": "Hasbro / X-Men Origins Gambit",
@@ -14787,8 +14786,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557075+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:57.624651+00:00",
+    "retry_after": "2026-09-24T14:02:57.624667+00:00"
   },
   {
     "name": "Marvel's Greatest Creators: Invaders",
@@ -14796,8 +14796,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.557084+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-21T14:02:58.374147+00:00",
+    "retry_after": "2026-09-24T14:02:58.374163+00:00"
   },
   {
     "name": "It's a Cracked World",

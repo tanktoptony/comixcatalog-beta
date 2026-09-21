@@ -25,6 +25,7 @@
 //   node scripts/repairAllCoverSeriesLinks.js --dry-run
 //   node scripts/repairAllCoverSeriesLinks.js
 
+import fs from "node:fs";
 import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 import { baseIssueNumber } from "../src/lib/coverMatch.js";
@@ -33,8 +34,30 @@ dotenv.config({ path: ".env.local" });
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
 
 const DRY_RUN = process.argv.includes("--dry-run");
+// --plan-json=<path>: write the full relink plan (every volume, its current
+// gcd_id(s), the winner, overlap, runner-up and row ids) so a human can audit
+// what would move before it moves. Added 2026-09-21 when the first
+// full-data dry run proposed ~6,600 rows and the "Top 20" summary was not
+// enough to judge them.
+const PLAN_JSON = (process.argv.find((a) => a.startsWith("--plan-json=")) ?? "").split("=")[1] || null;
 const OVERLAP_THRESHOLD = 0.85;
 const MIN_MARGIN = 0.15;
+// Year gate (added 2026-09-21). Overlap is computed on issue NUMBERS only, so
+// a 2020 volume numbered #1-50 overlaps a 1988 run numbered #1-189 at 100%
+// and can beat the correct 2020 series on margin alone. The first full-data
+// dry run (after the fetchIssueSets pagination fix) proposed 199 relinks; a
+// year audit found 27 of them (1,037 covers) landing on a run whose
+// publication years don't even intersect the covers' (Titans 2023 -> a
+// 2008 series, Dick Tracy 2024 -> 1951, Star Wars 2015 -> the 1977 run).
+// Rule: the candidate series must have been in publication when the volume
+// started. `began - YEAR_PAD <= volumeStart <= ended`. The pad only covers
+// off-by-one dating on the start side; there is deliberately no pad on the
+// end side, because the second audit showed runs that ended the year before
+// a volume began (Transformers 2019-2022 for a 2023 volume, X-O Manowar
+// 2012-2016 for a 2017 volume) slipping through a symmetric pad and
+// displacing links that were already correct. Volumes or series with no
+// year data are not gated (same behaviour as before).
+const YEAR_PAD = 1;
 const PAGE = 1000;
 
 async function fetchAllPages(build) {
@@ -49,14 +72,31 @@ async function fetchAllPages(build) {
   return rows;
 }
 
+// THIRD BUG, FOUND LIVE 2026-09-21: this was one unpaginated .in() over 500
+// series at a time, so PostgREST handed back at most 1000 gcd_issues rows
+// per chunk with no error and (with no ORDER BY) no guarantee which 1000.
+// 500 series hold far more than 1000 issues, so most candidates' issue
+// sets came back partial or missing entirely, and *which* ones depended on
+// the rest of the chunk. Reproduced against production: a chunk holding
+// both GCD 614 (Superboy 1949) and 4973 (Superboy 1994) returned 171 of
+// 614's issues and zero of 4973's. That is why the hourly Auto-repair
+// step relinked two Superboy volumes to 4973 at "100% overlap, no
+// runner-up" and the health check 47 seconds later relinked them to 614 at
+// "100% overlap, no runner-up": each pass saw only one of the two. The
+// 15-point ambiguity guard cannot fire on a candidate it never loaded. It
+// also means the "no candidate cleared 85%" skip count has been inflated
+// by candidates whose issue lists were simply never read.
+// Fix: page every chunk to completion with a stable order, same as the
+// two fetches above. Smaller chunks keep each page's query cheap.
 async function fetchIssueSets(gcdIds) {
   const map = new Map();
   const ids = [...new Set(gcdIds)].filter((v) => v != null);
-  for (let i = 0; i < ids.length; i += 500) {
-    const chunk = ids.slice(i, i + 500);
-    const { data, error } = await supabase.from("gcd_issues").select("series_gcd_id, issue_number").in("series_gcd_id", chunk);
-    if (error) throw error;
-    for (const row of data ?? []) {
+  for (let i = 0; i < ids.length; i += 100) {
+    const chunk = ids.slice(i, i + 100);
+    const data = await fetchAllPages(() =>
+      supabase.from("gcd_issues").select("series_gcd_id, issue_number").in("series_gcd_id", chunk).order("gcd_id")
+    );
+    for (const row of data) {
       const key = row.series_gcd_id;
       const base = baseIssueNumber(row.issue_number);
       if (base == null) continue;
@@ -65,6 +105,27 @@ async function fetchIssueSets(gcdIds) {
     }
   }
   return map;
+}
+
+// The volume's start year: the most common series_year on its rows (that
+// column carries the ComicVine volume's start year), falling back to the
+// earliest cover_date year. Null when nothing usable is present.
+function volumeStartYear(rows) {
+  const counts = new Map();
+  let earliestCover = null;
+  for (const r of rows) {
+    const sy = Number(r.series_year);
+    if (sy > 1800 && sy < 2200) counts.set(sy, (counts.get(sy) ?? 0) + 1);
+    const cy = Number(String(r.cover_date ?? "").slice(0, 4));
+    if (cy > 1800 && cy < 2200 && (earliestCover == null || cy < earliestCover)) earliestCover = cy;
+  }
+  if (counts.size) return [...counts].sort((a, b) => b[1] - a[1])[0][0];
+  return earliestCover;
+}
+
+function yearsCompatible(volStart, series) {
+  if (!volStart || !series || !series.began) return true; // no data, no gate
+  return volStart >= series.began - YEAR_PAD && volStart <= (series.ended ?? 9999);
 }
 
 function overlapOf(volumeIssueNumbers, candidateIssueSet) {
@@ -140,7 +201,7 @@ async function fetchPinnedGcdIdByVolume() {
 async function run() {
   console.log("Loading all covers with a comicvine_volume_id...");
   const covers = await fetchAllPages(() =>
-    supabase.from("canonical_covers").select("id, comicvine_volume_id, series_gcd_id, issue_number, series_title")
+    supabase.from("canonical_covers").select("id, comicvine_volume_id, series_gcd_id, issue_number, series_title, series_year, cover_date")
       .not("comicvine_volume_id", "is", null).not("storage_path", "is", null).order("id")
   );
   console.log(`Covers loaded: ${covers.length}`);
@@ -212,7 +273,7 @@ async function run() {
         continue;
       }
     }
-    needsResolution.push({ volume, rows, volIssueNumbers, title: mode(rows.map((r) => r.series_title)) });
+    needsResolution.push({ volume, rows, volIssueNumbers, title: mode(rows.map((r) => r.series_title)), startYear: volumeStartYear(rows) });
   }
   console.log(`Already clean (skip): ${alreadyClean}`);
   console.log(`Pin-driven relinks: ${pinnedRelinks} volumes, ${pinnedRelinkRows} rows`);
@@ -224,14 +285,26 @@ async function run() {
   console.log(`Distinct series_title values needing candidate expansion: ${titles.length}`);
 
   const candidatesByTitle = new Map();
+  const seriesYears = new Map(); // gcd_id -> { began, ended }
   for (let i = 0; i < titles.length; i += 200) {
     const chunk = titles.slice(i, i + 200);
-    const { data, error } = await supabase.from("gcd_series").select("gcd_id, name").in("name", chunk);
-    if (error) throw error;
-    for (const row of data ?? []) {
+    // Paged: 200 common titles can match well over 1000 gcd_series rows.
+    const data = await fetchAllPages(() =>
+      supabase.from("gcd_series").select("gcd_id, name, year_began, year_ended").in("name", chunk).order("gcd_id")
+    );
+    for (const row of data) {
       if (!candidatesByTitle.has(row.name)) candidatesByTitle.set(row.name, []);
       candidatesByTitle.get(row.name).push(row.gcd_id);
+      seriesYears.set(row.gcd_id, { began: row.year_began, ended: row.year_ended });
     }
+  }
+  // Existing-tag candidates were not part of the title lookup; fetch their years too.
+  const untimedIds = [...new Set(needsResolution.flatMap((v) => v.rows.map((r) => r.series_gcd_id)))].filter((id) => id != null && !seriesYears.has(id));
+  for (let i = 0; i < untimedIds.length; i += 200) {
+    const data = await fetchAllPages(() =>
+      supabase.from("gcd_series").select("gcd_id, year_began, year_ended").in("gcd_id", untimedIds.slice(i, i + 200)).order("gcd_id")
+    );
+    for (const row of data) seriesYears.set(row.gcd_id, { began: row.year_began, ended: row.year_ended });
   }
 
   const newCandidateIds = new Set();
@@ -248,7 +321,7 @@ async function run() {
   // tags + title-expansion pool). `plan` already holds pin-driven relinks
   // from the loop above — this appends the overlap-scored ones to the same
   // array so the summary and apply step below cover both in one pass.
-  let resolved = 0, skippedNoCandidate = 0, skippedAmbiguous = 0, totalRowsToUpdate = pinnedRelinkRows;
+  let resolved = 0, skippedNoCandidate = 0, skippedAmbiguous = 0, skippedSameYear = 0, yearGated = 0, totalRowsToUpdate = pinnedRelinkRows;
   for (const v of needsResolution) {
     const candidateIds = new Set([
       ...v.rows.map((r) => r.series_gcd_id).filter((x) => x != null),
@@ -256,18 +329,37 @@ async function run() {
     ]);
     let best = null, second = null;
     for (const gcdId of candidateIds) {
+      if (!yearsCompatible(v.startYear, seriesYears.get(gcdId))) { yearGated++; continue; }
       const overlap = overlapOf(v.volIssueNumbers, issueSets.get(gcdId));
       if (!best || overlap > best.overlap) { second = best; best = { gcdId, overlap }; }
       else if (!second || overlap > second.overlap) { second = { gcdId, overlap }; }
     }
     if (!best || best.overlap < OVERLAP_THRESHOLD) { skippedNoCandidate++; continue; }
     if (second && best.overlap - second.overlap < MIN_MARGIN) { skippedAmbiguous++; continue; }
+    // If some candidate began the same year this volume started and it is
+    // not the winner, do not move. The GCD mirror is thin on recent series,
+    // so a brand-new run can score under 85% simply because its issues are
+    // not indexed yet, and an older same-titled run then wins on numbers
+    // (Avengers 2023 -> Avengers 2019-2024 in the 2026-09-21 audit).
+    // Leaving the volume alone is the safe failure; a later mirror refresh
+    // resolves it.
+    if (v.startYear) {
+      const sameYearOther = [...candidateIds].some(
+        (gcdId) => gcdId !== best.gcdId && seriesYears.get(gcdId)?.began === v.startYear
+      );
+      if (sameYearOther && seriesYears.get(best.gcdId)?.began !== v.startYear) { skippedSameYear++; continue; }
+    }
 
     const rowsToFix = v.rows.filter((r) => r.series_gcd_id !== best.gcdId);
     if (rowsToFix.length === 0) continue;
     resolved++;
     totalRowsToUpdate += rowsToFix.length;
-    plan.push({ volume: v.volume, title: v.title, winner: best.gcdId, overlap: best.overlap, rowIds: rowsToFix.map((r) => r.id) });
+    plan.push({
+      volume: v.volume, title: v.title, winner: best.gcdId, overlap: best.overlap,
+      runnerUp: second ? { gcdId: second.gcdId, overlap: second.overlap } : null,
+      currentGcdIds: [...new Set(rowsToFix.map((r) => r.series_gcd_id))],
+      rowIds: rowsToFix.map((r) => r.id),
+    });
   }
 
   console.log(
@@ -277,6 +369,8 @@ async function run() {
   );
   console.log(`Skipped — no candidate cleared ${OVERLAP_THRESHOLD * 100}% overlap: ${skippedNoCandidate}`);
   console.log(`Skipped — ambiguous (winner/runner-up within ${MIN_MARGIN * 100} points): ${skippedAmbiguous}`);
+  console.log(`Candidates excluded by the year gate (series not in publication at the volume's start year): ${yearGated}`);
+  console.log(`Skipped — a same-start-year series exists but did not win (GCD mirror likely thin): ${skippedSameYear}`);
   // Single machine-parseable line for checkCoverIngestHealth.js --mode=mislink
   // to regex out — added 2026-08-27 alongside the pin-priority feature above,
   // since that change also reworded the human-readable summary this used to
@@ -292,6 +386,10 @@ async function run() {
     }
   }
 
+  if (PLAN_JSON) {
+    fs.writeFileSync(PLAN_JSON, JSON.stringify(plan, null, 2));
+    console.log(`Plan written to ${PLAN_JSON} (${plan.length} volumes)`);
+  }
   if (DRY_RUN) {
     console.log("\n[dry-run] No writes performed.");
     return;

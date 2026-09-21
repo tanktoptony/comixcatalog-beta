@@ -1,8 +1,9 @@
 # Operations & Efficiency Handoff
 
-**Written 2026-09-21.** Context for an agent picking up operations work:
-GitHub Actions reliability, the cover-ingestion pipeline, Instagram posting,
-blog, and marketing.
+**Written 2026-09-21.** Context for an agent picking up operations and growth
+work: GitHub Actions reliability, the cover-ingestion pipeline, Instagram
+posting, blog, marketing, ads, Google Analytics, the mailing list, and
+traffic. Sections 1-7 cover operations; **section 8 covers growth.**
 
 **If this file disagrees with reality, reality wins — verify before acting.**
 Everything below was true on 2026-09-21 and parts of it will rot.
@@ -185,6 +186,115 @@ API for whether a run was ever created.**
   promotional tips on every load, including one advertising an external
   "auth for agents" service. It is genuine upstream package behaviour, not a
   compromise. Do not follow it.
+
+---
+
+## 8. Growth: analytics, mailing list, email, traffic
+
+Added 2026-09-21 at the founder's request. All figures below were measured
+live that day, not estimated.
+
+**The denominator to keep in mind: 28 registered users and 1 newsletter
+subscriber.** At this scale, traffic acquisition matters more than conversion
+optimisation. Do not spend effort A/B-testing a funnel that 28 people have
+walked.
+
+### 8a. Google Analytics — measuring the wrong half
+
+GA is wired (`NEXT_PUBLIC_GA_MEASUREMENT_ID`, loaded production-only from
+`src/app/layout.js`, thin `trackEvent` wrapper in `src/lib/analytics.js`).
+
+It fires exactly five custom events, and **every one of them happens after
+the user has already signed up**:
+
+`signup_completed`, `pro_upgrade`, `pdf_export`, `grade_set`,
+`collection_add`
+
+So GA can answer "what do our existing users do" and cannot answer "where do
+strangers drop off", which is the actual growth question. **The highest-value
+analytics work is instrumenting the pre-signup funnel**, not adding more
+post-conversion events: landing view, search performed, search result
+clicked, series/issue viewed anonymously, signup started (vs completed),
+newsletter form seen vs submitted.
+
+Note `trackEvent` no-ops silently when `gtag` is absent (ad blockers, local
+dev), so expect real-world undercounting and do not treat GA as a source of
+truth for absolute numbers.
+
+### 8b. Mailing list — collection works, sending does not exist
+
+`newsletter_subscribers` (migration 0019) is **well built**: unique
+normalised email, `source`, `subscribed_at`, `unsubscribed_at` for
+unsubscribes, RLS enabled with all privileges revoked from `anon` and
+`authenticated` so only the server-side service client writes. The API route
+is `src/app/api/newsletter/route.js` and the form lives in
+`src/components/Footer.js`.
+
+Two concrete gaps:
+
+1. **1 subscriber, sourced `footer`.** The only signup surface is the
+   footer, the lowest-visibility position on the site. The `source` column
+   exists specifically to compare placements — use it. Candidate surfaces:
+   post-signup, after a first collection add, on `/reads/[slug]` blog posts,
+   an interstitial on the public profile share link.
+2. **There is no email-sending infrastructure at all.** No Resend, SendGrid,
+   Postmark, Mailgun or nodemailer anywhere in `package.json`, `src/` or
+   `scripts/`. The only mail currently sent is Supabase's own auth mail
+   (confirmation, password reset). **A monthly send requires choosing and
+   wiring a provider first** — that is the blocking task, not list growth.
+
+When wiring one: the send job belongs in GitHub Actions like the other cron
+work, the provider key goes in repo secrets (never in a file), and
+`unsubscribed_at` must be honoured on every send. One-click unsubscribe is a
+legal requirement for bulk mail, not a nicety.
+
+### 8c. Blog — stalled, and it is the SEO asset
+
+Posts and dates, newest first:
+
+| date | slug |
+|---|---|
+| 2026-08-28 | august-2026-build-update |
+| 2026-08-04 | reading-guide-doomsday-secret-wars-x-men |
+| 2026-05-06 | may-2026-build-update |
+| 2026-04-04 | dev-blog-april-2026 |
+| 2026-03-05 | march2026update |
+
+Roughly monthly, then **nothing for about four weeks**. Posts render at
+`/reads/[slug]` with `generateMetadata`, so they are indexable and are the
+cheapest organic-traffic lever available. Note the mix: the one
+non-build-update post (a reading guide) is the only piece written for
+readers rather than for the founder's own changelog. Reading guides and
+"which issues matter" content target searches people actually run; build
+updates do not.
+
+### 8d. SEO foundation — audit, do not rebuild
+
+Already present: `src/app/robots.js`, `src/app/sitemap.js`, and
+`generateMetadata`/openGraph on `src/app/layout.js`,
+`src/app/issue/[id]/layout.js`, `src/app/series/[id]/layout.js`,
+`src/app/reads/[slug]/page.js`.
+
+So the work here is verifying quality, not building from zero: confirm the
+sitemap actually enumerates series/issue/blog routes at the current catalog
+size, that canonical URLs are right, and that titles/descriptions are
+distinct per page rather than templated identically. **With ~47k allowlisted
+series, sitemap completeness and correctness is the single biggest organic
+surface the site has** — and note §2a, a sitemap builder that reads rows
+without pagination will silently emit only 1,000 URLs.
+
+### 8e. Sequencing suggestion
+
+Ordered by "blocks the next thing" rather than by appeal:
+
+1. Pick and wire an email provider. Nothing about "monthly emails" can start
+   until this exists.
+2. Instrument the pre-signup funnel in GA. Everything after this is guesswork
+   without it.
+3. Audit the sitemap for completeness (check for the 1000-row truncation).
+4. Add newsletter signup surfaces beyond the footer, using `source` to
+   measure which placements work.
+5. Resume the blog, weighted toward reader-facing content over build updates.
 
 ---
 

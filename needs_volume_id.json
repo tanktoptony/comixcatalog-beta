@@ -15976,5 +15976,95 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T02:02:32.975463+00:00",
     "retry_after": "2026-09-22T02:02:32.975477+00:00"
+  },
+  {
+    "name": "Disney-Pixar/Muppets Presents: The Treasure of Peg Leg Wilson",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55686,
+        "name": "Disney-Pixar/Muppets Presents: The Treasure of Peg Leg Wilson",
+        "publisher": "Disney",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:01:11.703414+00:00",
+    "retry_after": "2026-09-22T03:01:11.703429+00:00"
+  },
+  {
+    "name": "Cursed Pirate Girl Annual",
+    "publisher": "Archaia",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85279,
+        "name": "Cursed Pirate Girl Annual",
+        "publisher": "Boom! Studios",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:01:25.556966+00:00",
+    "retry_after": "2026-09-22T03:01:25.556982+00:00"
+  },
+  {
+    "name": "Puppet Master Halloween Special",
+    "publisher": "Action Lab Entertainment",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:01:36.967923+00:00",
+    "retry_after": "2026-09-22T03:01:36.967939+00:00"
+  },
+  {
+    "name": "The Fish Police",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20703,
+        "name": "Fish Police",
+        "publisher": "Comico",
+        "start_year": 1988
+      },
+      {
+        "id": 19158,
+        "name": "Fish Police",
+        "publisher": "Fishwrap Production",
+        "start_year": 1986
+      },
+      {
+        "id": 4789,
+        "name": "Fish Police",
+        "publisher": "Marvel",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:01:37.374030+00:00",
+    "retry_after": "2026-09-22T03:01:37.374044+00:00"
+  },
+  {
+    "name": "United States of Murder Inc.",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73896,
+        "name": "The United States of Murder Inc.",
+        "publisher": "Marvel",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T03:04:07.572903+00:00",
+    "retry_after": "2026-09-22T03:04:07.572917+00:00"
   }
 ]

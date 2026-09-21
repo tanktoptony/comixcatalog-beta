@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "@/lib/publisher";
 import { stripPunctuation } from "@/lib/titleMatch";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 
 function parseYear(value) {
   if (!value) return null;
@@ -109,7 +110,7 @@ export async function GET(req, context) {
     if (!series.gcd_id) {
       const titleQueries = [];
       if (series.title) {
-        titleQueries.push(
+        titleQueries.push(() =>
           supabase
             .from("canonical_covers")
             .select("issue_number, series_year, cover_date, storage_path, publisher")
@@ -118,7 +119,7 @@ export async function GET(req, context) {
         );
         const strippedTitle = stripPunctuation(series.title);
         if (strippedTitle && strippedTitle !== series.title) {
-          titleQueries.push(
+          titleQueries.push(() =>
             supabase
               .from("canonical_covers")
               .select("issue_number, series_year, cover_date, storage_path, publisher")
@@ -127,14 +128,20 @@ export async function GET(req, context) {
           );
         }
       }
-      const settled = await Promise.all(titleQueries);
+      // Paged: a single title can exceed PostgREST's 1000-row cap (The Beano
+      // holds 3,833 covers, 2000 AD 2,480), and an unpaginated read silently
+      // drops the remainder rather than erroring.
+      const settled = await Promise.all(
+        titleQueries.map((build) =>
+          fetchAllPages(build).catch((error) => {
+            console.error("GET /api/series/[id] gcd-less title lookup failed:", error);
+            return [];
+          })
+        )
+      );
       const byBase = new Map();
-      for (const { data, error } of settled) {
-        if (error) {
-          console.error("GET /api/series/[id] gcd-less title lookup failed:", error);
-          continue;
-        }
-        for (const row of data ?? []) {
+      for (const rows of settled) {
+        for (const row of rows) {
           if (!row.storage_path) continue;
           const base = baseIssueNumber(row.issue_number);
           if (!base) continue;
@@ -272,7 +279,7 @@ export async function GET(req, context) {
     if (issueNumbers.length > 0) {
       const queries = [];
       if (series.gcd_id != null) {
-        queries.push(
+        queries.push(() =>
           supabase
             .from("canonical_covers")
             .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
@@ -280,7 +287,7 @@ export async function GET(req, context) {
         );
       }
       if (series.title) {
-        queries.push(
+        queries.push(() =>
           supabase
             .from("canonical_covers")
             .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
@@ -294,7 +301,7 @@ export async function GET(req, context) {
         // lookup. Only queried when it actually differs from the raw title.
         const strippedTitle = stripPunctuation(series.title);
         if (strippedTitle && strippedTitle !== series.title) {
-          queries.push(
+          queries.push(() =>
             supabase
               .from("canonical_covers")
               .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
@@ -303,14 +310,19 @@ export async function GET(req, context) {
           );
         }
       }
-      const settled = await Promise.all(queries);
+      // Paged for the same reason as the title path above: four series
+      // already hold more than 1000 covers under one series_gcd_id.
+      const settled = await Promise.all(
+        queries.map((build) =>
+          fetchAllPages(build).catch((error) => {
+            console.error("GET /api/series/[id] canonical cover lookup failed:", error);
+            return [];
+          })
+        )
+      );
       const merged = new Map();
-      for (const { data, error } of settled) {
-        if (error) {
-          console.error("GET /api/series/[id] canonical cover lookup failed:", error);
-          continue;
-        }
-        for (const row of data ?? []) {
+      for (const rows of settled) {
+        for (const row of rows) {
           merged.set(`${row.series_gcd_id ?? "_"}::${row.series_title ?? "_"}::${row.issue_number}::${row.storage_path ?? "_"}`, row);
         }
       }

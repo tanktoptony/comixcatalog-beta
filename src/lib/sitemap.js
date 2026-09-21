@@ -23,6 +23,21 @@ export { SITE_URL };
 
 export const SERIES_CHUNKS = "0123456789abcdef".split("");
 
+// Every chunk is generated at build time, so one transient Supabase error
+// (seen once on series-4, 2026-09-21) would fail the whole deploy. Retry
+// each page a few times before giving up.
+async function withRetry(run, label, attempts = 4) {
+  let lastError;
+  for (let i = 0; i < attempts; i += 1) {
+    const { data, error } = await run();
+    if (!error) return data ?? [];
+    lastError = error;
+    console.warn(`sitemap: ${label} attempt ${i + 1} failed: ${error.message}`);
+    await new Promise((r) => setTimeout(r, 1000 * 2 ** i));
+  }
+  throw lastError;
+}
+
 // Same filter /api/search/series applies, so the sitemap enumerates exactly
 // the series that search can surface. Nothing indexable that a visitor
 // could not also find.
@@ -121,14 +136,17 @@ export async function staticEntries() {
     });
   }
 
-  const { data, error } = await supabaseServer()
-    .from("blog_posts")
-    .select("slug, published_at, updated_at")
-    .eq("published", true)
-    .order("published_at", { ascending: false })
-    .limit(1000);
-  if (error) throw error;
-  for (const post of data ?? []) {
+  const posts = await withRetry(
+    () =>
+      supabaseServer()
+        .from("blog_posts")
+        .select("slug, published_at, updated_at")
+        .eq("published", true)
+        .order("published_at", { ascending: false })
+        .limit(1000),
+    "blog_posts"
+  );
+  for (const post of posts) {
     if (!post.slug) continue;
     entries.push({
       url: `${SITE_URL}/blog/${post.slug}`,
@@ -155,22 +173,24 @@ export async function seriesEntries(prefix) {
   const entries = [];
   let after = null;
   for (;;) {
-    let query = allowlistedSeries(supabase.from("series").select("id"))
-      .gte("id", lower)
-      .lte("id", upper)
-      .order("id", { ascending: true })
-      .limit(PAGE);
-    if (after) query = query.gt("id", after);
-    const { data, error } = await query;
-    if (error) throw error;
-    for (const row of data ?? []) {
+    const cursor = after;
+    const data = await withRetry(() => {
+      let query = allowlistedSeries(supabase.from("series").select("id"))
+        .gte("id", lower)
+        .lte("id", upper)
+        .order("id", { ascending: true })
+        .limit(PAGE);
+      if (cursor) query = query.gt("id", cursor);
+      return query;
+    }, `series-${prefix} after ${cursor ?? "start"}`);
+    for (const row of data) {
       entries.push({
         url: `${SITE_URL}/series/${row.id}`,
         changeFrequency: "monthly",
         priority: 0.6,
       });
     }
-    if (!data || data.length < PAGE) break;
+    if (data.length < PAGE) break;
     after = data[data.length - 1].id;
   }
   return entries;

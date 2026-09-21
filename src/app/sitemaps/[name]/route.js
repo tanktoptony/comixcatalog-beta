@@ -1,13 +1,30 @@
 // /sitemaps/static.xml       static routes, reading guides, published blog posts
 // /sitemaps/series-<hex>.xml allowlisted series whose id starts with <hex>
 //
-// Each file is rendered on first request and cached for a day; a crawler
-// refetching a chunk never triggers a live query inside that window.
+// Every file is generated at build time (generateStaticParams below) and
+// then revalidated daily. Without the build step each chunk was rendered on
+// its first request, and in production that first request ran the Supabase
+// query inside a cold Vercel function: /sitemaps/series-3.xml returned 500
+// on its first hit after the 2026-09-21 deploy. Google's first crawl is
+// exactly that cold hit, so nothing may be generated on demand.
 
-import { seriesEntries, staticEntries, urlsetXml } from "@/lib/sitemap";
+import {
+  SERIES_CHUNKS,
+  seriesEntries,
+  staticEntries,
+  urlsetXml,
+} from "@/lib/sitemap";
 
 export const dynamic = "force-static";
+export const dynamicParams = false;
 export const revalidate = 86400;
+
+export function generateStaticParams() {
+  return [
+    { name: "static.xml" },
+    ...SERIES_CHUNKS.map((c) => ({ name: `series-${c}.xml` })),
+  ];
+}
 
 const XML = { "Content-Type": "application/xml; charset=utf-8" };
 

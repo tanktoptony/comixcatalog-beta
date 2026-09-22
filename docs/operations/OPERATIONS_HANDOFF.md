@@ -65,6 +65,22 @@ Currently over the cap: The Beano (3,833 covers), Micky Maus (2,830),
 **The trigger is "more covers per series", so this activates as coverage
 improves.**
 
+**The sibling bug: offset pagination with no `ORDER BY`.** Postgres makes
+no promise about row order between two queries that do not sort, so
+consecutive `.range()` pages over an unordered result overlap and skip
+rows arbitrarily. No error, no truncation signal — just the wrong set.
+
+Found live 2026-09-22 in `refreshSeriesSearchCache.js`'s "Distinct cover'd
+series" stat. Back-to-back runs against the same unchanged table returned
+**5,762** and then **5,031**. With `.order("id")` added it returns
+**7,589** twice. The number it had been printing was not merely unstable,
+it was understating by roughly a quarter, and it is the figure quoted when
+anyone asks how many series have any cover at all.
+
+**If a loop calls `.range()`, it needs a stable sort on a unique column.**
+Treat an unordered paginated walk exactly as seriously as an unpaginated
+one, and re-check any number that came out of one.
+
 ### 2b. Head-of-line blockage in the ingest queue
 
 `comicvine_api_to_supabase.py` walks a `gap-*.json` in file order, skips
@@ -425,14 +441,34 @@ cards).
    `gcd_id` under an `IN (series_gcd_id)` filter (the 4.5s/page plan);
    reordered 2026-09-22. Consolidating the local `fetchAllPages` copies onto
    `src/lib/supabase/fetchAllPages.js` (with a keyset mode) is still open.
-5. Re-measure LAUNCH_CHECKLIST's "2,783 ambiguous volumes": that number came
-   from the truncated instrument. `repairAllCoverSeriesLinks.js --dry-run
-   --plan-json=plan.json` is the honest measurement now (789 no-candidate,
-   74 ambiguous, 89 held by the same-year guard on 2026-09-21).
+   This item was originally filed as "unpaginated `gcd_issues` `.in()`",
+   which was wrong. What remains is a duplication cleanup, not a truncation
+   bug — nothing is returning short counts because of it. Do not re-file it
+   as urgent.
+5. **Re-measured 2026-09-22**, superseding LAUNCH_CHECKLIST's "2,783
+   ambiguous volumes" (which came from the truncated instrument). Honest
+   figures from `repairAllCoverSeriesLinks.js --dry-run`: **1,022** volumes
+   need resolution, of which 823 had no candidate clear 85% and 90 are
+   ambiguous within 15 points; 2,855 candidate pairings were excluded by
+   the year gate; 109 have a same-start-year series that did not win.
+   **0 volumes would actually be relinked**, so the mislink check is green.
+   The checklist has been updated with this table.
+6. ~~`refreshSeriesSearchCache.js` Tier 3 is still exact-title matching~~
+   **Corrected 2026-09-22: also wrong.** Tier 3 keys on `normTitle()`
+   (lowercased, punctuation-stripped, leading article removed) and the
+   cover fetch is already expanded with article and punctuation variants.
+   The one genuine gap was that those two transforms were never applied
+   *together*, so a title with both a leading "The" and punctuation never
+   had its fully-normalized form fetched. 2,222 titles are shaped that way,
+   but measuring it found only 1 title and 1 cover affected in a
+   1,200-title sample ("The Army of Darkness: Forever" vs "Army of Darkness
+   Forever"). Closed by switching that fetch onto `titleVariants()` from
+   `src/lib/titleMatch.js`, which #102 added and which already covers the
+   combined case — one shared helper instead of two partial copies.
 
 ### Growth (order agreed with the founder)
 
-6. **Email provider**: built 2026-09-22 (PR `agent/newsletter`):
+7. **Email provider**: built 2026-09-22 (PR `agent/newsletter`):
    `scripts/sendNewsletter.js` (Resend batch API, honours `unsubscribed_at`,
    signed one-click unsubscribe in footer + RFC 8058 headers, `.sent.json`
    ledger), `/api/newsletter/unsubscribe`, `NewsletterSignup` component
@@ -442,7 +478,7 @@ cards).
    **Still the founder's:** verify `comixcatalog.com` in Resend (DNS), add
    `RESEND_API_KEY` + `RESEND_FROM_EMAIL` to GitHub secrets and Vercel,
    `--test` yourself, then send.
-7. **Instagram bot rewrite.** Current output (random cover + ComicVine
+8. **Instagram bot rewrite.** Current output (random cover + ComicVine
    solicit blurb + "Est. cover-price floor: $3.50" + generic CTA) rejected
    by the founder as "the same bland post template". Also: a brand card
    says "the database is the moat" on a public post; a "New to the Catalog"
@@ -451,29 +487,51 @@ cards).
    complete" hooks), in the founder's voice. Files:
    `scripts/instagramBot.js`, `scripts/previewInstagramQueue.js`,
    `docs/instagram-bot-plan.md`.
-8. **Blog, reader-facing cadence.** Founder wants: (a) how-to-use-the-site
+
+   **Shipped in #99, live 2026-09-22.** First founder-voice post went out
+   at 19:12 UTC (The Avengers #1, 1963, key-issue format, media id
+   18121853023936440). Note for next time: #99 merged at 03:38 UTC, three
+   hours *after* that day's post had already fired at 00:25, so the change
+   looked dead all day. The `.instagram-last-post-date.json` marker has to
+   be rolled back and the workflow dispatched if you want a same-day post
+   after a merge.
+9. **Blog, reader-facing cadence.** Founder wants: (a) how-to-use-the-site
    posts with screenshots; (b) how to get into / back into comics (his own
    story: asked a Graham Crackers Comics clerk, got pointed at House of M,
    loved it); (c) hunter angles ("what it costs to complete X", "cheapest
    way into Y"). Blog posts live in `blog_posts` (publish via
    `scripts/publishBlogPost.js`); reading guides in
    `src/app/reads/articles.js`.
-9. **Positioning brief** (one page) from the founder's answers above, then
+
+   **(a) and (b) published 2026-09-22**: `/blog/how-to-use-comixcatalog`
+   (611 words, 5 screenshots already in Supabase storage) and
+   `/blog/getting-back-into-comics` (890 words). (c), the hunter angles,
+   is still unwritten and is the natural next post.
+10. **Positioning brief** (one page) from the founder's answers above, then
    scope the collection-insights + social features: cost to complete,
    cheapest path, paid vs worth, upgrade candidates, publisher/era/creator
    fingerprint, streaks; follow/feed, compare, talk.
-10. **Ads**: house-ad slots are live (#95). No AdSense until traffic
+11. **Ads**: house-ad slots are live (#95). No AdSense until traffic
     justifies it and the upgrade-page "no ads" copy decision is made on
     purpose. Direct sponsorship is the goal once GA shows real numbers.
-11. **Watch the instruments**: Search Console indexed-page count and crawl
+12. **Watch the instruments**: Search Console indexed-page count and crawl
     requests (baseline 138 / 90 days), GA4 Realtime for the funnel events,
     `house_ad_view`/`house_ad_click` CTR per creative.
 
 ### Housekeeping
 
-12. Leftover QA test account `oauthfixver178927334` (1d9fad1a…): founder
-    runs `node scripts/deleteTestAccount.js <id> --apply`. Rule going
-    forward: a QA pass deletes its own test accounts and proves it with a
-    query.
-13. Handoff §7's "#89 only provable at the next Mon/Thu 08:00 window" is
+13. ~~Leftover QA test account `oauthfixver178927334` (1d9fad1a…)~~
+    **Done 2026-09-22**: founder ran `scripts/deleteTestAccount.js --apply`
+    and the row is gone, verified by query. Rule going forward stands: a QA
+    pass deletes its own test accounts and proves it with a query.
+14. Handoff §7's "#89 only provable at the next Mon/Thu 08:00 window" is
     still open: check the collision did not recur.
+15. **The stall check was the flakiest step in the pipeline, not the
+    pipeline.** The 2026-09-22 03:00/06:00 cover-ingest failures were
+    `checkCoverIngestHealth.js --mode=stall` timing out during a transient
+    Supabase `PGRST002` degradation, on a full COUNT of `canonical_covers`
+    over an unindexed `created_at`. PR #104 makes it a one-row primary-key
+    probe (455ms vs 8s) and prints `code | message | details | hint`
+    instead of "unknown error". General lesson, third time now: **a health
+    check that costs more than the work it guards will eventually lie about
+    the work.**

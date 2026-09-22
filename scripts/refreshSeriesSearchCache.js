@@ -17,7 +17,7 @@ dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "../src/lib/publisher.js";
 import { getSeriesOverride } from "../src/lib/seriesOverrides.js";
-import { normTitle, stripPunctuation } from "../src/lib/titleMatch.js";
+import { normTitle, stripPunctuation, titleVariants } from "../src/lib/titleMatch.js";
 import { isCollectedEdition } from "../src/lib/seriesFormat.js";
 
 const supabase = createClient(
@@ -307,25 +307,19 @@ async function processBatch(seriesBatch) {
   // The canonical_covers fetch below filters by exact series_title, but GCD and
   // ComicVine disagree on the leading article ("Flash" vs "The Flash"). normTitle
   // reconciles them in-memory — but only for covers we actually FETCHED. So
-  // expand the fetch set with the article variant of each title (add "The X"
-  // for "X", and "X" for "The X"), or the right covers never get pulled and the
-  // in-memory keying has nothing to match. This is what was leaving 723 "The
-  // Flash" covers stranded from the "Flash" series rows.
+  // expand the fetch set with every variant of each title, or the right covers
+  // never get pulled and the in-memory keying has nothing to match. This is
+  // what was leaving 723 "The Flash" covers stranded from the "Flash" rows.
+  //
+  // This used to build the variants inline, applying the article transform and
+  // the punctuation transform separately but never together — so a title
+  // carrying BOTH (2,222 of them, e.g. "The Army of Darkness: Forever" vs
+  // ComicVine's "Army of Darkness Forever") never had its fully normalized
+  // form fetched. titleVariants(), added by #102 for the same bug on the live
+  // read path, already covers the combined case, so this now uses it rather
+  // than keeping a second partial copy of the same rule.
   const coverFetchTitles = [
-    ...new Set(
-      seriesTitles.flatMap((t) => {
-        const variants = [t];
-        if (/^the\s+/i.test(t)) variants.push(t.replace(/^the\s+/i, ""));
-        else variants.push(`The ${t}`);
-        // Punctuation variant — ComicVine frequently drops colons/commas
-        // GCD keeps ("DC Comics: Bombshells" → "DC Comics Bombshells").
-        // Only add it when it actually differs, to avoid a redundant
-        // duplicate entry in the .in() list for the common case.
-        const stripped = stripPunctuation(t);
-        if (stripped && stripped !== t) variants.push(stripped);
-        return variants;
-      })
-    ),
+    ...new Set(seriesTitles.flatMap((t) => titleVariants(t))),
   ];
 
   const issueRows = [];
@@ -1171,6 +1165,16 @@ async function reportCoverage() {
   // Distinct series_title values in canonical_covers — the real "how many
   // series do we have ANY cover for" number. Paginated to dodge the 1000-
   // row PostgREST cap.
+  //
+  // The .order("id") is load-bearing, not tidiness. Without it this was an
+  // offset walk over an unordered result: Postgres makes no promise about
+  // row order between two queries that don't sort, so consecutive .range()
+  // pages overlapped and skipped rows arbitrarily and the distinct count
+  // came out different every run. Observed live 2026-09-22: 6,044 and then
+  // 5,508 from back-to-back runs against the same unchanged table, which is
+  // what sent me looking for a regression that did not exist. Pagination
+  // without a stable sort is the same family as §2a — it silently returns
+  // the wrong set, with no error.
   const distinctCoverTitles = new Set();
   let from = 0;
   const PAGE = 1000;
@@ -1179,6 +1183,7 @@ async function reportCoverage() {
       .from("canonical_covers")
       .select("series_title")
       .not("storage_path", "is", null)
+      .order("id", { ascending: true })
       .range(from, from + PAGE - 1);
     if (!data?.length) break;
     for (const r of data) distinctCoverTitles.add(r.series_title);

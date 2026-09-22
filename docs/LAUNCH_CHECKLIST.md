@@ -43,9 +43,36 @@ Every item needs Owner / Evidence / Last checked / Blocker filled in before it c
 
 - [ ] **Known publisher mismatches: 0**
   - Owner:
-  - Evidence: **Partially re-verified 2026-09-13.** `node scripts/checkCoverIngestHealth.js --mode=mislink` (the automated regression check that runs every cover-ingest cycle) found 0 newly mis-linked volumes — the day-to-day auto-repair mechanism is healthy. That is not the same as zero historical mismatches: the same run surfaced 2,783 volumes still in an unresolved/ambiguous overlap-scoring state (2,533 below the 85% confidence threshold, 21 genuinely too-close-to-call), none of which are *confirmed* wrong so much as *not yet confirmed right*. `reports/canonical-cover-link-repair-*.json` still shows this as an active, ongoing backlog, not a closed one.
-  - Last checked: 2026-09-13
-  - Blocker: the 2,783-volume ambiguous backlog needs a real closure plan (batch review, better disambiguation heuristics, or an explicit "acceptable residual ambiguity" call) — not just the regression check staying green.
+  - Evidence: **Re-measured 2026-09-22 with the fixed instrument.** The
+    previously recorded "2,783 volumes (2,533 below threshold, 21
+    too-close-to-call)" was measured before PR #96/#97 fixed the truncated
+    `gcd_issues` read inside `repairAllCoverSeriesLinks.js` — that number was
+    produced by an instrument that could only see the first 1,000 rows per
+    series batch, so it is not a real figure and has been removed rather than
+    carried forward. The honest current state, from
+    `node scripts/repairAllCoverSeriesLinks.js --dry-run`:
+
+    | Measure | Volumes |
+    | --- | --- |
+    | Covers loaded / distinct ComicVine volumes | 123,465 / 8,078 |
+    | Already clean (skipped) | 7,049 |
+    | Confirmed pins | 2,163 |
+    | Needing resolution (unpinned, overlap-scored) | 1,022 |
+    | ... of those, no candidate cleared 85% | 823 |
+    | ... of those, ambiguous (winner within 15 points of runner-up) | 90 |
+    | Volumes pinned by more than one series row (excluded from scoring) | 616 |
+    | **Volumes the repair pass would actually relink** | **0** |
+
+    So the mislink regression check is green *and* the backlog is 1,022, not
+    2,783. None of the 1,022 are confirmed wrong; they are not yet confirmed
+    right. The 616 conflicting pins are tracked separately — the
+    collected-edition share of those is what the GCD format sync is working
+    through.
+  - Last checked: 2026-09-22
+  - Blocker: the 1,022-volume unresolved backlog still needs a closure plan
+    (batch review, better disambiguation heuristics, or an explicit
+    "acceptable residual ambiguity" call), not just the regression check
+    staying green. Smaller than it looked, same shape.
 
 - [ ] **Core workflow success >= 99%** (signup, search, series, issues, library, variants, wantlist, imports, exports, profiles, subscriptions per the plan's "whole-site polish" pass)
   - Owner:

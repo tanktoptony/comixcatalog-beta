@@ -175,7 +175,19 @@ async function pickFeatureHighlight(supabase, seenKeys, recentTopics, dayIndex) 
   return null;
 }
 
-async function pickBlogSpotlight(supabase) {
+// Takes seenKeys itself rather than letting the caller filter the result.
+//
+// It used to return unconditionally on the first iteration of this loop and
+// leave the seenKeys check to pickBrandPost. That made the loop decorative:
+// only the single newest post was ever offered, so once it had been posted
+// the whole blog sub-picker returned null on every subsequent run and no
+// older post was ever spotlighted again. Found 2026-09-22 while adding the
+// two new posts — the how-to post would have taken the slot once and then
+// blocked "Getting back into comics" from ever getting one.
+//
+// Newest-first order is still the intent; the loop now actually walks past
+// posts that have already had their turn.
+async function pickBlogSpotlight(supabase, seenKeys) {
   const { data, error } = await supabase
     .from("blog_posts")
     .select("slug, title, excerpt, published_at")
@@ -186,9 +198,7 @@ async function pickBlogSpotlight(supabase) {
 
   for (const post of data) {
     const dedupeKey = `brand:blog:${post.slug}`;
-    // Caller filters seenKeys — blog spotlight always tries the most recent
-    // unposted entry first since freshness matters more here than for
-    // stats/features.
+    if (seenKeys.has(dedupeKey)) continue;
     return {
       dedupeKey,
       kicker: "From the Blog",
@@ -209,10 +219,7 @@ export async function pickBrandPost(supabase, seenKeys, dayIndex = Math.floor(Da
   const subPickers = [
     () => pickCatalogStats(supabase, seenKeys, recentTopics, dayIndex),
     () => pickFeatureHighlight(supabase, seenKeys, recentTopics, dayIndex),
-    async () => {
-      const post = await pickBlogSpotlight(supabase);
-      return post && !seenKeys.has(post.dedupeKey) ? post : null;
-    },
+    () => pickBlogSpotlight(supabase, seenKeys),
   ];
   const start = dayIndex % subPickers.length;
   const order = [...subPickers.slice(start), ...subPickers.slice(0, start)];

@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "@/lib/publisher";
 import { getAuthedUser } from "@/lib/authServer";
 import { formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
+import { titleVariants } from "@/lib/titleMatch";
 
 // Volume-disambiguation tolerance. canonical_covers is keyed only by
 // (series_title, issue_number), so "Teenage Mutant Ninja Turtles" #2 exists
@@ -63,10 +64,12 @@ async function fetchCanonicalMatch(
   // cover (Fables, 2026-09-21). Their covers only ever come via the ID path.
   if (!seriesTitle || !allowTitlePath) return { storage_path: null, publisher: null };
 
+  // Title variants: with/without a leading "The", with/without punctuation.
+  // The year-span guard below still applies to every candidate.
   const { data: exactRows } = await supabase
     .from("canonical_covers")
     .select("id, storage_path, publisher, cover_date, series_year")
-    .eq("series_title", seriesTitle)
+    .in("series_title", titleVariants(seriesTitle))
     .eq("issue_number", issueNumber);
 
   const exactInSpan = (exactRows ?? []).filter((r) =>
@@ -796,7 +799,7 @@ export async function GET(req, context) {
         supabase
           .from("canonical_covers")
           .select("issue_number, storage_path, publisher, cover_date, series_year")
-          .eq("series_title", seriesTitle)
+          .in("series_title", titleVariants(seriesTitle))
           .is("series_gcd_id", null)
           .not("storage_path", "is", null),
       ]);

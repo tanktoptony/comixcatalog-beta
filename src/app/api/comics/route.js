@@ -179,7 +179,7 @@ export async function GET(req) {
 
       const [issueRows, coverRows] = await Promise.all([
         fetchAllPages(() =>
-          supabase.from("gcd_issues").select("series_gcd_id, issue_number").in("series_gcd_id", gcdIds).order("gcd_id")
+          supabase.from("gcd_issues").select("series_gcd_id, issue_number").in("series_gcd_id", gcdIds).order("series_gcd_id").order("gcd_id")
         ),
         fetchAllPages(() =>
           supabase

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getMarketValuesBulk } from "@/lib/marketValue";
+import { normTitle, titleVariants } from "@/lib/titleMatch";
 
 function parseYear(value) {
   if (!value) return null;
@@ -297,14 +298,19 @@ export async function POST(req) {
           supabase
             .from("canonical_covers")
             .select("series_title, issue_number, series_year, cover_date, storage_path")
-            .in("series_title", seriesTitles)
+            // Every punctuation / leading-article variant of each GCD title,
+            // keyed below with normTitle() so "The Transformers Universe"
+            // (GCD) finds "Transformers Universe" (ComicVine). Found live
+            // 2026-09-21: a library showed no covers for a series whose
+            // four covers were all present under the article-less title.
+            .in("series_title", [...new Set(seriesTitles.flatMap(titleVariants))])
             .in("issue_number", issueNumbers)
             .not("storage_path", "is", null)
             .order("id")
         );
 
         for (const c of covers) {
-          const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
+          const key = `${normTitle(c.series_title)}::${norm(c.issue_number)}`;
           if (!coversByTitle.has(key)) coversByTitle.set(key, []);
           coversByTitle.get(key).push(c);
         }
@@ -318,7 +324,7 @@ export async function POST(req) {
           row.seriesGcdId != null
             ? `${row.seriesGcdId}::${norm(row.issue_number)}`
             : null;
-        const titleKey = `${norm(row.seriesTitle)}::${norm(row.issue_number)}`;
+        const titleKey = `${normTitle(row.seriesTitle)}::${norm(row.issue_number)}`;
         const candidates =
           (idKey && coversById.get(idKey)) ||
           coversByTitle.get(titleKey) ||

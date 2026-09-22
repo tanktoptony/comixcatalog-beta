@@ -387,12 +387,17 @@ cards).
    wrong ComicVine volume 20559) shows no covers while the 4 real covers sit
    on the duplicate GCD record *Transformers Universe* (199403, volume
    33530). The title-path lookup is an exact string match, so a leading
-   "The" defeats it. Fix candidates: normalise leading articles in the
-   title path (`src/app/api/issues/[id]`, `src/app/api/series/[id]`,
-   `refreshSeriesSearchCache.js`), and have the user-collected gap lane
-   verify a cover actually resolves for each library issue instead of
-   trusting the pin. Then re-measure with a "resolves on the page" check,
-   not a row count.
+   "The" defeats it. **Lookup half fixed 2026-09-22** (PR
+   `agent/cover-lookups`): `titleVariants()` in `src/lib/titleMatch.js`
+   (punctuation + leading-article variants) is now used by the issue and
+   series routes and by library-hydrate / public-profile, with
+   `normTitle()` map keys. treystyles' profile went 111/116 -> 114/116
+   covers; the 2 left (Marvel Tales #188, G.I. Joe Comics Magazine #1)
+   have no cover in the catalog at all. **Still open:** the user-collected
+   gap lane should verify a cover *resolves on the page* for each library
+   issue instead of trusting the pin, and report the residue as a list,
+   not a percentage. `refreshSeriesSearchCache.js` Tier 3 still matches
+   exact titles.
 2. **Collected editions** (this PR): after migration 0028 is applied and
    `gcd-series-format-sync.yml` has walked the shared-pins backlog (~1 week
    at 4x60/day), run `node scripts/unpinCollectedEditions.js` (dry run,
@@ -401,9 +406,10 @@ cards).
    collected-edition share; the remainder are wrong pins of the
    Transformers Universe kind and need a pin audit (year + issue-count
    sanity vs the ComicVine volume).
-4. `src/app/api/comics/route.js:182`: unpaginated `gcd_issues` `.in()`, the
-   same shape that produced the repair-script ping-pong. Consolidate on
-   `src/lib/supabase/fetchAllPages.js` (add keyset mode there too).
+4. `src/app/api/comics/route.js`: was paginated after all, but ordered by
+   `gcd_id` under an `IN (series_gcd_id)` filter (the 4.5s/page plan);
+   reordered 2026-09-22. Consolidating the local `fetchAllPages` copies onto
+   `src/lib/supabase/fetchAllPages.js` (with a keyset mode) is still open.
 5. Re-measure LAUNCH_CHECKLIST's "2,783 ambiguous volumes": that number came
    from the truncated instrument. `repairAllCoverSeriesLinks.js --dry-run
    --plan-json=plan.json` is the honest measurement now (789 no-candidate,

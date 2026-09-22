@@ -23,6 +23,25 @@ export function stripPunctuation(title) {
     .trim();
 }
 
+// Every literal string a title-keyed SQL lookup should try. The DB only
+// does exact matches, and the two sources disagree on punctuation AND on
+// leading articles: GCD "The Transformers Universe" (11216) vs ComicVine
+// "Transformers Universe" (covers on volume 33530). An exact .eq() on the
+// GCD title found nothing, so a user's library showed no covers for a
+// series whose four covers were all present (found live 2026-09-21).
+// Use as .in("series_title", titleVariants(title)).
+export function titleVariants(title) {
+  const base = String(title ?? "").replace(/\s+/g, " ").trim();
+  if (!base) return [];
+  const out = new Set();
+  for (const t of [base, stripPunctuation(base)]) {
+    out.add(t);
+    if (/^the\s+/i.test(t)) out.add(t.replace(/^the\s+/i, ""));
+    else out.add(`The ${t}`);
+  }
+  return [...out].filter(Boolean);
+}
+
 export function normTitle(value) {
   let s = stripPunctuation(value).toLowerCase();
   if (s.startsWith("the ")) s = s.slice(4);

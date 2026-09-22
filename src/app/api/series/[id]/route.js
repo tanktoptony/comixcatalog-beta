@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "@/lib/publisher";
-import { stripPunctuation } from "@/lib/titleMatch";
+import { titleVariants } from "@/lib/titleMatch";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { collectsLines, formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
 
@@ -111,23 +111,15 @@ export async function GET(req, context) {
     if (!series.gcd_id) {
       const titleQueries = [];
       if (series.title) {
+        // One query over every title variant (punctuation, leading "The");
+        // see titleVariants() for the Transformers Universe case.
         titleQueries.push(() =>
           supabase
             .from("canonical_covers")
             .select("issue_number, series_year, cover_date, storage_path, publisher")
-            .eq("series_title", series.title)
+            .in("series_title", titleVariants(series.title))
             .is("series_gcd_id", null)
         );
-        const strippedTitle = stripPunctuation(series.title);
-        if (strippedTitle && strippedTitle !== series.title) {
-          titleQueries.push(() =>
-            supabase
-              .from("canonical_covers")
-              .select("issue_number, series_year, cover_date, storage_path, publisher")
-              .eq("series_title", strippedTitle)
-              .is("series_gcd_id", null)
-          );
-        }
       }
       // Paged: a single title can exceed PostgREST's 1000-row cap (The Beano
       // holds 3,833 covers, 2000 AD 2,480), and an unpaginated read silently
@@ -300,28 +292,17 @@ export async function GET(req, context) {
         );
       }
       if (series.title && !collectedEdition) {
+        // Punctuation and leading-article variants in one query: ComicVine
+        // drops colons GCD keeps ("DC Comics: Bombshells") and drops the
+        // article GCD keeps ("The Transformers Universe"). Either stranded
+        // every cover for the title from an exact-match lookup.
         queries.push(() =>
           supabase
             .from("canonical_covers")
             .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
-            .eq("series_title", series.title)
+            .in("series_title", titleVariants(series.title))
             .is("series_gcd_id", null)
         );
-
-        // Punctuation variant — ComicVine frequently drops colons/commas GCD
-        // keeps ("DC Comics: Bombshells" → "DC Comics Bombshells"), which
-        // silently stranded every cover for that title from this exact-match
-        // lookup. Only queried when it actually differs from the raw title.
-        const strippedTitle = stripPunctuation(series.title);
-        if (strippedTitle && strippedTitle !== series.title) {
-          queries.push(() =>
-            supabase
-              .from("canonical_covers")
-              .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
-              .eq("series_title", strippedTitle)
-              .is("series_gcd_id", null)
-          );
-        }
       }
       // Paged for the same reason as the title path above: four series
       // already hold more than 1000 covers under one series_gcd_id.

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { useSearchQuery } from "@/context/SearchQueryContext";
 import { useUnreadMessageCount } from "@/hooks/useUnreadMessageCount";
 
 function resolveCoverUrl(rawCover) {
@@ -46,7 +47,12 @@ export default function Header() {
   const { user, profile, loading, signOut, isPro } = useAuth();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
-  const [query, setQuery] = useState("");
+  // The query lives in SearchQueryContext rather than local state so /search
+  // can read what's being typed here and re-filter live. Off /search nothing
+  // else consumes it and this behaves exactly like the local useState it
+  // replaced. See src/context/SearchQueryContext.js for why it isn't
+  // useSearchParams().
+  const { query, setQuery } = useSearchQuery();
   const [seriesResults, setSeriesResults] = useState([]);
   const [comicResults, setComicResults] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -55,6 +61,11 @@ export default function Header() {
 
   const router = useRouter();
   const pathname = usePathname();
+
+  // On /search the results are already on the page below the input, so the
+  // suggestion dropdown would cover them with a shorter version of the same
+  // thing. Suppress it there and let the page be the result list.
+  const onSearchPage = pathname === "/search";
   const searchRef = useRef(null);
   const userMenuRef = useRef(null);
 
@@ -88,12 +99,17 @@ export default function Header() {
     }
   }
 
-  function clearSearch() {
-    setQuery("");
+  // Everything except the query itself.
+  function dismissSuggestions() {
     setSeriesResults([]);
     setComicResults([]);
     setSearchOpen(false);
     setHighlightedIndex(-1);
+  }
+
+  function clearSearch() {
+    setQuery("");
+    dismissSuggestions();
   }
 
   function handleNavigate(href) {
@@ -109,7 +125,11 @@ export default function Header() {
   const [lastPathname, setLastPathname] = useState(pathname);
   if (lastPathname !== pathname) {
     setLastPathname(pathname);
-    clearSearch();
+    // Landing on /search keeps the query — it IS that page's input now, and
+    // blanking it would wipe the search the user just ran. The dropdown and
+    // its results still get dismissed either way.
+    if (onSearchPage) dismissSuggestions();
+    else clearSearch();
     closeMenu();
   }
 
@@ -138,6 +158,17 @@ export default function Header() {
   useEffect(() => {
     const q = query.trim();
 
+    // On /search the dropdown is suppressed, so fetching its suggestions
+    // would be two API calls per keystroke for something nobody sees — on
+    // top of the page's own search running against the same query.
+    if (onSearchPage) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setSeriesResults([]);
+      setComicResults([]);
+      setSearchLoading(false);
+      return;
+    }
+
     if (!q) {
       // Deliberately left as setState-in-effect: this branch is the guard
       // clause for the debounced fetch below it, not a standalone derived
@@ -145,7 +176,8 @@ export default function Header() {
       // duplicate the "is query empty" check across two places and risk
       // the two falling out of sync. The fetch branch below already sets
       // state from an async callback, which is the sanctioned pattern.
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+      // (The rule is disabled once for this effect, on the /search guard
+      // above; a second directive here would be flagged as unused.)
       setSeriesResults([]);
       setComicResults([]);
       setSearchLoading(false);
@@ -200,7 +232,7 @@ export default function Header() {
       cancelled = true;
       clearTimeout(timeout);
     };
-  }, [query]);
+  }, [query, onSearchPage]);
 
   const hasResults = useMemo(() => {
     return seriesResults.length > 0 || comicResults.length > 0;
@@ -238,9 +270,16 @@ export default function Header() {
     if (!q) return;
     if (highlightedIndex >= 0 && flatResults[highlightedIndex]) {
       handleNavigate(flatResults[highlightedIndex].href);
-    } else {
-      handleNavigate(`/search?q=${encodeURIComponent(q)}`);
+      return;
     }
+    // Already on /search: the page is filtering on this query as it's typed
+    // and owns the URL, so navigating would be a round trip to where we are.
+    // Just get the keyboard out of the way so the results are visible.
+    if (onSearchPage) {
+      dismissSuggestions();
+      return;
+    }
+    handleNavigate(`/search?q=${encodeURIComponent(q)}`);
   }
 
   function handleSearchKeyDown(e) {
@@ -291,12 +330,12 @@ export default function Header() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => {
-              if (query.trim()) setSearchOpen(true);
+              if (!onSearchPage && query.trim()) setSearchOpen(true);
             }}
             onKeyDown={handleSearchKeyDown}
           />
 
-          {searchOpen && (
+          {searchOpen && !onSearchPage && (
             <div className="header-search-dropdown">
               {searchLoading && (
                 <div className="header-search-state">Searching…</div>

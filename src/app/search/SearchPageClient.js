@@ -2,9 +2,10 @@
 
 import { useState, useMemo, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useLibrary } from "../../context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
+import { useSearchQuery } from "@/context/SearchQueryContext";
 import EmptyState from "@/components/EmptyState";
 import { trackEvent } from "@/lib/analytics";
 import AdSlot from "@/components/AdSlot";
@@ -65,19 +66,39 @@ function SkeletonCard() {
 
 export default function SearchPageClient() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const urlQuery = searchParams.get("q") || "";
 
-  const [query, setQuery] = useState(urlQuery);
+  // This page had its own <input> directly under the header's, so /search
+  // showed two live search boxes. The header's is the one people use, but
+  // only this one filtered results as you typed. Now the header's input is
+  // this page's input: it writes to SearchQueryContext and we read it here.
+  const { query, setQuery } = useSearchQuery();
   const [page, setPage] = useState(0);
 
-  // Sync the input from the URL (header search, back/forward) by deriving
-  // during render rather than in an effect, so there is no extra render
-  // with the stale query in between.
-  const [syncedUrlQuery, setSyncedUrlQuery] = useState(urlQuery);
+  // Seed the shared query from the URL, and re-seed on back/forward or a
+  // fresh load of /search?q=… . Derived during render rather than in an
+  // effect so there is no intermediate render showing the stale query.
+  const [syncedUrlQuery, setSyncedUrlQuery] = useState(null);
   if (urlQuery !== syncedUrlQuery) {
     setSyncedUrlQuery(urlQuery);
-    setQuery(urlQuery);
+    if (urlQuery !== query) setQuery(urlQuery);
   }
+
+  // …and push it back, so the URL stays shareable and the back button still
+  // works. Debounced and replace(), not push(): typing "batman" should not
+  // leave six history entries to walk back through. `scroll: false` keeps
+  // the results list from jumping to the top on every keystroke.
+  useEffect(() => {
+    const q = query.trim();
+    if (q === urlQuery.trim()) return;
+    const timeout = setTimeout(() => {
+      router.replace(q ? `/search?q=${encodeURIComponent(q)}` : "/search", {
+        scroll: false,
+      });
+    }, 400);
+    return () => clearTimeout(timeout);
+  }, [query, urlQuery, router]);
 
   const [supabaseComics, setSupabaseComics] = useState([]);
   const [seriesResults, setSeriesResults] = useState([]);
@@ -270,16 +291,7 @@ export default function SearchPageClient() {
       <div className="section-label badge-x">Search</div>
       <h1 className="hero-title">Find Comics</h1>
 
-      {/* Search input */}
-      <div className="controls">
-        <input
-          className="input"
-          placeholder="Search series, issues, publishers…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          autoComplete="off"
-        />
-      </div>
+      {/* The search input is the header's — see SearchQueryContext. */}
 
       {/* Series suggestions — grouped by title, divider between groups */}
       {seriesResults.length > 0 && (

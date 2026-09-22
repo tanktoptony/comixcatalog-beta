@@ -7,6 +7,7 @@ import FoundingBanner from "../components/FoundingBanner";
 import OnboardingModal from "../components/OnboardingModal";
 import { LibraryProvider } from "../context/LibraryContext";
 import { AuthProvider } from "../context/AuthContext";
+import { SearchQueryProvider } from "../context/SearchQueryContext";
 
 // Display face for the public profile ("The Case") — a deliberate contrast
 // with /library's plain grotesk, part of the workshop/showcase split
@@ -157,14 +158,16 @@ export default async function RootLayout({ children }) {
         )}
         <AuthProvider>
           <LibraryProvider>
-            <FoundingBanner initialRemaining={foundingRemaining} />
-            <Header />
-            {/* Mounted once, globally, so it can fire wherever a signed-in
-                user's first page load actually lands (post-signup that's
-                /u/[username], not "/") — see OnboardingModal.js. */}
-            <OnboardingModal />
-            <main className="page-wrapper">{children}</main>
-            <Footer />
+            <SearchQueryProvider>
+              <FoundingBanner initialRemaining={foundingRemaining} />
+              <Header />
+              {/* Mounted once, globally, so it can fire wherever a signed-in
+                  user's first page load actually lands (post-signup that's
+                  /u/[username], not "/") — see OnboardingModal.js. */}
+              <OnboardingModal />
+              <main className="page-wrapper">{children}</main>
+              <Footer />
+            </SearchQueryProvider>
           </LibraryProvider>
         </AuthProvider>
       </body>

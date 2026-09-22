@@ -17960,9 +17960,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T22:06:49.329605+00:00",
-    "retry_after": "2026-09-22T22:06:49.329622+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T23:00:41.721596+00:00",
+    "retry_after": "2026-09-25T23:00:41.721608+00:00"
   },
   {
     "name": "Mercy Sparx, Volume 2: Under New Management Issue #1: Free Comic Book Day Edition",
@@ -18042,9 +18042,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T23:04:22.020121+00:00",
-    "retry_after": "2026-09-22T23:04:22.020136+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T23:09:48.715678+00:00",
+    "retry_after": "2026-09-25T23:09:48.715694+00:00"
   },
   {
     "name": "Batman",
@@ -21183,5 +21183,117 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T22:04:06.671518+00:00",
     "retry_after": "2026-09-23T22:04:06.671536+00:00"
+  },
+  {
+    "name": "Warren Ellis Wolfskin Collection",
+    "publisher": "Avatar Press",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T23:00:42.196406+00:00",
+    "retry_after": "2026-09-23T23:00:42.196417+00:00"
+  },
+  {
+    "name": "True Believers: Fantastic Four - Mad Thinker & Awesome Android",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T23:00:55.479238+00:00",
+    "retry_after": "2026-09-23T23:00:55.479249+00:00"
+  },
+  {
+    "name": "Valiant Pullbox Preview: Ivar, Timewalker",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T23:01:04.917523+00:00",
+    "retry_after": "2026-09-23T23:01:04.917539+00:00"
+  },
+  {
+    "name": "Secret Wars II Special",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62144,
+        "name": "Secret Wars II Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T23:01:11.829459+00:00",
+    "retry_after": "2026-09-23T23:01:11.829474+00:00"
+  },
+  {
+    "name": "Vampirella Helliday 2024 Special",
+    "publisher": "Dynamite Entertainment",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T23:01:13.430291+00:00",
+    "retry_after": "2026-09-23T23:01:13.430305+00:00"
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Fort Lauderdale Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T23:02:59.581854+00:00",
+    "retry_after": "2026-09-23T23:02:59.581890+00:00"
+  },
+  {
+    "name": "Walt Disney's Donald Duck in Disneyland",
+    "publisher": "Dell Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T23:03:00.007288+00:00",
+    "retry_after": "2026-09-23T23:03:00.007298+00:00"
+  },
+  {
+    "name": "Attack",
+    "publisher": "Charlton Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 36528,
+        "name": "Attack",
+        "publisher": "Charlton",
+        "start_year": 1971
+      },
+      {
+        "id": 49908,
+        "name": "Attack",
+        "publisher": "Charlton",
+        "start_year": 1958
+      },
+      {
+        "id": 43214,
+        "name": "Attack",
+        "publisher": "Charlton",
+        "start_year": 1962
+      },
+      {
+        "id": 43216,
+        "name": "Attack",
+        "publisher": "Charlton",
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T23:03:00.665095+00:00",
+    "retry_after": "2026-09-23T23:03:00.665110+00:00"
   }
 ]

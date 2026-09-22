@@ -409,11 +409,44 @@ cards).
    series routes and by library-hydrate / public-profile, with
    `normTitle()` map keys. treystyles' profile went 111/116 -> 114/116
    covers; the 2 left (Marvel Tales #188, G.I. Joe Comics Magazine #1)
-   have no cover in the catalog at all. **Still open:** the user-collected
-   gap lane should verify a cover *resolves on the page* for each library
-   issue instead of trusting the pin, and report the residue as a list,
-   not a percentage. `refreshSeriesSearchCache.js` Tier 3 still matches
-   exact titles.
+   have no cover in the catalog at all.
+
+   **Measured properly 2026-09-22.** `scripts/checkUserCollectedCoversResolve.js`
+   is the "resolves on the page" instrument that was missing. It does not
+   query for rows — it calls `/api/public-profile`, the same endpoint the
+   profile page calls, and reads `display.coverUrl`, which is literally the
+   string the `<img>` gets. `--verify-images` additionally fetches each URL,
+   because a `storage_path` whose object was never uploaded is
+   indistinguishable from a real cover on the database side. It prints a
+   list, not a percentage, and exits 1 when an owned issue is blank.
+
+   First real run, against production:
+
+   | | |
+   |---|---|
+   | Libraries checked | 12 (2 more have no username, so no public profile) |
+   | Owned issues | 636 — **615 resolve, 21 blank** |
+   | Wantlist issues | 60 — 48 resolve, 12 blank |
+   | Cover URLs that 404 | **0** |
+
+   The 21 blanks, by cause: **14** series with no ComicVine pin at all,
+   **4** user-added comics never linked to a catalog issue, **2** series
+   that have covers but not that issue number, **1** series pinned but
+   never ingested. The wantlist's 12 are all one user's untitled
+   user-added rows, which is a broken `comics` record, not a cover gap.
+
+   The list earns its keep immediately: **8 of the 14 unpinned blanks are
+   one series.** thrice347 owns *Rai and the Future Force* #10-23 (GCD
+   5067), which reads as zero covers — but all 34 covers exist under GCD
+   4493 *Rai* / ComicVine volume 4828, because Valiant renamed the book
+   mid-run and GCD split it into two series records while ComicVine kept
+   one volume. 5067 carries no pin, so nothing can attach. That is one pin
+   to fix, not eight missing covers, and a percentage would never have
+   shown it.
+
+   **Still open:** actually fixing the 21 (start with the Rai pin), and
+   the 2 users with no username, who cannot be checked through the public
+   path at all.
 2. **Collected editions.** Migration 0028 is applied (confirmed live
    2026-09-22). The sync backlog is **1,623 shared-pin `gcd_series` rows**;
    at 4 runs/day x 60 that is ~7 days, then the dup-titles backlog (months).

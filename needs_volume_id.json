@@ -20497,7 +20497,244 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-09-22T15:12:47.259624+00:00",
-    "retry_after": "2026-09-23T15:12:47.259640+00:00"
+    "last_attempt_at": "2026-09-22T14:34:17.000664+00:00",
+    "retry_after": "2026-09-23T14:34:17.000680+00:00"
+  },
+  {
+    "name": "Is This Your First Purge, Miss? (A Doonesbury Book)",
+    "publisher": "Fawcett Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T15:35:55.694010+00:00",
+    "retry_after": "2026-09-23T15:35:55.694026+00:00"
+  },
+  {
+    "name": "The Avengers",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2128,
+        "name": "The Avengers",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 7084,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 110496,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 54428,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 95402,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 150431,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 6742,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 1996
+      },
+      {
+        "id": 33227,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T15:36:01.033161+00:00",
+    "retry_after": "2026-09-23T15:36:01.033178+00:00"
+  },
+  {
+    "name": "One for One: Nickelodeon Avatar: The Last Airbender - The Rift",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T15:36:55.520267+00:00",
+    "retry_after": "2026-09-23T15:36:55.520283+00:00"
+  },
+  {
+    "name": "Action Comics",
+    "publisher": "DC Comics",
+    "year": 1951,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18005,
+        "name": "Action Comics",
+        "publisher": "DC Comics",
+        "start_year": 1938
+      },
+      {
+        "id": 91078,
+        "name": "Action Comics",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 42563,
+        "name": "Action Comics",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T15:37:04.508359+00:00",
+    "retry_after": "2026-09-23T15:37:04.508375+00:00"
+  },
+  {
+    "name": "Lone Ranger",
+    "publisher": "Dynamite Entertainment",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 19140,
+        "name": "The Lone Ranger",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2006
+      },
+      {
+        "id": 44895,
+        "name": "The Lone Ranger",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2012
+      },
+      {
+        "id": 114068,
+        "name": "The Lone Ranger",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T15:37:04.783915+00:00",
+    "retry_after": "2026-09-23T15:37:04.783932+00:00"
+  },
+  {
+    "name": "Ultimate Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 48343,
+        "name": "Ultimate Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2012
+      },
+      {
+        "id": 27381,
+        "name": "Ultimate Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 155969,
+        "name": "Ultimate Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 7257,
+        "name": "Ultimate Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T15:42:32.916733+00:00",
+    "retry_after": "2026-09-23T15:42:32.916749+00:00"
+  },
+  {
+    "name": "Iron Man",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2407,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 1968
+      },
+      {
+        "id": 18220,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2005
+      },
+      {
+        "id": 160522,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 165197,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 6504,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 18800,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 1996
+      },
+      {
+        "id": 170313,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2026
+      },
+      {
+        "id": 53725,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 130396,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T15:42:33.268448+00:00",
+    "retry_after": "2026-09-23T15:42:33.268463+00:00"
   }
 ]

@@ -18992,5 +18992,168 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T03:02:20.178843+00:00",
     "retry_after": "2026-09-23T03:02:20.178858+00:00"
+  },
+  {
+    "name": "Moro Rogers' City in the Desert",
+    "publisher": "Archaia",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:35:06.344110+00:00",
+    "retry_after": "2026-09-23T03:35:06.344132+00:00"
+  },
+  {
+    "name": "Free Comic Book Day 2014 (Rocket Raccoon)",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:35:06.784651+00:00",
+    "retry_after": "2026-09-23T03:35:06.784673+00:00"
+  },
+  {
+    "name": "Valve Presents",
+    "publisher": "Dark Horse Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:35:23.057073+00:00",
+    "retry_after": "2026-09-23T03:35:23.057092+00:00"
+  },
+  {
+    "name": "Supergirl: The New 52 Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:35:50.384206+00:00",
+    "retry_after": "2026-09-23T03:35:50.384225+00:00"
+  },
+  {
+    "name": "Ultimate X-Men",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 7258,
+        "name": "Ultimate X-Men",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 157127,
+        "name": "Ultimate X-Men",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:37:24.078104+00:00",
+    "retry_after": "2026-09-23T03:37:24.078124+00:00"
+  },
+  {
+    "name": "Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2001,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18208,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 153611,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 18525,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 1942
+      },
+      {
+        "id": 3824,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 91774,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 42953,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 94149,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 122181,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 149984,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 99063,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:43:19.763239+00:00",
+    "retry_after": "2026-09-23T03:43:19.763260+00:00"
+  },
+  {
+    "name": "52",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18053,
+        "name": "52",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 35601,
+        "name": "52",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 91270,
+        "name": "52",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:45:13.240650+00:00",
+    "retry_after": "2026-09-23T03:45:13.240669+00:00"
   }
 ]

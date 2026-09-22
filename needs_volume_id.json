@@ -20404,5 +20404,100 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T13:11:38.899689+00:00",
     "retry_after": "2026-09-23T13:11:38.899704+00:00"
+  },
+  {
+    "name": "Captain America No. 16 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T14:28:48.664819+00:00",
+    "retry_after": "2026-09-23T14:28:48.664839+00:00"
+  },
+  {
+    "name": "Iron Man",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2407,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 1968
+      },
+      {
+        "id": 18220,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2005
+      },
+      {
+        "id": 160522,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 165197,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 6504,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 18800,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 1996
+      },
+      {
+        "id": 170313,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2026
+      },
+      {
+        "id": 53725,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 130396,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T14:30:37.043858+00:00",
+    "retry_after": "2026-09-23T14:30:37.043877+00:00"
+  },
+  {
+    "name": "Robert Jordan's Wheel of Time: New Spring",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T14:30:37.423801+00:00",
+    "retry_after": "2026-09-23T14:30:37.423819+00:00"
+  },
+  {
+    "name": "Stan Lee Presents the Marvel Comics Illustrated Version of Blade Runner",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T14:34:17.000664+00:00",
+    "retry_after": "2026-09-23T14:34:17.000680+00:00"
   }
 ]

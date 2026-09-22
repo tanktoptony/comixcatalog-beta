@@ -16778,9 +16778,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T18:03:16.460092+00:00",
-    "retry_after": "2026-09-22T18:03:16.460109+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T18:31:53.569212+00:00",
+    "retry_after": "2026-09-25T18:31:53.569228+00:00"
   },
   {
     "name": "Custom Sony Interactive Entertainment 2023 UK English Print Comic [Spider-Man 2]",
@@ -16788,9 +16788,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T18:13:04.049066+00:00",
-    "retry_after": "2026-09-22T18:13:04.049084+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T18:35:07.209548+00:00",
+    "retry_after": "2026-09-25T18:35:07.209564+00:00"
   },
   {
     "name": "AAFES 6 [New Avengers: Fireline]",
@@ -16798,9 +16798,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T18:13:24.165446+00:00",
-    "retry_after": "2026-09-22T18:13:24.165463+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T18:35:07.742501+00:00",
+    "retry_after": "2026-09-25T18:35:07.742517+00:00"
   },
   {
     "name": "Ultimate Spider-Man",
@@ -16833,9 +16833,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T18:13:24.727059+00:00",
-    "retry_after": "2026-09-22T18:13:24.727076+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T18:35:08.202820+00:00",
+    "retry_after": "2026-09-25T18:35:08.202835+00:00"
   },
   {
     "name": "Pretty Deadly Vault Edition",
@@ -16843,9 +16843,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T18:13:34.291973+00:00",
-    "retry_after": "2026-09-22T18:13:34.291988+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T18:35:08.713390+00:00",
+    "retry_after": "2026-09-25T18:35:08.713405+00:00"
   },
   {
     "name": "Edgar Rice Burroughs' Tarzan: The Russ Manning Years",
@@ -16853,9 +16853,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T18:13:46.026145+00:00",
-    "retry_after": "2026-09-22T18:13:46.026159+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T18:35:09.264927+00:00",
+    "retry_after": "2026-09-25T18:35:09.264943+00:00"
   },
   {
     "name": "Walt Disney's Gyro Gearloose",
@@ -16863,9 +16863,9 @@
     "year": 1962,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T18:13:57.764572+00:00",
-    "retry_after": "2026-09-22T18:13:57.764588+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T18:35:09.679150+00:00",
+    "retry_after": "2026-09-25T18:35:09.679165+00:00"
   },
   {
     "name": "Justice League Adventures [Free Comic Book Day Edition]",
@@ -16873,9 +16873,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T18:14:03.071071+00:00",
-    "retry_after": "2026-09-22T18:14:03.071088+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T18:35:10.211357+00:00",
+    "retry_after": "2026-09-25T18:35:10.211372+00:00"
   },
   {
     "name": "Oliver",
@@ -16896,9 +16896,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T18:15:14.488923+00:00",
-    "retry_after": "2026-09-22T18:15:14.488936+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T18:38:52.910183+00:00",
+    "retry_after": "2026-09-25T18:38:52.910197+00:00"
   },
   {
     "name": "Starman",
@@ -16919,9 +16919,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T18:18:14.732109+00:00",
-    "retry_after": "2026-09-22T18:18:14.732122+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T18:38:53.654749+00:00",
+    "retry_after": "2026-09-25T18:38:53.654765+00:00"
   },
   {
     "name": "The Incredible Hulk",
@@ -20469,23 +20469,6 @@
     "retry_after": "2026-09-23T16:04:44.135248+00:00"
   },
   {
-    "name": "Crimson Letters",
-    "publisher": "Malibu Comics",
-    "year": 1990,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 73327,
-        "name": "Crimson Letters",
-        "publisher": "Adventure",
-        "start_year": 1990
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T17:08:52.597898+00:00",
-    "retry_after": "2026-09-23T17:08:52.597915+00:00"
-  },
-  {
     "name": "Giant-Size Chillers Featuring Curse of Dracula",
     "publisher": "Marvel Comics",
     "year": 1974,
@@ -20741,5 +20724,74 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T18:21:37.427229+00:00",
     "retry_after": "2026-09-23T18:21:37.427243+00:00"
+  },
+  {
+    "name": "Lady Demon Preview Book",
+    "publisher": "Chaos! Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T18:35:17.705102+00:00",
+    "retry_after": "2026-09-23T18:35:17.705118+00:00"
+  },
+  {
+    "name": "Steam Wars #1 FCBD Edition",
+    "publisher": "Antarctic Press",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T18:35:23.576435+00:00",
+    "retry_after": "2026-09-23T18:35:23.576449+00:00"
+  },
+  {
+    "name": "Grimm Fairy Tales Volume 2 #0 Free Comic Book Day Edition",
+    "publisher": "Zenescope Entertainment",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T18:35:28.150367+00:00",
+    "retry_after": "2026-09-23T18:35:28.150381+00:00"
+  },
+  {
+    "name": "Mega Man Timelines",
+    "publisher": "Udon Entertainment Corp.",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T18:35:41.597290+00:00",
+    "retry_after": "2026-09-23T18:35:41.597304+00:00"
+  },
+  {
+    "name": "The Walking Dead",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18166,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2003
+      },
+      {
+        "id": 52411,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2012
+      },
+      {
+        "id": 30345,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T18:45:33.277289+00:00",
+    "retry_after": "2026-09-23T18:45:33.277303+00:00"
   }
 ]

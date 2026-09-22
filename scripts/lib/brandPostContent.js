@@ -141,7 +141,7 @@ async function pickCatalogStats(supabase, seenKeys, recentTopics, dayIndex) {
       headline: `${formatted} ${stat.label}`,
       subtext: "Cataloged and searchable right now. Track your own collection against all of it.",
       accent: ACCENTS.stats,
-      captionBody: `${formatted} ${stat.label} on ComixCatalog — the database is the moat, and it keeps growing.`,
+      captionBody: `${formatted} ${stat.label} in the catalog right now. It grows every night while I sleep, which is the only kind of growth I trust.`,
     };
   }
   return null;

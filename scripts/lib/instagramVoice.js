@@ -72,6 +72,13 @@ export const KEY_ISSUE_BLURBS = {
 // body. Add to the end; the bot posts them in order, one per Brand slot.
 export const PERSONAL_POSTS = [
   {
+    id: "which-number-one",
+    kicker: "Real talk",
+    headline: "Spider-Man has been restarted more times than my router.",
+    subtext: "1963. 1999. 2014. 2018. 2022. All of them are issue #1. Only one is worth a house.",
+    captionBody: "Try buying \"Amazing Spider-Man #1\" without saying which one. 1963? 1999? 2014? 2018? 2022? They are all issue number one, they are not remotely the same book, and the price difference between them is a car. This is the single most annoying thing about collecting a long-running title, and it is the first problem I built ComixCatalog to solve: search a series and you get the runs, grouped, with the start year on each one. Then you click the right one.",
+  },
+  {
     id: "origin-xmen-btas",
     kicker: "Origin story",
     headline: "It was the cartoons.",

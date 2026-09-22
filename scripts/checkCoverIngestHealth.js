@@ -45,50 +45,81 @@ const LOOKBACK_DAYS = lookbackArg ? Number(lookbackArg.split("=")[1]) : 8;
 // count-only queries put `count` on the response object, not `data` — that
 // generic helper returns `data` directly and would silently drop it (same
 // gap hit building generateNightlyCoverReport.js's all-time-total query).
-async function countWithRetry(supabase, since, maxAttempts = 4) {
+// Rewritten 2026-09-22. This used to be an exact COUNT of canonical_covers
+// rows with created_at >= since: a scan of the whole ~122k-row table (no
+// index on created_at), run hourly, immediately after the auto-repair step
+// has just walked the same table. Under load it exceeded the statement
+// timeout twice in one night (03:00 and 06:00 UTC), the error arrived with
+// an empty message ("unknown error"), and the safety net went red for no
+// reason. Exactly the failure mode the comment above warns about.
+//
+// The check does not need a count. It needs "when did the newest cover
+// land": the highest id (PK index, one probe) and its created_at. Stalled
+// means that timestamp is older than the lookback window.
+async function newestCoverWithRetry(supabase, maxAttempts = 4) {
   let lastError = null;
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
-    const { count, error } = await supabase
+    const { data, error } = await supabase
       .from("canonical_covers")
-      .select("id", { count: "exact", head: true })
-      .gte("created_at", since);
-    if (!error) return count;
+      .select("id, created_at")
+      .order("id", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+    if (!error) return data;
     lastError = error;
     if (attempt === maxAttempts) break;
     const backoffMs = [1000, 3000, 8000][attempt - 1] ?? 8000;
     console.error(
       `  ⚠ stall check transient error (attempt ${attempt}/${maxAttempts}): ` +
-        `${error.message || error.code || "unknown error"} — retrying in ${backoffMs}ms`
+        `${describe(error)} — retrying in ${backoffMs}ms`
     );
     await new Promise((r) => setTimeout(r, backoffMs));
   }
   throw lastError;
 }
 
+// PostgREST errors sometimes arrive with an empty message and only a code
+// (57014 = statement timeout). Print everything so the log says what
+// actually happened instead of "unknown error".
+function describe(error) {
+  if (!error) return "unknown error";
+  const parts = [error.code, error.message, error.details, error.hint].filter(Boolean);
+  return parts.length ? parts.join(" | ") : JSON.stringify(error);
+}
+
 async function checkStall() {
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
-  const since = new Date(Date.now() - LOOKBACK_DAYS * 24 * 60 * 60 * 1000).toISOString();
+  const since = Date.now() - LOOKBACK_DAYS * 24 * 60 * 60 * 1000;
 
-  let count;
+  let newest;
   try {
-    count = await countWithRetry(supabase, since);
+    newest = await newestCoverWithRetry(supabase);
   } catch (error) {
-    console.error(
-      "checkCoverIngestHealth (stall): query failed after retries:",
-      error.message || error.code || "unknown error"
-    );
-    process.exit(1);
+    console.error("checkCoverIngestHealth (stall): query failed after retries:", describe(error));
+    // Set the code and return rather than process.exit(1): a hard exit while
+    // the Supabase client's socket is still closing trips a libuv assertion
+    // on Windows and the shell sees 127 instead of 1. Nothing else runs after
+    // this, so letting the process end on its own is equivalent and honest.
+    process.exitCode = 1;
+    return;
   }
 
-  console.log(`New canonical_covers rows in the last ${LOOKBACK_DAYS} days: ${count}`);
-  if (!count || count === 0) {
+  const newestAt = newest?.created_at ? new Date(newest.created_at) : null;
+  const ageHours = newestAt ? ((Date.now() - newestAt.getTime()) / 3600000).toFixed(1) : null;
+  console.log(
+    `Newest canonical_covers row: id ${newest?.id ?? "none"}, created ${newestAt ? newestAt.toISOString() : "never"}` +
+      (ageHours != null ? ` (${ageHours}h ago; window ${LOOKBACK_DAYS * 24}h)` : "")
+  );
+  if (!newestAt || newestAt.getTime() < since) {
     console.error(
-      `\nFAIL: zero new covers in ${LOOKBACK_DAYS} days. This is the exact ` +
+      `
+FAIL: no new covers in ${LOOKBACK_DAYS} day(s). This is the exact ` +
         "failure mode that went unnoticed for weeks in Aug 2026 — check whether " +
         "unpushed fixes are sitting in a branch again, or whether ComicVine/GCD " +
         "rate limits are being hit before any lane makes progress."
     );
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
   console.log("OK: ingest pipeline is producing new covers.");
 }

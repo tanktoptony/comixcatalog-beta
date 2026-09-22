@@ -10646,3 +10646,18 @@ button.nav-link {
   line-height: 1.5;
 }
 .series-collects-list li { margin: 2px 0; }
+
+/* ── Newsletter form message + /newsletter page ────────────────────────── */
+.footer-newsletter-msg {
+  flex-basis: 100%;
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer-newsletter-msg.is-error { color: #ff8a8a; }
+.newsletter-page { max-width: 640px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+.newsletter-page h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; line-height: 1.1; margin: 0 0 1rem; }
+.newsletter-page p { color: var(--cc-text-muted, #a4aebb); line-height: 1.6; margin: 0 0 1rem; }
+.newsletter-page .footer-newsletter-form { margin-top: 1.5rem; max-width: 460px; }
+.newsletter-page .footer-newsletter-input { font-size: 1rem; padding: 12px 14px; }
+.newsletter-page .footer-newsletter-btn { font-size: 1rem; padding: 12px 18px; }

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 // Footer columns. `data-todo` flags the routes that don't exist yet so we
 // can spot them visually during pre-launch QA. Drop the flag once the page
@@ -83,24 +83,6 @@ const SOCIALS = [
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const [newsletter, setNewsletter] = useState({ email: "", state: "idle", message: "" });
-
-  async function subscribe(event) {
-    event.preventDefault();
-    setNewsletter((current) => ({ ...current, state: "busy", message: "" }));
-    try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: newsletter.email }),
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data.error || "Signup failed");
-      setNewsletter({ email: "", state: "done", message: "You're on the list—welcome." });
-    } catch (error) {
-      setNewsletter((current) => ({ ...current, state: "error", message: error.message }));
-    }
-  }
 
   return (
     <footer className="site-footer">
@@ -121,13 +103,18 @@ export default function Footer() {
             </nav>
           ))}
 
-          {/* 4th column: socials. Newsletter signup form hidden (not
-              deleted) — it promised monthly emails but no email-sending
-              infra exists yet to ever honor that promise. /api/newsletter
-              and the newsletter_subscribers table are untouched, so the
-              form can come back once real sending is wired up. */}
+          {/* 4th column: newsletter + socials. The form was hidden from
+              2026-08 until sending existed; scripts/sendNewsletter.js and
+              the unsubscribe route landed 2026-09-22, so it is back. */}
           <div className="footer-col footer-col-newsletter">
-            <h3 className="footer-col-title">Follow</h3>
+            <h3 className="footer-col-title">Newsletter</h3>
+            <p className="footer-newsletter-blurb">
+              What got added, what got fixed, and which books to go find.
+              Every few weeks, from the guy who builds this. No spam, one-click out.
+            </p>
+            <NewsletterSignup source="footer" compact />
+
+            <h3 className="footer-col-title" style={{ marginTop: "18px" }}>Follow</h3>
 
             <div className="footer-socials" aria-label="Follow ComixCatalog">
               {SOCIALS.map((s) => (

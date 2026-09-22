@@ -16978,9 +16978,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T19:00:49.768344+00:00",
-    "retry_after": "2026-09-22T19:00:49.768359+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T19:00:50.559250+00:00",
+    "retry_after": "2026-09-25T19:00:50.559284+00:00"
   },
   {
     "name": "Hasbro / Infinity Gauntlet",
@@ -17082,9 +17082,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T19:03:15.317018+00:00",
-    "retry_after": "2026-09-22T19:03:15.317034+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T19:03:38.908708+00:00",
+    "retry_after": "2026-09-25T19:03:38.908724+00:00"
   },
   {
     "name": "Simpsons Comics",
@@ -17105,9 +17105,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T19:03:15.369592+00:00",
-    "retry_after": "2026-09-22T19:03:15.369601+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T19:03:38.957600+00:00",
+    "retry_after": "2026-09-25T19:03:38.957616+00:00"
   },
   {
     "name": "X-Men",
@@ -20793,5 +20793,175 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T18:45:33.277289+00:00",
     "retry_after": "2026-09-23T18:45:33.277303+00:00"
+  },
+  {
+    "name": "King of the Royal Mounted in Arctic Law",
+    "publisher": "Gold Key",
+    "year": 1937,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T19:01:26.698655+00:00",
+    "retry_after": "2026-09-23T19:01:26.698673+00:00"
+  },
+  {
+    "name": "True Believers: X-Men - Pyro",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T19:03:24.869722+00:00",
+    "retry_after": "2026-09-23T19:03:24.869736+00:00"
+  },
+  {
+    "name": "Batman: Arkham Knight: Batgirl & Harley Quinn",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T19:03:25.325827+00:00",
+    "retry_after": "2026-09-23T19:03:25.325843+00:00"
+  },
+  {
+    "name": "The Incredible Hulk",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 6558,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2000
+      },
+      {
+        "id": 2406,
+        "name": "The Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 1968
+      },
+      {
+        "id": 43516,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 2077,
+        "name": "The Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 1962
+      },
+      {
+        "id": 151522,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 24715,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 105325,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 156186,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T19:03:39.011614+00:00",
+    "retry_after": "2026-09-23T19:03:39.011626+00:00"
+  },
+  {
+    "name": "War Stories",
+    "publisher": "Avatar Press",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 77488,
+        "name": "War Stories",
+        "publisher": "Avatar Press",
+        "start_year": 2014
+      },
+      {
+        "id": 83843,
+        "name": "War Stories",
+        "publisher": "Avatar Press",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T19:06:02.727598+00:00",
+    "retry_after": "2026-09-23T19:06:02.727614+00:00"
+  },
+  {
+    "name": "Ultimates",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 158414,
+        "name": "Ultimates",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 18327,
+        "name": "The Ultimates",
+        "publisher": "Marvel",
+        "start_year": 2002
+      },
+      {
+        "id": 85972,
+        "name": "Ultimates",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 26942,
+        "name": "The Ultimates",
+        "publisher": "Marvel",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T19:06:45.060133+00:00",
+    "retry_after": "2026-09-23T19:06:45.060149+00:00"
+  },
+  {
+    "name": "Spooky",
+    "publisher": "Harvey Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 33716,
+        "name": "Spooky",
+        "publisher": "Harvey",
+        "start_year": 1991
+      },
+      {
+        "id": 30145,
+        "name": "Spooky",
+        "publisher": "Harvey",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T19:07:28.348432+00:00",
+    "retry_after": "2026-09-23T19:07:28.348447+00:00"
   }
 ]

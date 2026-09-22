@@ -56,15 +56,42 @@ jobs:
 
       # Shared pins first; once that backlog reports 0 remaining, this same
       # invocation is a no-op and the second step takes over.
-      # Exit code 3 = GCD said 429. continue-on-error keeps the job green
-      # (being rate-limited is expected, not a failure) and the next step's
-      # condition keeps us from calling GCD again inside its Retry-After.
+      #
+      # Exit 3 = GCD said 429, which is expected and not a failure, so it is
+      # translated to 0 and recorded as `ratelimited` so the next step knows
+      # not to call GCD again inside the Retry-After. Every other non-zero
+      # exit is a real failure and must go red.
+      #
+      # This used to be a blanket `continue-on-error: true`, which swallowed
+      # exit 1 as well. Live 2026-09-22: every run since the job was created
+      # died on a statement timeout building the candidate list, reported
+      # green, and synced 0 rows — so the collected-edition work that depends
+      # on this data was inert for a day with a green checkmark over it.
       - name: Sync format for series sharing a ComicVine pin
         id: pins
-        run: node scripts/syncGcdSeriesFormat.js --source=${{ github.event.inputs.source || 'shared-pins' }} --limit=${{ github.event.inputs.limit || '60' }}
-        continue-on-error: true
+        run: |
+          set +e
+          node scripts/syncGcdSeriesFormat.js \
+            --source=${{ github.event.inputs.source || 'shared-pins' }} \
+            --limit=${{ github.event.inputs.limit || '60' }}
+          code=$?
+          set -e
+          if [ "$code" -eq 3 ]; then
+            echo "GCD rate-limited this run (expected). Stopping without calling GCD again."
+            echo "ratelimited=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          exit "$code"
 
       - name: Sync format for duplicate-title series (after shared pins are done)
-        if: ${{ github.event_name == 'schedule' && steps.pins.outcome == 'success' }}
-        run: node scripts/syncGcdSeriesFormat.js --source=dup-titles --limit=20
-        continue-on-error: true
+        if: ${{ github.event_name == 'schedule' && steps.pins.outputs.ratelimited != 'true' }}
+        run: |
+          set +e
+          node scripts/syncGcdSeriesFormat.js --source=dup-titles --limit=20
+          code=$?
+          set -e
+          if [ "$code" -eq 3 ]; then
+            echo "GCD rate-limited this run (expected)."
+            exit 0
+          fi
+          exit "$code"

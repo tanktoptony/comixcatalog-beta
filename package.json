@@ -11,6 +11,7 @@
     "lint": "eslint",
     "test:cover-match": "node --test src/lib/coverMatch.test.js",
     "test:smoke": "node --test tests/smoke.test.js",
+    "test:format-sync": "node --test scripts/syncGcdSeriesFormat.test.js",
     "docs:check": "node scripts/checkDocLinks.js",
     "data:plan-comics-gcd-dedupe": "node --max-old-space-size=2048 scripts/planComicsGcdDedupe.js",
     "covers:gap-priority": "node scripts/generatePriorityCoverTargets.js",

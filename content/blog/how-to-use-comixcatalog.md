@@ -1,10 +1,10 @@
 ---
-title: How to use ComixCatalog (five minutes, with pictures)
+title: How to use ComixCatalog
 slug: how-to-use-comixcatalog
-excerpt: Search a series, click into the run, mark what you own and what you are hunting, and let your profile do the bragging. A walk through the site in five screenshots.
+excerpt: Search a series, click into the run, mark what you own and what you are hunting, and let your profile do the bragging. A walk through the whole site.
 ---
 
-I built this thing and I still forget features exist, so here is the tour I would give a friend. Five minutes, five screenshots, no jargon.
+I built this thing and I still forget features exist, so here is the tour I would give a friend. Five minutes, no jargon.
 
 ## 1. Search for a series, not an issue
 

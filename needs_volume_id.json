@@ -19155,5 +19155,62 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T03:45:13.240650+00:00",
     "retry_after": "2026-09-23T03:45:13.240669+00:00"
+  },
+  {
+    "name": "You're On Your Own, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T04:00:49.438938+00:00",
+    "retry_after": "2026-09-23T04:00:49.438957+00:00"
+  },
+  {
+    "name": "Superman by Geoff Johns and John Romita Jr. Director's Cut",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T04:00:54.502679+00:00",
+    "retry_after": "2026-09-23T04:00:54.502697+00:00"
+  },
+  {
+    "name": "Crimson Letters",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73327,
+        "name": "Crimson Letters",
+        "publisher": "Adventure",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T04:00:54.987939+00:00",
+    "retry_after": "2026-09-23T04:00:54.987956+00:00"
+  },
+  {
+    "name": "Giant-Size Creatures Featuring Werewolf",
+    "publisher": "Marvel Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T04:00:55.322745+00:00",
+    "retry_after": "2026-09-23T04:00:55.322762+00:00"
+  },
+  {
+    "name": "Radio Funnies [ashcan]",
+    "publisher": "DC Comics",
+    "year": 1939,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T04:02:35.237454+00:00",
+    "retry_after": "2026-09-23T04:02:35.237471+00:00"
   }
 ]

@@ -19592,5 +19592,288 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T06:01:54.154681+00:00",
     "retry_after": "2026-09-23T06:01:54.154700+00:00"
+  },
+  {
+    "name": "Creed: Use Your Delusion Collected Edition",
+    "publisher": "Avatar Press",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:00:47.646846+00:00",
+    "retry_after": "2026-09-23T07:00:47.646863+00:00"
+  },
+  {
+    "name": "The Unbeatable Squirrel Girl: You Choose the Story Halloween Comic Fest 2016",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:00:48.356075+00:00",
+    "retry_after": "2026-09-23T07:00:48.356092+00:00"
+  },
+  {
+    "name": "Ultimate Spider-Man Vol. 1 No. 8 [Mad Engine Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:00:48.729183+00:00",
+    "retry_after": "2026-09-23T07:00:48.729200+00:00"
+  },
+  {
+    "name": "Batman / Catwoman: The Gotham War: Prelude 1 Batman Day Special Edition",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:00:49.590424+00:00",
+    "retry_after": "2026-09-23T07:00:49.590440+00:00"
+  },
+  {
+    "name": "Batman '66 Meets the Legion of Super-Heroes",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 102083,
+        "name": "Batman '66 Meets the Legion of Super-Heroes",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 102885,
+        "name": "Batman '66 Meets the Legion of Super-Heroes",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:00:56.775190+00:00",
+    "retry_after": "2026-09-23T07:00:56.775206+00:00"
+  },
+  {
+    "name": "Thor: God of Thunder 1 Halloween Comic Fest 2013",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:00:57.234391+00:00",
+    "retry_after": "2026-09-23T07:00:57.234408+00:00"
+  },
+  {
+    "name": "The Punisher: War Zone [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:00:57.762934+00:00",
+    "retry_after": "2026-09-23T07:00:57.762949+00:00"
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World San Jose Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:01:03.123109+00:00",
+    "retry_after": "2026-09-23T07:01:03.123125+00:00"
+  },
+  {
+    "name": "Queen & Country [Free Comic Book Day Edition]",
+    "publisher": "Oni Press",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:01:38.756480+00:00",
+    "retry_after": "2026-09-23T07:01:38.756496+00:00"
+  },
+  {
+    "name": "G.I. Joe: The Best of Storm Shadow",
+    "publisher": "IDW Publishing",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:01:39.208900+00:00",
+    "retry_after": "2026-09-23T07:01:39.208916+00:00"
+  },
+  {
+    "name": "Ultimates",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 158414,
+        "name": "Ultimates",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 18327,
+        "name": "The Ultimates",
+        "publisher": "Marvel",
+        "start_year": 2002
+      },
+      {
+        "id": 85972,
+        "name": "Ultimates",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 26942,
+        "name": "The Ultimates",
+        "publisher": "Marvel",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:02:57.638640+00:00",
+    "retry_after": "2026-09-23T07:02:57.638655+00:00"
+  },
+  {
+    "name": "Transformers",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 153968,
+        "name": "Transformers",
+        "publisher": "Image",
+        "start_year": 2023
+      },
+      {
+        "id": 158825,
+        "name": "Transformers",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:03:55.297225+00:00",
+    "retry_after": "2026-09-23T07:03:55.297240+00:00"
+  },
+  {
+    "name": "Thor",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2294,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 1966
+      },
+      {
+        "id": 166460,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 6226,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 123862,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 18831,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2007
+      },
+      {
+        "id": 111590,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 31184,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 77223,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:04:56.357571+00:00",
+    "retry_after": "2026-09-23T07:04:56.357586+00:00"
+  },
+  {
+    "name": "X-Force",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4604,
+        "name": "X-Force",
+        "publisher": "Marvel",
+        "start_year": 1991
+      },
+      {
+        "id": 20511,
+        "name": "X-Force",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 71614,
+        "name": "X-Force",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 159110,
+        "name": "X-Force",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 122668,
+        "name": "X-Force",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 116161,
+        "name": "X-Force",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 10761,
+        "name": "X-Force",
+        "publisher": "Marvel",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T07:04:56.912925+00:00",
+    "retry_after": "2026-09-23T07:04:56.912938+00:00"
   }
 ]

@@ -1,0 +1,70 @@
+name: GCD series format sync
+
+# Fills gcd_series.publishing_format / binding / format_notes (migration 0028)
+# from GCD's live API, so collected editions can be told apart from the runs
+# they collect. See scripts/syncGcdSeriesFormat.js and src/lib/seriesFormat.js.
+#
+# GCD rate-limits hard (429 after well under 100 requests, Retry-After of
+# minutes), so each run does a small batch and the script stops itself on
+# 429. Four runs a day x 60 rows clears the shared-pins backlog (~1,600
+# rows) in about a week, then moves on to the duplicate-title backlog
+# (~52k rows, months). The schedule is deliberately off the hour so it never
+# lines up with cover-ingest, gap-probe or gcd-issue-refresh.
+#
+# After the shared-pins backlog is synced, run
+#   node scripts/unpinCollectedEditions.js --apply
+# once by hand (it prints a plan first without --apply).
+
+on:
+  schedule:
+    - cron: '25 3,9,15,21 * * *'
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'shared-pins (default) or dup-titles'
+        required: false
+        default: 'shared-pins'
+      limit:
+        description: 'rows per run (keep under GCD rate limit)'
+        required: false
+        default: '60'
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    concurrency:
+      group: gcd-api
+      cancel-in-progress: false
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm ci --no-audit --no-fund
+
+      # Shared pins first; once that backlog reports 0 remaining, this same
+      # invocation is a no-op and the second step takes over.
+      # Exit code 3 = GCD said 429. continue-on-error keeps the job green
+      # (being rate-limited is expected, not a failure) and the next step's
+      # condition keeps us from calling GCD again inside its Retry-After.
+      - name: Sync format for series sharing a ComicVine pin
+        id: pins
+        run: node scripts/syncGcdSeriesFormat.js --source=${{ github.event.inputs.source || 'shared-pins' }} --limit=${{ github.event.inputs.limit || '60' }}
+        continue-on-error: true
+
+      - name: Sync format for duplicate-title series (after shared pins are done)
+        if: ${{ github.event_name == 'schedule' && steps.pins.outcome == 'success' }}
+        run: node scripts/syncGcdSeriesFormat.js --source=dup-titles --limit=20
+        continue-on-error: true

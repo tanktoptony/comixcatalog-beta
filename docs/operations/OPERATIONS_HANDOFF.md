@@ -360,8 +360,96 @@ worth more.
 (unspecified — ask), blog cadence, marketing calendar, ads. None audited or
 planned.
 
+**Collected editions (2026-09-21):** GCD has separate series records for a run and its trade paperbacks, same name. 616 ComicVine volumes are pinned by more than one `series` row, mostly this pattern; the TPB row shows the monthly's cover and issue count in search and lands users on a page with no covers (Fables). Fix shipped as migration 0028 + `syncGcdSeriesFormat.js` (throttled GCD API, `gcd-series-format-sync.yml` runs it 4x/day) + `unpinCollectedEditions.js` (run by hand once the shared-pins backlog is synced, dry-run first) + read-path guards. `src/app/api/comics/route.js:182` still has an unpaginated `gcd_issues` `.in()` of the same shape that bit `repairAllCoverSeriesLinks.js`.
+
 **Known open, not started:** consolidating the ten remaining `fetchAllPages`
 copies; the mid-run title-split attribution problem (see
 `docs/cover-ingestion-next-steps.md` §8, worked example Rai); roughly 800
 unresolvable ingest targets needing manual `--volume-id` pinning; the
 publisher-mismatch backlog.
+
+---
+
+## 9. Open work, consolidated (end of 2026-09-21)
+
+Everything agreed with the founder today, in one place. Founder decisions
+that day: primary user is the **run completer / hunter**; voice is **"fan
+with some knowledge"** in the founder's own register (a little sarcastic,
+good natured, funny; his Feb-2026 blog posts are the reference); social
+means follow + activity feed, compare/compete, and talk (not shareable
+cards).
+
+### Data integrity (covers)
+
+1. **Every issue in a user's library must have its cover.** The 97.28%
+   user-collected figure hides classes of miss. Found live on
+   `/u/treystyles`: *The Transformers Universe* (GCD 11216, pinned to the
+   wrong ComicVine volume 20559) shows no covers while the 4 real covers sit
+   on the duplicate GCD record *Transformers Universe* (199403, volume
+   33530). The title-path lookup is an exact string match, so a leading
+   "The" defeats it. Fix candidates: normalise leading articles in the
+   title path (`src/app/api/issues/[id]`, `src/app/api/series/[id]`,
+   `refreshSeriesSearchCache.js`), and have the user-collected gap lane
+   verify a cover actually resolves for each library issue instead of
+   trusting the pin. Then re-measure with a "resolves on the page" check,
+   not a row count.
+2. **Collected editions** (this PR): after migration 0028 is applied and
+   `gcd-series-format-sync.yml` has walked the shared-pins backlog (~1 week
+   at 4x60/day), run `node scripts/unpinCollectedEditions.js` (dry run,
+   read the plan, then `--apply`). Then the dup-titles backlog (months).
+3. **616 volumes pinned by more than one series row.** Item 2 handles the
+   collected-edition share; the remainder are wrong pins of the
+   Transformers Universe kind and need a pin audit (year + issue-count
+   sanity vs the ComicVine volume).
+4. `src/app/api/comics/route.js:182`: unpaginated `gcd_issues` `.in()`, the
+   same shape that produced the repair-script ping-pong. Consolidate on
+   `src/lib/supabase/fetchAllPages.js` (add keyset mode there too).
+5. Re-measure LAUNCH_CHECKLIST's "2,783 ambiguous volumes": that number came
+   from the truncated instrument. `repairAllCoverSeriesLinks.js --dry-run
+   --plan-json=plan.json` is the honest measurement now (789 no-candidate,
+   74 ambiguous, 89 held by the same-year guard on 2026-09-21).
+
+### Growth (order agreed with the founder)
+
+6. **Email provider**: Resend key is in `.env.local` (`RESEND_API_KEY`,
+   `RESEND_FROM_EMAIL`, documented in `.env.example`). Still needed: verify
+   `comixcatalog.com` as a sending domain in Resend (DNS records), add the
+   key to GitHub secrets + Vercel, build the send job (GitHub Actions, honour
+   `unsubscribed_at`, one-click unsubscribe), re-show the newsletter form
+   with `source` tagging, add a newsletter creative to
+   `src/lib/houseAds.js`.
+7. **Instagram bot rewrite.** Current output (random cover + ComicVine
+   solicit blurb + "Est. cover-price floor: $3.50" + generic CTA) rejected
+   by the founder as "the same bland post template". Also: a brand card
+   says "the database is the moat" on a public post; a "New to the Catalog"
+   post featured a trade collection. Rewrite around *why this book
+   matters* (key issues, first appearances, creator runs, arcs, "cost to
+   complete" hooks), in the founder's voice. Files:
+   `scripts/instagramBot.js`, `scripts/previewInstagramQueue.js`,
+   `docs/instagram-bot-plan.md`.
+8. **Blog, reader-facing cadence.** Founder wants: (a) how-to-use-the-site
+   posts with screenshots; (b) how to get into / back into comics (his own
+   story: asked a Graham Crackers Comics clerk, got pointed at House of M,
+   loved it); (c) hunter angles ("what it costs to complete X", "cheapest
+   way into Y"). Blog posts live in `blog_posts` (publish via
+   `scripts/publishBlogPost.js`); reading guides in
+   `src/app/reads/articles.js`.
+9. **Positioning brief** (one page) from the founder's answers above, then
+   scope the collection-insights + social features: cost to complete,
+   cheapest path, paid vs worth, upgrade candidates, publisher/era/creator
+   fingerprint, streaks; follow/feed, compare, talk.
+10. **Ads**: house-ad slots are live (#95). No AdSense until traffic
+    justifies it and the upgrade-page "no ads" copy decision is made on
+    purpose. Direct sponsorship is the goal once GA shows real numbers.
+11. **Watch the instruments**: Search Console indexed-page count and crawl
+    requests (baseline 138 / 90 days), GA4 Realtime for the funnel events,
+    `house_ad_view`/`house_ad_click` CTR per creative.
+
+### Housekeeping
+
+12. Leftover QA test account `oauthfixver178927334` (1d9fad1a…): founder
+    runs `node scripts/deleteTestAccount.js <id> --apply`. Rule going
+    forward: a QA pass deletes its own test accounts and proves it with a
+    query.
+13. Handoff §7's "#89 only provable at the next Mon/Thu 08:00 window" is
+    still open: check the collision did not recur.

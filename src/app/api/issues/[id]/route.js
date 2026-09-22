@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "@/lib/publisher";
 import { getAuthedUser } from "@/lib/authServer";
+import { formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
 
 // Volume-disambiguation tolerance. canonical_covers is keyed only by
 // (series_title, issue_number), so "Teenage Mutant Ninja Turtles" #2 exists
@@ -37,7 +38,8 @@ async function fetchCanonicalMatch(
   targetYear,
   seriesYearMin = null,
   seriesYearMax = null,
-  seriesGcdId = null
+  seriesGcdId = null,
+  allowTitlePath = true
 ) {
   // ID path first: covers tagged with this gcd_series win every time, even
   // when CV's series_title differs from GCD's (e.g. CV "The Maxx" vs GCD
@@ -56,7 +58,10 @@ async function fetchCanonicalMatch(
     if (bestById) return bestById;
   }
 
-  if (!seriesTitle) return { storage_path: null, publisher: null };
+  // Collected editions (trade paperbacks, hardcovers) share a title with the
+  // run they collect, so the title path would hand TPB #1 the monthly #1's
+  // cover (Fables, 2026-09-21). Their covers only ever come via the ID path.
+  if (!seriesTitle || !allowTitlePath) return { storage_path: null, publisher: null };
 
   const { data: exactRows } = await supabase
     .from("canonical_covers")
@@ -284,7 +289,7 @@ export async function GET(req, context) {
         return NextResponse.json({ error: "Issue not found" }, { status: 404 });
       }
 
-      const [seriesResult, gcdSeriesResult] = await Promise.all([
+      const [seriesResult, gcdSeriesResult, gcdFormatResult] = await Promise.all([
         supabase
           .from("series")
           .select(`
@@ -309,10 +314,20 @@ export async function GET(req, context) {
           .select("publisher_gcd_id")
           .eq("gcd_id", issue.series_gcd_id)
           .single(),
+        // Publishing format (migration 0028). Queried separately from the
+        // publisher lookup above so a missing column (migration not applied
+        // yet) degrades to "unknown format", not to a lost publisher.
+        supabase
+          .from("gcd_series")
+          .select("publishing_format, binding")
+          .eq("gcd_id", issue.series_gcd_id)
+          .maybeSingle(),
       ]);
 
       const seriesRow = seriesResult.data;
       const seriesLevelPublisherGcdId = gcdSeriesResult.data?.publisher_gcd_id ?? null;
+      const seriesFormat = gcdFormatResult.error ? null : gcdFormatResult.data;
+      const collectedEdition = isCollectedEdition(seriesFormat ?? {});
 
       const publisherIdsToFetch = [
         ...new Set(
@@ -396,7 +411,8 @@ export async function GET(req, context) {
         issueYear,
         seriesYearMin,
         seriesYearMax,
-        issue.series_gcd_id
+        issue.series_gcd_id,
+        !collectedEdition
       );
 
       // Prefer the precomputed cached value — same posture as the series route
@@ -554,6 +570,7 @@ export async function GET(req, context) {
           source: "gcd",
           series_id: seriesId,
           series_title: seriesTitle,
+          series_format: formatLabel(seriesFormat ?? {}),
           issue_number: issue.issue_number,
           release_year: bestYearFor(issue),
           publication_date: issue.publication_date ?? null,

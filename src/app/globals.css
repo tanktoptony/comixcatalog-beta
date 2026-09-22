@@ -10633,3 +10633,16 @@ button.nav-link {
   }
   .ad-slot-headline { font-size: 1rem; }
 }
+
+/* ── Series format badge + collected-edition notes ─────────────────────── */
+.pill-format {
+  border-color: rgba(244, 208, 63, 0.45);
+  color: var(--x-gold, #f4d03f);
+}
+.series-collects-list {
+  margin: 0 0 12px 1.1rem;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.series-collects-list li { margin: 2px 0; }

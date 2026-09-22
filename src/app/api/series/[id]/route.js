@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "@/lib/publisher";
 import { stripPunctuation } from "@/lib/titleMatch";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
+import { collectsLines, formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
 
 function parseYear(value) {
   if (!value) return null;
@@ -182,7 +183,7 @@ export async function GET(req, context) {
       });
     }
 
-    const [issuesResult, gcdSeriesResult] = await Promise.all([
+    const [issuesResult, gcdSeriesResult, gcdFormatResult] = await Promise.all([
       supabase
         .from("gcd_issues")
         .select(`
@@ -204,10 +205,22 @@ export async function GET(req, context) {
         .select("publisher_gcd_id")
         .eq("gcd_id", series.gcd_id)
         .single(),
+      // Publishing format (migration 0028), queried on its own so a missing
+      // column degrades to "unknown format" rather than losing the publisher.
+      supabase
+        .from("gcd_series")
+        .select("publishing_format, binding, format_notes")
+        .eq("gcd_id", series.gcd_id)
+        .maybeSingle(),
     ]);
 
     const { data: issues, error: issuesError } = issuesResult;
     const seriesLevelPublisherGcdId = gcdSeriesResult.data?.publisher_gcd_id ?? null;
+    const seriesFormat = gcdFormatResult.error ? null : gcdFormatResult.data;
+    // Collected editions share a title with the run they collect, so the
+    // title-keyed cover lookups below would hand them the monthly's art.
+    // Their covers come through series_gcd_id or not at all.
+    const collectedEdition = isCollectedEdition(seriesFormat ?? {});
 
     if (issuesError) {
       console.error("GET /api/series/[id] gcd issues failed:", issuesError);
@@ -286,7 +299,7 @@ export async function GET(req, context) {
             .eq("series_gcd_id", series.gcd_id)
         );
       }
-      if (series.title) {
+      if (series.title && !collectedEdition) {
         queries.push(() =>
           supabase
             .from("canonical_covers")
@@ -484,6 +497,8 @@ export async function GET(req, context) {
         year_start: fullYearStart,
         year_end: fullYearEnd,
         featured_cover: featuredCover,
+        format_label: formatLabel(seriesFormat ?? {}),
+        collects: collectedEdition ? collectsLines(seriesFormat?.format_notes) : [],
         issues: mappedIssues,
       },
     });

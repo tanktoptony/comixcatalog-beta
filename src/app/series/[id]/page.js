@@ -226,13 +226,35 @@ export default function SeriesPage() {
               }}
             >
               <span className="pill">Series Page</span>
-              <span className="pill">Canonical Run</span>
+              {series.format_label ? (
+                <span className="pill pill-format">{series.format_label}</span>
+              ) : (
+                <span className="pill">Canonical Run</span>
+              )}
             </div>
 
-            <p className="muted" style={{ maxWidth: "760px" }}>
-              Browse the run, jump into exact issues, and eventually compare copies
-              for sale tied to the canonical issue page.
-            </p>
+            {series.collects?.length > 0 ? (
+              // Collected edition: say what each volume collects (from GCD's
+              // series notes) instead of the generic run blurb. Covers for
+              // these come from their own ComicVine volume or not at all;
+              // they never borrow the monthly's art.
+              <div className="series-collects muted" style={{ maxWidth: "760px" }}>
+                <p style={{ marginBottom: "6px" }}>
+                  This is a collected edition. Each volume collects issues of the
+                  ongoing series:
+                </p>
+                <ul className="series-collects-list">
+                  {series.collects.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <p className="muted" style={{ maxWidth: "760px" }}>
+                Browse the run, jump into exact issues, and eventually compare copies
+                for sale tied to the canonical issue page.
+              </p>
+            )}
           </div>
         </div>
 

@@ -20634,5 +20634,112 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T17:18:34.658653+00:00",
     "retry_after": "2026-09-23T17:18:34.658668+00:00"
+  },
+  {
+    "name": "DCE Essentials: The Sandman",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T18:09:18.342208+00:00",
+    "retry_after": "2026-09-23T18:09:18.342224+00:00"
+  },
+  {
+    "name": "Marvel Super Hero Adventures: Captain Marvel - Frost Giants Among Us!",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T18:10:42.463914+00:00",
+    "retry_after": "2026-09-23T18:10:42.463932+00:00"
+  },
+  {
+    "name": "Walking Dead",
+    "publisher": "Image Comics",
+    "year": 2010,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18166,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2003
+      },
+      {
+        "id": 52411,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2012
+      },
+      {
+        "id": 30345,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T18:12:54.842604+00:00",
+    "retry_after": "2026-09-23T18:12:54.842620+00:00"
+  },
+  {
+    "name": "Walking Dead",
+    "publisher": "Image Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18166,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2003
+      },
+      {
+        "id": 52411,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2012
+      },
+      {
+        "id": 30345,
+        "name": "The Walking Dead",
+        "publisher": "Image",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T18:15:12.200134+00:00",
+    "retry_after": "2026-09-23T18:15:12.200147+00:00"
+  },
+  {
+    "name": "Lone Ranger",
+    "publisher": "Dynamite Entertainment",
+    "year": 1960,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 19140,
+        "name": "The Lone Ranger",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2006
+      },
+      {
+        "id": 44895,
+        "name": "The Lone Ranger",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2012
+      },
+      {
+        "id": 114068,
+        "name": "The Lone Ranger",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T18:21:37.427229+00:00",
+    "retry_after": "2026-09-23T18:21:37.427243+00:00"
   }
 ]

@@ -19485,5 +19485,112 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T05:13:14.460787+00:00",
     "retry_after": "2026-09-23T05:13:14.460804+00:00"
+  },
+  {
+    "name": "Mickey's Dog Pluto All Picture Comics [A Tall Comic Book]",
+    "publisher": "Gold Key",
+    "year": 1943,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T06:00:49.211825+00:00",
+    "retry_after": "2026-09-23T06:00:49.211847+00:00"
+  },
+  {
+    "name": "True Believers: Wolverine -- The Dying Game",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T06:00:54.038667+00:00",
+    "retry_after": "2026-09-23T06:00:54.038690+00:00"
+  },
+  {
+    "name": "Dennis the Menace and Poor Ol' Mr. Wilson",
+    "publisher": "Fawcett Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T06:00:54.472678+00:00",
+    "retry_after": "2026-09-23T06:00:54.472697+00:00"
+  },
+  {
+    "name": "World Wrestling Federation Ultimate Warrior's Workout",
+    "publisher": "Valiant Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T06:01:47.013489+00:00",
+    "retry_after": "2026-09-23T06:01:47.013509+00:00"
+  },
+  {
+    "name": "Dan Dare Complete Collection",
+    "publisher": "Titan Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T06:01:47.532623+00:00",
+    "retry_after": "2026-09-23T06:01:47.532640+00:00"
+  },
+  {
+    "name": "The Walking Dead #1 Amazing Arizona Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T06:01:53.435346+00:00",
+    "retry_after": "2026-09-23T06:01:53.435364+00:00"
+  },
+  {
+    "name": "Astonishing X-Men",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 102882,
+        "name": "Astonishing X-Men",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 5536,
+        "name": "Astonishing X-Men",
+        "publisher": "Marvel",
+        "start_year": 1995
+      },
+      {
+        "id": 30217,
+        "name": "Astonishing X-Men",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 59353,
+        "name": "Astonishing X-Men",
+        "publisher": "Marvel",
+        "start_year": 1995
+      },
+      {
+        "id": 10746,
+        "name": "Astonishing X-Men",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 18027,
+        "name": "Astonishing X-Men",
+        "publisher": "Marvel",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T06:01:54.154681+00:00",
+    "retry_after": "2026-09-23T06:01:54.154700+00:00"
   }
 ]

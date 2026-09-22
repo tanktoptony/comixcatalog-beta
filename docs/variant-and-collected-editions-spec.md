@@ -87,6 +87,8 @@ Scope this small for v1, per the founder's original ask ("click an issue, choose
 
 ## 2. Workstream B — Collected Editions
 
+> **Status 2026-09-21:** the "no reliable signal" premise behind 2b2's manual CSV review is gone. GCD's series API returns `publishing_format` ("collected edition" vs "was ongoing series") and `binding`, and its notes say what each volume collects. Migration `0028_gcd_series_format.sql` mirrors those onto `gcd_series`; `scripts/syncGcdSeriesFormat.js` fills them (throttled, via `.github/workflows/gcd-series-format-sync.yml`); `src/lib/seriesFormat.js` is the one classifier; `scripts/unpinCollectedEditions.js` clears collected-edition rows off ComicVine pins they share with a real run. `/api/series/[id]` and `/api/issues/[id]` no longer give a collected edition a same-titled monthly's cover by title, and the series page shows a format badge plus the "collects #x-y" lines. `series_relationships` (2b2) is still the right model for a *structural* parent link; the notes text is display-only until then.
+
 Kept structurally separate from Workstream A per the context doc's own §3 table — different cardinality, different data source, different UI. Two sub-phases, sequenced independently because B1 is materially lower-risk and ships value (findability) without waiting on B2's schema/judgment work.
 
 ### 2b1. Search-ranking fix (ships first, no schema change)

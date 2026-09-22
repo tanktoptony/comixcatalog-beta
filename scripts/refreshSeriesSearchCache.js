@@ -18,6 +18,7 @@ import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "../src/lib/publisher.js";
 import { getSeriesOverride } from "../src/lib/seriesOverrides.js";
 import { normTitle, stripPunctuation } from "../src/lib/titleMatch.js";
+import { isCollectedEdition } from "../src/lib/seriesFormat.js";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -275,10 +276,30 @@ function normalizePublisherForMatch(value) {
     .replace(/[^a-z0-9]/g, "");
 }
 
+// gcd_series.publishing_format (migration 0028) for a batch, keyed by gcd_id.
+// A collected edition (trade paperback, hardcover) must never receive a
+// same-titled monthly's cover through the Tier 3 title fallback below: that
+// is exactly how the Fables TPB series got a monthly thumbnail and
+// outranked the real run in search (2026-09-21). Tolerates the column not
+// existing yet (returns an empty map, i.e. nothing is treated as collected).
+async function fetchCollectedFlags(gcdIds) {
+  const flags = new Map();
+  for (let i = 0; i < gcdIds.length; i += 500) {
+    const { data, error } = await supabase
+      .from("gcd_series")
+      .select("gcd_id, publishing_format, binding")
+      .in("gcd_id", gcdIds.slice(i, i + 500));
+    if (error) return flags;
+    for (const row of data ?? []) flags.set(row.gcd_id, isCollectedEdition(row));
+  }
+  return flags;
+}
+
 async function processBatch(seriesBatch) {
   if (seriesBatch.length === 0) return 0;
 
   const seriesGcdIds = seriesBatch.map((s) => s.gcd_id);
+  const collectedFlags = await fetchCollectedFlags(seriesGcdIds);
   const seriesTitles = [
     ...new Set(seriesBatch.map((s) => s.title).filter(Boolean)),
   ];
@@ -746,6 +767,7 @@ async function processBatch(seriesBatch) {
       coverCandidates,
       idPool,
       fallbackPool,
+      collectedEdition: collectedFlags.get(series.gcd_id) === true,
     };
   });
 
@@ -769,7 +791,7 @@ async function processBatch(seriesBatch) {
     const claimed = new Set();
 
     for (const entry of chronological) {
-      const { yearStart, yearEnd, resolvedPublisher, idPool, fallbackPool } = entry;
+      const { yearStart, yearEnd, resolvedPublisher, idPool, fallbackPool, collectedEdition } = entry;
       const normPub = normalizePublisherForMatch(resolvedPublisher);
       // Tier 1+2 pool: covers attributed to this series row by
       // series_gcd_id or comicvine_volume_id. Built in Phase 1.
@@ -842,7 +864,8 @@ async function processBatch(seriesBatch) {
       // already names a series_gcd_id belongs to that series, and giving it
       // to a same-titled sibling is the bug this whole change exists to fix.
       // Year fit is still bounded below.
-      if (!bestCover) {
+      // Collected editions get no title fallback at all (see fetchCollectedFlags).
+      if (!bestCover && !collectedEdition) {
         // Tier-3 fallback now ALSO enforces a year-distance ceiling. Without
         // it, the 2022 Spider-Man series gets stuck with a 1990 McFarlane
         // Spider-Man cover assigned to it (real bug, observed) — because that's

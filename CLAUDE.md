@@ -138,7 +138,7 @@ At current ComicVine free-tier ingest pace (hourly cron, rate-limited), closing 
 
 ### Two parallel "series" tables — DO NOT confuse
 - `series` — **canonical / app-facing**. UUID primary key. Has resolved publisher, cached counts, title_normalized for search. This is what API routes should join.
-- `gcd_series` — **raw GCD mirror**. `gcd_id` integer primary key. Holds `name`, `sort_name`, `year_began`, `year_ended`, `publisher_gcd_id`. Currently surfaced for `publisher_gcd_id` (series-level publisher resolution); `sort_name` and `year_ended` are available for future ordering/prune work.
+- `gcd_series` — **raw GCD mirror**. `gcd_id` integer primary key. Holds `name`, `sort_name`, `year_began`, `year_ended`, `publisher_gcd_id`, and (migration 0028, 2026-09-21) `publishing_format`, `binding`, `format_notes`, `format_synced_at`, filled incrementally from GCD's API by `scripts/syncGcdSeriesFormat.js`. `src/lib/seriesFormat.js` turns those into "is this a collected edition"; null format = not synced = treated as not collected. Currently surfaced for `publisher_gcd_id` (series-level publisher resolution); `sort_name` and `year_ended` are available for future ordering/prune work.
 
 ### Backup tables — DO NOT query
 - `series_backup`, `series_foreign_prune_backup`, `series_zero_issue_backup` — leftovers from past migrations. Read-only safety nets, not live data.

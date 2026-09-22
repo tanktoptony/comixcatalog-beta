@@ -16988,9 +16988,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T19:01:05.466424+00:00",
-    "retry_after": "2026-09-22T19:01:05.466442+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T20:00:47.286735+00:00",
+    "retry_after": "2026-09-25T20:00:47.286751+00:00"
   },
   {
     "name": "Secret Origins Replica Edition",
@@ -16998,9 +16998,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T19:01:17.678433+00:00",
-    "retry_after": "2026-09-22T19:01:17.678449+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T20:00:47.917919+00:00",
+    "retry_after": "2026-09-25T20:00:47.917936+00:00"
   },
   {
     "name": "Justice League of America",
@@ -17039,9 +17039,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T19:01:29.550794+00:00",
-    "retry_after": "2026-09-22T19:01:29.550808+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T20:00:49.827232+00:00",
+    "retry_after": "2026-09-25T20:00:49.827240+00:00"
   },
   {
     "name": "Savage Dragon vs. Savage Megaton Man",
@@ -17049,9 +17049,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T19:01:59.613142+00:00",
-    "retry_after": "2026-09-22T19:01:59.613164+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T20:00:49.116993+00:00",
+    "retry_after": "2026-09-25T20:00:49.117009+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -17059,9 +17059,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T19:02:13.971051+00:00",
-    "retry_after": "2026-09-22T19:02:13.971066+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T20:00:49.768635+00:00",
+    "retry_after": "2026-09-25T20:00:49.768651+00:00"
   },
   {
     "name": "Simpsons Comics",
@@ -17158,9 +17158,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T19:10:22.505642+00:00",
-    "retry_after": "2026-09-22T19:10:22.505657+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T20:01:43.152383+00:00",
+    "retry_after": "2026-09-25T20:01:43.152394+00:00"
   },
   {
     "name": "X-Men",
@@ -17211,9 +17211,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T19:10:22.573356+00:00",
-    "retry_after": "2026-09-22T19:10:22.573371+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T20:01:43.217582+00:00",
+    "retry_after": "2026-09-25T20:01:43.217591+00:00"
   },
   {
     "name": "Suicide Squad Most Wanted: Deadshot 1 Special Edition",
@@ -20963,5 +20963,68 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T19:07:28.348432+00:00",
     "retry_after": "2026-09-23T19:07:28.348447+00:00"
+  },
+  {
+    "name": "The Incredible Hulk Megazine",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T20:00:50.397697+00:00",
+    "retry_after": "2026-09-23T20:00:50.397711+00:00"
+  },
+  {
+    "name": "Lady Death: The Odyssey-Sneak Peek Preview",
+    "publisher": "Chaos! Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T20:01:22.253610+00:00",
+    "retry_after": "2026-09-23T20:01:22.253626+00:00"
+  },
+  {
+    "name": "The Holo Brothers Special: Angst for the Memories",
+    "publisher": "Fantagraphics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T20:01:27.092585+00:00",
+    "retry_after": "2026-09-23T20:01:27.092601+00:00"
+  },
+  {
+    "name": "Gargoyles",
+    "publisher": "Dynamite Entertainment",
+    "year": 2024,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 175733,
+        "name": "Gargoyles",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2026
+      },
+      {
+        "id": 146744,
+        "name": "Gargoyles",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T20:01:37.560057+00:00",
+    "retry_after": "2026-09-23T20:01:37.560071+00:00"
+  },
+  {
+    "name": "Daredevil by Brian Michael Bendis & Alex Maleev Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T20:01:42.459074+00:00",
+    "retry_after": "2026-09-23T20:01:42.459091+00:00"
   }
 ]

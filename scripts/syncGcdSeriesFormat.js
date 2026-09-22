@@ -22,6 +22,7 @@
 //                appears more than once (19k groups / 52k rows). Days of API
 //                time; the weekly job walks it.
 
+import { pathToFileURL } from "node:url";
 import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 import { isCollectedEdition } from "../src/lib/seriesFormat.js";
@@ -61,48 +62,86 @@ async function fetchJson(url, tries = 2) {
   throw new Error(`Failed after ${tries} attempts: ${url}`);
 }
 
+// A page of a long walk can fail transiently without anything being wrong
+// with the query: Postgres cancels it (57014) when the instance is busy,
+// PostgREST loses its schema cache (PGRST002), or the TLS connection resets.
+// Live 2026-09-22: every scheduled run of this job died on a single 57014
+// and, because the workflow step was continue-on-error, reported green while
+// syncing 0 rows. One bad page out of ~200 must not cost the whole run.
+const TRANSIENT = new Set(["57014", "PGRST002", "PGRST001", "08006", "08003"]);
+const isTransient = (error) =>
+  TRANSIENT.has(error?.code) || /fetch failed|ECONNRESET|socket hang up|timeout/i.test(error?.message ?? "");
+
+async function pageWithRetry(build, attempts = 4) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    const { data, error } = await build();
+    if (!error) return data ?? [];
+    lastError = error;
+    if (!isTransient(error) || attempt === attempts) break;
+    const backoff = 1000 * 3 ** (attempt - 1);
+    console.error(`  transient read error (attempt ${attempt}/${attempts}): ${error.code ?? "?"} | ${error.message} — retrying in ${backoff}ms`);
+    await sleep(backoff);
+  }
+  throw new Error(`series walk failed after retries: ${lastError?.code ?? "?"} | ${lastError?.message ?? lastError}`);
+}
+
 // Keyset walk of `series`; PostgREST caps reads at 1000 silently.
 async function allSeriesRows(select, filter) {
   const rows = [];
   let last = null;
   for (;;) {
-    let q = filter(supabase.from("series").select(select)).order("id").limit(1000);
-    if (last) q = q.gt("id", last);
-    const { data, error } = await q;
-    if (error) throw error;
-    rows.push(...(data ?? []));
-    if (!data || data.length < 1000) break;
+    const data = await pageWithRetry(() => {
+      let q = filter(supabase.from("series").select(select)).order("id").limit(1000);
+      if (last) q = q.gt("id", last);
+      return q;
+    });
+    rows.push(...data);
+    if (data.length < 1000) break;
     last = data[data.length - 1].id;
   }
   return rows;
 }
 
+// Only ~3.8k of the 208k `series` rows carry a ComicVine pin, so shared-pins
+// asks for those and reads 4 pages instead of 178. dup-titles genuinely needs
+// every titled row and pays for the long walk; nothing but retries helps there.
+const SOURCES = {
+  "shared-pins": {
+    select: "id, gcd_id, comicvine_volume_id",
+    filter: (q) => q.not("comicvine_volume_id", "is", null),
+    key: (r) => r.comicvine_volume_id,
+  },
+  "dup-titles": {
+    select: "id, gcd_id, title",
+    filter: (q) => q,
+    key: (r) => r.title?.trim().toLowerCase() || null,
+  },
+};
+
 async function candidateGcdIds() {
   if (SOURCE === "ids") {
     return String(args["gcd-ids"]).split(",").map((s) => Number(s.trim())).filter(Boolean);
   }
-  const rows = await allSeriesRows("id, title, gcd_id, comicvine_volume_id", (q) =>
-    q.not("gcd_id", "is", null).not("resolved_publisher_cached", "is", null).not("year_start_cached", "is", null)
+  const source = SOURCES[SOURCE];
+  if (!source) throw new Error(`unknown --source=${SOURCE}`);
+
+  const rows = await allSeriesRows(source.select, (q) =>
+    source.filter(
+      q.not("gcd_id", "is", null).not("resolved_publisher_cached", "is", null).not("year_start_cached", "is", null)
+    )
   );
-  if (SOURCE === "shared-pins") {
-    const byVol = new Map();
-    for (const r of rows) {
-      if (!r.comicvine_volume_id) continue;
-      if (!byVol.has(r.comicvine_volume_id)) byVol.set(r.comicvine_volume_id, []);
-      byVol.get(r.comicvine_volume_id).push(r.gcd_id);
-    }
-    return [...new Set([...byVol.values()].filter((g) => g.length > 1).flat())];
+
+  // Group by the source's key; a key held by more than one series row is the
+  // ambiguity we want GCD's format for.
+  const groups = new Map();
+  for (const r of rows) {
+    const k = source.key(r);
+    if (k === null || k === undefined) continue;
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(r.gcd_id);
   }
-  if (SOURCE === "dup-titles") {
-    const byTitle = new Map();
-    for (const r of rows) {
-      const k = r.title.trim().toLowerCase();
-      if (!byTitle.has(k)) byTitle.set(k, []);
-      byTitle.get(k).push(r.gcd_id);
-    }
-    return [...new Set([...byTitle.values()].filter((g) => g.length > 1).flat())];
-  }
-  throw new Error(`unknown --source=${SOURCE}`);
+  return [...new Set([...groups.values()].filter((g) => g.length > 1).flat())];
 }
 
 // Drop ids already synced. Chunked .in() with a small chunk so no single
@@ -111,10 +150,11 @@ async function unsynced(ids) {
   const out = [];
   for (let i = 0; i < ids.length; i += 500) {
     const chunk = ids.slice(i, i + 500);
-    const { data, error } = await supabase.from("gcd_series").select("gcd_id, format_synced_at").in("gcd_id", chunk);
-    if (error) throw error;
-    const synced = new Set((data ?? []).filter((r) => r.format_synced_at).map((r) => r.gcd_id));
-    const known = new Set((data ?? []).map((r) => r.gcd_id));
+    const data = await pageWithRetry(() =>
+      supabase.from("gcd_series").select("gcd_id, format_synced_at").in("gcd_id", chunk)
+    );
+    const synced = new Set(data.filter((r) => r.format_synced_at).map((r) => r.gcd_id));
+    const known = new Set(data.map((r) => r.gcd_id));
     for (const id of chunk) if (known.has(id) && !synced.has(id)) out.push(id);
   }
   return out;
@@ -160,4 +200,20 @@ async function run() {
   console.log(`\nSynced ${done} (collected editions: ${collected}, gone from GCD: ${missing}). Remaining in backlog: ${Math.max(0, todo.length - done)}.`);
 }
 
-run().catch((err) => { console.error(err); process.exit(1); });
+// Exported so the retry policy can be exercised against injected failures
+// rather than only observed in production. See syncGcdSeriesFormat.test.js.
+export { isTransient, pageWithRetry };
+
+// Only auto-run when invoked directly, so importing this file for a test
+// doesn't start a GCD sync.
+const invokedDirectly =
+  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (invokedDirectly) run().catch((err) => {
+  // Supabase errors are plain objects; console.error(err) prints `{ code: ... }`
+  // with no indication of which query died. Name the failure.
+  console.error(`syncGcdSeriesFormat (${SOURCE}) failed: ${err?.code ? `${err.code} | ` : ""}${err?.message ?? err}`);
+  if (err?.details) console.error(`  details: ${err.details}`);
+  if (err?.hint) console.error(`  hint: ${err.hint}`);
+  process.exit(1);
+});

@@ -398,10 +398,25 @@ cards).
    issue instead of trusting the pin, and report the residue as a list,
    not a percentage. `refreshSeriesSearchCache.js` Tier 3 still matches
    exact titles.
-2. **Collected editions** (this PR): after migration 0028 is applied and
-   `gcd-series-format-sync.yml` has walked the shared-pins backlog (~1 week
-   at 4x60/day), run `node scripts/unpinCollectedEditions.js` (dry run,
-   read the plan, then `--apply`). Then the dup-titles backlog (months).
+2. **Collected editions.** Migration 0028 is applied (confirmed live
+   2026-09-22). The sync backlog is **1,623 shared-pin `gcd_series` rows**;
+   at 4 runs/day x 60 that is ~7 days, then the dup-titles backlog (months).
+   Once the shared-pins backlog reports 0 remaining, run
+   `node scripts/unpinCollectedEditions.js` (dry run, read the plan, then
+   `--apply`).
+
+   **2026-09-22:** the job had synced **0** rows since it was created.
+   Building the candidate list walked all 208k `series` rows in 178 pages
+   and one of those pages hit `57014 canceling statement due to statement
+   timeout` every run; a blanket `continue-on-error: true` on the step
+   (meant for the expected 429 exit 3) swallowed the exit 1 and painted the
+   run green. Two fixes: the shared-pins walk now filters on
+   `comicvine_volume_id NOT NULL` (3,781 rows / 4 pages, same 1,623
+   candidates, ~1s instead of ~31s), and every page retries on transient
+   codes; the workflow now translates only exit 3 to green and lets real
+   failures go red. Lesson for any lane guarded this way: **a
+   `continue-on-error` scoped wider than the one expected exit code is a
+   silent-failure generator.**
 3. **616 volumes pinned by more than one series row.** Item 2 handles the
    collected-edition share; the remainder are wrong pins of the
    Transformers Universe kind and need a pin audit (year + issue-count

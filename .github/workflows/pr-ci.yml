@@ -62,6 +62,9 @@ jobs:
       - name: Cover-match tests
         run: npm run test:cover-match
 
+      - name: GCD format-sync retry tests
+        run: npm run test:format-sync
+
       - name: Build
         run: npm run build
 

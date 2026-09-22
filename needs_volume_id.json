@@ -18464,5 +18464,156 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T23:15:22.137223+00:00",
     "retry_after": "2026-09-22T23:15:22.137239+00:00"
+  },
+  {
+    "name": "True Believers: Conan the Barbarian",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:51:26.595551+00:00",
+    "retry_after": "2026-09-22T23:51:26.595562+00:00"
+  },
+  {
+    "name": "Ray Bradbury Comics: Trilogy of Terror",
+    "publisher": "Topps Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:51:51.206537+00:00",
+    "retry_after": "2026-09-22T23:51:51.206548+00:00"
+  },
+  {
+    "name": "Vision",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 107670,
+        "name": "Vision",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 5335,
+        "name": "Vision",
+        "publisher": "Marvel",
+        "start_year": 1994
+      },
+      {
+        "id": 85793,
+        "name": "Vision",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:52:48.875448+00:00",
+    "retry_after": "2026-09-22T23:52:48.875457+00:00"
+  },
+  {
+    "name": "AAFES 8th Edition [New Avengers: The Promise]",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:53:05.084784+00:00",
+    "retry_after": "2026-09-22T23:53:05.084799+00:00"
+  },
+  {
+    "name": "Marvel Civil War II Free Previews",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-21T23:53:15.497495+00:00",
+    "retry_after": "2026-09-22T23:53:15.497506+00:00"
+  },
+  {
+    "name": "Avengers",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2128,
+        "name": "The Avengers",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 7084,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 110496,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 54428,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 95402,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 150431,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 6742,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 1996
+      },
+      {
+        "id": 33227,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T00:05:18.214440+00:00",
+    "retry_after": "2026-09-23T00:05:18.214451+00:00"
+  },
+  {
+    "name": "X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "multiple_near_year_tied",
+    "candidates": [
+      {
+        "id": 137402,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 122077,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T00:05:18.620305+00:00",
+    "retry_after": "2026-09-23T00:05:18.620314+00:00"
   }
 ]

@@ -20314,5 +20314,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T11:28:19.425590+00:00",
     "retry_after": "2026-09-23T11:28:19.425605+00:00"
+  },
+  {
+    "name": "Marvel Milestone Edition: The X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T12:35:41.155344+00:00",
+    "retry_after": "2026-09-23T12:35:41.155362+00:00"
+  },
+  {
+    "name": "Valiant Masters Shadowman",
+    "publisher": "Valiant Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T12:38:53.675373+00:00",
+    "retry_after": "2026-09-23T12:38:53.675391+00:00"
+  },
+  {
+    "name": "G.I. Joe Special Treasury Edition",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T12:39:29.904235+00:00",
+    "retry_after": "2026-09-23T12:39:29.904251+00:00"
   }
 ]

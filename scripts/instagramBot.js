@@ -79,6 +79,43 @@ function appendLedger(key) {
   fs.writeFileSync(LEDGER_PATH, JSON.stringify([...ledger], null, 2) + "\n");
 }
 
+// Every picker dedupes in its own namespace — spotlight: by series gcd_id,
+// key:/new:/value: by gcd_issue_id. Nothing dedupes on the PICTURE, which is
+// what a follower actually recognises. So the same cover can legitimately
+// post more than once: an issue can be a Key Issue today and a Value Check
+// in three weeks (different keys, identical image), and a Cover Spotlight
+// uses a series' featured cover, which is frequently the same file a Key
+// Issue post already used for that series.
+//
+// imageLedgerKey is a second key recorded alongside the type key, so a cover
+// that has been on the feed is never posted again whatever type wants it
+// next. Keyed on the storage path rather than the full URL so it stays
+// stable if the Supabase project URL ever changes.
+// Callers pass either a full public URL (post.imageUrl, when recording what
+// was posted) or a bare storage path (cover.storage_path, when a picker is
+// deciding whether to skip a candidate). Both must produce the same key or
+// the guard silently never fires — which is exactly what the first version
+// of this did: it stripped the leading segment unconditionally, so a URL
+// became "comicvine/rai/…" while the bare path became "rai/vol-4828/…" and
+// nothing ever matched.
+//
+// A public URL carries the bucket after the marker; a bare storage_path is
+// already bucket-relative. So strip the bucket only in the URL case.
+export function imageLedgerKey(storagePathOrUrl) {
+  if (!storagePathOrUrl) return null;
+  const s = String(storagePathOrUrl).trim();
+  if (!s) return null;
+  const marker = "/storage/v1/object/public/";
+  const idx = s.indexOf(marker);
+  if (idx < 0) return `img:${s.replace(/^\/+/, "")}`;
+  return `img:${s.slice(idx + marker.length).replace(/^[^/]+\//, "")}`;
+}
+
+const imageAlreadyPosted = (seenKeys, storagePathOrUrl) => {
+  const key = imageLedgerKey(storagePathOrUrl);
+  return Boolean(key && seenKeys.has(key));
+};
+
 // "Already posted today" guard — added 2026-08-28 after the daily cron
 // (`0 17 * * *`) silently failed to fire at all for a full day (confirmed
 // via GitHub's own run history: no run between 2026-08-28T01:18 and 20:24,
@@ -312,6 +349,7 @@ export async function pickCoverSpotlight(seenKeys) {
     if (!match) continue;
     const key = `spotlight:${match.gcd_id}`;
     if (seenKeys.has(key)) continue;
+    if (imageAlreadyPosted(seenKeys, match.featured_cover_path_cached)) continue;
     if (looksCollected(match.title, match.featured_cover_path_cached)) continue;
 
     // featured_cover_path_cached is whichever cover got cached during a
@@ -376,6 +414,7 @@ export async function pickKeyIssue(seenKeys) {
       .limit(1)
       .maybeSingle();
     if (!cover) continue;
+    if (imageAlreadyPosted(seenKeys, cover.storage_path)) continue;
     return {
       type: "Key Issue",
       dedupeKey: key,
@@ -403,6 +442,7 @@ export async function pickNewToCatalog(seenKeys) {
   for (const row of data ?? []) {
     const key = `new:${row.gcd_issue_id}`;
     if (seenKeys.has(key)) continue;
+    if (imageAlreadyPosted(seenKeys, row.storage_path)) continue;
     if (looksCollected(row.series_title, row.storage_path)) continue;
     return {
       type: "New to the Catalog",
@@ -441,6 +481,7 @@ export async function pickValueCheck(seenKeys) {
       .limit(1)
       .maybeSingle();
     if (!cover) continue;
+    if (imageAlreadyPosted(seenKeys, cover.storage_path)) continue;
     return {
       type: "Key Issue Value Check",
       dedupeKey: key,
@@ -485,15 +526,82 @@ export function buildBrandCaption({ kicker, headline, captionBody, dayIndex = Ma
 // user-photo uploads already use (no new bucket/policy needed), return the
 // same shape the comic pickers return so selectPost()'s fallback loop and
 // run()'s posting logic don't need to know the difference until caption time.
+// A post published inside this window is "news" and is worth interrupting
+// the brand rotation for. Outside it, it is just another blog post and takes
+// its turn with the stats and feature cards.
+const FRESH_BLOG_DAYS = 21;
+
+// Which of the two brand families went out last. The ledger is written from
+// a JSON array, so a Set built from it preserves insertion order and the
+// last matching entry is genuinely the most recent brand post.
+function lastBrandPostWasBlog(seenKeys) {
+  const keys = [...seenKeys];
+  for (let i = keys.length - 1; i >= 0; i -= 1) {
+    const k = String(keys[i]);
+    if (k.startsWith("brand:blog:")) return true;
+    if (k.startsWith("personal:") || k.startsWith("brand:")) return false;
+  }
+  return false;
+}
+
+async function pickFreshBlogPost(seenKeys) {
+  // Never twice in a row. Two blog posts published in the same week would
+  // otherwise take two consecutive brand slots — a fortnight — and push the
+  // founder-voice posts behind them. Alternating means a new post still gets
+  // promoted within a week of publishing without the brand slot turning into
+  // a blog-only channel.
+  if (lastBrandPostWasBlog(seenKeys)) return null;
+
+  const cutoff = new Date(Date.now() - FRESH_BLOG_DAYS * 86400000).toISOString();
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .select("slug, title, excerpt, published_at")
+    .eq("published", true)
+    .gte("published_at", cutoff)
+    .order("published_at", { ascending: false })
+    .limit(10);
+  if (error || !data?.length) return null;
+
+  for (const post of data) {
+    const dedupeKey = `brand:blog:${post.slug}`;
+    if (seenKeys.has(dedupeKey)) continue;
+    return {
+      dedupeKey,
+      kicker: "New on the blog",
+      headline: post.title,
+      subtext: post.excerpt || "New on the ComixCatalog blog.",
+      accent: "gold",
+      captionBody: post.excerpt || "",
+      slug: post.slug,
+    };
+  }
+  return null;
+}
+
 export async function pickBrandPost(seenKeys) {
   const dayIndex = Math.floor(Date.now() / 86400000);
-  // The founder's own posts (origin story, the Graham Crackers / House of M
-  // story, why the wantlist matters) go first, once each, in order. The
-  // generated stat/feature cards are the fallback once those are used.
-  const personal = PERSONAL_POSTS.find((p) => !seenKeys.has(`personal:${p.id}`));
-  const content = personal
-    ? { ...personal, dedupeKey: `personal:${personal.id}`, accent: undefined }
-    : await pickBrandPostContent(supabase, seenKeys, dayIndex);
+
+  // A freshly published blog post jumps the queue.
+  //
+  // The brand slot comes round once every 7 days, and the 8 personal posts
+  // were taking all of it until they ran out. With none of them posted yet
+  // that put the generated cards — including the blog spotlight — eight
+  // weeks out, so a post published today would first be promoted in late
+  // November. Promoting a post two months after publishing it is not
+  // promoting it.
+  //
+  // So: if a blog post was published within FRESH_BLOG_DAYS and has not been
+  // spotlighted, it takes the next brand slot. After that window it falls
+  // back into the normal stats/feature/blog rotation and the personal posts
+  // resume. This only fires when there is genuinely something new, so it
+  // cannot crowd the personal posts out indefinitely.
+  const fresh = await pickFreshBlogPost(seenKeys);
+  const personal = fresh ? null : PERSONAL_POSTS.find((p) => !seenKeys.has(`personal:${p.id}`));
+  const content =
+    fresh ??
+    (personal
+      ? { ...personal, dedupeKey: `personal:${personal.id}`, accent: undefined }
+      : await pickBrandPostContent(supabase, seenKeys, dayIndex));
   if (!content) return null;
 
   const png = await renderBrandCard({
@@ -552,9 +660,18 @@ export function captionForPost(post, dayIndex = Math.floor(Date.now() / 86400000
 }
 
 // Exported so the preview mirrors the real rotation instead of copying it.
+// Key issues led 3 of every 7 days, which made the feed read as a key-issue
+// account that occasionally shows something else. There is more in the
+// catalog worth showing than first appearances: a great cover is its own
+// reason to post, and "new to the catalog" is the only slot that surfaces
+// books nobody searches for.
+//
+// Rebalanced 2026-09-22 to 2 key issues, 2 cover spotlights, and one each of
+// new / value / brand. Same 7-day cycle, same one-brand-post-a-week, just
+// not the same book type three times a week.
 export const PICKER_CYCLE = [
-  pickKeyIssue, pickCoverSpotlight, pickKeyIssue, pickNewToCatalog,
-  pickValueCheck, pickKeyIssue, pickBrandPost,
+  pickKeyIssue, pickCoverSpotlight, pickNewToCatalog, pickKeyIssue,
+  pickValueCheck, pickCoverSpotlight, pickBrandPost,
 ];
 
 async function selectPost() {
@@ -697,6 +814,10 @@ async function run() {
 
   const publishedId = await postToInstagram({ imageUrl: post.imageUrl, caption });
   appendLedger(post.dedupeKey);
+  // Second key, on the picture itself, so no other post type can reuse this
+  // cover later under its own namespace.
+  const imgKey = imageLedgerKey(post.imageUrl);
+  if (imgKey) appendLedger(imgKey);
   recordPostedToday();
   console.log(`Posted. Instagram media id: ${publishedId}`);
 }

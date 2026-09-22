@@ -1,0 +1,51 @@
+name: Newsletter send
+
+# Manual only. Sends one issue from content/newsletter/ to every active
+# subscriber via Resend, then commits content/newsletter/.sent.json so the
+# same issue cannot be sent twice. Dry-run first, locally:
+#   node scripts/sendNewsletter.js content/newsletter/<issue>.md
+#   node scripts/sendNewsletter.js content/newsletter/<issue>.md --test=you@example.com
+#
+# Needs repo secrets RESEND_API_KEY and RESEND_FROM_EMAIL (see .env.example)
+# on top of the Supabase ones every other workflow uses.
+
+on:
+  workflow_dispatch:
+    inputs:
+      file:
+        description: 'Issue file, e.g. content/newsletter/2026-10-first-issue.md'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: newsletter-send
+      cancel-in-progress: false
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      NEXT_PUBLIC_SITE_URL: https://www.comixcatalog.com
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci --no-audit --no-fund
+      - name: Send
+        run: node scripts/sendNewsletter.js "${{ github.event.inputs.file }}" --apply
+      - name: Record the send
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/newsletter/.sent.json
+          git diff --cached --quiet && exit 0
+          git commit -m "newsletter: sent $(basename "${{ github.event.inputs.file }}" .md)"
+          git pull --rebase -X theirs
+          git push

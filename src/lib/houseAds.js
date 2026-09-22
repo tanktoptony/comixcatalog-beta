@@ -47,6 +47,15 @@ export const HOUSE_ADS = [
     show: () => true,
   },
   {
+    id: "newsletter",
+    kicker: "Newsletter",
+    headline: "One email every few weeks.",
+    body: "What got added, what got fixed, and which books to go find. From the person who builds this. One-click out.",
+    cta: "Sign up",
+    href: "/newsletter",
+    show: () => true,
+  },
+  {
     id: "reads",
     kicker: "Reading guides",
     headline: "Which issues actually matter.",

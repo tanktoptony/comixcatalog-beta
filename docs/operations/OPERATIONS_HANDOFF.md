@@ -411,13 +411,16 @@ cards).
 
 ### Growth (order agreed with the founder)
 
-6. **Email provider**: Resend key is in `.env.local` (`RESEND_API_KEY`,
-   `RESEND_FROM_EMAIL`, documented in `.env.example`). Still needed: verify
-   `comixcatalog.com` as a sending domain in Resend (DNS records), add the
-   key to GitHub secrets + Vercel, build the send job (GitHub Actions, honour
-   `unsubscribed_at`, one-click unsubscribe), re-show the newsletter form
-   with `source` tagging, add a newsletter creative to
-   `src/lib/houseAds.js`.
+6. **Email provider**: built 2026-09-22 (PR `agent/newsletter`):
+   `scripts/sendNewsletter.js` (Resend batch API, honours `unsubscribed_at`,
+   signed one-click unsubscribe in footer + RFC 8058 headers, `.sent.json`
+   ledger), `/api/newsletter/unsubscribe`, `NewsletterSignup` component
+   with `source` tagging, form back in the footer, `/newsletter` landing
+   page, newsletter house-ad creative, `newsletter-send.yml` (manual).
+   First issue drafted at `content/newsletter/2026-10-first-issue.md`.
+   **Still the founder's:** verify `comixcatalog.com` in Resend (DNS), add
+   `RESEND_API_KEY` + `RESEND_FROM_EMAIL` to GitHub secrets and Vercel,
+   `--test` yourself, then send.
 7. **Instagram bot rewrite.** Current output (random cover + ComicVine
    solicit blurb + "Est. cover-price floor: $3.50" + generic CTA) rejected
    by the founder as "the same bland post template". Also: a brand card

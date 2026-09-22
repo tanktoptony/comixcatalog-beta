@@ -13999,182 +13999,6 @@
     "retry_after": "2026-09-21T14:00:38.556644+00:00"
   },
   {
-    "name": "Take a Bow, B.C.",
-    "publisher": "Fawcett Comics",
-    "year": 1970,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 61156,
-        "name": "Take a Bow, B.C.",
-        "publisher": "Coronet Books",
-        "start_year": 1974
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556654+00:00"
-  },
-  {
-    "name": "Roy Rogers",
-    "publisher": "Dark Horse Comics",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62003,
-        "name": "Roy Rogers",
-        "publisher": "Horwitz",
-        "start_year": 1954
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556661+00:00"
-  },
-  {
-    "name": "Tales of Forbidden Worlds",
-    "publisher": "Charlton Comics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 87363,
-        "name": "Tales of Forbidden Worlds",
-        "publisher": "Avalon Communications",
-        "start_year": 2002
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556667+00:00"
-  },
-  {
-    "name": "The Adventures of John Doe",
-    "publisher": "Charlton Comics",
-    "year": 2003,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 63658,
-        "name": "The Adventures of John Doe",
-        "publisher": "Avalon Communications",
-        "start_year": 2003
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556674+00:00"
-  },
-  {
-    "name": "Unusual Suspense",
-    "publisher": "Charlton Comics",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 85917,
-        "name": "Unusual Suspense",
-        "publisher": null,
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556690+00:00"
-  },
-  {
-    "name": "Marvel Super Heroes Summer Fun",
-    "publisher": "Marvel Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 129015,
-        "name": "Marvel Super Heroes Summer Fun",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556697+00:00"
-  },
-  {
-    "name": "M. Rex Preview",
-    "publisher": "Image Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 63556,
-        "name": "M. Rex Preview",
-        "publisher": "Avalon Studios",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556704+00:00"
-  },
-  {
-    "name": "The Lone Ranger Annual",
-    "publisher": "Dynamite Entertainment",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 156460,
-        "name": "The Lone Ranger Annual",
-        "publisher": "World Distributors",
-        "start_year": 1956
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556713+00:00"
-  },
-  {
-    "name": "Masters of the Universe Summer Special",
-    "publisher": "Marvel Comics",
-    "year": 1985,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 85838,
-        "name": "Masters of the Universe Summer Special",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1985
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556719+00:00"
-  },
-  {
-    "name": "Top Notch Comics",
-    "publisher": "Fantagraphics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26706,
-        "name": "Top-Notch Comics",
-        "publisher": "Archie Comics",
-        "start_year": 1939
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556724+00:00"
-  },
-  {
-    "name": "Tomb Raider / Witchblade / Magdalena / Vampirella",
-    "publisher": "Image Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20036,
-        "name": "Tomb Raider / Witchblade / Magdalena / Vampirella",
-        "publisher": "Top Cow Productions",
-        "start_year": 2005
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556730+00:00"
-  },
-  {
     "name": "Journey Into Mystery",
     "publisher": "Marvel Comics",
     "year": 1999,
@@ -14209,22 +14033,6 @@
     "retry_after": "2026-09-21T14:00:38.556736+00:00"
   },
   {
-    "name": "SpyGal: Thrills, Frills & Espionage",
-    "publisher": "Marvel Comics",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47368,
-        "name": "SpyGal: Thrills, Frills & Espionage",
-        "publisher": "Marvel Digital Comics Unlimited",
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556741+00:00"
-  },
-  {
     "name": "Daken: Dark Wolverine - Empire",
     "publisher": "Marvel Comics",
     "year": 2011,
@@ -14245,22 +14053,6 @@
     ],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.556747+00:00"
-  },
-  {
-    "name": "You're My Hero, Charlie Brown!",
-    "publisher": "Fawcett Comics",
-    "year": 1968,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 60185,
-        "name": "You're My Hero, Charlie Brown!",
-        "publisher": "Coronet Books",
-        "start_year": 1968
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556752+00:00"
   },
   {
     "name": "George R. R. Martin's Wild Cards: The Hard Call",
@@ -14966,23 +14758,6 @@
     "retry_after": "2026-09-24T15:00:57.041337+00:00"
   },
   {
-    "name": "First Man",
-    "publisher": "Image Comics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 114285,
-        "name": "The First Man",
-        "publisher": "Pegasus",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T15:00:59.052528+00:00",
-    "retry_after": "2026-09-24T15:00:59.052543+00:00"
-  },
-  {
     "name": "Justice League 1 Special Edition",
     "publisher": "DC Comics",
     "year": 2016,
@@ -15303,23 +15078,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-20T19:01:19.584148+00:00",
     "retry_after": "2026-09-21T19:01:19.584165+00:00"
-  },
-  {
-    "name": "Farscape Omnibus",
-    "publisher": "Archaia",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 107651,
-        "name": "Farscape Omnibus",
-        "publisher": "Boom! Studios",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T19:01:20.961023+00:00",
-    "retry_after": "2026-09-21T19:01:20.961039+00:00"
   },
   {
     "name": "The Fantastic Worlds of Frank Frazetta",
@@ -15932,23 +15690,6 @@
     "retry_after": "2026-09-22T02:01:04.472643+00:00"
   },
   {
-    "name": "In This Corner...Dennis the Menace",
-    "publisher": "Fawcett Comics",
-    "year": 1959,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 55130,
-        "name": "In This Corner... Dennis the Menace",
-        "publisher": "Henry Holt and Co.",
-        "start_year": 1958
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T02:01:13.447630+00:00",
-    "retry_after": "2026-09-22T02:01:13.447643+00:00"
-  },
-  {
     "name": "Office Laffs",
     "publisher": "Fawcett Comics",
     "year": 1957,
@@ -15977,40 +15718,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T02:02:32.975463+00:00",
     "retry_after": "2026-09-22T02:02:32.975477+00:00"
-  },
-  {
-    "name": "Disney-Pixar/Muppets Presents: The Treasure of Peg Leg Wilson",
-    "publisher": "Marvel Comics",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 55686,
-        "name": "Disney-Pixar/Muppets Presents: The Treasure of Peg Leg Wilson",
-        "publisher": "Disney",
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T03:01:11.703414+00:00",
-    "retry_after": "2026-09-22T03:01:11.703429+00:00"
-  },
-  {
-    "name": "Cursed Pirate Girl Annual",
-    "publisher": "Archaia",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 85279,
-        "name": "Cursed Pirate Girl Annual",
-        "publisher": "Boom! Studios",
-        "start_year": 2015
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T03:01:25.556966+00:00",
-    "retry_after": "2026-09-22T03:01:25.556982+00:00"
   },
   {
     "name": "Puppet Master Halloween Special",
@@ -16050,23 +15757,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T03:01:37.374030+00:00",
     "retry_after": "2026-09-22T03:01:37.374044+00:00"
-  },
-  {
-    "name": "United States of Murder Inc.",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 73896,
-        "name": "The United States of Murder Inc.",
-        "publisher": "Marvel",
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T03:04:07.572903+00:00",
-    "retry_after": "2026-09-22T03:04:07.572917+00:00"
   },
   {
     "name": "True Believers: Deadpool Variants",
@@ -16130,23 +15820,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T03:36:55.729674+00:00",
     "retry_after": "2026-09-22T03:36:55.729690+00:00"
-  },
-  {
-    "name": "Marvel and DC Present Featuring the Uncanny X-Men and the New Teen Titans",
-    "publisher": "Marvel Comics",
-    "year": 1982,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19011,
-        "name": "Marvel and DC Present featuring The Uncanny X-Men and The New Teen Titans",
-        "publisher": "Marvel Comics and DC Comics",
-        "start_year": 1982
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T03:36:56.217136+00:00",
-    "retry_after": "2026-09-22T03:36:56.217152+00:00"
   },
   {
     "name": "Superman / Wonder Woman 2013 [Wendy's Kids' Meal]",
@@ -16400,23 +16073,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T07:02:39.331180+00:00",
     "retry_after": "2026-09-22T07:02:39.331195+00:00"
-  },
-  {
-    "name": "Legacy of Kain: Soul Reaver",
-    "publisher": "Image Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 21575,
-        "name": "Legacy of Kain: Soul Reaver",
-        "publisher": "Top Cow Productions",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T07:02:44.381182+00:00",
-    "retry_after": "2026-09-22T07:02:44.381199+00:00"
   },
   {
     "name": "Iron Man / X-O Manowar: In Heavy Metal",
@@ -16902,23 +16558,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-21T16:01:14.638240+00:00",
     "retry_after": "2026-09-22T16:01:14.638259+00:00"
-  },
-  {
-    "name": "Cyberpunk 2077",
-    "publisher": "Dark Horse Comics",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 137856,
-        "name": "Cyberpunk 2077",
-        "publisher": "Panini Verlag",
-        "start_year": 2021
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T16:01:31.283389+00:00",
-    "retry_after": "2026-09-22T16:01:31.283407+00:00"
   },
   {
     "name": "DC Comics Essentials: Batman: The Black Mirror",
@@ -19175,23 +18814,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T04:00:54.502679+00:00",
     "retry_after": "2026-09-23T04:00:54.502697+00:00"
-  },
-  {
-    "name": "Crimson Letters",
-    "publisher": "Malibu Comics",
-    "year": 1990,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 73327,
-        "name": "Crimson Letters",
-        "publisher": "Adventure",
-        "start_year": 1990
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T04:00:54.987939+00:00",
-    "retry_after": "2026-09-23T04:00:54.987956+00:00"
   },
   {
     "name": "Giant-Size Creatures Featuring Werewolf",

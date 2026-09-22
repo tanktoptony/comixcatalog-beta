@@ -20736,5 +20736,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T15:42:33.268448+00:00",
     "retry_after": "2026-09-23T15:42:33.268463+00:00"
+  },
+  {
+    "name": "Thanos Quest",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4425,
+        "name": "The Thanos Quest",
+        "publisher": "Marvel",
+        "start_year": 1990
+      },
+      {
+        "id": 53791,
+        "name": "The Thanos Quest",
+        "publisher": "Marvel",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T16:01:11.693221+00:00",
+    "retry_after": "2026-09-23T16:01:11.693238+00:00"
+  },
+  {
+    "name": "Free Comic Book Day 2009 (Wolverine: Origin of an X-Man)",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T16:01:12.201549+00:00",
+    "retry_after": "2026-09-23T16:01:12.201568+00:00"
+  },
+  {
+    "name": "The Umbrella Academy: One for One",
+    "publisher": "Dark Horse Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T16:01:28.031378+00:00",
+    "retry_after": "2026-09-23T16:01:28.031396+00:00"
+  },
+  {
+    "name": "Debbie Does Dallas in 3-D",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T16:01:28.549555+00:00",
+    "retry_after": "2026-09-23T16:01:28.549573+00:00"
+  },
+  {
+    "name": "The Lost Ones: For Your Eyes Only Special Preview",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T16:02:12.425851+00:00",
+    "retry_after": "2026-09-23T16:02:12.425869+00:00"
+  },
+  {
+    "name": "Justice League Adventures",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 10065,
+        "name": "Justice League Adventures",
+        "publisher": "DC Comics",
+        "start_year": 2002
+      },
+      {
+        "id": 43681,
+        "name": "Justice League Adventures",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T16:02:21.487022+00:00",
+    "retry_after": "2026-09-23T16:02:21.487039+00:00"
+  },
+  {
+    "name": "Transformers",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 153968,
+        "name": "Transformers",
+        "publisher": "Image",
+        "start_year": 2023
+      },
+      {
+        "id": 158825,
+        "name": "Transformers",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T16:04:44.135230+00:00",
+    "retry_after": "2026-09-23T16:04:44.135248+00:00"
   }
 ]

@@ -23,6 +23,15 @@ import { createClient } from "@supabase/supabase-js";
 import { FEATURED_SERIES } from "../src/lib/featuredSeries.js";
 import { renderBrandCard } from "./lib/brandCard.js";
 import { pickBrandPost as pickBrandPostContent } from "./lib/brandPostContent.js";
+import {
+  CTAS,
+  COVER_INTROS,
+  NEW_INTROS,
+  PERSONAL_POSTS,
+  VALUE_INTROS,
+  keyIssueBlurb,
+  pickByDay,
+} from "./lib/instagramVoice.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "..", ".env.local") });
@@ -235,34 +244,44 @@ export function synopsisFromDescription(html, { maxLen = 200 } = {}) {
 
 // Rotated by dayIndex so the CTA sentence varies without needing per-post
 // randomness (keeps the preview tool's future-day simulation deterministic).
-const CTA_VARIANTS = [
-  "Catalogued on ComixCatalog — link in bio",
-  "Built by collectors, for collectors — ComixCatalog, link in bio",
-  "Track your own collection on ComixCatalog — link in bio",
-];
-
+// Rewritten 2026-09-21. The old caption was kicker / header / publisher /
+// "Est. cover-price floor: $3.50" / a ComicVine solicit blurb / a generic
+// CTA, which the founder rejected as the same bland template on every post.
+// Now: an opener in his voice, the book, then something worth reading (a
+// key-issue blurb, a comps-backed number, or nothing rather than filler),
+// then a CTA that sounds like a person. Copy lives in lib/instagramVoice.js.
 export function buildCaption({
   title,
   issueNumber,
   year,
   publisher,
   valueLine,
-  kicker,
   postType,
+  blurb,
   synopsis,
   dayIndex = Math.floor(Date.now() / 86400000),
 }) {
-  const header = `${title}${issueNumber ? ` #${issueNumber}` : ""}${year ? ` (${year})` : ""}`;
-  const cta = CTA_VARIANTS[((dayIndex + 1) % CTA_VARIANTS.length + CTA_VARIANTS.length) % CTA_VARIANTS.length];
+  const header = `${title}${issueNumber ? ` #${issueNumber}` : ""}${year ? ` (${year})` : ""}${publisher ? ` · ${publisher}` : ""}`;
+  const intro =
+    postType === "Key Issue" ? null
+    : postType === "Key Issue Value Check" ? pickByDay(VALUE_INTROS, dayIndex)
+    : postType === "New to the Catalog" ? pickByDay(NEW_INTROS, dayIndex)
+    : pickByDay(COVER_INTROS, dayIndex);
+  // Body: a written blurb or a comps-backed number. Nothing else. The
+  // ComicVine solicit text ("Get in on the ground floor!") used to fill the
+  // gap and it is exactly the filler the founder rejected; on a spotlight
+  // post the cover is the content. `synopsis` is still accepted so the
+  // signature is stable, but it is not printed.
+  void synopsis;
+  const body = blurb ?? valueLine ?? null;
   const lines = [
-    kicker,
+    intro,
     header,
-    publisher,
-    valueLine,
-    synopsis,
     "",
-    cta,
-    hashtagsFor(publisher, year, title, postType === "Key Issue Value Check", dayIndex),
+    body,
+    body ? "" : null,
+    pickByDay(CTAS, dayIndex, 1),
+    hashtagsFor(publisher, year, title, postType === "Key Issue Value Check" || postType === "Key Issue", dayIndex),
   ].filter((l) => l !== undefined && l !== null);
   return lines.join("\n");
 }
@@ -293,6 +312,7 @@ export async function pickCoverSpotlight(seenKeys) {
     if (!match) continue;
     const key = `spotlight:${match.gcd_id}`;
     if (seenKeys.has(key)) continue;
+    if (looksCollected(match.title, match.featured_cover_path_cached)) continue;
 
     // featured_cover_path_cached is whichever cover got cached during a
     // search-refresh pass — NOT necessarily issue #1. Look up the actual
@@ -320,6 +340,57 @@ export async function pickCoverSpotlight(seenKeys) {
   return null;
 }
 
+// Collected editions and ComicVine's "X by Creator" trade volumes are not
+// what a "new issue" post should feature (a "New to the Catalog" post
+// featured "Captain Marvel By Kelly Thompson #1", which is a trade). Until
+// gcd_series.publishing_format (migration 0028) is synced, screen by title.
+const COLLECTED_TITLE = /\bby\b|omnibus|collection|compendium|library|tpb|hardcover|\bhc\b|\bvol\.?\s*\d|complete\b|treasury|epic collection|masterworks/i;
+// ComicVine names collected-edition scans by format ("...-tpb.jpeg",
+// "...-hc.jpg"); a spotlight on a trade cover reads as a mistake.
+const COLLECTED_PATH = /[-_](tpb|hc|hardcover|omnibus|trade)[-_.]/i;
+function looksCollected(seriesTitle, storagePath) {
+  return COLLECTED_TITLE.test(seriesTitle ?? "") || COLLECTED_PATH.test(storagePath ?? "");
+}
+
+// ── Content type 0: Key Issue — a curated row from key_issues with a blurb ──
+export async function pickKeyIssue(seenKeys) {
+  const { data } = await supabase
+    .from("key_issues")
+    .select("gcd_issue_id, title, issue_number, publisher, year, reason, tier")
+    .not("gcd_issue_id", "is", null)
+    .order("tier")
+    .order("year");
+  const rows = data ?? [];
+  // Start somewhere different each week so the feed does not always open on
+  // Action Comics #1, but walk in order from there so every key gets a turn.
+  const start = rows.length ? Math.floor(Date.now() / (86400000 * 7)) % rows.length : 0;
+  for (let i = 0; i < rows.length; i += 1) {
+    const row = rows[(start + i) % rows.length];
+    const key = `key:${row.gcd_issue_id}`;
+    if (seenKeys.has(key)) continue;
+    const { data: cover } = await supabase
+      .from("canonical_covers")
+      .select("storage_path, series_title, issue_number")
+      .eq("gcd_issue_id", row.gcd_issue_id)
+      .not("storage_path", "is", null)
+      .limit(1)
+      .maybeSingle();
+    if (!cover) continue;
+    return {
+      type: "Key Issue",
+      dedupeKey: key,
+      imageUrl: coverUrl(cover.storage_path),
+      title: row.title,
+      issueNumber: row.issue_number,
+      year: row.year,
+      publisher: row.publisher,
+      gcdIssueId: row.gcd_issue_id,
+      blurb: keyIssueBlurb(row.title, row.issue_number) ?? row.reason,
+    };
+  }
+  return null;
+}
+
 // ── Content type 2: New to the Catalog — most recent resolved cover add ────
 export async function pickNewToCatalog(seenKeys) {
   const { data } = await supabase
@@ -332,6 +403,7 @@ export async function pickNewToCatalog(seenKeys) {
   for (const row of data ?? []) {
     const key = `new:${row.gcd_issue_id}`;
     if (seenKeys.has(key)) continue;
+    if (looksCollected(row.series_title, row.storage_path)) continue;
     return {
       type: "New to the Catalog",
       dedupeKey: key,
@@ -399,9 +471,11 @@ const BRAND_HASHTAGS = "#comiccollecting #comicbookdatabase #collectiblecomics #
 // deliberately separate, simpler caption builder rather than another branch
 // bolted onto buildCaption(). Reuses the same CTA rotation for consistency.
 export function buildBrandCaption({ kicker, headline, captionBody, dayIndex = Math.floor(Date.now() / 86400000) }) {
-  const cta = CTA_VARIANTS[((dayIndex + 1) % CTA_VARIANTS.length + CTA_VARIANTS.length) % CTA_VARIANTS.length];
-  const lines = [`✦ ${kicker}`, headline, "", captionBody, "", cta, BRAND_HASHTAGS].filter(
-    (l) => l !== undefined && l !== null && l !== ""
+  // Personal posts already end on their own note; the generated cards get
+  // the rotating CTA.
+  const cta = captionBody && /link in bio/i.test(captionBody) ? null : pickByDay(CTAS, dayIndex, 1);
+  const lines = [headline, "", captionBody, "", cta, BRAND_HASHTAGS].filter(
+    (l) => l !== undefined && l !== null
   );
   return lines.join("\n");
 }
@@ -413,7 +487,13 @@ export function buildBrandCaption({ kicker, headline, captionBody, dayIndex = Ma
 // run()'s posting logic don't need to know the difference until caption time.
 export async function pickBrandPost(seenKeys) {
   const dayIndex = Math.floor(Date.now() / 86400000);
-  const content = await pickBrandPostContent(supabase, seenKeys, dayIndex);
+  // The founder's own posts (origin story, the Graham Crackers / House of M
+  // story, why the wantlist matters) go first, once each, in order. The
+  // generated stat/feature cards are the fallback once those are used.
+  const personal = PERSONAL_POSTS.find((p) => !seenKeys.has(`personal:${p.id}`));
+  const content = personal
+    ? { ...personal, dedupeKey: `personal:${personal.id}`, accent: undefined }
+    : await pickBrandPostContent(supabase, seenKeys, dayIndex);
   if (!content) return null;
 
   const png = await renderBrandCard({
@@ -441,6 +521,42 @@ export async function pickBrandPost(seenKeys) {
   };
 }
 
+// One place that turns a picked post into its caption, shared with
+// previewInstagramQueue.js so the preview can never drift from what gets
+// posted.
+export function captionForPost(post, dayIndex = Math.floor(Date.now() / 86400000)) {
+  if (post.type === "Brand") {
+    return buildBrandCaption({
+      kicker: post.kicker,
+      headline: post.headline,
+      captionBody: post.captionBody,
+      dayIndex,
+    });
+  }
+  // Only a comps-backed number gets printed. The old "Est. cover-price
+  // floor: $3.50" line was a guess dressed as data and is gone.
+  const valueLine = post.valueInfo
+    ? `$${post.valueInfo.value.toFixed(0)} raw NM-ish, median of the last ${post.valueInfo.sampleSize} sales.`
+    : null;
+  return buildCaption({
+    title: post.title,
+    issueNumber: post.issueNumber,
+    year: post.year,
+    publisher: post.publisher,
+    valueLine,
+    postType: post.type,
+    blurb: post.blurb ?? null,
+    synopsis: synopsisFromDescription(post.description),
+    dayIndex,
+  });
+}
+
+// Exported so the preview mirrors the real rotation instead of copying it.
+export const PICKER_CYCLE = [
+  pickKeyIssue, pickCoverSpotlight, pickKeyIssue, pickNewToCatalog,
+  pickValueCheck, pickKeyIssue, pickBrandPost,
+];
+
 async function selectPost() {
   const seenKeys = loadLedger();
   // Rotate types by day-of-year so it's not random-feeling day to day.
@@ -448,11 +564,9 @@ async function selectPost() {
   // most days) and the brand picker gets 1 — roughly once a week rather
   // than competing evenly, so the feed doesn't turn into a stats-spam
   // account. Easy to change the ratio later by adjusting this array.
-  const pickers = [
-    pickCoverSpotlight, pickNewToCatalog, pickValueCheck,
-    pickCoverSpotlight, pickNewToCatalog, pickValueCheck,
-    pickBrandPost,
-  ];
+  // Key issues lead (3 of 7 days): they are the posts with something to
+  // say. Spotlight/new/value fill the rest, brand once a week.
+  const pickers = PICKER_CYCLE;
   const dayIndex = Math.floor(Date.now() / 86400000) % pickers.length;
   const order = [...pickers.slice(dayIndex), ...pickers.slice(0, dayIndex)];
   for (const picker of order) {
@@ -566,37 +680,12 @@ async function run() {
     return;
   }
 
-  let caption;
-  if (post.type === "Brand") {
-    caption = buildBrandCaption({
-      kicker: post.kicker,
-      headline: post.headline,
-      captionBody: post.captionBody,
-    });
-    console.log(`Selected: Brand — ${post.kicker}: ${post.headline}`);
-  } else {
-    const kicker = { "Cover Spotlight": "✦ Cover Spotlight", "New to the Catalog": "✦ New to the Catalog", "Key Issue Value Check": "✦ Value Check" }[post.type];
-    const valueLine = post.valueInfo
-      ? `Est. value (raw NM-ish, ${post.valueInfo.sampleSize} sales): $${post.valueInfo.value.toFixed(0)}`
-      : post.type === "Key Issue Value Check"
-        ? null
-        : (() => {
-            const floor = coverPriceForYear(post.year);
-            return floor ? `Est. cover-price floor: $${floor.toFixed(2)}` : null;
-          })();
-
-    caption = buildCaption({
-      title: post.title,
-      issueNumber: post.issueNumber,
-      year: post.year,
-      publisher: post.publisher,
-      valueLine,
-      kicker,
-      postType: post.type,
-      synopsis: synopsisFromDescription(post.description),
-    });
-    console.log(`Selected: ${post.type} — ${post.title} #${post.issueNumber} (${post.year ?? "?"})`);
-  }
+  const caption = captionForPost(post);
+  console.log(
+    post.type === "Brand"
+      ? `Selected: Brand — ${post.kicker}: ${post.headline}`
+      : `Selected: ${post.type} — ${post.title} #${post.issueNumber} (${post.year ?? "?"})`
+  );
 
   console.log(`Image: ${post.imageUrl}`);
   console.log(`Caption:\n${caption}\n`);

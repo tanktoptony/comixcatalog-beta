@@ -18776,5 +18776,221 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T02:01:50.415848+00:00",
     "retry_after": "2026-09-23T02:01:50.415863+00:00"
+  },
+  {
+    "name": "The Incredible Hulk Vol. 1 No. 314 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:01:12.980544+00:00",
+    "retry_after": "2026-09-23T03:01:12.980561+00:00"
+  },
+  {
+    "name": "Starfinder: Angels of the Drift: Special Ashcan Edition",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:01:18.533183+00:00",
+    "retry_after": "2026-09-23T03:01:18.533200+00:00"
+  },
+  {
+    "name": "Prophet Remastered Edition",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:01:19.213356+00:00",
+    "retry_after": "2026-09-23T03:01:19.213372+00:00"
+  },
+  {
+    "name": "Red Sonja Dynamite Dollar Book",
+    "publisher": "Dynamite Entertainment",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:01:33.882010+00:00",
+    "retry_after": "2026-09-23T03:01:33.882026+00:00"
+  },
+  {
+    "name": "Prime: Gross and Disgusting [Prime Annual]",
+    "publisher": "Malibu Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:01:39.404361+00:00",
+    "retry_after": "2026-09-23T03:01:39.404377+00:00"
+  },
+  {
+    "name": "One for One: Brain Boy",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:02:00.916679+00:00",
+    "retry_after": "2026-09-23T03:02:00.916695+00:00"
+  },
+  {
+    "name": "Custom Snapple 2025 Fantastic Four Comic Reissue",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:02:01.575846+00:00",
+    "retry_after": "2026-09-23T03:02:01.575862+00:00"
+  },
+  {
+    "name": "Marvel Milestone Edition: The Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:02:14.026082+00:00",
+    "retry_after": "2026-09-23T03:02:14.026098+00:00"
+  },
+  {
+    "name": "Thor",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2294,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 1966
+      },
+      {
+        "id": 166460,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 6226,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 123862,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 18831,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2007
+      },
+      {
+        "id": 111590,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 31184,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 77223,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:02:19.631260+00:00",
+    "retry_after": "2026-09-23T03:02:19.631276+00:00"
+  },
+  {
+    "name": "Ghost Rider",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2636,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 1973
+      },
+      {
+        "id": 141707,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 18217,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2005
+      },
+      {
+        "id": 96138,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 11183,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 4397,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 1990
+      },
+      {
+        "id": 18138,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 40536,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 2352,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 1967
+      },
+      {
+        "id": 121736,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 147556,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T03:02:20.178843+00:00",
+    "retry_after": "2026-09-23T03:02:20.178858+00:00"
   }
 ]

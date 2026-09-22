@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getAuthedUser } from "@/lib/authServer";
 import { getMarketValuesBulk } from "@/lib/marketValue";
+import { normTitle, titleVariants } from "@/lib/titleMatch";
 
 function parseYear(value) {
   if (!value) return null;
@@ -247,12 +248,13 @@ export async function GET(req) {
         supabase
           .from("canonical_covers")
           .select("series_title, issue_number, series_year, cover_date, storage_path")
-          .in("series_title", seriesTitles)
+          // Title variants + normTitle keys, same as /api/library-hydrate.
+          .in("series_title", [...new Set(seriesTitles.flatMap(titleVariants))])
           .not("storage_path", "is", null)
           .order("id")
       );
       for (const c of covers) {
-        const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
+        const key = `${normTitle(c.series_title)}::${norm(c.issue_number)}`;
         if (!coversByKey.has(key)) coversByKey.set(key, []);
         coversByKey.get(key).push(c);
       }
@@ -318,7 +320,7 @@ export async function GET(req) {
       const idKey = issueRow?.series_gcd_id
         ? `${issueRow.series_gcd_id}::${norm(row.issue_number)}`
         : null;
-      const coverKey = `${norm(row.seriesTitle)}::${norm(row.issue_number)}`;
+      const coverKey = `${normTitle(row.seriesTitle)}::${norm(row.issue_number)}`;
       const issueYear = row.year;
 
       // Try ID path first. If it yields no usable path (no candidates OR

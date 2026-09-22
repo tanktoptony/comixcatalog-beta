@@ -16595,9 +16595,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T16:17:47.226558+00:00",
-    "retry_after": "2026-09-22T16:17:47.226575+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T17:08:54.084052+00:00",
+    "retry_after": "2026-09-25T17:08:54.084068+00:00"
   },
   {
     "name": "100 Bullets / Crime Line Sampler Flip-Book",
@@ -16615,9 +16615,9 @@
     "year": 1958,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T16:17:48.401807+00:00",
-    "retry_after": "2026-09-22T16:17:48.401824+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-22T17:08:51.776758+00:00",
+    "retry_after": "2026-09-25T17:08:51.776775+00:00"
   },
   {
     "name": "The Lone Ranger/Zorro: The Death of Zorro",
@@ -20467,5 +20467,172 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T16:04:44.135230+00:00",
     "retry_after": "2026-09-23T16:04:44.135248+00:00"
+  },
+  {
+    "name": "Crimson Letters",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73327,
+        "name": "Crimson Letters",
+        "publisher": "Adventure",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T17:08:52.597898+00:00",
+    "retry_after": "2026-09-23T17:08:52.597915+00:00"
+  },
+  {
+    "name": "Giant-Size Chillers Featuring Curse of Dracula",
+    "publisher": "Marvel Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T17:09:05.870945+00:00",
+    "retry_after": "2026-09-23T17:09:05.870962+00:00"
+  },
+  {
+    "name": "Maze Agency",
+    "publisher": "IDW Publishing",
+    "year": 2023,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 32879,
+        "name": "The Maze Agency",
+        "publisher": "IDW Publishing",
+        "start_year": 2005
+      },
+      {
+        "id": 34902,
+        "name": "The Maze Agency",
+        "publisher": "IDW Publishing",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T17:09:06.514476+00:00",
+    "retry_after": "2026-09-23T17:09:06.514497+00:00"
+  },
+  {
+    "name": "Dark Crossings: Dark Clouds Rising",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T17:09:11.949737+00:00",
+    "retry_after": "2026-09-23T17:09:11.949753+00:00"
+  },
+  {
+    "name": "Ultimate Spider-Man Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T17:09:34.670919+00:00",
+    "retry_after": "2026-09-23T17:09:34.670935+00:00"
+  },
+  {
+    "name": "The Official Image Comics Timeline",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T17:14:30.156770+00:00",
+    "retry_after": "2026-09-23T17:14:30.156788+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles",
+    "publisher": "IDW Publishing",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 42285,
+        "name": "Teenage Mutant Ninja Turtles",
+        "publisher": "IDW Publishing",
+        "start_year": 2011
+      },
+      {
+        "id": 159035,
+        "name": "Teenage Mutant Ninja Turtles",
+        "publisher": "IDW Publishing",
+        "start_year": 2024
+      },
+      {
+        "id": 167769,
+        "name": "Teenage Mutant Ninja Turtles",
+        "publisher": "IDW Publishing",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T17:16:48.980288+00:00",
+    "retry_after": "2026-09-23T17:16:48.980305+00:00"
+  },
+  {
+    "name": "American Vampire",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 160868,
+        "name": "American Vampire",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      },
+      {
+        "id": 32051,
+        "name": "American Vampire",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 35689,
+        "name": "American Vampire",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T17:17:17.787558+00:00",
+    "retry_after": "2026-09-23T17:17:17.787573+00:00"
+  },
+  {
+    "name": "Marvel Comics Presents",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4058,
+        "name": "Marvel Comics Presents",
+        "publisher": "Marvel",
+        "start_year": 1988
+      },
+      {
+        "id": 19164,
+        "name": "Marvel Comics Presents",
+        "publisher": "Marvel",
+        "start_year": 2007
+      },
+      {
+        "id": 116505,
+        "name": "Marvel Comics Presents",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-22T17:18:34.658653+00:00",
+    "retry_after": "2026-09-23T17:18:34.658668+00:00"
   }
 ]

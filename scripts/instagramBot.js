@@ -28,6 +28,7 @@ import {
   COVER_INTROS,
   NEW_INTROS,
   PERSONAL_POSTS,
+  SIGNUP_POSTS,
   VALUE_INTROS,
   keyIssueBlurb,
   pickByDay,
@@ -552,10 +553,42 @@ export function captionForPost(post, dayIndex = Math.floor(Date.now() / 86400000
 }
 
 // Exported so the preview mirrors the real rotation instead of copying it.
+// 8-day cycle: key issues on 3, a direct sign-up ask on 1, spotlight/new/
+// value on 3, personal-or-stats brand card on 1.
 export const PICKER_CYCLE = [
-  pickKeyIssue, pickCoverSpotlight, pickKeyIssue, pickNewToCatalog,
-  pickValueCheck, pickKeyIssue, pickBrandPost,
+  pickKeyIssue, pickCoverSpotlight, pickSignupPost, pickKeyIssue,
+  pickNewToCatalog, pickValueCheck, pickKeyIssue, pickBrandPost,
 ];
+
+// ── Content type: Sign-up ask — a recurring brand card that just says join ──
+// Not ledgered once-only like the personal posts: it rotates through
+// SIGNUP_POSTS by week, so each ask comes back around roughly monthly.
+export async function pickSignupPost() {
+  const week = Math.floor(Date.now() / (86400000 * 7));
+  const content = SIGNUP_POSTS[week % SIGNUP_POSTS.length];
+  const png = await renderBrandCard({
+    kicker: content.kicker,
+    headline: content.headline,
+    subtext: content.subtext,
+  });
+  const storagePath = `brand-cards/${slugifyForPath(content.id)}.png`;
+  const { error: uploadError } = await supabase.storage
+    .from("comic-covers")
+    .upload(storagePath, png, { contentType: "image/png", upsert: true });
+  if (uploadError) {
+    console.error(`Sign-up card upload failed: ${uploadError.message}`);
+    return null;
+  }
+  return {
+    type: "Brand",
+    // Day-stamped so the daily ledger never blocks the next occurrence.
+    dedupeKey: `signup:${content.id}:${todayStamp()}`,
+    imageUrl: `${SUPABASE_URL}/storage/v1/object/public/comic-covers/${storagePath}`,
+    kicker: content.kicker,
+    headline: content.headline,
+    captionBody: content.captionBody,
+  };
+}
 
 async function selectPost() {
   const seenKeys = loadLedger();
@@ -564,8 +597,8 @@ async function selectPost() {
   // most days) and the brand picker gets 1 — roughly once a week rather
   // than competing evenly, so the feed doesn't turn into a stats-spam
   // account. Easy to change the ratio later by adjusting this array.
-  // Key issues lead (3 of 7 days): they are the posts with something to
-  // say. Spotlight/new/value fill the rest, brand once a week.
+  // Key issues lead (3 of 8 days), a sign-up ask every 8 days, spotlight/
+  // new/value fill the rest, a personal or stats card once a cycle.
   const pickers = PICKER_CYCLE;
   const dayIndex = Math.floor(Date.now() / 86400000) % pickers.length;
   const order = [...pickers.slice(dayIndex), ...pickers.slice(0, dayIndex)];

@@ -122,6 +122,50 @@ export const PERSONAL_POSTS = [
   },
 ];
 
+// Direct sign-up asks. These recur (round-robin by day) rather than
+// posting once, because "please make an account" is a message you have to
+// say more than once. Brand-card format. Keep them short and a little
+// cheeky; the founder's brief was, verbatim, "tell people to sign the fuck
+// up." Instagram's reach filters do not love actual profanity in captions,
+// so the energy is here and the word is not. Add it back if you want it.
+export const SIGNUP_POSTS = [
+  {
+    id: "signup-just-do-it",
+    kicker: "A polite request",
+    headline: "Sign up. It is free.",
+    subtext: "No card. No trial that turns into a charge. Just make the account and start clicking the comics you own.",
+    captionBody: "I do not do a lot of asks on here, so here is one. Make an account. It is free, there is no card, and the first thing you will do is search a series you love and start clicking the issues you own. It takes about ninety seconds to feel like a real collector with a real collection. Link in bio.",
+  },
+  {
+    id: "signup-spreadsheet",
+    kicker: "Real talk",
+    headline: "Your spreadsheet is lying to you.",
+    subtext: "It has no covers, no values, no wantlist, and you have not updated it since 2023. Come on.",
+    captionBody: "You have a spreadsheet. I had a spreadsheet. It had no covers, no idea what anything was worth, and a tab called 'want' I never opened. ComixCatalog is the spreadsheet with everything filled in for you. Free account, link in bio. Bring the spreadsheet, there is a CSV import.",
+  },
+  {
+    id: "signup-founding",
+    kicker: "Clock is running",
+    headline: "Free Pro for life. Still open.",
+    subtext: "Founding Collector spots are limited. When they are gone, Pro costs money like everything else.",
+    captionBody: "Founding Collector spots are still open, which means a new account right now gets Collector Pro permanently, free. Market values, grades and certs, the insurance PDF, all of it. When the spots are gone this offer is gone and I will not bring it back. Link in bio. Go.",
+  },
+  {
+    id: "signup-wantlist",
+    kicker: "Do this before your next con",
+    headline: "Make the wantlist.",
+    subtext: "Walk in knowing exactly which issues you need. Walk out without buying #14 for the third time.",
+    captionBody: "The single most useful thing on the site is the wantlist, and you cannot use it without an account. Make one. Add the ten books you are hunting. Next time you are at a shop or a con you will pull out your phone instead of guessing, and you will not buy #14 for the third time. Free. Link in bio.",
+  },
+  {
+    id: "signup-profile",
+    kicker: "Show off",
+    headline: "Your collection deserves a page.",
+    subtext: "comixcatalog.com/u/yourname. Covers, stats, wantlist. Send it to the friend who does not believe you.",
+    captionBody: "Every account gets a public page: your covers, your stats, your wantlist, at comixcatalog.com/u/yourname. It is the link you send to the friend who does not believe you own that book. Make the account, add the books, send the link. Link in bio to start.",
+  },
+];
+
 // Openers by post type. The bot picks by day index so consecutive days
 // differ. Each should stand alone as the first line of a caption.
 export const COVER_INTROS = [

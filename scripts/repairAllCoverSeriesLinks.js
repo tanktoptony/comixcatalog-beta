@@ -60,8 +60,31 @@ const MIN_MARGIN = 0.15;
 const YEAR_PAD = 1;
 const PAGE = 1000;
 
-async function fetchAllPages(build) {
+// Two paging modes.
+// - keyCol given: keyset paging (`WHERE keyCol > last ORDER BY keyCol LIMIT
+//   1000`). Every page costs the same. Use for the big whole-table walks;
+//   the select must include keyCol and the caller must not add .order().
+// - no keyCol: offset paging via .range(). Fine for a few pages, but on a
+//   122k-row walk page 100 measured 8.2s on 2026-09-22 (offset makes
+//   Postgres scan and discard everything before it) and tripped the
+//   statement timeout in the hourly health check. Keyset walked the same
+//   table at 1.1s worst page.
+async function fetchAllPages(build, keyCol) {
   const rows = [];
+  if (keyCol) {
+    let last = null;
+    for (;;) {
+      let query = build().order(keyCol, { ascending: true }).limit(PAGE);
+      if (last != null) query = query.gt(keyCol, last);
+      const { data, error } = await query;
+      if (error) throw error;
+      if (!data?.length) break;
+      rows.push(...data);
+      if (data.length < PAGE) break;
+      last = data[data.length - 1][keyCol];
+    }
+    return rows;
+  }
   for (let from = 0; ; from += PAGE) {
     const { data, error } = await build().range(from, from + PAGE - 1);
     if (error) throw error;
@@ -87,14 +110,25 @@ async function fetchAllPages(build) {
 // also means the "no candidate cleared 85%" skip count has been inflated
 // by candidates whose issue lists were simply never read.
 // Fix: page every chunk to completion with a stable order, same as the
-// two fetches above. Smaller chunks keep each page's query cheap.
+// two fetches above.
+//
+// Ordering matters for more than determinism. The first version of this
+// fix ordered by gcd_id (the primary key) in 100-series chunks and the
+// health check hit Postgres 57014 (statement timeout) on its first hourly
+// run: with an IN filter plus ORDER BY the PK, the planner can walk the PK
+// index and filter, which at deep offsets scans millions of rows. Measured
+// on a real 100-series chunk: worst page 4.5s ordered by gcd_id vs 0.85s
+// ordered by (series_gcd_id, gcd_id), and 0.16s with 25-series chunks.
+// series_gcd_id is the filtered column, so leading the sort with it keeps
+// the planner on that index.
 async function fetchIssueSets(gcdIds) {
   const map = new Map();
   const ids = [...new Set(gcdIds)].filter((v) => v != null);
-  for (let i = 0; i < ids.length; i += 100) {
-    const chunk = ids.slice(i, i + 100);
+  for (let i = 0; i < ids.length; i += 25) {
+    const chunk = ids.slice(i, i + 25);
     const data = await fetchAllPages(() =>
-      supabase.from("gcd_issues").select("series_gcd_id, issue_number").in("series_gcd_id", chunk).order("gcd_id")
+      supabase.from("gcd_issues").select("series_gcd_id, issue_number").in("series_gcd_id", chunk)
+        .order("series_gcd_id").order("gcd_id")
     );
     for (const row of data) {
       const key = row.series_gcd_id;
@@ -175,9 +209,9 @@ function mode(values) {
 // regardless of concurrent writes elsewhere in the table.
 async function fetchPinnedGcdIdByVolume() {
   const rows = await fetchAllPages(() =>
-    supabase.from("series").select("comicvine_volume_id, gcd_id")
-      .not("comicvine_volume_id", "is", null).not("gcd_id", "is", null).order("id")
-  );
+    supabase.from("series").select("id, comicvine_volume_id, gcd_id")
+      .not("comicvine_volume_id", "is", null).not("gcd_id", "is", null),
+  "id");
   const candidatesByVolume = new Map();
   for (const row of rows) {
     if (!candidatesByVolume.has(row.comicvine_volume_id)) {
@@ -202,8 +236,8 @@ async function run() {
   console.log("Loading all covers with a comicvine_volume_id...");
   const covers = await fetchAllPages(() =>
     supabase.from("canonical_covers").select("id, comicvine_volume_id, series_gcd_id, issue_number, series_title, series_year, cover_date")
-      .not("comicvine_volume_id", "is", null).not("storage_path", "is", null).order("id")
-  );
+      .not("comicvine_volume_id", "is", null).not("storage_path", "is", null),
+  "id");
   console.log(`Covers loaded: ${covers.length}`);
 
   const byVolume = new Map();
@@ -290,7 +324,7 @@ async function run() {
     const chunk = titles.slice(i, i + 200);
     // Paged: 200 common titles can match well over 1000 gcd_series rows.
     const data = await fetchAllPages(() =>
-      supabase.from("gcd_series").select("gcd_id, name, year_began, year_ended").in("name", chunk).order("gcd_id")
+      supabase.from("gcd_series").select("gcd_id, name, year_began, year_ended").in("name", chunk).order("name").order("gcd_id")
     );
     for (const row of data) {
       if (!candidatesByTitle.has(row.name)) candidatesByTitle.set(row.name, []);

@@ -19945,9 +19945,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T15:06:47.380630+00:00",
-    "retry_after": "2026-09-23T15:06:47.380649+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T15:19:07.876163+00:00",
+    "retry_after": "2026-09-26T15:19:07.876181+00:00"
   },
   {
     "name": "Iron Man",
@@ -20010,9 +20010,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T15:08:16.003409+00:00",
-    "retry_after": "2026-09-23T15:08:16.003426+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T15:19:08.347896+00:00",
+    "retry_after": "2026-09-26T15:19:08.347913+00:00"
   },
   {
     "name": "Robert Jordan's Wheel of Time: New Spring",
@@ -20020,9 +20020,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T15:08:16.590088+00:00",
-    "retry_after": "2026-09-23T15:08:16.590105+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T15:19:08.899232+00:00",
+    "retry_after": "2026-09-26T15:19:08.899248+00:00"
   },
   {
     "name": "Stan Lee Presents the Marvel Comics Illustrated Version of Blade Runner",
@@ -23715,5 +23715,170 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T15:06:03.806274+00:00",
     "retry_after": "2026-09-24T15:06:03.806291+00:00"
+  },
+  {
+    "name": "Six-Gun Heroes",
+    "publisher": "Charlton Comics",
+    "year": 1991,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 101528,
+        "name": "Six-Gun Heroes",
+        "publisher": "Charlton",
+        "start_year": 1959
+      },
+      {
+        "id": 1612,
+        "name": "Six-Gun Heroes",
+        "publisher": "Charlton",
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T15:19:14.788449+00:00",
+    "retry_after": "2026-09-24T15:19:14.788483+00:00"
+  },
+  {
+    "name": "Star Wars: Tales of the Jedi: Dark Lords of the Sith / Topps Special Ashcan Edition",
+    "publisher": "Topps Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T15:19:15.120135+00:00",
+    "retry_after": "2026-09-24T15:19:15.120151+00:00"
+  },
+  {
+    "name": "Universal Studios Islands of Adventure Under Siege [The Incredible Hulk]",
+    "publisher": "Marvel Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T15:19:15.492691+00:00",
+    "retry_after": "2026-09-24T15:19:15.492707+00:00"
+  },
+  {
+    "name": "Insane Clown Posse [Raise the Desertz of Glass]",
+    "publisher": "Chaos! Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T15:20:35.776314+00:00",
+    "retry_after": "2026-09-24T15:20:35.776330+00:00"
+  },
+  {
+    "name": "Deadpool",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 6000,
+        "name": "Deadpool",
+        "publisher": "Marvel",
+        "start_year": 1997
+      },
+      {
+        "id": 5003,
+        "name": "Deadpool",
+        "publisher": "Marvel",
+        "start_year": 1993
+      },
+      {
+        "id": 59624,
+        "name": "Deadpool",
+        "publisher": "Marvel",
+        "start_year": 1994
+      },
+      {
+        "id": 22955,
+        "name": "Deadpool",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 53726,
+        "name": "Deadpool",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 85750,
+        "name": "Deadpool",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 157504,
+        "name": "Deadpool",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 145766,
+        "name": "Deadpool",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 122987,
+        "name": "Deadpool",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 111414,
+        "name": "Deadpool",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T15:21:30.973023+00:00",
+    "retry_after": "2026-09-24T15:21:30.973038+00:00"
+  },
+  {
+    "name": "Outsiders",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 22453,
+        "name": "Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 1993
+      },
+      {
+        "id": 154666,
+        "name": "Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      },
+      {
+        "id": 3455,
+        "name": "The Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 1985
+      },
+      {
+        "id": 10415,
+        "name": "Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 25804,
+        "name": "The Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T15:25:19.004873+00:00",
+    "retry_after": "2026-09-24T15:25:19.004891+00:00"
   }
 ]

@@ -516,6 +516,27 @@ def _save_done(path: str, done: dict) -> None:
     os.replace(tmp, path)
 
 
+def _done_mark_blockers(attempts: int, successes: int, already_covered: int):
+    """Reasons a finished volume must NOT be written to the done-ledger.
+
+    Returns (fully_stuck, nothing_to_do). Either being true means the run
+    produced no coverage for this target, so recording it as done would skip
+    it for free on every future run — silently, with no trace anywhere.
+
+    Extracted from the main loop so the truth table can be tested directly;
+    the "attempted nothing at all" case shipped undetected precisely because
+    it only existed as an inline boolean nobody could exercise. See
+    test_done_ledger.py.
+
+    The only legitimate way to reach the end having attempted nothing is that
+    every issue was already covered by a prior run, which is exactly what a
+    non-empty already_covered means.
+    """
+    fully_stuck = attempts > 0 and successes == 0
+    nothing_to_do = attempts == 0 and already_covered == 0
+    return fully_stuck, nothing_to_do
+
+
 def _is_done_fresh(done: dict, key: str, ttl_days: int) -> bool:
     stamp = done.get(key)
     if not stamp:
@@ -1737,13 +1758,55 @@ def main():
             # GCD match) looks identical to a healthy run at the "no crash"
             # level — mark that done and it's stuck silently forever. Let it
             # get retried instead.
+            # The guard above only covered "attempted some, got none". It
+            # missed "attempted none at all", because `fully_stuck` requires
+            # new_issue_attempts > 0. A volume whose issue list yields nothing
+            # to attempt — ComicVine returned zero issues, or every issue was
+            # filtered out before the upload branch — lands here with
+            # attempts == 0, successes == 0, and gets marked done as though it
+            # finished cleanly.
+            #
+            # Found live 2026-09-22 by working backwards from four series in
+            # gap-user-collected.json, the FIRST and highest-priority ingest
+            # lane, which runs hourly and had never resolved them: Starmasters
+            # (1995), Robin II (1991), G.I. Joe Comics Magazine (1986) and
+            # Fantastic Four: World's Greatest Comics Magazine (2001). All
+            # four were marked done in .ingest-done.json with zero covers and
+            # no ComicVine pin on the series — skipped for free every run
+            # while still sitting in the priority queue looking like active
+            # work. Real user libraries were showing blanks for them.
+            #
+            # "Already covered from a prior run" is the one legitimate reason
+            # to reach the end having attempted nothing, and it is
+            # distinguishable: already_uploaded is non-empty. Anything else
+            # produced nothing and must not be recorded as finished.
             total_new_issue_successes += new_issue_successes
-            fully_stuck = new_issue_attempts > 0 and new_issue_successes == 0
+            fully_stuck, nothing_to_do = _done_mark_blockers(
+                new_issue_attempts, new_issue_successes, len(already_uploaded)
+            )
             if use_ledger and not args.volume_id:
-                if fully_stuck:
-                    print(
-                        f"  ⚠ not marking done: {new_issue_attempts} new issue(s) attempted, "
-                        f"0 got a cover this run — will retry next time instead of getting stuck."
+                if fully_stuck or nothing_to_do:
+                    if fully_stuck:
+                        reason = "all_new_issues_failed"
+                        detail = (
+                            f"{new_issue_attempts} new issue(s) attempted, 0 got a cover this run"
+                        )
+                    else:
+                        reason = "volume_yielded_no_issues"
+                        detail = (
+                            f"volume matched but produced nothing: {len(issues)} issue(s) listed, "
+                            f"0 attempted, 0 previously covered"
+                        )
+                    print(f"  ⚠ not marking done: {detail}.")
+                    # Hand it to the retry-backoff rather than just leaving it
+                    # to be re-ground every hour. This is the difference
+                    # between "gets another chance" and the head-of-line
+                    # blockage that took the pipeline down for 27 hours in
+                    # September: _record_needs_volume_id stamps attempts and
+                    # retry_after, and the main loop skips a target inside its
+                    # cooldown BEFORE spending a search call.
+                    _record_needs_volume_id(
+                        volume_name, publisher_name, target.get("year"), reason, []
                     )
                 else:
                     done[_done_key(target)] = _now_iso()

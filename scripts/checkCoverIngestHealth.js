@@ -126,10 +126,26 @@ FAIL: no new covers in ${LOOKBACK_DAYS} day(s). This is the exact ` +
 
 function checkMislink() {
   console.log("Running repairAllCoverSeriesLinks.js --dry-run to check for newly mis-linked volumes...");
-  const result = spawnSync("node", ["scripts/repairAllCoverSeriesLinks.js", "--dry-run"], {
-    encoding: "utf8",
-    maxBuffer: 1024 * 1024 * 20,
-  });
+  const result = spawnSync(
+    "node",
+    // The dry-run holds every cover carrying a comicvine_volume_id in memory
+    // — 124k rows and growing — plus candidate issue lists. It runs here as a
+    // CHILD of this process, minutes after the auto-repair step walked the
+    // same tables. package.json already gives the comparable
+    // planComicsGcdDedupe.js walk 2GB; this had default heap.
+    // Overridable so the failure branches below can be exercised against a
+    // stub. They shipped untested because the only way to reach them was to
+    // make the real 4-minute repair script crash.
+    [
+      "--max-old-space-size=4096",
+      process.env.MISLINK_SCRIPT || "scripts/repairAllCoverSeriesLinks.js",
+      "--dry-run",
+    ],
+    {
+      encoding: "utf8",
+      maxBuffer: 1024 * 1024 * 64,
+    }
+  );
 
   if (result.error) {
     console.error("checkCoverIngestHealth (mislink): dry-run failed to run:", result.error.message);
@@ -140,6 +156,28 @@ function checkMislink() {
   console.log(output);
   if (result.stderr) console.error(result.stderr);
 
+  // The child's exit status was being thrown away entirely, so a child that
+  // died produced "could not parse output" — which reads like a format
+  // change in the repair script rather than a crash, and sends whoever is
+  // on it looking in the wrong file.
+  //
+  // Live 2026-09-23 05:31 UTC: the child printed "Covers loaded: 124096" and
+  // then stopped. Nothing on stderr, no stack trace, no exit code recorded.
+  // That is all the evidence there was, because the code below discarded the
+  // rest. Report status and signal so the next occurrence says what
+  // happened; a silent termination with no JS error is what an OS kill looks
+  // like, which is why the heap limit above went up at the same time.
+  if (result.status !== 0) {
+    console.error(
+      "checkCoverIngestHealth (mislink): the dry-run child did not exit cleanly — " +
+        `exit code ${result.status ?? "null"}, signal ${result.signal ?? "none"}.` +
+        (result.signal || result.status === null
+          ? " A null status with no stack trace usually means the process was killed from outside (out of memory is the common cause here)."
+          : "")
+    );
+    process.exit(1);
+  }
+
   // Parses the stable TOTAL_RESOLVED_VOLUMES line, not the human-readable
   // summary prose above it (which changed shape 2026-08-27 when the
   // pin-priority feature split "resolved" into pin-driven + overlap-driven
@@ -149,7 +187,14 @@ function checkMislink() {
   const resolvedCount = match ? Number(match[1]) : null;
 
   if (resolvedCount == null) {
-    console.error("FAIL: could not parse repairAllCoverSeriesLinks.js output — treating as a failure to be safe.");
+    // Reachable now only when the child exited 0 without printing the line,
+    // i.e. the repair script genuinely changed its output format. The crash
+    // case is caught above and says so.
+    console.error(
+      "FAIL: repairAllCoverSeriesLinks.js exited 0 but printed no " +
+        "TOTAL_RESOLVED_VOLUMES line. Its output format has changed — update " +
+        "the regex here to match. Treating as a failure to be safe."
+    );
     process.exit(1);
   }
 

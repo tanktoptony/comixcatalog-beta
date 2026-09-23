@@ -68,6 +68,9 @@ jobs:
       - name: Instagram dedupe tests
         run: npm run test:instagram
 
+      - name: Health-check failure-mode tests
+        run: npm run test:health-check
+
       - name: Build
         run: npm run build
 

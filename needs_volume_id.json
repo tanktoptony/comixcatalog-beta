@@ -20712,9 +20712,9 @@
     "year": 1937,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T19:01:26.698655+00:00",
-    "retry_after": "2026-09-23T19:01:26.698673+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T19:28:45.585625+00:00",
+    "retry_after": "2026-09-26T19:28:45.585640+00:00"
   },
   {
     "name": "True Believers: X-Men - Pyro",
@@ -20722,9 +20722,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T19:03:24.869722+00:00",
-    "retry_after": "2026-09-23T19:03:24.869736+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T19:28:44.734961+00:00",
+    "retry_after": "2026-09-26T19:28:44.734978+00:00"
   },
   {
     "name": "Batman: Arkham Knight: Batgirl & Harley Quinn",
@@ -20732,9 +20732,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T19:03:25.325827+00:00",
-    "retry_after": "2026-09-23T19:03:25.325843+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T19:28:45.517222+00:00",
+    "retry_after": "2026-09-26T19:28:45.517237+00:00"
   },
   {
     "name": "The Incredible Hulk",
@@ -20791,9 +20791,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T19:03:39.011614+00:00",
-    "retry_after": "2026-09-23T19:03:39.011626+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T19:30:04.281087+00:00",
+    "retry_after": "2026-09-26T19:30:04.281104+00:00"
   },
   {
     "name": "War Stories",
@@ -20814,9 +20814,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T19:06:02.727598+00:00",
-    "retry_after": "2026-09-23T19:06:02.727614+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T19:30:02.788112+00:00",
+    "retry_after": "2026-09-26T19:30:02.788129+00:00"
   },
   {
     "name": "Ultimates",
@@ -20849,9 +20849,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T19:06:45.060133+00:00",
-    "retry_after": "2026-09-23T19:06:45.060149+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T19:30:03.369368+00:00",
+    "retry_after": "2026-09-26T19:30:03.369383+00:00"
   },
   {
     "name": "Spooky",
@@ -20872,9 +20872,9 @@
         "start_year": 1955
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T19:07:28.348432+00:00",
-    "retry_after": "2026-09-23T19:07:28.348447+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T19:30:04.234413+00:00",
+    "retry_after": "2026-09-26T19:30:04.234429+00:00"
   },
   {
     "name": "The Incredible Hulk Megazine",
@@ -24007,5 +24007,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T19:02:18.573040+00:00",
     "retry_after": "2026-09-24T19:02:18.573054+00:00"
+  },
+  {
+    "name": "Fright Night 1993 Halloween Annual",
+    "publisher": "Now Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T19:29:00.169557+00:00",
+    "retry_after": "2026-09-24T19:29:00.169574+00:00"
+  },
+  {
+    "name": "Genis-Vell: Marvel Tales",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T19:29:16.297590+00:00",
+    "retry_after": "2026-09-24T19:29:16.297607+00:00"
+  },
+  {
+    "name": "True Weird",
+    "publisher": "Dark Horse Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T19:29:37.776157+00:00",
+    "retry_after": "2026-09-24T19:29:37.776173+00:00"
+  },
+  {
+    "name": "Avengers: No More Bullying",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 79268,
+        "name": "Avengers: No More Bullying",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 85078,
+        "name": "Avengers: No More Bullying",
+        "publisher": "Marvel",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T19:30:00.999638+00:00",
+    "retry_after": "2026-09-24T19:30:00.999657+00:00"
   }
 ]

@@ -19825,9 +19825,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T11:12:11.200408+00:00",
-    "retry_after": "2026-09-23T11:12:11.200423+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T12:00:43.318191+00:00",
+    "retry_after": "2026-09-26T12:00:43.318210+00:00"
   },
   {
     "name": "Tomb Raider: The Series Vol.1, Free Comic Book Day Edition",
@@ -19835,9 +19835,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T11:20:35.087623+00:00",
-    "retry_after": "2026-09-23T11:20:35.087639+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T12:00:43.836400+00:00",
+    "retry_after": "2026-09-26T12:00:43.836419+00:00"
   },
   {
     "name": "GD Minus 18",
@@ -19845,9 +19845,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T11:28:19.425590+00:00",
-    "retry_after": "2026-09-23T11:28:19.425605+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T12:00:44.163858+00:00",
+    "retry_after": "2026-09-26T12:00:44.163876+00:00"
   },
   {
     "name": "Marvel Milestone Edition: The X-Men",
@@ -23100,5 +23100,156 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T11:09:50.522270+00:00",
     "retry_after": "2026-09-24T11:09:50.522281+00:00"
+  },
+  {
+    "name": "New Avengers: Illuminati [Mini-Comic]",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T12:00:50.030286+00:00",
+    "retry_after": "2026-09-24T12:00:50.030304+00:00"
+  },
+  {
+    "name": "Gen 13 [Encore No. 1]",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T12:01:15.599265+00:00",
+    "retry_after": "2026-09-24T12:01:15.599284+00:00"
+  },
+  {
+    "name": "Beetle Bailey [Bold Detergent Giveaway]",
+    "publisher": "Charlton Comics",
+    "year": 1969,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T12:01:30.638222+00:00",
+    "retry_after": "2026-09-24T12:01:30.638240+00:00"
+  },
+  {
+    "name": "Amazing Fantasy [Old Navy Edition]",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T12:01:38.225567+00:00",
+    "retry_after": "2026-09-24T12:01:38.225597+00:00"
+  },
+  {
+    "name": "Constantine",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 59156,
+        "name": "Constantine",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 71604,
+        "name": "Constantine",
+        "publisher": "DC Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T12:09:48.945964+00:00",
+    "retry_after": "2026-09-24T12:09:48.945982+00:00"
+  },
+  {
+    "name": "Romantic Story",
+    "publisher": "Fawcett Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36691,
+        "name": "Romantic Story",
+        "publisher": "Charlton",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T12:09:49.623551+00:00",
+    "retry_after": "2026-09-24T12:09:49.623570+00:00"
+  },
+  {
+    "name": "Wonder Woman",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18208,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 153611,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 18525,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 1942
+      },
+      {
+        "id": 3824,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 91774,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 42953,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 99063,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 94149,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 160507,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      },
+      {
+        "id": 122181,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T12:09:49.906435+00:00",
+    "retry_after": "2026-09-24T12:09:49.906452+00:00"
   }
 ]

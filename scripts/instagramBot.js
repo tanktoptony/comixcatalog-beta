@@ -22,6 +22,7 @@ import { fileURLToPath, pathToFileURL } from "url";
 import { createClient } from "@supabase/supabase-js";
 import { FEATURED_SERIES } from "../src/lib/featuredSeries.js";
 import { renderBrandCard } from "./lib/brandCard.js";
+import { describeError } from "./lib/describeError.js";
 import { pickBrandPost as pickBrandPostContent } from "./lib/brandPostContent.js";
 import {
   CTAS,
@@ -172,13 +173,17 @@ function median(values) {
 
 async function lookupValue(gcdIssueId) {
   if (gcdIssueId == null) return null;
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("market_comps")
     .select("sold_price, grade_bucket")
     .eq("gcd_issue_id", gcdIssueId)
     .in("grade_bucket", ["Raw NM", "Slabbed 9.4", "Slabbed 9.6"])
     .order("sold_date", { ascending: false })
     .limit(20);
+  if (error) {
+    console.error(`  lookupValue(${gcdIssueId}) failed: ${describeError(error)}`);
+    return null;
+  }
   if (!data || data.length < 2) return null;
   return { value: median(data.map((r) => r.sold_price)), sampleSize: data.length };
 }
@@ -424,12 +429,13 @@ function looksCollected(seriesTitle, storagePath) {
 
 // ── Content type 0: Key Issue — a curated row from key_issues with a blurb ──
 export async function pickKeyIssue(seenKeys) {
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("key_issues")
     .select("gcd_issue_id, title, issue_number, publisher, year, reason, tier")
     .not("gcd_issue_id", "is", null)
     .order("tier")
     .order("year");
+  if (error) console.error(`  key_issues read failed: ${describeError(error)}`);
   const rows = data ?? [];
   // Start somewhere different each week so the feed does not always open on
   // Action Comics #1, but walk in order from there so every key gets a turn.
@@ -464,13 +470,14 @@ export async function pickKeyIssue(seenKeys) {
 
 // ── Content type 2: New to the Catalog — most recent resolved cover add ────
 export async function pickNewToCatalog(seenKeys) {
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("canonical_covers")
     .select("gcd_issue_id, series_title, issue_number, series_year, publisher, storage_path, created_at, description")
     .eq("match_confidence", "resolved")
     .not("storage_path", "is", null)
     .order("created_at", { ascending: false })
     .limit(30);
+  if (error) console.error(`  new-to-catalog read failed: ${describeError(error)}`);
   for (const row of data ?? []) {
     const key = `new:${row.gcd_issue_id}`;
     if (seenKeys.has(key)) continue;
@@ -493,12 +500,13 @@ export async function pickNewToCatalog(seenKeys) {
 
 // ── Content type 3: Key Issue Value Check — a resolved issue with real comps ─
 export async function pickValueCheck(seenKeys) {
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("market_comps")
     .select("gcd_issue_id")
     .not("gcd_issue_id", "is", null)
     .order("sold_date", { ascending: false })
     .limit(100);
+  if (error) console.error(`  market_comps read failed: ${describeError(error)}`);
   const candidateIds = [...new Set((data ?? []).map((r) => r.gcd_issue_id))];
   for (const gcdIssueId of candidateIds) {
     const key = `value:${gcdIssueId}`;

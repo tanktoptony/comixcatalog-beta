@@ -16599,9 +16599,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T17:03:12.306528+00:00",
-    "retry_after": "2026-09-22T17:03:12.306547+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T13:00:50.691408+00:00",
+    "retry_after": "2026-09-26T13:00:50.691424+00:00"
   },
   {
     "name": "Sabrina the Teenage Witch Complete Collection",
@@ -19855,9 +19855,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T12:35:41.155344+00:00",
-    "retry_after": "2026-09-23T12:35:41.155362+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T13:00:48.578669+00:00",
+    "retry_after": "2026-09-26T13:00:48.578686+00:00"
   },
   {
     "name": "Valiant Masters Shadowman",
@@ -19865,9 +19865,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T12:38:53.675373+00:00",
-    "retry_after": "2026-09-23T12:38:53.675391+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T13:00:49.272931+00:00",
+    "retry_after": "2026-09-26T13:00:49.272948+00:00"
   },
   {
     "name": "G.I. Joe Special Treasury Edition",
@@ -19875,9 +19875,9 @@
     "year": 1982,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T12:39:29.904235+00:00",
-    "retry_after": "2026-09-23T12:39:29.904251+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T13:00:49.801929+00:00",
+    "retry_after": "2026-09-26T13:00:49.801945+00:00"
   },
   {
     "name": "Namor, the Sub-Mariner #8 [JC Penney Marvel Vintage Pack]",
@@ -23251,5 +23251,226 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T12:09:49.906435+00:00",
     "retry_after": "2026-09-24T12:09:49.906452+00:00"
+  },
+  {
+    "name": "One Dollar Debut: Shadowman",
+    "publisher": "Valiant Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T13:01:06.289477+00:00",
+    "retry_after": "2026-09-24T13:01:06.289494+00:00"
+  },
+  {
+    "name": "Superman in \"Luther's Lost Land\" [Giant Comics to Color]",
+    "publisher": "Gold Key",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T13:01:12.016257+00:00",
+    "retry_after": "2026-09-24T13:01:12.016273+00:00"
+  },
+  {
+    "name": "The Amazing Spider-Man: Carnage On Campus",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T13:01:47.556791+00:00",
+    "retry_after": "2026-09-24T13:01:47.556808+00:00"
+  },
+  {
+    "name": "Transformers: Revenge of the Fallen Official Movie Adaptation - Kmart Edition",
+    "publisher": "IDW Publishing",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T13:01:48.090039+00:00",
+    "retry_after": "2026-09-24T13:01:48.090055+00:00"
+  },
+  {
+    "name": "Ms. Marvel",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 86114,
+        "name": "Ms. Marvel",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 71457,
+        "name": "Ms. Marvel",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 83966,
+        "name": "Ms. Marvel",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 17990,
+        "name": "Ms. Marvel",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 2910,
+        "name": "Ms. Marvel",
+        "publisher": "Marvel",
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T13:01:53.408064+00:00",
+    "retry_after": "2026-09-24T13:01:53.408080+00:00"
+  },
+  {
+    "name": "Aliens",
+    "publisher": "Dark Horse Comics",
+    "year": 1992,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4132,
+        "name": "Aliens",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1988
+      },
+      {
+        "id": 4295,
+        "name": "Aliens",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1989
+      },
+      {
+        "id": 26519,
+        "name": "Aliens",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T13:02:46.849490+00:00",
+    "retry_after": "2026-09-24T13:02:46.849507+00:00"
+  },
+  {
+    "name": "Crossed",
+    "publisher": "Avatar Press",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 52856,
+        "name": "Crossed",
+        "publisher": "Avatar Press",
+        "start_year": 2010
+      },
+      {
+        "id": 22496,
+        "name": "Crossed",
+        "publisher": "Avatar Press",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T13:05:22.607535+00:00",
+    "retry_after": "2026-09-24T13:05:22.607552+00:00"
+  },
+  {
+    "name": "Ultimate X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 7258,
+        "name": "Ultimate X-Men",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 157127,
+        "name": "Ultimate X-Men",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T13:06:57.630842+00:00",
+    "retry_after": "2026-09-24T13:06:57.630858+00:00"
+  },
+  {
+    "name": "Scooby-Doo",
+    "publisher": "Archie Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33717,
+        "name": "Scooby-Doo",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 133329,
+        "name": "Scooby-doo!",
+        "publisher": "Universal Records Publishing",
+        "start_year": 1999
+      },
+      {
+        "id": 33517,
+        "name": "Scooby-Doo",
+        "publisher": "Big Balloon",
+        "start_year": 1999
+      },
+      {
+        "id": 18731,
+        "name": "Scooby-Doo!",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      },
+      {
+        "id": 32317,
+        "name": "Scooby-Doo",
+        "publisher": "Schibsted",
+        "start_year": 2006
+      },
+      {
+        "id": 133119,
+        "name": "Scooby-Doo",
+        "publisher": "Egmont Comics",
+        "start_year": 2005
+      },
+      {
+        "id": 2913,
+        "name": "Scooby-Doo",
+        "publisher": "Marvel",
+        "start_year": 1977
+      },
+      {
+        "id": 31352,
+        "name": "Scooby-Doo",
+        "publisher": "Harvey",
+        "start_year": 1992
+      },
+      {
+        "id": 133059,
+        "name": "Scooby-Doo",
+        "publisher": "Casterman",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T13:06:58.055853+00:00",
+    "retry_after": "2026-09-24T13:06:58.055870+00:00"
   }
 ]

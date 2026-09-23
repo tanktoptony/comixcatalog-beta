@@ -130,7 +130,8 @@ API for whether a run was ever created.**
 | `nightly-cover-report.yml` | 06:00 UTC | writes `reports/cover-coverage-history.json` + HTML | the canonical answer to "where are covers at" — read it rather than re-deriving |
 | `cron-watchdog.yml` | — | force-dispatches overdue workflows | grace windows live in `scripts/cronWatchdog.js` |
 | `instagram-post.yml` | — | posts an issue to Instagram | **never audited. The founder asked for an "Instagram bot refinement" and never specified what. Ask, do not guess.** |
-| `gcd-issue-refresh.yml`, `snapshot-collection-value.yml`, `pr-ci.yml` | — | metadata refresh, value snapshots, PR checks | |
+| `gcd-issue-refresh.yml` | Wed `0 18 * * 3` | tops up `gcd_issues` for the ~79 featured series from comics.org's live API | was green and mostly inert from 08-26 to 09-23: only step wrapped in `continue-on-error`, candidate lookup truncated at 1000 rows, fixed walk order. Fixed 2026-09-23. **A full pass still takes ~3 weeks** — GCD's budget is ~29 requests per run |
+| `snapshot-collection-value.yml`, `pr-ci.yml` | — | value snapshots, PR checks | |
 
 ---
 

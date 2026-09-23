@@ -18713,9 +18713,9 @@
     "year": 1972,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T04:00:49.438938+00:00",
-    "retry_after": "2026-09-23T04:00:49.438957+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T05:00:49.269125+00:00",
+    "retry_after": "2026-09-26T05:00:49.269142+00:00"
   },
   {
     "name": "Superman by Geoff Johns and John Romita Jr. Director's Cut",
@@ -18723,9 +18723,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T04:00:54.502679+00:00",
-    "retry_after": "2026-09-23T04:00:54.502697+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T05:00:49.737374+00:00",
+    "retry_after": "2026-09-26T05:00:49.737392+00:00"
   },
   {
     "name": "Giant-Size Creatures Featuring Werewolf",
@@ -18733,9 +18733,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T04:00:55.322745+00:00",
-    "retry_after": "2026-09-23T04:00:55.322762+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T05:00:50.228779+00:00",
+    "retry_after": "2026-09-26T05:00:50.228795+00:00"
   },
   {
     "name": "Radio Funnies [ashcan]",
@@ -18743,9 +18743,9 @@
     "year": 1939,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T04:02:35.237454+00:00",
-    "retry_after": "2026-09-23T04:02:35.237471+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T05:00:51.069661+00:00",
+    "retry_after": "2026-09-26T05:00:51.069676+00:00"
   },
   {
     "name": "Crimewave: Untouchables / Crimewave: The Detective - Chronicles of Max Faccioni",
@@ -18858,9 +18858,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T05:01:59.246648+00:00",
-    "retry_after": "2026-09-23T05:01:59.246665+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T05:03:51.802118+00:00",
+    "retry_after": "2026-09-26T05:03:51.802134+00:00"
   },
   {
     "name": "Hulk",
@@ -18905,9 +18905,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T05:01:59.646451+00:00",
-    "retry_after": "2026-09-23T05:01:59.646470+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T05:03:52.971957+00:00",
+    "retry_after": "2026-09-26T05:03:52.971974+00:00"
   },
   {
     "name": "Richie Rich",
@@ -22048,5 +22048,162 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T04:04:26.842894+00:00",
     "retry_after": "2026-09-24T04:04:26.842912+00:00"
+  },
+  {
+    "name": "Guardians of the Galaxy: Tomorrow's Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 55905,
+        "name": "Guardians of the Galaxy: Tomorrow's Avengers",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 64806,
+        "name": "Guardians of the Galaxy: Tomorrow's Avengers",
+        "publisher": "Marvel",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T05:01:11.267996+00:00",
+    "retry_after": "2026-09-24T05:01:11.268013+00:00"
+  },
+  {
+    "name": "Walt Disney's Gyro Gearloose and the Disney Ducks [Dynabrite Comics]",
+    "publisher": "Gold Key",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T05:01:11.777608+00:00",
+    "retry_after": "2026-09-24T05:01:11.777640+00:00"
+  },
+  {
+    "name": "Disney-Pixar/Muppets Presents: Toy Story",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55678,
+        "name": "Disney-Pixar/Muppets Presents: Toy Story",
+        "publisher": "Disney",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T05:01:18.186077+00:00",
+    "retry_after": "2026-09-24T05:01:18.186092+00:00"
+  },
+  {
+    "name": "The Flash by Joshua Williamson Omnibus",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173578,
+        "name": "The Flash by Joshua Williamson Omnibus",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T05:01:27.975233+00:00",
+    "retry_after": "2026-09-24T05:01:27.975249+00:00"
+  },
+  {
+    "name": "Solar, Man of the Atom [Second Death]",
+    "publisher": "Valiant Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T05:01:37.251983+00:00",
+    "retry_after": "2026-09-24T05:01:37.251999+00:00"
+  },
+  {
+    "name": "Walt Disney's Donald and Mickey in Disneyland on Tom Sawyer's Island",
+    "publisher": "Dell Comics",
+    "year": 1958,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T05:01:37.753218+00:00",
+    "retry_after": "2026-09-24T05:01:37.753234+00:00"
+  },
+  {
+    "name": "The Darkness",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 20086,
+        "name": "The Darkness",
+        "publisher": "Image",
+        "start_year": 2007
+      },
+      {
+        "id": 175247,
+        "name": "The Darkness",
+        "publisher": "Image",
+        "start_year": 2026
+      },
+      {
+        "id": 20344,
+        "name": "The Darkness",
+        "publisher": "Image",
+        "start_year": 2002
+      },
+      {
+        "id": 5868,
+        "name": "The Darkness",
+        "publisher": "Image",
+        "start_year": 1996
+      },
+      {
+        "id": 169122,
+        "name": "The Darkness",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T05:07:55.356577+00:00",
+    "retry_after": "2026-09-24T05:07:55.356593+00:00"
+  },
+  {
+    "name": "Conan the Barbarian",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 22947,
+        "name": "Conan the Barbarian",
+        "publisher": "Marvel",
+        "start_year": 1997
+      },
+      {
+        "id": 2471,
+        "name": "Conan the Barbarian",
+        "publisher": "Marvel",
+        "start_year": 1970
+      },
+      {
+        "id": 116245,
+        "name": "Conan the Barbarian",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T05:10:32.489415+00:00",
+    "retry_after": "2026-09-24T05:10:32.489432+00:00"
   }
 ]

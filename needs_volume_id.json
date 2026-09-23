@@ -19123,9 +19123,9 @@
         "start_year": 1999
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T06:01:54.154681+00:00",
-    "retry_after": "2026-09-23T06:01:54.154700+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T06:02:25.814367+00:00",
+    "retry_after": "2026-09-26T06:02:25.814385+00:00"
   },
   {
     "name": "Creed: Use Your Delusion Collected Edition",
@@ -22248,5 +22248,248 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T05:33:51.330454+00:00",
     "retry_after": "2026-09-24T05:33:51.330470+00:00"
+  },
+  {
+    "name": "Cyperpunk 2077 Library Edition",
+    "publisher": "Dark Horse Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T06:01:02.682883+00:00",
+    "retry_after": "2026-09-24T06:01:02.682903+00:00"
+  },
+  {
+    "name": "The Death-Defying Dr. Mirage Deluxe Edition",
+    "publisher": "Valiant Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T06:01:03.056007+00:00",
+    "retry_after": "2026-09-24T06:01:03.056025+00:00"
+  },
+  {
+    "name": "Amazing Spider-Man Halloween Trick-or-Read",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T06:01:24.828413+00:00",
+    "retry_after": "2026-09-24T06:01:24.828430+00:00"
+  },
+  {
+    "name": "Marvel Age Spider-Man (Free Comic Book Day Edition)",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T06:01:39.947010+00:00",
+    "retry_after": "2026-09-24T06:01:39.947028+00:00"
+  },
+  {
+    "name": "The Ambassadors",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 149098,
+        "name": "The Ambassadors",
+        "publisher": "Image",
+        "start_year": 2023
+      },
+      {
+        "id": 152998,
+        "name": "The Ambassadors",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T06:01:59.433244+00:00",
+    "retry_after": "2026-09-24T06:01:59.433262+00:00"
+  },
+  {
+    "name": "American Vampire: DC Compact Comics Edition",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T06:02:18.518048+00:00",
+    "retry_after": "2026-09-24T06:02:18.518066+00:00"
+  },
+  {
+    "name": "The Invincible Iron Man",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 21487,
+        "name": "Invincible Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 95596,
+        "name": "Invincible Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 146873,
+        "name": "The Invincible Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 85110,
+        "name": "Invincible Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T06:02:25.101310+00:00",
+    "retry_after": "2026-09-24T06:02:25.101327+00:00"
+  },
+  {
+    "name": "Cyberforce",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 142737,
+        "name": "Cyberforce",
+        "publisher": "Image",
+        "start_year": 2022
+      },
+      {
+        "id": 18361,
+        "name": "Cyberforce",
+        "publisher": "Image",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T06:06:58.134796+00:00",
+    "retry_after": "2026-09-24T06:06:58.134814+00:00"
+  },
+  {
+    "name": "Suicide Squad",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3815,
+        "name": "Suicide Squad",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 42803,
+        "name": "Suicide Squad",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 134141,
+        "name": "Suicide Squad",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 19127,
+        "name": "Suicide Squad",
+        "publisher": "DC Comics",
+        "start_year": 2001
+      },
+      {
+        "id": 19133,
+        "name": "Suicide Squad",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 123666,
+        "name": "Suicide Squad",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 120666,
+        "name": "Suicide Squad",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 93205,
+        "name": "Suicide Squad",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T06:06:59.056386+00:00",
+    "retry_after": "2026-09-24T06:06:59.056400+00:00"
+  },
+  {
+    "name": "Wolverine",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4250,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 1988
+      },
+      {
+        "id": 35263,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 58822,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 29930,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 10809,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2003
+      },
+      {
+        "id": 125121,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 159705,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T06:06:59.449441+00:00",
+    "retry_after": "2026-09-24T06:06:59.449458+00:00"
   }
 ]

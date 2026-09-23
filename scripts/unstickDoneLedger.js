@@ -117,7 +117,20 @@ async function main() {
   if (!toRemove.length) return;
 
   for (const key of toRemove) delete ledger[key];
-  fs.writeFileSync(LEDGER, `${JSON.stringify(ledger, null, 2)}\n`);
+  // Byte-for-byte the shape comicvine_api_to_supabase.py's _save_done writes:
+  //   json.dumps(dict(sorted(done.items())), ensure_ascii=False)
+  // which is one line, keys sorted, Python's default ", " / ": " separators,
+  // and no trailing newline.
+  //
+  // Writing pretty-printed JSON here instead produced a 7,680-line diff
+  // against a 1-line file, so every run of this script would have collided
+  // with the hourly workflow's own ledger commit. Matching the format keeps
+  // the diff to the handful of keys actually removed.
+  const body = Object.keys(ledger)
+    .sort()
+    .map((k) => `${JSON.stringify(k)}: ${JSON.stringify(ledger[k])}`)
+    .join(", ");
+  fs.writeFileSync(LEDGER, `{${body}}`);
   console.log(`Wrote ${LEDGER} — ${Object.keys(ledger).length} entries remain.`);
   console.log("These targets will be retried on the next ingest run.");
 }

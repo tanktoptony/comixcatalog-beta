@@ -18228,9 +18228,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T00:23:15.327127+00:00",
-    "retry_after": "2026-09-23T00:23:15.327136+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T01:01:57.310028+00:00",
+    "retry_after": "2026-09-26T01:01:57.310036+00:00"
   },
   {
     "name": "X-Men",
@@ -18251,9 +18251,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T00:23:15.467213+00:00",
-    "retry_after": "2026-09-23T00:23:15.467220+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T01:01:57.192030+00:00",
+    "retry_after": "2026-09-26T01:01:57.192044+00:00"
   },
   {
     "name": "Image 0 [Image Zero]",
@@ -21490,5 +21490,131 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T00:19:50.049056+00:00",
     "retry_after": "2026-09-24T00:19:50.049073+00:00"
+  },
+  {
+    "name": "True Believers: X-Men - Kitty Pryde & Emma Frost",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T01:00:49.749291+00:00",
+    "retry_after": "2026-09-24T01:00:49.749304+00:00"
+  },
+  {
+    "name": "Mighty Archie Art Players, Free Comic Book Day Edition",
+    "publisher": "Archie Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T01:00:59.183328+00:00",
+    "retry_after": "2026-09-24T01:00:59.183343+00:00"
+  },
+  {
+    "name": "Marvel & Disney: What If...? Minnie Became Captain Marvel",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T01:01:12.322739+00:00",
+    "retry_after": "2026-09-24T01:01:12.322752+00:00"
+  },
+  {
+    "name": "Peter Parker: Spectacular Spider-Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T01:01:12.763131+00:00",
+    "retry_after": "2026-09-24T01:01:12.763142+00:00"
+  },
+  {
+    "name": "Bella at the Bar",
+    "publisher": "Rebellion",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T01:01:54.015340+00:00",
+    "retry_after": "2026-09-24T01:01:54.015355+00:00"
+  },
+  {
+    "name": "Aspen Splash 2013 Swimsuit Spectacular",
+    "publisher": "Aspen Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T01:01:54.455074+00:00",
+    "retry_after": "2026-09-24T01:01:54.455088+00:00"
+  },
+  {
+    "name": "Walt Disney's Sleeping Beauty",
+    "publisher": "Dell Comics",
+    "year": 1959,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T01:01:55.484008+00:00",
+    "retry_after": "2026-09-24T01:01:55.484024+00:00"
+  },
+  {
+    "name": "Barrier #1 Free Comic Book Day Edition",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T01:01:55.998496+00:00",
+    "retry_after": "2026-09-24T01:01:55.998506+00:00"
+  },
+  {
+    "name": "Fantastic Four",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "multiple_near_year_tied",
+    "candidates": [
+      {
+        "id": 34468,
+        "name": "Fantastic Four",
+        "publisher": "Marvel",
+        "start_year": 1981
+      },
+      {
+        "id": 84326,
+        "name": "Fantastic Four",
+        "publisher": "Marvel",
+        "start_year": 1981
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T01:01:57.757137+00:00",
+    "retry_after": "2026-09-24T01:01:57.757150+00:00"
+  },
+  {
+    "name": "X-Men 2099",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18073,
+        "name": "X-Men 2099",
+        "publisher": "Marvel",
+        "start_year": 1993
+      },
+      {
+        "id": 27084,
+        "name": "X-Men 2099",
+        "publisher": "Marvel",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T01:03:07.612253+00:00",
+    "retry_after": "2026-09-24T01:03:07.612266+00:00"
   }
 ]

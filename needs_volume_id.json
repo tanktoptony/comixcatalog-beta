@@ -24060,5 +24060,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T19:30:00.999638+00:00",
     "retry_after": "2026-09-24T19:30:00.999657+00:00"
+  },
+  {
+    "name": "Star Trek: Deep Space Nine, The Celebrity Series: The Rules of Diplomacy",
+    "publisher": "Malibu Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T20:00:46.351982+00:00",
+    "retry_after": "2026-09-24T20:00:46.351999+00:00"
+  },
+  {
+    "name": "Supreme",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4938,
+        "name": "Supreme",
+        "publisher": "Image",
+        "start_year": 1992
+      },
+      {
+        "id": 47580,
+        "name": "Supreme",
+        "publisher": "Image",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T20:00:51.349780+00:00",
+    "retry_after": "2026-09-24T20:00:51.349796+00:00"
+  },
+  {
+    "name": "Jonah Hex",
+    "publisher": "DC Comics",
+    "year": 1985,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2887,
+        "name": "Jonah Hex",
+        "publisher": "DC Comics",
+        "start_year": 1977
+      },
+      {
+        "id": 18677,
+        "name": "Jonah Hex",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T20:04:19.011745+00:00",
+    "retry_after": "2026-09-24T20:04:19.011761+00:00"
+  },
+  {
+    "name": "Marvels Comics: Fantastic Four",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T20:05:20.389883+00:00",
+    "retry_after": "2026-09-24T20:05:20.389899+00:00"
   }
 ]

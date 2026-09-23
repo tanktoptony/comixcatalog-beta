@@ -21102,9 +21102,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T23:00:42.196406+00:00",
-    "retry_after": "2026-09-23T23:00:42.196417+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T23:00:43.431626+00:00",
+    "retry_after": "2026-09-26T23:00:43.431646+00:00"
   },
   {
     "name": "True Believers: Fantastic Four - Mad Thinker & Awesome Android",
@@ -21204,9 +21204,9 @@
         "start_year": 1966
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T23:03:00.665095+00:00",
-    "retry_after": "2026-09-23T23:03:00.665110+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T23:04:57.490667+00:00",
+    "retry_after": "2026-09-26T23:04:57.490683+00:00"
   },
   {
     "name": "Custom Lego SDCC 2024 X-Men '97 #1 Reissue",
@@ -24263,5 +24263,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T22:43:53.326319+00:00",
     "retry_after": "2026-09-24T22:43:53.326359+00:00"
+  },
+  {
+    "name": "Harley Quinn Batman Day Special Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T23:01:01.664800+00:00",
+    "retry_after": "2026-09-24T23:01:01.664816+00:00"
+  },
+  {
+    "name": "True Believers: Peter Parker Spectacular Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T23:03:28.303047+00:00",
+    "retry_after": "2026-09-24T23:03:28.303062+00:00"
+  },
+  {
+    "name": "Turok",
+    "publisher": "Dynamite Entertainment",
+    "year": 2018,
+    "reason": "multiple_near_year_tied",
+    "candidates": [
+      {
+        "id": 103277,
+        "name": "Turok",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2017
+      },
+      {
+        "id": 116390,
+        "name": "Turok",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T23:04:35.416012+00:00",
+    "retry_after": "2026-09-24T23:04:35.416025+00:00"
+  },
+  {
+    "name": "Star Wars 2018 Sampler",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T23:04:35.758843+00:00",
+    "retry_after": "2026-09-24T23:04:35.758859+00:00"
   }
 ]

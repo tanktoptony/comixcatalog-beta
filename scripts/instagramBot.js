@@ -30,6 +30,7 @@ import {
   PERSONAL_POSTS,
   VALUE_INTROS,
   keyIssueBlurb,
+  spotlightNote,
   pickByDay,
 } from "./lib/instagramVoice.js";
 
@@ -329,7 +330,7 @@ export async function pickCoverSpotlight(seenKeys) {
   for (const entry of candidates) {
     const { data: series } = await supabase
       .from("series")
-      .select("id, gcd_id, title, year_start_cached, resolved_publisher_cached, featured_cover_path_cached")
+      .select("id, gcd_id, title, year_start_cached, year_end_cached, issue_count_cached, resolved_publisher_cached, featured_cover_path_cached")
       .eq("title", entry.title)
       .not("featured_cover_path_cached", "is", null)
       .limit(20);
@@ -347,32 +348,63 @@ export async function pickCoverSpotlight(seenKeys) {
       (s) => !entry.prefer_year || Math.abs((s.year_start_cached ?? 0) - entry.prefer_year) <= 2
     ) ?? candidatePool[0];
     if (!match) continue;
-    const key = `spotlight:${match.gcd_id}`;
-    if (seenKeys.has(key)) continue;
-    if (imageAlreadyPosted(seenKeys, match.featured_cover_path_cached)) continue;
-    if (looksCollected(match.title, match.featured_cover_path_cached)) continue;
 
-    // featured_cover_path_cached is whichever cover got cached during a
-    // search-refresh pass — NOT necessarily issue #1. Look up the actual
-    // issue number for that exact cover rather than assuming, since
-    // claiming the wrong issue # is worse than omitting it.
-    const { data: coverRow } = await supabase
+    // The pool used to be one cover per featured series — whichever file
+    // happened to be in featured_cover_path_cached — so the whole content
+    // type could only ever produce 79 posts, 21 of which were already used.
+    // At two spotlights a week that is about 29 weeks before it returns
+    // null forever.
+    //
+    // Every cover in a featured series is a candidate instead. Measured
+    // 2026-09-22 with a keyset walk: 1,426 series rows carrying 3,637
+    // covers, against 58 before — roughly 35 years of material at two
+    // spotlights a week. (A first pass at this count said 6,974; that used
+    // an `.in()` series lookup which silently hit the 1000-row cap, §2a
+    // again, in the measurement rather than the feature.)
+    //
+    // The image-level dedupe added in #111 is what makes this safe: without
+    // it, drawing repeatedly from the same series would be the fastest
+    // possible way to repeat a cover.
+    const { data: covers } = await supabase
       .from("canonical_covers")
-      .select("gcd_issue_id, issue_number, description")
-      .eq("storage_path", match.featured_cover_path_cached)
-      .limit(1)
-      .maybeSingle();
+      .select("gcd_issue_id, issue_number, storage_path, description")
+      .eq("series_gcd_id", match.gcd_id)
+      .not("storage_path", "is", null)
+      .order("id")
+      .limit(1000);
+
+    // Shuffle so a series does not march through its own issues in order
+    // across successive spotlights.
+    const shuffled = [...(covers ?? [])].sort(() => Math.random() - 0.5);
+    const coverRow = shuffled.find(
+      (c) =>
+        !imageAlreadyPosted(seenKeys, c.storage_path) &&
+        !looksCollected(match.title, c.storage_path)
+    );
+    if (!coverRow) continue;
+
+    // Keyed on the issue now, not the series, or a series could only ever
+    // be spotlighted once no matter how many covers it has.
+    const key = `spotlight:${match.gcd_id}:${coverRow.gcd_issue_id ?? coverRow.storage_path}`;
+    if (seenKeys.has(key)) continue;
 
     return {
       type: "Cover Spotlight",
       dedupeKey: key,
-      imageUrl: coverUrl(match.featured_cover_path_cached),
+      imageUrl: coverUrl(coverRow.storage_path),
       title: match.title,
-      issueNumber: coverRow?.issue_number ?? null,
+      issueNumber: coverRow.issue_number ?? null,
       year: match.year_start_cached,
       publisher: match.resolved_publisher_cached,
-      gcdIssueId: coverRow?.gcd_issue_id ?? null,
-      description: coverRow?.description ?? null,
+      gcdIssueId: coverRow.gcd_issue_id ?? null,
+      description: coverRow.description ?? null,
+      blurb: spotlightNote({
+        title: match.title,
+        issueCount: match.issue_count_cached,
+        yearStart: match.year_start_cached,
+        yearEnd: match.year_end_cached,
+        publisher: match.resolved_publisher_cached,
+      }),
     };
   }
   return null;

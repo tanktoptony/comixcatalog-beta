@@ -132,7 +132,7 @@ export const PERSONAL_POSTS = [
 // Openers by post type. The bot picks by day index so consecutive days
 // differ. Each should stand alone as the first line of a caption.
 export const COVER_INTROS = [
-  "Cover of the day. No notes.",
+  "Cover of the day.",
   "Look at this one.",
   "I would frame this.",
   "Pulled this from the catalog and had to stop.",
@@ -169,4 +169,124 @@ export function pickByDay(list, dayIndex = Math.floor(Date.now() / 86400000), of
 
 export function keyIssueBlurb(title, issueNumber) {
   return KEY_ISSUE_BLURBS[`${String(title).trim()}|${String(issueNumber).trim()}`] ?? null;
+}
+
+// ── Cover Spotlight notes ──────────────────────────────────────────────
+//
+// Cover Spotlight used to be an intro line, the title, and a CTA. Nothing
+// about the book. That is the bland template the founder rejected for key
+// issues, and it survived here because only the key-issue type ever got a
+// blurb. Since the spotlight now runs twice a week instead of once, it
+// needed something to say.
+//
+// Keyed by series title. Written about the RUN, not a specific issue, so a
+// note stays true whichever cover from that series comes up.
+export const SERIES_SPOTLIGHT_NOTES = {
+  "Batman": "Detective Comics gave him a home. This book gave him a life. Eighty-odd years of one guy refusing to process anything.",
+  "Detective Comics": "The book DC is named after, still running. Issue 27 is the one you cannot afford. The rest are the fun part.",
+  "Action Comics": "Where the whole genre starts. Every cape that came after is downstream of a strongman lifting a car on a newsstand in 1938.",
+  "The Amazing Spider-Man": "The longest argument in comics about whether a guy in his twenties can catch a break. Answer: no, and that is why it works.",
+  "X-Men": "Started as five kids in a mansion, got cancelled, came back, and ate the entire 90s. My gateway book, so I am not objective about it.",
+  "House of X": "Hickman walks in and reorganizes sixty years of mutant continuity in twelve issues without breaking any of it. Ridiculous flex.",
+  "Powers of X": "The other half of the trick. Read them interleaved, the way the reading order says, or you are only getting half the book.",
+  "Immortal X-Men": "The Quiet Council arc. Politics, betrayal, and Mister Sinister enjoying himself far too much.",
+  "Immortal Hulk": "A horror book wearing a superhero book's jacket. Ewing and Bennett made the Hulk genuinely frightening again, which nobody had managed in decades.",
+  "Daredevil": "The best-written Marvel character by a distance, because everything that happens to Matt Murdock is his own fault and the book knows it.",
+  "Moon Knight": "A guy with more personalities than the book has issues, and somehow the most coherent character Marvel has.",
+  "Black Panther": "Wakanda as a real place with real politics, not a backdrop. The Coates run reads like a political novel that happens to have a guy in a cat suit.",
+  "Fantastic Four": "Marvel's first family and Marvel's first anything. A superhero book about people who bicker. Nobody had done that before 1961.",
+  "Avengers": "A team that formed by accident because Loki tried to frame the Hulk. Still the best origin in comics precisely because nobody planned it.",
+  "Captain America": "Punched Hitler on the cover nine months before the US entered the war. Everything since has been the character arguing with America about what he meant.",
+  "Thor": "Debuted quietly in a horror anthology, because that is how Marvel launched characters in 1962. Ended up carrying the cosmic side of the whole line.",
+  "Iron Man": "Stan Lee's stated goal was making readers root for a rich arms dealer. Sixty years later it somehow still works.",
+  "Wolverine": "Short, angry, Canadian, and the best character in the Marvel Universe. I will not be taking questions.",
+  "Deadpool": "Named after a Teen Titans villain, which is the single funniest fact in comics and nobody at Marvel will admit it.",
+  "Punisher": "Introduced as a one-off Spider-Man villain and immediately refused to leave. A franchise that started as a guest star.",
+  "Venom": "Started as a suit Spider-Man picked up on another planet and brought home. Everything after that is Marvel finding out what they had.",
+  "Superman": "The hardest character to write well, because a guy who can do anything has to choose not to, every single issue.",
+  "The Flash": "The book that restarted the Silver Age. A lab accident, a costume that finally looked like it could move, and comics changed.",
+  "Green Lantern": "A space cop with a ring powered by willpower. The O'Neil and Adams run asked him why he helps aliens but not Black Americans, and comics grew up a little.",
+  "Wonder Woman": "Created by a man who also invented the lie detector, which explains more about the lasso than most people expect.",
+  "Justice League": "The book where DC's whole roster has to be in a room together and get along. It rarely goes well, which is the point.",
+  "Aquaman": "Spent forty years as the punchline and the last twenty quietly being one of DC's best-designed characters. The jokes have not caught up.",
+  "Nightwing": "The rare sidekick who grew up, moved out, and got better than the man who raised him. Bludhaven is worse than Gotham and he stayed anyway.",
+  "Catwoman": "First appeared in Batman #1, same issue as the Joker. One of them got the movies. She got the better book.",
+  "Harley Quinn": "Invented for a cartoon in 1992 and reverse-engineered into the comics because she was too good to leave on TV.",
+  "Saga": "The best-looking ongoing in comics and the one I hand people who say they do not read comics. Fiona Staples draws faces better than anyone working.",
+  "The Walking Dead": "193 issues, one ending, no relaunches, no variant-cover gimmicks. Kirkman said he would finish it and he finished it.",
+  "Invincible": "Starts as a cheerful teen superhero book. Then issue 7 happens. You will remember where you were sitting.",
+  "Spawn": "The best-selling independent comic ever made, still running, still McFarlane. Say what you like about the plot, the capes look incredible.",
+  "Watchmen": "Twelve issues, no sequel needed, and every page is built like a machine. Read it once for the story and again for the layouts.",
+  "Sandman": "Gaiman writing a horror anthology disguised as a fantasy epic disguised as a book about stories. The one that made people take the medium seriously.",
+  "Y: The Last Man": "Sixty issues about the last man alive, and it is really about his sister, his mother, and everyone who has to live in what is left.",
+  "Preacher": "Ennis and Dillon at their most unhinged. It is very funny, it is very mean, and it does not care whether you are comfortable.",
+  "Monstress": "Sana Takeda's art belongs in a gallery. That it comes out monthly at newsstand pricing is faintly absurd.",
+  "Ice Cream Man": "An anthology where every issue is a different flavour of wrong. No continuity to catch up on. Start anywhere, regret it immediately.",
+  "Teenage Mutant Ninja Turtles": "Started as a black-and-white parody of Daredevil that got completely out of hand. The 1984 first printing is one of the great indie grails.",
+  "Something Is Killing the Children": "Tynion doing horror properly. The monsters are real, the adults knew, and a teenager with two swords is the only functioning adult in the book.",
+  "The Department of Truth": "Every conspiracy theory becomes true if enough people believe it. Simmonds draws it like a collage having a breakdown.",
+  "Absolute Batman": "A Batman with no money and no Alfred, which turns out to be the most interesting question anyone has asked about him in years.",
+  "Ultimate Spider-Man": "Hickman's version, where Peter is already married with kids and only now becoming Spider-Man. The best relaunch premise in years.",
+  "Star Wars: Darth Vader": "The books where Vader is the protagonist are better than they have any right to be, because he cannot be redeemed and everyone involved knows it.",
+  "Stranger Things": "Licensed tie-ins are usually filler. These fill the gaps between seasons and are genuinely worth owning.",
+  "Sonic the Hedgehog": "The longest-running licensed video game comic ever made, and the fanbase will tell you so at length, correctly.",
+  "Absolute Wonder Woman": "Raised in Hell instead of Themyscira. The Absolute line keeps asking what happens if you take away the one thing that made the character easy, and this is the best answer so far.",
+  "Absolute Superman": "No Krypton, no Kents, no Metropolis. A Superman who has to earn the S, which is a harder and much better book than it sounds.",
+  "Absolute Martian Manhunter": "The strangest book on the stands right now, and I mean that as a compliment. Deniz Camp and Javier Rodriguez are doing things with page layout that should not work.",
+  "Absolute Green Lantern": "Al Ewing writing horror-flavoured Green Lantern. The ring is not a gift here and you can feel it on every page.",
+  "Absolute Flash": "Speed as a curse rather than a gift. Every Absolute book takes the character's best day away from them and this one takes the running.",
+  "Ultimate X-Men": "Peach Momoko writing and drawing a mutant book set in Japan that looks like nothing else Marvel publishes. Worth it for the art alone.",
+  "Ultimate Black Panther": "Wakanda against Khonshu and Ra instead of the usual. The new Ultimate line's whole trick is asking what the character fights when the familiar villains are gone.",
+  "Ultimate Wolverine": "Logan as a Winter Soldier figure in the Eurasian Republic. The most interesting thing anyone has done with him in years.",
+  "Ultimates": "Hickman's version, where the team is a resistance movement against a world already lost. Reads more like a heist book than a superhero one.",
+  "Ultimate Invasion": "The four issues the entire new Ultimate line is built on. Start here or nothing else makes sense.",
+  "Spider-Boy": "A sidekick everyone forgot because of a magic deal, which is either a great hook or the most Spider-Man sentence ever written. Both, probably.",
+  "TVA": "The Time Variance Authority doing paperwork across the multiverse. Funnier than it has any business being.",
+  "One World Under Doom": "Doom finally gets what he always said he wanted, which is the only interesting thing you can do with a villain who is always right.",
+  "Star Wars": "Marvel has published Star Wars in three separate eras now. The 1977 run is the collectible one, the current run is the readable one.",
+  "The Nice House on the Lake": "The world ends in issue one and then it gets worse. Tynion and Bueno built a horror book where the scariest thing is the group chat.",
+  "Spider-Man": "The title that is not Amazing, which is a sentence only comics could produce. Usually where Marvel parks its best artists.",
+  "Robin": "There have been five of them and the fandom will fight you about the order. Damian is the one currently making it interesting.",
+  "Birds of Prey": "Oracle running a team from a chair, which was the most quietly progressive thing in 90s superhero comics and nobody made a fuss about it.",
+  "Poison Ivy": "Took a Batman villain, gave her a solo book and an actual argument, and it turned out she was right about most of it.",
+  "House of Slaughter": "The Something Is Killing the Children spin-off that earned its own shelf. The masks alone are worth the cover price.",
+  "Geiger": "Geoff Johns doing post-apocalyptic westerns with Gary Frank on art. Nuclear-powered man, glowing dogs, no notes needed.",
+  "Radiant Black": "A guy in his thirties with student debt gets sentai powers. The money problems do not go away, which is the whole point.",
+  "Killadelphia": "Vampires in Philadelphia, and the head vampire is a founding father. Rodney Barnes is not being subtle and it works.",
+  "Local Man": "A washed-up 90s superhero moves back to his small hometown. Two art styles, two timelines, one very good book about failing.",
+  "We Live": "A kids-and-monsters apocalypse that is far sadder than the cover art prepares you for. Bring tissues.",
+  "Stray Dogs": "Don Bluth-looking talking animals in a serial killer story. The tonal whiplash is deliberate and it is devastating.",
+  "Vanish": "Cullen Bunn and Ryan Stegman doing an extremely angry book about what happens to the chosen one after the chosen-one story ends.",
+  "Once & Future": "Arthurian legend as a weapon of British nationalism, fought off by a retired monster hunter and her grandson. Gillen having a lot of fun.",
+  "Power Rangers": "BOOM turned a toy commercial into a genuinely good space opera, which nobody saw coming.",
+  "Mighty Morphin Power Rangers": "The long-running half of BOOM's Rangers line. Shattered Grid is the arc people mean when they say these books got good.",
+};
+
+// Fallback for a series with no hand-written note. Says something specific
+// and TRUE from the catalog's own data — run length, era, publisher — rather
+// than reaching for another generic line. A spotlight that cannot say
+// anything real about the book should at least say a real number.
+export function spotlightNote({ title, issueCount, yearStart, yearEnd, publisher } = {}) {
+  const hand = SERIES_SPOTLIGHT_NOTES[String(title ?? "").trim()];
+  if (hand) return hand;
+
+  const count = Number(issueCount);
+  const start = Number(yearStart);
+  const end = Number(yearEnd) || start;
+  const span = Number.isFinite(start) && Number.isFinite(end) && end > start ? `${start} to ${end}` : null;
+  const pub = publisher ? String(publisher).replace(/\s+Comics$/i, "") : null;
+
+  if (Number.isFinite(count) && count >= 100) {
+    return span
+      ? `${count} issues, ${span}. Runs like this are why a wantlist beats a memory.`
+      : `${count} issues deep. Runs like this are why a wantlist beats a memory.`;
+  }
+  if (Number.isFinite(count) && count > 1 && count <= 12) {
+    return span
+      ? `${count} issues, ${span}, done. A complete run you can actually finish.`
+      : `${count} issues, start to finish. A complete run you can actually finish.`;
+  }
+  if (span && pub) return `${pub}, ${span}. Worth owning for the cover alone.`;
+  if (Number.isFinite(start)) return `${start}. Worth owning for the cover alone.`;
+  return null;
 }

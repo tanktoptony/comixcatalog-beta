@@ -31,11 +31,23 @@ const PATTERNS = [
     // `const { data } = await supabase...` — a failed query returns
     // data: null, which is indistinguishable from "no rows matched". This is
     // how a database outage becomes "this series has no covers".
+    //
+    // Widened 2026-09-23. The first version of this rule required a closing
+    // brace immediately after `data`, so it matched `const { data }` and
+    // missed `const { data: rows }`. That alias is not a rare spelling: it
+    // is what refreshGcdIssuesFromApi.js used to swallow the error on the
+    // featured-series lookup, and this audit ran clean over that file while
+    // the weekly job silently refreshed the wrong series for a month. Match
+    // any destructuring of a supabase result that takes data and not error.
     why: "a failed query looks exactly like an empty result",
     fix: "destructure { data, error } and check it, or use unwrap() from scripts/lib/describeError.js",
     dirs: ["scripts", "src"],
     ext: [".js", ".jsx"],
-    test: (line) => /const\s*\{\s*data\s*\}\s*=\s*await\s+supabase/.test(line),
+    test: (line) => {
+      const m = line.match(/const\s*\{([^}]*)\}\s*=\s*await\s+supabase/);
+      if (!m) return false;
+      return /\bdata\b/.test(m[1]) && !/\berror\b/.test(m[1]);
+    },
   },
   {
     id: "invented-error-text",

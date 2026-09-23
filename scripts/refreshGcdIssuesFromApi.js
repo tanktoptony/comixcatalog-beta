@@ -15,11 +15,17 @@
 //   node scripts/refreshGcdIssuesFromApi.js --gcd-ids=217177,120640
 //   node scripts/refreshGcdIssuesFromApi.js --source=featured [--limit=20]
 //   node scripts/refreshGcdIssuesFromApi.js --gcd-ids=217177 --dry-run
+//   node scripts/refreshGcdIssuesFromApi.js --source=featured --no-cursor
 
 import dotenv from "dotenv";
+import fs from "node:fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
+
+import { describeError, unwrap } from "./lib/describeError.js";
+import { pickBestCandidate, readCursor, rotate, writeCursor } from "./lib/featuredTargets.js";
+import { fetchAllPages } from "../src/lib/supabase/fetchAllPages.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
@@ -36,15 +42,32 @@ const args = Object.fromEntries(
   })
 );
 const DRY_RUN = Boolean(args["dry-run"]);
+const USE_CURSOR = !args["no-cursor"];
 // 700ms tripped a 429 (Retry-After ~52min) well under 100 requests in
 // testing on 2026-08-10. 2000ms is a more conservative starting point, not
 // a confirmed-safe number - GCD's actual sustained rate limit is
 // undocumented. Re-tune once real usage data exists.
+//
+// Measured 2026-09-23 from the live 09-16 run: 29 requests spread over 76s at
+// this 2000ms spacing still tripped a 429 with Retry-After 3525s (~59 min).
+// So the limit behaves like a fixed budget per hour rather than a rate -
+// spacing requests further apart buys nothing, and the only thing that helps
+// is spending each run's budget on different series. See ROTATION below.
 const SLEEP_MS = Number(args.sleep ?? 2000);
 const LIMIT = args.limit ? Number(args.limit) : Infinity;
 
 const UA = { "User-Agent": "Mozilla/5.0 (ComixCatalog gcd-issue-refresh; contact via repo)", Accept: "application/json" };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// ROTATION
+//
+// A run gets roughly 29 GCD requests before the 429, and the featured list is
+// 78 series, so one run can never reach the end of the list. The order used to
+// be fixed, which meant every weekly run re-walked the same front of the list
+// and the tail was never refreshed at all. This cursor records the last series
+// a run attempted; the next run starts after it and wraps, so the whole list
+// gets covered across several runs instead of never.
+const CURSOR_FILE = path.resolve(__dirname, "../gcd-refresh-cursor.json");
 
 // GCD's rate limit is real and fairly tight (confirmed 2026-08-10: tripped
 // after well under 100 requests in a short window, returning 429 with a
@@ -89,6 +112,35 @@ function resolveTitle(issueJson) {
   return story?.title ?? null;
 }
 
+// PostgREST caps a read at 1000 rows and gives no indication that it
+// truncated, which is the most repeated bug in this repo. Measured live
+// 2026-09-23: this filter matches 1,426 rows and the unpaginated version
+// returned exactly 1,000, so 426 candidates never reached the picker. The
+// damage was not subtle - 9 of the 79 featured entries had every candidate
+// truncated away and were skipped in silence (all five Absolute titles among
+// them, including Absolute Superman, the series this script was written for),
+// and another 20 resolved to a different series than the complete set gives.
+//
+// Using the shared fetchAllPages rather than another private loop is the
+// point: OPERATIONS_HANDOFF 2a records eleven separate local copies of this
+// walk, and names that duplication as the reason the bug keeps coming back.
+// A twelfth copy here would have been the bug reproducing itself.
+async function allFeaturedSeriesRows(titles) {
+  try {
+    return await fetchAllPages(() =>
+      supabase
+        .from("series")
+        .select("id, gcd_id, title, resolved_publisher_cached, year_start_cached")
+        .in("title", titles)
+        .not("gcd_id", "is", null)
+    );
+  } catch (err) {
+    // fetchAllPages rethrows the bare PostgREST object, which prints as
+    // "[object Object]" and names neither the query nor the code.
+    throw new Error(`featured series lookup: ${describeError(err)}`);
+  }
+}
+
 async function getTargetGcdIds() {
   if (args["gcd-ids"]) {
     return String(args["gcd-ids"]).split(",").map((s) => Number(s.trim())).filter(Boolean);
@@ -96,30 +148,34 @@ async function getTargetGcdIds() {
   if (args.source === "featured") {
     const { FEATURED_SERIES } = await import("../src/lib/featuredSeries.js");
     const titles = [...new Set(FEATURED_SERIES.map((e) => e.title))];
-    const { data: rows } = await supabase
-      .from("series")
-      .select("gcd_id, title, resolved_publisher_cached, year_start_cached")
-      .in("title", titles)
-      .not("gcd_id", "is", null);
+    const rows = await allFeaturedSeriesRows(titles);
+
     const pool = new Map();
-    for (const r of rows ?? []) {
+    for (const r of rows) {
       const key = `${r.title.toLowerCase()}::${(r.resolved_publisher_cached ?? "").toLowerCase()}`;
       if (!pool.has(key)) pool.set(key, []);
       pool.get(key).push(r);
     }
+
     const ids = [];
+    const unmatched = [];
     for (const entry of FEATURED_SERIES) {
       const key = `${entry.title.toLowerCase()}::${entry.publisher.toLowerCase()}`;
-      const candidates = pool.get(key) ?? [];
-      if (candidates.length === 0) continue;
-      let best = candidates[0];
-      let bestDelta = Infinity;
-      for (const c of candidates) {
-        const delta = entry.prefer_year != null && c.year_start_cached != null
-          ? Math.abs(c.year_start_cached - entry.prefer_year) : Infinity;
-        if (delta < bestDelta) { best = c; bestDelta = delta; }
+      const best = pickBestCandidate(entry, pool.get(key));
+      // Skipping in silence here is how the truncation stayed invisible for a
+      // month: a featured series with no candidate row looks exactly like one
+      // that is already up to date. Name them out loud.
+      if (!best) {
+        unmatched.push(`${entry.title} (${entry.publisher})`);
+        continue;
       }
       ids.push(best.gcd_id);
+    }
+
+    console.log(`Featured list: ${FEATURED_SERIES.length} entries | ${rows.length} candidate series rows | ${ids.length} resolved.`);
+    if (unmatched.length) {
+      console.log(`  ${unmatched.length} featured entries have no series row matching title+publisher:`);
+      for (const u of unmatched) console.log(`    - ${u}`);
     }
     return [...new Set(ids)];
   }
@@ -133,11 +189,10 @@ async function refreshOne(seriesGcdId) {
   const remoteIds = (seriesJson.active_issues ?? []).map(issueIdFromUrl).filter(Boolean);
   const remoteSet = new Set(remoteIds);
 
-  const { data: localRows, error } = await supabase
-    .from("gcd_issues")
-    .select("gcd_id")
-    .eq("series_gcd_id", seriesGcdId);
-  if (error) throw error;
+  const localRows = unwrap(
+    await supabase.from("gcd_issues").select("gcd_id").eq("series_gcd_id", seriesGcdId),
+    `local issue list for series ${seriesGcdId}`
+  );
   const localSet = new Set((localRows ?? []).map((r) => Number(r.gcd_id)));
 
   const missing = remoteIds.filter((id) => !localSet.has(id));
@@ -162,7 +217,7 @@ async function refreshOne(seriesGcdId) {
       issueJson = await fetchJson(`https://www.comics.org/api/issue/${issueId}/?format=json`);
     } catch (err) {
       if (err instanceof RateLimited) { rateLimitedErr = err; break; }
-      console.error(`    skipping issue ${issueId}: ${err.message}`);
+      console.error(`    skipping issue ${issueId}: ${describeError(err)}`);
       continue;
     }
     await sleep(SLEEP_MS);
@@ -177,7 +232,7 @@ async function refreshOne(seriesGcdId) {
         publication_date: issueJson.publication_date || null,
         key_date: issueJson.key_date || null,
       }, { onConflict: "gcd_id" });
-    if (upsertErr) { console.error(`    upsert failed for issue ${issueId}: ${upsertErr.message}`); continue; }
+    if (upsertErr) { console.error(`    upsert failed for issue ${issueId}: ${describeError(upsertErr)}`); continue; }
     inserted++;
   }
 
@@ -187,27 +242,62 @@ async function refreshOne(seriesGcdId) {
 }
 
 async function run() {
-  const ids = (await getTargetGcdIds()).slice(0, LIMIT);
+  const all = await getTargetGcdIds();
+  const rotating = USE_CURSOR && !args["gcd-ids"];
+  const cursor = rotating ? readCursor(CURSOR_FILE, fs) : null;
+  const ordered = rotating ? rotate(all, cursor) : all;
+  const ids = ordered.slice(0, LIMIT);
+
+  if (rotating) {
+    if (cursor == null) {
+      console.log("No cursor yet - starting at the top of the featured list.");
+    } else if (!all.includes(cursor)) {
+      console.log(`Cursor gcd_id ${cursor} is no longer in the featured list - starting at the top.`);
+    } else {
+      console.log(`Resuming after gcd_id ${cursor} - this run starts at ${ids[0]} and wraps.`);
+    }
+  }
   console.log(`Refreshing ${ids.length} series from GCD's live API${DRY_RUN ? " (dry-run)" : ""}...`);
+
   const results = [];
+  let lastAttempted = null;
+  let rateLimited = false;
   for (const id of ids) {
+    lastAttempted = id;
     try {
       results.push(await refreshOne(id));
     } catch (err) {
       if (err instanceof RateLimited) {
+        rateLimited = true;
         console.error(`\n${err.message}`);
-        console.error(`Stopping the whole run here - re-run later, already-inserted rows are safe (upsert is idempotent).`);
+        console.error("Stopping the whole run here - re-run later, already-inserted rows are safe (upsert is idempotent).");
         break;
       }
-      console.error(`  ERROR on gcd_id ${id}: ${err.message}`);
+      console.error(`  ERROR on gcd_id ${id}: ${describeError(err)}`);
     }
   }
+
+  // Record where to resume even when the run ended on a 429 - that is the
+  // case the cursor exists for. A dry run changes nothing, so it must not
+  // move the cursor either.
+  if (rotating && !DRY_RUN && lastAttempted != null) {
+    writeCursor(CURSOR_FILE, fs, lastAttempted);
+    console.log(`\nCursor written: next run starts after gcd_id ${lastAttempted}.`);
+  }
+
   const totalMissing = results.reduce((s, r) => s + r.missing, 0);
   const totalInserted = results.reduce((s, r) => s + r.inserted, 0);
-  console.log(`\nDone. ${results.length} series checked, ${totalMissing} issues were missing, ${totalInserted} inserted.`);
+  console.log(`\nDone. ${results.length} of ${ids.length} series checked, ${totalMissing} issues were missing, ${totalInserted} inserted.`);
+
+  // Exit 3 = "GCD told us to back off", which is expected and not a failure.
+  // The workflow translates only this code to success, so every other
+  // non-zero exit stays red. The whole step used to be wrapped in
+  // `continue-on-error: true` and so could not fail at all - four consecutive
+  // green runs turned out to be four truncated runs.
+  if (rateLimited) process.exitCode = 3;
 }
 
 run().catch((err) => {
-  console.error(err);
+  console.error(describeError(err));
   process.exit(1);
 });

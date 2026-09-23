@@ -8,9 +8,10 @@ name: GCD issue refresh (weekly)
 # fetches each series' current issue list directly from comics.org/api/ and
 # inserts only what's missing.
 #
-# Runs before cover-ingest.yml (Wednesday) so any newly-discovered issues
-# already exist in gcd_issues by the time that workflow tries to match
-# covers against them - covers can't attach to an issue we don't know about.
+# Runs at 18:00, two hours before cover-ingest.yml's 20:00, so any
+# newly-discovered issues already exist in gcd_issues by the time that
+# workflow tries to match covers against them - a cover cannot attach to an
+# issue we do not know about.
 #
 # Scope is deliberately narrow for now (--source=featured, ~79 series max):
 # GCD's public API rate limit is real, tight, and undocumented - it tripped
@@ -19,14 +20,39 @@ name: GCD issue refresh (weekly)
 # a later step once this has run cleanly a few times and the actual
 # sustained rate is better understood - not something to guess at upfront.
 #
+# Audited 2026-09-23: it had NOT in fact run cleanly. Every run since the job
+# was created ended on GCD's 429 after about 30 requests, which is normal and
+# expected - but the walk order was fixed, so each weekly run spent that
+# budget on the same first few series and the rest of the list was never
+# reached. On top of that the candidate lookup was truncated at PostgREST's
+# 1000-row cap, which dropped 9 featured entries outright (all five Absolute
+# titles among them) and pointed 20 more at a different series than intended.
+# The job reported success through all of it, because its only real step was
+# wrapped in `continue-on-error: true`.
+#
+# Now: the lookup is paginated, the run rotates through the list via a
+# committed cursor, and only GCD's 429 is translated to success.
+#
 # To trigger manually: Actions tab → GCD issue refresh → Run workflow.
 
 on:
   schedule:
-    # Wednesday 18:00 UTC - two hours before cover-ingest.yml (20:00 UTC),
-    # same day as US new releases, giving GCD's volunteer indexers some
-    # runway first. Adjust once real data shows same-day indexing lag.
-    - cron: '0 18 * * 3'
+    # Daily at 18:00 UTC, two hours before cover-ingest.yml at 20:00.
+    #
+    # Was Wednesday-only until 2026-09-23. GCD's budget resets on roughly an
+    # hourly window (the 429 came back with Retry-After 3525s, ~59 min), so
+    # runs a day apart each start with a full budget of about 30 requests -
+    # daily is 7x the traffic of weekly, not the same traffic spread thinner.
+    # That is ~30 requests a day against comics.org, under one request a
+    # minute while it runs, and the script stops dead on a 429 and honours
+    # the full Retry-After rather than retrying.
+    #
+    # Why it is worth 7x: a bare check pass over the 78 featured series costs
+    # 78 requests, so weekly meant ~3 weeks just to look at every series once,
+    # before fetching a single missing issue. The real backlog is larger than
+    # that - two sampled series alone were short 56 and 150 issues - and at
+    # weekly cadence it would not have cleared this year.
+    - cron: '0 18 * * *'
   workflow_dispatch:
     inputs:
       source:
@@ -61,6 +87,48 @@ jobs:
 
       - run: npm ci --no-audit --no-fund
 
+      # Exit 3 = GCD returned 429, which is the expected end of nearly every
+      # run (the budget is ~29 requests and the featured list is 78 series),
+      # so it is translated to success. Every other non-zero exit is a real
+      # failure and must go red.
+      #
+      # This step used to be a blanket `continue-on-error: true`, and it was
+      # the job's only real step, so the workflow could not fail at all.
+      # Live 2026-09-23: all four runs since 08-26 were green, and all four
+      # had walked the same first four series and stopped - the 74 behind
+      # them had never been refreshed, because a truncated candidate list
+      # and a fixed walk order put them permanently out of reach.
       - name: Refresh featured-series issue lists from GCD
-        run: node scripts/refreshGcdIssuesFromApi.js --source=${{ github.event.inputs.source || 'featured' }}
-        continue-on-error: true
+        id: refresh
+        run: |
+          set +e
+          node scripts/refreshGcdIssuesFromApi.js --source=${{ github.event.inputs.source || 'featured' }}
+          code=$?
+          set -e
+          if [ "$code" -eq 3 ]; then
+            echo "GCD rate-limited this run (expected). The cursor records where to resume."
+            echo "ratelimited=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          exit "$code"
+
+      # The cursor is what makes the next run start somewhere new instead of
+      # re-walking the same front of the list, so it has to be committed even
+      # when the run ended on a 429 - especially then.
+      - name: Commit the rotation cursor
+        if: always() && steps.refresh.outcome != 'skipped'
+        run: |
+          if [[ -z "$(git status --porcelain gcd-refresh-cursor.json)" ]]; then
+            echo "Cursor unchanged — nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gcd-refresh-cursor.json
+          git commit -m "gcd-issue-refresh: advance rotation cursor"
+          # Same push race gap-probe.yml documents: several scheduled jobs
+          # push to main at the end of long runs, and whichever lands second
+          # is rejected with "fetch first". The file sets do not overlap, so
+          # a rebase picks up the other job's commit cleanly.
+          git pull --rebase origin main
+          git push origin HEAD:main

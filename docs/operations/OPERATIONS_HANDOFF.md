@@ -46,8 +46,17 @@ signal**. A query matching 3,833 rows returns 1,000, indistinguishable from
 one that genuinely matched 1,000. A truncated read looks exactly like a real
 data gap.
 
-Shipped three times: PR #63 (library hydration), and both lookups in
-`scripts/reportUserCollectedCoverCoverage.js` (the 15.86% above).
+Shipped four times: PR #63 (library hydration), both lookups in
+`scripts/reportUserCollectedCoverCoverage.js` (the 15.86% above), and
+`scripts/refreshGcdIssuesFromApi.js` (PR #117).
+
+That fourth one is the clearest example of why this class is expensive. The
+featured-series lookup matched 1,426 rows and got 1,000, and the caller
+treated "no candidate rows" as "nothing to do" — so 9 featured series were
+skipped in total silence for a month, including the one named in the
+script's own header as the reason it was written. Nothing looked wrong at
+any layer: the query returned rows, the loop ran, the job went green.
+**A truncated read plus a `continue` on the empty case equals invisible.**
 
 **The recurrence is structural.** There were *eleven separate local copies*
 of a `fetchAllPages` loop across `src/` and `scripts/`, and `src/` had no
@@ -56,9 +65,13 @@ had nothing to import and wrote an unpaginated query. The safe path was
 invisible.
 
 `src/lib/supabase/fetchAllPages.js` now exists as that shared path (PR #90).
-**Consolidating the other ten copies onto it is open and unstarted**, and is
-a real efficiency win: it removes the conditions that keep recreating the
-bug.
+**Consolidating the other copies onto it is open**; PR #117 moved the first
+one (`refreshGcdIssuesFromApi.js`) and the rest are untouched. This is a real
+efficiency win: it removes the conditions that keep recreating the bug.
+
+Scripts can import it directly — `import { fetchAllPages } from
+"../src/lib/supabase/fetchAllPages.js"` — so "it lives under `src/`" is not
+a reason to write another local loop.
 
 Currently over the cap: The Beano (3,833 covers), Micky Maus (2,830),
 2000 AD (2,480), Four Color (1,321). Four more series are within 200 rows.
@@ -130,7 +143,8 @@ API for whether a run was ever created.**
 | `nightly-cover-report.yml` | 06:00 UTC | writes `reports/cover-coverage-history.json` + HTML | the canonical answer to "where are covers at" — read it rather than re-deriving |
 | `cron-watchdog.yml` | — | force-dispatches overdue workflows | grace windows live in `scripts/cronWatchdog.js` |
 | `instagram-post.yml` | — | posts an issue to Instagram | **never audited. The founder asked for an "Instagram bot refinement" and never specified what. Ask, do not guess.** |
-| `gcd-issue-refresh.yml`, `snapshot-collection-value.yml`, `pr-ci.yml` | — | metadata refresh, value snapshots, PR checks | |
+| `gcd-issue-refresh.yml` | daily `0 18 * * *` | tops up `gcd_issues` for the ~79 featured series from comics.org's live API | was green and mostly inert from 08-26 to 09-23: only step wrapped in `continue-on-error`, candidate lookup truncated at 1000 rows, fixed walk order. All fixed 2026-09-23, and cadence moved from Wednesday-only to daily. **GCD's budget is ~30 requests per run and resets hourly**, so a run always ends on a 429 — that is exit 3 and is expected. Rotation cursor lives in `gcd-refresh-cursor.json` |
+| `snapshot-collection-value.yml`, `pr-ci.yml` | — | value snapshots, PR checks | |
 
 ---
 

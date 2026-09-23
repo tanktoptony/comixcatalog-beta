@@ -29,6 +29,16 @@ const WATCHED = [
   { file: "weekly-refresh.yml", maxAgeHours: 24 * 5 },
   // Mon+Thu cron (08:00 UTC), same grace window.
   { file: "gap-probe.yml", maxAgeHours: 24 * 5 },
+  // Daily cron (18:00 UTC), moved from Wednesday-only 2026-09-23. 48 hours
+  // is one missed day plus slack.
+  //
+  // Added at the same time, and worth being honest about why it was not here
+  // already: this job ran green and nearly inert for a month and nothing
+  // noticed. A watchdog would not have caught that on its own - the runs did
+  // fire, and they did report success - but a daily job silently ceasing to
+  // fire is the failure this file exists for, and the cadence change makes
+  // that failure cheaper to hit.
+  { file: "gcd-issue-refresh.yml", maxAgeHours: 48 },
 ];
 
 const DRY_RUN = process.argv.includes("--dry-run");

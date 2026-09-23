@@ -20290,9 +20290,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T16:01:11.693221+00:00",
-    "retry_after": "2026-09-23T16:01:11.693238+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T17:00:42.703149+00:00",
+    "retry_after": "2026-09-26T17:00:42.703162+00:00"
   },
   {
     "name": "Free Comic Book Day 2009 (Wolverine: Origin of an X-Man)",
@@ -20300,9 +20300,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T16:01:12.201549+00:00",
-    "retry_after": "2026-09-23T16:01:12.201568+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T17:00:40.687999+00:00",
+    "retry_after": "2026-09-26T17:00:40.688017+00:00"
   },
   {
     "name": "The Umbrella Academy: One for One",
@@ -20310,9 +20310,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T16:01:28.031378+00:00",
-    "retry_after": "2026-09-23T16:01:28.031396+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T17:00:41.221074+00:00",
+    "retry_after": "2026-09-26T17:00:41.221089+00:00"
   },
   {
     "name": "Debbie Does Dallas in 3-D",
@@ -20320,9 +20320,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T16:01:28.549555+00:00",
-    "retry_after": "2026-09-23T16:01:28.549573+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T17:01:25.503626+00:00",
+    "retry_after": "2026-09-26T17:01:25.503644+00:00"
   },
   {
     "name": "The Lost Ones: For Your Eyes Only Special Preview",
@@ -20330,9 +20330,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T16:02:12.425851+00:00",
-    "retry_after": "2026-09-23T16:02:12.425869+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T17:00:42.641275+00:00",
+    "retry_after": "2026-09-26T17:00:42.641291+00:00"
   },
   {
     "name": "Justice League Adventures",
@@ -20376,9 +20376,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T16:04:44.135230+00:00",
-    "retry_after": "2026-09-23T16:04:44.135248+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T17:00:42.536379+00:00",
+    "retry_after": "2026-09-26T17:00:42.536396+00:00"
   },
   {
     "name": "Giant-Size Chillers Featuring Curse of Dracula",
@@ -23924,5 +23924,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T16:01:50.939685+00:00",
     "retry_after": "2026-09-24T16:01:50.939700+00:00"
+  },
+  {
+    "name": "Halcyon Trade Paperback",
+    "publisher": "Image Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T17:00:43.381101+00:00",
+    "retry_after": "2026-09-24T17:00:43.381119+00:00"
+  },
+  {
+    "name": "Courtney Crumrin in the Twilight Kingdom",
+    "publisher": "Oni Press",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T17:00:50.982400+00:00",
+    "retry_after": "2026-09-24T17:00:50.982411+00:00"
+  },
+  {
+    "name": "DC Comics Presents: The Teen Titans",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T17:00:51.509350+00:00",
+    "retry_after": "2026-09-24T17:00:51.509367+00:00"
   }
 ]

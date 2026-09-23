@@ -14,6 +14,8 @@
     "test:format-sync": "node --test scripts/syncGcdSeriesFormat.test.js",
     "test:instagram": "node --test scripts/instagramBot.test.js",
     "test:health-check": "node --test scripts/checkCoverIngestHealth.test.js",
+    "test:describe-error": "node --test scripts/lib/describeError.test.js",
+    "audit:errors": "node scripts/auditErrorHandling.js",
     "docs:check": "node scripts/checkDocLinks.js",
     "data:plan-comics-gcd-dedupe": "node --max-old-space-size=2048 scripts/planComicsGcdDedupe.js",
     "covers:gap-priority": "node scripts/generatePriorityCoverTargets.js",

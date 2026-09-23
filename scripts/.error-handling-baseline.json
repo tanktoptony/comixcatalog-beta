@@ -1,0 +1,56 @@
+{
+  "updated": "2026-09-23",
+  "counts": {
+    "supabase-query-ignores-error": 12,
+    "invented-error-text": 7,
+    "empty-catch": 6,
+    "blanket-continue-on-error": 12
+  },
+  "hits": {
+    "supabase-query-ignores-error": [
+      "scripts/auditHybridDupes.js:59",
+      "scripts/dedupeComicsByContent.js:307",
+      "scripts/dedupeComicsByContent.js:346",
+      "scripts/dedupeComicsByContent.js:395",
+      "scripts/findUncoveredSeries.js:108",
+      "scripts/findUncoveredSeries.js:155",
+      "scripts/refreshSeriesSearchCache.js:1182",
+      "scripts/refreshSeriesSearchCache.js:1200",
+      "scripts/refreshSeriesSearchCache.js:1216",
+      "scripts/refreshSeriesSearchCache.js:1231",
+      "scripts/repairSeriesPublishersWithCv.js:90",
+      "scripts/repairSeriesPublishersWithCv.js:115"
+    ],
+    "invented-error-text": [
+      "scripts/checkCoverIngestHealth.js:53",
+      "scripts/checkCoverIngestHealth.js:83",
+      "scripts/checkCoverIngestHealth.js:85",
+      "scripts/lib/describeError.js:7",
+      "scripts/lib/describeError.js:10",
+      "scripts/lib/describeError.js:46",
+      "scripts/snapshotCollectionValue.js:54"
+    ],
+    "empty-catch": [
+      "scripts/generateUserCollectedGap.js:259",
+      "src/app/library/page.js:260",
+      "src/app/library/page.js:264",
+      "src/components/OnboardingModal.js:78",
+      "src/components/ProfileTabs.js:113",
+      "src/components/ProfileTabs.js:120"
+    ],
+    "blanket-continue-on-error": [
+      ".github/workflows/cover-ingest.yml:236",
+      ".github/workflows/cover-ingest.yml:241",
+      ".github/workflows/cover-ingest.yml:246",
+      ".github/workflows/cover-ingest.yml:251",
+      ".github/workflows/cover-ingest.yml:259",
+      ".github/workflows/cover-ingest.yml:264",
+      ".github/workflows/cover-ingest.yml:269",
+      ".github/workflows/cover-ingest.yml:281",
+      ".github/workflows/gap-probe.yml:87",
+      ".github/workflows/gap-probe.yml:98",
+      ".github/workflows/gap-probe.yml:102",
+      ".github/workflows/gcd-issue-refresh.yml:66"
+    ]
+  }
+}

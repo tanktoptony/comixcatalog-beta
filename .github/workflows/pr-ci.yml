@@ -74,5 +74,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Error-handling ratchet
+        run: npm run audit:errors
+
+      - name: describeError tests
+        run: npm run test:describe-error
+
       - name: Docs link check
         run: npm run docs:check

@@ -20040,9 +20040,9 @@
     "year": 1982,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T15:35:55.694010+00:00",
-    "retry_after": "2026-09-23T15:35:55.694026+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T16:00:43.211894+00:00",
+    "retry_after": "2026-09-26T16:00:43.211909+00:00"
   },
   {
     "name": "The Avengers",
@@ -20099,9 +20099,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T15:36:01.033161+00:00",
-    "retry_after": "2026-09-23T15:36:01.033178+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T16:00:44.597856+00:00",
+    "retry_after": "2026-09-26T16:00:44.597868+00:00"
   },
   {
     "name": "One for One: Nickelodeon Avatar: The Last Airbender - The Rift",
@@ -20109,9 +20109,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T15:36:55.520267+00:00",
-    "retry_after": "2026-09-23T15:36:55.520283+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T16:00:44.327002+00:00",
+    "retry_after": "2026-09-26T16:00:44.327018+00:00"
   },
   {
     "name": "Action Comics",
@@ -20138,9 +20138,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T15:37:04.508359+00:00",
-    "retry_after": "2026-09-23T15:37:04.508375+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T16:02:50.139614+00:00",
+    "retry_after": "2026-09-26T16:02:50.139630+00:00"
   },
   {
     "name": "Lone Ranger",
@@ -20167,9 +20167,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T15:37:04.783915+00:00",
-    "retry_after": "2026-09-23T15:37:04.783932+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T16:02:50.629322+00:00",
+    "retry_after": "2026-09-26T16:02:50.629338+00:00"
   },
   {
     "name": "Ultimate Spider-Man",
@@ -20202,9 +20202,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T15:42:32.916733+00:00",
-    "retry_after": "2026-09-23T15:42:32.916749+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T16:02:51.688585+00:00",
+    "retry_after": "2026-09-26T16:02:51.688596+00:00"
   },
   {
     "name": "Iron Man",
@@ -20267,9 +20267,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T15:42:33.268448+00:00",
-    "retry_after": "2026-09-23T15:42:33.268463+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T16:02:51.269696+00:00",
+    "retry_after": "2026-09-26T16:02:51.269711+00:00"
   },
   {
     "name": "Thanos Quest",
@@ -20353,9 +20353,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T16:02:21.487022+00:00",
-    "retry_after": "2026-09-23T16:02:21.487039+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T16:02:51.643731+00:00",
+    "retry_after": "2026-09-26T16:02:51.643746+00:00"
   },
   {
     "name": "Transformers",
@@ -23880,5 +23880,49 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T15:25:19.004873+00:00",
     "retry_after": "2026-09-24T15:25:19.004891+00:00"
+  },
+  {
+    "name": "Plume Omnibus",
+    "publisher": "First Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115584,
+        "name": "Plume Omnibus",
+        "publisher": "Devil's Due",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T16:01:00.437672+00:00",
+    "retry_after": "2026-09-24T16:01:00.437686+00:00"
+  },
+  {
+    "name": "Colossus Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 77919,
+        "name": "Colossus Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T16:01:06.465728+00:00",
+    "retry_after": "2026-09-24T16:01:06.465743+00:00"
+  },
+  {
+    "name": "Sonic Live Special",
+    "publisher": "Archie Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T16:01:50.939685+00:00",
+    "retry_after": "2026-09-24T16:01:50.939700+00:00"
   }
 ]

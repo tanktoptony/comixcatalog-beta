@@ -8,9 +8,10 @@ name: GCD issue refresh (weekly)
 # fetches each series' current issue list directly from comics.org/api/ and
 # inserts only what's missing.
 #
-# Runs before cover-ingest.yml (Wednesday) so any newly-discovered issues
-# already exist in gcd_issues by the time that workflow tries to match
-# covers against them - covers can't attach to an issue we don't know about.
+# Runs at 18:00, two hours before cover-ingest.yml's 20:00, so any
+# newly-discovered issues already exist in gcd_issues by the time that
+# workflow tries to match covers against them - a cover cannot attach to an
+# issue we do not know about.
 #
 # Scope is deliberately narrow for now (--source=featured, ~79 series max):
 # GCD's public API rate limit is real, tight, and undocumented - it tripped
@@ -20,8 +21,8 @@ name: GCD issue refresh (weekly)
 # sustained rate is better understood - not something to guess at upfront.
 #
 # Audited 2026-09-23: it had NOT in fact run cleanly. Every run since the job
-# was created ended on GCD's 429 after roughly 29 requests, which is normal
-# and expected - but the walk order was fixed, so each weekly run spent that
+# was created ended on GCD's 429 after about 30 requests, which is normal and
+# expected - but the walk order was fixed, so each weekly run spent that
 # budget on the same first few series and the rest of the list was never
 # reached. On top of that the candidate lookup was truncated at PostgREST's
 # 1000-row cap, which dropped 9 featured entries outright (all five Absolute
@@ -32,19 +33,26 @@ name: GCD issue refresh (weekly)
 # Now: the lookup is paginated, the run rotates through the list via a
 # committed cursor, and only GCD's 429 is translated to success.
 #
-# Still open: at ~29 requests a week against a 78-series list, a full pass
-# takes about three weeks. Running this daily would fix that and is still
-# trivial traffic for comics.org, but that is a deliberate decision about
-# someone else's volunteer-run server, so it stays weekly until asked.
-#
 # To trigger manually: Actions tab → GCD issue refresh → Run workflow.
 
 on:
   schedule:
-    # Wednesday 18:00 UTC - two hours before cover-ingest.yml (20:00 UTC),
-    # same day as US new releases, giving GCD's volunteer indexers some
-    # runway first. Adjust once real data shows same-day indexing lag.
-    - cron: '0 18 * * 3'
+    # Daily at 18:00 UTC, two hours before cover-ingest.yml at 20:00.
+    #
+    # Was Wednesday-only until 2026-09-23. GCD's budget resets on roughly an
+    # hourly window (the 429 came back with Retry-After 3525s, ~59 min), so
+    # runs a day apart each start with a full budget of about 30 requests -
+    # daily is 7x the traffic of weekly, not the same traffic spread thinner.
+    # That is ~30 requests a day against comics.org, under one request a
+    # minute while it runs, and the script stops dead on a 429 and honours
+    # the full Retry-After rather than retrying.
+    #
+    # Why it is worth 7x: a bare check pass over the 78 featured series costs
+    # 78 requests, so weekly meant ~3 weeks just to look at every series once,
+    # before fetching a single missing issue. The real backlog is larger than
+    # that - two sampled series alone were short 56 and 150 issues - and at
+    # weekly cadence it would not have cleared this year.
+    - cron: '0 18 * * *'
   workflow_dispatch:
     inputs:
       source:

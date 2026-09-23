@@ -13,6 +13,7 @@
     "test:smoke": "node --test tests/smoke.test.js",
     "test:format-sync": "node --test scripts/syncGcdSeriesFormat.test.js",
     "test:instagram": "node --test scripts/instagramBot.test.js",
+    "test:health-check": "node --test scripts/checkCoverIngestHealth.test.js",
     "docs:check": "node scripts/checkDocLinks.js",
     "data:plan-comics-gcd-dedupe": "node --max-old-space-size=2048 scripts/planComicsGcdDedupe.js",
     "covers:gap-priority": "node scripts/generatePriorityCoverTargets.js",

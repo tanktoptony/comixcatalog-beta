@@ -17970,9 +17970,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T23:01:19.991365+00:00",
-    "retry_after": "2026-09-22T23:01:19.991384+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T00:00:38.902275+00:00",
+    "retry_after": "2026-09-26T00:00:38.902283+00:00"
   },
   {
     "name": "Wolverine: Wolverine Goes to Hell",
@@ -17993,9 +17993,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T23:01:56.656205+00:00",
-    "retry_after": "2026-09-22T23:01:56.656223+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T00:00:39.671382+00:00",
+    "retry_after": "2026-09-26T00:00:39.671391+00:00"
   },
   {
     "name": "Captain America: The Movie Special",
@@ -18003,9 +18003,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T23:02:22.743926+00:00",
-    "retry_after": "2026-09-22T23:02:22.743942+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T00:00:40.617647+00:00",
+    "retry_after": "2026-09-26T00:00:40.617655+00:00"
   },
   {
     "name": "Roachmill Collection, No. 2: The Greatest Stories Ever Told",
@@ -18013,9 +18013,9 @@
     "year": 1989,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T23:02:26.932895+00:00",
-    "retry_after": "2026-09-22T23:02:26.932910+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T00:00:41.461510+00:00",
+    "retry_after": "2026-09-26T00:00:41.461516+00:00"
   },
   {
     "name": "Batman",
@@ -18071,9 +18071,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T23:07:27.279790+00:00",
-    "retry_after": "2026-09-22T23:07:27.279805+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T00:01:43.212554+00:00",
+    "retry_after": "2026-09-26T00:01:43.212571+00:00"
   },
   {
     "name": "Captain Atom",
@@ -18100,9 +18100,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T23:15:22.137223+00:00",
-    "retry_after": "2026-09-22T23:15:22.137239+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T00:01:43.643692+00:00",
+    "retry_after": "2026-09-26T00:01:43.643711+00:00"
   },
   {
     "name": "True Believers: Conan the Barbarian",
@@ -21295,5 +21295,220 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-22T23:03:00.665095+00:00",
     "retry_after": "2026-09-23T23:03:00.665110+00:00"
+  },
+  {
+    "name": "Custom Lego SDCC 2024 X-Men '97 #1 Reissue",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T00:00:50.169298+00:00",
+    "retry_after": "2026-09-24T00:00:50.169310+00:00"
+  },
+  {
+    "name": "Marvel Collector's Edition [X-Men Stri-Dex Custom Comic]",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T00:01:03.967072+00:00",
+    "retry_after": "2026-09-24T00:01:03.967084+00:00"
+  },
+  {
+    "name": "Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4250,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 1988
+      },
+      {
+        "id": 35263,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 58822,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 29930,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 10809,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2003
+      },
+      {
+        "id": 125121,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 159705,
+        "name": "Wolverine",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T00:01:04.833426+00:00",
+    "retry_after": "2026-09-24T00:01:04.833443+00:00"
+  },
+  {
+    "name": "Space-Mullet!",
+    "publisher": "Dark Horse Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 169189,
+        "name": "Space-Mullet!",
+        "publisher": "Akileos",
+        "start_year": 2016
+      },
+      {
+        "id": 160283,
+        "name": "Space Mullet",
+        "publisher": "Image",
+        "start_year": 2024
+      },
+      {
+        "id": 169190,
+        "name": "Space Mullet",
+        "publisher": "Norma Editorial",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T00:01:10.556883+00:00",
+    "retry_after": "2026-09-24T00:01:10.556898+00:00"
+  },
+  {
+    "name": "Fun with Little Archie and Friends Special",
+    "publisher": "Archie Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T00:01:21.390288+00:00",
+    "retry_after": "2026-09-24T00:01:21.390301+00:00"
+  },
+  {
+    "name": "True Believers: X-Men - Kitty Pryde & Emma Frost",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T00:01:27.291771+00:00",
+    "retry_after": "2026-09-24T00:01:27.291784+00:00"
+  },
+  {
+    "name": "Mighty Archie Art Players, Free Comic Book Day Edition",
+    "publisher": "Archie Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T00:01:42.454917+00:00",
+    "retry_after": "2026-09-24T00:01:42.454934+00:00"
+  },
+  {
+    "name": "Aquaman",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 161944,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      },
+      {
+        "id": 4539,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 1991
+      },
+      {
+        "id": 51899,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 5230,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 1994
+      },
+      {
+        "id": 91738,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 2050,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 1962
+      },
+      {
+        "id": 43022,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 9517,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 97897,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 4170,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 1989
+      },
+      {
+        "id": 3591,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 1986
+      },
+      {
+        "id": 120535,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T00:06:37.805129+00:00",
+    "retry_after": "2026-09-24T00:06:37.805138+00:00"
   }
 ]

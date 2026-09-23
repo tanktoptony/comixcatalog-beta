@@ -19775,9 +19775,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T10:02:13.176805+00:00",
-    "retry_after": "2026-09-23T10:02:13.176826+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T10:53:19.668844+00:00",
+    "retry_after": "2026-09-26T10:53:19.668859+00:00"
   },
   {
     "name": "Good Ol' Snoopy",
@@ -19785,9 +19785,9 @@
     "year": 1967,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T10:03:21.232309+00:00",
-    "retry_after": "2026-09-23T10:03:21.232328+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T10:53:20.040892+00:00",
+    "retry_after": "2026-09-26T10:53:20.040909+00:00"
   },
   {
     "name": "The Secret Origin of the Hawkman [Leaf Comic Book Candy]",
@@ -19795,9 +19795,9 @@
     "year": 1980,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T10:03:21.627951+00:00",
-    "retry_after": "2026-09-23T10:03:21.627970+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T10:53:20.392749+00:00",
+    "retry_after": "2026-09-26T10:53:20.392764+00:00"
   },
   {
     "name": "Spider-Girl Presents Juggernaut Jr.",
@@ -19805,9 +19805,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T10:03:22.084572+00:00",
-    "retry_after": "2026-09-23T10:03:22.084592+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T10:53:20.760475+00:00",
+    "retry_after": "2026-09-26T10:53:20.760492+00:00"
   },
   {
     "name": "True Believers: Spider-Man Brand New Day",
@@ -19815,9 +19815,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T10:03:22.482277+00:00",
-    "retry_after": "2026-09-23T10:03:22.482297+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T10:53:21.238045+00:00",
+    "retry_after": "2026-09-26T10:53:21.238062+00:00"
   },
   {
     "name": "Marvel Valentine Special",
@@ -22953,5 +22953,152 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T10:03:39.776270+00:00",
     "retry_after": "2026-09-24T10:03:39.776288+00:00"
+  },
+  {
+    "name": "Superman: Action Comics by Dan Jurgens Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T10:53:32.151033+00:00",
+    "retry_after": "2026-09-24T10:53:32.151052+00:00"
+  },
+  {
+    "name": "True Believers: What If the Fantastic Four Had Not Gained Their Super-Powers?",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T10:53:36.620866+00:00",
+    "retry_after": "2026-09-24T10:53:36.620882+00:00"
+  },
+  {
+    "name": "Visionaries Annual",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T10:54:17.985323+00:00",
+    "retry_after": "2026-09-24T10:54:17.985338+00:00"
+  },
+  {
+    "name": "Six-Gun Heroes",
+    "publisher": "Fawcett Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 101528,
+        "name": "Six-Gun Heroes",
+        "publisher": "Charlton",
+        "start_year": 1959
+      },
+      {
+        "id": 1612,
+        "name": "Six-Gun Heroes",
+        "publisher": "Charlton",
+        "start_year": 1954
+      },
+      {
+        "id": 59601,
+        "name": "Six-Gun Heroes",
+        "publisher": "A-Plus",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T10:55:35.147655+00:00",
+    "retry_after": "2026-09-24T10:55:35.147672+00:00"
+  },
+  {
+    "name": "Batman",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 796,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 1940
+      },
+      {
+        "id": 97898,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 42721,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T10:57:20.729592+00:00",
+    "retry_after": "2026-09-24T10:57:20.729609+00:00"
+  },
+  {
+    "name": "Thor",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2294,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 1966
+      },
+      {
+        "id": 166460,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 6226,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 123862,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 18831,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2007
+      },
+      {
+        "id": 111590,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 31184,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 77223,
+        "name": "Thor",
+        "publisher": "Marvel",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T10:58:54.898612+00:00",
+    "retry_after": "2026-09-24T10:58:54.898637+00:00"
   }
 ]

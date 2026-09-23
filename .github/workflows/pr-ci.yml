@@ -65,6 +65,9 @@ jobs:
       - name: GCD format-sync retry tests
         run: npm run test:format-sync
 
+      - name: Instagram dedupe tests
+        run: npm run test:instagram
+
       - name: Build
         run: npm run build
 

@@ -1405,8 +1405,16 @@ def main():
         source_label = "TARGET_VOLUMES (hardcoded)"
 
     if not targets:
-        print("No target volumes to process.", file=sys.stderr)
-        sys.exit(1)
+        # Exit 0, not 1. An empty queue is the goal state, not a failure:
+        # gap-user-collected.json is supposed to shrink to nothing as
+        # coverage improves. This used to exit 1, which is the single reason
+        # every ingest lane in cover-ingest.yml carried a blanket
+        # continue-on-error — and that blanket then swallowed real crashes
+        # too, the same way it hid a dead GCD format sync for a day (#103).
+        # With this exiting 0, a non-zero exit from a lane means something
+        # actually went wrong and the workflow can say so.
+        print(f"No target volumes to process (source: {source_label}). Nothing to do.")
+        sys.exit(0)
 
     print(
         f"Processing {len(targets)} target volume(s) "

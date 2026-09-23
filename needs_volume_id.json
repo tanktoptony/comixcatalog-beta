@@ -20882,9 +20882,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T20:00:50.397697+00:00",
-    "retry_after": "2026-09-23T20:00:50.397711+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T21:00:52.025549+00:00",
+    "retry_after": "2026-09-26T21:00:52.025564+00:00"
   },
   {
     "name": "Lady Death: The Odyssey-Sneak Peek Preview",
@@ -20892,9 +20892,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T20:01:22.253610+00:00",
-    "retry_after": "2026-09-23T20:01:22.253626+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T21:00:49.631836+00:00",
+    "retry_after": "2026-09-26T21:00:49.631853+00:00"
   },
   {
     "name": "The Holo Brothers Special: Angst for the Memories",
@@ -20902,9 +20902,9 @@
     "year": 1989,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T20:01:27.092585+00:00",
-    "retry_after": "2026-09-23T20:01:27.092601+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T21:00:50.196160+00:00",
+    "retry_after": "2026-09-26T21:00:50.196176+00:00"
   },
   {
     "name": "Gargoyles",
@@ -20925,9 +20925,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T20:01:37.560057+00:00",
-    "retry_after": "2026-09-23T20:01:37.560071+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T21:00:51.056799+00:00",
+    "retry_after": "2026-09-26T21:00:51.056814+00:00"
   },
   {
     "name": "Daredevil by Brian Michael Bendis & Alex Maleev Omnibus",
@@ -20935,9 +20935,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T20:01:42.459074+00:00",
-    "retry_after": "2026-09-23T20:01:42.459091+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T21:00:52.081118+00:00",
+    "retry_after": "2026-09-26T21:00:52.081134+00:00"
   },
   {
     "name": "Disney-Pixar/Muppets Presents: Incredibles - Family Matters",
@@ -20972,9 +20972,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T21:01:29.317785+00:00",
-    "retry_after": "2026-09-23T21:01:29.317801+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T21:05:10.237207+00:00",
+    "retry_after": "2026-09-26T21:05:10.237224+00:00"
   },
   {
     "name": "The Punisher Meets Archie",
@@ -21011,9 +21011,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T21:01:41.900033+00:00",
-    "retry_after": "2026-09-23T21:01:41.900048+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T21:05:28.537837+00:00",
+    "retry_after": "2026-09-26T21:05:28.537854+00:00"
   },
   {
     "name": "Deadpool",
@@ -21082,9 +21082,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T21:03:53.216100+00:00",
-    "retry_after": "2026-09-23T21:03:53.216115+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-23T21:05:28.992716+00:00",
+    "retry_after": "2026-09-26T21:05:28.992724+00:00"
   },
   {
     "name": "Wizard Ace Edition #6:  Dark Horse Presents #1",
@@ -24126,5 +24126,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T20:05:20.389883+00:00",
     "retry_after": "2026-09-24T20:05:20.389899+00:00"
+  },
+  {
+    "name": "Gen 13 3D Special",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-23T21:02:09.931648+00:00",
+    "retry_after": "2026-09-24T21:02:09.931664+00:00"
   }
 ]

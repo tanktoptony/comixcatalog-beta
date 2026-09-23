@@ -232,21 +232,25 @@ jobs:
       # Regenerated twice weekly by gap-probe.yml so this lane can't go
       # stale the way it did between Aug 25 and Sep 20.
       - name: Ingest user-collected gap targets
+        id: lane_user_collected
         if: hashFiles('gap-user-collected.json') != ''
         continue-on-error: true
         run: python comicvine_api_to_supabase.py --targets gap-user-collected.json --skip-existing --max-search-calls 15 --vol-sleep 1.0
 
       - name: Ingest launch-priority gap targets
+        id: lane_priority
         if: hashFiles('gap-priority.json') != ''
         continue-on-error: true
         run: python comicvine_api_to_supabase.py --targets gap-priority.json --skip-existing --max-search-calls 15 --vol-sleep 1.0
 
       - name: Ingest featured-gap targets
+        id: lane_featured
         if: hashFiles('gap-featured.json') != ''
         continue-on-error: true
         run: python comicvine_api_to_supabase.py --targets gap-featured.json --skip-existing --max-search-calls 10 --vol-sleep 1.0
 
       - name: Ingest manual-gap targets
+        id: lane_manual
         if: hashFiles('gap-manual.json') != ''
         continue-on-error: true
         run: python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --max-search-calls 15 --vol-sleep 1.0
@@ -255,16 +259,19 @@ jobs:
       # — fetches the ComicVine volume directly by id, skipping the fuzzy
       # title/publisher search that failed for these in the first place.
       - name: Ingest pinned-volume targets
+        id: lane_pinned
         if: hashFiles('gap-pinned.json') != ''
         continue-on-error: true
         run: python comicvine_api_to_supabase.py --targets gap-pinned.json --skip-existing --max-search-calls 20 --vol-sleep 1.0
 
       - name: Ingest width-gap targets
+        id: lane_width
         if: hashFiles('gap-width.json') != ''
         continue-on-error: true
         run: python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --max-search-calls 20 --vol-sleep 1.0
 
       - name: Ingest depth-gap targets
+        id: lane_depth
         if: hashFiles('gap-depth.json') != ''
         continue-on-error: true
         run: python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --max-search-calls 10 --vol-sleep 1.0
@@ -277,9 +284,58 @@ jobs:
       # Supabase hiccup here doesn't block the ledger commit below — the
       # health check afterward still catches anything left mis-linked.
       - name: Auto-repair mis-linked volumes
+        id: auto_repair
         if: always()
         continue-on-error: true
         run: node scripts/repairAllCoverSeriesLinks.js
+
+      # Every lane above runs with continue-on-error so one bad lane cannot
+      # stop the other six — that part is deliberate and stays. What was
+      # missing is anyone ever LOOKING at the outcomes afterwards. A lane
+      # that crashed left the job green and no trace outside the raw log,
+      # which is how a dead GCD format sync stayed green for a day (#103)
+      # and how "cover ingest failed" this morning turned out to be a
+      # health check, not a lane.
+      #
+      # continue-on-error rewrites a step's `conclusion` to success but
+      # leaves `outcome` as failure. That distinction is the whole fix: the
+      # lanes still all run, and a real failure is still reported.
+      #
+      # The ingester exits 0 on an empty queue and 0 when ComicVine
+      # rate-limits it (it stops cleanly and resumes next cycle), so a
+      # non-zero exit here is not routine — it means a lane genuinely broke.
+      - name: Report lane outcomes
+        if: always()
+        run: |
+          fail=0
+          check() {
+            if [ "$2" = "failure" ]; then
+              echo "  FAILED   $1"
+              fail=1
+            elif [ "$2" = "skipped" ]; then
+              echo "  skipped  $1 (no target file)"
+            else
+              echo "  ok       $1"
+            fi
+          }
+          echo "Ingest lane outcomes:"
+          check "user-collected" "${{ steps.lane_user_collected.outcome }}"
+          check "launch-priority" "${{ steps.lane_priority.outcome }}"
+          check "featured"       "${{ steps.lane_featured.outcome }}"
+          check "manual"         "${{ steps.lane_manual.outcome }}"
+          check "pinned-volume"  "${{ steps.lane_pinned.outcome }}"
+          check "width"          "${{ steps.lane_width.outcome }}"
+          check "depth"          "${{ steps.lane_depth.outcome }}"
+          check "auto-repair"    "${{ steps.auto_repair.outcome }}"
+          if [ "$fail" -eq 1 ]; then
+            echo ""
+            echo "FAIL: at least one lane exited non-zero. The ingester exits 0 on an"
+            echo "empty queue and 0 when rate-limited, so this is a real failure —"
+            echo "read that lane's step above for the traceback."
+            exit 1
+          fi
+          echo ""
+          echo "All lanes completed."
 
       - name: Final ledger size
         if: always()

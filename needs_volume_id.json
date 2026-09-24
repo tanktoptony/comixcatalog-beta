@@ -25865,5 +25865,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T18:15:17.767004+00:00",
     "retry_after": "2026-09-25T18:15:17.767019+00:00"
+  },
+  {
+    "name": "Scooby-Doo",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 33717,
+        "name": "Scooby-Doo",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 18731,
+        "name": "Scooby-Doo!",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T19:04:20.818989+00:00",
+    "retry_after": "2026-09-25T19:04:20.819008+00:00"
   }
 ]

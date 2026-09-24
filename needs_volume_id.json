@@ -23258,9 +23258,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T13:01:06.289477+00:00",
-    "retry_after": "2026-09-24T13:01:06.289494+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:16:47.332108+00:00",
+    "retry_after": "2026-09-27T13:16:47.332124+00:00"
   },
   {
     "name": "Superman in \"Luther's Lost Land\" [Giant Comics to Color]",
@@ -23268,9 +23268,9 @@
     "year": 1975,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T13:01:12.016257+00:00",
-    "retry_after": "2026-09-24T13:01:12.016273+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:16:45.492089+00:00",
+    "retry_after": "2026-09-27T13:16:45.492106+00:00"
   },
   {
     "name": "The Amazing Spider-Man: Carnage On Campus",
@@ -23278,9 +23278,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T13:01:47.556791+00:00",
-    "retry_after": "2026-09-24T13:01:47.556808+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:16:46.085307+00:00",
+    "retry_after": "2026-09-27T13:16:46.085322+00:00"
   },
   {
     "name": "Transformers: Revenge of the Fallen Official Movie Adaptation - Kmart Edition",
@@ -23288,9 +23288,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T13:01:48.090039+00:00",
-    "retry_after": "2026-09-24T13:01:48.090055+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:16:46.753669+00:00",
+    "retry_after": "2026-09-27T13:16:46.753685+00:00"
   },
   {
     "name": "Ms. Marvel",
@@ -23329,9 +23329,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T13:01:53.408064+00:00",
-    "retry_after": "2026-09-24T13:01:53.408080+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:16:47.205708+00:00",
+    "retry_after": "2026-09-27T13:16:47.205724+00:00"
   },
   {
     "name": "Aliens",
@@ -23381,9 +23381,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T13:05:22.607535+00:00",
-    "retry_after": "2026-09-24T13:05:22.607552+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:18:21.902676+00:00",
+    "retry_after": "2026-09-27T13:18:21.902692+00:00"
   },
   {
     "name": "Ultimate X-Men",
@@ -23404,9 +23404,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T13:06:57.630842+00:00",
-    "retry_after": "2026-09-24T13:06:57.630858+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:18:22.460708+00:00",
+    "retry_after": "2026-09-27T13:18:22.460724+00:00"
   },
   {
     "name": "Scooby-Doo",
@@ -23469,9 +23469,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T13:06:58.055853+00:00",
-    "retry_after": "2026-09-24T13:06:58.055870+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:18:22.878199+00:00",
+    "retry_after": "2026-09-27T13:18:22.878214+00:00"
   },
   {
     "name": "X-Men Reloaded by Chris Claremont",
@@ -25388,5 +25388,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T13:02:44.576884+00:00",
     "retry_after": "2026-09-25T13:02:44.576900+00:00"
+  },
+  {
+    "name": "Godzilla 70th Anniversary Foil Classics: Godzilla #1",
+    "publisher": "IDW Publishing",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T13:17:33.261261+00:00",
+    "retry_after": "2026-09-25T13:17:33.261277+00:00"
   }
 ]

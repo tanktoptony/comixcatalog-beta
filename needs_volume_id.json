@@ -25997,5 +25997,112 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T20:03:03.668878+00:00",
     "retry_after": "2026-09-25T20:03:03.668894+00:00"
+  },
+  {
+    "name": "Venom",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 110770,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 39301,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 140084,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 11068,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2003
+      },
+      {
+        "id": 167333,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 95845,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T21:00:58.590067+00:00",
+    "retry_after": "2026-09-25T21:00:58.590083+00:00"
+  },
+  {
+    "name": "Fantastic 4th Voyage of Sinbad",
+    "publisher": "Marvel Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T21:01:06.062086+00:00",
+    "retry_after": "2026-09-25T21:01:06.062103+00:00"
+  },
+  {
+    "name": "Wizard Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T21:01:07.029386+00:00",
+    "retry_after": "2026-09-25T21:01:07.029401+00:00"
+  },
+  {
+    "name": "Lady Death: Death Becomes Her Ashcan",
+    "publisher": "Chaos! Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T21:01:08.204241+00:00",
+    "retry_after": "2026-09-25T21:01:08.204257+00:00"
+  },
+  {
+    "name": "Collector's Guide to the Ultraverse",
+    "publisher": "Malibu Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T21:01:09.511602+00:00",
+    "retry_after": "2026-09-25T21:01:09.511617+00:00"
+  },
+  {
+    "name": "Wolverine Special: Firebreak One-Shot",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T21:03:15.624759+00:00",
+    "retry_after": "2026-09-25T21:03:15.624774+00:00"
+  },
+  {
+    "name": "Punisher Max Special: Little Black Book",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T21:03:16.233197+00:00",
+    "retry_after": "2026-09-25T21:03:16.233213+00:00"
   }
 ]

@@ -26104,5 +26104,70 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T21:03:16.233197+00:00",
     "retry_after": "2026-09-25T21:03:16.233213+00:00"
+  },
+  {
+    "name": "Avengers: Infinity Quest",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T22:00:18.267817+00:00",
+    "retry_after": "2026-09-25T22:00:18.267834+00:00"
+  },
+  {
+    "name": "DC W.I.P. All Star Superman 1",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T22:00:31.079432+00:00",
+    "retry_after": "2026-09-25T22:00:31.079449+00:00"
+  },
+  {
+    "name": "One Dollar Debut: Bloodshot",
+    "publisher": "Valiant Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T22:01:54.800607+00:00",
+    "retry_after": "2026-09-25T22:01:54.800624+00:00"
+  },
+  {
+    "name": "Rising Stars",
+    "publisher": "Top Cow Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127386,
+        "name": "Rising Stars",
+        "publisher": "JuniorPress BV",
+        "start_year": 2000
+      },
+      {
+        "id": 6476,
+        "name": "Rising Stars",
+        "publisher": "Image",
+        "start_year": 1999
+      },
+      {
+        "id": 133539,
+        "name": "Rising Stars",
+        "publisher": "Delcourt",
+        "start_year": 2012
+      },
+      {
+        "id": 66975,
+        "name": "Rising Stars",
+        "publisher": "Image",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T22:02:11.029424+00:00",
+    "retry_after": "2026-09-25T22:02:11.029439+00:00"
   }
 ]

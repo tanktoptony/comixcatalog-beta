@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { launchProfileFlags } from "@/lib/launchFlags";
+import { redirectAfterAuth } from "@/lib/auth/postAuthRedirect";
 
 // Handles both the Google OAuth redirect and the email/password
 // confirmation redirect (both use this exact URL as their
@@ -145,8 +146,7 @@ export default function AuthCallbackPage() {
         return;
       }
 
-      router.replace(`/u/${username}`);
-      router.refresh();
+      redirectAfterAuth(`/u/${username}`);
     }
 
     finish().catch((err) => {

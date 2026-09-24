@@ -20940,23 +20940,6 @@
     "retry_after": "2026-09-26T21:00:52.081134+00:00"
   },
   {
-    "name": "Disney-Pixar/Muppets Presents: Incredibles - Family Matters",
-    "publisher": "Marvel Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 55681,
-        "name": "Disney-Pixar/Muppets Presents: Incredibles - Family Matters",
-        "publisher": "Disney",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T22:00:43.321462+00:00",
-    "retry_after": "2026-09-26T22:00:43.321480+00:00"
-  },
-  {
     "name": "Walt Disney's Donald Duck Album",
     "publisher": "Dell Comics",
     "year": 1962,
@@ -21125,23 +21108,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-24T00:00:44.699661+00:00",
     "retry_after": "2026-09-27T00:00:44.699669+00:00"
-  },
-  {
-    "name": "Secret Wars II Special",
-    "publisher": "Marvel Comics",
-    "year": 1986,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62144,
-        "name": "Secret Wars II Special",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1986
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T00:00:42.576619+00:00",
-    "retry_after": "2026-09-27T00:00:42.576638+00:00"
   },
   {
     "name": "Vampirella Helliday 2024 Special",
@@ -22081,40 +22047,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-24T06:01:05.462356+00:00",
     "retry_after": "2026-09-27T06:01:05.462369+00:00"
-  },
-  {
-    "name": "Disney-Pixar/Muppets Presents: Toy Story",
-    "publisher": "Marvel Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 55678,
-        "name": "Disney-Pixar/Muppets Presents: Toy Story",
-        "publisher": "Disney",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T06:01:05.525409+00:00",
-    "retry_after": "2026-09-27T06:01:05.525421+00:00"
-  },
-  {
-    "name": "The Flash by Joshua Williamson Omnibus",
-    "publisher": "DC Comics",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 173578,
-        "name": "The Flash by Joshua Williamson Omnibus",
-        "publisher": null,
-        "start_year": null
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T06:01:05.570329+00:00",
-    "retry_after": "2026-09-27T06:01:05.570341+00:00"
   },
   {
     "name": "Solar, Man of the Atom [Second Death]",
@@ -23165,23 +23097,6 @@
     "retry_after": "2026-09-27T13:03:16.907337+00:00"
   },
   {
-    "name": "Romantic Story",
-    "publisher": "Fawcett Comics",
-    "year": 1949,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 36691,
-        "name": "Romantic Story",
-        "publisher": "Charlton",
-        "start_year": 1949
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T13:03:17.498601+00:00",
-    "retry_after": "2026-09-27T13:03:17.498617+00:00"
-  },
-  {
     "name": "Wonder Woman",
     "publisher": "DC Comics",
     "year": null,
@@ -23882,40 +23797,6 @@
     "retry_after": "2026-09-24T15:25:19.004891+00:00"
   },
   {
-    "name": "Plume Omnibus",
-    "publisher": "First Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 115584,
-        "name": "Plume Omnibus",
-        "publisher": "Devil's Due",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T16:01:00.437672+00:00",
-    "retry_after": "2026-09-24T16:01:00.437686+00:00"
-  },
-  {
-    "name": "Colossus Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 77919,
-        "name": "Colossus Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T16:01:06.465728+00:00",
-    "retry_after": "2026-09-24T16:01:06.465743+00:00"
-  },
-  {
     "name": "Sonic Live Special",
     "publisher": "Archie Comics",
     "year": 1997,
@@ -24199,23 +24080,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T22:01:57.353430+00:00",
     "retry_after": "2026-09-24T22:01:57.353450+00:00"
-  },
-  {
-    "name": "MGM's Marvelous Wizard of Oz",
-    "publisher": "Marvel Comics",
-    "year": 1975,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 28663,
-        "name": "MGM's Marvelous Wizard of Oz",
-        "publisher": "Marvel Comics and DC Comics",
-        "start_year": 1975
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T22:43:36.067785+00:00",
-    "retry_after": "2026-09-24T22:43:36.067801+00:00"
   },
   {
     "name": "Girl",
@@ -24898,23 +24762,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T07:16:50.196752+00:00",
     "retry_after": "2026-09-25T07:16:50.196767+00:00"
-  },
-  {
-    "name": "Werewolf by Night - Classic Collection",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 158239,
-        "name": "Werewolf by Night: Classic Collection",
-        "publisher": "Panini Verlag",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T07:18:13.409577+00:00",
-    "retry_after": "2026-09-25T07:18:13.409589+00:00"
   },
   {
     "name": "All Saints Day (An Amy Devlin Mystery)",

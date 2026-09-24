@@ -166,54 +166,153 @@ function roundCurrency(value) {
   return Math.round(value * 100) / 100;
 }
 
-// Bulk variant for PDF generation and the library page hydration.
+// Bulk variant for PDF generation, the library page and public profiles.
 // Given a list of {collection_id, gcd_issue_id, grade_numeric, slab_company,
 // condition} entries, returns a map keyed by collection_id with the same
-// shape as getMarketValue's output. Issues the queries in parallel but capped.
+// shape as getMarketValue's output.
 //
-// We don't currently batch-query by (issue_id, bucket) tuples because doing
-// it correctly in PostgREST means a big OR filter that's slower than the
-// parallel small queries below for sane batch sizes.
+// This used to issue one query PER ITEM, eight at a time. That was already
+// the dominant cost of a large profile — 326 owned books meant 326 round
+// trips and about 6.8s — and adding the pooled-raw fallback made it worse,
+// because an ungraded book that misses its exact bucket now tries a second
+// one: 571 queries and 9.8s, measured against the largest real collection on
+// 2026-09-24. /u/thrice347 took 7.6s to render against 0.9s for a small
+// collection, which is long enough for a post-login router.replace() to sit
+// there looking like nothing happened.
+//
+// The old comment said batching "means a big OR filter that's slower than
+// the parallel small queries for sane batch sizes". There is a third option
+// it missed: fetch every comp for the collection's distinct issues in a
+// couple of paginated reads and do the bucket matching in memory. No OR
+// filter, no per-item round trip. Two queries instead of 571.
+//
+// Semantics are deliberately identical to getMarketValue: same 90-day
+// window, same minSamples, same most-recent-N cap per bucket, same median
+// (or conservative percentile for the pooled bucket), same returned shape.
+const ISSUE_CHUNK = 200;
+const PAGE = 1000;
+
 export async function getMarketValuesBulk({
   supabase,
   items,
-  concurrency = 8,
   windowDays = DEFAULT_WINDOW_DAYS,
   minSamples = MIN_SAMPLES,
 } = {}) {
   if (!supabase) throw new Error("getMarketValuesBulk: supabase required");
   const list = Array.isArray(items) ? items : [];
   const out = new Map();
+  if (list.length === 0) return out;
 
-  let i = 0;
-  async function worker() {
-    while (i < list.length) {
-      const idx = i++;
-      const item = list[idx];
-      if (!item?.collection_id) continue;
-      try {
-        const result = await getMarketValue({
-          supabase,
-          gcd_issue_id: item.gcd_issue_id,
-          grade_numeric: item.grade_numeric,
-          slab_company: item.slab_company,
-          condition: item.condition,
-          release_year: item.release_year,
-          windowDays,
-          minSamples,
-        });
-        out.set(item.collection_id, result);
-      } catch (err) {
-        console.error(
-          `getMarketValuesBulk: item ${item.collection_id} failed:`,
-          err
-        );
-        out.set(item.collection_id, emptyResult());
+  const sinceIso = new Date(Date.now() - windowDays * 24 * 60 * 60 * 1000)
+    .toISOString()
+    .slice(0, 10);
+
+  const issueIds = [...new Set(list.map((i) => i?.gcd_issue_id).filter((v) => v != null).map(Number))];
+
+  // Every comp for those issues inside the window. Chunked so the `.in()`
+  // list stays reasonable, and paginated inside each chunk because PostgREST
+  // silently caps a read at 1000 rows (OPERATIONS_HANDOFF 2a) — a truncated
+  // read here would look exactly like "these books have no comps".
+  const compsByIssue = new Map();
+  for (let c = 0; c < issueIds.length; c += ISSUE_CHUNK) {
+    const chunk = issueIds.slice(c, c + ISSUE_CHUNK);
+    for (let from = 0; ; from += PAGE) {
+      const { data, error } = await supabase
+        .from("market_comps")
+        .select("gcd_issue_id, grade_bucket, sold_price, sold_date, source")
+        .in("gcd_issue_id", chunk)
+        .gte("sold_date", sinceIso)
+        .order("id", { ascending: true })
+        .range(from, from + PAGE - 1);
+      if (error) {
+        console.error("getMarketValuesBulk comp fetch failed:", error);
+        return fillEmpty(list, out);
       }
+      for (const row of data ?? []) {
+        const key = Number(row.gcd_issue_id);
+        if (!compsByIssue.has(key)) compsByIssue.set(key, []);
+        compsByIssue.get(key).push(row);
+      }
+      if (!data || data.length < PAGE) break;
     }
   }
 
-  const workers = Array.from({ length: Math.min(concurrency, list.length) }, worker);
-  await Promise.all(workers);
+  for (const item of list) {
+    if (!item?.collection_id) continue;
+    out.set(item.collection_id, resolveFromComps({ item, compsByIssue, minSamples }));
+  }
   return out;
+}
+
+function fillEmpty(list, out) {
+  for (const item of list) {
+    if (item?.collection_id) out.set(item.collection_id, emptyResult());
+  }
+  return out;
+}
+
+// In-memory twin of the query loop in getMarketValue. Kept beside it on
+// purpose: if one changes, the other has to, or a collection total stops
+// matching the per-book numbers that make it up.
+function resolveFromComps({ item, compsByIssue, minSamples }) {
+  const rows = compsByIssue.get(Number(item.gcd_issue_id)) ?? [];
+  const primaryBucket = gradeBucket({
+    grade_numeric: item.grade_numeric,
+    slab_company: item.slab_company,
+    condition: item.condition,
+  });
+  const tryBuckets = bucketFallbacks(primaryBucket);
+
+  for (let i = 0; i < tryBuckets.length; i += 1) {
+    const candidate = tryBuckets[i];
+    const pooled = isRawPool(candidate);
+    const matched = rows.filter((r) =>
+      pooled ? RAW_POOL_BUCKETS.includes(r.grade_bucket) : r.grade_bucket === candidate
+    );
+    if (matched.length < minSamples) continue;
+
+    // Newest first, then the same cap the single-item path applies.
+    matched.sort((a, b) => String(b.sold_date ?? "").localeCompare(String(a.sold_date ?? "")));
+    const window = matched.slice(0, MAX_SAMPLES_TO_CONSIDER);
+
+    const prices = window.map((r) => r.sold_price);
+    const value = pooled ? percentile(prices, RAW_POOL_PERCENTILE) : median(prices);
+    const dates = window.map((r) => r.sold_date).filter(Boolean).sort();
+
+    const sourceCounts = {};
+    for (const r of window) {
+      const src = r.source || "unknown";
+      sourceCounts[src] = (sourceCounts[src] || 0) + 1;
+    }
+    const dominantSource =
+      Object.entries(sourceCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || "unknown";
+
+    return {
+      value: value != null ? roundCurrency(value) : null,
+      sample_size: window.length,
+      bucket_used: candidate,
+      fallback: i > 0,
+      condition_unknown: pooled,
+      source: "market-comp",
+      comp_source: dominantSource,
+      newest_comp_date: dates[dates.length - 1] ?? null,
+      oldest_comp_date: dates[0] ?? null,
+    };
+  }
+
+  const cover = coverPriceForYear(item.release_year);
+  if (cover != null) {
+    return {
+      value: cover,
+      sample_size: 0,
+      bucket_used: null,
+      fallback: true,
+      condition_unknown: false,
+      source: "cover-price",
+      comp_source: null,
+      newest_comp_date: null,
+      oldest_comp_date: null,
+    };
+  }
+  return emptyResult();
 }

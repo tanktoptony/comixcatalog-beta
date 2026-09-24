@@ -24474,5 +24474,231 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T01:01:29.755065+00:00",
     "retry_after": "2026-09-25T01:01:29.755075+00:00"
+  },
+  {
+    "name": "X-Men: Endangered Species One-Shot",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T02:00:44.546097+00:00",
+    "retry_after": "2026-09-25T02:00:44.546114+00:00"
+  },
+  {
+    "name": "Buffy the Vampire Slayer",
+    "publisher": "Dark Horse Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 28824,
+        "name": "Buffy the Vampire Slayer",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 6239,
+        "name": "Buffy the Vampire Slayer",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T02:00:45.060220+00:00",
+    "retry_after": "2026-09-25T02:00:45.060236+00:00"
+  },
+  {
+    "name": "Women of Marvel",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 141841,
+        "name": "Women of Marvel",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 165713,
+        "name": "Women of Marvel",
+        "publisher": "Marvel",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T02:00:45.459970+00:00",
+    "retry_after": "2026-09-25T02:00:45.459986+00:00"
+  },
+  {
+    "name": "Detective Comics Special Reprint",
+    "publisher": "DC Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T02:01:51.761231+00:00",
+    "retry_after": "2026-09-25T02:01:51.761247+00:00"
+  },
+  {
+    "name": "Captain Easy and Wash Tubbs [A Famous 'Comics' Cartoon Book]",
+    "publisher": "Gold Key",
+    "year": 1934,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T02:01:52.396095+00:00",
+    "retry_after": "2026-09-25T02:01:52.396112+00:00"
+  },
+  {
+    "name": "Transformers",
+    "publisher": "Image Comics",
+    "year": 1992,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 153968,
+        "name": "Transformers",
+        "publisher": "Image",
+        "start_year": 2023
+      },
+      {
+        "id": 158825,
+        "name": "Transformers",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T02:01:52.849653+00:00",
+    "retry_after": "2026-09-25T02:01:52.849669+00:00"
+  },
+  {
+    "name": "Transformers",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 153968,
+        "name": "Transformers",
+        "publisher": "Image",
+        "start_year": 2023
+      },
+      {
+        "id": 158825,
+        "name": "Transformers",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T02:01:57.744677+00:00",
+    "retry_after": "2026-09-25T02:01:57.744691+00:00"
+  },
+  {
+    "name": "Swamp Thing",
+    "publisher": "DC Comics",
+    "year": 1977,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 42599,
+        "name": "Swamp Thing",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 2556,
+        "name": "Swamp Thing",
+        "publisher": "DC Comics",
+        "start_year": 1972
+      },
+      {
+        "id": 51518,
+        "name": "Swamp Thing",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 134142,
+        "name": "The Swamp Thing",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 3465,
+        "name": "Swamp Thing",
+        "publisher": "DC Comics",
+        "start_year": 1986
+      },
+      {
+        "id": 11315,
+        "name": "Swamp Thing",
+        "publisher": "DC Comics",
+        "start_year": 2004
+      },
+      {
+        "id": 6760,
+        "name": "Swamp Thing",
+        "publisher": "DC Comics",
+        "start_year": 2000
+      },
+      {
+        "id": 87185,
+        "name": "Swamp Thing",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T02:03:16.098948+00:00",
+    "retry_after": "2026-09-25T02:03:16.098964+00:00"
+  },
+  {
+    "name": "Daffy Duck",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29907,
+        "name": "Daffy Duck",
+        "publisher": "Western Publishing",
+        "start_year": 1976
+      },
+      {
+        "id": 59318,
+        "name": "Daffy Duck",
+        "publisher": "Magazine Management",
+        "start_year": 1975
+      },
+      {
+        "id": 9559,
+        "name": "Daffy Duck",
+        "publisher": "Western Publishing",
+        "start_year": 1959
+      },
+      {
+        "id": 57898,
+        "name": "Daffy Duck",
+        "publisher": "Condor Verlag",
+        "start_year": 1985
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T02:03:20.896659+00:00",
+    "retry_after": "2026-09-25T02:03:20.896673+00:00"
+  },
+  {
+    "name": "True Believers: Unbeatable Squirrel Girl",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T02:04:30.466638+00:00",
+    "retry_after": "2026-09-25T02:04:30.466654+00:00"
   }
 ]

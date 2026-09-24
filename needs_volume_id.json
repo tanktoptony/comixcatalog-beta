@@ -21214,9 +21214,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T00:15:14.589043+00:00",
-    "retry_after": "2026-09-24T00:15:14.589060+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T01:00:47.257396+00:00",
+    "retry_after": "2026-09-27T01:00:47.257407+00:00"
   },
   {
     "name": "Marvel Collector's Edition [X-Men Stri-Dex Custom Comic]",
@@ -21224,9 +21224,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T00:15:21.447225+00:00",
-    "retry_after": "2026-09-24T00:15:21.447242+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T01:00:49.679088+00:00",
+    "retry_after": "2026-09-27T01:00:49.679097+00:00"
   },
   {
     "name": "Wolverine",
@@ -21277,9 +21277,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T00:15:21.601811+00:00",
-    "retry_after": "2026-09-24T00:15:21.601829+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T01:00:48.364050+00:00",
+    "retry_after": "2026-09-27T01:00:48.364063+00:00"
   },
   {
     "name": "Space-Mullet!",
@@ -21306,9 +21306,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T00:15:24.411104+00:00",
-    "retry_after": "2026-09-24T00:15:24.411129+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T01:00:49.626768+00:00",
+    "retry_after": "2026-09-27T01:00:49.626776+00:00"
   },
   {
     "name": "Fun with Little Archie and Friends Special",
@@ -21316,9 +21316,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T00:15:30.642671+00:00",
-    "retry_after": "2026-09-24T00:15:30.642689+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T01:00:49.575078+00:00",
+    "retry_after": "2026-09-27T01:00:49.575093+00:00"
   },
   {
     "name": "Aquaman",
@@ -21399,9 +21399,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T00:19:50.049056+00:00",
-    "retry_after": "2026-09-24T00:19:50.049073+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T01:01:34.417667+00:00",
+    "retry_after": "2026-09-27T01:01:34.417677+00:00"
   },
   {
     "name": "True Believers: X-Men - Kitty Pryde & Emma Frost",
@@ -24424,5 +24424,55 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T00:03:08.089097+00:00",
     "retry_after": "2026-09-25T00:03:08.089112+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtle Microseries #2: Michelangelo Global Conquest Edition",
+    "publisher": "IDW Publishing",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T01:01:14.174093+00:00",
+    "retry_after": "2026-09-25T01:01:14.174102+00:00"
+  },
+  {
+    "name": "Fright Night 3-D Special",
+    "publisher": "Now Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T01:01:22.686874+00:00",
+    "retry_after": "2026-09-25T01:01:22.686885+00:00"
+  },
+  {
+    "name": "NFL Superpro Special Edition",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T01:01:23.153651+00:00",
+    "retry_after": "2026-09-25T01:01:23.153659+00:00"
+  },
+  {
+    "name": "Leonardo Teenage Mutant Ninja Turtle",
+    "publisher": "Mirage Studios",
+    "year": 1986,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T01:01:29.317398+00:00",
+    "retry_after": "2026-09-25T01:01:29.317410+00:00"
+  },
+  {
+    "name": "The Transformers #1 Hundred Penny Press",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T01:01:29.755065+00:00",
+    "retry_after": "2026-09-25T01:01:29.755075+00:00"
   }
 ]

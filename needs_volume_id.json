@@ -22960,9 +22960,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T11:04:14.314836+00:00",
-    "retry_after": "2026-09-24T11:04:14.314853+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T12:00:53.791212+00:00",
+    "retry_after": "2026-09-27T12:00:53.791231+00:00"
   },
   {
     "name": "True Believers: What If the Fantastic Four Had Not Gained Their Super-Powers?",
@@ -22970,9 +22970,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T11:04:18.703064+00:00",
-    "retry_after": "2026-09-24T11:04:18.703081+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T12:00:51.898294+00:00",
+    "retry_after": "2026-09-27T12:00:51.898312+00:00"
   },
   {
     "name": "Visionaries Annual",
@@ -22980,9 +22980,9 @@
     "year": 1988,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T11:05:01.734733+00:00",
-    "retry_after": "2026-09-24T11:05:01.734749+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T12:00:53.908305+00:00",
+    "retry_after": "2026-09-27T12:00:53.908321+00:00"
   },
   {
     "name": "Six-Gun Heroes",
@@ -23009,9 +23009,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T11:06:11.131951+00:00",
-    "retry_after": "2026-09-24T11:06:11.131966+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T12:01:43.735678+00:00",
+    "retry_after": "2026-09-27T12:01:43.735698+00:00"
   },
   {
     "name": "Batman",
@@ -23038,9 +23038,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T11:08:16.201054+00:00",
-    "retry_after": "2026-09-24T11:08:16.201070+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T12:00:54.827935+00:00",
+    "retry_after": "2026-09-27T12:00:54.827954+00:00"
   },
   {
     "name": "Thor",
@@ -23097,9 +23097,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T11:09:50.522270+00:00",
-    "retry_after": "2026-09-24T11:09:50.522281+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T12:01:44.208143+00:00",
+    "retry_after": "2026-09-27T12:01:44.208161+00:00"
   },
   {
     "name": "New Avengers: Illuminati [Mini-Comic]",
@@ -23107,9 +23107,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T12:00:50.030286+00:00",
-    "retry_after": "2026-09-24T12:00:50.030304+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T12:00:53.515497+00:00",
+    "retry_after": "2026-09-27T12:00:53.515516+00:00"
   },
   {
     "name": "Gen 13 [Encore No. 1]",
@@ -25218,5 +25218,74 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T11:02:07.820920+00:00",
     "retry_after": "2026-09-25T11:02:07.820939+00:00"
+  },
+  {
+    "name": "Aquaman",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "multiple_near_year_tied",
+    "candidates": [
+      {
+        "id": 97897,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 120535,
+        "name": "Aquaman",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T12:00:55.688098+00:00",
+    "retry_after": "2026-09-25T12:00:55.688118+00:00"
+  },
+  {
+    "name": "What If? Secret Wars",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 25308,
+        "name": "What If? Secret Wars",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 28948,
+        "name": "What If? Secret Wars",
+        "publisher": "Marvel",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T12:00:56.205325+00:00",
+    "retry_after": "2026-09-25T12:00:56.205349+00:00"
+  },
+  {
+    "name": "Transformers",
+    "publisher": "Image Comics",
+    "year": 2003,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 153968,
+        "name": "Transformers",
+        "publisher": "Image",
+        "start_year": 2023
+      },
+      {
+        "id": 158825,
+        "name": "Transformers",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T12:01:34.723323+00:00",
+    "retry_after": "2026-09-25T12:01:34.723343+00:00"
   }
 ]

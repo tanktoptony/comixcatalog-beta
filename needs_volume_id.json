@@ -22629,9 +22629,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T09:00:49.400248+00:00",
-    "retry_after": "2026-09-24T09:00:49.400263+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T10:00:42.048054+00:00",
+    "retry_after": "2026-09-27T10:00:42.048071+00:00"
   },
   {
     "name": "Custom Disney Theatrical International 2018 Ant Man & Wasp Reprint Comic",
@@ -22639,9 +22639,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T09:02:25.480103+00:00",
-    "retry_after": "2026-09-24T09:02:25.480118+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T10:00:42.589589+00:00",
+    "retry_after": "2026-09-27T10:00:42.589605+00:00"
   },
   {
     "name": "Evil Ernie Retailer Preview",
@@ -22649,9 +22649,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T09:02:30.013319+00:00",
-    "retry_after": "2026-09-24T09:02:30.013334+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T10:00:43.502138+00:00",
+    "retry_after": "2026-09-27T10:00:43.502152+00:00"
   },
   {
     "name": "Action Comics",
@@ -22688,9 +22688,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T09:03:03.302427+00:00",
-    "retry_after": "2026-09-24T09:03:03.302444+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T10:00:43.419842+00:00",
+    "retry_after": "2026-09-27T10:00:43.419856+00:00"
   },
   {
     "name": "Dick Tracy",
@@ -22927,9 +22927,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T10:02:34.927319+00:00",
-    "retry_after": "2026-09-24T10:02:34.927335+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T10:04:21.601492+00:00",
+    "retry_after": "2026-09-27T10:04:21.601507+00:00"
   },
   {
     "name": "Star Trek: The Next Generation",
@@ -22950,9 +22950,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T10:03:39.776270+00:00",
-    "retry_after": "2026-09-24T10:03:39.776288+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T10:04:22.232573+00:00",
+    "retry_after": "2026-09-27T10:04:22.232588+00:00"
   },
   {
     "name": "Superman: Action Comics by Dan Jurgens Omnibus",
@@ -25129,5 +25129,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T09:04:13.151166+00:00",
     "retry_after": "2026-09-25T09:04:13.151184+00:00"
+  },
+  {
+    "name": "Richie Rich",
+    "publisher": "Harvey Comics",
+    "year": 1995,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 11660,
+        "name": "Richie Rich",
+        "publisher": "Harvey",
+        "start_year": 1960
+      },
+      {
+        "id": 34564,
+        "name": "Richie Rich",
+        "publisher": "Harvey",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T10:00:57.372635+00:00",
+    "retry_after": "2026-09-25T10:00:57.372648+00:00"
   }
 ]

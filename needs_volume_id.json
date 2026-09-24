@@ -23117,9 +23117,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T12:01:15.599265+00:00",
-    "retry_after": "2026-09-24T12:01:15.599284+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:00:50.086570+00:00",
+    "retry_after": "2026-09-27T13:00:50.086586+00:00"
   },
   {
     "name": "Beetle Bailey [Bold Detergent Giveaway]",
@@ -23127,9 +23127,9 @@
     "year": 1969,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T12:01:30.638222+00:00",
-    "retry_after": "2026-09-24T12:01:30.638240+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:00:52.177454+00:00",
+    "retry_after": "2026-09-27T13:00:52.177470+00:00"
   },
   {
     "name": "Amazing Fantasy [Old Navy Edition]",
@@ -23137,9 +23137,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T12:01:38.225567+00:00",
-    "retry_after": "2026-09-24T12:01:38.225597+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:00:52.134527+00:00",
+    "retry_after": "2026-09-27T13:00:52.134545+00:00"
   },
   {
     "name": "Constantine",
@@ -23160,9 +23160,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T12:09:48.945964+00:00",
-    "retry_after": "2026-09-24T12:09:48.945982+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:03:16.907322+00:00",
+    "retry_after": "2026-09-27T13:03:16.907337+00:00"
   },
   {
     "name": "Romantic Story",
@@ -23177,9 +23177,9 @@
         "start_year": 1949
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T12:09:49.623551+00:00",
-    "retry_after": "2026-09-24T12:09:49.623570+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:03:17.498601+00:00",
+    "retry_after": "2026-09-27T13:03:17.498617+00:00"
   },
   {
     "name": "Wonder Woman",
@@ -23248,9 +23248,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T12:09:49.906435+00:00",
-    "retry_after": "2026-09-24T12:09:49.906452+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:03:17.996361+00:00",
+    "retry_after": "2026-09-27T13:03:17.996376+00:00"
   },
   {
     "name": "One Dollar Debut: Shadowman",
@@ -23358,9 +23358,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T13:02:46.849490+00:00",
-    "retry_after": "2026-09-24T13:02:46.849507+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T13:03:18.394841+00:00",
+    "retry_after": "2026-09-27T13:03:18.394857+00:00"
   },
   {
     "name": "Crossed",
@@ -25287,5 +25287,106 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T12:01:34.723323+00:00",
     "retry_after": "2026-09-25T12:01:34.723343+00:00"
+  },
+  {
+    "name": "What If? Secret Invasion",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 33387,
+        "name": "What If? Secret Invasion",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 30182,
+        "name": "What If? Secret Invasion",
+        "publisher": "Marvel",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T13:01:04.034402+00:00",
+    "retry_after": "2026-09-25T13:01:04.034419+00:00"
+  },
+  {
+    "name": "Lady Death / Medieval Witchblade Preview Book",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T13:01:04.426783+00:00",
+    "retry_after": "2026-09-25T13:01:04.426797+00:00"
+  },
+  {
+    "name": "Little Orphan Annie and the Big Town Gunmen",
+    "publisher": "Gold Key",
+    "year": 1937,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T13:01:04.991559+00:00",
+    "retry_after": "2026-09-25T13:01:04.991575+00:00"
+  },
+  {
+    "name": "Batman",
+    "publisher": "DC Comics",
+    "year": 1989,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 796,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 1940
+      },
+      {
+        "id": 97898,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 42721,
+        "name": "Batman",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T13:01:23.024191+00:00",
+    "retry_after": "2026-09-25T13:01:23.024206+00:00"
+  },
+  {
+    "name": "JLA",
+    "publisher": "DC Comics",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 74723,
+        "name": "JLA",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 158971,
+        "name": "JLA",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      },
+      {
+        "id": 5957,
+        "name": "JLA",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T13:02:44.576884+00:00",
+    "retry_after": "2026-09-25T13:02:44.576900+00:00"
   }
 ]

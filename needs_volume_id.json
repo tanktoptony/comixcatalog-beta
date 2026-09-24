@@ -11480,16 +11480,16 @@
         "start_year": 2012
       },
       {
-        "id": 92373,
-        "name": "Justice League",
-        "publisher": "DC Comics",
-        "start_year": 2016
-      },
-      {
         "id": 111428,
         "name": "Justice League",
         "publisher": "DC Comics",
         "start_year": 2018
+      },
+      {
+        "id": 92373,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2016
       },
       {
         "id": 3796,
@@ -11498,9 +11498,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T14:00:47.287381+00:00",
-    "retry_after": "2026-09-24T14:00:47.287399+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-24T14:00:47.822369+00:00",
+    "retry_after": "2026-10-01T14:00:47.822409+00:00"
   },
   {
     "name": "Robin",
@@ -12537,9 +12537,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T14:00:46.755213+00:00",
-    "retry_after": "2026-09-24T14:00:46.755227+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-24T14:00:47.356265+00:00",
+    "retry_after": "2026-10-01T14:00:47.356283+00:00"
   },
   {
     "name": "What If? Civil War",
@@ -13240,9 +13240,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T14:00:45.580615+00:00",
-    "retry_after": "2026-09-24T14:00:45.580657+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-24T14:00:46.671754+00:00",
+    "retry_after": "2026-10-01T14:00:46.671775+00:00"
   },
   {
     "name": "American Splendor",
@@ -14177,9 +14177,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T14:00:44.961768+00:00",
-    "retry_after": "2026-09-24T14:00:44.961785+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-24T14:00:45.711529+00:00",
+    "retry_after": "2026-10-01T14:00:45.711548+00:00"
   },
   {
     "name": "Dragonfly & Dragonflyman [Free Comic Book Day]",
@@ -23394,9 +23394,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T14:00:43.791183+00:00",
-    "retry_after": "2026-09-24T14:00:43.791200+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T14:08:24.528641+00:00",
+    "retry_after": "2026-09-27T14:08:24.528660+00:00"
   },
   {
     "name": "Marvel's Greatest Creators: Hulk - The Wedding of Rick Jones",
@@ -23404,9 +23404,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T14:00:44.432163+00:00",
-    "retry_after": "2026-09-24T14:00:44.432181+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T14:08:25.037087+00:00",
+    "retry_after": "2026-09-27T14:08:25.037105+00:00"
   },
   {
     "name": "Marvel Masterworks: The Avengers - Barnes & Noble Edition",
@@ -23414,9 +23414,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T14:00:44.981750+00:00",
-    "retry_after": "2026-09-24T14:00:44.981768+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T14:08:25.499966+00:00",
+    "retry_after": "2026-09-27T14:08:25.499986+00:00"
   },
   {
     "name": "Shadowhawk - Vampirella: Creatures of the Night",
@@ -23424,9 +23424,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T14:00:59.455907+00:00",
-    "retry_after": "2026-09-24T14:00:59.455926+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T14:08:25.978790+00:00",
+    "retry_after": "2026-09-27T14:08:25.978809+00:00"
   },
   {
     "name": "Quiet Please! It's Andy Capp",
@@ -23434,9 +23434,9 @@
     "year": 1980,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T14:01:56.423319+00:00",
-    "retry_after": "2026-09-24T14:01:56.423338+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T14:08:26.416638+00:00",
+    "retry_after": "2026-09-27T14:08:26.416656+00:00"
   },
   {
     "name": "Cable",
@@ -23481,9 +23481,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T14:04:32.929465+00:00",
-    "retry_after": "2026-09-24T14:04:32.929484+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T14:09:04.554980+00:00",
+    "retry_after": "2026-09-27T14:09:04.555000+00:00"
   },
   {
     "name": "Crossed",
@@ -25245,5 +25245,168 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T13:17:33.261261+00:00",
     "retry_after": "2026-09-25T13:17:33.261277+00:00"
+  },
+  {
+    "name": "Disney-Pixar/Muppets Presents: Incredibles - Family Matters",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55681,
+        "name": "Disney-Pixar/Muppets Presents: Incredibles - Family Matters",
+        "publisher": "Disney",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T14:08:30.632483+00:00",
+    "retry_after": "2026-09-25T14:08:30.632502+00:00"
+  },
+  {
+    "name": "Secret Wars II Special",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62144,
+        "name": "Secret Wars II Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T14:08:22.762292+00:00",
+    "retry_after": "2026-09-25T14:08:22.762312+00:00"
+  },
+  {
+    "name": "Disney-Pixar/Muppets Presents: Toy Story",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55678,
+        "name": "Disney-Pixar/Muppets Presents: Toy Story",
+        "publisher": "Disney",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T14:08:30.063952+00:00",
+    "retry_after": "2026-09-25T14:08:30.063966+00:00"
+  },
+  {
+    "name": "The Flash by Joshua Williamson Omnibus",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173578,
+        "name": "The Flash by Joshua Williamson Omnibus",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T14:08:31.724838+00:00",
+    "retry_after": "2026-09-25T14:08:31.724850+00:00"
+  },
+  {
+    "name": "Plume Omnibus",
+    "publisher": "First Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115584,
+        "name": "Plume Omnibus",
+        "publisher": "Devil's Due",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T14:08:29.936136+00:00",
+    "retry_after": "2026-09-25T14:08:29.936155+00:00"
+  },
+  {
+    "name": "Colossus Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 77919,
+        "name": "Colossus Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T14:08:30.499280+00:00",
+    "retry_after": "2026-09-25T14:08:30.499296+00:00"
+  },
+  {
+    "name": "MGM's Marvelous Wizard of Oz",
+    "publisher": "Marvel Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28663,
+        "name": "MGM's Marvelous Wizard of Oz",
+        "publisher": "Marvel Comics and DC Comics",
+        "start_year": 1975
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T14:08:31.183628+00:00",
+    "retry_after": "2026-09-25T14:08:31.183646+00:00"
+  },
+  {
+    "name": "Werewolf by Night - Classic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158239,
+        "name": "Werewolf by Night: Classic Collection",
+        "publisher": "Panini Verlag",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T14:08:31.631055+00:00",
+    "retry_after": "2026-09-25T14:08:31.631074+00:00"
+  },
+  {
+    "name": "DC Comics Presents: Elseworlds 80-Page Giant",
+    "publisher": "DC Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T14:08:37.604904+00:00",
+    "retry_after": "2026-09-25T14:08:37.604923+00:00"
+  },
+  {
+    "name": "Romantic Story",
+    "publisher": "Fawcett Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36691,
+        "name": "Romantic Story",
+        "publisher": "Charlton",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T14:09:04.091549+00:00",
+    "retry_after": "2026-09-25T14:09:04.091567+00:00"
   }
 ]

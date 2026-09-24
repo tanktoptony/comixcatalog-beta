@@ -1,7 +1,7 @@
 {
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "counts": {
-    "supabase-query-ignores-error": 106,
+    "supabase-query-ignores-error": 105,
     "invented-error-text": 7,
     "empty-catch": 6,
     "blanket-continue-on-error": 11
@@ -68,8 +68,7 @@
       "src/app/api/blog/comments/[id]/route.js:18",
       "src/app/api/comics/[id]/route.js:84",
       "src/app/api/comics/[id]/route.js:129",
-      "src/app/api/csv-import/route.js:85",
-      "src/app/api/csv-import/route.js:235",
+      "src/app/api/csv-import/route.js:91",
       "src/app/api/export/csv/route.js:94",
       "src/app/api/export/csv/route.js:113",
       "src/app/api/export/csv/route.js:123",
@@ -122,7 +121,7 @@
       "scripts/lib/describeError.js:7",
       "scripts/lib/describeError.js:10",
       "scripts/lib/describeError.js:46",
-      "scripts/snapshotCollectionValue.js:54"
+      "scripts/snapshotCollectionValue.js:64"
     ],
     "empty-catch": [
       "scripts/generateUserCollectedGap.js:259",

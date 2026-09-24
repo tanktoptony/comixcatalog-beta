@@ -22498,9 +22498,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T07:01:40.733220+00:00",
-    "retry_after": "2026-09-24T07:01:40.733236+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T07:16:26.042686+00:00",
+    "retry_after": "2026-09-27T07:16:26.042704+00:00"
   },
   {
     "name": "Warrior Nun Areala Color Manga",
@@ -22508,9 +22508,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T07:03:56.319638+00:00",
-    "retry_after": "2026-09-24T07:03:56.319656+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T07:16:26.621355+00:00",
+    "retry_after": "2026-09-27T07:16:26.621366+00:00"
   },
   {
     "name": "Invincible",
@@ -22531,9 +22531,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T07:05:29.190906+00:00",
-    "retry_after": "2026-09-24T07:05:29.190925+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T07:18:24.386150+00:00",
+    "retry_after": "2026-09-27T07:18:24.386165+00:00"
   },
   {
     "name": "Coup d'Etat: Sleeper",
@@ -24888,5 +24888,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T07:02:24.352338+00:00",
     "retry_after": "2026-09-25T07:02:24.352353+00:00"
+  },
+  {
+    "name": "True Believers: What If Legion Had Killed Magneto?",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T07:16:50.196752+00:00",
+    "retry_after": "2026-09-25T07:16:50.196767+00:00"
+  },
+  {
+    "name": "Werewolf by Night - Classic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158239,
+        "name": "Werewolf by Night: Classic Collection",
+        "publisher": "Panini Verlag",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T07:18:13.409577+00:00",
+    "retry_after": "2026-09-25T07:18:13.409589+00:00"
+  },
+  {
+    "name": "All Saints Day (An Amy Devlin Mystery)",
+    "publisher": "Oni Press",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T07:18:20.411561+00:00",
+    "retry_after": "2026-09-25T07:18:20.411576+00:00"
   }
 ]

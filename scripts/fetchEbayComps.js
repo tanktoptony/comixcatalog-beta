@@ -1,11 +1,13 @@
 // fetchEbayComps.js — populates the `market_comps` table from sold eBay
 // listings, scoped to issues currently in user_collections.
 //
-// STATUS: scaffold. The actual eBay API call is stubbed (see fetchSoldListings
-// below). When real credentials land (EBAY_APP_ID + EBAY_CERT_ID in
-// .env.local), fill in the stub. Everything else — queue construction, title
-// parsing, bucketing, upsert — is wired up end-to-end and testable against
-// synthetic responses via --dry-run.
+// STATUS: live, not a scaffold. This header said "the actual eBay API call is
+// stubbed" and named EBAY_APP_ID / EBAY_CERT_ID as the credentials. Both were
+// stale as of 2026-09-24: fetchSoldListings is fully implemented against
+// eBay's Browse and Insights APIs, and getEbayToken reads EBAY_CLIENT_ID /
+// EBAY_CLIENT_SECRET. The 6,054 rows in market_comps came from this code
+// path. Chasing the wrong two env var names is a real cost, hence the
+// correction rather than a quiet edit.
 //
 // IMPORTANT: eBay's free Browse API does NOT return sold listings, only
 // active. Two viable paid paths for sold-comp data:
@@ -37,6 +39,7 @@ dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 import { createClient } from "@supabase/supabase-js";
 import { parseEbayTitle } from "../src/lib/ebayTitleParser.js";
 import { gradeBucket } from "../src/lib/valuation.js";
+import { describeError } from "./lib/describeError.js";
 
 const args = Object.fromEntries(
   process.argv.slice(2).filter((a) => a.startsWith("--")).map((a) => {
@@ -49,6 +52,13 @@ const DRY_RUN = !!args["dry-run"];
 const APPLY = !!args.apply;
 const LIMIT = args.limit ? Number(args.limit) : null;
 const MAX_AGE_DAYS = args["max-age-days"] ? Number(args["max-age-days"]) : 7;
+// Pause between issues. This ran by hand until 2026-09-24, where a human
+// watching the output was the throttle; on a schedule it would burst the
+// whole queue (662 distinct issues in user_collections today) at eBay as
+// fast as the event loop allows. 250ms keeps a full cold run near three
+// minutes and well inside Browse's daily call budget.
+const SLEEP_MS = args.sleep ? Number(args.sleep) : 250;
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -158,11 +168,13 @@ async function buildQueue() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// eBay sold-listings fetcher — STUB.
+// eBay listings fetcher. Implemented, despite what this comment used to say.
 //
-// Real implementation will hit eBay Marketplace Insights API (or chosen
-// proxy) with the search query and filter to "Sold" / "Completed" status,
-// 90-day window, US marketplace, condition=USED.
+// Hits Browse (active listings) by default, or Marketplace Insights (real
+// sold comps, 90-day window) when EBAY_API=insights and the account has been
+// approved for it. The source label on every row it writes says which one
+// produced the data — "ebay-listed" for asking prices, "ebay" for sold — so
+// nothing downstream has to guess whether a number is a sale or an ask.
 //
 // Return shape:
 //   [
@@ -206,7 +218,10 @@ async function getEbayToken() {
   const id = process.env.EBAY_CLIENT_ID;
   const secret = process.env.EBAY_CLIENT_SECRET;
   if (!id || !secret) {
-    throw new Error("EBAY_CLIENT_ID / EBAY_CLIENT_SECRET missing in .env.local");
+    throw new Error(
+      "EBAY_CLIENT_ID / EBAY_CLIENT_SECRET are not set. Locally they live in .env.local; " +
+        "in GitHub Actions they must be repo secrets. Without them this job fetches nothing."
+    );
   }
   const basic = Buffer.from(`${id}:${secret}`).toString("base64");
   const body = new URLSearchParams({
@@ -430,18 +445,27 @@ async function run() {
   let totalRows = 0;
   let totalUpserted = 0;
   let totalFailed = 0;
+  let bailed = false;
 
   for (let i = 0; i < queue.length; i++) {
     const item = queue[i];
     const label = `[${i + 1}/${queue.length}] ${item.series_title} #${item.issue_number}`;
 
+    if (i > 0) await sleep(SLEEP_MS);
+
     let listings = [];
     try {
       listings = await fetchSoldListings(item);
     } catch (err) {
-      console.log(`  ${label} — fetch failed: ${err.message}`);
+      console.log(`  ${label} — fetch failed: ${describeError(err)}`);
       totalFailed += 1;
-      if (!DRY_RUN) break; // real-API failure usually means auth/rate issues; bail
+      // A real-API failure is almost always auth or rate limiting, so there
+      // is no point walking the rest of the queue. Bailing is right; exiting
+      // 0 afterwards was not. See the exit contract at the end of run().
+      if (!DRY_RUN) {
+        bailed = true;
+        break;
+      }
       continue;
     }
 
@@ -470,9 +494,24 @@ async function run() {
   console.log(`  valid comp rows:    ${totalRows}`);
   console.log(`  upserted to DB:     ${totalUpserted}`);
   if (totalFailed) console.log(`  failed:             ${totalFailed}`);
+
+  // Exit contract.
+  //
+  // This used to return normally here no matter what, so a real run whose
+  // very first eBay call failed on auth printed "failed: 1" and exited 0. On
+  // a schedule that is a green checkmark over a job that fetched nothing —
+  // the exact failure that left the GCD refresh inert for a month (#117).
+  if (bailed) {
+    console.error(
+      `\nBailed on the first fetch failure, ${totalUpserted} comps written from ${queue.length} queued issues. ` +
+        `On the real API this is almost always credentials or a rate limit rather than bad data — ` +
+        `check EBAY_CLIENT_ID / EBAY_CLIENT_SECRET first.`
+    );
+    process.exitCode = 1;
+  }
 }
 
 run().catch((err) => {
-  console.error(err);
+  console.error(describeError(err));
   process.exit(1);
 });

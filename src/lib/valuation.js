@@ -108,6 +108,30 @@ export function gradeBucket({ grade_numeric, slab_company, condition } = {}) {
   return "Raw Ungraded";
 }
 
+// Sentinel bucket meaning "any raw copy, condition unknown". It is not a
+// value that ever appears in market_comps.grade_bucket — callers see it in a
+// fallback chain and translate it into an `.in(...)` over RAW_POOL_BUCKETS.
+export const RAW_POOL = "Raw (any)";
+
+// Every raw bucket a comp can carry, best to worst. Deliberately excludes
+// "Raw Ungraded" (that is the thing we are falling back *from*) and slabbed
+// buckets (a slab is a different market; a slabbed 9.8 is worth multiples of
+// the same book raw, so pooling the two would be nonsense).
+export const RAW_POOL_BUCKETS = [
+  "Raw M",
+  "Raw NM",
+  "Raw VF",
+  "Raw FN",
+  "Raw VG",
+  "Raw GD",
+  "Raw FA",
+  "Raw PR",
+];
+
+export function isRawPool(bucket) {
+  return bucket === RAW_POOL;
+}
+
 // For the lookup fallback chain: given a primary bucket, what less-specific
 // buckets should we try if no comps exist? Order matters — first hit wins.
 //
@@ -115,7 +139,19 @@ export function gradeBucket({ grade_numeric, slab_company, condition } = {}) {
 // "CBCS 9.6" → ["CBCS 9.6", "Slabbed 9.6"]
 // "Slabbed 9.4" → ["Slabbed 9.4"]
 // "Raw NM" → ["Raw NM"]
-// "Raw Ungraded" → ["Raw Ungraded"]
+// "Raw Ungraded" → ["Raw Ungraded", RAW_POOL]
+//
+// Only "Raw Ungraded" pools, and the asymmetry is the point. Measured
+// 2026-09-24: 627 of 670 owned books bucket as "Raw Ungraded" because nobody
+// sets a grade, while only 743 of 6,054 comps carry that bucket — so the
+// 1,997 "Raw NM" and 1,438 "Raw VF" comps sitting against those same issues
+// were unreachable, and 269 books with comps for their exact issue showed a
+// cover-price floor instead.
+//
+// A bucket with a KNOWN grade never pools. If a book is "Raw GD" and no GD
+// comps exist, the honest answer is that we do not know what it is worth —
+// pricing it off a pool dominated by NM listings would not be a fallback,
+// it would be a wrong number wearing a fallback's clothes.
 export function bucketFallbacks(bucket) {
   if (!bucket) return [];
   const cleaned = String(bucket).trim();
@@ -128,16 +164,61 @@ export function bucketFallbacks(bucket) {
     return [cleaned, `Slabbed ${grade}`];
   }
 
-  // Already-generic slab or any raw bucket — no further fallback.
+  // Unknown condition: fall back to the pooled raw market.
+  if (cleaned === "Raw Ungraded") return [cleaned, RAW_POOL];
+
+  // A known raw grade, or an already-generic slab bucket. No further fallback.
   return [cleaned];
 }
 
+// Value to take from the pooled raw comps for a book whose condition nobody
+// recorded.
+//
+// NOT the median, and the reason matters. The comp pool is what people list
+// on eBay, and listings skew heavily to the top of the scale — of 6,054 comps
+// on 2026-09-24, 1,997 were "Raw NM" and 1,438 "Raw VF" against 123 "Raw GD".
+// Taking the median of that pool assumes an unrecorded book is near-mint,
+// which is the opposite of what an unrecorded book usually is.
+//
+// This number feeds the collection total and the insurance/appraisal PDF, so
+// erring high is not a neutral mistake — it inflates a figure someone may
+// hand to an insurer. The 25th percentile keeps the estimate on the cautious
+// side of the pool. It is a judgement call, not a derived constant: change
+// RAW_POOL_PERCENTILE if the collector's-eye answer differs.
+export const RAW_POOL_PERCENTILE = 0.25;
+
+export function percentile(values, p) {
+  const arr = sortedFiniteNumbers(values);
+  if (arr.length === 0) return null;
+  if (arr.length === 1) return arr[0];
+  const idx = (arr.length - 1) * p;
+  const lo = Math.floor(idx);
+  const hi = Math.ceil(idx);
+  if (lo === hi) return arr[lo];
+  return arr[lo] + (arr[hi] - arr[lo]) * (idx - lo);
+}
+
 // Median of a numeric array. Used to roll up the recent-comp window.
+// Coerce a list of maybe-numbers into sorted finite numbers.
+//
+// The obvious `.map(Number).filter(Number.isFinite)` silently keeps null,
+// undefined-free empty strings and booleans, because Number(null) is 0 and
+// Number("") is 0, and 0 is perfectly finite. On a price list that turns a
+// missing sold_price into a $0 sale, which drags a median or percentile down
+// without leaving any trace. Found 2026-09-24 by a test that expected a null
+// to be dropped and got it counted instead.
+function sortedFiniteNumbers(values) {
+  const out = [];
+  for (const v of values ?? []) {
+    if (v === null || v === undefined || v === "" || typeof v === "boolean") continue;
+    const n = Number(v);
+    if (Number.isFinite(n)) out.push(n);
+  }
+  return out.sort((a, b) => a - b);
+}
+
 export function median(values) {
-  const arr = values
-    .map((v) => Number(v))
-    .filter((v) => Number.isFinite(v))
-    .sort((a, b) => a - b);
+  const arr = sortedFiniteNumbers(values);
   if (arr.length === 0) return null;
   const mid = Math.floor(arr.length / 2);
   return arr.length % 2 === 0 ? (arr[mid - 1] + arr[mid]) / 2 : arr[mid];

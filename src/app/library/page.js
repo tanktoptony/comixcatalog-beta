@@ -1877,7 +1877,15 @@ function LibraryPageContent() {
                             const isListed = isComp && mv.comp_source === "ebay-listed";
                             const isSold   = isComp && mv.comp_source === "ebay";
                             let tooltip, label;
-                            if (isSold) {
+                            // A pooled estimate for a book nobody graded. It
+                            // must not read like a same-bucket median: it is
+                            // drawn from raw copies in every condition, so the
+                            // label says so and the tooltip says how to make
+                            // it precise.
+                            if (isComp && mv.condition_unknown) {
+                              tooltip = `Estimated from ${mv.sample_size} raw ${isListed ? "listing" : "sale"}${mv.sample_size === 1 ? "" : "s"} of this issue across all conditions, because no grade is recorded for your copy. Deliberately conservative — set a grade to get a value matched to your actual condition.`;
+                              label = `est. ungraded, ${mv.sample_size}`;
+                            } else if (isSold) {
                               tooltip = `Median of ${mv.sample_size} recent sold listing${mv.sample_size === 1 ? "" : "s"} in bucket ${mv.bucket_used}${mv.fallback ? " (fallback bucket)" : ""}`;
                               label = `auto, ${mv.sample_size} ${mv.sample_size === 1 ? "sale" : "sales"}`;
                             } else if (isListed) {

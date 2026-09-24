@@ -22,7 +22,17 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
-import { gradeBucket, bucketFallbacks, median, coverPriceForYear } from "../src/lib/valuation.js";
+import { describeError } from "./lib/describeError.js";
+import {
+  gradeBucket,
+  bucketFallbacks,
+  median,
+  coverPriceForYear,
+  isRawPool,
+  percentile,
+  RAW_POOL_BUCKETS,
+  RAW_POOL_PERCENTILE,
+} from "../src/lib/valuation.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
@@ -102,21 +112,31 @@ async function computeItemValue({ gcd_issue_id, market_value, grade_numeric, sla
   const tryBuckets = bucketFallbacks(primaryBucket);
   const sinceIso = new Date(Date.now() - WINDOW_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
+  // This mirrors src/lib/marketValue.js deliberately (that file imports a
+  // Next path alias this script cannot resolve). The two MUST agree, or the
+  // snapshot total contradicts the number the library shows the same user on
+  // the same day — so the pooled-bucket branch below is a copy of the one
+  // there, and both take their chain and percentile from valuation.js.
   for (const candidate of tryBuckets) {
-    const { data, error } = await supabase
+    const pooled = isRawPool(candidate);
+    let query = supabase
       .from("market_comps")
       .select("sold_price")
-      .eq("gcd_issue_id", Number(gcd_issue_id))
-      .eq("grade_bucket", candidate)
+      .eq("gcd_issue_id", Number(gcd_issue_id));
+    query = pooled
+      ? query.in("grade_bucket", RAW_POOL_BUCKETS)
+      : query.eq("grade_bucket", candidate);
+    const { data, error } = await query
       .gte("sold_date", sinceIso)
       .order("sold_date", { ascending: false })
       .limit(MAX_SAMPLES_TO_CONSIDER);
     if (error) {
-      console.error(`  ⚠ market_comps lookup failed for gcd_issue_id=${gcd_issue_id}, bucket=${candidate}:`, error.message || error);
+      console.error(`  ⚠ market_comps lookup failed for gcd_issue_id=${gcd_issue_id}, bucket=${candidate}:`, describeError(error));
       continue;
     }
     if ((data?.length ?? 0) >= MIN_SAMPLES) {
-      const value = median(data.map((r) => Number(r.sold_price)));
+      const prices = data.map((r) => r.sold_price);
+      const value = pooled ? percentile(prices, RAW_POOL_PERCENTILE) : median(prices);
       return value != null ? roundCurrency(value) : 0;
     }
   }

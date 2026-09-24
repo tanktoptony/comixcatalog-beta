@@ -25799,5 +25799,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T18:04:05.803423+00:00",
     "retry_after": "2026-09-25T18:04:05.803434+00:00"
+  },
+  {
+    "name": "Adventure Comics",
+    "publisher": "DC Comics",
+    "year": 1983,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3105,
+        "name": "Adventure Comics",
+        "publisher": "DC Comics",
+        "start_year": 1938
+      },
+      {
+        "id": 25938,
+        "name": "Adventure Comics",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      },
+      {
+        "id": 25643,
+        "name": "Adventure Comics",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T18:14:53.810656+00:00",
+    "retry_after": "2026-09-25T18:14:53.810673+00:00"
+  },
+  {
+    "name": "Storm Battlebook: Streets of Fire",
+    "publisher": "Marvel Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22054,
+        "name": "Storm Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T18:15:07.137398+00:00",
+    "retry_after": "2026-09-25T18:15:07.137416+00:00"
+  },
+  {
+    "name": "Lita Ford: The Queen of Heavy Metal",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T18:15:12.283763+00:00",
+    "retry_after": "2026-09-25T18:15:12.283779+00:00"
+  },
+  {
+    "name": "We've Got to Stop Meeting Like This [The Wizard of Id]",
+    "publisher": "Fawcett Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T18:15:17.767004+00:00",
+    "retry_after": "2026-09-25T18:15:17.767019+00:00"
   }
 ]

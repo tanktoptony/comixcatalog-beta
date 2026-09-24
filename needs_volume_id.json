@@ -25702,5 +25702,102 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T17:03:42.311322+00:00",
     "retry_after": "2026-09-25T17:03:42.311333+00:00"
+  },
+  {
+    "name": "Bloodshoot Reborn One Dollar Debut",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T18:00:41.163668+00:00",
+    "retry_after": "2026-09-25T18:00:41.163715+00:00"
+  },
+  {
+    "name": "Venom",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 110770,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 39301,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 140084,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 11068,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2003
+      },
+      {
+        "id": 167333,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 95845,
+        "name": "Venom",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T18:01:13.703356+00:00",
+    "retry_after": "2026-09-25T18:01:13.703372+00:00"
+  },
+  {
+    "name": "The Joe Kubert Archives",
+    "publisher": "Fantagraphics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T18:01:14.130184+00:00",
+    "retry_after": "2026-09-25T18:01:14.130199+00:00"
+  },
+  {
+    "name": "You're the Boss, Andy Capp",
+    "publisher": "Fawcett Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T18:03:36.985794+00:00",
+    "retry_after": "2026-09-25T18:03:36.985817+00:00"
+  },
+  {
+    "name": "Smile Please, Andy Capp",
+    "publisher": "Fawcett Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T18:03:37.799467+00:00",
+    "retry_after": "2026-09-25T18:03:37.799483+00:00"
+  },
+  {
+    "name": "The Black Knight (MDCU)",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T18:04:05.803423+00:00",
+    "retry_after": "2026-09-25T18:04:05.803434+00:00"
   }
 ]

@@ -22541,9 +22541,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T08:00:52.210455+00:00",
-    "retry_after": "2026-09-24T08:00:52.210474+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T09:00:45.035505+00:00",
+    "retry_after": "2026-09-27T09:00:45.035522+00:00"
   },
   {
     "name": "Teenage Mutant Ninja Turtles #1 Whatnot Reprint",
@@ -22551,9 +22551,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T08:00:52.737489+00:00",
-    "retry_after": "2026-09-24T08:00:52.737507+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T09:00:46.465511+00:00",
+    "retry_after": "2026-09-27T09:00:46.465529+00:00"
   },
   {
     "name": "Superman IV Movie Special",
@@ -22561,9 +22561,9 @@
     "year": 1987,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T08:01:42.892292+00:00",
-    "retry_after": "2026-09-24T08:01:42.892311+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T09:00:46.373282+00:00",
+    "retry_after": "2026-09-27T09:00:46.373301+00:00"
   },
   {
     "name": "Batman",
@@ -22619,9 +22619,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T08:07:15.958959+00:00",
-    "retry_after": "2026-09-24T08:07:15.958977+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T09:04:13.733613+00:00",
+    "retry_after": "2026-09-27T09:04:13.733631+00:00"
   },
   {
     "name": "The Walking Dead #1 Wizard World Pittsburgh Comicon Exclusive",
@@ -22678,9 +22678,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T09:02:30.441748+00:00",
-    "retry_after": "2026-09-24T09:02:30.441763+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T09:04:16.305693+00:00",
+    "retry_after": "2026-09-27T09:04:16.305715+00:00"
   },
   {
     "name": "Mega Man X Timelines",
@@ -22711,9 +22711,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T09:03:15.298942+00:00",
-    "retry_after": "2026-09-24T09:03:15.298958+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T09:04:14.103819+00:00",
+    "retry_after": "2026-09-27T09:04:14.103839+00:00"
   },
   {
     "name": "Fantastic Four",
@@ -22788,9 +22788,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T09:03:15.724947+00:00",
-    "retry_after": "2026-09-24T09:03:15.724963+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T09:04:14.982860+00:00",
+    "retry_after": "2026-09-27T09:04:14.982878+00:00"
   },
   {
     "name": "Fantastic Four",
@@ -22865,9 +22865,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T09:03:15.786545+00:00",
-    "retry_after": "2026-09-24T09:03:15.786560+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T09:04:15.078734+00:00",
+    "retry_after": "2026-09-27T09:04:15.078749+00:00"
   },
   {
     "name": "Six-Gun Heroes",
@@ -22888,9 +22888,9 @@
         "start_year": 1954
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T09:03:16.360627+00:00",
-    "retry_after": "2026-09-24T09:03:16.360643+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T09:04:15.704925+00:00",
+    "retry_after": "2026-09-27T09:04:15.704943+00:00"
   },
   {
     "name": "Walt Disney's Vacation in Disneyland",
@@ -25070,5 +25070,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T08:04:32.303962+00:00",
     "retry_after": "2026-09-25T08:04:32.303978+00:00"
+  },
+  {
+    "name": "Nextwave: Agents of H.A.T.E. 5 [Crayon Butchery Variant Edition]",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T09:00:52.704213+00:00",
+    "retry_after": "2026-09-25T09:00:52.704233+00:00"
+  },
+  {
+    "name": "The Marvel Comics Illustrated Version of The X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T09:01:13.237872+00:00",
+    "retry_after": "2026-09-25T09:01:13.237891+00:00"
+  },
+  {
+    "name": "Fantastic Four Presents Franklin Richards",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T09:04:12.540954+00:00",
+    "retry_after": "2026-09-25T09:04:12.540972+00:00"
+  },
+  {
+    "name": "Betty and Veronica",
+    "publisher": "Archie Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 11038,
+        "name": "Betty and Veronica",
+        "publisher": "Archie Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 92353,
+        "name": "Betty & Veronica",
+        "publisher": "Archie Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 116090,
+        "name": "Betty & Veronica",
+        "publisher": "Archie Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T09:04:13.151166+00:00",
+    "retry_after": "2026-09-25T09:04:13.151184+00:00"
   }
 ]

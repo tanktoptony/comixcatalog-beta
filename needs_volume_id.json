@@ -25888,5 +25888,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T19:04:20.818989+00:00",
     "retry_after": "2026-09-25T19:04:20.819008+00:00"
+  },
+  {
+    "name": "Flash",
+    "publisher": "DC Comics",
+    "year": 1989,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3790,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 1995,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 1959
+      },
+      {
+        "id": 43018,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 91750,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 153720,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 32562,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 53722,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 160580,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T20:02:14.127901+00:00",
+    "retry_after": "2026-09-25T20:02:14.127915+00:00"
+  },
+  {
+    "name": "I Love Lucy in 3-D",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63061,
+        "name": "I Love Lucy in 3-D",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T20:02:30.203904+00:00",
+    "retry_after": "2026-09-25T20:02:30.203921+00:00"
+  },
+  {
+    "name": "Generation X",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5300,
+        "name": "Generation X",
+        "publisher": "Marvel",
+        "start_year": 1994
+      },
+      {
+        "id": 101478,
+        "name": "Generation X",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T20:02:58.419661+00:00",
+    "retry_after": "2026-09-25T20:02:58.419677+00:00"
+  },
+  {
+    "name": "Yu-Gi-Oh! [Collector's Edition]",
+    "publisher": "VIZ Media",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T20:03:03.668878+00:00",
+    "retry_after": "2026-09-25T20:03:03.668894+00:00"
   }
 ]

@@ -21112,9 +21112,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T23:00:55.479238+00:00",
-    "retry_after": "2026-09-23T23:00:55.479249+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T00:00:44.787914+00:00",
+    "retry_after": "2026-09-27T00:00:44.787923+00:00"
   },
   {
     "name": "Valiant Pullbox Preview: Ivar, Timewalker",
@@ -21122,9 +21122,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T23:01:04.917523+00:00",
-    "retry_after": "2026-09-23T23:01:04.917539+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T00:00:44.699661+00:00",
+    "retry_after": "2026-09-27T00:00:44.699669+00:00"
   },
   {
     "name": "Secret Wars II Special",
@@ -21139,9 +21139,9 @@
         "start_year": 1986
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T23:01:11.829459+00:00",
-    "retry_after": "2026-09-23T23:01:11.829474+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T00:00:42.576619+00:00",
+    "retry_after": "2026-09-27T00:00:42.576638+00:00"
   },
   {
     "name": "Vampirella Helliday 2024 Special",
@@ -21149,9 +21149,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T23:01:13.430291+00:00",
-    "retry_after": "2026-09-23T23:01:13.430305+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T00:00:43.143224+00:00",
+    "retry_after": "2026-09-27T00:00:43.143238+00:00"
   },
   {
     "name": "The Walking Dead #1 Wizard World Fort Lauderdale Comicon Exclusive",
@@ -21159,9 +21159,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T23:02:59.581854+00:00",
-    "retry_after": "2026-09-23T23:02:59.581890+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T00:00:44.655490+00:00",
+    "retry_after": "2026-09-27T00:00:44.655499+00:00"
   },
   {
     "name": "Walt Disney's Donald Duck in Disneyland",
@@ -21169,9 +21169,9 @@
     "year": 1955,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-22T23:03:00.007288+00:00",
-    "retry_after": "2026-09-23T23:03:00.007298+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T00:00:44.745048+00:00",
+    "retry_after": "2026-09-27T00:00:44.745056+00:00"
   },
   {
     "name": "Attack",
@@ -24316,5 +24316,113 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-23T23:04:35.758843+00:00",
     "retry_after": "2026-09-24T23:04:35.758859+00:00"
+  },
+  {
+    "name": "Uncanny X-Men",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 43785,
+        "name": "Uncanny X-Men",
+        "publisher": "Marvel",
+        "start_year": 2012
+      },
+      {
+        "id": 3092,
+        "name": "The Uncanny X-Men",
+        "publisher": "Marvel",
+        "start_year": 1981
+      },
+      {
+        "id": 87825,
+        "name": "Uncanny X-Men",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 57181,
+        "name": "Uncanny X-Men",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 159189,
+        "name": "Uncanny X-Men",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 115285,
+        "name": "Uncanny X-Men",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 87190,
+        "name": "Uncanny X-Men",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T00:00:52.245545+00:00",
+    "retry_after": "2026-09-25T00:00:52.245558+00:00"
+  },
+  {
+    "name": "TMNT: The Last Ronin Director�s Cut",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T00:00:52.921373+00:00",
+    "retry_after": "2026-09-25T00:00:52.921395+00:00"
+  },
+  {
+    "name": "Jughead",
+    "publisher": "Archie Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 91893,
+        "name": "Jughead",
+        "publisher": "Archie Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 85112,
+        "name": "Jughead",
+        "publisher": "Archie Comics",
+        "start_year": 2015
+      },
+      {
+        "id": 11649,
+        "name": "Jughead",
+        "publisher": "Archie Comics",
+        "start_year": 1965
+      },
+      {
+        "id": 11650,
+        "name": "Jughead",
+        "publisher": "Archie Comics",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T00:02:58.416346+00:00",
+    "retry_after": "2026-09-25T00:02:58.416361+00:00"
+  },
+  {
+    "name": "Walt Disney's Goofy a Gaggle of Giggles [Dynabrite Comics]",
+    "publisher": "Gold Key",
+    "year": 1978,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T00:03:08.089097+00:00",
+    "retry_after": "2026-09-25T00:03:08.089112+00:00"
   }
 ]

@@ -1,0 +1,97 @@
+name: eBay comps refresh (daily)
+
+# Keeps `market_comps` fresh so the library, the public profile and the
+# insurance PDF can put a number next to a book.
+#
+# Why this exists (audited 2026-09-24): fetchEbayComps.js had never been on a
+# schedule. It only ever ran by hand, and every one of the 6,054 rows in
+# market_comps was dated June or July. src/lib/marketValue.js only counts
+# comps inside a 90-day window, so the July batch begins ageing out around
+# 2026-09-29 and valuation coverage was days from falling to zero.
+#
+# Coverage measured the same day, end to end against real collections: of 670
+# owned books, 109 (16.3%) resolved to a comp-backed median. Everything else
+# fell through to the cover-price floor. Keeping the comps fresh is what
+# stops that 16.3% becoming 0%; raising it is a separate piece of work about
+# grade buckets, not about this job.
+#
+# Cost: the queue is distinct gcd_issue_ids in user_collections (662 today),
+# minus anything fetched in the last --max-age-days (7). So the first run is
+# a few hundred calls and later runs are small top-ups. One call per issue,
+# 250ms apart, comfortably inside eBay Browse's daily budget.
+#
+# To trigger manually: Actions tab → eBay comps refresh → Run workflow.
+
+on:
+  schedule:
+    # 05:00 UTC — before the nightly cover report at 06:00 and well clear of
+    # cover-ingest's hourly top of the hour.
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    inputs:
+      max_age_days:
+        description: 'Skip issues whose comps are newer than this many days'
+        default: '7'
+        required: false
+      limit:
+        description: 'Cap the number of issues fetched (blank = no cap)'
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  comps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    concurrency:
+      group: ebay-comps-refresh
+      cancel-in-progress: false
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+      EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+      # Browse returns active listings (asking prices) and needs no special
+      # approval. Set the EBAY_API repo variable to "insights" once eBay
+      # approves Marketplace Insights and this starts writing real sold comps.
+      EBAY_API: ${{ vars.EBAY_API || 'browse' }}
+      EBAY_ENV: ${{ vars.EBAY_ENV || 'production' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm ci --no-audit --no-fund
+
+      # Fail here rather than inside the fetch loop. Without credentials the
+      # script bails on its first eBay call, and a job that dies 40 minutes in
+      # with an auth error is harder to read than one that says up front which
+      # secret is missing.
+      - name: Check eBay credentials are present
+        run: |
+          missing=""
+          [ -z "$EBAY_CLIENT_ID" ] && missing="$missing EBAY_CLIENT_ID"
+          [ -z "$EBAY_CLIENT_SECRET" ] && missing="$missing EBAY_CLIENT_SECRET"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repo secret(s):$missing"
+            echo "Add them under Settings → Secrets and variables → Actions."
+            echo "They exist in the local .env.local but have never been added to this repo,"
+            echo "which is why this job has never run on a schedule."
+            exit 1
+          fi
+          echo "eBay credentials present."
+
+      # No continue-on-error. A run that fetches nothing must go red — that is
+      # the whole lesson of #117, where the only step of a job was wrapped in
+      # continue-on-error and four green runs turned out to be four dead ones.
+      - name: Fetch comps
+        run: |
+          node scripts/fetchEbayComps.js \
+            --max-age-days=${{ github.event.inputs.max_age_days || '7' }} \
+            ${{ github.event.inputs.limit && format('--limit={0}', github.event.inputs.limit) || '' }}

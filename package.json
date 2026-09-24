@@ -15,6 +15,7 @@
     "test:instagram": "node --test scripts/instagramBot.test.js",
     "test:health-check": "node --test scripts/checkCoverIngestHealth.test.js",
     "test:describe-error": "node --test scripts/lib/describeError.test.js",
+    "test:valuation": "node --test src/lib/valuation.test.js",
     "test:featured-targets": "node --test scripts/lib/featuredTargets.test.js",
     "audit:errors": "node scripts/auditErrorHandling.js",
     "docs:check": "node scripts/checkDocLinks.js",

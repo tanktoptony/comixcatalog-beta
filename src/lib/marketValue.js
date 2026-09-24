@@ -6,7 +6,16 @@
 // The pure-utility primitives (snapToCgcGrade, gradeBucket, bucketFallbacks,
 // median) live in src/lib/valuation.js. This file glues them to Supabase.
 
-import { gradeBucket, bucketFallbacks, median, coverPriceForYear } from "@/lib/valuation";
+import {
+  gradeBucket,
+  bucketFallbacks,
+  median,
+  coverPriceForYear,
+  isRawPool,
+  percentile,
+  RAW_POOL_BUCKETS,
+  RAW_POOL_PERCENTILE,
+} from "@/lib/valuation";
 
 // Tuning knobs. Conservative defaults — we'd rather return null than show
 // a wildly noisy median based on one weird sale.
@@ -65,11 +74,18 @@ export async function getMarketValue({
   // is dramatically clearer to reason about — and these queries are tiny.
   for (let i = 0; i < tryBuckets.length; i += 1) {
     const candidate = tryBuckets[i];
-    const { data, error } = await supabase
+    const pooled = isRawPool(candidate);
+
+    // The pooled candidate is a sentinel, never a real grade_bucket value,
+    // so it matches with `.in` over every raw bucket instead of `.eq`.
+    let query = supabase
       .from("market_comps")
       .select("sold_price, sold_date, source")
-      .eq("gcd_issue_id", Number(gcd_issue_id))
-      .eq("grade_bucket", candidate)
+      .eq("gcd_issue_id", Number(gcd_issue_id));
+    query = pooled
+      ? query.in("grade_bucket", RAW_POOL_BUCKETS)
+      : query.eq("grade_bucket", candidate);
+    const { data, error } = await query
       .gte("sold_date", sinceIso)
       .order("sold_date", { ascending: false })
       .limit(MAX_SAMPLES_TO_CONSIDER);
@@ -81,7 +97,10 @@ export async function getMarketValue({
 
     if ((data?.length ?? 0) >= minSamples) {
       const prices = data.map((r) => Number(r.sold_price));
-      const value = median(prices);
+      // A pooled result describes a book whose condition nobody recorded, so
+      // it takes the cautious end of the pool rather than the middle. See
+      // RAW_POOL_PERCENTILE in valuation.js for why.
+      const value = pooled ? percentile(prices, RAW_POOL_PERCENTILE) : median(prices);
       const dates = data.map((r) => r.sold_date).sort();
       // Dominant underlying source — "ebay" = sold comps (Insights), or
       // "ebay-listed" = active asking prices (Browse, used while Insights
@@ -98,6 +117,9 @@ export async function getMarketValue({
         sample_size: data.length,
         bucket_used: candidate,
         fallback: i > 0,
+        // Lets the UI say "condition unknown" rather than presenting a pooled
+        // estimate with the same confidence as a same-bucket median.
+        condition_unknown: pooled,
         source: "market-comp",
         comp_source: dominantSource,
         newest_comp_date: dates[dates.length - 1] ?? null,
@@ -116,6 +138,7 @@ export async function getMarketValue({
       sample_size: 0,
       bucket_used: null,
       fallback: true,
+      condition_unknown: false,
       source: "cover-price",
       comp_source: null,
       newest_comp_date: null,
@@ -131,6 +154,7 @@ function emptyResult() {
     sample_size: 0,
     bucket_used: null,
     fallback: false,
+    condition_unknown: false,
     source: null,
     comp_source: null,
     newest_comp_date: null,

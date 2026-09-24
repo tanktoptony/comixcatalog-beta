@@ -301,7 +301,7 @@ export default function LoginPage() {
             autoComplete="email"
             placeholder=" "
           />
-          <label htmlFor="auth-email">Username or email address</label>
+          <label htmlFor="auth-email">Email address</label>
         </div>
 
         <div className="auth-field">

@@ -21993,9 +21993,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T04:00:55.328922+00:00",
-    "retry_after": "2026-09-24T04:00:55.328938+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T05:00:42.528077+00:00",
+    "retry_after": "2026-09-27T05:00:42.528087+00:00"
   },
   {
     "name": "JLA",
@@ -22022,9 +22022,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T04:04:22.140029+00:00",
-    "retry_after": "2026-09-24T04:04:22.140044+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T05:01:50.418249+00:00",
+    "retry_after": "2026-09-27T05:01:50.418257+00:00"
   },
   {
     "name": "Little Dot",
@@ -22045,9 +22045,9 @@
         "start_year": 1953
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T04:04:26.842894+00:00",
-    "retry_after": "2026-09-24T04:04:26.842912+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-24T05:01:50.359178+00:00",
+    "retry_after": "2026-09-27T05:01:50.359194+00:00"
   },
   {
     "name": "Guardians of the Galaxy: Tomorrow's Avengers",
@@ -24760,5 +24760,103 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T04:00:44.146281+00:00",
     "retry_after": "2026-09-25T04:00:44.146295+00:00"
+  },
+  {
+    "name": "Captain America Annual",
+    "publisher": "Marvel Comics",
+    "year": 1976,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 113693,
+        "name": "Captain America Annual",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 136939,
+        "name": "Captain America Annual",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 2510,
+        "name": "Captain America Annual",
+        "publisher": "Marvel",
+        "start_year": 1971
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T05:00:51.519485+00:00",
+    "retry_after": "2026-09-25T05:00:51.519501+00:00"
+  },
+  {
+    "name": "Infernals",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 161543,
+        "name": "The Infernals",
+        "publisher": "Image",
+        "start_year": 2024
+      },
+      {
+        "id": 156859,
+        "name": "The Infernals",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T05:01:17.507537+00:00",
+    "retry_after": "2026-09-25T05:01:17.507552+00:00"
+  },
+  {
+    "name": "The Frontiersman",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 139129,
+        "name": "Frontiersman",
+        "publisher": "Image",
+        "start_year": 2021
+      },
+      {
+        "id": 143357,
+        "name": "Frontiersman",
+        "publisher": "Image",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T05:01:17.813510+00:00",
+    "retry_after": "2026-09-25T05:01:17.813522+00:00"
+  },
+  {
+    "name": "The Savage She-Hulk",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3053,
+        "name": "The Savage She-Hulk",
+        "publisher": "Marvel",
+        "start_year": 1980
+      },
+      {
+        "id": 33128,
+        "name": "Savage She-Hulk",
+        "publisher": "Marvel",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T05:01:38.609896+00:00",
+    "retry_after": "2026-09-25T05:01:38.609910+00:00"
   }
 ]

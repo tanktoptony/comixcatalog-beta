@@ -25618,5 +25618,89 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T16:06:54.535599+00:00",
     "retry_after": "2026-09-25T16:06:54.535612+00:00"
+  },
+  {
+    "name": "Justice League Heroes: Falling Star",
+    "publisher": "DC Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T17:00:41.706680+00:00",
+    "retry_after": "2026-09-25T17:00:41.706696+00:00"
+  },
+  {
+    "name": "Lady Death FAN Edition: All Hallow's Evil",
+    "publisher": "Chaos! Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T17:00:55.236378+00:00",
+    "retry_after": "2026-09-25T17:00:55.236395+00:00"
+  },
+  {
+    "name": "Chilling Adventures of Sabrina - Halloween Comicfest Edition #1",
+    "publisher": "Archie Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T17:03:21.200487+00:00",
+    "retry_after": "2026-09-25T17:03:21.200503+00:00"
+  },
+  {
+    "name": "Greenlock",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37138,
+        "name": "Greenlock",
+        "publisher": "Aircel Publishing",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T17:03:21.471824+00:00",
+    "retry_after": "2026-09-25T17:03:21.471836+00:00"
+  },
+  {
+    "name": "Penny Arcade",
+    "publisher": "Dark Horse Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36938,
+        "name": "Penny Arcade",
+        "publisher": "Oni Press",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T17:03:36.151133+00:00",
+    "retry_after": "2026-09-25T17:03:36.151152+00:00"
+  },
+  {
+    "name": "Your Choice, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T17:03:41.869382+00:00",
+    "retry_after": "2026-09-25T17:03:41.869397+00:00"
+  },
+  {
+    "name": "WildC.A.T.s / X-Men: The Silver Age 3D",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T17:03:42.311322+00:00",
+    "retry_after": "2026-09-25T17:03:42.311333+00:00"
   }
 ]

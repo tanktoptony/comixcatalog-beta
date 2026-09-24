@@ -20,7 +20,7 @@ import assert from "node:assert/strict";
 process.env.NEXT_PUBLIC_SUPABASE_URL ||= "https://example.supabase.co";
 process.env.SUPABASE_SERVICE_ROLE_KEY ||= "test-key";
 
-const { imageLedgerKey } = await import("./instagramBot.js");
+const { imageLedgerKey, isPostingDay } = await import("./instagramBot.js");
 
 const PATH = "comicvine/rai/vol-4828/1-issue-1.jpg";
 
@@ -60,4 +60,46 @@ test("empty and missing inputs are null, not a key that matches everything", () 
 
 test("a leading slash does not create a second key for the same file", () => {
   assert.equal(imageLedgerKey(`/${PATH}`), imageLedgerKey(PATH));
+});
+
+// ── Posting cadence ────────────────────────────────────────────────────────
+// Volume was the problem, not caption quality: 20 posts in 2026-09 averaged
+// 3.3 likes against 2 posts in 2026-05 averaging 20.5. These pin the schedule
+// so a future change to the gate is deliberate rather than accidental.
+
+test("posts on Monday, Wednesday and Friday only", () => {
+  // 2026-09-21 is a Monday. Walk a full week in UTC.
+  const expected = {
+    "2026-09-21": true,  // Mon
+    "2026-09-22": false, // Tue
+    "2026-09-23": true,  // Wed
+    "2026-09-24": false, // Thu
+    "2026-09-25": true,  // Fri
+    "2026-09-26": false, // Sat
+    "2026-09-27": false, // Sun
+  };
+  for (const [day, shouldPost] of Object.entries(expected)) {
+    assert.equal(
+      isPostingDay(new Date(`${day}T12:00:00Z`)),
+      shouldPost,
+      `${day} should ${shouldPost ? "" : "not "}be a posting day`
+    );
+  }
+});
+
+test("three posting days a week, not four", () => {
+  // The cut was from 7 to 3. A regression to 4+ would quietly undo it.
+  let count = 0;
+  for (let d = 0; d < 7; d += 1) {
+    if (isPostingDay(new Date(Date.UTC(2026, 8, 21 + d, 12)))) count += 1;
+  }
+  assert.equal(count, 3);
+});
+
+test("the day boundary is UTC, matching the already-posted stamp", () => {
+  // todayStamp() slices an ISO string, so it is UTC. If this gate used local
+  // time the two could disagree at the edges and drop or double a post.
+  assert.equal(isPostingDay(new Date("2026-09-21T00:00:00Z")), true);
+  assert.equal(isPostingDay(new Date("2026-09-21T23:59:59Z")), true);
+  assert.equal(isPostingDay(new Date("2026-09-22T00:00:00Z")), false);
 });

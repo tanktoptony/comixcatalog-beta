@@ -25304,5 +25304,319 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-24T15:08:19.913134+00:00",
     "retry_after": "2026-09-25T15:08:19.913149+00:00"
+  },
+  {
+    "name": "Fables #1: Special Edition",
+    "publisher": "DC Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T16:04:11.567687+00:00",
+    "retry_after": "2026-09-25T16:04:11.567705+00:00"
+  },
+  {
+    "name": "Sword",
+    "publisher": "Image Comics",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 19250,
+        "name": "The Sword",
+        "publisher": "Image",
+        "start_year": 2007
+      },
+      {
+        "id": 34436,
+        "name": "The Sword",
+        "publisher": "Image",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T16:04:20.930283+00:00",
+    "retry_after": "2026-09-25T16:04:20.930299+00:00"
+  },
+  {
+    "name": "Archie Classics - The Adventures of Little Archie",
+    "publisher": "Archie Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T16:04:54.881070+00:00",
+    "retry_after": "2026-09-25T16:04:54.881085+00:00"
+  },
+  {
+    "name": "Masters of the Universe: Origin of Hordak",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T16:04:55.529530+00:00",
+    "retry_after": "2026-09-25T16:04:55.529545+00:00"
+  },
+  {
+    "name": "One for One: Star Wars",
+    "publisher": "Dark Horse Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T16:04:56.217337+00:00",
+    "retry_after": "2026-09-25T16:04:56.217352+00:00"
+  },
+  {
+    "name": "You Were Saying, Andy Capp",
+    "publisher": "Fawcett Comics",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T16:04:56.712063+00:00",
+    "retry_after": "2026-09-25T16:04:56.712079+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe: The Pit and the Pendulum and Other Stories",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74366,
+        "name": "Edgar Allan Poe: The Pit and the Pendulum and Other Stories",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T16:05:09.413792+00:00",
+    "retry_after": "2026-09-25T16:05:09.413807+00:00"
+  },
+  {
+    "name": "Scooby-Doo!",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 33717,
+        "name": "Scooby-Doo",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 18731,
+        "name": "Scooby-Doo!",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T16:05:38.050172+00:00",
+    "retry_after": "2026-09-25T16:05:38.050187+00:00"
+  },
+  {
+    "name": "The Darkness",
+    "publisher": "Top Cow Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20086,
+        "name": "The Darkness",
+        "publisher": "Image",
+        "start_year": 2007
+      },
+      {
+        "id": 92464,
+        "name": "The Darkness",
+        "publisher": "Splitter",
+        "start_year": 1997
+      },
+      {
+        "id": 133128,
+        "name": "The Darkness",
+        "publisher": "Infinity Verlag",
+        "start_year": 2000
+      },
+      {
+        "id": 175247,
+        "name": "The Darkness",
+        "publisher": "Image",
+        "start_year": 2026
+      },
+      {
+        "id": 20344,
+        "name": "The Darkness",
+        "publisher": "Image",
+        "start_year": 2002
+      },
+      {
+        "id": 134165,
+        "name": "Darkness",
+        "publisher": "Hjemmet",
+        "start_year": 2000
+      },
+      {
+        "id": 35903,
+        "name": "Darkness",
+        "publisher": "Hachette",
+        "start_year": 2009
+      },
+      {
+        "id": 117741,
+        "name": "Darkness",
+        "publisher": "Soleil",
+        "start_year": 2019
+      },
+      {
+        "id": 5868,
+        "name": "The Darkness",
+        "publisher": "Image",
+        "start_year": 1996
+      },
+      {
+        "id": 127363,
+        "name": "The Darkness",
+        "publisher": "JuniorPress BV",
+        "start_year": 1997
+      },
+      {
+        "id": 62092,
+        "name": "Darkness",
+        "publisher": "Panini Verlag",
+        "start_year": 2009
+      },
+      {
+        "id": 169122,
+        "name": "The Darkness",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T16:06:54.436659+00:00",
+    "retry_after": "2026-09-25T16:06:54.436676+00:00"
+  },
+  {
+    "name": "Flash",
+    "publisher": "DC Comics",
+    "year": 1978,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3790,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 1995,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 1959
+      },
+      {
+        "id": 43018,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 91750,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 153720,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 32562,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 53722,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 160580,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T16:06:54.487546+00:00",
+    "retry_after": "2026-09-25T16:06:54.487560+00:00"
+  },
+  {
+    "name": "Flash",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3790,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 1995,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 1959
+      },
+      {
+        "id": 43018,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 91750,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 153720,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 32562,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 53722,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 160580,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-24T16:06:54.535599+00:00",
+    "retry_after": "2026-09-25T16:06:54.535612+00:00"
   }
 ]

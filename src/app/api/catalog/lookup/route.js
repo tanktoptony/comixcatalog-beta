@@ -73,6 +73,19 @@ function containsWholeWords(title, query) {
 // form would have offered to create ASM #300 as a new catalog entry.
 //
 // Tier 2 is a last resort, because it is where "Rai" matches "Tomb Raider".
+// Coarse size bands, matching how /api/search/series already thinks about
+// significance. Bands rather than the raw count so that two series of
+// similar length are still separated by how well their title matched, and
+// only a genuinely different order of magnitude overrides it.
+function significanceBand(count) {
+  const n = Number(count) || 0;
+  if (n >= 200) return 4; // a decades-long run
+  if (n >= 50) return 3;
+  if (n >= 15) return 2;
+  if (n >= 3) return 1;
+  return 0; // one-shots, stubs and mis-ingested fragments
+}
+
 function relevanceTier(row, normalized, rawTitle) {
   if (row.title_normalized === normalized) return 0;
   if (containsWholeWords(row.title, rawTitle)) return 1;
@@ -140,10 +153,25 @@ export async function GET(req) {
     const tiered = rows.map((r) => ({ row: r, tier: relevanceTier(r, normalized, title) }));
     const strong = tiered.filter((t) => t.tier <= 1);
     const pool = (strong.length > 0 ? strong : tiered)
-      .sort(
-        (a, b) =>
-          a.tier - b.tier || (b.row.issue_count_cached ?? 0) - (a.row.issue_count_cached ?? 0)
-      )
+      .sort((a, b) => {
+        // Size first, tier second. Sorting by tier first was wrong, and
+        // visibly so: typing "amazing spider-man" returned six volumes and
+        // BOTH of the runs anyone means were missing. The 650-issue 1963
+        // run and the 267-issue 1999 run are titled "The Amazing Spider-Man",
+        // which is tier 1, and six shorter series normalize to exactly
+        // "amazingspiderman" and are tier 0 — including one called
+        // "????????? [Amazing Spider-Man]" with no year and no publisher.
+        // Strict tier order put all six ahead of both real runs, and the
+        // six-row display cap then cut the real ones off entirely.
+        //
+        // A 650-issue run is the canonical book whatever its article. The
+        // bands are coarse on purpose, so tier still separates series of
+        // comparable size rather than being swamped by a raw count.
+        const bySize = significanceBand(b.row.issue_count_cached) - significanceBand(a.row.issue_count_cached);
+        if (bySize !== 0) return bySize;
+        if (a.tier !== b.tier) return a.tier - b.tier;
+        return (b.row.issue_count_cached ?? 0) - (a.row.issue_count_cached ?? 0);
+      })
       .map((t) => t.row);
 
     const decision = chooseSeries(pool, { releaseYear: year, publisher });

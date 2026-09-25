@@ -391,18 +391,25 @@ function CatalogMatches({ lookup, issueNumber, blocked, overridden, onOverride }
         })}
       </ul>
 
-      {/* The Discogs move. When we already hold the issue, the useful next
-          step is not "stop", it is "tell us how yours differs" — a printing
-          is a new Release under the same Master, not a duplicate. */}
-      {withIssue.length === 1 && withIssue[0].matching_issue && (
-        <ReportPrinting issue={withIssue[0]} />
-      )}
+      {/* Both of these are inline-level and were rendered as bare siblings,
+          so at the bottom of the panel they ran straight into each other:
+          "…Cover B, 2nd printNone of these are my book…". They share a
+          flex column now, which also stops them sitting on one line at
+          wide widths where the two underlines read as a single link. */}
+      <div className="cc-catalog-match-choices">
+        {/* The Discogs move. When we already hold the issue, the useful next
+            step is not "stop", it is "tell us how yours differs" — a printing
+            is a new Release under the same Master, not a duplicate. */}
+        {withIssue.length === 1 && withIssue[0].matching_issue && (
+          <ReportPrinting issue={withIssue[0]} />
+        )}
 
-      {blocked && (
-        <button type="button" className="cc-catalog-match-override" onClick={onOverride}>
-          None of these are my book &mdash; let me add it
-        </button>
-      )}
+        {blocked && (
+          <button type="button" className="cc-catalog-match-override" onClick={onOverride}>
+            None of these are my book &mdash; let me add it
+          </button>
+        )}
+      </div>
       {overridden && (
         <p className="cc-hint">
           Submitting as a new catalog entry. Fill in the variant name if this is
@@ -465,7 +472,7 @@ function ReportPrinting({ issue }) {
 
   if (state === "sent" || state === "duplicate") {
     return (
-      <p className="cc-hint" style={{ marginTop: 10 }}>
+      <p className="cc-hint">
         {state === "duplicate"
           ? "You have already reported this printing. Nothing new was added."
           : "Thanks. Logged against " + issue.title + " #" + issue.matching_issue.issue_number + " for review."}
@@ -479,7 +486,6 @@ function ReportPrinting({ issue }) {
         type="button"
         className="cc-catalog-match-override"
         onClick={() => setOpen(true)}
-        style={{ marginTop: 10 }}
       >
         I have a printing you don&rsquo;t list &mdash; newsstand, Cover B, 2nd print
       </button>

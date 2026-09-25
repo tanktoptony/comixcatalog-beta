@@ -52,8 +52,29 @@ export default function AddComicPage() {
       return;
     }
 
-    if (!res.ok || !data?.comic?.id) {
+    if (!res.ok) {
       setError(data?.error || "Failed to create comic.");
+      setSubmitting(false);
+      return;
+    }
+
+    // The catalog already had this issue, so nothing was created. File the
+    // book against the real catalog entry rather than a private copy of it.
+    //
+    // This is where the unlinked books in people's libraries came from: the
+    // old code always got back a fresh `comics` row (the duplicate check
+    // could never match — see /api/comics) and filed it by comic_id, so the
+    // book had no gcd_issue_id and therefore no covers, no comps and no run
+    // completion. Measured 2026-09-24: 677 of 732 owned books were
+    // catalog-linked, and this path is the most likely source of the other 55.
+    if (data?.existing_issue?.library_id) {
+      await addToCollection(data.existing_issue.library_id, "owned");
+      router.push("/library");
+      return;
+    }
+
+    if (!data?.comic?.id) {
+      setError("Failed to create comic.");
       setSubmitting(false);
       return;
     }

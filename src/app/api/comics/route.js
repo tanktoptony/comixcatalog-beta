@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { FEATURED_SERIES } from "@/lib/featuredSeries";
 import { baseIssueNumber } from "@/lib/coverMatch";
+import { normalizeKey, chooseSeries, matchIssue } from "@/lib/csvImport/matchRow";
 
 // Weekly rotation seed: ISO-week index since epoch. Same value for all
 // requests within one calendar week → carousel looks identical to a user
@@ -246,95 +247,260 @@ export async function GET(req) {
   }
 }
 
+
+// POST /api/comics — add an entry to the public catalog.
+//
+// Rewritten 2026-09-25. What it used to do, and why none of it worked:
+//
+//   formData = await req.formData();
+//
+// /contribute/add-comic POSTed application/json, so this threw and returned
+// 400 "Invalid form submission" on every single submission. Nothing was ever
+// contributed through that page. Both content types are accepted now.
+//
+//   series .eq("title", title) .eq("publisher_id", publisher.id) .single()
+//
+// was the entire duplicate check, and it could not match anything:
+//
+//   - publisher_id is set on 112 of 208,022 series rows (measured live
+//     2026-09-24). The catalog keeps its publisher in
+//     resolved_publisher_cached; `publishers` is a legacy side table holding
+//     9,453 rows, among them "Marvel", "Marvel Comics" and "Marvel Comics
+//     Group" as three separate entries. The filter therefore excluded almost
+//     the whole catalog.
+//
+//   - .single() against a title carrying more than one volume returns an
+//     ERROR, not a row, and only `data` was destructured. Ten series are
+//     titled exactly "Rai". All ten would have been missed and an eleventh
+//     created.
+//
+// So both paths into this handler created a duplicate series for a book we
+// already had. This is the same class of bug the CSV importer had, and it is
+// fixed the same way, with the same helpers: normalized title, publisher as
+// a tiebreak only, and no guessing between volumes.
+//
+// The important new behaviour: when the catalog already holds the exact
+// issue, NOTHING is written and the response says which issue it is. The
+// caller sends the user to the real book instead.
+
+
+const PAGE = 1000;
+
+// §2a: an unbounded PostgREST select stops at 1000 rows and reports success.
+// Truncating here would mean failing to find a book we have, and creating
+// the duplicate this function exists to prevent.
+async function fetchAllPages(build) {
+  const rows = [];
+  for (let from = 0; ; from += PAGE) {
+    const { data, error } = await build().range(from, from + PAGE - 1);
+    if (error) throw error;
+    if (!data?.length) break;
+    rows.push(...data);
+    if (data.length < PAGE) break;
+  }
+  return rows;
+}
+
+// Accept multipart (what /library/add sends) and JSON (what
+// /contribute/add-comic sent for months into a handler that could not read
+// it). Returning a plain object either way keeps the rest honest.
+async function readSubmission(req) {
+  const contentType = req.headers.get("content-type") || "";
+  if (contentType.includes("application/json")) {
+    const body = await req.json();
+    return {
+      series_title: body?.series_title ?? "",
+      issue_number: body?.issue_number ?? "",
+      publisher: body?.publisher ?? "",
+      release_year: body?.release_year ?? null,
+      variant_name: body?.variant_name ?? null,
+      created_by: body?.created_by ?? null,
+    };
+  }
+  const fd = await req.formData();
+  return {
+    series_title: fd.get("series_title") ?? "",
+    issue_number: fd.get("issue_number") ?? "",
+    publisher: fd.get("publisher") ?? "",
+    release_year: fd.get("release_year") ?? null,
+    variant_name: fd.get("variant_name") ?? null,
+    created_by: fd.get("created_by") ?? null,
+  };
+}
+
 export async function POST(req) {
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 
-  let formData;
+  let submission;
   try {
-    formData = await req.formData();
+    submission = await readSubmission(req);
   } catch (err) {
-    return NextResponse.json(
-      { error: "Invalid form submission" },
-      { status: 400 }
-    );
+    console.error("POST /api/comics could not read submission:", err);
+    return NextResponse.json({ error: "Invalid form submission" }, { status: 400 });
   }
 
-  const series_title = formData.get("series_title");
-  const issue_number = formData.get("issue_number");
-  const publisher_name = formData.get("publisher");
-  const release_year = formData.get("release_year");
-  const created_by = formData.get("created_by");
+  const series_title = String(submission.series_title ?? "").trim();
+  const issue_number = String(submission.issue_number ?? "").trim();
+  const publisher_name = String(submission.publisher ?? "").trim();
+  const variant_name = submission.variant_name ? String(submission.variant_name).trim() : null;
+  const created_by = submission.created_by ? String(submission.created_by) : null;
+  const release_year =
+    submission.release_year === null || submission.release_year === ""
+      ? null
+      : Number(submission.release_year);
 
   if (!series_title || !issue_number || !publisher_name) {
-    return NextResponse.json(
-      { error: "Missing required fields" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
 
   try {
-    let { data: publisher } = await supabase
-      .from("publishers")
-      .select("*")
-      .eq("name", publisher_name)
-      .single();
+    const normalized = normalizeKey(series_title);
 
-    if (!publisher) {
-      const { data: newPublisher, error } = await supabase
-        .from("publishers")
-        .insert({ name: publisher_name })
-        .select()
-        .single();
-
-      if (error) throw error;
-      publisher = newPublisher;
+    // ── Does the catalog already have this? ──────────────────────────────
+    //
+    // Deliberately ahead of any write. A duplicate series is expensive to
+    // undo: covers, values and run-completion badges all key off the series
+    // a book sits in, so a book filed under an invented eleventh "Rai" is
+    // wrong everywhere downstream.
+    let catalogSeries = [];
+    if (normalized.length >= 2) {
+      catalogSeries = await fetchAllPages(() =>
+        supabase
+          .from("series")
+          .select(
+            "id, gcd_id, title, title_normalized, resolved_publisher_cached, year_start_cached, issue_count_cached"
+          )
+          .eq("title_normalized", normalized)
+          .not("gcd_id", "is", null)
+          .order("issue_count_cached", { ascending: false })
+      );
     }
 
-    let { data: series } = await supabase
-      .from("series")
-      .select("*")
-      .eq("title", series_title)
-      .eq("publisher_id", publisher.id)
-      .single();
+    if (catalogSeries.length > 0) {
+      const decision = chooseSeries(catalogSeries, {
+        releaseYear: release_year,
+        publisher: publisher_name,
+      });
+
+      // When the year and publisher cannot separate the volumes we do NOT
+      // pick one, and we do not create anything either. Both are guesses;
+      // the difference is that a wrong guess here is silent and permanent.
+      const considered =
+        decision.status === "matched" ? [decision.series] : decision.candidates ?? catalogSeries;
+
+      const gcdIds = considered.map((s) => s.gcd_id).filter((v) => v != null);
+      if (gcdIds.length > 0) {
+        const issueRows = await fetchAllPages(() =>
+          supabase
+            .from("gcd_issues")
+            .select("gcd_id, series_gcd_id, issue_number")
+            .in("series_gcd_id", gcdIds)
+            .order("gcd_id")
+        );
+
+        const bySeries = new Map();
+        for (const row of issueRows) {
+          if (!bySeries.has(row.series_gcd_id)) bySeries.set(row.series_gcd_id, []);
+          bySeries.get(row.series_gcd_id).push(row);
+        }
+
+        for (const s of considered) {
+          const hit = matchIssue(bySeries.get(s.gcd_id) ?? [], issue_number);
+          if (!hit) continue;
+
+          // A named variant is a real reason to add a row for a book whose
+          // base issue we already carry, so that case falls through to the
+          // insert below and is linked to this series rather than a new one.
+          if (variant_name) {
+            return NextResponse.json(
+              await insertComic(supabase, {
+                series_id: s.id,
+                series_title: s.title,
+                publisher: s.resolved_publisher_cached ?? publisher_name,
+                issue_number,
+                release_year,
+                variant_name,
+                created_by,
+                gcd_id: hit.gcd_id,
+              }),
+              { status: 201 }
+            );
+          }
+
+          return NextResponse.json({
+            existing_issue: {
+              gcd_id: hit.gcd_id,
+              issue_number: hit.issue_number,
+              series_title: s.title,
+              year_start: s.year_start_cached ?? null,
+              publisher: s.resolved_publisher_cached ?? null,
+              href: `/issue/gcd-${hit.gcd_id}`,
+              // The shape LibraryContext.parseLibraryInput expects, so a
+              // caller can file it against the catalog issue instead of
+              // creating a second orphan copy.
+              library_id: `gcd-${hit.gcd_id}`,
+            },
+          });
+        }
+      }
+    }
+
+    // ── Nothing in the catalog. Create it. ───────────────────────────────
+    //
+    // Reuse a previously contributed series with the same normalized title
+    // before making another one, so two people adding issues of the same
+    // uncatalogued book land in one series rather than two.
+    let series = null;
+    if (normalized.length >= 2) {
+      const localMatches = await fetchAllPages(() =>
+        supabase
+          .from("series")
+          .select("id, title, resolved_publisher_cached")
+          .eq("title_normalized", normalized)
+          .is("gcd_id", null)
+          .order("created_at", { ascending: true })
+      );
+      series = localMatches[0] ?? null;
+    }
 
     if (!series) {
-      const { data: newSeries, error } = await supabase
+      const { data: newSeries, error: seriesError } = await supabase
         .from("series")
-        .insert({
-          title: series_title,
-          publisher_id: publisher.id,
-        })
-        .select()
+        .insert({ title: series_title, resolved_publisher_cached: publisher_name })
+        .select("id, title, resolved_publisher_cached")
         .single();
-
-      if (error) throw error;
+      if (seriesError) throw seriesError;
       series = newSeries;
     }
 
-    const { data: comic, error: comicError } = await supabase
-      .from("comics")
-      .insert({
+    return NextResponse.json(
+      await insertComic(supabase, {
         series_id: series.id,
-        series_title,
+        series_title: series.title ?? series_title,
         publisher: publisher_name,
         issue_number,
-        release_year: release_year ? Number(release_year) : null,
+        release_year,
+        variant_name,
         created_by,
-      })
-      .select()
-      .single();
-
-    if (comicError) throw comicError;
-
-    return NextResponse.json({ comic }, { status: 201 });
+        gcd_id: null,
+      }),
+      { status: 201 }
+    );
   } catch (err) {
     console.error("POST /api/comics failed:", err);
-    return NextResponse.json(
-      { error: "Failed to create comic" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to create comic" }, { status: 500 });
   }
+}
+
+async function insertComic(supabase, fields) {
+  const { data: comic, error } = await supabase
+    .from("comics")
+    .insert(fields)
+    .select()
+    .single();
+  if (error) throw error;
+  return { comic };
 }

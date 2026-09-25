@@ -27348,5 +27348,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T12:01:26.942972+00:00",
     "retry_after": "2026-09-26T12:01:26.942989+00:00"
+  },
+  {
+    "name": "Fantastic Four Vol.3, No. 60 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T13:01:44.659949+00:00",
+    "retry_after": "2026-09-26T13:01:44.659967+00:00"
+  },
+  {
+    "name": "Ms. Marvel Annual",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 22871,
+        "name": "Ms. Marvel Annual",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 159124,
+        "name": "Ms. Marvel Annual",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T13:02:16.148565+00:00",
+    "retry_after": "2026-09-26T13:02:16.148582+00:00"
+  },
+  {
+    "name": "B&V Friends Forever [Betty and Veronica Friends Forever]",
+    "publisher": "Archie Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T13:02:54.946061+00:00",
+    "retry_after": "2026-09-26T13:02:54.946078+00:00"
+  },
+  {
+    "name": "Ms. Marvel: Marvel Tales",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T13:03:50.705414+00:00",
+    "retry_after": "2026-09-26T13:03:50.705434+00:00"
   }
 ]

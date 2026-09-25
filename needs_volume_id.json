@@ -26041,9 +26041,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T21:00:58.590067+00:00",
-    "retry_after": "2026-09-25T21:00:58.590083+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T22:00:46.074784+00:00",
+    "retry_after": "2026-09-28T22:00:46.074801+00:00"
   },
   {
     "name": "Fantastic 4th Voyage of Sinbad",
@@ -26051,9 +26051,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T21:01:06.062086+00:00",
-    "retry_after": "2026-09-25T21:01:06.062103+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T22:00:43.531931+00:00",
+    "retry_after": "2026-09-28T22:00:43.531948+00:00"
   },
   {
     "name": "Wizard Wolverine",
@@ -26061,9 +26061,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T21:01:07.029386+00:00",
-    "retry_after": "2026-09-25T21:01:07.029401+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T22:00:46.164662+00:00",
+    "retry_after": "2026-09-28T22:00:46.164680+00:00"
   },
   {
     "name": "Lady Death: Death Becomes Her Ashcan",
@@ -26071,9 +26071,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T21:01:08.204241+00:00",
-    "retry_after": "2026-09-25T21:01:08.204257+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T22:00:45.714185+00:00",
+    "retry_after": "2026-09-28T22:00:45.714202+00:00"
   },
   {
     "name": "Collector's Guide to the Ultraverse",
@@ -26081,9 +26081,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T21:01:09.511602+00:00",
-    "retry_after": "2026-09-25T21:01:09.511617+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T22:00:45.890598+00:00",
+    "retry_after": "2026-09-28T22:00:45.890615+00:00"
   },
   {
     "name": "Wolverine Special: Firebreak One-Shot",
@@ -26091,9 +26091,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T21:03:15.624759+00:00",
-    "retry_after": "2026-09-25T21:03:15.624774+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T22:00:45.984919+00:00",
+    "retry_after": "2026-09-28T22:00:45.984936+00:00"
   },
   {
     "name": "Punisher Max Special: Little Black Book",
@@ -26101,9 +26101,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T21:03:16.233197+00:00",
-    "retry_after": "2026-09-25T21:03:16.233213+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T22:00:45.781748+00:00",
+    "retry_after": "2026-09-28T22:00:45.781764+00:00"
   },
   {
     "name": "Avengers: Infinity Quest",
@@ -28207,5 +28207,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T21:04:41.641191+00:00",
     "retry_after": "2026-09-26T21:04:41.641208+00:00"
+  },
+  {
+    "name": "Jim Butcher's Dresden Files Omnibus",
+    "publisher": "Dynamite Entertainment",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T22:01:24.257922+00:00",
+    "retry_after": "2026-09-26T22:01:24.257934+00:00"
   }
 ]

@@ -18,6 +18,7 @@ import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 import { baseIssueNumber } from "../src/lib/coverMatch.js";
 import { isCollectedEdition } from "../src/lib/seriesFormat.js";
+import { withRetry } from "./lib/withRetry.js";
 
 dotenv.config({ path: ".env.local", quiet: true });
 const APPLY = process.argv.includes("--apply");
@@ -27,10 +28,15 @@ async function keyset(build, keyCol = "id") {
   const rows = [];
   let last = null;
   for (;;) {
-    let q = build().order(keyCol).limit(1000);
-    if (last != null) q = q.gt(keyCol, last);
-    const { data, error } = await q;
-    if (error) throw error;
+    // The query is built INSIDE the thunk, so a retry issues a fresh one.
+    // Handing withRetry an already-awaited builder would have it re-await the
+    // same object, which happens to work in supabase-js and is not something
+    // to depend on.
+    const after = last;
+    const data = await withRetry(`keyset page (after ${after ?? "start"})`, () => {
+      const q = build().order(keyCol).limit(1000);
+      return after != null ? q.gt(keyCol, after) : q;
+    });
     rows.push(...(data ?? []));
     if (!data || data.length < 1000) break;
     last = data[data.length - 1][keyCol];

@@ -38,6 +38,7 @@
 import fs from "fs";
 import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
+import { withRetry } from "./lib/withRetry.js";
 
 dotenv.config({ path: ".env.local" });
 
@@ -74,8 +75,9 @@ const norm = (value) => String(value ?? "").trim().toLowerCase();
 async function paginate(builder) {
   const out = [];
   for (let from = 0; ; from += PAGE) {
-    const { data, error } = await builder().range(from, from + PAGE - 1);
-    if (error) throw error;
+    const data = await withRetry(`page (from=${from})`, () =>
+      builder().range(from, from + PAGE - 1)
+    );
     if (!data || data.length === 0) break;
     out.push(...data);
     if (data.length < PAGE) break;
@@ -108,11 +110,12 @@ async function main() {
   const issueRows = [];
   for (let i = 0; i < uniqueIssueIds.length; i += PAGE) {
     const slice = uniqueIssueIds.slice(i, i + PAGE);
-    const { data, error } = await supabase
-      .from("gcd_issues")
-      .select("gcd_id, series_gcd_id, issue_number")
-      .in("gcd_id", slice);
-    if (error) throw error;
+    const data = await withRetry(`gcd_issues chunk ${i}`, () =>
+      supabase
+        .from("gcd_issues")
+        .select("gcd_id, series_gcd_id, issue_number")
+        .in("gcd_id", slice)
+    );
     issueRows.push(...(data ?? []));
   }
   const seriesGcdIds = [
@@ -125,13 +128,14 @@ async function main() {
   const seriesRows = [];
   for (let i = 0; i < seriesGcdIds.length; i += PAGE) {
     const slice = seriesGcdIds.slice(i, i + PAGE);
-    const { data, error } = await supabase
-      .from("series")
-      .select(
-        "id, gcd_id, title, resolved_publisher_cached, year_start_cached, featured_cover_path_cached"
-      )
-      .in("gcd_id", slice);
-    if (error) throw error;
+    const data = await withRetry(`series chunk ${i}`, () =>
+      supabase
+        .from("series")
+        .select(
+          "id, gcd_id, title, resolved_publisher_cached, year_start_cached, featured_cover_path_cached"
+        )
+        .in("gcd_id", slice)
+    );
     seriesRows.push(...(data ?? []));
   }
   console.log(`Series rows resolved: ${seriesRows.length}`);

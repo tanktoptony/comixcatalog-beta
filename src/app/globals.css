@@ -10773,6 +10773,29 @@ button.nav-link {
   }
 }
 
+/* The two choices under a match: "report a printing" and "none of these are
+   my book". They were bare inline siblings and ran together into one
+   unreadable underlined run. One stacking context, one gap, and each sits on
+   its own line with its own hit target. */
+.cc-catalog-match-choices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Spacing belongs to the container above, not to the buttons, so the two
+   never double up or collapse against each other. */
+.cc-catalog-match-choices > .cc-catalog-match-override,
+.cc-catalog-match-choices > .cc-printing-form {
+  margin-top: 0;
+}
+
+.cc-catalog-match-choices > .cc-printing-form {
+  align-self: stretch;
+}
+
 /* ── Report a printing (contribute form) ───────────────────────────────────
    Sits inside the gold catalog-match panel, so it reads as a continuation of
    "we already have this" rather than a second, competing form. */

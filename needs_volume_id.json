@@ -27401,5 +27401,106 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T13:03:50.705414+00:00",
     "retry_after": "2026-09-26T13:03:50.705434+00:00"
+  },
+  {
+    "name": "Mister Miracle",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2504,
+        "name": "Mister Miracle",
+        "publisher": "DC Comics",
+        "start_year": 1971
+      },
+      {
+        "id": 4203,
+        "name": "Mister Miracle",
+        "publisher": "DC Comics",
+        "start_year": 1989
+      },
+      {
+        "id": 26313,
+        "name": "Mister Miracle",
+        "publisher": "DC Comics",
+        "start_year": 1996
+      },
+      {
+        "id": 103397,
+        "name": "Mister Miracle",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 117073,
+        "name": "Mister Miracle",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T14:00:45.048515+00:00",
+    "retry_after": "2026-09-26T14:00:45.048529+00:00"
+  },
+  {
+    "name": "The Transformers: Escalation Black & White",
+    "publisher": "IDW Publishing",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T14:00:45.505817+00:00",
+    "retry_after": "2026-09-26T14:00:45.505834+00:00"
+  },
+  {
+    "name": "Free Comic Book Day 2014 (Guardians of the Galaxy)",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T14:00:45.980136+00:00",
+    "retry_after": "2026-09-26T14:00:45.980153+00:00"
+  },
+  {
+    "name": "Wizard Ace Edition #15:  WildC.A.T.s #1",
+    "publisher": "WildStorm",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T14:00:46.425624+00:00",
+    "retry_after": "2026-09-26T14:00:46.425639+00:00"
+  },
+  {
+    "name": "Star Wars: The Empire Strikes Back - The 40th Anniversary Covers",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T14:02:14.804753+00:00",
+    "retry_after": "2026-09-26T14:02:14.804769+00:00"
+  },
+  {
+    "name": "Savage Dragon / Teenage Mutant Ninja Turtle Crossover Ash Can",
+    "publisher": "Mirage Studios",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T14:02:15.119367+00:00",
+    "retry_after": "2026-09-26T14:02:15.119382+00:00"
+  },
+  {
+    "name": "True Believers: Fantastic Four - The Wedding of Reed & Sue",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T14:03:10.412378+00:00",
+    "retry_after": "2026-09-26T14:03:10.412394+00:00"
   }
 ]

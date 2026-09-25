@@ -22,6 +22,7 @@ dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 
 import { createClient } from "@supabase/supabase-js";
 import { FEATURED_SERIES } from "../src/lib/featuredSeries.js";
+import { withRetry } from "./lib/withRetry.js";
 
 const args = Object.fromEntries(
   process.argv.slice(2).filter((a) => a.startsWith("--")).map((a) => {
@@ -59,13 +60,14 @@ async function run() {
   const coveredGcdIds = new Set();
   const PAGE = 1000;
   for (let from = 0; ; from += PAGE) {
-    const { data: coverRows, error } = await supabase
-      .from("canonical_covers")
-      .select("series_gcd_id")
-      .in("series_gcd_id", gcdIds)
-      .not("storage_path", "is", null)
-      .range(from, from + PAGE - 1);
-    if (error) throw error;
+    const coverRows = await withRetry(`canonical_covers page (from=${from})`, () =>
+      supabase
+        .from("canonical_covers")
+        .select("series_gcd_id")
+        .in("series_gcd_id", gcdIds)
+        .not("storage_path", "is", null)
+        .range(from, from + PAGE - 1)
+    );
     for (const c of coverRows ?? []) coveredGcdIds.add(c.series_gcd_id);
     if (!coverRows || coverRows.length < PAGE) break;
   }

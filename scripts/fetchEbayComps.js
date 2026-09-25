@@ -38,6 +38,7 @@ dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 
 import { createClient } from "@supabase/supabase-js";
 import { parseEbayTitle } from "../src/lib/ebayTitleParser.js";
+import { withRetry } from "./lib/withRetry.js";
 import { gradeBucket } from "../src/lib/valuation.js";
 import { describeError } from "./lib/describeError.js";
 
@@ -87,13 +88,14 @@ async function buildQueue() {
   let from = 0;
   const PAGE = 1000;
   while (true) {
-    const { data, error } = await supabase
-      .from("user_collections")
-      .select("gcd_issue_id")
-      .not("gcd_issue_id", "is", null)
-      .order("gcd_issue_id", { ascending: true })
-      .range(from, from + PAGE - 1);
-    if (error) throw error;
+    const data = await withRetry(`user_collections page (from=${from})`, () =>
+      supabase
+        .from("user_collections")
+        .select("gcd_issue_id")
+        .not("gcd_issue_id", "is", null)
+        .order("gcd_issue_id", { ascending: true })
+        .range(from, from + PAGE - 1)
+    );
     if (!data || data.length === 0) break;
     for (const row of data) allIds.add(Number(row.gcd_issue_id));
     if (data.length < PAGE) break;
@@ -111,14 +113,15 @@ async function buildQueue() {
   const recentlyFetched = new Set();
   from = 0;
   while (true) {
-    const { data, error } = await supabase
-      .from("market_comps")
-      .select("gcd_issue_id")
-      .gte("fetched_at", sinceIso)
-      .not("gcd_issue_id", "is", null)
-      .order("gcd_issue_id", { ascending: true })
-      .range(from, from + PAGE - 1);
-    if (error) throw error;
+    const data = await withRetry(`market_comps page (from=${from})`, () =>
+      supabase
+        .from("market_comps")
+        .select("gcd_issue_id")
+        .gte("fetched_at", sinceIso)
+        .not("gcd_issue_id", "is", null)
+        .order("gcd_issue_id", { ascending: true })
+        .range(from, from + PAGE - 1)
+    );
     if (!data || data.length === 0) break;
     for (const row of data) recentlyFetched.add(Number(row.gcd_issue_id));
     if (data.length < PAGE) break;
@@ -136,11 +139,12 @@ async function buildQueue() {
   const issues = [];
   for (let i = 0; i < toFetch.length; i += 200) {
     const slice = toFetch.slice(i, i + 200);
-    const { data, error } = await supabase
-      .from("gcd_issues")
-      .select("gcd_id, series_gcd_id, issue_number")
-      .in("gcd_id", slice);
-    if (error) throw error;
+    const data = await withRetry(`gcd_issues chunk ${i}`, () =>
+      supabase
+        .from("gcd_issues")
+        .select("gcd_id, series_gcd_id, issue_number")
+        .in("gcd_id", slice)
+    );
     issues.push(...(data ?? []));
   }
 
@@ -148,11 +152,12 @@ async function buildQueue() {
   const seriesByGcd = new Map();
   for (let i = 0; i < seriesIds.length; i += 200) {
     const slice = seriesIds.slice(i, i + 200);
-    const { data, error } = await supabase
-      .from("series")
-      .select("gcd_id, title")
-      .in("gcd_id", slice);
-    if (error) throw error;
+    const data = await withRetry(`series chunk ${i}`, () =>
+      supabase
+        .from("series")
+        .select("gcd_id, title")
+        .in("gcd_id", slice)
+    );
     for (const s of data ?? []) seriesByGcd.set(String(s.gcd_id), s.title);
   }
 

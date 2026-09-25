@@ -6,6 +6,7 @@ import { writeFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
 import { FEATURED_SERIES } from "../src/lib/featuredSeries.js";
+import { withRetry } from "./lib/withRetry.js";
 
 const dir = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(dir, "../.env.local") });
@@ -31,8 +32,9 @@ function year(v) { const m = String(v ?? "").match(/\b(18|19|20)\d{2}\b/); retur
 async function all(build, orderCol = "id") {
   const rows = [];
   for (let from = 0; ; from += PAGE) {
-    const { data, error } = await build().order(orderCol, { ascending: true }).range(from, from + PAGE - 1);
-    if (error) throw error;
+    const data = await withRetry(`page (from=${from})`, () =>
+      build().order(orderCol, { ascending: true }).range(from, from + PAGE - 1)
+    );
     if (!data?.length) break;
     rows.push(...data);
     if (data.length < PAGE) break;

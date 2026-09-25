@@ -26111,9 +26111,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T22:06:38.979724+00:00",
-    "retry_after": "2026-09-25T22:06:38.979742+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T23:00:51.288462+00:00",
+    "retry_after": "2026-09-28T23:00:51.288478+00:00"
   },
   {
     "name": "DC W.I.P. All Star Superman 1",
@@ -26121,9 +26121,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T22:06:43.957606+00:00",
-    "retry_after": "2026-09-25T22:06:43.957628+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T23:00:50.721791+00:00",
+    "retry_after": "2026-09-28T23:00:50.721807+00:00"
   },
   {
     "name": "One Dollar Debut: Bloodshot",
@@ -26131,9 +26131,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T22:07:32.427232+00:00",
-    "retry_after": "2026-09-25T22:07:32.427250+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T23:00:51.210701+00:00",
+    "retry_after": "2026-09-28T23:00:51.210757+00:00"
   },
   {
     "name": "Rising Stars",
@@ -26166,9 +26166,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T22:07:41.148209+00:00",
-    "retry_after": "2026-09-25T22:07:41.148228+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T23:00:50.598718+00:00",
+    "retry_after": "2026-09-28T23:00:50.598736+00:00"
   },
   {
     "name": "Wrath Giant Size [Giant Size Wrath]",
@@ -28217,5 +28217,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T22:01:24.257922+00:00",
     "retry_after": "2026-09-26T22:01:24.257934+00:00"
+  },
+  {
+    "name": "Future State: Justice League",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 133152,
+        "name": "Future State: Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 137002,
+        "name": "Future State: Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T23:01:06.714197+00:00",
+    "retry_after": "2026-09-26T23:01:06.714213+00:00"
+  },
+  {
+    "name": "Dredd: Final Judgement",
+    "publisher": "Rebellion",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 113925,
+        "name": "Dredd: Final Judgement",
+        "publisher": "Rebellion",
+        "start_year": 2018
+      },
+      {
+        "id": 115609,
+        "name": "Dredd: Final Judgement",
+        "publisher": "Rebellion",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T23:01:07.135741+00:00",
+    "retry_after": "2026-09-26T23:01:07.135756+00:00"
+  },
+  {
+    "name": "X-Men: Reload by Chris Claremont",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T23:01:07.571535+00:00",
+    "retry_after": "2026-09-26T23:01:07.571551+00:00"
+  },
+  {
+    "name": "Until I Love Myself: The Journey of a Nonbinary Manga Artist",
+    "publisher": "VIZ Media",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T23:01:29.099818+00:00",
+    "retry_after": "2026-09-26T23:01:29.099833+00:00"
   }
 ]

@@ -71,6 +71,9 @@ jobs:
       - name: Health-check failure-mode tests
         run: npm run test:health-check
 
+      - name: Catalog duplicate-check tests
+        run: npm run test:contribute-match
+
       - name: Build
         run: npm run build
 

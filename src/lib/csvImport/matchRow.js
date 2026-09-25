@@ -70,6 +70,22 @@ export function matchIssue(issues, issueNumber) {
   return (issues ?? []).find((i) => issueKey(i.issue_number).reduced === want.reduced) ?? null;
 }
 
+// A year, or null. Never 0.
+//
+// Number("") and Number(null) are both 0, and 0 passes Number.isFinite, so
+// comparing them directly made "no year given" equal "series with no year
+// recorded". Caught in dev 2026-09-25 on the contribute lookup: asking for
+// Amazing Spider-Man #300 with no year matched the eleven ASM-ish series
+// that have no year_start_cached, decided those were the only candidates,
+// and reported that the catalog does not carry issue 300 — of Amazing
+// Spider-Man. Same shape as the $0-sale bug in valuation.js.
+function plausibleYear(value) {
+  if (value === null || value === undefined || value === "") return null;
+  const n = Number(value);
+  if (!Number.isFinite(n) || n < 1800 || n > 2200) return null;
+  return n;
+}
+
 // Decide which volume a row means.
 //
 // Returns one of:
@@ -84,15 +100,16 @@ export function chooseSeries(candidates, { releaseYear, publisher } = {}) {
   // A year is the strongest thing a CSV row can offer, and it is how a
   // collector distinguishes Rai (1992) from Rai (2014) on the shelf. Exact
   // first, then within a year either side for off-by-one cover dates.
-  const year = Number(releaseYear);
-  if (Number.isFinite(year)) {
-    const exact = pool.filter((s) => Number(s.year_start_cached) === year);
+  const year = plausibleYear(releaseYear);
+  if (year != null) {
+    const exact = pool.filter((s) => plausibleYear(s.year_start_cached) === year);
     if (exact.length === 1) return { status: "matched", series: exact[0] };
     if (exact.length > 1) return { status: "ambiguous", candidates: exact };
 
-    const near = pool.filter(
-      (s) => Number.isFinite(Number(s.year_start_cached)) && Math.abs(Number(s.year_start_cached) - year) <= 1
-    );
+    const near = pool.filter((s) => {
+      const ys = plausibleYear(s.year_start_cached);
+      return ys != null && Math.abs(ys - year) <= 1;
+    });
     if (near.length === 1) return { status: "matched", series: near[0] };
   }
 

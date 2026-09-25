@@ -80,5 +80,8 @@ jobs:
       - name: describeError tests
         run: npm run test:describe-error
 
+      - name: Transient-retry tests
+        run: npm run test:with-retry
+
       - name: Docs link check
         run: npm run docs:check

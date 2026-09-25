@@ -29,6 +29,7 @@ import fs from "node:fs";
 import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 import { baseIssueNumber } from "../src/lib/coverMatch.js";
+import { withRetry } from "./lib/withRetry.js";
 
 dotenv.config({ path: ".env.local" });
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
@@ -69,25 +70,44 @@ const PAGE = 1000;
 //   Postgres scan and discard everything before it) and tripped the
 //   statement timeout in the hourly health check. Keyset walked the same
 //   table at 1.1s worst page.
+//
+// Every page also retries a transient failure, which the sibling scripts
+// already did and this one did not. Measured 2026-09-25 across 100 hourly
+// runs: the stall check, the nightly report and the value snapshot all
+// retry, and all pass; this script had no retry and was the entire residual
+// failure rate of the cover-ingest workflow. One statement timeout on one
+// page threw away the whole walk — 126 pages and 36 seconds of work — and
+// turned a run red that had already ingested covers successfully.
+//
+// Retry is the right shape for an isolated blip, not for a bad afternoon.
+// On 2026-09-22 the database timed out across every workflow for roughly an
+// hour, and the scripts that DO retry exhausted all four attempts and failed
+// anyway. This does not pretend to fix that; it stops one unlucky page from
+// costing a run.
 async function fetchAllPages(build, keyCol) {
   const rows = [];
   if (keyCol) {
     let last = null;
+    let page = 0;
     for (;;) {
-      let query = build().order(keyCol, { ascending: true }).limit(PAGE);
-      if (last != null) query = query.gt(keyCol, last);
-      const { data, error } = await query;
-      if (error) throw error;
+      const at = last;
+      const data = await withRetry(`keyset page ${page} (after ${at ?? "start"})`, () => {
+        let query = build().order(keyCol, { ascending: true }).limit(PAGE);
+        if (at != null) query = query.gt(keyCol, at);
+        return query;
+      });
       if (!data?.length) break;
       rows.push(...data);
       if (data.length < PAGE) break;
       last = data[data.length - 1][keyCol];
+      page += 1;
     }
     return rows;
   }
   for (let from = 0; ; from += PAGE) {
-    const { data, error } = await build().range(from, from + PAGE - 1);
-    if (error) throw error;
+    const data = await withRetry(`page (from=${from})`, () =>
+      build().range(from, from + PAGE - 1)
+    );
     if (!data?.length) break;
     rows.push(...data);
     if (data.length < PAGE) break;

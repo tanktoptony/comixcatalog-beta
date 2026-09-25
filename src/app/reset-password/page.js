@@ -21,6 +21,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import { evaluatePassword, MIN_LENGTH } from "@/lib/passwordPolicy";
 
 export default function ResetPasswordPage() {
   // Suspense boundary in case we ever read searchParams here (Next 15+ requires it).
@@ -80,12 +81,12 @@ function ResetPasswordInner() {
     e.preventDefault();
     if (submitting) return;
 
-    if (password.length < 8) {
-      setErrorMsg("Password must be at least 8 characters.");
-      return;
-    }
-    if (password !== confirmPassword) {
-      setErrorMsg("Passwords do not match.");
+    // Same policy as /signup. These two surfaces used to disagree: signup
+    // checked length only and had no confirm field, reset had a confirm and
+    // the same weak length check.
+    const verdict = evaluatePassword(password, { confirm: confirmPassword });
+    if (!verdict.ok) {
+      setErrorMsg(verdict.problems[0]);
       return;
     }
 
@@ -160,7 +161,7 @@ function ResetPasswordInner() {
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="new-password"
                 required
-                minLength={8}
+                minLength={MIN_LENGTH}
               />
             </div>
 
@@ -173,7 +174,7 @@ function ResetPasswordInner() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 autoComplete="new-password"
                 required
-                minLength={8}
+                minLength={MIN_LENGTH}
               />
             </div>
 

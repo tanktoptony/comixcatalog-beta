@@ -144,6 +144,34 @@ function alreadyPostedToday() {
   }
 }
 
+// POSTING CADENCE — Monday, Wednesday, Friday (UTC), not every day.
+//
+// Measured against the live account on 2026-09-24, 945 followers, 66 posts:
+//
+//   2026-01    2 posts   avg 14.5 likes
+//   2026-04    5 posts   avg 15.0
+//   2026-05    2 posts   avg 20.5
+//   2026-08   28 posts   avg  9.1
+//   2026-09   20 posts   avg  3.3
+//
+// Engagement fell as volume rose, and it fell hard. Twenty posts a month at
+// 3.3 likes is worse than two at 20.5 in every way that matters: fewer total
+// likes, and a stream of low-engagement posts is exactly what teaches the
+// ranking algorithm to stop showing an account to its own followers.
+//
+// So this is not "post less because quality matters" as a slogan — it is
+// that the volume was actively buying negative reach. Three a week is the
+// floor that still reads as an active account.
+//
+// Days are UTC, matching todayStamp(). The workflow still fires hourly; on a
+// non-posting day every firing is a no-op, same as the second firing of a
+// posting day.
+const POSTING_DAYS_UTC = [1, 3, 5]; // Mon, Wed, Fri
+
+export function isPostingDay(date = new Date()) {
+  return POSTING_DAYS_UTC.includes(date.getUTCDay());
+}
+
 function recordPostedToday() {
   fs.writeFileSync(LAST_POST_DATE_PATH, JSON.stringify({ date: todayStamp() }, null, 2) + "\n");
 }
@@ -825,7 +853,15 @@ async function postToInstagram({ imageUrl, caption }) {
 }
 
 async function run() {
-  // Skipped for --dry-run so testing/preview still works any time of day.
+  // Both guards are skipped for --dry-run so testing and the preview tool
+  // still work any day, any hour.
+  if (!DRY_RUN && !isPostingDay()) {
+    console.log(
+      `Not a posting day (UTC ${new Date().toUTCString().slice(0, 3)}) — skipping. ` +
+        `Cadence is Mon/Wed/Fri; see POSTING_DAYS_UTC for the engagement data behind that.`
+    );
+    return;
+  }
   if (!DRY_RUN && alreadyPostedToday()) {
     console.log(`Already posted today (${todayStamp()}) — skipping. Expected most hours now that this runs hourly; see the "already posted today" guard comment above.`);
     return;

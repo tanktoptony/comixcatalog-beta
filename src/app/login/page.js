@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import { redirectAfterAuth } from "@/lib/auth/postAuthRedirect";
 // import OAuthButtons from "@/components/OAuthButtons"; // re-enable with the <OAuthButtons /> usage below
 
 function withTimeout(promise, ms, label = "Request") {
@@ -17,7 +17,6 @@ function withTimeout(promise, ms, label = "Request") {
 }
 
 export default function LoginPage() {
-  const router = useRouter();
   const supabase = getSupabaseClient();
 
   const [email, setEmail] = useState("");
@@ -138,8 +137,7 @@ export default function LoginPage() {
       // clicked "Save to library" from /issue/42 all the way to /u/them
       // and forcing them to navigate back.
       if (nextPath) {
-        router.replace(nextPath);
-        router.refresh();
+        redirectAfterAuth(nextPath);
         return;
       }
 
@@ -161,8 +159,7 @@ export default function LoginPage() {
           "Profile lookup"
         );
         if (profile?.username) {
-          router.replace(`/u/${profile.username}`);
-          router.refresh();
+          redirectAfterAuth(`/u/${profile.username}`);
           return;
         }
       } catch (profileErr) {
@@ -173,8 +170,7 @@ export default function LoginPage() {
 
       // Fall through: profile not found / lookup slow / etc. Land on home;
       // AuthContext will resolve the profile in the background.
-      router.replace("/");
-      router.refresh();
+      redirectAfterAuth("/");
     } catch (err) {
       if (debug) {
         console.error("LOGIN FULL ERROR:", {
@@ -305,7 +301,7 @@ export default function LoginPage() {
             autoComplete="email"
             placeholder=" "
           />
-          <label htmlFor="auth-email">Username or email address</label>
+          <label htmlFor="auth-email">Email address</label>
         </div>
 
         <div className="auth-field">

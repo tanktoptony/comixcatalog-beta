@@ -28104,5 +28104,108 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T20:22:04.024877+00:00",
     "retry_after": "2026-09-26T20:22:04.024893+00:00"
+  },
+  {
+    "name": "Teen-Age Love Confessions",
+    "publisher": "Charlton Comics",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T21:02:29.552856+00:00",
+    "retry_after": "2026-09-26T21:02:29.552876+00:00"
+  },
+  {
+    "name": "Hope",
+    "publisher": "Rebellion",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109320,
+        "name": "Hope",
+        "publisher": "Renegade Arts Entertainment",
+        "start_year": 2018
+      },
+      {
+        "id": 124918,
+        "name": "Hope",
+        "publisher": "Source Point Press",
+        "start_year": 2020
+      },
+      {
+        "id": 120452,
+        "name": "Hope",
+        "publisher": "Source Point Press",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T21:03:54.304331+00:00",
+    "retry_after": "2026-09-26T21:03:54.304350+00:00"
+  },
+  {
+    "name": "Elektra",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 9541,
+        "name": "Elektra",
+        "publisher": "Marvel",
+        "start_year": 1995
+      },
+      {
+        "id": 9408,
+        "name": "Elektra",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 5779,
+        "name": "Elektra",
+        "publisher": "Marvel",
+        "start_year": 1996
+      },
+      {
+        "id": 73240,
+        "name": "Elektra",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 99034,
+        "name": "Elektra",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 142345,
+        "name": "Elektra",
+        "publisher": "Marvel",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T21:04:12.143779+00:00",
+    "retry_after": "2026-09-26T21:04:12.143795+00:00"
+  },
+  {
+    "name": "Outlaws of the Wild West",
+    "publisher": "Charlton Comics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59870,
+        "name": "Outlaws of the Wild West",
+        "publisher": "Avon",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T21:04:41.641191+00:00",
+    "retry_after": "2026-09-26T21:04:41.641208+00:00"
   }
 ]

@@ -22,6 +22,8 @@
 // three backoffs, so retrying it only spends 12 seconds arriving at the same
 // error. It is deliberately absent below.
 
+import { describeError } from "./describeError.js";
+
 // Postgres SQLSTATEs that mean "the server was busy or went away", plus the
 // Node socket errors that mean the same thing one layer down.
 const TRANSIENT_CODES = new Set([
@@ -79,9 +81,14 @@ export async function withRetry(
     if (!isTransient(error) || attempt === maxAttempts) throw error;
 
     const ms = backoff[attempt - 1] ?? backoff[backoff.length - 1] ?? 8000;
+    // describeError, not the first-truthy-field chain the three scripts
+    // above use. That chain is incident #104 in describeError.js: it keeps
+    // one field and drops the rest, so a real PGRST002 rendered as a guess
+    // and the outage looked like a mystery. This line was written that way
+    // first and npm run audit:errors caught it.
     log(
       `  ⚠ ${label} transient error (attempt ${attempt}/${maxAttempts}): ` +
-        `${error.message || error.code || "unknown"} — retrying in ${ms}ms`
+        `${describeError(error)} — retrying in ${ms}ms`
     );
     await wait(ms);
   }

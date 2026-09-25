@@ -26650,5 +26650,104 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T04:02:26.266022+00:00",
     "retry_after": "2026-09-26T04:02:26.266041+00:00"
+  },
+  {
+    "name": "Seeker: Dawn of Armageddon",
+    "publisher": "Caliber Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T05:00:33.008584+00:00",
+    "retry_after": "2026-09-26T05:00:33.008596+00:00"
+  },
+  {
+    "name": "Advanced Dungeons & Dragons Annual Comic Book",
+    "publisher": "DC Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T05:01:16.881674+00:00",
+    "retry_after": "2026-09-26T05:01:16.881683+00:00"
+  },
+  {
+    "name": "Secret Invasion #1 Director's Cut",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T05:02:18.873717+00:00",
+    "retry_after": "2026-09-26T05:02:18.873725+00:00"
+  },
+  {
+    "name": "Mars Attacks Baseball Special",
+    "publisher": "Topps Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T05:02:24.106047+00:00",
+    "retry_after": "2026-09-26T05:02:24.106054+00:00"
+  },
+  {
+    "name": "Flash",
+    "publisher": "DC Comics",
+    "year": 2004,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3790,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 1995,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 1959
+      },
+      {
+        "id": 43018,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 91750,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 153720,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 32562,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 53722,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 160580,
+        "name": "The Flash",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T05:02:33.409349+00:00",
+    "retry_after": "2026-09-26T05:02:33.409356+00:00"
   }
 ]

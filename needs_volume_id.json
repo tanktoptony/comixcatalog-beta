@@ -14366,26 +14366,26 @@
   },
   {
     "name": "Scarlet",
-    "publisher": "Marvel Comics",
+    "publisher": "DC Comics",
     "year": 2016,
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 34249,
+        "id": 113090,
         "name": "Scarlet",
-        "publisher": "Marvel",
-        "start_year": 2010
+        "publisher": "DC Comics",
+        "start_year": 2018
       },
       {
-        "id": 46226,
+        "id": 118528,
         "name": "Scarlet",
-        "publisher": "Marvel",
-        "start_year": 2011
+        "publisher": "DC Comics",
+        "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T14:02:51.861715+00:00",
-    "retry_after": "2026-09-24T14:02:51.861730+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T16:00:59.038614+00:00",
+    "retry_after": "2026-09-26T16:00:59.038629+00:00"
   },
   {
     "name": "Darth Vader: Doctor Aphra No. 1 Halloween Comic Fest 2016",
@@ -25281,9 +25281,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T15:06:37.803346+00:00",
-    "retry_after": "2026-09-25T15:06:37.803362+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T16:00:41.225992+00:00",
+    "retry_after": "2026-09-28T16:00:41.226014+00:00"
   },
   {
     "name": "Street Fighter #0 Free Comic Book Day 2014",
@@ -25291,9 +25291,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T15:07:01.689862+00:00",
-    "retry_after": "2026-09-25T15:07:01.689877+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T16:00:57.865773+00:00",
+    "retry_after": "2026-09-28T16:00:57.865786+00:00"
   },
   {
     "name": "FCBD 2016 - DC Super Hero Girls 1 Special Edition",
@@ -25301,9 +25301,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T15:08:19.913134+00:00",
-    "retry_after": "2026-09-25T15:08:19.913149+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T16:00:42.234236+00:00",
+    "retry_after": "2026-09-28T16:00:42.234252+00:00"
   },
   {
     "name": "Fables #1: Special Edition",
@@ -27582,5 +27582,45 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T15:06:41.372811+00:00",
     "retry_after": "2026-09-26T15:06:41.372826+00:00"
+  },
+  {
+    "name": "Grimm Tales of Terror (Halloween Comic Fest)",
+    "publisher": "Zenescope Entertainment",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T16:00:46.259685+00:00",
+    "retry_after": "2026-09-26T16:00:46.259701+00:00"
+  },
+  {
+    "name": "X-Men by Peter Milligan",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T16:00:46.645146+00:00",
+    "retry_after": "2026-09-26T16:00:46.645162+00:00"
+  },
+  {
+    "name": "Wizard Ace Edition #17:  Lady Death vs. Purgatori",
+    "publisher": "Chaos! Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T16:01:09.450774+00:00",
+    "retry_after": "2026-09-26T16:01:09.450790+00:00"
+  },
+  {
+    "name": "Doctor Who 25th Anniversary Special",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T16:01:09.744022+00:00",
+    "retry_after": "2026-09-26T16:01:09.744039+00:00"
   }
 ]

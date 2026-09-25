@@ -26832,5 +26832,79 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T06:05:12.929913+00:00",
     "retry_after": "2026-09-26T06:05:12.929922+00:00"
+  },
+  {
+    "name": "Ninja High Yearbook",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 144056,
+        "name": "Ninja High Yearbook ",
+        "publisher": "Eternity",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T07:01:40.292470+00:00",
+    "retry_after": "2026-09-26T07:01:40.292487+00:00"
+  },
+  {
+    "name": "Best Cartoons of the World",
+    "publisher": "Dell Comics",
+    "year": 1969,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T07:02:21.439630+00:00",
+    "retry_after": "2026-09-26T07:02:21.439647+00:00"
+  },
+  {
+    "name": "Totally Rad Tales",
+    "publisher": "Harvey Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 94078,
+        "name": "Totally Rad Tales",
+        "publisher": "Lorne-Harvey",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T07:02:21.835425+00:00",
+    "retry_after": "2026-09-26T07:02:21.835440+00:00"
+  },
+  {
+    "name": "Dan Curtis Giveaways Turok, Son of Stone",
+    "publisher": "Gold Key",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T07:02:22.625879+00:00",
+    "retry_after": "2026-09-26T07:02:22.625895+00:00"
+  },
+  {
+    "name": "Dan Curtis Giveaways The Twilight Zone",
+    "publisher": "Gold Key",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T07:02:34.767704+00:00",
+    "retry_after": "2026-09-26T07:02:34.767716+00:00"
+  },
+  {
+    "name": "Mike Deodato's Fallout 3000",
+    "publisher": "Caliber Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T07:02:39.580319+00:00",
+    "retry_after": "2026-09-26T07:02:39.580333+00:00"
   }
 ]

@@ -28007,5 +28007,102 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T20:06:48.086461+00:00",
     "retry_after": "2026-09-26T20:06:48.086479+00:00"
+  },
+  {
+    "name": "Spirit",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18509,
+        "name": "The Spirit",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 32663,
+        "name": "The Spirit",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 31032,
+        "name": "The Spirit",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T20:18:25.373140+00:00",
+    "retry_after": "2026-09-26T20:18:25.373156+00:00"
+  },
+  {
+    "name": "Phantom Stranger",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 51843,
+        "name": "The Phantom Stranger",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 1473,
+        "name": "The Phantom Stranger",
+        "publisher": "DC Comics",
+        "start_year": 1952
+      },
+      {
+        "id": 2437,
+        "name": "The Phantom Stranger",
+        "publisher": "DC Comics",
+        "start_year": 1969
+      },
+      {
+        "id": 3804,
+        "name": "The Phantom Stranger",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T20:18:25.866790+00:00",
+    "retry_after": "2026-09-26T20:18:25.866807+00:00"
+  },
+  {
+    "name": "Trigun Anime Manga",
+    "publisher": "Dark Horse Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T20:18:37.800358+00:00",
+    "retry_after": "2026-09-26T20:18:37.800375+00:00"
+  },
+  {
+    "name": "Hulk: Broken Worlds",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 25906,
+        "name": "Hulk: Broken Worlds",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 30640,
+        "name": "Hulk: Broken Worlds",
+        "publisher": "Marvel",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T20:22:04.024877+00:00",
+    "retry_after": "2026-09-26T20:22:04.024893+00:00"
   }
 ]

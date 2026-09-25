@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
-import { launchProfileFlags } from "@/lib/launchFlags";
+import { claimFoundingPass } from "@/lib/launchFlags";
 import { trackEvent } from "@/lib/analytics";
 import { redirectAfterAuth } from "@/lib/auth/postAuthRedirect";
 // import OAuthButtons from "@/components/OAuthButtons"; // re-enable with the <OAuthButtons /> usage below
@@ -215,10 +215,10 @@ export default function SignUpPage() {
             id: user.id,
             username: usernameNormalized,
             is_public: true,
-            // Launch promo flags (Pro + Founding). Single source of truth
-            // in src/lib/launchFlags.js — flip AUTO_PRO_AND_FOUNDING_ON_SIGNUP
-            // to false there when signups should hit the paywall again.
-            ...launchProfileFlags(),
+            // No entitlement flags here on purpose. Pro and the founding
+            // badge are granted by the server after this row exists, so the
+            // 100-pass cap can actually be enforced — see claimFoundingPass
+            // below and src/lib/launchFlags.js for what this used to do.
           },
           { onConflict: "id" }
         );
@@ -233,6 +233,12 @@ export default function SignUpPage() {
         setSaving(false);
         return;
       }
+
+      // Grant the founding pass, if any of the 100 are left. Server-side, so
+      // the cap holds; non-fatal, so running out costs a promo rather than a
+      // signup. Past 100 the account simply starts on free and meets the
+      // normal upgrade path, which is the whole point of having a cap.
+      await claimFoundingPass();
 
       // A session here means Supabase auto-confirmed the account (no email
       // confirmation configured, or it's off) — the user is already logged

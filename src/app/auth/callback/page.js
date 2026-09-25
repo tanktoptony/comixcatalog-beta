@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getSupabaseClient } from "@/lib/supabase/client";
-import { launchProfileFlags } from "@/lib/launchFlags";
+import { claimFoundingPass } from "@/lib/launchFlags";
 import { redirectAfterAuth } from "@/lib/auth/postAuthRedirect";
 
 // Handles both the Google OAuth redirect and the email/password
@@ -131,10 +131,9 @@ export default function AuthCallbackPage() {
           username,
           avatar_key: avatarKey,
           is_public: true,
-          // Launch promo flags applied via the same helper as the
-          // email/password signup path so OAuth users get identical
-          // treatment.
-          ...launchProfileFlags(),
+          // No entitlement flags here on purpose — the server grants them
+          // after this row exists, so the 100-pass cap is enforceable. Same
+          // treatment as the email/password path.
         },
         { onConflict: "id" }
       );
@@ -145,6 +144,11 @@ export default function AuthCallbackPage() {
         router.replace("/complete-profile");
         return;
       }
+
+      // Same founding-pass grant the email/password signup does, so an OAuth
+      // user gets identical treatment and counts against the same 100.
+      await claimFoundingPass();
+      if (cancelled) return;
 
       redirectAfterAuth(`/u/${username}`);
     }

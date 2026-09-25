@@ -41,6 +41,8 @@ dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 
 import { createClient } from "@supabase/supabase-js";
 import { US_PUBLISHER_ALLOWLIST } from "../src/lib/publisher.js";
+import { withRetry } from "./lib/withRetry.js";
+import { describeError } from "./lib/describeError.js";
 
 const args = Object.fromEntries(
   process.argv
@@ -121,18 +123,23 @@ async function runMode(modeName, outPath, excludeKeys) {
   const data = [];
   for (let from = 0; from < FETCH_LIMIT; from += PAGE) {
     const to = Math.min(from + PAGE, FETCH_LIMIT) - 1;
-    const { data: page, error } = await supabase
-      .from("series")
-      .select("id, title, resolved_publisher_cached, year_start_cached, issue_count_cached")
-      .is("featured_cover_path_cached", null)
-      .gte("issue_count_cached", minIssues)
-      .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
-      .not("title", "is", null)
-      .order(preset.order.column, { ascending: preset.order.ascending })
-      .range(from, to);
-
-    if (error) {
-      console.error("Query failed:", error);
+    let page;
+    try {
+      page = await withRetry(`series page (from=${from})`, () =>
+        supabase
+          .from("series")
+          .select("id, title, resolved_publisher_cached, year_start_cached, issue_count_cached")
+          .is("featured_cover_path_cached", null)
+          .gte("issue_count_cached", minIssues)
+          .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
+          .not("title", "is", null)
+          .order(preset.order.column, { ascending: preset.order.ascending })
+          .range(from, to)
+      );
+    } catch (error) {
+      // Still exits 1 on a real failure. The retry only buys back the case
+      // where one page hit a statement timeout and the next attempt works.
+      console.error("Query failed:", describeError(error));
       process.exit(1);
     }
     data.push(...page);

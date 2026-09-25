@@ -23,9 +23,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
 
-import { describeError, unwrap } from "./lib/describeError.js";
+import { describeError } from "./lib/describeError.js";
 import { pickBestCandidate, readCursor, rotate, writeCursor } from "./lib/featuredTargets.js";
 import { fetchAllPages } from "../src/lib/supabase/fetchAllPages.js";
+import { withRetry } from "./lib/withRetry.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
@@ -189,9 +190,8 @@ async function refreshOne(seriesGcdId) {
   const remoteIds = (seriesJson.active_issues ?? []).map(issueIdFromUrl).filter(Boolean);
   const remoteSet = new Set(remoteIds);
 
-  const localRows = unwrap(
-    await supabase.from("gcd_issues").select("gcd_id").eq("series_gcd_id", seriesGcdId),
-    `local issue list for series ${seriesGcdId}`
+  const localRows = await withRetry(`local issue list for series ${seriesGcdId}`, () =>
+    supabase.from("gcd_issues").select("gcd_id").eq("series_gcd_id", seriesGcdId)
   );
   const localSet = new Set((localRows ?? []).map((r) => Number(r.gcd_id)));
 

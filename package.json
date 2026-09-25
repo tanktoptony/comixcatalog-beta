@@ -17,6 +17,7 @@
     "test:describe-error": "node --test scripts/lib/describeError.test.js",
     "test:valuation": "node --test src/lib/valuation.test.js",
     "test:post-auth-redirect": "node --test src/lib/auth/postAuthRedirect.test.js",
+    "test:csv-match": "node --test src/lib/csvImport/matchRow.test.js",
     "test:launch-flags": "node --test src/lib/launchFlags.test.js",
     "test:featured-targets": "node --test scripts/lib/featuredTargets.test.js",
     "audit:errors": "node scripts/auditErrorHandling.js",

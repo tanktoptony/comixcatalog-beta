@@ -27263,5 +27263,90 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T11:19:06.629043+00:00",
     "retry_after": "2026-09-26T11:19:06.629058+00:00"
+  },
+  {
+    "name": "True Believers: Marvel Knights 20th Anniversary - Punisher by Grant & Zeck",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T12:01:10.086102+00:00",
+    "retry_after": "2026-09-26T12:01:10.086124+00:00"
+  },
+  {
+    "name": "True Believers: Spider-Man - The New Spider-Man!",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T12:01:15.786833+00:00",
+    "retry_after": "2026-09-26T12:01:15.786852+00:00"
+  },
+  {
+    "name": "Silver Surfer",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3857,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 1987
+      },
+      {
+        "id": 2411,
+        "name": "The Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 1968
+      },
+      {
+        "id": 87449,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 39031,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 22808,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 1982
+      },
+      {
+        "id": 54992,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 1993
+      },
+      {
+        "id": 72582,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 23576,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 2003
+      },
+      {
+        "id": 4070,
+        "name": "The Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T12:01:26.942972+00:00",
+    "retry_after": "2026-09-26T12:01:26.942989+00:00"
   }
 ]

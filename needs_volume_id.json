@@ -26331,5 +26331,128 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T00:29:53.291885+00:00",
     "retry_after": "2026-09-26T00:29:53.291899+00:00"
+  },
+  {
+    "name": "AAFES 16th Edition [Thor]",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T01:00:45.075759+00:00",
+    "retry_after": "2026-09-26T01:00:45.075775+00:00"
+  },
+  {
+    "name": "Witchblade",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 7300,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 1995
+      },
+      {
+        "id": 45637,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 2008
+      },
+      {
+        "id": 162081,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 2025
+      },
+      {
+        "id": 158904,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 2024
+      },
+      {
+        "id": 106705,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 2017
+      },
+      {
+        "id": 112061,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T01:00:45.722863+00:00",
+    "retry_after": "2026-09-26T01:00:45.722878+00:00"
+  },
+  {
+    "name": "Critical Role: Vox Machina Origins",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 120104,
+        "name": "Critical Role Vox Machina Origins",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 122051,
+        "name": "Critical Role: Vox Machina Origins",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T01:00:56.212012+00:00",
+    "retry_after": "2026-09-26T01:00:56.212027+00:00"
+  },
+  {
+    "name": "Rat Queens",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 99261,
+        "name": "Rat Queens",
+        "publisher": "Image",
+        "start_year": 2017
+      },
+      {
+        "id": 67680,
+        "name": "Rat Queens",
+        "publisher": "Image",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T01:02:08.903844+00:00",
+    "retry_after": "2026-09-26T01:02:08.903859+00:00"
+  },
+  {
+    "name": "Marvel Super Heroes Secret Wars Special",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T01:02:27.296357+00:00",
+    "retry_after": "2026-09-26T01:02:27.296374+00:00"
+  },
+  {
+    "name": "Odell's Special Edition Adventures in 3-D",
+    "publisher": "Harvey Comics",
+    "year": 1953,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T01:02:35.246115+00:00",
+    "retry_after": "2026-09-26T01:02:35.246131+00:00"
   }
 ]

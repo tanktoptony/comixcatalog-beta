@@ -25944,9 +25944,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T20:02:14.127901+00:00",
-    "retry_after": "2026-09-25T20:02:14.127915+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T20:05:20.264924+00:00",
+    "retry_after": "2026-09-28T20:05:20.264936+00:00"
   },
   {
     "name": "I Love Lucy in 3-D",
@@ -25961,9 +25961,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T20:02:30.203904+00:00",
-    "retry_after": "2026-09-25T20:02:30.203921+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T20:05:20.630231+00:00",
+    "retry_after": "2026-09-28T20:05:20.630245+00:00"
   },
   {
     "name": "Generation X",
@@ -25984,9 +25984,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T20:02:58.419661+00:00",
-    "retry_after": "2026-09-25T20:02:58.419677+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T20:05:20.531315+00:00",
+    "retry_after": "2026-09-28T20:05:20.531329+00:00"
   },
   {
     "name": "Yu-Gi-Oh! [Collector's Edition]",
@@ -25994,9 +25994,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T20:03:03.668878+00:00",
-    "retry_after": "2026-09-25T20:03:03.668894+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T20:05:20.454371+00:00",
+    "retry_after": "2026-09-28T20:05:20.454384+00:00"
   },
   {
     "name": "Venom",
@@ -27737,5 +27737,275 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T19:12:04.522452+00:00",
     "retry_after": "2026-09-26T19:12:04.522466+00:00"
+  },
+  {
+    "name": "Captain America",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2400,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 1968
+      },
+      {
+        "id": 11499,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2005
+      },
+      {
+        "id": 6206,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 112027,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 54110,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 41245,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 5776,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 1996
+      },
+      {
+        "id": 142485,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 151915,
+        "name": "Captain America ",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 9088,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2002
+      },
+      {
+        "id": 153610,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 165232,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 103427,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T20:02:41.081615+00:00",
+    "retry_after": "2026-09-26T20:02:41.081632+00:00"
+  },
+  {
+    "name": "Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4421,
+        "name": "Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1990
+      },
+      {
+        "id": 87820,
+        "name": "Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 121420,
+        "name": "Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 34457,
+        "name": "Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T20:04:27.433358+00:00",
+    "retry_after": "2026-09-26T20:04:27.433377+00:00"
+  },
+  {
+    "name": "Spider-Man Comic",
+    "publisher": "Marvel Comics",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47678,
+        "name": "Spider-Man Comic",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      },
+      {
+        "id": 47655,
+        "name": "The Spider-Man Comic",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1985
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T20:05:07.678204+00:00",
+    "retry_after": "2026-09-26T20:05:07.678222+00:00"
+  },
+  {
+    "name": "Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 87154,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 2127,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 112161,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 142577,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 85076,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 78701,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1999
+      },
+      {
+        "id": 163325,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 73420,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 34326,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1979
+      },
+      {
+        "id": 169193,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 22719,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T20:05:08.138643+00:00",
+    "retry_after": "2026-09-26T20:05:08.138659+00:00"
+  },
+  {
+    "name": "Star Wars: Vader Down",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 89804,
+        "name": "Star Wars: Vader Down",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 86131,
+        "name": "Star Wars: Vader Down",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T20:05:27.531472+00:00",
+    "retry_after": "2026-09-26T20:05:27.531489+00:00"
+  },
+  {
+    "name": "Oblivion Song",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 109114,
+        "name": "Oblivion Song",
+        "publisher": "Image",
+        "start_year": 2018
+      },
+      {
+        "id": 128635,
+        "name": "Oblivion Song",
+        "publisher": "Image",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T20:06:48.086461+00:00",
+    "retry_after": "2026-09-26T20:06:48.086479+00:00"
   }
 ]

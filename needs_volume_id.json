@@ -25252,9 +25252,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T14:08:37.604904+00:00",
-    "retry_after": "2026-09-25T14:08:37.604923+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T15:00:43.449553+00:00",
+    "retry_after": "2026-09-28T15:00:43.449568+00:00"
   },
   {
     "name": "Sensational She-Hulk",
@@ -27502,5 +27502,85 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T14:03:10.412378+00:00",
     "retry_after": "2026-09-26T14:03:10.412394+00:00"
+  },
+  {
+    "name": "Battlestar Galactica Season Zero / The Lone Ranger [Free Comic Book Day]",
+    "publisher": "Dynamite Entertainment",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T15:00:43.981618+00:00",
+    "retry_after": "2026-09-26T15:00:43.981636+00:00"
+  },
+  {
+    "name": "Herobear and the Kid",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24564,
+        "name": "Herobear And The Kid",
+        "publisher": "Astonish Comics",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T15:04:27.402860+00:00",
+    "retry_after": "2026-09-26T15:04:27.402876+00:00"
+  },
+  {
+    "name": "Grimm Fairy Tales #0 Free Comic Book Day Special Edition",
+    "publisher": "Zenescope Entertainment",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T15:04:27.849101+00:00",
+    "retry_after": "2026-09-26T15:04:27.849117+00:00"
+  },
+  {
+    "name": "True Believers: Marvel Knights 20th Anniversary - Jessica Jones: Alias by Bendis and Gaydos",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T15:04:35.024595+00:00",
+    "retry_after": "2026-09-26T15:04:35.024611+00:00"
+  },
+  {
+    "name": "The Amazing Spider-Man: Managing Materials [Chaos at the Construction Site]",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T15:04:56.721276+00:00",
+    "retry_after": "2026-09-26T15:04:56.721292+00:00"
+  },
+  {
+    "name": "Archie Christmas Spectacular",
+    "publisher": "Archie Comics",
+    "year": 2023,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 157220,
+        "name": "Archie Christmas Spectacular",
+        "publisher": "Archie Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 156805,
+        "name": "Archie Christmas Spectacular",
+        "publisher": "Archie Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T15:06:41.372811+00:00",
+    "retry_after": "2026-09-26T15:06:41.372826+00:00"
   }
 ]

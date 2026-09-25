@@ -89,5 +89,8 @@ jobs:
       - name: Transient-retry tests
         run: npm run test:with-retry
 
+      - name: Volume-resolver tests
+        run: npm run test:resolve-by-year
+
       - name: Docs link check
         run: npm run docs:check

@@ -1,12 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { claimFoundingPass } from "@/lib/launchFlags";
 import { trackEvent } from "@/lib/analytics";
+import { redirectAfterAuth } from "@/lib/auth/postAuthRedirect";
 // import OAuthButtons from "@/components/OAuthButtons"; // re-enable with the <OAuthButtons /> usage below
 
 // Avatar selection deferred to /profile/edit. Signup is now 3 fields
@@ -16,7 +16,6 @@ import { trackEvent } from "@/lib/analytics";
 // an initial-letter chip as the default.
 export default function SignUpPage() {
   const supabase = getSupabaseClient();
-  const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -246,8 +245,7 @@ export default function SignUpPage() {
       // in. Showing "check your email" and leaving them stranded on this
       // form was the bug: nothing ever sent them into the logged-in app.
       // Redirect straight into it, same landing logic /login uses.
-      router.replace(`/u/${usernameNormalized}`);
-      router.refresh();
+      redirectAfterAuth(`/u/${usernameNormalized}`);
       return;
     }
 

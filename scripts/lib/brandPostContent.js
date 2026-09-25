@@ -141,7 +141,10 @@ async function pickCatalogStats(supabase, seenKeys, recentTopics, dayIndex) {
       headline: `${formatted} ${stat.label}`,
       subtext: "Cataloged and searchable right now. Track your own collection against all of it.",
       accent: ACCENTS.stats,
-      captionBody: `${formatted} ${stat.label} in the catalog right now. It grows every night while I sleep, which is the only kind of growth I trust.`,
+      // Must NOT restate the headline. buildBrandCaption emits headline, a
+      // blank line, then this — so opening with "${formatted} ${stat.label}"
+      // again printed the same sentence twice in a row, live, on 2026-09-22.
+      captionBody: `It grows every night while I sleep, which is the only kind of growth I trust.`,
     };
   }
   return null;
@@ -216,9 +219,27 @@ async function pickBlogSpotlight(supabase, seenKeys) {
 // rotation stays deterministic and previewable.
 export async function pickBrandPost(supabase, seenKeys, dayIndex = Math.floor(Date.now() / 86400000)) {
   const recentTopics = recentBrandTopics(seenKeys);
+  // Only blog spotlights, as of 2026-09-24.
+  //
+  // Measured over the account's whole history, average likes by post family:
+  //
+  //   (hand-written, no template)   16.9
+  //   Cover Spotlight                7.7
+  //   New to the Catalog             6.8
+  //   From the Blog                  6.0
+  //   By the Numbers                 3.5
+  //   Feature Spotlight              3.4
+  //
+  // The audience follows a comics account and ignores product marketing at
+  // roughly half the rate it engages with a cover. "By the Numbers" and
+  // "Feature Spotlight" are the two worst families on the account and three
+  // of the five worst individual posts ever published.
+  //
+  // pickCatalogStats and pickFeatureHighlight are kept rather than deleted:
+  // the card rendering and copy are fine, the placement was wrong, and a
+  // stats card may earn its slot again on a bigger account. Putting either
+  // back is one line here.
   const subPickers = [
-    () => pickCatalogStats(supabase, seenKeys, recentTopics, dayIndex),
-    () => pickFeatureHighlight(supabase, seenKeys, recentTopics, dayIndex),
     () => pickBlogSpotlight(supabase, seenKeys),
   ];
   const start = dayIndex % subPickers.length;

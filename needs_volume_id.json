@@ -25625,9 +25625,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T17:00:41.706680+00:00",
-    "retry_after": "2026-09-25T17:00:41.706696+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T17:00:42.899545+00:00",
+    "retry_after": "2026-09-28T17:00:42.899552+00:00"
   },
   {
     "name": "Lady Death FAN Edition: All Hallow's Evil",
@@ -27622,5 +27622,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T16:01:09.744022+00:00",
     "retry_after": "2026-09-26T16:01:09.744039+00:00"
+  },
+  {
+    "name": "Divergence FCBD Special Edition [Free Comic Book Day]",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T17:01:14.692979+00:00",
+    "retry_after": "2026-09-26T17:01:14.692997+00:00"
   }
 ]

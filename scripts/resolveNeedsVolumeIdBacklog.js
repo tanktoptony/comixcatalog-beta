@@ -33,6 +33,7 @@ import path from "path";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
+import { resolveByYear } from "./lib/resolveByYear.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
@@ -54,10 +55,38 @@ function loadJson(filePath, fallback) {
 
 async function run() {
   const backlog = loadJson(NEEDS_VOLUME_ID_PATH, []);
-  const singleCandidate = backlog.filter((e) => (e.candidates || []).length === 1);
+
+  // Two ways to arrive at a candidate, one loop to act on them.
+  //
+  // The single-candidate path is the original: ComicVine returned exactly one
+  // same-titled volume, so there was never an ambiguity to resolve.
+  //
+  // The year path is new. 531 backlog entries carry two or more candidates
+  // and were previously left for "a human call", but for 107 of them the
+  // start year separates them cleanly and a trade collection is screened out
+  // first. resolveByYear refuses everything else — see its header for the
+  // four ways it declines and why each one would otherwise be a guess.
+  const work = [];
+  const byBasis = { single: 0, "exact-year": 0, "near-year": 0 };
+  for (const entry of backlog) {
+    const candidates = entry.candidates || [];
+    if (candidates.length === 1) {
+      work.push({ entry, candidate: candidates[0], basis: "single" });
+      byBasis.single++;
+      continue;
+    }
+    const decision = resolveByYear(entry);
+    if (decision.status === "matched") {
+      work.push({ entry, candidate: decision.candidate, basis: decision.basis });
+      byBasis[decision.basis]++;
+    }
+  }
 
   console.log(`Backlog entries: ${backlog.length}`);
-  console.log(`Single-candidate (auto-resolvable): ${singleCandidate.length}`);
+  console.log(`Resolvable: ${work.length}`);
+  console.log(`  single candidate:        ${byBasis.single}`);
+  console.log(`  disambiguated by year:   ${byBasis["exact-year"]}`);
+  console.log(`  disambiguated within 1y: ${byBasis["near-year"]}`);
 
   const pinnedTargets = loadJson(GAP_PINNED_PATH, []);
   const alreadyPinnedKeys = new Set(
@@ -70,9 +99,8 @@ async function run() {
   let skippedNoSeriesMatch = 0;
   let skippedAlreadyPinned = 0;
 
-  for (const entry of singleCandidate) {
+  for (const { entry, candidate, basis } of work) {
     const key = `${entry.name} ${entry.publisher} ${entry.year}`;
-    const candidate = entry.candidates[0];
 
     if (alreadyPinnedKeys.has(key)) {
       skippedAlreadyPinned++;
@@ -112,7 +140,7 @@ async function run() {
     }
 
     console.log(
-      `  ✓ ${entry.name} (${entry.publisher}) → volume ${candidate.id} (${candidate.publisher || "unknown publisher"}, ${candidate.start_year ?? "?"})`
+      `  ✓ [${basis}] ${entry.name} (${entry.publisher}) → volume ${candidate.id} (${candidate.publisher || "unknown publisher"}, ${candidate.start_year ?? "?"})`
     );
 
     if (!DRY_RUN) {

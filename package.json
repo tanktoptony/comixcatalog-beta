@@ -20,6 +20,7 @@
     "test:post-auth-redirect": "node --test src/lib/auth/postAuthRedirect.test.js",
     "test:csv-match": "node --test src/lib/csvImport/matchRow.test.js",
     "test:contribute-match": "node --test src/lib/csvImport/contributeMatch.test.js",
+    "test:printings": "node --test src/lib/printings.test.js",
     "test:launch-flags": "node --test src/lib/launchFlags.test.js",
     "test:featured-targets": "node --test scripts/lib/featuredTargets.test.js",
     "audit:errors": "node scripts/auditErrorHandling.js",

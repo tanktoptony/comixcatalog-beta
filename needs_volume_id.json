@@ -26454,5 +26454,118 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T01:02:35.246115+00:00",
     "retry_after": "2026-09-26T01:02:35.246131+00:00"
+  },
+  {
+    "name": "Malefic",
+    "publisher": "First Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 104624,
+        "name": "Malefic",
+        "publisher": "1First Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T02:01:08.793517+00:00",
+    "retry_after": "2026-09-26T02:01:08.793529+00:00"
+  },
+  {
+    "name": "True Believers: What If the Avengers Had Fought Evil During the 1950s?",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T02:01:44.300247+00:00",
+    "retry_after": "2026-09-26T02:01:44.300262+00:00"
+  },
+  {
+    "name": "T.H.U.N.D.E.R. Agents",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 36583,
+        "name": "T.H.U.N.D.E.R. Agents",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 44225,
+        "name": "T.H.U.N.D.E.R. Agents",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T02:01:44.675955+00:00",
+    "retry_after": "2026-09-26T02:01:44.675969+00:00"
+  },
+  {
+    "name": "Ms. Marvel No 1 Halloween Comic Fest 2018",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T02:01:49.489905+00:00",
+    "retry_after": "2026-09-26T02:01:49.489916+00:00"
+  },
+  {
+    "name": "Marvel Comics Illustrated Version of The Avengers",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T02:01:49.917425+00:00",
+    "retry_after": "2026-09-26T02:01:49.917433+00:00"
+  },
+  {
+    "name": "Marvel's Captain Marvel Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 115263,
+        "name": "Marvel's Captain Marvel Prelude",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 116977,
+        "name": "Marvel's Captain Marvel Prelude",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T02:02:34.442009+00:00",
+    "retry_after": "2026-09-26T02:02:34.442019+00:00"
+  },
+  {
+    "name": "Green Arrow Wal-Mart Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T02:02:34.932942+00:00",
+    "retry_after": "2026-09-26T02:02:34.932951+00:00"
+  },
+  {
+    "name": "B.C. The Sun Comes Up the Sun Goes Down",
+    "publisher": "Fawcett Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-25T02:02:36.663523+00:00",
+    "retry_after": "2026-09-26T02:02:36.663540+00:00"
   }
 ]

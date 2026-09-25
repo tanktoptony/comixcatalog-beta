@@ -10772,3 +10772,43 @@ button.nav-link {
     margin-left: 50px;
   }
 }
+
+/* ── Report a printing (contribute form) ───────────────────────────────────
+   Sits inside the gold catalog-match panel, so it reads as a continuation of
+   "we already have this" rather than a second, competing form. */
+.cc-printing-form {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(244, 208, 63, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cc-printing-head {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #fff;
+  overflow-wrap: anywhere;
+}
+
+.cc-printing-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cc-printing-row label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cc-printing-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}

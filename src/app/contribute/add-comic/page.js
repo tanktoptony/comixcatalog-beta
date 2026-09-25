@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { normalizeUpc, upcProblem } from "@/lib/printings";
 
 // Contribute a comic — but check the catalog first.
 //
@@ -390,6 +391,13 @@ function CatalogMatches({ lookup, issueNumber, blocked, overridden, onOverride }
         })}
       </ul>
 
+      {/* The Discogs move. When we already hold the issue, the useful next
+          step is not "stop", it is "tell us how yours differs" — a printing
+          is a new Release under the same Master, not a duplicate. */}
+      {withIssue.length === 1 && withIssue[0].matching_issue && (
+        <ReportPrinting issue={withIssue[0]} />
+      )}
+
       {blocked && (
         <button type="button" className="cc-catalog-match-override" onClick={onOverride}>
           None of these are my book &mdash; let me add it
@@ -401,6 +409,140 @@ function CatalogMatches({ lookup, issueNumber, blocked, overridden, onOverride }
           an alternate cover or printing.
         </p>
       )}
+    </div>
+  );
+}
+
+// "We have the issue, but not your printing."
+//
+// Kept deliberately small: a name, a barcode, and a note. No image upload,
+// because a photo needs storage, moderation and a review queue, and none of
+// that is worth building before anyone has reported a single printing.
+//
+// The barcode is the point. It is the comics equivalent of the catalogue
+// number Discogs dedupes on, and nothing in the catalog carried one before
+// this — gcd_issues holds gcd_id, series_gcd_id, issue_number, title,
+// publication_date, key_date and publisher_gcd_id.
+function ReportPrinting({ issue }) {
+  const [open, setOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [upc, setUpc] = useState("");
+  const [notes, setNotes] = useState("");
+  const [state, setState] = useState(null);
+  const [error, setError] = useState(null);
+
+  const problem = upcProblem(upc);
+  const canSend = Boolean(name.trim() || normalizeUpc(upc)) && !problem && state !== "sending";
+
+  async function send() {
+    if (!canSend) return;
+    setState("sending");
+    setError(null);
+    try {
+      const { authedFetch } = await import("@/lib/apiClient");
+      const res = await authedFetch("/api/printings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          gcd_issue_id: issue.matching_issue.gcd_id,
+          printing_name: name,
+          upc,
+          notes,
+        }),
+      });
+      const data = await res.json().catch(() => null);
+      if (!res.ok) {
+        setError(data?.error || "Could not save that right now.");
+        setState(null);
+        return;
+      }
+      setState(data?.duplicate ? "duplicate" : "sent");
+    } catch {
+      setError("Could not reach the server.");
+      setState(null);
+    }
+  }
+
+  if (state === "sent" || state === "duplicate") {
+    return (
+      <p className="cc-hint" style={{ marginTop: 10 }}>
+        {state === "duplicate"
+          ? "You have already reported this printing. Nothing new was added."
+          : "Thanks. Logged against " + issue.title + " #" + issue.matching_issue.issue_number + " for review."}
+      </p>
+    );
+  }
+
+  if (!open) {
+    return (
+      <button
+        type="button"
+        className="cc-catalog-match-override"
+        onClick={() => setOpen(true)}
+        style={{ marginTop: 10 }}
+      >
+        I have a printing you don&rsquo;t list &mdash; newsstand, Cover B, 2nd print
+      </button>
+    );
+  }
+
+  return (
+    <div className="cc-printing-form">
+      <p className="cc-printing-head">
+        Tell us about your copy of {issue.title} #{issue.matching_issue.issue_number}
+      </p>
+
+      <div className="cc-printing-row">
+        <label htmlFor="cc-printing-name">Printing</label>
+        <input
+          id="cc-printing-name"
+          className="cc-input"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Newsstand, Cover B, 2nd Print, 1:25 Incentive"
+          maxLength={120}
+        />
+      </div>
+
+      <div className="cc-printing-row">
+        <label htmlFor="cc-printing-upc">Barcode</label>
+        <input
+          id="cc-printing-upc"
+          className="cc-input"
+          value={upc}
+          onChange={(e) => setUpc(e.target.value)}
+          placeholder="759606083120 00111"
+          inputMode="numeric"
+          autoComplete="off"
+        />
+        <span className="cc-hint">
+          {problem ||
+            "The long number on the back, plus the small 5-digit block beside it if there is one. That block is what separates two covers of the same issue."}
+        </span>
+      </div>
+
+      <div className="cc-printing-row">
+        <label htmlFor="cc-printing-notes">Anything else</label>
+        <input
+          id="cc-printing-notes"
+          className="cc-input"
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          placeholder="Optional"
+          maxLength={500}
+        />
+      </div>
+
+      {error && <div className="cc-form-error">{error}</div>}
+
+      <div className="cc-printing-actions">
+        <button type="button" className="cc-submit" onClick={send} disabled={!canSend}>
+          {state === "sending" ? "Sending…" : "Report this printing"}
+        </button>
+        <button type="button" className="cc-catalog-match-override" onClick={() => setOpen(false)}>
+          Cancel
+        </button>
+      </div>
     </div>
   );
 }

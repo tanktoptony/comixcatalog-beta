@@ -13625,9 +13625,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T16:00:59.038614+00:00",
-    "retry_after": "2026-09-26T16:00:59.038629+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T16:03:20.913135+00:00",
+    "retry_after": "2026-09-29T16:03:20.913152+00:00"
   },
   {
     "name": "Darth Vader: Doctor Aphra No. 1 Halloween Comic Fest 2016",
@@ -26591,9 +26591,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T15:04:27.849101+00:00",
-    "retry_after": "2026-09-26T15:04:27.849117+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T16:03:17.742631+00:00",
+    "retry_after": "2026-09-29T16:03:17.742649+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Jessica Jones: Alias by Bendis and Gaydos",
@@ -26601,9 +26601,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T15:04:35.024595+00:00",
-    "retry_after": "2026-09-26T15:04:35.024611+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T16:03:18.416773+00:00",
+    "retry_after": "2026-09-29T16:03:18.416791+00:00"
   },
   {
     "name": "The Amazing Spider-Man: Managing Materials [Chaos at the Construction Site]",
@@ -26611,9 +26611,9 @@
     "year": 1990,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T15:04:56.721276+00:00",
-    "retry_after": "2026-09-26T15:04:56.721292+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T16:03:19.237975+00:00",
+    "retry_after": "2026-09-29T16:03:19.237993+00:00"
   },
   {
     "name": "Archie Christmas Spectacular",
@@ -26634,9 +26634,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T15:06:41.372811+00:00",
-    "retry_after": "2026-09-26T15:06:41.372826+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T16:03:19.589244+00:00",
+    "retry_after": "2026-09-29T16:03:19.589262+00:00"
   },
   {
     "name": "Grimm Tales of Terror (Halloween Comic Fest)",
@@ -26644,9 +26644,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T16:00:46.259685+00:00",
-    "retry_after": "2026-09-26T16:00:46.259701+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T16:03:20.081342+00:00",
+    "retry_after": "2026-09-29T16:03:20.081360+00:00"
   },
   {
     "name": "X-Men by Peter Milligan",
@@ -26654,9 +26654,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T16:00:46.645146+00:00",
-    "retry_after": "2026-09-26T16:00:46.645162+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T16:03:20.540281+00:00",
+    "retry_after": "2026-09-29T16:03:20.540299+00:00"
   },
   {
     "name": "Wizard Ace Edition #17:  Lady Death vs. Purgatori",
@@ -26664,9 +26664,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T16:01:09.450774+00:00",
-    "retry_after": "2026-09-26T16:01:09.450790+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T16:03:21.372165+00:00",
+    "retry_after": "2026-09-29T16:03:21.372184+00:00"
   },
   {
     "name": "Doctor Who 25th Anniversary Special",
@@ -26674,9 +26674,9 @@
     "year": 1988,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T16:01:09.744022+00:00",
-    "retry_after": "2026-09-26T16:01:09.744039+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T16:03:21.776741+00:00",
+    "retry_after": "2026-09-29T16:03:21.776758+00:00"
   },
   {
     "name": "Divergence FCBD Special Edition [Free Comic Book Day]",
@@ -28737,5 +28737,81 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T15:06:15.930345+00:00",
     "retry_after": "2026-09-27T15:06:15.930360+00:00"
+  },
+  {
+    "name": "Street Fighter Legends [Sakura]",
+    "publisher": "Udon Entertainment Corp.",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 20143,
+        "name": "Street Fighter Legends: Sakura",
+        "publisher": "UDON",
+        "start_year": 2006
+      },
+      {
+        "id": 73522,
+        "name": "Street Fighter Legends: Sakura",
+        "publisher": "UDON",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T16:00:44.430079+00:00",
+    "retry_after": "2026-09-27T16:00:44.430098+00:00"
+  },
+  {
+    "name": "Street Fighter II",
+    "publisher": "Urban Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23232,
+        "name": "Street Fighter II",
+        "publisher": "Tokuma Comics",
+        "start_year": 1994
+      },
+      {
+        "id": 19806,
+        "name": "Street Fighter II",
+        "publisher": "UDON",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T16:01:22.616272+00:00",
+    "retry_after": "2026-09-27T16:01:22.616290+00:00"
+  },
+  {
+    "name": "Ghost Rider Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T16:03:28.945646+00:00",
+    "retry_after": "2026-09-27T16:03:28.945663+00:00"
+  },
+  {
+    "name": "Marvel 2-in-One",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T16:04:06.071122+00:00",
+    "retry_after": "2026-09-27T16:04:06.071139+00:00"
+  },
+  {
+    "name": "Luke Cage Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T16:04:11.511037+00:00",
+    "retry_after": "2026-09-27T16:04:11.511056+00:00"
   }
 ]

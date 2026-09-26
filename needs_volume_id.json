@@ -556,28 +556,6 @@
     "retry_after": "2026-09-21T14:00:38.554032+00:00"
   },
   {
-    "name": "Golden Arrow Western",
-    "publisher": "Fawcett Comics",
-    "year": 1947,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 74636,
-        "name": "Golden Arrow Western",
-        "publisher": "L. Miller & Son, Ltd",
-        "start_year": 1951
-      },
-      {
-        "id": 99905,
-        "name": "Golden Arrow Western",
-        "publisher": "Fawcett Publications",
-        "start_year": 1947
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554039+00:00"
-  },
-  {
     "name": "The Authority / Lobo: Jingle Hell",
     "publisher": "WildStorm",
     "year": 2004,
@@ -1291,40 +1269,6 @@
     "retry_after": "2026-09-21T14:00:38.554191+00:00"
   },
   {
-    "name": "Captain Marvel Adventures",
-    "publisher": "Fawcett Comics",
-    "year": 1941,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 56711,
-        "name": "Captain Marvel Adventures",
-        "publisher": "Fawcett Publications",
-        "start_year": 1946
-      },
-      {
-        "id": 898,
-        "name": "Captain Marvel Adventures",
-        "publisher": "Fawcett Publications",
-        "start_year": 1941
-      },
-      {
-        "id": 65342,
-        "name": "Captain Marvel Adventures",
-        "publisher": "L. Miller & Son, Ltd",
-        "start_year": 1953
-      },
-      {
-        "id": 62010,
-        "name": "Captain Marvel Adventures",
-        "publisher": "L. Miller & Son, Ltd",
-        "start_year": 1950
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554195+00:00"
-  },
-  {
     "name": "Doctor Who Magazine",
     "publisher": "Marvel Comics",
     "year": 1985,
@@ -1807,28 +1751,6 @@
     "retry_after": "2026-09-21T14:00:38.554253+00:00"
   },
   {
-    "name": "Beep Beep the Road Runner",
-    "publisher": "Gold Key",
-    "year": 1966,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 61385,
-        "name": "Beep Beep the Road Runner",
-        "publisher": "Magazine Management",
-        "start_year": 1971
-      },
-      {
-        "id": 6731,
-        "name": "Beep Beep the Road Runner",
-        "publisher": "Western Publishing",
-        "start_year": 1966
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554256+00:00"
-  },
-  {
     "name": "Turok, Son of Stone",
     "publisher": "Gold Key",
     "year": 1962,
@@ -2047,34 +1969,6 @@
     "retry_after": "2026-09-21T14:00:38.554286+00:00"
   },
   {
-    "name": "The Marvel Family",
-    "publisher": "Fawcett Comics",
-    "year": 1945,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 1066,
-        "name": "The Marvel Family",
-        "publisher": "Fawcett Publications",
-        "start_year": 1945
-      },
-      {
-        "id": 63619,
-        "name": "The Marvel Family",
-        "publisher": "L. Miller & Son, Ltd",
-        "start_year": 1950
-      },
-      {
-        "id": 113123,
-        "name": "Marvel Family",
-        "publisher": "Gwandanaland Comics",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554289+00:00"
-  },
-  {
     "name": "Superman / Batman",
     "publisher": "DC Comics",
     "year": 2003,
@@ -2279,34 +2173,6 @@
     "candidates": [],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.554319+00:00"
-  },
-  {
-    "name": "Edgar Rice Burroughs' Tarzan of the Apes",
-    "publisher": "Gold Key",
-    "year": 1962,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 146842,
-        "name": "Edgar Rice Burroughs' Tarzan of the Apes",
-        "publisher": "Dark Horse Comics",
-        "start_year": 2022
-      },
-      {
-        "id": 1343,
-        "name": "Edgar Rice Burroughs' Tarzan of the Apes",
-        "publisher": "Western Publishing",
-        "start_year": 1963
-      },
-      {
-        "id": 46632,
-        "name": "Edgar Rice Burroughs' Tarzan Of The Apes",
-        "publisher": "Dark Horse Comics",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554322+00:00"
   },
   {
     "name": "Adventure Time",
@@ -2583,40 +2449,6 @@
     ],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.554356+00:00"
-  },
-  {
-    "name": "Captain Midnight",
-    "publisher": "Fawcett Comics",
-    "year": 1942,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 23322,
-        "name": "Captain Midnight",
-        "publisher": "Fawcett Publications",
-        "start_year": 1942
-      },
-      {
-        "id": 58558,
-        "name": "Captain Midnight",
-        "publisher": "Moonstone",
-        "start_year": 2013
-      },
-      {
-        "id": 128615,
-        "name": "Captain Midnight",
-        "publisher": "L. Miller & Son, Ltd",
-        "start_year": 1950
-      },
-      {
-        "id": 63709,
-        "name": "Captain Midnight",
-        "publisher": "Dark Horse Comics",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554359+00:00"
   },
   {
     "name": "The Badger",
@@ -3266,34 +3098,6 @@
     "retry_after": "2026-09-21T14:00:38.554428+00:00"
   },
   {
-    "name": "Rocky Lane Western",
-    "publisher": "Fawcett Comics",
-    "year": 1949,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 61501,
-        "name": "Rocky Lane Western",
-        "publisher": "AC Comics",
-        "start_year": 1989
-      },
-      {
-        "id": 33510,
-        "name": "Rocky Lane Western",
-        "publisher": "Charlton",
-        "start_year": 1954
-      },
-      {
-        "id": 12044,
-        "name": "Rocky Lane Western",
-        "publisher": "Fawcett Publications",
-        "start_year": 1949
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554433+00:00"
-  },
-  {
     "name": "Vampirella",
     "publisher": "Dynamite Entertainment",
     "year": 1974,
@@ -3374,70 +3178,6 @@
     "retry_after": "2026-09-21T14:00:38.554440+00:00"
   },
   {
-    "name": "The Flintstones",
-    "publisher": "Gold Key",
-    "year": 1962,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26899,
-        "name": "The Flintstones",
-        "publisher": "Charlton",
-        "start_year": 1970
-      },
-      {
-        "id": 11612,
-        "name": "The Flintstones",
-        "publisher": "Western Publishing",
-        "start_year": 1962
-      },
-      {
-        "id": 11040,
-        "name": "The Flintstones",
-        "publisher": "Archie Comics",
-        "start_year": 1995
-      },
-      {
-        "id": 145148,
-        "name": "The Flintstones",
-        "publisher": "Americom",
-        "start_year": 1995
-      },
-      {
-        "id": 2900,
-        "name": "The Flintstones",
-        "publisher": "Marvel",
-        "start_year": 1977
-      },
-      {
-        "id": 100122,
-        "name": "The Flintstones",
-        "publisher": "DC Comics",
-        "start_year": 2017
-      },
-      {
-        "id": 35709,
-        "name": "The Flintstones",
-        "publisher": "Charlton",
-        "start_year": 1972
-      },
-      {
-        "id": 35576,
-        "name": "The Flintstones",
-        "publisher": "Harvey",
-        "start_year": 1992
-      },
-      {
-        "id": 92026,
-        "name": "The Flintstones",
-        "publisher": "DC Comics",
-        "start_year": 2016
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554443+00:00"
-  },
-  {
     "name": "Monte Hale Western",
     "publisher": "Fawcett Comics",
     "year": 1948,
@@ -3452,28 +3192,6 @@
     ],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.554446+00:00"
-  },
-  {
-    "name": "New Terrytoons",
-    "publisher": "Gold Key",
-    "year": 1962,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37811,
-        "name": "New Terrytoons",
-        "publisher": "Dell",
-        "start_year": 1960
-      },
-      {
-        "id": 11909,
-        "name": "New Terrytoons",
-        "publisher": "Western Publishing",
-        "start_year": 1962
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554449+00:00"
   },
   {
     "name": "Overkill",
@@ -3800,40 +3518,6 @@
     "candidates": [],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.554500+00:00"
-  },
-  {
-    "name": "Gabby Hayes Western",
-    "publisher": "Fawcett Comics",
-    "year": 1948,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 146462,
-        "name": "Gabby Hayes Western",
-        "publisher": "L. Miller & Son, Ltd",
-        "start_year": 1951
-      },
-      {
-        "id": 146991,
-        "name": "Gabby Hayes Western",
-        "publisher": "Derby Publishing",
-        "start_year": null
-      },
-      {
-        "id": 10832,
-        "name": "Gabby Hayes Western",
-        "publisher": "Fawcett Publications",
-        "start_year": 1948
-      },
-      {
-        "id": 147024,
-        "name": "Gabby Hayes Western",
-        "publisher": "Anglo-American Publishing Company Limited",
-        "start_year": 1949
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554503+00:00"
   },
   {
     "name": "Hal Jordan and the Green Lantern Corps",
@@ -4278,52 +3962,6 @@
     "retry_after": "2026-09-21T14:00:38.554589+00:00"
   },
   {
-    "name": "The Little Monsters",
-    "publisher": "Gold Key",
-    "year": 1964,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 141788,
-        "name": "Little Monsters",
-        "publisher": "Image",
-        "start_year": 2022
-      },
-      {
-        "id": 150225,
-        "name": "Little Monsters",
-        "publisher": "Image",
-        "start_year": 2022
-      },
-      {
-        "id": 11580,
-        "name": "The Little Monsters",
-        "publisher": "Western Publishing",
-        "start_year": 1964
-      },
-      {
-        "id": 44882,
-        "name": "Little Monsters",
-        "publisher": "Now Comics",
-        "start_year": 1990
-      },
-      {
-        "id": 149575,
-        "name": "Little Monsters ",
-        "publisher": "Splitter",
-        "start_year": 2023
-      },
-      {
-        "id": 159464,
-        "name": "Little Monsters",
-        "publisher": "Astiberri Ediciones",
-        "start_year": 2023
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554593+00:00"
-  },
-  {
     "name": "Ice Cream Man",
     "publisher": "Image Comics",
     "year": 2018,
@@ -4632,28 +4270,6 @@
     "candidates": [],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.554656+00:00"
-  },
-  {
-    "name": "Romantic Secrets",
-    "publisher": "Fawcett Comics",
-    "year": 1949,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 36690,
-        "name": "Romantic Secrets",
-        "publisher": "Charlton",
-        "start_year": 1955
-      },
-      {
-        "id": 38412,
-        "name": "Romantic Secrets",
-        "publisher": "Fawcett Publications",
-        "start_year": 1949
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554659+00:00"
   },
   {
     "name": "My Little Pony: Friends Forever",
@@ -5567,52 +5183,6 @@
     "retry_after": "2026-09-21T14:00:38.554788+00:00"
   },
   {
-    "name": "Yogi Bear",
-    "publisher": "Gold Key",
-    "year": 1962,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 35265,
-        "name": "Yogi Bear",
-        "publisher": "Harvey",
-        "start_year": 1992
-      },
-      {
-        "id": 25924,
-        "name": "Yogi Bear",
-        "publisher": "Western Publishing",
-        "start_year": 1962
-      },
-      {
-        "id": 69459,
-        "name": "Yogi Bear",
-        "publisher": "Federal",
-        "start_year": 1985
-      },
-      {
-        "id": 25925,
-        "name": "Yogi Bear",
-        "publisher": "Charlton",
-        "start_year": 1970
-      },
-      {
-        "id": 2919,
-        "name": "Yogi Bear",
-        "publisher": "Marvel",
-        "start_year": 1977
-      },
-      {
-        "id": 57934,
-        "name": "Yogi Bear",
-        "publisher": "Archie Comics",
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554791+00:00"
-  },
-  {
     "name": "Peanuts",
     "publisher": "BOOM! Studios",
     "year": 2012,
@@ -5756,28 +5326,6 @@
     ],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.554811+00:00"
-  },
-  {
-    "name": "Kaze Hikaru",
-    "publisher": "VIZ Media",
-    "year": 2006,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 66545,
-        "name": "Kaze Hikaru",
-        "publisher": "Shogakukan",
-        "start_year": 1997
-      },
-      {
-        "id": 29468,
-        "name": "Kaze Hikaru",
-        "publisher": "Viz",
-        "start_year": 2006
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554814+00:00"
   },
   {
     "name": "Seraph of the End: Vampire Reign",
@@ -6095,34 +5643,6 @@
     "retry_after": "2026-09-21T14:00:38.554846+00:00"
   },
   {
-    "name": "Wildcats",
-    "publisher": "WildStorm",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 9418,
-        "name": "Wildcats",
-        "publisher": "DC Comics",
-        "start_year": 1999
-      },
-      {
-        "id": 22470,
-        "name": "WildCats",
-        "publisher": "DC Comics",
-        "start_year": 2008
-      },
-      {
-        "id": 18003,
-        "name": "WildCats",
-        "publisher": "DC Comics",
-        "start_year": 2006
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554849+00:00"
-  },
-  {
     "name": "The Massive",
     "publisher": "Dark Horse Comics",
     "year": 2012,
@@ -6283,70 +5803,6 @@
     "candidates": [],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.554874+00:00"
-  },
-  {
-    "name": "The Authority",
-    "publisher": "WildStorm",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 7499,
-        "name": "The Authority",
-        "publisher": "DC Comics",
-        "start_year": 1999
-      },
-      {
-        "id": 11205,
-        "name": "The Authority",
-        "publisher": "DC Comics",
-        "start_year": 2003
-      },
-      {
-        "id": 61661,
-        "name": "Authority",
-        "publisher": "Panini Verlag",
-        "start_year": 2006
-      },
-      {
-        "id": 18250,
-        "name": "The Authority",
-        "publisher": "DC Comics",
-        "start_year": 2006
-      },
-      {
-        "id": 22539,
-        "name": "The Authority",
-        "publisher": "DC Comics",
-        "start_year": 2008
-      },
-      {
-        "id": 160131,
-        "name": "Authority",
-        "publisher": "Panini Brasil",
-        "start_year": 2016
-      },
-      {
-        "id": 61398,
-        "name": "The Authority",
-        "publisher": "DC Comics",
-        "start_year": 2013
-      },
-      {
-        "id": 132667,
-        "name": "The Authority",
-        "publisher": "DC Comics",
-        "start_year": 2020
-      },
-      {
-        "id": 150117,
-        "name": "The Authority",
-        "publisher": "Urban Comics",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554878+00:00"
   },
   {
     "name": "Green Arrow / Black Canary",
@@ -6662,34 +6118,6 @@
     "retry_after": "2026-09-21T14:00:38.554920+00:00"
   },
   {
-    "name": "Kaguya-sama: Love Is War",
-    "publisher": "VIZ Media",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 146278,
-        "name": "Kaguya-sama: Love is War",
-        "publisher": "M&C",
-        "start_year": null
-      },
-      {
-        "id": 109075,
-        "name": "Kaguya-sama: Love is War",
-        "publisher": "Viz",
-        "start_year": 2018
-      },
-      {
-        "id": 146870,
-        "name": "Kaguya-sama: Love is War",
-        "publisher": "Egmont Ehapa Verlag",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554924+00:00"
-  },
-  {
     "name": "Firestorm the Nuclear Man",
     "publisher": "DC Comics",
     "year": 1987,
@@ -6854,34 +6282,6 @@
     "retry_after": "2026-09-21T14:00:38.554952+00:00"
   },
   {
-    "name": "Planetary",
-    "publisher": "WildStorm",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 102831,
-        "name": "Planetary",
-        "publisher": "DC Comics",
-        "start_year": 2017
-      },
-      {
-        "id": 7506,
-        "name": "Planetary",
-        "publisher": "DC Comics",
-        "start_year": 1999
-      },
-      {
-        "id": 163692,
-        "name": "Planetary",
-        "publisher": "Norma Editorial",
-        "start_year": 2007
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554955+00:00"
-  },
-  {
     "name": "Fullmetal Alchemist",
     "publisher": "VIZ Media",
     "year": 2005,
@@ -6964,28 +6364,6 @@
     ],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.554967+00:00"
-  },
-  {
-    "name": "Sleepy Princess in the Demon Castle",
-    "publisher": "VIZ Media",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 111526,
-        "name": "Sleepy Princess in the Demon Castle",
-        "publisher": "Viz",
-        "start_year": 2018
-      },
-      {
-        "id": 166145,
-        "name": "Sleepy Princess in the Demon Castle",
-        "publisher": "Meian",
-        "start_year": 2023
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554970+00:00"
   },
   {
     "name": "Marvel Knights 4",
@@ -9212,46 +8590,6 @@
     "candidates": [],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.555654+00:00"
-  },
-  {
-    "name": "The Black Hole",
-    "publisher": "Gold Key",
-    "year": 1979,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 7234,
-        "name": "Black Hole",
-        "publisher": "Fantagraphics",
-        "start_year": 1995
-      },
-      {
-        "id": 54095,
-        "name": "Black Hole",
-        "publisher": "Conrad Editora",
-        "start_year": 2007
-      },
-      {
-        "id": 49278,
-        "name": "The Black Hole",
-        "publisher": "Western Publishing",
-        "start_year": 1979
-      },
-      {
-        "id": 21545,
-        "name": "Black Hole",
-        "publisher": "Pantheon Books",
-        "start_year": 2005
-      },
-      {
-        "id": 136303,
-        "name": "The Black Hole",
-        "publisher": "IPC Magazines Ltd.",
-        "start_year": 1980
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555657+00:00"
   },
   {
     "name": "True Believers: Conan - Resurrection",
@@ -25379,23 +24717,6 @@
     "retry_after": "2026-09-28T16:41:04.707674+00:00"
   },
   {
-    "name": "Edgar Allan Poe: The Pit and the Pendulum and Other Stories",
-    "publisher": "Malibu Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 74366,
-        "name": "Edgar Allan Poe: The Pit and the Pendulum and Other Stories",
-        "publisher": "Eternity",
-        "start_year": 1988
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-25T16:41:04.373514+00:00",
-    "retry_after": "2026-09-28T16:41:04.373523+00:00"
-  },
-  {
     "name": "Scooby-Doo!",
     "publisher": "DC Comics",
     "year": null,
@@ -25650,23 +24971,6 @@
     "retry_after": "2026-09-28T18:00:52.089184+00:00"
   },
   {
-    "name": "Greenlock",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37138,
-        "name": "Greenlock",
-        "publisher": "Aircel Publishing",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-25T18:00:52.364993+00:00",
-    "retry_after": "2026-09-28T18:00:52.365008+00:00"
-  },
-  {
     "name": "Penny Arcade",
     "publisher": "Dark Horse Comics",
     "year": 2005,
@@ -25830,23 +25134,6 @@
     "retry_after": "2026-09-28T19:19:52.834904+00:00"
   },
   {
-    "name": "Storm Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22054,
-        "name": "Storm Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-25T19:19:52.883412+00:00",
-    "retry_after": "2026-09-28T19:19:52.883420+00:00"
-  },
-  {
     "name": "Lita Ford: The Queen of Heavy Metal",
     "publisher": "Malibu Comics",
     "year": 1993,
@@ -25947,23 +25234,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-25T20:05:20.264924+00:00",
     "retry_after": "2026-09-28T20:05:20.264936+00:00"
-  },
-  {
-    "name": "I Love Lucy in 3-D",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 63061,
-        "name": "I Love Lucy in 3-D",
-        "publisher": "Eternity",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-25T20:05:20.630231+00:00",
-    "retry_after": "2026-09-28T20:05:20.630245+00:00"
   },
   {
     "name": "Generation X",
@@ -26251,23 +25521,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-26T00:08:04.837422+00:00",
     "retry_after": "2026-09-29T00:08:04.837432+00:00"
-  },
-  {
-    "name": "Disney-Pixar/Muppets Presents: Meet the Muppets",
-    "publisher": "Marvel Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 55683,
-        "name": "Disney-Pixar/Muppets Presents: Meet the Muppets",
-        "publisher": "Disney",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-26T00:08:05.219306+00:00",
-    "retry_after": "2026-09-29T00:08:05.219315+00:00"
   },
   {
     "name": "The Haunted: Gray Matters",
@@ -26834,23 +26087,6 @@
     "retry_after": "2026-09-26T06:05:12.929922+00:00"
   },
   {
-    "name": "Ninja High Yearbook",
-    "publisher": "Malibu Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 144056,
-        "name": "Ninja High Yearbook ",
-        "publisher": "Eternity",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T07:01:40.292470+00:00",
-    "retry_after": "2026-09-26T07:01:40.292487+00:00"
-  },
-  {
     "name": "Best Cartoons of the World",
     "publisher": "Dell Comics",
     "year": 1969,
@@ -26859,23 +26095,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T07:02:21.439630+00:00",
     "retry_after": "2026-09-26T07:02:21.439647+00:00"
-  },
-  {
-    "name": "Totally Rad Tales",
-    "publisher": "Harvey Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 94078,
-        "name": "Totally Rad Tales",
-        "publisher": "Lorne-Harvey",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T07:02:21.835425+00:00",
-    "retry_after": "2026-09-26T07:02:21.835440+00:00"
   },
   {
     "name": "Dan Curtis Giveaways Turok, Son of Stone",
@@ -26969,40 +26188,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T09:00:55.126242+00:00",
     "retry_after": "2026-09-26T09:00:55.126258+00:00"
-  },
-  {
-    "name": "The Phoenix Resurrection: Revelations",
-    "publisher": "Malibu Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18475,
-        "name": "The Phoenix Resurrection: Revelations",
-        "publisher": "Marvel",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T09:01:07.565519+00:00",
-    "retry_after": "2026-09-26T09:01:07.565534+00:00"
-  },
-  {
-    "name": "The Phoenix Resurrection: Genesis",
-    "publisher": "Malibu Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18474,
-        "name": "The Phoenix Resurrection Genesis",
-        "publisher": "Marvel",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T09:01:08.016227+00:00",
-    "retry_after": "2026-09-26T09:01:08.016241+00:00"
   },
   {
     "name": "Cadillacs and Dinosaurs Special Tyco Toys Edition",
@@ -27186,23 +26371,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T11:04:17.382491+00:00",
     "retry_after": "2026-09-26T11:04:17.382507+00:00"
-  },
-  {
-    "name": "Talk Bernie to Me!: The Bernie Sanders Special and AOC Surprise",
-    "publisher": "First Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 120033,
-        "name": "Talk Bernie To Me! The Bernie Sanders Special & AOC Surprise",
-        "publisher": "Devil's Due",
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:18:43.511888+00:00",
-    "retry_after": "2026-09-26T11:18:43.511907+00:00"
   },
   {
     "name": "Detective Comics: Rise of the Batmen",
@@ -27512,23 +26680,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T15:00:43.981618+00:00",
     "retry_after": "2026-09-26T15:00:43.981636+00:00"
-  },
-  {
-    "name": "Herobear and the Kid",
-    "publisher": "BOOM! Studios",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24564,
-        "name": "Herobear And The Kid",
-        "publisher": "Astonish Comics",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T15:04:27.402860+00:00",
-    "retry_after": "2026-09-26T15:04:27.402876+00:00"
   },
   {
     "name": "Grimm Fairy Tales #0 Free Comic Book Day Special Edition",
@@ -28190,23 +27341,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T21:04:12.143779+00:00",
     "retry_after": "2026-09-26T21:04:12.143795+00:00"
-  },
-  {
-    "name": "Outlaws of the Wild West",
-    "publisher": "Charlton Comics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 59870,
-        "name": "Outlaws of the Wild West",
-        "publisher": "Avon",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T21:04:41.641191+00:00",
-    "retry_after": "2026-09-26T21:04:41.641208+00:00"
   },
   {
     "name": "Jim Butcher's Dresden Files Omnibus",

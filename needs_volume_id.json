@@ -2832,58 +2832,6 @@
     "retry_after": "2026-09-21T14:00:38.554398+00:00"
   },
   {
-    "name": "X-O Manowar",
-    "publisher": "Valiant Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 100101,
-        "name": "X-O Manowar",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2017
-      },
-      {
-        "id": 4831,
-        "name": "X-O Manowar",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1992
-      },
-      {
-        "id": 93714,
-        "name": "X-O Manowar",
-        "publisher": "Panini España",
-        "start_year": 2013
-      },
-      {
-        "id": 48559,
-        "name": "X-O Manowar",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2012
-      },
-      {
-        "id": 6036,
-        "name": "X-O Manowar",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1997
-      },
-      {
-        "id": 126005,
-        "name": "X-O Manowar",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2020
-      },
-      {
-        "id": 136012,
-        "name": "X-O Manowar",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2021
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554401+00:00"
-  },
-  {
     "name": "Star Trek",
     "publisher": "Gold Key",
     "year": 1967,
@@ -9575,28 +9523,6 @@
     "retry_after": "2026-09-21T14:00:38.555921+00:00"
   },
   {
-    "name": "Unity",
-    "publisher": "Valiant Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 69121,
-        "name": "Unity",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2013
-      },
-      {
-        "id": 4830,
-        "name": "Unity",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555924+00:00"
-  },
-  {
     "name": "Marvel Adventures Flip Magazine",
     "publisher": "Marvel Comics",
     "year": 2005,
@@ -9613,28 +9539,6 @@
     "candidates": [],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.555930+00:00"
-  },
-  {
-    "name": "DC Universe Online Legends",
-    "publisher": "DC Comics",
-    "year": 2011,
-    "reason": "multiple_same_start_year",
-    "candidates": [
-      {
-        "id": 38217,
-        "name": "DC Universe Online Legends",
-        "publisher": "DC Comics",
-        "start_year": 2011
-      },
-      {
-        "id": 46678,
-        "name": "DC Universe Online Legends",
-        "publisher": "DC Comics",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555933+00:00"
   },
   {
     "name": "Dragon Ball Z",
@@ -25528,9 +25432,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T00:28:43.552693+00:00",
-    "retry_after": "2026-09-26T00:28:43.552707+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T01:06:12.846740+00:00",
+    "retry_after": "2026-09-29T01:06:12.846757+00:00"
   },
   {
     "name": "Iron Man by Michelinie, Layton & Romita Jr. Omnibus",
@@ -25538,9 +25442,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T00:28:44.001151+00:00",
-    "retry_after": "2026-09-26T00:28:44.001167+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T01:06:13.259149+00:00",
+    "retry_after": "2026-09-29T01:06:13.259167+00:00"
   },
   {
     "name": "Disney Twisted-Wonderland: The Manga: Book of Savanaclaw",
@@ -25548,9 +25452,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T00:29:20.027617+00:00",
-    "retry_after": "2026-09-26T00:29:20.027632+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T01:06:18.109256+00:00",
+    "retry_after": "2026-09-29T01:06:18.109269+00:00"
   },
   {
     "name": "Justice League by Scott Snyder and James Tynion IV Omnibus",
@@ -25558,9 +25462,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T00:29:52.909674+00:00",
-    "retry_after": "2026-09-26T00:29:52.909689+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T01:06:14.478840+00:00",
+    "retry_after": "2026-09-29T01:06:14.478857+00:00"
   },
   {
     "name": "Mars Attacks",
@@ -25581,9 +25485,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T00:29:53.291885+00:00",
-    "retry_after": "2026-09-26T00:29:53.291899+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T01:06:15.143887+00:00",
+    "retry_after": "2026-09-29T01:06:15.143905+00:00"
   },
   {
     "name": "AAFES 16th Edition [Thor]",
@@ -25591,9 +25495,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T01:00:45.075759+00:00",
-    "retry_after": "2026-09-26T01:00:45.075775+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T01:06:15.491997+00:00",
+    "retry_after": "2026-09-29T01:06:15.492016+00:00"
   },
   {
     "name": "Witchblade",
@@ -25638,9 +25542,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T01:00:45.722863+00:00",
-    "retry_after": "2026-09-26T01:00:45.722878+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T01:06:15.893202+00:00",
+    "retry_after": "2026-09-29T01:06:15.893220+00:00"
   },
   {
     "name": "Critical Role: Vox Machina Origins",
@@ -25661,9 +25565,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T01:00:56.212012+00:00",
-    "retry_after": "2026-09-26T01:00:56.212027+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T01:06:16.665799+00:00",
+    "retry_after": "2026-09-29T01:06:16.665817+00:00"
   },
   {
     "name": "Rat Queens",
@@ -25684,9 +25588,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T01:02:08.903844+00:00",
-    "retry_after": "2026-09-26T01:02:08.903859+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T01:06:17.110398+00:00",
+    "retry_after": "2026-09-29T01:06:17.110415+00:00"
   },
   {
     "name": "Marvel Super Heroes Secret Wars Special",
@@ -25694,9 +25598,9 @@
     "year": 1985,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T01:02:27.296357+00:00",
-    "retry_after": "2026-09-26T01:02:27.296374+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T01:06:17.532112+00:00",
+    "retry_after": "2026-09-29T01:06:17.532129+00:00"
   },
   {
     "name": "Odell's Special Edition Adventures in 3-D",
@@ -25704,9 +25608,9 @@
     "year": 1953,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T01:02:35.246115+00:00",
-    "retry_after": "2026-09-26T01:02:35.246131+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T01:06:17.958645+00:00",
+    "retry_after": "2026-09-29T01:06:17.958663+00:00"
   },
   {
     "name": "Malefic",
@@ -25721,9 +25625,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T02:01:08.793517+00:00",
-    "retry_after": "2026-09-26T02:01:08.793529+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T02:18:09.367133+00:00",
+    "retry_after": "2026-09-29T02:18:09.367141+00:00"
   },
   {
     "name": "True Believers: What If the Avengers Had Fought Evil During the 1950s?",
@@ -25731,9 +25635,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T02:01:44.300247+00:00",
-    "retry_after": "2026-09-26T02:01:44.300262+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T02:18:03.101637+00:00",
+    "retry_after": "2026-09-29T02:18:03.101655+00:00"
   },
   {
     "name": "T.H.U.N.D.E.R. Agents",
@@ -25754,9 +25658,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T02:01:44.675955+00:00",
-    "retry_after": "2026-09-26T02:01:44.675969+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T02:18:03.467565+00:00",
+    "retry_after": "2026-09-29T02:18:03.467581+00:00"
   },
   {
     "name": "Ms. Marvel No 1 Halloween Comic Fest 2018",
@@ -25764,9 +25668,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T02:01:49.489905+00:00",
-    "retry_after": "2026-09-26T02:01:49.489916+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T02:18:03.960505+00:00",
+    "retry_after": "2026-09-29T02:18:03.960521+00:00"
   },
   {
     "name": "Marvel Comics Illustrated Version of The Avengers",
@@ -25774,9 +25678,9 @@
     "year": 1982,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T02:01:49.917425+00:00",
-    "retry_after": "2026-09-26T02:01:49.917433+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T02:18:04.293672+00:00",
+    "retry_after": "2026-09-29T02:18:04.293688+00:00"
   },
   {
     "name": "Marvel's Captain Marvel Prelude",
@@ -25797,9 +25701,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T02:02:34.442009+00:00",
-    "retry_after": "2026-09-26T02:02:34.442019+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T02:18:05.324346+00:00",
+    "retry_after": "2026-09-29T02:18:05.324363+00:00"
   },
   {
     "name": "Green Arrow Wal-Mart Edition",
@@ -25807,9 +25711,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T02:02:34.932942+00:00",
-    "retry_after": "2026-09-26T02:02:34.932951+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T02:18:05.728521+00:00",
+    "retry_after": "2026-09-29T02:18:05.728529+00:00"
   },
   {
     "name": "B.C. The Sun Comes Up the Sun Goes Down",
@@ -25817,9 +25721,9 @@
     "year": 1979,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T02:02:36.663523+00:00",
-    "retry_after": "2026-09-26T02:02:36.663540+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T02:18:06.700595+00:00",
+    "retry_after": "2026-09-29T02:18:06.700602+00:00"
   },
   {
     "name": "Dawn / Vampirella",
@@ -25840,9 +25744,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T03:01:06.371974+00:00",
-    "retry_after": "2026-09-26T03:01:06.371984+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T03:14:22.122862+00:00",
+    "retry_after": "2026-09-29T03:14:22.122879+00:00"
   },
   {
     "name": "Dollar Comics: Infinite Crisis 1",
@@ -25850,9 +25754,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T03:01:06.894466+00:00",
-    "retry_after": "2026-09-26T03:01:06.894475+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T03:14:23.684634+00:00",
+    "retry_after": "2026-09-29T03:14:23.684650+00:00"
   },
   {
     "name": "Star Wars Reads Free Sampler",
@@ -25860,9 +25764,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T03:01:52.738637+00:00",
-    "retry_after": "2026-09-26T03:01:52.738652+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T03:14:23.775089+00:00",
+    "retry_after": "2026-09-29T03:14:23.775104+00:00"
   },
   {
     "name": "Gearstation",
@@ -25870,9 +25774,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T03:01:52.949244+00:00",
-    "retry_after": "2026-09-26T03:01:52.949259+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T03:14:23.582761+00:00",
+    "retry_after": "2026-09-29T03:14:23.582779+00:00"
   },
   {
     "name": "Locke & Key: Small World Deluxe Edition",
@@ -25880,9 +25784,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T04:01:50.845142+00:00",
-    "retry_after": "2026-09-26T04:01:50.845162+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T04:14:38.446910+00:00",
+    "retry_after": "2026-09-29T04:14:38.446922+00:00"
   },
   {
     "name": "Hasbro / The Defenders",
@@ -25890,9 +25794,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T04:02:25.738308+00:00",
-    "retry_after": "2026-09-26T04:02:25.738328+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T04:14:37.834535+00:00",
+    "retry_after": "2026-09-29T04:14:37.834552+00:00"
   },
   {
     "name": "Dread Force",
@@ -25900,9 +25804,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T04:02:26.266022+00:00",
-    "retry_after": "2026-09-26T04:02:26.266041+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T04:14:38.387583+00:00",
+    "retry_after": "2026-09-29T04:14:38.387598+00:00"
   },
   {
     "name": "Seeker: Dawn of Armageddon",
@@ -25910,9 +25814,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:00:33.008584+00:00",
-    "retry_after": "2026-09-26T05:00:33.008596+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T05:06:33.811073+00:00",
+    "retry_after": "2026-09-29T05:06:33.811082+00:00"
   },
   {
     "name": "Advanced Dungeons & Dragons Annual Comic Book",
@@ -25920,9 +25824,9 @@
     "year": 1990,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:01:16.881674+00:00",
-    "retry_after": "2026-09-26T05:01:16.881683+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T05:06:33.770314+00:00",
+    "retry_after": "2026-09-29T05:06:33.770323+00:00"
   },
   {
     "name": "Secret Invasion #1 Director's Cut",
@@ -25930,9 +25834,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:02:18.873717+00:00",
-    "retry_after": "2026-09-26T05:02:18.873725+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T05:06:32.735293+00:00",
+    "retry_after": "2026-09-29T05:06:32.735310+00:00"
   },
   {
     "name": "Mars Attacks Baseball Special",
@@ -25940,9 +25844,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:02:24.106047+00:00",
-    "retry_after": "2026-09-26T05:02:24.106054+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T05:06:33.148668+00:00",
+    "retry_after": "2026-09-29T05:06:33.148684+00:00"
   },
   {
     "name": "Flash",
@@ -25999,9 +25903,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:02:33.409349+00:00",
-    "retry_after": "2026-09-26T05:02:33.409356+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T05:06:33.679591+00:00",
+    "retry_after": "2026-09-29T05:06:33.679607+00:00"
   },
   {
     "name": "Battlestar Galactica",
@@ -26022,9 +25926,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:53:53.817271+00:00",
-    "retry_after": "2026-09-26T05:53:53.817294+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T06:01:13.707587+00:00",
+    "retry_after": "2026-09-29T06:01:13.707602+00:00"
   },
   {
     "name": "Aspen Splash: 2006 Swimsuit Spectacular",
@@ -26032,9 +25936,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:54:16.233533+00:00",
-    "retry_after": "2026-09-26T05:54:16.233551+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T06:01:14.240661+00:00",
+    "retry_after": "2026-09-29T06:01:14.240686+00:00"
   },
   {
     "name": "Witch & Wizard",
@@ -26042,9 +25946,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:54:34.991204+00:00",
-    "retry_after": "2026-09-26T05:54:34.991223+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T06:01:14.748961+00:00",
+    "retry_after": "2026-09-29T06:01:14.748975+00:00"
   },
   {
     "name": "Star Trek: Deep Space Nine, The Celebrity Series: Blood and Honor",
@@ -26052,9 +25956,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T06:00:55.303017+00:00",
-    "retry_after": "2026-09-26T06:00:55.303034+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T06:01:15.217892+00:00",
+    "retry_after": "2026-09-29T06:01:15.217907+00:00"
   },
   {
     "name": "Daredevil by Brian Michael Bendis Omnibus",
@@ -26062,9 +25966,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T06:03:57.184582+00:00",
-    "retry_after": "2026-09-26T06:03:57.184593+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T07:00:41.309009+00:00",
+    "retry_after": "2026-09-29T07:00:41.309025+00:00"
   },
   {
     "name": "Solar, Man of the Atom [Alpha and Omega]",
@@ -26072,9 +25976,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T06:04:20.980236+00:00",
-    "retry_after": "2026-09-26T06:04:20.980245+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T07:00:41.710861+00:00",
+    "retry_after": "2026-09-29T07:00:41.710878+00:00"
   },
   {
     "name": "Shame of Thrones",
@@ -26082,9 +25986,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T06:05:12.929913+00:00",
-    "retry_after": "2026-09-26T06:05:12.929922+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T07:00:42.193761+00:00",
+    "retry_after": "2026-09-29T07:00:42.193775+00:00"
   },
   {
     "name": "Best Cartoons of the World",
@@ -26092,9 +25996,9 @@
     "year": 1969,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T07:02:21.439630+00:00",
-    "retry_after": "2026-09-26T07:02:21.439647+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T08:00:41.999066+00:00",
+    "retry_after": "2026-09-29T08:00:41.999082+00:00"
   },
   {
     "name": "Dan Curtis Giveaways Turok, Son of Stone",
@@ -26102,9 +26006,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T07:02:22.625879+00:00",
-    "retry_after": "2026-09-26T07:02:22.625895+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T08:00:42.489388+00:00",
+    "retry_after": "2026-09-29T08:00:42.489405+00:00"
   },
   {
     "name": "Dan Curtis Giveaways The Twilight Zone",
@@ -26112,9 +26016,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T07:02:34.767704+00:00",
-    "retry_after": "2026-09-26T07:02:34.767716+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T08:00:42.794711+00:00",
+    "retry_after": "2026-09-29T08:00:42.794730+00:00"
   },
   {
     "name": "Mike Deodato's Fallout 3000",
@@ -26122,9 +26026,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T07:02:39.580319+00:00",
-    "retry_after": "2026-09-26T07:02:39.580333+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T08:00:43.213635+00:00",
+    "retry_after": "2026-09-29T08:00:43.213650+00:00"
   },
   {
     "name": "Eternal Warriors: Archer & Armstrong",
@@ -26132,9 +26036,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T08:06:30.516975+00:00",
-    "retry_after": "2026-09-26T08:06:30.516995+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T09:00:43.841051+00:00",
+    "retry_after": "2026-09-29T09:00:43.841071+00:00"
   },
   {
     "name": "Night Man: The Pilgrim Conundrum Saga",
@@ -26142,9 +26046,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T08:08:38.818617+00:00",
-    "retry_after": "2026-09-26T08:08:38.818637+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T09:00:44.202291+00:00",
+    "retry_after": "2026-09-29T09:00:44.202311+00:00"
   },
   {
     "name": "Enter the Heroic Age (HA)",
@@ -26152,9 +26056,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T08:09:47.308843+00:00",
-    "retry_after": "2026-09-26T08:09:47.308866+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T09:00:44.540247+00:00",
+    "retry_after": "2026-09-29T09:00:44.540272+00:00"
   },
   {
     "name": "Jim Special #1: Frank's Real Pa",
@@ -26162,9 +26066,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T09:00:49.087829+00:00",
-    "retry_after": "2026-09-26T09:00:49.087851+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T09:10:49.040288+00:00",
+    "retry_after": "2026-09-29T09:10:49.040306+00:00"
   },
   {
     "name": "Spawn Resurrection",
@@ -26185,9 +26089,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T09:00:55.126242+00:00",
-    "retry_after": "2026-09-26T09:00:55.126258+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T09:10:49.608334+00:00",
+    "retry_after": "2026-09-29T09:10:49.608350+00:00"
   },
   {
     "name": "Cadillacs and Dinosaurs Special Tyco Toys Edition",
@@ -26195,9 +26099,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T09:01:40.661638+00:00",
-    "retry_after": "2026-09-26T09:01:40.661653+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T09:10:50.042744+00:00",
+    "retry_after": "2026-09-29T09:10:50.042766+00:00"
   },
   {
     "name": "Avengers: Earth's Mightiest Heroes #8 [Marvel Legends Reprint]",
@@ -26205,9 +26109,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T09:01:41.110770+00:00",
-    "retry_after": "2026-09-26T09:01:41.110785+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T09:10:50.522185+00:00",
+    "retry_after": "2026-09-29T09:10:50.522202+00:00"
   },
   {
     "name": "True Believers: Annihilation - Man-Wolf in Space",
@@ -26215,9 +26119,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T09:01:41.616995+00:00",
-    "retry_after": "2026-09-26T09:01:41.617011+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T09:10:51.666898+00:00",
+    "retry_after": "2026-09-29T09:10:51.666913+00:00"
   },
   {
     "name": "Planet of the Apes: Sins of the Father",
@@ -26225,9 +26129,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T09:01:54.997785+00:00",
-    "retry_after": "2026-09-26T09:01:54.997800+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T09:10:51.592780+00:00",
+    "retry_after": "2026-09-29T09:10:51.592796+00:00"
   },
   {
     "name": "Dark Tower: The Drawing of the Three / Revenge Sampler",
@@ -26235,9 +26139,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T10:02:02.387190+00:00",
-    "retry_after": "2026-09-26T10:02:02.387211+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T11:00:42.802323+00:00",
+    "retry_after": "2026-09-29T11:00:42.802343+00:00"
   },
   {
     "name": "Street Fighter 2018 Summer Sports Special",
@@ -26245,9 +26149,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T10:03:47.444271+00:00",
-    "retry_after": "2026-09-26T10:03:47.444291+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T11:00:43.328304+00:00",
+    "retry_after": "2026-09-29T11:00:43.328324+00:00"
   },
   {
     "name": "Dan Curtis Giveaways Dagar the Invincible",
@@ -26255,9 +26159,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T10:03:55.042701+00:00",
-    "retry_after": "2026-09-26T10:03:55.042720+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T11:00:44.349962+00:00",
+    "retry_after": "2026-09-29T11:00:44.349981+00:00"
   },
   {
     "name": "Superboy",
@@ -26302,9 +26206,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:00:38.450961+00:00",
-    "retry_after": "2026-09-26T11:00:38.450977+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T11:00:44.294162+00:00",
+    "retry_after": "2026-09-29T11:00:44.294181+00:00"
   },
   {
     "name": "Catacomb of Torment",
@@ -26312,9 +26216,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:04:10.841175+00:00",
-    "retry_after": "2026-09-26T11:04:10.841195+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T12:00:43.388039+00:00",
+    "retry_after": "2026-09-29T12:00:43.388054+00:00"
   },
   {
     "name": "True Believers: Phoenix - What if?",
@@ -26322,9 +26226,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:04:16.503418+00:00",
-    "retry_after": "2026-09-26T11:04:16.503435+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T12:00:45.123084+00:00",
+    "retry_after": "2026-09-29T12:00:45.123101+00:00"
   },
   {
     "name": "Path of Exile",
@@ -26345,9 +26249,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:04:16.967158+00:00",
-    "retry_after": "2026-09-26T11:04:16.967176+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T12:00:45.494449+00:00",
+    "retry_after": "2026-09-29T12:00:45.494464+00:00"
   },
   {
     "name": "Gotham Central",
@@ -26368,9 +26272,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:04:17.382491+00:00",
-    "retry_after": "2026-09-26T11:04:17.382507+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T12:00:48.320999+00:00",
+    "retry_after": "2026-09-29T12:00:48.321014+00:00"
   },
   {
     "name": "Detective Comics: Rise of the Batmen",
@@ -26378,9 +26282,9 @@
     "year": null,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:18:44.047984+00:00",
-    "retry_after": "2026-09-26T11:18:44.048001+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T12:00:46.354354+00:00",
+    "retry_after": "2026-09-29T12:00:46.354369+00:00"
   },
   {
     "name": "Star Trek: Day of Blood #1 - Directors Cut",
@@ -26388,9 +26292,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:18:44.532799+00:00",
-    "retry_after": "2026-09-26T11:18:44.532808+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T12:00:46.731959+00:00",
+    "retry_after": "2026-09-29T12:00:46.731975+00:00"
   },
   {
     "name": "Red Sonja Free Comic Book Day",
@@ -26398,9 +26302,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:19:04.818135+00:00",
-    "retry_after": "2026-09-26T11:19:04.818149+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T12:00:47.208100+00:00",
+    "retry_after": "2026-09-29T12:00:47.208117+00:00"
   },
   {
     "name": "Defenders Doctor Strange",
@@ -26408,9 +26312,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:19:05.803215+00:00",
-    "retry_after": "2026-09-26T11:19:05.803231+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T12:00:47.608411+00:00",
+    "retry_after": "2026-09-29T12:00:47.608427+00:00"
   },
   {
     "name": "The Walking Dead #1 Wizard World Columbus Comicon Exclusive",
@@ -26418,9 +26322,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:19:06.279240+00:00",
-    "retry_after": "2026-09-26T11:19:06.279255+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T12:00:47.959696+00:00",
+    "retry_after": "2026-09-29T12:00:47.959710+00:00"
   },
   {
     "name": "Wrath of the Eternal Warrior Dollar Debut",
@@ -26428,9 +26332,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:19:06.629043+00:00",
-    "retry_after": "2026-09-26T11:19:06.629058+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T12:00:48.273405+00:00",
+    "retry_after": "2026-09-29T12:00:48.273420+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Punisher by Grant & Zeck",
@@ -26438,9 +26342,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T12:01:10.086102+00:00",
-    "retry_after": "2026-09-26T12:01:10.086124+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T13:00:45.442493+00:00",
+    "retry_after": "2026-09-29T13:00:45.442509+00:00"
   },
   {
     "name": "True Believers: Spider-Man - The New Spider-Man!",
@@ -26448,9 +26352,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T12:01:15.786833+00:00",
-    "retry_after": "2026-09-26T12:01:15.786852+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T13:00:45.845199+00:00",
+    "retry_after": "2026-09-29T13:00:45.845217+00:00"
   },
   {
     "name": "Silver Surfer",
@@ -26513,9 +26417,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T12:01:26.942972+00:00",
-    "retry_after": "2026-09-26T12:01:26.942989+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T13:00:47.778767+00:00",
+    "retry_after": "2026-09-29T13:00:47.778782+00:00"
   },
   {
     "name": "Fantastic Four Vol.3, No. 60 [Marvel Legends Reprint]",
@@ -26523,9 +26427,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T13:01:44.659949+00:00",
-    "retry_after": "2026-09-26T13:01:44.659967+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:33:09.294419+00:00",
+    "retry_after": "2026-09-29T14:33:09.294435+00:00"
   },
   {
     "name": "Ms. Marvel Annual",
@@ -26546,9 +26450,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T13:02:16.148565+00:00",
-    "retry_after": "2026-09-26T13:02:16.148582+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:33:09.716971+00:00",
+    "retry_after": "2026-09-29T14:33:09.716986+00:00"
   },
   {
     "name": "B&V Friends Forever [Betty and Veronica Friends Forever]",
@@ -26556,9 +26460,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T13:02:54.946061+00:00",
-    "retry_after": "2026-09-26T13:02:54.946078+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:33:10.067774+00:00",
+    "retry_after": "2026-09-29T14:33:10.067790+00:00"
   },
   {
     "name": "Ms. Marvel: Marvel Tales",
@@ -26566,9 +26470,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T13:03:50.705414+00:00",
-    "retry_after": "2026-09-26T13:03:50.705434+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:33:10.361088+00:00",
+    "retry_after": "2026-09-29T14:33:10.361103+00:00"
   },
   {
     "name": "Mister Miracle",
@@ -26607,9 +26511,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T14:00:45.048515+00:00",
-    "retry_after": "2026-09-26T14:00:45.048529+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:33:10.676877+00:00",
+    "retry_after": "2026-09-29T14:33:10.676891+00:00"
   },
   {
     "name": "The Transformers: Escalation Black & White",
@@ -26617,9 +26521,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T14:00:45.505817+00:00",
-    "retry_after": "2026-09-26T14:00:45.505834+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:33:11.081574+00:00",
+    "retry_after": "2026-09-29T14:33:11.081590+00:00"
   },
   {
     "name": "Free Comic Book Day 2014 (Guardians of the Galaxy)",
@@ -27482,5 +27386,1123 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T00:03:11.420593+00:00",
     "retry_after": "2026-09-27T00:03:11.420612+00:00"
+  },
+  {
+    "name": "Batman Annual",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3109,
+        "name": "Batman Annual",
+        "publisher": "DC Comics",
+        "start_year": 1961
+      },
+      {
+        "id": 96128,
+        "name": "Batman Annual",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 49197,
+        "name": "Batman Annual",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:16:31.354829+00:00",
+    "retry_after": "2026-09-27T03:16:31.354846+00:00"
+  },
+  {
+    "name": "Star Trek: Year Five Deluxe Edition",
+    "publisher": "IDW Publishing",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:53:25.581321+00:00",
+    "retry_after": "2026-09-27T03:53:25.581340+00:00"
+  },
+  {
+    "name": "L'Accordeur",
+    "publisher": "Dynamite Entertainment",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 146185,
+        "name": "L'Accordeur",
+        "publisher": "Dynamite (France)",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:53:51.251198+00:00",
+    "retry_after": "2026-09-27T03:53:51.251219+00:00"
+  },
+  {
+    "name": "Afterworks",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:55:32.641102+00:00",
+    "retry_after": "2026-09-27T03:55:32.641122+00:00"
+  },
+  {
+    "name": "Losers",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 31255,
+        "name": "The Losers",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 11226,
+        "name": "The Losers",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:55:41.404193+00:00",
+    "retry_after": "2026-09-27T03:55:41.404211+00:00"
+  },
+  {
+    "name": "Snow Angels",
+    "publisher": "Dark Horse Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132662,
+        "name": "Snow Angels",
+        "publisher": "4Twenty Limited",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:55:42.077081+00:00",
+    "retry_after": "2026-09-27T03:55:42.077099+00:00"
+  },
+  {
+    "name": "Justice League International",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3798,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 42590,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 4966,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 1993
+      },
+      {
+        "id": 27019,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 55320,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:55:42.696667+00:00",
+    "retry_after": "2026-09-27T03:55:42.696685+00:00"
+  },
+  {
+    "name": "Killadelphia Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:55:43.223757+00:00",
+    "retry_after": "2026-09-27T03:55:43.223775+00:00"
+  },
+  {
+    "name": "Little Nightmares",
+    "publisher": "Titan Comics",
+    "year": 2017,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 101783,
+        "name": "Little Nightmares",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 104956,
+        "name": "Little Nightmares",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:56:09.719386+00:00",
+    "retry_after": "2026-09-27T03:56:09.719403+00:00"
+  },
+  {
+    "name": "Xena",
+    "publisher": "Dynamite Entertainment",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71037,
+        "name": "Xena",
+        "publisher": "Dino Comics",
+        "start_year": 1998
+      },
+      {
+        "id": 44571,
+        "name": "Xena",
+        "publisher": "Brainstorm",
+        "start_year": 1995
+      },
+      {
+        "id": 44596,
+        "name": "Xena",
+        "publisher": "Hjemmet",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:56:31.306300+00:00",
+    "retry_after": "2026-09-27T03:56:31.306319+00:00"
+  },
+  {
+    "name": "Hulk by Donny Cates",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T04:15:08.959252+00:00",
+    "retry_after": "2026-09-27T04:15:08.959268+00:00"
+  },
+  {
+    "name": "Checkmate",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 144126,
+        "name": "Checkmate",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      },
+      {
+        "id": 137006,
+        "name": "Checkmate",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 3986,
+        "name": "Checkmate",
+        "publisher": "DC Comics",
+        "start_year": 1988
+      },
+      {
+        "id": 18427,
+        "name": "Checkmate",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T04:15:14.682749+00:00",
+    "retry_after": "2026-09-27T04:15:14.682764+00:00"
+  },
+  {
+    "name": "Daredevil by Ed Brubaker & Michael Lark Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T04:15:15.060932+00:00",
+    "retry_after": "2026-09-27T04:15:15.060947+00:00"
+  },
+  {
+    "name": "Sky Doll Doll Factory",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T04:17:39.111920+00:00",
+    "retry_after": "2026-09-27T04:17:39.111932+00:00"
+  },
+  {
+    "name": "Ascension Collected Editions",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T05:08:57.127607+00:00",
+    "retry_after": "2026-09-27T05:08:57.127624+00:00"
+  },
+  {
+    "name": "Marvel's Thor: The Dark World Prelude",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 62964,
+        "name": "Marvel's Thor: The Dark World Prelude",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 68321,
+        "name": "Marvel's Thor: The Dark World Prelude",
+        "publisher": "Marvel",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T05:09:03.167041+00:00",
+    "retry_after": "2026-09-27T05:09:03.167056+00:00"
+  },
+  {
+    "name": "Hellraiser Masterpieces",
+    "publisher": "BOOM! Studios",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T06:01:16.092717+00:00",
+    "retry_after": "2026-09-27T06:01:16.092733+00:00"
+  },
+  {
+    "name": "Symmetry",
+    "publisher": "Top Cow Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86558,
+        "name": "Symmetry",
+        "publisher": "Image",
+        "start_year": 2015
+      },
+      {
+        "id": 90728,
+        "name": "Symmetry",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T06:03:53.699103+00:00",
+    "retry_after": "2026-09-27T06:03:53.699116+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles New Animated Adventures",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 70710,
+        "name": "Teenage Mutant Ninja Turtles: New Animated Adventures",
+        "publisher": "IDW Publishing",
+        "start_year": 2014
+      },
+      {
+        "id": 65076,
+        "name": "Teenage Mutant Ninja Turtles New Animated Adventures",
+        "publisher": "IDW Publishing",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T06:04:00.844053+00:00",
+    "retry_after": "2026-09-27T06:04:00.844065+00:00"
+  },
+  {
+    "name": "Andy Capp-Man of the Hour",
+    "publisher": "Fawcett Comics",
+    "year": 1966,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T07:00:43.254746+00:00",
+    "retry_after": "2026-09-27T07:00:43.254761+00:00"
+  },
+  {
+    "name": "Wildcat",
+    "publisher": "Rebellion",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40074,
+        "name": "Wildcat",
+        "publisher": "Fleetway",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T07:00:50.257590+00:00",
+    "retry_after": "2026-09-27T07:00:50.257606+00:00"
+  },
+  {
+    "name": "Ms. Marvel Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T07:02:00.673646+00:00",
+    "retry_after": "2026-09-27T07:02:00.673661+00:00"
+  },
+  {
+    "name": "Dark Souls",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129576,
+        "name": "Dark Souls",
+        "publisher": "Panini Verlag",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T07:02:26.483526+00:00",
+    "retry_after": "2026-09-27T07:02:26.483540+00:00"
+  },
+  {
+    "name": "Aliens - L'intrus",
+    "publisher": "Dark Horse Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T07:02:27.060760+00:00",
+    "retry_after": "2026-09-27T07:02:27.060776+00:00"
+  },
+  {
+    "name": "Ultimate Marvel Team-Up [Mad Engine Reprints]",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T08:01:28.548317+00:00",
+    "retry_after": "2026-09-27T08:01:28.548333+00:00"
+  },
+  {
+    "name": "Punisher: The Trial of the Punisher",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T08:02:12.268846+00:00",
+    "retry_after": "2026-09-27T08:02:12.268861+00:00"
+  },
+  {
+    "name": "Chicken Fighter Pocket Manga",
+    "publisher": "Antarctic Press",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T08:03:27.604140+00:00",
+    "retry_after": "2026-09-27T08:03:27.604155+00:00"
+  },
+  {
+    "name": "Jessica Farm",
+    "publisher": "Fantagraphics",
+    "year": 2016,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 59164,
+        "name": "Jessica Farm",
+        "publisher": "Fantagraphics",
+        "start_year": 2008
+      },
+      {
+        "id": 160728,
+        "name": "Jessica Farm",
+        "publisher": "Fantagraphics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T08:03:28.070840+00:00",
+    "retry_after": "2026-09-27T08:03:28.070859+00:00"
+  },
+  {
+    "name": "Master of Kung Fu",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 82104,
+        "name": "Master of Kung Fu",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 2697,
+        "name": "Master of Kung Fu",
+        "publisher": "Marvel",
+        "start_year": 1974
+      },
+      {
+        "id": 105963,
+        "name": "Master of Kung Fu",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T09:00:57.670669+00:00",
+    "retry_after": "2026-09-27T09:00:57.670693+00:00"
+  },
+  {
+    "name": "Southern bastards",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 73392,
+        "name": "Southern Bastards",
+        "publisher": "Image",
+        "start_year": 2014
+      },
+      {
+        "id": 84995,
+        "name": "Southern Bastards",
+        "publisher": "Image",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T09:00:58.671522+00:00",
+    "retry_after": "2026-09-27T09:00:58.671549+00:00"
+  },
+  {
+    "name": "Doctor Who Series",
+    "publisher": "IDW Publishing",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T09:01:33.270268+00:00",
+    "retry_after": "2026-09-27T09:01:33.270286+00:00"
+  },
+  {
+    "name": "The Wizard of Id Frammin at the Jim-Jam, Frippin in the Krotz!",
+    "publisher": "Fawcett Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T09:02:41.889867+00:00",
+    "retry_after": "2026-09-27T09:02:41.889891+00:00"
+  },
+  {
+    "name": "Animal Man",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 19963,
+        "name": "Animal Man",
+        "publisher": "DC Comics",
+        "start_year": 1991
+      },
+      {
+        "id": 3976,
+        "name": "Animal Man",
+        "publisher": "DC Comics",
+        "start_year": 1988
+      },
+      {
+        "id": 42600,
+        "name": "Animal Man",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 77932,
+        "name": "Animal Man",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T09:02:50.667404+00:00",
+    "retry_after": "2026-09-27T09:02:50.667420+00:00"
+  },
+  {
+    "name": "Poup�e",
+    "publisher": "Dynamite Entertainment",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T09:03:02.180943+00:00",
+    "retry_after": "2026-09-27T09:03:02.180961+00:00"
+  },
+  {
+    "name": "Beauty of Horror Goregeous Coloring Book",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T09:11:13.195093+00:00",
+    "retry_after": "2026-09-27T09:11:13.195110+00:00"
+  },
+  {
+    "name": "The Wizard of Id / Long Live the King",
+    "publisher": "Fawcett Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T09:11:20.646274+00:00",
+    "retry_after": "2026-09-27T09:11:20.646292+00:00"
+  },
+  {
+    "name": "Simpsons Comics Treasure Trove Presents... The Simpsons Summer Shindig",
+    "publisher": "Titan Comics",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T09:13:05.026762+00:00",
+    "retry_after": "2026-09-27T09:13:05.026778+00:00"
+  },
+  {
+    "name": "G.I. Joe: Cobra - Cobra Civil War",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:00:41.202488+00:00",
+    "retry_after": "2026-09-27T10:00:41.202505+00:00"
+  },
+  {
+    "name": "Black Widow Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:00:41.738614+00:00",
+    "retry_after": "2026-09-27T10:00:41.738632+00:00"
+  },
+  {
+    "name": "The mask contre-attaque",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:01:59.997946+00:00",
+    "retry_after": "2026-09-27T10:01:59.997964+00:00"
+  },
+  {
+    "name": "2000 AD Gold",
+    "publisher": "Rebellion",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:02:00.428254+00:00",
+    "retry_after": "2026-09-27T10:02:00.428272+00:00"
+  },
+  {
+    "name": "Marvel's Black Widow Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 124278,
+        "name": "Marvel's Black Widow Prelude",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 126297,
+        "name": "Marvel's Black Widow Prelude",
+        "publisher": "Marvel",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:02:52.567924+00:00",
+    "retry_after": "2026-09-27T10:02:52.567941+00:00"
+  },
+  {
+    "name": "Deep Beyond",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 138804,
+        "name": "Deep Beyond",
+        "publisher": "Image",
+        "start_year": 2021
+      },
+      {
+        "id": 133597,
+        "name": "Deep Beyond",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:02:52.954996+00:00",
+    "retry_after": "2026-09-27T10:02:52.955013+00:00"
+  },
+  {
+    "name": "Star Wars - Les ombres de l'Empire",
+    "publisher": "Dark Horse Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:02:53.519525+00:00",
+    "retry_after": "2026-09-27T10:02:53.519542+00:00"
+  },
+  {
+    "name": "Morning Glories",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 34852,
+        "name": "Morning Glories",
+        "publisher": "Image",
+        "start_year": 2010
+      },
+      {
+        "id": 39321,
+        "name": "Morning Glories",
+        "publisher": "Image",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:02:54.148459+00:00",
+    "retry_after": "2026-09-27T10:02:54.148474+00:00"
+  },
+  {
+    "name": "Star Wars - Les ombres de l'Empire - Evolution",
+    "publisher": "Dark Horse Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:03:29.000155+00:00",
+    "retry_after": "2026-09-27T10:03:29.000172+00:00"
+  },
+  {
+    "name": "The Michael Moorcock Library - The Chronicles of Hawkmoon",
+    "publisher": "Titan Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:04:28.050422+00:00",
+    "retry_after": "2026-09-27T10:04:28.050436+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe's Snifter of Terror",
+    "publisher": "Ahoy Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 121760,
+        "name": "Edgar Allan Poe's Snifter of Terror",
+        "publisher": "Ahoy Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 114884,
+        "name": "Edgar Allan Poe's Snifter of Terror",
+        "publisher": "Ahoy Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T11:02:38.520079+00:00",
+    "retry_after": "2026-09-27T11:02:38.520099+00:00"
+  },
+  {
+    "name": "Todd, The Ugliest Kid on Earth",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 55823,
+        "name": "Todd, The Ugliest Kid On Earth",
+        "publisher": "Image",
+        "start_year": 2013
+      },
+      {
+        "id": 66116,
+        "name": "Todd, The Ugliest Kid On Earth",
+        "publisher": "Image",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T11:02:39.109107+00:00",
+    "retry_after": "2026-09-27T11:02:39.109126+00:00"
+  },
+  {
+    "name": "A Man Among Ye",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 127994,
+        "name": "A Man Among Ye",
+        "publisher": "Image",
+        "start_year": 2020
+      },
+      {
+        "id": 133720,
+        "name": "A Man Among Ye",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T11:02:39.465969+00:00",
+    "retry_after": "2026-09-27T11:02:39.465988+00:00"
+  },
+  {
+    "name": "Mage, Book One: The Hero Discovered",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T11:02:40.001311+00:00",
+    "retry_after": "2026-09-27T11:02:40.001330+00:00"
+  },
+  {
+    "name": "Elvira Mistress of the Dark: The Classic Years Omnibus",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T11:02:48.685014+00:00",
+    "retry_after": "2026-09-27T11:02:48.685033+00:00"
+  },
+  {
+    "name": "Alabaster",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 144654,
+        "name": "Alabaster",
+        "publisher": "Edizioni BD",
+        "start_year": 2022
+      },
+      {
+        "id": 80890,
+        "name": "Alabaster",
+        "publisher": "Kodansha",
+        "start_year": 1978
+      },
+      {
+        "id": 133743,
+        "name": "Alabaster",
+        "publisher": "Kodansha",
+        "start_year": 2010
+      },
+      {
+        "id": 107313,
+        "name": "Alabaster",
+        "publisher": "Akita Shoten",
+        "start_year": 1981
+      },
+      {
+        "id": 147976,
+        "name": "Alabaster",
+        "publisher": "Digital Manga Publishing",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T12:01:14.875008+00:00",
+    "retry_after": "2026-09-27T12:01:14.875023+00:00"
+  },
+  {
+    "name": "Robotech II: The Sentinels",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T12:02:32.953770+00:00",
+    "retry_after": "2026-09-27T12:02:32.953787+00:00"
+  },
+  {
+    "name": "World of Warcraft",
+    "publisher": "DC Comics",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 70150,
+        "name": "World of Warcraft",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 19669,
+        "name": "World of Warcraft",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T12:02:47.055789+00:00",
+    "retry_after": "2026-09-27T12:02:47.055804+00:00"
+  },
+  {
+    "name": "Warheads: Black Dawn",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27658,
+        "name": "Warheads: Black Dawn",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T13:01:38.738683+00:00",
+    "retry_after": "2026-09-27T13:01:38.738698+00:00"
+  },
+  {
+    "name": "The Inferior 5",
+    "publisher": "DC Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T13:01:49.869868+00:00",
+    "retry_after": "2026-09-27T13:01:49.869885+00:00"
+  },
+  {
+    "name": "Doctor Strange",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 106673,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 148962,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 166643,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 2676,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 1974
+      },
+      {
+        "id": 2403,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 1968
+      },
+      {
+        "id": 85094,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 111415,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 168938,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T13:02:14.850106+00:00",
+    "retry_after": "2026-09-27T13:02:14.850122+00:00"
+  },
+  {
+    "name": "Marvel Universe Avengers Earth's Mightiest Heroes Comic Reader",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T13:02:31.356925+00:00",
+    "retry_after": "2026-09-27T13:02:31.356943+00:00"
+  },
+  {
+    "name": "X-Men Grand Design",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 109533,
+        "name": "X-Men: Grand Design",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 107121,
+        "name": "X-Men: Grand Design",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T13:02:37.886645+00:00",
+    "retry_after": "2026-09-27T13:02:37.886662+00:00"
+  },
+  {
+    "name": "4 [Universe X]",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:33:08.593842+00:00",
+    "retry_after": "2026-09-27T14:33:08.593858+00:00"
+  },
+  {
+    "name": "Legion of Super-Heroes Secret Files",
+    "publisher": "DC Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:33:08.548684+00:00",
+    "retry_after": "2026-09-27T14:33:08.548704+00:00"
+  },
+  {
+    "name": "L.E.G.I.O.N. '93 Annual",
+    "publisher": "DC Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:33:08.459139+00:00",
+    "retry_after": "2026-09-27T14:33:08.459155+00:00"
+  },
+  {
+    "name": "X-Men 2099 Special",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:33:07.517449+00:00",
+    "retry_after": "2026-09-27T14:33:07.517464+00:00"
+  },
+  {
+    "name": "Dark Horse Classics",
+    "publisher": "Dark Horse Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:33:08.502017+00:00",
+    "retry_after": "2026-09-27T14:33:08.502033+00:00"
+  },
+  {
+    "name": "Amazing Adventure",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:33:08.296340+00:00",
+    "retry_after": "2026-09-27T14:33:08.296357+00:00"
+  },
+  {
+    "name": "Ray Bradbury Comics Special Edition",
+    "publisher": "Topps Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:33:08.930155+00:00",
+    "retry_after": "2026-09-27T14:33:08.930172+00:00"
   }
 ]

@@ -26531,9 +26531,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T14:00:45.980136+00:00",
-    "retry_after": "2026-09-26T14:00:45.980153+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T15:04:00.885969+00:00",
+    "retry_after": "2026-09-29T15:04:00.885987+00:00"
   },
   {
     "name": "Wizard Ace Edition #15:  WildC.A.T.s #1",
@@ -26541,9 +26541,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T14:00:46.425624+00:00",
-    "retry_after": "2026-09-26T14:00:46.425639+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T15:04:01.291356+00:00",
+    "retry_after": "2026-09-29T15:04:01.291372+00:00"
   },
   {
     "name": "Star Wars: The Empire Strikes Back - The 40th Anniversary Covers",
@@ -26551,9 +26551,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T14:02:14.804753+00:00",
-    "retry_after": "2026-09-26T14:02:14.804769+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T15:04:01.615659+00:00",
+    "retry_after": "2026-09-29T15:04:01.615674+00:00"
   },
   {
     "name": "Savage Dragon / Teenage Mutant Ninja Turtle Crossover Ash Can",
@@ -26561,9 +26561,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T14:02:15.119367+00:00",
-    "retry_after": "2026-09-26T14:02:15.119382+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T15:04:01.930583+00:00",
+    "retry_after": "2026-09-29T15:04:01.930598+00:00"
   },
   {
     "name": "True Believers: Fantastic Four - The Wedding of Reed & Sue",
@@ -26571,9 +26571,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T14:03:10.412378+00:00",
-    "retry_after": "2026-09-26T14:03:10.412394+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T15:04:02.342888+00:00",
+    "retry_after": "2026-09-29T15:04:02.342904+00:00"
   },
   {
     "name": "Battlestar Galactica Season Zero / The Lone Ranger [Free Comic Book Day]",
@@ -26581,9 +26581,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T15:00:43.981618+00:00",
-    "retry_after": "2026-09-26T15:00:43.981636+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T15:04:02.698889+00:00",
+    "retry_after": "2026-09-29T15:04:02.698903+00:00"
   },
   {
     "name": "Grimm Fairy Tales #0 Free Comic Book Day Special Edition",
@@ -28504,5 +28504,238 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T14:33:08.930155+00:00",
     "retry_after": "2026-09-27T14:33:08.930172+00:00"
+  },
+  {
+    "name": "Cerebus Church & State",
+    "publisher": "Aardvark-Vanaheim Inc.",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T15:00:40.806038+00:00",
+    "retry_after": "2026-09-27T15:00:40.806054+00:00"
+  },
+  {
+    "name": "Cerebus: High Society",
+    "publisher": "Aardvark-Vanaheim Inc.",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23633,
+        "name": "Cerebus High Society",
+        "publisher": "Aardvark",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T15:00:42.769797+00:00",
+    "retry_after": "2026-09-27T15:00:42.769813+00:00"
+  },
+  {
+    "name": "Cerebus Bi-Weekly",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66263,
+        "name": "Cerebus Bi-Weekly",
+        "publisher": "Aardvark",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T15:00:43.090074+00:00",
+    "retry_after": "2026-09-27T15:00:43.090093+00:00"
+  },
+  {
+    "name": "Cerebus Archive",
+    "publisher": "Aardvark-Vanaheim Inc.",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26696,
+        "name": "Cerebus Archive",
+        "publisher": "Aardvark",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T15:00:43.470059+00:00",
+    "retry_after": "2026-09-27T15:00:43.470073+00:00"
+  },
+  {
+    "name": "Cerebus",
+    "publisher": "Aardvark-Vanaheim Inc.",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T15:00:44.216226+00:00",
+    "retry_after": "2026-09-27T15:00:44.216241+00:00"
+  },
+  {
+    "name": "Swords of Cerebus",
+    "publisher": "Aardvark Vanaheim Press",
+    "year": 1981,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11730,
+        "name": "Swords of Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1981
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T15:00:55.210280+00:00",
+    "retry_after": "2026-09-27T15:00:55.210296+00:00"
+  },
+  {
+    "name": "Cerebus in Hell?",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 95450,
+        "name": "Cerebus in Hell?",
+        "publisher": "Aardvark",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T15:00:55.583030+00:00",
+    "retry_after": "2026-09-27T15:00:55.583045+00:00"
+  },
+  {
+    "name": "Cerebus",
+    "publisher": "Aardvark",
+    "year": 2010,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T15:01:05.823689+00:00",
+    "retry_after": "2026-09-27T15:01:05.823701+00:00"
+  },
+  {
+    "name": "Street Fighter",
+    "publisher": "Devil's Due",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 162587,
+        "name": "Street Fighter",
+        "publisher": "Moztros Producciones",
+        "start_year": 2022
+      },
+      {
+        "id": 18369,
+        "name": "Street Fighter",
+        "publisher": "Malibu",
+        "start_year": 1994
+      },
+      {
+        "id": 49906,
+        "name": "Street Fighter",
+        "publisher": "Editora Escala",
+        "start_year": 1994
+      },
+      {
+        "id": 18305,
+        "name": "Street Fighter",
+        "publisher": "UDON",
+        "start_year": 2003
+      },
+      {
+        "id": 136851,
+        "name": "Street Fighter",
+        "publisher": "Urban Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T15:01:40.942469+00:00",
+    "retry_after": "2026-09-27T15:01:40.942484+00:00"
+  },
+  {
+    "name": "Justice League International",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3798,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 42590,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 4966,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 1993
+      },
+      {
+        "id": 27019,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 55320,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T15:04:31.929448+00:00",
+    "retry_after": "2026-09-27T15:04:31.929463+00:00"
+  },
+  {
+    "name": "Uncanny X-Force: The Dark Angel Saga",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T15:06:15.930345+00:00",
+    "retry_after": "2026-09-27T15:06:15.930360+00:00"
   }
 ]

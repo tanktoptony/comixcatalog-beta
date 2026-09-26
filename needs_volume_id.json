@@ -27715,5 +27715,185 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T03:16:31.354829+00:00",
     "retry_after": "2026-09-27T03:16:31.354846+00:00"
+  },
+  {
+    "name": "Star Trek: Year Five Deluxe Edition",
+    "publisher": "IDW Publishing",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:53:25.581321+00:00",
+    "retry_after": "2026-09-27T03:53:25.581340+00:00"
+  },
+  {
+    "name": "L'Accordeur",
+    "publisher": "Dynamite Entertainment",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 146185,
+        "name": "L'Accordeur",
+        "publisher": "Dynamite (France)",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:53:51.251198+00:00",
+    "retry_after": "2026-09-27T03:53:51.251219+00:00"
+  },
+  {
+    "name": "Afterworks",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:55:32.641102+00:00",
+    "retry_after": "2026-09-27T03:55:32.641122+00:00"
+  },
+  {
+    "name": "Losers",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 31255,
+        "name": "The Losers",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 11226,
+        "name": "The Losers",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:55:41.404193+00:00",
+    "retry_after": "2026-09-27T03:55:41.404211+00:00"
+  },
+  {
+    "name": "Snow Angels",
+    "publisher": "Dark Horse Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132662,
+        "name": "Snow Angels",
+        "publisher": "4Twenty Limited",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:55:42.077081+00:00",
+    "retry_after": "2026-09-27T03:55:42.077099+00:00"
+  },
+  {
+    "name": "Justice League International",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3798,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 42590,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 4966,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 1993
+      },
+      {
+        "id": 27019,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 55320,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:55:42.696667+00:00",
+    "retry_after": "2026-09-27T03:55:42.696685+00:00"
+  },
+  {
+    "name": "Killadelphia Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:55:43.223757+00:00",
+    "retry_after": "2026-09-27T03:55:43.223775+00:00"
+  },
+  {
+    "name": "Little Nightmares",
+    "publisher": "Titan Comics",
+    "year": 2017,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 101783,
+        "name": "Little Nightmares",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 104956,
+        "name": "Little Nightmares",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:56:09.719386+00:00",
+    "retry_after": "2026-09-27T03:56:09.719403+00:00"
+  },
+  {
+    "name": "Xena",
+    "publisher": "Dynamite Entertainment",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71037,
+        "name": "Xena",
+        "publisher": "Dino Comics",
+        "start_year": 1998
+      },
+      {
+        "id": 44571,
+        "name": "Xena",
+        "publisher": "Brainstorm",
+        "start_year": 1995
+      },
+      {
+        "id": 44596,
+        "name": "Xena",
+        "publisher": "Hjemmet",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:56:31.306300+00:00",
+    "retry_after": "2026-09-27T03:56:31.306319+00:00"
   }
 ]

@@ -26092,9 +26092,9 @@
     "year": 1969,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T07:02:21.439630+00:00",
-    "retry_after": "2026-09-26T07:02:21.439647+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T08:00:41.999066+00:00",
+    "retry_after": "2026-09-29T08:00:41.999082+00:00"
   },
   {
     "name": "Dan Curtis Giveaways Turok, Son of Stone",
@@ -26102,9 +26102,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T07:02:22.625879+00:00",
-    "retry_after": "2026-09-26T07:02:22.625895+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T08:00:42.489388+00:00",
+    "retry_after": "2026-09-29T08:00:42.489405+00:00"
   },
   {
     "name": "Dan Curtis Giveaways The Twilight Zone",
@@ -26112,9 +26112,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T07:02:34.767704+00:00",
-    "retry_after": "2026-09-26T07:02:34.767716+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T08:00:42.794711+00:00",
+    "retry_after": "2026-09-29T08:00:42.794730+00:00"
   },
   {
     "name": "Mike Deodato's Fallout 3000",
@@ -26122,9 +26122,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T07:02:39.580319+00:00",
-    "retry_after": "2026-09-26T07:02:39.580333+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T08:00:43.213635+00:00",
+    "retry_after": "2026-09-29T08:00:43.213650+00:00"
   },
   {
     "name": "Eternal Warriors: Archer & Armstrong",
@@ -27909,5 +27909,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T07:02:27.060760+00:00",
     "retry_after": "2026-09-27T07:02:27.060776+00:00"
+  },
+  {
+    "name": "Ultimate Marvel Team-Up [Mad Engine Reprints]",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T08:01:28.548317+00:00",
+    "retry_after": "2026-09-27T08:01:28.548333+00:00"
+  },
+  {
+    "name": "Punisher: The Trial of the Punisher",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T08:02:12.268846+00:00",
+    "retry_after": "2026-09-27T08:02:12.268861+00:00"
+  },
+  {
+    "name": "Chicken Fighter Pocket Manga",
+    "publisher": "Antarctic Press",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T08:03:27.604140+00:00",
+    "retry_after": "2026-09-27T08:03:27.604155+00:00"
+  },
+  {
+    "name": "Jessica Farm",
+    "publisher": "Fantagraphics",
+    "year": 2016,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 59164,
+        "name": "Jessica Farm",
+        "publisher": "Fantagraphics",
+        "start_year": 2008
+      },
+      {
+        "id": 160728,
+        "name": "Jessica Farm",
+        "publisher": "Fantagraphics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T08:03:28.070840+00:00",
+    "retry_after": "2026-09-27T08:03:28.070859+00:00"
   }
 ]

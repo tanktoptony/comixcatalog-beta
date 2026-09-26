@@ -25840,9 +25840,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T03:01:06.371974+00:00",
-    "retry_after": "2026-09-26T03:01:06.371984+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T03:14:22.122862+00:00",
+    "retry_after": "2026-09-29T03:14:22.122879+00:00"
   },
   {
     "name": "Dollar Comics: Infinite Crisis 1",
@@ -25850,9 +25850,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T03:01:06.894466+00:00",
-    "retry_after": "2026-09-26T03:01:06.894475+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T03:14:23.684634+00:00",
+    "retry_after": "2026-09-29T03:14:23.684650+00:00"
   },
   {
     "name": "Star Wars Reads Free Sampler",
@@ -25860,9 +25860,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T03:01:52.738637+00:00",
-    "retry_after": "2026-09-26T03:01:52.738652+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T03:14:23.775089+00:00",
+    "retry_after": "2026-09-29T03:14:23.775104+00:00"
   },
   {
     "name": "Gearstation",
@@ -25870,9 +25870,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T03:01:52.949244+00:00",
-    "retry_after": "2026-09-26T03:01:52.949259+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T03:14:23.582761+00:00",
+    "retry_after": "2026-09-29T03:14:23.582779+00:00"
   },
   {
     "name": "Locke & Key: Small World Deluxe Edition",
@@ -27686,5 +27686,34 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T02:18:09.861145+00:00",
     "retry_after": "2026-09-27T02:18:09.861162+00:00"
+  },
+  {
+    "name": "Batman Annual",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3109,
+        "name": "Batman Annual",
+        "publisher": "DC Comics",
+        "start_year": 1961
+      },
+      {
+        "id": 96128,
+        "name": "Batman Annual",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 49197,
+        "name": "Batman Annual",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T03:16:31.354829+00:00",
+    "retry_after": "2026-09-27T03:16:31.354846+00:00"
   }
 ]

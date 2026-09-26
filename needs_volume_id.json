@@ -2832,58 +2832,6 @@
     "retry_after": "2026-09-21T14:00:38.554398+00:00"
   },
   {
-    "name": "X-O Manowar",
-    "publisher": "Valiant Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 100101,
-        "name": "X-O Manowar",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2017
-      },
-      {
-        "id": 4831,
-        "name": "X-O Manowar",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1992
-      },
-      {
-        "id": 93714,
-        "name": "X-O Manowar",
-        "publisher": "Panini España",
-        "start_year": 2013
-      },
-      {
-        "id": 48559,
-        "name": "X-O Manowar",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2012
-      },
-      {
-        "id": 6036,
-        "name": "X-O Manowar",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1997
-      },
-      {
-        "id": 126005,
-        "name": "X-O Manowar",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2020
-      },
-      {
-        "id": 136012,
-        "name": "X-O Manowar",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2021
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554401+00:00"
-  },
-  {
     "name": "Star Trek",
     "publisher": "Gold Key",
     "year": 1967,
@@ -9575,28 +9523,6 @@
     "retry_after": "2026-09-21T14:00:38.555921+00:00"
   },
   {
-    "name": "Unity",
-    "publisher": "Valiant Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 69121,
-        "name": "Unity",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2013
-      },
-      {
-        "id": 4830,
-        "name": "Unity",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555924+00:00"
-  },
-  {
     "name": "Marvel Adventures Flip Magazine",
     "publisher": "Marvel Comics",
     "year": 2005,
@@ -9613,28 +9539,6 @@
     "candidates": [],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.555930+00:00"
-  },
-  {
-    "name": "DC Universe Online Legends",
-    "publisher": "DC Comics",
-    "year": 2011,
-    "reason": "multiple_same_start_year",
-    "candidates": [
-      {
-        "id": 38217,
-        "name": "DC Universe Online Legends",
-        "publisher": "DC Comics",
-        "start_year": 2011
-      },
-      {
-        "id": 46678,
-        "name": "DC Universe Online Legends",
-        "publisher": "DC Comics",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555933+00:00"
   },
   {
     "name": "Dragon Ball Z",
@@ -26523,9 +26427,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T13:01:44.659949+00:00",
-    "retry_after": "2026-09-26T13:01:44.659967+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:15:45.659625+00:00",
+    "retry_after": "2026-09-29T14:15:45.659641+00:00"
   },
   {
     "name": "Ms. Marvel Annual",
@@ -26546,9 +26450,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T13:02:16.148565+00:00",
-    "retry_after": "2026-09-26T13:02:16.148582+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:15:46.007356+00:00",
+    "retry_after": "2026-09-29T14:15:46.007372+00:00"
   },
   {
     "name": "B&V Friends Forever [Betty and Veronica Friends Forever]",
@@ -26556,9 +26460,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T13:02:54.946061+00:00",
-    "retry_after": "2026-09-26T13:02:54.946078+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:15:46.500798+00:00",
+    "retry_after": "2026-09-29T14:15:46.500815+00:00"
   },
   {
     "name": "Ms. Marvel: Marvel Tales",
@@ -26566,9 +26470,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T13:03:50.705414+00:00",
-    "retry_after": "2026-09-26T13:03:50.705434+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:15:46.809534+00:00",
+    "retry_after": "2026-09-29T14:15:46.809550+00:00"
   },
   {
     "name": "Mister Miracle",
@@ -26607,9 +26511,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T14:00:45.048515+00:00",
-    "retry_after": "2026-09-26T14:00:45.048529+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:15:47.150330+00:00",
+    "retry_after": "2026-09-29T14:15:47.150346+00:00"
   },
   {
     "name": "The Transformers: Escalation Black & White",
@@ -26617,9 +26521,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T14:00:45.505817+00:00",
-    "retry_after": "2026-09-26T14:00:45.505834+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T14:15:47.599550+00:00",
+    "retry_after": "2026-09-29T14:15:47.599565+00:00"
   },
   {
     "name": "Free Comic Book Day 2014 (Guardians of the Galaxy)",
@@ -28530,5 +28434,75 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T13:02:37.886645+00:00",
     "retry_after": "2026-09-27T13:02:37.886662+00:00"
+  },
+  {
+    "name": "4 [Universe X]",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:15:44.777087+00:00",
+    "retry_after": "2026-09-27T14:15:44.777099+00:00"
+  },
+  {
+    "name": "Legion of Super-Heroes Secret Files",
+    "publisher": "DC Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:15:44.732629+00:00",
+    "retry_after": "2026-09-27T14:15:44.732642+00:00"
+  },
+  {
+    "name": "L.E.G.I.O.N. '93 Annual",
+    "publisher": "DC Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:15:44.628953+00:00",
+    "retry_after": "2026-09-27T14:15:44.628968+00:00"
+  },
+  {
+    "name": "X-Men 2099 Special",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:15:43.561759+00:00",
+    "retry_after": "2026-09-27T14:15:43.561775+00:00"
+  },
+  {
+    "name": "Dark Horse Classics",
+    "publisher": "Dark Horse Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:15:44.687569+00:00",
+    "retry_after": "2026-09-27T14:15:44.687585+00:00"
+  },
+  {
+    "name": "Amazing Adventure",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:15:44.495297+00:00",
+    "retry_after": "2026-09-27T14:15:44.495313+00:00"
+  },
+  {
+    "name": "Ray Bradbury Comics Special Edition",
+    "publisher": "Topps Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T14:15:45.275465+00:00",
+    "retry_after": "2026-09-27T14:15:45.275481+00:00"
   }
 ]

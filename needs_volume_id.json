@@ -26176,9 +26176,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T23:01:35.690401+00:00",
-    "retry_after": "2026-09-25T23:01:35.690419+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T23:51:46.526258+00:00",
+    "retry_after": "2026-09-28T23:51:46.526274+00:00"
   },
   {
     "name": "Marvel Holiday Special 2004",
@@ -26186,9 +26186,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T23:03:06.060578+00:00",
-    "retry_after": "2026-09-25T23:03:06.060596+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-25T23:51:46.605724+00:00",
+    "retry_after": "2026-09-28T23:51:46.605741+00:00"
   },
   {
     "name": "The Savage Dragon",
@@ -28283,5 +28283,70 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-25T23:01:29.099818+00:00",
     "retry_after": "2026-09-26T23:01:29.099833+00:00"
+  },
+  {
+    "name": "Pscythe / Industry of War",
+    "publisher": "Image Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T00:02:26.895726+00:00",
+    "retry_after": "2026-09-27T00:02:26.895743+00:00"
+  },
+  {
+    "name": "The Marvels",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5313,
+        "name": "Marvels",
+        "publisher": "Marvel",
+        "start_year": 1994
+      },
+      {
+        "id": 135762,
+        "name": "The Marvels",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 33524,
+        "name": "Marvels",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 56739,
+        "name": "Marvels",
+        "publisher": "Marvel",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T00:02:27.398421+00:00",
+    "retry_after": "2026-09-27T00:02:27.398438+00:00"
+  },
+  {
+    "name": "Spider-Man / Deadpool Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T00:02:27.784230+00:00",
+    "retry_after": "2026-09-27T00:02:27.784249+00:00"
+  },
+  {
+    "name": "Ghost Rider: Danny Ketch Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T00:03:11.420593+00:00",
+    "retry_after": "2026-09-27T00:03:11.420612+00:00"
   }
 ]

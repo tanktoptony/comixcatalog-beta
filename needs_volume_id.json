@@ -28981,5 +28981,88 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T17:03:54.244640+00:00",
     "retry_after": "2026-09-27T17:03:54.244673+00:00"
+  },
+  {
+    "name": "Flash / Green Lantern: Faster Friends",
+    "publisher": "DC Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T18:12:51.467137+00:00",
+    "retry_after": "2026-09-27T18:12:51.467156+00:00"
+  },
+  {
+    "name": "Kabuki [Kabuki: Fear the Reaper]",
+    "publisher": "Caliber Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T18:12:51.889153+00:00",
+    "retry_after": "2026-09-27T18:12:51.889172+00:00"
+  },
+  {
+    "name": "Secret Files & Origins Guide to the DC Universe 2000",
+    "publisher": "DC Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T18:12:52.333399+00:00",
+    "retry_after": "2026-09-27T18:12:52.333417+00:00"
+  },
+  {
+    "name": "The Wonderful World of Peanuts",
+    "publisher": "Fawcett Comics",
+    "year": 1962,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T18:13:31.899971+00:00",
+    "retry_after": "2026-09-27T18:13:31.899988+00:00"
+  },
+  {
+    "name": "L'�re des reptiles",
+    "publisher": "Dark Horse Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T18:13:43.831753+00:00",
+    "retry_after": "2026-09-27T18:13:43.831771+00:00"
+  },
+  {
+    "name": "Marvel Guardians of the Galaxy Vol 2 Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T18:13:52.039155+00:00",
+    "retry_after": "2026-09-27T18:13:52.039172+00:00"
+  },
+  {
+    "name": "Marvel's Avengers: Infinity War Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 109330,
+        "name": "Marvel's Avengers: Infinity War Prelude",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 108108,
+        "name": "Marvel's Avengers: Infinity War Prelude",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T18:14:26.711412+00:00",
+    "retry_after": "2026-09-27T18:14:26.711429+00:00"
   }
 ]

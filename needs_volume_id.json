@@ -26235,9 +26235,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T10:02:02.387190+00:00",
-    "retry_after": "2026-09-26T10:02:02.387211+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T11:00:42.802323+00:00",
+    "retry_after": "2026-09-29T11:00:42.802343+00:00"
   },
   {
     "name": "Street Fighter 2018 Summer Sports Special",
@@ -26245,9 +26245,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T10:03:47.444271+00:00",
-    "retry_after": "2026-09-26T10:03:47.444291+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T11:00:43.328304+00:00",
+    "retry_after": "2026-09-29T11:00:43.328324+00:00"
   },
   {
     "name": "Dan Curtis Giveaways Dagar the Invincible",
@@ -26255,9 +26255,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T10:03:55.042701+00:00",
-    "retry_after": "2026-09-26T10:03:55.042720+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T11:00:44.349962+00:00",
+    "retry_after": "2026-09-29T11:00:44.349981+00:00"
   },
   {
     "name": "Superboy",
@@ -26302,9 +26302,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T11:00:38.450961+00:00",
-    "retry_after": "2026-09-26T11:00:38.450977+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T11:00:44.294162+00:00",
+    "retry_after": "2026-09-29T11:00:44.294181+00:00"
   },
   {
     "name": "Catacomb of Torment",
@@ -28248,5 +28248,94 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T10:04:28.050422+00:00",
     "retry_after": "2026-09-27T10:04:28.050436+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe's Snifter of Terror",
+    "publisher": "Ahoy Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 121760,
+        "name": "Edgar Allan Poe's Snifter of Terror",
+        "publisher": "Ahoy Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 114884,
+        "name": "Edgar Allan Poe's Snifter of Terror",
+        "publisher": "Ahoy Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T11:02:38.520079+00:00",
+    "retry_after": "2026-09-27T11:02:38.520099+00:00"
+  },
+  {
+    "name": "Todd, The Ugliest Kid on Earth",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 55823,
+        "name": "Todd, The Ugliest Kid On Earth",
+        "publisher": "Image",
+        "start_year": 2013
+      },
+      {
+        "id": 66116,
+        "name": "Todd, The Ugliest Kid On Earth",
+        "publisher": "Image",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T11:02:39.109107+00:00",
+    "retry_after": "2026-09-27T11:02:39.109126+00:00"
+  },
+  {
+    "name": "A Man Among Ye",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 127994,
+        "name": "A Man Among Ye",
+        "publisher": "Image",
+        "start_year": 2020
+      },
+      {
+        "id": 133720,
+        "name": "A Man Among Ye",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T11:02:39.465969+00:00",
+    "retry_after": "2026-09-27T11:02:39.465988+00:00"
+  },
+  {
+    "name": "Mage, Book One: The Hero Discovered",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T11:02:40.001311+00:00",
+    "retry_after": "2026-09-27T11:02:40.001330+00:00"
+  },
+  {
+    "name": "Elvira Mistress of the Dark: The Classic Years Omnibus",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T11:02:48.685014+00:00",
+    "retry_after": "2026-09-27T11:02:48.685033+00:00"
   }
 ]

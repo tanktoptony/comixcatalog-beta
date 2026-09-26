@@ -29166,5 +29166,158 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T18:32:14.382289+00:00",
     "retry_after": "2026-09-27T18:32:14.382305+00:00"
+  },
+  {
+    "name": "William Tucci's Atomik ANGELS",
+    "publisher": "Crusade Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:01:45.601991+00:00",
+    "retry_after": "2026-09-27T19:01:45.602006+00:00"
+  },
+  {
+    "name": "Shi: Black, White and Red - Year of the Dragon Collected Edition",
+    "publisher": "Crusade Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:01:58.126514+00:00",
+    "retry_after": "2026-09-27T19:01:58.126532+00:00"
+  },
+  {
+    "name": "The Undaunted / The Burning Blue Flip-Book",
+    "publisher": "Crusade Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:01:58.544082+00:00",
+    "retry_after": "2026-09-27T19:01:58.544097+00:00"
+  },
+  {
+    "name": "Wizard Ace Edition #10:  Shi #4",
+    "publisher": "Crusade Comics and Gareb Shamus Enterprises Inc. DBA Wizard Press",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:02:16.662886+00:00",
+    "retry_after": "2026-09-27T19:02:16.662902+00:00"
+  },
+  {
+    "name": "Shi: The Way of the Warrior Trade Paperback",
+    "publisher": "Crusade Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:02:20.668978+00:00",
+    "retry_after": "2026-09-27T19:02:20.668993+00:00"
+  },
+  {
+    "name": "Tomoe: Unforgettable Fire (Rising Sun Edition)",
+    "publisher": "Crusade Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:02:21.243595+00:00",
+    "retry_after": "2026-09-27T19:02:21.243610+00:00"
+  },
+  {
+    "name": "Concrete Park",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:03:47.178286+00:00",
+    "retry_after": "2026-09-27T19:03:47.178303+00:00"
+  },
+  {
+    "name": "Ninja High School featuring Speed Racer",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 83104,
+        "name": "Ninja High School featuring Speed Racer",
+        "publisher": "Eternity",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:04:15.668099+00:00",
+    "retry_after": "2026-09-27T19:04:15.668116+00:00"
+  },
+  {
+    "name": "Jurassic Park",
+    "publisher": "Topps Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5188,
+        "name": "Jurassic Park",
+        "publisher": "Topps Comics",
+        "start_year": 1993
+      },
+      {
+        "id": 79247,
+        "name": "Jurassic Park",
+        "publisher": "Topps Comics",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:04:34.509356+00:00",
+    "retry_after": "2026-09-27T19:04:34.509371+00:00"
+  },
+  {
+    "name": "Black Hammer",
+    "publisher": "Dark Horse Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 166638,
+        "name": "Black Hammer",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 92354,
+        "name": "Black Hammer",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:04:35.375044+00:00",
+    "retry_after": "2026-09-27T19:04:35.375059+00:00"
+  },
+  {
+    "name": "Deadpool by Daniel Way Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:04:36.336971+00:00",
+    "retry_after": "2026-09-27T19:04:36.336986+00:00"
+  },
+  {
+    "name": "Power Rangers Archive Deluxe Edition",
+    "publisher": "BOOM! Studios",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T19:04:37.176377+00:00",
+    "retry_after": "2026-09-27T19:04:37.176393+00:00"
   }
 ]

@@ -25910,9 +25910,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:00:33.008584+00:00",
-    "retry_after": "2026-09-26T05:00:33.008596+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T05:06:33.811073+00:00",
+    "retry_after": "2026-09-29T05:06:33.811082+00:00"
   },
   {
     "name": "Advanced Dungeons & Dragons Annual Comic Book",
@@ -25920,9 +25920,9 @@
     "year": 1990,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:01:16.881674+00:00",
-    "retry_after": "2026-09-26T05:01:16.881683+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T05:06:33.770314+00:00",
+    "retry_after": "2026-09-29T05:06:33.770323+00:00"
   },
   {
     "name": "Secret Invasion #1 Director's Cut",
@@ -25930,9 +25930,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:02:18.873717+00:00",
-    "retry_after": "2026-09-26T05:02:18.873725+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T05:06:32.735293+00:00",
+    "retry_after": "2026-09-29T05:06:32.735310+00:00"
   },
   {
     "name": "Mars Attacks Baseball Special",
@@ -25940,9 +25940,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:02:24.106047+00:00",
-    "retry_after": "2026-09-26T05:02:24.106054+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T05:06:33.148668+00:00",
+    "retry_after": "2026-09-29T05:06:33.148684+00:00"
   },
   {
     "name": "Flash",
@@ -25999,9 +25999,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:02:33.409349+00:00",
-    "retry_after": "2026-09-26T05:02:33.409356+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T05:06:33.679591+00:00",
+    "retry_after": "2026-09-29T05:06:33.679607+00:00"
   },
   {
     "name": "Battlestar Galactica",
@@ -27484,210 +27484,6 @@
     "retry_after": "2026-09-27T00:03:11.420612+00:00"
   },
   {
-    "name": "Edgar Allan Poe: The Pit and the Pendulum and Other Stories",
-    "publisher": "Malibu Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 74366,
-        "name": "Edgar Allan Poe: The Pit and the Pendulum and Other Stories",
-        "publisher": "Eternity",
-        "start_year": 1988
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T01:06:18.009341+00:00",
-    "retry_after": "2026-09-27T01:06:18.009353+00:00"
-  },
-  {
-    "name": "Greenlock",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37138,
-        "name": "Greenlock",
-        "publisher": "Aircel Publishing",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T01:06:18.053044+00:00",
-    "retry_after": "2026-09-27T01:06:18.053056+00:00"
-  },
-  {
-    "name": "Storm Battlebook: Streets of Fire",
-    "publisher": "Marvel Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22054,
-        "name": "Storm Battlebook: Streets of Fire",
-        "publisher": "Battlebooks Incorporated",
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T01:06:16.718422+00:00",
-    "retry_after": "2026-09-27T01:06:16.718438+00:00"
-  },
-  {
-    "name": "I Love Lucy in 3-D",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 63061,
-        "name": "I Love Lucy in 3-D",
-        "publisher": "Eternity",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T01:06:12.062188+00:00",
-    "retry_after": "2026-09-27T01:06:12.062206+00:00"
-  },
-  {
-    "name": "Disney-Pixar/Muppets Presents: Meet the Muppets",
-    "publisher": "Marvel Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 55683,
-        "name": "Disney-Pixar/Muppets Presents: Meet the Muppets",
-        "publisher": "Disney",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T01:06:12.341446+00:00",
-    "retry_after": "2026-09-27T01:06:12.341464+00:00"
-  },
-  {
-    "name": "Ninja High Yearbook",
-    "publisher": "Malibu Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 144056,
-        "name": "Ninja High Yearbook ",
-        "publisher": "Eternity",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T02:18:07.030611+00:00",
-    "retry_after": "2026-09-27T02:18:07.030618+00:00"
-  },
-  {
-    "name": "Totally Rad Tales",
-    "publisher": "Harvey Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 94078,
-        "name": "Totally Rad Tales",
-        "publisher": "Lorne-Harvey",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T02:18:07.390925+00:00",
-    "retry_after": "2026-09-27T02:18:07.390939+00:00"
-  },
-  {
-    "name": "The Phoenix Resurrection: Revelations",
-    "publisher": "Malibu Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18475,
-        "name": "The Phoenix Resurrection: Revelations",
-        "publisher": "Marvel",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T02:18:08.759449+00:00",
-    "retry_after": "2026-09-27T02:18:08.759459+00:00"
-  },
-  {
-    "name": "The Phoenix Resurrection: Genesis",
-    "publisher": "Malibu Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18474,
-        "name": "The Phoenix Resurrection Genesis",
-        "publisher": "Marvel",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T02:18:08.865615+00:00",
-    "retry_after": "2026-09-27T02:18:08.865627+00:00"
-  },
-  {
-    "name": "Talk Bernie to Me!: The Bernie Sanders Special and AOC Surprise",
-    "publisher": "First Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 120033,
-        "name": "Talk Bernie To Me! The Bernie Sanders Special & AOC Surprise",
-        "publisher": "Devil's Due",
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T02:18:08.688200+00:00",
-    "retry_after": "2026-09-27T02:18:08.688217+00:00"
-  },
-  {
-    "name": "Herobear and the Kid",
-    "publisher": "BOOM! Studios",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24564,
-        "name": "Herobear And The Kid",
-        "publisher": "Astonish Comics",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T02:18:09.296871+00:00",
-    "retry_after": "2026-09-27T02:18:09.296889+00:00"
-  },
-  {
-    "name": "Outlaws of the Wild West",
-    "publisher": "Charlton Comics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 59870,
-        "name": "Outlaws of the Wild West",
-        "publisher": "Avon",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T02:18:09.861145+00:00",
-    "retry_after": "2026-09-27T02:18:09.861162+00:00"
-  },
-  {
     "name": "Batman Annual",
     "publisher": "DC Comics",
     "year": null,
@@ -27960,5 +27756,38 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T04:17:39.111920+00:00",
     "retry_after": "2026-09-27T04:17:39.111932+00:00"
+  },
+  {
+    "name": "Ascension Collected Editions",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T05:08:57.127607+00:00",
+    "retry_after": "2026-09-27T05:08:57.127624+00:00"
+  },
+  {
+    "name": "Marvel's Thor: The Dark World Prelude",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 62964,
+        "name": "Marvel's Thor: The Dark World Prelude",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 68321,
+        "name": "Marvel's Thor: The Dark World Prelude",
+        "publisher": "Marvel",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T05:09:03.167041+00:00",
+    "retry_after": "2026-09-27T05:09:03.167056+00:00"
   }
 ]

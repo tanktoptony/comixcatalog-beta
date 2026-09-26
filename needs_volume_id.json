@@ -26438,9 +26438,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T12:01:10.086102+00:00",
-    "retry_after": "2026-09-26T12:01:10.086124+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T13:00:45.442493+00:00",
+    "retry_after": "2026-09-29T13:00:45.442509+00:00"
   },
   {
     "name": "True Believers: Spider-Man - The New Spider-Man!",
@@ -26448,9 +26448,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T12:01:15.786833+00:00",
-    "retry_after": "2026-09-26T12:01:15.786852+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T13:00:45.845199+00:00",
+    "retry_after": "2026-09-29T13:00:45.845217+00:00"
   },
   {
     "name": "Silver Surfer",
@@ -26513,9 +26513,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T12:01:26.942972+00:00",
-    "retry_after": "2026-09-26T12:01:26.942989+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T13:00:47.778767+00:00",
+    "retry_after": "2026-09-29T13:00:47.778782+00:00"
   },
   {
     "name": "Fantastic Four Vol.3, No. 60 [Marvel Legends Reprint]",
@@ -28411,5 +28411,124 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T12:02:47.055789+00:00",
     "retry_after": "2026-09-27T12:02:47.055804+00:00"
+  },
+  {
+    "name": "Warheads: Black Dawn",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27658,
+        "name": "Warheads: Black Dawn",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T13:01:38.738683+00:00",
+    "retry_after": "2026-09-27T13:01:38.738698+00:00"
+  },
+  {
+    "name": "The Inferior 5",
+    "publisher": "DC Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T13:01:49.869868+00:00",
+    "retry_after": "2026-09-27T13:01:49.869885+00:00"
+  },
+  {
+    "name": "Doctor Strange",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 106673,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 148962,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 166643,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 2676,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 1974
+      },
+      {
+        "id": 2403,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 1968
+      },
+      {
+        "id": 85094,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 111415,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 168938,
+        "name": "Doctor Strange",
+        "publisher": "Marvel",
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T13:02:14.850106+00:00",
+    "retry_after": "2026-09-27T13:02:14.850122+00:00"
+  },
+  {
+    "name": "Marvel Universe Avengers Earth's Mightiest Heroes Comic Reader",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T13:02:31.356925+00:00",
+    "retry_after": "2026-09-27T13:02:31.356943+00:00"
+  },
+  {
+    "name": "X-Men Grand Design",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 109533,
+        "name": "X-Men: Grand Design",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 107121,
+        "name": "X-Men: Grand Design",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T13:02:37.886645+00:00",
+    "retry_after": "2026-09-27T13:02:37.886662+00:00"
   }
 ]

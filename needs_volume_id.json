@@ -26684,9 +26684,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T17:01:14.692979+00:00",
-    "retry_after": "2026-09-26T17:01:14.692997+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T17:01:43.511900+00:00",
+    "retry_after": "2026-09-29T17:01:43.511914+00:00"
   },
   {
     "name": "Spider-Man",
@@ -28813,5 +28813,173 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T16:04:11.511037+00:00",
     "retry_after": "2026-09-27T16:04:11.511056+00:00"
+  },
+  {
+    "name": "1111",
+    "publisher": "Crusade Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T17:01:01.757718+00:00",
+    "retry_after": "2026-09-27T17:01:01.757735+00:00"
+  },
+  {
+    "name": "Shi / Daredevil: Honor Thy Mother Banzai Edition",
+    "publisher": "Crusade Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T17:01:20.553943+00:00",
+    "retry_after": "2026-09-27T17:01:20.553961+00:00"
+  },
+  {
+    "name": "Tomoe-Witchblade: Fire Sermon",
+    "publisher": "Crusade Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T17:01:21.263708+00:00",
+    "retry_after": "2026-09-27T17:01:21.263723+00:00"
+  },
+  {
+    "name": "Angel Fire (Rising Sun Edition)",
+    "publisher": "Crusade Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T17:01:33.546863+00:00",
+    "retry_after": "2026-09-27T17:01:33.546877+00:00"
+  },
+  {
+    "name": "The Punisher",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 11164,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 41758,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 112965,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 6586,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2000
+      },
+      {
+        "id": 90118,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 71435,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 18328,
+        "name": "Punisher",
+        "publisher": "Marvel",
+        "start_year": 1995
+      },
+      {
+        "id": 25370,
+        "name": "Punisher",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 141843,
+        "name": "Punisher",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 3855,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 1987
+      },
+      {
+        "id": 9133,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 170671,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2026
+      },
+      {
+        "id": 3649,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 1986
+      },
+      {
+        "id": 21768,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T17:03:00.395273+00:00",
+    "retry_after": "2026-09-27T17:03:00.395288+00:00"
+  },
+  {
+    "name": "Les Aventures sexuelles de Lilian et Agathe",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T17:03:21.945220+00:00",
+    "retry_after": "2026-09-27T17:03:21.945236+00:00"
+  },
+  {
+    "name": "The Savage Sword of Conan",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2701,
+        "name": "The Savage Sword of Conan",
+        "publisher": "Marvel",
+        "start_year": 1974
+      },
+      {
+        "id": 117080,
+        "name": "The Savage Sword of Conan",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T17:03:54.244640+00:00",
+    "retry_after": "2026-09-27T17:03:54.244673+00:00"
   }
 ]

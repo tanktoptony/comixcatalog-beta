@@ -27027,9 +27027,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T20:05:27.531472+00:00",
-    "retry_after": "2026-09-26T20:05:27.531489+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T21:07:10.599828+00:00",
+    "retry_after": "2026-09-29T21:07:10.599839+00:00"
   },
   {
     "name": "Oblivion Song",
@@ -27050,9 +27050,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T20:06:48.086461+00:00",
-    "retry_after": "2026-09-26T20:06:48.086479+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T21:07:11.190831+00:00",
+    "retry_after": "2026-09-29T21:07:11.190840+00:00"
   },
   {
     "name": "Spirit",
@@ -27079,9 +27079,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T20:18:25.373140+00:00",
-    "retry_after": "2026-09-26T20:18:25.373156+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T21:07:11.858834+00:00",
+    "retry_after": "2026-09-29T21:07:11.858847+00:00"
   },
   {
     "name": "Phantom Stranger",
@@ -27114,9 +27114,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T20:18:25.866790+00:00",
-    "retry_after": "2026-09-26T20:18:25.866807+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T21:07:12.275488+00:00",
+    "retry_after": "2026-09-29T21:07:12.275498+00:00"
   },
   {
     "name": "Trigun Anime Manga",
@@ -27124,9 +27124,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T20:18:37.800358+00:00",
-    "retry_after": "2026-09-26T20:18:37.800375+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T21:07:12.688224+00:00",
+    "retry_after": "2026-09-29T21:07:12.688235+00:00"
   },
   {
     "name": "Hulk: Broken Worlds",
@@ -27147,9 +27147,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T20:22:04.024877+00:00",
-    "retry_after": "2026-09-26T20:22:04.024893+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T21:07:13.188531+00:00",
+    "retry_after": "2026-09-29T21:07:13.188540+00:00"
   },
   {
     "name": "Teen-Age Love Confessions",
@@ -27157,9 +27157,9 @@
     "year": null,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T21:02:29.552856+00:00",
-    "retry_after": "2026-09-26T21:02:29.552876+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T21:07:13.656425+00:00",
+    "retry_after": "2026-09-29T21:07:13.656440+00:00"
   },
   {
     "name": "Hope",
@@ -27186,9 +27186,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T21:03:54.304331+00:00",
-    "retry_after": "2026-09-26T21:03:54.304350+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T21:07:14.116422+00:00",
+    "retry_after": "2026-09-29T21:07:14.116433+00:00"
   },
   {
     "name": "Elektra",
@@ -27233,9 +27233,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T21:04:12.143779+00:00",
-    "retry_after": "2026-09-26T21:04:12.143795+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T21:07:14.742437+00:00",
+    "retry_after": "2026-09-29T21:07:14.742452+00:00"
   },
   {
     "name": "Jim Butcher's Dresden Files Omnibus",
@@ -29402,5 +29402,55 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T20:08:11.661996+00:00",
     "retry_after": "2026-09-27T20:08:11.662011+00:00"
+  },
+  {
+    "name": "Mike Deodato's Razor Nights",
+    "publisher": "Caliber Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T21:07:09.260355+00:00",
+    "retry_after": "2026-09-27T21:07:09.260365+00:00"
+  },
+  {
+    "name": "Walt Disney's Mickey Mouse Summer Fun",
+    "publisher": "Dell Comics",
+    "year": 1958,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T21:07:08.114878+00:00",
+    "retry_after": "2026-09-27T21:07:08.114894+00:00"
+  },
+  {
+    "name": "Unity Yearbook",
+    "publisher": "Valiant Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T21:07:10.164783+00:00",
+    "retry_after": "2026-09-27T21:07:10.164792+00:00"
+  },
+  {
+    "name": "Crossover Classics: The Marvel / DC Collection",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T21:07:09.351639+00:00",
+    "retry_after": "2026-09-27T21:07:09.351649+00:00"
+  },
+  {
+    "name": "Mischief & Mayhem Pocket Manga",
+    "publisher": "Antarctic Press",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T21:07:10.064561+00:00",
+    "retry_after": "2026-09-27T21:07:10.064571+00:00"
   }
 ]

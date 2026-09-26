@@ -10835,3 +10835,57 @@ button.nav-link {
   gap: 14px;
   flex-wrap: wrap;
 }
+
+/* ── Password guidance on signup ───────────────────────────────────────────
+   Appears once typing starts, so an empty form is not a wall of red. */
+.pw-guide {
+  margin: -4px 0 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pw-meter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.pw-meter span {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  transition: background 0.15s;
+}
+/* Semantic, and separate from the gold accent: weak is not a brand moment. */
+.pw-meter span.on.s1 { background: #f87171; }
+.pw-meter span.on.s2 { background: #fb923c; }
+.pw-meter span.on.s3 { background: #facc15; }
+.pw-meter span.on.s4 { background: #4ade80; }
+
+.pw-meter-label {
+  margin: 0;
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pw-rules {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pw-rules li {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+.pw-rules li.met { color: #86efac; }
+.pw-rules li span { flex: 0 0 auto; font-size: 0.72rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pw-meter span { transition: none; }
+}

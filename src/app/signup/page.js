@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { claimFoundingPass } from "@/lib/launchFlags";
 import { trackEvent } from "@/lib/analytics";
+import { evaluatePassword, passwordStrength, STRENGTH_LABELS, MIN_LENGTH } from "@/lib/passwordPolicy";
 import { redirectAfterAuth } from "@/lib/auth/postAuthRedirect";
 // import OAuthButtons from "@/components/OAuthButtons"; // re-enable with the <OAuthButtons /> usage below
 
@@ -20,6 +21,7 @@ export default function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const [saving, setSaving] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -100,8 +102,16 @@ export default function SignUpPage() {
       return;
     }
 
-    if (password.length < 8) {
-      failSignup("weak_password", "Password must be at least 8 characters.");
+    // One shared policy with /reset-password. This used to be a bare
+    // length >= 8 with NO confirm field at all, so a typo in the only
+    // password box created an account nobody could log into.
+    const verdict = evaluatePassword(password, {
+      confirm: confirmPassword,
+      username: usernameNormalized,
+      email: emailNormalized,
+    });
+    if (!verdict.ok) {
+      failSignup("weak_password", verdict.problems[0]);
       return;
     }
 
@@ -260,6 +270,7 @@ export default function SignUpPage() {
 
     setSaving(false);
     setPassword("");
+    setConfirmPassword("");
     setUsername("");
   }
 
@@ -324,13 +335,36 @@ export default function SignUpPage() {
             type="password"
             required
             onFocus={markStarted}
-            minLength={8}
+            minLength={MIN_LENGTH}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="new-password"
             placeholder=" "
+            aria-describedby="signup-password-help"
           />
           <label htmlFor="signup-password">Password</label>
+        </div>
+
+        <PasswordGuide
+          password={password}
+          username={username}
+          email={email}
+          confirm={confirmPassword}
+        />
+
+        <div className="auth-field">
+          <input
+            id="signup-password-confirm"
+            className="auth-input"
+            type="password"
+            required
+            minLength={MIN_LENGTH}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            autoComplete="new-password"
+            placeholder=" "
+          />
+          <label htmlFor="signup-password-confirm">Confirm password</label>
         </div>
 
         <button
@@ -376,5 +410,49 @@ export default function SignUpPage() {
         Already have an account? <Link href="/login" className="link">Log in</Link>
       </p>
     </section>
+  );
+}
+// The rules, shown while typing rather than after a failed submit.
+//
+// Hidden until the field has something in it, so an empty form is not a wall
+// of red. Once typing starts it is a live checklist: each rule says what it
+// wants and turns on when met, and the meter reads 0 for anything below the
+// length floor because such a password cannot be submitted at all.
+function PasswordGuide({ password, username, email, confirm }) {
+  if (!password) return null;
+
+  const { checks } = evaluatePassword(password, { username, email, confirm });
+  const score = passwordStrength(password);
+
+  const rules = [
+    [checks.length, `At least ${MIN_LENGTH} characters`],
+    [checks.classes, "Mixes 3 of: lowercase, uppercase, number, symbol"],
+    [checks.notCommon, "Not a commonly used password"],
+    [checks.notIdentity, "Doesn't contain your username or email"],
+    [checks.notTooLong, "Not longer than 72 characters"],
+  ];
+  // Only assert the match once they have started confirming, so the rule
+  // does not sit there red while the second box is still empty.
+  if (confirm) rules.push([checks.matches, "Both passwords match"]);
+
+  return (
+    <div className="pw-guide" id="signup-password-help">
+      <div className="pw-meter" aria-hidden="true">
+        {[0, 1, 2, 3].map((i) => (
+          <span key={i} className={i < score ? `on s${score}` : ""} />
+        ))}
+      </div>
+      <p className="pw-meter-label" aria-live="polite">
+        {STRENGTH_LABELS[score]}
+      </p>
+      <ul className="pw-rules">
+        {rules.map(([met, label]) => (
+          <li key={label} className={met ? "met" : ""}>
+            <span aria-hidden="true">{met ? "✓" : "○"}</span>
+            {label}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

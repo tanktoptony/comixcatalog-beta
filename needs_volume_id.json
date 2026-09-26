@@ -26022,9 +26022,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:53:53.817271+00:00",
-    "retry_after": "2026-09-26T05:53:53.817294+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T06:01:13.707587+00:00",
+    "retry_after": "2026-09-29T06:01:13.707602+00:00"
   },
   {
     "name": "Aspen Splash: 2006 Swimsuit Spectacular",
@@ -26032,9 +26032,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:54:16.233533+00:00",
-    "retry_after": "2026-09-26T05:54:16.233551+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T06:01:14.240661+00:00",
+    "retry_after": "2026-09-29T06:01:14.240686+00:00"
   },
   {
     "name": "Witch & Wizard",
@@ -26042,9 +26042,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T05:54:34.991204+00:00",
-    "retry_after": "2026-09-26T05:54:34.991223+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T06:01:14.748961+00:00",
+    "retry_after": "2026-09-29T06:01:14.748975+00:00"
   },
   {
     "name": "Star Trek: Deep Space Nine, The Celebrity Series: Blood and Honor",
@@ -26052,9 +26052,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-25T06:00:55.303017+00:00",
-    "retry_after": "2026-09-26T06:00:55.303034+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-26T06:01:15.217892+00:00",
+    "retry_after": "2026-09-29T06:01:15.217907+00:00"
   },
   {
     "name": "Daredevil by Brian Michael Bendis Omnibus",
@@ -27789,5 +27789,61 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T05:09:03.167041+00:00",
     "retry_after": "2026-09-27T05:09:03.167056+00:00"
+  },
+  {
+    "name": "Hellraiser Masterpieces",
+    "publisher": "BOOM! Studios",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T06:01:16.092717+00:00",
+    "retry_after": "2026-09-27T06:01:16.092733+00:00"
+  },
+  {
+    "name": "Symmetry",
+    "publisher": "Top Cow Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86558,
+        "name": "Symmetry",
+        "publisher": "Image",
+        "start_year": 2015
+      },
+      {
+        "id": 90728,
+        "name": "Symmetry",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T06:03:53.699103+00:00",
+    "retry_after": "2026-09-27T06:03:53.699116+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles New Animated Adventures",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 70710,
+        "name": "Teenage Mutant Ninja Turtles: New Animated Adventures",
+        "publisher": "IDW Publishing",
+        "start_year": 2014
+      },
+      {
+        "id": 65076,
+        "name": "Teenage Mutant Ninja Turtles New Animated Adventures",
+        "publisher": "IDW Publishing",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T06:04:00.844053+00:00",
+    "retry_after": "2026-09-27T06:04:00.844065+00:00"
   }
 ]

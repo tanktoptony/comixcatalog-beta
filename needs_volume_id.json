@@ -28109,5 +28109,144 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T09:13:05.026762+00:00",
     "retry_after": "2026-09-27T09:13:05.026778+00:00"
+  },
+  {
+    "name": "G.I. Joe: Cobra - Cobra Civil War",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:00:41.202488+00:00",
+    "retry_after": "2026-09-27T10:00:41.202505+00:00"
+  },
+  {
+    "name": "Black Widow Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:00:41.738614+00:00",
+    "retry_after": "2026-09-27T10:00:41.738632+00:00"
+  },
+  {
+    "name": "The mask contre-attaque",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:01:59.997946+00:00",
+    "retry_after": "2026-09-27T10:01:59.997964+00:00"
+  },
+  {
+    "name": "2000 AD Gold",
+    "publisher": "Rebellion",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:02:00.428254+00:00",
+    "retry_after": "2026-09-27T10:02:00.428272+00:00"
+  },
+  {
+    "name": "Marvel's Black Widow Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 124278,
+        "name": "Marvel's Black Widow Prelude",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 126297,
+        "name": "Marvel's Black Widow Prelude",
+        "publisher": "Marvel",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:02:52.567924+00:00",
+    "retry_after": "2026-09-27T10:02:52.567941+00:00"
+  },
+  {
+    "name": "Deep Beyond",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 138804,
+        "name": "Deep Beyond",
+        "publisher": "Image",
+        "start_year": 2021
+      },
+      {
+        "id": 133597,
+        "name": "Deep Beyond",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:02:52.954996+00:00",
+    "retry_after": "2026-09-27T10:02:52.955013+00:00"
+  },
+  {
+    "name": "Star Wars - Les ombres de l'Empire",
+    "publisher": "Dark Horse Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:02:53.519525+00:00",
+    "retry_after": "2026-09-27T10:02:53.519542+00:00"
+  },
+  {
+    "name": "Morning Glories",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 34852,
+        "name": "Morning Glories",
+        "publisher": "Image",
+        "start_year": 2010
+      },
+      {
+        "id": 39321,
+        "name": "Morning Glories",
+        "publisher": "Image",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:02:54.148459+00:00",
+    "retry_after": "2026-09-27T10:02:54.148474+00:00"
+  },
+  {
+    "name": "Star Wars - Les ombres de l'Empire - Evolution",
+    "publisher": "Dark Horse Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:03:29.000155+00:00",
+    "retry_after": "2026-09-27T10:03:29.000172+00:00"
+  },
+  {
+    "name": "The Michael Moorcock Library - The Chronicles of Hawkmoon",
+    "publisher": "Titan Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-26T10:04:28.050422+00:00",
+    "retry_after": "2026-09-27T10:04:28.050436+00:00"
   }
 ]

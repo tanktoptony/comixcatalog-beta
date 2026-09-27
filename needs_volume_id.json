@@ -27593,9 +27593,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T04:15:08.959252+00:00",
-    "retry_after": "2026-09-27T04:15:08.959268+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T05:02:58.943091+00:00",
+    "retry_after": "2026-09-30T05:02:58.943108+00:00"
   },
   {
     "name": "Checkmate",
@@ -27628,9 +27628,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T04:15:14.682749+00:00",
-    "retry_after": "2026-09-27T04:15:14.682764+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T05:02:59.274879+00:00",
+    "retry_after": "2026-09-30T05:02:59.274894+00:00"
   },
   {
     "name": "Daredevil by Ed Brubaker & Michael Lark Omnibus",
@@ -27638,9 +27638,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T04:15:15.060932+00:00",
-    "retry_after": "2026-09-27T04:15:15.060947+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T05:02:59.549843+00:00",
+    "retry_after": "2026-09-30T05:02:59.549858+00:00"
   },
   {
     "name": "Sky Doll Doll Factory",
@@ -27648,9 +27648,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T04:17:39.111920+00:00",
-    "retry_after": "2026-09-27T04:17:39.111932+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T05:02:59.931419+00:00",
+    "retry_after": "2026-09-30T05:02:59.931436+00:00"
   },
   {
     "name": "Ascension Collected Editions",
@@ -30201,5 +30201,90 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T04:03:27.833475+00:00",
     "retry_after": "2026-09-28T04:03:27.833490+00:00"
+  },
+  {
+    "name": "Justice League Unlimited [Free Comic Book Day Edition]",
+    "publisher": "DC Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T05:02:58.454597+00:00",
+    "retry_after": "2026-09-28T05:02:58.454612+00:00"
+  },
+  {
+    "name": "Atomic City Tales",
+    "publisher": "Oni Press",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6815,
+        "name": "Atomic City Tales",
+        "publisher": "Black Eye",
+        "start_year": 1994
+      },
+      {
+        "id": 6817,
+        "name": "Atomic City Tales",
+        "publisher": "Kitchen Sink",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T05:03:08.914899+00:00",
+    "retry_after": "2026-09-28T05:03:08.914915+00:00"
+  },
+  {
+    "name": "BRZRKR",
+    "publisher": "BOOM! Studios",
+    "year": 2023,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 134190,
+        "name": "BRZRKR",
+        "publisher": "Boom! Studios",
+        "start_year": 2021
+      },
+      {
+        "id": 139299,
+        "name": "BRZRKR",
+        "publisher": "Boom! Studios",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T05:03:34.942036+00:00",
+    "retry_after": "2026-09-28T05:03:34.942051+00:00"
+  },
+  {
+    "name": "Hellblazer",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4008,
+        "name": "Hellblazer",
+        "publisher": "DC Comics",
+        "start_year": 1988
+      },
+      {
+        "id": 93381,
+        "name": "The Hellblazer",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 100370,
+        "name": "The Hellblazer",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T05:06:41.578689+00:00",
+    "retry_after": "2026-09-28T05:06:41.578703+00:00"
   }
 ]

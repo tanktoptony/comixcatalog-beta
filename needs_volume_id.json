@@ -6239,28 +6239,6 @@
     "retry_after": "2026-09-21T14:00:38.554958+00:00"
   },
   {
-    "name": "Teenage Mutant Ninja Turtles: Saturday Morning Adventures",
-    "publisher": "IDW Publishing",
-    "year": 2023,
-    "reason": "multiple_same_start_year",
-    "candidates": [
-      {
-        "id": 151018,
-        "name": "Teenage Mutant Ninja Turtles: Saturday Morning Adventures",
-        "publisher": "IDW Publishing",
-        "start_year": 2023
-      },
-      {
-        "id": 161173,
-        "name": "Teenage Mutant Ninja Turtles: Saturday Morning Adventures",
-        "publisher": "IDW Publishing",
-        "start_year": 2023
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554961+00:00"
-  },
-  {
     "name": "Turok, Son of Stone",
     "publisher": "Dell Comics",
     "year": 1956,
@@ -10338,34 +10316,6 @@
     ],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.556097+00:00"
-  },
-  {
-    "name": "Superman",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "reason": "multiple_candidates",
-    "candidates": [
-      {
-        "id": 773,
-        "name": "Superman",
-        "publisher": "DC Comics",
-        "start_year": 1939
-      },
-      {
-        "id": 91298,
-        "name": "Superman",
-        "publisher": "DC Comics",
-        "start_year": 2016
-      },
-      {
-        "id": 3816,
-        "name": "Superman",
-        "publisher": "DC Comics",
-        "start_year": 1987
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556100+00:00"
   },
   {
     "name": "Justice League",
@@ -28239,9 +28189,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T12:01:14.875008+00:00",
-    "retry_after": "2026-09-27T12:01:14.875023+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T12:06:23.227888+00:00",
+    "retry_after": "2026-09-30T12:06:23.227925+00:00"
   },
   {
     "name": "Robotech II: The Sentinels",
@@ -28249,9 +28199,9 @@
     "year": 1989,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T12:02:32.953770+00:00",
-    "retry_after": "2026-09-27T12:02:32.953787+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T12:06:23.742523+00:00",
+    "retry_after": "2026-09-30T12:06:23.742541+00:00"
   },
   {
     "name": "World of Warcraft",
@@ -28272,9 +28222,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T12:02:47.055789+00:00",
-    "retry_after": "2026-09-27T12:02:47.055804+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T12:06:24.747498+00:00",
+    "retry_after": "2026-09-30T12:06:24.747515+00:00"
   },
   {
     "name": "Warheads: Black Dawn",
@@ -31227,5 +31177,98 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T11:03:27.355629+00:00",
     "retry_after": "2026-09-28T11:03:27.355643+00:00"
+  },
+  {
+    "name": "ID4: Independence Day Trade Paperback",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T12:06:12.699025+00:00",
+    "retry_after": "2026-09-28T12:06:12.699044+00:00"
+  },
+  {
+    "name": "Batman / Grendel: Devil's Riddle",
+    "publisher": "DC Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T12:06:22.488534+00:00",
+    "retry_after": "2026-09-28T12:06:22.488552+00:00"
+  },
+  {
+    "name": "L.E.G.I.O.N. '90 Annual",
+    "publisher": "DC Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T12:06:21.826641+00:00",
+    "retry_after": "2026-09-28T12:06:21.826658+00:00"
+  },
+  {
+    "name": "Steve Ditko's Strange Avenging Tales",
+    "publisher": "Fantagraphics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T12:06:19.413451+00:00",
+    "retry_after": "2026-09-28T12:06:19.413469+00:00"
+  },
+  {
+    "name": "Powers Annual",
+    "publisher": "Image Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T12:06:22.558741+00:00",
+    "retry_after": "2026-09-28T12:06:22.558760+00:00"
+  },
+  {
+    "name": "Gold Digger Max Pocket Manga",
+    "publisher": "Antarctic Press",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T12:06:22.418794+00:00",
+    "retry_after": "2026-09-28T12:06:22.418811+00:00"
+  },
+  {
+    "name": "Assassin's Creed: Conspiracies",
+    "publisher": "Titan Comics",
+    "year": 2018,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 116045,
+        "name": "Assassin's Creed: Conspiracies",
+        "publisher": "Titan Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 112563,
+        "name": "Assassin's Creed: Conspiracies",
+        "publisher": "Titan Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T12:06:25.239782+00:00",
+    "retry_after": "2026-09-28T12:06:25.239801+00:00"
+  },
+  {
+    "name": "David Chelsea's 24-Hour Comics",
+    "publisher": "Dark Horse Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T12:07:29.878413+00:00",
+    "retry_after": "2026-09-28T12:07:29.878431+00:00"
   }
 ]

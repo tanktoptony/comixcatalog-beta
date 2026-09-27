@@ -28634,9 +28634,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T15:04:31.929448+00:00",
-    "retry_after": "2026-09-27T15:04:31.929463+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T16:07:28.918933+00:00",
+    "retry_after": "2026-09-30T16:07:28.918941+00:00"
   },
   {
     "name": "Uncanny X-Force: The Dark Angel Saga",
@@ -28644,9 +28644,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T15:06:15.930345+00:00",
-    "retry_after": "2026-09-27T15:06:15.930360+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T16:07:31.526615+00:00",
+    "retry_after": "2026-09-30T16:07:31.526627+00:00"
   },
   {
     "name": "Street Fighter Legends [Sakura]",
@@ -28700,9 +28700,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:03:28.945646+00:00",
-    "retry_after": "2026-09-27T16:03:28.945663+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T16:07:32.143167+00:00",
+    "retry_after": "2026-09-30T16:07:32.143180+00:00"
   },
   {
     "name": "Marvel 2-in-One",
@@ -28710,9 +28710,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:04:06.071122+00:00",
-    "retry_after": "2026-09-27T16:04:06.071139+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T16:07:32.872016+00:00",
+    "retry_after": "2026-09-30T16:07:32.872032+00:00"
   },
   {
     "name": "Luke Cage Epic Collection",
@@ -31822,5 +31822,65 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T15:02:45.530585+00:00",
     "retry_after": "2026-09-28T15:02:45.530596+00:00"
+  },
+  {
+    "name": "Gears of War Reader",
+    "publisher": "WildStorm",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T16:07:04.187774+00:00",
+    "retry_after": "2026-09-28T16:07:04.187790+00:00"
+  },
+  {
+    "name": "Underworld Unleashed: Apokolips -- Dark Uprising",
+    "publisher": "DC Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T16:07:28.209317+00:00",
+    "retry_after": "2026-09-28T16:07:28.209325+00:00"
+  },
+  {
+    "name": "Space Adventures Presents U.F.O.",
+    "publisher": "Charlton Comics",
+    "year": 1967,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T16:07:28.304024+00:00",
+    "retry_after": "2026-09-28T16:07:28.304033+00:00"
+  },
+  {
+    "name": "Flaming Carrot Stories",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T16:07:28.413322+00:00",
+    "retry_after": "2026-09-28T16:07:28.413330+00:00"
+  },
+  {
+    "name": "Suburban She-Devils",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T16:07:28.010382+00:00",
+    "retry_after": "2026-09-28T16:07:28.010391+00:00"
+  },
+  {
+    "name": "Dan Curtis Giveaways Dark Shadows",
+    "publisher": "Gold Key",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T16:07:28.099446+00:00",
+    "retry_after": "2026-09-28T16:07:28.099454+00:00"
   }
 ]

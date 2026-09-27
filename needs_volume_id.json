@@ -27800,9 +27800,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T08:03:27.604140+00:00",
-    "retry_after": "2026-09-27T08:03:27.604155+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T09:03:13.420568+00:00",
+    "retry_after": "2026-09-30T09:03:13.420583+00:00"
   },
   {
     "name": "Jessica Farm",
@@ -27823,9 +27823,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T08:03:28.070840+00:00",
-    "retry_after": "2026-09-27T08:03:28.070859+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T09:03:13.777848+00:00",
+    "retry_after": "2026-09-30T09:03:13.777862+00:00"
   },
   {
     "name": "Master of Kung Fu",
@@ -27852,9 +27852,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T09:00:57.670669+00:00",
-    "retry_after": "2026-09-27T09:00:57.670693+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T09:03:14.281188+00:00",
+    "retry_after": "2026-09-30T09:03:14.281203+00:00"
   },
   {
     "name": "Southern bastards",
@@ -27875,9 +27875,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T09:00:58.671522+00:00",
-    "retry_after": "2026-09-27T09:00:58.671549+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T09:03:14.915407+00:00",
+    "retry_after": "2026-09-30T09:03:14.915422+00:00"
   },
   {
     "name": "Doctor Who Series",
@@ -27885,9 +27885,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T09:01:33.270268+00:00",
-    "retry_after": "2026-09-27T09:01:33.270286+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T09:03:15.247330+00:00",
+    "retry_after": "2026-09-30T09:03:15.247345+00:00"
   },
   {
     "name": "The Wizard of Id Frammin at the Jim-Jam, Frippin in the Krotz!",
@@ -27895,9 +27895,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T09:02:41.889867+00:00",
-    "retry_after": "2026-09-27T09:02:41.889891+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T09:03:15.660403+00:00",
+    "retry_after": "2026-09-30T09:03:15.660417+00:00"
   },
   {
     "name": "Animal Man",
@@ -27930,9 +27930,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T09:02:50.667404+00:00",
-    "retry_after": "2026-09-27T09:02:50.667420+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T09:03:16.185308+00:00",
+    "retry_after": "2026-09-30T09:03:16.185322+00:00"
   },
   {
     "name": "Poup�e",
@@ -27940,9 +27940,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T09:03:02.180943+00:00",
-    "retry_after": "2026-09-27T09:03:02.180961+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T09:03:16.633479+00:00",
+    "retry_after": "2026-09-30T09:03:16.633494+00:00"
   },
   {
     "name": "Beauty of Horror Goregeous Coloring Book",
@@ -31107,5 +31107,45 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T08:04:06.430984+00:00",
     "retry_after": "2026-09-28T08:04:06.430999+00:00"
+  },
+  {
+    "name": "Wizard Presents: Batman: Dark Victory",
+    "publisher": "DC Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T09:03:12.864582+00:00",
+    "retry_after": "2026-09-28T09:03:12.864591+00:00"
+  },
+  {
+    "name": "Timestorm 2009 / 2099: Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T09:03:12.768727+00:00",
+    "retry_after": "2026-09-28T09:03:12.768736+00:00"
+  },
+  {
+    "name": "Mystery Men Stories",
+    "publisher": "Dark Horse Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T09:03:12.643701+00:00",
+    "retry_after": "2026-09-28T09:03:12.643710+00:00"
+  },
+  {
+    "name": "X-O Manowar Preview",
+    "publisher": "Valiant Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T09:03:12.812061+00:00",
+    "retry_after": "2026-09-28T09:03:12.812070+00:00"
   }
 ]

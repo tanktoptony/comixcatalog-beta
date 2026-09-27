@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
+import { groupByTitle, flattenGroups } from "@/lib/searchVariety";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useSearchQuery } from "@/context/SearchQueryContext";
@@ -67,6 +68,10 @@ export default function Header() {
   // thing. Suppress it there and let the page be the result list.
   const onSearchPage = pathname === "/search";
   const searchRef = useRef(null);
+  // The panel is position:fixed so it can span the page instead of the
+  // 520px search box. Fixed needs a real top, and the header is sticky with
+  // a height that changes between breakpoints, so measure it.
+  const [dropdownTop, setDropdownTop] = useState(null);
   const userMenuRef = useRef(null);
 
   function closeMenu() {
@@ -134,6 +139,21 @@ export default function Header() {
   }
 
   useEffect(() => {
+    if (!searchOpen) return undefined;
+    const measure = () => {
+      const box = searchRef.current?.getBoundingClientRect();
+      if (box) setDropdownTop(Math.round(box.bottom + 10));
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    window.addEventListener("scroll", measure, { passive: true });
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", measure);
+    };
+  }, [searchOpen]);
+
+  useEffect(() => {
     function handleOutsideClick(event) {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
         setSearchOpen(false);
@@ -191,7 +211,12 @@ export default function Header() {
         setSearchLoading(true);
 
         const [seriesRes, comicsRes] = await Promise.all([
-          fetch(`/api/search/series?q=${encodeURIComponent(q)}`, {
+          // 36, up from the old fixed 12. The panel spans the page and
+          // scrolls, so it has room to show the shape of a character's shelf
+          // rather than twelve volumes of one title. The API diversifies
+          // across distinct runs before truncating, so a bigger number buys
+          // more DIFFERENT runs rather than more of the same one.
+          fetch(`/api/search/series?q=${encodeURIComponent(q)}&limit=36`, {
             cache: "no-store",
           }),
           fetch(`/api/search/comics?q=${encodeURIComponent(q)}&limit=8&offset=0`, {
@@ -238,9 +263,15 @@ export default function Header() {
     return seriesResults.length > 0 || comicResults.length > 0;
   }, [seriesResults, comicResults]);
 
+  // Grouped for display, and flattened in the SAME order for keyboard
+  // navigation. highlightedIndex is positional, so deriving the two from
+  // different orders would highlight a different row than the cursor is on.
+  const seriesGroups = useMemo(() => groupByTitle(seriesResults), [seriesResults]);
+  const orderedSeries = useMemo(() => flattenGroups(seriesGroups), [seriesGroups]);
+
   const flatResults = useMemo(() => {
     const items = [];
-    for (const s of seriesResults) {
+    for (const s of orderedSeries) {
       if (!s?.id) continue;
       items.push({ key: `series-${s.id}`, href: `/series/${s.id}` });
     }
@@ -250,7 +281,7 @@ export default function Header() {
       items.push({ key: `comic-${c.id}`, href });
     }
     return items;
-  }, [seriesResults, comicResults]);
+  }, [orderedSeries, comicResults]);
 
   // Reset the keyboard-highlighted result whenever the query or result sets
   // change — adjusted during render rather than in an effect, same pattern
@@ -336,7 +367,10 @@ export default function Header() {
           />
 
           {searchOpen && !onSearchPage && (
-            <div className="header-search-dropdown">
+            <div
+              className="header-search-dropdown"
+              style={dropdownTop != null ? { top: `${dropdownTop}px` } : undefined}
+            >
               {searchLoading && (
                 <div className="header-search-state">Searching…</div>
               )}
@@ -347,59 +381,92 @@ export default function Header() {
                 </div>
               )}
 
-              {!searchLoading && seriesResults.length > 0 && (
+              {!searchLoading && seriesGroups.length > 0 && (
                 <div className="header-search-group">
                   <div className="header-search-group-title">Series</div>
-                  {seriesResults.map((series, i) => {
-                    const flatIdx = i;
-                    const isActive = highlightedIndex === flatIdx;
-                    return (
-                    <button
-                      key={series.id}
-                      type="button"
-                      className="header-search-item"
-                      style={isActive ? activeStyle : undefined}
-                      onMouseEnter={() => setHighlightedIndex(flatIdx)}
-                      onClick={() => handleNavigate(`/series/${series.id}`)}
-                    >
-                      <span className="header-search-thumb">
-                        {series.cover ? (
-                          <img
-                            src={series.cover}
-                            alt=""
-                            loading="lazy"
-                            onError={(e) => {
-                              e.currentTarget.style.display = "none";
-                            }}
-                          />
-                        ) : null}
-                      </span>
-                      <span className="header-search-item-body">
-                        <span className="header-search-item-title-row">
-                          <span className="header-search-item-title">
-                            {series.title || "Untitled Series"}
-                          </span>
-                          {series.volume_index && series.volume_count > 1 ? (
-                            <span className="header-search-volume-tag">
-                              Vol. {series.volume_index}
+                  {/* One cell per RUN, with its volumes inside. A collector
+                      searching "batman" wants to see which runs exist, not
+                      thirty-six rows that all say Batman. `flatIdx` counts
+                      through the flattened order so the keyboard highlight
+                      lands on the same row the cursor is over. */}
+                  {(() => {
+                    let flatIdx = -1;
+                    return seriesGroups.map((group) => (
+                      <div className="header-search-run" key={group.family || group.title}>
+                        {group.rows.length > 1 && (
+                          <div className="header-search-run-title">
+                            {group.title || "Untitled Series"}
+                            <span className="header-search-run-count">
+                              {group.rows.length} volumes
                             </span>
-                          ) : null}
-                        </span>
-                        <span className="header-search-item-meta">
-                          {[
-                            series.publisher?.name || "Unknown Publisher",
-                            formatYearRange(series.year_start, series.year_end) || null,
-                            series.issue_count
-                              ? `${series.issue_count} issue${series.issue_count === 1 ? "" : "s"}`
-                              : null,
-                          ]
-                            .filter(Boolean)
-                            .join(" · ")}
-                        </span>
-                      </span>
-                    </button>
-                    );
-                  })}
+                          </div>
+                        )}
+                        {group.rows.map((series) => {
+                          flatIdx += 1;
+                          const idx = flatIdx;
+                          const isActive = highlightedIndex === idx;
+                          const grouped = group.rows.length > 1;
+                          return (
+                            <button
+                              key={series.id}
+                              type="button"
+                              className={
+                                grouped
+                                  ? "header-search-item header-search-item--in-run"
+                                  : "header-search-item"
+                              }
+                              style={isActive ? activeStyle : undefined}
+                              onMouseEnter={() => setHighlightedIndex(idx)}
+                              onClick={() => handleNavigate(`/series/${series.id}`)}
+                            >
+                              <span className="header-search-thumb">
+                                {series.cover ? (
+                                  // eslint-disable-next-line @next/next/no-img-element
+                                  <img
+                                    src={series.cover}
+                                    alt=""
+                                    loading="lazy"
+                                    onError={(e) => {
+                                      e.currentTarget.style.display = "none";
+                                    }}
+                                  />
+                                ) : null}
+                              </span>
+                              <span className="header-search-item-body">
+                                <span className="header-search-item-title-row">
+                                  <span className="header-search-item-title">
+                                    {grouped
+                                      ? formatYearRange(series.year_start, series.year_end) ||
+                                        series.title ||
+                                        "Untitled Series"
+                                      : series.title || "Untitled Series"}
+                                  </span>
+                                  {series.volume_index && series.volume_count > 1 ? (
+                                    <span className="header-search-volume-tag">
+                                      Vol. {series.volume_index}
+                                    </span>
+                                  ) : null}
+                                </span>
+                                <span className="header-search-item-meta">
+                                  {[
+                                    series.publisher?.name || "Unknown Publisher",
+                                    grouped
+                                      ? null
+                                      : formatYearRange(series.year_start, series.year_end) || null,
+                                    series.issue_count
+                                      ? `${series.issue_count} issue${series.issue_count === 1 ? "" : "s"}`
+                                      : null,
+                                  ]
+                                    .filter(Boolean)
+                                    .join(" · ")}
+                                </span>
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    ));
+                  })()}
                 </div>
               )}
 
@@ -411,7 +478,7 @@ export default function Header() {
                       comic.source === "user"
                         ? `/comic/${comic.id}`
                         : `/issue/${comic.id}`;
-                    const flatIdx = seriesResults.length + i;
+                    const flatIdx = orderedSeries.length + i;
                     const isActive = highlightedIndex === flatIdx;
 
                     return (

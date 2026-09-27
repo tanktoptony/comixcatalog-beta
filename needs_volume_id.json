@@ -5842,28 +5842,6 @@
     "retry_after": "2026-09-21T14:00:38.554890+00:00"
   },
   {
-    "name": "G.I. Joe Special Missions",
-    "publisher": "Marvel Comics",
-    "year": 1986,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 68127,
-        "name": "G.I. Joe Special Missions",
-        "publisher": "IDW Publishing",
-        "start_year": 2013
-      },
-      {
-        "id": 59190,
-        "name": "G.I. Joe Special Missions",
-        "publisher": "IDW Publishing",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554893+00:00"
-  },
-  {
     "name": "Simpsons Comics Presents Bart & Co.",
     "publisher": "Titan Comics",
     "year": 2015,
@@ -7352,15 +7330,6 @@
     "candidates": [],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.555281+00:00"
-  },
-  {
-    "name": "The Amazing Spider-Man: Hit and Run",
-    "publisher": "Marvel Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555284+00:00"
   },
   {
     "name": "Batman / FaZe Clan",
@@ -27764,9 +27733,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T07:00:50.257590+00:00",
-    "retry_after": "2026-09-27T07:00:50.257606+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T08:03:07.058946+00:00",
+    "retry_after": "2026-09-30T08:03:07.058961+00:00"
   },
   {
     "name": "Ms. Marvel Epic Collection",
@@ -27774,9 +27743,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T07:02:00.673646+00:00",
-    "retry_after": "2026-09-27T07:02:00.673661+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T08:03:07.468293+00:00",
+    "retry_after": "2026-09-30T08:03:07.468308+00:00"
   },
   {
     "name": "Dark Souls",
@@ -27791,9 +27760,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T07:02:26.483526+00:00",
-    "retry_after": "2026-09-27T07:02:26.483540+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T08:03:07.867763+00:00",
+    "retry_after": "2026-09-30T08:03:07.867777+00:00"
   },
   {
     "name": "Aliens - L'intrus",
@@ -27801,9 +27770,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T07:02:27.060760+00:00",
-    "retry_after": "2026-09-27T07:02:27.060776+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T08:03:08.429035+00:00",
+    "retry_after": "2026-09-30T08:03:08.429051+00:00"
   },
   {
     "name": "Ultimate Marvel Team-Up [Mad Engine Reprints]",
@@ -27811,9 +27780,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T08:01:28.548317+00:00",
-    "retry_after": "2026-09-27T08:01:28.548333+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T08:03:09.010301+00:00",
+    "retry_after": "2026-09-30T08:03:09.010317+00:00"
   },
   {
     "name": "Punisher: The Trial of the Punisher",
@@ -27821,9 +27790,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T08:02:12.268846+00:00",
-    "retry_after": "2026-09-27T08:02:12.268861+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T08:03:09.812805+00:00",
+    "retry_after": "2026-09-30T08:03:09.812821+00:00"
   },
   {
     "name": "Chicken Fighter Pocket Manga",
@@ -31088,5 +31057,55 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T07:03:33.013949+00:00",
     "retry_after": "2026-09-28T07:03:33.013964+00:00"
+  },
+  {
+    "name": "Classic Star Wars: Return of the Jedi",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T08:01:11.381074+00:00",
+    "retry_after": "2026-09-28T08:01:11.381091+00:00"
+  },
+  {
+    "name": "Sonic vs. Knuckles \"Battle Royal\" Special",
+    "publisher": "Archie Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T08:03:06.528600+00:00",
+    "retry_after": "2026-09-28T08:03:06.528612+00:00"
+  },
+  {
+    "name": "Magneto and His Magnetic Men",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T08:03:06.422673+00:00",
+    "retry_after": "2026-09-28T08:03:06.422685+00:00"
+  },
+  {
+    "name": "Moon Knight (Director's Cut)",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T08:03:06.474881+00:00",
+    "retry_after": "2026-09-28T08:03:06.474891+00:00"
+  },
+  {
+    "name": "OnStar Batman Special Edition",
+    "publisher": "DC Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T08:04:06.430984+00:00",
+    "retry_after": "2026-09-28T08:04:06.430999+00:00"
   }
 ]

@@ -27691,9 +27691,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T06:01:16.092717+00:00",
-    "retry_after": "2026-09-27T06:01:16.092733+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T06:21:29.459323+00:00",
+    "retry_after": "2026-09-30T06:21:29.459337+00:00"
   },
   {
     "name": "Symmetry",
@@ -27714,9 +27714,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T06:03:53.699103+00:00",
-    "retry_after": "2026-09-27T06:03:53.699116+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T06:21:31.332153+00:00",
+    "retry_after": "2026-09-30T06:21:31.332168+00:00"
   },
   {
     "name": "Teenage Mutant Ninja Turtles New Animated Adventures",
@@ -27737,9 +27737,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T06:04:00.844053+00:00",
-    "retry_after": "2026-09-27T06:04:00.844065+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T06:21:31.776785+00:00",
+    "retry_after": "2026-09-30T06:21:31.776800+00:00"
   },
   {
     "name": "Andy Capp-Man of the Hour",
@@ -30606,5 +30606,153 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T06:05:11.569158+00:00",
     "retry_after": "2026-09-28T06:05:11.569174+00:00"
+  },
+  {
+    "name": "Patty Cake Special",
+    "publisher": "Slave Labor Graphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81590,
+        "name": "Patty Cake Special",
+        "publisher": "SLG Publishing",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:21:25.864961+00:00",
+    "retry_after": "2026-09-28T06:21:25.864976+00:00"
+  },
+  {
+    "name": "Hosie's Heroines",
+    "publisher": "Slave Labor Graphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54929,
+        "name": "Hosie's Heroines",
+        "publisher": "SLG Publishing",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:21:26.149056+00:00",
+    "retry_after": "2026-09-28T06:21:26.149072+00:00"
+  },
+  {
+    "name": "Star Wars: Droids",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5624,
+        "name": "Star Wars: Droids",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1995
+      },
+      {
+        "id": 5399,
+        "name": "Star Wars: Droids",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1994
+      },
+      {
+        "id": 71297,
+        "name": "Star Wars: Droids",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:22:56.360801+00:00",
+    "retry_after": "2026-09-28T06:22:56.360816+00:00"
+  },
+  {
+    "name": "Double Jumpers",
+    "publisher": "Action Lab Entertainment",
+    "year": 2015,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 49593,
+        "name": "Double Jumpers",
+        "publisher": "Action Lab",
+        "start_year": 2012
+      },
+      {
+        "id": 65178,
+        "name": "Double Jumpers",
+        "publisher": "Action Lab",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:23:01.804145+00:00",
+    "retry_after": "2026-09-28T06:23:01.804160+00:00"
+  },
+  {
+    "name": "X-Treme X-Men",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 146732,
+        "name": "X-Treme X-Men",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 50754,
+        "name": "X-Treme X-Men",
+        "publisher": "Marvel",
+        "start_year": 2012
+      },
+      {
+        "id": 9411,
+        "name": "X-Treme X-Men",
+        "publisher": "Marvel",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:24:36.945665+00:00",
+    "retry_after": "2026-09-28T06:24:36.945680+00:00"
+  },
+  {
+    "name": "The Nice House on the Lake",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 136530,
+        "name": "The Nice House on the Lake",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 144227,
+        "name": "The Nice House on the Lake",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:24:37.450635+00:00",
+    "retry_after": "2026-09-28T06:24:37.450650+00:00"
+  },
+  {
+    "name": "Wonder Woman and Justice League America",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:24:38.001682+00:00",
+    "retry_after": "2026-09-28T06:24:38.001698+00:00"
   }
 ]

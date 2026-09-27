@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { diversify, titleFamily } from "./searchVariety.js";
+import { diversify, titleFamily, groupByTitle, flattenGroups } from "./searchVariety.js";
 
 const s = (title, issues, year) => ({ title, issue_count_cached: issues, year_start_cached: year });
 
@@ -106,4 +106,52 @@ test("rows with no title do not collapse into one family unfairly", () => {
 test("a short input is returned untouched", () => {
   const three = SPIDER.slice(0, 3);
   assert.deepEqual(diversify(three, { limit: 12, perTitle: 2 }), three);
+});
+
+test("groups follow the rank of their best row, not the alphabet", () => {
+  const groups = groupByTitle(diversify(SPIDER, { limit: 12, perTitle: 2 }));
+  assert.equal(groups[0].title, "Spider-Man", "the top-ranked row's family leads");
+  const families = groups.map((g) => g.family);
+  assert.equal(new Set(families).size, families.length, "no family appears twice");
+});
+
+test("rows keep rank order inside a group", () => {
+  const groups = groupByTitle(diversify(SPIDER, { limit: 12, perTitle: 2 }));
+  const plain = groups.find((g) => g.title === "Spider-Man");
+  assert.ok(plain.rows.length >= 2);
+  assert.equal(plain.rows[0].year_start_cached, 1990);
+  assert.equal(plain.rows[1].year_start_cached, 2022);
+});
+
+test("flattening a grouping loses nothing and duplicates nothing", () => {
+  const picked = diversify(SPIDER, { limit: 12, perTitle: 2 });
+  const flat = flattenGroups(groupByTitle(picked));
+  assert.equal(flat.length, picked.length);
+  assert.equal(new Set(flat).size, picked.length);
+  for (const row of picked) assert.ok(flat.includes(row));
+});
+
+test("the flattened order is what the screen shows, so nav stays in sync", () => {
+  // Every row of group 0 comes before every row of group 1.
+  const groups = groupByTitle(diversify(SPIDER, { limit: 12, perTitle: 2 }));
+  const flat = flattenGroups(groups);
+  let cursor = 0;
+  for (const g of groups) {
+    for (const row of g.rows) {
+      assert.equal(flat[cursor], row, `position ${cursor} must match the render order`);
+      cursor += 1;
+    }
+  }
+});
+
+test("a title-less row gets its own family rather than crashing", () => {
+  const groups = groupByTitle([{ title: null }, { title: "Real" }]);
+  assert.equal(groups.length, 2);
+  assert.equal(groups[0].title, "");
+});
+
+test("grouping empty input is empty, not a crash", () => {
+  assert.deepEqual(groupByTitle([]), []);
+  assert.deepEqual(groupByTitle(null), []);
+  assert.deepEqual(flattenGroups(null), []);
 });

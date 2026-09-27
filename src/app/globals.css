@@ -10895,3 +10895,45 @@ button.nav-link {
 @media (prefers-reduced-motion: reduce) {
   .header-search-dropdown { scroll-behavior: auto; }
 }
+
+/* ── Runs inside the search panel ──────────────────────────────────────────
+   A run (title family) is one grid cell. Its volumes sit inside it, so
+   "batman" reads as a shelf — Batman, Legends of the Dark Knight, Eternal —
+   rather than thirty-six rows that all say Batman. */
+.header-search-run {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.header-search-run-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 12px 3px;
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: var(--x-gold, #f4d03f);
+  overflow-wrap: anywhere;
+}
+
+.header-search-run-count {
+  flex: 0 0 auto;
+  font-size: 0.66rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+}
+
+/* A volume inside a multi-volume run is indented and leads with its years,
+   since the title is already stated by the heading above it. */
+.header-search-item--in-run {
+  padding-left: 20px;
+}
+
+/* Single-volume runs get no heading, so they keep the normal row look and
+   the two kinds of cell still line up with each other. */
+.header-search-run > .header-search-item:only-child {
+  padding-left: 12px;
+}

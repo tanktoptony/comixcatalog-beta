@@ -89,3 +89,44 @@ export function diversify(rows, { limit = 12, perTitle = 2 } = {}) {
 
   return out;
 }
+
+/**
+ * Group ranked rows into title families, preserving rank order.
+ *
+ * ComicVine shows you a character's shelf rather than a flat list, and that
+ * is the shape a collector is actually looking for: which RUNS exist, and
+ * which volumes each run had. Thirty-six flat rows scan as a wall; the same
+ * thirty-six under a dozen headings scan as a shelf.
+ *
+ * Grouping happens after diversify(), so the families are already the ones
+ * worth showing. This only decides how they are presented.
+ *
+ * Returns [{ family, title, rows }] where:
+ *   - group order follows the rank of each family's best row
+ *   - rows inside a group stay in rank order
+ *   - `title` is the best row's title, which is the one the ranker preferred
+ *
+ * The caller must render groups in this order and derive keyboard
+ * navigation from the same flattened sequence, or the highlight will point
+ * at a different row than the one under the cursor.
+ */
+export function groupByTitle(rows) {
+  const list = Array.isArray(rows) ? rows : [];
+  const byFamily = new Map();
+  for (const row of list) {
+    const family = titleFamily(row?.title);
+    if (!byFamily.has(family)) {
+      byFamily.set(family, { family, title: row?.title ?? "", rows: [] });
+    }
+    byFamily.get(family).rows.push(row);
+  }
+  return [...byFamily.values()];
+}
+
+// The flattened sequence that matches how groups render. Keyboard
+// navigation indexes into this, never into the ungrouped input.
+export function flattenGroups(groups) {
+  const out = [];
+  for (const g of groups ?? []) out.push(...(g.rows ?? []));
+  return out;
+}

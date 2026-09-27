@@ -31270,5 +31270,32 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T12:07:29.878413+00:00",
     "retry_after": "2026-09-28T12:07:29.878431+00:00"
+  },
+  {
+    "name": "Raw Periphery",
+    "publisher": "Slave Labor Graphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59925,
+        "name": "Raw Periphery",
+        "publisher": "SLG Publishing",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T12:49:46.846896+00:00",
+    "retry_after": "2026-09-28T12:49:46.846912+00:00"
+  },
+  {
+    "name": "Star Wars: Agent of the Empire",
+    "publisher": "Dark Horse Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T12:52:31.081108+00:00",
+    "retry_after": "2026-09-28T12:52:31.081125+00:00"
   }
 ]

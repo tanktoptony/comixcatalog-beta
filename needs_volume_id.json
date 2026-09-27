@@ -20734,9 +20734,9 @@
     "year": 1986,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T03:00:42.501552+00:00",
-    "retry_after": "2026-09-27T03:00:42.501570+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-27T03:00:43.233962+00:00",
+    "retry_after": "2026-10-04T03:00:43.233979+00:00"
   },
   {
     "name": "Robin II",
@@ -20744,9 +20744,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T03:00:42.941329+00:00",
-    "retry_after": "2026-09-27T03:00:42.941348+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-27T03:00:44.153429+00:00",
+    "retry_after": "2026-10-04T03:00:44.153455+00:00"
   },
   {
     "name": "Fantastic Four: World's Greatest Comics Magazine",
@@ -20754,9 +20754,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T03:00:43.670566+00:00",
-    "retry_after": "2026-09-27T03:00:43.670583+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-27T03:00:44.602236+00:00",
+    "retry_after": "2026-10-04T03:00:44.602253+00:00"
   },
   {
     "name": "Starmasters",
@@ -20764,9 +20764,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T03:00:44.108512+00:00",
-    "retry_after": "2026-09-27T03:00:44.108528+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-27T03:00:45.039971+00:00",
+    "retry_after": "2026-10-04T03:00:45.039987+00:00"
   },
   {
     "name": "Justice League of America [So Much Fun]",
@@ -29964,5 +29964,183 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T02:06:50.647284+00:00",
     "retry_after": "2026-09-28T02:06:50.647299+00:00"
+  },
+  {
+    "name": "Purgatory USA",
+    "publisher": "Slave Labor Graphics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65173,
+        "name": "Purgatory USA",
+        "publisher": "SLG Publishing",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T03:01:20.523298+00:00",
+    "retry_after": "2026-09-28T03:01:20.523314+00:00"
+  },
+  {
+    "name": "Barabbas",
+    "publisher": "Slave Labor Graphics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48052,
+        "name": "Barabbas",
+        "publisher": "SLG Publishing",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T03:01:20.964252+00:00",
+    "retry_after": "2026-09-28T03:01:20.964268+00:00"
+  },
+  {
+    "name": "Bleat",
+    "publisher": "Slave Labor Graphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47966,
+        "name": "Bleat",
+        "publisher": "SLG Publishing",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T03:01:21.224666+00:00",
+    "retry_after": "2026-09-28T03:01:21.224683+00:00"
+  },
+  {
+    "name": "Killer Fly",
+    "publisher": "Slave Labor Graphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56046,
+        "name": "Killer Fly",
+        "publisher": "SLG Publishing",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T03:01:22.362513+00:00",
+    "retry_after": "2026-09-28T03:01:22.362529+00:00"
+  },
+  {
+    "name": "Milk & Cheese Six Six Six",
+    "publisher": "Slave Labor Graphics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T03:01:22.620725+00:00",
+    "retry_after": "2026-09-28T03:01:22.620741+00:00"
+  },
+  {
+    "name": "Dystopik Snomen",
+    "publisher": "Slave Labor Graphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49629,
+        "name": "Dystopik Snomen",
+        "publisher": "SLG Publishing",
+        "start_year": 1995
+      },
+      {
+        "id": 49609,
+        "name": "Dystopik Snomen",
+        "publisher": "SLG Publishing",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T03:01:23.050296+00:00",
+    "retry_after": "2026-09-28T03:01:23.050311+00:00"
+  },
+  {
+    "name": "Captain Dingleberry",
+    "publisher": "Slave Labor Graphics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49085,
+        "name": "Captain Dingleberry",
+        "publisher": "SLG Publishing",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T03:01:23.355301+00:00",
+    "retry_after": "2026-09-28T03:01:23.355335+00:00"
+  },
+  {
+    "name": "Farscape",
+    "publisher": "BOOM! Studios",
+    "year": 2025,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 25243,
+        "name": "Farscape",
+        "publisher": "Boom! Studios",
+        "start_year": 2008
+      },
+      {
+        "id": 29919,
+        "name": "Farscape",
+        "publisher": "Boom! Studios",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T03:01:45.226338+00:00",
+    "retry_after": "2026-09-28T03:01:45.226356+00:00"
+  },
+  {
+    "name": "Danger Girl: The Dangerous Collection",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 121959,
+        "name": "Danger Girl: The Dangerous Collection",
+        "publisher": "DC Comics",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T03:03:06.143225+00:00",
+    "retry_after": "2026-09-28T03:03:06.143244+00:00"
+  },
+  {
+    "name": "Looney Tunes [Burger King Giveaway]",
+    "publisher": "DC Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T03:03:06.831638+00:00",
+    "retry_after": "2026-09-28T03:03:06.831653+00:00"
+  },
+  {
+    "name": "Marvel's Ant-Man and Wasp Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T03:03:07.223117+00:00",
+    "retry_after": "2026-09-28T03:03:07.223133+00:00"
   }
 ]

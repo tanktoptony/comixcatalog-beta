@@ -67,6 +67,10 @@ export default function Header() {
   // thing. Suppress it there and let the page be the result list.
   const onSearchPage = pathname === "/search";
   const searchRef = useRef(null);
+  // The panel is position:fixed so it can span the page instead of the
+  // 520px search box. Fixed needs a real top, and the header is sticky with
+  // a height that changes between breakpoints, so measure it.
+  const [dropdownTop, setDropdownTop] = useState(null);
   const userMenuRef = useRef(null);
 
   function closeMenu() {
@@ -134,6 +138,21 @@ export default function Header() {
   }
 
   useEffect(() => {
+    if (!searchOpen) return undefined;
+    const measure = () => {
+      const box = searchRef.current?.getBoundingClientRect();
+      if (box) setDropdownTop(Math.round(box.bottom + 10));
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    window.addEventListener("scroll", measure, { passive: true });
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", measure);
+    };
+  }, [searchOpen]);
+
+  useEffect(() => {
     function handleOutsideClick(event) {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
         setSearchOpen(false);
@@ -191,7 +210,11 @@ export default function Header() {
         setSearchLoading(true);
 
         const [seriesRes, comicsRes] = await Promise.all([
-          fetch(`/api/search/series?q=${encodeURIComponent(q)}`, {
+          // 18, not the old default 12. The dropdown spans the page now, so
+          // it has room to show the shape of a character's shelf rather than
+          // twelve volumes of one title. The API diversifies across distinct
+          // runs before truncating.
+          fetch(`/api/search/series?q=${encodeURIComponent(q)}&limit=18`, {
             cache: "no-store",
           }),
           fetch(`/api/search/comics?q=${encodeURIComponent(q)}&limit=8&offset=0`, {
@@ -336,7 +359,10 @@ export default function Header() {
           />
 
           {searchOpen && !onSearchPage && (
-            <div className="header-search-dropdown">
+            <div
+              className="header-search-dropdown"
+              style={dropdownTop != null ? { top: `${dropdownTop}px` } : undefined}
+            >
               {searchLoading && (
                 <div className="header-search-state">Searching…</div>
               )}

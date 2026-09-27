@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { parseSearchQuery, yearMatches, yearScore } from "@/lib/searchQuery";
+import { diversify } from "@/lib/searchVariety";
 import { createClient } from "@supabase/supabase-js";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 
@@ -116,6 +117,13 @@ export async function GET(req) {
     const { searchParams } = new URL(req.url);
     const q = (searchParams.get("q") || "").trim();
     if (!q) return NextResponse.json({ series: [] });
+
+    // The header dropdown asks for more than the old fixed 12 now that it is
+    // page-width. Capped so a scripted caller cannot ask for the catalog.
+    const requested = Number(searchParams.get("limit"));
+    const limit = Number.isFinite(requested)
+      ? Math.max(1, Math.min(Math.trunc(requested), 40))
+      : 12;
 
     // A year in the query is a FILTER, not title text. It used to be left in,
     // so "rai 1994" normalized to "rai1994" and returned nothing at all while
@@ -312,7 +320,16 @@ export async function GET(req) {
       if (inYear.length > 0) ranked = inYear;
     }
 
-    const top = dedupeById(ranked).slice(0, 12);
+    // Spread the page across distinct runs instead of letting one title
+    // fill it. Live before this, every one of the twelve results for
+    // "spider-man" was a series titled exactly "Spider-Man", and Detective
+    // Comics — 887 issues — was absent from "batman" entirely.
+    //
+    // An explicit year means the searcher already named the volume, so
+    // variety would fight them: "rai 1994" wants Rai (1994), not one of
+    // each Rai-ish title.
+    const deduped = dedupeById(ranked);
+    const top = askedYear != null ? deduped.slice(0, limit) : diversify(deduped, { limit, perTitle: 2 });
 
     // Cover fallback for rows where featured_cover_path_cached is null.
     //

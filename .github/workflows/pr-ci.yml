@@ -80,6 +80,9 @@ jobs:
       - name: Search query-parsing tests
         run: npm run test:search-query
 
+      - name: Search variety tests
+        run: npm run test:search-variety
+
       - name: Build
         run: npm run build
 

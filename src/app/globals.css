@@ -10835,3 +10835,63 @@ button.nav-link {
   gap: 14px;
   flex-wrap: wrap;
 }
+
+/* ── Page-width search panel ───────────────────────────────────────────────
+   The dropdown used to inherit .header-search-wrap's 520px, which is why it
+   could only ever show a narrow column of results. Typing "batman" gave
+   twelve rows all called Batman and no room for Detective Comics.
+
+   Appended at the end of the file ON PURPOSE: there are three earlier
+   .header-search-dropdown rules of equal specificity, so source order is
+   what makes this one win. Raising specificity instead would leave the
+   duplicates fighting each other the next time someone edits them. */
+.header-search-dropdown {
+  position: fixed;
+  top: 64px; /* replaced inline from a measured rect; this is the fallback */
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
+  width: min(1200px, calc(100vw - 24px));
+  max-height: min(70vh, 680px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Results flow into columns once there is room. One column on a phone,
+   which is the same as the old behaviour. */
+.header-search-dropdown .header-search-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2px;
+  align-items: stretch;
+}
+
+/* The group heading spans the whole grid rather than taking a cell. */
+.header-search-dropdown .header-search-group-title {
+  grid-column: 1 / -1;
+}
+
+.header-search-dropdown .header-search-item {
+  width: 100%;
+  align-items: center;
+}
+
+/* A stray state message ("Searching…", "No results") should not sit in a
+   single narrow cell of an otherwise empty grid. */
+.header-search-dropdown .header-search-state {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+  .header-search-dropdown {
+    width: calc(100vw - 16px);
+    max-height: 62vh;
+  }
+  .header-search-dropdown .header-search-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-search-dropdown { scroll-behavior: auto; }
+}

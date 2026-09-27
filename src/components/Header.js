@@ -210,11 +210,12 @@ export default function Header() {
         setSearchLoading(true);
 
         const [seriesRes, comicsRes] = await Promise.all([
-          // 18, not the old default 12. The dropdown spans the page now, so
-          // it has room to show the shape of a character's shelf rather than
-          // twelve volumes of one title. The API diversifies across distinct
-          // runs before truncating.
-          fetch(`/api/search/series?q=${encodeURIComponent(q)}&limit=18`, {
+          // 36, up from the old fixed 12. The panel spans the page and
+          // scrolls, so it has room to show the shape of a character's shelf
+          // rather than twelve volumes of one title. The API diversifies
+          // across distinct runs before truncating, so a bigger number buys
+          // more DIFFERENT runs rather than more of the same one.
+          fetch(`/api/search/series?q=${encodeURIComponent(q)}&limit=36`, {
             cache: "no-store",
           }),
           fetch(`/api/search/comics?q=${encodeURIComponent(q)}&limit=8&offset=0`, {

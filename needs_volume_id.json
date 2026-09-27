@@ -27747,9 +27747,9 @@
     "year": 1966,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T07:00:43.254746+00:00",
-    "retry_after": "2026-09-27T07:00:43.254761+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T07:00:47.050131+00:00",
+    "retry_after": "2026-09-30T07:00:47.050146+00:00"
   },
   {
     "name": "Wildcat",
@@ -30754,5 +30754,339 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T06:24:38.001682+00:00",
     "retry_after": "2026-09-28T06:24:38.001698+00:00"
+  },
+  {
+    "name": "Longshot Comics",
+    "publisher": "Slave Labor Graphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63550,
+        "name": "Longshot Comics",
+        "publisher": "SLG Publishing",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:41.665581+00:00",
+    "retry_after": "2026-09-28T07:00:41.665596+00:00"
+  },
+  {
+    "name": "Pirate Corp$ Special!",
+    "publisher": "Slave Labor Graphics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64985,
+        "name": "Pirate Corp$ Special!",
+        "publisher": "SLG Publishing",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:41.990159+00:00",
+    "retry_after": "2026-09-28T07:00:41.990175+00:00"
+  },
+  {
+    "name": "Action Girl Comics",
+    "publisher": "Slave Labor Graphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23723,
+        "name": "Action Girl Comics",
+        "publisher": "SLG Publishing",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:42.292463+00:00",
+    "retry_after": "2026-09-28T07:00:42.292482+00:00"
+  },
+  {
+    "name": "Futurama",
+    "publisher": "Slave Labor Graphics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42348,
+        "name": "Futurama",
+        "publisher": "Panini Verlag",
+        "start_year": 2000
+      },
+      {
+        "id": 20116,
+        "name": "Futurama",
+        "publisher": "SLG Publishing",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:42.531497+00:00",
+    "retry_after": "2026-09-28T07:00:42.531512+00:00"
+  },
+  {
+    "name": "Rogue Satellite",
+    "publisher": "Slave Labor Graphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65475,
+        "name": "Rogue Satellite",
+        "publisher": "SLG Publishing",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:42.861148+00:00",
+    "retry_after": "2026-09-28T07:00:42.861163+00:00"
+  },
+  {
+    "name": "The Mystery Man",
+    "publisher": "Slave Labor Graphics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59837,
+        "name": "The Mystery Man",
+        "publisher": "SLG Publishing",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:43.200741+00:00",
+    "retry_after": "2026-09-28T07:00:43.200756+00:00"
+  },
+  {
+    "name": "Sugar Buzz",
+    "publisher": "Slave Labor Graphics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68695,
+        "name": "Sugar Buzz",
+        "publisher": "SLG Publishing",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:43.460618+00:00",
+    "retry_after": "2026-09-28T07:00:43.460633+00:00"
+  },
+  {
+    "name": "The Crime Clinic",
+    "publisher": "Slave Labor Graphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10799,
+        "name": "Crime Clinic",
+        "publisher": "Ziff-Davis",
+        "start_year": 1951
+      },
+      {
+        "id": 50135,
+        "name": "Crime Clinic",
+        "publisher": "SLG Publishing",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:43.734158+00:00",
+    "retry_after": "2026-09-28T07:00:43.734174+00:00"
+  },
+  {
+    "name": "Frozen Embryo",
+    "publisher": "Slave Labor Graphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51919,
+        "name": "Frozen Embryo",
+        "publisher": "SLG Publishing",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:44.050202+00:00",
+    "retry_after": "2026-09-28T07:00:44.050217+00:00"
+  },
+  {
+    "name": "Detroit! Murder City Comix",
+    "publisher": "Slave Labor Graphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50459,
+        "name": "Detroit! Murder City Comix",
+        "publisher": "SLG Publishing",
+        "start_year": 1994
+      },
+      {
+        "id": 50393,
+        "name": "Detroit! Murder City Comix",
+        "publisher": "Kent Myers & Rick Metcalf",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:44.365633+00:00",
+    "retry_after": "2026-09-28T07:00:44.365648+00:00"
+  },
+  {
+    "name": "Harry the Cop",
+    "publisher": "Slave Labor Graphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54365,
+        "name": "Harry the Cop",
+        "publisher": "SLG Publishing",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:44.675680+00:00",
+    "retry_after": "2026-09-28T07:00:44.675696+00:00"
+  },
+  {
+    "name": "Dick Wad of the Mega-Vice Squad",
+    "publisher": "Slave Labor Graphics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50590,
+        "name": "Dick Wad of the Mega-Vice Squad",
+        "publisher": "SLG Publishing",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:44.930861+00:00",
+    "retry_after": "2026-09-28T07:00:44.930876+00:00"
+  },
+  {
+    "name": "Bill the Clown",
+    "publisher": "Slave Labor Graphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48394,
+        "name": "Bill the Clown",
+        "publisher": "SLG Publishing",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:45.261892+00:00",
+    "retry_after": "2026-09-28T07:00:45.261907+00:00"
+  },
+  {
+    "name": "Max the Magnificent",
+    "publisher": "Slave Labor Graphics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57314,
+        "name": "Max the Magnificent",
+        "publisher": "SLG Publishing",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:45.673317+00:00",
+    "retry_after": "2026-09-28T07:00:45.673332+00:00"
+  },
+  {
+    "name": "Skeleton Girl Comics",
+    "publisher": "Slave Labor Graphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66995,
+        "name": "Skeleton Girl Comics",
+        "publisher": "SLG Publishing",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:45.967633+00:00",
+    "retry_after": "2026-09-28T07:00:45.967648+00:00"
+  },
+  {
+    "name": "M.A.C.H. 1: The John Probe Mission Files",
+    "publisher": "Rebellion",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:00:47.457866+00:00",
+    "retry_after": "2026-09-28T07:00:47.457882+00:00"
+  },
+  {
+    "name": "Wolverine Annual",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 76541,
+        "name": "Wolverine Annual",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 19222,
+        "name": "Wolverine Annual",
+        "publisher": "Marvel",
+        "start_year": 2007
+      },
+      {
+        "id": 121588,
+        "name": "Wolverine Annual",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 51435,
+        "name": "Wolverine Annual",
+        "publisher": "Marvel",
+        "start_year": 2012
+      },
+      {
+        "id": 159243,
+        "name": "Wolverine Annual",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:03:32.581269+00:00",
+    "retry_after": "2026-09-28T07:03:32.581284+00:00"
+  },
+  {
+    "name": "Spider-Man: The Complete Alien Costume Saga",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T07:03:33.013949+00:00",
+    "retry_after": "2026-09-28T07:03:33.013964+00:00"
   }
 ]

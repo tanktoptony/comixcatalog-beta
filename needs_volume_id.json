@@ -31297,5 +31297,432 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T12:52:31.081108+00:00",
     "retry_after": "2026-09-28T12:52:31.081125+00:00"
+  },
+  {
+    "name": "GloomCookie",
+    "publisher": "Slave Labor Graphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25101,
+        "name": "GloomCookie",
+        "publisher": "SLG Publishing",
+        "start_year": 1999
+      },
+      {
+        "id": 25106,
+        "name": "GloomCookie",
+        "publisher": "SLG Publishing",
+        "start_year": 2001
+      },
+      {
+        "id": 169280,
+        "name": "GloomCookie",
+        "publisher": "Akileos",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:41.983764+00:00",
+    "retry_after": "2026-09-28T13:00:41.983780+00:00"
+  },
+  {
+    "name": "Sidney Mellon's Thunderskull!",
+    "publisher": "Slave Labor Graphics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64489,
+        "name": "Sidney Mellon's Thunderskull!",
+        "publisher": "SLG Publishing",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:42.209955+00:00",
+    "retry_after": "2026-09-28T13:00:42.209976+00:00"
+  },
+  {
+    "name": "Milk & Cheese [Milk & Cheese's Latest Thing!]",
+    "publisher": "Slave Labor Graphics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:42.505246+00:00",
+    "retry_after": "2026-09-28T13:00:42.505267+00:00"
+  },
+  {
+    "name": "Milk & Cheese",
+    "publisher": "Slave Labor Graphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18362,
+        "name": "Milk and Cheese",
+        "publisher": "SLG Publishing",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:42.860772+00:00",
+    "retry_after": "2026-09-28T13:00:42.860787+00:00"
+  },
+  {
+    "name": "Caffeine",
+    "publisher": "Slave Labor Graphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48725,
+        "name": "Caffeine",
+        "publisher": "SLG Publishing",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:43.150388+00:00",
+    "retry_after": "2026-09-28T13:00:43.150402+00:00"
+  },
+  {
+    "name": "It's Science with Dr. Radium",
+    "publisher": "Slave Labor Graphics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46117,
+        "name": "It's Science with Dr. Radium",
+        "publisher": "SLG Publishing",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:43.856070+00:00",
+    "retry_after": "2026-09-28T13:00:43.856085+00:00"
+  },
+  {
+    "name": "Patty Cake & Friends",
+    "publisher": "Slave Labor Graphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6071,
+        "name": "Patty Cake & Friends",
+        "publisher": "SLG Publishing",
+        "start_year": 2000
+      },
+      {
+        "id": 63579,
+        "name": "Patty Cake & Friends",
+        "publisher": "SLG Publishing",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:44.219527+00:00",
+    "retry_after": "2026-09-28T13:00:44.219542+00:00"
+  },
+  {
+    "name": "Milk & Cheese's Third Number One",
+    "publisher": "Slave Labor Graphics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:44.511163+00:00",
+    "retry_after": "2026-09-28T13:00:44.511179+00:00"
+  },
+  {
+    "name": "Milk & Cheese's Other Number One",
+    "publisher": "Slave Labor Graphics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:44.777154+00:00",
+    "retry_after": "2026-09-28T13:00:44.777169+00:00"
+  },
+  {
+    "name": "The Copybook Tales",
+    "publisher": "Slave Labor Graphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28628,
+        "name": "Copybook Tales",
+        "publisher": "True Patriot Studios",
+        "start_year": 1994
+      },
+      {
+        "id": 28629,
+        "name": "Copybook Tales",
+        "publisher": "SLG Publishing",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:45.091165+00:00",
+    "retry_after": "2026-09-28T13:00:45.091180+00:00"
+  },
+  {
+    "name": "Ghost Ship",
+    "publisher": "Slave Labor Graphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54005,
+        "name": "Ghost Ship",
+        "publisher": "SLG Publishing",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:45.402815+00:00",
+    "retry_after": "2026-09-28T13:00:45.402829+00:00"
+  },
+  {
+    "name": "Horse",
+    "publisher": "Slave Labor Graphics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54974,
+        "name": "Horse",
+        "publisher": "SLG Publishing",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:45.723969+00:00",
+    "retry_after": "2026-09-28T13:00:45.723984+00:00"
+  },
+  {
+    "name": "Pirate Corp$!",
+    "publisher": "Slave Labor Graphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3925,
+        "name": "Pirate Corp$!",
+        "publisher": "Eternity",
+        "start_year": 1987
+      },
+      {
+        "id": 61223,
+        "name": "Pirate Corp$!",
+        "publisher": "SLG Publishing",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:46.072986+00:00",
+    "retry_after": "2026-09-28T13:00:46.073001+00:00"
+  },
+  {
+    "name": "Empty Love Stories",
+    "publisher": "Slave Labor Graphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51458,
+        "name": "Empty Love Stories",
+        "publisher": "SLG Publishing",
+        "start_year": 1994
+      },
+      {
+        "id": 135586,
+        "name": "Empty Love Stories",
+        "publisher": "Funny Valentine Press",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:46.396762+00:00",
+    "retry_after": "2026-09-28T13:00:46.396778+00:00"
+  },
+  {
+    "name": "Milk & Cheese's First Number Two",
+    "publisher": "Slave Labor Graphics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:46.703888+00:00",
+    "retry_after": "2026-09-28T13:00:46.703902+00:00"
+  },
+  {
+    "name": "Criminal: The Deluxe Edition",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52029,
+        "name": "Criminal: The Deluxe Edition",
+        "publisher": "Image",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:54.230717+00:00",
+    "retry_after": "2026-09-28T13:00:54.230733+00:00"
+  },
+  {
+    "name": "Edison Rex",
+    "publisher": "IDW Publishing",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50381,
+        "name": "Edison Rex",
+        "publisher": "MonkeyBrain Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 72853,
+        "name": "Edison Rex",
+        "publisher": "MonkeyBrain Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:54.654282+00:00",
+    "retry_after": "2026-09-28T13:00:54.654297+00:00"
+  },
+  {
+    "name": "Unknown Soldier",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2895,
+        "name": "Unknown Soldier",
+        "publisher": "DC Comics",
+        "start_year": 1977
+      },
+      {
+        "id": 23617,
+        "name": "Unknown Soldier",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 5990,
+        "name": "Unknown Soldier",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      },
+      {
+        "id": 29777,
+        "name": "Unknown Soldier",
+        "publisher": "DC Comics",
+        "start_year": 1998
+      },
+      {
+        "id": 4033,
+        "name": "The Unknown Soldier",
+        "publisher": "DC Comics",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:55.145292+00:00",
+    "retry_after": "2026-09-28T13:00:55.145308+00:00"
+  },
+  {
+    "name": "Captain Britain Summer Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36591,
+        "name": "Captain Britain Summer Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:00:55.528339+00:00",
+    "retry_after": "2026-09-28T13:00:55.528354+00:00"
+  },
+  {
+    "name": "Strontium Dog: The Life and Death of Johnny Alpha",
+    "publisher": "Rebellion",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:02:32.233725+00:00",
+    "retry_after": "2026-09-28T13:02:32.233741+00:00"
+  },
+  {
+    "name": "The Spectacular Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 1968,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2870,
+        "name": "The Spectacular Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1976
+      },
+      {
+        "id": 11069,
+        "name": "Spectacular Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:02:32.828553+00:00",
+    "retry_after": "2026-09-28T13:02:32.828570+00:00"
+  },
+  {
+    "name": "Superman and Batman vs. Aliens and Predator",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 19648,
+        "name": "Superman and Batman vs. Aliens and Predator",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 102657,
+        "name": "Superman and Batman vs. Aliens and Predator",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:02:39.246303+00:00",
+    "retry_after": "2026-09-28T13:02:39.246319+00:00"
+  },
+  {
+    "name": "Star Wars Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T13:03:18.955471+00:00",
+    "retry_after": "2026-09-28T13:03:18.955487+00:00"
   }
 ]

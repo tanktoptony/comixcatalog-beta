@@ -27658,9 +27658,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T05:08:57.127607+00:00",
-    "retry_after": "2026-09-27T05:08:57.127624+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T06:01:05.506053+00:00",
+    "retry_after": "2026-09-30T06:01:05.506062+00:00"
   },
   {
     "name": "Marvel's Thor: The Dark World Prelude",
@@ -27681,9 +27681,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T05:09:03.167041+00:00",
-    "retry_after": "2026-09-27T05:09:03.167056+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T06:01:05.973419+00:00",
+    "retry_after": "2026-09-30T06:01:05.973428+00:00"
   },
   {
     "name": "Hellraiser Masterpieces",
@@ -30286,5 +30286,325 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T05:06:41.578689+00:00",
     "retry_after": "2026-09-28T05:06:41.578703+00:00"
+  },
+  {
+    "name": "One Fisted Tales",
+    "publisher": "Slave Labor Graphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37356,
+        "name": "One-Fisted Tales",
+        "publisher": "SLG Publishing",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:00:56.579862+00:00",
+    "retry_after": "2026-09-28T06:00:56.579873+00:00"
+  },
+  {
+    "name": "Samurai Penguin",
+    "publisher": "Slave Labor Graphics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30312,
+        "name": "Samurai Penguin",
+        "publisher": "SLG Publishing",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:00:57.049280+00:00",
+    "retry_after": "2026-09-28T06:00:57.049293+00:00"
+  },
+  {
+    "name": "Special Hugging",
+    "publisher": "Slave Labor Graphics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68231,
+        "name": "Special Hugging",
+        "publisher": "SLG Publishing",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:00:57.834843+00:00",
+    "retry_after": "2026-09-28T06:00:57.834854+00:00"
+  },
+  {
+    "name": "Slave Labor Stories",
+    "publisher": "Slave Labor Graphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67294,
+        "name": "Slave Labor Stories",
+        "publisher": "SLG Publishing",
+        "start_year": 1992
+      },
+      {
+        "id": 67577,
+        "name": "Slave Labor Stories",
+        "publisher": "SLG Publishing",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:00:58.385223+00:00",
+    "retry_after": "2026-09-28T06:00:58.385243+00:00"
+  },
+  {
+    "name": "The Collected Dork",
+    "publisher": "Slave Labor Graphics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:00:59.080816+00:00",
+    "retry_after": "2026-09-28T06:00:59.080828+00:00"
+  },
+  {
+    "name": "Bloodlust",
+    "publisher": "Slave Labor Graphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48598,
+        "name": "Bloodlust",
+        "publisher": "SLG Publishing",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:00:59.548382+00:00",
+    "retry_after": "2026-09-28T06:00:59.548392+00:00"
+  },
+  {
+    "name": "Where's It At, Sugar Kat?",
+    "publisher": "Slave Labor Graphics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47537,
+        "name": "Where's It At, Sugar Kat?",
+        "publisher": "SLG Publishing",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:01:00.130020+00:00",
+    "retry_after": "2026-09-28T06:01:00.130030+00:00"
+  },
+  {
+    "name": "Little Mister Man",
+    "publisher": "Slave Labor Graphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44835,
+        "name": "Little Mister Man",
+        "publisher": "SLG Publishing",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:01:00.554470+00:00",
+    "retry_after": "2026-09-28T06:01:00.554483+00:00"
+  },
+  {
+    "name": "Suburban High Life",
+    "publisher": "Slave Labor Graphics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68681,
+        "name": "Suburban High Life",
+        "publisher": "SLG Publishing",
+        "start_year": 1988
+      },
+      {
+        "id": 37006,
+        "name": "Suburban High Life",
+        "publisher": "SLG Publishing",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:01:01.089284+00:00",
+    "retry_after": "2026-09-28T06:01:01.089293+00:00"
+  },
+  {
+    "name": "I Feel Sick",
+    "publisher": "Slave Labor Graphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22995,
+        "name": "I Feel Sick",
+        "publisher": "SLG Publishing",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:01:01.776838+00:00",
+    "retry_after": "2026-09-28T06:01:01.776852+00:00"
+  },
+  {
+    "name": "Babyhead Magazine",
+    "publisher": "Slave Labor Graphics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70026,
+        "name": "Babyhead Magazine",
+        "publisher": "SLG Publishing",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:01:02.455367+00:00",
+    "retry_after": "2026-09-28T06:01:02.455380+00:00"
+  },
+  {
+    "name": "Samurai Penguin: Food Chain Follies",
+    "publisher": "Slave Labor Graphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71583,
+        "name": "Samurai Penguin: Food Chain Follies",
+        "publisher": "SLG Publishing",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:01:02.911670+00:00",
+    "retry_after": "2026-09-28T06:01:02.911680+00:00"
+  },
+  {
+    "name": "Hero Sandwich",
+    "publisher": "Slave Labor Graphics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24563,
+        "name": "Hero Sandwich",
+        "publisher": "SLG Publishing",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:01:03.281152+00:00",
+    "retry_after": "2026-09-28T06:01:03.281161+00:00"
+  },
+  {
+    "name": "Aspen Seasons: Spring",
+    "publisher": "Aspen Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:01:05.069275+00:00",
+    "retry_after": "2026-09-28T06:01:05.069284+00:00"
+  },
+  {
+    "name": "The Neighbors' Kids",
+    "publisher": "Fawcett Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:01:04.968318+00:00",
+    "retry_after": "2026-09-28T06:01:04.968334+00:00"
+  },
+  {
+    "name": "Scalped Omnibus",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:01:40.790987+00:00",
+    "retry_after": "2026-09-28T06:01:40.790999+00:00"
+  },
+  {
+    "name": "StormWatch",
+    "publisher": "Image Comics",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5174,
+        "name": "Stormwatch",
+        "publisher": "Image",
+        "start_year": 1993
+      },
+      {
+        "id": 6095,
+        "name": "Stormwatch",
+        "publisher": "Image",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:02:06.351846+00:00",
+    "retry_after": "2026-09-28T06:02:06.351857+00:00"
+  },
+  {
+    "name": "X-Factor",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18109,
+        "name": "X-Factor",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 129097,
+        "name": "X-Factor",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 159244,
+        "name": "X-Factor",
+        "publisher": "Marvel",
+        "start_year": 2024
+      },
+      {
+        "id": 24239,
+        "name": "X-Factor",
+        "publisher": "Marvel",
+        "start_year": 2002
+      },
+      {
+        "id": 3657,
+        "name": "X-Factor",
+        "publisher": "Marvel",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T06:05:11.569158+00:00",
+    "retry_after": "2026-09-28T06:05:11.569174+00:00"
   }
 ]

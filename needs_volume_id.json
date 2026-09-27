@@ -28855,9 +28855,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T17:03:00.395273+00:00",
-    "retry_after": "2026-09-27T17:03:00.395288+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T17:36:05.274666+00:00",
+    "retry_after": "2026-09-30T17:36:05.274682+00:00"
   },
   {
     "name": "Les Aventures sexuelles de Lilian et Agathe",
@@ -28865,9 +28865,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T17:03:21.945220+00:00",
-    "retry_after": "2026-09-27T17:03:21.945236+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T17:36:05.715059+00:00",
+    "retry_after": "2026-09-30T17:36:05.715103+00:00"
   },
   {
     "name": "The Savage Sword of Conan",
@@ -28888,9 +28888,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T17:03:54.244640+00:00",
-    "retry_after": "2026-09-27T17:03:54.244673+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-27T17:36:06.093255+00:00",
+    "retry_after": "2026-09-30T17:36:06.093271+00:00"
   },
   {
     "name": "Flash / Green Lantern: Faster Friends",
@@ -31922,5 +31922,112 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T17:06:06.602390+00:00",
     "retry_after": "2026-09-28T17:06:06.602410+00:00"
+  },
+  {
+    "name": "Timeslip Collection",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T17:36:04.363872+00:00",
+    "retry_after": "2026-09-28T17:36:04.363889+00:00"
+  },
+  {
+    "name": "Here Comes Charlie Brown!",
+    "publisher": "Fawcett Comics",
+    "year": 1964,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T17:36:04.469195+00:00",
+    "retry_after": "2026-09-28T17:36:04.469211+00:00"
+  },
+  {
+    "name": "Forgotten Realms Annual Comic Book",
+    "publisher": "DC Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T17:36:04.579741+00:00",
+    "retry_after": "2026-09-28T17:36:04.579758+00:00"
+  },
+  {
+    "name": "Black Shuck",
+    "publisher": "Rebellion",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T17:36:57.030504+00:00",
+    "retry_after": "2026-09-28T17:36:57.030520+00:00"
+  },
+  {
+    "name": "Sam and Twitch Origins",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T17:36:57.416542+00:00",
+    "retry_after": "2026-09-28T17:36:57.416557+00:00"
+  },
+  {
+    "name": "Damnation Station",
+    "publisher": "Rebellion",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T17:36:57.887715+00:00",
+    "retry_after": "2026-09-28T17:36:57.887732+00:00"
+  },
+  {
+    "name": "Sparks",
+    "publisher": "Dark Horse Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 108962,
+        "name": "Sparks!",
+        "publisher": "Scholastic Book Services",
+        "start_year": 2018
+      },
+      {
+        "id": 117524,
+        "name": "Sparks",
+        "publisher": "Yellow Bear Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 109558,
+        "name": "Sparks",
+        "publisher": "W.i.N. Pictures, LLC",
+        "start_year": 2018
+      },
+      {
+        "id": 75581,
+        "name": "Sparks",
+        "publisher": "Catastrophic Comics",
+        "start_year": 2014
+      },
+      {
+        "id": 40047,
+        "name": "Sparks",
+        "publisher": "Catastrophic Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 93303,
+        "name": "Sparks",
+        "publisher": "Unknown Publisher",
+        "start_year": 1914
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-27T17:36:58.428824+00:00",
+    "retry_after": "2026-09-28T17:36:58.428838+00:00"
   }
 ]

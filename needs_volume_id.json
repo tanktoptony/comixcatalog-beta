@@ -32778,5 +32778,99 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T22:05:51.633620+00:00",
     "retry_after": "2026-09-29T22:05:51.633640+00:00"
+  },
+  {
+    "name": "Doctor Strange / Ghost Rider Special",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T23:04:30.771994+00:00",
+    "retry_after": "2026-09-29T23:04:30.772006+00:00"
+  },
+  {
+    "name": "Knights of the Jaguar: A Tale from the Legend of Diablo",
+    "publisher": "Top Cow Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24198,
+        "name": "Knights of the Jaguar: A Tale from the Legend of Diablo",
+        "publisher": "Image",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T23:04:31.303305+00:00",
+    "retry_after": "2026-09-29T23:04:31.303314+00:00"
+  },
+  {
+    "name": "Miles Morales: Spider-Man Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T23:05:18.745788+00:00",
+    "retry_after": "2026-09-29T23:05:18.745802+00:00"
+  },
+  {
+    "name": "Polar",
+    "publisher": "Dark Horse Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130325,
+        "name": "Polar",
+        "publisher": "Tokyopop GmbH",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T23:05:33.924709+00:00",
+    "retry_after": "2026-09-29T23:05:33.924718+00:00"
+  },
+  {
+    "name": "The Handbook of the Conan Universe [The Official Handbook of the Conan Universe]",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T23:05:34.522656+00:00",
+    "retry_after": "2026-09-29T23:05:34.522668+00:00"
+  },
+  {
+    "name": "The Strangers #1 Free Comic Book Day Edition",
+    "publisher": "Oni Press",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T23:05:34.939032+00:00",
+    "retry_after": "2026-09-29T23:05:34.939041+00:00"
+  },
+  {
+    "name": "NHS Annual",
+    "publisher": "Antarctic Press",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T23:05:44.316298+00:00",
+    "retry_after": "2026-09-29T23:05:44.316310+00:00"
+  },
+  {
+    "name": "Book of Death: The Fall of X-O Manowar",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T23:05:48.348379+00:00",
+    "retry_after": "2026-09-29T23:05:48.348391+00:00"
   }
 ]

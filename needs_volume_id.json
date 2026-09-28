@@ -31134,9 +31134,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T11:03:24.821666+00:00",
-    "retry_after": "2026-09-28T11:03:24.821674+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T12:03:10.072616+00:00",
+    "retry_after": "2026-10-01T12:03:10.072647+00:00"
   },
   {
     "name": "Ultimate Spider-Man and Wolverine",
@@ -31144,9 +31144,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T11:03:24.771855+00:00",
-    "retry_after": "2026-09-28T11:03:24.771865+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T12:03:10.004002+00:00",
+    "retry_after": "2026-10-01T12:03:10.004022+00:00"
   },
   {
     "name": "Onslaught: Marvel",
@@ -31154,9 +31154,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T11:03:24.871937+00:00",
-    "retry_after": "2026-09-28T11:03:24.871946+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T12:03:10.139151+00:00",
+    "retry_after": "2026-10-01T12:03:10.139166+00:00"
   },
   {
     "name": "AAFES 7th Edition [New Avengers: An Army of One]",
@@ -31164,9 +31164,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T11:03:24.717709+00:00",
-    "retry_after": "2026-09-28T11:03:24.717724+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T12:03:09.865414+00:00",
+    "retry_after": "2026-10-01T12:03:09.865433+00:00"
   },
   {
     "name": "The Best of Tharg's 3rillers",
@@ -31174,9 +31174,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T11:03:27.355629+00:00",
-    "retry_after": "2026-09-28T11:03:27.355643+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T12:03:10.680239+00:00",
+    "retry_after": "2026-10-01T12:03:10.680259+00:00"
   },
   {
     "name": "ID4: Independence Day Trade Paperback",
@@ -32280,28 +32280,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-27T21:17:58.426433+00:00",
     "retry_after": "2026-09-28T21:17:58.426439+00:00"
-  },
-  {
-    "name": "Teenage Mutant Ninja Turtles: Saturday Morning Adventures",
-    "publisher": "IDW Publishing",
-    "year": 2023,
-    "reason": "multiple_same_start_year",
-    "candidates": [
-      {
-        "id": 151018,
-        "name": "Teenage Mutant Ninja Turtles: Saturday Morning Adventures",
-        "publisher": "IDW Publishing",
-        "start_year": 2023
-      },
-      {
-        "id": 161173,
-        "name": "Teenage Mutant Ninja Turtles: Saturday Morning Adventures",
-        "publisher": "IDW Publishing",
-        "start_year": 2023
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554961+00:00"
   },
   {
     "name": "Imp",
@@ -33619,5 +33597,97 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T11:04:29.662032+00:00",
     "retry_after": "2026-09-29T11:04:29.662049+00:00"
+  },
+  {
+    "name": "Batman in the Brave and the Bold: The Bronze Age",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T12:03:23.496224+00:00",
+    "retry_after": "2026-09-29T12:03:23.496244+00:00"
+  },
+  {
+    "name": "Shadowman",
+    "publisher": "Valiant Comics",
+    "year": 2014,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4829,
+        "name": "Shadowman",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1992
+      },
+      {
+        "id": 139637,
+        "name": "Shadowman",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2021
+      },
+      {
+        "id": 26123,
+        "name": "Shadowman",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1994
+      },
+      {
+        "id": 6032,
+        "name": "Shadowman",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1997
+      },
+      {
+        "id": 53568,
+        "name": "Shadowman",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2012
+      },
+      {
+        "id": 109459,
+        "name": "Shadowman",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2018
+      },
+      {
+        "id": 135681,
+        "name": "Shadowman",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2021
+      },
+      {
+        "id": 26125,
+        "name": "Shadowman",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T12:03:36.825732+00:00",
+    "retry_after": "2026-09-29T12:03:36.825751+00:00"
+  },
+  {
+    "name": "Elric: The White Wolf",
+    "publisher": "Titan Comics",
+    "year": 2018,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 113238,
+        "name": "Elric: The White Wolf",
+        "publisher": "Titan Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 116047,
+        "name": "Elric: The White Wolf",
+        "publisher": "Titan Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T12:04:26.358571+00:00",
+    "retry_after": "2026-09-29T12:04:26.358591+00:00"
   }
 ]

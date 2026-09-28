@@ -27337,23 +27337,6 @@
     "retry_after": "2026-10-01T01:03:54.843187+00:00"
   },
   {
-    "name": "L'Accordeur",
-    "publisher": "Dynamite Entertainment",
-    "year": 2007,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 146185,
-        "name": "L'Accordeur",
-        "publisher": "Dynamite (France)",
-        "start_year": 2007
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T01:03:55.720879+00:00",
-    "retry_after": "2026-10-01T01:03:55.720893+00:00"
-  },
-  {
     "name": "Afterworks",
     "publisher": "Image Comics",
     "year": 2006,
@@ -27385,23 +27368,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-28T01:03:57.050582+00:00",
     "retry_after": "2026-10-01T01:03:57.050597+00:00"
-  },
-  {
-    "name": "Snow Angels",
-    "publisher": "Dark Horse Comics",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 132662,
-        "name": "Snow Angels",
-        "publisher": "4Twenty Limited",
-        "start_year": 2021
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T01:03:57.788883+00:00",
-    "retry_after": "2026-10-01T01:03:57.788897+00:00"
   },
   {
     "name": "Justice League International",
@@ -27671,23 +27637,6 @@
     "retry_after": "2026-10-01T02:03:27.920126+00:00"
   },
   {
-    "name": "Wildcat",
-    "publisher": "Rebellion",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 40074,
-        "name": "Wildcat",
-        "publisher": "Fleetway",
-        "start_year": 1988
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T02:03:28.306731+00:00",
-    "retry_after": "2026-10-01T02:03:28.306747+00:00"
-  },
-  {
     "name": "Ms. Marvel Epic Collection",
     "publisher": "Marvel Comics",
     "year": 2018,
@@ -27696,23 +27645,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-28T02:03:28.640249+00:00",
     "retry_after": "2026-10-01T02:03:28.640265+00:00"
-  },
-  {
-    "name": "Dark Souls",
-    "publisher": "Titan Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 129576,
-        "name": "Dark Souls",
-        "publisher": "Panini Verlag",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T02:03:29.082606+00:00",
-    "retry_after": "2026-10-01T02:03:29.082621+00:00"
   },
   {
     "name": "Aliens - L'intrus",
@@ -28227,23 +28159,6 @@
     "retry_after": "2026-10-01T05:07:47.248782+00:00"
   },
   {
-    "name": "Warheads: Black Dawn",
-    "publisher": "Marvel Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 27658,
-        "name": "Warheads: Black Dawn",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T05:07:47.528933+00:00",
-    "retry_after": "2026-10-01T05:07:47.528950+00:00"
-  },
-  {
     "name": "The Inferior 5",
     "publisher": "DC Comics",
     "year": 1972,
@@ -28426,57 +28341,6 @@
     "retry_after": "2026-09-27T15:00:40.806054+00:00"
   },
   {
-    "name": "Cerebus: High Society",
-    "publisher": "Aardvark-Vanaheim Inc.",
-    "year": 1990,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 23633,
-        "name": "Cerebus High Society",
-        "publisher": "Aardvark",
-        "start_year": 1990
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T15:00:42.769797+00:00",
-    "retry_after": "2026-09-27T15:00:42.769813+00:00"
-  },
-  {
-    "name": "Cerebus Bi-Weekly",
-    "publisher": "Aardvark-Vanaheim",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 66263,
-        "name": "Cerebus Bi-Weekly",
-        "publisher": "Aardvark",
-        "start_year": 1988
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T15:00:43.090074+00:00",
-    "retry_after": "2026-09-27T15:00:43.090093+00:00"
-  },
-  {
-    "name": "Cerebus Archive",
-    "publisher": "Aardvark-Vanaheim Inc.",
-    "year": 2009,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26696,
-        "name": "Cerebus Archive",
-        "publisher": "Aardvark",
-        "start_year": 2009
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T15:00:43.470059+00:00",
-    "retry_after": "2026-09-27T15:00:43.470073+00:00"
-  },
-  {
     "name": "Cerebus",
     "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
@@ -28498,40 +28362,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T15:00:44.216226+00:00",
     "retry_after": "2026-09-27T15:00:44.216241+00:00"
-  },
-  {
-    "name": "Swords of Cerebus",
-    "publisher": "Aardvark Vanaheim Press",
-    "year": 1981,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 11730,
-        "name": "Swords of Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1981
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T15:00:55.210280+00:00",
-    "retry_after": "2026-09-27T15:00:55.210296+00:00"
-  },
-  {
-    "name": "Cerebus in Hell?",
-    "publisher": "Aardvark-Vanaheim",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 95450,
-        "name": "Cerebus in Hell?",
-        "publisher": "Aardvark",
-        "start_year": 2016
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T15:00:55.583030+00:00",
-    "retry_after": "2026-09-27T15:00:55.583045+00:00"
   },
   {
     "name": "Cerebus",
@@ -29157,23 +28987,6 @@
     "retry_after": "2026-09-30T20:02:16.980819+00:00"
   },
   {
-    "name": "Ninja High School featuring Speed Racer",
-    "publisher": "Malibu Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 83104,
-        "name": "Ninja High School featuring Speed Racer",
-        "publisher": "Eternity",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T20:02:17.440982+00:00",
-    "retry_after": "2026-09-30T20:02:17.440997+00:00"
-  },
-  {
     "name": "Jurassic Park",
     "publisher": "Topps Comics",
     "year": null,
@@ -29703,23 +29516,6 @@
     "retry_after": "2026-10-01T07:03:10.055745+00:00"
   },
   {
-    "name": "Wolverine / Shi: Dark Night of Judgment",
-    "publisher": "Crusade Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20353,
-        "name": "Wolverine/Shi: Dark Night of Judgment",
-        "publisher": "Marvel",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:11:04.241685+00:00",
-    "retry_after": "2026-09-27T16:11:04.241685+00:00"
-  },
-  {
     "name": "Shi: The Way of the Warrior. Fan Appreciation Edition",
     "publisher": "Crusade Comics",
     "year": 1995,
@@ -29885,74 +29681,6 @@
     "retry_after": "2026-10-01T03:03:17.342037+00:00"
   },
   {
-    "name": "Purgatory USA",
-    "publisher": "Slave Labor Graphics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 65173,
-        "name": "Purgatory USA",
-        "publisher": "SLG Publishing",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:24.519572+00:00",
-    "retry_after": "2026-09-27T16:14:24.519572+00:00"
-  },
-  {
-    "name": "Barabbas",
-    "publisher": "Slave Labor Graphics",
-    "year": 1986,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 48052,
-        "name": "Barabbas",
-        "publisher": "SLG Publishing",
-        "start_year": 1986
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:25.028615+00:00",
-    "retry_after": "2026-09-27T16:14:25.028615+00:00"
-  },
-  {
-    "name": "Bleat",
-    "publisher": "Slave Labor Graphics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47966,
-        "name": "Bleat",
-        "publisher": "SLG Publishing",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:25.544248+00:00",
-    "retry_after": "2026-09-27T16:14:25.544248+00:00"
-  },
-  {
-    "name": "Killer Fly",
-    "publisher": "Slave Labor Graphics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 56046,
-        "name": "Killer Fly",
-        "publisher": "SLG Publishing",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:26.112956+00:00",
-    "retry_after": "2026-09-27T16:14:26.112956+00:00"
-  },
-  {
     "name": "Milk & Cheese Six Six Six",
     "publisher": "Slave Labor Graphics",
     "year": 1995,
@@ -29986,23 +29714,6 @@
     "retry_after": "2026-09-27T16:14:27.535034+00:00"
   },
   {
-    "name": "Captain Dingleberry",
-    "publisher": "Slave Labor Graphics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 49085,
-        "name": "Captain Dingleberry",
-        "publisher": "SLG Publishing",
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:28.115297+00:00",
-    "retry_after": "2026-09-27T16:14:28.115297+00:00"
-  },
-  {
     "name": "Farscape",
     "publisher": "BOOM! Studios",
     "year": 2025,
@@ -30024,23 +29735,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-28T07:03:13.389733+00:00",
     "retry_after": "2026-10-01T07:03:13.389742+00:00"
-  },
-  {
-    "name": "Danger Girl: The Dangerous Collection",
-    "publisher": "Image Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 121959,
-        "name": "Danger Girl: The Dangerous Collection",
-        "publisher": "DC Comics",
-        "start_year": 1998
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T07:03:13.895791+00:00",
-    "retry_after": "2026-10-01T07:03:13.895799+00:00"
   },
   {
     "name": "Looney Tunes [Burger King Giveaway]",
@@ -30207,57 +29901,6 @@
     "retry_after": "2026-10-01T07:03:16.116326+00:00"
   },
   {
-    "name": "One Fisted Tales",
-    "publisher": "Slave Labor Graphics",
-    "year": 1990,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37356,
-        "name": "One-Fisted Tales",
-        "publisher": "SLG Publishing",
-        "start_year": 1990
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:28.678461+00:00",
-    "retry_after": "2026-09-27T16:14:28.678461+00:00"
-  },
-  {
-    "name": "Samurai Penguin",
-    "publisher": "Slave Labor Graphics",
-    "year": 1986,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 30312,
-        "name": "Samurai Penguin",
-        "publisher": "SLG Publishing",
-        "start_year": 1986
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:29.326786+00:00",
-    "retry_after": "2026-09-27T16:14:29.326786+00:00"
-  },
-  {
-    "name": "Special Hugging",
-    "publisher": "Slave Labor Graphics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 68231,
-        "name": "Special Hugging",
-        "publisher": "SLG Publishing",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:30.523593+00:00",
-    "retry_after": "2026-09-27T16:14:30.523593+00:00"
-  },
-  {
     "name": "Slave Labor Stories",
     "publisher": "Slave Labor Graphics",
     "year": 1992,
@@ -30291,57 +29934,6 @@
     "retry_after": "2026-09-27T16:14:32.089156+00:00"
   },
   {
-    "name": "Bloodlust",
-    "publisher": "Slave Labor Graphics",
-    "year": 1990,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 48598,
-        "name": "Bloodlust",
-        "publisher": "SLG Publishing",
-        "start_year": 1990
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:32.618376+00:00",
-    "retry_after": "2026-09-27T16:14:32.618376+00:00"
-  },
-  {
-    "name": "Where's It At, Sugar Kat?",
-    "publisher": "Slave Labor Graphics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47537,
-        "name": "Where's It At, Sugar Kat?",
-        "publisher": "SLG Publishing",
-        "start_year": 2000
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:34.105948+00:00",
-    "retry_after": "2026-09-27T16:14:34.105948+00:00"
-  },
-  {
-    "name": "Little Mister Man",
-    "publisher": "Slave Labor Graphics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 44835,
-        "name": "Little Mister Man",
-        "publisher": "SLG Publishing",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:34.754263+00:00",
-    "retry_after": "2026-09-27T16:14:34.754263+00:00"
-  },
-  {
     "name": "Suburban High Life",
     "publisher": "Slave Labor Graphics",
     "year": 1987,
@@ -30363,74 +29955,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T16:14:35.425147+00:00",
     "retry_after": "2026-09-27T16:14:35.425147+00:00"
-  },
-  {
-    "name": "I Feel Sick",
-    "publisher": "Slave Labor Graphics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22995,
-        "name": "I Feel Sick",
-        "publisher": "SLG Publishing",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:36.057501+00:00",
-    "retry_after": "2026-09-27T16:14:36.057501+00:00"
-  },
-  {
-    "name": "Babyhead Magazine",
-    "publisher": "Slave Labor Graphics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 70026,
-        "name": "Babyhead Magazine",
-        "publisher": "SLG Publishing",
-        "start_year": 2002
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:37.235295+00:00",
-    "retry_after": "2026-09-27T16:14:37.235295+00:00"
-  },
-  {
-    "name": "Samurai Penguin: Food Chain Follies",
-    "publisher": "Slave Labor Graphics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 71583,
-        "name": "Samurai Penguin: Food Chain Follies",
-        "publisher": "SLG Publishing",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:38.638189+00:00",
-    "retry_after": "2026-09-27T16:14:38.638189+00:00"
-  },
-  {
-    "name": "Hero Sandwich",
-    "publisher": "Slave Labor Graphics",
-    "year": 1987,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24563,
-        "name": "Hero Sandwich",
-        "publisher": "SLG Publishing",
-        "start_year": 1987
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:39.293836+00:00",
-    "retry_after": "2026-09-27T16:14:39.293836+00:00"
   },
   {
     "name": "Aspen Seasons: Spring",
@@ -30525,40 +30049,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-28T08:06:06.610919+00:00",
     "retry_after": "2026-10-01T08:06:06.610935+00:00"
-  },
-  {
-    "name": "Patty Cake Special",
-    "publisher": "Slave Labor Graphics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 81590,
-        "name": "Patty Cake Special",
-        "publisher": "SLG Publishing",
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:39.923099+00:00",
-    "retry_after": "2026-09-27T16:14:39.923099+00:00"
-  },
-  {
-    "name": "Hosie's Heroines",
-    "publisher": "Slave Labor Graphics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 54929,
-        "name": "Hosie's Heroines",
-        "publisher": "SLG Publishing",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:41.247767+00:00",
-    "retry_after": "2026-09-27T16:14:41.247767+00:00"
   },
   {
     "name": "Star Wars: Droids",
@@ -30675,57 +30165,6 @@
     "retry_after": "2026-10-01T09:02:30.634309+00:00"
   },
   {
-    "name": "Longshot Comics",
-    "publisher": "Slave Labor Graphics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 63550,
-        "name": "Longshot Comics",
-        "publisher": "SLG Publishing",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:41.730151+00:00",
-    "retry_after": "2026-09-27T16:14:41.730151+00:00"
-  },
-  {
-    "name": "Pirate Corp$ Special!",
-    "publisher": "Slave Labor Graphics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64985,
-        "name": "Pirate Corp$ Special!",
-        "publisher": "SLG Publishing",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:42.364324+00:00",
-    "retry_after": "2026-09-27T16:14:42.365333+00:00"
-  },
-  {
-    "name": "Action Girl Comics",
-    "publisher": "Slave Labor Graphics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 23723,
-        "name": "Action Girl Comics",
-        "publisher": "SLG Publishing",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:43.000377+00:00",
-    "retry_after": "2026-09-27T16:14:43.000377+00:00"
-  },
-  {
     "name": "Futurama",
     "publisher": "Slave Labor Graphics",
     "year": 1989,
@@ -30747,57 +30186,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T16:14:43.550083+00:00",
     "retry_after": "2026-09-27T16:14:43.550083+00:00"
-  },
-  {
-    "name": "Rogue Satellite",
-    "publisher": "Slave Labor Graphics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 65475,
-        "name": "Rogue Satellite",
-        "publisher": "SLG Publishing",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:44.144461+00:00",
-    "retry_after": "2026-09-27T16:14:44.144461+00:00"
-  },
-  {
-    "name": "The Mystery Man",
-    "publisher": "Slave Labor Graphics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 59837,
-        "name": "The Mystery Man",
-        "publisher": "SLG Publishing",
-        "start_year": 1988
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:44.665128+00:00",
-    "retry_after": "2026-09-27T16:14:44.665128+00:00"
-  },
-  {
-    "name": "Sugar Buzz",
-    "publisher": "Slave Labor Graphics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 68695,
-        "name": "Sugar Buzz",
-        "publisher": "SLG Publishing",
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:45.494146+00:00",
-    "retry_after": "2026-09-27T16:14:45.494146+00:00"
   },
   {
     "name": "The Crime Clinic",
@@ -30823,23 +30211,6 @@
     "retry_after": "2026-09-27T16:14:46.160761+00:00"
   },
   {
-    "name": "Frozen Embryo",
-    "publisher": "Slave Labor Graphics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 51919,
-        "name": "Frozen Embryo",
-        "publisher": "SLG Publishing",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:46.883432+00:00",
-    "retry_after": "2026-09-27T16:14:46.883432+00:00"
-  },
-  {
     "name": "Detroit! Murder City Comix",
     "publisher": "Slave Labor Graphics",
     "year": 1994,
@@ -30861,91 +30232,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T16:14:47.543869+00:00",
     "retry_after": "2026-09-27T16:14:47.543869+00:00"
-  },
-  {
-    "name": "Harry the Cop",
-    "publisher": "Slave Labor Graphics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 54365,
-        "name": "Harry the Cop",
-        "publisher": "SLG Publishing",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:48.107064+00:00",
-    "retry_after": "2026-09-27T16:14:48.107064+00:00"
-  },
-  {
-    "name": "Dick Wad of the Mega-Vice Squad",
-    "publisher": "Slave Labor Graphics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 50590,
-        "name": "Dick Wad of the Mega-Vice Squad",
-        "publisher": "SLG Publishing",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:48.814420+00:00",
-    "retry_after": "2026-09-27T16:14:48.814420+00:00"
-  },
-  {
-    "name": "Bill the Clown",
-    "publisher": "Slave Labor Graphics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 48394,
-        "name": "Bill the Clown",
-        "publisher": "SLG Publishing",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:49.608807+00:00",
-    "retry_after": "2026-09-27T16:14:49.608807+00:00"
-  },
-  {
-    "name": "Max the Magnificent",
-    "publisher": "Slave Labor Graphics",
-    "year": 1987,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57314,
-        "name": "Max the Magnificent",
-        "publisher": "SLG Publishing",
-        "start_year": 1987
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:50.121125+00:00",
-    "retry_after": "2026-09-27T16:14:50.121125+00:00"
-  },
-  {
-    "name": "Skeleton Girl Comics",
-    "publisher": "Slave Labor Graphics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 66995,
-        "name": "Skeleton Girl Comics",
-        "publisher": "SLG Publishing",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:50.722615+00:00",
-    "retry_after": "2026-09-27T16:14:50.722615+00:00"
   },
   {
     "name": "M.A.C.H. 1: The John Probe Mission Files",
@@ -31272,23 +30558,6 @@
     "retry_after": "2026-10-01T13:03:12.459193+00:00"
   },
   {
-    "name": "Raw Periphery",
-    "publisher": "Slave Labor Graphics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 59925,
-        "name": "Raw Periphery",
-        "publisher": "SLG Publishing",
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:51.474223+00:00",
-    "retry_after": "2026-09-27T16:14:51.474223+00:00"
-  },
-  {
     "name": "Star Wars: Agent of the Empire",
     "publisher": "Dark Horse Comics",
     "year": 2012,
@@ -31328,23 +30597,6 @@
     "retry_after": "2026-09-27T16:14:52.382691+00:00"
   },
   {
-    "name": "Sidney Mellon's Thunderskull!",
-    "publisher": "Slave Labor Graphics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64489,
-        "name": "Sidney Mellon's Thunderskull!",
-        "publisher": "SLG Publishing",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:53.116881+00:00",
-    "retry_after": "2026-09-27T16:14:53.116881+00:00"
-  },
-  {
     "name": "Milk & Cheese [Milk & Cheese's Latest Thing!]",
     "publisher": "Slave Labor Graphics",
     "year": 1997,
@@ -31353,57 +30605,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T16:14:53.719820+00:00",
     "retry_after": "2026-09-27T16:14:53.719820+00:00"
-  },
-  {
-    "name": "Milk & Cheese",
-    "publisher": "Slave Labor Graphics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18362,
-        "name": "Milk and Cheese",
-        "publisher": "SLG Publishing",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:54.235614+00:00",
-    "retry_after": "2026-09-27T16:14:54.235614+00:00"
-  },
-  {
-    "name": "Caffeine",
-    "publisher": "Slave Labor Graphics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 48725,
-        "name": "Caffeine",
-        "publisher": "SLG Publishing",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:55.152009+00:00",
-    "retry_after": "2026-09-27T16:14:55.152009+00:00"
-  },
-  {
-    "name": "It's Science with Dr. Radium",
-    "publisher": "Slave Labor Graphics",
-    "year": 1986,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 46117,
-        "name": "It's Science with Dr. Radium",
-        "publisher": "SLG Publishing",
-        "start_year": 1986
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:55.925745+00:00",
-    "retry_after": "2026-09-27T16:14:55.925745+00:00"
   },
   {
     "name": "Patty Cake & Friends",
@@ -31472,40 +30673,6 @@
     "retry_after": "2026-09-27T16:14:59.366903+00:00"
   },
   {
-    "name": "Ghost Ship",
-    "publisher": "Slave Labor Graphics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 54005,
-        "name": "Ghost Ship",
-        "publisher": "SLG Publishing",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:14:59.992426+00:00",
-    "retry_after": "2026-09-27T16:14:59.992426+00:00"
-  },
-  {
-    "name": "Horse",
-    "publisher": "Slave Labor Graphics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 54974,
-        "name": "Horse",
-        "publisher": "SLG Publishing",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:00.753129+00:00",
-    "retry_after": "2026-09-27T16:15:00.753129+00:00"
-  },
-  {
     "name": "Pirate Corp$!",
     "publisher": "Slave Labor Graphics",
     "year": 1992,
@@ -31560,23 +30727,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T16:15:02.874107+00:00",
     "retry_after": "2026-09-27T16:15:02.874107+00:00"
-  },
-  {
-    "name": "Criminal: The Deluxe Edition",
-    "publisher": "Marvel Comics",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52029,
-        "name": "Criminal: The Deluxe Edition",
-        "publisher": "Image",
-        "start_year": 2009
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T14:03:15.629157+00:00",
-    "retry_after": "2026-10-01T14:03:15.629170+00:00"
   },
   {
     "name": "Edison Rex",
@@ -31641,23 +30791,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-28T14:03:16.469900+00:00",
     "retry_after": "2026-10-01T14:03:16.469915+00:00"
-  },
-  {
-    "name": "Captain Britain Summer Special",
-    "publisher": "Marvel Comics",
-    "year": 1980,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 36591,
-        "name": "Captain Britain Summer Special",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1979
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T14:03:16.778727+00:00",
-    "retry_after": "2026-10-01T14:03:16.778741+00:00"
   },
   {
     "name": "Strontium Dog: The Life and Death of Johnny Alpha",
@@ -32282,23 +31415,6 @@
     "retry_after": "2026-09-28T21:17:58.426439+00:00"
   },
   {
-    "name": "Imp",
-    "publisher": "Slave Labor Graphics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 55016,
-        "name": "Imp",
-        "publisher": "SLG Publishing",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:03.908717+00:00",
-    "retry_after": "2026-09-27T16:15:03.908717+00:00"
-  },
-  {
     "name": "Lenore",
     "publisher": "Slave Labor Graphics",
     "year": 1999,
@@ -32340,23 +31456,6 @@
     "retry_after": "2026-09-27T16:15:04.493830+00:00"
   },
   {
-    "name": "Spark Generators",
-    "publisher": "Slave Labor Graphics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 67967,
-        "name": "Spark Generators",
-        "publisher": "SLG Publishing",
-        "start_year": 2002
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:05.111111+00:00",
-    "retry_after": "2026-09-27T16:15:05.111111+00:00"
-  },
-  {
     "name": "The Waiting Place",
     "publisher": "Slave Labor Graphics",
     "year": 1999,
@@ -32386,57 +31485,6 @@
     "retry_after": "2026-09-27T16:15:05.889292+00:00"
   },
   {
-    "name": "Post Apocalypse",
-    "publisher": "Slave Labor Graphics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 65011,
-        "name": "Post Apocalypse",
-        "publisher": "SLG Publishing",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:06.581310+00:00",
-    "retry_after": "2026-09-27T16:15:06.581310+00:00"
-  },
-  {
-    "name": "Jazzbo!: Comics That Swing",
-    "publisher": "Slave Labor Graphics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 55716,
-        "name": "Jazzbo!: Comics That Swing",
-        "publisher": "SLG Publishing",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:07.164957+00:00",
-    "retry_after": "2026-09-27T16:15:07.164957+00:00"
-  },
-  {
-    "name": "Megazzar Dude Special",
-    "publisher": "Slave Labor Graphics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57348,
-        "name": "Megazzar Dude Special",
-        "publisher": "SLG Publishing",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:07.875674+00:00",
-    "retry_after": "2026-09-27T16:15:07.875674+00:00"
-  },
-  {
     "name": "Screen Play",
     "publisher": "Slave Labor Graphics",
     "year": 1989,
@@ -32445,57 +31493,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T16:15:08.480984+00:00",
     "retry_after": "2026-09-27T16:15:08.480984+00:00"
-  },
-  {
-    "name": "Tales from the Heart",
-    "publisher": "Slave Labor Graphics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 49206,
-        "name": "Tales from the Heart",
-        "publisher": "Entropy Enterprises",
-        "start_year": 1987
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:09.919092+00:00",
-    "retry_after": "2026-09-27T16:15:09.919092+00:00"
-  },
-  {
-    "name": "Narcolepsy Dreams",
-    "publisher": "Slave Labor Graphics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 9486,
-        "name": "Narcolepsy Dreams",
-        "publisher": "SLG Publishing",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:10.642396+00:00",
-    "retry_after": "2026-09-27T16:15:10.642396+00:00"
-  },
-  {
-    "name": "Johnny, the Homicidal Maniac",
-    "publisher": "Slave Labor Graphics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18711,
-        "name": "Johnny the Homicidal Maniac",
-        "publisher": "SLG Publishing",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:11.241773+00:00",
-    "retry_after": "2026-09-27T16:15:11.241773+00:00"
   },
   {
     "name": "Milk & Cheese's Fourth Number One",
@@ -32531,57 +31528,6 @@
     "retry_after": "2026-09-27T16:15:12.532879+00:00"
   },
   {
-    "name": "Dance Party DOA",
-    "publisher": "Slave Labor Graphics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 50249,
-        "name": "Dance Party DOA",
-        "publisher": "SLG Publishing",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:13.102657+00:00",
-    "retry_after": "2026-09-27T16:15:13.103667+00:00"
-  },
-  {
-    "name": "Slacker Comics",
-    "publisher": "Slave Labor Graphics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 30288,
-        "name": "Slacker Comics",
-        "publisher": "SLG Publishing",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:13.719836+00:00",
-    "retry_after": "2026-09-27T16:15:13.719836+00:00"
-  },
-  {
-    "name": "Hummingbird",
-    "publisher": "Slave Labor Graphics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 42174,
-        "name": "Hummingbird",
-        "publisher": "SLG Publishing",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:14.241662+00:00",
-    "retry_after": "2026-09-27T16:15:14.241662+00:00"
-  },
-  {
     "name": "No Hope",
     "publisher": "Slave Labor Graphics",
     "year": 1993,
@@ -32603,57 +31549,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T16:15:14.771923+00:00",
     "retry_after": "2026-09-27T16:15:14.771923+00:00"
-  },
-  {
-    "name": "Life of a Fetus",
-    "publisher": "Slave Labor Graphics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 56151,
-        "name": "Life of a Fetus",
-        "publisher": "SLG Publishing",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:15.544551+00:00",
-    "retry_after": "2026-09-27T16:15:15.544551+00:00"
-  },
-  {
-    "name": "The Monsters in My Tummy",
-    "publisher": "Slave Labor Graphics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 42447,
-        "name": "The Monsters in My Tummy",
-        "publisher": "SLG Publishing",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:16.174977+00:00",
-    "retry_after": "2026-09-27T16:15:16.174977+00:00"
-  },
-  {
-    "name": "Breakneck Blvd.",
-    "publisher": "Slave Labor Graphics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 38025,
-        "name": "Breakneck Blvd",
-        "publisher": "SLG Publishing",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:16.821118+00:00",
-    "retry_after": "2026-09-27T16:15:16.821118+00:00"
   },
   {
     "name": "Attitude Lad",
@@ -32679,23 +31574,6 @@
     "retry_after": "2026-09-27T16:15:17.392136+00:00"
   },
   {
-    "name": "Helyun: Bones of the Backwoods",
-    "publisher": "Slave Labor Graphics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 70772,
-        "name": "Helyun: Bones of the Backwoods",
-        "publisher": "SLG Publishing",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:17.899433+00:00",
-    "retry_after": "2026-09-27T16:15:17.899433+00:00"
-  },
-  {
     "name": "Charm School: Magical Witch Girl Bunny",
     "publisher": "Slave Labor Graphics",
     "year": 2000,
@@ -32717,23 +31595,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T16:15:18.475137+00:00",
     "retry_after": "2026-09-27T16:15:18.475137+00:00"
-  },
-  {
-    "name": "Graphique Musique",
-    "publisher": "Slave Labor Graphics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 33744,
-        "name": "Graphique Musique",
-        "publisher": "SLG Publishing",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:19.015005+00:00",
-    "retry_after": "2026-09-27T16:15:19.015005+00:00"
   },
   {
     "name": "Monster",
@@ -32819,23 +31680,6 @@
     "retry_after": "2026-09-27T16:15:19.803473+00:00"
   },
   {
-    "name": "Cylinderhead",
-    "publisher": "Slave Labor Graphics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 49267,
-        "name": "Cylinderhead",
-        "publisher": "SLG Publishing",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:20.457091+00:00",
-    "retry_after": "2026-09-27T16:15:20.457091+00:00"
-  },
-  {
     "name": "Hectic Planet",
     "publisher": "Slave Labor Graphics",
     "year": 1993,
@@ -32857,57 +31701,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T16:15:21.208967+00:00",
     "retry_after": "2026-09-27T16:15:21.208967+00:00"
-  },
-  {
-    "name": "Ratman 2000",
-    "publisher": "Slave Labor Graphics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 65281,
-        "name": "Ratman 2000",
-        "publisher": "SLG Publishing",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:22.958649+00:00",
-    "retry_after": "2026-09-27T16:15:22.958649+00:00"
-  },
-  {
-    "name": "Metal Men of Mars & Other Improbable Tales",
-    "publisher": "Slave Labor Graphics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57515,
-        "name": "Metal Men of Mars & Other Improbable Tales",
-        "publisher": "SLG Publishing",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:23.721006+00:00",
-    "retry_after": "2026-09-27T16:15:23.721006+00:00"
-  },
-  {
-    "name": "Relentless Pursuit",
-    "publisher": "Slave Labor Graphics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 4309,
-        "name": "Relentless Pursuit",
-        "publisher": "SLG Publishing",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:24.416043+00:00",
-    "retry_after": "2026-09-27T16:15:24.417041+00:00"
   },
   {
     "name": "Slow News Day",
@@ -33019,74 +31812,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-26T16:15:25.954573+00:00",
     "retry_after": "2026-09-27T16:15:25.954573+00:00"
-  },
-  {
-    "name": "Dr. Radium, Man of Science",
-    "publisher": "Slave Labor Graphics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 50975,
-        "name": "Dr. Radium, Man of Science",
-        "publisher": "SLG Publishing",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:26.547232+00:00",
-    "retry_after": "2026-09-27T16:15:26.547232+00:00"
-  },
-  {
-    "name": "Oddjob",
-    "publisher": "Slave Labor Graphics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 60746,
-        "name": "Oddjob",
-        "publisher": "SLG Publishing",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:27.116909+00:00",
-    "retry_after": "2026-09-27T16:15:27.116909+00:00"
-  },
-  {
-    "name": "Oblivion City",
-    "publisher": "Slave Labor Graphics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 56589,
-        "name": "Oblivion City",
-        "publisher": "SLG Publishing",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:27.675258+00:00",
-    "retry_after": "2026-09-27T16:15:27.675258+00:00"
-  },
-  {
-    "name": "Money Talks",
-    "publisher": "Slave Labor Graphics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 58936,
-        "name": "Money Talks",
-        "publisher": "SLG Publishing",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:28.312215+00:00",
-    "retry_after": "2026-09-27T16:15:28.312215+00:00"
   },
   {
     "name": "Shang-Chi: Master of Kung Fu One-Shot",

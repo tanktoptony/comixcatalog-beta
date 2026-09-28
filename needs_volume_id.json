@@ -32662,5 +32662,51 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T19:05:53.378483+00:00",
     "retry_after": "2026-09-29T19:05:53.378497+00:00"
+  },
+  {
+    "name": "Britannia",
+    "publisher": "Valiant Comics",
+    "year": 2020,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 94261,
+        "name": "Britannia",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2016
+      },
+      {
+        "id": 98885,
+        "name": "Britannia",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T20:03:51.224661+00:00",
+    "retry_after": "2026-09-29T20:03:51.224681+00:00"
+  },
+  {
+    "name": "Lady Death",
+    "publisher": "Chaos! Comics",
+    "year": 2010,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 20760,
+        "name": "Lady Death",
+        "publisher": "Chaos! Comics",
+        "start_year": 1997
+      },
+      {
+        "id": 19344,
+        "name": "Lady Death",
+        "publisher": "Chaos! Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T20:10:40.629475+00:00",
+    "retry_after": "2026-09-29T20:10:40.629491+00:00"
   }
 ]

@@ -24433,9 +24433,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-25T16:00:41.225992+00:00",
-    "retry_after": "2026-09-28T16:00:41.226014+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-28T16:04:18.523081+00:00",
+    "retry_after": "2026-10-05T16:04:18.523098+00:00"
   },
   {
     "name": "Street Fighter #0 Free Comic Book Day 2014",
@@ -24443,9 +24443,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-25T16:00:57.865773+00:00",
-    "retry_after": "2026-09-28T16:00:57.865786+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-28T16:04:22.448522+00:00",
+    "retry_after": "2026-10-05T16:04:22.448537+00:00"
   },
   {
     "name": "FCBD 2016 - DC Super Hero Girls 1 Special Edition",
@@ -24453,9 +24453,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-25T16:00:42.234236+00:00",
-    "retry_after": "2026-09-28T16:00:42.234252+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-28T16:04:22.263099+00:00",
+    "retry_after": "2026-10-05T16:04:22.263137+00:00"
   },
   {
     "name": "Fables #1: Special Edition",
@@ -33772,5 +33772,55 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T15:05:43.432646+00:00",
     "retry_after": "2026-09-29T15:05:43.432665+00:00"
+  },
+  {
+    "name": "L.E.G.I.O.N. '92 Annual",
+    "publisher": "DC Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T16:04:21.699589+00:00",
+    "retry_after": "2026-09-29T16:04:21.699601+00:00"
+  },
+  {
+    "name": "A Patty Cake Christmas",
+    "publisher": "Caliber Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T16:04:21.564333+00:00",
+    "retry_after": "2026-09-29T16:04:21.564344+00:00"
+  },
+  {
+    "name": "Joker's Asylum: Joker",
+    "publisher": "DC Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T16:04:20.762748+00:00",
+    "retry_after": "2026-09-29T16:04:20.762765+00:00"
+  },
+  {
+    "name": "Buffy the Vampire Slayer: Willow and Tara",
+    "publisher": "Dark Horse Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T16:04:21.759065+00:00",
+    "retry_after": "2026-09-29T16:04:21.759074+00:00"
+  },
+  {
+    "name": "Green Lantern Corps by Peter J. Tomasi & Patrick Gleason Omnibus",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T16:04:22.913918+00:00",
+    "retry_after": "2026-09-29T16:04:22.913934+00:00"
   }
 ]

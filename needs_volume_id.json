@@ -31184,9 +31184,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T12:06:12.699025+00:00",
-    "retry_after": "2026-09-28T12:06:12.699044+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T13:03:05.899076+00:00",
+    "retry_after": "2026-10-01T13:03:05.899092+00:00"
   },
   {
     "name": "Batman / Grendel: Devil's Riddle",
@@ -31194,9 +31194,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T12:06:22.488534+00:00",
-    "retry_after": "2026-09-28T12:06:22.488552+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T13:03:11.407141+00:00",
+    "retry_after": "2026-10-01T13:03:11.407157+00:00"
   },
   {
     "name": "L.E.G.I.O.N. '90 Annual",
@@ -31204,9 +31204,9 @@
     "year": 1990,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T12:06:21.826641+00:00",
-    "retry_after": "2026-09-28T12:06:21.826658+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T13:03:10.089220+00:00",
+    "retry_after": "2026-10-01T13:03:10.089234+00:00"
   },
   {
     "name": "Steve Ditko's Strange Avenging Tales",
@@ -31214,9 +31214,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T12:06:19.413451+00:00",
-    "retry_after": "2026-09-28T12:06:19.413469+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T13:03:08.097293+00:00",
+    "retry_after": "2026-10-01T13:03:08.097312+00:00"
   },
   {
     "name": "Powers Annual",
@@ -31224,9 +31224,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T12:06:22.558741+00:00",
-    "retry_after": "2026-09-28T12:06:22.558760+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T13:03:11.489341+00:00",
+    "retry_after": "2026-10-01T13:03:11.489355+00:00"
   },
   {
     "name": "Gold Digger Max Pocket Manga",
@@ -31234,9 +31234,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T12:06:22.418794+00:00",
-    "retry_after": "2026-09-28T12:06:22.418811+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T13:03:11.181376+00:00",
+    "retry_after": "2026-10-01T13:03:11.181394+00:00"
   },
   {
     "name": "Assassin's Creed: Conspiracies",
@@ -31257,9 +31257,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T12:06:25.239782+00:00",
-    "retry_after": "2026-09-28T12:06:25.239801+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T13:03:12.010444+00:00",
+    "retry_after": "2026-10-01T13:03:12.010470+00:00"
   },
   {
     "name": "David Chelsea's 24-Hour Comics",
@@ -31267,9 +31267,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T12:07:29.878413+00:00",
-    "retry_after": "2026-09-28T12:07:29.878431+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T13:03:12.459171+00:00",
+    "retry_after": "2026-10-01T13:03:12.459193+00:00"
   },
   {
     "name": "Raw Periphery",
@@ -33689,5 +33689,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T12:04:26.358571+00:00",
     "retry_after": "2026-09-29T12:04:26.358591+00:00"
+  },
+  {
+    "name": "Essential Conan",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T13:03:11.318183+00:00",
+    "retry_after": "2026-09-29T13:03:11.318200+00:00"
+  },
+  {
+    "name": "Batman Adventures [Free Comic Book Day Edition]",
+    "publisher": "DC Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T13:03:10.192993+00:00",
+    "retry_after": "2026-09-29T13:03:10.193008+00:00"
+  },
+  {
+    "name": "Encyclopaedia Deadpoolica",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T13:03:10.453830+00:00",
+    "retry_after": "2026-09-29T13:03:10.453849+00:00"
   }
 ]

@@ -31104,9 +31104,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T10:03:51.150626+00:00",
-    "retry_after": "2026-09-28T10:03:51.150641+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T10:47:20.057994+00:00",
+    "retry_after": "2026-10-01T10:47:20.058011+00:00"
   },
   {
     "name": "John Byrne's Compleat Next Men",
@@ -31114,9 +31114,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T10:05:03.902765+00:00",
-    "retry_after": "2026-09-28T10:05:03.902781+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T10:47:20.547366+00:00",
+    "retry_after": "2026-10-01T10:47:20.547384+00:00"
   },
   {
     "name": "Green Lama Featuring the Art of Mac Raboy",
@@ -31124,9 +31124,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T10:05:26.112852+00:00",
-    "retry_after": "2026-09-28T10:05:26.112867+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T10:47:20.997155+00:00",
+    "retry_after": "2026-10-01T10:47:20.997172+00:00"
   },
   {
     "name": "Marvel Collector's Edition [Charleston Chew Giveaway]",
@@ -33404,5 +33404,157 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T10:03:14.141421+00:00",
     "retry_after": "2026-09-29T10:03:14.141437+00:00"
+  },
+  {
+    "name": "Saga",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 46568,
+        "name": "Saga",
+        "publisher": "Image",
+        "start_year": 2012
+      },
+      {
+        "id": 52845,
+        "name": "Saga",
+        "publisher": "Image",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T10:47:21.543455+00:00",
+    "retry_after": "2026-09-29T10:47:21.543473+00:00"
+  },
+  {
+    "name": "Incredible Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 6558,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2000
+      },
+      {
+        "id": 2406,
+        "name": "The Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 1968
+      },
+      {
+        "id": 43516,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 2077,
+        "name": "The Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 1962
+      },
+      {
+        "id": 151522,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 24715,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 105325,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 156186,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T10:47:22.023244+00:00",
+    "retry_after": "2026-09-29T10:47:22.023261+00:00"
+  },
+  {
+    "name": "Batman Incorporated",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 145473,
+        "name": "Batman Incorporated",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      },
+      {
+        "id": 60914,
+        "name": "Batman Incorporated",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 55677,
+        "name": "Batman Incorporated",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 49112,
+        "name": "Batman, Incorporated",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 36705,
+        "name": "Batman Incorporated",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 156682,
+        "name": "Batman Incorporated",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T10:48:11.367542+00:00",
+    "retry_after": "2026-09-29T10:48:11.367553+00:00"
+  },
+  {
+    "name": "Sensational Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18177,
+        "name": "The Sensational Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 5788,
+        "name": "The Sensational Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T10:49:18.021242+00:00",
+    "retry_after": "2026-09-29T10:49:18.021252+00:00"
   }
 ]

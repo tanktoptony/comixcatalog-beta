@@ -27826,8 +27826,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-09-28T03:59:24.504803+00:00",
-    "retry_after": "2026-10-01T03:59:24.504818+00:00"
+    "last_attempt_at": "2026-09-28T04:04:50.068596+00:00",
+    "retry_after": "2026-10-01T04:04:50.068608+00:00"
   },
   {
     "name": "Doctor Who Series",
@@ -30068,9 +30068,9 @@
     "year": 1959,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T04:03:21.379300+00:00",
-    "retry_after": "2026-09-28T04:03:21.379315+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T04:04:49.994916+00:00",
+    "retry_after": "2026-10-01T04:04:49.994948+00:00"
   },
   {
     "name": "Scooby-Doo [Burger King Giveaway]",
@@ -30078,9 +30078,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T04:03:21.269248+00:00",
-    "retry_after": "2026-09-28T04:03:21.269262+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T04:04:49.815732+00:00",
+    "retry_after": "2026-10-01T04:04:49.815741+00:00"
   },
   {
     "name": "Man from Wells Fargo",
@@ -30088,9 +30088,9 @@
     "year": 1962,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T04:03:21.327657+00:00",
-    "retry_after": "2026-09-28T04:03:21.327672+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T04:04:49.876402+00:00",
+    "retry_after": "2026-10-01T04:04:49.876411+00:00"
   },
   {
     "name": "Supreme Power",
@@ -33217,7 +33217,37 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-09-28T03:59:24.091965+00:00",
-    "retry_after": "2026-09-29T03:59:24.091983+00:00"
+    "last_attempt_at": "2026-09-28T04:04:49.931522+00:00",
+    "retry_after": "2026-09-29T04:04:49.931531+00:00"
+  },
+  {
+    "name": "Alpha Centurion Special",
+    "publisher": "DC Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T04:04:49.509825+00:00",
+    "retry_after": "2026-09-29T04:04:49.509837+00:00"
+  },
+  {
+    "name": "Marvels Comics: Thor",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T04:04:49.579993+00:00",
+    "retry_after": "2026-09-29T04:04:49.580005+00:00"
+  },
+  {
+    "name": "Beetlejuice Holiday Special",
+    "publisher": "Harvey Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T04:04:49.762322+00:00",
+    "retry_after": "2026-09-29T04:04:49.762331+00:00"
   }
 ]

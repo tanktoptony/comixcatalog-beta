@@ -33556,5 +33556,68 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T10:49:18.021242+00:00",
     "retry_after": "2026-09-29T10:49:18.021252+00:00"
+  },
+  {
+    "name": "Avengers Strike File",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T11:02:51.391712+00:00",
+    "retry_after": "2026-09-29T11:02:51.391723+00:00"
+  },
+  {
+    "name": "The Avengers [John Steed Emma Peel]",
+    "publisher": "Gold Key",
+    "year": 1968,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T11:02:51.449821+00:00",
+    "retry_after": "2026-09-29T11:02:51.449835+00:00"
+  },
+  {
+    "name": "Zowie! Girl Meets Boy",
+    "publisher": "Fawcett Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T11:02:51.333028+00:00",
+    "retry_after": "2026-09-29T11:02:51.333039+00:00"
+  },
+  {
+    "name": "The Nice House on the Lake",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 136530,
+        "name": "The Nice House on the Lake",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 144227,
+        "name": "The Nice House on the Lake",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T11:02:52.169539+00:00",
+    "retry_after": "2026-09-29T11:02:52.169554+00:00"
+  },
+  {
+    "name": "Marvel Masters of Suspense: Stan Lee & Steve Ditko Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T11:04:29.662032+00:00",
+    "retry_after": "2026-09-29T11:04:29.662049+00:00"
   }
 ]

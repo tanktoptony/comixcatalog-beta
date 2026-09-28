@@ -30670,9 +30670,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T06:24:38.001682+00:00",
-    "retry_after": "2026-09-28T06:24:38.001698+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T09:02:30.634296+00:00",
+    "retry_after": "2026-10-01T09:02:30.634309+00:00"
   },
   {
     "name": "Longshot Comics",
@@ -30953,9 +30953,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T07:00:47.457866+00:00",
-    "retry_after": "2026-09-28T07:00:47.457882+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T09:02:31.058938+00:00",
+    "retry_after": "2026-10-01T09:02:31.058952+00:00"
   },
   {
     "name": "Wolverine Annual",
@@ -30994,9 +30994,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T07:03:32.581269+00:00",
-    "retry_after": "2026-09-28T07:03:32.581284+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T09:02:31.483698+00:00",
+    "retry_after": "2026-10-01T09:02:31.483709+00:00"
   },
   {
     "name": "Spider-Man: The Complete Alien Costume Saga",
@@ -31004,9 +31004,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T07:03:33.013949+00:00",
-    "retry_after": "2026-09-28T07:03:33.013964+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T09:02:31.880748+00:00",
+    "retry_after": "2026-10-01T09:02:31.880762+00:00"
   },
   {
     "name": "Classic Star Wars: Return of the Jedi",
@@ -31054,9 +31054,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T08:04:06.430984+00:00",
-    "retry_after": "2026-09-28T08:04:06.430999+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T09:02:32.313771+00:00",
+    "retry_after": "2026-10-01T09:02:32.313787+00:00"
   },
   {
     "name": "Wizard Presents: Batman: Dark Victory",
@@ -32304,15 +32304,6 @@
     "retry_after": "2026-09-21T14:00:38.554961+00:00"
   },
   {
-    "name": "The Amazing Spider-Man: Hit and Run",
-    "publisher": "Marvel Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555284+00:00"
-  },
-  {
     "name": "Imp",
     "publisher": "Slave Labor Graphics",
     "year": 1994,
@@ -33308,5 +33299,34 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T08:06:04.636244+00:00",
     "retry_after": "2026-09-29T08:06:04.636258+00:00"
+  },
+  {
+    "name": "Love & Rockets",
+    "publisher": "Titan Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 7000,
+        "name": "Love and Rockets",
+        "publisher": "Fantagraphics",
+        "start_year": 1982
+      },
+      {
+        "id": 20719,
+        "name": "Love and Rockets",
+        "publisher": "Fantagraphics",
+        "start_year": 2001
+      },
+      {
+        "id": 95057,
+        "name": "Love and Rockets",
+        "publisher": "Fantagraphics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T09:03:57.716783+00:00",
+    "retry_after": "2026-09-29T09:03:57.716798+00:00"
   }
 ]

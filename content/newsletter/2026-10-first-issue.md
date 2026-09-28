@@ -28,4 +28,5 @@ Founding Collector spots are still available. A new account right now gets Colle
 
 Reply to this if something is broken. I am one person and I fix things fast.
 
-Anthony
+Tony
+Founder, ComixCatalog

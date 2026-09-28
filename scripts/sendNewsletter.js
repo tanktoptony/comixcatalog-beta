@@ -82,7 +82,7 @@ function wrap({ subject, preheader, html, text }, unsub) {
 <tr><td style="padding:26px 30px 8px;font-weight:900;font-size:18px;letter-spacing:.04em;color:#0b1e6b">COMIX<span style="color:#c99a1a">CATALOG</span></td></tr>
 <tr><td style="padding:8px 30px 26px">${html}</td></tr>
 <tr><td style="padding:18px 30px 26px;border-top:1px solid #e6e6ea;font-size:12px;color:#666">
-You get this because you signed up at <a href="${SITE_URL}" style="color:#0b1e6b">comixcatalog.com</a>. Written by Anthony, who builds the site.<br>
+You get this because you signed up at <a href="${SITE_URL}" style="color:#0b1e6b">comixcatalog.com</a>. Written by Tony, who builds the site.<br>
 <a href="${unsub}" style="color:#666">Unsubscribe</a> (one click, works the first time).
 </td></tr></table></td></tr></table></body></html>`;
   const plain = `${text}\n\n--\nYou get this because you signed up at ${SITE_URL}.\nUnsubscribe: ${unsub}\n`;

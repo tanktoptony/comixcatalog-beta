@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { parseSearchQuery, yearMatches, yearScore } from "@/lib/searchQuery";
+import { diversify } from "@/lib/searchVariety";
 import { createClient } from "@supabase/supabase-js";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 
@@ -116,8 +118,21 @@ export async function GET(req) {
     const q = (searchParams.get("q") || "").trim();
     if (!q) return NextResponse.json({ series: [] });
 
-    const strippedQuery = stripTrailingIssueNumber(q);
-    const titleQuery = strippedQuery || q;
+    // The header dropdown asks for more than the old fixed 12 now that it is
+    // page-width. Capped so a scripted caller cannot ask for the catalog.
+    const requested = Number(searchParams.get("limit"));
+    const limit = Number.isFinite(requested)
+      ? Math.max(1, Math.min(Math.trunc(requested), 40))
+      : 12;
+
+    // A year in the query is a FILTER, not title text. It used to be left in,
+    // so "rai 1994" normalized to "rai1994" and returned nothing at all while
+    // "hulk 181" worked fine — a trailing issue number was stripped, a
+    // trailing year deliberately was not, and then nobody used it.
+    const parsed = parseSearchQuery(q);
+    const askedYear = parsed.year;
+    const strippedQuery = stripTrailingIssueNumber(parsed.title || q);
+    const titleQuery = strippedQuery || parsed.title || q;
     const normalizedQ = normalizeSearch(titleQuery);
     const normalizedQForScoring = normalizeForScoring(titleQuery);
 
@@ -173,6 +188,16 @@ export async function GET(req) {
       const aExact = aTitle === normalizedQForScoring ? 1 : 0;
       const bExact = bTitle === normalizedQForScoring ? 1 : 0;
       if (bExact !== aExact) return bExact - aExact;
+
+      // When a year was asked for it is the most specific thing the searcher
+      // said, so it outranks cover state and issue count. Exact start year
+      // beats a run that merely spans the year. Ranking only — the filter
+      // below is what actually removes the other volumes.
+      if (askedYear != null) {
+        const aYear = yearScore(a, askedYear);
+        const bYear = yearScore(b, askedYear);
+        if (bYear !== aYear) return bYear - aYear;
+      }
 
       // Surface the volume that has a real (year-aware matched) cover first —
       // it's the canonical edition a collector recognizes. This only REORDERS
@@ -281,7 +306,30 @@ export async function GET(req) {
     }
 
     cleaned.sort(compareSeries);
-    const top = dedupeById(cleaned).slice(0, 12);
+
+    // Apply the year the searcher asked for, but never make the result set
+    // worse than it would have been without it. If the filter empties the
+    // list — our year data is wrong, or GCD disagrees with the cover date by
+    // more than a year — fall back to the unfiltered ranking, which is still
+    // year-boosted by compareSeries above. Turning "some results, badly
+    // ordered" into "zero results" is the bug this whole change exists to
+    // fix; reintroducing it through the fix would be worse than not shipping.
+    let ranked = cleaned;
+    if (askedYear != null) {
+      const inYear = cleaned.filter((row) => yearMatches(row, askedYear));
+      if (inYear.length > 0) ranked = inYear;
+    }
+
+    // Spread the page across distinct runs instead of letting one title
+    // fill it. Live before this, every one of the twelve results for
+    // "spider-man" was a series titled exactly "Spider-Man", and Detective
+    // Comics — 887 issues — was absent from "batman" entirely.
+    //
+    // An explicit year means the searcher already named the volume, so
+    // variety would fight them: "rai 1994" wants Rai (1994), not one of
+    // each Rai-ish title.
+    const deduped = dedupeById(ranked);
+    const top = askedYear != null ? deduped.slice(0, limit) : diversify(deduped, { limit, perTitle: 2 });
 
     // Cover fallback for rows where featured_cover_path_cached is null.
     //

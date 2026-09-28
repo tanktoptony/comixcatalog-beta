@@ -77,6 +77,14 @@ jobs:
       - name: Barcode / printing tests
         run: npm run test:printings
 
+      - name: Search query-parsing tests
+        run: npm run test:search-query
+
+      - name: Search variety tests
+        run: npm run test:search-variety
+      - name: Password policy tests
+        run: npm run test:password-policy
+
       - name: Build
         run: npm run build
 

@@ -10835,3 +10835,159 @@ button.nav-link {
   gap: 14px;
   flex-wrap: wrap;
 }
+
+/* ── Page-width search panel ───────────────────────────────────────────────
+   The dropdown used to inherit .header-search-wrap's 520px, which is why it
+   could only ever show a narrow column of results. Typing "batman" gave
+   twelve rows all called Batman and no room for Detective Comics.
+
+   Appended at the end of the file ON PURPOSE: there are three earlier
+   .header-search-dropdown rules of equal specificity, so source order is
+   what makes this one win. Raising specificity instead would leave the
+   duplicates fighting each other the next time someone edits them. */
+.header-search-dropdown {
+  position: fixed;
+  top: 64px; /* replaced inline from a measured rect; this is the fallback */
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
+  width: min(1200px, calc(100vw - 24px));
+  max-height: min(70vh, 680px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Results flow into columns once there is room. One column on a phone,
+   which is the same as the old behaviour. */
+.header-search-dropdown .header-search-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2px;
+  align-items: stretch;
+}
+
+/* The group heading spans the whole grid rather than taking a cell. */
+.header-search-dropdown .header-search-group-title {
+  grid-column: 1 / -1;
+}
+
+.header-search-dropdown .header-search-item {
+  width: 100%;
+  align-items: center;
+}
+
+/* A stray state message ("Searching…", "No results") should not sit in a
+   single narrow cell of an otherwise empty grid. */
+.header-search-dropdown .header-search-state {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+  .header-search-dropdown {
+    width: calc(100vw - 16px);
+    max-height: 62vh;
+  }
+  .header-search-dropdown .header-search-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-search-dropdown { scroll-behavior: auto; }
+}
+
+/* ── Runs inside the search panel ──────────────────────────────────────────
+   A run (title family) is one grid cell. Its volumes sit inside it, so
+   "batman" reads as a shelf — Batman, Legends of the Dark Knight, Eternal —
+   rather than thirty-six rows that all say Batman. */
+.header-search-run {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.header-search-run-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 12px 3px;
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: var(--x-gold, #f4d03f);
+  overflow-wrap: anywhere;
+}
+
+.header-search-run-count {
+  flex: 0 0 auto;
+  font-size: 0.66rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+}
+
+/* A volume inside a multi-volume run is indented and leads with its years,
+   since the title is already stated by the heading above it. */
+.header-search-item--in-run {
+  padding-left: 20px;
+}
+
+/* Single-volume runs get no heading, so they keep the normal row look and
+   the two kinds of cell still line up with each other. */
+.header-search-run > .header-search-item:only-child {
+  padding-left: 12px;
+}
+
+/* ── Password guidance on signup ───────────────────────────────────────────
+   Appears once typing starts, so an empty form is not a wall of red. */
+.pw-guide {
+  margin: -4px 0 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pw-meter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.pw-meter span {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  transition: background 0.15s;
+}
+/* Semantic, and separate from the gold accent: weak is not a brand moment. */
+.pw-meter span.on.s1 { background: #f87171; }
+.pw-meter span.on.s2 { background: #fb923c; }
+.pw-meter span.on.s3 { background: #facc15; }
+.pw-meter span.on.s4 { background: #4ade80; }
+
+.pw-meter-label {
+  margin: 0;
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pw-rules {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pw-rules li {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+.pw-rules li.met { color: #86efac; }
+.pw-rules li span { flex: 0 0 auto; font-size: 0.72rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pw-meter span { transition: none; }
+}

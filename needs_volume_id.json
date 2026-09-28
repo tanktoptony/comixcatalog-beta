@@ -32708,5 +32708,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T20:10:40.629475+00:00",
     "retry_after": "2026-09-29T20:10:40.629491+00:00"
+  },
+  {
+    "name": "Sexy Cartoons",
+    "publisher": "BOOM! Studios",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T21:02:26.069109+00:00",
+    "retry_after": "2026-09-29T21:02:26.069129+00:00"
+  },
+  {
+    "name": "Ms. Fortune",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T21:02:36.596655+00:00",
+    "retry_after": "2026-09-29T21:02:36.596674+00:00"
+  },
+  {
+    "name": "People of Earth: Experiencer's Guide to Aliens",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T21:04:24.215088+00:00",
+    "retry_after": "2026-09-29T21:04:24.215105+00:00"
+  },
+  {
+    "name": "Super Street Fighter",
+    "publisher": "Udon Entertainment Corp.",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 56422,
+        "name": "Super Street Fighter",
+        "publisher": "UDON",
+        "start_year": 2013
+      },
+      {
+        "id": 85628,
+        "name": "Super Street Fighter",
+        "publisher": "UDON",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T21:04:45.708237+00:00",
+    "retry_after": "2026-09-29T21:04:45.708255+00:00"
   }
 ]

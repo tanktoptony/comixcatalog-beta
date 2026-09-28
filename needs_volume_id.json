@@ -24404,9 +24404,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-25T15:00:43.449553+00:00",
-    "retry_after": "2026-09-28T15:00:43.449568+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-28T15:04:46.639516+00:00",
+    "retry_after": "2026-10-05T15:04:46.639535+00:00"
   },
   {
     "name": "Sensational She-Hulk",
@@ -31809,9 +31809,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T14:04:09.080669+00:00",
-    "retry_after": "2026-09-28T14:04:09.080685+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T15:04:47.486272+00:00",
+    "retry_after": "2026-10-01T15:04:47.486290+00:00"
   },
   {
     "name": "Teachers Count / Office Max Custom Comic",
@@ -31819,9 +31819,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T15:02:45.530585+00:00",
-    "retry_after": "2026-09-28T15:02:45.530596+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T15:04:46.744135+00:00",
+    "retry_after": "2026-10-01T15:04:46.744153+00:00"
   },
   {
     "name": "Gears of War Reader",
@@ -33729,5 +33729,48 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T14:03:14.553938+00:00",
     "retry_after": "2026-09-29T14:03:14.553948+00:00"
+  },
+  {
+    "name": "Punisher: X-Mas Special 2006",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T15:04:46.863908+00:00",
+    "retry_after": "2026-09-29T15:04:46.863926+00:00"
+  },
+  {
+    "name": "Lady Killer",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 79261,
+        "name": "Lady Killer",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2015
+      },
+      {
+        "id": 84282,
+        "name": "Lady Killer",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T15:05:06.320665+00:00",
+    "retry_after": "2026-09-29T15:05:06.320682+00:00"
+  },
+  {
+    "name": "Disaster 1990!",
+    "publisher": "Rebellion",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T15:05:43.432646+00:00",
+    "retry_after": "2026-09-29T15:05:43.432665+00:00"
   }
 ]

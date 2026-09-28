@@ -31370,9 +31370,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T21:17:03.882652+00:00",
-    "retry_after": "2026-09-28T21:17:03.882661+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T22:00:45.416527+00:00",
+    "retry_after": "2026-10-01T22:00:45.416545+00:00"
   },
   {
     "name": "Showcase Presents: Warlord",
@@ -32761,5 +32761,22 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T21:04:45.708237+00:00",
     "retry_after": "2026-09-29T21:04:45.708255+00:00"
+  },
+  {
+    "name": "Suite 121",
+    "publisher": "Dynamite Entertainment",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 91566,
+        "name": "Suite 121",
+        "publisher": "Dynamite (France)",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T22:05:51.633620+00:00",
+    "retry_after": "2026-09-29T22:05:51.633640+00:00"
   }
 ]

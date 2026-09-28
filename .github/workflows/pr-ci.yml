@@ -82,6 +82,8 @@ jobs:
 
       - name: Search variety tests
         run: npm run test:search-variety
+      - name: Password policy tests
+        run: npm run test:password-policy
 
       - name: Build
         run: npm run build

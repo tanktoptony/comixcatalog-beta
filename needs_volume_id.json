@@ -31064,9 +31064,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T09:03:12.864582+00:00",
-    "retry_after": "2026-09-28T09:03:12.864591+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T10:03:03.806022+00:00",
+    "retry_after": "2026-10-01T10:03:03.806039+00:00"
   },
   {
     "name": "Timestorm 2009 / 2099: Spider-Man",
@@ -31074,9 +31074,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T09:03:12.768727+00:00",
-    "retry_after": "2026-09-28T09:03:12.768736+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T10:03:03.617034+00:00",
+    "retry_after": "2026-10-01T10:03:03.617051+00:00"
   },
   {
     "name": "Mystery Men Stories",
@@ -31084,9 +31084,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T09:03:12.643701+00:00",
-    "retry_after": "2026-09-28T09:03:12.643710+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T10:03:03.439012+00:00",
+    "retry_after": "2026-10-01T10:03:03.439029+00:00"
   },
   {
     "name": "X-O Manowar Preview",
@@ -31094,9 +31094,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T09:03:12.812061+00:00",
-    "retry_after": "2026-09-28T09:03:12.812070+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-28T10:03:03.678806+00:00",
+    "retry_after": "2026-10-01T10:03:03.678822+00:00"
   },
   {
     "name": "Marvels Comics: Spider-Man",
@@ -33328,5 +33328,81 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T09:03:57.716783+00:00",
     "retry_after": "2026-09-29T09:03:57.716798+00:00"
+  },
+  {
+    "name": "The Secret Origin of the Flash [Leaf Comic Book Candy]",
+    "publisher": "DC Comics",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T10:02:59.185834+00:00",
+    "retry_after": "2026-09-29T10:02:59.185850+00:00"
+  },
+  {
+    "name": "Fantastic Four Legends: Unstable Molecules",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T10:03:03.748128+00:00",
+    "retry_after": "2026-09-29T10:03:03.748145+00:00"
+  },
+  {
+    "name": "Firefly: Blue Sun Rising",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 137454,
+        "name": "Firefly: Blue Sun Rising",
+        "publisher": "Boom! Studios",
+        "start_year": 2021
+      },
+      {
+        "id": 134920,
+        "name": "Firefly: Blue Sun Rising",
+        "publisher": "Boom! Studios",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T10:03:05.032971+00:00",
+    "retry_after": "2026-09-29T10:03:05.032987+00:00"
+  },
+  {
+    "name": "B.C. Loneliness Is Rotting on a Bookrack",
+    "publisher": "Fawcett Comics",
+    "year": 1978,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T10:03:05.543971+00:00",
+    "retry_after": "2026-09-29T10:03:05.543989+00:00"
+  },
+  {
+    "name": "Nat Turner",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 38002,
+        "name": "Nat Turner",
+        "publisher": "Harry N. Abrams",
+        "start_year": 2008
+      },
+      {
+        "id": 26956,
+        "name": "Nat Turner",
+        "publisher": "Kyle Baker Publishing",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-28T10:03:14.141421+00:00",
+    "retry_after": "2026-09-29T10:03:14.141437+00:00"
   }
 ]

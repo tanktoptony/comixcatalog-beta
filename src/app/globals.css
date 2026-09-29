@@ -10336,6 +10336,216 @@ button.nav-link {
   font-size: 0.8em;
 }
 
+/* /admin/production-assets — internal video asset retriever */
+.admin-shell-wide {
+  max-width: 1280px;
+}
+
+.pa-label {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin: 0 0 6px;
+}
+
+.pa-label code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.pa-episode {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.pa-textarea {
+  width: 100%;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.pa-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pa-counts,
+.pa-toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.pa-table-wrap {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.pa-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.pa-table th {
+  text-align: left;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.55;
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pa-table td {
+  padding: 8px;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pa-table a {
+  color: #fff;
+  font-weight: 600;
+}
+
+.pa-row-off td {
+  opacity: 0.55;
+}
+
+.pa-thumb {
+  width: 56px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.pa-thumb-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  font-size: 0.65rem;
+  opacity: 0.6;
+}
+
+.pa-requested {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pa-sub {
+  display: block;
+  font-size: 0.72rem;
+  opacity: 0.6;
+}
+
+.pa-note {
+  font-size: 0.72rem;
+  opacity: 0.7;
+  margin-top: 4px;
+  max-width: 280px;
+}
+
+.pa-mono {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.7rem;
+  opacity: 0.7;
+  word-break: break-all;
+  max-width: 240px;
+}
+
+.pa-status {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  white-space: nowrap;
+}
+
+.pa-status-matched,
+.pa-status-picked {
+  background: rgba(74, 222, 128, 0.15);
+  color: #86efac;
+  border-color: rgba(74, 222, 128, 0.4);
+}
+
+.pa-status-check,
+.pa-status-ambiguous {
+  background: rgba(244, 208, 63, 0.14);
+  color: #F4D03F;
+  border-color: rgba(244, 208, 63, 0.4);
+}
+
+.pa-status-missing,
+.pa-status-error,
+.pa-status-no-cover {
+  background: rgba(239, 68, 68, 0.14);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.pa-cand-row td {
+  padding-top: 0;
+}
+
+.pa-cands {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.pa-cand {
+  flex: 0 0 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: inherit;
+  cursor: pointer;
+}
+
+.pa-cand:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.pa-cand.on {
+  border-color: #F4D03F;
+  background: rgba(244, 208, 63, 0.1);
+}
+
+.pa-cand-thumb {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.pa-cand-title {
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
 /* Founding Collector campaign */
 /* v1 was a flat yellow-orange-yellow marquee gradient. v2 tried to make it
    "premium" with a dark gradient + a glowing pill + a filled button, but

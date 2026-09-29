@@ -15003,9 +15003,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T05:02:20.887346+00:00",
-    "retry_after": "2026-09-22T05:02:20.887361+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T07:02:23.881020+00:00",
+    "retry_after": "2026-10-02T07:02:23.881038+00:00"
   },
   {
     "name": "Tales Designed to Thrizzle",
@@ -33584,5 +33584,174 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T06:03:31.459883+00:00",
     "retry_after": "2026-09-30T06:03:31.459900+00:00"
+  },
+  {
+    "name": "Chaos! Monster Matinee",
+    "publisher": "Chaos! Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T07:02:27.701634+00:00",
+    "retry_after": "2026-09-30T07:02:27.701650+00:00"
+  },
+  {
+    "name": "Stone Cold: Tougher Than the Rest",
+    "publisher": "Chaos! Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T07:02:38.542986+00:00",
+    "retry_after": "2026-09-30T07:02:38.543004+00:00"
+  },
+  {
+    "name": "Humbug",
+    "publisher": "Fantagraphics",
+    "year": 2009,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 56982,
+        "name": "Humbug",
+        "publisher": "Fantagraphics",
+        "start_year": 2009
+      },
+      {
+        "id": 101683,
+        "name": "Humbug",
+        "publisher": "Fantagraphics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T07:03:42.280231+00:00",
+    "retry_after": "2026-09-30T07:03:42.280246+00:00"
+  },
+  {
+    "name": "Jon Sable Omnibus",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T07:03:42.769879+00:00",
+    "retry_after": "2026-09-30T07:03:42.769896+00:00"
+  },
+  {
+    "name": "UFO Encounters",
+    "publisher": "Gold Key",
+    "year": 1978,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 80495,
+        "name": "UFO Encounters",
+        "publisher": "Golden Press",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T07:03:59.148615+00:00",
+    "retry_after": "2026-09-30T07:03:59.148631+00:00"
+  },
+  {
+    "name": "100 Bullets",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 78101,
+        "name": "100 Bullets",
+        "publisher": "DC Comics",
+        "start_year": 2014
+      },
+      {
+        "id": 6306,
+        "name": "100 Bullets",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T07:04:45.952477+00:00",
+    "retry_after": "2026-09-30T07:04:45.952492+00:00"
+  },
+  {
+    "name": "Ripley's Believe It or Not! True Ghost Stories",
+    "publisher": "Gold Key",
+    "year": 1977,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T07:04:51.237354+00:00",
+    "retry_after": "2026-09-30T07:04:51.237369+00:00"
+  },
+  {
+    "name": "Polly & the Pirates",
+    "publisher": "Oni Press",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 43603,
+        "name": "Polly and the Pirates",
+        "publisher": "Oni Press",
+        "start_year": 2006
+      },
+      {
+        "id": 24440,
+        "name": "Polly and The Pirates",
+        "publisher": "Oni Press",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T07:04:51.604258+00:00",
+    "retry_after": "2026-09-30T07:04:51.604282+00:00"
+  },
+  {
+    "name": "Fallen Angel: The Premiere Collection",
+    "publisher": "IDW Publishing",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T07:04:52.026402+00:00",
+    "retry_after": "2026-09-30T07:04:52.026418+00:00"
+  },
+  {
+    "name": "Princess Ugg",
+    "publisher": "Oni Press",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 74545,
+        "name": "Princess Ugg",
+        "publisher": "Oni Press",
+        "start_year": 2014
+      },
+      {
+        "id": 78232,
+        "name": "Princess Ugg",
+        "publisher": "Oni Press",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T07:04:52.456360+00:00",
+    "retry_after": "2026-09-30T07:04:52.456375+00:00"
+  },
+  {
+    "name": "WWF Presents Undertaker",
+    "publisher": "Titan Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T07:04:52.834041+00:00",
+    "retry_after": "2026-09-30T07:04:52.834056+00:00"
   }
 ]

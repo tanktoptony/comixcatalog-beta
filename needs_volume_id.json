@@ -14532,9 +14532,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T22:03:07.296107+00:00",
-    "retry_after": "2026-09-21T22:03:07.296125+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T09:03:54.939836+00:00",
+    "retry_after": "2026-10-02T09:03:54.939854+00:00"
   },
   {
     "name": "Fathom 0",
@@ -33773,5 +33773,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T08:06:00.730916+00:00",
     "retry_after": "2026-09-30T08:06:00.730934+00:00"
+  },
+  {
+    "name": "Elric: Navegante nos Mares do Destino",
+    "publisher": "Editora Abril Jovem S.A.",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T09:02:22.061756+00:00",
+    "retry_after": "2026-09-30T09:02:22.061778+00:00"
+  },
+  {
+    "name": "X-Men: Divided We Stand",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 30099,
+        "name": "X-Men: Divided We Stand",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 21203,
+        "name": "X-Men: Divided We Stand",
+        "publisher": "Marvel",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T09:04:38.247257+00:00",
+    "retry_after": "2026-09-30T09:04:38.247275+00:00"
+  },
+  {
+    "name": "ElfQuest: The Original Quest",
+    "publisher": "Dark Horse Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T09:04:38.702880+00:00",
+    "retry_after": "2026-09-30T09:04:38.702900+00:00"
+  },
+  {
+    "name": "Uncanny X-Force by Rick Remender: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T09:04:55.081088+00:00",
+    "retry_after": "2026-09-30T09:04:55.081106+00:00"
+  },
+  {
+    "name": "Avengers Unleashed",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T09:04:55.480112+00:00",
+    "retry_after": "2026-09-30T09:04:55.480130+00:00"
+  },
+  {
+    "name": "Young Avengers Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T09:05:47.701148+00:00",
+    "retry_after": "2026-09-30T09:05:47.701172+00:00"
   }
 ]

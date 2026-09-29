@@ -32574,9 +32574,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T19:04:44.839221+00:00",
-    "retry_after": "2026-09-29T19:04:44.839236+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T20:00:38.654437+00:00",
+    "retry_after": "2026-10-02T20:00:38.654449+00:00"
   },
   {
     "name": "Captain Canuck",
@@ -32603,9 +32603,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T19:04:45.378369+00:00",
-    "retry_after": "2026-09-29T19:04:45.378385+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T20:00:39.179487+00:00",
+    "retry_after": "2026-10-02T20:00:39.179498+00:00"
   },
   {
     "name": "Hulk Annual",
@@ -34504,5 +34504,124 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T19:01:57.086726+00:00",
     "retry_after": "2026-09-30T19:01:57.086741+00:00"
+  },
+  {
+    "name": "DCeased",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 118648,
+        "name": "DCeased",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 122959,
+        "name": "DCeased",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T20:00:56.029764+00:00",
+    "retry_after": "2026-09-30T20:00:56.029771+00:00"
+  },
+  {
+    "name": "Robo-Hunter",
+    "publisher": "DC Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T20:01:11.917556+00:00",
+    "retry_after": "2026-09-30T20:01:11.917563+00:00"
+  },
+  {
+    "name": "Rogue Trooper",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23008,
+        "name": "Rogue Trooper",
+        "publisher": "Rebellion",
+        "start_year": 2005
+      },
+      {
+        "id": 72132,
+        "name": "Rogue Trooper",
+        "publisher": "IDW Publishing",
+        "start_year": 2014
+      },
+      {
+        "id": 50641,
+        "name": "Rogue Trooper",
+        "publisher": "Quality Communications",
+        "start_year": 1986
+      },
+      {
+        "id": 50886,
+        "name": "Rogue Trooper",
+        "publisher": "Titan Comics",
+        "start_year": 1984
+      },
+      {
+        "id": 162373,
+        "name": "Rogue Trooper",
+        "publisher": "Ediciones Kraken",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T20:01:13.345672+00:00",
+    "retry_after": "2026-09-30T20:01:13.345678+00:00"
+  },
+  {
+    "name": "Beba",
+    "publisher": "Dynamite Entertainment",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T20:01:48.082810+00:00",
+    "retry_after": "2026-09-30T20:01:48.082818+00:00"
+  },
+  {
+    "name": "X-23",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 35496,
+        "name": "X-23",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 18176,
+        "name": "X-23",
+        "publisher": "Marvel",
+        "start_year": 2005
+      },
+      {
+        "id": 32044,
+        "name": "X-23",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 112212,
+        "name": "X-23",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T20:02:50.404737+00:00",
+    "retry_after": "2026-09-30T20:02:50.404744+00:00"
   }
 ]

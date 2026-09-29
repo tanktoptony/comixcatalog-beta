@@ -15439,9 +15439,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T11:02:16.792412+00:00",
-    "retry_after": "2026-09-22T11:02:16.792427+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T06:00:41.098961+00:00",
+    "retry_after": "2026-10-02T06:00:41.098979+00:00"
   },
   {
     "name": "Marvels Comics: Captain America",
@@ -15591,9 +15591,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T13:02:36.930330+00:00",
-    "retry_after": "2026-09-22T13:02:36.930341+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T06:00:53.897201+00:00",
+    "retry_after": "2026-10-02T06:00:53.897217+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Hellcat: The First Appearance",
@@ -15661,9 +15661,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T03:01:34.254050+00:00",
-    "retry_after": "2026-09-26T03:01:34.254065+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-29T06:00:42.358718+00:00",
+    "retry_after": "2026-10-06T06:00:42.358735+00:00"
   },
   {
     "name": "Spider-Man Family Featuring Spider-Man's Amazing Friends",
@@ -16905,9 +16905,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-22T22:03:48.941674+00:00",
-    "retry_after": "2026-09-25T22:03:48.941692+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-29T06:00:53.558484+00:00",
+    "retry_after": "2026-10-06T06:00:53.558501+00:00"
   },
   {
     "name": "The Michael Moorcock Library - The Chronicles of Corum",
@@ -18823,9 +18823,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T10:00:49.627418+00:00",
-    "retry_after": "2026-09-26T10:00:49.627433+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-29T06:00:53.104138+00:00",
+    "retry_after": "2026-10-06T06:00:53.104156+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Lee & Everett",
@@ -19795,9 +19795,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T19:00:50.570513+00:00",
-    "retry_after": "2026-09-26T19:00:50.570527+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-29T06:00:41.946248+00:00",
+    "retry_after": "2026-10-06T06:00:41.946266+00:00"
   },
   {
     "name": "Steam Wars #1 FCBD Edition",
@@ -20044,9 +20044,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T21:00:49.631836+00:00",
-    "retry_after": "2026-09-26T21:00:49.631853+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-29T06:00:52.696461+00:00",
+    "retry_after": "2026-10-06T06:00:52.696481+00:00"
   },
   {
     "name": "The Holo Brothers Special: Angst for the Memories",
@@ -25155,9 +25155,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-25T22:00:45.714185+00:00",
-    "retry_after": "2026-09-28T22:00:45.714202+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-29T06:00:59.666365+00:00",
+    "retry_after": "2026-10-06T06:00:59.666383+00:00"
   },
   {
     "name": "Collector's Guide to the Ultraverse",
@@ -33478,5 +33478,111 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T05:04:16.016441+00:00",
     "retry_after": "2026-09-30T05:04:16.016457+00:00"
+  },
+  {
+    "name": "Lady Death III: The Odyssey",
+    "publisher": "Chaos! Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T06:00:42.786493+00:00",
+    "retry_after": "2026-09-30T06:00:42.786511+00:00"
+  },
+  {
+    "name": "Lady Death II: Between Heaven & Hell",
+    "publisher": "Chaos! Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T06:01:00.038470+00:00",
+    "retry_after": "2026-09-30T06:01:00.038488+00:00"
+  },
+  {
+    "name": "Lady Death IV: The Crucible",
+    "publisher": "Chaos! Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T06:01:14.568591+00:00",
+    "retry_after": "2026-09-30T06:01:14.568609+00:00"
+  },
+  {
+    "name": "Astro City: The Dark Age",
+    "publisher": "WildStorm",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T06:02:16.137813+00:00",
+    "retry_after": "2026-09-30T06:02:16.137833+00:00"
+  },
+  {
+    "name": "Pirouette",
+    "publisher": "Black Mask Studios",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 132148,
+        "name": "Pirouette",
+        "publisher": "Black Mask Studios",
+        "start_year": 2020
+      },
+      {
+        "id": 77483,
+        "name": "Pirouette",
+        "publisher": "Black Mask Studios",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T06:02:16.584973+00:00",
+    "retry_after": "2026-09-30T06:02:16.584992+00:00"
+  },
+  {
+    "name": "Nightwing: A Knight in Bl�dhaven Compendium",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T06:02:56.728991+00:00",
+    "retry_after": "2026-09-30T06:02:56.729008+00:00"
+  },
+  {
+    "name": "The Losers",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 31255,
+        "name": "The Losers",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 11226,
+        "name": "The Losers",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T06:03:14.241003+00:00",
+    "retry_after": "2026-09-30T06:03:14.241020+00:00"
+  },
+  {
+    "name": "DC Comics Classics Library: The Batman Annuals",
+    "publisher": "DC Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T06:03:31.459883+00:00",
+    "retry_after": "2026-09-30T06:03:31.459900+00:00"
   }
 ]

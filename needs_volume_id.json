@@ -32411,9 +32411,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T12:04:26.358571+00:00",
-    "retry_after": "2026-09-29T12:04:26.358591+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T13:00:41.965515+00:00",
+    "retry_after": "2026-10-02T13:00:41.965530+00:00"
   },
   {
     "name": "Essential Conan",
@@ -34188,5 +34188,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T12:02:35.454776+00:00",
     "retry_after": "2026-09-30T12:02:35.454794+00:00"
+  },
+  {
+    "name": "Ultimates Omniversal",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T13:03:20.324411+00:00",
+    "retry_after": "2026-09-30T13:03:20.324429+00:00"
+  },
+  {
+    "name": "Donald Duck: The Complete Sunday Comics",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T13:03:27.354399+00:00",
+    "retry_after": "2026-09-30T13:03:27.354417+00:00"
+  },
+  {
+    "name": "Astonishing X-Men by Charles Soule",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T13:04:20.527997+00:00",
+    "retry_after": "2026-09-30T13:04:20.528014+00:00"
   }
 ]

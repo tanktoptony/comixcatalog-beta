@@ -34337,5 +34337,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T16:02:05.976173+00:00",
     "retry_after": "2026-09-30T16:02:05.976191+00:00"
+  },
+  {
+    "name": "Uncanny X-Men: Wolverine and Cyclops",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T17:02:07.671177+00:00",
+    "retry_after": "2026-09-30T17:02:07.671198+00:00"
+  },
+  {
+    "name": "Codex Black",
+    "publisher": "IDW Publishing",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T17:02:13.268918+00:00",
+    "retry_after": "2026-09-30T17:02:13.268936+00:00"
+  },
+  {
+    "name": "Uncanny X-Men [Pro Action]",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T17:02:44.573712+00:00",
+    "retry_after": "2026-09-30T17:02:44.573730+00:00"
   }
 ]

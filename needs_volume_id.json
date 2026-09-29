@@ -13988,9 +13988,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T17:02:10.773645+00:00",
-    "retry_after": "2026-09-21T17:02:10.773662+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T05:02:35.232464+00:00",
+    "retry_after": "2026-10-02T05:02:35.232480+00:00"
   },
   {
     "name": "DC Justice League Essentials: Superman Rebirth",
@@ -21733,9 +21733,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T10:00:43.502138+00:00",
-    "retry_after": "2026-09-27T10:00:43.502152+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-29T05:02:48.727921+00:00",
+    "retry_after": "2026-10-06T05:02:48.727936+00:00"
   },
   {
     "name": "Action Comics",
@@ -24316,9 +24316,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T13:01:04.426783+00:00",
-    "retry_after": "2026-09-25T13:01:04.426797+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T05:00:57.258463+00:00",
+    "retry_after": "2026-10-02T05:00:57.258480+00:00"
   },
   {
     "name": "Little Orphan Annie and the Big Town Gunmen",
@@ -25342,9 +25342,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-26T01:06:12.846740+00:00",
-    "retry_after": "2026-09-29T01:06:12.846757+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-29T05:01:53.615172+00:00",
+    "retry_after": "2026-10-06T05:01:53.615190+00:00"
   },
   {
     "name": "Iron Man by Michelinie, Layton & Romita Jr. Omnibus",
@@ -33418,5 +33418,65 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T04:35:23.561452+00:00",
     "retry_after": "2026-09-30T04:35:23.561468+00:00"
+  },
+  {
+    "name": "Mike Deodato's Ramthar",
+    "publisher": "Caliber Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T05:02:57.042510+00:00",
+    "retry_after": "2026-09-30T05:02:57.042528+00:00"
+  },
+  {
+    "name": "AAFES 12th Edition [Captain America the First Avenger]",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T05:03:02.795279+00:00",
+    "retry_after": "2026-09-30T05:03:02.795321+00:00"
+  },
+  {
+    "name": "The Adventures of Aspen Mascots 2018",
+    "publisher": "Aspen Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T05:03:07.611571+00:00",
+    "retry_after": "2026-09-30T05:03:07.611587+00:00"
+  },
+  {
+    "name": "Mighty Thor 3D",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T05:03:33.095912+00:00",
+    "retry_after": "2026-09-30T05:03:33.095928+00:00"
+  },
+  {
+    "name": "Eternal Warriors: Time and Treachery",
+    "publisher": "Valiant Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T05:03:33.669790+00:00",
+    "retry_after": "2026-09-30T05:03:33.669805+00:00"
+  },
+  {
+    "name": "Fear Agent Library Edition",
+    "publisher": "Dark Horse Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T05:04:16.016441+00:00",
+    "retry_after": "2026-09-30T05:04:16.016457+00:00"
   }
 ]

@@ -34218,5 +34218,51 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T13:04:20.527997+00:00",
     "retry_after": "2026-09-30T13:04:20.528014+00:00"
+  },
+  {
+    "name": "Year One: Batman / Ra's al Ghul",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "multiple_near_year_tied",
+    "candidates": [
+      {
+        "id": 21686,
+        "name": "Year One: Batman/Ra's al Ghul",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 40196,
+        "name": "Year One: Batman/Ra's Al Ghul",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T14:00:54.787115+00:00",
+    "retry_after": "2026-09-30T14:00:54.787130+00:00"
+  },
+  {
+    "name": "Justice League International Annual",
+    "publisher": "DC Comics",
+    "year": 1993,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 51616,
+        "name": "Justice League International Annual",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 23398,
+        "name": "Justice League International Annual",
+        "publisher": "DC Comics",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T14:02:50.809512+00:00",
+    "retry_after": "2026-09-30T14:02:50.809529+00:00"
   }
 ]

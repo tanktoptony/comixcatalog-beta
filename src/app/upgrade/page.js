@@ -7,6 +7,28 @@ import { authedFetch } from "@/lib/apiClient";
 
 const TIERS = [
   {
+    id: "free",
+    name: "Free",
+    price: "$0",
+    period: "forever",
+    via: "none",
+    viaLabel: "no card, no trial clock",
+    headline: "A real catalog and a real collection tracker, for nothing",
+    description: "The part most sites charge for is free here. Track what you own, find what you are missing, and read the guides. Pro adds the tools a serious collection needs, not the basics.",
+    features: [
+      { label: "2,400,000 issues across 208,000 series, with the covers attached to the right book" },
+      { label: "Track what you own and what you are hunting, with no cap on collection size" },
+      { label: "Search by title, year or issue — \"rai 1994\" finds the volume you mean" },
+      { label: "Key issue flags — first appearances and the big deaths, with a line on why they matter" },
+      { label: "Reading guides and articles, written by a collector rather than generated" },
+      { label: "A public profile you can share, if you want one" },
+      { label: "CSV import up to 25 rows per upload" },
+      { label: "Heat seekers — the books moving fastest on recent sales, updated as the comps come in", soon: true },
+    ],
+    cta: "Create a free account",
+    tier: "free",
+  },
+  {
     id: "pro",
     name: "Collector Pro",
     price: "$8",
@@ -34,6 +56,7 @@ const TIERS = [
       { label: "Printing & variant tracking — newsstand, Cover B, 2nd print, tracked separately from the base issue", soon: true },
       { label: "Scan a barcode to add a book — point your phone at the back cover", soon: true },
       { label: "Grade-aware valuation — what your 9.8 is worth, not just what a raw copy sells for", soon: true },
+      { label: "Your movers — the same heat-seeker data, filtered to the books you actually own", soon: true },
       { label: "Early marketplace access — buy and sell when it launches (Pro subscribers first)", soon: true },
     ],
     cta: "Start Collector Pro — $8/month",
@@ -151,7 +174,7 @@ export default function UpgradePage() {
       )}
 
       <section className="upgrade-tiers">
-        {TIERS.filter((tier) => tier.id === "pro").map((tier) => (
+        {TIERS.filter((tier) => tier.id === "free" || tier.id === "pro").map((tier) => (
           <div
             key={tier.id}
             className={`upgrade-tier-card ${tier.badge ? "upgrade-tier-card--featured" : ""}`}
@@ -202,7 +225,15 @@ export default function UpgradePage() {
             </ul>
 
             <div className="upgrade-tier-action">
-              {!mounted ? (
+              {tier.id === "free" ? (
+                // Not the Stripe path: nothing to buy, and an existing
+                // account should not be told to make another.
+                user ? (
+                  <Link href="/library" className="upgrade-cta">Go to your library</Link>
+                ) : (
+                  <Link href="/signup" className="upgrade-cta">{tier.cta}</Link>
+                )
+              ) : !mounted ? (
                 <button type="button" className="upgrade-cta" disabled suppressHydrationWarning>
                   {tier.cta}
                 </button>

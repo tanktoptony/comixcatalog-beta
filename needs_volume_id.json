@@ -34367,5 +34367,72 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T17:02:44.573712+00:00",
     "retry_after": "2026-09-30T17:02:44.573730+00:00"
+  },
+  {
+    "name": "Dragon Arms Pocket Manga",
+    "publisher": "Antarctic Press",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T17:44:41.991684+00:00",
+    "retry_after": "2026-09-30T17:44:41.991702+00:00"
+  },
+  {
+    "name": "The V.C.s: Old Soldiers",
+    "publisher": "Rebellion",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T17:45:04.187672+00:00",
+    "retry_after": "2026-09-30T17:45:04.187689+00:00"
+  },
+  {
+    "name": "The Unstoppable Wasp: Unlimited",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T17:45:14.856161+00:00",
+    "retry_after": "2026-09-30T17:45:14.856177+00:00"
+  },
+  {
+    "name": "The Question by Dennis O'Neil and Denys Cowan Omnibus",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T17:45:15.476260+00:00",
+    "retry_after": "2026-09-30T17:45:15.476275+00:00"
+  },
+  {
+    "name": "Phantom Force",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10823,
+        "name": "Phantom Force",
+        "publisher": "Genesis West",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T17:45:39.853554+00:00",
+    "retry_after": "2026-09-30T17:45:39.853571+00:00"
+  },
+  {
+    "name": "Andy Devine [Andy Devine Western]",
+    "publisher": "Fawcett Comics",
+    "year": 1950,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T17:46:04.769693+00:00",
+    "retry_after": "2026-09-30T17:46:04.769710+00:00"
   }
 ]

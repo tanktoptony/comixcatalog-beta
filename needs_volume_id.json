@@ -23944,9 +23944,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T08:00:44.979711+00:00",
-    "retry_after": "2026-09-25T08:00:44.979727+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T04:31:55.339315+00:00",
+    "retry_after": "2026-10-02T04:31:55.339327+00:00"
   },
   {
     "name": "Amazing Fantasy",
@@ -31675,9 +31675,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:19.803473+00:00",
-    "retry_after": "2026-09-27T16:15:19.803473+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T04:31:40.351578+00:00",
+    "retry_after": "2026-10-02T04:31:40.351598+00:00"
   },
   {
     "name": "Hectic Planet",
@@ -31698,9 +31698,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:21.208967+00:00",
-    "retry_after": "2026-09-27T16:15:21.208967+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T04:31:40.869670+00:00",
+    "retry_after": "2026-10-02T04:31:40.869686+00:00"
   },
   {
     "name": "Slow News Day",
@@ -31727,9 +31727,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:24.969150+00:00",
-    "retry_after": "2026-09-27T16:15:24.969150+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T04:31:41.293495+00:00",
+    "retry_after": "2026-10-02T04:31:41.293510+00:00"
   },
   {
     "name": "The Waiting Place",
@@ -31756,9 +31756,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:25.245173+00:00",
-    "retry_after": "2026-09-27T16:15:25.245173+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T04:31:41.610778+00:00",
+    "retry_after": "2026-10-02T04:31:41.610794+00:00"
   },
   {
     "name": "Frontier",
@@ -31809,9 +31809,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-26T16:15:25.954573+00:00",
-    "retry_after": "2026-09-27T16:15:25.954573+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T04:31:42.440360+00:00",
+    "retry_after": "2026-10-02T04:31:42.440377+00:00"
   },
   {
     "name": "Shang-Chi: Master of Kung Fu One-Shot",
@@ -33283,5 +33283,140 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T04:02:20.512879+00:00",
     "retry_after": "2026-09-30T04:02:20.512896+00:00"
+  },
+  {
+    "name": "Project Superpowers: The Death-Defying 'Devil Free Comic Book Day Special Edition",
+    "publisher": "Dynamite Entertainment",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T04:33:02.796963+00:00",
+    "retry_after": "2026-09-30T04:33:02.796978+00:00"
+  },
+  {
+    "name": "Labor Days",
+    "publisher": "Oni Press",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T04:33:03.276913+00:00",
+    "retry_after": "2026-09-30T04:33:03.276929+00:00"
+  },
+  {
+    "name": "G.I. Joe the Action Force Holiday Special",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T04:33:09.602808+00:00",
+    "retry_after": "2026-09-30T04:33:09.602823+00:00"
+  },
+  {
+    "name": "One Dollar Debut: Valiant Universe Handbook",
+    "publisher": "Valiant Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T04:35:00.922818+00:00",
+    "retry_after": "2026-09-30T04:35:00.922834+00:00"
+  },
+  {
+    "name": "DC Justice League Essentials: Cyborg Rebirth",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T04:35:01.311124+00:00",
+    "retry_after": "2026-09-30T04:35:01.311141+00:00"
+  },
+  {
+    "name": "Defenders of the Earth",
+    "publisher": "Gold Key",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3839,
+        "name": "Defenders of the Earth",
+        "publisher": "Marvel",
+        "start_year": 1987
+      },
+      {
+        "id": 159099,
+        "name": "Defenders of the Earth",
+        "publisher": "Mad Cave Studios",
+        "start_year": 2024
+      },
+      {
+        "id": 159254,
+        "name": "Defenders of the Earth",
+        "publisher": "Mad Cave Studios",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T04:35:01.657278+00:00",
+    "retry_after": "2026-09-30T04:35:01.657294+00:00"
+  },
+  {
+    "name": "Batman Day Special Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 104478,
+        "name": "Batman Day Special Edition",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 104455,
+        "name": "Batman Day Special Edition",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T04:35:06.170322+00:00",
+    "retry_after": "2026-09-30T04:35:06.170354+00:00"
+  },
+  {
+    "name": "Tapping the Vein",
+    "publisher": "Titan Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4262,
+        "name": "Tapping the Vein",
+        "publisher": "Eclipse",
+        "start_year": 1989
+      },
+      {
+        "id": 49715,
+        "name": "Tapping the Vein",
+        "publisher": "Checker Book Publishing Group",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T04:35:23.141586+00:00",
+    "retry_after": "2026-09-30T04:35:23.141602+00:00"
+  },
+  {
+    "name": "True Believers: Infinity War",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T04:35:23.561452+00:00",
+    "retry_after": "2026-09-30T04:35:23.561468+00:00"
   }
 ]

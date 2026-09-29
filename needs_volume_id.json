@@ -32912,5 +32912,65 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T23:47:51.258566+00:00",
     "retry_after": "2026-09-29T23:47:51.258603+00:00"
+  },
+  {
+    "name": "Dennis the Menace Household Hurricane",
+    "publisher": "Fawcett Comics",
+    "year": 1972,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53156,
+        "name": "Dennis the Menace Household Hurricane",
+        "publisher": "Pocket Books",
+        "start_year": 1958
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T00:02:40.623601+00:00",
+    "retry_after": "2026-09-30T00:02:40.623613+00:00"
+  },
+  {
+    "name": "Coup D'Etat: The Authority",
+    "publisher": "WildStorm",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T00:02:47.104165+00:00",
+    "retry_after": "2026-09-30T00:02:47.104183+00:00"
+  },
+  {
+    "name": "Queen Sonja",
+    "publisher": "Dynamite Entertainment",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 35721,
+        "name": "Queen Sonja",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2010
+      },
+      {
+        "id": 29114,
+        "name": "Queen Sonja",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T00:03:38.756357+00:00",
+    "retry_after": "2026-09-30T00:03:38.756367+00:00"
+  },
+  {
+    "name": "The New Teen Titans: Custom Variant",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T00:03:48.958950+00:00",
+    "retry_after": "2026-09-30T00:03:48.958960+00:00"
   }
 ]

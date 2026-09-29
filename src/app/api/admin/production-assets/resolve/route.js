@@ -141,12 +141,13 @@ async function findCarriers(supabase, pool, issue) {
   // gcd_issues row, because GCD's mirror lags actively publishing series.
   // The site addresses these as cv-<series_gcd_id>-<base>; so do we.
   if (withoutIssue.length) {
-    const { data: coverRows } = await supabase
+    const { data: coverRows, error: coverErr } = await supabase
       .from("canonical_covers")
       .select("series_gcd_id, issue_number, cover_date")
       .in("series_gcd_id", withoutIssue.map((s) => s.gcd_id))
       .in("issue_number", forms)
       .not("storage_path", "is", null);
+    if (coverErr) throw coverErr;
     const { reduced } = issueKey(issue);
     const seen = new Set();
     for (const row of coverRows ?? []) {

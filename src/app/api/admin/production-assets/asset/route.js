@@ -33,30 +33,33 @@ async function findCoverRow(supabase, issueId, info) {
   const cols = "id, source, original_cover_url, source_issue_url, storage_path";
   let seriesGcdId = null;
   if (issueId.startsWith("gcd-")) {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("gcd_issues")
       .select("series_gcd_id")
       .eq("gcd_id", Number(issueId.slice(4)))
       .maybeSingle();
+    if (error) throw error;
     seriesGcdId = data?.series_gcd_id ?? null;
   } else {
     seriesGcdId = Number(issueId.split("-")[1]);
   }
   if (seriesGcdId) {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("canonical_covers")
       .select(cols)
       .eq("series_gcd_id", seriesGcdId)
       .eq("issue_number", info.issueNumber);
+    if (error) throw error;
     const hit = (data ?? []).find((r) => r.storage_path === info.storagePath);
     if (hit) return hit;
   }
   if (info.seriesTitle) {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("canonical_covers")
       .select(cols)
       .in("series_title", titleVariants(info.seriesTitle))
       .eq("issue_number", info.issueNumber);
+    if (error) throw error;
     const hit = (data ?? []).find((r) => r.storage_path === info.storagePath);
     if (hit) return hit;
   }
@@ -101,7 +104,16 @@ export async function GET(req) {
     return fail(502, `Stored file reported non-image type ${reportedType}`, { storagePath: info.storagePath });
   }
 
-  const coverRow = await findCoverRow(supabase, issueId, info).catch(() => null);
+  // Provenance is manifest metadata, not the image. A failed lookup must not
+  // cost us the file, but it must not pass as "no source on record" either.
+  let coverRow = null;
+  let provenanceError = null;
+  try {
+    coverRow = await findCoverRow(supabase, issueId, info);
+  } catch (err) {
+    provenanceError = `Provenance lookup failed: ${err?.message ?? String(err)}`;
+    console.error("production-assets asset: provenance lookup failed for", issueId, err);
+  }
   const meta = {
     issueId,
     seriesId: info.seriesId,
@@ -115,6 +127,7 @@ export async function GET(req) {
     coverSource: coverRow?.source ?? null,
     originalCoverUrl: coverRow?.original_cover_url ?? null,
     sourceIssueUrl: coverRow?.source_issue_url ?? null,
+    provenanceError,
     contentType: sniffed.mime,
     reportedContentType: reportedType,
     ext: sniffed.ext,

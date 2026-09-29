@@ -205,6 +205,7 @@ export default function ProductionAssetsPage() {
           originalCoverUrl: got.meta.originalCoverUrl,
           storagePath: got.meta.storagePath,
           canonicalCoverId: got.meta.canonicalCoverId,
+          provenanceError: got.meta.provenanceError ?? null,
           contentType: got.meta.contentType,
           bytes: got.bytes.length,
           status: "downloaded",

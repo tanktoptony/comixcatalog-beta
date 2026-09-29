@@ -34145,5 +34145,48 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T11:11:34.249382+00:00",
     "retry_after": "2026-09-30T11:11:34.249400+00:00"
+  },
+  {
+    "name": "Sonic the Hedgehog",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 109575,
+        "name": "Sonic the Hedgehog",
+        "publisher": "IDW Publishing",
+        "start_year": 2018
+      },
+      {
+        "id": 112927,
+        "name": "Sonic the Hedgehog",
+        "publisher": "IDW Publishing",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T12:01:47.663629+00:00",
+    "retry_after": "2026-09-30T12:01:47.663646+00:00"
+  },
+  {
+    "name": "Ultimate Spider-Man Special Edition",
+    "publisher": "Marvel Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T12:02:26.954406+00:00",
+    "retry_after": "2026-09-30T12:02:26.954423+00:00"
+  },
+  {
+    "name": "The Sarge",
+    "publisher": "Rebellion",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T12:02:35.454776+00:00",
+    "retry_after": "2026-09-30T12:02:35.454794+00:00"
   }
 ]

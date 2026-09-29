@@ -34284,5 +34284,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T15:02:05.428405+00:00",
     "retry_after": "2026-09-30T15:02:05.428416+00:00"
+  },
+  {
+    "name": "B.C. A Clam for Your Thoughts",
+    "publisher": "Fawcett Comics",
+    "year": 1981,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T16:01:47.070031+00:00",
+    "retry_after": "2026-09-30T16:01:47.070053+00:00"
+  },
+  {
+    "name": "Ask for Mercy",
+    "publisher": "Dark Horse Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T16:01:47.677223+00:00",
+    "retry_after": "2026-09-30T16:01:47.677243+00:00"
+  },
+  {
+    "name": "Steel Claw",
+    "publisher": "Rebellion",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46662,
+        "name": "The Steel Claw",
+        "publisher": "Quality Communications",
+        "start_year": 1986
+      },
+      {
+        "id": 46661,
+        "name": "The Steel Claw",
+        "publisher": "Titan Comics",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T16:01:48.300314+00:00",
+    "retry_after": "2026-09-30T16:01:48.300331+00:00"
+  },
+  {
+    "name": "Megaton Man: Hardcopy",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T16:02:05.976173+00:00",
+    "retry_after": "2026-09-30T16:02:05.976191+00:00"
   }
 ]

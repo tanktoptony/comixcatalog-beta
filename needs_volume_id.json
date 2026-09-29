@@ -34444,5 +34444,65 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T18:05:12.845528+00:00",
     "retry_after": "2026-09-30T18:05:12.845547+00:00"
+  },
+  {
+    "name": "Nikolai Dante: Tsar Wars",
+    "publisher": "Rebellion",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T19:01:13.937676+00:00",
+    "retry_after": "2026-09-30T19:01:13.937694+00:00"
+  },
+  {
+    "name": "Tomorrow",
+    "publisher": "Dark Horse Comics",
+    "year": 2020,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 131712,
+        "name": "Tomorrow",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2020
+      },
+      {
+        "id": 125305,
+        "name": "Tomorrow",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T19:01:27.840973+00:00",
+    "retry_after": "2026-09-30T19:01:27.840990+00:00"
+  },
+  {
+    "name": "La voie de Laura",
+    "publisher": "Dynamite Entertainment",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142131,
+        "name": "La Voie de Laura",
+        "publisher": "Dynamite (France)",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T19:01:40.545487+00:00",
+    "retry_after": "2026-09-30T19:01:40.545503+00:00"
+  },
+  {
+    "name": "Road Rage: Throttle",
+    "publisher": "IDW Publishing",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T19:01:57.086726+00:00",
+    "retry_after": "2026-09-30T19:01:57.086741+00:00"
   }
 ]

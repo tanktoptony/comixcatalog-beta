@@ -32715,9 +32715,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T21:02:26.069109+00:00",
-    "retry_after": "2026-09-29T21:02:26.069129+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T21:56:44.335120+00:00",
+    "retry_after": "2026-10-02T21:56:44.335134+00:00"
   },
   {
     "name": "Ms. Fortune",
@@ -32725,9 +32725,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T21:02:36.596655+00:00",
-    "retry_after": "2026-09-29T21:02:36.596674+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T21:56:44.151106+00:00",
+    "retry_after": "2026-10-02T21:56:44.151121+00:00"
   },
   {
     "name": "People of Earth: Experiencer's Guide to Aliens",
@@ -32735,9 +32735,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T21:04:24.215088+00:00",
-    "retry_after": "2026-09-29T21:04:24.215105+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T21:56:43.497088+00:00",
+    "retry_after": "2026-10-02T21:56:43.497107+00:00"
   },
   {
     "name": "Super Street Fighter",
@@ -32758,9 +32758,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T21:04:45.708237+00:00",
-    "retry_after": "2026-09-29T21:04:45.708255+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T21:56:44.225532+00:00",
+    "retry_after": "2026-10-02T21:56:44.225548+00:00"
   },
   {
     "name": "Suite 121",
@@ -34680,5 +34680,22 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T21:04:18.575424+00:00",
     "retry_after": "2026-09-30T21:04:18.575440+00:00"
+  },
+  {
+    "name": "Disney-Pixar/Muppets Presents: Cars",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55684,
+        "name": "Disney-Pixar/Muppets Presents: Cars",
+        "publisher": "Disney",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T21:57:18.880850+00:00",
+    "retry_after": "2026-09-30T21:57:18.880870+00:00"
   }
 ]

@@ -32682,9 +32682,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T20:03:51.224661+00:00",
-    "retry_after": "2026-09-29T20:03:51.224681+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T21:00:48.115117+00:00",
+    "retry_after": "2026-10-02T21:00:48.115135+00:00"
   },
   {
     "name": "Lady Death",
@@ -32705,9 +32705,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T20:10:40.629475+00:00",
-    "retry_after": "2026-09-29T20:10:40.629491+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T21:04:38.179453+00:00",
+    "retry_after": "2026-10-02T21:04:38.179465+00:00"
   },
   {
     "name": "Sexy Cartoons",
@@ -34623,5 +34623,62 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T20:02:50.404737+00:00",
     "retry_after": "2026-09-30T20:02:50.404744+00:00"
+  },
+  {
+    "name": "Marvel Collectible Classics: Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T21:01:36.526526+00:00",
+    "retry_after": "2026-09-30T21:01:36.526538+00:00"
+  },
+  {
+    "name": "The X-Files Magazine",
+    "publisher": "Topps Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T21:01:47.117974+00:00",
+    "retry_after": "2026-09-30T21:01:47.117989+00:00"
+  },
+  {
+    "name": "Daredevil by Mark Waid & Chris Samnee",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T21:01:47.629970+00:00",
+    "retry_after": "2026-09-30T21:01:47.629980+00:00"
+  },
+  {
+    "name": "Prime Slime Tales",
+    "publisher": "Now Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24339,
+        "name": "Prime Slime Tales",
+        "publisher": "Mirage",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T21:01:53.977110+00:00",
+    "retry_after": "2026-09-30T21:01:53.977125+00:00"
+  },
+  {
+    "name": "Tales of the Witchblade Collected Editions",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T21:04:18.575424+00:00",
+    "retry_after": "2026-09-30T21:04:18.575440+00:00"
   }
 ]

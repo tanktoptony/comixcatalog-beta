@@ -34115,5 +34115,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T11:04:38.704503+00:00",
     "retry_after": "2026-09-30T11:04:38.704521+00:00"
+  },
+  {
+    "name": "The Marvel Comics Illustrated Version of Star Wars",
+    "publisher": "Marvel Comics",
+    "year": 1981,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T11:11:01.483385+00:00",
+    "retry_after": "2026-09-30T11:11:01.483403+00:00"
+  },
+  {
+    "name": "There Oughta Be a Law",
+    "publisher": "IDW Publishing",
+    "year": 1957,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T11:11:33.713234+00:00",
+    "retry_after": "2026-09-30T11:11:33.713253+00:00"
+  },
+  {
+    "name": "Hellboy and the B.P.R.D.: 1954 - The Black Sun",
+    "publisher": "Dark Horse Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T11:11:34.249382+00:00",
+    "retry_after": "2026-09-30T11:11:34.249400+00:00"
   }
 ]

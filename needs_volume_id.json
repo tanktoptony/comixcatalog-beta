@@ -32775,9 +32775,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T22:05:51.633620+00:00",
-    "retry_after": "2026-09-29T22:05:51.633640+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-29T23:00:42.111359+00:00",
+    "retry_after": "2026-10-02T23:00:42.111376+00:00"
   },
   {
     "name": "Doctor Strange / Ghost Rider Special",
@@ -34697,5 +34697,68 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T22:03:32.442133+00:00",
     "retry_after": "2026-09-30T22:03:32.442148+00:00"
+  },
+  {
+    "name": "Two-Gun Kid: Sunset Riders",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T23:01:03.098235+00:00",
+    "retry_after": "2026-09-30T23:01:03.098254+00:00"
+  },
+  {
+    "name": "Driving Mother Up the Wall",
+    "publisher": "Fawcett Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T23:01:28.753572+00:00",
+    "retry_after": "2026-09-30T23:01:28.753590+00:00"
+  },
+  {
+    "name": "Za Za the Mystic",
+    "publisher": "Charlton Comics",
+    "year": 1956,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T23:02:41.224938+00:00",
+    "retry_after": "2026-09-30T23:02:41.224957+00:00"
+  },
+  {
+    "name": "Grease Monkey",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76185,
+        "name": "Grease Monkey",
+        "publisher": "Tor Books",
+        "start_year": 2006
+      },
+      {
+        "id": 24898,
+        "name": "Grease Monkey",
+        "publisher": "Kitchen Sink",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T23:02:47.476258+00:00",
+    "retry_after": "2026-09-30T23:02:47.476276+00:00"
+  },
+  {
+    "name": "Fun with Peanuts",
+    "publisher": "Fawcett Comics",
+    "year": 1963,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T23:02:47.858857+00:00",
+    "retry_after": "2026-09-30T23:02:47.858880+00:00"
   }
 ]

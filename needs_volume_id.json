@@ -16125,9 +16125,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-22T20:00:49.116993+00:00",
-    "retry_after": "2026-09-25T20:00:49.117009+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-09-29T10:02:16.136931+00:00",
+    "retry_after": "2026-10-06T10:02:16.136947+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -33846,5 +33846,165 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T09:05:47.701148+00:00",
     "retry_after": "2026-09-30T09:05:47.701172+00:00"
+  },
+  {
+    "name": "Dork Tower",
+    "publisher": "Corsair Publishing",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29767,
+        "name": "Dork Tower",
+        "publisher": "Dork Storm",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T10:02:14.908573+00:00",
+    "retry_after": "2026-09-30T10:02:14.908590+00:00"
+  },
+  {
+    "name": "Dork Tower Swimsuit Special",
+    "publisher": "Dork Storm Press",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T10:02:15.253637+00:00",
+    "retry_after": "2026-09-30T10:02:15.253654+00:00"
+  },
+  {
+    "name": "Dork Tower",
+    "publisher": "Dork Storm Press",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29767,
+        "name": "Dork Tower",
+        "publisher": "Dork Storm",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T10:02:15.294273+00:00",
+    "retry_after": "2026-09-30T10:02:15.294283+00:00"
+  },
+  {
+    "name": "Dork House Comics",
+    "publisher": "Parody Press",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62417,
+        "name": "Dork House Comics",
+        "publisher": "Express Publications",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T10:02:15.675014+00:00",
+    "retry_after": "2026-09-30T10:02:15.675030+00:00"
+  },
+  {
+    "name": "The X-Men Creators' Choice",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T10:03:32.453321+00:00",
+    "retry_after": "2026-09-30T10:03:32.453336+00:00"
+  },
+  {
+    "name": "Carnage",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 36240,
+        "name": "Carnage",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 85938,
+        "name": "Carnage",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 141919,
+        "name": "Carnage",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 154836,
+        "name": "Carnage",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T10:05:03.102612+00:00",
+    "retry_after": "2026-09-30T10:05:03.102628+00:00"
+  },
+  {
+    "name": "Keep 'Em Rolling, Andy Capp",
+    "publisher": "Fawcett Comics",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T10:05:19.477523+00:00",
+    "retry_after": "2026-09-30T10:05:19.477538+00:00"
+  },
+  {
+    "name": "The Adventures of Kool-Aid Man",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61157,
+        "name": "The Adventures of Kool-Aid Man",
+        "publisher": "Archie Comics",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T10:05:27.857588+00:00",
+    "retry_after": "2026-09-30T10:05:27.857604+00:00"
+  },
+  {
+    "name": "Tigers of Terra: Families of Altered Wars",
+    "publisher": "Antarctic Press",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24948,
+        "name": "Tigers of Terra: Families of Altered Wars",
+        "publisher": "Mind Visions",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T10:06:22.679299+00:00",
+    "retry_after": "2026-09-30T10:06:22.679315+00:00"
+  },
+  {
+    "name": "Showcase Presents: The Atom",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T10:06:23.144953+00:00",
+    "retry_after": "2026-09-30T10:06:23.144970+00:00"
   }
 ]

@@ -34006,5 +34006,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T10:06:23.144953+00:00",
     "retry_after": "2026-09-30T10:06:23.144970+00:00"
+  },
+  {
+    "name": "The Astounding Wolf-Man",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 49588,
+        "name": "The Astounding Wolf-Man",
+        "publisher": "Image",
+        "start_year": 2008
+      },
+      {
+        "id": 18834,
+        "name": "The Astounding Wolf-Man",
+        "publisher": "Image",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T11:02:15.414951+00:00",
+    "retry_after": "2026-09-30T11:02:15.414969+00:00"
+  },
+  {
+    "name": "CSI: Crime Scene Investigation - Case Files",
+    "publisher": "IDW Publishing",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T11:02:36.472349+00:00",
+    "retry_after": "2026-09-30T11:02:36.472370+00:00"
+  },
+  {
+    "name": "Blade",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 152317,
+        "name": "Blade",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 33749,
+        "name": "Blade",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 33804,
+        "name": "Blade",
+        "publisher": "Marvel",
+        "start_year": 1997
+      },
+      {
+        "id": 18117,
+        "name": "Blade",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 21836,
+        "name": "Blade",
+        "publisher": "Marvel",
+        "start_year": 2002
+      },
+      {
+        "id": 142492,
+        "name": "Blade",
+        "publisher": "Marvel",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T11:03:15.825162+00:00",
+    "retry_after": "2026-09-30T11:03:15.825183+00:00"
+  },
+  {
+    "name": "Jupiter's Circle",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 81244,
+        "name": "Jupiter's Circle",
+        "publisher": "Image",
+        "start_year": 2015
+      },
+      {
+        "id": 86239,
+        "name": "Jupiter's Circle",
+        "publisher": "Image",
+        "start_year": 2015
+      },
+      {
+        "id": 85113,
+        "name": "Jupiter's Circle",
+        "publisher": "Image",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-29T11:04:38.704503+00:00",
+    "retry_after": "2026-09-30T11:04:38.704521+00:00"
   }
 ]

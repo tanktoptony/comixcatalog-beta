@@ -10,6 +10,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Remotion video workspace: own deps and conventions, not part of the site.
+    "video-production/**",
   ]),
 ]);
 

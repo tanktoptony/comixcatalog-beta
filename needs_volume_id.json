@@ -35165,5 +35165,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T08:07:26.848997+00:00",
     "retry_after": "2026-10-01T08:07:26.849013+00:00"
+  },
+  {
+    "name": "Walt Disney's Wonderful World",
+    "publisher": "Gold Key",
+    "year": 1978,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T09:00:50.628705+00:00",
+    "retry_after": "2026-10-01T09:00:50.628722+00:00"
+  },
+  {
+    "name": "The Technopriests",
+    "publisher": "DC Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79807,
+        "name": "The Technopriests",
+        "publisher": "Humanoids",
+        "start_year": 2015
+      },
+      {
+        "id": 24855,
+        "name": "The Technopriests",
+        "publisher": "Humanoids",
+        "start_year": 1999
+      },
+      {
+        "id": 11937,
+        "name": "The Technopriests",
+        "publisher": "Humanoids",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T09:01:25.166306+00:00",
+    "retry_after": "2026-10-01T09:01:25.166320+00:00"
+  },
+  {
+    "name": "Wonder Woman: The Silver Age Omnibus",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T09:02:27.242123+00:00",
+    "retry_after": "2026-10-01T09:02:27.242138+00:00"
+  },
+  {
+    "name": "Moon Knight: Legacy",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T09:03:06.382380+00:00",
+    "retry_after": "2026-10-01T09:03:06.382396+00:00"
   }
 ]

@@ -10991,3 +10991,103 @@ button.nav-link {
 @media (prefers-reduced-motion: reduce) {
   .pw-meter span { transition: none; }
 }
+
+/* ── Share card dialog (ShareCardButton.jsx) ─────────────── */
+.share-card-dialog {
+  width: min(440px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 1px solid rgba(244, 208, 63, 0.3);
+  border-radius: 18px;
+  background: #0b1020;
+  color: #eef2f7;
+}
+.share-card-dialog::backdrop {
+  background: rgba(2, 6, 23, 0.78);
+}
+.share-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1rem;
+}
+.share-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.share-card-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.share-card-close {
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #eef2f7;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.share-card-close:focus-visible,
+.share-card-btn:focus-visible {
+  outline: 3px solid #f4d03f;
+  outline-offset: 2px;
+}
+.share-card-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+.share-card-img {
+  width: auto;
+  max-width: 100%;
+  max-height: min(56dvh, 520px);
+  aspect-ratio: 9 / 16;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.share-card-status {
+  margin: 0;
+  color: rgba(238, 242, 247, 0.75);
+  text-align: center;
+}
+.share-card-error {
+  color: #fca5a5;
+}
+.share-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.share-card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 208, 63, 0.55);
+  background: rgba(244, 208, 63, 0.06);
+  color: #f4d03f;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.share-card-btn-primary {
+  background: #f4d03f;
+  border-color: #f4d03f;
+  color: #0b1e6b;
+}
+.share-card-hint {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(238, 242, 247, 0.7);
+}

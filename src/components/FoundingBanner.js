@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 // initialRemaining comes from the server-rendered layout, computed fresh
 // per request — this used to seed useState with a hardcoded 83, which every
@@ -10,6 +11,7 @@ import { useEffect, useState } from "react";
 // banner stays hidden rather than show something that might be wrong.
 export default function FoundingBanner({ initialRemaining = null }) {
   const [remaining, setRemaining] = useState(initialRemaining);
+  const pathname = usePathname();
 
   useEffect(() => {
     fetch("/api/founding/status", { cache: "no-store" })
@@ -21,6 +23,10 @@ export default function FoundingBanner({ initialRemaining = null }) {
   }, []);
 
   if (remaining == null || remaining < 1) return null;
+  // /start (the Instagram landing page) carries the founding offer in its
+  // own section. Up here it would push the hero's signup CTA down on a phone
+  // and send clicks to /signup without the funnel's return path.
+  if (pathname === "/start") return null;
   return (
     <div className="founding-banner" role="region" aria-label="Founding Collector offer">
       <div className="founding-banner-inner">

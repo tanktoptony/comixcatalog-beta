@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ShareProfileButton from "@/components/ShareProfileButton";
+import ShareCardButton from "@/components/ShareCardButton";
 import { headers } from "next/headers";
 import Image from "next/image";
 import EditProfileButton from "@/components/EditProfileButton";
@@ -186,6 +187,8 @@ export default async function PublicProfilePage({ params }) {
             {profile.bio && <p className="profile-bio">{profile.bio}</p>}
             <div className="profile-actions">
               <ShareProfileButton username={username} />
+              {/* Self-gates to the signed-in owner with 1+ owned book. */}
+              <ShareCardButton ownerId={profile.id} username={username} className="profile-action-btn" />
               {/* EditProfileButton self-gates on client-side ownership check */}
               <EditProfileButton profile={profile} />
               {/* MessageButton self-gates: hidden when viewing own profile or

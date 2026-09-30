@@ -7,7 +7,8 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 import { claimFoundingPass } from "@/lib/launchFlags";
 import { trackEvent } from "@/lib/analytics";
 import { evaluatePassword, passwordStrength, STRENGTH_LABELS, MIN_LENGTH } from "@/lib/passwordPolicy";
-import { redirectAfterAuth } from "@/lib/auth/postAuthRedirect";
+import { redirectAfterAuth, safeNextPath } from "@/lib/auth/postAuthRedirect";
+import { getAttribution, attributionParams } from "@/lib/attribution";
 // import OAuthButtons from "@/components/OAuthButtons"; // re-enable with the <OAuthButtons /> usage below
 
 // Avatar selection deferred to /profile/edit. Signup is now 3 fields
@@ -32,6 +33,15 @@ export default function SignUpPage() {
 
   const [submittedEmail, setSubmittedEmail] = useState("");
 
+  // ?next= is where a new account lands. Search, issue pages and /start all
+  // send it, and it used to be ignored here: everyone was dropped on an empty
+  // /u/<username> no matter which comic they had just tried to save. Same
+  // lazy-initializer pattern as /login, same open-redirect guard.
+  const [nextPath] = useState(() => {
+    if (typeof window === "undefined") return null;
+    return safeNextPath(new URLSearchParams(window.location.search).get("next"));
+  });
+
   // Funnel: fire signup_started once per visit, on the first field focus.
   // Distinguishes "landed on /signup and left" from "tried and failed".
   const startedRef = useRef(false);
@@ -39,7 +49,8 @@ export default function SignUpPage() {
     if (startedRef.current) return;
     startedRef.current = true;
     trackEvent("signup_started", {
-      next: new URLSearchParams(window.location.search).get("next") || "",
+      next: nextPath || "",
+      ...attributionParams(),
     });
   }
 
@@ -121,6 +132,13 @@ export default function SignUpPage() {
     // returns 504 upstream-request-timeout when its built-in SMTP relay
     // is throttled (which is happening pre-Resend-setup). Without this
     // race the signup spinner runs forever and the user gives up.
+    // Campaign attribution and the return path ride on the account itself
+    // (user_metadata), because the email-confirmation click usually opens a
+    // different browser than the one that signed up, and localStorage does
+    // not follow. /auth/callback reads signup_next back. Both values are
+    // already sanitised: attribution by src/lib/attribution.js, next by
+    // safeNextPath.
+    const attribution = getAttribution();
     let data, error;
     try {
       const result = await Promise.race([
@@ -134,6 +152,8 @@ export default function SignUpPage() {
                 : undefined,
             data: {
               username: usernameNormalized,
+              ...(attribution ? { signup_attribution: attribution } : {}),
+              ...(nextPath ? { signup_next: nextPath } : {}),
             },
           },
         }),
@@ -213,6 +233,7 @@ export default function SignUpPage() {
     // profile upsert below (which has its own, separate failure branch).
     trackEvent("signup_completed", {
       email_confirmation_required: !session,
+      ...attributionParams(attribution),
     });
 
     // Only try client-side profile creation if we actually have a session.
@@ -255,7 +276,7 @@ export default function SignUpPage() {
       // in. Showing "check your email" and leaving them stranded on this
       // form was the bug: nothing ever sent them into the logged-in app.
       // Redirect straight into it, same landing logic /login uses.
-      redirectAfterAuth(`/u/${usernameNormalized}`);
+      redirectAfterAuth(nextPath || `/u/${usernameNormalized}`);
       return;
     }
 

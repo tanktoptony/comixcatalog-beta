@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getSupabaseClient } from "@/lib/supabase/client";
-import { redirectAfterAuth } from "@/lib/auth/postAuthRedirect";
+import { redirectAfterAuth, safeNextPath } from "@/lib/auth/postAuthRedirect";
 // import OAuthButtons from "@/components/OAuthButtons"; // re-enable with the <OAuthButtons /> usage below
 
 function withTimeout(promise, ms, label = "Request") {
@@ -39,8 +39,7 @@ export default function LoginPage() {
   // deriving initial state, not synchronizing with an external system.
   const [nextPath] = useState(() => {
     if (typeof window === "undefined") return null;
-    const rawNext = new URLSearchParams(window.location.search).get("next");
-    return rawNext && rawNext.startsWith("/") && !rawNext.startsWith("//") ? rawNext : null;
+    return safeNextPath(new URLSearchParams(window.location.search).get("next"));
   });
 
   // Same one-shot pattern for the query-string banner flags: ?reset=success

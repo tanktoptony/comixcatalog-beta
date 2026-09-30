@@ -26,6 +26,8 @@
     "test:search-variety": "node --test src/lib/searchVariety.test.js",
     "test:password-policy": "node --test src/lib/passwordPolicy.test.js",
     "test:launch-flags": "node --test src/lib/launchFlags.test.js",
+    "test:attribution": "node --test src/lib/attribution.test.js",
+    "test:share-cards": "node --test src/lib/shareCards/collectionStats.test.js",
     "test:featured-targets": "node --test scripts/lib/featuredTargets.test.js",
     "audit:errors": "node scripts/auditErrorHandling.js",
     "docs:check": "node scripts/checkDocLinks.js",

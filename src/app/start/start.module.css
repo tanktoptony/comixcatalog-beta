@@ -1,0 +1,495 @@
+/* /start — Instagram landing page. Mobile-first: the base rules are the
+   320–430px phone layout most visitors see inside Instagram's in-app
+   browser; wider breakpoints only add room. Colors are the site's Cyclops
+   navy/gold (--x-blue #0b1e6b, --x-gold #f4d03f in globals.css). */
+
+.page {
+  --navy: #0b1e6b;
+  --navy-deep: #07124a;
+  --gold: #f4d03f;
+  --ink: #eef2f7;
+  --muted: rgba(238, 242, 247, 0.74);
+  --line: rgba(255, 255, 255, 0.1);
+  --panel: #11161d;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 0.75rem;
+  overflow-x: clip;
+}
+
+/* ── Hero ─────────────────────────────────────────────── */
+.hero {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.75rem 1.1rem 1.25rem;
+  border-radius: 20px;
+  background:
+    radial-gradient(120% 80% at 85% 10%, rgba(244, 208, 63, 0.16), transparent 60%),
+    linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  border: 1px solid rgba(244, 208, 63, 0.22);
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.h1 {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.3rem, 11vw, 3.6rem);
+  line-height: 0.98;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.lede {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 34ch;
+}
+
+.ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.35rem;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  transition: filter 0.12s ease, transform 0.12s ease, background 0.12s ease;
+}
+
+.ctaPrimary {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 8px 24px rgba(244, 208, 63, 0.22);
+}
+
+.ctaSecondary {
+  color: var(--gold);
+  border: 1px solid rgba(244, 208, 63, 0.55);
+  background: rgba(244, 208, 63, 0.06);
+}
+
+.ctaPrimary:focus-visible,
+.ctaSecondary:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .ctaPrimary:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+  }
+  .ctaSecondary:hover {
+    background: rgba(244, 208, 63, 0.16);
+  }
+}
+
+/* Cover fan. Sits under the CTAs on a phone so the signup button is in the
+   first screen; beside the copy from tablet up. */
+.fan {
+  position: relative;
+  height: clamp(150px, 46vw, 230px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fanCover {
+  position: absolute;
+  width: 34%;
+  max-width: 150px;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  border-radius: 6px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.fanLeft {
+  transform: translateX(-62%) rotate(-8deg);
+}
+.fanMid {
+  z-index: 2;
+  transform: translateY(-4%);
+}
+.fanRight {
+  transform: translateX(62%) rotate(8deg);
+}
+
+/* ── Sections ─────────────────────────────────────────── */
+.section {
+  padding: 1.5rem 1.1rem;
+  border-radius: 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 7vw, 2.2rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* Steps */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.stepHead {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.stepNum {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 900;
+}
+
+.stepText {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* UI mocks: recreations of the real search result, issue card and profile,
+   using real covers. Decorative (aria-hidden); the step text carries the
+   meaning for screen readers. */
+.mock {
+  border-radius: 14px;
+  padding: 0.8rem;
+  background: #0a0e14;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.85rem;
+  min-width: 0;
+}
+
+.mockSearch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  background: rgba(0, 0, 0, 0.35);
+  font-weight: 600;
+}
+
+.mockSearchIcon {
+  color: var(--gold);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.mockResults {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.mockResults li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  line-height: 1.3;
+}
+
+.mockResults small,
+.mockIssueBody small,
+.mockProfileHead small {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.mockThumb {
+  width: 36px;
+  height: 54px;
+  border-radius: 3px;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.mockIssue {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+.mockIssueCover {
+  width: 96px;
+  height: 144px;
+  border-radius: 5px;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.mockIssueBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.mockBtn {
+  display: inline-block;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.mockBtnOn {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy);
+}
+
+.mockProfile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.mockProfileHead {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  line-height: 1.3;
+  min-width: 0;
+}
+
+.mockAvatar {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  background: var(--navy);
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  font-weight: 900;
+}
+
+.mockShelf {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.mockShelfCover {
+  width: 18%;
+  max-width: 44px;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.mockStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  color: var(--muted);
+}
+
+.mockStats strong {
+  color: var(--gold);
+  font-size: 1.05rem;
+}
+
+/* Benefits */
+.benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.benefit {
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid var(--gold);
+}
+
+.benefitText {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Founding */
+.founding {
+  background:
+    linear-gradient(160deg, rgba(11, 30, 107, 0.55), rgba(17, 22, 29, 1) 70%);
+}
+
+.foundingText {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.foundingOffer {
+  margin: 0.9rem 0 0;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.foundingBadge {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: 0.1em;
+}
+
+/* Final CTA */
+.final {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1.75rem 1.1rem;
+  border-radius: 20px;
+  text-align: center;
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  border: 1px solid rgba(244, 208, 63, 0.22);
+}
+
+.finalTitle {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.7rem, 8vw, 2.4rem);
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* ── Wider screens ────────────────────────────────────── */
+@media (min-width: 640px) {
+  .page {
+    gap: 1.5rem;
+    padding-top: 1.25rem;
+  }
+  .hero,
+  .section,
+  .final {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .ctas {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .benefits {
+    grid-template-columns: 1fr 1fr;
+  }
+  .final {
+    align-items: center;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    padding: 3rem 2.5rem;
+  }
+  .fan {
+    height: 300px;
+  }
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctaPrimary,
+  .ctaSecondary {
+    transition: none;
+  }
+  .ctaPrimary:hover {
+    transform: none;
+  }
+}

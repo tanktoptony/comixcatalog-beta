@@ -6,7 +6,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { redirectAfterAuth } from "./postAuthRedirect.js";
+import { redirectAfterAuth, safeNextPath } from "./postAuthRedirect.js";
 
 // Stand in for window.location.assign and record where we were sent.
 function withFakeWindow(run) {
@@ -59,4 +59,24 @@ test("does nothing at all on the server rather than throwing", () => {
   } finally {
     if (prior !== undefined) globalThis.window = prior;
   }
+});
+
+test("a backslash after the leading slash is treated as off-site", () => {
+  // Browsers normalise "\" to "/", so "/\evil.example" is "//evil.example".
+  // The original startsWith("//") guard let this through.
+  assert.equal(safeNextPath("/\\evil.example"), null);
+  assert.deepEqual(withFakeWindow(() => redirectAfterAuth("/\\evil.example")), ["/"]);
+});
+
+test("control characters that URL parsing would strip are refused", () => {
+  assert.equal(safeNextPath("/\t/evil.example"), null);
+  assert.equal(safeNextPath("/\n/evil.example"), null);
+});
+
+test("safeNextPath passes ordinary same-origin paths through untouched", () => {
+  assert.equal(safeNextPath("/library"), "/library");
+  assert.equal(safeNextPath("/issue/gcd-123?x=1"), "/issue/gcd-123?x=1");
+  assert.equal(safeNextPath(""), null);
+  assert.equal(safeNextPath(null), null);
+  assert.equal(safeNextPath("library"), null);
 });

@@ -11,6 +11,7 @@ import { trackEvent } from "@/lib/analytics";
 import GradeEditor, { GradeBadge } from "@/components/GradeEditor";
 import EmptyState from "@/components/EmptyState";
 import FirstRunLibrary from "@/components/FirstRunLibrary";
+import ShareCardButton from "@/components/ShareCardButton";
 import CatalogLinkPicker from "@/components/CatalogLinkPicker";
 import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
@@ -1088,6 +1089,13 @@ function LibraryPageContent() {
             >
               {shareCopied ? "✓ Link copied!" : "↗ Share my collection"}
             </button>
+          )}
+          {profile?.username && !isPublicPreview && (
+            <ShareCardButton
+              ownerId={user?.id}
+              username={profile.username}
+              className="library-share-btn"
+            />
           )}
         </div>
         <div className="library-header-actions">

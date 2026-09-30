@@ -110,7 +110,9 @@ export function resolveAsset(folder, asset, available) {
 // the primary is still reported missing.
 export function withFallbacks(seg, folder, available) {
   if (!seg.fallback || !seg.asset || resolveAsset(folder, seg.asset, available)) return seg;
-  return { ...seg, asset: seg.fallback, usingFallbackFor: seg.asset };
+  // `fallbackProps` (framing for the stand-in, e.g. a still's zoom) apply
+  // only while the fallback is in use.
+  return { ...seg, ...(seg.fallbackProps ?? {}), asset: seg.fallback, usingFallbackFor: seg.asset };
 }
 
 export function missingAssets(episode, available) {

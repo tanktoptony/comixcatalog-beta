@@ -93,13 +93,31 @@ export function KenBurnsCover({ asset, treatment = "panDown", focus, kicker, tit
   );
 }
 
+// Broadcast-TV grade over full-frame media: scanlines, a faint RGB mask,
+// lifted blacks, and a rounded tube edge falling off to black. Reads as
+// "what was on the set", without pretending a still is inside a TV prop.
+function CrtGrade() {
+  const frame = useCurrentFrame();
+  // Slow rolling brightness band, the way a camera sees a CRT refresh.
+  const bandY = ((frame * 6) % 1400) - 200;
+  return (
+    <>
+      <AbsoluteFill style={{ backgroundImage: "repeating-linear-gradient(0deg, rgba(0,0,0,0.28) 0 2px, transparent 2px 4px)" }} />
+      <AbsoluteFill style={{ backgroundImage: "repeating-linear-gradient(90deg, rgba(255,0,0,0.035) 0 1px, rgba(0,255,0,0.035) 1px 2px, rgba(0,0,255,0.035) 2px 3px)" }} />
+      <AbsoluteFill style={{ background: `linear-gradient(to bottom, transparent ${bandY}px, rgba(255,255,255,0.045) ${bandY + 90}px, transparent ${bandY + 180}px)` }} />
+      <AbsoluteFill style={{ backgroundColor: "rgba(20,24,30,0.08)" }} />
+      <AbsoluteFill style={{ borderRadius: 70, boxShadow: "inset 0 0 0 26px #000, inset 0 0 160px 60px rgba(0,0,0,0.85)" }} />
+    </>
+  );
+}
+
 // Full-frame image or footage (TAS stills, stock texture, screenshots).
 // `position` is the CSS object-position for the cover-fit crop ("50% 15%"
 // keeps a face near the top of a portrait still). `inset` puts another asset
 // on a screen inside the shot, e.g. a TAS still on a retro TV: rect is in
 // frame pixels after the cover fit; if the inset asset is missing, the screen
 // is left as shot.
-export function MediaFull({ asset, treatment = "slowPush", position = "50% 50%", zoom = 1, inset, kicker, title, sub, captionAlign = "left" }) {
+export function MediaFull({ asset, treatment = "slowPush", position = "50% 50%", zoom = 1, inset, crt = false, kicker, title, sub, captionAlign = "left" }) {
   const p = useProgress();
   const { video } = useAsset(asset);
   const insetAsset = useAsset(inset?.asset);
@@ -108,7 +126,12 @@ export function MediaFull({ asset, treatment = "slowPush", position = "50% 50%",
   return (
     <AbsoluteFill style={{ backgroundColor: brand.bg, overflow: "hidden" }}>
       <AbsoluteFill style={{ transformOrigin: position, transform: `translateX(${x}px) scale(${(treatment === "panAcross" ? 1.1 : scale) * zoom})` }}>
-        <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: position }} />
+        <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: position, filter: crt ? "saturate(1.25) contrast(0.92) brightness(1.05)" : undefined }} />
+        {crt && (
+          <AbsoluteFill style={{ mixBlendMode: "screen", opacity: 0.35 }}>
+            <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: position, filter: "blur(10px) brightness(0.9)" }} />
+          </AbsoluteFill>
+        )}
         {inset && !insetAsset.missing && (
           <div style={{ position: "absolute", left: inset.rect.x, top: inset.rect.y, width: inset.rect.w, height: inset.rect.h, borderRadius: inset.radius ?? 36, overflow: "hidden", opacity: inset.opacity ?? 0.92 }}>
             <Media asset={inset.asset} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "saturate(1.15) contrast(1.05)" }} />
@@ -116,6 +139,7 @@ export function MediaFull({ asset, treatment = "slowPush", position = "50% 50%",
           </div>
         )}
       </AbsoluteFill>
+      {crt && <CrtGrade />}
       {(title || kicker) && <AbsoluteFill style={{ background: "linear-gradient(to top, rgba(9,12,17,0.7) 0%, transparent 35%)" }} />}
       <NarrationBox kicker={kicker} title={title} sub={sub} align={captionAlign} />
     </AbsoluteFill>

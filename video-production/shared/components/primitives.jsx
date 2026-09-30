@@ -4,6 +4,7 @@
 
 import React from "react";
 import { AbsoluteFill, Img, OffthreadVideo, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { Gif } from "@remotion/gif";
 import { brand, fonts } from "../brand.js";
 import { assetPath, isVideo, resolveAsset } from "../timeline.js";
 import assetIndex from "../generated/assetIndex.json";
@@ -25,10 +26,14 @@ export function useAsset(asset) {
     : { src: null, path: assetPath(episodeId, asset), missing: true, video: false };
 }
 
-// Image or muted video, whichever the asset turned out to be.
-export function Media({ asset, style }) {
+// Image, animated GIF or muted video, whichever the asset turned out to be.
+// GIFs render frame-accurately through @remotion/gif (a plain <img> would
+// animate on wall-clock time and render nondeterministically); they draw to
+// a canvas, so they take the pixel box they fill (default: the full frame).
+export function Media({ asset, style, box = { w: 1920, h: 1080 }, fit = "cover" }) {
   const { src, path, missing, video } = useAsset(asset);
   if (missing) return <MissingAsset path={path} />;
+  if (/\.gif$/i.test(path)) return <Gif src={src} width={box.w} height={box.h} fit={fit} style={style} loopBehavior="loop" />;
   return video ? <OffthreadVideo src={src} muted style={style} /> : <Img src={src} style={style} />;
 }
 
@@ -96,7 +101,7 @@ export function Panel({ asset, width, height, style, imgStyle, fit = "cover" }) 
         ...style,
       }}
     >
-      <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: fit, display: "block", ...imgStyle }} />
+      <Media asset={asset} box={{ w: Math.round(width), h: Math.round(height) }} fit={fit} style={{ width: "100%", height: "100%", objectFit: fit, display: "block", ...imgStyle }} />
     </div>
   );
 }

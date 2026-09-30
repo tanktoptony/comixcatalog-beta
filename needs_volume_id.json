@@ -34291,9 +34291,9 @@
     "year": 1981,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T16:01:47.070031+00:00",
-    "retry_after": "2026-09-30T16:01:47.070053+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T17:01:10.950813+00:00",
+    "retry_after": "2026-10-03T17:01:10.950828+00:00"
   },
   {
     "name": "Ask for Mercy",
@@ -34301,9 +34301,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T16:01:47.677223+00:00",
-    "retry_after": "2026-09-30T16:01:47.677243+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T17:01:12.471129+00:00",
+    "retry_after": "2026-10-03T17:01:12.471146+00:00"
   },
   {
     "name": "Steel Claw",
@@ -34324,9 +34324,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T16:01:48.300314+00:00",
-    "retry_after": "2026-09-30T16:01:48.300331+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T17:01:13.093983+00:00",
+    "retry_after": "2026-10-03T17:01:13.094000+00:00"
   },
   {
     "name": "Megaton Man: Hardcopy",
@@ -34334,9 +34334,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T16:02:05.976173+00:00",
-    "retry_after": "2026-09-30T16:02:05.976191+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T17:01:13.569470+00:00",
+    "retry_after": "2026-10-03T17:01:13.569486+00:00"
   },
   {
     "name": "Uncanny X-Men: Wolverine and Cyclops",
@@ -35746,5 +35746,75 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T16:03:55.192838+00:00",
     "retry_after": "2026-10-01T16:03:55.192853+00:00"
+  },
+  {
+    "name": "Death's Head II & the Origin of Die-Cut",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18466,
+        "name": "Death's Head II & The Origin of Die-Cut",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T17:01:14.475149+00:00",
+    "retry_after": "2026-10-01T17:01:14.475166+00:00"
+  },
+  {
+    "name": "Gambit",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5011,
+        "name": "Gambit",
+        "publisher": "Marvel",
+        "start_year": 1993
+      },
+      {
+        "id": 9111,
+        "name": "Gambit",
+        "publisher": "Marvel",
+        "start_year": 1999
+      },
+      {
+        "id": 11880,
+        "name": "Gambit",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 62737,
+        "name": "Gambit",
+        "publisher": "Marvel",
+        "start_year": 1995
+      },
+      {
+        "id": 51107,
+        "name": "Gambit",
+        "publisher": "Marvel",
+        "start_year": 2012
+      },
+      {
+        "id": 144205,
+        "name": "Gambit",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 11879,
+        "name": "Gambit",
+        "publisher": "Marvel",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T17:01:29.548095+00:00",
+    "retry_after": "2026-10-01T17:01:29.548112+00:00"
   }
 ]

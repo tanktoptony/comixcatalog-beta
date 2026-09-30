@@ -30,10 +30,10 @@ export function useAsset(asset) {
 // GIFs render frame-accurately through @remotion/gif (a plain <img> would
 // animate on wall-clock time and render nondeterministically); they draw to
 // a canvas, so they take the pixel box they fill (default: the full frame).
-export function Media({ asset, style, box = { w: 1920, h: 1080 }, fit = "cover" }) {
+export function Media({ asset, style, box = { w: 1920, h: 1080 }, fit = "cover", gifRate = 1 }) {
   const { src, path, missing, video } = useAsset(asset);
   if (missing) return <MissingAsset path={path} />;
-  if (/\.gif$/i.test(path)) return <Gif src={src} width={box.w} height={box.h} fit={fit} style={style} loopBehavior="loop" />;
+  if (/\.gif$/i.test(path)) return <Gif src={src} width={box.w} height={box.h} fit={fit} style={style} loopBehavior="loop" playbackRate={gifRate} />;
   return video ? <OffthreadVideo src={src} muted style={style} /> : <Img src={src} style={style} />;
 }
 

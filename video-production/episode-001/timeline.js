@@ -97,9 +97,10 @@ export default {
     // ── 00:45-03:10 Childhood / Animated Series / character-first ───────────
     { at: "0:45", type: "media", asset: TAS.team, need: "1992 TAS team lineup or Night of the Sentinels", note: "TAS official/promotional still" },
     { at: "0:58", type: "media", asset: "stock/RETRO_TV", transitionOut: "cut", note: "Retro CRT / Saturday-morning visual: the real TV clip, as shot" },
-    { at: "1:02", type: "media", asset: GIF.intro, crt: true, treatment: "still", fallback: TAS.wolverine, fallbackProps: { treatment: "gentlePush" }, transitionIn: "cut", need: "Optional: TAS opening-titles GIF", note: "Cut to what's on the set: an actual TAS still with a broadcast-CRT grade (replaces a composited TV inset, which read as fake)" },
+    { at: "1:05", type: "media", asset: GIF.intro, crt: true, treatment: "still", fallback: TAS.wolverine, fallbackProps: { treatment: "gentlePush" }, transitionIn: "cut", need: "Optional: TAS opening-titles GIF", note: "Cut to what's on the set: an actual TAS still with a broadcast-CRT grade (replaces a composited TV inset, which read as fake)" },
     { at: "1:10", type: "media", asset: TAS.jubileeSentinel, need: "Jubilee + team / Sentinel scene, official Marvel material", note: "Jubilee + team / Sentinel" },
-    { at: "1:22", type: "media", asset: GIF.gambit, treatment: "still", fallback: TAS.gambit, fallbackProps: { treatment: "panAcross", position: GAMBIT_FRAME, zoom: 1.55 }, need: "Optional: Gambit charging cards GIF", note: "Gambit still, slight pan across cards/face" },
+    { at: "1:22", type: "media", asset: GIF.gambit, treatment: "still", position: "50% 30%", dur: 5.7, transitionOut: "cut", fallback: TAS.gambit, fallbackProps: { treatment: "panAcross", position: GAMBIT_FRAME, zoom: 1.55 }, need: "Optional: Gambit charging cards GIF", note: "GIF plays ~2 loops, then the still carries the beat. " +  "Gambit still, slight pan across cards/face" },
+    { at: "1:27.7", type: "media", asset: TAS.gambit, treatment: "panAcross", position: GAMBIT_FRAME, zoom: 1.55, transitionIn: "cut", note: "Gambit still continues the 1:22 beat after the GIF" },
     { at: "1:34", type: "media", asset: TAS.gambitRogue, need: "Rogue + Gambit official still", note: "Rogue + Gambit" },
     { at: "1:46", type: "media", asset: TAS.colossus, position: "50% 22%", need: "Colossus animated or comic character shot", note: "Colossus character shot" },
     { at: "1:58", type: "media", asset: "stock/KID_BROWSING_COMICS", dur: 7, note: "Kid browsing comics: use only 5-7 seconds; then transition into real covers" },
@@ -128,7 +129,8 @@ export default {
     { at: "5:28", type: "cover", asset: X.x137, treatment: "gentlePush", note: "Longest single-cover hold (18s); let the cover sell it" },
     { at: "5:46", type: "stack", assets: DARK_PHOENIX, note: "129 > 130 > 135 > 136 > 137, card-stack motion, not explosions" },
     { at: "6:00", type: "fan", assets: DARK_PHOENIX, field: "#000000", title: "Team dynamics • Consequences • Jean Grey", note: "Five-cover fan on black" },
-    { at: "6:14", type: "media", asset: GIF.phoenix, treatment: "still", fallback: "extras/PHOENIX_OFFICIAL", fallbackProps: { treatment: "slowPush" }, need: "Optional: TAS Phoenix GIF", note: "Phoenix atmosphere; official Phoenix Saga still until a GIF arrives" },
+    { at: "6:14", type: "media", asset: GIF.phoenix, treatment: "still", gifRate: 0.6, dur: 3, transitionOut: "cut", fallback: "extras/PHOENIX_OFFICIAL", fallbackProps: { treatment: "slowPush", dur: undefined }, need: "Optional: TAS Phoenix GIF", note: "Phoenix atmosphere: 0.9s GIF slowed to 0.6x, ~2 loops" },
+    { at: "6:17", type: "media", asset: "extras/PHOENIX_OFFICIAL", treatment: "slowPush", transitionIn: "cut", note: "Official Phoenix Saga still carries the rest of the beat" },
     { at: "6:28", type: "cover", asset: X.x137, treatment: "focus", focus: { x: 0.5, y: 0.45, zoom: 2.1 }, note: "#137 again, tighter crop" },
     { at: "6:42", type: "shelf", slots: 5, numbered: true, items: [{ asset: X.x137, label: "Dark Phoenix" }], title: "Start here.", note: "Pull back from #137 into the starter-shelf card; slot 1 filled with #137 for continuity" },
 
@@ -137,8 +139,8 @@ export default {
     { at: "7:08", type: "cover", asset: X.x141, treatment: "focus", focus: { x: 0.5, y: 0.5, zoom: 1.9 }, note: "Crop into wanted/slain character wall" },
     { at: "7:22", type: "cover", asset: X.u142, treatment: "slowPush", note: "UXM #142 full-screen" },
     { at: "7:36", type: "pair", assets: [X.x141, X.u142], field: "#10161d", tint: "#5b7187", note: "Split; cool/steel background, art untinted" },
-    { at: "7:50", type: "media", asset: GIF.sentinel, treatment: "still", fallback: "extras/DOFP_SENTINEL_OFFICIAL", fallbackProps: { treatment: "slowPush" }, dur: 8, need: "Official Sentinel / dystopian X-Men art", note: "Optional official Sentinel art, then back to #141" },
-    { at: "7:58", type: "cover", asset: X.x141, treatment: "still", note: "Back to #141" },
+    { at: "7:50", type: "media", asset: GIF.sentinel, treatment: "still", fallback: "extras/DOFP_SENTINEL_OFFICIAL", fallbackProps: { treatment: "slowPush" }, dur: 7, need: "Official Sentinel / dystopian X-Men art", note: "Optional official Sentinel art, then back to #141" },
+    { at: "7:57", type: "cover", asset: X.x141, treatment: "still", note: "Back to #141" },
 
     // ── 08:05-09:20 #3 X-Cutioner's Song / 90s energy ─────────────────────
     { at: "8:05", type: "cover", asset: X.x14, treatment: "slowPush", number: 3, title: "X-Cutioner's Song", note: "#14 + text" },

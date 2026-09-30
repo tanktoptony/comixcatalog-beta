@@ -70,7 +70,7 @@ export function EpisodeRenderer({ episodeId, timeline }) {
         {timeline.segments.map((rawSeg) => {
           const seg = withFallbacks(rawSeg, episodeId, available);
           const Component = SEGMENT_TYPES[seg.type];
-          const { type, at, dur, id, start, end, from, durationInFrames, transition, transitionIn, transitionOut, fadeIn, fadeOut, note, need, fallback, usingFallbackFor, bug, ...props } = seg;
+          const { type, at, dur, id, start, end, from, durationInFrames, transition, transitionIn, transitionOut, fadeIn, fadeOut, note, need, beat, fallback, usingFallbackFor, bug, ...props } = seg;
           return (
             <Sequence key={seg.id} from={seg.from} durationInFrames={seg.durationInFrames} name={`${seg.id} ${seg.type}${seg.title ? ` · ${seg.title}` : ""}`}>
               <SegmentContext.Provider value={{ durationInFrames: seg.durationInFrames }}>

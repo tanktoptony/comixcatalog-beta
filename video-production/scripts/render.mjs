@@ -23,9 +23,9 @@ if (!ep.segments.length) {
 }
 
 const timeline = normalizeTimeline(ep, VIDEO.fps);
-const outDir = path.join(root, ep.id, "output");
+const outDir = path.join(root, ep.outputDir ?? ep.id, "output");
 fs.mkdirSync(outDir, { recursive: true });
-const outputLocation = path.join(outDir, `${ep.id}-visual-track${preview ? "-preview" : ""}.mp4`);
+const outputLocation = path.join(outDir, `${ep.outputName ?? `${ep.id}-visual-track`}${preview ? "-preview" : ""}.mp4`);
 
 console.log(`Bundling...`);
 const serveUrl = await bundle({ entryPoint: path.join(root, "src", "index.jsx"), publicDir: path.join(root, "public") });

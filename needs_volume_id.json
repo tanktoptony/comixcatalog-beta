@@ -34238,9 +34238,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T14:00:54.787115+00:00",
-    "retry_after": "2026-09-30T14:00:54.787130+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T15:00:44.582480+00:00",
+    "retry_after": "2026-10-03T15:00:44.582496+00:00"
   },
   {
     "name": "Justice League International Annual",
@@ -34261,9 +34261,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T14:02:50.809512+00:00",
-    "retry_after": "2026-09-30T14:02:50.809529+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T15:00:45.113527+00:00",
+    "retry_after": "2026-10-03T15:00:45.113544+00:00"
   },
   {
     "name": "The Punisher: The Origin of Microchip",
@@ -35510,5 +35510,81 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T14:01:56.581352+00:00",
     "retry_after": "2026-10-01T14:01:56.581368+00:00"
+  },
+  {
+    "name": "Wolverine / Doop",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T15:02:35.909955+00:00",
+    "retry_after": "2026-10-01T15:02:35.909970+00:00"
+  },
+  {
+    "name": "Demi-God",
+    "publisher": "IDW Publishing",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109569,
+        "name": "Demi-God",
+        "publisher": "Ominous Press",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T15:02:36.252065+00:00",
+    "retry_after": "2026-10-01T15:02:36.252080+00:00"
+  },
+  {
+    "name": "Star Blazers 2199 Omnibus",
+    "publisher": "Dark Horse Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T15:02:36.826804+00:00",
+    "retry_after": "2026-10-01T15:02:36.826820+00:00"
+  },
+  {
+    "name": "Thunderbolts by Warren Ellis",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T15:02:43.116495+00:00",
+    "retry_after": "2026-10-01T15:02:43.116513+00:00"
+  },
+  {
+    "name": "Slaine",
+    "publisher": "Titan Comics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170211,
+        "name": "Slaine",
+        "publisher": "Dantes Verlag",
+        "start_year": 2017
+      },
+      {
+        "id": 48359,
+        "name": "Slaine",
+        "publisher": "Rebellion",
+        "start_year": 2008
+      },
+      {
+        "id": 26307,
+        "name": "Slaine",
+        "publisher": "Nickel",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T15:02:50.668085+00:00",
+    "retry_after": "2026-10-01T15:02:50.668102+00:00"
   }
 ]

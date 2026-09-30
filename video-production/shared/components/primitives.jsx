@@ -1,37 +1,48 @@
 // Building blocks every segment component uses: the backdrop, a comic-panel
-// framed image, the narration-box caption, and the missing-asset placeholder.
+// framed image, the narration-box caption, full-frame media, and the
+// missing-asset placeholder.
 
 import React from "react";
-import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Img, OffthreadVideo, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { brand, fonts } from "../brand.js";
-import { assetPath } from "../timeline.js";
+import { assetPath, isVideo, resolveAsset } from "../timeline.js";
 import assetIndex from "../generated/assetIndex.json";
 
-const available = new Set(assetIndex.files);
+export const available = new Set(assetIndex.files);
 
 export const EpisodeContext = React.createContext({ episodeId: "" });
 // Length of the segment being drawn, so camera moves span the segment and
 // not the whole episode.
 export const SegmentContext = React.createContext({ durationInFrames: 1 });
 
-// { src, path, missing } for a timeline asset reference.
+// { src, path, missing, video } for a timeline asset reference.
 export function useAsset(asset) {
   const { episodeId } = React.useContext(EpisodeContext);
-  if (!asset) return { src: null, path: null, missing: false };
-  const path = assetPath(episodeId, asset);
-  return available.has(path)
-    ? { src: staticFile(path), path, missing: false }
-    : { src: null, path, missing: true };
+  if (!asset) return { src: null, path: null, missing: false, video: false };
+  const path = resolveAsset(episodeId, asset, available);
+  return path
+    ? { src: staticFile(path), path, missing: false, video: isVideo(path) }
+    : { src: null, path: assetPath(episodeId, asset), missing: true, video: false };
+}
+
+// Image or muted video, whichever the asset turned out to be.
+export function Media({ asset, style }) {
+  const { src, path, missing, video } = useAsset(asset);
+  if (missing) return <MissingAsset path={path} />;
+  return video ? <OffthreadVideo src={src} muted style={style} /> : <Img src={src} style={style} />;
 }
 
 // Charcoal field, faint halftone, soft vignette. Static on purpose: motion
-// belongs to the covers, not the wallpaper.
-export function Backdrop({ tint = brand.blue, children }) {
+// belongs to the covers, not the wallpaper. `field` swaps the base color
+// (black for "on black", deep red for House of M); `tint` colors the glow.
+export function Backdrop({ tint = brand.blue, field = brand.bg, glow = 0.33, children }) {
+  const a = Math.round(glow * 255).toString(16).padStart(2, "0");
+  const b = Math.round(glow * 0.6 * 255).toString(16).padStart(2, "0");
   return (
-    <AbsoluteFill style={{ backgroundColor: brand.bg }}>
+    <AbsoluteFill style={{ backgroundColor: field }}>
       <AbsoluteFill
         style={{
-          background: `radial-gradient(ellipse at 18% 12%, ${tint}55 0%, transparent 55%), radial-gradient(ellipse at 85% 95%, ${tint}33 0%, transparent 50%)`,
+          background: `radial-gradient(ellipse at 18% 12%, ${tint}${a} 0%, transparent 55%), radial-gradient(ellipse at 85% 95%, ${tint}${b} 0%, transparent 50%)`,
         }}
       />
       <Halftone />
@@ -54,8 +65,8 @@ export function Halftone({ opacity = 0.07, size = 9 }) {
 
 // A cover's own art, blurred and darkened, as the field behind it.
 export function CoverBackdrop({ asset }) {
-  const { src } = useAsset(asset);
-  if (!src) return <Backdrop />;
+  const { src, missing, video } = useAsset(asset);
+  if (missing || video) return <Backdrop />;
   return (
     <AbsoluteFill style={{ backgroundColor: brand.bg, overflow: "hidden" }}>
       <Img
@@ -70,7 +81,6 @@ export function CoverBackdrop({ asset }) {
 
 // An image inside a comic-panel border: heavy ink line, thin paper gutter.
 export function Panel({ asset, width, height, style, imgStyle, fit = "cover" }) {
-  const { src, path, missing } = useAsset(asset);
   return (
     <div
       style={{
@@ -86,11 +96,7 @@ export function Panel({ asset, width, height, style, imgStyle, fit = "cover" }) 
         ...style,
       }}
     >
-      {missing ? (
-        <MissingAsset path={path} />
-      ) : (
-        <Img src={src} style={{ width: "100%", height: "100%", objectFit: fit, display: "block", ...imgStyle }} />
-      )}
+      <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: fit, display: "block", ...imgStyle }} />
     </div>
   );
 }
@@ -164,7 +170,7 @@ export function NarrationBox({ kicker, title, sub, align = "left", delay = 8, st
             padding: "14px 26px 16px",
             fontFamily: fonts.display,
             fontWeight: 800,
-            fontSize: 64,
+            fontSize: title.length > 40 ? 50 : 64,
             lineHeight: 1,
             textTransform: "uppercase",
             letterSpacing: "0.01em",
@@ -178,6 +184,40 @@ export function NarrationBox({ kicker, title, sub, align = "left", delay = 8, st
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+// Recommendation number: large gold numeral, per the episode's brand notes.
+export function Numeral({ n, style }) {
+  const e = useEntrance(0, 0, 2);
+  if (n == null) return null;
+  return (
+    <div
+      style={{
+        position: "absolute",
+        fontFamily: fonts.display,
+        fontWeight: 800,
+        fontSize: 300,
+        lineHeight: 0.8,
+        color: brand.gold,
+        WebkitTextStroke: `6px ${brand.ink}`,
+        textShadow: `12px 12px 0 ${brand.ink}`,
+        opacity: e,
+        transform: `translateY(${(1 - e) * 30}px)`,
+        ...style,
+      }}
+    >
+      {n}
+    </div>
+  );
+}
+
+// Small ComixCatalog bug, lower right. Only where the blueprint allows it.
+export function LogoBug() {
+  return (
+    <div style={{ position: "absolute", right: 48, bottom: 40, display: "flex", alignItems: "center", gap: 12, opacity: 0.9 }}>
+      <Img src={staticFile("brand/badge-transparent.png")} style={{ height: 64, width: "auto" }} />
     </div>
   );
 }

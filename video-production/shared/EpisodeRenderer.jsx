@@ -7,9 +7,10 @@ import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import { brand } from "./brand.js";
-import { EpisodeContext, SegmentContext, Backdrop } from "./components/primitives.jsx";
-import { CoverFull, KenBurnsCover, CoverPair, CoverGrid, CoverFan, StarterShelf } from "./components/covers.jsx";
-import { ChapterCard, QuoteCard, TitleCard, ComixCatalogCard, EndCard, PlaceholderCard } from "./components/cards.jsx";
+import { EpisodeContext, SegmentContext, Backdrop, LogoBug, available } from "./components/primitives.jsx";
+import { CoverFull, KenBurnsCover, MediaFull, CoverPair, CoverGrid, CoverFan, CoverStack, Triptych, StarterShelf, ShelfLater } from "./components/covers.jsx";
+import { ChapterCard, QuoteCard, TitleCard, ComixCatalogCard, EndCard, PlaceholderCard, ScreenCapture } from "./components/cards.jsx";
+import { withFallbacks } from "./timeline.js";
 
 // Timeline `type` -> component. Add a type here and it is usable from any
 // episode's timeline.
@@ -18,10 +19,15 @@ export const SEGMENT_TYPES = {
   chapter: ChapterCard,
   cover: CoverFull,
   kenBurns: KenBurnsCover,
+  media: MediaFull,
   pair: CoverPair,
+  stack: CoverStack,
+  triptych: Triptych,
   grid: CoverGrid,
   fan: CoverFan,
   shelf: StarterShelf,
+  shelfLater: ShelfLater,
+  screen: ScreenCapture,
   quote: QuoteCard,
   comixcatalog: ComixCatalogCard,
   end: EndCard,
@@ -61,14 +67,16 @@ export function EpisodeRenderer({ episodeId, timeline }) {
     <EpisodeContext.Provider value={{ episodeId }}>
       <AbsoluteFill style={{ backgroundColor: brand.bg }}>
         <Backdrop />
-        {timeline.segments.map((seg) => {
+        {timeline.segments.map((rawSeg) => {
+          const seg = withFallbacks(rawSeg, episodeId, available);
           const Component = SEGMENT_TYPES[seg.type];
-          const { type, at, dur, id, start, end, from, durationInFrames, transition, transitionIn, transitionOut, fadeIn, fadeOut, note, ...props } = seg;
+          const { type, at, dur, id, start, end, from, durationInFrames, transition, transitionIn, transitionOut, fadeIn, fadeOut, note, need, fallback, usingFallbackFor, bug, ...props } = seg;
           return (
             <Sequence key={seg.id} from={seg.from} durationInFrames={seg.durationInFrames} name={`${seg.id} ${seg.type}${seg.title ? ` · ${seg.title}` : ""}`}>
               <SegmentContext.Provider value={{ durationInFrames: seg.durationInFrames }}>
                 <Shell seg={seg}>
                   {Component ? <Component {...props} /> : <PlaceholderCard asset={`UNKNOWN_TYPE_${type}`} label={`Unknown segment type "${type}"`} />}
+                  {bug && <LogoBug />}
                 </Shell>
               </SegmentContext.Provider>
             </Sequence>

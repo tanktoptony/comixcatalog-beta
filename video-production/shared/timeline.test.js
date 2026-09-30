@@ -43,6 +43,15 @@ test("missing assets are listed once with every segment that uses them", () => {
   };
   const missing = missingAssets(ep, ["episode-001/covers/have.jpg"]);
   assert.equal(missing.length, 1);
-  assert.equal(missing[0].path, "episode-001/tas/TAS_GAMBIT.jpg");
+  assert.equal(missing[0].expected, "episode-001/tas/TAS_GAMBIT.jpg");
   assert.deepEqual(missing[0].usedBy.map((u) => u.segment), ["b", "c"]);
+});
+
+test("extensionless assets resolve to whatever file arrived", async () => {
+  const { resolveAsset, withFallbacks } = await import("./timeline.js");
+  const have = new Set(["ep/extras/TAS_GAMBIT.png", "ep/covers/a.jpg"]);
+  assert.equal(resolveAsset("ep", "extras/TAS_GAMBIT", have), "ep/extras/TAS_GAMBIT.png");
+  assert.equal(resolveAsset("ep", "extras/NOPE", have), null);
+  assert.equal(withFallbacks({ asset: "extras/NOPE", fallback: "covers/a.jpg" }, "ep", have).asset, "covers/a.jpg");
+  assert.equal(withFallbacks({ asset: "extras/TAS_GAMBIT", fallback: "covers/a.jpg" }, "ep", have).asset, "extras/TAS_GAMBIT");
 });

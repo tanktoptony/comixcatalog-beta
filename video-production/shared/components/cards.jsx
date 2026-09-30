@@ -4,26 +4,24 @@
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { brand, fonts } from "../brand.js";
-import { Backdrop, Halftone, Panel, useAsset, useEntrance, useProgress } from "./primitives.jsx";
+import { Backdrop, Halftone, Media, NarrationBox, Panel, useAsset, useEntrance, useProgress } from "./primitives.jsx";
 
-// Chapter break styled as a narration box on a Cyclops-blue field.
-export function ChapterCard({ kicker, title, sub }) {
+// Chapter / text card, per the episode brand notes: blue field, gold rule,
+// white uppercase type. Short: usually 2-4 seconds on screen.
+export function ChapterCard({ kicker, title, sub, field }) {
   const e = useEntrance(0, 0, 2);
+  const r = useEntrance(1, 6, 2);
   const p = useProgress();
+  const long = String(title ?? "").length > 38;
   return (
-    <AbsoluteFill style={{ background: `linear-gradient(135deg, ${brand.blue} 0%, #061045 60%, ${brand.bg} 100%)` }}>
-      <Halftone opacity={0.08} size={10} />
-      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
-        <div style={{ transform: `scale(${0.97 + 0.03 * e + 0.02 * p})`, opacity: e, maxWidth: 1500, textAlign: "left" }}>
-          {kicker && (
-            <div style={{ display: "inline-block", background: brand.gold, color: brand.ink, border: `5px solid ${brand.ink}`, borderBottom: "none", padding: "8px 20px", fontFamily: fonts.body, fontWeight: 700, fontSize: 30, letterSpacing: "0.16em", textTransform: "uppercase" }}>
-              {kicker}
-            </div>
-          )}
-          <div style={{ background: brand.offwhite, color: brand.ink, border: `6px solid ${brand.ink}`, boxShadow: `16px 16px 0 ${brand.ink}`, padding: "26px 44px 30px", fontFamily: fonts.display, fontWeight: 800, fontSize: 124, lineHeight: 0.95, textTransform: "uppercase" }}>
-            {title}
-            {sub && <div style={{ fontFamily: fonts.body, fontWeight: 600, fontSize: 36, lineHeight: 1.25, textTransform: "none", marginTop: 16 }}>{sub}</div>}
-          </div>
+    <AbsoluteFill style={{ background: field ?? `linear-gradient(135deg, ${brand.blue} 0%, #061045 65%, #040a2c 100%)` }}>
+      <Halftone opacity={0.07} size={10} />
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", padding: "0 160px" }}>
+        <div style={{ transform: `scale(${0.98 + 0.02 * e + 0.015 * p})`, opacity: e, textAlign: "center", maxWidth: 1560 }}>
+          {kicker && <div style={{ fontFamily: fonts.body, fontWeight: 700, fontSize: 30, letterSpacing: "0.2em", color: brand.gold, textTransform: "uppercase", marginBottom: 26 }}>{kicker}</div>}
+          <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: long ? 104 : 136, lineHeight: 0.98, color: "#ffffff", textTransform: "uppercase", whiteSpace: "pre-line" }}>{title}</div>
+          <div style={{ height: 8, background: brand.gold, width: 260 * r, margin: "34px auto 0" }} />
+          {sub && <div style={{ fontFamily: fonts.body, fontWeight: 600, fontSize: 36, lineHeight: 1.3, color: brand.offwhite, marginTop: 28 }}>{sub}</div>}
         </div>
       </AbsoluteFill>
     </AbsoluteFill>
@@ -59,13 +57,13 @@ export function QuoteCard({ text, attribution, asset }) {
 }
 
 // Episode open: number, title, faint cover wall behind.
-export function TitleCard({ kicker, title, sub, assets = [] }) {
+export function TitleCard({ kicker, title, sub, assets = [], wall = 0.42 }) {
   const e = useEntrance(0, 0, 4);
   const s = useEntrance(1, 14, 4);
   const p = useProgress();
   return (
     <AbsoluteFill style={{ backgroundColor: brand.bg, overflow: "hidden" }}>
-      <AbsoluteFill style={{ flexDirection: "row", flexWrap: "wrap", gap: 18, opacity: 0.42, transform: `translateX(${-60 * p}px) rotate(-4deg) scale(1.2)`, alignContent: "center", justifyContent: "center" }}>
+      <AbsoluteFill style={{ flexDirection: "row", flexWrap: "wrap", gap: 18, opacity: wall, transform: `translateX(${-60 * p}px) rotate(-4deg) scale(1.2)`, alignContent: "center", justifyContent: "center" }}>
         {assets.map((a, i) => (
           <WallCover key={i} asset={a} />
         ))}
@@ -74,9 +72,10 @@ export function TitleCard({ kicker, title, sub, assets = [] }) {
       <Halftone opacity={0.06} />
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", textAlign: "center", padding: "0 160px" }}>
         {kicker && <div style={{ fontFamily: fonts.body, fontWeight: 700, fontSize: 30, letterSpacing: "0.22em", color: brand.gold, textTransform: "uppercase", opacity: e }}>{kicker}</div>}
-        <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 132, lineHeight: 0.95, color: brand.text, textTransform: "uppercase", marginTop: 18, opacity: e, transform: `translateY(${(1 - e) * 24}px)` }}>
+        <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: String(title ?? "").length > 40 ? 112 : 132, lineHeight: 0.95, color: brand.text, textTransform: "uppercase", marginTop: 18, opacity: e, transform: `translateY(${(1 - e) * 24}px)`, whiteSpace: "pre-line" }}>
           {title}
         </div>
+        <div style={{ height: 8, width: 300 * s, background: brand.gold, marginTop: 34 }} />
         {sub && <div style={{ fontFamily: fonts.body, fontWeight: 600, fontSize: 36, color: brand.textMuted, marginTop: 26, opacity: s }}>{sub}</div>}
       </AbsoluteFill>
     </AbsoluteFill>
@@ -99,7 +98,7 @@ function Logo({ height }) {
 }
 
 // The ComixCatalog plug. `screenshot` shows a site capture in a browser frame.
-export function ComixCatalogCard({ title, sub, screenshot, url = "comixcatalog.com" }) {
+export function ComixCatalogCard({ title, sub, tagline, screenshot, url = "comixcatalog.com" }) {
   const e = useEntrance(0, 0, 4);
   const s = useEntrance(1, 10, 4);
   return (
@@ -109,6 +108,7 @@ export function ComixCatalogCard({ title, sub, screenshot, url = "comixcatalog.c
         <div style={{ opacity: e, transform: `translateY(${(1 - e) * 20}px)`, display: "flex", flexDirection: "column", alignItems: screenshot ? "flex-start" : "center", maxWidth: screenshot ? 700 : 1400 }}>
           <Logo height={screenshot ? 120 : 170} />
           {title && <div style={{ marginTop: 40, fontFamily: fonts.display, fontWeight: 800, fontSize: 76, lineHeight: 1, color: brand.text, textTransform: "uppercase", textAlign: screenshot ? "left" : "center" }}>{title}</div>}
+          {tagline && <div style={{ marginTop: 30, fontFamily: fonts.display, fontWeight: 800, fontSize: 60, letterSpacing: "0.04em", color: brand.gold, textTransform: "uppercase" }}>{tagline}</div>}
           {sub && <div style={{ marginTop: 18, fontFamily: fonts.body, fontWeight: 400, fontSize: 32, lineHeight: 1.35, color: brand.textMuted, textAlign: screenshot ? "left" : "center" }}>{sub}</div>}
           <div style={{ marginTop: 30, fontFamily: fonts.body, fontWeight: 700, fontSize: 34, color: brand.gold, letterSpacing: "0.04em" }}>{url}</div>
         </div>
@@ -135,7 +135,7 @@ export function EndCard({ title, sub, url = "comixcatalog.com" }) {
       <Backdrop />
       <AbsoluteFill style={{ justifyContent: "center", paddingLeft: 140, opacity: e }}>
         <Logo height={120} />
-        {title && <div style={{ marginTop: 44, fontFamily: fonts.display, fontWeight: 800, fontSize: 96, lineHeight: 0.95, color: brand.text, textTransform: "uppercase", maxWidth: 820 }}>{title}</div>}
+        {title && <div style={{ marginTop: 44, fontFamily: fonts.display, fontWeight: 800, fontSize: 96, lineHeight: 0.95, color: brand.text, textTransform: "uppercase", maxWidth: 900, whiteSpace: "pre-line" }}>{title}</div>}
         {sub && <div style={{ marginTop: 20, fontFamily: fonts.body, fontSize: 32, color: brand.textMuted, maxWidth: 780, lineHeight: 1.35 }}>{sub}</div>}
         <div style={{ marginTop: 30, fontFamily: fonts.body, fontWeight: 700, fontSize: 34, color: brand.gold }}>{url}</div>
       </AbsoluteFill>
@@ -154,6 +154,36 @@ export function PlaceholderCard({ asset, label }) {
         </div>
         {label && <div style={{ marginTop: 30, fontFamily: fonts.body, fontSize: 28, color: brand.textMuted }}>{label}</div>}
       </AbsoluteFill>
+    </AbsoluteFill>
+  );
+}
+
+// A real site capture in a browser frame, with a slow screen-record style
+// push and drift. focus {x, y} (0..1) is where the push heads.
+export function ScreenCapture({ asset, focus, zoom = 1.12, kicker, title, sub }) {
+  const p = useProgress();
+  const e = useEntrance(0, 0, 2);
+  const f = { x: 0.5, y: 0.3, ...focus };
+  const W = 1560;
+  const H = 878;
+  const scale = 1 + (zoom - 1) * p;
+  return (
+    <AbsoluteFill>
+      <Backdrop />
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", paddingBottom: title ? 120 : 0 }}>
+        <div style={{ opacity: e, transform: `translateY(${(1 - e) * 24}px)`, borderRadius: 14, overflow: "hidden", border: `2px solid ${brand.line}`, boxShadow: "0 30px 80px rgba(0,0,0,0.6)", background: brand.surface }}>
+          <div style={{ height: 38, background: brand.surface2, display: "flex", alignItems: "center", gap: 10, padding: "0 16px" }}>
+            {["#ff5f57", "#febc2e", "#28c840"].map((c) => <div key={c} style={{ width: 13, height: 13, borderRadius: 7, background: c }} />)}
+            <div style={{ marginLeft: 18, fontFamily: fonts.body, fontSize: 17, color: brand.textMuted }}>comixcatalog.com</div>
+          </div>
+          <div style={{ position: "relative", width: W, height: H, overflow: "hidden" }}>
+            <div style={{ position: "absolute", inset: 0, transformOrigin: `${f.x * 100}% ${f.y * 100}%`, transform: `scale(${scale})` }}>
+              <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+            </div>
+          </div>
+        </div>
+      </AbsoluteFill>
+      <NarrationBox kicker={kicker} title={title} sub={sub} align="center" style={{ bottom: 50 }} />
     </AbsoluteFill>
   );
 }

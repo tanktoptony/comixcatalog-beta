@@ -79,8 +79,10 @@ export function segmentAssets(seg) {
   };
   push(seg.asset);
   push(seg.screenshot);
+  push(seg.inset?.asset);
   for (const a of seg.assets ?? []) push(a);
   for (const a of seg.items ?? []) push(a);
+  for (const a of seg.later ?? []) push(a);
   return out;
 }
 
@@ -90,17 +92,45 @@ export function assetPath(episodeId, asset) {
   return `${episodeId}/${asset}`;
 }
 
+export const MEDIA_EXTENSIONS = ["jpg", "jpeg", "png", "webp", "gif", "mp4", "mov", "webm"];
+export const isVideo = (path) => /\.(mp4|mov|webm)$/i.test(String(path ?? ""));
+const hasExtension = (asset) => /\.[a-z0-9]+$/i.test(asset);
+
+// An asset may be named without an extension ("extras/TAS_GAMBIT"): whatever
+// arrives, .jpg, .png or .mp4, is used. Returns the public path or null.
+export function resolveAsset(folder, asset, available) {
+  const base = assetPath(folder, asset);
+  if (hasExtension(asset)) return available.has(base) ? base : null;
+  for (const ext of MEDIA_EXTENSIONS) if (available.has(`${base}.${ext}`)) return `${base}.${ext}`;
+  return null;
+}
+
+// A segment may name a `fallback` the blueprint itself allows ("Fallback:
+// real covers only"). It is used only when the primary asset is absent, and
+// the primary is still reported missing.
+export function withFallbacks(seg, folder, available) {
+  if (!seg.fallback || !seg.asset || resolveAsset(folder, seg.asset, available)) return seg;
+  return { ...seg, asset: seg.fallback, usingFallbackFor: seg.asset };
+}
+
 export function missingAssets(episode, available) {
-  const have = new Set(available);
+  const have = available instanceof Set ? available : new Set(available);
   const folder = episode.assetEpisodeId ?? episode.id;
   const byAsset = new Map();
   for (const [i, seg] of (episode.segments ?? []).entries()) {
     const segId = seg.id ?? `seg-${String(i + 1).padStart(3, "0")}`;
     for (const asset of segmentAssets(seg)) {
+      if (resolveAsset(folder, asset, have)) continue;
       const path = assetPath(folder, asset);
-      if (have.has(path)) continue;
-      if (!byAsset.has(path)) byAsset.set(path, { asset, path, usedBy: [] });
-      byAsset.get(path).usedBy.push({ segment: segId, at: String(seg.at), type: seg.type });
+      const expected = hasExtension(asset) ? path : `${path}.(jpg|png|webp|mp4|mov)`;
+      if (!byAsset.has(path)) byAsset.set(path, { asset, expected, usedBy: [] });
+      byAsset.get(path).usedBy.push({
+        segment: segId,
+        at: String(seg.at),
+        type: seg.type,
+        ...(seg.need ? { need: seg.need } : {}),
+        ...(seg.fallback && asset === seg.asset ? { fallbackInUse: seg.fallback } : {}),
+      });
     }
   }
   return [...byAsset.values()];

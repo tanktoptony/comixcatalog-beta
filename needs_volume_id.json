@@ -34344,9 +34344,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T17:02:07.671177+00:00",
-    "retry_after": "2026-09-30T17:02:07.671198+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T18:20:01.957775+00:00",
+    "retry_after": "2026-10-03T18:20:01.957790+00:00"
   },
   {
     "name": "Codex Black",
@@ -34354,9 +34354,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T17:02:13.268918+00:00",
-    "retry_after": "2026-09-30T17:02:13.268936+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T18:20:02.684769+00:00",
+    "retry_after": "2026-10-03T18:20:02.684784+00:00"
   },
   {
     "name": "Uncanny X-Men [Pro Action]",
@@ -34364,9 +34364,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T17:02:44.573712+00:00",
-    "retry_after": "2026-09-30T17:02:44.573730+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T18:20:03.200161+00:00",
+    "retry_after": "2026-10-03T18:20:03.200177+00:00"
   },
   {
     "name": "Dragon Arms Pocket Manga",
@@ -35816,5 +35816,75 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T17:01:29.548095+00:00",
     "retry_after": "2026-10-01T17:01:29.548112+00:00"
+  },
+  {
+    "name": "Terrible Lizard Free Comic Book Day Edition",
+    "publisher": "Oni Press",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T18:18:39.007226+00:00",
+    "retry_after": "2026-10-01T18:18:39.007243+00:00"
+  },
+  {
+    "name": "Action Force Holiday Special",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T18:18:39.749123+00:00",
+    "retry_after": "2026-10-01T18:18:39.749139+00:00"
+  },
+  {
+    "name": "Lucifer Special Edition",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T18:18:46.769869+00:00",
+    "retry_after": "2026-10-01T18:18:46.769885+00:00"
+  },
+  {
+    "name": "Book of Death: The Fall of Ninjak",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T18:20:00.577890+00:00",
+    "retry_after": "2026-10-01T18:20:00.577902+00:00"
+  },
+  {
+    "name": "Michael Turner's Soulfire Sourcebook",
+    "publisher": "Aspen Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T18:19:56.349461+00:00",
+    "retry_after": "2026-10-01T18:19:56.349477+00:00"
+  },
+  {
+    "name": "Uncanny X-Men: The Heroic Age (HA)",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T18:20:00.665690+00:00",
+    "retry_after": "2026-10-01T18:20:00.665702+00:00"
+  },
+  {
+    "name": "The Amazing Spider-Man in \"Weather Forecast: Danger\" [Giant Comics to Color]",
+    "publisher": "Gold Key",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T18:20:01.500865+00:00",
+    "retry_after": "2026-10-01T18:20:01.500880+00:00"
   }
 ]

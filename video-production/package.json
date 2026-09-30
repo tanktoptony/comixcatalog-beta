@@ -1,0 +1,27 @@
+{
+  "name": "comixcatalog-video-production",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic Remotion renders for ComixCatalog videos. Isolated from the website: own deps, own node_modules.",
+  "scripts": {
+    "sync:001": "node scripts/sync-assets.mjs episode-001",
+    "index": "node scripts/build-asset-index.mjs",
+    "studio": "npm run index && remotion studio src/index.jsx",
+    "render:001": "npm run index && node scripts/render.mjs episode-001",
+    "render:001:preview": "npm run index && node scripts/render.mjs episode-001 --preview",
+    "render:demo": "npm run index && node scripts/render.mjs demo --preview",
+    "test": "node --test shared/timeline.test.js"
+  },
+  "dependencies": {
+    "@fontsource/big-shoulders": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "@remotion/bundler": "^4.0.530",
+    "@remotion/cli": "^4.0.530",
+    "@remotion/gif": "^4.0.530",
+    "@remotion/renderer": "^4.0.530",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "remotion": "^4.0.530",
+    "sharp": "^0.35.5"
+  }
+}

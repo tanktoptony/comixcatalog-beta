@@ -34165,9 +34165,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T12:01:47.663629+00:00",
-    "retry_after": "2026-09-30T12:01:47.663646+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T13:00:42.756259+00:00",
+    "retry_after": "2026-10-03T13:00:42.756275+00:00"
   },
   {
     "name": "Ultimate Spider-Man Special Edition",
@@ -34175,9 +34175,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T12:02:26.954406+00:00",
-    "retry_after": "2026-09-30T12:02:26.954423+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T13:00:43.345830+00:00",
+    "retry_after": "2026-10-03T13:00:43.345847+00:00"
   },
   {
     "name": "The Sarge",
@@ -34185,9 +34185,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T12:02:35.454776+00:00",
-    "retry_after": "2026-09-30T12:02:35.454794+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T13:00:43.781292+00:00",
+    "retry_after": "2026-10-03T13:00:43.781309+00:00"
   },
   {
     "name": "Ultimates Omniversal",
@@ -35401,5 +35401,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T12:01:45.859475+00:00",
     "retry_after": "2026-10-01T12:01:45.859490+00:00"
+  },
+  {
+    "name": "Web Warriors of the Spider-Verse",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T13:01:20.176322+00:00",
+    "retry_after": "2026-10-01T13:01:20.176339+00:00"
+  },
+  {
+    "name": "Mage, Book Two: The Hero Defined",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T13:07:27.256894+00:00",
+    "retry_after": "2026-10-01T13:07:27.256911+00:00"
+  },
+  {
+    "name": "Family Circus: I'm Taking a Nap!",
+    "publisher": "Fawcett Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T13:08:44.430754+00:00",
+    "retry_after": "2026-10-01T13:08:44.430770+00:00"
+  },
+  {
+    "name": "Future State: Suicide Squad",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 133412,
+        "name": "Future State: Suicide Squad",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 137546,
+        "name": "Future State: Suicide Squad",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T13:08:44.978400+00:00",
+    "retry_after": "2026-10-01T13:08:44.978416+00:00"
   }
 ]

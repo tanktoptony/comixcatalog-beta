@@ -44,7 +44,8 @@ const HOXPOX = [X.hox1, X.pox1, X.hox6, X.pox6];
 // extras/ and it replaces the still; until then the still plays. Kept to
 // four beats: the blueprint says animation must support a specific line.
 const GIF = {
-  intro: "extras/GIF_TAS_INTRO",
+  // The 1992 opening titles (4s, 320x240, 4:3). Shown 4:3 between pillars.
+  intro: "extras/GIF_TAS_INTRO_END.mp4",
   gambit: "extras/GIF_GAMBIT_CARDS",
   phoenix: "extras/GIF_PHOENIX",
   sentinel: "extras/GIF_SENTINEL",
@@ -97,7 +98,7 @@ export default {
     // ── 00:45-03:10 Childhood / Animated Series / character-first ───────────
     { at: "0:45", type: "media", asset: TAS.team, need: "1992 TAS team lineup or Night of the Sentinels", note: "TAS official/promotional still" },
     { at: "0:58", type: "media", asset: "stock/RETRO_TV", transitionOut: "cut", note: "Retro CRT / Saturday-morning visual: the real TV clip, as shot" },
-    { at: "1:05", type: "media", asset: GIF.intro, crt: true, treatment: "still", fallback: TAS.wolverine, fallbackProps: { treatment: "gentlePush" }, transitionIn: "cut", need: "Optional: TAS opening-titles GIF", note: "Cut to what's on the set: an actual TAS still with a broadcast-CRT grade (replaces a composited TV inset, which read as fake)" },
+    { at: "1:06", type: "media", asset: GIF.intro, crt: true, aspect: 4 / 3, treatment: "still", zoom: 1.13, position: "35% 30%", fallback: TAS.wolverine, fallbackProps: { treatment: "gentlePush" }, transitionIn: "cut", need: "Optional: TAS opening-titles GIF", note: "Cut to what's on the set: an actual TAS still with a broadcast-CRT grade (replaces a composited TV inset, which read as fake)" },
     { at: "1:10", type: "media", asset: TAS.jubileeSentinel, need: "Jubilee + team / Sentinel scene, official Marvel material", note: "Jubilee + team / Sentinel" },
     { at: "1:22", type: "media", asset: GIF.gambit, treatment: "still", position: "50% 30%", dur: 5.7, transitionOut: "cut", fallback: TAS.gambit, fallbackProps: { treatment: "panAcross", position: GAMBIT_FRAME, zoom: 1.55 }, need: "Optional: Gambit charging cards GIF", note: "GIF plays ~2 loops, then the still carries the beat. " +  "Gambit still, slight pan across cards/face" },
     { at: "1:27.7", type: "media", asset: TAS.gambit, treatment: "panAcross", position: GAMBIT_FRAME, zoom: 1.55, transitionIn: "cut", note: "Gambit still continues the 1:22 beat after the GIF" },

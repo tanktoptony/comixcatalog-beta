@@ -117,14 +117,31 @@ function CrtGrade() {
 // on a screen inside the shot, e.g. a TAS still on a retro TV: rect is in
 // frame pixels after the cover fit; if the inset asset is missing, the screen
 // is left as shot.
-export function MediaFull({ asset, treatment = "slowPush", position = "50% 50%", zoom = 1, inset, crt = false, gifRate = 1, kicker, title, sub, captionAlign = "left" }) {
+// `aspect` (e.g. 4/3) shows the media at that shape, centred between black
+// pillars, the way 1990s TV actually aired; the CRT grade then applies to that
+// picture only.
+export function MediaFull({ aspect, ...props }) {
+  if (!aspect) return <MediaFullFrame {...props} />;
+  const w = Math.round(1080 * aspect);
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#000" }}>
+      <div style={{ position: "absolute", left: Math.round((1920 - w) / 2), top: 0, width: w, height: 1080, overflow: "hidden" }}>
+        <MediaFullFrame {...props} />
+      </div>
+    </AbsoluteFill>
+  );
+}
+
+function MediaFullFrame({ asset, treatment = "slowPush", position = "50% 50%", zoom = 1, inset, crt = false, gifRate = 1, kicker, title, sub, captionAlign = "left" }) {
   const p = useProgress();
   const { video } = useAsset(asset);
   const insetAsset = useAsset(inset?.asset);
   const scale = video || treatment === "still" ? 1 : treatment === "slowPull" ? 1.06 - 0.06 * p : 1 + 0.06 * p;
   const x = treatment === "panAcross" ? -60 + 120 * p : 0;
+  // CRT: clip the picture to the tube shape so nothing shows past its corners.
   return (
-    <AbsoluteFill style={{ backgroundColor: brand.bg, overflow: "hidden" }}>
+    <AbsoluteFill style={crt ? { backgroundColor: "#000" } : { backgroundColor: brand.bg, overflow: "hidden" }}>
+      <AbsoluteFill style={crt ? { inset: 10, borderRadius: 64, overflow: "hidden" } : undefined}>
       <AbsoluteFill style={{ transformOrigin: position, transform: `translateX(${x}px) scale(${(treatment === "panAcross" ? 1.1 : scale) * zoom})` }}>
         <Media asset={asset} gifRate={gifRate} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: position, filter: crt ? "saturate(1.25) contrast(0.92) brightness(1.05)" : undefined }} />
         {crt && (
@@ -140,6 +157,7 @@ export function MediaFull({ asset, treatment = "slowPush", position = "50% 50%",
         )}
       </AbsoluteFill>
       {crt && <CrtGrade />}
+      </AbsoluteFill>
       {(title || kicker) && <AbsoluteFill style={{ background: "linear-gradient(to top, rgba(9,12,17,0.7) 0%, transparent 35%)" }} />}
       <NarrationBox kicker={kicker} title={title} sub={sub} align={captionAlign} />
     </AbsoluteFill>

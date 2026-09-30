@@ -17,7 +17,16 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { useLibrary } from "@/context/LibraryContext";
+
+// Where a brand-new collector is busy adding their first book: /library
+// renders FirstRunLibrary (search box + popular series) for an empty
+// collection, and /search is where the add happens. A modal 800ms into
+// either one covers the thing they came to do, so with an empty collection
+// the auto-open waits until they are somewhere else or own a book.
+const ACTIVATION_PATHS = new Set(["/library", "/search"]);
 
 const STORAGE_KEY = "cc:onboarding-seen";
 
@@ -49,9 +58,13 @@ export default function OnboardingModal() {
   const { user, loading } = useAuth();
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
+  const pathname = usePathname();
+  const { collections, loading: libraryLoading } = useLibrary();
+  const emptyLibrary = !libraryLoading && collections.length === 0;
+  const holdForActivation = ACTIVATION_PATHS.has(pathname) && (libraryLoading || emptyLibrary);
 
   useEffect(() => {
-    if (loading || !user) return;
+    if (loading || !user || holdForActivation) return;
     try {
       if (localStorage.getItem(STORAGE_KEY) === "1") return;
     } catch {
@@ -60,7 +73,7 @@ export default function OnboardingModal() {
     // Small delay so the modal doesn't slam in during the first paint.
     const t = setTimeout(() => setOpen(true), 800);
     return () => clearTimeout(t);
-  }, [user, loading]);
+  }, [user, loading, holdForActivation]);
 
   // Manual re-open, regardless of the seen-flag — the header's "How this
   // works" button dispatches this. Always starts back at step 0.

@@ -6,6 +6,7 @@ import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { groupByTitle, flattenGroups } from "@/lib/searchVariety";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { SIGNUP_HREF as START_SIGNUP_HREF } from "@/app/start/StartClient";
 import { useSearchQuery } from "@/context/SearchQueryContext";
 import { useUnreadMessageCount } from "@/hooks/useUnreadMessageCount";
 
@@ -570,7 +571,18 @@ export default function Header() {
               <Link href="/login" className="nav-link nav-link-mobile-hide" onClick={closeMenu}>
                 Sign in
               </Link>
-              <Link href="/signup" className="nav-cta" onClick={closeMenu}>
+              {/* On /start (the Instagram landing page) this goes through the
+                  funnel's return path like the page's own CTAs, and is
+                  tracked by StartTracker via data-start-cta. Elsewhere it is
+                  unchanged. */}
+              <Link
+                href={pathname === "/start" ? START_SIGNUP_HREF : "/signup"}
+                className="nav-cta"
+                onClick={closeMenu}
+                {...(pathname === "/start"
+                  ? { "data-start-cta": "start_collection", "data-start-location": "header" }
+                  : {})}
+              >
                 Create account
               </Link>
             </>

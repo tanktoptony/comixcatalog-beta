@@ -4,6 +4,13 @@ import { withSentryConfig } from "@sentry/nextjs/config";
 const nextConfig = {
   reactCompiler: true,
 
+  // The share card reads its bundled TTFs from disk at runtime; tracing
+  // cannot see a readFile path, so name the folder explicitly or Vercel
+  // ships the route without them.
+  outputFileTracingIncludes: {
+    "/api/share-card": ["./src/app/api/share-card/fonts/**"],
+  },
+
   images: {
     remotePatterns: [
       {

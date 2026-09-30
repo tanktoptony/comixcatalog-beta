@@ -3,6 +3,7 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useAuth } from "./AuthContext";
 import { trackEvent } from "@/lib/analytics";
+import { attributionParams } from "@/lib/attribution";
 
 const LibraryContext = createContext(null);
 
@@ -200,6 +201,15 @@ export function LibraryProvider({ children }) {
     // row's missing id, and realtime appends a duplicate before refreshLibrary
     // reconciles. We strip the temp prefix server-side; only the local state
     // ever sees this id.
+    // Activation: is this the account's first book with this status? Read
+    // before the optimistic insert below, and only once the library has
+    // finished loading. An empty array while still loading means "not
+    // known yet", not "empty", and would fire a false first-add. Same after
+    // a failed load: refreshLibrary sets collections to [] on error, which
+    // would make an existing collector's next add look like their first.
+    const isFirstOfStatus =
+      !loading && !loadError && !collections.some((c) => c.status === status);
+
     const optimisticId = `optimistic-${libraryKey}-${Date.now()}`;
     const optimisticRow = {
       id: optimisticId,
@@ -284,6 +294,18 @@ export function LibraryProvider({ children }) {
   // literal "first" name here would be misleading since this fires on
   // every add, not just the first ever.
   trackEvent("collection_add", { status });
+
+  // The funnel's activation events. collection_add above fires on every
+  // add; these fire once per account per status (strictly: whenever that
+  // status goes from zero books to one, so someone who empties their
+  // wantlist and starts again fires it again, which is rare enough to live
+  // with). They carry first-touch attribution so an Instagram signup who
+  // adds a comic three days later is still counted as Instagram.
+  if (isFirstOfStatus) {
+    trackEvent(status === "wishlist" ? "first_wantlist_add" : "first_collection_add", {
+      ...attributionParams(),
+    });
+  }
 }
 
   async function removeFromCollection(inputId) {

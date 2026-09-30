@@ -33,6 +33,23 @@
 // removed when that migration lands.
 export function redirectAfterAuth(path) {
   if (typeof window === "undefined") return;
-  const target = typeof path === "string" && path.startsWith("/") && !path.startsWith("//") ? path : "/";
-  window.location.assign(target);
+  window.location.assign(safeNextPath(path) ?? "/");
+}
+
+// The one open-redirect guard for a post-auth destination, shared by /login,
+// /signup and /auth/callback. Returns the path when it is same-origin, else
+// null. "//host" and "/\host" are both rejected: browsers normalise a
+// backslash to a slash, so "/\evil.example" navigates off-site exactly like
+// "//evil.example" does, and a bare startsWith("//") check misses it.
+export function safeNextPath(raw) {
+  if (typeof raw !== "string" || raw.length === 0 || raw.length > 512) return null;
+  if (!raw.startsWith("/")) return null;
+  if (raw[1] === "/" || raw[1] === "\\") return null;
+  // URL parsing strips tabs and newlines, so "/<TAB>/evil" collapses to
+  // "//evil". Refuse any control character outright.
+  for (let i = 0; i < raw.length; i += 1) {
+    const code = raw.charCodeAt(i);
+    if (code < 0x20 || code === 0x7f) return null;
+  }
+  return raw;
 }

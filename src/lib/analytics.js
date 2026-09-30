@@ -16,6 +16,17 @@
 //   house_ad_click       { position, campaign, logged_in }  its link clicked
 //   newsletter_subscribed { source }   NewsletterSignup succeeded (footer / page / ...)
 //
+// Instagram funnel (/start, see src/lib/attribution.js). attr_* params are
+// first-touch utm values; register attr_source/attr_medium/attr_campaign as
+// GA4 custom dimensions or they will not show in reports.
+//   start_view           { attr_* }                          /start loaded
+//   start_cta_click      { cta, location, attr_* }          cta: start_collection | search | go_to_library
+//   signup_started / signup_completed also carry attr_*
+//   first_collection_add { attr_* }   first owned book on the account (activation)
+//   first_wantlist_add   { attr_* }   first wantlist book on the account
+//   share_card_generated { card_type }
+//   share_card_action    { card_type, method }   method: share_sheet | download | copy_invite_link
+//
 // Post-signup (existing users):
 //   signup_completed, pro_upgrade, pdf_export, grade_set, collection_add
 

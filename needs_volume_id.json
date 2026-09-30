@@ -35693,5 +35693,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T15:42:02.148139+00:00",
     "retry_after": "2026-10-01T15:42:02.148154+00:00"
+  },
+  {
+    "name": "Starship Troopers",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 41440,
+        "name": "Starship Troopers",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1997
+      },
+      {
+        "id": 29699,
+        "name": "Starship Troopers",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T16:01:07.552587+00:00",
+    "retry_after": "2026-10-01T16:01:07.552603+00:00"
+  },
+  {
+    "name": "The VC's",
+    "publisher": "Titan Comics",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T16:01:42.432596+00:00",
+    "retry_after": "2026-10-01T16:01:42.432614+00:00"
+  },
+  {
+    "name": "George P�rez's Crimson Plague",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T16:03:54.751377+00:00",
+    "retry_after": "2026-10-01T16:03:54.751392+00:00"
+  },
+  {
+    "name": "Star Trek Omnibus",
+    "publisher": "IDW Publishing",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T16:03:55.192838+00:00",
+    "retry_after": "2026-10-01T16:03:55.192853+00:00"
   }
 ]

@@ -34515,9 +34515,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T20:00:56.029764+00:00",
-    "retry_after": "2026-09-30T20:00:56.029771+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T20:35:38.108627+00:00",
+    "retry_after": "2026-10-03T20:35:38.108643+00:00"
   },
   {
     "name": "Robo-Hunter",
@@ -34525,9 +34525,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T20:01:11.917556+00:00",
-    "retry_after": "2026-09-30T20:01:11.917563+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T20:35:38.502468+00:00",
+    "retry_after": "2026-10-03T20:35:38.502484+00:00"
   },
   {
     "name": "Rogue Trooper",
@@ -34566,9 +34566,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T20:01:13.345672+00:00",
-    "retry_after": "2026-09-30T20:01:13.345678+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T20:35:38.959651+00:00",
+    "retry_after": "2026-10-03T20:35:38.959668+00:00"
   },
   {
     "name": "Beba",
@@ -34576,9 +34576,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T20:01:48.082810+00:00",
-    "retry_after": "2026-09-30T20:01:48.082818+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T20:35:39.390420+00:00",
+    "retry_after": "2026-10-03T20:35:39.390439+00:00"
   },
   {
     "name": "X-23",
@@ -34611,9 +34611,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T20:02:50.404737+00:00",
-    "retry_after": "2026-09-30T20:02:50.404744+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T20:35:39.767770+00:00",
+    "retry_after": "2026-10-03T20:35:39.767788+00:00"
   },
   {
     "name": "Marvel Collectible Classics: Spider-Man",
@@ -36032,5 +36032,85 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T20:02:45.489106+00:00",
     "retry_after": "2026-10-01T20:02:45.489126+00:00"
+  },
+  {
+    "name": "Marvel Adventures Super Heroes #1 Custom Comic",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T20:35:37.695807+00:00",
+    "retry_after": "2026-10-01T20:35:37.695821+00:00"
+  },
+  {
+    "name": "Michael Turner's Fathom: Killian's Vessel",
+    "publisher": "Aspen Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T20:35:37.482477+00:00",
+    "retry_after": "2026-10-01T20:35:37.482494+00:00"
+  },
+  {
+    "name": "True Believers: Kirby 100th - Eternals",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T20:35:26.695759+00:00",
+    "retry_after": "2026-10-01T20:35:26.695778+00:00"
+  },
+  {
+    "name": "Mage 3-D Edition",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T20:35:37.651170+00:00",
+    "retry_after": "2026-10-01T20:35:37.651185+00:00"
+  },
+  {
+    "name": "Peekaboo!  I Love You! [Family Circus]",
+    "publisher": "Fawcett Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T20:35:37.599556+00:00",
+    "retry_after": "2026-10-01T20:35:37.599572+00:00"
+  },
+  {
+    "name": "One for One: Emily and the Strangers",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T20:35:28.221076+00:00",
+    "retry_after": "2026-10-01T20:35:28.221094+00:00"
+  },
+  {
+    "name": "Cable / Deadpool",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T20:35:53.195997+00:00",
+    "retry_after": "2026-10-01T20:35:53.196017+00:00"
+  },
+  {
+    "name": "Masakazu Katsura's Shadow Lady",
+    "publisher": "Dark Horse Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T20:35:53.610921+00:00",
+    "retry_after": "2026-10-01T20:35:53.610941+00:00"
   }
 ]

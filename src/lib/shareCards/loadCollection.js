@@ -145,13 +145,23 @@ async function latestCovers(supabase, rows, issueById) {
 
   const resolved = await Promise.all(
     candidates.map(async ({ issue, year }) => {
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from("canonical_covers")
         .select("storage_path, cover_date, series_year")
         .eq("series_gcd_id", issue.series_gcd_id)
         .eq("issue_number", issue.issue_number)
         .not("storage_path", "is", null)
         .limit(10);
+      // A cover is decoration: a failed lookup costs this one cover, not the
+      // card. But say why, so an outage doesn't read as "no covers exist".
+      if (error) {
+        console.error("share-card cover lookup failed", {
+          series_gcd_id: issue.series_gcd_id,
+          issue_number: issue.issue_number,
+          message: error.message,
+        });
+        return null;
+      }
       let best = null;
       let bestDiff = Infinity;
       for (const c of data ?? []) {

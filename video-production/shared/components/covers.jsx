@@ -99,7 +99,7 @@ export function KenBurnsCover({ asset, treatment = "panDown", focus, kicker, tit
 // on a screen inside the shot, e.g. a TAS still on a retro TV: rect is in
 // frame pixels after the cover fit; if the inset asset is missing, the screen
 // is left as shot.
-export function MediaFull({ asset, treatment = "slowPush", position = "50% 50%", inset, kicker, title, sub, captionAlign = "left" }) {
+export function MediaFull({ asset, treatment = "slowPush", position = "50% 50%", zoom = 1, inset, kicker, title, sub, captionAlign = "left" }) {
   const p = useProgress();
   const { video } = useAsset(asset);
   const insetAsset = useAsset(inset?.asset);
@@ -107,7 +107,7 @@ export function MediaFull({ asset, treatment = "slowPush", position = "50% 50%",
   const x = treatment === "panAcross" ? -60 + 120 * p : 0;
   return (
     <AbsoluteFill style={{ backgroundColor: brand.bg, overflow: "hidden" }}>
-      <AbsoluteFill style={{ transform: `translateX(${x}px) scale(${treatment === "panAcross" ? 1.1 : scale})` }}>
+      <AbsoluteFill style={{ transformOrigin: position, transform: `translateX(${x}px) scale(${(treatment === "panAcross" ? 1.1 : scale) * zoom})` }}>
         <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: position }} />
         {inset && !insetAsset.missing && (
           <div style={{ position: "absolute", left: inset.rect.x, top: inset.rect.y, width: inset.rect.w, height: inset.rect.h, borderRadius: inset.radius ?? 36, overflow: "hidden", opacity: inset.opacity ?? 0.92 }}>
@@ -171,7 +171,7 @@ function PairItem({ it, i, h, bob }) {
   return (
     <div style={{ opacity: e, transform: `translateY(${(1 - e) * 40 + bob}px)` }}>
       <Labeled label={it.label} sub={it.sub} width={w}>
-        <Panel asset={it.asset} width={w} height={Math.round(h)} fit={it.aspect ? "cover" : "contain"} />
+        <Panel asset={it.asset} width={w} height={Math.round(h)} fit={it.aspect ? "cover" : "contain"} imgStyle={it.position ? { objectPosition: it.position } : undefined} />
       </Labeled>
     </div>
   );

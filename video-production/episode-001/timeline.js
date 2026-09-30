@@ -43,12 +43,16 @@ const HOXPOX = [X.hox1, X.pox1, X.hox6, X.pox6];
 const TAS = {
   team: "extras/TAS_TEAM_1992",
   jubileeSentinel: "extras/TAS_JUBILEE_SENTINEL",
-  gambit: "extras/TAS_GAMBIT",
+  // No solo Gambit still exists on Marvel.com; the Gambit shots frame him
+  // within the official Rogue & Gambit screenshot instead (GAMBIT_FRAME).
+  gambit: "extras/TAS_GAMBIT_ROGUE",
   gambitRogue: "extras/TAS_GAMBIT_ROGUE",
   wolverine: "extras/TAS_WOLVERINE",
   colossus: "extras/COLOSSUS_CHARACTER",
 };
 const WIDE = 16 / 9;
+const GAMBIT_FRAME = "22% 30%";
+const ROGUE_FRAME = "78% 45%";
 
 // Retro TV clip (Pexels 6976087, 1440x1080) cover-fit to 1920x1080: the CRT
 // screen lands at roughly this rectangle.
@@ -84,16 +88,16 @@ export default {
     { at: "0:45", type: "media", asset: TAS.team, need: "1992 TAS team lineup or Night of the Sentinels", note: "TAS official/promotional still" },
     { at: "0:58", type: "media", asset: "stock/RETRO_TV", inset: { asset: TAS.team, rect: TV_SCREEN, radius: 40 }, note: "Retro CRT with an actual TAS still inset on screen" },
     { at: "1:10", type: "media", asset: TAS.jubileeSentinel, need: "Jubilee + team / Sentinel scene, official Marvel material", note: "Jubilee + team / Sentinel" },
-    { at: "1:22", type: "media", asset: TAS.gambit, treatment: "panAcross", position: "50% 15%", need: "Gambit TAS still", note: "Gambit still, slight pan across cards/face" },
+    { at: "1:22", type: "media", asset: TAS.gambit, treatment: "panAcross", position: GAMBIT_FRAME, zoom: 1.55, need: "Gambit TAS still", note: "Gambit still, slight pan across cards/face" },
     { at: "1:34", type: "media", asset: TAS.gambitRogue, need: "Rogue + Gambit official still", note: "Rogue + Gambit" },
-    { at: "1:46", type: "media", asset: TAS.colossus, need: "Colossus animated or comic character shot", note: "Colossus character shot" },
+    { at: "1:46", type: "media", asset: TAS.colossus, position: "50% 22%", need: "Colossus animated or comic character shot", note: "Colossus character shot" },
     { at: "1:58", type: "media", asset: "stock/KID_BROWSING_COMICS", dur: 7, note: "Kid browsing comics: use only 5-7 seconds; then transition into real covers" },
     { at: "2:05", type: "stack", assets: [X.x14, X.x15, X.x16], note: "Three-cover shuffle (blueprint 2:12); started at 2:05 to carry the kid clip straight into real covers as the blueprint asks" },
     { at: "2:24", type: "cover", asset: X.u266, treatment: "slowPush", note: "\"Gambit became my guy.\"" },
-    { at: "2:36", type: "pair", assets: [{ asset: TAS.gambit, aspect: 0.83 }, { asset: X.u266 }], note: "Split: animated show left, comic origin/early appearance right" },
-    { at: "2:50", type: "media", asset: TAS.gambit, treatment: "slowPush", position: "50% 15%", note: "Character montage 1/5: Gambit" },
-    { at: "2:54", type: "media", asset: TAS.colossus, treatment: "slowPush", note: "Character montage 2/5: Colossus" },
-    { at: "2:58", type: "media", asset: TAS.gambitRogue, treatment: "slowPush", position: "80% 40%", note: "Character montage 3/5: Rogue" },
+    { at: "2:36", type: "pair", assets: [{ asset: TAS.gambit, aspect: 0.83, position: GAMBIT_FRAME }, { asset: X.u266 }], note: "Split: animated show left, comic origin/early appearance right" },
+    { at: "2:50", type: "media", asset: TAS.gambit, treatment: "slowPush", position: GAMBIT_FRAME, zoom: 1.55, note: "Character montage 1/5: Gambit" },
+    { at: "2:54", type: "media", asset: TAS.colossus, treatment: "slowPush", position: "50% 22%", note: "Character montage 2/5: Colossus" },
+    { at: "2:58", type: "media", asset: TAS.gambitRogue, treatment: "slowPush", position: ROGUE_FRAME, zoom: 1.55, note: "Character montage 3/5: Rogue" },
     { at: "3:02", type: "media", asset: TAS.wolverine, treatment: "slowPush", need: "Optional Wolverine/team reaction shot", note: "Character montage 4/5: Wolverine" },
     { at: "3:06", type: "media", asset: TAS.team, treatment: "slowPull", title: "Find one character you care about.", note: "Character montage 5/5: team lineup; text overlay near end" },
 
@@ -135,7 +139,7 @@ export default {
 
     // ── 09:20-09:45 Gambit beat ───────────────────────────────────────────
     { at: "9:20", type: "cover", asset: X.u266, treatment: "slowPush", note: "UXM #266 full-screen" },
-    { at: "9:32", type: "pair", assets: [{ asset: X.u266 }, { asset: TAS.gambit, aspect: 0.83 }], title: "Follow the character.", note: "UXM #266 + TAS Gambit split" },
+    { at: "9:32", type: "pair", assets: [{ asset: X.u266 }, { asset: TAS.gambit, aspect: 0.83, position: GAMBIT_FRAME }], title: "Follow the character.", note: "UXM #266 + TAS Gambit split" },
 
     // ── 09:45-10:55 #4 God Loves, Man Kills ───────────────────────────────
     { at: "9:45", type: "cover", asset: "extras/GOD_LOVES_MAN_KILLS", treatment: "slowPush", number: 4, title: "God Loves, Man Kills", need: "Real GLMK cover (priority)", note: "Marvel Graphic Novel #5 (1982)" },
@@ -166,7 +170,7 @@ export default {
     { at: "13:56", type: "stack", assets: [X.x14, X.u266, X.hom1], note: "Shuffled like books pulled from a box" },
     { at: "14:08", type: "media", asset: "stock/COMIC_PAGE_FLIP", note: "Page flip / hand browsing: texture, kept short" },
     { at: "14:20", type: "grid", assets: ALL_18, columns: 6, note: "Cover wall of all 18 covers" },
-    { at: "14:32", type: "pair", assets: [{ asset: X.u266 }, { asset: TAS.gambit, aspect: 0.83 }], note: "Character-first: Gambit #266 + TAS Gambit" },
+    { at: "14:32", type: "pair", assets: [{ asset: X.u266 }, { asset: TAS.gambit, aspect: 0.83, position: GAMBIT_FRAME }], note: "Character-first: Gambit #266 + TAS Gambit" },
     { at: "14:42", type: "chapter", title: "Let your heart lead you\nonce you've got a character you like.", note: "Text card, ComixCatalog blue/gold" },
 
     // ── 14:50-15:35 ComixCatalog ──────────────────────────────────────────
@@ -174,7 +178,7 @@ export default {
     { at: "15:00", type: "screen", asset: "screenshots/CC_HOME", focus: { x: 0.3, y: 0.3 }, bug: true, note: "Actual homepage capture" },
     { at: "15:10", type: "screen", asset: "screenshots/CC_SEARCH_XMEN", focus: { x: 0.45, y: 0.55 }, bug: true, note: "Search/results showing X-Men material" },
     { at: "15:20", type: "screen", asset: "screenshots/CC_ISSUE_PAGE", focus: { x: 0.4, y: 0.35 }, bug: true, note: "Comic-detail page (UXM #266)" },
-    { at: "15:28", type: "screen", asset: "screenshots/CC_WANTLIST", focus: { x: 0.4, y: 0.35 }, bug: true, need: "Actual wantlist / collection-management UI (needs a signed-in capture)", note: "Wantlist / collection UI; never invented UI" },
+    { at: "15:28", type: "screen", asset: "screenshots/CC_WANTLIST", crop: { left: 60, top: 136, right: 24, bottom: 52 }, focus: { x: 0.4, y: 0.35 }, bug: true, need: "Actual wantlist / collection-management UI (needs a signed-in capture)", note: "Wantlist / collection UI; never invented UI" },
 
     // ── 15:35-16:11 Recap / CTA ───────────────────────────────────────────
     { at: "15:35", type: "shelf", items: STARTER_SHELF, title: "The five-book starter shelf", note: "Five-book starter shelf" },

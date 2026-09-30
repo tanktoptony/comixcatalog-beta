@@ -160,7 +160,9 @@ export function PlaceholderCard({ asset, label }) {
 
 // A real site capture in a browser frame, with a slow screen-record style
 // push and drift. focus {x, y} (0..1) is where the push heads.
-export function ScreenCapture({ asset, focus, zoom = 1.12, kicker, title, sub }) {
+// `crop` { left, top, right, bottom } in source pixels (source assumed
+// 1920x1080) trims a capture that includes someone's own browser UI.
+export function ScreenCapture({ asset, focus, zoom = 1.12, crop, kicker, title, sub }) {
   const p = useProgress();
   const e = useEntrance(0, 0, 2);
   const f = { x: 0.5, y: 0.3, ...focus };
@@ -178,7 +180,20 @@ export function ScreenCapture({ asset, focus, zoom = 1.12, kicker, title, sub })
           </div>
           <div style={{ position: "relative", width: W, height: H, overflow: "hidden" }}>
             <div style={{ position: "absolute", inset: 0, transformOrigin: `${f.x * 100}% ${f.y * 100}%`, transform: `scale(${scale})` }}>
-              <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+              {crop ? (
+                (() => {
+                  const rw = 1920 - (crop.left ?? 0) - (crop.right ?? 0);
+                  const rh = 1080 - (crop.top ?? 0) - (crop.bottom ?? 0);
+                  const k = Math.max(W / rw, H / rh);
+                  return (
+                    <div style={{ position: "absolute", left: -(crop.left ?? 0) * k, top: -(crop.top ?? 0) * k, width: 1920 * k, height: 1080 * k }}>
+                      <Media asset={asset} style={{ width: "100%", height: "100%" }} />
+                    </div>
+                  );
+                })()
+              ) : (
+                <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+              )}
             </div>
           </div>
         </div>

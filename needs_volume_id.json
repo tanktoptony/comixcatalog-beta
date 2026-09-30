@@ -33860,9 +33860,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T10:02:14.908573+00:00",
-    "retry_after": "2026-09-30T10:02:14.908590+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T11:00:57.899554+00:00",
+    "retry_after": "2026-10-03T11:00:57.899569+00:00"
   },
   {
     "name": "Dork Tower Swimsuit Special",
@@ -33870,9 +33870,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T10:02:15.253637+00:00",
-    "retry_after": "2026-09-30T10:02:15.253654+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T11:00:58.301632+00:00",
+    "retry_after": "2026-10-03T11:00:58.301648+00:00"
   },
   {
     "name": "Dork Tower",
@@ -33887,9 +33887,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T10:02:15.294273+00:00",
-    "retry_after": "2026-09-30T10:02:15.294283+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T11:00:58.350507+00:00",
+    "retry_after": "2026-10-03T11:00:58.350521+00:00"
   },
   {
     "name": "Dork House Comics",
@@ -33904,9 +33904,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T10:02:15.675014+00:00",
-    "retry_after": "2026-09-30T10:02:15.675030+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T11:00:58.755939+00:00",
+    "retry_after": "2026-10-03T11:00:58.755954+00:00"
   },
   {
     "name": "The X-Men Creators' Choice",
@@ -33914,9 +33914,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T10:03:32.453321+00:00",
-    "retry_after": "2026-09-30T10:03:32.453336+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T11:01:02.266688+00:00",
+    "retry_after": "2026-10-03T11:01:02.266703+00:00"
   },
   {
     "name": "Carnage",
@@ -33949,9 +33949,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T10:05:03.102612+00:00",
-    "retry_after": "2026-09-30T10:05:03.102628+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T11:01:00.124951+00:00",
+    "retry_after": "2026-10-03T11:01:00.124966+00:00"
   },
   {
     "name": "Keep 'Em Rolling, Andy Capp",
@@ -33959,9 +33959,9 @@
     "year": 1976,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T10:05:19.477523+00:00",
-    "retry_after": "2026-09-30T10:05:19.477538+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T11:01:00.701639+00:00",
+    "retry_after": "2026-10-03T11:01:00.701654+00:00"
   },
   {
     "name": "The Adventures of Kool-Aid Man",
@@ -33976,9 +33976,9 @@
         "start_year": 1983
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T10:05:27.857588+00:00",
-    "retry_after": "2026-09-30T10:05:27.857604+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T11:01:01.210654+00:00",
+    "retry_after": "2026-10-03T11:01:01.210670+00:00"
   },
   {
     "name": "Tigers of Terra: Families of Altered Wars",
@@ -33993,9 +33993,9 @@
         "start_year": 1986
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T10:06:22.679299+00:00",
-    "retry_after": "2026-09-30T10:06:22.679315+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T11:01:01.732822+00:00",
+    "retry_after": "2026-10-03T11:01:01.732837+00:00"
   },
   {
     "name": "Showcase Presents: The Atom",
@@ -34003,9 +34003,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T10:06:23.144953+00:00",
-    "retry_after": "2026-09-30T10:06:23.144970+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T11:01:02.214575+00:00",
+    "retry_after": "2026-10-03T11:01:02.214591+00:00"
   },
   {
     "name": "The Astounding Wolf-Man",
@@ -35263,5 +35263,75 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T10:01:52.617478+00:00",
     "retry_after": "2026-10-01T10:01:52.617496+00:00"
+  },
+  {
+    "name": "Chobits",
+    "publisher": "Dark Horse Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170969,
+        "name": "Chobits",
+        "publisher": "Pika Édition",
+        "start_year": 2002
+      },
+      {
+        "id": 167058,
+        "name": "Chobits",
+        "publisher": "Japonica Polonica Fantastica",
+        "start_year": 2024
+      },
+      {
+        "id": 31623,
+        "name": "Chobits",
+        "publisher": "Tokyopop",
+        "start_year": 2002
+      },
+      {
+        "id": 50591,
+        "name": "Chobits",
+        "publisher": "Kodansha",
+        "start_year": 2001
+      },
+      {
+        "id": 52523,
+        "name": "Chobits",
+        "publisher": "Egmont Ehapa Verlag",
+        "start_year": 2004
+      },
+      {
+        "id": 167005,
+        "name": "Chobits",
+        "publisher": "JBC",
+        "start_year": 2015
+      },
+      {
+        "id": 167057,
+        "name": "Chobits",
+        "publisher": "Japonica Polonica Fantastica",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T11:01:17.835421+00:00",
+    "retry_after": "2026-10-01T11:01:17.835436+00:00"
+  },
+  {
+    "name": "The Autumnlands",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 110294,
+        "name": "The Autumnlands",
+        "publisher": "Urban Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T11:01:18.438239+00:00",
+    "retry_after": "2026-10-01T11:01:18.438254+00:00"
   }
 ]

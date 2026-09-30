@@ -33220,9 +33220,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T03:00:51.602916+00:00",
-    "retry_after": "2026-09-30T03:00:51.602933+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T04:00:40.336827+00:00",
+    "retry_after": "2026-10-03T04:00:40.336842+00:00"
   },
   {
     "name": "Mantra / Freex Ashcan Edition",
@@ -33230,9 +33230,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T03:00:57.526553+00:00",
-    "retry_after": "2026-09-30T03:00:57.526572+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T04:00:40.750622+00:00",
+    "retry_after": "2026-10-03T04:00:40.750638+00:00"
   },
   {
     "name": "Al Rio's Ana: Jungle Girl",
@@ -33240,9 +33240,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T03:01:28.134459+00:00",
-    "retry_after": "2026-09-30T03:01:28.134476+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T04:00:41.083528+00:00",
+    "retry_after": "2026-10-03T04:00:41.083543+00:00"
   },
   {
     "name": "Maggie and Hopey Color Special",
@@ -33250,9 +33250,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T03:02:10.057586+00:00",
-    "retry_after": "2026-09-30T03:02:10.057605+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T04:00:41.505637+00:00",
+    "retry_after": "2026-10-03T04:00:41.505648+00:00"
   },
   {
     "name": "Chiaroscuro: Patchwork",
@@ -33260,9 +33260,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T03:02:11.323599+00:00",
-    "retry_after": "2026-09-30T03:02:11.323618+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T04:00:41.798854+00:00",
+    "retry_after": "2026-10-03T04:00:41.798868+00:00"
   },
   {
     "name": "2022 Street Fighter Swimsuit Special",
@@ -34969,5 +34969,38 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T03:02:20.141903+00:00",
     "retry_after": "2026-10-01T03:02:20.141921+00:00"
+  },
+  {
+    "name": "Think Tank",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 54445,
+        "name": "Think Tank",
+        "publisher": "Image",
+        "start_year": 2012
+      },
+      {
+        "id": 50974,
+        "name": "Think Tank",
+        "publisher": "Image",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T04:00:42.218066+00:00",
+    "retry_after": "2026-10-01T04:00:42.218080+00:00"
+  },
+  {
+    "name": "ThunderCats / The Powerpuff Girls",
+    "publisher": "Dynamite Entertainment",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T04:02:35.955364+00:00",
+    "retry_after": "2026-10-01T04:02:35.955380+00:00"
   }
 ]

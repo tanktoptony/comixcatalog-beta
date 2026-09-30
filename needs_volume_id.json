@@ -32926,9 +32926,9 @@
         "start_year": 1958
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T00:02:40.623601+00:00",
-    "retry_after": "2026-09-30T00:02:40.623613+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T01:00:47.198913+00:00",
+    "retry_after": "2026-10-03T01:00:47.198925+00:00"
   },
   {
     "name": "Coup D'Etat: The Authority",
@@ -32936,9 +32936,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T00:02:47.104165+00:00",
-    "retry_after": "2026-09-30T00:02:47.104183+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T01:00:46.367344+00:00",
+    "retry_after": "2026-10-03T01:00:46.367362+00:00"
   },
   {
     "name": "Queen Sonja",
@@ -32959,9 +32959,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T00:03:38.756357+00:00",
-    "retry_after": "2026-09-30T00:03:38.756367+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T01:00:47.282051+00:00",
+    "retry_after": "2026-10-03T01:00:47.282064+00:00"
   },
   {
     "name": "The New Teen Titans: Custom Variant",
@@ -32969,9 +32969,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T00:03:48.958950+00:00",
-    "retry_after": "2026-09-30T00:03:48.958960+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T01:00:47.129486+00:00",
+    "retry_after": "2026-10-03T01:00:47.129503+00:00"
   },
   {
     "name": "Scooby-Doo Team-Up Halloween Special Edition",
@@ -34760,5 +34760,48 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-29T23:02:47.858857+00:00",
     "retry_after": "2026-09-30T23:02:47.858880+00:00"
+  },
+  {
+    "name": "X-Men: Grand Design - Second Genesis",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 114948,
+        "name": "X-Men: Grand Design - Second Genesis",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 112481,
+        "name": "X-Men: Grand Design - Second Genesis",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T01:00:55.265645+00:00",
+    "retry_after": "2026-10-01T01:00:55.265660+00:00"
+  },
+  {
+    "name": "Very Funny, Charlie Brown",
+    "publisher": "Fawcett Comics",
+    "year": 1965,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T01:02:05.698903+00:00",
+    "retry_after": "2026-10-01T01:02:05.698918+00:00"
+  },
+  {
+    "name": "Don't Bet on It, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T01:02:26.701460+00:00",
+    "retry_after": "2026-10-01T01:02:26.701477+00:00"
   }
 ]

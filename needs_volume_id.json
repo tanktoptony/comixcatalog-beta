@@ -10111,15 +10111,6 @@
     "retry_after": "2026-09-21T14:00:38.556058+00:00"
   },
   {
-    "name": "Cat + Crazy",
-    "publisher": "Dark Horse Comics",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556061+00:00"
-  },
-  {
     "name": "Vampirella",
     "publisher": "Dynamite Entertainment",
     "year": 1970,
@@ -34374,9 +34365,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T17:44:41.991684+00:00",
-    "retry_after": "2026-09-30T17:44:41.991702+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T19:01:07.672143+00:00",
+    "retry_after": "2026-10-03T19:01:07.672158+00:00"
   },
   {
     "name": "The V.C.s: Old Soldiers",
@@ -34384,9 +34375,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T17:45:04.187672+00:00",
-    "retry_after": "2026-09-30T17:45:04.187689+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T19:01:08.590123+00:00",
+    "retry_after": "2026-10-03T19:01:08.590138+00:00"
   },
   {
     "name": "The Unstoppable Wasp: Unlimited",
@@ -34394,9 +34385,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T17:45:14.856161+00:00",
-    "retry_after": "2026-09-30T17:45:14.856177+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T19:01:09.150741+00:00",
+    "retry_after": "2026-10-03T19:01:09.150756+00:00"
   },
   {
     "name": "The Question by Dennis O'Neil and Denys Cowan Omnibus",
@@ -34404,9 +34395,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T17:45:15.476260+00:00",
-    "retry_after": "2026-09-30T17:45:15.476275+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T19:01:09.650694+00:00",
+    "retry_after": "2026-10-03T19:01:09.650712+00:00"
   },
   {
     "name": "Phantom Force",
@@ -34421,9 +34412,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T17:45:39.853554+00:00",
-    "retry_after": "2026-09-30T17:45:39.853571+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T19:01:10.156673+00:00",
+    "retry_after": "2026-10-03T19:01:10.156688+00:00"
   },
   {
     "name": "Andy Devine [Andy Devine Western]",
@@ -34431,9 +34422,9 @@
     "year": 1950,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T17:46:04.769693+00:00",
-    "retry_after": "2026-09-30T17:46:04.769710+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T19:01:10.706108+00:00",
+    "retry_after": "2026-10-03T19:01:10.706127+00:00"
   },
   {
     "name": "Capt. Willy Schultz",
@@ -34441,9 +34432,9 @@
     "year": 1985,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T18:05:12.845528+00:00",
-    "retry_after": "2026-09-30T18:05:12.845547+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T19:01:11.305471+00:00",
+    "retry_after": "2026-10-03T19:01:11.305487+00:00"
   },
   {
     "name": "Nikolai Dante: Tsar Wars",
@@ -35886,5 +35877,120 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T18:20:01.500865+00:00",
     "retry_after": "2026-10-01T18:20:01.500880+00:00"
+  },
+  {
+    "name": "The Lonesome Hunters Library Edition",
+    "publisher": "Dark Horse Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T19:01:06.572959+00:00",
+    "retry_after": "2026-10-01T19:01:06.572974+00:00"
+  },
+  {
+    "name": "Avenger's Earth's Mightiest Heroes Preview Book [Avengers Earth's Mightiest Heroes Preview Book]",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T19:01:07.001277+00:00",
+    "retry_after": "2026-10-01T19:01:07.001295+00:00"
+  },
+  {
+    "name": "Civil War",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18023,
+        "name": "Civil War",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 83125,
+        "name": "Civil War",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 27492,
+        "name": "Civil War",
+        "publisher": "Marvel",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T19:01:12.308704+00:00",
+    "retry_after": "2026-10-01T19:01:12.308719+00:00"
+  },
+  {
+    "name": "X-Men: Grand Design - X-Tinction",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 119344,
+        "name": "X-Men: Grand Design – X-Tinction",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 120748,
+        "name": "X-Men: Grand Design – X-Tinction",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T19:01:12.974552+00:00",
+    "retry_after": "2026-10-01T19:01:12.974568+00:00"
+  },
+  {
+    "name": "The Incredible Adventures of Janus Stark",
+    "publisher": "Rebellion",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T19:01:38.775814+00:00",
+    "retry_after": "2026-10-01T19:01:38.775831+00:00"
+  },
+  {
+    "name": "Predator vs. Magnus Robot Fighter",
+    "publisher": "Dark Horse Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54243,
+        "name": "Predator vs. Magnus Robot Fighter",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1994
+      },
+      {
+        "id": 5191,
+        "name": "Predator vs. Magnus Robot Fighter",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T19:02:21.061780+00:00",
+    "retry_after": "2026-10-01T19:02:21.061793+00:00"
+  },
+  {
+    "name": "Nisekoi: False Love",
+    "publisher": "VIZ Media",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T19:03:31.813971+00:00",
+    "retry_after": "2026-10-01T19:03:31.813988+00:00"
   }
 ]

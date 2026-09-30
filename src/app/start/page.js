@@ -27,10 +27,22 @@ export const metadata = {
     "Your comic collection, online. Catalog your books, build your wantlist, and see what's missing. Free.",
   // One canonical URL no matter which utm_* variant brought the visitor.
   alternates: { canonical: "/start" },
+  // A page-level openGraph replaces the root one wholesale, so the image and
+  // type have to be restated here or a /start link unfurls with no picture.
+  // twitter is set too: otherwise it inherits the root's marketplace copy.
   openGraph: {
+    type: "website",
+    siteName: "ComixCatalog",
     title: "Your comic collection. Online. | ComixCatalog",
     description: "Catalog your books. Build your wantlist. Discover what's missing.",
     url: "/start",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Your comic collection. Online. | ComixCatalog",
+    description: "Catalog your books. Build your wantlist. Discover what's missing.",
+    images: ["/opengraph-image"],
   },
 };
 
@@ -39,7 +51,9 @@ const COVER_SIZES = "(max-width: 640px) 34vw, 180px";
 const BENEFITS = [
   {
     title: "Know what you own",
-    body: "Every book organized by series and issue, with grade, slab, and what you paid if you want it.",
+    // Not "slab": slab/cert fields are Pro-only (GradeEditor), and this page
+    // sells the free account.
+    body: "Every book organized by series and issue, with its grade and what you paid if you want it.",
   },
   {
     title: "Know what you're missing",

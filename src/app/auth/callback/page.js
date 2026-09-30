@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { claimFoundingPass } from "@/lib/launchFlags";
 import { redirectAfterAuth, safeNextPath } from "@/lib/auth/postAuthRedirect";
+import { seedAttribution } from "@/lib/attribution";
 
 // Handles both the Google OAuth redirect and the email/password
 // confirmation redirect (both use this exact URL as their
@@ -155,6 +156,7 @@ export default function AuthCallbackPage() {
       // issue they tried to save). It has to come from user_metadata: the
       // confirmation link usually opens in a different browser than the one
       // that signed up. Re-checked here because metadata is user-writable.
+      seedAttribution(user.user_metadata?.signup_attribution);
       const next = safeNextPath(user.user_metadata?.signup_next);
       redirectAfterAuth(next || `/u/${username}`);
     }

@@ -20,10 +20,15 @@ export function StartTracker() {
   const firedRef = useRef(false);
 
   useEffect(() => {
-    if (firedRef.current) return;
-    firedRef.current = true;
-    const record = captureAttribution();
-    trackEvent("start_view", attributionParams(record));
+    // Only start_view is once-per-mount. The listener must attach on every
+    // effect run: under Strict Mode the effect runs, cleans up and runs
+    // again with the ref still set, and an early return here left no
+    // listener at all.
+    if (!firedRef.current) {
+      firedRef.current = true;
+      const record = captureAttribution();
+      trackEvent("start_view", attributionParams(record));
+    }
 
     function onClick(e) {
       const el = e.target instanceof Element ? e.target.closest("[data-start-cta]") : null;
@@ -53,7 +58,7 @@ export function StartPrimaryCta({ location, className }) {
       data-start-cta={user ? "go_to_library" : "start_collection"}
       data-start-location={location}
     >
-      {user ? "Go to your collection" : "Start Your Collection — Free"}
+      {user ? "Go to your collection" : "Start Your Collection for Free"}
     </Link>
   );
 }

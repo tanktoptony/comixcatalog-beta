@@ -86,6 +86,27 @@ export function captureAttribution() {
   return next;
 }
 
+// Restore attribution that travelled on the account (user_metadata) into
+// this browser. Called by /auth/callback: the email-confirmation link opens
+// a different browser than the one that signed up, so without this every
+// later activation event from that browser goes out unattributed. The
+// stored value is re-validated, since user_metadata is user-writable.
+export function seedAttribution(record) {
+  if (typeof window === "undefined" || !record || typeof record !== "object") return;
+  if (isFresh(read())) return;
+  const params = new URLSearchParams();
+  for (const key of UTM_KEYS) if (record[key]) params.set(`utm_${key}`, record[key]);
+  if (record.ref) params.set("ref", record.ref);
+  const ts = Number.isFinite(record.ts) ? record.ts : Date.now();
+  const clean = parseAttribution(params, record.landing || "/", ts);
+  if (!clean || !isFresh(clean)) return;
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(clean));
+  } catch {
+    // best-effort
+  }
+}
+
 export function getAttribution() {
   if (typeof window === "undefined") return null;
   const record = read();

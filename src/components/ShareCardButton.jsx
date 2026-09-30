@@ -42,9 +42,11 @@ export default function ShareCardButton({ ownerId, username, type = "collection"
       ? `${window.location.origin}/start?utm_source=instagram&utm_medium=story&utm_campaign=share_card&ref=${encodeURIComponent(username)}`
       : null;
 
+  // Regenerated on every open, so a card made before adding books is never
+  // shown again stale. The old object URL is released by the effect above.
   async function open() {
     dialogRef.current?.showModal();
-    if (state === "ready") return;
+    if (state === "loading") return;
     setState("loading");
     setError(null);
     try {
@@ -97,7 +99,7 @@ export default function ShareCardButton({ ownerId, username, type = "collection"
   return (
     <>
       <button type="button" className={className} onClick={open}>
-        Share my collection card
+        📸 Make a Story card
       </button>
 
       <dialog

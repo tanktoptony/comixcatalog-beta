@@ -5,7 +5,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { parseAttribution, isFresh, attributionParams } from "./attribution.js";
+import { parseAttribution, isFresh, attributionParams, seedAttribution } from "./attribution.js";
 
 const qs = (s) => new URLSearchParams(s);
 const NOW = 1_800_000_000_000;
@@ -71,4 +71,50 @@ test("GA params never carry the referrer's username", () => {
 
 test("no record means no params", () => {
   assert.deepEqual(attributionParams(null), {});
+});
+
+// seedAttribution runs in the browser (/auth/callback). Stand in a minimal
+// window + localStorage.
+function withFakeStorage(run) {
+  const prior = globalThis.window;
+  const store = new Map();
+  globalThis.window = {
+    localStorage: {
+      getItem: (k) => (store.has(k) ? store.get(k) : null),
+      setItem: (k, v) => store.set(k, String(v)),
+    },
+  };
+  try {
+    run(store);
+  } finally {
+    if (prior === undefined) delete globalThis.window;
+    else globalThis.window = prior;
+  }
+}
+
+test("seedAttribution restores the account's attribution in a fresh browser", () => {
+  withFakeStorage((store) => {
+    seedAttribution({ source: "instagram", medium: "social", campaign: "profile", landing: "/start", ts: Date.now() });
+    const saved = JSON.parse(store.get("cc:attribution"));
+    assert.equal(saved.source, "instagram");
+    assert.equal(saved.campaign, "profile");
+  });
+});
+
+test("seedAttribution never overwrites a fresh first touch", () => {
+  withFakeStorage((store) => {
+    store.set("cc:attribution", JSON.stringify({ source: "newsletter", ts: Date.now() }));
+    seedAttribution({ source: "instagram", ts: Date.now() });
+    assert.equal(JSON.parse(store.get("cc:attribution")).source, "newsletter");
+  });
+});
+
+test("seedAttribution re-validates tampered metadata", () => {
+  // user_metadata is user-writable, so it is parsed like a URL again.
+  withFakeStorage((store) => {
+    seedAttribution({ source: "<img src=x onerror=alert(1)>", ts: Date.now() });
+    assert.equal(store.has("cc:attribution"), false);
+    seedAttribution({ source: "instagram", ts: Date.now() - 40 * 864e5 });
+    assert.equal(store.has("cc:attribution"), false);
+  });
 });

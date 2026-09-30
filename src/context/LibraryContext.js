@@ -204,9 +204,11 @@ export function LibraryProvider({ children }) {
     // Activation: is this the account's first book with this status? Read
     // before the optimistic insert below, and only once the library has
     // finished loading. An empty array while still loading means "not
-    // known yet", not "empty", and would fire a false first-add.
+    // known yet", not "empty", and would fire a false first-add. Same after
+    // a failed load: refreshLibrary sets collections to [] on error, which
+    // would make an existing collector's next add look like their first.
     const isFirstOfStatus =
-      !loading && !collections.some((c) => c.status === status);
+      !loading && !loadError && !collections.some((c) => c.status === status);
 
     const optimisticId = `optimistic-${libraryKey}-${Date.now()}`;
     const optimisticRow = {

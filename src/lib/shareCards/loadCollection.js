@@ -38,6 +38,15 @@ function parseYear(value) {
 
 const norm = (v) => String(v ?? "").trim().toLowerCase();
 
+// About half of all series carry the literal string "Unknown Publisher" in
+// resolved_publisher_cached. On a card that would be a publisher bar called
+// "Unknown Publi…", so it is treated as no publisher (folds into "Other").
+function knownPublisher(name) {
+  const n = String(name ?? "").trim();
+  if (!n || /^unknown( publisher)?$/i.test(n)) return null;
+  return n;
+}
+
 export async function loadCollectionCard(supabase, userId) {
   const { data: profile, error: profileError } = await supabase
     .from("profiles")
@@ -83,13 +92,13 @@ export async function loadCollectionCard(supabase, userId) {
         seriesKey: issue?.series_gcd_id ? `gcd-${issue.series_gcd_id}` : null,
         // resolved_publisher_cached is the audited, year-aware value; GCD's
         // raw publisher link is a fallback only (see /api/public-profile).
-        publisher: series?.resolved_publisher_cached ?? series?.publisher?.name ?? null,
+        publisher: knownPublisher(series?.resolved_publisher_cached) ?? knownPublisher(series?.publisher?.name),
       };
     }
     return {
       status: r.status,
       seriesKey: r.comics?.series_title ? `local-${norm(r.comics.series_title)}` : null,
-      publisher: r.comics?.publisher ?? null,
+      publisher: knownPublisher(r.comics?.publisher),
     };
   });
 
@@ -110,46 +119,76 @@ export async function loadCollectionCard(supabase, userId) {
 // less certain is skipped. A wrong cover on someone's shared card is worse
 // than one fewer cover (the sitewide wrong-cover fallback was removed for the
 // same reason).
+//
+// The (at most 12) lookups run in parallel, then the three most recent that
+// resolved are kept. Returned as small data URIs, not storage URLs:
+// covers are stored at full scan size (up to ~1.7MB), and letting Satori
+// fetch and decode those was ~5s of a ~7s render. Downloading here also
+// doubles as the dead-link check; a path that fails would otherwise render
+// as an empty white frame.
 async function latestCovers(supabase, rows, issueById) {
+  const seen = new Set();
+  const candidates = [];
   const recent = rows
     .filter((r) => r.status === "owned" && r.gcd_issue_id != null)
     .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
-
-  const seen = new Set();
-  const out = [];
   for (const r of recent) {
-    if (out.length >= 3) break;
+    if (candidates.length >= 12) break;
     if (seen.has(r.gcd_issue_id)) continue;
     seen.add(r.gcd_issue_id);
-    // Bounded: stop looking after a dozen candidates rather than walk a
-    // 2,000-book collection one query at a time.
-    if (seen.size > 12) break;
-
     const issue = issueById.get(r.gcd_issue_id);
     if (!issue?.series_gcd_id) continue;
     const year = parseYear(issue.publication_date) ?? parseYear(issue.key_date);
     if (year == null) continue;
-
-    const { data } = await supabase
-      .from("canonical_covers")
-      .select("storage_path, cover_date, series_year")
-      .eq("series_gcd_id", issue.series_gcd_id)
-      .eq("issue_number", issue.issue_number)
-      .not("storage_path", "is", null)
-      .limit(10);
-
-    let best = null;
-    let bestDiff = Infinity;
-    for (const c of data ?? []) {
-      const cy = parseYear(c.cover_date) ?? (c.series_year != null ? Number(c.series_year) : null);
-      if (cy == null) continue;
-      const diff = Math.abs(cy - year);
-      if (diff <= 1 && diff < bestDiff) {
-        best = c;
-        bestDiff = diff;
-      }
-    }
-    if (best) out.push(best.storage_path);
+    candidates.push({ issue, year });
   }
-  return out;
+
+  const resolved = await Promise.all(
+    candidates.map(async ({ issue, year }) => {
+      const { data } = await supabase
+        .from("canonical_covers")
+        .select("storage_path, cover_date, series_year")
+        .eq("series_gcd_id", issue.series_gcd_id)
+        .eq("issue_number", issue.issue_number)
+        .not("storage_path", "is", null)
+        .limit(10);
+      let best = null;
+      let bestDiff = Infinity;
+      for (const c of data ?? []) {
+        const cy = parseYear(c.cover_date) ?? (c.series_year != null ? Number(c.series_year) : null);
+        if (cy == null) continue;
+        const diff = Math.abs(cy - year);
+        if (diff <= 1 && diff < bestDiff) {
+          best = c;
+          bestDiff = diff;
+        }
+      }
+      return best?.storage_path ?? null;
+    })
+  );
+
+  const paths = [...new Set(resolved.filter(Boolean))].slice(0, 5);
+  const images = await Promise.all(paths.map((p) => coverThumb(p)));
+  return images.filter(Boolean).slice(0, 3);
+}
+
+// Fetched through Supabase's image transform at 2x the 256×384 the card
+// draws: ~130KB instead of a ~1.7MB scan. Not sharp: loading our sharp 0.35
+// in the same process as Next's bundled sharp 0.34 broke libvips for both
+// (the /opengraph-image prerender failed, and card renders 500'd).
+// Transforms are metered per source image on Supabase's plan.
+async function coverThumb(path) {
+  const base = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const url = `${base}/storage/v1/render/image/public/canonical-covers/${path}?width=512&height=768&resize=cover&quality=80`;
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(4000) });
+    if (!res.ok) return null;
+    const type = res.headers.get("content-type") || "image/jpeg";
+    // Satori can't decode WebP; only pass formats it can draw.
+    if (!/^image\/(jpeg|png)/.test(type)) return null;
+    const buf = Buffer.from(await res.arrayBuffer());
+    return `data:${type.split(";")[0]};base64,${buf.toString("base64")}`;
+  } catch {
+    return null;
+  }
 }

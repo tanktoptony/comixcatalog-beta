@@ -428,7 +428,13 @@ export default function SignUpPage() {
       )}
 
       <p className="auth-footer">
-        Already have an account? <Link href="/login" className="link">Log in</Link>
+        Already have an account?{" "}
+        <Link
+          href={nextPath ? `/login?next=${encodeURIComponent(nextPath)}` : "/login"}
+          className="link"
+        >
+          Log in
+        </Link>
       </p>
     </section>
   );

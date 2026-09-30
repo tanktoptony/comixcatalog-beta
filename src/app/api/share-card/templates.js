@@ -45,20 +45,28 @@ const GOLD = "#F4D03F";
 const INK = "#FFFFFF";
 const MUTED = "rgba(255,255,255,0.72)";
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const coverUrl = (path) => `${SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`;
 
+// The name line never wraps. It used to be sized from string length alone,
+// and Satori wrapped anything long: a 60-character display name ran to five
+// lines and pushed the URL off the card. Now:
+//   - a display name longer than 16 characters is replaced by the username
+//     (max 20, [a-z0-9_]), which is shorter and is what people know them by;
+//   - the size comes from an estimated width. Big Shoulders ExtraBold caps
+//     average ~0.5em (W/M run wider), so 0.56em per character is a
+//     conservative bound for the 920px column;
+//   - nowrap + ellipsis is the backstop if the estimate is ever wrong.
+const TITLE_WIDTH = 920;
 function titleSize(text) {
-  // Big Shoulders is condensed: "TONY'S" fits at 210px, and a 20-character
-  // username still has to stay on one line inside the 920px text column.
-  if (text.length <= 8) return 210;
-  if (text.length <= 12) return 170;
-  if (text.length <= 16) return 132;
-  return 108;
+  return Math.max(72, Math.min(210, Math.floor(TITLE_WIDTH / (text.length * 0.56))));
+}
+
+function cardName(displayName, username) {
+  const d = String(displayName ?? "").trim();
+  return d && d.length <= 16 ? d : username;
 }
 
 function CollectionCard({ username, displayName, stats, covers }) {
-  const owner = possessive(displayName);
+  const owner = possessive(cardName(displayName, username));
   const fan = covers.slice(0, 3);
   const rotations = fan.length === 3 ? [-8, 0, 8] : fan.length === 2 ? [-5, 5] : [0];
   const offsets = fan.length === 3 ? [-230, 0, 230] : fan.length === 2 ? [-120, 120] : [0];
@@ -87,7 +95,18 @@ function CollectionCard({ username, displayName, stats, covers }) {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", marginTop: 44, fontFamily: "Display" }}>
-        <div style={{ display: "flex", fontSize: titleSize(owner), fontWeight: 800, lineHeight: 0.95 }}>
+        <div
+          style={{
+            display: "block",
+            maxWidth: TITLE_WIDTH,
+            fontSize: titleSize(owner),
+            fontWeight: 800,
+            lineHeight: 0.95,
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+        >
           {owner}
         </div>
         <div style={{ display: "flex", fontSize: 130, fontWeight: 800, lineHeight: 0.95, color: GOLD }}>
@@ -97,11 +116,12 @@ function CollectionCard({ username, displayName, stats, covers }) {
 
       {fan.length > 0 && (
         <div style={{ display: "flex", position: "relative", height: 420, marginTop: 44 }}>
-          {fan.map((path, i) => (
+          {/* covers are data URIs prepared by the loader (loadCollection.js) */}
+          {fan.map((src, i) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              key={path}
-              src={coverUrl(path)}
+              key={i}
+              src={src}
               alt=""
               width={256}
               height={384}
@@ -114,8 +134,9 @@ function CollectionCard({ username, displayName, stats, covers }) {
                 objectFit: "cover",
                 borderRadius: 10,
                 border: "5px solid #FFFFFF",
+                // No box-shadow: its blur was the single most expensive part
+                // of the render (several seconds in resvg).
                 transform: `rotate(${rotations[i]}deg)`,
-                boxShadow: "0 24px 50px rgba(0,0,0,0.5)",
               }}
             />
           ))}
@@ -151,6 +172,7 @@ function CollectionCard({ username, displayName, stats, covers }) {
           display: "flex",
           marginTop: "auto",
           paddingTop: 30,
+          flexShrink: 0,
           justifyContent: "space-between",
           alignItems: "flex-end",
         }}

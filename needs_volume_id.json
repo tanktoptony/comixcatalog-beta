@@ -33495,9 +33495,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T06:01:00.038470+00:00",
-    "retry_after": "2026-09-30T06:01:00.038488+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T07:00:42.344226+00:00",
+    "retry_after": "2026-10-03T07:00:42.344242+00:00"
   },
   {
     "name": "Lady Death IV: The Crucible",
@@ -33505,9 +33505,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T06:01:14.568591+00:00",
-    "retry_after": "2026-09-30T06:01:14.568609+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T07:00:42.754117+00:00",
+    "retry_after": "2026-10-03T07:00:42.754134+00:00"
   },
   {
     "name": "Astro City: The Dark Age",
@@ -33515,9 +33515,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T06:02:16.137813+00:00",
-    "retry_after": "2026-09-30T06:02:16.137833+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T07:00:44.228113+00:00",
+    "retry_after": "2026-10-03T07:00:44.228129+00:00"
   },
   {
     "name": "Pirouette",
@@ -33538,9 +33538,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T06:02:16.584973+00:00",
-    "retry_after": "2026-09-30T06:02:16.584992+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T07:00:44.910257+00:00",
+    "retry_after": "2026-10-03T07:00:44.910272+00:00"
   },
   {
     "name": "Nightwing: A Knight in Bl�dhaven Compendium",
@@ -33548,9 +33548,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T06:02:56.728991+00:00",
-    "retry_after": "2026-09-30T06:02:56.729008+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T07:00:46.572084+00:00",
+    "retry_after": "2026-10-03T07:00:46.572097+00:00"
   },
   {
     "name": "The Losers",
@@ -33571,9 +33571,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T06:03:14.241003+00:00",
-    "retry_after": "2026-09-30T06:03:14.241020+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T07:00:46.108112+00:00",
+    "retry_after": "2026-10-03T07:00:46.108136+00:00"
   },
   {
     "name": "DC Comics Classics Library: The Batman Annuals",
@@ -33581,9 +33581,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T06:03:31.459883+00:00",
-    "retry_after": "2026-09-30T06:03:31.459900+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T07:00:46.511083+00:00",
+    "retry_after": "2026-10-03T07:00:46.511104+00:00"
   },
   {
     "name": "Chaos! Monster Matinee",
@@ -35049,5 +35049,94 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T06:01:34.251591+00:00",
     "retry_after": "2026-10-01T06:01:34.251606+00:00"
+  },
+  {
+    "name": "Alisik",
+    "publisher": "Titan Comics",
+    "year": 2018,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 108928,
+        "name": "Alisik",
+        "publisher": "Titan Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 111809,
+        "name": "Alisik",
+        "publisher": "Titan Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T07:00:46.891686+00:00",
+    "retry_after": "2026-10-01T07:00:46.891701+00:00"
+  },
+  {
+    "name": "Cookie and the Kid",
+    "publisher": "Antarctic Press",
+    "year": 2021,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 139149,
+        "name": "Cookie and the Kid",
+        "publisher": "Antarctic Press",
+        "start_year": 2021
+      },
+      {
+        "id": 138596,
+        "name": "Cookie and the Kid",
+        "publisher": "Antarctic Press",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T07:00:47.765384+00:00",
+    "retry_after": "2026-10-01T07:00:47.765398+00:00"
+  },
+  {
+    "name": "Ruthless Render",
+    "publisher": "Dark Horse Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T07:01:33.569055+00:00",
+    "retry_after": "2026-10-01T07:01:33.569070+00:00"
+  },
+  {
+    "name": "Deathstroke Inc.",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 139232,
+        "name": "Deathstroke Inc.",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 146581,
+        "name": "Deathstroke Inc.",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T07:02:25.390247+00:00",
+    "retry_after": "2026-10-01T07:02:25.390261+00:00"
+  },
+  {
+    "name": "Sneak Preview",
+    "publisher": "Eclipse Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T07:02:31.391854+00:00",
+    "retry_after": "2026-10-01T07:02:31.391869+00:00"
   }
 ]

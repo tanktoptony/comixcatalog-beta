@@ -34195,9 +34195,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T13:03:20.324411+00:00",
-    "retry_after": "2026-09-30T13:03:20.324429+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T14:00:43.674443+00:00",
+    "retry_after": "2026-10-03T14:00:43.674454+00:00"
   },
   {
     "name": "Donald Duck: The Complete Sunday Comics",
@@ -34205,9 +34205,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T13:03:27.354399+00:00",
-    "retry_after": "2026-09-30T13:03:27.354417+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T14:00:43.051263+00:00",
+    "retry_after": "2026-10-03T14:00:43.051277+00:00"
   },
   {
     "name": "Astonishing X-Men by Charles Soule",
@@ -34215,9 +34215,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T13:04:20.527997+00:00",
-    "retry_after": "2026-09-30T13:04:20.528014+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T14:00:43.524444+00:00",
+    "retry_after": "2026-10-03T14:00:43.524462+00:00"
   },
   {
     "name": "Year One: Batman / Ra's al Ghul",
@@ -35454,5 +35454,61 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T13:08:44.978400+00:00",
     "retry_after": "2026-10-01T13:08:44.978416+00:00"
+  },
+  {
+    "name": "The Secret Society of Super-Villains",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2845,
+        "name": "Secret Society of Super-Villains",
+        "publisher": "DC Comics",
+        "start_year": 1976
+      },
+      {
+        "id": 67507,
+        "name": "The Secret Society of Super Villains",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T14:00:44.220040+00:00",
+    "retry_after": "2026-10-01T14:00:44.220052+00:00"
+  },
+  {
+    "name": "Predator Bloody Sands of Time",
+    "publisher": "Dark Horse Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T14:01:36.530674+00:00",
+    "retry_after": "2026-10-01T14:01:36.530691+00:00"
+  },
+  {
+    "name": "Wynd",
+    "publisher": "BOOM! Studios",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 127982,
+        "name": "Wynd",
+        "publisher": "Boom! Studios",
+        "start_year": 2020
+      },
+      {
+        "id": 135402,
+        "name": "Wynd",
+        "publisher": "Boom! Studios",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T14:01:56.581352+00:00",
+    "retry_after": "2026-10-01T14:01:56.581368+00:00"
   }
 ]

@@ -33780,9 +33780,9 @@
     "year": null,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T09:02:22.061756+00:00",
-    "retry_after": "2026-09-30T09:02:22.061778+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T10:00:45.771404+00:00",
+    "retry_after": "2026-10-03T10:00:45.771437+00:00"
   },
   {
     "name": "X-Men: Divided We Stand",
@@ -33803,9 +33803,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T09:04:38.247257+00:00",
-    "retry_after": "2026-09-30T09:04:38.247275+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T10:00:46.774348+00:00",
+    "retry_after": "2026-10-03T10:00:46.774364+00:00"
   },
   {
     "name": "ElfQuest: The Original Quest",
@@ -33813,9 +33813,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T09:04:38.702880+00:00",
-    "retry_after": "2026-09-30T09:04:38.702900+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T10:00:47.201582+00:00",
+    "retry_after": "2026-10-03T10:00:47.201599+00:00"
   },
   {
     "name": "Uncanny X-Force by Rick Remender: The Complete Collection",
@@ -33823,9 +33823,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T09:04:55.081088+00:00",
-    "retry_after": "2026-09-30T09:04:55.081106+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T10:00:53.000606+00:00",
+    "retry_after": "2026-10-03T10:00:53.000621+00:00"
   },
   {
     "name": "Avengers Unleashed",
@@ -33833,9 +33833,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T09:04:55.480112+00:00",
-    "retry_after": "2026-09-30T09:04:55.480130+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T10:00:53.599041+00:00",
+    "retry_after": "2026-10-03T10:00:53.599057+00:00"
   },
   {
     "name": "Young Avengers Modern Era Epic Collection",
@@ -33843,9 +33843,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T09:05:47.701148+00:00",
-    "retry_after": "2026-09-30T09:05:47.701172+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T10:00:54.252061+00:00",
+    "retry_after": "2026-10-03T10:00:54.252076+00:00"
   },
   {
     "name": "Dork Tower",
@@ -35224,5 +35224,44 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T09:03:06.382380+00:00",
     "retry_after": "2026-10-01T09:03:06.382396+00:00"
+  },
+  {
+    "name": "Fantastic Four Annual",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2129,
+        "name": "Fantastic Four Annual",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 77247,
+        "name": "Fantastic Four Annual",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 153123,
+        "name": "Fantastic Four Annual",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T10:01:24.782231+00:00",
+    "retry_after": "2026-10-01T10:01:24.782247+00:00"
+  },
+  {
+    "name": "Paul Kupperberg's Secret Romances",
+    "publisher": "Charlton Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T10:01:52.617478+00:00",
+    "retry_after": "2026-10-01T10:01:52.617496+00:00"
   }
 ]

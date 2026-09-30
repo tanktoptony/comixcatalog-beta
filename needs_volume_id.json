@@ -34621,9 +34621,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T21:01:36.526526+00:00",
-    "retry_after": "2026-09-30T21:01:36.526538+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T22:01:26.172307+00:00",
+    "retry_after": "2026-10-03T22:01:26.172323+00:00"
   },
   {
     "name": "The X-Files Magazine",
@@ -34631,9 +34631,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T21:01:47.117974+00:00",
-    "retry_after": "2026-09-30T21:01:47.117989+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T22:01:26.720519+00:00",
+    "retry_after": "2026-10-03T22:01:26.720536+00:00"
   },
   {
     "name": "Daredevil by Mark Waid & Chris Samnee",
@@ -34641,9 +34641,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T21:01:47.629970+00:00",
-    "retry_after": "2026-09-30T21:01:47.629980+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T22:01:27.277827+00:00",
+    "retry_after": "2026-10-03T22:01:27.277845+00:00"
   },
   {
     "name": "Prime Slime Tales",
@@ -36186,5 +36186,105 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T21:06:13.769259+00:00",
     "retry_after": "2026-10-01T21:06:13.769277+00:00"
+  },
+  {
+    "name": "Transformers Deluxe",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T22:01:22.539667+00:00",
+    "retry_after": "2026-10-01T22:01:22.539679+00:00"
+  },
+  {
+    "name": "Spider-Man, Power Pack",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T22:01:21.882017+00:00",
+    "retry_after": "2026-10-01T22:01:21.882031+00:00"
+  },
+  {
+    "name": "The Archies Anniversary Spectacular",
+    "publisher": "Archie Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T22:01:22.007831+00:00",
+    "retry_after": "2026-10-01T22:01:22.007849+00:00"
+  },
+  {
+    "name": "Deathstroke the Terminator by Marv Wolfman Omnibus",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T22:01:11.799679+00:00",
+    "retry_after": "2026-10-01T22:01:11.799696+00:00"
+  },
+  {
+    "name": "JSA Compendium",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T22:01:22.437757+00:00",
+    "retry_after": "2026-10-01T22:01:22.437777+00:00"
+  },
+  {
+    "name": "Micronauts Epic Collection: The Original Marvel Years",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T22:01:23.251742+00:00",
+    "retry_after": "2026-10-01T22:01:23.251758+00:00"
+  },
+  {
+    "name": "Clueless Spring Fever",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T22:01:25.439276+00:00",
+    "retry_after": "2026-10-01T22:01:25.439288+00:00"
+  },
+  {
+    "name": "Silver Surfer Break Out",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T22:01:24.556928+00:00",
+    "retry_after": "2026-10-01T22:01:24.556945+00:00"
+  },
+  {
+    "name": "Miles Morales & Moon Girl",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T22:01:24.921903+00:00",
+    "retry_after": "2026-10-01T22:01:24.921920+00:00"
+  },
+  {
+    "name": "Creepshow Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T22:01:25.362584+00:00",
+    "retry_after": "2026-10-01T22:01:25.362601+00:00"
   }
 ]

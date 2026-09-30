@@ -33425,9 +33425,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T05:02:57.042510+00:00",
-    "retry_after": "2026-09-30T05:02:57.042528+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T06:00:45.412226+00:00",
+    "retry_after": "2026-10-03T06:00:45.412242+00:00"
   },
   {
     "name": "AAFES 12th Edition [Captain America the First Avenger]",
@@ -33435,9 +33435,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T05:03:02.795279+00:00",
-    "retry_after": "2026-09-30T05:03:02.795321+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T06:00:45.719786+00:00",
+    "retry_after": "2026-10-03T06:00:45.719803+00:00"
   },
   {
     "name": "The Adventures of Aspen Mascots 2018",
@@ -33445,9 +33445,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T05:03:07.611571+00:00",
-    "retry_after": "2026-09-30T05:03:07.611587+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T06:00:46.290355+00:00",
+    "retry_after": "2026-10-03T06:00:46.290371+00:00"
   },
   {
     "name": "Mighty Thor 3D",
@@ -33455,9 +33455,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T05:03:33.095912+00:00",
-    "retry_after": "2026-09-30T05:03:33.095928+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T06:00:47.217559+00:00",
+    "retry_after": "2026-10-03T06:00:47.217576+00:00"
   },
   {
     "name": "Eternal Warriors: Time and Treachery",
@@ -33465,9 +33465,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T05:03:33.669790+00:00",
-    "retry_after": "2026-09-30T05:03:33.669805+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T06:00:47.801229+00:00",
+    "retry_after": "2026-10-03T06:00:47.801245+00:00"
   },
   {
     "name": "Fear Agent Library Edition",
@@ -33475,9 +33475,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T05:04:16.016441+00:00",
-    "retry_after": "2026-09-30T05:04:16.016457+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T06:00:48.257558+00:00",
+    "retry_after": "2026-10-03T06:00:48.257573+00:00"
   },
   {
     "name": "Lady Death III: The Odyssey",
@@ -33485,9 +33485,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T06:00:42.786493+00:00",
-    "retry_after": "2026-09-30T06:00:42.786511+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-09-30T06:00:44.400308+00:00",
+    "retry_after": "2026-10-03T06:00:44.400324+00:00"
   },
   {
     "name": "Lady Death II: Between Heaven & Hell",
@@ -35002,5 +35002,52 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T04:02:35.955364+00:00",
     "retry_after": "2026-10-01T04:02:35.955380+00:00"
+  },
+  {
+    "name": "Defenders",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2569,
+        "name": "The Defenders",
+        "publisher": "Marvel",
+        "start_year": 1972
+      },
+      {
+        "id": 44363,
+        "name": "Defenders",
+        "publisher": "Marvel",
+        "start_year": 2012
+      },
+      {
+        "id": 21661,
+        "name": "Defenders",
+        "publisher": "Marvel",
+        "start_year": 2005
+      },
+      {
+        "id": 102109,
+        "name": "The Defenders",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 6645,
+        "name": "Defenders",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 138207,
+        "name": "Defenders",
+        "publisher": "Marvel",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T06:01:34.251591+00:00",
+    "retry_after": "2026-10-01T06:01:34.251606+00:00"
   }
 ]

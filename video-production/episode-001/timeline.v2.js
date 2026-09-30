@@ -144,7 +144,7 @@ export default {
       beat: "1:21.93-1:30.20 enormous Russian, turns body to steel", need: "Metal-form Colossus vs Sentinels" },
     { at: t("1:21.93") + 4, type: "pair", assets: [{ asset: E.colossusArt, aspect: 0.8, position: "40% 35%" }, { asset: E.gifSentinel, aspect: 16 / 9 }], transition: "cut",
       beat: "...punches Sentinels", note: "Colossus beside a TAS Sentinel until a true confrontation image arrives" },
-    { at: t("1:30.60"), type: "media", asset: E.colossusQuiet, treatment: "slowPush", transitionIn: "cut",
+    { at: t("1:30.60"), type: "media", asset: E.colossusQuiet, treatment: "slowPull", position: "62% 35%", transitionIn: "cut",
       beat: "1:30.60-1:46.47 gentle giant, painter, family, more than strength", need: "Quiet Colossus: portrait, painting, family" },
 
     // ── 01:46.47-02:41.76 GAMBIT ─────────────────────────────────────────
@@ -156,7 +156,7 @@ export default {
     { at: 134.8, type: "media", asset: E.gambitRogue, treatment: "slowPush", beat: "...relationship with Rogue, can't touch (to 2:20.66)" },
     { at: t("2:21.31"), type: "media", asset: E.colossusArt, position: COLOSSUS_FACE, treatment: "still", transition: "cut", beat: "2:21.31 Colossus is still #2 (callback)" },
     { at: 143.6, type: "media", ...GAMBIT_TAS, treatment: "still", transition: "cut", beat: "...Gambit #1" },
-    { at: 146.3, type: "media", asset: E.bishop, treatment: "still", transition: "cut", need: "Bishop", beat: "...Bishop" },
+    { at: 146.3, type: "media", asset: E.bishop, treatment: "still", position: "50% 12%", transition: "cut", need: "Bishop", beat: "...Bishop" },
     { at: 148.6, type: "cover", asset: E.jean, fallback: X.x135, fallbackProps: { treatment: "focus", ...JEAN_ON_135 }, treatment: "still", transition: "cut", need: "Jean Grey", beat: "...Jean" },
     { at: 150.9, type: "media", asset: E.wolverine, treatment: "still", transition: "cut", beat: "...Wolverine (to 2:33.32)" },
     { at: t("2:33.32"), type: "media", asset: E.tatum, treatment: "slowPush", transitionIn: "cut", need: "Channing Tatum as Gambit, Deadpool & Wolverine (official still or trailer frame)", beat: "2:33.32-2:41.22 Channing Tatum Gambit; \"I cried. Tears of joy.\" Held through the punchline" },

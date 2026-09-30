@@ -36112,5 +36112,79 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T20:35:53.610921+00:00",
     "retry_after": "2026-10-01T20:35:53.610941+00:00"
+  },
+  {
+    "name": "Munchkin",
+    "publisher": "BOOM! Studios",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 79724,
+        "name": "Munchkin",
+        "publisher": "Boom! Studios",
+        "start_year": 2015
+      },
+      {
+        "id": 87173,
+        "name": "Munchkin",
+        "publisher": "Boom! Studios",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T21:02:15.282314+00:00",
+    "retry_after": "2026-10-01T21:02:15.282332+00:00"
+  },
+  {
+    "name": "Misplaced",
+    "publisher": "Image Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109723,
+        "name": "The Misplaced",
+        "publisher": "Source Point Press",
+        "start_year": 2018
+      },
+      {
+        "id": 131502,
+        "name": "The Misplaced",
+        "publisher": "Source Point Press",
+        "start_year": 2020
+      },
+      {
+        "id": 27139,
+        "name": "Misplaced",
+        "publisher": "Devil's Due",
+        "start_year": 2003
+      },
+      {
+        "id": 60666,
+        "name": "Misplaced",
+        "publisher": "Arcana Studio",
+        "start_year": 2010
+      },
+      {
+        "id": 63688,
+        "name": "Misplaced",
+        "publisher": "Devil's Due",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T21:04:26.976267+00:00",
+    "retry_after": "2026-10-01T21:04:26.976285+00:00"
+  },
+  {
+    "name": "Avengers Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T21:06:13.769259+00:00",
+    "retry_after": "2026-10-01T21:06:13.769277+00:00"
   }
 ]

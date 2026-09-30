@@ -34803,5 +34803,101 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T01:02:26.701460+00:00",
     "retry_after": "2026-10-01T01:02:26.701477+00:00"
+  },
+  {
+    "name": "Beetle Bailey The Daily and Sunday Strips",
+    "publisher": "Titan Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T02:02:06.214777+00:00",
+    "retry_after": "2026-10-01T02:02:06.214794+00:00"
+  },
+  {
+    "name": "Weasel Guy: Road Trip",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T02:02:12.006630+00:00",
+    "retry_after": "2026-10-01T02:02:12.006648+00:00"
+  },
+  {
+    "name": "Custom: Triple A Baseball Heroes",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T02:02:12.560311+00:00",
+    "retry_after": "2026-10-01T02:02:12.560327+00:00"
+  },
+  {
+    "name": "Universe X",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 33556,
+        "name": "Universe X",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 9149,
+        "name": "Universe X",
+        "publisher": "Marvel",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T02:02:30.180017+00:00",
+    "retry_after": "2026-10-01T02:02:30.180032+00:00"
+  },
+  {
+    "name": "Oni Press Color Special",
+    "publisher": "Oni Press",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T02:02:30.679113+00:00",
+    "retry_after": "2026-10-01T02:02:30.679128+00:00"
+  },
+  {
+    "name": "Iron Man: I Am Iron Man!",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 31293,
+        "name": "Iron Man: I Am Iron Man!",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 115640,
+        "name": "Iron Man: I Am Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T02:02:31.226458+00:00",
+    "retry_after": "2026-10-01T02:02:31.226473+00:00"
+  },
+  {
+    "name": "B.C. Dip in Road",
+    "publisher": "Fawcett Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-09-30T02:02:37.684670+00:00",
+    "retry_after": "2026-10-01T02:02:37.684686+00:00"
   }
 ]

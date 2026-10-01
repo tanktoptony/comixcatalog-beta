@@ -67,7 +67,7 @@ async function loadNewCovers(sb) {
       cover: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${row.storage_path}`,
       href: row.gcd_issue_id != null ? `/issue/gcd-${row.gcd_issue_id}` : null,
     });
-    if (strip.length === 10) break;
+    if (strip.length === 11) break;
   }
   return { added, strip };
 }
@@ -116,13 +116,13 @@ async function computeHomeData() {
   const feed = [...updates, ...(posts ?? [])]
     .filter((item) => item.date)
     .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 5);
+    .slice(0, 6);
   const result = { stats, newCovers, feed };
   if (!stats || !newCovers || !posts) throw new PartialHomeData(result);
   return result;
 }
 
-const cachedHomeData = unstable_cache(computeHomeData, ["home-dispatch-v2"], { revalidate: 3600 });
+const cachedHomeData = unstable_cache(computeHomeData, ["home-dispatch-v3"], { revalidate: 3600 });
 
 // { stats: {series, issues, covers} | null, newCovers: {added, strip} | null, feed: [...] }
 export async function getHomeData() {

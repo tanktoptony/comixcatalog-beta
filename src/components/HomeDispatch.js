@@ -23,8 +23,7 @@ export default function HomeDispatch({ newCovers, feed = [], ctaHref, ctaLabel, 
         <h2 id="dispatch-title" className="dispatch-title">The Dispatch</h2>
       </div>
 
-      <div className="dispatch-grid">
-        <div className="dispatch-feed">
+      <div className="dispatch-body">
           {newCovers?.strip?.length > 0 && (
             <article className="dispatch-card dispatch-covers">
               <div className="dispatch-meta">
@@ -56,6 +55,8 @@ export default function HomeDispatch({ newCovers, feed = [], ctaHref, ctaLabel, 
             </article>
           )}
 
+          {/* One column on a quiet week; two once there's enough to fill it. */}
+          <div className={`dispatch-feed${feed.length >= 4 ? " dispatch-feed-two" : ""}`}>
           {feed.map((item) => {
             const inner = (
               <>
@@ -77,15 +78,18 @@ export default function HomeDispatch({ newCovers, feed = [], ctaHref, ctaLabel, 
               </article>
             );
           })}
+          </div>
 
           <Link prefetch={false} href="/blog" className="dispatch-more">
             All posts and updates →
           </Link>
-        </div>
 
         <aside className="dispatch-note" aria-label="A note from the founder">
-          <p className="dispatch-note-kicker">Who we are</p>
-          <h3 className="dispatch-note-title">Hey, I&rsquo;m Tony.</h3>
+          <div className="dispatch-note-head">
+            <p className="dispatch-note-kicker">Who we are</p>
+            <h3 className="dispatch-note-title">Hey, I&rsquo;m Tony.</h3>
+          </div>
+          <div className="dispatch-note-copy">
           <p>
             The &rsquo;92 X-Men cartoon hooked me as a kid. I drifted away like
             a lot of us do, then a guy at Graham Crackers handed me House of M
@@ -101,6 +105,7 @@ export default function HomeDispatch({ newCovers, feed = [], ctaHref, ctaLabel, 
             open. If something&rsquo;s missing or wrong, tell me. I read
             everything.
           </p>
+          </div>
           <div className="dispatch-note-actions">
             <Link href={ctaHref} className="lp-cta-primary" onClick={onCta}>
               {ctaLabel}

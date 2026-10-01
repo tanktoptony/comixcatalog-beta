@@ -16,6 +16,7 @@ import CatalogLinkPicker from "@/components/CatalogLinkPicker";
 import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
+import { coverThumb } from "@/lib/coverThumb";
 
 // Module-scoped so it survives across component re-mounts within a tab
 // (see the user-change-clear logic below for why that's usually right).
@@ -1579,7 +1580,7 @@ function LibraryPageContent() {
                     }}
                   >
                     <div>
-                      <Link
+                      <Link prefetch={false}
                         href={href}
                         style={{ color: "var(--cc-gold, #FFD700)", textDecoration: "none", fontWeight: 600 }}
                       >
@@ -1818,9 +1819,9 @@ function LibraryPageContent() {
                     key={`${item.id}-${item.libraryKey}-${item.status}`}
                     className="library-list-row"
                   >
-                    <Link href={getLibraryHref(item, comic)} className="library-list-cover">
+                    <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-cover">
                       <img
-                        src={displayCover}
+                        src={coverThumb(displayCover)}
                         alt={comic.title}
                         loading="lazy"
                       />
@@ -1830,7 +1831,7 @@ function LibraryPageContent() {
                     </Link>
 
                     <div className="library-list-main">
-                      <Link href={getLibraryHref(item, comic)} className="library-list-title">
+                      <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-title">
                         {comic.title}
                         {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
                         {item.variant_label ? (
@@ -1961,7 +1962,7 @@ function LibraryPageContent() {
                           Unlink
                         </button>
                       )}
-                      <Link href={getLibraryHref(item, comic)} className="library-row-btn primary">
+                      <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-row-btn primary">
                         View
                       </Link>
                     </div>
@@ -2061,7 +2062,7 @@ function LibraryPageContent() {
                       >
                         <div className="series-row-thumb">
                           {g.cover ? (
-                            <img src={g.cover} alt="" loading="lazy" />
+                            <img src={coverThumb(g.cover)} alt="" loading="lazy" />
                           ) : (
                             <div className="series-row-thumb-empty" />
                           )}
@@ -2112,11 +2113,11 @@ function LibraryPageContent() {
                                 key={`${item.id}-${item.libraryKey}-${item.status}`}
                                 className="library-list-row"
                               >
-                                <Link href={getLibraryHref(item, comic)} className="library-list-cover">
-                                  <img src={displayCover} alt={comic.title} loading="lazy" />
+                                <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-cover">
+                                  <img src={coverThumb(displayCover)} alt={comic.title} loading="lazy" />
                                 </Link>
                                 <div className="library-list-main">
-                                  <Link href={getLibraryHref(item, comic)} className="library-list-title">
+                                  <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-title">
                                     {comic.title}
                                     {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
                                     {item.variant_label ? (
@@ -2199,10 +2200,10 @@ function LibraryPageContent() {
                     key={`${item.id}-${item.libraryKey}-${item.status}`}
                     className="comic-card"
                   >
-                    <Link href={getLibraryHref(item, comic)} className="card-link">
+                    <Link prefetch={false} href={getLibraryHref(item, comic)} className="card-link">
                       <div className="comic-card-cover">
                         <img
-                          src={displayCover}
+                          src={coverThumb(displayCover)}
                           alt={comic.title}
                           loading="lazy"
                         />

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { coverThumb } from "@/lib/coverThumb";
 
 // Featured series carousel for the homepage. Pulls from /api/comics (same
 // curated browse endpoint as /search no-query). Horizontal scroll with
@@ -91,10 +92,10 @@ export default function FeaturedCarousel() {
               const href = seriesId ? `/series/${seriesId}` : "#";
               const cover = s.cover_path || "/fallback-cover.png";
               return (
-                <Link key={s.id} href={href} className="featured-card">
+                <Link prefetch={false} key={s.id} href={href} className="featured-card">
                   <div className="featured-cover">
                     <img
-                      src={cover}
+                      src={coverThumb(cover)}
                       alt={s.series_title || "Series"}
                       loading="lazy"
                     />

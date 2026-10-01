@@ -19,6 +19,7 @@ import { useParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useLibrary } from "@/context/LibraryContext";
 import { authedFetch } from "@/lib/apiClient";
+import { coverThumb } from "@/lib/coverThumb";
 
 export default function StoryArcPage() {
   const { id } = useParams();
@@ -368,7 +369,7 @@ export default function StoryArcPage() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={i.cover || "/fallback-cover.png"}
+                  src={coverThumb(i.cover || "/fallback-cover.png")}
                   alt={`${i.series_title ?? "Unknown"} #${i.issue_number ?? "?"}`}
                   style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />

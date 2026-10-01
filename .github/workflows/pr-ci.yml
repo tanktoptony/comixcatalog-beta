@@ -100,5 +100,8 @@ jobs:
       - name: Volume-resolver tests
         run: npm run test:resolve-by-year
 
+      - name: Cover thumb URL tests
+        run: npm run test:cover-thumb
+
       - name: Docs link check
         run: npm run docs:check

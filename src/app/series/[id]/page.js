@@ -8,6 +8,7 @@ import { useLibrary } from "@/context/LibraryContext";
 import { trackEvent } from "@/lib/analytics";
 import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
+import { coverThumb } from "@/lib/coverThumb";
 
 function issueSortValue(issueNumber) {
   // Comics often store dual-numbered issues like "30 (471)" (Vol 2 / Vol 1
@@ -201,7 +202,7 @@ export default function SeriesPage() {
         >
           <div className="issue-cover-frame" style={{ maxWidth: 220 }}>
             <img
-              src={series.featured_cover || "/fallback-cover.png"}
+              src={coverThumb(series.featured_cover || "/fallback-cover.png")}
               alt={series.title}
               className="issue-cover-img"
             />
@@ -471,10 +472,10 @@ export default function SeriesPage() {
               const isWanted = !isOwned && wishlistIds?.has(key);
               return (
               <article key={issue.id} className="comic-card">
-                <Link href={`/issue/${issue.id}`} className="card-link">
+                <Link prefetch={false} href={`/issue/${issue.id}`} className="card-link">
                   <div className="comic-card-cover" style={{ position: "relative" }}>
                     <img
-                      src={issue.cover || "/fallback-cover.png"}
+                      src={coverThumb(issue.cover || "/fallback-cover.png")}
                       alt={`${series.title} #${issue.issue_number}`}
                       loading="lazy"
                     />

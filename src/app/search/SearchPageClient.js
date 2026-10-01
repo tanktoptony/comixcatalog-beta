@@ -10,6 +10,7 @@ import EmptyState from "@/components/EmptyState";
 import { trackEvent } from "@/lib/analytics";
 import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
+import { coverThumb } from "@/lib/coverThumb";
 
 const PAGE_SIZE = 36;
 
@@ -117,7 +118,14 @@ export default function SearchPageClient() {
   const { user } = useAuth();
 
   // ── Fetch comics (browse or search) ─────────────────────────────────────────
+  const awaitingUrlSeed = !query && Boolean(urlQuery);
   useEffect(() => {
+    // On a fresh load of /search?q=… the shared query is still "" for the
+    // first render (it is seeded from the URL above). Without this guard that
+    // render fired the browse request (/api/comics, the slowest route on the
+    // site) with no delay, for results that were thrown away a moment later.
+    if (awaitingUrlSeed) return;
+
     let cancelled = false;
 
     const timeout = setTimeout(async () => {
@@ -184,7 +192,7 @@ export default function SearchPageClient() {
     // `user` is read for the event only; re-fetching on auth changes would
     // double-load the page.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query, page]);
+  }, [query, page, awaitingUrlSeed]);
 
   // ── Reset page/filter on new query (keep old results visible until new ones arrive) ──
   // Same derive-during-render pattern as the URL sync above: reset paging
@@ -328,7 +336,7 @@ export default function SearchPageClient() {
                         ? `Vol. ${s.volume_index} of ${s.volume_count}`
                         : null;
                     return (
-                      <Link
+                      <Link prefetch={false}
                         key={s.id}
                         href={`/series/${s.id}`}
                         className="comic-card"
@@ -343,7 +351,7 @@ export default function SearchPageClient() {
                         <div className="comic-card-cover">
                           {s.cover && (
                             // eslint-disable-next-line @next/next/no-img-element
-                            <img src={s.cover} alt={s.title || ""} />
+                            <img src={coverThumb(s.cover)} alt={s.title || ""} />
                           )}
                         </div>
                         <div className="comic-card-title">
@@ -457,7 +465,7 @@ export default function SearchPageClient() {
 
             return (
               <article key={item.id} className="comic-card">
-                <Link
+                <Link prefetch={false}
                   href={comicHref}
                   className="card-link"
                   onClick={() =>
@@ -471,7 +479,7 @@ export default function SearchPageClient() {
                 >
                   <div className="comic-card-cover">
                     <img
-                      src={coverSrc}
+                      src={coverThumb(coverSrc)}
                       alt={item.title || "Comic cover"}
                       loading="lazy"
                       onError={(e) => {

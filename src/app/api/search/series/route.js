@@ -3,6 +3,7 @@ import { parseSearchQuery, yearMatches, yearScore } from "@/lib/searchQuery";
 import { diversify } from "@/lib/searchVariety";
 import { createClient } from "@supabase/supabase-js";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
+import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -475,7 +476,7 @@ export async function GET(req) {
       })(),
     }));
 
-    return NextResponse.json({ series });
+    return NextResponse.json({ series }, { headers: CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/search/series crashed:", err);
     return NextResponse.json({ series: [] });

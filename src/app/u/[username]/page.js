@@ -12,6 +12,7 @@ import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { createClient } from "@supabase/supabase-js";
+import { coverThumb } from "@/lib/coverThumb";
 
 function formatJoinDate(iso) {
   if (!iso) return null;
@@ -249,7 +250,7 @@ export default async function PublicProfilePage({ params }) {
               return (
                 <Link key={item.id} href={d.href} className="profile-top-shelf-card">
                   <div className="profile-top-shelf-cover">
-                    <img src={topShelfCoverUrl(d)} alt={d.title} />
+                    <img src={coverThumb(topShelfCoverUrl(d))} alt={d.title} />
                     {item.key_issue ? (
                       <span className="profile-key-badge" title={item.key_issue.reason}>
                         KEY
@@ -304,7 +305,7 @@ export default async function PublicProfilePage({ params }) {
               return (
                 <Link key={item.id} href={d.href} className="profile-top-shelf-card">
                   <div className="profile-top-shelf-cover">
-                    <img src={topShelfCoverUrl(d)} alt={d.title} />
+                    <img src={coverThumb(topShelfCoverUrl(d))} alt={d.title} />
                     {item.slab_company && item.grade_numeric ? (
                       <span className="profile-grade-badge">
                         {item.slab_company} {Number(item.grade_numeric).toFixed(1)}

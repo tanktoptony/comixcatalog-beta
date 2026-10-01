@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { FEATURED_SERIES } from "@/lib/featuredSeries";
 import { baseIssueNumber } from "@/lib/coverMatch";
 import { normalizeKey, chooseSeries, matchIssue } from "@/lib/csvImport/matchRow";
+import { CDN_CACHE_LONG } from "@/lib/cdnCache";
 
 // Weekly rotation seed: ISO-week index since epoch. Same value for all
 // requests within one calendar week → carousel looks identical to a user
@@ -240,7 +241,7 @@ export async function GET(req) {
       __source: "series",
     }));
 
-    return NextResponse.json({ comics });
+    return NextResponse.json({ comics }, { headers: CDN_CACHE_LONG });
   } catch (err) {
     console.error("GET /api/comics crashed:", err);
     return NextResponse.json({ comics: [] });

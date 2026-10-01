@@ -4,44 +4,43 @@ import Image from "next/image";
 import Link from "next/link";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
-// Footer columns. `data-todo` flags the routes that don't exist yet so we
-// can spot them visually during pre-launch QA. Drop the flag once the page
-// lands.
+// Footer columns, slimmed 2026-10-01: one link per destination (Collectors
+// was listed twice, Database duplicated the header search), grouped by what
+// a visitor is trying to do. `todo` entries are hidden until the page exists.
 const COLUMNS = [
   {
-    title: "About",
+    title: "Explore",
     links: [
-      { label: "Get Started", href: "/get-started" },
-      { label: "What is ComixCatalog", href: "/about" },
-      { label: "Database", href: "/search" },
+      { label: "Search the database", href: "/search" },
       { label: "Marketplace", href: "/marketplace" },
+      { label: "Get started", href: "/get-started" },
+      { label: "Reads", href: "/reads" },
+      { label: "The Dispatch", href: "/blog" },
+      { label: "Crate Dig — Chicago", href: "/crate-dig", todo: true },
+      { label: "Forum", href: "/forum", todo: true },
+    ],
+  },
+  {
+    title: "Your collection",
+    links: [
       { label: "Collection", href: "/library" },
       { label: "Wantlist", href: "/library?tab=wishlist" },
+      { label: "Add a comic", href: "/contribute/add-comic" },
+      { label: "Submission Guidelines", href: "/contribute/guidelines", todo: true },
+    ],
+  },
+  {
+    title: "ComixCatalog",
+    links: [
+      { label: "About", href: "/about" },
       { label: "Collectors", href: "/collectors" },
-    ],
-  },
-  {
-    title: "Community",
-    links: [
-      { label: "Crate Dig — Chicago", href: "/crate-dig", todo: true },
-      { label: "Community Guidelines", href: "/community/guidelines", todo: true },
-      { label: "Forum", href: "/forum", todo: true },
-      { label: "Reads", href: "/reads" },
-      { label: "Danger Room Dispatch", href: "/blog" },
-      { label: "Contributor List", href: "/collectors" },
-      { label: "Add a Comic", href: "/contribute/add-comic" },
-    ],
-  },
-  {
-    title: "Help & Resources",
-    links: [
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
       { label: "Help Center", href: "/help", todo: true },
       { label: "Seller Resources", href: "/sell", todo: true },
-      { label: "Submission Guidelines", href: "/contribute/guidelines", todo: true },
+      { label: "Community Guidelines", href: "/community/guidelines", todo: true },
       { label: "Trust Center", href: "/trust", todo: true },
       { label: "System Status", href: "/status", todo: true },
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
     ],
   },
 ];
@@ -143,23 +142,6 @@ export default function Footer() {
 
         <div className="footer-divider" aria-hidden="true" />
 
-        <Link
-          href="/founding-collectors"
-          className="footer-founding"
-        >
-          <div className="footer-founding-text">
-            <span className="footer-founding-kicker">Founding Collector</span>
-            <span className="footer-founding-headline">
-              Free Pro for life
-            </span>
-            <span className="footer-founding-sub">
-              Join while spots remain and your lifetime membership is automatic.
-            </span>
-          </div>
-          <span className="footer-founding-cta">Join →</span>
-        </Link>
-
-        <div className="footer-divider" aria-hidden="true" />
 
         <div className="footer-bottom">
           <Link href="/" className="footer-brand">

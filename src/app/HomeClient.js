@@ -1,14 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
+import { coverThumb } from "@/lib/coverThumb";
 import HomeDispatch from "@/components/HomeDispatch";
 import { trackEvent } from "@/lib/analytics";
-import AdSlot from "@/components/AdSlot";
-import { SLOT } from "@/lib/houseAds";
 
 // "217,000+" / "2.5M+": rounded down so the strip never overstates.
 function proofNumber(n, fallback) {
@@ -21,6 +20,11 @@ export default function HomeClient({ featured = null, stats = null, dispatch = n
   const { user } = useAuth();
   const router = useRouter();
   const [heroQuery, setHeroQuery] = useState("");
+  // Pending until the results page has actually rendered, so the button
+  // stays visibly pressed instead of looking like nothing happened.
+  const [isSearching, startSearch] = useTransition();
+  // Hero art: real covers from this week's featured series.
+  const wall = (featured ?? []).filter((s) => s?.cover_path).slice(0, 12);
 
   // Funnel: which landing CTA actually moves people. Search itself is
   // measured on /search (the `search` event), not here.
@@ -31,7 +35,7 @@ export default function HomeClient({ featured = null, stats = null, dispatch = n
     e.preventDefault();
     const q = heroQuery.trim();
     trackEvent("cta_click", { location: "hero_search", logged_in: Boolean(user) });
-    router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/search");
+    startSearch(() => router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/search"));
   }
 
   return (
@@ -44,24 +48,36 @@ export default function HomeClient({ featured = null, stats = null, dispatch = n
             Your collection, and its value, in one place.
           </h1>
           <p className="lp-sub">
-            Track every issue, grade, and variant you own, plus what
-            you&rsquo;re hunting. Live values from real sold comps. The database
-            and collection manager for comic books, with a marketplace on the way.
+            Every issue, grade and variant you own, what it&rsquo;s worth
+            from real sold comps, and a wantlist for the hunt.
           </p>
 
           {/* Hero search — the activation surface. Anonymous visitors can act
               before signing up; this is how Discogs/Letterboxd onboard. */}
-          <form className="lp-hero-search" onSubmit={handleHeroSearch} role="search">
+          <form
+            className={`lp-hero-search${isSearching ? " is-searching" : ""}`}
+            onSubmit={handleHeroSearch}
+            role="search"
+            aria-busy={isSearching}
+          >
             <input
               type="search"
               className="lp-hero-search-input"
               placeholder="Search any comic — Absolute Batman, Saga #1, Amazing Spider-Man 300…"
               value={heroQuery}
               onChange={(e) => setHeroQuery(e.target.value)}
+              readOnly={isSearching}
               aria-label="Search comic series and issues"
             />
-            <button type="submit" className="lp-hero-search-btn">
-              Search
+            <button type="submit" className="lp-hero-search-btn" disabled={isSearching}>
+              {isSearching ? (
+                <>
+                  <span className="lp-spinner" aria-hidden="true" />
+                  Searching…
+                </>
+              ) : (
+                "Search"
+              )}
             </button>
           </form>
 
@@ -73,13 +89,30 @@ export default function HomeClient({ featured = null, stats = null, dispatch = n
             >
               {user ? "Go to your library" : "Start free"}
             </Link>
-            <Link href="/search" className="lp-cta-ghost" onClick={cta("hero_browse")}>
-              Browse the database →
-            </Link>
           </div>
         </div>
-        <div className="lp-hero-img">
-          <img src="/img/hero/comic-collage.jpg" alt="Comic book collection" fetchPriority="high" />
+        <div className="lp-hero-img" aria-hidden="true">
+          {wall.length >= 8 ? (
+            <div className="lp-wall">
+              {[0, 1, 2, 3].map((col) => (
+                <div key={col} className={`lp-wall-col lp-wall-col-${col}`}>
+                  {wall.filter((_, i) => i % 4 === col).map((s, i) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      key={s.id}
+                      src={coverThumb(s.cover_path)}
+                      alt=""
+                      className="lp-wall-cover"
+                      fetchPriority={i === 0 ? "high" : "auto"}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src="/img/hero/comic-collage.jpg" alt="" fetchPriority="high" />
+          )}
           <div className="lp-hero-img-fade" />
         </div>
       </section>
@@ -100,17 +133,6 @@ export default function HomeClient({ featured = null, stats = null, dispatch = n
           <span className="lp-proof-num">{proofNumber(stats?.covers, "170,000+")}</span>
           <span className="lp-proof-label">covers archived</span>
         </div>
-      </section>
-
-      {/* ── PROBLEM ──────────────────────────────────────────── */}
-      <section className="lp-problem">
-        <h2 className="lp-problem-h2">One tool, every detail.</h2>
-        <p className="lp-problem-body">
-          Track grades, variants, newsstand vs. direct, CGC and CBCS cert numbers,
-          purchase prices, and current market values across hundreds or thousands
-          of books. Export an insurance-ready PDF in a click. Verified grades
-          today &mdash; a trusted marketplace next.
-        </p>
       </section>
 
       {/* ── FEATURED SERIES ──────────────────────────────────── */}
@@ -174,20 +196,6 @@ export default function HomeClient({ featured = null, stats = null, dispatch = n
         </div>
       </section>
 
-      <AdSlot position={SLOT.HOME_INLINE} pageKey="home" className="ad-slot--home" />
-
-      {/* ── BOTTOM CTA ───────────────────────────────────────── */}
-      <section className="lp-bottom-cta">
-        <h2>Start building your collection.</h2>
-        <p>Free to join. No credit card required.</p>
-        <Link
-          href={user ? "/library" : "/signup"}
-          className="lp-cta-primary"
-          onClick={cta("bottom_primary")}
-        >
-          {user ? "Go to your library" : "Create a free account"}
-        </Link>
-      </section>
     </>
   );
 }

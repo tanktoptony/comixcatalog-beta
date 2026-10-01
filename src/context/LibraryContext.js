@@ -188,7 +188,7 @@ export function LibraryProvider({ children }) {
     () =>
       new Set(
         collections
-          .filter((c) => c.status === "owned")
+          .filter((c) => c.status === "owned" || c.status === "for_sale")
           .map(makeLibraryKey)
           .filter(Boolean)
       ),

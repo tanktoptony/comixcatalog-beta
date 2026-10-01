@@ -6,7 +6,7 @@
 // becomes visible (i.e. when the thread is open).
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
@@ -33,7 +33,12 @@ export default function ThreadPage() {
 
   const [otherProfile, setOtherProfile] = useState(null);
   const [messages, setMessages] = useState(null);
-  const [body, setBody] = useState("");
+  // "Make an offer" on a marketplace listing links here with ?about=<book>,
+  // so the first message starts with the book already named.
+  const about = useSearchParams().get("about");
+  const [body, setBody] = useState(() =>
+    about ? `Hi! I'm interested in your ${about.slice(0, 200)}. Would you take an offer?` : ""
+  );
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
   const scrollerRef = useRef(null);
@@ -42,7 +47,9 @@ export default function ThreadPage() {
   useEffect(() => {
     if (authLoading) return;
     if (!user) {
-      router.replace("/login");
+      // Come back here after signing in, so a buyer who tapped "Make an
+      // offer" signed out lands on the pre-filled message.
+      router.replace(`/login?next=${encodeURIComponent(window.location.pathname + window.location.search)}`);
       return;
     }
 
@@ -50,6 +57,7 @@ export default function ThreadPage() {
     // cached profile, before any DB roundtrip. Avoids hanging on profiles-
     // table RLS if our own session is slow to authorize.
     if (myProfile?.username && username === myProfile.username) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setError("You can't message yourself.");
       setOtherProfile(null);
       return;

@@ -73,6 +73,15 @@ function saveHydration(userId) {
 
 const USER_COVER_UPLOAD_ENABLED = true;
 
+// Which rows a tab shows. A for-sale book is still owned: it stays in the
+// Collection tab (with a "For sale" badge) and in its value, and the For
+// sale tab is just the subset being sold. Before the marketplace (2026-10-01)
+// marking a book for sale silently removed it from Collection.
+function inTab(item, tab) {
+  if (tab === "owned") return item.status === "owned" || item.status === "for_sale";
+  return item.status === tab;
+}
+
 function getLibraryHref(item, comic) {
   if (comic?.href) return comic.href;
   if (item?.gcd_issue_id != null) return `/issue/gcd-${item.gcd_issue_id}`;
@@ -170,7 +179,7 @@ function LibraryPageContent() {
   // "Wantlist" link and any other deep-link entry into the library.
   const [tab, setTab] = useState(() => {
     const t = searchParams.get("tab");
-    return t === "wishlist" || t === "owned" ? t : "owned";
+    return t === "wishlist" || t === "owned" || t === "for_sale" ? t : "owned";
   });
 
   // Phase 3 unify — preview mode. URL `?view=public` (or localStorage memory
@@ -595,7 +604,42 @@ function LibraryPageContent() {
       console.error("Sale toggle error:", error);
       return;
     }
-    item.status = newStatus;
+    await refreshLibrary?.({ background: true });
+  }
+
+  // Marketplace: list (or unlist) every owned book in one go. Each listed
+  // book shows up on /marketplace and on its issue page, priced at its
+  // estimated value with "Make an offer".
+  const [bulkSaleBusy, setBulkSaleBusy] = useState(false);
+  async function setAllForSale(listing) {
+    if (!user?.id) return;
+    const from = listing ? "owned" : "for_sale";
+    const to = listing ? "for_sale" : "owned";
+    const count = collections.filter((c) => c.status === from).length;
+    if (count === 0) return;
+    const ok = window.confirm(
+      listing
+        ? `List all ${count} books in your collection for sale? They'll appear on the Marketplace and on each issue's page, at their estimated value with "Make an offer". You can take any of them off sale later.`
+        : `Take all ${count} books off sale? They stay in your collection.`
+    );
+    if (!ok) return;
+    setBulkSaleBusy(true);
+    try {
+      const { error } = await supabase
+        .from("user_collections")
+        .update({ status: to })
+        .eq("user_id", user.id)
+        .eq("status", from);
+      if (error) {
+        console.error("Bulk sale update failed:", error);
+        alert("Couldn't update your listings. Please try again.");
+        return;
+      }
+      await refreshLibrary?.({ background: true });
+      if (listing) setTab("for_sale");
+    } finally {
+      setBulkSaleBusy(false);
+    }
   }
 
   const librarySignature = useMemo(() => {
@@ -727,7 +771,7 @@ function LibraryPageContent() {
 
   const libraryItems = useMemo(() => {
     return collections
-      .filter((item) => item.status === tab)
+      .filter((item) => inTab(item, tab))
       .map((item) => {
         const key = makeLibraryKey(item);
         if (!key) return null;
@@ -830,12 +874,12 @@ function LibraryPageContent() {
   }, [collections, comicIndex]);
 
   const stats = useMemo(() => {
-    const rawCurrent = collections.filter((item) => item.status === tab);
+    const rawCurrent = collections.filter((item) => inTab(item, tab));
     const hydratedCurrent = rawCurrent
       .map((item) => ({ ...item, comic: comicIndex[makeLibraryKey(item)] || null }))
       .filter((item) => item.comic);
 
-    const ownedCount = collections.filter((c) => c.status === "owned").length;
+    const ownedCount = collections.filter((c) => c.status === "owned" || c.status === "for_sale").length;
     const wishlistCount = collections.filter((c) => c.status === "wishlist").length;
     const forSaleCount = collections.filter((c) => c.status === "for_sale").length;
 
@@ -858,9 +902,9 @@ function LibraryPageContent() {
     // profile onto /library so the owner's management view matches what
     // visitors see. Slabbed = count of owned rows with a slab_company set.
     // Collection Value = sum of (market_value OR auto_market_value) across
-    // owned rows. We exclude wantlist/for_sale from value because the user
-    // hasn't bought those yet (or is reselling at potentially different prices).
-    const ownedItems = collections.filter((c) => c.status === "owned");
+    // owned rows, for-sale ones included (you still own them until they sell).
+    // Wantlist is excluded because the user hasn't bought those yet.
+    const ownedItems = collections.filter((c) => c.status === "owned" || c.status === "for_sale");
     const slabbedCount = ownedItems.filter((c) => c.slab_company).length;
     const slabRatio = ownedItems.length > 0
       ? Math.round((slabbedCount / ownedItems.length) * 100)
@@ -1166,6 +1210,27 @@ function LibraryPageContent() {
                     ? "Export CSV"
                     : "Export CSV (Pro)"}
               </button>
+              {(tab === "owned" || tab === "for_sale") && stats.ownedCount > stats.forSaleCount && (
+                <button
+                  className="library-secondary-btn library-sell-all-btn"
+                  onClick={() => setAllForSale(true)}
+                  disabled={bulkSaleBusy}
+                  type="button"
+                  title="List every book in your collection on the Marketplace"
+                >
+                  {bulkSaleBusy ? "Listing…" : "List everything for sale"}
+                </button>
+              )}
+              {tab === "for_sale" && stats.forSaleCount > 0 && (
+                <button
+                  className="library-secondary-btn"
+                  onClick={() => setAllForSale(false)}
+                  disabled={bulkSaleBusy}
+                  type="button"
+                >
+                  {bulkSaleBusy ? "Updating…" : "Take everything off sale"}
+                </button>
+              )}
               {tab === "wishlist" && stats.wishlistCount > 0 && (
                 <button
                   className="library-secondary-btn"
@@ -1207,6 +1272,14 @@ function LibraryPageContent() {
           >
             Wantlist {stats.wishlistCount > 0 && <span className="library-tab-count">{stats.wishlistCount}</span>}
           </button>
+          {(stats.forSaleCount > 0 || tab === "for_sale") && (
+            <button
+              className={`library-tab ${tab === "for_sale" ? "active" : ""}`}
+              onClick={() => setTab("for_sale")}
+            >
+              For sale <span className="library-tab-count">{stats.forSaleCount}</span>
+            </button>
+          )}
         </div>
 
         {!isPublicPreview && (
@@ -1670,7 +1743,7 @@ function LibraryPageContent() {
             <div className="library-sidebar-title">Search Library</div>
             <input
               className="library-search-input"
-              placeholder={`Search ${tab === "owned" ? "collection" : "wantlist"}...`}
+              placeholder={`Search ${tab === "owned" ? "collection" : tab === "for_sale" ? "for sale" : "wantlist"}...`}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -1726,7 +1799,7 @@ function LibraryPageContent() {
         <section className="library-results-panel">
           <div className="library-results-header">
             <div className="library-results-copy">
-              <h2>{tab === "owned" ? "Collection" : "Wantlist"}</h2>
+              <h2>{tab === "owned" ? "Collection" : tab === "for_sale" ? "For sale" : "Wantlist"}</h2>
               <p>{filteredItems.length} item{filteredItems.length === 1 ? "" : "s"}</p>
             </div>
             <div className="library-results-controls">
@@ -1863,6 +1936,7 @@ function LibraryPageContent() {
                         alt={comic.title}
                         loading="lazy"
                       />
+                      {item.status === "for_sale" && <span className="library-sale-tag">For sale</span>}
                       {USER_COVER_UPLOAD_ENABLED && liveGrade.user_cover_url && (
                         <span className="library-cover-tag" title="Your photo">Your photo</span>
                       )}
@@ -1959,7 +2033,7 @@ function LibraryPageContent() {
                           })()}
                       </div>
 
-                      {tab === "owned" && !isPublicPreview && (
+                      {(tab === "owned" || tab === "for_sale") && !isPublicPreview && (
                         <GradeEditor
                           collectionId={item.id}
                           isPro={isPro}
@@ -1977,7 +2051,7 @@ function LibraryPageContent() {
                     </div>
 
                     <div className="library-list-actions">
-                      {tab === "owned" && !isPublicPreview && (
+                      {(tab === "owned" || tab === "for_sale") && !isPublicPreview && (
                         <button
                           className="library-row-btn"
                           onClick={() => toggleForSale(item)}
@@ -2180,7 +2254,7 @@ function LibraryPageContent() {
                                       </>
                                     )}
                                   </div>
-                                  {tab === "owned" && !isPublicPreview && (
+                                  {(tab === "owned" || tab === "for_sale") && !isPublicPreview && (
                                     <div style={{ marginTop: 6 }}>
                                       <GradeEditor
                                         collectionId={item.id}
@@ -2245,6 +2319,7 @@ function LibraryPageContent() {
                           alt={comic.title}
                           loading="lazy"
                         />
+                        {item.status === "for_sale" && <span className="library-sale-tag">For sale</span>}
                         {USER_COVER_UPLOAD_ENABLED && liveGrade.user_cover_url && (
                           <span className="library-cover-tag" title="Your photo">Your photo</span>
                         )}
@@ -2272,7 +2347,7 @@ function LibraryPageContent() {
                       </div>
                     )}
 
-                    {tab === "owned" && !isPublicPreview && (
+                    {(tab === "owned" || tab === "for_sale") && !isPublicPreview && (
                       <div className="comic-card-grade">
                         <GradeEditor
                           collectionId={item.id}

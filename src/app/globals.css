@@ -11531,3 +11531,153 @@ button.nav-link {
   animation: lp-spin 0.7s linear infinite;
   z-index: 2;
 }
+
+/* ── Marketplace v1 (src/app/marketplace, MarketplaceGrid, IssueForSale) ── */
+.mkt-hero-live { text-align: left; }
+.mkt-counts { margin: 0.25rem 0 0; color: rgba(255, 255, 255, 0.75); font-size: 0.95rem; }
+.mkt-counts b { color: #F4D03F; }
+.mkt-browse { max-width: 1180px; margin: 2rem auto 0; padding: 0 1.25rem; display: grid; gap: 1.25rem; }
+.mkt-toolbar { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.mkt-search {
+  flex: 1 1 280px;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 0.95rem;
+}
+.mkt-search:focus { outline: none; border-color: #F4D03F; }
+.mkt-sort {
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+.mkt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1rem; }
+.mkt-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.mkt-card:hover { border-color: rgba(244, 208, 63, 0.45); transform: translateY(-2px); }
+.mkt-card-cover { position: relative; display: block; aspect-ratio: 2 / 3; background: rgba(255, 255, 255, 0.04); }
+.mkt-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mkt-card-grade {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  background: rgba(0, 0, 0, 0.78);
+  color: #F4D03F;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.mkt-card-body { display: grid; gap: 0.35rem; padding: 0.8rem 0.9rem 0.9rem; align-content: start; }
+.mkt-card-title { color: #fff; font-weight: 800; font-size: 0.95rem; line-height: 1.3; text-decoration: none; }
+.mkt-card-title:hover { color: #F4D03F; }
+.mkt-card-sub { color: rgba(255, 255, 255, 0.55); font-size: 0.8rem; }
+.mkt-card-price { font-size: 0.85rem; color: rgba(255, 255, 255, 0.65); }
+.mkt-card-price b { color: #fff; font-size: 1.05rem; }
+.mkt-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: 0.35rem; }
+.mkt-card-seller { color: rgba(255, 255, 255, 0.7); font-size: 0.8rem; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mkt-card-seller:hover { color: #F4D03F; }
+.mkt-offer-btn {
+  flex-shrink: 0;
+  background: #F4D03F;
+  color: #0B1E6B;
+  font-weight: 800;
+  font-size: 0.78rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.mkt-offer-btn:hover { filter: brightness(1.06); }
+.mkt-more {
+  justify-self: center;
+  background: transparent;
+  border: 1px solid rgba(244, 208, 63, 0.55);
+  color: #F4D03F;
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.mkt-empty { max-width: 1180px; margin: 2rem auto; padding: 0 1.25rem; color: rgba(255, 255, 255, 0.7); }
+.mkt-empty a { color: #F4D03F; }
+.mkt-how {
+  max-width: 1180px;
+  margin: 3rem auto 1rem;
+  padding: 0 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.mkt-how b { display: block; color: #fff; margin-bottom: 0.25rem; }
+.issue-sale-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+.issue-sale-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.issue-sale-seller { color: #fff; font-weight: 700; text-decoration: none; overflow: hidden; text-overflow: ellipsis; }
+.issue-sale-grade { color: #F4D03F; font-weight: 700; font-size: 0.85rem; }
+.issue-sale-price { color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; }
+@media (max-width: 560px) {
+  .issue-sale-row { grid-template-columns: 1fr 1fr; }
+}
+.library-sale-tag {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  background: #F4D03F;
+  color: #0B1E6B;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+.library-sell-all-btn { border-color: rgba(244, 208, 63, 0.6) !important; color: #F4D03F !important; }
+@media (prefers-reduced-motion: reduce) {
+  .mkt-card { transition: none; }
+  .mkt-card:hover { transform: none; }
+}
+
+.lp-feature-pill {
+  display: inline-block;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: rgba(244, 208, 63, 0.16);
+  color: #F4D03F;
+}
+.lp-feature p a { color: #F4D03F; font-weight: 700; text-decoration: none; }
+
+.mkt-sort { width: auto; flex: 0 0 auto; }
+.mkt-card { min-width: 0; }
+.mkt-card-body { min-width: 0; }
+.mkt-card-title { overflow-wrap: anywhere; }
+.mkt-card-foot { flex-wrap: wrap; }

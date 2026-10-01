@@ -36987,5 +36987,245 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T05:02:10.246768+00:00",
     "retry_after": "2026-10-02T05:02:10.246787+00:00"
+  },
+  {
+    "name": "Star Wars Special: C-3PO",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:00:47.394891+00:00",
+    "retry_after": "2026-10-02T06:00:47.394906+00:00"
+  },
+  {
+    "name": "Valiant Masters X-O Manowar",
+    "publisher": "Valiant Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:00:47.925263+00:00",
+    "retry_after": "2026-10-02T06:00:47.925279+00:00"
+  },
+  {
+    "name": "Captain America Collectors' Preview",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:00:48.301144+00:00",
+    "retry_after": "2026-10-02T06:00:48.301161+00:00"
+  },
+  {
+    "name": "Jim Henson's Labyrinth 30th Anniversary Special",
+    "publisher": "Archaia",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:00:48.683897+00:00",
+    "retry_after": "2026-10-02T06:00:48.683912+00:00"
+  },
+  {
+    "name": "Spider-Girl Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:01:07.651820+00:00",
+    "retry_after": "2026-10-02T06:01:07.651835+00:00"
+  },
+  {
+    "name": "Heavy Metal [softcover editions]",
+    "publisher": "Heavy Metal",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:01:37.319116+00:00",
+    "retry_after": "2026-10-02T06:01:37.319132+00:00"
+  },
+  {
+    "name": "Flash Gordon",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140611,
+        "name": "Flash Gordon",
+        "publisher": "Ediciones Vértice",
+        "start_year": 1974
+      },
+      {
+        "id": 154690,
+        "name": "Flash Gordon ",
+        "publisher": "Zauberstern Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 37396,
+        "name": "Flash Gordon",
+        "publisher": "Checker Book Publishing Group",
+        "start_year": 2004
+      },
+      {
+        "id": 154684,
+        "name": "Flash Gordon",
+        "publisher": "Edizioni Fratelli Spada",
+        "start_year": 1979
+      },
+      {
+        "id": 159823,
+        "name": "Flash Gordon",
+        "publisher": "Abril",
+        "start_year": 1979
+      },
+      {
+        "id": 29866,
+        "name": "Flash Gordon",
+        "publisher": "Western Publishing",
+        "start_year": 1965
+      },
+      {
+        "id": 57853,
+        "name": "Flash Gordon",
+        "publisher": "Nostalgia Press",
+        "start_year": 1967
+      },
+      {
+        "id": 158146,
+        "name": "Flash Gordon",
+        "publisher": "Mad Cave Studios",
+        "start_year": 2024
+      },
+      {
+        "id": 23142,
+        "name": "Flash Gordon",
+        "publisher": "Ardden Entertainment",
+        "start_year": 2008
+      },
+      {
+        "id": 57900,
+        "name": "Flash Gordon",
+        "publisher": "Nostalgia Press",
+        "start_year": 1974
+      },
+      {
+        "id": 79165,
+        "name": "Flash Gordon",
+        "publisher": "A.W. Bruna & Zoon",
+        "start_year": 1972
+      },
+      {
+        "id": 49627,
+        "name": "Flash Gordon",
+        "publisher": "Western Publishing",
+        "start_year": 1980
+      },
+      {
+        "id": 62363,
+        "name": "Flash Gordon",
+        "publisher": "Gredown",
+        "start_year": 1975
+      },
+      {
+        "id": 2964,
+        "name": "Flash Gordon",
+        "publisher": "Western Publishing",
+        "start_year": 1966
+      },
+      {
+        "id": 3999,
+        "name": "Flash Gordon",
+        "publisher": "DC Comics",
+        "start_year": 1988
+      },
+      {
+        "id": 61477,
+        "name": "Flash Gordon",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": 1956
+      },
+      {
+        "id": 72935,
+        "name": "Flash Gordon",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2014
+      },
+      {
+        "id": 86271,
+        "name": "Flash Gordon",
+        "publisher": "Éditions Slatkine",
+        "start_year": 1980
+      },
+      {
+        "id": 50659,
+        "name": "Flash Gordon",
+        "publisher": "Kitchen Sink",
+        "start_year": 1990
+      },
+      {
+        "id": 118574,
+        "name": "Flash Gordon",
+        "publisher": "Oberon BV",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:05:47.594186+00:00",
+    "retry_after": "2026-10-02T06:05:47.594201+00:00"
+  },
+  {
+    "name": "Dark Horse Action Figure Comics",
+    "publisher": "Dark Horse Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:05:48.048436+00:00",
+    "retry_after": "2026-10-02T06:05:48.048456+00:00"
+  },
+  {
+    "name": "The New Avengers Annual",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18198,
+        "name": "New Avengers Annual",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 42683,
+        "name": "New Avengers Annual",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 75140,
+        "name": "New Avengers Annual",
+        "publisher": "Marvel",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:05:48.416015+00:00",
+    "retry_after": "2026-10-02T06:05:48.416030+00:00"
+  },
+  {
+    "name": "Fightin' Five",
+    "publisher": "Charlton Comics",
+    "year": 1964,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:07:14.076773+00:00",
+    "retry_after": "2026-10-02T06:07:14.076790+00:00"
   }
 ]

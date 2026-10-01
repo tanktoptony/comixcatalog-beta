@@ -35192,9 +35192,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T09:01:25.166306+00:00",
-    "retry_after": "2026-10-01T09:01:25.166320+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T10:01:21.725840+00:00",
+    "retry_after": "2026-10-04T10:01:21.725853+00:00"
   },
   {
     "name": "Wonder Woman: The Silver Age Omnibus",
@@ -35202,9 +35202,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T09:02:27.242123+00:00",
-    "retry_after": "2026-10-01T09:02:27.242138+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T10:01:22.242485+00:00",
+    "retry_after": "2026-10-04T10:01:22.242501+00:00"
   },
   {
     "name": "Moon Knight: Legacy",
@@ -35212,9 +35212,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T09:03:06.382380+00:00",
-    "retry_after": "2026-10-01T09:03:06.382396+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T10:01:22.762720+00:00",
+    "retry_after": "2026-10-04T10:01:22.762735+00:00"
   },
   {
     "name": "Fantastic Four Annual",
@@ -37646,5 +37646,55 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T09:02:29.714960+00:00",
     "retry_after": "2026-10-02T09:02:29.714975+00:00"
+  },
+  {
+    "name": "Star Wars: The High Republic - The Edge of Balance [Free Comic Book Day 2021 Edition]",
+    "publisher": "VIZ Media",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T10:00:45.903620+00:00",
+    "retry_after": "2026-10-02T10:00:45.903636+00:00"
+  },
+  {
+    "name": "Osborne Journals [Spider-Man: The Osborn Journal]",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T10:00:58.526091+00:00",
+    "retry_after": "2026-10-02T10:00:58.526108+00:00"
+  },
+  {
+    "name": "True Believers: Marvel Knights 20th Anniversary -  Punisher by Ennis, Dillon & Palmiotti",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T10:01:20.829053+00:00",
+    "retry_after": "2026-10-02T10:01:20.829067+00:00"
+  },
+  {
+    "name": "Invincible Undeluxe",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T10:01:21.344707+00:00",
+    "retry_after": "2026-10-02T10:01:21.344721+00:00"
+  },
+  {
+    "name": "Space Family Robinson, Lost in Space on Space Station One",
+    "publisher": "Gold Key",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T10:03:23.809265+00:00",
+    "retry_after": "2026-10-02T10:03:23.809280+00:00"
   }
 ]

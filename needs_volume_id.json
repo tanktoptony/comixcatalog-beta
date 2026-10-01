@@ -10676,9 +10676,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-24T15:00:42.813307+00:00",
-    "retry_after": "2026-10-01T15:00:42.813322+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-01T15:00:56.014350+00:00",
+    "retry_after": "2026-10-15T15:00:56.014368+00:00"
   },
   {
     "name": "Watchmen",
@@ -10699,9 +10699,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-24T15:00:43.895174+00:00",
-    "retry_after": "2026-10-01T15:00:43.895188+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-01T15:00:56.704229+00:00",
+    "retry_after": "2026-10-15T15:00:56.704248+00:00"
   },
   {
     "name": "Hunter X Hunter",
@@ -13180,9 +13180,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-24T15:00:44.740734+00:00",
-    "retry_after": "2026-10-01T15:00:44.740751+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-01T15:00:57.613093+00:00",
+    "retry_after": "2026-10-15T15:00:57.613111+00:00"
   },
   {
     "name": "Street Fighter Special",
@@ -13190,9 +13190,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-24T15:00:45.159293+00:00",
-    "retry_after": "2026-10-01T15:00:45.159309+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-01T15:00:58.542327+00:00",
+    "retry_after": "2026-10-15T15:00:58.542346+00:00"
   },
   {
     "name": "Street Fighter",
@@ -13231,9 +13231,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-24T15:00:45.677197+00:00",
-    "retry_after": "2026-10-01T15:00:45.677212+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-01T15:00:59.132076+00:00",
+    "retry_after": "2026-10-15T15:00:59.132094+00:00"
   },
   {
     "name": "Transformers / Ghostbusters [ashcan]",
@@ -38028,5 +38028,79 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T14:17:14.425228+00:00",
     "retry_after": "2026-10-02T14:17:14.425243+00:00"
+  },
+  {
+    "name": "Very Sneaky, Andy Capp",
+    "publisher": "Fawcett Comics",
+    "year": 1969,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T15:05:43.633325+00:00",
+    "retry_after": "2026-10-02T15:05:43.633347+00:00"
+  },
+  {
+    "name": "The Outsiders",
+    "publisher": "DC Comics",
+    "year": 1971,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 22453,
+        "name": "Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 1993
+      },
+      {
+        "id": 154666,
+        "name": "Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      },
+      {
+        "id": 3455,
+        "name": "The Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 1985
+      },
+      {
+        "id": 10415,
+        "name": "Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 25804,
+        "name": "The Outsiders",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T15:05:44.001825+00:00",
+    "retry_after": "2026-10-02T15:05:44.001844+00:00"
+  },
+  {
+    "name": "Marvel's Guardians of the Galaxy Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 75486,
+        "name": "Marvel's Guardians of the Galaxy Prelude",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 72793,
+        "name": "Marvel's Guardians of the Galaxy Prelude",
+        "publisher": "Marvel",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T15:05:44.413534+00:00",
+    "retry_after": "2026-10-02T15:05:44.413552+00:00"
   }
 ]

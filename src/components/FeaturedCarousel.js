@@ -4,18 +4,24 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { coverThumb } from "@/lib/coverThumb";
 
-// Featured series carousel for the homepage. Pulls from /api/comics (same
-// curated browse endpoint as /search no-query). Horizontal scroll with
-// chevron controls — Discogs-pattern. 8 tiles per fetch.
+// Featured series carousel for the homepage. The homepage passes
+// `initialSeries`, rendered on the server from the cached list in
+// src/lib/featuredSeriesData.js, so the tiles are in the first HTML instead
+// of appearing after a client fetch. Without it (or if the server read came
+// back empty) it falls back to /api/comics, the same curated browse list
+// /search shows with no query. Horizontal scroll with chevron controls —
+// Discogs-pattern.
 
 const TILE_WIDTH = 200; // matches CSS .featured-card flex-basis
 
-export default function FeaturedCarousel() {
-  const [series, setSeries] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function FeaturedCarousel({ initialSeries = null }) {
+  const hasInitial = Array.isArray(initialSeries) && initialSeries.length > 0;
+  const [series, setSeries] = useState(hasInitial ? initialSeries : []);
+  const [loading, setLoading] = useState(!hasInitial);
   const railRef = useRef(null);
 
   useEffect(() => {
+    if (hasInitial) return;
     let cancelled = false;
     async function load() {
       try {
@@ -36,7 +42,7 @@ export default function FeaturedCarousel() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [hasInitial]);
 
   function scroll(direction) {
     const rail = railRef.current;
@@ -87,7 +93,7 @@ export default function FeaturedCarousel() {
                 <div className="featured-text-skel short" />
               </article>
             ))
-          : series.map((s) => {
+          : series.map((s, index) => {
               const seriesId = s.series_id ?? null;
               const href = seriesId ? `/series/${seriesId}` : "#";
               const cover = s.cover_path || "/fallback-cover.png";
@@ -97,7 +103,7 @@ export default function FeaturedCarousel() {
                     <img
                       src={coverThumb(cover)}
                       alt={s.series_title || "Series"}
-                      loading="lazy"
+                      loading={index < 6 ? "eager" : "lazy"}
                     />
                   </div>
                   <div className="featured-meta">

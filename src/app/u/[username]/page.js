@@ -67,9 +67,13 @@ export default async function PublicProfilePage({ params }) {
   const viewerParam = currentUser?.id
     ? `&viewer_id=${encodeURIComponent(currentUser.id)}`
     : "";
+  // The anonymous (public) view is the same for every visitor, so it is
+  // served from Next's data cache for up to a minute instead of rebuilding
+  // the whole collection on every page view. An owner's view is never
+  // cached.
   const res = await fetch(
     `${protocol}://${host}/api/public-profile?username=${username}${viewerParam}`,
-    { cache: "no-store" }
+    currentUser?.id ? { cache: "no-store" } : { next: { revalidate: 60 } }
   );
   if (!res.ok) notFound();
 

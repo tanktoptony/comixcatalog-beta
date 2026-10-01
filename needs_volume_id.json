@@ -37856,5 +37856,72 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T17:07:41.949111+00:00",
     "retry_after": "2026-10-02T17:07:41.949130+00:00"
+  },
+  {
+    "name": "Wildstorm Fine Arts: Spotlight on Gen 13",
+    "publisher": "WildStorm",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T18:02:01.516310+00:00",
+    "retry_after": "2026-10-02T18:02:01.516322+00:00"
+  },
+  {
+    "name": "Devil's Due Free Comic Book Day 2005/Darkstalkers",
+    "publisher": "Devil's Due",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T18:02:01.629829+00:00",
+    "retry_after": "2026-10-02T18:02:01.629840+00:00"
+  },
+  {
+    "name": "The Exterminator: No Job Too Big / Spider-Man: Bug Stops Here",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T18:02:01.573196+00:00",
+    "retry_after": "2026-10-02T18:02:01.573206+00:00"
+  },
+  {
+    "name": "Image Firsts: Renato Jones The One Percent",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T18:02:01.144124+00:00",
+    "retry_after": "2026-10-02T18:02:01.144139+00:00"
+  },
+  {
+    "name": "Deadkiller",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T18:02:01.464987+00:00",
+    "retry_after": "2026-10-02T18:02:01.465003+00:00"
+  },
+  {
+    "name": "The Drude",
+    "publisher": "First Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 92497,
+        "name": "The Drude",
+        "publisher": "1First Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T18:02:45.546815+00:00",
+    "retry_after": "2026-10-02T18:02:45.546830+00:00"
   }
 ]

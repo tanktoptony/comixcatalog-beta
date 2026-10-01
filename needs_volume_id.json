@@ -30291,9 +30291,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T08:05:58.744522+00:00",
-    "retry_after": "2026-10-01T08:05:58.744562+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-01T09:00:49.670252+00:00",
+    "retry_after": "2026-10-08T09:00:49.670270+00:00"
   },
   {
     "name": "Sonic vs. Knuckles \"Battle Royal\" Special",
@@ -35143,9 +35143,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T08:07:17.063507+00:00",
-    "retry_after": "2026-10-01T08:07:17.063523+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T09:00:53.626520+00:00",
+    "retry_after": "2026-10-04T09:00:53.626534+00:00"
   },
   {
     "name": "Danganronpa 2: Chiaki Nanami's Goodbye Despair Quest",
@@ -35153,9 +35153,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T08:07:26.848997+00:00",
-    "retry_after": "2026-10-01T08:07:26.849013+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T09:00:54.018217+00:00",
+    "retry_after": "2026-10-04T09:00:54.018232+00:00"
   },
   {
     "name": "Walt Disney's Wonderful World",
@@ -35163,9 +35163,9 @@
     "year": 1978,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T09:00:50.628705+00:00",
-    "retry_after": "2026-10-01T09:00:50.628722+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T09:00:54.450477+00:00",
+    "retry_after": "2026-10-04T09:00:54.450493+00:00"
   },
   {
     "name": "The Technopriests",
@@ -37563,5 +37563,88 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T08:03:25.983308+00:00",
     "retry_after": "2026-10-02T08:03:25.983318+00:00"
+  },
+  {
+    "name": "Savage Dragon Vault Edition",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T09:00:53.184248+00:00",
+    "retry_after": "2026-10-02T09:00:53.184266+00:00"
+  },
+  {
+    "name": "Super Crooks",
+    "publisher": "Titan Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T09:00:50.964076+00:00",
+    "retry_after": "2026-10-02T09:00:50.964094+00:00"
+  },
+  {
+    "name": "AEW Origins Special Edition",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T09:00:52.169049+00:00",
+    "retry_after": "2026-10-02T09:00:52.169065+00:00"
+  },
+  {
+    "name": "Birthright Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T09:00:52.632032+00:00",
+    "retry_after": "2026-10-02T09:00:52.632048+00:00"
+  },
+  {
+    "name": "Batman: Prelude to the Wedding: Harley Quinn vs. The Joker",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T09:00:53.134069+00:00",
+    "retry_after": "2026-10-02T09:00:53.134086+00:00"
+  },
+  {
+    "name": "Black Panther Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T09:01:27.575344+00:00",
+    "retry_after": "2026-10-02T09:01:27.575360+00:00"
+  },
+  {
+    "name": "Sonic the Hedgehog",
+    "publisher": "IDW Publishing",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 109575,
+        "name": "Sonic the Hedgehog",
+        "publisher": "IDW Publishing",
+        "start_year": 2018
+      },
+      {
+        "id": 112927,
+        "name": "Sonic the Hedgehog",
+        "publisher": "IDW Publishing",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T09:02:29.714960+00:00",
+    "retry_after": "2026-10-02T09:02:29.714975+00:00"
   }
 ]

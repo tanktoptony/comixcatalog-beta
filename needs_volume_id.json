@@ -36456,5 +36456,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T00:01:58.194009+00:00",
     "retry_after": "2026-10-02T00:01:58.194027+00:00"
+  },
+  {
+    "name": "Batman: Detective Comics - The New 52 Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:23:53.182896+00:00",
+    "retry_after": "2026-10-02T00:23:53.182909+00:00"
+  },
+  {
+    "name": "I Hate Mondays",
+    "publisher": "Fawcett Comics",
+    "year": 1978,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:23:53.219157+00:00",
+    "retry_after": "2026-10-02T00:23:53.219167+00:00"
+  },
+  {
+    "name": "Superman Adventures Compendium",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:23:53.118331+00:00",
+    "retry_after": "2026-10-02T00:23:53.118345+00:00"
+  },
+  {
+    "name": "Supermansion",
+    "publisher": "Titan Comics",
+    "year": 2018,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 109794,
+        "name": "SuperMansion",
+        "publisher": "Titan Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 112827,
+        "name": "SuperMansion",
+        "publisher": "Titan Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:26:15.473676+00:00",
+    "retry_after": "2026-10-02T00:26:15.473691+00:00"
+  },
+  {
+    "name": "Space Family Robinson Lost in Space",
+    "publisher": "Gold Key",
+    "year": 1966,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:26:37.852102+00:00",
+    "retry_after": "2026-10-02T00:26:37.852119+00:00"
+  },
+  {
+    "name": "Blakes 7",
+    "publisher": "Marvel Comics",
+    "year": 1981,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:26:38.717023+00:00",
+    "retry_after": "2026-10-02T00:26:38.717040+00:00"
   }
 ]

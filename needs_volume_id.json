@@ -26565,9 +26565,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T23:46:42.035564+00:00",
-    "retry_after": "2026-09-30T23:46:42.035581+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-01T00:00:46.546581+00:00",
+    "retry_after": "2026-10-08T00:00:46.546599+00:00"
   },
   {
     "name": "Doctor Who 25th Anniversary Special",
@@ -34658,9 +34658,9 @@
         "start_year": 1986
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T21:01:53.977110+00:00",
-    "retry_after": "2026-09-30T21:01:53.977125+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T00:01:25.989020+00:00",
+    "retry_after": "2026-10-04T00:01:25.989036+00:00"
   },
   {
     "name": "Tales of the Witchblade Collected Editions",
@@ -34668,9 +34668,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T21:04:18.575424+00:00",
-    "retry_after": "2026-09-30T21:04:18.575440+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T00:01:26.429824+00:00",
+    "retry_after": "2026-10-04T00:01:26.429842+00:00"
   },
   {
     "name": "Disney-Pixar/Muppets Presents: Cars",
@@ -34685,9 +34685,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T22:03:32.442133+00:00",
-    "retry_after": "2026-09-30T22:03:32.442148+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T00:01:26.842509+00:00",
+    "retry_after": "2026-10-04T00:01:26.842526+00:00"
   },
   {
     "name": "Two-Gun Kid: Sunset Riders",
@@ -34695,9 +34695,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T23:01:03.098235+00:00",
-    "retry_after": "2026-09-30T23:01:03.098254+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T00:01:27.519685+00:00",
+    "retry_after": "2026-10-04T00:01:27.519703+00:00"
   },
   {
     "name": "Driving Mother Up the Wall",
@@ -34705,9 +34705,9 @@
     "year": 1979,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T23:01:28.753572+00:00",
-    "retry_after": "2026-09-30T23:01:28.753590+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T00:01:28.055776+00:00",
+    "retry_after": "2026-10-04T00:01:28.055794+00:00"
   },
   {
     "name": "Za Za the Mystic",
@@ -34715,9 +34715,9 @@
     "year": 1956,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T23:02:41.224938+00:00",
-    "retry_after": "2026-09-30T23:02:41.224957+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T00:01:28.664580+00:00",
+    "retry_after": "2026-10-04T00:01:28.664597+00:00"
   },
   {
     "name": "Grease Monkey",
@@ -34738,9 +34738,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T23:02:47.476258+00:00",
-    "retry_after": "2026-09-30T23:02:47.476276+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T00:01:29.308253+00:00",
+    "retry_after": "2026-10-04T00:01:29.308270+00:00"
   },
   {
     "name": "Fun with Peanuts",
@@ -34748,9 +34748,9 @@
     "year": 1963,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-29T23:02:47.858857+00:00",
-    "retry_after": "2026-09-30T23:02:47.858880+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T00:01:29.838852+00:00",
+    "retry_after": "2026-10-04T00:01:29.838870+00:00"
   },
   {
     "name": "X-Men: Grand Design - Second Genesis",
@@ -36396,5 +36396,65 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T23:02:43.045169+00:00",
     "retry_after": "2026-10-01T23:02:43.045187+00:00"
+  },
+  {
+    "name": "Ultimates Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:00:56.340240+00:00",
+    "retry_after": "2026-10-02T00:00:56.340256+00:00"
+  },
+  {
+    "name": "Amazing Spider-Man Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:00:48.560436+00:00",
+    "retry_after": "2026-10-02T00:00:48.560455+00:00"
+  },
+  {
+    "name": "The All-New, All-Different X-Men Masterworks",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:00:56.240838+00:00",
+    "retry_after": "2026-10-02T00:00:56.240856+00:00"
+  },
+  {
+    "name": "Alexandria Ocasio-Cortez and the Freshman Force Squad",
+    "publisher": "First Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:01:03.478425+00:00",
+    "retry_after": "2026-10-02T00:01:03.478442+00:00"
+  },
+  {
+    "name": "Locke & Key [Spanish Edition]",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:01:04.912870+00:00",
+    "retry_after": "2026-10-02T00:01:04.912887+00:00"
+  },
+  {
+    "name": "Naruto 3-in-1",
+    "publisher": "VIZ Media",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T00:01:58.194009+00:00",
+    "retry_after": "2026-10-02T00:01:58.194027+00:00"
   }
 ]

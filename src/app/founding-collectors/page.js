@@ -1,23 +1,23 @@
 import FoundingCollectorsClient from "@/components/FoundingCollectorsClient";
+import { getFoundingRemaining } from "@/lib/foundingStatus";
+import { getFoundingRoster } from "@/lib/foundingRoster";
 
-import { SITE_URL } from "@/lib/siteUrl";
+export const metadata = {
+  title: "Founding Collectors",
+  description:
+    "The first 100 collectors on ComixCatalog get Collector Pro for life, free, and a permanent place on the Roll of Honor.",
+};
 
-// Server-rendered for the same reason as the layout's FoundingBanner fetch
-// (see layout.js): fetch fresh per request (cache: "no-store") so the
-// headline number is correct on first paint instead of a hardcoded guess
-// that flashes to the real count once the client takes over.
-async function getInitialRemaining() {
-  try {
-    const res = await fetch(`${SITE_URL}/api/founding/status`, { cache: "no-store" });
-    if (!res.ok) return null;
-    const data = await res.json();
-    return Number.isFinite(data?.remaining) ? data.remaining : null;
-  } catch {
-    return null;
-  }
-}
-
+// The count and the Roll of Honor are server-rendered (both cached a
+// minute) so the page is right on first paint; the client refreshes the
+// count and handles claiming.
 export default async function FoundingCollectorsPage() {
-  const initialRemaining = await getInitialRemaining();
-  return <FoundingCollectorsClient initialRemaining={initialRemaining} />;
+  const [initialRemaining, roster] = await Promise.all([
+    getFoundingRemaining(),
+    getFoundingRoster().catch((err) => {
+      console.error("founding roster failed:", err);
+      return [];
+    }),
+  ]);
+  return <FoundingCollectorsClient initialRemaining={initialRemaining} roster={roster} />;
 }

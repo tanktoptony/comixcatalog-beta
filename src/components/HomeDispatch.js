@@ -85,7 +85,7 @@ export default function HomeDispatch({ newCovers, feed = [], ctaHref, ctaLabel, 
 
         <aside className="dispatch-note" aria-label="A note from the founder">
           <p className="dispatch-note-kicker">Who we are</p>
-          <h3 className="dispatch-note-title">Hey, I&rsquo;m Anthony.</h3>
+          <h3 className="dispatch-note-title">Hey, I&rsquo;m Tony.</h3>
           <p>
             I fell for X-Men at eight years old in Chicagoland, drifted away
             like a lot of us do, and came back years later when a guy at

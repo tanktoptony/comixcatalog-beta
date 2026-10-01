@@ -35241,9 +35241,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T10:01:24.782231+00:00",
-    "retry_after": "2026-10-01T10:01:24.782247+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T11:00:51.632493+00:00",
+    "retry_after": "2026-10-04T11:00:51.632510+00:00"
   },
   {
     "name": "Paul Kupperberg's Secret Romances",
@@ -35251,9 +35251,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T10:01:52.617478+00:00",
-    "retry_after": "2026-10-01T10:01:52.617496+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T11:00:52.141467+00:00",
+    "retry_after": "2026-10-04T11:00:52.141486+00:00"
   },
   {
     "name": "Chobits",
@@ -37696,5 +37696,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T10:03:23.809265+00:00",
     "retry_after": "2026-10-02T10:03:23.809280+00:00"
+  },
+  {
+    "name": "Image Firsts: The Nightly News",
+    "publisher": "Image Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T11:00:51.203119+00:00",
+    "retry_after": "2026-10-02T11:00:51.203138+00:00"
+  },
+  {
+    "name": "Danger Doll: Amalgama Lives",
+    "publisher": "Action Lab Entertainment",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T11:00:51.154589+00:00",
+    "retry_after": "2026-10-02T11:00:51.154606+00:00"
+  },
+  {
+    "name": "Batman and the Justice League: Outbreak (Wal-Mart Edition)",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T11:00:51.105291+00:00",
+    "retry_after": "2026-10-02T11:00:51.105310+00:00"
+  },
+  {
+    "name": "Magnus Robot Fighter / Nexus",
+    "publisher": "Dark Horse Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T11:01:23.004709+00:00",
+    "retry_after": "2026-10-02T11:01:23.004727+00:00"
+  },
+  {
+    "name": "Just Wait Till You Have Children of Your Own!",
+    "publisher": "Fawcett Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T11:01:53.094304+00:00",
+    "retry_after": "2026-10-02T11:01:53.094323+00:00"
+  },
+  {
+    "name": "The Flintstones",
+    "publisher": "Charlton Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 26899,
+        "name": "The Flintstones",
+        "publisher": "Charlton",
+        "start_year": 1970
+      },
+      {
+        "id": 35709,
+        "name": "The Flintstones",
+        "publisher": "Charlton",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T11:02:37.500447+00:00",
+    "retry_after": "2026-10-02T11:02:37.500465+00:00"
   }
 ]

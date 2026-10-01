@@ -35757,9 +35757,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T20:02:45.489106+00:00",
-    "retry_after": "2026-10-01T20:02:45.489126+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T20:09:45.239529+00:00",
+    "retry_after": "2026-10-04T20:09:45.239547+00:00"
   },
   {
     "name": "Marvel Adventures Super Heroes #1 Custom Comic",
@@ -37977,5 +37977,52 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T20:02:05.734550+00:00",
     "retry_after": "2026-10-02T20:02:05.734566+00:00"
+  },
+  {
+    "name": "Astonishing X-Men by Joss Whedon & John Cassaday Ultimate Collection",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T20:11:09.809714+00:00",
+    "retry_after": "2026-10-02T20:11:09.809735+00:00"
+  },
+  {
+    "name": "Janus: PSI Division",
+    "publisher": "Rebellion",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T20:11:24.165776+00:00",
+    "retry_after": "2026-10-02T20:11:24.165795+00:00"
+  },
+  {
+    "name": "The Passion of Gengoroh Tagame: Master of Gay Erotic Manga",
+    "publisher": "Fantagraphics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60310,
+        "name": "The Passion of Gengoroh Tagame: Master of Gay Erotic Manga",
+        "publisher": "Picturebox",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T20:12:08.077974+00:00",
+    "retry_after": "2026-10-02T20:12:08.077993+00:00"
+  },
+  {
+    "name": "Convergence Worlds' Finest",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T20:12:35.575870+00:00",
+    "retry_after": "2026-10-02T20:12:35.575891+00:00"
   }
 ]

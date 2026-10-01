@@ -48,7 +48,12 @@ function parseLibraryInput(input) {
 
 export function LibraryProvider({ children }) {
   const { user, loading: authLoading } = useAuth();
+  const authSettled = Boolean(user?.id) || !authLoading;
   const [collections, setCollections] = useState([]);
+  // Whose list `collections` currently holds. Set in the same batch as
+  // every wholesale load, so the browser-cache write below can never save
+  // one account's books under another account's key mid-switch.
+  const [collectionsOwner, setCollectionsOwner] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(null);
 
@@ -58,6 +63,7 @@ export function LibraryProvider({ children }) {
   async function refreshLibrary({ background = false } = {}) {
     if (!user?.id) {
       setCollections([]);
+      setCollectionsOwner(null);
       setLoading(false);
       setLoadError(null);
       return;
@@ -99,15 +105,18 @@ export function LibraryProvider({ children }) {
         });
         if (background) return;
         setCollections([]);
+        setCollectionsOwner(null);
         setLoadError(error.message || "Failed to load library");
         return;
       }
 
       setCollections(data ?? []);
+      setCollectionsOwner(user.id);
     } catch (err) {
       console.error("refreshLibrary crashed:", err);
       if (background) return;
       setCollections([]);
+      setCollectionsOwner(null);
       setLoadError(err?.message || "Failed to load library");
     } finally {
       setLoading(false);
@@ -127,7 +136,10 @@ export function LibraryProvider({ children }) {
     // and refreshes it in the background, instead of a blank "Loading…" on
     // every visit. Signing out wipes those copies, so a shared computer
     // never shows the next person someone else's collection.
-    if (authLoading) return;
+    // Wait only until we know who (if anyone) is signed in. AuthContext
+    // keeps `loading` true until the profile row also loads; the library
+    // does not need it, so a known user id is enough to start.
+    if (!authSettled) return;
     if (!user?.id) {
       clearLocalPrefix("library:");
       clearLocalPrefix("hydrate:");
@@ -136,21 +148,23 @@ export function LibraryProvider({ children }) {
     if (Array.isArray(cached)) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setCollections(cached);
+      setCollectionsOwner(user.id);
       setLoading(false);
       refreshLibrary({ background: true });
       return;
     }
     setCollections([]);
+    setCollectionsOwner(null);
     setLoading(true);
     refreshLibrary();
-  }, [user?.id, authLoading]);
+  }, [user?.id, authSettled]);
 
   // Keep the browser copy current with every change: the server refresh,
   // realtime updates, and optimistic adds/removes alike.
   useEffect(() => {
-    if (!user?.id || loading) return;
+    if (!user?.id || loading || collectionsOwner !== user.id) return;
     writeLocal(`library:${user.id}`, collections);
-  }, [collections, loading, user?.id]);
+  }, [collections, collectionsOwner, loading, user?.id]);
 
   useEffect(() => {
     if (!user?.id) return;

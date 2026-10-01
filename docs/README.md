@@ -39,6 +39,7 @@ These describe work that's still in progress or planned, each with its own statu
 - [instagram-bot-plan.md](instagram-bot-plan.md) — automation is live (`.github/workflows/instagram-post.yml`); doc may lag the shipped state.
 - [stripe-testing-guide.md](stripe-testing-guide.md) — manual QA checklist for the Pro subscription flow. Should be re-walked as part of the "Payment lifecycle tests" launch gate.
 - [unify-library-profile.md](unify-library-profile.md) — labeled "design" status as of June 2026; verify against current `/library` and `/u/[username]` code before treating any of it as done.
+- [marketplace-v2-build-brief.md](marketplace-v2-build-brief.md) — **current marketplace plan (2026-10-01).** Implementing-agent brief for taking the live v1 beta to a first-class listings model, Discogs-style photos, abuse-proof messaging/offers, and Stripe Connect checkout. Supersedes the mechanics sections of the launch spec below.
 - [marketplace-launch-spec.md](marketplace-launch-spec.md) — **post-launch scope.** Targets a later phase per CLAUDE.md. Not a near-term launch dependency — see LAUNCH_CHECKLIST.md's out-of-scope section.
 
 ## Operations

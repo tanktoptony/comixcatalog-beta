@@ -35379,9 +35379,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T12:01:20.591089+00:00",
-    "retry_after": "2026-10-01T12:01:20.591103+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T13:00:49.267033+00:00",
+    "retry_after": "2026-10-04T13:00:49.267048+00:00"
   },
   {
     "name": "Dennis the Menace - Busybody",
@@ -35389,9 +35389,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T12:01:45.859475+00:00",
-    "retry_after": "2026-10-01T12:01:45.859490+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T13:00:49.684383+00:00",
+    "retry_after": "2026-10-04T13:00:49.684399+00:00"
   },
   {
     "name": "Web Warriors of the Spider-Verse",
@@ -37799,5 +37799,75 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T12:00:51.326655+00:00",
     "retry_after": "2026-10-02T12:00:51.326671+00:00"
+  },
+  {
+    "name": "Sonic #138",
+    "publisher": "Archie Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T13:00:41.315708+00:00",
+    "retry_after": "2026-10-02T13:00:41.315725+00:00"
+  },
+  {
+    "name": "Doctor Strange: Master of the Mystic Arts Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T13:00:46.956186+00:00",
+    "retry_after": "2026-10-02T13:00:46.956201+00:00"
+  },
+  {
+    "name": "G.I. Joe: The Best of Snake Eyes",
+    "publisher": "IDW Publishing",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T13:00:47.248866+00:00",
+    "retry_after": "2026-10-02T13:00:47.248883+00:00"
+  },
+  {
+    "name": "V2K Preview",
+    "publisher": "DC Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T13:00:48.782803+00:00",
+    "retry_after": "2026-10-02T13:00:48.782819+00:00"
+  },
+  {
+    "name": "True Believers: Fantastic Four - Molecule Man",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T13:00:48.844628+00:00",
+    "retry_after": "2026-10-02T13:00:48.844644+00:00"
+  },
+  {
+    "name": "DC Silent Tales",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T13:00:48.888516+00:00",
+    "retry_after": "2026-10-02T13:00:48.888533+00:00"
+  },
+  {
+    "name": "Ma tante ador�e",
+    "publisher": "Dynamite Entertainment",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T13:00:55.481570+00:00",
+    "retry_after": "2026-10-02T13:00:55.481587+00:00"
   }
 ]

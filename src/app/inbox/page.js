@@ -8,6 +8,7 @@
 // `select *` already safe (you can only see rows you sent or received).
 
 import { useEffect, useMemo, useState } from "react";
+import { inboxCache } from "@/lib/inboxCache";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
@@ -32,13 +33,16 @@ function formatTimeAgo(iso) {
 export default function InboxPage() {
   const router = useRouter();
   const { user, loading: authLoading } = useAuth();
-  const [threads, setThreads] = useState(null);
+  // Last copy from this tab (src/lib/inboxCache.js) renders immediately;
+  // the effect below refreshes it.
+  const [threads, setThreads] = useState(() => (user ? inboxCache(user.id).threads : null));
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (authLoading) return;
+    // Start as soon as we know who's signed in; AuthContext keeps `loading`
+    // true until the profile row loads too, which the inbox doesn't need.
     if (!user) {
-      router.replace("/login");
+      if (!authLoading) router.replace("/login");
       return;
     }
 
@@ -117,6 +121,12 @@ export default function InboxPage() {
             new Date(a.lastMessage.created_at).getTime()
         );
 
+      const cache = inboxCache(user.id);
+      cache.threads = list;
+      // Prime thread pages so opening a conversation skips the profile lookup.
+      for (const t of list) {
+        if (t.profile?.username) cache.profiles.set(t.profile.username, t.profile);
+      }
       setThreads(list);
     }
 
@@ -126,7 +136,7 @@ export default function InboxPage() {
     };
   }, [user, authLoading, router]);
 
-  if (authLoading || threads === null) {
+  if ((!user && authLoading) || threads === null) {
     return (
       <section className="comic-panel">
         <h1 className="hero-title">Inbox</h1>

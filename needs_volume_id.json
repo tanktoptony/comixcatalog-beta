@@ -35270,9 +35270,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T15:02:35.909955+00:00",
-    "retry_after": "2026-10-01T15:02:35.909970+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T16:08:38.579435+00:00",
+    "retry_after": "2026-10-04T16:08:38.579453+00:00"
   },
   {
     "name": "Star Blazers 2199 Omnibus",
@@ -35280,9 +35280,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T15:02:36.826804+00:00",
-    "retry_after": "2026-10-01T15:02:36.826820+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T16:08:39.785854+00:00",
+    "retry_after": "2026-10-04T16:08:39.785872+00:00"
   },
   {
     "name": "Thunderbolts by Warren Ellis",
@@ -37796,5 +37796,270 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T15:05:44.413534+00:00",
     "retry_after": "2026-10-02T15:05:44.413552+00:00"
+  },
+  {
+    "name": "Dork Tower",
+    "publisher": "Corsair Publishing",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29767,
+        "name": "Dork Tower",
+        "publisher": "Dork Storm",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:00:48.196804+00:00",
+    "retry_after": "2026-10-02T16:00:48.196821+00:00"
+  },
+  {
+    "name": "Dork Tower",
+    "publisher": "Dork Storm Press",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29767,
+        "name": "Dork Tower",
+        "publisher": "Dork Storm",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:00:48.270375+00:00",
+    "retry_after": "2026-10-02T16:00:48.270391+00:00"
+  },
+  {
+    "name": "Dork House Comics",
+    "publisher": "Parody Press",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62417,
+        "name": "Dork House Comics",
+        "publisher": "Express Publications",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:00:49.980434+00:00",
+    "retry_after": "2026-10-02T16:00:49.980451+00:00"
+  },
+  {
+    "name": "Betty and Veronica: Summer Fun in the Sun",
+    "publisher": "Archie Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:26.228808+00:00",
+    "retry_after": "2026-10-02T16:08:26.228823+00:00"
+  },
+  {
+    "name": "Suite 121",
+    "publisher": "Dynamite Entertainment",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 91566,
+        "name": "Suite 121",
+        "publisher": "Dynamite (France)",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:26.145531+00:00",
+    "retry_after": "2026-10-02T16:08:26.145546+00:00"
+  },
+  {
+    "name": "Knights of the Jaguar: A Tale from the Legend of Diablo",
+    "publisher": "Top Cow Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24198,
+        "name": "Knights of the Jaguar: A Tale from the Legend of Diablo",
+        "publisher": "Image",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:32.115679+00:00",
+    "retry_after": "2026-10-02T16:08:32.115696+00:00"
+  },
+  {
+    "name": "UFO Encounters",
+    "publisher": "Gold Key",
+    "year": 1978,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 80495,
+        "name": "UFO Encounters",
+        "publisher": "Golden Press",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:32.644888+00:00",
+    "retry_after": "2026-10-02T16:08:32.644904+00:00"
+  },
+  {
+    "name": "The Adventures of Kool-Aid Man",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61157,
+        "name": "The Adventures of Kool-Aid Man",
+        "publisher": "Archie Comics",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:33.744058+00:00",
+    "retry_after": "2026-10-02T16:08:33.744075+00:00"
+  },
+  {
+    "name": "Tigers of Terra: Families of Altered Wars",
+    "publisher": "Antarctic Press",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24948,
+        "name": "Tigers of Terra: Families of Altered Wars",
+        "publisher": "Mind Visions",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:34.311567+00:00",
+    "retry_after": "2026-10-02T16:08:34.311583+00:00"
+  },
+  {
+    "name": "Phantom Force",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10823,
+        "name": "Phantom Force",
+        "publisher": "Genesis West",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:34.787766+00:00",
+    "retry_after": "2026-10-02T16:08:34.787784+00:00"
+  },
+  {
+    "name": "La voie de Laura",
+    "publisher": "Dynamite Entertainment",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142131,
+        "name": "La Voie de Laura",
+        "publisher": "Dynamite (France)",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:35.292202+00:00",
+    "retry_after": "2026-10-02T16:08:35.292251+00:00"
+  },
+  {
+    "name": "Prime Slime Tales",
+    "publisher": "Now Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24339,
+        "name": "Prime Slime Tales",
+        "publisher": "Mirage",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:35.799663+00:00",
+    "retry_after": "2026-10-02T16:08:35.799682+00:00"
+  },
+  {
+    "name": "Disney-Pixar/Muppets Presents: Cars",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55684,
+        "name": "Disney-Pixar/Muppets Presents: Cars",
+        "publisher": "Disney",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:36.948873+00:00",
+    "retry_after": "2026-10-02T16:08:36.948890+00:00"
+  },
+  {
+    "name": "Iron Wings",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63087,
+        "name": "Iron Wings",
+        "publisher": "Action Press",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:37.344259+00:00",
+    "retry_after": "2026-10-02T16:08:37.344278+00:00"
+  },
+  {
+    "name": "Windmaker",
+    "publisher": "Dark Horse Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142606,
+        "name": "Windmaker",
+        "publisher": "YouNeek Studios",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:38.141956+00:00",
+    "retry_after": "2026-10-02T16:08:38.141974+00:00"
+  },
+  {
+    "name": "Demi-God",
+    "publisher": "IDW Publishing",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109569,
+        "name": "Demi-God",
+        "publisher": "Ominous Press",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T16:08:39.363750+00:00",
+    "retry_after": "2026-10-02T16:08:39.363767+00:00"
   }
 ]

@@ -34990,9 +34990,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T04:02:35.955364+00:00",
-    "retry_after": "2026-10-01T04:02:35.955380+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T05:00:38.588460+00:00",
+    "retry_after": "2026-10-04T05:00:38.588479+00:00"
   },
   {
     "name": "Defenders",
@@ -36829,5 +36829,163 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T04:01:07.943795+00:00",
     "retry_after": "2026-10-02T04:01:07.943811+00:00"
+  },
+  {
+    "name": "Ultimate Fantastic Four Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T05:00:37.194106+00:00",
+    "retry_after": "2026-10-02T05:00:37.194122+00:00"
+  },
+  {
+    "name": "Earth-Prime: Superman & Lois",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T05:00:36.608393+00:00",
+    "retry_after": "2026-10-02T05:00:36.608412+00:00"
+  },
+  {
+    "name": "Fantastic Four MGC",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T05:00:37.104685+00:00",
+    "retry_after": "2026-10-02T05:00:37.104704+00:00"
+  },
+  {
+    "name": "Codename G.I. Joe Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T05:00:37.732825+00:00",
+    "retry_after": "2026-10-02T05:00:37.732843+00:00"
+  },
+  {
+    "name": "Ether",
+    "publisher": "Dark Horse Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 110914,
+        "name": "Ether",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 95727,
+        "name": "Ether",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T05:00:39.209541+00:00",
+    "retry_after": "2026-10-02T05:00:39.209560+00:00"
+  },
+  {
+    "name": "Star Wars Adventures",
+    "publisher": "IDW Publishing",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 104029,
+        "name": "Star Wars Adventures",
+        "publisher": "IDW Publishing",
+        "start_year": 2017
+      },
+      {
+        "id": 130972,
+        "name": "Star Wars Adventures",
+        "publisher": "IDW Publishing",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T05:00:52.122675+00:00",
+    "retry_after": "2026-10-02T05:00:52.122693+00:00"
+  },
+  {
+    "name": "Captain America Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T05:00:52.690951+00:00",
+    "retry_after": "2026-10-02T05:00:52.690969+00:00"
+  },
+  {
+    "name": "Batman: Hush",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 35076,
+        "name": "Batman: Hush",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 27384,
+        "name": "Batman: Hush",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T05:00:53.202503+00:00",
+    "retry_after": "2026-10-02T05:00:53.202521+00:00"
+  },
+  {
+    "name": "Divinity",
+    "publisher": "Valiant Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 79993,
+        "name": "Divinity",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2015
+      },
+      {
+        "id": 103511,
+        "name": "Divinity",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2017
+      },
+      {
+        "id": 83303,
+        "name": "Divinity",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T05:00:53.596409+00:00",
+    "retry_after": "2026-10-02T05:00:53.596427+00:00"
+  },
+  {
+    "name": "X-Force by Craig Kyle & Chris Yost: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T05:02:10.246768+00:00",
+    "retry_after": "2026-10-02T05:02:10.246787+00:00"
   }
 ]

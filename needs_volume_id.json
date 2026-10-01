@@ -35038,8 +35038,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-01T06:56:09.515135+00:00",
-    "retry_after": "2026-10-04T06:56:09.515150+00:00"
+    "last_attempt_at": "2026-10-01T07:07:08.215273+00:00",
+    "retry_after": "2026-10-04T07:07:08.215290+00:00"
   },
   {
     "name": "Alisik",
@@ -35060,9 +35060,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T07:00:46.891686+00:00",
-    "retry_after": "2026-10-01T07:00:46.891701+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T07:07:08.607425+00:00",
+    "retry_after": "2026-10-04T07:07:08.607441+00:00"
   },
   {
     "name": "Cookie and the Kid",
@@ -35083,9 +35083,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T07:00:47.765384+00:00",
-    "retry_after": "2026-10-01T07:00:47.765398+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T07:07:09.787765+00:00",
+    "retry_after": "2026-10-04T07:07:09.787783+00:00"
   },
   {
     "name": "Ruthless Render",
@@ -35093,9 +35093,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T07:01:33.569055+00:00",
-    "retry_after": "2026-10-01T07:01:33.569070+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T07:07:10.346317+00:00",
+    "retry_after": "2026-10-04T07:07:10.346334+00:00"
   },
   {
     "name": "Deathstroke Inc.",
@@ -35116,9 +35116,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T07:02:25.390247+00:00",
-    "retry_after": "2026-10-01T07:02:25.390261+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T07:07:11.003024+00:00",
+    "retry_after": "2026-10-04T07:07:11.003043+00:00"
   },
   {
     "name": "Sneak Preview",
@@ -35126,9 +35126,9 @@
     "year": 1988,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T07:02:31.391854+00:00",
-    "retry_after": "2026-10-01T07:02:31.391869+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T07:07:11.505336+00:00",
+    "retry_after": "2026-10-04T07:07:11.505355+00:00"
   },
   {
     "name": "Windmaker",
@@ -37235,8 +37235,18 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-01T06:56:08.751228+00:00",
-    "retry_after": "2026-10-02T06:56:08.751241+00:00"
+    "last_attempt_at": "2026-10-01T07:07:08.037364+00:00",
+    "retry_after": "2026-10-02T07:07:08.037381+00:00"
+  },
+  {
+    "name": "When's Later, Daddy?",
+    "publisher": "Fawcett Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T07:07:07.933092+00:00",
+    "retry_after": "2026-10-02T07:07:07.933112+00:00"
   },
   {
     "name": "Supergirl",
@@ -37306,8 +37316,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-01T06:56:09.992414+00:00",
-    "retry_after": "2026-10-02T06:56:09.992429+00:00"
+    "last_attempt_at": "2026-10-01T07:07:11.641902+00:00",
+    "retry_after": "2026-10-02T07:07:11.641919+00:00"
   },
   {
     "name": "Legion of Super-Heroes",
@@ -37371,8 +37381,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-01T06:56:10.475443+00:00",
-    "retry_after": "2026-10-02T06:56:10.475477+00:00"
+    "last_attempt_at": "2026-10-01T07:07:11.751521+00:00",
+    "retry_after": "2026-10-02T07:07:11.751538+00:00"
   },
   {
     "name": "Ala Ka Zot!",
@@ -37381,8 +37391,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-01T06:56:10.998204+00:00",
-    "retry_after": "2026-10-02T06:56:10.998220+00:00"
+    "last_attempt_at": "2026-10-01T07:07:11.948915+00:00",
+    "retry_after": "2026-10-02T07:07:11.948933+00:00"
   },
   {
     "name": "Fairy Quest: Outlaws",
@@ -37404,17 +37414,17 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-01T06:57:20.391255+00:00",
-    "retry_after": "2026-10-02T06:57:20.391270+00:00"
+    "last_attempt_at": "2026-10-01T07:07:56.205770+00:00",
+    "retry_after": "2026-10-02T07:07:56.205788+00:00"
   },
   {
-    "name": "Thunderbolts by Warren Ellis",
+    "name": "The Empire Strikes Back Weekly",
     "publisher": "Marvel Comics",
-    "year": 2007,
+    "year": 1980,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-01T06:58:19.060313+00:00",
-    "retry_after": "2026-10-02T06:58:19.060328+00:00"
+    "last_attempt_at": "2026-10-01T07:08:01.401206+00:00",
+    "retry_after": "2026-10-02T07:08:01.401224+00:00"
   }
 ]

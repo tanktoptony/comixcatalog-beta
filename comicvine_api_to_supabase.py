@@ -1003,7 +1003,47 @@ def upload_cover_thumb(storage_path: str, content: bytes) -> None:
         print(f"    thumb build failed: {e}")
 
 
+# Stored originals are capped to this height. ComicVine originals run up to
+# 13 MB; file storage hit 150 GB of the plan's 100 GB (2026-10-01) mostly from
+# them. 1600 px is still sharper than any page or video render uses. Same
+# rule scripts/shrinkCoverStorage.js applied to the existing bucket.
+MAX_COVER_HEIGHT = 1600
+SHRINK_ABOVE_BYTES = 1_000_000
+
+
+def shrink_cover_bytes(content: bytes, content_type: str) -> bytes:
+    """Re-encode a large cover at MAX_COVER_HEIGHT in the same format.
+    Best effort: anything that can't be decoded, isn't large, or wouldn't
+    get at least 20% smaller is returned unchanged."""
+    if len(content) < SHRINK_ABOVE_BYTES or content_type == "image/gif":
+        return content
+    try:
+        from io import BytesIO
+        from PIL import Image, ImageOps
+    except ImportError:
+        return content
+    try:
+        img = ImageOps.exif_transpose(Image.open(BytesIO(content)))
+        if img.height > MAX_COVER_HEIGHT:
+            img = img.resize((round(img.width * MAX_COVER_HEIGHT / img.height), MAX_COVER_HEIGHT), Image.LANCZOS)
+        out = BytesIO()
+        if content_type == "image/png":
+            img.save(out, "PNG", optimize=True)
+        elif content_type == "image/webp":
+            img.save(out, "WEBP", quality=85, method=4)
+        else:
+            if img.mode not in ("RGB", "L"):
+                img = img.convert("RGB")
+            img.save(out, "JPEG", quality=85, optimize=True, progressive=True)
+        smaller = out.getvalue()
+        return smaller if len(smaller) <= len(content) * 0.8 else content
+    except Exception as e:
+        print(f"    cover shrink skipped: {e}")
+        return content
+
+
 def upload_to_supabase_storage(storage_path: str, content: bytes, content_type: str) -> None:
+    content = shrink_cover_bytes(content, content_type)
     upload_url = f"{SUPABASE_URL}/storage/v1/object/{SUPABASE_BUCKET}/{storage_path}"
     headers = {
         "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",

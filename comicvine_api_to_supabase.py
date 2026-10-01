@@ -957,17 +957,68 @@ def guess_content_type(ext: str) -> str:
     return "image/jpeg"
 
 
+# Small WebP copy of every cover for grids and search (src/lib/coverThumb.js).
+# Same layout scripts/buildCoverThumbs.js backfills: w400/<storage_path>.webp
+# in the public cover-thumbs bucket. Must match THUMB_WIDTH there.
+THUMB_BUCKET = "cover-thumbs"
+THUMB_WIDTH = 400
+_thumb_warning_shown = False
+
+
+def upload_cover_thumb(storage_path: str, content: bytes) -> None:
+    """Best effort: a failed thumb never fails the ingest. The site falls back
+    to the original for any cover without one (CoverThumbFallback.js)."""
+    global _thumb_warning_shown
+    try:
+        from io import BytesIO
+        from PIL import Image, ImageOps
+    except ImportError:
+        if not _thumb_warning_shown:
+            print("    (Pillow not installed; skipping cover thumbs)")
+            _thumb_warning_shown = True
+        return
+    try:
+        img = ImageOps.exif_transpose(Image.open(BytesIO(content)))
+        if img.mode not in ("RGB", "RGBA"):
+            img = img.convert("RGB")
+        if img.width > THUMB_WIDTH:
+            img = img.resize((THUMB_WIDTH, round(img.height * THUMB_WIDTH / img.width)), Image.LANCZOS)
+        out = BytesIO()
+        img.save(out, "WEBP", quality=72, method=4)
+        resp = requests.post(
+            f"{SUPABASE_URL}/storage/v1/object/{THUMB_BUCKET}/w{THUMB_WIDTH}/{storage_path}.webp",
+            headers={
+                "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+                "apikey": SUPABASE_SERVICE_ROLE_KEY,
+                "Content-Type": "image/webp",
+                "cache-control": "max-age=31536000",
+                "x-upsert": "true",
+            },
+            data=out.getvalue(),
+            timeout=60,
+        )
+        if resp.status_code not in (200, 201):
+            print(f"    thumb upload failed: {resp.status_code} {resp.text[:200]}")
+    except Exception as e:
+        print(f"    thumb build failed: {e}")
+
+
 def upload_to_supabase_storage(storage_path: str, content: bytes, content_type: str) -> None:
     upload_url = f"{SUPABASE_URL}/storage/v1/object/{SUPABASE_BUCKET}/{storage_path}"
     headers = {
         "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
         "apikey": SUPABASE_SERVICE_ROLE_KEY,
         "Content-Type": content_type,
+        # Without this Supabase serves every cover as no-cache, so each page
+        # view re-downloaded multi-MB originals. 30 days, not a year: these
+        # paths are upserted and an original can be replaced in place.
+        "cache-control": "max-age=2592000",
         "x-upsert": "true",
     }
     resp = requests.post(upload_url, headers=headers, data=content, timeout=120)
     if resp.status_code not in (200, 201):
         raise RuntimeError(f"Storage upload failed: {resp.status_code} {resp.text}")
+    upload_cover_thumb(storage_path, content)
 
 
 def _escape_ilike(value: str) -> str:

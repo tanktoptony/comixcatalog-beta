@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
+import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -397,7 +398,7 @@ export async function GET(req) {
       };
     });
 
-    return NextResponse.json({ comics });
+    return NextResponse.json({ comics }, { headers: CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/search/comics crashed:", err);
     return NextResponse.json({ comics: [] });

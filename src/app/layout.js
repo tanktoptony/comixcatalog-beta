@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FoundingBanner from "../components/FoundingBanner";
 import OnboardingModal from "../components/OnboardingModal";
+import CoverThumbFallback from "../components/CoverThumbFallback";
 import { LibraryProvider } from "../context/LibraryContext";
 import { AuthProvider } from "../context/AuthContext";
 import { SearchQueryProvider } from "../context/SearchQueryContext";
@@ -140,6 +141,7 @@ export default async function RootLayout({ children }) {
             </Script>
           </>
         )}
+        <CoverThumbFallback />
         <AuthProvider>
           <LibraryProvider>
             <SearchQueryProvider>

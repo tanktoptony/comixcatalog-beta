@@ -10,6 +10,7 @@ import EmptyState from "@/components/EmptyState";
 import { trackEvent } from "@/lib/analytics";
 import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
+import { coverThumb } from "@/lib/coverThumb";
 
 const PAGE_SIZE = 36;
 
@@ -343,7 +344,7 @@ export default function SearchPageClient() {
                         <div className="comic-card-cover">
                           {s.cover && (
                             // eslint-disable-next-line @next/next/no-img-element
-                            <img src={s.cover} alt={s.title || ""} />
+                            <img src={coverThumb(s.cover)} alt={s.title || ""} />
                           )}
                         </div>
                         <div className="comic-card-title">
@@ -471,7 +472,7 @@ export default function SearchPageClient() {
                 >
                   <div className="comic-card-cover">
                     <img
-                      src={coverSrc}
+                      src={coverThumb(coverSrc)}
                       alt={item.title || "Comic cover"}
                       loading="lazy"
                       onError={(e) => {

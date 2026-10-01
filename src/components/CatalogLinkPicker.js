@@ -24,6 +24,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
+import { coverThumb } from "@/lib/coverThumb";
 
 export default function CatalogLinkPicker({
   entry, // {collection_id, comic: {series_title, issue_number, release_year}, candidates? }
@@ -329,7 +330,7 @@ export default function CatalogLinkPicker({
                         {s.sample_cover_url ? (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img
-                            src={s.sample_cover_url}
+                            src={coverThumb(s.sample_cover_url)}
                             alt=""
                             style={{ width: "100%", height: "100%", objectFit: "cover" }}
                           />
@@ -480,7 +481,7 @@ export default function CatalogLinkPicker({
                       {i.cover_url ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          src={i.cover_url}
+                          src={coverThumb(i.cover_url)}
                           alt=""
                           style={{ width: "100%", height: "100%", objectFit: "cover" }}
                         />

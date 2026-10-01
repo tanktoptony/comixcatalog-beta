@@ -16,6 +16,7 @@ import CatalogLinkPicker from "@/components/CatalogLinkPicker";
 import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
+import { coverThumb } from "@/lib/coverThumb";
 
 // Module-scoped so it survives across component re-mounts within a tab
 // (see the user-change-clear logic below for why that's usually right).
@@ -1820,7 +1821,7 @@ function LibraryPageContent() {
                   >
                     <Link href={getLibraryHref(item, comic)} className="library-list-cover">
                       <img
-                        src={displayCover}
+                        src={coverThumb(displayCover)}
                         alt={comic.title}
                         loading="lazy"
                       />
@@ -2061,7 +2062,7 @@ function LibraryPageContent() {
                       >
                         <div className="series-row-thumb">
                           {g.cover ? (
-                            <img src={g.cover} alt="" loading="lazy" />
+                            <img src={coverThumb(g.cover)} alt="" loading="lazy" />
                           ) : (
                             <div className="series-row-thumb-empty" />
                           )}
@@ -2113,7 +2114,7 @@ function LibraryPageContent() {
                                 className="library-list-row"
                               >
                                 <Link href={getLibraryHref(item, comic)} className="library-list-cover">
-                                  <img src={displayCover} alt={comic.title} loading="lazy" />
+                                  <img src={coverThumb(displayCover)} alt={comic.title} loading="lazy" />
                                 </Link>
                                 <div className="library-list-main">
                                   <Link href={getLibraryHref(item, comic)} className="library-list-title">
@@ -2202,7 +2203,7 @@ function LibraryPageContent() {
                     <Link href={getLibraryHref(item, comic)} className="card-link">
                       <div className="comic-card-cover">
                         <img
-                          src={displayCover}
+                          src={coverThumb(displayCover)}
                           alt={comic.title}
                           loading="lazy"
                         />

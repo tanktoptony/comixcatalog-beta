@@ -9,6 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 import { SIGNUP_HREF as START_SIGNUP_HREF } from "@/app/start/StartClient";
 import { useSearchQuery } from "@/context/SearchQueryContext";
 import { useUnreadMessageCount } from "@/hooks/useUnreadMessageCount";
+import { coverThumb } from "@/lib/coverThumb";
 
 function resolveCoverUrl(rawCover) {
   if (!rawCover) return null;
@@ -424,7 +425,7 @@ export default function Header() {
                                 {series.cover ? (
                                   // eslint-disable-next-line @next/next/no-img-element
                                   <img
-                                    src={series.cover}
+                                    src={coverThumb(series.cover)}
                                     alt=""
                                     loading="lazy"
                                     onError={(e) => {
@@ -494,7 +495,7 @@ export default function Header() {
                         <span className="header-search-thumb">
                           {comic.cover ? (
                             <img
-                              src={comic.cover}
+                              src={coverThumb(comic.cover)}
                               alt=""
                               loading="lazy"
                               onError={(e) => {

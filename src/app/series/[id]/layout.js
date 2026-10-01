@@ -1,15 +1,13 @@
 import { SITE_URL } from "@/lib/siteUrl";
+import { getSeriesData } from "@/lib/pageData";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
 
   try {
-    const res = await fetch(`${SITE_URL}/api/series/${id}`, {
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) throw new Error("series fetch failed");
-    const data = await res.json();
-    const series = data?.series;
+    // Same cached read the page itself renders from (src/lib/pageData.js),
+    // instead of a separate HTTP round trip to our own API.
+    const series = await getSeriesData(id);
     if (!series) throw new Error("no series");
 
     const yearRange =

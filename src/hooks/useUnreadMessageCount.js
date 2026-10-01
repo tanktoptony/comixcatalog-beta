@@ -13,10 +13,7 @@ export function useUnreadMessageCount() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!user) {
-      setCount(0);
-      return;
-    }
+    if (!user) return;
 
     const supabase = getSupabaseClient();
     let cancelled = false;
@@ -53,5 +50,7 @@ export function useUnreadMessageCount() {
     };
   }, [user]);
 
-  return count;
+  // Signed out reads as 0 without a state write (a stale count from the
+  // previous session is ignored, then replaced on the next sign-in's fetch).
+  return user ? count : 0;
 }

@@ -32,6 +32,7 @@
     "test:production-assets": "node --test src/lib/productionAssets.test.js",
     "test:cover-thumb": "node --test src/lib/coverThumb.test.js",
     "test:local-cache": "node --test src/lib/localCache.test.js",
+    "test:listing-row": "node --test src/lib/listingRow.test.js",
     "audit:errors": "node scripts/auditErrorHandling.js",
     "docs:check": "node scripts/checkDocLinks.js",
     "data:plan-comics-gcd-dedupe": "node --max-old-space-size=2048 scripts/planComicsGcdDedupe.js",

@@ -106,5 +106,8 @@ jobs:
       - name: Browser cache helper tests
         run: npm run test:local-cache
 
+      - name: Marketplace listing row tests
+        run: npm run test:listing-row
+
       - name: Docs link check
         run: npm run docs:check

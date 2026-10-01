@@ -11301,3 +11301,159 @@ button.nav-link {
   line-height: 1.5;
   color: rgba(238, 242, 247, 0.7);
 }
+
+/* ── Homepage Dispatch (src/components/HomeDispatch.js) ─────────────────── */
+.dispatch {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 1rem;
+  display: grid;
+  gap: 1.5rem;
+}
+.dispatch-kicker,
+.dispatch-note-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #F4D03F;
+}
+.dispatch-title {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.dispatch-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+.dispatch-feed { display: grid; gap: 0.75rem; min-width: 0; }
+.dispatch-card {
+  display: grid;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1rem 1.15rem;
+  color: inherit;
+  text-decoration: none;
+  min-width: 0;
+}
+.dispatch-link { transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease; }
+.dispatch-link:hover {
+  border-color: rgba(244, 208, 63, 0.45);
+  background: rgba(244, 208, 63, 0.05);
+  transform: translateY(-1px);
+}
+.dispatch-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+.dispatch-chip {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.5rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+}
+.dispatch-chip-live { background: rgba(111, 211, 156, 0.15); color: #6fd39c; }
+.dispatch-chip-update { background: rgba(244, 208, 63, 0.14); color: #F4D03F; }
+.dispatch-chip-read { background: rgba(138, 163, 245, 0.16); color: #a9bcff; }
+.dispatch-card-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.3;
+}
+.dispatch-card-body {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.68);
+}
+.dispatch-strip {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding: 0.35rem 0 0.25rem;
+  scrollbar-width: thin;
+}
+.dispatch-strip-item {
+  flex: 0 0 auto;
+  width: 84px;
+  aspect-ratio: 2 / 3;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s ease;
+}
+.dispatch-strip-item:hover { transform: translateY(-3px); }
+.dispatch-strip-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dispatch-more {
+  justify-self: start;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #F4D03F;
+  text-decoration: none;
+  padding: 0.25rem 0;
+}
+.dispatch-more:hover { text-decoration: underline; }
+.dispatch-note {
+  position: sticky;
+  top: 1.5rem;
+  display: grid;
+  gap: 0.8rem;
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(244, 208, 63, 0.12), transparent 60%),
+    linear-gradient(180deg, #0f1a45, #0b1330);
+  border: 1px solid rgba(244, 208, 63, 0.28);
+  border-radius: 16px;
+  padding: 1.5rem 1.4rem;
+}
+.dispatch-note-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+}
+.dispatch-note p:not(.dispatch-note-kicker) {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+}
+.dispatch-note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.4rem;
+}
+.dispatch-note-link {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #F4D03F;
+  text-decoration: none;
+}
+.dispatch-note-link:hover { text-decoration: underline; }
+@media (max-width: 860px) {
+  .dispatch-grid { grid-template-columns: 1fr; }
+  .dispatch-note { position: static; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dispatch-link, .dispatch-strip-item { transition: none; }
+  .dispatch-link:hover, .dispatch-strip-item:hover { transform: none; }
+}

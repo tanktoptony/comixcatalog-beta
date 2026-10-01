@@ -5,12 +5,19 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
-import ActivityFeed from "@/components/ActivityFeed";
+import HomeDispatch from "@/components/HomeDispatch";
 import { trackEvent } from "@/lib/analytics";
 import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
 
-export default function HomeClient({ featured = null }) {
+// "217,000+" / "2.5M+": rounded down so the strip never overstates.
+function proofNumber(n, fallback) {
+  if (!Number.isFinite(n) || n <= 0) return fallback;
+  if (n >= 1e6) return `${(Math.floor(n / 1e5) / 10).toLocaleString("en-US")}M+`;
+  return `${(Math.floor(n / 1000) * 1000).toLocaleString("en-US")}+`;
+}
+
+export default function HomeClient({ featured = null, stats = null, dispatch = null }) {
   const { user } = useAuth();
   const router = useRouter();
   const [heroQuery, setHeroQuery] = useState("");
@@ -37,9 +44,9 @@ export default function HomeClient({ featured = null }) {
             Your collection, and its value, in one place.
           </h1>
           <p className="lp-sub">
-            Track every issue, grade, and variant you own &mdash; plus what
-            you&rsquo;re hunting. Live values from real sold comps. The database,
-            collection manager, and marketplace for comic books.
+            Track every issue, grade, and variant you own, plus what
+            you&rsquo;re hunting. Live values from real sold comps. The database
+            and collection manager for comic books, with a marketplace on the way.
           </p>
 
           {/* Hero search — the activation surface. Anonymous visitors can act
@@ -80,18 +87,18 @@ export default function HomeClient({ featured = null }) {
       {/* ── PROOF STRIP ──────────────────────────────────────── */}
       <section className="lp-proof">
         <div className="lp-proof-item">
-          <span className="lp-proof-num">217,000+</span>
+          <span className="lp-proof-num">{proofNumber(stats?.series, "217,000+")}</span>
           <span className="lp-proof-label">series in the database</span>
         </div>
         <div className="lp-proof-divider" />
         <div className="lp-proof-item">
-          <span className="lp-proof-num">2.5M+</span>
+          <span className="lp-proof-num">{proofNumber(stats?.issues, "2.5M+")}</span>
           <span className="lp-proof-label">issues indexed</span>
         </div>
         <div className="lp-proof-divider" />
         <div className="lp-proof-item">
-          <span className="lp-proof-num">90,000+</span>
-          <span className="lp-proof-label">cover scans archived</span>
+          <span className="lp-proof-num">{proofNumber(stats?.covers, "170,000+")}</span>
+          <span className="lp-proof-label">covers archived</span>
         </div>
       </section>
 
@@ -108,6 +115,15 @@ export default function HomeClient({ featured = null }) {
 
       {/* ── FEATURED SERIES ──────────────────────────────────── */}
       <FeaturedCarousel initialSeries={featured} />
+
+      {/* ── DISPATCH: news feed + who we are ─────────────────── */}
+      <HomeDispatch
+        newCovers={dispatch?.newCovers}
+        feed={dispatch?.feed ?? []}
+        ctaHref={user ? "/library" : "/signup"}
+        ctaLabel={user ? "Go to your library" : "Start your collection, free"}
+        onCta={cta("dispatch_note")}
+      />
 
       {/* ── FEATURE TRIPTYCH ─────────────────────────────────── */}
       <section className="lp-features">
@@ -157,9 +173,6 @@ export default function HomeClient({ featured = null }) {
           </Link>
         </div>
       </section>
-
-      {/* ── RECENT ACTIVITY ──────────────────────────────────── */}
-      <ActivityFeed />
 
       <AdSlot position={SLOT.HOME_INLINE} pageKey="home" className="ad-slot--home" />
 

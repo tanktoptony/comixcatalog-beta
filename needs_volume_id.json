@@ -37426,5 +37426,142 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T07:08:01.401206+00:00",
     "retry_after": "2026-10-02T07:08:01.401224+00:00"
+  },
+  {
+    "name": "B. Krigstein",
+    "publisher": "Fantagraphics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T08:00:43.139723+00:00",
+    "retry_after": "2026-10-02T08:00:43.139735+00:00"
+  },
+  {
+    "name": "Thunderbolts by Warren Ellis",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T08:01:16.325393+00:00",
+    "retry_after": "2026-10-02T08:01:16.325405+00:00"
+  },
+  {
+    "name": "Star Trek: The Next Generation / Star Trek: Deep Space Nine",
+    "publisher": "DC Comics",
+    "year": 1994,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 66460,
+        "name": "Star Trek: The Next Generation / Star Trek: Deep Space Nine",
+        "publisher": "DC Comics",
+        "start_year": 1994
+      },
+      {
+        "id": 5258,
+        "name": "Star Trek: The Next Generation/Star Trek: Deep Space Nine",
+        "publisher": "DC Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T08:01:41.238041+00:00",
+    "retry_after": "2026-10-02T08:01:41.238051+00:00"
+  },
+  {
+    "name": "Mighty Morphin Power Rangers",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 87332,
+        "name": "Mighty Morphin Power Rangers",
+        "publisher": "Boom! Studios",
+        "start_year": 2016
+      },
+      {
+        "id": 94128,
+        "name": "Mighty Morphin Power Rangers",
+        "publisher": "Boom! Studios",
+        "start_year": 2016
+      },
+      {
+        "id": 172461,
+        "name": "Mighty Morphin Power Rangers",
+        "publisher": "Boom! Studios",
+        "start_year": 2026
+      },
+      {
+        "id": 135564,
+        "name": "Mighty Morphin/Power Rangers",
+        "publisher": "Boom! Studios",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T08:02:16.503921+00:00",
+    "retry_after": "2026-10-02T08:02:16.503929+00:00"
+  },
+  {
+    "name": "Loki Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T08:02:26.377806+00:00",
+    "retry_after": "2026-10-02T08:02:26.377816+00:00"
+  },
+  {
+    "name": "Sheena: Queen of the Jungle",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 139998,
+        "name": "Sheena: Queen of the Jungle",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2021
+      },
+      {
+        "id": 103331,
+        "name": "Sheena Queen of the Jungle",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2017
+      },
+      {
+        "id": 110760,
+        "name": "Sheena: Queen of the Jungle",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T08:02:53.638845+00:00",
+    "retry_after": "2026-10-02T08:02:53.638854+00:00"
+  },
+  {
+    "name": "Hero Cats of Stellar City",
+    "publisher": "Action Lab Entertainment",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T08:02:59.746204+00:00",
+    "retry_after": "2026-10-02T08:02:59.746214+00:00"
+  },
+  {
+    "name": "Thor Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T08:03:25.983308+00:00",
+    "retry_after": "2026-10-02T08:03:25.983318+00:00"
   }
 ]

@@ -35542,9 +35542,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T18:18:39.007226+00:00",
-    "retry_after": "2026-10-01T18:18:39.007243+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T19:00:47.600734+00:00",
+    "retry_after": "2026-10-04T19:00:47.600751+00:00"
   },
   {
     "name": "Action Force Holiday Special",
@@ -35552,9 +35552,9 @@
     "year": 1987,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T18:18:39.749123+00:00",
-    "retry_after": "2026-10-01T18:18:39.749139+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T19:00:48.223370+00:00",
+    "retry_after": "2026-10-04T19:00:48.223392+00:00"
   },
   {
     "name": "Lucifer Special Edition",
@@ -35562,9 +35562,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T18:18:46.769869+00:00",
-    "retry_after": "2026-10-01T18:18:46.769885+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T19:00:48.800234+00:00",
+    "retry_after": "2026-10-04T19:00:48.800249+00:00"
   },
   {
     "name": "Book of Death: The Fall of Ninjak",
@@ -35572,9 +35572,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T18:20:00.577890+00:00",
-    "retry_after": "2026-10-01T18:20:00.577902+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T19:00:51.587696+00:00",
+    "retry_after": "2026-10-04T19:00:51.587706+00:00"
   },
   {
     "name": "Michael Turner's Soulfire Sourcebook",
@@ -35582,9 +35582,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T18:19:56.349461+00:00",
-    "retry_after": "2026-10-01T18:19:56.349477+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T19:00:50.036940+00:00",
+    "retry_after": "2026-10-04T19:00:50.036955+00:00"
   },
   {
     "name": "Uncanny X-Men: The Heroic Age (HA)",
@@ -35592,9 +35592,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T18:20:00.665690+00:00",
-    "retry_after": "2026-10-01T18:20:00.665702+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T19:00:51.642064+00:00",
+    "retry_after": "2026-10-04T19:00:51.642076+00:00"
   },
   {
     "name": "The Amazing Spider-Man in \"Weather Forecast: Danger\" [Giant Comics to Color]",
@@ -35602,9 +35602,9 @@
     "year": 1976,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T18:20:01.500865+00:00",
-    "retry_after": "2026-10-01T18:20:01.500880+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T19:00:52.043512+00:00",
+    "retry_after": "2026-10-04T19:00:52.043526+00:00"
   },
   {
     "name": "The Lonesome Hunters Library Edition",
@@ -37923,5 +37923,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T18:02:45.546815+00:00",
     "retry_after": "2026-10-02T18:02:45.546830+00:00"
+  },
+  {
+    "name": "True Believers: Spider-Man - Spidey Fights in London!",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T19:00:51.502571+00:00",
+    "retry_after": "2026-10-02T19:00:51.502586+00:00"
+  },
+  {
+    "name": "Champions by Jim Zub",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T19:02:09.040381+00:00",
+    "retry_after": "2026-10-02T19:02:09.040398+00:00"
+  },
+  {
+    "name": "Fairy Quest",
+    "publisher": "BOOM! Studios",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66229,
+        "name": "Fairy Quest",
+        "publisher": "Éditions Glénat",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T19:02:15.832121+00:00",
+    "retry_after": "2026-10-02T19:02:15.832136+00:00"
   }
 ]

@@ -10641,9 +10641,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-24T14:00:47.822369+00:00",
-    "retry_after": "2026-10-01T14:00:47.822409+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-01T14:14:45.205962+00:00",
+    "retry_after": "2026-10-15T14:14:45.205978+00:00"
   },
   {
     "name": "Robin",
@@ -11680,9 +11680,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-24T14:00:47.356265+00:00",
-    "retry_after": "2026-10-01T14:00:47.356283+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-01T14:14:44.824007+00:00",
+    "retry_after": "2026-10-15T14:14:44.824023+00:00"
   },
   {
     "name": "What If? Civil War",
@@ -12383,9 +12383,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-24T14:00:46.671754+00:00",
-    "retry_after": "2026-10-01T14:00:46.671775+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-01T14:14:42.979169+00:00",
+    "retry_after": "2026-10-15T14:14:42.979185+00:00"
   },
   {
     "name": "American Splendor",
@@ -13320,9 +13320,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-24T14:00:45.711529+00:00",
-    "retry_after": "2026-10-01T14:00:45.711548+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-01T14:14:43.506549+00:00",
+    "retry_after": "2026-10-15T14:14:43.506566+00:00"
   },
   {
     "name": "Dragonfly & Dragonflyman [Free Comic Book Day]",
@@ -37955,5 +37955,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T14:03:14.938986+00:00",
     "retry_after": "2026-10-02T14:03:14.939002+00:00"
+  },
+  {
+    "name": "Void Rivals Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:14:47.946487+00:00",
+    "retry_after": "2026-10-02T14:14:47.946504+00:00"
+  },
+  {
+    "name": "Ninjak Preview",
+    "publisher": "Valiant Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:14:47.032560+00:00",
+    "retry_after": "2026-10-02T14:14:47.032578+00:00"
+  },
+  {
+    "name": "What We Mean by Yesterday",
+    "publisher": "Fantagraphics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:14:47.448120+00:00",
+    "retry_after": "2026-10-02T14:14:47.448137+00:00"
+  },
+  {
+    "name": "Ultimate X-Men MGC",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:14:47.886363+00:00",
+    "retry_after": "2026-10-02T14:14:47.886378+00:00"
+  },
+  {
+    "name": "The Evil Within the Interlude",
+    "publisher": "Titan Comics",
+    "year": 2017,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 105754,
+        "name": "The Evil Within: The Interlude",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 104051,
+        "name": "The Evil Within: The Interlude",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:16:39.245829+00:00",
+    "retry_after": "2026-10-02T14:16:39.245844+00:00"
+  },
+  {
+    "name": "Sub-Mariner Special",
+    "publisher": "Marvel Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:17:14.425228+00:00",
+    "retry_after": "2026-10-02T14:17:14.425243+00:00"
   }
 ]

@@ -35037,9 +35037,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T06:01:34.251591+00:00",
-    "retry_after": "2026-10-01T06:01:34.251606+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T06:56:09.515135+00:00",
+    "retry_after": "2026-10-04T06:56:09.515150+00:00"
   },
   {
     "name": "Alisik",
@@ -37227,5 +37227,194 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T06:07:14.076773+00:00",
     "retry_after": "2026-10-02T06:07:14.076790+00:00"
+  },
+  {
+    "name": "Punchline Swimsuit Issue Winter Edition",
+    "publisher": "Antarctic Press",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:56:08.751228+00:00",
+    "retry_after": "2026-10-02T06:56:08.751241+00:00"
+  },
+  {
+    "name": "Supergirl",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3113,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 1982
+      },
+      {
+        "id": 18012,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 2005
+      },
+      {
+        "id": 116516,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 5263,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 1994
+      },
+      {
+        "id": 42949,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 164287,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      },
+      {
+        "id": 43513,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 1998
+      },
+      {
+        "id": 5766,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 1996
+      },
+      {
+        "id": 93948,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 2555,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:56:09.992414+00:00",
+    "retry_after": "2026-10-02T06:56:09.992429+00:00"
+  },
+  {
+    "name": "Legion of Super-Heroes",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4201,
+        "name": "Legion of Super-Heroes",
+        "publisher": "DC Comics",
+        "start_year": 1989
+      },
+      {
+        "id": 33225,
+        "name": "Legion of Super-Heroes",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 122626,
+        "name": "Legion of Super-Heroes",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 3310,
+        "name": "Legion of Super-Heroes",
+        "publisher": "DC Comics",
+        "start_year": 1984
+      },
+      {
+        "id": 11059,
+        "name": "Legion of Super-Heroes",
+        "publisher": "DC Comics",
+        "start_year": 2005
+      },
+      {
+        "id": 42952,
+        "name": "Legion of Super-Heroes",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 2616,
+        "name": "Legion of Super-Heroes",
+        "publisher": "DC Comics",
+        "start_year": 1973
+      },
+      {
+        "id": 3033,
+        "name": "The Legion of Super-Heroes",
+        "publisher": "DC Comics",
+        "start_year": 1980
+      },
+      {
+        "id": 176688,
+        "name": "Legion of Super-Heroes",
+        "publisher": "DC Comics",
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:56:10.475443+00:00",
+    "retry_after": "2026-10-02T06:56:10.475477+00:00"
+  },
+  {
+    "name": "Ala Ka Zot!",
+    "publisher": "Fawcett Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:56:10.998204+00:00",
+    "retry_after": "2026-10-02T06:56:10.998220+00:00"
+  },
+  {
+    "name": "Fairy Quest: Outlaws",
+    "publisher": "BOOM! Studios",
+    "year": 2013,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 56888,
+        "name": "Fairy Quest: Outlaws",
+        "publisher": "Boom! Studios",
+        "start_year": 2013
+      },
+      {
+        "id": 70219,
+        "name": "Fairy Quest: Outlaws",
+        "publisher": "Boom! Studios",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:57:20.391255+00:00",
+    "retry_after": "2026-10-02T06:57:20.391270+00:00"
+  },
+  {
+    "name": "Thunderbolts by Warren Ellis",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T06:58:19.060313+00:00",
+    "retry_after": "2026-10-02T06:58:19.060328+00:00"
   }
 ]

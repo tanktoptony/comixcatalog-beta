@@ -6,7 +6,8 @@
 // becomes visible (i.e. when the thread is open).
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { inboxCache } from "@/lib/inboxCache";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
@@ -31,18 +32,45 @@ export default function ThreadPage() {
   const router = useRouter();
   const { user, profile: myProfile, loading: authLoading } = useAuth();
 
-  const [otherProfile, setOtherProfile] = useState(null);
-  const [messages, setMessages] = useState(null);
-  const [body, setBody] = useState("");
+  // Cached copies from this tab (src/lib/inboxCache.js) render immediately;
+  // the effects below refresh them.
+  const [otherProfile, setOtherProfile] = useState(() =>
+    user ? inboxCache(user.id).profiles.get(username) ?? null : null
+  );
+  const [messages, setMessages] = useState(() => {
+    if (!user) return null;
+    const p = inboxCache(user.id).profiles.get(username);
+    return p ? inboxCache(user.id).messages.get(p.id) ?? null : null;
+  });
+  // "Make an offer" on a marketplace listing links here with ?about=<book>,
+  // so the first message starts with the book already named.
+  const about = useSearchParams().get("about");
+  const [body, setBody] = useState(() =>
+    about ? `Hi! I'm interested in your ${about.slice(0, 200)}. Would you take an offer?` : ""
+  );
+  // Opening a different conversation can reuse this component, so swap to
+  // that thread's cached state during render instead of briefly showing the
+  // previous person's messages.
+  const [shownUsername, setShownUsername] = useState(username);
+  if (shownUsername !== username) {
+    setShownUsername(username);
+    const p = user ? inboxCache(user.id).profiles.get(username) ?? null : null;
+    setOtherProfile(p);
+    setMessages(p ? inboxCache(user.id).messages.get(p.id) ?? null : null);
+  }
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
   const scrollerRef = useRef(null);
 
   // Resolve the other user by username.
   useEffect(() => {
-    if (authLoading) return;
+    // Start as soon as we know who's signed in (AuthContext's `loading`
+    // also waits on the profile row, which this lookup doesn't need).
     if (!user) {
-      router.replace("/login");
+      if (authLoading) return;
+      // Come back here after signing in, so a buyer who tapped "Make an
+      // offer" signed out lands on the pre-filled message.
+      router.replace(`/login?next=${encodeURIComponent(window.location.pathname + window.location.search)}`);
       return;
     }
 
@@ -50,8 +78,15 @@ export default function ThreadPage() {
     // cached profile, before any DB roundtrip. Avoids hanging on profiles-
     // table RLS if our own session is slow to authorize.
     if (myProfile?.username && username === myProfile.username) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setError("You can't message yourself.");
       setOtherProfile(null);
+      return;
+    }
+
+    const cached = inboxCache(user.id).profiles.get(username);
+    if (cached && cached.id !== user.id) {
+      setOtherProfile(cached);
       return;
     }
 
@@ -92,6 +127,7 @@ export default function ThreadPage() {
         setOtherProfile(null);
         return;
       }
+      inboxCache(user.id).profiles.set(username, data);
       setOtherProfile(data);
     })();
     return () => {
@@ -126,6 +162,7 @@ export default function ThreadPage() {
         return;
       }
       setMessages(data ?? []);
+      inboxCache(user.id).messages.set(otherProfile.id, data ?? []);
 
       // Mark any unread inbound as read.
       const unreadIds = (data ?? [])
@@ -170,6 +207,11 @@ export default function ThreadPage() {
       if (pollInterval) clearInterval(pollInterval);
     };
   }, [user, otherProfile]);
+
+  // Keep the tab cache current with sends and live arrivals too.
+  useEffect(() => {
+    if (user && otherProfile && messages) inboxCache(user.id).messages.set(otherProfile.id, messages);
+  }, [user, otherProfile, messages]);
 
   // Auto-scroll to bottom on new messages.
   useEffect(() => {
@@ -228,7 +270,7 @@ export default function ThreadPage() {
     setSending(false);
   }
 
-  if (authLoading || (messages === null && !error)) {
+  if ((!user && authLoading) || (messages === null && !error)) {
     return (
       <section className="comic-panel">
         <h1 className="hero-title">Conversation</h1>

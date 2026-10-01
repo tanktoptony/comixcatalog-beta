@@ -130,7 +130,7 @@ export default function OnboardingModal() {
               Next
             </button>
           ) : (
-            <Link href="/about" className="onboarding-secondary" onClick={dismiss}>
+            <Link href="/start" className="onboarding-secondary" onClick={dismiss}>
               Learn more
             </Link>
           )}

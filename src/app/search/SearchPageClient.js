@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useLibrary } from "../../context/LibraryContext";
@@ -10,6 +10,7 @@ import EmptyState from "@/components/EmptyState";
 import { trackEvent } from "@/lib/analytics";
 import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
+import { coverThumb } from "@/lib/coverThumb";
 
 const PAGE_SIZE = 36;
 
@@ -64,7 +65,10 @@ function SkeletonCard() {
   );
 }
 
-export default function SearchPageClient() {
+// initialQuery/initialComics/initialSeries come from the server render
+// (src/app/search/page.js). null means the server did not have them and the
+// client fetches as it always did.
+export default function SearchPageClient({ initialQuery = "", initialComics = null, initialSeries = null } = {}) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const urlQuery = searchParams.get("q") || "";
@@ -100,24 +104,41 @@ export default function SearchPageClient() {
     return () => clearTimeout(timeout);
   }, [query, urlQuery, router]);
 
-  const [supabaseComics, setSupabaseComics] = useState([]);
-  const [seriesResults, setSeriesResults] = useState([]);
+  const [supabaseComics, setSupabaseComics] = useState(initialComics ?? []);
+  const [seriesResults, setSeriesResults] = useState(initialSeries ?? []);
+  // The server already rendered page 0 for initialQuery; skip the one fetch
+  // that would only repeat it. Any later query or page fetches normally.
+  const skipComicsFetchFor = useRef(initialComics ? initialQuery : null);
+  const skipSeriesFetchFor = useRef(initialSeries ? initialQuery : null);
 
   const [publisherFilter, setPublisherFilter] = useState(null);
   const [collectionFilter, setCollectionFilter] = useState("all");
 
-  const [isBrowsing, setIsBrowsing] = useState(true);
+  const [isBrowsing, setIsBrowsing] = useState(!initialQuery);
   const [isLoading, setIsLoading] = useState(false);
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const [isFirstLoad, setIsFirstLoad] = useState(!initialComics);
   const [loadError, setLoadError] = useState(null);
-  const [hasMore, setHasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(initialComics ? initialComics.length === PAGE_SIZE : true);
 
   const { wishlistIds, collectionIds, addToCollection, removeFromCollection } =
     useLibrary();
   const { user } = useAuth();
 
   // ── Fetch comics (browse or search) ─────────────────────────────────────────
+  const awaitingUrlSeed = !query && Boolean(urlQuery);
+  const shownQuery = awaitingUrlSeed ? urlQuery : query;
   useEffect(() => {
+    // On a fresh load of /search?q=… the shared query is still "" for the
+    // first render (it is seeded from the URL above). Without this guard that
+    // render fired the browse request (/api/comics, the slowest route on the
+    // site) with no delay, for results that were thrown away a moment later.
+    if (awaitingUrlSeed) return;
+    if (page === 0 && skipComicsFetchFor.current !== null && skipComicsFetchFor.current === query) {
+      skipComicsFetchFor.current = null;
+      return;
+    }
+    skipComicsFetchFor.current = null;
+
     let cancelled = false;
 
     const timeout = setTimeout(async () => {
@@ -184,12 +205,12 @@ export default function SearchPageClient() {
     // `user` is read for the event only; re-fetching on auth changes would
     // double-load the page.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query, page]);
+  }, [query, page, awaitingUrlSeed]);
 
   // ── Reset page/filter on new query (keep old results visible until new ones arrive) ──
   // Same derive-during-render pattern as the URL sync above: reset paging
   // state the moment the query changes, before the fetch effect runs.
-  const [lastQuery, setLastQuery] = useState(query);
+  const [lastQuery, setLastQuery] = useState(query || initialQuery);
   if (query !== lastQuery) {
     setLastQuery(query);
     setPage(0);
@@ -204,6 +225,11 @@ export default function SearchPageClient() {
   // ── Series suggestions ───────────────────────────────────────────────────────
   useEffect(() => {
     if (!query) return;
+    if (skipSeriesFetchFor.current !== null && skipSeriesFetchFor.current === query) {
+      skipSeriesFetchFor.current = null;
+      return;
+    }
+    skipSeriesFetchFor.current = null;
 
     let cancelled = false;
 
@@ -328,7 +354,7 @@ export default function SearchPageClient() {
                         ? `Vol. ${s.volume_index} of ${s.volume_count}`
                         : null;
                     return (
-                      <Link
+                      <Link prefetch={false}
                         key={s.id}
                         href={`/series/${s.id}`}
                         className="comic-card"
@@ -343,7 +369,7 @@ export default function SearchPageClient() {
                         <div className="comic-card-cover">
                           {s.cover && (
                             // eslint-disable-next-line @next/next/no-img-element
-                            <img src={s.cover} alt={s.title || ""} />
+                            <img src={coverThumb(s.cover)} alt={s.title || ""} />
                           )}
                         </div>
                         <div className="comic-card-title">
@@ -412,17 +438,17 @@ export default function SearchPageClient() {
       {!isFirstLoad && !loadError && (
         <p className="muted">
           {results.length} result{results.length === 1 ? "" : "s"}
-          {query ? ` for "${query}"` : " — featured series"}
+          {shownQuery ? ` for "${shownQuery}"` : " — featured series"}
           {publisherFilter ? ` · ${publisherFilter}` : ""}
         </p>
       )}
 
       {/* Empty state */}
       {!isLoading && !loadError && !isFirstLoad && results.length === 0 && (
-        query ? (
+        shownQuery ? (
           <EmptyState
             icon="🔍"
-            title={`No results for "${query}"`}
+            title={`No results for "${shownQuery}"`}
             body="Try a broader search, fewer words, or check the spelling. Series titles are the most reliable way to find an issue."
             secondary={{ href: "/search", label: "Clear search" }}
           />
@@ -457,7 +483,7 @@ export default function SearchPageClient() {
 
             return (
               <article key={item.id} className="comic-card">
-                <Link
+                <Link prefetch={false}
                   href={comicHref}
                   className="card-link"
                   onClick={() =>
@@ -471,7 +497,7 @@ export default function SearchPageClient() {
                 >
                   <div className="comic-card-cover">
                     <img
-                      src={coverSrc}
+                      src={coverThumb(coverSrc)}
                       alt={item.title || "Comic cover"}
                       loading="lazy"
                       onError={(e) => {
@@ -571,7 +597,7 @@ export default function SearchPageClient() {
         {/* House-ad row, pinned by CSS to grid row 3 (after two full rows of
             results at any column count). */}
         {!isFirstLoad && results.length > 0 && (
-          <AdSlot position={SLOT.SEARCH_INLINE_1} pageKey={query || "browse"} className="ad-slot--row3" />
+          <AdSlot position={SLOT.SEARCH_INLINE_1} pageKey={shownQuery || "browse"} className="ad-slot--row3" />
         )}
 
         {/* Inline skeleton cards while loading more */}

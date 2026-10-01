@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { coverThumb } from "@/lib/coverThumb";
 
 // Replaces the generic EmptyState on /library when a user has zero owned
 // items in their collection. The activation moment: instead of an "all
@@ -82,7 +83,7 @@ export default function FirstRunLibrary() {
           </div>
           <div className="first-run-suggestion-grid">
             {suggestions.map((s) => (
-              <Link
+              <Link prefetch={false}
                 key={s.id}
                 href={`/series/${s.series_id}`}
                 className="first-run-suggestion-card"
@@ -90,7 +91,7 @@ export default function FirstRunLibrary() {
                 <div className="first-run-suggestion-cover">
                   {s.cover_path ? (
                     /* eslint-disable-next-line @next/next/no-img-element */
-                    <img src={s.cover_path} alt={s.series_title} loading="lazy" />
+                    <img src={coverThumb(s.cover_path)} alt={s.series_title} loading="lazy" />
                   ) : (
                     <div className="first-run-suggestion-fallback">📖</div>
                   )}

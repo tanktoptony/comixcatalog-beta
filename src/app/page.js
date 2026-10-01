@@ -1,180 +1,24 @@
-"use client";
+import HomeClient from "./HomeClient";
+import { getFeaturedSeries } from "@/lib/featuredSeriesData";
+import { getHomeData } from "@/lib/homeDispatch";
+import { getHeroWall } from "@/lib/heroWall";
 
-import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
-import FeaturedCarousel from "@/components/FeaturedCarousel";
-import ActivityFeed from "@/components/ActivityFeed";
-import { trackEvent } from "@/lib/analytics";
-import AdSlot from "@/components/AdSlot";
-import { SLOT } from "@/lib/houseAds";
+// The homepage is static HTML, rebuilt at most hourly. The featured
+// carousel, the live catalog numbers and the Dispatch feed are rendered into
+// it from cached server reads, so visitors see them on first paint instead
+// of after client round trips. The interactive parts (hero search,
+// auth-aware CTAs) live in HomeClient.
+export const revalidate = 3600;
 
-export default function HomePage() {
-  const { user } = useAuth();
-  const router = useRouter();
-  const [heroQuery, setHeroQuery] = useState("");
-
-  // Funnel: which landing CTA actually moves people. Search itself is
-  // measured on /search (the `search` event), not here.
-  const cta = (location) => () =>
-    trackEvent("cta_click", { location, logged_in: Boolean(user) });
-
-  function handleHeroSearch(e) {
-    e.preventDefault();
-    const q = heroQuery.trim();
-    trackEvent("cta_click", { location: "hero_search", logged_in: Boolean(user) });
-    router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/search");
-  }
-
-  return (
-    <>
-      {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="lp-hero">
-        <div className="lp-hero-content">
-          <p className="lp-eyebrow">Built by collectors, for collectors · Chicago</p>
-          <h1 className="lp-h1">
-            Your collection, and its value, in one place.
-          </h1>
-          <p className="lp-sub">
-            Track every issue, grade, and variant you own &mdash; plus what
-            you&rsquo;re hunting. Live values from real sold comps. The database,
-            collection manager, and marketplace for comic books.
-          </p>
-
-          {/* Hero search — the activation surface. Anonymous visitors can act
-              before signing up; this is how Discogs/Letterboxd onboard. */}
-          <form className="lp-hero-search" onSubmit={handleHeroSearch} role="search">
-            <input
-              type="search"
-              className="lp-hero-search-input"
-              placeholder="Search any comic — Absolute Batman, Saga #1, Amazing Spider-Man 300…"
-              value={heroQuery}
-              onChange={(e) => setHeroQuery(e.target.value)}
-              aria-label="Search comic series and issues"
-            />
-            <button type="submit" className="lp-hero-search-btn">
-              Search
-            </button>
-          </form>
-
-          <div className="lp-ctas">
-            <Link
-              href={user ? "/library" : "/signup"}
-              className="lp-cta-primary"
-              onClick={cta("hero_primary")}
-            >
-              {user ? "Go to your library" : "Start free"}
-            </Link>
-            <Link href="/search" className="lp-cta-ghost" onClick={cta("hero_browse")}>
-              Browse the database →
-            </Link>
-          </div>
-        </div>
-        <div className="lp-hero-img">
-          <img src="/img/hero/comic-collage.jpg" alt="Comic book collection" />
-          <div className="lp-hero-img-fade" />
-        </div>
-      </section>
-
-      {/* ── PROOF STRIP ──────────────────────────────────────── */}
-      <section className="lp-proof">
-        <div className="lp-proof-item">
-          <span className="lp-proof-num">217,000+</span>
-          <span className="lp-proof-label">series in the database</span>
-        </div>
-        <div className="lp-proof-divider" />
-        <div className="lp-proof-item">
-          <span className="lp-proof-num">2.5M+</span>
-          <span className="lp-proof-label">issues indexed</span>
-        </div>
-        <div className="lp-proof-divider" />
-        <div className="lp-proof-item">
-          <span className="lp-proof-num">90,000+</span>
-          <span className="lp-proof-label">cover scans archived</span>
-        </div>
-      </section>
-
-      {/* ── PROBLEM ──────────────────────────────────────────── */}
-      <section className="lp-problem">
-        <h2 className="lp-problem-h2">One tool, every detail.</h2>
-        <p className="lp-problem-body">
-          Track grades, variants, newsstand vs. direct, CGC and CBCS cert numbers,
-          purchase prices, and current market values across hundreds or thousands
-          of books. Export an insurance-ready PDF in a click. Verified grades
-          today &mdash; a trusted marketplace next.
-        </p>
-      </section>
-
-      {/* ── FEATURED SERIES ──────────────────────────────────── */}
-      <FeaturedCarousel />
-
-      {/* ── FEATURE TRIPTYCH ─────────────────────────────────── */}
-      <section className="lp-features">
-        <div className="lp-feature">
-          <div className="lp-feature-icon">◈</div>
-          <h3>Catalog</h3>
-          <p>
-            Every series, issue, printing, and variant — indexed from the
-            Grand Comics Database with ComicVine cover art on top.
-          </p>
-        </div>
-        <div className="lp-feature">
-          <div className="lp-feature-icon">◈</div>
-          <h3>Collect</h3>
-          <p>
-            Track grades, slab cert numbers, purchase prices, and current values.
-            Generate an insurance-ready PDF with one click — cover art, grades,
-            and market-value totals included.
-          </p>
-        </div>
-        <div className="lp-feature">
-          <div className="lp-feature-icon">◈</div>
-          <h3>Marketplace</h3>
-          <p>
-            Grade, condition, variant type, and cert number on every listing —
-            verified collectors, no guesswork. Launching soon, starting with
-            Pro members.
-          </p>
-        </div>
-      </section>
-
-      {/* ── FOUNDING COLLECTOR ───────────────────────────────── */}
-      <section className="lp-founding">
-        <div className="lp-founding-inner">
-          <p className="lp-founding-kicker">Limited · Lifetime passes are going fast</p>
-          <h2 className="lp-founding-h2">Founding Collector</h2>
-          <p className="lp-founding-body">
-            Join while spots remain and receive Collector Pro for life—free,
-            automatically, with no card required. You&rsquo;ll also receive a permanent Founding Collector badge.
-          </p>
-          <Link
-            href="/founding-collectors"
-            className="lp-founding-cta"
-            onClick={cta("founding")}
-          >
-            See the founding offer →
-          </Link>
-        </div>
-      </section>
-
-      {/* ── RECENT ACTIVITY ──────────────────────────────────── */}
-      <ActivityFeed />
-
-      <AdSlot position={SLOT.HOME_INLINE} pageKey="home" className="ad-slot--home" />
-
-      {/* ── BOTTOM CTA ───────────────────────────────────────── */}
-      <section className="lp-bottom-cta">
-        <h2>Start building your collection.</h2>
-        <p>Free to join. No credit card required.</p>
-        <Link
-          href={user ? "/library" : "/signup"}
-          className="lp-cta-primary"
-          onClick={cta("bottom_primary")}
-        >
-          {user ? "Go to your library" : "Create a free account"}
-        </Link>
-      </section>
-    </>
-  );
+export default async function HomePage() {
+  const [featuredResult, home] = await Promise.all([
+    getFeaturedSeries().catch((err) => {
+      // Empty falls back to the carousel's own client fetch.
+      console.error("homepage featured series failed:", err);
+      return [];
+    }),
+    getHomeData(),
+  ]);
+  const heroWall = await getHeroWall(featuredResult);
+  return <HomeClient featured={featuredResult.slice(0, 12)} heroWall={heroWall} stats={home.stats} dispatch={home} />;
 }

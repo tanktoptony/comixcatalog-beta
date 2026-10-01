@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import EmptyState from "./EmptyState";
+import { coverThumb } from "@/lib/coverThumb";
 
 const VIEW_STORAGE_KEY = "cc:profile-view";
 
@@ -302,7 +303,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                   title={isWall ? fullTitle : undefined}
                 >
                   <div className="comic-card-cover" style={{ position: "relative" }}>
-                    <img src={coverUrl} alt={d.title} />
+                    <img src={coverThumb(coverUrl)} alt={d.title} />
                     {item.slab_company && item.grade_numeric ? (
                       <span className="profile-grade-badge">
                         {item.slab_company} {Number(item.grade_numeric).toFixed(1)}
@@ -431,7 +432,7 @@ function SeriesRowsView({ items, activeTab }) {
             >
               <div className="series-row-thumb">
                 {g.cover ? (
-                  <img src={g.cover} alt="" loading="lazy" />
+                  <img src={coverThumb(g.cover)} alt="" loading="lazy" />
                 ) : (
                   <div className="series-row-thumb-empty" />
                 )}
@@ -472,7 +473,7 @@ function SeriesRowsView({ items, activeTab }) {
                   return (
                     <Link key={item.id} href={d.href} className="comic-card">
                       <div className="comic-card-cover" style={{ position: "relative" }}>
-                        <img src={coverUrl} alt={d.title} />
+                        <img src={coverThumb(coverUrl)} alt={d.title} />
                         {item.slab_company && item.grade_numeric ? (
                           <span className="profile-grade-badge">
                             {item.slab_company} {Number(item.grade_numeric).toFixed(1)}
@@ -576,7 +577,7 @@ function ActivityList({ items }) {
         return (
           <li key={item.id} className="profile-activity-item">
             <Link href={d.href} className="profile-activity-link">
-              <img className="profile-activity-cover" src={cover} alt="" />
+              <img className="profile-activity-cover" src={coverThumb(cover)} alt="" />
               <div className="profile-activity-body">
                 <div className="profile-activity-line">
                   <ActivityVerb status={item.status} />{" "}

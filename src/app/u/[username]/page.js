@@ -12,6 +12,8 @@ import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { createClient } from "@supabase/supabase-js";
+import { coverThumb } from "@/lib/coverThumb";
+import { getPublicProfile } from "@/lib/pageData";
 
 function formatJoinDate(iso) {
   if (!iso) return null;
@@ -66,13 +68,23 @@ export default async function PublicProfilePage({ params }) {
   const viewerParam = currentUser?.id
     ? `&viewer_id=${encodeURIComponent(currentUser.id)}`
     : "";
-  const res = await fetch(
-    `${protocol}://${host}/api/public-profile?username=${username}${viewerParam}`,
-    { cache: "no-store" }
-  );
-  if (!res.ok) notFound();
+  // The anonymous (public) view is the same for every visitor, so it comes
+  // from a one-minute cache of the API handler called in-process
+  // (src/lib/pageData.js). An owner's view is never cached.
+  let data;
+  if (currentUser?.id) {
+    const res = await fetch(
+      `${protocol}://${host}/api/public-profile?username=${username}${viewerParam}`,
+      { cache: "no-store" }
+    );
+    if (!res.ok) notFound();
+    data = await res.json();
+  } else {
+    data = await getPublicProfile(username);
+    if (data?.notFound) notFound();
+  }
 
-  const { profile, collection, visibility = {} } = await res.json();
+  const { profile, collection, visibility = {} } = data;
 
   const isOwner = currentUser?.id === profile.id;
   // Stats + insights are computed inside CollectionStatsStrip and
@@ -249,7 +261,7 @@ export default async function PublicProfilePage({ params }) {
               return (
                 <Link key={item.id} href={d.href} className="profile-top-shelf-card">
                   <div className="profile-top-shelf-cover">
-                    <img src={topShelfCoverUrl(d)} alt={d.title} />
+                    <img src={coverThumb(topShelfCoverUrl(d))} alt={d.title} />
                     {item.key_issue ? (
                       <span className="profile-key-badge" title={item.key_issue.reason}>
                         KEY
@@ -304,7 +316,7 @@ export default async function PublicProfilePage({ params }) {
               return (
                 <Link key={item.id} href={d.href} className="profile-top-shelf-card">
                   <div className="profile-top-shelf-cover">
-                    <img src={topShelfCoverUrl(d)} alt={d.title} />
+                    <img src={coverThumb(topShelfCoverUrl(d))} alt={d.title} />
                     {item.slab_company && item.grade_numeric ? (
                       <span className="profile-grade-badge">
                         {item.slab_company} {Number(item.grade_numeric).toFixed(1)}

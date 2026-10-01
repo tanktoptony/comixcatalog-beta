@@ -1,6 +1,6 @@
 "use client";
 
-// Subscribes to the user's unread inbound message count. Used by the header
+// Tracks the user's unread inbound message count. Used by the header
 // Inbox icon badge. Reuses the same RLS-protected `messages` table — the
 // partial index `messages_recipient_unread_idx` makes the count fast.
 
@@ -10,17 +10,15 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 
 export function useUnreadMessageCount() {
   const { user } = useAuth();
-  const [count, setCount] = useState(0);
+  // Tagged with the user it was fetched for, so a different account never
+  // sees the previous one's number, with no state reset in the effect.
+  const [unread, setUnread] = useState({ userId: null, count: 0 });
 
   useEffect(() => {
-    if (!user) {
-      setCount(0);
-      return;
-    }
+    if (!user) return;
 
     const supabase = getSupabaseClient();
     let cancelled = false;
-    let channel = null;
 
     async function refresh() {
       const { count: c } = await supabase
@@ -28,41 +26,31 @@ export function useUnreadMessageCount() {
         .select("id", { count: "exact", head: true })
         .eq("recipient_id", user.id)
         .is("read_at", null);
-      if (!cancelled) setCount(c ?? 0);
+      if (!cancelled) setUnread({ userId: user.id, count: c ?? 0 });
     }
 
     refresh();
 
-    // Refresh on any insert/update to messages where we're the recipient.
-    // The RLS policy already restricts what we'd see, but we still scope
-    // client-side to avoid extra refreshes on the sender side.
-    channel = supabase
-      .channel(`unread-${user.id}`)
-      .on(
-        "postgres_changes",
-        { event: "INSERT", schema: "public", table: "messages" },
-        (payload) => {
-          if (payload.new?.recipient_id === user.id) refresh();
-        }
-      )
-      .on(
-        "postgres_changes",
-        { event: "UPDATE", schema: "public", table: "messages" },
-        (payload) => {
-          if (payload.new?.recipient_id === user.id) refresh();
-        }
-      )
-      .subscribe();
-
-    // Soft refresh every 30s as a fallback.
-    const poll = setInterval(refresh, 30000);
+    // Polling only, every 60 s while the tab is visible, plus a refresh when
+    // the tab comes back. This used to also hold a Supabase Realtime
+    // subscription to EVERY insert/update on messages (unfiltered), opened
+    // by every signed-in visitor on every page via the header badge;
+    // Realtime change polling was the largest consumer of database time in
+    // pg_stat_statements (2026-10-01). A badge can be a minute behind.
+    const poll = setInterval(() => {
+      if (document.visibilityState === "visible") refresh();
+    }, 60000);
+    function onVisible() {
+      if (document.visibilityState === "visible") refresh();
+    }
+    document.addEventListener("visibilitychange", onVisible);
 
     return () => {
       cancelled = true;
-      if (channel) supabase.removeChannel(channel);
       clearInterval(poll);
+      document.removeEventListener("visibilitychange", onVisible);
     };
   }, [user]);
 
-  return count;
+  return user && unread.userId === user.id ? unread.count : 0;
 }

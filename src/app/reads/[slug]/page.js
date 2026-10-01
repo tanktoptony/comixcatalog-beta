@@ -66,7 +66,7 @@ export default async function ReadArticlePage({ params }) {
             r/comixcatalog
           </a>
           , or{" "}
-          <Link href="/get-started">start tracking your collection</Link>.
+          <Link href="/start">start tracking your collection</Link>.
         </p>
       </article>
     </main>

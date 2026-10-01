@@ -226,6 +226,12 @@ async function fetchSeriesBatch() {
       title,
       cv_publisher,
       comicvine_volume_id,
+      issue_count_cached,
+      year_start_cached,
+      year_end_cached,
+      resolved_publisher_cached,
+      featured_cover_path_cached,
+      search_refreshed_at,
       publisher:publisher_id (
         name,
         gcd_id
@@ -919,6 +925,7 @@ async function processBatch(seriesBatch) {
   // Phase 3: write updates
   const now = new Date().toISOString();
   let updated = 0;
+  let unchanged = 0;
 
   for (const entry of computed) {
     const { series, issueCount, yearStart, yearEnd, resolvedPublisher } = entry;
@@ -930,6 +937,25 @@ async function processBatch(seriesBatch) {
           `featured=${featuredCoverPath ?? "NULL"} | pub=${resolvedPublisher} | issues=${issueCount}`
       );
       updated += 1;
+      continue;
+    }
+
+    // --force (the weekly run) walks all ~217k series and used to rewrite
+    // every row even when nothing changed: ~6.5M UPDATEs in
+    // pg_stat_statements by 2026-10-01, all of it WAL that Supabase Realtime
+    // then had to scan. Skip rows whose cached values already match. Rows
+    // never refreshed (search_refreshed_at null) are still written, since
+    // the non-force mode selects on that column and would loop otherwise.
+    if (
+      FORCE &&
+      series.search_refreshed_at != null &&
+      series.issue_count_cached === issueCount &&
+      series.year_start_cached === yearStart &&
+      series.year_end_cached === yearEnd &&
+      series.resolved_publisher_cached === resolvedPublisher &&
+      (series.featured_cover_path_cached ?? null) === featuredCoverPath
+    ) {
+      unchanged += 1;
       continue;
     }
 
@@ -953,6 +979,7 @@ async function processBatch(seriesBatch) {
     updated += 1;
   }
 
+  if (unchanged) console.log(`  ${unchanged} unchanged rows skipped`);
   return updated;
 }
 

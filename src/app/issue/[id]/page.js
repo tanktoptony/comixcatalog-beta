@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import IssueForSale from "@/components/IssueForSale";
 import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
@@ -427,13 +428,6 @@ export default function IssuePage() {
               }}
             >
               <div className="metadata-section" style={{ margin: 0 }}>
-                <div className="issue-section-title">Listings</div>
-                <div style={{ fontSize: "1.5rem", fontWeight: 800 }}>
-                  {issue.market?.listings_count ?? 0}
-                </div>
-              </div>
-
-              <div className="metadata-section" style={{ margin: 0 }}>
                 <div className="issue-section-title">Median</div>
                 <div style={{ fontSize: "1.5rem", fontWeight: 800 }}>
                   {money(issue.market?.median)}
@@ -511,47 +505,9 @@ export default function IssuePage() {
               </div>
             )}
 
-            <div className="metadata-section" style={{ margin: 0, marginBottom: "22px" }}>
-              <h3 className="issue-section-title">Copies for Sale</h3>
-
-              {(issue.market?.listings_count ?? 0) === 0 ? (
-                <div className="empty-state" style={{ marginTop: "12px" }}>
-                  No copies listed yet.
-                </div>
-              ) : (
-                <div
-                  style={{
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    borderRadius: "12px",
-                    overflow: "hidden",
-                    marginTop: "12px",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "grid",
-                      // Marketplace listings header — keeps 4 columns on
-                      // anything ~480+, otherwise wraps. Buyers on mobile see
-                      // the columns reflow not horizontally scroll.
-                      gridTemplateColumns: "repeat(auto-fit, minmax(min(110px, 100%), 1fr))",
-                      gap: "12px",
-                      padding: "12px 14px",
-                      fontWeight: 700,
-                      borderBottom: "1px solid rgba(255,255,255,0.08)",
-                    }}
-                  >
-                    <div>Seller</div>
-                    <div>Condition</div>
-                    <div>Price</div>
-                    <div>Shipping</div>
-                  </div>
-
-                  <div style={{ padding: "16px 14px" }} className="muted">
-                    Listing rows will land here once marketplace data is tied to canonical issue ids.
-                  </div>
-                </div>
-              )}
-            </div>
+            {String(id).startsWith("gcd-") && (
+              <IssueForSale gcdIssueId={Number(String(id).slice(4))} />
+            )}
 
             {issue.related_issues?.length > 0 && (
               <div className="metadata-section" style={{ margin: 0 }}>

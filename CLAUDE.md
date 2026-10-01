@@ -230,7 +230,8 @@ Columns: `snapshot_date` (date), `total_value` (numeric 12,2), `owned_count` (in
 
 ### Storage buckets
 - `comic-covers` — user-submitted covers via `comic_covers.image_path`. Also where per-library-item user photos will live (under `library/<collection_id>.<ext>` once the migration lands).
-- `canonical-covers` — ComicVine + GCD-sourced covers via `canonical_covers.storage_path`.
+- `canonical-covers` — ComicVine + GCD-sourced covers via `canonical_covers.storage_path`. Never draw them into grids (use `cover-thumbs`). Stored originals are capped at 1600 px tall: the ingester's `shrink_cover_bytes` re-encodes anything over 1 MB on upload, and `scripts/shrinkCoverStorage.js` did the same to the existing bucket on 2026-10-01 (it was 150 GB on a 100 GB plan) after deleting 23k files nothing referenced. Supabase file storage is the plan limit to watch; check it on the org Usage page.
+- `cover-thumbs` (public, added 2026-10-01) — 400px WebP of each canonical cover at `w400/<storage_path>.webp`, one-year cache. Any grid, search result, shelf or carousel must wrap its cover URL in `coverThumb()` (`src/lib/coverThumb.js`); `CoverThumbFallback` (mounted in the root layout) swaps a missing thumb back to the original. The ingester writes a thumb with every new cover; `scripts/buildCoverThumbs.js` backfills. Detail pages (issue, comic) still show originals.
 
 ### Per-Collection-Item Fields (already in DB, surface in UI)
 | Column | Description |

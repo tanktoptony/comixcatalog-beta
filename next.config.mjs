@@ -11,6 +11,15 @@ const nextConfig = {
     "/api/share-card": ["./src/app/api/share-card/fonts/**"],
   },
 
+  // /about and /get-started were folded into /start (2026-10-01): three
+  // pages explained the same thing. Permanent so search engines move over.
+  async redirects() {
+    return [
+      { source: "/about", destination: "/start", permanent: true },
+      { source: "/get-started", destination: "/start", permanent: true },
+    ];
+  },
+
   images: {
     remotePatterns: [
       {

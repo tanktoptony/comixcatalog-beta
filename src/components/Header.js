@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
+import { forwardRef, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { groupByTitle, flattenGroups } from "@/lib/searchVariety";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
@@ -119,10 +119,13 @@ export default function Header() {
     dismissSuggestions();
   }
 
+  // Pending until the destination page has rendered: the search box shows
+  // a spinner so a picked result never looks like it did nothing.
+  const [isNavigating, startNavigation] = useTransition();
   function handleNavigate(href) {
     clearSearch();
     closeMenu();
-    router.push(href);
+    startNavigation(() => router.push(href));
   }
 
   // Reset search chrome + the avatar dropdown whenever the route changes.
@@ -351,15 +354,19 @@ export default function Header() {
             <div className="brand-title">
               <span className="brand-main">COMIXCATALOG</span>
             </div>
-            <div className="brand-sub">Catalog. Collect. Connect.</div>
           </div>
         </Link>
 
-        <div className="header-search-wrap" ref={searchRef}>
+        <div
+          className={`header-search-wrap${isNavigating ? " is-loading" : ""}`}
+          ref={searchRef}
+          aria-busy={isNavigating}
+        >
+          {isNavigating && <span className="header-search-spinner" aria-hidden="true" />}
           <input
             className="header-search-input"
             type="text"
-            placeholder="Search series, issues, characters..."
+            placeholder={isNavigating ? "Opening…" : "Search series, issues, characters..."}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => {
@@ -549,15 +556,6 @@ export default function Header() {
             narrowest widths via CSS. Always single-row, no wrapping. */}
         <nav className="main-nav" aria-label="Primary">
           <Link
-            href="/search"
-            className="nav-icon-btn"
-            onClick={closeMenu}
-            title="Browse"
-            aria-label="Browse"
-          >
-            <BrowseIcon />
-          </Link>
-          <Link
             href="/marketplace"
             className="nav-icon-btn"
             onClick={closeMenu}
@@ -592,8 +590,8 @@ export default function Header() {
 
         {/* Library icon + avatar dropdown live OUTSIDE .main-nav so they stay
             visible on mobile while text links collapse behind the hamburger.
-            Inbox slot is reserved — messaging v1 is wallpapered off while we
-            focus on data ingestion. Re-enable by swapping back to InboxNavButton. */}
+            Messaging v1 is off; re-enable the inbox by rendering
+            InboxNavButton here. */}
         {user && (
           <div className="header-user-actions">
             {/* Persistent, always-available re-entry point into the
@@ -614,15 +612,6 @@ export default function Header() {
               <HelpIcon />
             </button>
 
-            <button
-              type="button"
-              className="nav-icon-btn nav-icon-btn-disabled"
-              title="Inbox (coming soon)"
-              aria-label="Inbox (coming soon)"
-              disabled
-            >
-              <InboxIcon />
-            </button>
 
             <Link
               href="/library"
@@ -726,26 +715,6 @@ function InboxIcon() {
     >
       <path d="M3 13h4l2 3h6l2-3h4" />
       <path d="M5 5h14l2 8v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6z" />
-    </svg>
-  );
-}
-
-function BrowseIcon() {
-  // Compass-style explore icon — denotes "browse / discover".
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="12" r="9" />
-      <path d="M15.5 8.5l-2 5-5 2 2-5z" />
     </svg>
   );
 }

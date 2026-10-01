@@ -11466,3 +11466,68 @@ button.nav-link {
   .dispatch-link, .dispatch-strip-item { transition: none; }
   .dispatch-link:hover, .dispatch-strip-item:hover { transform: none; }
 }
+
+/* ── Homepage hero cover wall + search pending state ───────────────────── */
+.lp-wall {
+  position: absolute;
+  inset: -12% -8% -12% 4%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  transform: rotate(-7deg);
+}
+.lp-wall-col { display: grid; gap: 16px; align-content: start; animation: lp-wall-drift 16s ease-in-out infinite alternate; }
+.lp-wall-col-1 { margin-top: -70px; animation-delay: -5s; }
+.lp-wall-col-2 { margin-top: 40px; animation-delay: -10s; }
+.lp-wall-col-3 { margin-top: -30px; animation-delay: -3s; }
+.lp-wall-cover {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  background: rgba(255, 255, 255, 0.05);
+}
+@keyframes lp-wall-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-36px); }
+}
+@media (max-width: 860px) {
+  .lp-wall { inset: -40% -10% -40% -10%; gap: 10px; }
+  .lp-wall-col { gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-wall-col { animation: none; }
+}
+.lp-hero-search-btn { display: inline-flex; align-items: center; gap: 0.5rem; }
+.lp-hero-search-btn:disabled { cursor: progress; transform: none; background: rgba(244, 208, 63, 0.22); border-color: #F4D03F; }
+.lp-hero-search.is-searching .lp-hero-search-input { border-color: rgba(244, 208, 63, 0.6); opacity: 0.75; }
+.lp-spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(244, 208, 63, 0.35);
+  border-top-color: #F4D03F;
+  animation: lp-spin 0.7s linear infinite;
+}
+@keyframes lp-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .lp-spinner { animation-duration: 1.6s; }
+}
+
+/* Header search: pending state while a picked result's page loads. */
+.header-search-wrap { position: relative; }
+.header-search-wrap.is-loading .header-search-input { border-color: rgba(244, 208, 63, 0.6); padding-left: 2.25rem; }
+.header-search-spinner {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  border-radius: 50%;
+  border: 2px solid rgba(244, 208, 63, 0.35);
+  border-top-color: #F4D03F;
+  animation: lp-spin 0.7s linear infinite;
+  z-index: 2;
+}

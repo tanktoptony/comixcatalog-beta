@@ -34771,9 +34771,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T01:00:55.265645+00:00",
-    "retry_after": "2026-10-01T01:00:55.265660+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T02:03:07.674414+00:00",
+    "retry_after": "2026-10-04T02:03:07.674429+00:00"
   },
   {
     "name": "Very Funny, Charlie Brown",
@@ -34781,9 +34781,9 @@
     "year": 1965,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T01:02:05.698903+00:00",
-    "retry_after": "2026-10-01T01:02:05.698918+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T02:03:07.968395+00:00",
+    "retry_after": "2026-10-04T02:03:07.968410+00:00"
   },
   {
     "name": "Don't Bet on It, Snoopy",
@@ -36612,5 +36612,115 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T01:03:06.836229+00:00",
     "retry_after": "2026-10-02T01:03:06.836247+00:00"
+  },
+  {
+    "name": "Injustice: Gods Among Us Compendium",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T02:02:54.963972+00:00",
+    "retry_after": "2026-10-02T02:02:54.963988+00:00"
+  },
+  {
+    "name": "Starfinder",
+    "publisher": "Dynamite Entertainment",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T02:03:03.526716+00:00",
+    "retry_after": "2026-10-02T02:03:03.526737+00:00"
+  },
+  {
+    "name": "G.I. Joe: The Best of the Baroness",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T02:03:04.154286+00:00",
+    "retry_after": "2026-10-02T02:03:04.154302+00:00"
+  },
+  {
+    "name": "King Conan Chronicles Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T02:03:04.973269+00:00",
+    "retry_after": "2026-10-02T02:03:04.973284+00:00"
+  },
+  {
+    "name": "CAL Magazine",
+    "publisher": "Caliber Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T02:03:05.702885+00:00",
+    "retry_after": "2026-10-02T02:03:05.702901+00:00"
+  },
+  {
+    "name": "Legacy Free Previews Spotlight",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T02:03:06.063873+00:00",
+    "retry_after": "2026-10-02T02:03:06.063888+00:00"
+  },
+  {
+    "name": "Conan: The Barbarian FCBD 2023",
+    "publisher": "Titan Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T02:03:06.555684+00:00",
+    "retry_after": "2026-10-02T02:03:06.555699+00:00"
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Reno Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T02:03:06.890824+00:00",
+    "retry_after": "2026-10-02T02:03:06.890845+00:00"
+  },
+  {
+    "name": "Black Adam - The Justice Society Files: Hawkman",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T02:03:07.216578+00:00",
+    "retry_after": "2026-10-02T02:03:07.216593+00:00"
+  },
+  {
+    "name": "Gold Digger Sourcebook",
+    "publisher": "Antarctic Press",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T02:03:08.797008+00:00",
+    "retry_after": "2026-10-02T02:03:08.797024+00:00"
+  },
+  {
+    "name": "The Chilling Archives of Horror Comics!",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T02:03:09.210444+00:00",
+    "retry_after": "2026-10-02T02:03:09.210460+00:00"
   }
 ]

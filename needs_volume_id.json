@@ -34897,9 +34897,9 @@
     "year": null,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T03:00:50.015437+00:00",
-    "retry_after": "2026-10-01T03:00:50.015456+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T04:00:48.228952+00:00",
+    "retry_after": "2026-10-04T04:00:48.228973+00:00"
   },
   {
     "name": "Clint",
@@ -34920,9 +34920,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T03:01:10.934990+00:00",
-    "retry_after": "2026-10-01T03:01:10.935008+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T04:00:49.099199+00:00",
+    "retry_after": "2026-10-04T04:00:49.099212+00:00"
   },
   {
     "name": "Dungeons & Dragons: Forgotten Realms: The Legend of Drizzt Omnibus",
@@ -34930,9 +34930,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T03:02:11.032196+00:00",
-    "retry_after": "2026-10-01T03:02:11.032214+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T04:00:50.102430+00:00",
+    "retry_after": "2026-10-04T04:00:50.102444+00:00"
   },
   {
     "name": "Marvel Masterworks: Golden Age All-Winners Comics",
@@ -34940,9 +34940,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T03:02:11.481700+00:00",
-    "retry_after": "2026-10-01T03:02:11.481718+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T04:00:50.506049+00:00",
+    "retry_after": "2026-10-04T04:00:50.506063+00:00"
   },
   {
     "name": "Iron Wings",
@@ -34957,9 +34957,9 @@
         "start_year": 1999
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T03:02:20.141903+00:00",
-    "retry_after": "2026-10-01T03:02:20.141921+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T04:00:50.843875+00:00",
+    "retry_after": "2026-10-04T04:00:50.843890+00:00"
   },
   {
     "name": "Think Tank",
@@ -34980,9 +34980,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T04:00:42.218066+00:00",
-    "retry_after": "2026-10-01T04:00:42.218080+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T04:00:51.300342+00:00",
+    "retry_after": "2026-10-04T04:00:51.300357+00:00"
   },
   {
     "name": "ThunderCats / The Powerpuff Girls",
@@ -36759,5 +36759,75 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T03:01:28.625701+00:00",
     "retry_after": "2026-10-02T03:01:28.625718+00:00"
+  },
+  {
+    "name": "Sonic Prime",
+    "publisher": "IDW Publishing",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T04:00:45.873621+00:00",
+    "retry_after": "2026-10-02T04:00:45.873632+00:00"
+  },
+  {
+    "name": "Custom M&M 2023 Comic",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T04:00:45.475538+00:00",
+    "retry_after": "2026-10-02T04:00:45.475555+00:00"
+  },
+  {
+    "name": "Marvel & Disney: What If...? Donald Duck Became Iron Man",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T04:00:45.812480+00:00",
+    "retry_after": "2026-10-02T04:00:45.812500+00:00"
+  },
+  {
+    "name": "X-Men: From the Ashes � Demons and Death",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T04:00:47.112324+00:00",
+    "retry_after": "2026-10-02T04:00:47.112337+00:00"
+  },
+  {
+    "name": "Executive Assistant: The Hitlist Agenda",
+    "publisher": "Aspen Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T04:00:47.530654+00:00",
+    "retry_after": "2026-10-02T04:00:47.530669+00:00"
+  },
+  {
+    "name": "Star Wars: Episode I - The Phantom Menace - Manga",
+    "publisher": "Dark Horse Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T04:00:51.992959+00:00",
+    "retry_after": "2026-10-02T04:00:51.992974+00:00"
+  },
+  {
+    "name": "Toy Story Adventures",
+    "publisher": "Dark Horse Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T04:01:07.943795+00:00",
+    "retry_after": "2026-10-02T04:01:07.943811+00:00"
   }
 ]

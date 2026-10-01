@@ -35304,9 +35304,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T11:01:17.835421+00:00",
-    "retry_after": "2026-10-01T11:01:17.835436+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T12:00:59.146986+00:00",
+    "retry_after": "2026-10-04T12:00:59.147007+00:00"
   },
   {
     "name": "The Autumnlands",
@@ -35321,9 +35321,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T11:01:18.438239+00:00",
-    "retry_after": "2026-10-01T11:01:18.438254+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T12:00:59.844256+00:00",
+    "retry_after": "2026-10-04T12:00:59.844271+00:00"
   },
   {
     "name": "Puppet Master: Children of the Puppet Master",
@@ -35344,9 +35344,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T12:00:50.106379+00:00",
-    "retry_after": "2026-10-01T12:00:50.106394+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T12:01:00.527760+00:00",
+    "retry_after": "2026-10-04T12:01:00.527774+00:00"
   },
   {
     "name": "Marvels",
@@ -37769,5 +37769,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T11:02:37.500447+00:00",
     "retry_after": "2026-10-02T11:02:37.500465+00:00"
+  },
+  {
+    "name": "Blade Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T12:00:48.032542+00:00",
+    "retry_after": "2026-10-02T12:00:48.032558+00:00"
+  },
+  {
+    "name": "Dr. Sex",
+    "publisher": "Dell Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T12:00:49.973092+00:00",
+    "retry_after": "2026-10-02T12:00:49.973108+00:00"
+  },
+  {
+    "name": "Megaton Man: Bombshell",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T12:00:51.326655+00:00",
+    "retry_after": "2026-10-02T12:00:51.326671+00:00"
   }
 ]

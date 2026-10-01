@@ -35860,9 +35860,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T21:02:15.282314+00:00",
-    "retry_after": "2026-10-01T21:02:15.282332+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T22:00:43.200779+00:00",
+    "retry_after": "2026-10-04T22:00:43.200800+00:00"
   },
   {
     "name": "Misplaced",
@@ -35901,9 +35901,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T21:04:26.976267+00:00",
-    "retry_after": "2026-10-01T21:04:26.976285+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T22:00:43.744614+00:00",
+    "retry_after": "2026-10-04T22:00:43.744629+00:00"
   },
   {
     "name": "Avengers Epic Collection",
@@ -35911,9 +35911,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T21:06:13.769259+00:00",
-    "retry_after": "2026-10-01T21:06:13.769277+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T22:29:20.394808+00:00",
+    "retry_after": "2026-10-04T22:29:20.394824+00:00"
   },
   {
     "name": "Transformers Deluxe",
@@ -38067,5 +38067,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T21:01:01.909039+00:00",
     "retry_after": "2026-10-02T21:01:01.909054+00:00"
+  },
+  {
+    "name": "Edgar Rice Burroughs' Tarzan: The New Adventures",
+    "publisher": "Dark Horse Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T22:00:41.936230+00:00",
+    "retry_after": "2026-10-02T22:00:41.936246+00:00"
+  },
+  {
+    "name": "True Believers: Kirby 100th - Ant-Man and the Wasp",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T22:00:42.573031+00:00",
+    "retry_after": "2026-10-02T22:00:42.573049+00:00"
+  },
+  {
+    "name": "Hack/Slash Omnibus",
+    "publisher": "Devil's Due",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36766,
+        "name": "Hack/Slash: Omnibus",
+        "publisher": "Image",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T22:18:37.103613+00:00",
+    "retry_after": "2026-10-02T22:18:37.103628+00:00"
   }
 ]

@@ -16,15 +16,18 @@ function proofNumber(n, fallback) {
   return `${(Math.floor(n / 1000) * 1000).toLocaleString("en-US")}+`;
 }
 
-export default function HomeClient({ featured = null, stats = null, dispatch = null }) {
+export default function HomeClient({ featured = null, heroWall = null, stats = null, dispatch = null }) {
   const { user } = useAuth();
   const router = useRouter();
   const [heroQuery, setHeroQuery] = useState("");
   // Pending until the results page has actually rendered, so the button
   // stays visibly pressed instead of looking like nothing happened.
   const [isSearching, startSearch] = useTransition();
-  // Hero art: real covers from this week's featured series.
-  const wall = (featured ?? []).filter((s) => s?.cover_path).slice(0, 12);
+  // Hero art: a weekly mix of classics and current featured covers
+  // (src/lib/heroWall.js), falling back to featured covers alone.
+  const wall = heroWall?.length
+    ? heroWall
+    : (featured ?? []).filter((s) => s?.cover_path).map((s) => ({ id: s.id, cover: s.cover_path })).slice(0, 12);
 
   // Funnel: which landing CTA actually moves people. Search itself is
   // measured on /search (the `search` event), not here.
@@ -100,7 +103,7 @@ export default function HomeClient({ featured = null, stats = null, dispatch = n
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       key={s.id}
-                      src={coverThumb(s.cover_path)}
+                      src={coverThumb(s.cover)}
                       alt=""
                       className="lp-wall-cover"
                       fetchPriority={i === 0 ? "high" : "auto"}

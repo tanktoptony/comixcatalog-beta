@@ -26,7 +26,7 @@ fs.writeFileSync(path.join(root, "shared", "generated", "assetIndex.json"), JSON
 
 for (const ep of EPISODES) {
   const missing = missingAssets(ep, files);
-  const outDir = path.join(root, ep.id, "output");
+  const outDir = path.join(root, ep.outputDir ?? ep.id, "output");
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(
     path.join(outDir, `${ep.id}-missing-assets.json`),

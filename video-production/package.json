@@ -9,8 +9,13 @@
     "studio": "npm run index && remotion studio src/index.jsx",
     "render:001": "npm run index && node scripts/render.mjs episode-001",
     "render:001:preview": "npm run index && node scripts/render.mjs episode-001 --preview",
+    "render:001:v2": "npm run index && node scripts/render.mjs episode-001-v2",
+    "render:001:v2:preview": "npm run index && node scripts/render.mjs episode-001-v2 --preview",
     "render:demo": "npm run index && node scripts/render.mjs demo --preview",
-    "test": "node --test shared/timeline.test.js"
+    "test": "node --test shared/timeline.test.js shared/anchors.test.js",
+    "render:001:v3": "npm run index && node scripts/render.mjs episode-001-v3",
+    "render:001:v3:preview": "npm run index && node scripts/render.mjs episode-001-v3 --preview",
+    "transcribe:001": "python scripts/transcribe.py"
   },
   "dependencies": {
     "@fontsource/big-shoulders": "^5.3.0",

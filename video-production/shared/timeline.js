@@ -65,7 +65,7 @@ export function normalizeTimeline(episode, fps) {
     return { ...seg, end, from, durationInFrames };
   });
 
-  return { fps, durationInFrames: Math.round(total * fps), segments };
+  return { fps, durationInFrames: Math.round(total * fps), segments, audio: episode.audio ?? null };
 }
 
 // Every asset a segment points at, in one list. Components take either
@@ -93,6 +93,7 @@ export function assetPath(episodeId, asset) {
 }
 
 export const MEDIA_EXTENSIONS = ["jpg", "jpeg", "png", "webp", "gif", "mp4", "mov", "webm"];
+export const AUDIO_EXTENSIONS = ["wav", "m4a", "mp3", "aac", "ogg"];
 export const isVideo = (path) => /\.(mp4|mov|webm)$/i.test(String(path ?? ""));
 const hasExtension = (asset) => /\.[a-z0-9]+$/i.test(asset);
 
@@ -108,6 +109,15 @@ export function resolveAsset(folder, asset, available) {
 // A segment may name a `fallback` the blueprint itself allows ("Fallback:
 // real covers only"). It is used only when the primary asset is absent, and
 // the primary is still reported missing.
+// Same as resolveAsset, for audio ("audio/NARRATION" finds NARRATION.m4a).
+export function resolveAudio(folder, asset, available) {
+  if (!asset) return null;
+  const base = assetPath(folder, asset);
+  if (hasExtension(asset)) return available.has(base) ? base : null;
+  for (const ext of AUDIO_EXTENSIONS) if (available.has(`${base}.${ext}`)) return `${base}.${ext}`;
+  return null;
+}
+
 export function withFallbacks(seg, folder, available) {
   if (!seg.fallback || !seg.asset || resolveAsset(folder, seg.asset, available)) return seg;
   // `fallbackProps` (framing for the stand-in, e.g. a still's zoom) apply

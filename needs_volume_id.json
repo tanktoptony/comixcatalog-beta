@@ -36529,5 +36529,88 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T00:26:38.717023+00:00",
     "retry_after": "2026-10-02T00:26:38.717040+00:00"
+  },
+  {
+    "name": "Paul Jenkins' Sidekick: Super Summer Sidekick Spectacular",
+    "publisher": "Image Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T01:00:43.999332+00:00",
+    "retry_after": "2026-10-02T01:00:43.999351+00:00"
+  },
+  {
+    "name": "Transformers Annual",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27889,
+        "name": "The Transformers Annual",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T01:01:17.840995+00:00",
+    "retry_after": "2026-10-02T01:01:17.841015+00:00"
+  },
+  {
+    "name": "Grimm Fairy Tales Unleashed",
+    "publisher": "Zenescope Entertainment",
+    "year": 2013,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 59555,
+        "name": "Grimm Fairy Tales Unleashed",
+        "publisher": "Zenescope Entertainment",
+        "start_year": 2013
+      },
+      {
+        "id": 65478,
+        "name": "Grimm Fairy Tales Unleashed",
+        "publisher": "Zenescope Entertainment",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T01:02:35.998752+00:00",
+    "retry_after": "2026-10-02T01:02:35.998771+00:00"
+  },
+  {
+    "name": "Divine Right",
+    "publisher": "WildStorm",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 93248,
+        "name": "Divine Right",
+        "publisher": "Splitter",
+        "start_year": 1998
+      },
+      {
+        "id": 127388,
+        "name": "Divine Right",
+        "publisher": "JuniorPress BV",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T01:02:36.557614+00:00",
+    "retry_after": "2026-10-02T01:02:36.557635+00:00"
+  },
+  {
+    "name": "Flash Gordon: Classic Collection",
+    "publisher": "Mad Cave Studios",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T01:03:06.836229+00:00",
+    "retry_after": "2026-10-02T01:03:06.836247+00:00"
   }
 ]

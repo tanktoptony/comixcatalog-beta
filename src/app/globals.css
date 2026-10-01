@@ -11537,24 +11537,6 @@ button.nav-link {
 .mkt-counts { margin: 0.25rem 0 0; color: rgba(255, 255, 255, 0.75); font-size: 0.95rem; }
 .mkt-counts b { color: #F4D03F; }
 .mkt-browse { max-width: 1180px; margin: 2rem auto 0; padding: 0 1.25rem; display: grid; gap: 1.25rem; }
-.mkt-toolbar { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.mkt-search {
-  flex: 1 1 280px;
-  padding: 0.75rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
-  font-size: 0.95rem;
-}
-.mkt-search:focus { outline: none; border-color: #F4D03F; }
-.mkt-sort {
-  padding: 0.7rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
-}
 .mkt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1rem; }
 .mkt-card {
   display: grid;
@@ -11676,7 +11658,6 @@ button.nav-link {
 }
 .lp-feature p a { color: #F4D03F; font-weight: 700; text-decoration: none; }
 
-.mkt-sort { width: auto; flex: 0 0 auto; }
 .mkt-card { min-width: 0; }
 .mkt-card-body { min-width: 0; }
 .mkt-card-title { overflow-wrap: anywhere; }
@@ -11874,3 +11855,127 @@ button.nav-link {
   .skel { animation: none; }
 }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* ── Marketplace toolbar + publisher/title grouping ────────────────────── */
+.mkt-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.025);
+}
+.mkt-bar-search {
+  flex: 1 1 260px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 1rem;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.45);
+  transition: border-color 0.15s ease;
+}
+.mkt-bar-search:focus-within { border-color: #F4D03F; color: #F4D03F; }
+.mkt-bar-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 0.95rem;
+}
+.mkt-bar-search input::placeholder { color: rgba(255, 255, 255, 0.4); }
+.mkt-seg {
+  display: inline-flex;
+  padding: 4px;
+  gap: 2px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.mkt-seg button {
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 9px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.mkt-seg button:hover { color: #fff; }
+.mkt-seg button.is-on { background: #F4D03F; color: #0B1E6B; }
+.mkt-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.mkt-chips button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.mkt-chips button span {
+  font-size: 0.72rem;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+}
+.mkt-chips button:hover { border-color: rgba(244, 208, 63, 0.5); color: #fff; }
+.mkt-chips button.is-on { border-color: #F4D03F; color: #F4D03F; background: rgba(244, 208, 63, 0.08); }
+.mkt-chips button.is-on span { background: rgba(244, 208, 63, 0.2); color: #F4D03F; }
+
+.mkt-pub { display: grid; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.mkt-pub-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+.mkt-pub-head h2 { margin: 0; font-size: clamp(1.4rem, 2.6vw, 1.8rem); font-weight: 900; color: #fff; letter-spacing: -0.01em; }
+.mkt-pub-head span { color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; }
+.mkt-run { display: grid; gap: 0.7rem; }
+.mkt-run-title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #F4D03F;
+}
+.mkt-run-title span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(244, 208, 63, 0.14);
+}
+.mkt-browse .mkt-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.9rem; }
+.mkt-card-year { color: rgba(255, 255, 255, 0.5); font-weight: 600; font-size: 0.85rem; }
+.mkt-browse .mkt-card-body { gap: 0.3rem; }
+.mkt-browse .mkt-offer-btn { text-align: center; margin-top: 0.25rem; }
+@media (max-width: 560px) {
+  .mkt-seg { width: 100%; justify-content: space-between; }
+  .mkt-seg button { flex: 1; padding: 0.5rem 0.4rem; }
+}
+
+/* Titles flow side by side like shelves, so a one-book title doesn't leave
+   a whole empty row. */
+.mkt-shelves { display: flex; flex-wrap: wrap; gap: 1.75rem 2.25rem; align-items: flex-start; }
+.mkt-run { flex: 0 1 auto; max-width: 100%; }
+.mkt-browse .mkt-run .mkt-grid { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+.mkt-browse .mkt-run .mkt-card { width: 168px; }
+@media (max-width: 560px) {
+  .mkt-run { flex: 1 1 100%; }
+  .mkt-browse .mkt-run .mkt-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mkt-browse .mkt-run .mkt-card { width: auto; }
+}

@@ -32754,23 +32754,6 @@
     "retry_after": "2026-10-02T22:03:02.267316+00:00"
   },
   {
-    "name": "Suite 121",
-    "publisher": "Dynamite Entertainment",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 91566,
-        "name": "Suite 121",
-        "publisher": "Dynamite (France)",
-        "start_year": 2015
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-29T23:00:42.111359+00:00",
-    "retry_after": "2026-10-02T23:00:42.111376+00:00"
-  },
-  {
     "name": "Doctor Strange / Ghost Rider Special",
     "publisher": "Marvel Comics",
     "year": 1991,
@@ -32779,23 +32762,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-30T00:00:36.765551+00:00",
     "retry_after": "2026-10-03T00:00:36.765566+00:00"
-  },
-  {
-    "name": "Knights of the Jaguar: A Tale from the Legend of Diablo",
-    "publisher": "Top Cow Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24198,
-        "name": "Knights of the Jaguar: A Tale from the Legend of Diablo",
-        "publisher": "Image",
-        "start_year": 2004
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T00:00:43.729225+00:00",
-    "retry_after": "2026-10-03T00:00:43.729239+00:00"
   },
   {
     "name": "Miles Morales: Spider-Man Modern Era Epic Collection",
@@ -33630,23 +33596,6 @@
     "retry_after": "2026-10-03T08:06:59.518674+00:00"
   },
   {
-    "name": "UFO Encounters",
-    "publisher": "Gold Key",
-    "year": 1978,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 80495,
-        "name": "UFO Encounters",
-        "publisher": "Golden Press",
-        "start_year": 1979
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T08:06:59.567724+00:00",
-    "retry_after": "2026-10-03T08:06:59.567738+00:00"
-  },
-  {
     "name": "100 Bullets",
     "publisher": "DC Comics",
     "year": 2007,
@@ -33839,23 +33788,6 @@
     "retry_after": "2026-10-03T10:00:54.252076+00:00"
   },
   {
-    "name": "Dork Tower",
-    "publisher": "Corsair Publishing",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 29767,
-        "name": "Dork Tower",
-        "publisher": "Dork Storm",
-        "start_year": 2000
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T11:00:57.899554+00:00",
-    "retry_after": "2026-10-03T11:00:57.899569+00:00"
-  },
-  {
     "name": "Dork Tower Swimsuit Special",
     "publisher": "Dork Storm Press",
     "year": 2001,
@@ -33864,40 +33796,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-30T11:00:58.301632+00:00",
     "retry_after": "2026-10-03T11:00:58.301648+00:00"
-  },
-  {
-    "name": "Dork Tower",
-    "publisher": "Dork Storm Press",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 29767,
-        "name": "Dork Tower",
-        "publisher": "Dork Storm",
-        "start_year": 2000
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T11:00:58.350507+00:00",
-    "retry_after": "2026-10-03T11:00:58.350521+00:00"
-  },
-  {
-    "name": "Dork House Comics",
-    "publisher": "Parody Press",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62417,
-        "name": "Dork House Comics",
-        "publisher": "Express Publications",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T11:00:58.755939+00:00",
-    "retry_after": "2026-10-03T11:00:58.755954+00:00"
   },
   {
     "name": "The X-Men Creators' Choice",
@@ -33953,40 +33851,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-30T11:01:00.701639+00:00",
     "retry_after": "2026-10-03T11:01:00.701654+00:00"
-  },
-  {
-    "name": "The Adventures of Kool-Aid Man",
-    "publisher": "Marvel Comics",
-    "year": 1983,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 61157,
-        "name": "The Adventures of Kool-Aid Man",
-        "publisher": "Archie Comics",
-        "start_year": 1983
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T11:01:01.210654+00:00",
-    "retry_after": "2026-10-03T11:01:01.210670+00:00"
-  },
-  {
-    "name": "Tigers of Terra: Families of Altered Wars",
-    "publisher": "Antarctic Press",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24948,
-        "name": "Tigers of Terra: Families of Altered Wars",
-        "publisher": "Mind Visions",
-        "start_year": 1986
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T11:01:01.732822+00:00",
-    "retry_after": "2026-10-03T11:01:01.732837+00:00"
   },
   {
     "name": "Showcase Presents: The Atom",
@@ -34400,23 +34264,6 @@
     "retry_after": "2026-10-03T19:01:09.650712+00:00"
   },
   {
-    "name": "Phantom Force",
-    "publisher": "Image Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 10823,
-        "name": "Phantom Force",
-        "publisher": "Genesis West",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T19:01:10.156673+00:00",
-    "retry_after": "2026-10-03T19:01:10.156688+00:00"
-  },
-  {
     "name": "Andy Devine [Andy Devine Western]",
     "publisher": "Fawcett Comics",
     "year": 1950,
@@ -34468,23 +34315,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-30T20:00:47.123185+00:00",
     "retry_after": "2026-10-03T20:00:47.123203+00:00"
-  },
-  {
-    "name": "La voie de Laura",
-    "publisher": "Dynamite Entertainment",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 142131,
-        "name": "La Voie de Laura",
-        "publisher": "Dynamite (France)",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T20:00:47.640165+00:00",
-    "retry_after": "2026-10-03T20:00:47.640183+00:00"
   },
   {
     "name": "Road Rage: Throttle",
@@ -34646,23 +34476,6 @@
     "retry_after": "2026-10-03T22:01:27.277845+00:00"
   },
   {
-    "name": "Prime Slime Tales",
-    "publisher": "Now Comics",
-    "year": 1986,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24339,
-        "name": "Prime Slime Tales",
-        "publisher": "Mirage",
-        "start_year": 1986
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T00:01:25.989020+00:00",
-    "retry_after": "2026-10-04T00:01:25.989036+00:00"
-  },
-  {
     "name": "Tales of the Witchblade Collected Editions",
     "publisher": "Image Comics",
     "year": 1998,
@@ -34671,23 +34484,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-01T00:01:26.429824+00:00",
     "retry_after": "2026-10-04T00:01:26.429842+00:00"
-  },
-  {
-    "name": "Disney-Pixar/Muppets Presents: Cars",
-    "publisher": "Marvel Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 55684,
-        "name": "Disney-Pixar/Muppets Presents: Cars",
-        "publisher": "Disney",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T00:01:26.842509+00:00",
-    "retry_after": "2026-10-04T00:01:26.842526+00:00"
   },
   {
     "name": "Two-Gun Kid: Sunset Riders",
@@ -34945,23 +34741,6 @@
     "retry_after": "2026-10-04T04:00:50.506063+00:00"
   },
   {
-    "name": "Iron Wings",
-    "publisher": "Image Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 63087,
-        "name": "Iron Wings",
-        "publisher": "Action Press",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T04:00:50.843875+00:00",
-    "retry_after": "2026-10-04T04:00:50.843890+00:00"
-  },
-  {
     "name": "Think Tank",
     "publisher": "Image Comics",
     "year": null,
@@ -35129,23 +34908,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-01T07:07:11.505336+00:00",
     "retry_after": "2026-10-04T07:07:11.505355+00:00"
-  },
-  {
-    "name": "Windmaker",
-    "publisher": "Dark Horse Comics",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 142606,
-        "name": "Windmaker",
-        "publisher": "YouNeek Studios",
-        "start_year": 2022
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T09:00:53.626520+00:00",
-    "retry_after": "2026-10-04T09:00:53.626534+00:00"
   },
   {
     "name": "Danganronpa 2: Chiaki Nanami's Goodbye Despair Quest",
@@ -35513,23 +35275,6 @@
     "retry_after": "2026-10-01T15:02:35.909970+00:00"
   },
   {
-    "name": "Demi-God",
-    "publisher": "IDW Publishing",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 109569,
-        "name": "Demi-God",
-        "publisher": "Ominous Press",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T15:02:36.252065+00:00",
-    "retry_after": "2026-10-01T15:02:36.252080+00:00"
-  },
-  {
     "name": "Star Blazers 2199 Omnibus",
     "publisher": "Dark Horse Comics",
     "year": 2019,
@@ -35737,23 +35482,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-30T16:03:55.192838+00:00",
     "retry_after": "2026-10-01T16:03:55.192853+00:00"
-  },
-  {
-    "name": "Death's Head II & the Origin of Die-Cut",
-    "publisher": "Marvel Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18466,
-        "name": "Death's Head II & The Origin of Die-Cut",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T17:01:14.475149+00:00",
-    "retry_after": "2026-10-01T17:01:14.475166+00:00"
   },
   {
     "name": "Gambit",
@@ -36541,23 +36269,6 @@
     "retry_after": "2026-10-02T01:00:43.999351+00:00"
   },
   {
-    "name": "Transformers Annual",
-    "publisher": "IDW Publishing",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 27889,
-        "name": "The Transformers Annual",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1984
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-01T01:01:17.840995+00:00",
-    "retry_after": "2026-10-02T01:01:17.841015+00:00"
-  },
-  {
     "name": "Grimm Fairy Tales Unleashed",
     "publisher": "Zenescope Entertainment",
     "year": 2013,
@@ -36722,23 +36433,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T02:03:09.210444+00:00",
     "retry_after": "2026-10-02T02:03:09.210460+00:00"
-  },
-  {
-    "name": "Laugh Out",
-    "publisher": "Charlton Comics",
-    "year": 1969,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 92444,
-        "name": "Laugh Out!",
-        "publisher": "Xerox Education Publications",
-        "start_year": 1970
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-01T03:00:45.681831+00:00",
-    "retry_after": "2026-10-02T03:00:45.681846+00:00"
   },
   {
     "name": "Star Trek: Deep Space Nine Limited Edition Preview",

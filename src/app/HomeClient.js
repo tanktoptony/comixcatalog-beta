@@ -72,7 +72,7 @@ export default function HomeClient({ featured = null }) {
           </div>
         </div>
         <div className="lp-hero-img">
-          <img src="/img/hero/comic-collage.jpg" alt="Comic book collection" />
+          <img src="/img/hero/comic-collage.jpg" alt="Comic book collection" fetchPriority="high" />
           <div className="lp-hero-img-fade" />
         </div>
       </section>

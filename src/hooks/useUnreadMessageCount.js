@@ -10,7 +10,9 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 
 export function useUnreadMessageCount() {
   const { user } = useAuth();
-  const [count, setCount] = useState(0);
+  // Tagged with the user it was fetched for, so a different account never
+  // sees the previous one's number, with no state reset in the effect.
+  const [unread, setUnread] = useState({ userId: null, count: 0 });
 
   useEffect(() => {
     if (!user) return;
@@ -24,7 +26,7 @@ export function useUnreadMessageCount() {
         .select("id", { count: "exact", head: true })
         .eq("recipient_id", user.id)
         .is("read_at", null);
-      if (!cancelled) setCount(c ?? 0);
+      if (!cancelled) setUnread({ userId: user.id, count: c ?? 0 });
     }
 
     refresh();
@@ -50,7 +52,5 @@ export function useUnreadMessageCount() {
     };
   }, [user]);
 
-  // Signed out reads as 0 without a state write (a stale count from the
-  // previous session is ignored, then replaced on the next sign-in's fetch).
-  return user ? count : 0;
+  return user && unread.userId === user.id ? unread.count : 0;
 }

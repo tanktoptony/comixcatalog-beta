@@ -51,8 +51,7 @@ function allowlistedSeries(query) {
 const STATIC_ROUTES = [
   // Marketing / top-level
   { path: "", changeFrequency: "weekly", priority: 1.0 },
-  { path: "/about", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/get-started", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/start", changeFrequency: "monthly", priority: 0.8 },
   { path: "/marketplace", changeFrequency: "weekly", priority: 0.9 },
   { path: "/search", changeFrequency: "weekly", priority: 0.9 },
   { path: "/founding-collectors", changeFrequency: "monthly", priority: 0.8 },

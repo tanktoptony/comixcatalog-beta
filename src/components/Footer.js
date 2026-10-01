@@ -13,7 +13,6 @@ const COLUMNS = [
     links: [
       { label: "Search the database", href: "/search" },
       { label: "Marketplace", href: "/marketplace" },
-      { label: "Get started", href: "/get-started" },
       { label: "Reads", href: "/reads" },
       { label: "The Dispatch", href: "/blog" },
       { label: "Crate Dig — Chicago", href: "/crate-dig", todo: true },
@@ -32,7 +31,7 @@ const COLUMNS = [
   {
     title: "ComixCatalog",
     links: [
-      { label: "About", href: "/about" },
+      { label: "About", href: "/start" },
       { label: "Collectors", href: "/collectors" },
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },

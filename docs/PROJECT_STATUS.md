@@ -19,7 +19,7 @@ This is not a roadmap and not a pitch. It's a snapshot. Update `Last verified` w
 - Weekly GitHub Actions cron: cover-cache refresh + featured-gap regeneration (`.github/workflows/weekly-refresh.yml`).
 - Instagram auto-post bot (`.github/workflows/instagram-post.yml`).
 
-**Not live:** marketplace / peer-to-peer selling. `/marketplace` and `/sell` are stub pages. No Stripe Connect, no listings, no orders. Per the formal launch plan (`reports/ComixCatalog-Formal-Launch-Plan.pdf`), marketplace transaction fees are explicitly deferred past the September subscription launch — don't describe it as available in any user-facing copy.
+**Marketplace (beta, 2026-10-01):** `/marketplace` is live as a beta. Sellers list books from their library; buyers see est. value and "Make an offer" by message. No checkout, no Stripe Connect, no orders, no fees ("No fees during the beta" is public copy). v2 Phase 0 (migration 0031) moved listings into a `listings` table; the build plan is `docs/marketplace-v2-build-brief.md`. Don't describe checkout or buyer protection as available.
 
 ---
 

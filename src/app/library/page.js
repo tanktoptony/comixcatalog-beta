@@ -593,6 +593,15 @@ function LibraryPageContent() {
     }
   }
 
+  // The database turns a for_sale status into a marketplace listing; this
+  // fills in its cover and refreshes /marketplace right away. Best effort:
+  // the marketplace catches up on its own within two minutes if it fails.
+  function syncListings() {
+    authedFetch("/api/listings/sync", { method: "POST" }).catch((err) =>
+      console.warn("Listing sync failed:", err)
+    );
+  }
+
   async function toggleForSale(item) {
     const newStatus = item.status === "for_sale" ? "owned" : "for_sale";
     const { error } = await supabase
@@ -604,6 +613,7 @@ function LibraryPageContent() {
       console.error("Sale toggle error:", error);
       return;
     }
+    syncListings();
     await refreshLibrary?.({ background: true });
   }
 
@@ -635,6 +645,7 @@ function LibraryPageContent() {
         alert("Couldn't update your listings. Please try again.");
         return;
       }
+      syncListings();
       await refreshLibrary?.({ background: true });
       if (listing) setTab("for_sale");
     } finally {
@@ -1936,7 +1947,11 @@ function LibraryPageContent() {
                         alt={comic.title}
                         loading="lazy"
                       />
-                      {item.status === "for_sale" && <span className="library-sale-tag">For sale</span>}
+                      {item.status === "for_sale" && (item.gcd_issue_id != null ? (
+                        <span className="library-sale-tag">For sale</span>
+                      ) : (
+                        <span className="library-sale-tag is-unlisted" title="Link this book to a catalog issue to list it on the Marketplace">Not listed</span>
+                      ))}
                       {USER_COVER_UPLOAD_ENABLED && liveGrade.user_cover_url && (
                         <span className="library-cover-tag" title="Your photo">Your photo</span>
                       )}
@@ -2059,6 +2074,11 @@ function LibraryPageContent() {
                         >
                           {item.status === "for_sale" ? "Remove Sale Flag" : "Mark For Sale"}
                         </button>
+                      )}
+                      {item.status === "for_sale" && item.gcd_issue_id == null && !isPublicPreview && (
+                        <span className="library-sale-note">
+                          Not on the Marketplace yet. Link it to a catalog issue to list it.
+                        </span>
                       )}
                       {/* Unlink — only on GCD-linked rows, only in manage mode.
                           Undoes a bad catalog-link by removing the row so user
@@ -2319,7 +2339,11 @@ function LibraryPageContent() {
                           alt={comic.title}
                           loading="lazy"
                         />
-                        {item.status === "for_sale" && <span className="library-sale-tag">For sale</span>}
+                        {item.status === "for_sale" && (item.gcd_issue_id != null ? (
+                        <span className="library-sale-tag">For sale</span>
+                      ) : (
+                        <span className="library-sale-tag is-unlisted" title="Link this book to a catalog issue to list it on the Marketplace">Not listed</span>
+                      ))}
                         {USER_COVER_UPLOAD_ENABLED && liveGrade.user_cover_url && (
                           <span className="library-cover-tag" title="Your photo">Your photo</span>
                         )}

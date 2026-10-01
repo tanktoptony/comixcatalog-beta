@@ -34791,9 +34791,9 @@
     "year": 1982,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T01:02:26.701460+00:00",
-    "retry_after": "2026-10-01T01:02:26.701477+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T03:00:41.218336+00:00",
+    "retry_after": "2026-10-04T03:00:41.218353+00:00"
   },
   {
     "name": "Beetle Bailey The Daily and Sunday Strips",
@@ -34801,9 +34801,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T02:02:06.214777+00:00",
-    "retry_after": "2026-10-01T02:02:06.214794+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T03:00:41.944861+00:00",
+    "retry_after": "2026-10-04T03:00:41.944878+00:00"
   },
   {
     "name": "Weasel Guy: Road Trip",
@@ -34811,9 +34811,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T02:02:12.006630+00:00",
-    "retry_after": "2026-10-01T02:02:12.006648+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T03:00:42.484397+00:00",
+    "retry_after": "2026-10-04T03:00:42.484412+00:00"
   },
   {
     "name": "Custom: Triple A Baseball Heroes",
@@ -34821,9 +34821,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T02:02:12.560311+00:00",
-    "retry_after": "2026-10-01T02:02:12.560327+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T03:00:42.979030+00:00",
+    "retry_after": "2026-10-04T03:00:42.979046+00:00"
   },
   {
     "name": "Universe X",
@@ -34844,9 +34844,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T02:02:30.180017+00:00",
-    "retry_after": "2026-10-01T02:02:30.180032+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T03:00:43.524399+00:00",
+    "retry_after": "2026-10-04T03:00:43.524414+00:00"
   },
   {
     "name": "Oni Press Color Special",
@@ -34854,9 +34854,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T02:02:30.679113+00:00",
-    "retry_after": "2026-10-01T02:02:30.679128+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T03:00:43.927531+00:00",
+    "retry_after": "2026-10-04T03:00:43.927546+00:00"
   },
   {
     "name": "Iron Man: I Am Iron Man!",
@@ -34877,9 +34877,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T02:02:31.226458+00:00",
-    "retry_after": "2026-10-01T02:02:31.226473+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T03:00:44.392597+00:00",
+    "retry_after": "2026-10-04T03:00:44.392611+00:00"
   },
   {
     "name": "B.C. Dip in Road",
@@ -34887,9 +34887,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T02:02:37.684670+00:00",
-    "retry_after": "2026-10-01T02:02:37.684686+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T03:00:45.060505+00:00",
+    "retry_after": "2026-10-04T03:00:45.060522+00:00"
   },
   {
     "name": "Apocalypse War",
@@ -36722,5 +36722,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T02:03:09.210444+00:00",
     "retry_after": "2026-10-02T02:03:09.210460+00:00"
+  },
+  {
+    "name": "Laugh Out",
+    "publisher": "Charlton Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 92444,
+        "name": "Laugh Out!",
+        "publisher": "Xerox Education Publications",
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T03:00:45.681831+00:00",
+    "retry_after": "2026-10-02T03:00:45.681846+00:00"
+  },
+  {
+    "name": "Star Trek: Deep Space Nine Limited Edition Preview",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T03:00:52.773661+00:00",
+    "retry_after": "2026-10-02T03:00:52.773677+00:00"
+  },
+  {
+    "name": "The Complete Eightball (Issue Numbers 1-18)",
+    "publisher": "Fantagraphics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T03:01:28.625701+00:00",
+    "retry_after": "2026-10-02T03:01:28.625718+00:00"
   }
 ]

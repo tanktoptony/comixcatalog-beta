@@ -166,56 +166,22 @@ export function LibraryProvider({ children }) {
     writeLocal(`library:${user.id}`, collections);
   }, [collections, collectionsOwner, loading, user?.id]);
 
+  // Other tabs/devices: re-read quietly whenever this tab comes back into
+  // view. This replaced a Supabase Realtime postgres_changes subscription
+  // (2026-10-01). Every signed-in visitor held one open on every page, and
+  // Realtime's change polling was the single largest consumer of database
+  // time in pg_stat_statements (~9.6M calls, more than all page queries
+  // combined), multiplied by every row the ingest/refresh scripts write.
+  // This tab's own adds/removes already update state optimistically and
+  // re-read afterwards, so the subscription only ever covered other tabs.
   useEffect(() => {
     if (!user?.id) return;
-
-    const supabase = getSupabaseClient();
-
-    const channel = supabase
-      .channel(`library-changes-${user.id}`)
-      .on(
-        "postgres_changes",
-        {
-          event: "*",
-          schema: "public",
-          table: "user_collections",
-          filter: `user_id=eq.${user.id}`,
-        },
-        (payload) => {
-          setCollections((prev) => {
-            if (payload.eventType === "INSERT") {
-              const row = payload.new;
-              if (prev.some((c) => c.id === row.id)) return prev;
-              // Replace any optimistic placeholder for the same library item
-              // (matched by gcd_issue_id or comic_id) so we don't end up with
-              // both an optimistic row and a realtime-inserted row.
-              const filtered = prev.filter((c) => {
-                if (typeof c.id === "string" && c.id.startsWith("optimistic-")) {
-                  if (row.gcd_issue_id != null && c.gcd_issue_id === row.gcd_issue_id) return false;
-                  if (row.comic_id != null && c.comic_id === row.comic_id) return false;
-                }
-                return true;
-              });
-              return [...filtered, row];
-            }
-            if (payload.eventType === "UPDATE") {
-              const row = payload.new;
-              return prev.map((c) => (c.id === row.id ? { ...c, ...row } : c));
-            }
-            if (payload.eventType === "DELETE") {
-              const oldId = payload.old?.id;
-              if (oldId == null) return prev;
-              return prev.filter((c) => c.id !== oldId);
-            }
-            return prev;
-          });
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
+    function onVisible() {
+      if (document.visibilityState === "visible") refreshLibrary({ background: true });
+    }
+    document.addEventListener("visibilitychange", onVisible);
+    return () => document.removeEventListener("visibilitychange", onVisible);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.id]);
 
   const collectionIds = useMemo(
@@ -335,7 +301,7 @@ export function LibraryProvider({ children }) {
       status,
       user_id: user.id,
     });
-    await refreshLibrary();
+    await refreshLibrary({ background: true });
     return;
   }
 
@@ -394,7 +360,7 @@ export function LibraryProvider({ children }) {
         gcd_issue_id,
         user_id: user.id,
       });
-      await refreshLibrary();
+      await refreshLibrary({ background: true });
     }
   }
 
@@ -437,7 +403,7 @@ export function LibraryProvider({ children }) {
       console.error("addAnotherCopy failed", error);
       return;
     }
-    await refreshLibrary();
+    await refreshLibrary({ background: true });
   }
 
   return (

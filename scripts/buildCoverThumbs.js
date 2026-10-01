@@ -257,7 +257,7 @@ async function worker() {
       }
       const result = await upload(row.storagePath, thumb.webp);
       stats[result] += 1;
-      stats.bytes += thumb.webp.length;
+      if (result === "uploaded") stats.bytes += thumb.webp.length;
       if (thumb.from === "storage") stats.fromStorage += 1;
       stateOut.write(`${row.storagePath}\n`);
     } catch (err) {

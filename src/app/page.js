@@ -1,6 +1,7 @@
 import HomeClient from "./HomeClient";
 import { getFeaturedSeries } from "@/lib/featuredSeriesData";
 import { getHomeData } from "@/lib/homeDispatch";
+import { getHeroWall } from "@/lib/heroWall";
 
 // The homepage is static HTML, rebuilt at most hourly. The featured
 // carousel, the live catalog numbers and the Dispatch feed are rendered into
@@ -18,5 +19,6 @@ export default async function HomePage() {
     }),
     getHomeData(),
   ]);
-  return <HomeClient featured={featuredResult.slice(0, 12)} stats={home.stats} dispatch={home} />;
+  const heroWall = await getHeroWall(featuredResult);
+  return <HomeClient featured={featuredResult.slice(0, 12)} heroWall={heroWall} stats={home.stats} dispatch={home} />;
 }

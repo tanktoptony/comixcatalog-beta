@@ -17,6 +17,7 @@ import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { coverThumb } from "@/lib/coverThumb";
+import { readLocal, writeLocal } from "@/lib/localCache";
 
 // Module-scoped so it survives across component re-mounts within a tab
 // (see the user-change-clear logic below for why that's usually right).
@@ -37,6 +38,37 @@ function freshCacheEntry(key) {
   if (!entry) return null;
   if (Date.now() - entry.cachedAt > HYDRATION_CACHE_MAX_AGE_MS) return null;
   return entry.data;
+}
+
+// 2026-10-01: the hydration cache is also saved in this browser, per user
+// (src/lib/localCache; wiped on sign-out by LibraryContext), so a return
+// visit paints titles and covers immediately instead of "…" stubs. Saved
+// entries of any age are SHOWN; anything older than
+// HYDRATION_CACHE_MAX_AGE_MS is still refetched in the background, which
+// keeps the 2026-08-29 fix above intact (stale data is replaced, never
+// trusted indefinitely).
+function anyCacheEntry(key) {
+  return hydrationCache.get(key)?.data ?? null;
+}
+
+function loadSavedHydration(userId) {
+  hydrationCache.clear();
+  if (!userId) return {};
+  const saved = readLocal(`hydrate:${userId}`);
+  const index = {};
+  if (saved && typeof saved === "object") {
+    for (const [key, entry] of Object.entries(saved)) {
+      if (!entry?.data || !Number.isFinite(entry.cachedAt)) continue;
+      hydrationCache.set(key, entry);
+      index[key] = entry.data;
+    }
+  }
+  return index;
+}
+
+function saveHydration(userId) {
+  if (!userId) return;
+  writeLocal(`hydrate:${userId}`, Object.fromEntries(hydrationCache));
 }
 
 const USER_COVER_UPLOAD_ENABLED = true;
@@ -183,6 +215,12 @@ function LibraryPageContent() {
     if (typeof window === "undefined") return;
     window.localStorage.setItem("library-view-mode", previewMode);
   }, [previewMode]);
+  // Phase 2 auto-market-values keyed by user_collections.id. Empty until
+  // /api/library-hydrate returns market_values for the current grade signals
+  // (or the browser's saved copy loads, below).
+  // Shape: { [collection_id]: { value, sample_size, fallback, bucket_used,
+  //   newest_comp_date, oldest_comp_date } }
+  const [marketValues, setMarketValues] = useState({});
   const [comicIndex, setComicIndex] = useState(() => {
     const initial = {};
     for (const key of hydrationCache.keys()) {
@@ -199,20 +237,18 @@ function LibraryPageContent() {
   // identity prop changes") rather than in an effect, so there's no extra
   // stale-cache render in between. hydrationCache.clear() is idempotent, so
   // it's safe to run from render.
-  const [lastHydrationUserId, setLastHydrationUserId] = useState(user?.id ?? null);
+  //
+  // On a user change it now reloads that user's saved copy (if any) in
+  // place of the wiped cache, so covers paint before the refetch returns.
+  const [lastHydrationUserId, setLastHydrationUserId] = useState(null);
   if (lastHydrationUserId !== (user?.id ?? null)) {
     setLastHydrationUserId(user?.id ?? null);
-    hydrationCache.clear();
-    setComicIndex({});
+    setComicIndex(loadSavedHydration(user?.id ?? null));
+    setMarketValues(readLocal(`hydrate:mv:${user?.id}`) ?? {});
   }
   const [csvResult, setCsvResult] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [gradeData, setGradeData] = useState({});
-  // Phase 2 auto-market-values keyed by user_collections.id. Empty until
-  // /api/library-hydrate returns market_values for the current grade signals.
-  // Shape: { [collection_id]: { value, sample_size, fallback, bucket_used,
-  //   newest_comp_date, oldest_comp_date } }
-  const [marketValues, setMarketValues] = useState({});
 
   const [search, setSearch] = useState("");
   const [shareCopied, setShareCopied] = useState(false);
@@ -591,12 +627,9 @@ function LibraryPageContent() {
       const missingKeys = new Set();
       const cachedAdditions = {};
       for (const key of uniqueKeys) {
-        const fresh = freshCacheEntry(key);
-        if (fresh) {
-          cachedAdditions[key] = fresh;
-        } else {
-          missingKeys.add(key);
-        }
+        const cached = anyCacheEntry(key);
+        if (cached) cachedAdditions[key] = cached;
+        if (!freshCacheEntry(key)) missingKeys.add(key);
       }
       setComicIndex((prev) => ({ ...prev, ...cachedAdditions }));
 
@@ -653,10 +686,15 @@ function LibraryPageContent() {
           hydrationCache.set(key, { data: normalized, cachedAt: Date.now() });
         }
 
+        saveHydration(user?.id);
         if (!cancelled) {
           setComicIndex((prev) => ({ ...prev, ...fresh }));
           if (data.market_values && typeof data.market_values === "object") {
-            setMarketValues((prev) => ({ ...prev, ...data.market_values }));
+            setMarketValues((prev) => {
+              const next = { ...prev, ...data.market_values };
+              if (user?.id) writeLocal(`hydrate:mv:${user.id}`, next);
+              return next;
+            });
           }
         }
       } catch (err) {

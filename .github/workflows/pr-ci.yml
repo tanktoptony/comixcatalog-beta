@@ -103,5 +103,8 @@ jobs:
       - name: Cover thumb URL tests
         run: npm run test:cover-thumb
 
+      - name: Browser cache helper tests
+        run: npm run test:local-cache
+
       - name: Docs link check
         run: npm run docs:check

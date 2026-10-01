@@ -4,6 +4,7 @@ import { resolvePublisher } from "@/lib/publisher";
 import { titleVariants } from "@/lib/titleMatch";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { collectsLines, formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
+import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 
 function parseYear(value) {
   if (!value) return null;
@@ -172,7 +173,7 @@ export async function GET(req, context) {
           featured_cover: mappedIssues.find((i) => i.cover)?.cover ?? null,
           issues: mappedIssues,
         },
-      });
+      }, { headers: CDN_CACHE_SHORT });
     }
 
     const [issuesResult, gcdSeriesResult, gcdFormatResult] = await Promise.all([
@@ -482,7 +483,7 @@ export async function GET(req, context) {
         collects: collectedEdition ? collectsLines(seriesFormat?.format_notes) : [],
         issues: mappedIssues,
       },
-    });
+    }, { headers: CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/series/[id] crashed:", err);
     return NextResponse.json({ error: "Server error" }, { status: 500 });

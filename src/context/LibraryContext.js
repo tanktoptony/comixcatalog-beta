@@ -4,6 +4,8 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useAuth } from "./AuthContext";
 import { trackEvent } from "@/lib/analytics";
 import { attributionParams } from "@/lib/attribution";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
+import { readLocal, writeLocal, clearLocalPrefix } from "@/lib/localCache";
 
 const LibraryContext = createContext(null);
 
@@ -45,20 +47,29 @@ function parseLibraryInput(input) {
 }
 
 export function LibraryProvider({ children }) {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
+  const authSettled = Boolean(user?.id) || !authLoading;
   const [collections, setCollections] = useState([]);
+  // Whose list `collections` currently holds. Set in the same batch as
+  // every wholesale load, so the browser-cache write below can never save
+  // one account's books under another account's key mid-switch.
+  const [collectionsOwner, setCollectionsOwner] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(null);
 
-  async function refreshLibrary() {
+  // `background`: a copy from this browser's cache is already on screen, so
+  // refresh quietly — no spinner, and a failed refresh keeps showing the
+  // cached list (logged) instead of blanking it.
+  async function refreshLibrary({ background = false } = {}) {
     if (!user?.id) {
       setCollections([]);
+      setCollectionsOwner(null);
       setLoading(false);
       setLoadError(null);
       return;
     }
 
-    setLoading(true);
+    if (!background) setLoading(true);
     setLoadError(null);
 
     try {
@@ -67,10 +78,14 @@ export function LibraryProvider({ children }) {
       // Hard timeout — prevents silent infinite spinner if Supabase hangs.
       // 30s is generous but Supabase free-tier cold starts can take 15s+;
       // anything past 30 means there's a real problem worth surfacing.
-      const queryPromise = supabase
-        .from("user_collections")
-        .select("*")
-        .eq("user_id", user.id);
+      // Paginated: PostgREST silently stops at 1000 rows, which cut off
+      // collections past 1,000 books (see src/lib/supabase/fetchAllPages.js).
+      const queryPromise = fetchAllPages(() =>
+        supabase.from("user_collections").select("*").eq("user_id", user.id)
+      ).then(
+        (data) => ({ data, error: null }),
+        (error) => ({ data: null, error })
+      );
 
       // Bumped 30s → 60s alongside the login bump. Supabase Auth/PostgREST
       // has been responding slowly even though direct DB queries via the
@@ -88,15 +103,20 @@ export function LibraryProvider({ children }) {
           hint: error.hint,
           code: error.code,
         });
+        if (background) return;
         setCollections([]);
+        setCollectionsOwner(null);
         setLoadError(error.message || "Failed to load library");
         return;
       }
 
       setCollections(data ?? []);
+      setCollectionsOwner(user.id);
     } catch (err) {
       console.error("refreshLibrary crashed:", err);
+      if (background) return;
       setCollections([]);
+      setCollectionsOwner(null);
       setLoadError(err?.message || "Failed to load library");
     } finally {
       setLoading(false);
@@ -110,11 +130,41 @@ export function LibraryProvider({ children }) {
     // to be an effect (not a render-time state sync) since it also kicks
     // off an async refetch — same accepted exception pattern already used
     // elsewhere in this codebase (Header.js, ProfileTabs.js, library/page.js).
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    //
+    // 2026-10-01: the list is also kept in this browser (src/lib/localCache)
+    // so a return visit paints the library immediately from the last copy
+    // and refreshes it in the background, instead of a blank "Loading…" on
+    // every visit. Signing out wipes those copies, so a shared computer
+    // never shows the next person someone else's collection.
+    // Wait only until we know who (if anyone) is signed in. AuthContext
+    // keeps `loading` true until the profile row also loads; the library
+    // does not need it, so a known user id is enough to start.
+    if (!authSettled) return;
+    if (!user?.id) {
+      clearLocalPrefix("library:");
+      clearLocalPrefix("hydrate:");
+    }
+    const cached = user?.id ? readLocal(`library:${user.id}`) : null;
+    if (Array.isArray(cached)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setCollections(cached);
+      setCollectionsOwner(user.id);
+      setLoading(false);
+      refreshLibrary({ background: true });
+      return;
+    }
     setCollections([]);
+    setCollectionsOwner(null);
     setLoading(true);
     refreshLibrary();
-  }, [user?.id]);
+  }, [user?.id, authSettled]);
+
+  // Keep the browser copy current with every change: the server refresh,
+  // realtime updates, and optimistic adds/removes alike.
+  useEffect(() => {
+    if (!user?.id || loading || collectionsOwner !== user.id) return;
+    writeLocal(`library:${user.id}`, collections);
+  }, [collections, collectionsOwner, loading, user?.id]);
 
   useEffect(() => {
     if (!user?.id) return;

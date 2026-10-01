@@ -92,7 +92,7 @@ export default function FeaturedCarousel() {
               const href = seriesId ? `/series/${seriesId}` : "#";
               const cover = s.cover_path || "/fallback-cover.png";
               return (
-                <Link key={s.id} href={href} className="featured-card">
+                <Link prefetch={false} key={s.id} href={href} className="featured-card">
                   <div className="featured-cover">
                     <img
                       src={coverThumb(cover)}

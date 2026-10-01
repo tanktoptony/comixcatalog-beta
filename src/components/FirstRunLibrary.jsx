@@ -83,7 +83,7 @@ export default function FirstRunLibrary() {
           </div>
           <div className="first-run-suggestion-grid">
             {suggestions.map((s) => (
-              <Link
+              <Link prefetch={false}
                 key={s.id}
                 href={`/series/${s.series_id}`}
                 className="first-run-suggestion-card"

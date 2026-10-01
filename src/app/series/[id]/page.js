@@ -472,7 +472,7 @@ export default function SeriesPage() {
               const isWanted = !isOwned && wishlistIds?.has(key);
               return (
               <article key={issue.id} className="comic-card">
-                <Link href={`/issue/${issue.id}`} className="card-link">
+                <Link prefetch={false} href={`/issue/${issue.id}`} className="card-link">
                   <div className="comic-card-cover" style={{ position: "relative" }}>
                     <img
                       src={coverThumb(issue.cover || "/fallback-cover.png")}

@@ -1580,7 +1580,7 @@ function LibraryPageContent() {
                     }}
                   >
                     <div>
-                      <Link
+                      <Link prefetch={false}
                         href={href}
                         style={{ color: "var(--cc-gold, #FFD700)", textDecoration: "none", fontWeight: 600 }}
                       >
@@ -1819,7 +1819,7 @@ function LibraryPageContent() {
                     key={`${item.id}-${item.libraryKey}-${item.status}`}
                     className="library-list-row"
                   >
-                    <Link href={getLibraryHref(item, comic)} className="library-list-cover">
+                    <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-cover">
                       <img
                         src={coverThumb(displayCover)}
                         alt={comic.title}
@@ -1831,7 +1831,7 @@ function LibraryPageContent() {
                     </Link>
 
                     <div className="library-list-main">
-                      <Link href={getLibraryHref(item, comic)} className="library-list-title">
+                      <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-title">
                         {comic.title}
                         {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
                         {item.variant_label ? (
@@ -1962,7 +1962,7 @@ function LibraryPageContent() {
                           Unlink
                         </button>
                       )}
-                      <Link href={getLibraryHref(item, comic)} className="library-row-btn primary">
+                      <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-row-btn primary">
                         View
                       </Link>
                     </div>
@@ -2113,11 +2113,11 @@ function LibraryPageContent() {
                                 key={`${item.id}-${item.libraryKey}-${item.status}`}
                                 className="library-list-row"
                               >
-                                <Link href={getLibraryHref(item, comic)} className="library-list-cover">
+                                <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-cover">
                                   <img src={coverThumb(displayCover)} alt={comic.title} loading="lazy" />
                                 </Link>
                                 <div className="library-list-main">
-                                  <Link href={getLibraryHref(item, comic)} className="library-list-title">
+                                  <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-title">
                                     {comic.title}
                                     {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
                                     {item.variant_label ? (
@@ -2200,7 +2200,7 @@ function LibraryPageContent() {
                     key={`${item.id}-${item.libraryKey}-${item.status}`}
                     className="comic-card"
                   >
-                    <Link href={getLibraryHref(item, comic)} className="card-link">
+                    <Link prefetch={false} href={getLibraryHref(item, comic)} className="card-link">
                       <div className="comic-card-cover">
                         <img
                           src={coverThumb(displayCover)}

@@ -29,9 +29,12 @@ export function tokenize(text) {
     .map((t) => NUMBER_WORDS[t] ?? t);
 }
 
-// Score how well `phrase` matches words starting at index i: walk the
-// phrase tokens, allowing one skipped transcript word per phrase token.
-function scoreAt(words, i, phrase) {
+// Score how well `phrase` matches words starting at index i, walking the
+// phrase tokens and allowing one extra transcript word before each match.
+// When a phrase token isn't found, the transcript either split it ("onto"
+// heard as "on to": skip a word) or lost it ("M2005": skip nothing). Both
+// readings are scored and the better one wins.
+function scoreWalk(words, i, phrase, advanceOnMiss) {
   let w = i;
   let hits = 0;
   for (const tok of phrase) {
@@ -44,9 +47,13 @@ function scoreAt(words, i, phrase) {
         break;
       }
     }
-    if (!found) w += 1;
+    if (!found && advanceOnMiss) w += 1;
   }
   return hits / phrase.length;
+}
+
+function scoreAt(words, i, phrase) {
+  return Math.max(scoreWalk(words, i, phrase, true), scoreWalk(words, i, phrase, false));
 }
 
 // words: [{ w, s, e }] from transcribe.py. anchors: phrase strings, in
@@ -68,17 +75,25 @@ export function resolveAnchors(rawWords, anchors, { minScore = 0.6, lookahead = 
       misses.push({ index, phrase: anchor });
       return;
     }
-    let best = { score: 0, i: -1 };
+    // Nearer matches win over slightly better far ones: a glued or misheard
+    // word ("House of M2005") must not send the cursor to a later repeat of
+    // the phrase (the outro's "House of M") and derail every anchor after it.
+    let best = { score: 0, adj: -Infinity, i: -1 };
     const stop = Math.min(words.length, cursor + lookahead);
     for (let i = cursor; i < stop; i += 1) {
-      if (words[i].t !== phrase[0] && words[i + 1]?.t !== phrase[0]) continue;
+      // Candidate starts: the first phrase token here or next, or (if the
+      // first token was misheard or glued to a neighbour) the second here.
+      if (words[i].t !== phrase[0] && words[i + 1]?.t !== phrase[0] && words[i].t !== phrase[1]) continue;
       const score = scoreAt(words, i, phrase);
-      if (score > best.score + 1e-9) best = { score, i };
+      if (score < minScore) continue;
+      const adj = score - 0.003 * (i - cursor);
+      if (adj > best.adj + 1e-9) best = { score, adj, i };
       if (score === 1) break;
     }
     if (best.score >= minScore) {
       // If the first phrase token was the skipped one, start at the match.
-      const start = words[best.i].t === phrase[0] ? best.i : best.i + 1;
+      const w0 = words[best.i].t;
+      const start = w0 === phrase[0] || w0 === phrase[1] ? best.i : best.i + 1;
       times.push(words[start].s);
       cursor = start + 1;
     } else {

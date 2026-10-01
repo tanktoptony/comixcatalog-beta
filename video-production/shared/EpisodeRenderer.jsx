@@ -82,11 +82,17 @@ function EpisodeAudio({ audio, episodeId }) {
   const sting = src(audio.sting);
   return (
     <>
-      {narration && (
-        <Sequence from={Math.round((audio.narration.at ?? 0) * fps)} name="Narration">
-          <Audio src={narration} volume={audio.narration.volume ?? 1} />
-        </Sequence>
-      )}
+      {narration &&
+        (audio.narration.clips ?? [{ at: audio.narration.at ?? 0, from: 0, to: null }]).map((c, i) => (
+          <Sequence key={i} from={Math.round(c.at * fps)} name={`Narration ${i + 1}`}>
+            <Audio
+              src={narration}
+              volume={audio.narration.volume ?? 1}
+              trimBefore={Math.round((c.from ?? 0) * fps)}
+              {...(c.to != null ? { trimAfter: Math.round(c.to * fps) } : {})}
+            />
+          </Sequence>
+        ))}
       {music && (
         <Audio
           src={music}

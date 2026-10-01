@@ -35399,9 +35399,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T13:01:20.176322+00:00",
-    "retry_after": "2026-10-01T13:01:20.176339+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T14:01:54.718904+00:00",
+    "retry_after": "2026-10-04T14:01:54.718920+00:00"
   },
   {
     "name": "Mage, Book Two: The Hero Defined",
@@ -35409,9 +35409,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T13:07:27.256894+00:00",
-    "retry_after": "2026-10-01T13:07:27.256911+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T14:01:55.343048+00:00",
+    "retry_after": "2026-10-04T14:01:55.343063+00:00"
   },
   {
     "name": "Family Circus: I'm Taking a Nap!",
@@ -35419,9 +35419,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T13:08:44.430754+00:00",
-    "retry_after": "2026-10-01T13:08:44.430770+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T14:01:55.800233+00:00",
+    "retry_after": "2026-10-04T14:01:55.800248+00:00"
   },
   {
     "name": "Future State: Suicide Squad",
@@ -35442,9 +35442,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T13:08:44.978400+00:00",
-    "retry_after": "2026-10-01T13:08:44.978416+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T14:01:56.393345+00:00",
+    "retry_after": "2026-10-04T14:01:56.393361+00:00"
   },
   {
     "name": "The Secret Society of Super-Villains",
@@ -35465,9 +35465,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T14:00:44.220040+00:00",
-    "retry_after": "2026-10-01T14:00:44.220052+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T14:01:56.903214+00:00",
+    "retry_after": "2026-10-04T14:01:56.903229+00:00"
   },
   {
     "name": "Predator Bloody Sands of Time",
@@ -35475,9 +35475,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T14:01:36.530674+00:00",
-    "retry_after": "2026-10-01T14:01:36.530691+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T14:01:57.385472+00:00",
+    "retry_after": "2026-10-04T14:01:57.385487+00:00"
   },
   {
     "name": "Wynd",
@@ -35498,9 +35498,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-30T14:01:56.581352+00:00",
-    "retry_after": "2026-10-01T14:01:56.581368+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-01T14:01:57.807087+00:00",
+    "retry_after": "2026-10-04T14:01:57.807102+00:00"
   },
   {
     "name": "Wolverine / Doop",
@@ -37869,5 +37869,91 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T13:00:55.481570+00:00",
     "retry_after": "2026-10-02T13:00:55.481587+00:00"
+  },
+  {
+    "name": "The Girl with the Dragon Tattoo Special Edition",
+    "publisher": "DC Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:00:43.060907+00:00",
+    "retry_after": "2026-10-02T14:00:43.060923+00:00"
+  },
+  {
+    "name": "You're a Gent, Andy Capp!",
+    "publisher": "Fawcett Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:01:13.794598+00:00",
+    "retry_after": "2026-10-02T14:01:13.794610+00:00"
+  },
+  {
+    "name": "Star Wars AnotherUniverse.com Special Edition",
+    "publisher": "Dark Horse Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:00:44.206082+00:00",
+    "retry_after": "2026-10-02T14:00:44.206097+00:00"
+  },
+  {
+    "name": "Sky Doll: Sudra",
+    "publisher": "Titan Comics",
+    "year": 2017,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 99454,
+        "name": "Sky Doll: Sudra",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 103623,
+        "name": "Sky Doll: Sudra",
+        "publisher": "Titan Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:03:05.962251+00:00",
+    "retry_after": "2026-10-02T14:03:05.962266+00:00"
+  },
+  {
+    "name": "Lady Death",
+    "publisher": "Chaos! Comics",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 20760,
+        "name": "Lady Death",
+        "publisher": "Chaos! Comics",
+        "start_year": 1997
+      },
+      {
+        "id": 19344,
+        "name": "Lady Death",
+        "publisher": "Chaos! Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:03:14.183614+00:00",
+    "retry_after": "2026-10-02T14:03:14.183629+00:00"
+  },
+  {
+    "name": "Henry Aldrich",
+    "publisher": "Dell Comics",
+    "year": 1950,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-01T14:03:14.938986+00:00",
+    "retry_after": "2026-10-02T14:03:14.939002+00:00"
   }
 ]

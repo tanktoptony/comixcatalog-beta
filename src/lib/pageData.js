@@ -2,6 +2,7 @@ import { unstable_cache } from "next/cache";
 import { GET as searchComicsGET } from "@/app/api/search/comics/route";
 import { GET as searchSeriesGET } from "@/app/api/search/series/route";
 import { GET as seriesGET } from "@/app/api/series/[id]/route";
+import { GET as publicProfileGET } from "@/app/api/public-profile/route";
 
 // Server-side reads for pages that used to render empty and fetch their
 // data from the browser (/search, /series/[id]). The page renders with this
@@ -79,4 +80,25 @@ const cachedSeries = unstable_cache(
 // error the client fetch can retry).
 export function getSeriesData(id) {
   return settle(cachedSeries(id));
+}
+
+// The public profile (/u/[username]) for anonymous viewers. The page used to
+// fetch our own /api/public-profile over HTTP (an extra serverless hop on
+// every view); this calls the handler in-process and caches the result for
+// a minute. A missing or private profile caches as { notFound: true }.
+const cachedPublicProfile = unstable_cache(
+  async (username) => {
+    const res = await publicProfileGET(
+      new Request(`http://internal/api/public-profile?username=${encodeURIComponent(username)}`)
+    );
+    if (res.status === 400 || res.status === 404) return { notFound: true };
+    if (!res.ok) throw new Error(`public-profile returned ${res.status}`);
+    return res.json();
+  },
+  ["page-public-profile-v1"],
+  { revalidate: 60 }
+);
+
+export function getPublicProfile(username) {
+  return cachedPublicProfile(username);
 }

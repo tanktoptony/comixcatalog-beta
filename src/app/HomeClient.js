@@ -168,11 +168,11 @@ export default function HomeClient({ featured = null, stats = null, dispatch = n
         </div>
         <div className="lp-feature">
           <div className="lp-feature-icon">◈</div>
-          <h3>Marketplace</h3>
+          <h3>Marketplace <span className="lp-feature-pill">Beta</span></h3>
           <p>
-            Grade, condition, variant type, and cert number on every listing —
-            verified collectors, no guesswork. Launching soon, starting with
-            Pro members.
+            Books from real collections, linked to the exact issue, with grade
+            and condition up front. Make an offer straight to the collector.{" "}
+            <Link href="/marketplace">Browse listings →</Link>
           </p>
         </div>
       </section>

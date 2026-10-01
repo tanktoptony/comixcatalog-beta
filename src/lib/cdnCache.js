@@ -13,3 +13,7 @@ export const CDN_CACHE_SHORT = { "Cache-Control": "public, s-maxage=600, stale-w
 
 // The homepage featured carousel: the list rotates weekly.
 export const CDN_CACHE_LONG = { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" };
+
+// Marketplace listings: sellers expect a book they just listed to show up
+// quickly, so a minute at the edge (the data cache behind it is 2 minutes).
+export const CDN_CACHE_MARKET = { "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300" };

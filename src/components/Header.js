@@ -590,8 +590,8 @@ export default function Header() {
 
         {/* Library icon + avatar dropdown live OUTSIDE .main-nav so they stay
             visible on mobile while text links collapse behind the hamburger.
-            Messaging v1 is off; re-enable the inbox by rendering
-            InboxNavButton here. */}
+            The inbox came back with the marketplace (2026-10-01): "Make an
+            offer" opens a thread with the seller. */}
         {user && (
           <div className="header-user-actions">
             {/* Persistent, always-available re-entry point into the
@@ -612,6 +612,8 @@ export default function Header() {
               <HelpIcon />
             </button>
 
+
+            <InboxNavButton />
 
             <Link
               href="/library"

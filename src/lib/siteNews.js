@@ -9,6 +9,12 @@
 export const SITE_NEWS = [
   {
     date: "2026-10-01",
+    title: "The marketplace is open (beta)",
+    body: "List books straight from your collection, or everything at once. Each one shows up on the Marketplace and on its issue page, and buyers make an offer by message.",
+    href: "/marketplace",
+  },
+  {
+    date: "2026-10-01",
     title: "Search got about 40 times lighter",
     body: "Results and shelves now load small cover images. An X-Men search went from 134 MB of downloads to about 3 MB, and pages show up in around a second.",
     href: "/search?q=x-men",

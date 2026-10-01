@@ -1,47 +1,63 @@
 import Link from "next/link";
+import MarketplaceGrid from "@/components/MarketplaceGrid";
+import { getListings } from "@/lib/marketplace";
 
 export const metadata = {
-  title: "Marketplace — In Development",
-  description: "A collector-first comic marketplace in development, built around catalog-linked listings and transparent condition data.",
+  title: "Marketplace",
+  description:
+    "Comics for sale from real collections on ComixCatalog. Every listing is linked to its exact issue, with condition and grade up front. Make an offer directly to the collector.",
 };
 
-export default function MarketplacePage() {
+// Rebuilt at most every 2 minutes from the cached listings.
+export const revalidate = 120;
+
+export default async function MarketplacePage() {
+  let listings = null;
+  try {
+    listings = await getListings();
+  } catch (err) {
+    console.error("marketplace page listings failed:", err);
+  }
+  const sellers = listings ? new Set(listings.map((l) => l.seller)).size : 0;
+
   return (
     <section className="marketplace-page">
-      <div className="mkt-hero">
-        <div className="mkt-status-pill">In development</div>
-        <h1 className="mkt-title">A marketplace built around grade, not guesswork.</h1>
+      <div className="mkt-hero mkt-hero-live">
+        <div className="mkt-status-pill">Beta</div>
+        <h1 className="mkt-title">Comics from real collections.</h1>
         <p className="mkt-lede">
-          We&rsquo;re building catalog-linked listings with clear issue, variant,
-          condition, grade, and certification details. Seller pricing and fees
-          will be published before transactions open—there is no marketplace fee today.
+          Every listing is a book a collector actually owns, linked to its exact
+          issue, with condition and grade up front. See something you want?
+          Make an offer straight to the collector. No fees during the beta.
         </p>
+        {listings && listings.length > 0 && (
+          <p className="mkt-counts">
+            <b>{listings.length.toLocaleString("en-US")}</b> book{listings.length === 1 ? "" : "s"} for sale from{" "}
+            <b>{sellers.toLocaleString("en-US")}</b> collector{sellers === 1 ? "" : "s"}
+          </p>
+        )}
         <div className="mkt-hero-ctas">
-          <Link href="/founding-collectors" className="mkt-cta-primary">Join early testing →</Link>
-          <Link href="/signup" className="mkt-cta-ghost">Create a free account</Link>
+          <Link href="/library?tab=for_sale" className="mkt-cta-primary">
+            Sell from your collection →
+          </Link>
         </div>
-        <div className="mkt-hero-fineprint">Founding Collectors will be invited to the first controlled marketplace tests.</div>
       </div>
 
-      <h2 className="mkt-section-title">What we&rsquo;re building</h2>
-      <div className="mkt-pillars">
-        <div className="mkt-pillar"><div className="mkt-pillar-num">01</div><h3>Catalog-linked listings</h3><p>List directly from a tracked collection entry so buyers know the exact series, issue, and variant.</p></div>
-        <div className="mkt-pillar"><div className="mkt-pillar-num">02</div><h3>Transparent condition</h3><p>Raw condition, slab company, numeric grade, and certification details live beside every listing.</p></div>
-        <div className="mkt-pillar"><div className="mkt-pillar-num">03</div><h3>Collector-friendly economics</h3><p>We&rsquo;re evaluating a simple fee structure that can support the marketplace without burying sellers in surprises.</p></div>
-        <div className="mkt-pillar"><div className="mkt-pillar-num">04</div><h3>Built for comics</h3><p>Search by issue, variant, grade, year, publisher, and run-completion gap—not generic collectible categories.</p></div>
-      </div>
+      {listings === null ? (
+        <p className="mkt-empty">The marketplace couldn&rsquo;t load right now. Please try again in a minute.</p>
+      ) : listings.length === 0 ? (
+        <p className="mkt-empty">
+          Nothing listed yet. Be the first: open your <Link href="/library">library</Link> and hit
+          &ldquo;List everything for sale&rdquo;, or mark single books for sale.
+        </p>
+      ) : (
+        <MarketplaceGrid listings={listings} />
+      )}
 
-      <h2 className="mkt-section-title">Rollout</h2>
-      <div className="mkt-timeline">
-        <div className="mkt-phase"><div className="mkt-phase-tag mkt-phase-tag--now">Now</div><div><strong>Foundation.</strong> Catalog integrity, collection tools, grading, and valuation.</div></div>
-        <div className="mkt-phase"><div className="mkt-phase-tag">Early access</div><div><strong>Controlled testing.</strong> Founding Collectors help test listings, trust, and support workflows.</div></div>
-        <div className="mkt-phase"><div className="mkt-phase-tag">Public launch</div><div><strong>Open marketplace.</strong> Timing and final fees will be announced after early testing.</div></div>
-      </div>
-
-      <div className="mkt-bottom-cta">
-        <h2>Want first dibs?</h2>
-        <p>Join while a Founding Collector membership remains for free lifetime Pro and an invitation to early marketplace testing.</p>
-        <div className="mkt-bottom-cta-row"><Link href="/founding-collectors" className="mkt-cta-primary">See remaining passes →</Link><Link href="/signup" className="mkt-cta-ghost">Sign up free</Link></div>
+      <div className="mkt-how">
+        <div><b>Listed from real collections.</b> Sellers list straight from their ComixCatalog library, so the issue and variant are exact.</div>
+        <div><b>Condition up front.</b> Raw grade, slab company and certified grade where the seller has them.</div>
+        <div><b>Make an offer.</b> Prices start at the book&rsquo;s estimated value from real sold comps. Message the collector to deal.</div>
       </div>
     </section>
   );

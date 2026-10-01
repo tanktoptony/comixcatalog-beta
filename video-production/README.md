@@ -78,3 +78,14 @@ Big Shoulders (display, same family the site uses) and Inter, bundled via
 fontsource so renders do not depend on network fonts. The site's logo PNGs sit
 on an opaque background, so `sync` derives transparent versions; the wordmark is
 cropped above its "marketplace" tagline.
+
+## Episode 001 V3: voice, music, word-synced cuts (2026-10-01)
+
+V3 (`episode-001/timeline.v3.js`) is the finished-video path: narration and music are mixed in by Remotion, and every shot is anchored to the phrase it illustrates instead of a timecode.
+
+1. Record the narration (phone voice memo is fine) and save it as `~/Desktop/episode-001-assets/audio/NARRATION.m4a` (or .wav/.mp3).
+2. `npm run sync:001`
+3. Word timestamps: `python scripts/transcribe.py public/episode-001/audio/NARRATION.m4a episode-001/narration.words.js` (local faster-whisper; needs `pip install faster-whisper numpy`).
+4. `npm run render:001:v3:preview`, then `npm run render:001:v3` for 1080p.
+
+`npm run index` prints any anchor phrase the transcript couldn't find (it's placed between its neighbours rather than guessed). Prefer plain words over proper nouns in anchors. The current `narration.words.js` is from a Windows text-to-speech scratch track, for timing only. Music: Kevin MacLeod (CC BY 4.0, credit in the description). Rights review: `episode-001/RIGHTS_AND_CONTENT_ID.md`.

@@ -1,7 +1,7 @@
 // Turns a normalized timeline into Remotion Sequences.
 
 import React, { useEffect, useState } from "react";
-import { AbsoluteFill, Sequence, continueRender, delayRender, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Audio, Sequence, continueRender, delayRender, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import "@fontsource/big-shoulders/800.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
@@ -10,7 +10,7 @@ import { brand } from "./brand.js";
 import { EpisodeContext, SegmentContext, Backdrop, LogoBug, available } from "./components/primitives.jsx";
 import { CoverFull, KenBurnsCover, MediaFull, CoverPair, CoverGrid, CoverFan, CoverStack, Triptych, StarterShelf, ShelfLater } from "./components/covers.jsx";
 import { ChapterCard, QuoteCard, TitleCard, ComixCatalogCard, EndCard, PlaceholderCard, ScreenCapture } from "./components/cards.jsx";
-import { withFallbacks } from "./timeline.js";
+import { withFallbacks, resolveAudio } from "./timeline.js";
 
 // Timeline `type` -> component. Add a type here and it is usable from any
 // episode's timeline.
@@ -61,6 +61,51 @@ function useFontsReady() {
   }, [handle]);
 }
 
+// Narration, music bed and sting, from the episode's `audio` plan. Missing
+// files are skipped (the asset report lists them), so a silent render still
+// works.
+function EpisodeAudio({ audio, episodeId }) {
+  const { fps, durationInFrames } = useVideoConfig();
+  if (!audio) return null;
+  const src = (a) => {
+    const p = resolveAudio(episodeId, a?.asset, available);
+    return p ? staticFile(p) : null;
+  };
+  const clampFade = (f, len, fadeIn, fadeOut, vol) => {
+    let v = vol;
+    if (fadeIn) v = Math.min(v, interpolate(f, [0, fadeIn * fps], [0, vol], { extrapolateRight: "clamp" }));
+    if (fadeOut) v = Math.min(v, interpolate(f, [len - fadeOut * fps, len], [vol, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
+    return v;
+  };
+  const narration = src(audio.narration);
+  const music = src(audio.music);
+  const sting = src(audio.sting);
+  return (
+    <>
+      {narration && (
+        <Sequence from={Math.round((audio.narration.at ?? 0) * fps)} name="Narration">
+          <Audio src={narration} volume={audio.narration.volume ?? 1} />
+        </Sequence>
+      )}
+      {music && (
+        <Audio
+          src={music}
+          loop={audio.music.loop ?? true}
+          volume={(f) => clampFade(f, durationInFrames, audio.music.fadeIn, audio.music.fadeOut, audio.music.volume ?? 0.1)}
+        />
+      )}
+      {sting && (
+        <Sequence from={Math.round((audio.sting.at ?? 0) * fps)} durationInFrames={Math.round((audio.sting.dur ?? 8) * fps)} name="Sting">
+          <Audio
+            src={sting}
+            volume={(f) => clampFade(f, Math.round((audio.sting.dur ?? 8) * fps), 0, audio.sting.fadeOut, audio.sting.volume ?? 0.35)}
+          />
+        </Sequence>
+      )}
+    </>
+  );
+}
+
 export function EpisodeRenderer({ episodeId, timeline }) {
   useFontsReady();
   return (
@@ -82,6 +127,7 @@ export function EpisodeRenderer({ episodeId, timeline }) {
             </Sequence>
           );
         })}
+        <EpisodeAudio audio={timeline.audio} episodeId={episodeId} />
       </AbsoluteFill>
     </EpisodeContext.Provider>
   );

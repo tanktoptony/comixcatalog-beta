@@ -32,7 +32,7 @@ function copyDir(src, dest, filter = () => true) {
   return n;
 }
 
-const media = (name) => /\.(jpe?g|png|webp|gif|mp4|mov)$/i.test(name);
+const media = (name) => /\.(jpe?g|png|webp|gif|mp4|mov|wav|mp3|m4a|aac|ogg)$/i.test(name);
 const covers = copyDir(path.join(from, "covers"), path.join(root, "public", episodeId, "covers"), media);
 if (fs.existsSync(path.join(from, "manifest.json"))) {
   fs.copyFileSync(path.join(from, "manifest.json"), path.join(root, "public", episodeId, "covers-manifest.json"));

@@ -87,9 +87,9 @@ export default function HomeDispatch({ newCovers, feed = [], ctaHref, ctaLabel, 
           <p className="dispatch-note-kicker">Who we are</p>
           <h3 className="dispatch-note-title">Hey, I&rsquo;m Tony.</h3>
           <p>
-            I fell for X-Men at eight years old in Chicagoland, drifted away
-            like a lot of us do, and came back years later when a guy at
-            Graham Crackers handed me House of M.
+            The &rsquo;92 X-Men cartoon hooked me as a kid. I drifted away like
+            a lot of us do, then a guy at Graham Crackers handed me House of M
+            and I was right back in.
           </p>
           <p>
             My system for tracking what I owned was a notebook and a bad

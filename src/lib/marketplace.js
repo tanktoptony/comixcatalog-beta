@@ -2,6 +2,7 @@ import { unstable_cache } from "next/cache";
 import { createClient } from "@supabase/supabase-js";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { POST as libraryHydratePOST } from "@/app/api/library-hydrate/route";
+import { normalizePublisherLabel } from "@/lib/publisher";
 
 // Marketplace v1 (2026-10-01). A listing is a user_collections row with
 // status "for_sale" on a catalog (GCD-linked) issue, owned by a seller whose
@@ -83,7 +84,9 @@ async function computeListings() {
         title: item.title ?? "Untitled",
         issueNumber: item.issueNumber ?? "",
         year: item.year ?? null,
-        publisher: item.publisher ?? null,
+        // Master publisher ("Marvel Comics"), not the GCD indicia name, so
+        // the marketplace groups cleanly by publisher.
+        publisher: normalizePublisherLabel(item.publisher) ?? item.publisher ?? null,
         cover: item.cover ?? null,
         condition: r.condition ?? null,
         grade: r.grade_numeric != null ? Number(r.grade_numeric) : null,
@@ -100,7 +103,7 @@ async function computeListings() {
 // Every visible listing, newest first. Cached two minutes and shared by the
 // marketplace page, its API and issue pages; a failed read throws (never
 // cached) so the page can say so instead of showing an empty market.
-export const getListings = unstable_cache(computeListings, ["marketplace-listings-v1"], { revalidate: 120 });
+export const getListings = unstable_cache(computeListings, ["marketplace-listings-v2"], { revalidate: 120 });
 
 export async function getListingsForIssue(gcdIssueId) {
   const all = await getListings();

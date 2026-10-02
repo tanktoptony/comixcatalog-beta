@@ -9,6 +9,12 @@
 export const SITE_NEWS = [
   {
     date: "2026-10-02",
+    title: "Show the actual copy",
+    body: "Add up to 10 photos of the exact book you're selling, front, back, spine and any defects, right from your phone. They're on the listing page next to the catalog cover, and location data is stripped from every photo before it's saved.",
+    href: "/library?tab=for_sale",
+  },
+  {
+    date: "2026-10-02",
     title: "Every copy gets its own page",
     body: "Click any book on the marketplace to see that exact copy: price and shipping, condition, notes, restored or signed, who's selling it and what else they have, plus other copies of the same issue.",
     href: "/marketplace",

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
 import { validateListingEdit, LIMITS } from "@/lib/listingEdit";
+import PhotoManager from "@/components/PhotoManager";
 
 // Seller's listing editor (opened from the library): price, shipping,
 // offers, condition notes, restored/signed. Saves through
@@ -89,6 +90,8 @@ export default function ListingEditor({ listing, title, estValue, onClose, onSav
           <span>Condition notes</span>
           <textarea rows={4} maxLength={LIMITS.maxNotes} value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Spine stress, color breaks, corner wear, Marvel value stamp intact…" />
         </label>
+
+        {listing.collection_id && <PhotoManager collectionId={listing.collection_id} />}
 
         <div className="le-checks">
           <label className="le-check">

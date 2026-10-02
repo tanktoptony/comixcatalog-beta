@@ -34,6 +34,7 @@
     "test:local-cache": "node --test src/lib/localCache.test.js",
     "test:listing-row": "node --test src/lib/listingRow.test.js",
     "test:listing-edit": "node --test src/lib/listingEdit.test.js",
+    "test:listing-photos": "node --test src/lib/listingPhotos.test.js src/lib/photoEncode.test.js",
     "test:value-history": "node --test src/lib/valueHistory.test.js",
     "test:marketplace-facets": "node --test src/lib/marketplaceFacets.test.js",
     "audit:errors": "node scripts/auditErrorHandling.js",

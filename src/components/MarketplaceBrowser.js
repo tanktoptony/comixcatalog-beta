@@ -215,6 +215,7 @@ function Row({ l }) {
         </span>
         <span className="mk-row-sub">
           <span className="mk-cond">{conditionLabel(l)}</span>
+          {l.photoCount > 0 && <span className="mk-photos">{l.photoCount} photo{l.photoCount === 1 ? "" : "s"}</span>}
           <Link prefetch={false} href={`/u/${encodeURIComponent(l.seller)}`} className="mk-row-seller">
             @{l.seller}
           </Link>

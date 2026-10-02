@@ -11684,3 +11684,8 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .lg-thumbs button.is-on { border-color: #F4D03F; }
 .lg-thumbs img { display: block; width: 56px; height: 74px; object-fit: cover; border-radius: 2px; }
 .mk-photos { color: #8d93a1; }
+
+/* Series page: progressive issue grid (SeriesClient ISSUE_BATCH). */
+.series-more { display: flex; justify-content: center; padding: 8px 0 32px; }
+.series-more button { padding: 10px 20px; border-radius: 8px; border: 1px solid rgba(244, 208, 63, 0.5); background: transparent; color: #F4D03F; font-weight: 700; cursor: pointer; }
+.series-more button:hover { background: rgba(244, 208, 63, 0.08); }

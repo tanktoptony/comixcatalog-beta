@@ -10,6 +10,8 @@ import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
 import { coverThumb } from "@/lib/coverThumb";
 
+const ISSUE_BATCH = 60;
+
 function issueSortValue(issueNumber) {
   // Comics often store dual-numbered issues like "30 (471)" (Vol 2 / Vol 1
   // legacy numbering — Spider-Man, Fantastic Four, X-Men all do this), or
@@ -40,6 +42,11 @@ export default function SeriesClient({ initialSeries = null }) {
   const [loading, setLoading] = useState(!initialSeries);
   const skipFetchFor = useRef(initialSeries ? id : null);
   const [sortMode, setSortMode] = useState("issue-asc");
+  // Big runs (The Amazing Spider-Man is ~900 issues) rendered every card at
+  // once: ~4,000 DOM nodes and 1.5 s of blocked main thread on a phone.
+  // Render the first batch, then add more as the reader scrolls near the end.
+  const [shown, setShown] = useState(ISSUE_BATCH);
+  const moreRef = useRef(null);
 
   const { user, isPro, loading: authLoading } = useAuth();
   const { collectionIds, wishlistIds, addToCollection } = useLibrary();
@@ -90,6 +97,20 @@ export default function SeriesClient({ initialSeries = null }) {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [series?.id, authLoading]);
+
+  // Load the next batch when the "show all" row scrolls into view.
+  useEffect(() => {
+    const el = moreRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) setShown((n) => n + ISSUE_BATCH * 2);
+      },
+      { rootMargin: "800px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [shown, series?.issues?.length]);
 
   const sortedIssues = useMemo(() => {
     if (!series?.issues) return [];
@@ -209,11 +230,18 @@ export default function SeriesClient({ initialSeries = null }) {
             marginBottom: "28px",
           }}
         >
-          <div className="issue-cover-frame" style={{ maxWidth: 220 }}>
+          <div className="issue-cover-frame" style={{ maxWidth: 220, aspectRatio: "2 / 3" }}>
+            {/* The page's largest paint: load it first, at a known size so
+                nothing shifts when it arrives. */}
             <img
               src={coverThumb(series.featured_cover || "/fallback-cover.png")}
               alt={series.title}
               className="issue-cover-img"
+              width={220}
+              height={330}
+              fetchPriority="high"
+              loading="eager"
+              style={{ height: "100%", objectFit: "cover" }}
             />
           </div>
 
@@ -453,7 +481,10 @@ export default function SeriesClient({ initialSeries = null }) {
             <select
               id="sortMode"
               value={sortMode}
-              onChange={(e) => setSortMode(e.target.value)}
+              onChange={(e) => {
+                setSortMode(e.target.value);
+                setShown(ISSUE_BATCH);
+              }}
               className="input"
               style={{ width: 180 }}
             >
@@ -475,7 +506,7 @@ export default function SeriesClient({ initialSeries = null }) {
                 the first full row of issues at any column count; DOM
                 position is irrelevant. */}
             <AdSlot position={SLOT.SERIES_INLINE_1} pageKey={String(id)} className="ad-slot--row2" />
-            {sortedIssues.map((issue) => {
+            {sortedIssues.slice(0, shown).map((issue) => {
               const key = String(issue?.id ?? "");
               const isOwned = collectionIds?.has(key);
               const isWanted = !isOwned && wishlistIds?.has(key);
@@ -551,6 +582,13 @@ export default function SeriesClient({ initialSeries = null }) {
               </article>
               );
             })}
+          </div>
+        )}
+        {sortedIssues.length > shown && (
+          <div ref={moreRef} className="series-more">
+            <button type="button" onClick={() => setShown(sortedIssues.length)}>
+              Show all {sortedIssues.length.toLocaleString("en-US")} issues
+            </button>
           </div>
         )}
       </section>

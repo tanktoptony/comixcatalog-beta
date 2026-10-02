@@ -244,7 +244,7 @@ function Browse({ listings, f, params }) {
   const router = useRouter();
   const [filtersOpen, setFiltersOpen] = useState(false);
   const counts = facetCounts(listings, f);
-  const results = sortListings(filterListings(listings, f), f.sort);
+  const results = sortListings(filterListings(listings, f), f.sort, f.q);
   const { items, page, pages, total } = paginate(results, f.page);
   const active = FILTER_KEYS.filter((k) => f[k]);
 
@@ -268,7 +268,7 @@ function Browse({ listings, f, params }) {
           <label className="mk-sort">
             <span>Sort</span>
             <select value={f.sort} onChange={(e) => router.push(hrefWith(params, { sort: e.target.value }), { scroll: false })}>
-              {Object.entries(SORTS).map(([v, label]) => (
+              {Object.entries(SORTS).filter(([v]) => v !== "relevance" || f.q).map(([v, label]) => (
                 <option key={v} value={v}>
                   {label}
                 </option>

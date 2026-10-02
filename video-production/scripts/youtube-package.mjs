@@ -40,7 +40,7 @@ const srtTime = (s) => {
 
 // ── Chapters (YouTube: first at 0:00, at least 3, each >= 10 s) ──────────
 const CHAPTERS = [
-  [null, "Where do I start with X-Men?"],
+  [null, "Where do I get back into X-Men?"],
   ["Quick background", "How I got into X-Men"],
   ["The obvious move is to start at the beginning", "Why not start at X-Men #1"],
   ["Number one The Dark Phoenix Saga", "1. The Dark Phoenix Saga"],

@@ -90,13 +90,13 @@ const CUES = [
   // Tony opens with an ad-lib ("Episode 1. Where to start reading X-Men...").
   // Optional cues are dropped when the recording doesn't contain them.
   ["Episode 1 Where to start reading", { type: "title", title: "Where to start reading X-Men\nwithout losing your mind", kicker: "ComixCatalog \u00b7 Episode 001", assets: [], optional: true }],
-  ["A few years ago I walked into Graham Crackers", { type: "media", ...SHOP, treatment: "slowPush", transitionIn: "cut" }],
-  ["Where do I start with X-Men", { type: "chapter", title: "“Where do I start\nwith X-Men?”" }],
+  ["A few years ago after a long stretch away", { type: "media", ...SHOP, treatment: "slowPush", transitionIn: "cut" }],
+  ["Where do I get back into X-Men", { type: "chapter", title: "“Where do I get back\ninto X-Men?”" }],
   ["Because X-Men is sixty years of comics", { type: "grid", columns: 3, assets: [X.x1, X.x129, X.x141, X.u266, X.hom1, X.hox1], push: 0.03, transitionIn: "cut" }],
   ["a dozen books with X-Men in the title", { type: "grid", assets: ALL_18, columns: 6 }],
   ["He didn't hand me a reading order", { type: "media", asset: "stock/COMIC_PAGE_FLIP" }],
   ["So that's what this video is", { type: "shelf", slots: 5, numbered: true, title: "Five books. One shelf." }],
-  ["Let's go", { type: "title", title: "Where to start reading X-Men\nwithout losing your mind", kicker: "ComixCatalog · Episode 001", assets: ALL_18, wall: 0.5 }],
+  ["Let's get into it", { type: "title", title: "Where to start reading X-Men\nwithout losing your mind", kicker: "ComixCatalog · Episode 001", assets: ALL_18, wall: 0.5 }],
 
   // ── How I got here ──────────────────────────────────────────────────────
   ["Quick background", { type: "media", asset: E.tasTeam, treatment: "slowPush", transitionIn: "cut" }],
@@ -212,10 +212,10 @@ const segments = CUES.map(([phrase, { optional, ...seg }], i) => ({
   at: +Math.max(0, VOICE_AT + times[i] - LEAD).toFixed(3),
   beat: phrase,
 }));
-// With the spoken opening title, "Let's go" becomes a cover wall instead of
+// With the spoken opening title, "Let's get into it" becomes a cover wall instead of
 // a second identical title card (the sting still hits there).
 if (segments.some((s) => s.beat === "Episode 1 Where to start reading")) {
-  const lg = segments.find((s) => s.beat === "Let's go");
+  const lg = segments.find((s) => s.beat === "Let's get into it");
   if (lg) Object.assign(lg, { type: "grid", assets: ALL_18, columns: 6, title: undefined, kicker: undefined, wall: undefined });
 }
 // A fixed `dur` (GIF loops, the intro clip) can't run into the next shot.
@@ -248,7 +248,7 @@ if (SPOT) {
 export const anchorMisses = misses;
 
 // The sting hits with the title card.
-const titleAt = segments.find((s) => s.beat === "Let's go")?.at ?? 0;
+const titleAt = segments.find((s) => s.beat === "Let's get into it")?.at ?? 0;
 
 export default {
   id: "episode-001-v3",
@@ -272,7 +272,7 @@ export default {
     // bed about 13 dB under it, sting about 6 dB under.
     music: { asset: "audio/MUSIC_BED", volume: 0.35, fadeIn: 2, fadeOut: 4, loop: true },
     // A louder sting under the title card.
-    sting: { asset: "audio/MUSIC_STING", at: titleAt, dur: 7, volume: 0.9, fadeOut: 2 },
+    sting: { asset: "audio/MUSIC_STING", at: titleAt, dur: 7, volume: 0.45, fadeOut: 2 },
   },
   segments,
 };

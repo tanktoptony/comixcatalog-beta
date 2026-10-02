@@ -70,7 +70,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
           </p>
 
           {status.isFounding ? (
-            <div className="fc-done">You&rsquo;re a Founding Collector. Your lifetime Pro is active, and your name is on the wall.</div>
+            <div className="fc-done">You&rsquo;re Founding Collector No. {status.number ? pad(status.number) : "★"}. Your lifetime Pro is active, and your name is on the wall.</div>
           ) : soldOut ? (
             <div className="fc-done">All {CAP} passes are claimed. Thank you to every one of them.</div>
           ) : !user ? (
@@ -102,7 +102,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
             <div className="fc-pass-title">Founding<br />Collector</div>
             <div className="fc-pass-sub">Collector Pro · for life</div>
             <div className="fc-pass-no">
-              <span>No.</span> {status.isFounding ? "★" : nextNumber == null ? "—" : pad(nextNumber)}
+              <span>No.</span> {status.isFounding ? (status.number ? pad(status.number) : "★") : nextNumber == null ? "—" : pad(nextNumber)}
               <em> / {CAP}</em>
             </div>
           </div>

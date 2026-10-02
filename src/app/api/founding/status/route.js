@@ -31,19 +31,34 @@ export async function GET(req) {
     const availability = await getAvailability(supabase);
     const user = await getAuthedUser(req);
     let isFounding = false;
+    let number = null;
 
     if (user) {
-      const { data: profile } = await supabase
+      const { data: profile, error: profileError } = await supabase
           .from("profiles")
-          .select("is_founding_collector")
+          .select("is_founding_collector, created_at")
           .eq("id", user.id)
           .single();
+      if (profileError) throw profileError;
       isFounding = Boolean(profile?.is_founding_collector);
+      // Your pass number is your place in join order among founders, the
+      // same order the wall on /founding-collectors uses
+      // (src/lib/foundingRoster.js), so the card and the wall agree.
+      if (isFounding && profile.created_at) {
+        const { count, error: countError } = await supabase
+          .from("profiles")
+          .select("id", { count: "exact", head: true })
+          .eq("is_founding_collector", true)
+          .lt("created_at", profile.created_at);
+        if (countError) throw countError;
+        number = (Number(count) || 0) + 1;
+      }
     }
 
     return NextResponse.json({
       ...availability,
       isFounding,
+      number,
       canClaim: Boolean(user) && !isFounding && availability.remaining > 0,
     });
   } catch (error) {

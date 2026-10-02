@@ -1,0 +1,27 @@
+name: Listing photo cleanup
+
+# Nightly sweep of seller listing photos (scripts/cleanupListingPhotos.js):
+# deletes uploads that were started but never processed (after 24h) and
+# public photo files no listing_photos row points to (after 1h). Storage is
+# the plan limit we already hit once, so nothing gets to pile up.
+
+on:
+  schedule:
+    - cron: '30 7 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: node scripts/cleanupListingPhotos.js --apply

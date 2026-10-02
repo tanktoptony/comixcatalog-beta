@@ -31,3 +31,23 @@ test("a glued word doesn't send the cursor to a later repeat of the phrase", () 
   assert.equal(misses.length, 0);
   assert.deepEqual(times, [0, 2, 5, 8]);
 });
+
+import { applyEdit, insertGap } from "./narrationEdit.js";
+
+test("applyEdit trims the lead-in, drops cut words and re-times the rest", () => {
+  const t = { duration: 20, words: [
+    { w: "silence", s: 1, e: 1.5 }, { w: "hello", s: 5, e: 5.5 }, { w: "flub", s: 8, e: 8.5 }, { w: "hello", s: 10, e: 10.5 }, { w: "end", s: 15, e: 15.5 },
+  ] };
+  const r = applyEdit(t, { start: 4, cuts: [[7, 9.5]] });
+  assert.deepEqual(r.words.map((w) => [w.w, w.s]), [["hello", 1], ["hello", 3.5], ["end", 8.5]]);
+  assert.equal(r.duration, 13.5);
+  assert.deepEqual(r.clips, [{ from: 4, to: 7, out: 0 }, { from: 9.5, to: 20, out: 3 }]);
+});
+
+test("insertGap opens a hole for the spot and shifts what follows", () => {
+  const clips = [{ from: 4, to: 7, out: 0 }, { from: 9.5, to: 20, out: 3 }];
+  // Remove edited 5..8 (spans into the second clip) and insert a 10 s spot.
+  assert.deepEqual(insertGap(clips, 5, 8, 10), [
+    { from: 4, to: 7, out: 0 }, { from: 9.5, to: 11.5, out: 3 }, { from: 14.5, to: 20, out: 15 },
+  ]);
+});

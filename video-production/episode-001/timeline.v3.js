@@ -15,11 +15,17 @@
 // the render log, and placed evenly between their neighbours.
 
 import words from "./narration.words.js";
+import narrationEdit from "./narration.edit.js";
 import { resolveAnchors } from "../shared/anchors.js";
+import { applyEdit, insertGap } from "../shared/narrationEdit.js";
 
 // The narration file that narration.words.js was made from. The scratch
 // track is Windows text-to-speech, for timing only.
 const NARRATION = words.source?.startsWith("NARRATION_SCRATCH") ? "audio/NARRATION_SCRATCH.wav" : `audio/${words.source}`;
+// Lead-in trim and retake cuts (narration.edit.js), applied only to the
+// recording they were made for. Everything below works in edited time.
+const edited = applyEdit(words, narrationEdit?.source === words.source ? narrationEdit : null);
+export const narrationWords = edited.words;
 const VOICE_AT = 0.8; // seconds of picture before the first word
 const LEAD = 0.12; // cut this much before the anchor word lands
 
@@ -76,6 +82,9 @@ const SHOP = { asset: E.shopBroll, fallback: "stock/KID_BROWSING_COMICS" };
 // "Stanley" and "X-Cutioner's" as "Excutioners".
 const CUES = [
   // ── Cold open: Graham Crackers ──────────────────────────────────────────
+  // Tony opens with an ad-lib ("Episode 1. Where to start reading X-Men...").
+  // Optional cues are dropped when the recording doesn't contain them.
+  ["Episode 1 Where to start reading", { type: "title", title: "Where to start reading X-Men\nwithout losing your mind", kicker: "ComixCatalog \u00b7 Episode 001", assets: [], optional: true }],
   ["A few years ago I walked into Graham Crackers", { type: "media", ...SHOP, treatment: "slowPush", transitionIn: "cut" }],
   ["Where do I start with X-Men", { type: "chapter", title: "“Where do I start\nwith X-Men?”" }],
   ["Because X-Men is sixty years of comics", { type: "grid", columns: 3, assets: [X.x1, X.x129, X.x141, X.u266, X.hom1, X.hox1], push: 0.03, transitionIn: "cut" }],
@@ -134,7 +143,7 @@ const CUES = [
   ["a crossover across four X-books", { type: "cover", asset: X.x15, treatment: "driftLeft", transition: "cut" }],
   ["Professor X gets shot", { type: "cover", asset: X.x16, treatment: "driftRight", transition: "cut" }],
   ["a whole mess with Stryfe and Apocalypse", { type: "fan", assets: [X.x14, X.x15, X.x16], tint: "#c4122f", transition: "cut" }],
-  ["Everybody is squinting", { type: "triptych", items: [{ asset: X.x14, focus: { x: 0.5, y: 0.55, zoom: 2.2 } }, { asset: X.x15, focus: { x: 0.45, y: 0.5, zoom: 2.2 } }, { asset: X.x16, focus: { x: 0.5, y: 0.5, zoom: 2.2 } }], title: "Squinty. Grizzled. Tough.", transitionIn: "cut" }],
+  ["squinting everybody has pouches", { type: "triptych", items: [{ asset: X.x14, focus: { x: 0.5, y: 0.55, zoom: 2.2 } }, { asset: X.x15, focus: { x: 0.45, y: 0.5, zoom: 2.2 } }, { asset: X.x16, focus: { x: 0.5, y: 0.5, zoom: 2.2 } }], title: "Squinty. Grizzled. Tough.", transitionIn: "cut" }],
   ["If the cartoon is your X-Men", { type: "media", asset: E.tasTeam, treatment: "slowPull", transitionIn: "cut" }],
   ["Fair warning it's messy", { type: "fan", assets: [X.x14, X.x15, X.x16], tint: "#c4122f", title: "Grab the trade paperback." }],
 
@@ -161,7 +170,7 @@ const CUES = [
 
   // ── Shop like a kid ─────────────────────────────────────────────────────
   ["Here's my actual advice", { type: "chapter", title: "Shop like a kid." }],
-  ["When you were ten", { type: "media", asset: E.longboxBroll, fallback: "stock/KID_BROWSING_COMICS", transitionIn: "cut" }],
+  ["kid When you", { type: "media", asset: E.longboxBroll, fallback: "stock/KID_BROWSING_COMICS", transitionIn: "cut" }],
   ["You grabbed whatever cover looked cool", { type: "stack", assets: [X.x14, X.u266, X.hom1] }],
   ["Find a character you like", { type: "media", asset: "stock/COMIC_PAGE_FLIP" }],
   ["For me it was Colossus", { type: "media", asset: E.colossusArt, position: COLOSSUS_FACE, treatment: "still", transition: "cut" }],
@@ -182,16 +191,28 @@ const CUES = [
   ["Go pick up a comic", { type: "end", title: "Go pick up a comic.\nTell me which one you started with." }],
 ];
 
-const { times, misses } = resolveAnchors(words.words, CUES.map(([phrase]) => phrase));
+const resolved = resolveAnchors(edited.words, CUES.map(([phrase]) => phrase));
+// Drop optional cues the recording doesn't have, then re-resolve so their
+// placeholder times don't skew the interpolation of real misses.
+const missing = new Set(resolved.misses.map((m) => m.index));
+const kept = CUES.filter(([, seg], i) => !(seg.optional && missing.has(i)));
+if (kept.length !== CUES.length) CUES.splice(0, CUES.length, ...kept);
+const { times, misses } = kept.length === resolved.times.length ? resolved : resolveAnchors(edited.words, CUES.map(([phrase]) => phrase));
 if (misses.length) {
   console.warn(`timeline.v3: ${misses.length} anchor(s) not found in the transcript:\n` + misses.map((m) => `  #${m.index} "${m.phrase}"`).join("\n"));
 }
 
-const segments = CUES.map(([phrase, seg], i) => ({
+const segments = CUES.map(([phrase, { optional, ...seg }], i) => ({
   ...seg,
   at: +Math.max(0, VOICE_AT + times[i] - LEAD).toFixed(3),
   beat: phrase,
 }));
+// With the spoken opening title, "Let's go" becomes a cover wall instead of
+// a second identical title card (the sting still hits there).
+if (segments.some((s) => s.beat === "Episode 1 Where to start reading")) {
+  const lg = segments.find((s) => s.beat === "Let's go");
+  if (lg) Object.assign(lg, { type: "grid", assets: ALL_18, columns: 6, title: undefined, kicker: undefined, wall: undefined });
+}
 // A fixed `dur` (GIF loops, the intro clip) can't run into the next shot.
 segments.forEach((seg, i) => {
   const next = segments[i + 1];
@@ -205,7 +226,7 @@ segments.forEach((seg, i) => {
 const SPOT = null; // e.g. { asset: "broll/CC_SPOT.mp4", dur: 31.5 }
 const SPOT_FROM = "Quick one I built ComixCatalog";
 const SPOT_TO = "So the shelf";
-let narrationClips = null;
+let narrationClips = edited.clips;
 let extra = 0;
 if (SPOT) {
   const a = CUES.findIndex(([p]) => p === SPOT_FROM);
@@ -216,10 +237,7 @@ if (SPOT) {
   const spotAt = segments[a].at;
   segments.splice(a, b - a, { type: "media", asset: SPOT.asset, withAudio: true, treatment: "still", at: spotAt, transitionIn: "cut", transitionOut: "cut", beat: "ComixCatalog spot" });
   for (let i = a + 1; i < segments.length; i += 1) segments[i].at = +(segments[i].at + extra).toFixed(3);
-  narrationClips = [
-    { at: VOICE_AT, from: 0, to: cutFrom - 0.05 },
-    { at: +(VOICE_AT + cutFrom + SPOT.dur).toFixed(3), from: cutTo - 0.05, to: null },
-  ];
+  narrationClips = insertGap(edited.clips, cutFrom - 0.05, cutTo - 0.05, SPOT.dur);
 }
 
 export const anchorMisses = misses;
@@ -235,10 +253,15 @@ export default {
   compositionId: "Episode001V3",
   title: "Where to Start Reading X-Men Without Losing Your Mind (V3)",
   // Hold the end card a few seconds past the last word.
-  duration: +(VOICE_AT + words.duration + 3 + extra).toFixed(3),
+  duration: +(VOICE_AT + edited.duration + 3 + extra).toFixed(3),
   nudges: [],
   audio: {
-    narration: { asset: NARRATION, at: VOICE_AT, volume: 1, ...(narrationClips ? { clips: narrationClips } : {}) },
+    narration: {
+      asset: NARRATION,
+      at: VOICE_AT,
+      volume: 1,
+      clips: narrationClips.map((c) => ({ at: +(VOICE_AT + c.out).toFixed(3), from: c.from, to: c.to })),
+    },
     // Music bed: ducked well under the voice, faded at both ends.
     music: { asset: "audio/MUSIC_BED", volume: 0.1, fadeIn: 2, fadeOut: 4, loop: true },
     // A louder sting under the title card.

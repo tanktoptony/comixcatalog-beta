@@ -1,5 +1,7 @@
 import { withSentryConfig } from "@sentry/nextjs/config";
 
+const SHARP_BINARIES = ["./node_modules/@img/sharp-linux-x64/**/*", "./node_modules/@img/sharp-libvips-linux-x64/**/*"];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactCompiler: true,
@@ -7,8 +9,16 @@ const nextConfig = {
   // The share card reads its bundled TTFs from disk at runtime; tracing
   // cannot see a readFile path, so name the folder explicitly or Vercel
   // ships the route without them.
+  //
+  // sharp loads its native libvips library (libvips-cpp.so) at runtime,
+  // and the Turbopack trace doesn't follow it: the photo route crashed in
+  // production with "libvips-cpp.so.8.18.6: cannot open shared object file"
+  // (2026-10-02). Ship the Linux binaries with every route that imports
+  // sharp. The PDF export imports it too.
   outputFileTracingIncludes: {
     "/api/share-card": ["./src/app/api/share-card/fonts/**"],
+    "/api/listings/photos/process": SHARP_BINARIES,
+    "/api/export/pdf": SHARP_BINARIES,
   },
 
   // /about and /get-started were folded into /start (2026-10-01): three

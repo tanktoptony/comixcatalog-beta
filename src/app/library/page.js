@@ -18,6 +18,7 @@ import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { coverThumb } from "@/lib/coverThumb";
 import { readLocal, writeLocal } from "@/lib/localCache";
+import { isOwnedStatus } from "@/lib/collectionStatus";
 
 // Module-scoped so it survives across component re-mounts within a tab
 // (see the user-change-clear logic below for why that's usually right).
@@ -977,7 +978,7 @@ function LibraryPageContent() {
     }
     const groups = new Map();
     for (const item of collections) {
-      if (item.status !== "owned") continue;
+      if (!isOwnedStatus(item.status)) continue;
       const key = makeLibraryKey(item);
       if (!key) continue;
       const comic = comicIndex[key];

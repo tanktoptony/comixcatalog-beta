@@ -5,6 +5,7 @@ import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
 import { useAuth } from "@/context/AuthContext";
 import { useLibrary } from "@/context/LibraryContext";
+import { isOwnedStatus } from "@/lib/collectionStatus";
 
 // "Share My Collection" → a 1080×1920 Story image of the signed-in user's own
 // collection (see src/app/api/share-card). The user-driven half of the
@@ -26,7 +27,7 @@ export default function ShareCardButton({ ownerId, username, type = "collection"
   const { user } = useAuth();
   const { collections } = useLibrary();
   const isOwner = Boolean(user?.id && ownerId && user.id === ownerId);
-  const hasOwned = collections.some((c) => c.status === "owned");
+  const hasOwned = collections.some((c) => isOwnedStatus(c.status));
   const dialogRef = useRef(null);
   const [state, setState] = useState("idle"); // idle | loading | ready | error
   const [error, setError] = useState(null);

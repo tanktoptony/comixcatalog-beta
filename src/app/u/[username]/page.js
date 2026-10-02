@@ -14,6 +14,7 @@ import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { createClient } from "@supabase/supabase-js";
 import { coverThumb } from "@/lib/coverThumb";
 import { getPublicProfile } from "@/lib/pageData";
+import { isOwnedStatus } from "@/lib/collectionStatus";
 
 function formatJoinDate(iso) {
   if (!iso) return null;
@@ -100,7 +101,7 @@ export default async function PublicProfilePage({ params }) {
   // CollectionStatsStrip's rowValue() comment for why no autoMarketValues
   // map is needed here the way /library passes one.
   const showValue = visibility.value !== false;
-  const ownedItems = collection.filter((item) => item.status === "owned");
+  const ownedItems = collection.filter((item) => isOwnedStatus(item.status));
   let collectionValue = 0;
   for (const item of ownedItems) {
     const v = Number(item.market_value);

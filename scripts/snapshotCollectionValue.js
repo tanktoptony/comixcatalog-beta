@@ -152,7 +152,8 @@ async function run() {
       supabase
         .from("user_collections")
         .select("id, user_id, gcd_issue_id, market_value, grade_numeric, slab_company, condition")
-        .eq("status", "owned"),
+        // Listed books are still owned until they sell.
+        .in("status", ["owned", "for_sale"]),
     "id"
   );
   console.log(`Owned rows: ${owned.length}`);

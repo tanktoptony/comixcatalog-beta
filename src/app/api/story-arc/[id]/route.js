@@ -15,6 +15,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getAuthedUser } from "@/lib/authServer";
+import { isOwnedStatus } from "@/lib/collectionStatus";
 
 function norm(value) {
   return String(value ?? "").trim().toLowerCase();
@@ -123,7 +124,7 @@ export async function GET(req, context) {
         .in("gcd_issue_id", gcdIds);
       for (const r of collected ?? []) {
         const gid = Number(r.gcd_issue_id);
-        if (r.status === "owned") ownedSet.add(gid);
+        if (isOwnedStatus(r.status)) ownedSet.add(gid);
         else if (r.status === "wishlist") wishlistSet.add(gid);
       }
     }

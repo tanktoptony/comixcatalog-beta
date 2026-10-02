@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { getAuthedUser } from "@/lib/authServer";
 import { getMarketValuesBulk } from "@/lib/marketValue";
 import { normTitle, titleVariants } from "@/lib/titleMatch";
+import { isOwnedStatus } from "@/lib/collectionStatus";
 
 function parseYear(value) {
   if (!value) return null;
@@ -479,7 +480,7 @@ export async function GET(req) {
   // happened to include the plaque with real numbers, which the actual
   // page wasn't producing for any auto-priced item.
   const gradeSignals = normalizedCollection
-    .filter((item) => item.status === "owned" && item.gcd_issue_id != null)
+    .filter((item) => isOwnedStatus(item.status) && item.gcd_issue_id != null)
     .map((item) => ({
       collection_id: item.id,
       gcd_issue_id: item.gcd_issue_id,

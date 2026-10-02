@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
+import { baseIssueNumber } from "@/lib/coverMatch";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -362,8 +363,15 @@ export async function GET(req) {
     const sliceSeriesTitles = [
       ...new Set(gcdSlice.map((r) => r.series_title).filter(Boolean)),
     ];
+    // GCD files variants as "1 [Cover A]" while their covers sit under "1",
+    // so fetch the base number too and fall back to it below. Without this
+    // X-Men #1 [Cover A] (1991) showed a blank tile in search.
     const sliceIssueNumbers = [
-      ...new Set(gcdSlice.map((r) => r.issue_number).filter((v) => v != null)),
+      ...new Set(
+        gcdSlice
+          .flatMap((r) => [r.issue_number, baseIssueNumber(r.issue_number)])
+          .filter((v) => v != null && v !== "")
+      ),
     ];
 
     const canonicalCandidatesByKey = {};
@@ -392,8 +400,12 @@ export async function GET(req) {
       // `row.__source || "user"`), so canonical gcd issues were mislabeled
       // "User Added". Now "gcd" rows correctly carry their source.
       if (row.__source !== "gcd") return row;
-      const key = `${normalizeSearch(row.series_title)}::${normalizeIssueNumber(row.issue_number)}`;
-      const storagePath = pickBestCoverPath(canonicalCandidatesByKey[key], row.release_year);
+      const title = normalizeSearch(row.series_title);
+      const exact = canonicalCandidatesByKey[`${title}::${normalizeIssueNumber(row.issue_number)}`];
+      const base = baseIssueNumber(row.issue_number);
+      const storagePath =
+        pickBestCoverPath(exact, row.release_year) ??
+        (base ? pickBestCoverPath(canonicalCandidatesByKey[`${title}::${normalizeIssueNumber(base)}`], row.release_year) : null);
       return {
         ...row,
         cover_path: storagePath

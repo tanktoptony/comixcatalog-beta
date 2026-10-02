@@ -6,6 +6,7 @@ import { EpisodeRenderer } from "../shared/EpisodeRenderer.jsx";
 import { VIDEO } from "../shared/brand.js";
 import { ThumbShelf, ThumbNotHere, ThumbFace } from "./Thumbnails.jsx";
 import { ShortClip } from "./Shorts.jsx";
+import { ChannelBanner } from "./Banner.jsx";
 import { SHORTS, END_CARD, shortRange } from "../shorts.js";
 import { narrationWords } from "../episode-001/timeline.v3.js";
 
@@ -51,6 +52,7 @@ export function Root() {
           />
         );
       })}
+      <Composition id="ChannelBanner" component={ChannelBanner} durationInFrames={1} fps={30} width={2560} height={1440} />
       {THUMBNAILS.map(([id, component]) => (
         <Composition key={id} id={id} component={component} durationInFrames={1} fps={30} width={1280} height={720} />
       ))}

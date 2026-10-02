@@ -9,6 +9,12 @@
 export const SITE_NEWS = [
   {
     date: "2026-10-02",
+    title: "Your wantlist, for sale",
+    body: "When someone lists a book on your wantlist, it shows up first on the marketplace under From your wantlist, cheapest first, and your library's Wantlist tab tags it with how many are for sale and from how much.",
+    href: "/marketplace",
+  },
+  {
+    date: "2026-10-02",
     title: "Put a price on it",
     body: "Books you've listed for sale now have an Edit listing button in your library: set your price and shipping, add condition notes, flag restored or signed, and choose whether to take offers. Buyers see your price on the marketplace instead of an estimate.",
     href: "/library?tab=for_sale",

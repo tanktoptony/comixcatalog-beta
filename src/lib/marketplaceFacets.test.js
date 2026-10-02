@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
+  wantlistMatches,
   queryScore,
   readFilters,
   isBrowsing,
@@ -131,4 +132,19 @@ test("search follows the catalog search rules", () => {
   assert.deepEqual(ids("@pete"), ["asm"]);
   assert.deepEqual(ids("image gunslinger"), ["gs"]);
   assert.equal(queryScore(xs[0], "batman"), 0);
+});
+
+test("wantlist matches: on your list, not your own copies, cheapest first", () => {
+  const ls = [
+    L({ id: "a", gcdIssueId: 10, price: 30, seller: "pete" }),
+    L({ id: "b", gcdIssueId: 10, estValue: 12, seller: "tony" }),
+    L({ id: "c", gcdIssueId: 10, estValue: 20, seller: "dan" }),
+    L({ id: "d", gcdIssueId: 99, price: 5, seller: "dan" }),
+  ];
+  assert.deepEqual(wantlistMatches(ls, new Set([10]), "tony").map((l) => l.id), ["c", "a"]);
+  assert.deepEqual(wantlistMatches(ls, new Set(), "tony"), []);
+  assert.deepEqual(wantlistMatches(ls, null, "tony"), []);
+  const f = readFilters(new URLSearchParams("wants=1"));
+  assert.equal(f.wants, true);
+  assert.equal(isBrowsing(f), true);
 });

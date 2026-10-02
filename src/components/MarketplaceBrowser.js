@@ -1,8 +1,10 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
+import { useLibrary } from "@/context/LibraryContext";
 import { coverThumb } from "@/lib/coverThumb";
 import { conditionLabel, offerHref, formatValue, shippingLabel, contactLabel } from "@/lib/marketplaceFormat";
 import {
@@ -16,6 +18,7 @@ import {
   paginate,
   readFilters,
   sortListings,
+  wantlistMatches,
 } from "@/lib/marketplaceFacets";
 
 // /marketplace, Discogs style. With no search or filter it's a short landing
@@ -104,10 +107,18 @@ function Shelf({ title, items, more, note }) {
   );
 }
 
-function Landing({ listings, params }) {
+function Landing({ listings, params, wanted }) {
   const s = landingSections(listings);
   return (
     <div className="mk-landing">
+      {wanted.length > 0 && (
+        <Shelf
+          title="From your wantlist"
+          note={`${wanted.length} ${wanted.length === 1 ? "copy" : "copies"} for sale, cheapest first`}
+          items={wanted.slice(0, 6)}
+          more={wanted.length > 6 ? hrefWith(params, { wants: "1" }) : null}
+        />
+      )}
       <Shelf title="Just listed" items={s.justListed} more={hrefWith(params, { view: "all", sort: "newest" })} />
 
       <section className="mk-shelf">
@@ -241,9 +252,11 @@ function Pager({ page, pages, params }) {
   );
 }
 
-function Browse({ listings, f, params }) {
+function Browse({ listings: all, f, params, wanted }) {
   const router = useRouter();
   const [filtersOpen, setFiltersOpen] = useState(false);
+  // "From your wantlist" narrows everything below it, facets included.
+  const listings = f.wants ? wanted : all;
   const counts = facetCounts(listings, f);
   const results = sortListings(filterListings(listings, f), f.sort, f.q);
   const { items, page, pages, total } = paginate(results, f.page);
@@ -278,8 +291,13 @@ function Browse({ listings, f, params }) {
           </label>
         </div>
 
-        {(active.length > 0 || f.q) && (
+        {(active.length > 0 || f.q || f.wants) && (
           <div className="mk-chips">
+            {f.wants && (
+              <Link prefetch={false} scroll={false} href={hrefWith(params, { wants: null })}>
+                From your wantlist <span aria-hidden="true">×</span>
+              </Link>
+            )}
             {f.q && (
               <Link prefetch={false} scroll={false} href={hrefWith(params, { q: null })}>
                 &ldquo;{f.q}&rdquo; <span aria-hidden="true">×</span>
@@ -337,6 +355,16 @@ function SearchBox({ f, params }) {
 }
 
 function MarketplaceView({ listings, params }) {
+  const { user, profile } = useAuth();
+  const { collections } = useLibrary();
+  // Your wantlist's catalog issues, matched against what's for sale.
+  const wanted = useMemo(() => {
+    if (!user) return [];
+    const ids = new Set(
+      (collections ?? []).filter((c) => c.status === "wishlist" && c.gcd_issue_id != null).map((c) => Number(c.gcd_issue_id))
+    );
+    return wantlistMatches(listings, ids, profile?.username);
+  }, [user, collections, listings, profile?.username]);
   const f = readFilters(params);
   const browsing = isBrowsing(f) || params.get("view") === "all";
   const sellers = new Set(listings.map((l) => l.seller)).size;
@@ -377,9 +405,9 @@ function MarketplaceView({ listings, params }) {
           Nothing listed yet. Be the first: open your <Link href="/library">library</Link> and mark a book for sale.
         </p>
       ) : browsing ? (
-        <Browse listings={listings} f={f} params={params} />
+        <Browse listings={listings} f={f} params={params} wanted={wanted} />
       ) : (
-        <Landing listings={listings} params={params} />
+        <Landing listings={listings} params={params} wanted={wanted} />
       )}
     </div>
   );

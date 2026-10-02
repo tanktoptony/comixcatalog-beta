@@ -638,6 +638,38 @@ function LibraryPageContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.id, forSaleSignature]);
 
+  // Wantlist books someone is selling: "2 for sale from $12". Reads the
+  // same cached listing feed as /marketplace, only while the wantlist tab
+  // is open. Your own listings don't count.
+  const [forSaleByIssue, setForSaleByIssue] = useState({});
+  useEffect(() => {
+    if (tab !== "wishlist") return;
+    let cancelled = false;
+    fetch("/api/marketplace")
+      .then((r) => (r.ok ? r.json() : { listings: [] }))
+      .then(({ listings = [] }) => {
+        if (cancelled) return;
+        const out = {};
+        for (const l of listings) {
+          if (l.seller && l.seller === profile?.username) continue;
+          const id = Number(l.gcdIssueId);
+          const v = l.price ?? l.estValue ?? null;
+          const cur = out[id] ?? { n: 0, min: null };
+          cur.n += 1;
+          if (v != null && (cur.min == null || v < cur.min)) cur.min = v;
+          out[id] = cur;
+        }
+        for (const v of Object.values(out)) {
+          v.label = `${v.n} for sale${v.min != null ? ` from $${Math.round(v.min).toLocaleString("en-US")}` : ""}`;
+        }
+        setForSaleByIssue(out);
+      })
+      .catch((err) => console.warn("Wantlist for-sale lookup failed:", err));
+    return () => {
+      cancelled = true;
+    };
+  }, [tab, profile?.username]);
+
   async function toggleForSale(item) {
     const newStatus = item.status === "for_sale" ? "owned" : "for_sale";
     const { error } = await supabase
@@ -2034,6 +2066,14 @@ function LibraryPageContent() {
                         <span>{comic.year || "Unknown Year"}</span>
                         <span>•</span>
                         <span>{tab === "owned" ? "In Collection" : "On Wantlist"}</span>
+                        {item.status === "wishlist" && item.gcd_issue_id != null && forSaleByIssue[Number(item.gcd_issue_id)] && (
+                          <>
+                            <span>•</span>
+                            <Link prefetch={false} href={`/issue/gcd-${item.gcd_issue_id}`} className="library-want-sale">
+                              {forSaleByIssue[Number(item.gcd_issue_id)].label}
+                            </Link>
+                          </>
+                        )}
                         {liveGrade.slab_company && (
                           <>
                             <span>•</span>

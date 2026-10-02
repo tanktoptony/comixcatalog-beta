@@ -187,7 +187,7 @@ Which one did you start with? Mine was House of M, handed to me at Graham Cracke
 - Audience: Not made for kids.
 - Category: Entertainment (or Education).
 - Language: English; captions: English (upload captions.srt).
-- Altered or synthetic content: **No** (once it's Tony's real voice). If you ever publish with an AI or text-to-speech voice, answer Yes.
+${String(words.source).includes("HEYGEN") ? "- Altered or synthetic content: **Yes**. The narration is an AI clone of Tony's voice (HeyGen), which YouTube counts as realistic synthetic content." : "- Altered or synthetic content: **No** (Tony's real voice). If you ever publish with an AI or text-to-speech voice, answer Yes."}
 - License: Standard YouTube.
 - Comments: on; hold potentially inappropriate for review.
 - Playlist: create "Where to Start" for future episodes.

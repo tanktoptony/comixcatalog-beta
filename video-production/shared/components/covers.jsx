@@ -132,7 +132,7 @@ export function MediaFull({ aspect, ...props }) {
   );
 }
 
-function MediaFullFrame({ asset, treatment = "slowPush", position = "50% 50%", zoom = 1, inset, crt = false, gifRate = 1, kicker, title, sub, captionAlign = "left" }) {
+function MediaFullFrame({ asset, treatment = "slowPush", position = "50% 50%", zoom = 1, inset, crt = false, gifRate = 1, withAudio = false, kicker, title, sub, captionAlign = "left" }) {
   const p = useProgress();
   const { video } = useAsset(asset);
   const insetAsset = useAsset(inset?.asset);
@@ -143,7 +143,7 @@ function MediaFullFrame({ asset, treatment = "slowPush", position = "50% 50%", z
     <AbsoluteFill style={crt ? { backgroundColor: "#000" } : { backgroundColor: brand.bg, overflow: "hidden" }}>
       <AbsoluteFill style={crt ? { inset: 10, borderRadius: 64, overflow: "hidden" } : undefined}>
       <AbsoluteFill style={{ transformOrigin: position, transform: `translateX(${x}px) scale(${(treatment === "panAcross" ? 1.1 : scale) * zoom})` }}>
-        <Media asset={asset} gifRate={gifRate} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: position, filter: crt ? "saturate(1.25) contrast(0.92) brightness(1.05)" : undefined }} />
+        <Media asset={asset} gifRate={gifRate} withAudio={withAudio} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: position, filter: crt ? "saturate(1.25) contrast(0.92) brightness(1.05)" : undefined }} />
         {crt && (
           <AbsoluteFill style={{ mixBlendMode: "screen", opacity: 0.35 }}>
             <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: position, filter: "blur(10px) brightness(0.9)" }} />

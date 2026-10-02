@@ -21,3 +21,13 @@ test("reports misses and spreads them between neighbours instead of guessing", (
   assert.deepEqual(misses.map((m) => m.index), [1, 2]);
   assert.ok(times[0] < times[1] && times[1] < times[2] && times[2] < times[3]);
 });
+
+test("a glued word doesn't send the cursor to a later repeat of the phrase", () => {
+  // The real case: the outro's "House of M" is a few hundred words later.
+  const filler = Array.from({ length: 200 }, () => "blah").join(" ");
+  const glued = `Number 5. House of M2005, Brian Michael Bendis. This is the book. ${filler} Later: House of M.`
+    .split(" ").map((w, i) => ({ w, s: i, e: i + 0.5 }));
+  const { times, misses } = resolveAnchors(glued, ["Number five", "House of M", "2005 Brian Michael Bendis", "This is the book"]);
+  assert.equal(misses.length, 0);
+  assert.deepEqual(times, [0, 2, 5, 8]);
+});

@@ -30,11 +30,12 @@ export function useAsset(asset) {
 // GIFs render frame-accurately through @remotion/gif (a plain <img> would
 // animate on wall-clock time and render nondeterministically); they draw to
 // a canvas, so they take the pixel box they fill (default: the full frame).
-export function Media({ asset, style, box = { w: 1920, h: 1080 }, fit = "cover", gifRate = 1 }) {
+export function Media({ asset, style, box = { w: 1920, h: 1080 }, fit = "cover", gifRate = 1, withAudio = false }) {
   const { src, path, missing, video } = useAsset(asset);
   if (missing) return <MissingAsset path={path} />;
   if (/\.gif$/i.test(path)) return <Gif src={src} width={box.w} height={box.h} fit={fit} style={style} loopBehavior="loop" playbackRate={gifRate} />;
-  return video ? <OffthreadVideo src={src} muted style={style} /> : <Img src={src} style={style} />;
+  // Clips are muted unless a segment opts in (only Tony's own footage does).
+  return video ? <OffthreadVideo src={src} muted={!withAudio} style={style} /> : <Img src={src} style={style} />;
 }
 
 // Charcoal field, faint halftone, soft vignette. Static on purpose: motion

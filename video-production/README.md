@@ -89,3 +89,10 @@ V3 (`episode-001/timeline.v3.js`) is the finished-video path: narration and musi
 4. `npm run render:001:v3:preview`, then `npm run render:001:v3` for 1080p.
 
 `npm run index` prints any anchor phrase the transcript couldn't find (it's placed between its neighbours rather than guessed). Prefer plain words over proper nouns in anchors. The current `narration.words.js` is from a Windows text-to-speech scratch track, for timing only. Music: Kevin MacLeod (CC BY 4.0, credit in the description). Rights review: `episode-001/RIGHTS_AND_CONTENT_ID.md`.
+
+### Upload package, thumbnails, Shorts
+
+- `npm run package:001`: writes ~/Desktop/episode-001-youtube (PACKAGE.md with titles, description with chapters and utm-tagged links, tags, pinned comment, upload checklist; captions.srt in the script's exact words) and `episode-001/captions.generated.js` for the Shorts. Run it after every re-transcription.
+- `npm run thumbs:001`: renders `src/Thumbnails.jsx` (A shelf, B not-here/start-here, C face; C needs `extras/TONY_FACE`).
+- `npm run shorts:001`: renders the vertical cuts in `shorts.js` (ranges are script phrases).
+- Tony's on-camera ComixCatalog spot: set `SPOT` in `timeline.v3.js` to the clip and its length; the narrated paragraph is cut and everything after shifts.

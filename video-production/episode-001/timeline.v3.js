@@ -198,6 +198,30 @@ segments.forEach((seg, i) => {
   if (seg.dur != null && next && seg.at + seg.dur > next.at) delete seg.dur;
 });
 
+// ── Tony's on-camera ComixCatalog spot ──────────────────────────────────
+// When the footage exists, set SPOT to its file and length in seconds. The
+// narrated "Quick one. I built ComixCatalog..." paragraph is cut from the
+// voice, the spot plays with its own sound, and everything after it moves.
+const SPOT = null; // e.g. { asset: "broll/CC_SPOT.mp4", dur: 31.5 }
+const SPOT_FROM = "Quick one I built ComixCatalog";
+const SPOT_TO = "So the shelf";
+let narrationClips = null;
+let extra = 0;
+if (SPOT) {
+  const a = CUES.findIndex(([p]) => p === SPOT_FROM);
+  const b = CUES.findIndex(([p]) => p === SPOT_TO);
+  const cutFrom = times[a];
+  const cutTo = times[b];
+  extra = SPOT.dur - (cutTo - cutFrom);
+  const spotAt = segments[a].at;
+  segments.splice(a, b - a, { type: "media", asset: SPOT.asset, withAudio: true, treatment: "still", at: spotAt, transitionIn: "cut", transitionOut: "cut", beat: "ComixCatalog spot" });
+  for (let i = a + 1; i < segments.length; i += 1) segments[i].at = +(segments[i].at + extra).toFixed(3);
+  narrationClips = [
+    { at: VOICE_AT, from: 0, to: cutFrom - 0.05 },
+    { at: +(VOICE_AT + cutFrom + SPOT.dur).toFixed(3), from: cutTo - 0.05, to: null },
+  ];
+}
+
 export const anchorMisses = misses;
 
 // The sting hits with the title card.
@@ -211,10 +235,10 @@ export default {
   compositionId: "Episode001V3",
   title: "Where to Start Reading X-Men Without Losing Your Mind (V3)",
   // Hold the end card a few seconds past the last word.
-  duration: +(VOICE_AT + words.duration + 3).toFixed(3),
+  duration: +(VOICE_AT + words.duration + 3 + extra).toFixed(3),
   nudges: [],
   audio: {
-    narration: { asset: NARRATION, at: VOICE_AT, volume: 1 },
+    narration: { asset: NARRATION, at: VOICE_AT, volume: 1, ...(narrationClips ? { clips: narrationClips } : {}) },
     // Music bed: ducked well under the voice, faded at both ends.
     music: { asset: "audio/MUSIC_BED", volume: 0.1, fadeIn: 2, fadeOut: 4, loop: true },
     // A louder sting under the title card.

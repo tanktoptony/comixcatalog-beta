@@ -4,6 +4,17 @@ import { EPISODES, assetFolder } from "../episodes.js";
 import { normalizeTimeline } from "../shared/timeline.js";
 import { EpisodeRenderer } from "../shared/EpisodeRenderer.jsx";
 import { VIDEO } from "../shared/brand.js";
+import { ThumbShelf, ThumbNotHere, ThumbFace } from "./Thumbnails.jsx";
+import { ShortClip } from "./Shorts.jsx";
+import { SHORTS, END_CARD, shortRange } from "../shorts.js";
+import captions from "../episode-001/captions.generated.js";
+
+// YouTube thumbnails (scripts/thumbs.mjs).
+export const THUMBNAILS = [
+  ["Thumb001Shelf", ThumbShelf],
+  ["Thumb001NotHere", ThumbNotHere],
+  ["Thumb001Face", ThumbFace],
+];
 
 export function Root() {
   return (
@@ -23,6 +34,26 @@ export function Root() {
           />
         );
       })}
+      {SHORTS.map((s) => {
+        const ep = EPISODES.find((e) => e.id === "episode-001-v3");
+        const timeline = normalizeTimeline(ep, VIDEO.fps);
+        const { from, to } = shortRange(ep, s);
+        return (
+          <Composition
+            key={s.id}
+            id={s.id}
+            component={ShortClip}
+            durationInFrames={Math.round((to - from + END_CARD) * VIDEO.fps)}
+            fps={VIDEO.fps}
+            width={1080}
+            height={1920}
+            defaultProps={{ episodeId: assetFolder(ep), timeline, from, to, hook: s.hook, captions }}
+          />
+        );
+      })}
+      {THUMBNAILS.map(([id, component]) => (
+        <Composition key={id} id={id} component={component} durationInFrames={1} fps={30} width={1280} height={720} />
+      ))}
     </>
   );
 }

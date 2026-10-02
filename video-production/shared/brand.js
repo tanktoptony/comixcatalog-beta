@@ -26,3 +26,8 @@ export const fonts = {
 };
 
 export const VIDEO = { width: 1920, height: 1080, fps: 30 };
+
+// Channel bumper in front of every episode (src/ChannelIntro.jsx): 8 beats
+// of "Funkorama" plus the logo hold. Captions/chapters for an upload with
+// the bumper shift by CHANNEL_INTRO.frames / VIDEO.fps.
+export const CHANNEL_INTRO = { frames: 223 };

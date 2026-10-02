@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getListing, getListingsForIssue } from "@/lib/marketplace";
 import { conditionLabel, contactLabel, formatValue, offerHref, shippingLabel } from "@/lib/marketplaceFormat";
 import { SITE_URL } from "@/lib/siteUrl";
+import ListingGallery from "@/components/ListingGallery";
 
 // One copy for sale, Discogs item-page style: the copy, its condition, the
 // seller, the price, and the way to buy (an offer or a message while there's
@@ -43,7 +44,7 @@ export default async function ListingPage({ params }) {
           "@context": "https://schema.org",
           "@type": "Product",
           name: titleOf(l),
-          image: l.cover || undefined,
+          image: l.photos?.[0]?.url || l.cover || undefined,
           description: l.notes || `${titleOf(l)}, ${conditionLabel(l)}`,
           offers: {
             "@type": "Offer",
@@ -74,8 +75,7 @@ export default async function ListingPage({ params }) {
 
       <div className="lp-grid">
         <div className="lp-cover">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={l.cover || "/fallback-cover.png"} alt={titleOf(l)} />
+          <ListingGallery photos={l.photos} cover={l.cover} title={titleOf(l)} />
         </div>
 
         <div className="lp-main">
@@ -135,6 +135,7 @@ export default async function ListingPage({ params }) {
               <dd>{l.signed ? "Yes" : "No"}</dd>
             </dl>
             {l.notes ? <p className="lp-notes">{l.notes}</p> : <p className="lp-muted">The seller hasn&rsquo;t added condition notes. Ask them before you buy.</p>}
+            {l.photos.length === 0 && <p className="lp-muted">No seller photos yet, so the image is the catalog cover. Ask for photos of this exact copy.</p>}
           </section>
 
           <section className="lp-block lp-seller">

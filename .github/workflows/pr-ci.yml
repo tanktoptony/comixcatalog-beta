@@ -109,6 +109,9 @@ jobs:
       - name: Marketplace listing row tests
         run: npm run test:listing-row
 
+      - name: Listing photo tests (rules + EXIF stripping)
+        run: npm run test:listing-photos
+
       - name: Listing edit rules tests
         run: npm run test:listing-edit
 

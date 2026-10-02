@@ -4,6 +4,7 @@ import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { POST as libraryHydratePOST } from "@/app/api/library-hydrate/route";
 import { normalizePublisherLabel } from "@/lib/publisher";
 import { coverPathFromUrl, toListing } from "@/lib/listingRow";
+import { KIND_LABELS, photoUrl } from "@/lib/listingPhotos";
 
 // Marketplace v2 read model (migration 0031). Each listed copy is a row in
 // `listings` that snapshots the title, issue, publisher, cover and grade, so
@@ -115,13 +116,29 @@ async function wantCounts(sb, gcdIds) {
   return counts;
 }
 
+// Seller photos per listed copy, for the "4 photos" note in browse.
+async function photoCounts(sb, collectionIds) {
+  const counts = new Map();
+  for (let i = 0; i < collectionIds.length; i += 300) {
+    const rows = await fetchAllPages(() =>
+      sb.from("listing_photos").select("id, collection_id").eq("moderation", "ok").in("collection_id", collectionIds.slice(i, i + 300))
+    );
+    for (const r of rows) counts.set(r.collection_id, (counts.get(r.collection_id) ?? 0) + 1);
+  }
+  return counts;
+}
+
 async function computeListings() {
   const sb = client();
   await refreshListingSnapshots({ sb });
   const rows = await fetchAllPages(() => sb.from("marketplace_listings").select(VIEW_COLUMNS));
   const listings = rows.map((r) => toListing(r, process.env.NEXT_PUBLIC_SUPABASE_URL));
   const wants = await wantCounts(sb, [...new Set(listings.map((l) => l.gcdIssueId))]);
-  for (const l of listings) l.wantCount = wants.get(l.gcdIssueId) ?? 0;
+  const photos = await photoCounts(sb, listings.map((l) => l.collectionId));
+  for (const l of listings) {
+    l.wantCount = wants.get(l.gcdIssueId) ?? 0;
+    l.photoCount = photos.get(l.collectionId) ?? 0;
+  }
   return listings.sort((a, b) => (b.listedAt ?? "").localeCompare(a.listedAt ?? ""));
 }
 
@@ -141,7 +158,7 @@ async function computeListingsForIssue(gcdIssueId) {
 // two minutes and dropped early by revalidateListings() on any listing
 // change. A failed read throws (never cached) so the page can say so
 // instead of showing an empty market.
-export const getListings = unstable_cache(computeListings, ["marketplace-listings-v5"], {
+export const getListings = unstable_cache(computeListings, ["marketplace-listings-v6"], {
   revalidate: 120,
   tags: [LISTINGS_TAG],
 });
@@ -190,9 +207,28 @@ async function computeListing(id) {
   if (cErr) throw cErr;
   if (!seller?.username || seller.is_public === false || seller.show_for_sale === false) return null;
 
-  const base = toListing({ ...l, ...(uc ?? {}), seller_username: seller.username }, process.env.NEXT_PUBLIC_SUPABASE_URL);
+  const { data: photoRows, error: pErr } = await sb
+    .from("listing_photos")
+    .select("id, kind, storage_path, thumb_path, width, height")
+    .eq("collection_id", l.collection_id)
+    .eq("moderation", "ok")
+    .order("sort_order", { ascending: true })
+    .limit(20);
+  if (pErr) throw pErr;
+  const supa = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const photos = (photoRows ?? []).map((p) => ({
+    id: p.id,
+    url: photoUrl(p.storage_path, supa),
+    thumbUrl: photoUrl(p.thumb_path, supa),
+    label: KIND_LABELS[p.kind] ?? "Photo",
+    width: p.width,
+    height: p.height,
+  }));
+
+  const base = toListing({ ...l, ...(uc ?? {}), seller_username: seller.username }, supa);
   return {
     ...base,
+    photos,
     status: l.status,
     certNumber: l.slab_cert_number ?? null,
     notes: l.condition_notes ?? null,

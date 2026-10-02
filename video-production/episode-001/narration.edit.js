@@ -11,6 +11,9 @@
 //         (silence = below -44 dBFS), plus hand-trimmed breathy gaps.
 export default {
   source: "NARRATION.m4a",
+  // What actually plays: the same recording through scripts/polish-voice.py
+  // (louder, warmer, parallel saturation). Same timing as the source.
+  play: "NARRATION_POLISHED.wav",
   start: 41.9,
   cuts: [
     [147.1, 149.95], // "That's how I got into X-Men." (said twice)

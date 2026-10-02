@@ -251,7 +251,7 @@ export function ShortClip({ episodeId, timeline, from, to, hook, words = [] }) {
         </Sequence>
         {stingPath && (
           <Sequence from={endCardAt} layout="none">
-            <Audio src={staticFile(stingPath)} volume={(f) => interpolate(f, [0, 50, 78], [0.3, 0.3, 0], { extrapolateRight: "clamp" })} />
+            <Audio src={staticFile(stingPath)} volume={(f) => interpolate(f, [0, 50, 78], [0.9, 0.9, 0], { extrapolateRight: "clamp" })} />
           </Sequence>
         )}
 

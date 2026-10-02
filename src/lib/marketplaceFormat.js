@@ -17,3 +17,14 @@ export function offerHref(l) {
 export function formatValue(v) {
   return v == null ? null : `$${Math.round(v).toLocaleString("en-US")}`;
 }
+
+// "+ $5 shipping", "Free shipping", or null when the seller hasn't said.
+export function shippingLabel(l) {
+  if (l.shipping == null) return null;
+  return l.shipping === 0 ? "Free shipping" : `+ $${l.shipping.toLocaleString("en-US", { maximumFractionDigits: 2 })} shipping`;
+}
+
+// The button a buyer sees: offers on, or just a message to the seller.
+export function contactLabel(l) {
+  return l.acceptsOffers === false ? "Message seller" : "Make an offer";
+}

@@ -6,7 +6,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useLibrary } from "@/context/LibraryContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { authedFetch } from "@/lib/apiClient";
-import { conditionLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
+import { conditionLabel, formatValue, offerHref, shippingLabel, contactLabel } from "@/lib/marketplaceFormat";
 
 // "Copies for Sale" on an issue page: marketplace listings for this exact
 // catalog issue (src/lib/marketplace.js via /api/marketplace?gcd=). If the
@@ -114,9 +114,10 @@ export default function IssueForSale({ gcdIssueId }) {
               <span className="issue-sale-grade">{conditionLabel(l)}</span>
               <span className="issue-sale-price">
                 {formatValue(l.price ?? l.estValue) ? `${formatValue(l.price ?? l.estValue)}${l.price == null ? " est." : ""}` : "Open to offers"}
+                {shippingLabel(l) && <small className="issue-sale-ship"> {shippingLabel(l)}</small>}
               </span>
               <Link prefetch={false} href={offerHref(l)} className="mkt-offer-btn">
-                Make an offer
+                {contactLabel(l)}
               </Link>
             </li>
           ))}

@@ -33,6 +33,7 @@
     "test:cover-thumb": "node --test src/lib/coverThumb.test.js",
     "test:local-cache": "node --test src/lib/localCache.test.js",
     "test:listing-row": "node --test src/lib/listingRow.test.js",
+    "test:listing-edit": "node --test src/lib/listingEdit.test.js",
     "test:value-history": "node --test src/lib/valueHistory.test.js",
     "test:marketplace-facets": "node --test src/lib/marketplaceFacets.test.js",
     "audit:errors": "node scripts/auditErrorHandling.js",

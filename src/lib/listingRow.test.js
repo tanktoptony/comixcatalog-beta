@@ -65,4 +65,13 @@ test("toListing maps a view row to the grid shape", () => {
   assert.equal(l.price, 12.5);
   assert.equal(l.estValue, 30);
   assert.equal(l.seller, "tony");
+  assert.equal(l.shipping, null);
+  assert.equal(l.acceptsOffers, true);
+});
+
+test("toListing carries shipping and the offers switch", () => {
+  const l = toListing({ id: "L", gcd_issue_id: 1, series_title: "X", price_cents: 4000, shipping_cents: 0, accepts_offers: false, seller_username: "t" }, BASE);
+  assert.equal(l.price, 40);
+  assert.equal(l.shipping, 0);
+  assert.equal(l.acceptsOffers, false);
 });

@@ -4,7 +4,7 @@ import { Suspense, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { coverThumb } from "@/lib/coverThumb";
-import { conditionLabel, offerHref, formatValue } from "@/lib/marketplaceFormat";
+import { conditionLabel, offerHref, formatValue, shippingLabel, contactLabel } from "@/lib/marketplaceFormat";
 import {
   FILTER_KEYS,
   SORTS,
@@ -211,8 +211,9 @@ function Row({ l }) {
       </div>
       <div className="mk-row-buy">
         <Price l={l} />
+        {shippingLabel(l) && <span className="mk-ship">{shippingLabel(l)}</span>}
         <Link prefetch={false} href={offerHref(l)} className="mk-offer">
-          Make an offer
+          {contactLabel(l)}
         </Link>
       </div>
     </li>

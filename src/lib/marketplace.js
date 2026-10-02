@@ -96,7 +96,7 @@ export async function refreshListingSnapshots({ sellerId, sb = client() } = {}) 
 }
 
 const VIEW_COLUMNS =
-  "id, collection_id, gcd_issue_id, series_title, issue_number, release_year, publisher, variant_label, cover_path, condition, grade_numeric, slab_company, price_cents, market_value, auto_market_value, seller_username, created_at";
+  "id, collection_id, gcd_issue_id, series_title, issue_number, release_year, publisher, variant_label, cover_path, condition, grade_numeric, slab_company, price_cents, shipping_cents, accepts_offers, market_value, auto_market_value, seller_username, created_at";
 
 // How many wantlists each listed issue is on ("Most wanted" on the
 // marketplace landing). Chunked so the id list stays inside a URL.
@@ -141,7 +141,7 @@ async function computeListingsForIssue(gcdIssueId) {
 // two minutes and dropped early by revalidateListings() on any listing
 // change. A failed read throws (never cached) so the page can say so
 // instead of showing an empty market.
-export const getListings = unstable_cache(computeListings, ["marketplace-listings-v4"], {
+export const getListings = unstable_cache(computeListings, ["marketplace-listings-v5"], {
   revalidate: 120,
   tags: [LISTINGS_TAG],
 });

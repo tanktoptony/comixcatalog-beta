@@ -46,6 +46,8 @@ export function toListing(row, supabaseUrl) {
     grade: row.grade_numeric != null ? Number(row.grade_numeric) : null,
     slab: row.slab_company ?? null,
     price: row.price_cents != null ? row.price_cents / 100 : null,
+    shipping: row.shipping_cents != null ? row.shipping_cents / 100 : null,
+    acceptsOffers: row.accepts_offers !== false,
     estValue: estValue(row),
     seller: row.seller_username,
     listedAt: row.created_at,

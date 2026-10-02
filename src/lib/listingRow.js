@@ -28,7 +28,7 @@ export function estValue(row) {
   return null;
 }
 
-// One marketplace_listings view row -> the shape MarketplaceGrid and
+// One marketplace_listings view row -> the shape MarketplaceBrowser and
 // IssueForSale already render (unchanged from v1 so the UI didn't move).
 export function toListing(row, supabaseUrl) {
   return {

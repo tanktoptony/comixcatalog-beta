@@ -9,6 +9,12 @@
 export const SITE_NEWS = [
   {
     date: "2026-10-01",
+    title: "Browse the marketplace like a record bin",
+    body: "Search it, or click through by publisher, then series, then grade, format, decade or price, with counts on every filter. The front page now shows what just got listed, what's most wanted, and the most valuable books for sale.",
+    href: "/marketplace",
+  },
+  {
+    date: "2026-10-01",
     title: "The marketplace is open (beta)",
     body: "List books straight from your collection, or everything at once. Each one shows up on the Marketplace and on its issue page, and buyers make an offer by message.",
     href: "/marketplace",

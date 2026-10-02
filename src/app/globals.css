@@ -12186,3 +12186,43 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .issue-sale-ship { color: rgba(255, 255, 255, 0.55); font-size: 0.78rem; }
 .library-want-sale { color: #F4D03F; font-weight: 700; text-decoration: none; }
 .library-want-sale:hover { text-decoration: underline; }
+
+/* Listing page (src/app/listing/[id]/page.js), Discogs item-page style. */
+.lp { max-width: 1100px; margin: 0 auto; padding: 28px 16px 64px; color: #e9ebf0; }
+.lp a { color: inherit; }
+.lp-crumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.84rem; color: #8d93a1; margin-bottom: 18px; }
+.lp-crumbs a { color: #8d93a1; text-decoration: none; }
+.lp-crumbs a:hover { color: #e9ebf0; text-decoration: underline; }
+.lp-grid { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 36px; align-items: start; }
+.lp-cover img { width: 100%; border-radius: 4px; display: block; background: rgba(255, 255, 255, 0.04); }
+.lp-main { display: grid; gap: 22px; min-width: 0; }
+.lp h1 { margin: 0; font-size: 1.8rem; line-height: 1.15; }
+.lp h1 span { color: #8d93a1; font-weight: 600; }
+.lp-sub { margin: -14px 0 0; color: #8d93a1; font-size: 0.92rem; }
+.lp-sub a { color: #F4D03F; text-decoration: none; }
+.lp-sub a:hover { text-decoration: underline; }
+.lp-buy { display: grid; gap: 8px; padding: 18px 20px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; background: #0f131b; }
+.lp-price b { font-size: 2rem; color: #F4D03F; font-variant-numeric: tabular-nums; }
+.lp-price em { font-style: normal; color: #8d93a1; font-size: 0.9rem; }
+.lp-ship { color: #a4aab6; font-size: 0.9rem; }
+.lp-cta { justify-self: start; margin-top: 4px; padding: 10px 22px; border-radius: 6px; background: #F4D03F; color: #0B1E6B !important; font-weight: 800; text-decoration: none; }
+.lp-status { font-weight: 800; color: #e9ebf0; }
+.lp-fine { margin: 4px 0 0; color: #8d93a1; font-size: 0.8rem; }
+.lp-block h2 { margin: 0 0 10px; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #8d93a1; }
+.lp-facts { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; margin: 0; font-size: 0.94rem; }
+.lp-facts dt { color: #8d93a1; }
+.lp-facts dd { margin: 0; font-weight: 600; }
+.lp-notes { margin: 12px 0 0; line-height: 1.55; white-space: pre-wrap; }
+.lp-muted { margin: 12px 0 0; color: #8d93a1; font-size: 0.9rem; }
+.lp-seller-card { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.lp-seller-card img { border-radius: 50%; object-fit: cover; background: #0B1E6B; }
+.lp-seller-card span { display: grid; }
+.lp-seller-card small { color: #8d93a1; }
+.lp-seller-card:hover b { text-decoration: underline; }
+.lp-link { display: inline-block; margin-top: 10px; color: #F4D03F !important; font-size: 0.9rem; text-decoration: none; }
+.lp-link:hover { text-decoration: underline; }
+.lp-others { list-style: none; margin: 0; padding: 0; }
+.lp-others a { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08); text-decoration: none; font-size: 0.92rem; }
+.lp-others a:hover span:first-child { text-decoration: underline; }
+.lp-others b { color: #F4D03F; }
+@media (max-width: 760px) { .lp-grid { grid-template-columns: 1fr; } .lp-cover { max-width: 320px; } }

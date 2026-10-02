@@ -9,6 +9,12 @@
 export const SITE_NEWS = [
   {
     date: "2026-10-02",
+    title: "Every copy gets its own page",
+    body: "Click any book on the marketplace to see that exact copy: price and shipping, condition, notes, restored or signed, who's selling it and what else they have, plus other copies of the same issue.",
+    href: "/marketplace",
+  },
+  {
+    date: "2026-10-02",
     title: "Your wantlist, for sale",
     body: "When someone lists a book on your wantlist, it shows up first on the marketplace under From your wantlist, cheapest first, and your library's Wantlist tab tags it with how many are for sale and from how much.",
     href: "/marketplace",

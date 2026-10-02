@@ -111,7 +111,7 @@ export default function IssueForSale({ gcdIssueId }) {
               <Link prefetch={false} href={`/u/${encodeURIComponent(l.seller)}`} className="issue-sale-seller">
                 @{l.seller}
               </Link>
-              <span className="issue-sale-grade">{conditionLabel(l)}</span>
+              <Link prefetch={false} href={`/listing/${l.id}`} className="issue-sale-grade">{conditionLabel(l)}</Link>
               <span className="issue-sale-price">
                 {formatValue(l.price ?? l.estValue) ? `${formatValue(l.price ?? l.estValue)}${l.price == null ? " est." : ""}` : "Open to offers"}
                 {shippingLabel(l) && <small className="issue-sale-ship"> {shippingLabel(l)}</small>}

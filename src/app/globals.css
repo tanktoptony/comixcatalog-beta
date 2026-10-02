@@ -11608,6 +11608,19 @@ button.nav-link {
   line-height: 1.55;
 }
 .mkt-how b { display: block; color: #fff; margin-bottom: 0.25rem; }
+.issue-sale-mine { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 12px; padding: 12px 14px; border: 1px solid rgba(244, 208, 63, 0.3); border-radius: 10px; background: rgba(244, 208, 63, 0.05); color: rgba(255, 255, 255, 0.85); font-size: 0.92rem; }
+.issue-sale-cta { margin-left: auto; padding: 7px 14px; border: 0; border-radius: 6px; background: #F4D03F; color: #0B1E6B; font-weight: 800; font-size: 0.85rem; cursor: pointer; }
+.issue-sale-cta:disabled { opacity: 0.6; cursor: default; }
+.issue-sale-link { color: #F4D03F; font-weight: 600; text-decoration: none; }
+.issue-sale-link:hover { text-decoration: underline; }
+.issue-sale-mine .issue-sale-link { margin-left: auto; }
+.issue-sale-none { margin: 12px 0 0; color: rgba(255, 255, 255, 0.6); font-size: 0.92rem; }
+.issue-sale-error { flex-basis: 100%; color: #fca5a5; font-size: 0.85rem; }
+.issue-cover-frame { position: relative; }
+.issue-cover-badge { position: absolute; top: 10px; left: 10px; padding: 4px 9px; border-radius: 5px; background: rgba(11, 30, 107, 0.88); color: #F4D03F; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; pointer-events: none; }
+.issue-cover-pick { display: grid; gap: 3px; justify-items: center; padding: 2px; border: 2px solid transparent; border-radius: 6px; background: none; cursor: pointer; flex-shrink: 0; color: rgba(255, 255, 255, 0.6); font-size: 0.66rem; font-weight: 700; }
+.issue-cover-pick.is-on { border-color: var(--cc-gold, #ffd700); color: #fff; }
+.issue-cover-pick img { width: 54px; height: 80px; object-fit: cover; border-radius: 4px; }
 .issue-sale-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
 .issue-sale-row {
   display: grid;

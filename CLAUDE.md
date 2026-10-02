@@ -234,6 +234,7 @@ One row per listed copy. FKs `seller_id` → `auth.users`, `collection_id` → `
 - The trigger swallows its own errors (logs a warning) so a marketplace bug can never block a library edit. Reserved listings are left alone by the trigger.
 - RLS: public select of active/reserved listings from public sellers (`username` set, `is_public`/`show_for_sale` not false); sellers see their own. **No write policies**: only the trigger and the service role write.
 - `marketplace_listings` view = active listings from visible sellers + `seller_username` + the copy's `market_value`/`auto_market_value`. `getListings()`/`getListingsForIssue()` read it, cached under tag `listings` (`revalidateListings()` expires it).
+- `/marketplace` UI (`src/components/MarketplaceBrowser.js`) is Discogs-style: a landing page of shelves (just listed, most wanted = listed issues on the most wantlists, most valuable, publishers, top sellers) and, once you search or filter, a facet sidebar with live counts + one-row-per-copy list + 25-per-page pagination. All state is in the URL. Filtering/sorting runs client-side over `getListings()` via pure helpers in `src/lib/marketplaceFacets.js` (tested); fine at beta scale, moves to SQL in Phase 3.
 - Also in 0031, unused until later phases: `listing_photos`, `user_blocks` (users manage their own), `reports` (read own; filed via a server route in Phase 2). Plan: `docs/marketplace-v2-build-brief.md`.
 
 ### Storage buckets

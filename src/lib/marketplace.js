@@ -98,13 +98,31 @@ export async function refreshListingSnapshots({ sellerId, sb = client() } = {}) 
 const VIEW_COLUMNS =
   "id, collection_id, gcd_issue_id, series_title, issue_number, release_year, publisher, variant_label, cover_path, condition, grade_numeric, slab_company, price_cents, market_value, auto_market_value, seller_username, created_at";
 
+// How many wantlists each listed issue is on ("Most wanted" on the
+// marketplace landing). Chunked so the id list stays inside a URL.
+async function wantCounts(sb, gcdIds) {
+  const counts = new Map();
+  for (let i = 0; i < gcdIds.length; i += 300) {
+    const rows = await fetchAllPages(() =>
+      sb
+        .from("user_collections")
+        .select("id, gcd_issue_id")
+        .eq("status", "wishlist")
+        .in("gcd_issue_id", gcdIds.slice(i, i + 300))
+    );
+    for (const r of rows) counts.set(Number(r.gcd_issue_id), (counts.get(Number(r.gcd_issue_id)) ?? 0) + 1);
+  }
+  return counts;
+}
+
 async function computeListings() {
   const sb = client();
   await refreshListingSnapshots({ sb });
   const rows = await fetchAllPages(() => sb.from("marketplace_listings").select(VIEW_COLUMNS));
-  return rows
-    .map((r) => toListing(r, process.env.NEXT_PUBLIC_SUPABASE_URL))
-    .sort((a, b) => (b.listedAt ?? "").localeCompare(a.listedAt ?? ""));
+  const listings = rows.map((r) => toListing(r, process.env.NEXT_PUBLIC_SUPABASE_URL));
+  const wants = await wantCounts(sb, [...new Set(listings.map((l) => l.gcdIssueId))]);
+  for (const l of listings) l.wantCount = wants.get(l.gcdIssueId) ?? 0;
+  return listings.sort((a, b) => (b.listedAt ?? "").localeCompare(a.listedAt ?? ""));
 }
 
 async function computeListingsForIssue(gcdIssueId) {
@@ -123,7 +141,7 @@ async function computeListingsForIssue(gcdIssueId) {
 // two minutes and dropped early by revalidateListings() on any listing
 // change. A failed read throws (never cached) so the page can say so
 // instead of showing an empty market.
-export const getListings = unstable_cache(computeListings, ["marketplace-listings-v3"], {
+export const getListings = unstable_cache(computeListings, ["marketplace-listings-v4"], {
   revalidate: 120,
   tags: [LISTINGS_TAG],
 });

@@ -102,6 +102,19 @@ export default function IssuePage() {
     (row) => issue?.source === "gcd" && Number(row.gcd_issue_id) === Number(String(issue.id || "").replace(/^gcd-/, ""))
   ) ?? null;
 
+  // The collector's own copy: a photo they uploaded or the printing they
+  // picked (both live in user_cover_url). When there is one, the page leads
+  // with it, and the strip below flips to the catalog cover and variants.
+  const ownCover = inCollection ? gradeData?.user_cover_url ?? collectionRow?.user_cover_url ?? null : null;
+  const shownCover = selectedCover || ownCover || issue?.cover || null;
+  const coverChoices = [
+    ...(ownCover ? [{ key: "own", url: ownCover, label: "Your copy" }] : []),
+    ...(issue?.cover && issue.cover !== ownCover ? [{ key: "main", url: issue.cover, label: "Catalog" }] : []),
+    ...(issue?.variants ?? [])
+      .filter((v) => v.storageUrl && v.storageUrl !== ownCover)
+      .map((v, i) => ({ key: v.id, url: v.storageUrl, label: `Variant ${i + 1}` })),
+  ];
+
   async function saveOwnedVariant() {
     if (!collectionRow?.id || issue?.source !== "gcd") return;
     setVariantSaveState("saving");
@@ -296,23 +309,35 @@ export default function IssuePage() {
           <div>
             <div className="issue-cover-frame">
               <img
-                src={selectedCover || issue.cover || "/fallback-cover.png"}
+                src={shownCover || "/fallback-cover.png"}
                 alt={issueTitle}
                 className="issue-cover-img"
               />
+              {ownCover && shownCover === ownCover && <span className="issue-cover-badge">Your copy</span>}
             </div>
 
-            {issue.variants?.length > 0 && (
+            {coverChoices.length > 1 && (
               <div style={{ marginTop: 14 }}>
-                <div className="muted" style={{ fontSize: "0.8rem", marginBottom: 8 }}>Additional covers</div>
+                <div className="muted" style={{ fontSize: "0.8rem", marginBottom: 8 }}>
+                  {issue.variants?.length > 0 ? "Covers" : "Your copy and the catalog cover"}
+                </div>
                 <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 4 }}>
-                  {issue.variants.map((variant, index) => (
-                    <button key={variant.id} type="button" onClick={() => setSelectedCover(variant.storageUrl)} aria-label={`Variant ${index + 1}`} style={{ padding: 2, border: selectedCover === variant.storageUrl ? "2px solid var(--cc-gold, #ffd700)" : "2px solid transparent", borderRadius: 6, background: "none", cursor: "pointer", flexShrink: 0 }}>
-                      <img src={variant.storageUrl || "/fallback-cover.png"} alt={`Variant ${index + 1}`} style={{ width: 54, height: 80, objectFit: "cover", borderRadius: 4 }} />
+                  {coverChoices.map((c) => (
+                    <button
+                      key={c.key}
+                      type="button"
+                      onClick={() => setSelectedCover(c.url)}
+                      aria-label={c.label}
+                      aria-pressed={shownCover === c.url}
+                      className={`issue-cover-pick${shownCover === c.url ? " is-on" : ""}`}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={c.url || "/fallback-cover.png"} alt="" />
+                      <span>{c.label}</span>
                     </button>
                   ))}
                 </div>
-                {user && inCollection && collectionRow?.id && (
+                {user && inCollection && collectionRow?.id && issue.variants?.length > 0 && (
                   <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
                     <input value={variantLabel} onChange={(event) => setVariantLabel(event.target.value)} placeholder="Printing label (optional)" maxLength={80} className="admin-input" style={{ flex: "1 1 180px" }} />
                     <button type="button" className="add-comic-btn" onClick={saveOwnedVariant} disabled={variantSaveState === "saving"}>

@@ -1,0 +1,38 @@
+name: Warm sitemaps
+
+# After each successful production deploy, request every sitemap file so
+# each one renders (and is cached for a day) before Google's next crawl.
+# The files render on demand rather than at build time, so a slow database
+# can't fail a deploy (see src/app/sitemaps/[name]/route.js). A failed
+# render is never cached, so retrying here is safe.
+
+on:
+  deployment_status:
+  workflow_dispatch: {}
+
+jobs:
+  warm:
+    if: github.event_name == 'workflow_dispatch' || (github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Request every sitemap until it answers 200
+        run: |
+          base="https://www.comixcatalog.com"
+          files="sitemap.xml sitemaps/static.xml"
+          for c in 0 1 2 3 4 5 6 7 8 9 a b c d e f; do files="$files sitemaps/series-$c.xml"; done
+          failed=""
+          for f in $files; do
+            ok=""
+            for attempt in 1 2 3 4 5; do
+              code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 120 "$base/$f")
+              if [ "$code" = "200" ]; then ok=1; echo "$f 200 (attempt $attempt)"; break; fi
+              echo "$f $code (attempt $attempt), retrying"
+              sleep $((attempt * 15))
+            done
+            [ -n "$ok" ] || failed="$failed $f"
+          done
+          if [ -n "$failed" ]; then
+            echo "::error::Sitemaps still failing after retries:$failed"
+            exit 1
+          fi

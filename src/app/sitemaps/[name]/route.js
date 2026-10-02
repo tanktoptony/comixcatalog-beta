@@ -1,29 +1,28 @@
 // /sitemaps/static.xml       static routes, reading guides, published blog posts
 // /sitemaps/series-<hex>.xml allowlisted series whose id starts with <hex>
 //
-// Every file is generated at build time (generateStaticParams below) and
-// then revalidated daily. Without the build step each chunk was rendered on
-// its first request, and in production that first request ran the Supabase
-// query inside a cold Vercel function: /sitemaps/series-3.xml returned 500
-// on its first hit after the 2026-09-21 deploy. Google's first crawl is
-// exactly that cold hit, so nothing may be generated on demand.
+// Rendered on first request and cached for a day (ISR), NOT at build time.
+// History: on 2026-09-21 a cold first request 500'd, so every file moved to
+// build time. Then on 2026-10-01 the database was slow during deploys and
+// the 16 series queries failed the build itself, which blocked every deploy
+// for hours. Now a failure can only cost one request: Next never caches a
+// thrown render, keeps serving the last good copy, and tries again. The
+// warm-sitemaps workflow requests all 17 files right after each production
+// deploy (with retries), so Google's first crawl hits a warm cache.
 
 import {
-  SERIES_CHUNKS,
   seriesEntries,
   staticEntries,
   urlsetXml,
 } from "@/lib/sitemap";
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 export const revalidate = 86400;
 
+// Nothing at build time; see above.
 export function generateStaticParams() {
-  return [
-    { name: "static.xml" },
-    ...SERIES_CHUNKS.map((c) => ({ name: `series-${c}.xml` })),
-  ];
+  return [];
 }
 
 const XML = { "Content-Type": "application/xml; charset=utf-8" };

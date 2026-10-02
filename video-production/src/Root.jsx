@@ -8,6 +8,7 @@ import { ThumbShelf, ThumbNotHere, ThumbFace } from "./Thumbnails.jsx";
 import { ShortClip } from "./Shorts.jsx";
 import { ChannelBanner } from "./Banner.jsx";
 import { ChannelIntro } from "./ChannelIntro.jsx";
+import { FoundersStory } from "./FoundersStory.jsx";
 import { SHORTS, END_CARD, shortRange } from "../shorts.js";
 import { narrationWords } from "../episode-001/timeline.v3.js";
 
@@ -54,6 +55,7 @@ export function Root() {
         );
       })}
       <Composition id="ChannelIntro" component={ChannelIntro} durationInFrames={CHANNEL_INTRO.frames} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
+      <Composition id="FoundersStory" component={FoundersStory} durationInFrames={1} fps={30} width={1080} height={1920} defaultProps={{ left: 71 }} />
       <Composition id="ChannelBanner" component={ChannelBanner} durationInFrames={1} fps={30} width={2560} height={1440} />
       {THUMBNAILS.map(([id, component]) => (
         <Composition key={id} id={id} component={component} durationInFrames={1} fps={30} width={1280} height={720} />

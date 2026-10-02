@@ -18,6 +18,15 @@ const nextConfig = {
       { source: "/about", destination: "/start", permanent: true },
       { source: "/get-started", destination: "/start", permanent: true },
       { source: "/collectors", destination: "/founding-collectors", permanent: true },
+      // Short link for the Instagram bio. Temporary (302) on purpose: point
+      // it at whatever the current push is without touching the bio again.
+      // The utm tags ride along so first-touch attribution counts these
+      // signups (src/lib/attribution.js).
+      {
+        source: "/ig",
+        destination: "/founding-collectors?utm_source=instagram&utm_medium=social&utm_campaign=founding-wall",
+        permanent: false,
+      },
     ];
   },
 

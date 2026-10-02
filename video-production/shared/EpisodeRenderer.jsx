@@ -64,7 +64,7 @@ function useFontsReady() {
 // Narration, music bed and sting, from the episode's `audio` plan. Missing
 // files are skipped (the asset report lists them), so a silent render still
 // works.
-function EpisodeAudio({ audio, episodeId }) {
+export function EpisodeAudio({ audio, episodeId }) {
   const { fps, durationInFrames } = useVideoConfig();
   if (!audio) return null;
   const src = (a) => {

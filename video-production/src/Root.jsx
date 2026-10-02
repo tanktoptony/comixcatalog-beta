@@ -7,7 +7,7 @@ import { VIDEO } from "../shared/brand.js";
 import { ThumbShelf, ThumbNotHere, ThumbFace } from "./Thumbnails.jsx";
 import { ShortClip } from "./Shorts.jsx";
 import { SHORTS, END_CARD, shortRange } from "../shorts.js";
-import captions from "../episode-001/captions.generated.js";
+import { narrationWords } from "../episode-001/timeline.v3.js";
 
 // YouTube thumbnails (scripts/thumbs.mjs).
 export const THUMBNAILS = [
@@ -47,7 +47,7 @@ export function Root() {
             fps={VIDEO.fps}
             width={1080}
             height={1920}
-            defaultProps={{ episodeId: assetFolder(ep), timeline, from, to, hook: s.hook, captions }}
+            defaultProps={{ episodeId: assetFolder(ep), timeline, from, to, hook: s.hook, words: narrationWords }}
           />
         );
       })}

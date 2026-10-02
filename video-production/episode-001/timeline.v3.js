@@ -21,10 +21,15 @@ import { applyEdit, insertGap } from "../shared/narrationEdit.js";
 
 // The narration file that narration.words.js was made from. The scratch
 // track is Windows text-to-speech, for timing only.
-const NARRATION = words.source?.startsWith("NARRATION_SCRATCH") ? "audio/NARRATION_SCRATCH.wav" : `audio/${words.source}`;
+// The edit list can name a processed copy of the same recording to play
+// (same timing, e.g. NARRATION_POLISHED.wav from scripts/polish-voice.py).
+const editApplies = narrationEdit?.source === words.source;
+const NARRATION = words.source?.startsWith("NARRATION_SCRATCH")
+  ? "audio/NARRATION_SCRATCH.wav"
+  : `audio/${(editApplies && narrationEdit.play) || words.source}`;
 // Lead-in trim and retake cuts (narration.edit.js), applied only to the
 // recording they were made for. Everything below works in edited time.
-const edited = applyEdit(words, narrationEdit?.source === words.source ? narrationEdit : null);
+const edited = applyEdit(words, editApplies ? narrationEdit : null);
 export const narrationWords = edited.words;
 const VOICE_AT = 0.8; // seconds of picture before the first word
 const LEAD = 0.12; // cut this much before the anchor word lands
@@ -259,13 +264,15 @@ export default {
     narration: {
       asset: NARRATION,
       at: VOICE_AT,
-      volume: 1,
+      volume: 0.85,
       clips: narrationClips.map((c) => ({ at: +(VOICE_AT + c.out).toFixed(3), from: c.from, to: c.to })),
     },
     // Music bed: ducked well under the voice, faded at both ends.
-    music: { asset: "audio/MUSIC_BED", volume: 0.1, fadeIn: 2, fadeOut: 4, loop: true },
+    // Levels are set against the polished voice (about -11 dB RMS in speech):
+    // bed about 13 dB under it, sting about 6 dB under.
+    music: { asset: "audio/MUSIC_BED", volume: 0.35, fadeIn: 2, fadeOut: 4, loop: true },
     // A louder sting under the title card.
-    sting: { asset: "audio/MUSIC_STING", at: titleAt, dur: 7, volume: 0.3, fadeOut: 2 },
+    sting: { asset: "audio/MUSIC_STING", at: titleAt, dur: 7, volume: 0.9, fadeOut: 2 },
   },
   segments,
 };

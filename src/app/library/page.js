@@ -15,6 +15,7 @@ import ShareCardButton from "@/components/ShareCardButton";
 import CatalogLinkPicker from "@/components/CatalogLinkPicker";
 import CollectionStatsStrip from "@/components/CollectionStatsStrip";
 import ValueHistoryChart from "@/components/ValueHistoryChart";
+import ListingEditor from "@/components/ListingEditor";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { coverThumb } from "@/lib/coverThumb";
@@ -603,6 +604,39 @@ function LibraryPageContent() {
       console.warn("Listing sync failed:", err)
     );
   }
+
+  // Your own marketplace listings, keyed by collection row, so for-sale
+  // books get an "Edit listing" button (price, shipping, notes). RLS lets a
+  // seller read their own listings; edits go through /api/listings/:id.
+  const [myListings, setMyListings] = useState({});
+  const [editing, setEditing] = useState(null);
+  const forSaleSignature = useMemo(
+    () => collections.filter((c) => c.status === "for_sale").map((c) => c.id).sort().join(","),
+    [collections]
+  );
+  useEffect(() => {
+    // Nothing listed: leave the map alone; the button only shows on
+    // for-sale rows, so stale entries never render.
+    if (!user?.id || !forSaleSignature) return;
+    let cancelled = false;
+    supabase
+      .from("listings")
+      .select("id, collection_id, price_cents, shipping_cents, accepts_offers, condition_notes, restored, signed")
+      .eq("seller_id", user.id)
+      .in("status", ["draft", "active"])
+      .then(({ data, error }) => {
+        if (cancelled) return;
+        if (error) {
+          console.error("Loading your listings failed:", error);
+          return;
+        }
+        setMyListings(Object.fromEntries((data ?? []).map((l) => [l.collection_id, l])));
+      });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id, forSaleSignature]);
 
   async function toggleForSale(item) {
     const newStatus = item.status === "for_sale" ? "owned" : "for_sale";
@@ -1378,6 +1412,21 @@ function LibraryPageContent() {
         />
       )}
 
+      {editing && (
+        <ListingEditor
+          listing={editing.listing}
+          title={editing.title}
+          estValue={editing.estValue}
+          onClose={() => setEditing(null)}
+          onSaved={(saved) =>
+            setMyListings((prev) => {
+              const row = Object.values(prev).find((l) => l.id === saved.id);
+              return row ? { ...prev, [row.collection_id]: { ...row, ...saved } } : prev;
+            })
+          }
+        />
+      )}
+
       {/* ── Catalog linking (Pro) ─────────────────────────────────────────
           Local-only books (added by CSV import or the manual /library/add
           form before a GCD match existed) are invisible to arc completion,
@@ -2083,6 +2132,23 @@ function LibraryPageContent() {
                           type="button"
                         >
                           {item.status === "for_sale" ? "Remove Sale Flag" : "Mark For Sale"}
+                        </button>
+                      )}
+                      {item.status === "for_sale" && !isPublicPreview && myListings[item.id] && (
+                        <button
+                          className="library-row-btn library-edit-listing"
+                          type="button"
+                          onClick={() =>
+                            setEditing({
+                              listing: myListings[item.id],
+                              title: `${comic.title}${comic.issueNumber ? ` #${comic.issueNumber}` : ""}`,
+                              estValue: Number(liveGrade?.market_value) > 0 ? Number(liveGrade.market_value) : marketValues?.[item.id]?.value ?? null,
+                            })
+                          }
+                        >
+                          {myListings[item.id].price_cents != null
+                            ? `Listed at $${(myListings[item.id].price_cents / 100).toLocaleString("en-US")}`
+                            : "Set price"}
                         </button>
                       )}
                       {item.status === "for_sale" && item.gcd_issue_id == null && !isPublicPreview && (

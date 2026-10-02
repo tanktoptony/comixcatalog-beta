@@ -9,6 +9,12 @@
 export const SITE_NEWS = [
   {
     date: "2026-10-02",
+    title: "Put a price on it",
+    body: "Books you've listed for sale now have an Edit listing button in your library: set your price and shipping, add condition notes, flag restored or signed, and choose whether to take offers. Buyers see your price on the marketplace instead of an estimate.",
+    href: "/library?tab=for_sale",
+  },
+  {
+    date: "2026-10-02",
     title: "Watch your collection's value move",
     body: "Collector Pro now charts your collection's estimated value day by day in your library, with the change over 30 days, 90 days or all time. It moves with the market even when your collection doesn't.",
     href: "/library",

@@ -12156,3 +12156,31 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .vh-pitch h3 { margin: 0 0 4px; font-size: 1rem; color: #fff; }
 .vh-pitch p { margin: 0; font-size: 0.88rem; color: #a4aab6; max-width: 60ch; }
 .vh-pitch-cta { padding: 8px 16px; border-radius: 6px; background: #F4D03F; color: #0B1E6B; font-weight: 800; font-size: 0.86rem; text-decoration: none; white-space: nowrap; }
+
+/* Seller listing editor (src/components/ListingEditor.js). */
+.library-edit-listing { border-color: rgba(244, 208, 63, 0.55) !important; color: #F4D03F !important; }
+.le-backdrop { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 16px; background: rgba(0, 0, 0, 0.6); }
+.le { width: min(520px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; display: grid; gap: 16px; padding: 22px 22px 18px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.12); background: #11151d; color: #e9ebf0; }
+.le-head h2 { margin: 0; font-size: 1.2rem; }
+.le-head p { margin: 2px 0 0; color: #8d93a1; font-size: 0.9rem; }
+.le-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.le-field { display: grid; gap: 6px; font-size: 0.85rem; font-weight: 700; }
+.le-field small { font-weight: 400; color: #8d93a1; font-size: 0.76rem; }
+.le-money { display: flex; align-items: center; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 6px; background: rgba(255, 255, 255, 0.04); }
+.le-money em { font-style: normal; padding: 0 0 0 10px; color: #8d93a1; }
+.le-money input, .le textarea { width: 100%; min-width: 0; background: transparent; border: 0; color: #fff; font-size: 0.98rem; padding: 9px 10px; outline: none; font-family: inherit; }
+.le textarea { border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 6px; background: rgba(255, 255, 255, 0.04); resize: vertical; font-weight: 400; }
+.le-money:focus-within, .le textarea:focus { border-color: rgba(244, 208, 63, 0.6); }
+.le-check { display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; cursor: pointer; }
+.le-check { justify-content: flex-start; text-align: left; color: #e9ebf0; font-weight: 500; }
+.le-check input { flex: none; width: 16px !important; height: 16px; margin: 2px 0 0; padding: 0; accent-color: #F4D03F; }
+.le-field > span { color: #e9ebf0; }
+.le-checks { display: grid; gap: 8px; }
+.le-error { margin: 0; color: #fca5a5; font-size: 0.86rem; }
+.le-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.le-cancel { background: none; border: 1px solid rgba(255, 255, 255, 0.2); color: #e9ebf0; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+.le-save { background: #F4D03F; border: 0; color: #0B1E6B; font-weight: 800; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.le-save:disabled { opacity: 0.6; cursor: default; }
+@media (max-width: 480px) { .le-row { grid-template-columns: 1fr; } }
+.mk-ship { font-size: 0.76rem; color: #8d93a1; }
+.issue-sale-ship { color: rgba(255, 255, 255, 0.55); font-size: 0.78rem; }

@@ -12184,3 +12184,5 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 @media (max-width: 480px) { .le-row { grid-template-columns: 1fr; } }
 .mk-ship { font-size: 0.76rem; color: #8d93a1; }
 .issue-sale-ship { color: rgba(255, 255, 255, 0.55); font-size: 0.78rem; }
+.library-want-sale { color: #F4D03F; font-weight: 700; text-decoration: none; }
+.library-want-sale:hover { text-decoration: underline; }

@@ -85,13 +85,15 @@ export function readFilters(params) {
   const page = Number.parseInt(get("page") ?? "1", 10);
   f.page = Number.isFinite(page) && page > 0 ? page : 1;
   for (const k of FILTER_KEYS) f[k] = get(k);
+  // "From your wantlist": only books on the viewer's wantlist.
+  f.wants = get("wants") === "1";
   // A series only means something inside its publisher.
   if (!f.publisher) f.series = null;
   return f;
 }
 
 export function isBrowsing(f) {
-  return Boolean(f.q) || FILTER_KEYS.some((k) => f[k]);
+  return Boolean(f.q) || Boolean(f.wants) || FILTER_KEYS.some((k) => f[k]);
 }
 
 // Same rules as the catalog search (/api/search/*, src/lib/searchQuery.js):
@@ -244,4 +246,14 @@ export function landingSections(listings, n = 6) {
     publishers: rank(pubCounts).slice(0, 12),
     sellers: rank(sellerCounts).slice(0, 8),
   };
+}
+
+// Listings of issues on the viewer's wantlist, not their own. wantIds is a
+// Set of catalog issue ids (gcd_issue_id) from the viewer's wishlist rows.
+// Best deals first: cheapest shown price, then newest.
+export function wantlistMatches(listings, wantIds, ownSeller) {
+  if (!wantIds || wantIds.size === 0) return [];
+  return listings
+    .filter((l) => wantIds.has(Number(l.gcdIssueId)) && l.seller !== ownSeller)
+    .sort((a, b) => (shownValue(a) ?? Infinity) - (shownValue(b) ?? Infinity) || String(b.listedAt ?? "").localeCompare(String(a.listedAt ?? "")));
 }

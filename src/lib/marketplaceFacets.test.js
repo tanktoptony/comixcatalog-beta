@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
+  queryScore,
   readFilters,
   isBrowsing,
   filterListings,
@@ -37,7 +38,10 @@ const listings = [
 test("readFilters drops a series without its publisher and bad sort/page", () => {
   const f = readFilters(new URLSearchParams("series=X-Men&sort=bogus&page=-3&q=  xmen "));
   assert.equal(f.series, null);
-  assert.equal(f.sort, "newest");
+  // A search with no valid sort ranks by best match.
+  assert.equal(f.sort, "relevance");
+  assert.equal(readFilters(new URLSearchParams("view=all")).sort, "newest");
+  assert.equal(readFilters(new URLSearchParams("sort=relevance")).sort, "newest", "no query, nothing to rank by");
   assert.equal(f.page, 1);
   assert.equal(f.q, "xmen");
   assert.equal(isBrowsing(readFilters(new URLSearchParams(""))), false);
@@ -97,4 +101,34 @@ test("landing shelves", () => {
   assert.deepEqual(s.mostValuable.map((l) => l.id), [1, 2]);
   assert.deepEqual(s.publishers[0], ["Marvel Comics", 3]);
   assert.deepEqual(s.sellers, [["tony", 3], ["pete", 2]]);
+});
+
+test("search follows the catalog search rules", () => {
+  const xs = [
+    L({ id: "xm1", title: "The X-Men", issueNumber: "1", year: 1963, publisher: "Marvel Comics" }),
+    L({ id: "xm91", title: "X-Men", issueNumber: "1", year: 1991, publisher: "Marvel Comics" }),
+    L({ id: "uxm", title: "The Uncanny X-Men", issueNumber: "141", year: 1981, publisher: "Marvel Comics" }),
+    L({ id: "asm", title: "The Amazing Spider-Man", issueNumber: "300", year: 1988, publisher: "Marvel Comics", seller: "pete" }),
+    L({ id: "hulk", title: "The Incredible Hulk", issueNumber: "181 [Newsstand]", year: 1974, publisher: "Marvel Comics" }),
+    L({ id: "gs", title: "Gunslinger", issueNumber: "1", year: 2021, publisher: "Image Comics", seller: "cc_admin" }),
+  ];
+  const ids = (q) => sortListings(filterListings(xs, readFilters({ q })), "relevance", q).map((l) => l.id);
+  // Punctuation and case don't matter.
+  assert.deepEqual(ids("xmen").slice(0, 2).sort(), ["xm1", "xm91"]);
+  assert.ok(ids("spiderman").includes("asm"));
+  assert.ok(ids("amazing spider man").includes("asm"));
+  // A leading "The" doesn't matter, and an exact title outranks a longer one.
+  assert.equal(ids("the x-men")[0] === "xm1" || ids("the x-men")[0] === "xm91", true);
+  assert.ok(ids("x-men").indexOf("uxm") > 1);
+  // Trailing number = issue; a variant suffix still matches the base issue.
+  assert.deepEqual(ids("hulk 181"), ["hulk"]);
+  assert.deepEqual(ids("amazing spider-man #300"), ["asm"]);
+  assert.deepEqual(ids("hulk 180"), []);
+  // Four digits = year, with a year of slack.
+  assert.deepEqual(ids("x-men 1991"), ["xm91"]);
+  assert.deepEqual(ids("x-men (1963)"), ["xm1"]);
+  // Seller and publisher still searchable.
+  assert.deepEqual(ids("@pete"), ["asm"]);
+  assert.deepEqual(ids("image gunslinger"), ["gs"]);
+  assert.equal(queryScore(xs[0], "batman"), 0);
 });

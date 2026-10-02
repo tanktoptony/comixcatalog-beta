@@ -1,3 +1,5 @@
+import { parseSearchQuery } from "./searchQuery.js";
+
 // Discogs-style browsing for /marketplace: filters with live counts, sort and
 // pagination over the listing objects from src/lib/marketplace.js. Pure, so
 // it runs in the browser and under `node --test`.
@@ -9,6 +11,7 @@
 export const PAGE_SIZE = 25;
 
 export const SORTS = {
+  relevance: "Best match",
   newest: "Newest",
   "value-desc": "Value: high to low",
   "value-asc": "Value: low to high",
@@ -74,7 +77,11 @@ export const FILTER_KEYS = Object.keys(FIELDS);
 // URLSearchParams (or a plain object) -> { q, sort, page, publisher, ... }.
 export function readFilters(params) {
   const get = (k) => (typeof params?.get === "function" ? params.get(k) : params?.[k]) || null;
-  const f = { q: (get("q") ?? "").trim(), sort: SORTS[get("sort")] ? get("sort") : "newest" };
+  const q = (get("q") ?? "").trim();
+  // Searching ranks by best match unless a sort was picked; browsing
+  // without a query has nothing to match, so it falls back to newest.
+  const asked = SORTS[get("sort")] ? get("sort") : null;
+  const f = { q, sort: asked && !(asked === "relevance" && !q) ? asked : q ? "relevance" : "newest" };
   const page = Number.parseInt(get("page") ?? "1", 10);
   f.page = Number.isFinite(page) && page > 0 ? page : 1;
   for (const k of FILTER_KEYS) f[k] = get(k);
@@ -87,14 +94,63 @@ export function isBrowsing(f) {
   return Boolean(f.q) || FILTER_KEYS.some((k) => f[k]);
 }
 
-function matchesQuery(l, q) {
-  if (!q) return true;
-  const hay = `${l.title} #${l.issueNumber} ${l.title} ${l.issueNumber} ${l.publisher ?? ""} ${l.seller} ${l.variant ?? ""} ${l.year ?? ""}`.toLowerCase();
-  return q
+// Same rules as the catalog search (/api/search/*, src/lib/searchQuery.js):
+// punctuation and case don't matter ("xmen" finds X-Men, "spiderman" finds
+// Spider-Man), a leading "The" doesn't matter, a trailing number is the
+// issue ("hulk 181"), a four-digit one is the year ("x-men 1991"). The
+// query can also name a seller or publisher.
+function compact(value) {
+  return String(value ?? "")
     .toLowerCase()
-    .split(/\s+/)
-    .filter(Boolean)
-    .every((word) => hay.includes(word.replace(/^#/, "")));
+    .replace(/^\s*(the|a|an)\s+/, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+
+function baseIssue(value) {
+  const m = String(value ?? "").trim().replace(/^#/, "").match(/^\d+(?:\.\d+)?/);
+  return m ? m[0].replace(/^0+(?=\d)/, "") : String(value ?? "").trim().toLowerCase();
+}
+
+const parsedCache = new Map();
+function parseQuery(q) {
+  if (!parsedCache.has(q)) {
+    const p = parseSearchQuery(q);
+    const words = q.toLowerCase().split(/\s+/).map((w) => w.replace(/^[#@]/, "")).filter(Boolean);
+    parsedCache.set(q, { ...p, titleKey: compact(p.title), words });
+    if (parsedCache.size > 50) parsedCache.delete(parsedCache.keys().next().value);
+  }
+  return parsedCache.get(q);
+}
+
+// 0 = no match; higher is a better match (used by the "Best match" sort).
+export function queryScore(l, q) {
+  if (!q) return 1;
+  const p = parseQuery(q);
+  const title = compact(l.title);
+  let score = 0;
+  if (p.titleKey) {
+    if (title === p.titleKey) score = 1000;
+    else if (title.startsWith(p.titleKey)) score = 600 - Math.min(300, title.length - p.titleKey.length);
+    else if (title.includes(p.titleKey)) score = 250 - Math.min(200, title.length - p.titleKey.length);
+  }
+  if (score > 0) {
+    if (p.issue != null && baseIssue(l.issueNumber) !== baseIssue(p.issue)) return 0;
+    if (p.year != null && !(Math.abs(Number(l.year) - p.year) <= 1)) return 0;
+    if (p.issue != null) score += 200;
+    return score;
+  }
+  // Not a title hit: every word has to land somewhere (seller, publisher,
+  // variant, issue, year, or a piece of the title).
+  const hay = [title, compact(l.publisher), compact(l.seller), compact(l.variant), baseIssue(l.issueNumber), String(l.year ?? "")];
+  const all = p.words.every((w) => {
+    const k = compact(w) || w;
+    return hay.some((h) => h && (h === k || h.includes(k)));
+  });
+  return all ? 50 : 0;
+}
+
+function matchesQuery(l, q) {
+  return queryScore(l, q) > 0;
 }
 
 function matches(l, f, skip) {
@@ -136,10 +192,13 @@ export function facetCounts(listings, f) {
 const issueOrder = (a, b) =>
   String(a.issueNumber).localeCompare(String(b.issueNumber), undefined, { numeric: true });
 
-export function sortListings(list, sort) {
+export function sortListings(list, sort, q = "") {
   const a = list.slice();
   const val = (l) => shownValue(l);
-  if (sort === "value-desc") a.sort((x, y) => (val(y) ?? -1) - (val(x) ?? -1));
+  if (sort === "relevance" && q) {
+    const scored = new Map(a.map((l) => [l, queryScore(l, q)]));
+    a.sort((x, y) => scored.get(y) - scored.get(x) || x.title.localeCompare(y.title) || issueOrder(x, y));
+  } else if (sort === "value-desc") a.sort((x, y) => (val(y) ?? -1) - (val(x) ?? -1));
   else if (sort === "value-asc") a.sort((x, y) => (val(x) ?? Infinity) - (val(y) ?? Infinity));
   else if (sort === "title") a.sort((x, y) => x.title.localeCompare(y.title) || issueOrder(x, y));
   else a.sort((x, y) => String(y.listedAt ?? "").localeCompare(String(x.listedAt ?? "")));

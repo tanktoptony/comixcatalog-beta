@@ -109,6 +109,9 @@ jobs:
       - name: Marketplace listing row tests
         run: npm run test:listing-row
 
+      - name: Value history chart tests
+        run: npm run test:value-history
+
       - name: Marketplace filter tests
         run: npm run test:marketplace-facets
 

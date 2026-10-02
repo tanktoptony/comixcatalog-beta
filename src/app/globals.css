@@ -12125,3 +12125,34 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
   .mk-row-cover { width: 48px; }
   .mk-row-buy { grid-column: 2; display: flex; justify-content: space-between; align-items: center; }
 }
+
+/* Collection value over time (src/components/ValueHistoryChart.js). One
+   series, so no legend; gold line + faint area, recessive axis text. */
+.vh { margin: 0 0 24px; padding: 18px 20px 14px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; background: #0f131b; }
+.vh-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.vh-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #8d93a1; }
+.vh-value { font-size: 2rem; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.vh-change { font-size: 0.88rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.vh-change.is-up { color: #6fd39c; }
+.vh-change.is-down { color: #ff8a8a; }
+.vh-since { color: #8d93a1; font-weight: 500; }
+.vh-ranges { display: inline-flex; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 6px; overflow: hidden; }
+.vh-ranges button { background: none; border: 0; color: #c7ccd6; padding: 6px 12px; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
+.vh-ranges button + button { border-left: 1px solid rgba(255, 255, 255, 0.14); }
+.vh-ranges button.is-on { background: rgba(244, 208, 63, 0.14); color: #F4D03F; }
+.vh-plot { position: relative; margin-top: 14px; }
+.vh-plot svg { display: block; width: 100%; height: 180px; cursor: crosshair; }
+.vh-line { fill: none; stroke: #F4D03F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.vh-area { fill: rgba(244, 208, 63, 0.1); }
+.vh-cross { stroke: rgba(255, 255, 255, 0.35); stroke-width: 1; }
+.vh-dot { position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: #F4D03F; box-shadow: 0 0 0 2px #0f131b; pointer-events: none; }
+.vh-tip { position: absolute; top: -6px; transform: translate(-50%, -100%); display: grid; gap: 1px; padding: 6px 10px; border-radius: 6px; background: #1c2230; border: 1px solid rgba(255, 255, 255, 0.12); white-space: nowrap; pointer-events: none; font-size: 0.8rem; }
+.vh-tip b { color: #fff; font-variant-numeric: tabular-nums; }
+.vh-tip span { color: #8d93a1; }
+.vh-axis { display: flex; justify-content: space-between; margin-top: 6px; font-size: 0.75rem; color: #8d93a1; }
+.vh-empty { padding: 36px 0; text-align: center; color: #8d93a1; font-size: 0.9rem; }
+.vh-note { margin: 10px 0 0; font-size: 0.76rem; color: #8d93a1; }
+.vh-pitch { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.vh-pitch h3 { margin: 0 0 4px; font-size: 1rem; color: #fff; }
+.vh-pitch p { margin: 0; font-size: 0.88rem; color: #a4aab6; max-width: 60ch; }
+.vh-pitch-cta { padding: 8px 16px; border-radius: 6px; background: #F4D03F; color: #0B1E6B; font-weight: 800; font-size: 0.86rem; text-decoration: none; white-space: nowrap; }

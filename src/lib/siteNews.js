@@ -8,6 +8,12 @@
 
 export const SITE_NEWS = [
   {
+    date: "2026-10-02",
+    title: "Watch your collection's value move",
+    body: "Collector Pro now charts your collection's estimated value day by day in your library, with the change over 30 days, 90 days or all time. It moves with the market even when your collection doesn't.",
+    href: "/library",
+  },
+  {
     date: "2026-10-01",
     title: "Browse the marketplace like a record bin",
     body: "Search it, or click through by publisher, then series, then grade, format, decade or price, with counts on every filter. The front page now shows what just got listed, what's most wanted, and the most valuable books for sale.",

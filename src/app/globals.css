@@ -11764,103 +11764,20 @@ button.nav-link {
 /* The first hundred: one slot per pass. */
 .fc-slots-section { display: grid; gap: 1rem; }
 .fc-slots-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
-.fc-slots-head h2, .fc-perks h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; color: #fff; }
+.fc-slots-head h2, .fc-perks h2, .fc-roll h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; color: #fff; }
 .fc-slots-head p { margin: 0; color: rgba(255, 255, 255, 0.7); }
 .fc-slots-head b { color: #F4D03F; }
+.fc-slots { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 6px; }
+.fc-slot { aspect-ratio: 1; border-radius: 4px; border: 1px solid rgba(244, 208, 63, 0.28); background: rgba(255, 255, 255, 0.02); }
+.fc-slot.is-claimed { background: linear-gradient(145deg, #f8dc5c, #c99a1c); border-color: transparent; box-shadow: 0 0 10px rgba(244, 208, 63, 0.25); }
+.fc-slot.is-next { border-color: #F4D03F; animation: fc-pulse 1.8s ease-in-out infinite; }
+/* A public founder's block carries their profile pic inside the gold. */
+.fc-slot.has-avatar { display: block; padding: 3px; }
+.fc-slot.has-avatar img { display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #0B1E6B; }
+.fc-slot.has-avatar:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 @keyframes fc-pulse { 50% { box-shadow: 0 0 0 4px rgba(244, 208, 63, 0.25); } }
-
-/* The wall: 100 numbered cards. Claimed = gold foil with the founder's
-   avatar and name; open = a faint numbered outline; the next one pulses. */
-.fc-wall {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  gap: 8px;
-}
-.fc-card,
-.fc-card > a {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  min-width: 0;
-}
-.fc-card {
-  aspect-ratio: 3 / 4;
-  border-radius: 8px;
-  border: 1px solid rgba(244, 208, 63, 0.22);
-  background: rgba(255, 255, 255, 0.02);
-  overflow: hidden;
-}
-.fc-card > a { position: absolute; inset: 0; padding: 6px; color: inherit; text-decoration: none; }
-.fc-card-no {
-  position: absolute;
-  top: 5px;
-  left: 7px;
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  font-variant-numeric: tabular-nums;
-  color: rgba(244, 208, 63, 0.45);
-}
-.fc-card:not(.is-claimed):not(.is-next) .fc-card-no { position: static; font-size: 0.8rem; }
-.fc-card-avatar {
-  width: 54%;
-  aspect-ratio: 1;
-  height: auto;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid rgba(11, 30, 107, 0.55);
-  background: #0B1E6B;
-}
-.fc-card-name {
-  max-width: 100%;
-  padding: 0 4px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  text-align: center;
-  overflow-wrap: anywhere;
-  line-height: 1.15;
-  font-size: 0.66rem;
-  font-weight: 800;
-}
-.fc-card.is-claimed {
-  border-color: transparent;
-  background: linear-gradient(145deg, #fbe37a, #e0b13a 45%, #b8860b);
-  box-shadow: 0 0 12px rgba(244, 208, 63, 0.22);
-  color: #0B1E6B;
-}
-.fc-card.is-claimed::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.45) 45%, transparent 60%);
-  pointer-events: none;
-}
-.fc-card.is-claimed .fc-card-no { color: rgba(11, 30, 107, 0.75); }
-.fc-card.is-claimed > a { transition: transform 0.15s ease; }
-.fc-card.is-claimed:hover { box-shadow: 0 0 18px rgba(244, 208, 63, 0.45); }
-.fc-card.is-private .fc-card-avatar { opacity: 0.55; }
-.fc-card.is-private .fc-card-name { opacity: 0.6; }
-.fc-card.is-next { border: 1px dashed #F4D03F; animation: fc-pulse 1.8s ease-in-out infinite; }
-.fc-card.is-next .fc-card-no { color: #F4D03F; position: static; font-size: 0.95rem; }
-.fc-card.is-next .fc-card-name { color: #F4D03F; }
-.fc-card > a { padding-top: 16px; }
-@media (max-width: 760px) {
-  .fc-wall { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
-  .fc-card:not(.is-claimed):not(.is-next) { aspect-ratio: 2 / 1; }
-  .fc-card-avatar { width: 48%; }
-  .fc-card-name { font-size: 0.62rem; }
-  .fc-card-no { font-size: 0.62rem; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .fc-card.is-next { animation: none; }
+@media (max-width: 640px) {
+  .fc-slots { grid-template-columns: repeat(10, minmax(0, 1fr)); }
 }
 
 .fc-perks { display: grid; gap: 1rem; }
@@ -11876,7 +11793,28 @@ button.nav-link {
 .fc-perk b { color: #fff; }
 .fc-perk span { color: rgba(255, 255, 255, 0.7); font-size: 0.92rem; line-height: 1.5; }
 
+.fc-roll { display: grid; gap: 1.1rem; }
 .fc-roll-head { display: grid; gap: 0.4rem; }
+.fc-roll-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem 1rem;
+}
+.fc-roll-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.55rem 0.2rem;
+  border-bottom: 1px solid rgba(244, 208, 63, 0.15);
+  min-width: 0;
+}
+.fc-roll-avatar { width: 28px; height: 28px; flex: none; align-self: center; border-radius: 50%; object-fit: cover; background: #0B1E6B; }
+.fc-roll-no { color: #F4D03F; font-weight: 900; font-variant-numeric: tabular-nums; font-size: 0.85rem; letter-spacing: 0.04em; }
+.fc-roll-list a { color: #fff; font-weight: 600; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fc-roll-list a:hover { color: #F4D03F; }
 
 .fc-note {
   border-left: 3px solid #F4D03F;
@@ -11892,7 +11830,7 @@ button.nav-link {
   .fc-pass { transform: none; width: min(100%, 300px); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .fc-pass-shine, .fc-card.is-next { animation: none; }
+  .fc-pass-shine, .fc-slot.is-next { animation: none; }
 }
 
 /* ── Page skeleton (loading.js for profile, series, search) ─────────────── */

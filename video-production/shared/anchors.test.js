@@ -44,6 +44,14 @@ test("applyEdit trims the lead-in, drops cut words and re-times the rest", () =>
   assert.deepEqual(r.clips, [{ from: 4, to: 7, out: 0 }, { from: 9.5, to: 20, out: 3 }]);
 });
 
+test("applyEdit merges overlapping cuts and pauses and drops slivers between them", () => {
+  const t = { duration: 20, words: [{ w: "a", s: 1, e: 1.5 }, { w: "b", s: 6, e: 6.5 }, { w: "c", s: 12, e: 12.5 }] };
+  const r = applyEdit(t, { cuts: [[3, 5]], pauses: [[2, 4], [5.02, 5.5], [8, 11]] });
+  assert.deepEqual(r.clips, [{ from: 0, to: 2, out: 0 }, { from: 5.5, to: 8, out: 2 }, { from: 11, to: 20, out: 4.5 }]);
+  assert.deepEqual(r.words.map((w) => [w.w, w.s]), [["a", 1], ["b", 2.5], ["c", 5.5]]);
+  assert.equal(r.duration, 13.5);
+});
+
 test("insertGap opens a hole for the spot and shifts what follows", () => {
   const clips = [{ from: 4, to: 7, out: 0 }, { from: 9.5, to: 20, out: 3 }];
   // Remove edited 5..8 (spans into the second clip) and insert a 10 s spot.

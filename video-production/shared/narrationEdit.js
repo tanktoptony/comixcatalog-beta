@@ -17,11 +17,13 @@ export function applyEdit(transcript, edit) {
   if (!edit) {
     return { words: transcript.words, duration: total, clips: [{ from: 0, to: total, out: 0 }] };
   }
-  const cuts = [...(edit.cuts ?? [])].sort((a, b) => a[0] - b[0]);
+  // Retake cuts and shortened pauses may overlap; overlaps merge here.
+  const cuts = [...(edit.cuts ?? []), ...(edit.pauses ?? [])].sort((a, b) => a[0] - b[0]);
   const keep = [];
   let cursor = edit.start ?? 0;
   for (const [a, b] of cuts) {
-    if (a > cursor) keep.push([cursor, a]);
+    // Slivers under 50 ms between two cuts are dropped rather than played.
+    if (a > cursor + 0.05) keep.push([cursor, a]);
     cursor = Math.max(cursor, b);
   }
   if (cursor < total) keep.push([cursor, total]);
@@ -32,12 +34,23 @@ export function applyEdit(transcript, edit) {
     out += to - from;
     return c;
   });
+  // patches: [{ from, to, words }] replace the transcript's words in
+  // [from, to) with hand-checked ones (e.g. a retake the full-file pass timed
+  // on the wrong take).
+  let source = transcript.words;
+  for (const p of edit.patches ?? []) {
+    source = [...source.filter((w) => w.s < p.from || w.s >= p.to), ...p.words];
+  }
+  source = [...source].sort((a, b) => a.s - b.s);
   const words = [];
-  for (const w of transcript.words) {
-    const c = clips.find((k) => w.s >= k.from && w.s < k.to);
+  for (const w of source) {
+    // Transcript timings are loose: a word whose start lands just inside a
+    // trimmed pause but runs on into kept audio snaps to that clip's start.
+    const c = clips.find((k) => w.s >= k.from && w.s < k.to) ?? clips.find((k) => k.from > w.s && k.from < w.e - 0.05);
     if (!c) continue;
     const shift = c.out - c.from;
-    words.push({ ...w, s: +(w.s + shift).toFixed(3), e: +(Math.min(w.e, c.to) + shift).toFixed(3) });
+    const s = Math.max(w.s, c.from);
+    words.push({ ...w, s: +(s + shift).toFixed(3), e: +(Math.min(w.e, c.to) + shift).toFixed(3) });
   }
   return { words, duration: +out.toFixed(3), clips };
 }

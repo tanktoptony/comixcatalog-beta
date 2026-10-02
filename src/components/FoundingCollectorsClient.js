@@ -117,22 +117,34 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
         <div className="fc-slots">
           {Array.from({ length: CAP }, (_, i) => {
             const founder = byNumber.get(i + 1);
-            const className = `fc-slot${founder || (claimed != null && i < claimed) ? " is-claimed" : ""}${claimed != null && i === claimed ? " is-next" : ""}`;
-            // A public founder's block shows their profile pic and links to
-            // their profile; private founders stay a plain gold block.
-            return founder?.username ? (
+            const isClaimed = Boolean(founder) || (claimed != null && i < claimed);
+            const className = `fc-slot${isClaimed ? " is-claimed" : ""}${claimed != null && i === claimed ? " is-next" : ""}`;
+            if (!isClaimed) return <span key={i} className={className} />;
+            // Every claimed block has its pass number stamped in the gold.
+            // Founders still on the stock mask get their initial struck in;
+            // an uploaded photo or a picked icon shows as is. Private
+            // founders are a numbered block with no name.
+            const no = <span className="fc-slot-no">{pad(i + 1)}</span>;
+            if (!founder?.username) {
+              return <span key={i} className={`${className} is-stamped`}>{no}</span>;
+            }
+            return (
               <Link
                 key={i}
                 prefetch={false}
                 href={`/u/${encodeURIComponent(founder.username)}`}
-                className={`${className} has-avatar`}
+                className={`${className} is-stamped`}
                 title={`No. ${pad(founder.number)} · @${founder.username}`}
+                aria-label={`No. ${pad(founder.number)}, @${founder.username}`}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={founder.avatar} alt={`@${founder.username}`} loading="lazy" />
+                {founder.defaultAvatar && founder.initial ? (
+                  <span className="fc-slot-mono" aria-hidden="true">{founder.initial}</span>
+                ) : (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={founder.avatar} alt="" loading="lazy" />
+                )}
+                {no}
               </Link>
-            ) : (
-              <span key={i} className={className} />
             );
           })}
         </div>
@@ -158,8 +170,12 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
             {publicRoster.map((f) => (
               <li key={f.number}>
                 <span className="fc-roll-no">{pad(f.number)}</span>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className="fc-roll-avatar" src={f.avatar} alt="" loading="lazy" width={28} height={28} />
+                {f.defaultAvatar && f.initial ? (
+                  <span className="fc-roll-avatar fc-roll-mono" aria-hidden="true">{f.initial}</span>
+                ) : (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img className="fc-roll-avatar" src={f.avatar} alt="" loading="lazy" width={28} height={28} />
+                )}
                 <Link prefetch={false} href={`/u/${encodeURIComponent(f.username)}`}>@{f.username}</Link>
               </li>
             ))}

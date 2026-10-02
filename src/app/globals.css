@@ -11771,10 +11771,20 @@ button.nav-link {
 .fc-slot { aspect-ratio: 1; border-radius: 4px; border: 1px solid rgba(244, 208, 63, 0.28); background: rgba(255, 255, 255, 0.02); }
 .fc-slot.is-claimed { background: linear-gradient(145deg, #f8dc5c, #c99a1c); border-color: transparent; box-shadow: 0 0 10px rgba(244, 208, 63, 0.25); }
 .fc-slot.is-next { border-color: #F4D03F; animation: fc-pulse 1.8s ease-in-out infinite; }
-/* A public founder's block carries their profile pic inside the gold. */
-.fc-slot.has-avatar { display: block; padding: 3px; }
-.fc-slot.has-avatar img { display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #0B1E6B; }
-.fc-slot.has-avatar:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
+/* Claimed blocks: pass number stamped into the gold, plus the founder's
+   struck initial (stock-mask founders) or their photo/icon. */
+.fc-slot.is-stamped { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; overflow: hidden; container-type: inline-size; }
+.fc-slot-no, .fc-slot-mono { color: #7a5a0a; text-shadow: 0 1px 0 rgba(255, 245, 200, 0.85), 0 -1px 0 rgba(90, 60, 0, 0.45); font-variant-numeric: tabular-nums; line-height: 1; }
+.fc-slot-mono { font-family: Georgia, "Times New Roman", serif; font-weight: 900; font-size: 46cqi; margin-top: -8%; }
+.fc-slot-no { font-weight: 900; font-size: 19cqi; letter-spacing: 0.02em; position: absolute; bottom: 6%; }
+.fc-slot.is-stamped:not(:has(.fc-slot-mono)):not(:has(img)) .fc-slot-no { position: static; font-size: 26cqi; }
+.fc-slot.is-stamped img { width: 62%; height: 62%; border-radius: 50%; object-fit: cover; background: #0B1E6B; margin-top: -10%; box-shadow: 0 1px 0 rgba(255, 245, 200, 0.7), 0 -1px 0 rgba(90, 60, 0, 0.35); }
+a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
+@media (max-width: 640px) {
+  .fc-slot.is-stamped:has(.fc-slot-mono) .fc-slot-no, .fc-slot.is-stamped:has(img) .fc-slot-no { display: none; }
+  .fc-slot-mono, .fc-slot.is-stamped img { margin-top: 0; }
+  .fc-slot.is-stamped img { width: 78%; height: 78%; }
+}
 @keyframes fc-pulse { 50% { box-shadow: 0 0 0 4px rgba(244, 208, 63, 0.25); } }
 @media (max-width: 640px) {
   .fc-slots { grid-template-columns: repeat(10, minmax(0, 1fr)); }
@@ -11812,6 +11822,7 @@ button.nav-link {
   min-width: 0;
 }
 .fc-roll-avatar { width: 28px; height: 28px; flex: none; align-self: center; border-radius: 50%; object-fit: cover; background: #0B1E6B; }
+.fc-roll-mono { display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #f8dc5c, #c99a1c); color: #7a5a0a; font: 900 0.9rem Georgia, "Times New Roman", serif; text-shadow: 0 1px 0 rgba(255, 245, 200, 0.85); }
 .fc-roll-no { color: #F4D03F; font-weight: 900; font-variant-numeric: tabular-nums; font-size: 0.85rem; letter-spacing: 0.04em; }
 .fc-roll-list a { color: #fff; font-weight: 600; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fc-roll-list a:hover { color: #F4D03F; }

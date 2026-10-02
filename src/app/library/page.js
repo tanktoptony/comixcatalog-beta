@@ -14,6 +14,7 @@ import FirstRunLibrary from "@/components/FirstRunLibrary";
 import ShareCardButton from "@/components/ShareCardButton";
 import CatalogLinkPicker from "@/components/CatalogLinkPicker";
 import CollectionStatsStrip from "@/components/CollectionStatsStrip";
+import ValueHistoryChart from "@/components/ValueHistoryChart";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { coverThumb } from "@/lib/coverThumb";
@@ -1368,6 +1369,14 @@ function LibraryPageContent() {
             : {}
         }
       />
+
+      {user && !isPublicPreview && (
+        <ValueHistoryChart
+          userId={user.id}
+          isPro={isPro}
+          currentValue={stats.collectionValue > 0 ? stats.collectionValue : null}
+        />
+      )}
 
       {/* ── Catalog linking (Pro) ─────────────────────────────────────────
           Local-only books (added by CSV import or the manual /library/add

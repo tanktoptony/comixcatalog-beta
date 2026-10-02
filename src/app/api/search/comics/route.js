@@ -193,6 +193,10 @@ export async function GET(req) {
               )
             `)
             .ilike("series_title", `%${titleQuery}%`)
+            // A contributed comic that's been matched to a catalog issue
+            // (comics.gcd_id) already shows up as that issue; listing it
+            // again just puts a duplicate in the results.
+            .is("gcd_id", null)
             .order("created_at", { ascending: false })
             .limit(20)
         : Promise.resolve({ data: [] }),

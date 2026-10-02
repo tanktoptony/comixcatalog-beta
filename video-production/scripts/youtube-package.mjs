@@ -6,7 +6,7 @@
 // Writes ~/Desktop/episode-001-youtube/:
 //   PACKAGE.md    title options, description (with chapters and links),
 //                 tags, pinned comment, end-screen plan, upload checklist
-//   captions.srt  captions in the script's exact wording, timed to the voice
+//   captions.srt  captions from Tony's recording, timed to the voice
 //   thumbnail-*.jpg copies of the rendered thumbnails
 //
 // Re-run after Tony's recording is transcribed; nothing here is hand-timed.
@@ -17,7 +17,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import ep from "../episode-001/timeline.v3.js";
 import words from "../episode-001/narration.words.js";
-import { resolveAnchors } from "../shared/anchors.js";
+import { narrationWords } from "../episode-001/timeline.v3.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const out = path.join(os.homedir(), "Desktop", "episode-001-youtube");
@@ -60,45 +60,69 @@ for (let i = 1; i < chapters.length; i += 1) {
 }
 const chapterText = chapters.map((c) => `${mmss(c.at)} ${c.label}`).join("\n");
 
-// ── Captions: the script's exact words, timed by anchoring each line ─────
-const script = fs.readFileSync(path.join(os.homedir(), "Desktop", "episode-001-narration-v2.txt"), "utf8").replace(/\r\n/g, "\n");
-const sentences = script
-  .split(/\n+/)
-  .flatMap((p) => p.match(/[^.!?]+[.!?]+["”]?|[^.!?]+$/g) ?? [])
-  .map((s) => s.trim())
-  .filter(Boolean);
-// Break long sentences into caption-sized lines (<= 42 chars, max 2 lines).
+// ── Captions: Tony's actual words (he ad-libs), timed word by word ───────
+// Whisper's spellings of names get fixed here; everything else is verbatim.
+const FIXES = [
+  [/\bX -/g, "X-"],
+  [/\bChicago land\b/g, "Chicagoland"],
+  [/\bExecutioner'?s? Song\b/g, "X-Cutioner's Song"],
+  [/\bStrife\b/g, "Stryfe"],
+  [/\bCoypel\b/g, "Coipel"],
+  [/\b[Cc]omics [Cc]atalog\b/g, "ComixCatalog"],
+  [/\bcables the main suspect\b/g, "Cable's the main suspect"],
+  [/\bwant list\b/g, "wantlist"],
+  [/\bLinks below\b/g, "Link's below"],
+  [/\bturns into Steel\b/g, "turns into steel"],
+  [/\b92 and a 93\b/g, "'92 into '93"],
+  [/\bXavier's choice is going\b/g, "Xavier's choices, going"],
+  [/\bour X-Men\.$/, "our X-Man."],
+  [/^[Ss]tart catching up\b/, "start catching up"],
+  [/\bWhen you pretend,/g, "When you were 10,"],
+  [/\ball the way back to the beginning\.$/, "all the way back to the beginning,"],
+  [/ in 60 years And /, " in 60 years. And "],
+];
+const fix = (s) => FIXES.reduce((acc, [re, to]) => acc.replace(re, to), s);
+// Group words into caption lines: break after sentence punctuation, on a
+// pause over 0.6 s, or before a line would pass 84 characters.
+const glue = (prev, w) => (prev && !/^[-,.!?;:']/.test(w) ? prev + " " + w : prev + w);
 const lines = [];
-for (const s of sentences) {
-  const wordsIn = s.split(/\s+/);
-  let cur = "";
-  for (const w of wordsIn) {
-    if ((cur + " " + w).trim().length > 84 && cur) {
-      lines.push(cur.trim());
-      cur = w;
-    } else cur = `${cur} ${w}`;
+let cur = null;
+for (let i = 0; i < narrationWords.length; i += 1) {
+  const w = narrationWords[i];
+  const next = narrationWords[i + 1];
+  if (cur && glue(cur.t, w.w).length > 84) {
+    lines.push(cur);
+    cur = null;
   }
-  if (cur.trim()) lines.push(cur.trim());
+  cur = cur ? { ...cur, t: glue(cur.t, w.w), e: w.e } : { t: w.w, s: w.s, e: w.e };
+  const sentenceEnd = /[.!?]["”]?$/.test(w.w) && cur.t.length > 12;
+  if (!next || sentenceEnd || next.s - w.e > 0.6) {
+    lines.push(cur);
+    cur = null;
+  }
 }
-const anchorOf = (line) => line.split(/\s+/).slice(0, 5).join(" ");
-const { times, misses } = resolveAnchors(words.words, lines.map(anchorOf), { minScore: 0.5 });
-const lastWordEnd = words.words.at(-1)?.e ?? words.duration;
-const srt = lines
-  .map((line, i) => {
-    const start = VOICE_AT + times[i];
-    const next = i + 1 < lines.length ? VOICE_AT + times[i + 1] : VOICE_AT + lastWordEnd + 0.5;
-    const end = Math.min(next - 0.05, start + Math.max(1.2, Math.min(7, line.length / 14)));
-    const wrapped = line.length > 42 ? line.replace(new RegExp(`^(.{1,42})\\s`), "$1\n") : line;
-    return `${i + 1}\n${srtTime(start)} --> ${srtTime(end)}\n${wrapped}\n`;
+const cues = lines.map((l, i) => {
+  const start = VOICE_AT + l.s;
+  const nextStart = i + 1 < lines.length ? VOICE_AT + lines[i + 1].s : Infinity;
+  const end = Math.min(nextStart - 0.05, VOICE_AT + l.e + 0.6);
+  return { s: +start.toFixed(3), e: +Math.max(end, start + 0.8).toFixed(3), t: fix(l.t) };
+});
+const srt = cues
+  .map((c, i) => {
+    // Two balanced lines: split at the space nearest the middle.
+    let wrapped = c.t;
+    if (c.t.length > 42) {
+      const mid = c.t.length / 2;
+      let cut = -1;
+      for (let j = c.t.indexOf(" "); j >= 0; j = c.t.indexOf(" ", j + 1)) if (cut < 0 || Math.abs(j - mid) < Math.abs(cut - mid)) cut = j;
+      if (cut > 0) wrapped = c.t.slice(0, cut) + "\n" + c.t.slice(cut + 1);
+    }
+    return i + 1 + "\n" + srtTime(c.s) + " --> " + srtTime(c.e) + "\n" + wrapped + "\n";
   })
   .join("\n");
 fs.writeFileSync(path.join(out, "captions.srt"), srt);
 // Same lines for burned-in captions in the Shorts (src/Shorts.jsx).
-const captionCues = lines.map((line, i) => {
-  const start = VOICE_AT + times[i];
-  const next = i + 1 < lines.length ? VOICE_AT + times[i + 1] : VOICE_AT + lastWordEnd + 0.5;
-  return { s: +start.toFixed(3), e: +Math.min(next - 0.05, start + Math.max(1.2, Math.min(7, line.length / 14))).toFixed(3), t: line };
-});
+const captionCues = cues;
 fs.writeFileSync(
   path.join(root, "episode-001", "captions.generated.js"),
   "// Generated by scripts/youtube-package.mjs. Do not edit by hand.\nexport default " + JSON.stringify(captionCues) + ";\n"
@@ -164,7 +188,7 @@ ${description}
 x-men, xmen, where to start reading x-men, x-men reading order, how to read x-men, x-men comics for beginners, dark phoenix saga, days of future past, x-cutioners song, god loves man kills, house of m, house of x, powers of x, x-men 97, x-men the animated series, marvel comics, comic books, comics for beginners, gambit, colossus, chris claremont
 
 ## Captions
-Upload \`captions.srt\` (English) under Subtitles. It uses the script's exact wording, so names are spelled right${misses.length ? ` (${misses.length} lines were timed by interpolation; spot-check them)` : ""}.
+Upload \`captions.srt\` (English) under Subtitles. It's Tony's actual words, timed word by word, with names spelled right.
 
 ## Pinned comment
 Which one did you start with? Mine was House of M, handed to me at Graham Crackers. If you want the whole shelf in one place, it's on ComixCatalog: ${site("/start")}
@@ -205,4 +229,4 @@ for (const [from, to] of [["Thumb001Shelf.jpg", "thumbnail-A-shelf.jpg"], ["Thum
   const src = path.join(root, "episode-001", "output", "thumbnails", from);
   if (fs.existsSync(src)) fs.copyFileSync(src, path.join(out, to));
 }
-console.log(`wrote ${out}${scratch ? " (scratch-voice timings)" : ""}; ${lines.length} caption lines, ${misses.length} interpolated; ${chapters.length} chapters`);
+console.log(`wrote ${out}${scratch ? " (scratch-voice timings)" : ""}; ${cues.length} caption lines; ${chapters.length} chapters`);

@@ -32,7 +32,7 @@ const COLUMNS = [
     title: "ComixCatalog",
     links: [
       { label: "About", href: "/start" },
-      { label: "Collectors", href: "/collectors" },
+      { label: "Founding Collectors", href: "/founding-collectors" },
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
       { label: "Help Center", href: "/help", todo: true },

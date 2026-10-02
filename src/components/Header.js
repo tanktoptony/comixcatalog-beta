@@ -823,7 +823,7 @@ const UserMenu = forwardRef(function UserMenu(
             </Link>
           )}
           <Link
-            href="/collectors"
+            href="/founding-collectors"
             className="user-menu-item"
             role="menuitem"
             onClick={handleItem()}

@@ -12,8 +12,10 @@ import { authedFetch } from "@/lib/apiClient";
 // FoundingBanner.js. null means "don't know yet"; render a dash rather than
 // a guessed digit.
 //
-// 2026-10-01 redesign: a numbered foil pass, a 100-slot grid that shows
-// how many are claimed, and a Roll of Honor of the founders so far.
+// 2026-10-01 redesign: a numbered foil pass and the wall: 100 numbered
+// cards, one per pass, each claimed card showing its founder's avatar and
+// name (private founders keep their number but no name). The wall replaced
+// both the old /collectors page and a separate Roll of Honor list.
 
 const CAP = 100;
 const pad = (n) => String(n).padStart(3, "0");
@@ -51,6 +53,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
   const claimed = remaining == null ? null : Math.max(0, CAP - remaining);
   const nextNumber = claimed == null ? null : Math.min(CAP, claimed + 1);
   const soldOut = remaining === 0;
+  const byNumber = new Map(roster.map((f) => [f.number, f]));
 
   return (
     <main className="founding-page fc">
@@ -109,17 +112,48 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
 
       <section className="fc-slots-section" aria-label={claimed == null ? "Founding passes" : `${claimed} of ${CAP} founding passes claimed`}>
         <div className="fc-slots-head">
-          <h2>The first hundred</h2>
+          <div className="fc-roll-head">
+            <p className="fc-kicker">Roll of Honor</p>
+            <h2>The first hundred</h2>
+          </div>
           {claimed != null && <p><b>{claimed}</b> claimed · <b>{remaining}</b> left</p>}
         </div>
-        <div className="fc-slots">
-          {Array.from({ length: CAP }, (_, i) => (
-            <span
-              key={i}
-              className={`fc-slot${claimed != null && i < claimed ? " is-claimed" : ""}${claimed != null && i === claimed ? " is-next" : ""}`}
-            />
-          ))}
-        </div>
+        <ol className="fc-wall">
+          {Array.from({ length: CAP }, (_, i) => {
+            const number = i + 1;
+            const founder = byNumber.get(number);
+            const isClaimed = Boolean(founder) || (claimed != null && i < claimed);
+            const isNext = !isClaimed && claimed != null && i === claimed;
+            if (founder?.username) {
+              return (
+                <li key={number} className="fc-card is-claimed">
+                  <Link prefetch={false} href={`/u/${encodeURIComponent(founder.username)}`} title={`No. ${pad(number)} · @${founder.username}`}>
+                    <span className="fc-card-no">{pad(number)}</span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img className="fc-card-avatar" src={founder.avatar} alt="" loading="lazy" width={48} height={48} />
+                    <span className="fc-card-name">@{founder.username}</span>
+                  </Link>
+                </li>
+              );
+            }
+            if (isClaimed) {
+              return (
+                <li key={number} className="fc-card is-claimed is-private" title={`No. ${pad(number)} · private collector`}>
+                  <span className="fc-card-no">{pad(number)}</span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img className="fc-card-avatar" src="/avatars/cc_badge.png" alt="" loading="lazy" width={48} height={48} />
+                  <span className="fc-card-name">Private</span>
+                </li>
+              );
+            }
+            return (
+              <li key={number} className={`fc-card${isNext ? " is-next" : ""}`}>
+                <span className="fc-card-no">{pad(number)}</span>
+                {isNext && <span className="fc-card-name">{status.isFounding ? "Next up" : "Yours?"}</span>}
+              </li>
+            );
+          })}
+        </ol>
       </section>
 
       <section className="fc-perks">
@@ -131,23 +165,6 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
           <div className="fc-perk"><b>The badge</b><span>A permanent Founding Collector badge on your profile.</span></div>
         </div>
       </section>
-
-      {roster.length > 0 && (
-        <section className="fc-roll">
-          <div className="fc-roll-head">
-            <p className="fc-kicker">Roll of Honor</p>
-            <h2>The ones who were here first.</h2>
-          </div>
-          <ol className="fc-roll-list">
-            {roster.map((f) => (
-              <li key={f.number}>
-                <span className="fc-roll-no">{pad(f.number)}</span>
-                <Link prefetch={false} href={`/u/${encodeURIComponent(f.username)}`}>@{f.username}</Link>
-              </li>
-            ))}
-          </ol>
-        </section>
-      )}
 
       <section className="fc-note">
         <p>

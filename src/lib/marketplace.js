@@ -161,3 +161,57 @@ export async function getListingsForIssue(gcdIssueId) {
 export function revalidateListings() {
   revalidateTag(LISTINGS_TAG, { expire: 0 });
 }
+
+// One listing for /listing/[id]: everything buyers see, plus the seller's
+// public details and their other active listings count. Only listings
+// buyers may see (active, reserved or sold, from a public seller) come
+// back; anything else is null so the page 404s. Cached under the same tag,
+// so an edit shows up on the next load.
+async function computeListing(id) {
+  if (!/^[0-9a-f-]{36}$/i.test(String(id))) return null;
+  const sb = client();
+  const { data: l, error } = await sb
+    .from("listings")
+    .select(
+      "id, seller_id, collection_id, gcd_issue_id, status, series_title, issue_number, release_year, publisher, variant_label, cover_path, condition, grade_numeric, slab_company, slab_cert_number, condition_notes, restored, signed, price_cents, shipping_cents, accepts_offers, created_at, sold_at"
+    )
+    .eq("id", id)
+    .maybeSingle();
+  if (error) throw error;
+  if (!l || !["active", "reserved", "sold"].includes(l.status)) return null;
+
+  const [{ data: seller, error: sErr }, { data: uc, error: uErr }, { count: otherCount, error: cErr }] = await Promise.all([
+    sb.from("profiles").select("username, is_public, show_for_sale, created_at, avatar_key, avatar_url, is_founding_collector").eq("id", l.seller_id).maybeSingle(),
+    sb.from("user_collections").select("market_value, auto_market_value").eq("id", l.collection_id).maybeSingle(),
+    sb.from("listings").select("id", { count: "exact", head: true }).eq("seller_id", l.seller_id).eq("status", "active").neq("id", l.id),
+  ]);
+  if (sErr) throw sErr;
+  if (uErr) throw uErr;
+  if (cErr) throw cErr;
+  if (!seller?.username || seller.is_public === false || seller.show_for_sale === false) return null;
+
+  const base = toListing({ ...l, ...(uc ?? {}), seller_username: seller.username }, process.env.NEXT_PUBLIC_SUPABASE_URL);
+  return {
+    ...base,
+    status: l.status,
+    certNumber: l.slab_cert_number ?? null,
+    notes: l.condition_notes ?? null,
+    restored: Boolean(l.restored),
+    signed: Boolean(l.signed),
+    soldAt: l.sold_at ?? null,
+    sellerInfo: {
+      username: seller.username,
+      since: seller.created_at,
+      founder: Boolean(seller.is_founding_collector),
+      avatar: seller.avatar_url || `/avatars/${seller.avatar_key || "cc_badge"}.png`,
+      otherListings: otherCount ?? 0,
+    },
+  };
+}
+
+export async function getListing(id) {
+  return unstable_cache(() => computeListing(id), ["marketplace-listing", String(id)], {
+    revalidate: 120,
+    tags: [LISTINGS_TAG],
+  })();
+}

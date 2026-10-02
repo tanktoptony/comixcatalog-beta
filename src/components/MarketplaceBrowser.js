@@ -69,11 +69,11 @@ function Price({ l }) {
 function Card({ l }) {
   return (
     <li className="mk-card">
-      <Link prefetch={false} href={l.href} className="mk-card-cover">
+      <Link prefetch={false} href={l.listingHref} className="mk-card-cover">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={coverThumb(l.cover || "/fallback-cover.png")} alt={`${l.title} #${l.issueNumber}`} loading="lazy" />
       </Link>
-      <Link prefetch={false} href={l.href} className="mk-card-title">
+      <Link prefetch={false} href={l.listingHref} className="mk-card-title">
         {l.title} #{l.issueNumber || "?"}
       </Link>
       <span className="mk-card-meta">
@@ -202,12 +202,12 @@ function Facet({ name, entries, selected, params }) {
 function Row({ l }) {
   return (
     <li className="mk-row">
-      <Link prefetch={false} href={l.href} className="mk-row-cover">
+      <Link prefetch={false} href={l.listingHref} className="mk-row-cover">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={coverThumb(l.cover || "/fallback-cover.png")} alt="" loading="lazy" />
       </Link>
       <div className="mk-row-main">
-        <Link prefetch={false} href={l.href} className="mk-row-title">
+        <Link prefetch={false} href={l.listingHref} className="mk-row-title">
           {l.title} #{l.issueNumber || "?"}
         </Link>
         <span className="mk-row-meta">

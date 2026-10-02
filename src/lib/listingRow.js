@@ -36,6 +36,7 @@ export function toListing(row, supabaseUrl) {
     collectionId: row.collection_id,
     gcdIssueId: Number(row.gcd_issue_id),
     href: `/issue/gcd-${row.gcd_issue_id}`,
+    listingHref: `/listing/${row.id}`,
     title: row.series_title || "Untitled",
     issueNumber: row.issue_number ?? "",
     year: row.release_year ?? null,

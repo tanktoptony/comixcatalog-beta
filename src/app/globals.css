@@ -11771,6 +11771,10 @@ button.nav-link {
 .fc-slot { aspect-ratio: 1; border-radius: 4px; border: 1px solid rgba(244, 208, 63, 0.28); background: rgba(255, 255, 255, 0.02); }
 .fc-slot.is-claimed { background: linear-gradient(145deg, #f8dc5c, #c99a1c); border-color: transparent; box-shadow: 0 0 10px rgba(244, 208, 63, 0.25); }
 .fc-slot.is-next { border-color: #F4D03F; animation: fc-pulse 1.8s ease-in-out infinite; }
+/* A public founder's block carries their profile pic inside the gold. */
+.fc-slot.has-avatar { display: block; padding: 3px; }
+.fc-slot.has-avatar img { display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #0B1E6B; }
+.fc-slot.has-avatar:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 @keyframes fc-pulse { 50% { box-shadow: 0 0 0 4px rgba(244, 208, 63, 0.25); } }
 @media (max-width: 640px) {
   .fc-slots { grid-template-columns: repeat(10, minmax(0, 1fr)); }
@@ -11807,6 +11811,7 @@ button.nav-link {
   border-bottom: 1px solid rgba(244, 208, 63, 0.15);
   min-width: 0;
 }
+.fc-roll-avatar { width: 28px; height: 28px; flex: none; align-self: center; border-radius: 50%; object-fit: cover; background: #0B1E6B; }
 .fc-roll-no { color: #F4D03F; font-weight: 900; font-variant-numeric: tabular-nums; font-size: 0.85rem; letter-spacing: 0.04em; }
 .fc-roll-list a { color: #fff; font-weight: 600; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fc-roll-list a:hover { color: #F4D03F; }

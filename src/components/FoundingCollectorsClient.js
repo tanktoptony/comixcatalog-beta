@@ -51,6 +51,8 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
   const claimed = remaining == null ? null : Math.max(0, CAP - remaining);
   const nextNumber = claimed == null ? null : Math.min(CAP, claimed + 1);
   const soldOut = remaining === 0;
+  const byNumber = new Map(roster.map((f) => [f.number, f]));
+  const publicRoster = roster.filter((f) => f.username);
 
   return (
     <main className="founding-page fc">
@@ -113,12 +115,26 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
           {claimed != null && <p><b>{claimed}</b> claimed · <b>{remaining}</b> left</p>}
         </div>
         <div className="fc-slots">
-          {Array.from({ length: CAP }, (_, i) => (
-            <span
-              key={i}
-              className={`fc-slot${claimed != null && i < claimed ? " is-claimed" : ""}${claimed != null && i === claimed ? " is-next" : ""}`}
-            />
-          ))}
+          {Array.from({ length: CAP }, (_, i) => {
+            const founder = byNumber.get(i + 1);
+            const className = `fc-slot${founder || (claimed != null && i < claimed) ? " is-claimed" : ""}${claimed != null && i === claimed ? " is-next" : ""}`;
+            // A public founder's block shows their profile pic and links to
+            // their profile; private founders stay a plain gold block.
+            return founder?.username ? (
+              <Link
+                key={i}
+                prefetch={false}
+                href={`/u/${encodeURIComponent(founder.username)}`}
+                className={`${className} has-avatar`}
+                title={`No. ${pad(founder.number)} · @${founder.username}`}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={founder.avatar} alt={`@${founder.username}`} loading="lazy" />
+              </Link>
+            ) : (
+              <span key={i} className={className} />
+            );
+          })}
         </div>
       </section>
 
@@ -132,16 +148,18 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
         </div>
       </section>
 
-      {roster.length > 0 && (
+      {publicRoster.length > 0 && (
         <section className="fc-roll">
           <div className="fc-roll-head">
             <p className="fc-kicker">Roll of Honor</p>
             <h2>The ones who were here first.</h2>
           </div>
           <ol className="fc-roll-list">
-            {roster.map((f) => (
+            {publicRoster.map((f) => (
               <li key={f.number}>
                 <span className="fc-roll-no">{pad(f.number)}</span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="fc-roll-avatar" src={f.avatar} alt="" loading="lazy" width={28} height={28} />
                 <Link prefetch={false} href={`/u/${encodeURIComponent(f.username)}`}>@{f.username}</Link>
               </li>
             ))}

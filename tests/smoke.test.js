@@ -76,26 +76,28 @@ test("GCD-less issue navigation (prev/next) actually works", async () => {
   assert.equal(body.issue.next_issue.issue_number, "3");
 });
 
-// ── Orphan-issue series (fixed 2026-08-27, PR #37/#38) ─────────────────────
-// Absolute Batman: GCD's own metadata only ever synced issue #1 of a real
-// 23-issue run; the other 22 are "orphan" covers correctly linked via
-// series_gcd_id but with no gcd_issues row. Regression-guards the fix that
-// surfaces them, and the id-navigation fix that made them clickable.
-test("orphan-issue series shows the real full run, not GCD's stale count", async () => {
+// ── Absolute Batman, the full monthly run ─────────────────────────────────
+// History: in Aug 2026 GCD had synced only #1, so the full run was rebuilt
+// from "orphan" ComicVine covers on series d9b5588f (PR #37/#38). By Oct
+// 2026 GCD had the real monthly as series 216143 (page ddcf3771) with every
+// issue, the covers attribute to it, and d9b5588f turned out to be GCD
+// 226633: the 2025 COLLECTED EDITION. These tests now guard the monthly.
+test("Absolute Batman monthly shows its full run", async () => {
   const { status, body } = await getJson(
-    "/api/series/d9b5588f-ae37-4f45-81ea-f9bebfd34f8e"
+    "/api/series/ddcf3771-89ff-45db-92a8-f52ed3f09e05"
   );
   assert.equal(status, 200);
   assert.ok(
     body.series.issue_count >= 23,
-    `expected >=23 issues (ComicVine's real count), got ${body.series.issue_count}`
+    `expected >=23 issues, got ${body.series.issue_count}`
   );
 });
 
-test("orphan issue resolves and navigates correctly", async () => {
-  const { status, body } = await getJson("/api/issues/cv-226633-2");
+test("Absolute Batman #2 resolves with a cover and navigation", async () => {
+  const { status, body } = await getJson("/api/issues/gcd-2674696");
   assert.equal(status, 200);
+  assert.equal(body.issue.issue_number, "2");
   assert.ok(body.issue.cover, "expected a real cover URL");
-  assert.ok(body.issue.prev_issue, "prev_issue should not be null mid-run");
-  assert.ok(body.issue.next_issue, "next_issue should not be null mid-run");
+  assert.equal(body.issue.prev_issue?.issue_number, "1");
+  assert.equal(body.issue.next_issue?.issue_number, "3");
 });

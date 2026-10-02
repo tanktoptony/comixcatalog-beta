@@ -5,6 +5,11 @@ import { createClient } from "@supabase/supabase-js";
 // (their number on the wall), with name and avatar for public profiles.
 // Private founders keep their slot and number but show no name. Cached a
 // minute, same as the remaining-count read in foundingStatus.js.
+function initialOf(name) {
+  const ch = String(name ?? "").replace(/^[^\p{L}\p{N}]+/u, "").charAt(0);
+  return ch ? ch.toUpperCase() : null;
+}
+
 export const getFoundingRoster = unstable_cache(
   async () => {
     const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
@@ -12,7 +17,7 @@ export const getFoundingRoster = unstable_cache(
     });
     const { data, error } = await sb
       .from("profiles")
-      .select("username, is_public, avatar_key, avatar_url, created_at")
+      .select("username, display_name, is_public, avatar_key, avatar_url, created_at")
       .eq("is_founding_collector", true)
       .order("created_at", { ascending: true })
       .limit(100);
@@ -25,9 +30,13 @@ export const getFoundingRoster = unstable_cache(
         number: i + 1,
         username: visible ? p.username : null,
         avatar: visible ? p.avatar_url || `/avatars/${p.avatar_key || "cc_badge"}.png` : null,
+        // Still on the signup default (no upload, no icon picked): the wall
+        // stamps their initial into the gold instead of the stock mask.
+        defaultAvatar: !p.avatar_url && (!p.avatar_key || p.avatar_key === "hero_01"),
+        initial: visible ? initialOf(p.display_name || p.username) : null,
       };
     });
   },
-  ["founding-roster-v2"],
+  ["founding-roster-v3"],
   { revalidate: 60 }
 );

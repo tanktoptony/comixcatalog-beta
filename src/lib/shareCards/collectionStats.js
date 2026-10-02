@@ -45,7 +45,7 @@ export function percentages(counts) {
 // Top N publishers of OWNED books, the rest folded into "Other". Unknown
 // publishers count toward "Other" rather than a fake name.
 export function collectionStats(rows, { topN = 3 } = {}) {
-  const owned = rows.filter((r) => r.status === "owned");
+  const owned = rows.filter((r) => r.status === "owned" || r.status === "for_sale");
   const wanted = rows.filter((r) => r.status === "wishlist").length;
 
   const series = new Set(owned.map((r) => r.seriesKey).filter((k) => k != null && k !== ""));

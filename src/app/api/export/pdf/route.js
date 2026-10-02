@@ -6,6 +6,7 @@ import { ADMIN_ID } from "@/lib/admin";
 import { coverPriceForYear } from "@/lib/valuation";
 import { getMarketValuesBulk } from "@/lib/marketValue";
 import { getAuthedUser } from "@/lib/authServer";
+import { OWNED_STATUSES } from "@/lib/collectionStatus";
 
 export const maxDuration = 60;
 
@@ -154,7 +155,7 @@ export async function POST(req) {
         .from("user_collections")
         .select("id, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes, purchase_price, market_value, user_cover_url")
         .eq("user_id", user_id)
-        .eq("status", "owned"),
+        .in("status", OWNED_STATUSES),
     ]);
 
     const isProOrAdmin = Boolean(profile?.is_pro) || user_id === ADMIN_ID;

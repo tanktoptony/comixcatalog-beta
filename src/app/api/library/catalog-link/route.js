@@ -29,6 +29,7 @@ import {
   titleVariants,
   pickFromMatches,
 } from "@/lib/catalogLinkMatcher";
+import { OWNED_STATUSES } from "@/lib/collectionStatus";
 
 
 async function assertPro(supabase, user_id) {
@@ -72,7 +73,7 @@ export async function GET(req) {
       .from("user_collections")
       .select("id, comic_id")
       .eq("user_id", user_id)
-      .eq("status", "owned")
+      .in("status", OWNED_STATUSES)
       .is("gcd_issue_id", null)
       .not("comic_id", "is", null);
 

@@ -68,3 +68,10 @@ test("possessive title", () => {
   assert.equal(possessive("chris"), "CHRIS'");
   assert.equal(possessive(""), "MY");
 });
+
+test("books listed for sale still count as owned (whole collection listed)", () => {
+  const listed = (seriesKey, publisher) => ({ status: "for_sale", seriesKey, publisher });
+  const s = collectionStats([listed("a", "Marvel Comics"), listed("b", "Image Comics"), { status: "wishlist", seriesKey: "c" }]);
+  assert.equal(s.owned, 2);
+  assert.equal(s.series, 2);
+});

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getAuthedUser } from "@/lib/authServer";
 import { baseIssueNumber } from "@/lib/coverMatch";
+import { OWNED_STATUSES } from "@/lib/collectionStatus";
 
 // Surfaces "runs you're close to finishing" on the profile/library home —
 // the same owned-vs-total math /series/[id] already computes per-series,
@@ -42,7 +43,7 @@ export async function GET(req) {
       .from("user_collections")
       .select("gcd_issue_id")
       .eq("user_id", user.id)
-      .eq("status", "owned")
+      .in("status", OWNED_STATUSES)
       .not("gcd_issue_id", "is", null);
     if (ownedError) throw ownedError;
 

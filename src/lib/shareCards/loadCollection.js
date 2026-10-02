@@ -1,4 +1,5 @@
 import { collectionStats } from "./collectionStats.js";
+import { isOwnedStatus } from "@/lib/collectionStatus";
 
 // Server-only loader for the "My Collection" share card. Takes a service-role
 // client and a VERIFIED user id (from getAuthedUser, never from the request),
@@ -130,7 +131,7 @@ async function latestCovers(supabase, rows, issueById) {
   const seen = new Set();
   const candidates = [];
   const recent = rows
-    .filter((r) => r.status === "owned" && r.gcd_issue_id != null)
+    .filter((r) => isOwnedStatus(r.status) && r.gcd_issue_id != null)
     .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
   for (const r of recent) {
     if (candidates.length >= 12) break;

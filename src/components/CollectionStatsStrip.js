@@ -17,6 +17,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { isOwnedStatus } from "@/lib/collectionStatus";
 
 function formatCurrency(n) {
   return new Intl.NumberFormat("en-US", {
@@ -55,16 +56,17 @@ export default function CollectionStatsStrip({
     const seriesKeys = new Set();
 
     for (const item of collection ?? []) {
-      if (item.status === "owned") owned += 1;
+      // "Owned" is everything in your collection, listed or not; the
+      // for-sale count is the listed subset.
+      if (isOwnedStatus(item.status)) owned += 1;
       else if (item.status === "wishlist") wantlist += 1;
-      else if (item.status === "for_sale") forSale += 1;
+      if (item.status === "for_sale") forSale += 1;
 
       if (item.slab_company) slabbed += 1;
 
-      // Value applies only to owned (you don't add wantlist or for-sale
-      // asking prices to "collection value"). For-sale gets a separate
-      // marketplace dollar amount in Phase 4, not here.
-      if (item.status === "owned") {
+      // Value counts everything you own, including books you've listed:
+      // they're yours until they sell. Wantlist never counts.
+      if (isOwnedStatus(item.status)) {
         value += rowValue(item, autoMarketValues);
       }
 

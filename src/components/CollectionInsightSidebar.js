@@ -11,6 +11,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { isOwnedStatus } from "@/lib/collectionStatus";
 
 function formatCurrency(n) {
   return new Intl.NumberFormat("en-US", {
@@ -62,7 +63,7 @@ export default function CollectionInsightSidebar({
       );
       publisherCounts[publisher] = (publisherCounts[publisher] || 0) + 1;
 
-      if (item.status === "owned") {
+      if (isOwnedStatus(item.status)) {
         owned += 1;
         if (item.slab_company) slabbed += 1;
         if (item.purchase_price != null) {

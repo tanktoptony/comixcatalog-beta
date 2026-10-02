@@ -4,6 +4,7 @@ import { resolvePublisher } from "@/lib/publisher";
 import { getAuthedUser } from "@/lib/authServer";
 import { formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
 import { titleVariants } from "@/lib/titleMatch";
+import { OWNED_STATUSES } from "@/lib/collectionStatus";
 
 // Volume-disambiguation tolerance. canonical_covers is keyed only by
 // (series_title, issue_number), so "Teenage Mutant Ninja Turtles" #2 exists
@@ -534,7 +535,7 @@ export async function GET(req, context) {
               .from("user_collections")
               .select("gcd_issue_id")
               .eq("user_id", viewerId)
-              .eq("status", "owned")
+              .in("status", OWNED_STATUSES)
               .in("gcd_issue_id", arcGcdIds);
             const ownedSet = new Set(
               (ownedRows ?? []).map((r) => Number(r.gcd_issue_id))

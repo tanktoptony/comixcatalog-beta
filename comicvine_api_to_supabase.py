@@ -213,6 +213,15 @@ def parse_cli() -> argparse.Namespace:
         ),
     )
     p.add_argument(
+        "--newest-first",
+        action="store_true",
+        help=(
+            "Process the --targets list from the end. The gap probe appends new "
+            "releases to the end of gap-manual.json, so without this they wait "
+            "behind every older unresolved entry (2026-10-03)."
+        ),
+    )
+    p.add_argument(
         "--max-variant-images-per-issue",
         type=int,
         default=10,
@@ -254,9 +263,16 @@ def load_targets_from_file(path: str) -> list[dict]:
         print("--targets JSON must be a list of objects.", file=sys.stderr)
         sys.exit(2)
     cleaned = []
+    seen: set[tuple] = set()
     for entry in data:
         if not isinstance(entry, dict) or not entry.get("name"):
             continue
+        # Duplicate entries each spent a search call per run (gap-manual.json
+        # had several titles twice, 2026-10-03); keep the first.
+        key = (str(entry["name"]).strip().lower(), entry.get("publisher"), entry.get("year"), entry.get("volume_id"))
+        if key in seen:
+            continue
+        seen.add(key)
         cleaned.append(
             {
                 "name": entry["name"],
@@ -455,6 +471,10 @@ def _norm_title(value: str | None) -> str:
     s = (value or "").strip().lower()
     if s.startswith("the "):
         s = s[4:]
+    # A subtitle's leading "the" is just as optional (2026-10-03): GCD
+    # "True Believers: Infinity War" is ComicVine's "True Believers: The
+    # Infinity War", and the title gate rejected it as no_title_match.
+    s = re.sub(r"([:/-])\s*the\s+", r"\1 ", s)
     # Map common typography → ASCII before nuking punctuation. Order matters:
     # '&' must expand to 'and' before we strip it.
     s = s.replace("&", " and ")
@@ -1490,6 +1510,8 @@ def main():
         source_label = f"--volume-id {vid}"
     elif args.targets:
         targets = load_targets_from_file(args.targets)
+        if args.newest_first:
+            targets.reverse()
         source_label = f"--targets {args.targets}"
     else:
         targets = TARGET_VOLUMES

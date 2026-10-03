@@ -253,7 +253,7 @@ jobs:
         id: lane_manual
         if: hashFiles('gap-manual.json') != ''
         continue-on-error: true
-        run: python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --max-search-calls 15 --vol-sleep 1.0
+        run: python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --newest-first --max-search-calls 15 --vol-sleep 1.0
 
       # Targets with a confirmed volume_id (see resolveNeedsVolumeIdBacklog.js)
       # — fetches the ComicVine volume directly by id, skipping the fuzzy

@@ -212,11 +212,10 @@ export function LibraryProvider({ children }) {
     const { comic_id, gcd_issue_id, libraryKey } = parseLibraryInput(inputId);
     if (!libraryKey) return;
 
-    // Give the optimistic row a temp id so realtime INSERT dedup works.
-    // Without it, payload.new.id (real uuid) doesn't match the optimistic
-    // row's missing id, and realtime appends a duplicate before refreshLibrary
-    // reconciles. We strip the temp prefix server-side; only the local state
-    // ever sees this id.
+    // Give the optimistic row a temporary local ID so the UI can replace the
+    // same logical item in one state update without waiting for the server
+    // round trip. The persisted row still receives a real UUID from Supabase
+    // once the request resolves; this is purely for local deduping.
     // Activation: is this the account's first book with this status? Read
     // before the optimistic insert below, and only once the library has
     // finished loading. An empty array while still loading means "not

@@ -34073,9 +34073,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T15:00:44.582480+00:00",
-    "retry_after": "2026-10-03T15:00:44.582496+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T15:12:40.272061+00:00",
+    "retry_after": "2026-10-10T15:12:40.272077+00:00"
   },
   {
     "name": "Justice League International Annual",
@@ -34096,9 +34096,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T15:00:45.113527+00:00",
-    "retry_after": "2026-10-03T15:00:45.113544+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T15:12:40.748316+00:00",
+    "retry_after": "2026-10-10T15:12:40.748333+00:00"
   },
   {
     "name": "The Punisher: The Origin of Microchip",
@@ -38594,8 +38594,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-03T15:03:44.766872+00:00",
-    "retry_after": "2026-10-04T15:03:44.766893+00:00"
+    "last_attempt_at": "2026-10-03T15:15:03.109386+00:00",
+    "retry_after": "2026-10-04T15:15:03.109401+00:00"
   },
   {
     "name": "X-Men: God Loves, Man Kills Extended Cut",
@@ -38617,53 +38617,7 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-03T15:03:54.771330+00:00",
-    "retry_after": "2026-10-04T15:03:54.771348+00:00"
-  },
-  {
-    "name": "Kingdom Come",
-    "publisher": "DC Comics",
-    "year": 2000,
-    "reason": "multiple_candidates",
-    "candidates": [
-      {
-        "id": 5753,
-        "name": "Kingdom Come",
-        "publisher": "DC Comics",
-        "start_year": 1996
-      },
-      {
-        "id": 68185,
-        "name": "Kingdom Come",
-        "publisher": "DC Comics",
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T15:06:44.527660+00:00",
-    "retry_after": "2026-10-04T15:06:44.527669+00:00"
-  },
-  {
-    "name": "Uncanny X-Force",
-    "publisher": "Marvel Comics",
-    "year": null,
-    "reason": "multiple_candidates",
-    "candidates": [
-      {
-        "id": 35835,
-        "name": "Uncanny X-Force",
-        "publisher": "Marvel",
-        "start_year": 2010
-      },
-      {
-        "id": 56119,
-        "name": "Uncanny X-Force",
-        "publisher": "Marvel",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T15:06:44.885839+00:00",
-    "retry_after": "2026-10-04T15:06:44.885846+00:00"
+    "last_attempt_at": "2026-10-03T15:15:08.943195+00:00",
+    "retry_after": "2026-10-04T15:15:08.943207+00:00"
   }
 ]

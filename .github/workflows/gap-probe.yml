@@ -27,8 +27,11 @@ name: Gap probe (weekly)
 # cover-ingest cycle picks all of it up. No human in the loop required.
 
 on:
+  # Daily since 2026-10-03 (was Mon+Thu). The hourly ingest drains a fresh
+  # target list in about a day, so on the old cadence it sat idle for 2-3
+  # days at a time and tripped the 24-hour stall alarm every hour.
   schedule:
-    - cron: '0 8 * * 1,4'
+    - cron: '0 8 * * *'
   workflow_dispatch: {}
 
 # Same reasoning as weekly-refresh.yml's concurrency group: a late-firing

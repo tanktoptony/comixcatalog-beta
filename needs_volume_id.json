@@ -38537,74 +38537,6 @@
     "retry_after": "2026-10-04T13:01:55.680211+00:00"
   },
   {
-    "name": "Bullseye",
-    "publisher": "Charlton Comics",
-    "year": 1955,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 98512,
-        "name": "Bullseye",
-        "publisher": "Marvel",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T14:04:39.202632+00:00",
-    "retry_after": "2026-10-04T14:04:39.202648+00:00"
-  },
-  {
-    "name": "Die-Cut vs. G-Force",
-    "publisher": "Marvel Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 5080,
-        "name": "Die-Cut Vs. G-Force",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T14:04:39.702121+00:00",
-    "retry_after": "2026-10-04T14:04:39.702138+00:00"
-  },
-  {
-    "name": "Junkwaffel",
-    "publisher": "Fantagraphics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52675,
-        "name": "Junkwaffel",
-        "publisher": "Last Gasp",
-        "start_year": 1972
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T14:04:39.928057+00:00",
-    "retry_after": "2026-10-04T14:04:39.928071+00:00"
-  },
-  {
-    "name": "Hellboy - Les germes de la destruction",
-    "publisher": "Dark Horse Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 167342,
-        "name": "Hellboy - Les germes de la destruction",
-        "publisher": "Dark Horse France",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T14:04:40.221548+00:00",
-    "retry_after": "2026-10-04T14:04:40.221563+00:00"
-  },
-  {
     "name": "Wish You Were Here",
     "publisher": "Fantagraphics",
     "year": 2005,
@@ -38647,5 +38579,91 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T14:05:45.917346+00:00",
     "retry_after": "2026-10-04T14:05:45.917362+00:00"
+  },
+  {
+    "name": "Pop Gun War",
+    "publisher": "Image Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61347,
+        "name": "Pop Gun War",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T15:03:44.766872+00:00",
+    "retry_after": "2026-10-04T15:03:44.766893+00:00"
+  },
+  {
+    "name": "X-Men: God Loves, Man Kills Extended Cut",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 128448,
+        "name": "X-Men: God Loves, Man Kills Extended Cut",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 132641,
+        "name": "X-Men: God Loves, Man Kills Extended Cut",
+        "publisher": "Marvel",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T15:03:54.771330+00:00",
+    "retry_after": "2026-10-04T15:03:54.771348+00:00"
+  },
+  {
+    "name": "Kingdom Come",
+    "publisher": "DC Comics",
+    "year": 2000,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5753,
+        "name": "Kingdom Come",
+        "publisher": "DC Comics",
+        "start_year": 1996
+      },
+      {
+        "id": 68185,
+        "name": "Kingdom Come",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T15:06:44.527660+00:00",
+    "retry_after": "2026-10-04T15:06:44.527669+00:00"
+  },
+  {
+    "name": "Uncanny X-Force",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 35835,
+        "name": "Uncanny X-Force",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 56119,
+        "name": "Uncanny X-Force",
+        "publisher": "Marvel",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T15:06:44.885839+00:00",
+    "retry_after": "2026-10-04T15:06:44.885846+00:00"
   }
 ]

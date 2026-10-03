@@ -33452,9 +33452,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T07:00:42.344226+00:00",
-    "retry_after": "2026-10-03T07:00:42.344242+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T08:00:38.551519+00:00",
+    "retry_after": "2026-10-10T08:00:38.551535+00:00"
   },
   {
     "name": "Lady Death IV: The Crucible",
@@ -33462,9 +33462,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T07:00:42.754117+00:00",
-    "retry_after": "2026-10-03T07:00:42.754134+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T08:00:37.920831+00:00",
+    "retry_after": "2026-10-10T08:00:37.920843+00:00"
   },
   {
     "name": "Astro City: The Dark Age",
@@ -38296,5 +38296,95 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T07:03:22.142140+00:00",
     "retry_after": "2026-10-04T07:03:22.142157+00:00"
+  },
+  {
+    "name": "True Believers: Fantastic Four - Puppet Master",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T08:00:40.098150+00:00",
+    "retry_after": "2026-10-04T08:00:40.098167+00:00"
+  },
+  {
+    "name": "Superman Annual",
+    "publisher": "DC Comics",
+    "year": 2008,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3817,
+        "name": "Superman Annual",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 96165,
+        "name": "Superman Annual",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 2016,
+        "name": "Superman Annual",
+        "publisher": "DC Comics",
+        "start_year": 1960
+      },
+      {
+        "id": 51617,
+        "name": "Superman Annual",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T08:03:27.224774+00:00",
+    "retry_after": "2026-10-04T08:03:27.224792+00:00"
+  },
+  {
+    "name": "Ant-Man / Giant-Man Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T08:03:44.327414+00:00",
+    "retry_after": "2026-10-04T08:03:44.327430+00:00"
+  },
+  {
+    "name": "Space Adventures",
+    "publisher": "Charlton Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2384,
+        "name": "Space Adventures",
+        "publisher": "Charlton",
+        "start_year": 1968
+      },
+      {
+        "id": 2938,
+        "name": "Space Adventures",
+        "publisher": "Charlton",
+        "start_year": 1978
+      },
+      {
+        "id": 1887,
+        "name": "Space Adventures",
+        "publisher": "Charlton",
+        "start_year": 1958
+      },
+      {
+        "id": 1534,
+        "name": "Space Adventures",
+        "publisher": "Charlton",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T08:03:51.122346+00:00",
+    "retry_after": "2026-10-04T08:03:51.122362+00:00"
   }
 ]

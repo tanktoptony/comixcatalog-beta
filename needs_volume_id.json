@@ -34000,9 +34000,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T13:00:42.756259+00:00",
-    "retry_after": "2026-10-03T13:00:42.756275+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T13:00:48.511675+00:00",
+    "retry_after": "2026-10-10T13:00:48.511688+00:00"
   },
   {
     "name": "Ultimate Spider-Man Special Edition",
@@ -34010,9 +34010,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T13:00:43.345830+00:00",
-    "retry_after": "2026-10-03T13:00:43.345847+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T13:00:49.718316+00:00",
+    "retry_after": "2026-10-10T13:00:49.718332+00:00"
   },
   {
     "name": "The Sarge",
@@ -34020,9 +34020,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T13:00:43.781292+00:00",
-    "retry_after": "2026-10-03T13:00:43.781309+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T13:00:50.159033+00:00",
+    "retry_after": "2026-10-10T13:00:50.159047+00:00"
   },
   {
     "name": "Ultimates Omniversal",
@@ -38539,5 +38539,69 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T11:02:41.692817+00:00",
     "retry_after": "2026-10-04T11:02:41.692832+00:00"
+  },
+  {
+    "name": "Junkwaffel",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52675,
+        "name": "Junkwaffel",
+        "publisher": "Last Gasp",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T13:00:50.446314+00:00",
+    "retry_after": "2026-10-04T13:00:50.446327+00:00"
+  },
+  {
+    "name": "Hellboy - Les germes de la destruction",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167342,
+        "name": "Hellboy - Les germes de la destruction",
+        "publisher": "Dark Horse France",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T13:01:01.030559+00:00",
+    "retry_after": "2026-10-04T13:01:01.030575+00:00"
+  },
+  {
+    "name": "Grendel Tales",
+    "publisher": "Dark Horse Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T13:01:01.641571+00:00",
+    "retry_after": "2026-10-04T13:01:01.641585+00:00"
+  },
+  {
+    "name": "Heaven Sent Pocket Manga",
+    "publisher": "Antarctic Press",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T13:01:55.079583+00:00",
+    "retry_after": "2026-10-04T13:01:55.079599+00:00"
+  },
+  {
+    "name": "A Science Affair",
+    "publisher": "Antarctic Press",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T13:01:55.680197+00:00",
+    "retry_after": "2026-10-04T13:01:55.680211+00:00"
   }
 ]

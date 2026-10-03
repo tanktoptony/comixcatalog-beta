@@ -33710,9 +33710,9 @@
     "year": null,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T10:00:45.771404+00:00",
-    "retry_after": "2026-10-03T10:00:45.771437+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T10:00:49.380241+00:00",
+    "retry_after": "2026-10-10T10:00:49.380257+00:00"
   },
   {
     "name": "X-Men: Divided We Stand",
@@ -33733,9 +33733,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T10:00:46.774348+00:00",
-    "retry_after": "2026-10-03T10:00:46.774364+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T10:00:50.271502+00:00",
+    "retry_after": "2026-10-10T10:00:50.271518+00:00"
   },
   {
     "name": "ElfQuest: The Original Quest",
@@ -33743,9 +33743,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T10:00:47.201582+00:00",
-    "retry_after": "2026-10-03T10:00:47.201599+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T10:00:50.730317+00:00",
+    "retry_after": "2026-10-10T10:00:50.730332+00:00"
   },
   {
     "name": "Uncanny X-Force by Rick Remender: The Complete Collection",
@@ -38426,5 +38426,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T09:01:06.592158+00:00",
     "retry_after": "2026-10-04T09:01:06.592175+00:00"
+  },
+  {
+    "name": "The Life and Comics of Basil Wolverton",
+    "publisher": "Fantagraphics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T10:03:42.040279+00:00",
+    "retry_after": "2026-10-04T10:03:42.040294+00:00"
   }
 ]

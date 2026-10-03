@@ -34030,9 +34030,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T14:00:43.674443+00:00",
-    "retry_after": "2026-10-03T14:00:43.674454+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T14:04:38.151677+00:00",
+    "retry_after": "2026-10-10T14:04:38.151694+00:00"
   },
   {
     "name": "Donald Duck: The Complete Sunday Comics",
@@ -34040,9 +34040,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T14:00:43.051263+00:00",
-    "retry_after": "2026-10-03T14:00:43.051277+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T14:04:38.585539+00:00",
+    "retry_after": "2026-10-10T14:04:38.585556+00:00"
   },
   {
     "name": "Astonishing X-Men by Charles Soule",
@@ -34050,9 +34050,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T14:00:43.524444+00:00",
-    "retry_after": "2026-10-03T14:00:43.524462+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T14:04:38.903368+00:00",
+    "retry_after": "2026-10-10T14:04:38.903384+00:00"
   },
   {
     "name": "Year One: Batman / Ra's al Ghul",
@@ -38535,5 +38535,117 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T13:01:55.680197+00:00",
     "retry_after": "2026-10-04T13:01:55.680211+00:00"
+  },
+  {
+    "name": "Bullseye",
+    "publisher": "Charlton Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 98512,
+        "name": "Bullseye",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T14:04:39.202632+00:00",
+    "retry_after": "2026-10-04T14:04:39.202648+00:00"
+  },
+  {
+    "name": "Die-Cut vs. G-Force",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5080,
+        "name": "Die-Cut Vs. G-Force",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T14:04:39.702121+00:00",
+    "retry_after": "2026-10-04T14:04:39.702138+00:00"
+  },
+  {
+    "name": "Junkwaffel",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52675,
+        "name": "Junkwaffel",
+        "publisher": "Last Gasp",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T14:04:39.928057+00:00",
+    "retry_after": "2026-10-04T14:04:39.928071+00:00"
+  },
+  {
+    "name": "Hellboy - Les germes de la destruction",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167342,
+        "name": "Hellboy - Les germes de la destruction",
+        "publisher": "Dark Horse France",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T14:04:40.221548+00:00",
+    "retry_after": "2026-10-04T14:04:40.221563+00:00"
+  },
+  {
+    "name": "Wish You Were Here",
+    "publisher": "Fantagraphics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T14:05:06.816014+00:00",
+    "retry_after": "2026-10-04T14:05:06.816030+00:00"
+  },
+  {
+    "name": "Johnny Delgado Is Dead",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48445,
+        "name": "Johnny Delgado Is Dead",
+        "publisher": "Platinum Studios Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T14:05:07.361284+00:00",
+    "retry_after": "2026-10-04T14:05:07.361316+00:00"
+  },
+  {
+    "name": "Lensman",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76368,
+        "name": "Lensman",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T14:05:45.917346+00:00",
+    "retry_after": "2026-10-04T14:05:45.917362+00:00"
   }
 ]

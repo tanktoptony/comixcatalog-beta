@@ -33753,9 +33753,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T10:00:53.000606+00:00",
-    "retry_after": "2026-10-03T10:00:53.000621+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T10:45:18.091359+00:00",
+    "retry_after": "2026-10-10T10:45:18.091373+00:00"
   },
   {
     "name": "Avengers Unleashed",
@@ -33763,9 +33763,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T10:00:53.599041+00:00",
-    "retry_after": "2026-10-03T10:00:53.599057+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T10:45:18.560665+00:00",
+    "retry_after": "2026-10-10T10:45:18.560679+00:00"
   },
   {
     "name": "Young Avengers Modern Era Epic Collection",
@@ -33773,9 +33773,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T10:00:54.252061+00:00",
-    "retry_after": "2026-10-03T10:00:54.252076+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T10:45:18.954117+00:00",
+    "retry_after": "2026-10-10T10:45:18.954133+00:00"
   },
   {
     "name": "Dork Tower Swimsuit Special",
@@ -38436,5 +38436,62 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T10:03:42.040279+00:00",
     "retry_after": "2026-10-04T10:03:42.040294+00:00"
+  },
+  {
+    "name": "A Walk Through Hell: Halloween Edition",
+    "publisher": "AfterShock Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T10:45:17.244416+00:00",
+    "retry_after": "2026-10-04T10:45:17.244431+00:00"
+  },
+  {
+    "name": "Essential Sgt. Fury",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T10:45:17.716882+00:00",
+    "retry_after": "2026-10-04T10:45:17.716897+00:00"
+  },
+  {
+    "name": "Andy Capp Sounds Off",
+    "publisher": "Fawcett Comics",
+    "year": 1966,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T10:46:09.631080+00:00",
+    "retry_after": "2026-10-04T10:46:09.631098+00:00"
+  },
+  {
+    "name": "Indigo Prime",
+    "publisher": "Rebellion",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T10:46:09.918343+00:00",
+    "retry_after": "2026-10-04T10:46:09.918364+00:00"
+  },
+  {
+    "name": "Bullseye",
+    "publisher": "Charlton Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 98512,
+        "name": "Bullseye",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T10:46:23.005845+00:00",
+    "retry_after": "2026-10-04T10:46:23.005861+00:00"
   }
 ]

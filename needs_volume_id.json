@@ -34101,24 +34101,14 @@
     "retry_after": "2026-10-10T15:12:40.748333+00:00"
   },
   {
-    "name": "The Punisher: The Origin of Microchip",
-    "publisher": "Marvel Comics",
-    "year": 1993,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T15:40:47.887545+00:00",
-    "retry_after": "2026-10-03T15:40:47.887561+00:00"
-  },
-  {
     "name": "Rugrats: Bestest Comics",
     "publisher": "BOOM! Studios",
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T15:40:48.507834+00:00",
-    "retry_after": "2026-10-03T15:40:48.507851+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T16:00:56.551974+00:00",
+    "retry_after": "2026-10-10T16:00:56.551986+00:00"
   },
   {
     "name": "B.C. A Clam for Your Thoughts",
@@ -38619,5 +38609,161 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T15:15:08.943195+00:00",
     "retry_after": "2026-10-04T15:15:08.943207+00:00"
+  },
+  {
+    "name": "Kingdom Come",
+    "publisher": "DC Comics",
+    "year": 2000,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5753,
+        "name": "Kingdom Come",
+        "publisher": "DC Comics",
+        "start_year": 1996
+      },
+      {
+        "id": 68185,
+        "name": "Kingdom Come",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T16:00:57.045965+00:00",
+    "retry_after": "2026-10-04T16:00:57.045975+00:00"
+  },
+  {
+    "name": "Uncanny X-Force",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 35835,
+        "name": "Uncanny X-Force",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 56119,
+        "name": "Uncanny X-Force",
+        "publisher": "Marvel",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T16:00:57.476355+00:00",
+    "retry_after": "2026-10-04T16:00:57.476364+00:00"
+  },
+  {
+    "name": "Ultraman",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 97450,
+        "name": "Ultraman",
+        "publisher": "Shogakukan",
+        "start_year": 2012
+      },
+      {
+        "id": 83937,
+        "name": "Ultraman",
+        "publisher": "Viz",
+        "start_year": 2015
+      },
+      {
+        "id": 28593,
+        "name": "Ultraman",
+        "publisher": "Harvey",
+        "start_year": 1993
+      },
+      {
+        "id": 166995,
+        "name": "Ultraman",
+        "publisher": "JBC",
+        "start_year": 2015
+      },
+      {
+        "id": 28609,
+        "name": "Ultraman",
+        "publisher": "Harvey",
+        "start_year": 1994
+      },
+      {
+        "id": 173705,
+        "name": "Ultraman",
+        "publisher": "Asahi Sonorama",
+        "start_year": 1978
+      },
+      {
+        "id": 99459,
+        "name": "Ultraman",
+        "publisher": "Akita Shoten",
+        "start_year": 1968
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T16:03:43.293036+00:00",
+    "retry_after": "2026-10-04T16:03:43.293047+00:00"
+  },
+  {
+    "name": "X-O Manowar",
+    "publisher": "Valiant Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 100101,
+        "name": "X-O Manowar",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2017
+      },
+      {
+        "id": 4831,
+        "name": "X-O Manowar",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1992
+      },
+      {
+        "id": 48559,
+        "name": "X-O Manowar",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2012
+      },
+      {
+        "id": 6036,
+        "name": "X-O Manowar",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1997
+      },
+      {
+        "id": 126005,
+        "name": "X-O Manowar",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2020
+      },
+      {
+        "id": 136012,
+        "name": "X-O Manowar",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T16:05:01.376972+00:00",
+    "retry_after": "2026-10-04T16:05:01.376989+00:00"
+  },
+  {
+    "name": "The Amazing Spider-Man [Pro-Action]",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T16:05:01.872334+00:00",
+    "retry_after": "2026-10-04T16:05:01.872350+00:00"
   }
 ]

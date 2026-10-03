@@ -34116,9 +34116,9 @@
     "year": 1981,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T17:01:10.950813+00:00",
-    "retry_after": "2026-10-03T17:01:10.950828+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T18:00:47.497082+00:00",
+    "retry_after": "2026-10-10T18:00:47.497100+00:00"
   },
   {
     "name": "Ask for Mercy",
@@ -34126,9 +34126,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T17:01:12.471129+00:00",
-    "retry_after": "2026-10-03T17:01:12.471146+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T18:00:47.779393+00:00",
+    "retry_after": "2026-10-10T18:00:47.779409+00:00"
   },
   {
     "name": "Steel Claw",
@@ -34149,9 +34149,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T17:01:13.093983+00:00",
-    "retry_after": "2026-10-03T17:01:13.094000+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T18:00:48.724285+00:00",
+    "retry_after": "2026-10-10T18:00:48.724300+00:00"
   },
   {
     "name": "Megaton Man: Hardcopy",
@@ -34159,9 +34159,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T17:01:13.569470+00:00",
-    "retry_after": "2026-10-03T17:01:13.569486+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T18:00:49.209401+00:00",
+    "retry_after": "2026-10-10T18:00:49.209416+00:00"
   },
   {
     "name": "Uncanny X-Men: Wolverine and Cyclops",
@@ -38798,5 +38798,48 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T17:02:43.143913+00:00",
     "retry_after": "2026-10-04T17:02:43.143929+00:00"
+  },
+  {
+    "name": "The Rocketeer Jetpack Treasury Edition",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T18:00:47.057047+00:00",
+    "retry_after": "2026-10-04T18:00:47.057061+00:00"
+  },
+  {
+    "name": "Vanish",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 145172,
+        "name": "Vanish",
+        "publisher": "Image",
+        "start_year": 2022
+      },
+      {
+        "id": 149442,
+        "name": "Vanish",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T18:01:38.629694+00:00",
+    "retry_after": "2026-10-04T18:01:38.629709+00:00"
+  },
+  {
+    "name": "The Flash by Mark Waid Omnibus",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T18:02:09.161897+00:00",
+    "retry_after": "2026-10-04T18:02:09.161912+00:00"
   }
 ]

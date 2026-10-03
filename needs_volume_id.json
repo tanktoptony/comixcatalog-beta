@@ -32650,9 +32650,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T19:05:53.378483+00:00",
-    "retry_after": "2026-09-29T19:05:53.378497+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-03T07:03:11.215842+00:00",
+    "retry_after": "2026-10-06T07:03:11.215858+00:00"
   },
   {
     "name": "Britannia",
@@ -33472,9 +33472,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T07:00:44.228113+00:00",
-    "retry_after": "2026-10-03T07:00:44.228129+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T07:00:48.109553+00:00",
+    "retry_after": "2026-10-10T07:00:48.109569+00:00"
   },
   {
     "name": "Pirouette",
@@ -33495,9 +33495,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T07:00:44.910257+00:00",
-    "retry_after": "2026-10-03T07:00:44.910272+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T07:00:48.830351+00:00",
+    "retry_after": "2026-10-10T07:00:48.830366+00:00"
   },
   {
     "name": "Nightwing: A Knight in Bl�dhaven Compendium",
@@ -33505,9 +33505,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T07:00:46.572084+00:00",
-    "retry_after": "2026-10-03T07:00:46.572097+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T07:00:49.208268+00:00",
+    "retry_after": "2026-10-10T07:00:49.208282+00:00"
   },
   {
     "name": "The Losers",
@@ -33528,19 +33528,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T07:00:46.108112+00:00",
-    "retry_after": "2026-10-03T07:00:46.108136+00:00"
-  },
-  {
-    "name": "DC Comics Classics Library: The Batman Annuals",
-    "publisher": "DC Comics",
-    "year": 2009,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T07:00:46.511083+00:00",
-    "retry_after": "2026-10-03T07:00:46.511104+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T07:00:49.727804+00:00",
+    "retry_after": "2026-10-10T07:00:49.727819+00:00"
   },
   {
     "name": "Chaos! Monster Matinee",
@@ -38276,5 +38266,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T05:08:31.401823+00:00",
     "retry_after": "2026-10-04T05:08:31.401833+00:00"
+  },
+  {
+    "name": "Free Comic Book Day 2025: All Ages [Star Wars: Young Jedi Adventures / Avatar: The Last Airbender]",
+    "publisher": "Dark Horse Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T07:00:38.256669+00:00",
+    "retry_after": "2026-10-04T07:00:38.256685+00:00"
+  },
+  {
+    "name": "Avenging Spider-Man Daily Bugle",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T07:00:46.509577+00:00",
+    "retry_after": "2026-10-04T07:00:46.509593+00:00"
+  },
+  {
+    "name": "Deadworld Classic",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T07:03:22.142140+00:00",
+    "retry_after": "2026-10-04T07:03:22.142157+00:00"
   }
 ]

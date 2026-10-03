@@ -390,9 +390,18 @@ jobs:
       # under normal operation, so 24 hours of total silence is already a
       # meaningful signal something broke — no reason to wait a week to
       # find out.
+      #
+      # Once a day, not every hour (2026-10-03): a real stall is still caught
+      # within 24 hours, but it sends one failure email instead of one per
+      # run. Only the 12:00 UTC run checks; the others say so and pass.
       - name: Check pipeline health (stall)
         if: always()
-        run: node scripts/checkCoverIngestHealth.js --mode=stall --lookback-days=1
+        run: |
+          if [ "$(date -u +%H)" != "12" ]; then
+            echo "Stall check runs on the 12:00 UTC run only (one alert a day, not 24)."
+            exit 0
+          fi
+          node scripts/checkCoverIngestHealth.js --mode=stall --lookback-days=1
 
       - name: Check pipeline health (mis-linked volumes)
         if: always()

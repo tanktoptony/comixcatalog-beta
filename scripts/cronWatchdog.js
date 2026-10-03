@@ -27,8 +27,9 @@ const WATCHED = [
   // scheduled day, instead of the old 8-day window (sized for weekly
   // cadence) sitting quiet through most of a dead week.
   { file: "weekly-refresh.yml", maxAgeHours: 24 * 5 },
-  // Mon+Thu cron (08:00 UTC), same grace window.
-  { file: "gap-probe.yml", maxAgeHours: 24 * 5 },
+  // Daily cron (08:00 UTC) since 2026-10-03. 48 hours is one missed day
+  // plus slack.
+  { file: "gap-probe.yml", maxAgeHours: 48 },
   // Daily cron (18:00 UTC), moved from Wednesday-only 2026-09-23. 48 hours
   // is one missed day plus slack.
   //

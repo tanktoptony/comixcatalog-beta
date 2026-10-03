@@ -38903,5 +38903,80 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T18:34:56.633111+00:00",
     "retry_after": "2026-10-04T18:34:56.633128+00:00"
+  },
+  {
+    "name": "Black Panther",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4045,
+        "name": "Black Panther",
+        "publisher": "Marvel",
+        "start_year": 1988
+      },
+      {
+        "id": 6496,
+        "name": "Black Panther",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 111034,
+        "name": "Black Panther",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 2896,
+        "name": "Black Panther",
+        "publisher": "Marvel",
+        "start_year": 1977
+      },
+      {
+        "id": 25638,
+        "name": "Black Panther",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 11502,
+        "name": "Black Panther",
+        "publisher": "Marvel",
+        "start_year": 2005
+      },
+      {
+        "id": 89350,
+        "name": "Black Panther",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 140222,
+        "name": "Black Panther",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 151263,
+        "name": "Black Panther",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T19:02:56.872217+00:00",
+    "retry_after": "2026-10-04T19:02:56.872233+00:00"
+  },
+  {
+    "name": "Terminator 2",
+    "publisher": "Dynamite Entertainment",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T19:03:02.692940+00:00",
+    "retry_after": "2026-10-04T19:03:02.692956+00:00"
   }
 ]

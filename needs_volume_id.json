@@ -38493,5 +38493,61 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T10:46:23.005845+00:00",
     "retry_after": "2026-10-04T10:46:23.005861+00:00"
+  },
+  {
+    "name": "The AllNighter",
+    "publisher": "Dark Horse Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T11:00:46.921372+00:00",
+    "retry_after": "2026-10-04T11:00:46.921388+00:00"
+  },
+  {
+    "name": "Spider-Man Unlimited",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 10760,
+        "name": "Spider-Man Unlimited",
+        "publisher": "Marvel",
+        "start_year": 1999
+      },
+      {
+        "id": 5048,
+        "name": "Spider-Man Unlimited",
+        "publisher": "Marvel",
+        "start_year": 1993
+      },
+      {
+        "id": 11306,
+        "name": "Spider-Man Unlimited",
+        "publisher": "Marvel",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T11:01:08.512046+00:00",
+    "retry_after": "2026-10-04T11:01:08.512062+00:00"
+  },
+  {
+    "name": "Die-Cut vs. G-Force",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5080,
+        "name": "Die-Cut Vs. G-Force",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T11:02:41.692817+00:00",
+    "retry_after": "2026-10-04T11:02:41.692832+00:00"
   }
 ]

@@ -34421,9 +34421,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T22:01:26.172307+00:00",
-    "retry_after": "2026-10-03T22:01:26.172323+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T23:00:50.823488+00:00",
+    "retry_after": "2026-10-10T23:00:50.823504+00:00"
   },
   {
     "name": "The X-Files Magazine",
@@ -34431,9 +34431,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T22:01:26.720519+00:00",
-    "retry_after": "2026-10-03T22:01:26.720536+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T23:00:51.348592+00:00",
+    "retry_after": "2026-10-10T23:00:51.348608+00:00"
   },
   {
     "name": "Daredevil by Mark Waid & Chris Samnee",
@@ -34441,9 +34441,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-30T22:01:27.277827+00:00",
-    "retry_after": "2026-10-03T22:01:27.277845+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-03T23:00:51.781350+00:00",
+    "retry_after": "2026-10-10T23:00:51.781365+00:00"
   },
   {
     "name": "Tales of the Witchblade Collected Editions",
@@ -38013,9 +38013,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-02T22:00:49.308748+00:00",
-    "retry_after": "2026-10-03T22:00:49.308764+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-03T23:00:47.609717+00:00",
+    "retry_after": "2026-10-06T23:00:47.609733+00:00"
   },
   {
     "name": "Punisher: Franken-Castle � The Birth of the Monster",
@@ -38023,9 +38023,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-02T22:00:49.781107+00:00",
-    "retry_after": "2026-10-03T22:00:49.781123+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-03T23:00:47.993085+00:00",
+    "retry_after": "2026-10-06T23:00:47.993101+00:00"
   },
   {
     "name": "There's a Fly in My Swill!",
@@ -38033,9 +38033,9 @@
     "year": 1973,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-02T22:00:50.213143+00:00",
-    "retry_after": "2026-10-03T22:00:50.213159+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-03T23:00:48.909013+00:00",
+    "retry_after": "2026-10-06T23:00:48.909027+00:00"
   },
   {
     "name": "The Transformers: Cover Gallery",
@@ -38043,9 +38043,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-02T22:00:51.851190+00:00",
-    "retry_after": "2026-10-03T22:00:51.851205+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-03T23:00:49.373700+00:00",
+    "retry_after": "2026-10-06T23:00:49.373716+00:00"
   },
   {
     "name": "Hasbro / Dark Avengers / Uncanny X-Men: Exodus",
@@ -38053,9 +38053,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-02T22:00:52.368338+00:00",
-    "retry_after": "2026-10-03T22:00:52.368354+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-03T23:00:49.853271+00:00",
+    "retry_after": "2026-10-06T23:00:49.853286+00:00"
   },
   {
     "name": "The Walking Dead #1 Wizard World Las Vegas Comicon Exclusive",
@@ -38063,9 +38063,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-02T22:00:52.813033+00:00",
-    "retry_after": "2026-10-03T22:00:52.813049+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-03T23:00:50.403648+00:00",
+    "retry_after": "2026-10-06T23:00:50.403663+00:00"
   },
   {
     "name": "Lost Jungle Tales",
@@ -39229,5 +39229,49 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T21:55:28.453662+00:00",
     "retry_after": "2026-10-04T21:55:28.453677+00:00"
+  },
+  {
+    "name": "Monkey Peak",
+    "publisher": "Antarctic Press",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 98784,
+        "name": "Monkey Peak",
+        "publisher": "Nihon Bungeisha",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T23:00:58.583280+00:00",
+    "retry_after": "2026-10-04T23:00:58.583295+00:00"
+  },
+  {
+    "name": "The Dare Detectives",
+    "publisher": "Dark Horse Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54187,
+        "name": "The Dare Detectives!",
+        "publisher": "Archaia",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T23:01:29.589869+00:00",
+    "retry_after": "2026-10-04T23:01:29.589884+00:00"
+  },
+  {
+    "name": "Borderlands",
+    "publisher": "IDW Publishing",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T23:01:48.515585+00:00",
+    "retry_after": "2026-10-04T23:01:48.515600+00:00"
   }
 ]

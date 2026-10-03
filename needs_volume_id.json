@@ -38765,5 +38765,38 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T16:05:01.872334+00:00",
     "retry_after": "2026-10-04T16:05:01.872350+00:00"
+  },
+  {
+    "name": "Signals",
+    "publisher": "Dark Horse Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T17:02:29.216165+00:00",
+    "retry_after": "2026-10-04T17:02:29.216185+00:00"
+  },
+  {
+    "name": "Grim",
+    "publisher": "BOOM! Studios",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 142872,
+        "name": "Grim",
+        "publisher": "Boom! Studios",
+        "start_year": 2022
+      },
+      {
+        "id": 154255,
+        "name": "Grim",
+        "publisher": "Boom! Studios",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-03T17:02:43.143913+00:00",
+    "retry_after": "2026-10-04T17:02:43.143929+00:00"
   }
 ]

@@ -1022,12 +1022,12 @@ function LibraryPageContent() {
   // Hybrid-duplicate detection.
   //
   // Same-key duplicates (two rows for the same comic_id or two rows for the
-  // same gcd_issue_id) are impossible — both the in-app add path and CSV
-  // import explicitly upsert/lookup-then-insert. What CAN slip through is
-  // a *hybrid* duplicate: the same logical issue stored once as a local
-  // `comics` row (typed in or CSV-imported before we had the GCD match) and
-  // again as a `gcd_issue_id` row (added later via search after ingestion).
-  // Two different library keys, same physical book.
+  // same gcd_issue_id) are not the expected path, but they are still possible
+  // when stale cache state, older CSV imports, or mixed local/GCD rows land in
+  // the same account. A hybrid duplicate is the more common case: the same
+  // logical issue stored once as a local `comics` row and again as a
+  // `gcd_issue_id` row after a later catalog match. Two different library keys,
+  // same physical book.
   //
   // We group owned rows by normalized (title, issue_number) — sourced from
   // the hydrated `comic` object, since the raw library row doesn't carry

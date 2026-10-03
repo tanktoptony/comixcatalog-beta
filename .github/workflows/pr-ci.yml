@@ -44,11 +44,10 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      # Repo-wide `npm run lint` currently fails on ~29 pre-existing errors
-      # unrelated to any given PR (confirmed 2026-08-04) — running it
-      # unscoped would make every PR permanently red and auto-merge would
-      # never fire. Lint only the JS/JSX files the PR actually touches
-      # instead; fixing the pre-existing backlog is separate, tracked work.
+      # Keep PR checks focused on the JS/JSX files the change actually
+      # touches so unrelated repo-wide lint debt does not keep every PR red.
+      # This is a narrower gate than the full repo lint and is intentionally
+      # used for cleanup work that should not expand into a broad refactor.
       - name: Lint changed files
         run: |
           CHANGED=$(git diff --name-only --diff-filter=ACMR "origin/${{ github.base_ref }}"...HEAD -- '*.js' '*.jsx')

@@ -20,6 +20,7 @@ export default function NewBlogPostPage() {
 
   const [error, setError] = useState(null);
   const [saving, setSaving] = useState(false);
+  const [slugTouched, setSlugTouched] = useState(false);
 
   if (!user) {
     return <p>Loading...</p>;
@@ -59,7 +60,6 @@ export default function NewBlogPostPage() {
 
   // Auto-derive a URL-safe slug from the title as the user types it,
   // unless they've manually edited the slug already.
-  const [slugTouched, setSlugTouched] = useState(false);
   function handleTitleChange(value) {
     const next = { ...form, title: value };
     if (!slugTouched) {

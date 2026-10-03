@@ -38468,23 +38468,6 @@
     "retry_after": "2026-10-04T10:46:09.918364+00:00"
   },
   {
-    "name": "Bullseye",
-    "publisher": "Charlton Comics",
-    "year": 1955,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 98512,
-        "name": "Bullseye",
-        "publisher": "Marvel",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T10:46:23.005845+00:00",
-    "retry_after": "2026-10-04T10:46:23.005861+00:00"
-  },
-  {
     "name": "The AllNighter",
     "publisher": "Dark Horse Comics",
     "year": 2022,
@@ -38522,57 +38505,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T11:01:08.512046+00:00",
     "retry_after": "2026-10-04T11:01:08.512062+00:00"
-  },
-  {
-    "name": "Die-Cut vs. G-Force",
-    "publisher": "Marvel Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 5080,
-        "name": "Die-Cut Vs. G-Force",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T11:02:41.692817+00:00",
-    "retry_after": "2026-10-04T11:02:41.692832+00:00"
-  },
-  {
-    "name": "Junkwaffel",
-    "publisher": "Fantagraphics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52675,
-        "name": "Junkwaffel",
-        "publisher": "Last Gasp",
-        "start_year": 1972
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T13:00:50.446314+00:00",
-    "retry_after": "2026-10-04T13:00:50.446327+00:00"
-  },
-  {
-    "name": "Hellboy - Les germes de la destruction",
-    "publisher": "Dark Horse Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 167342,
-        "name": "Hellboy - Les germes de la destruction",
-        "publisher": "Dark Horse France",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T13:01:01.030559+00:00",
-    "retry_after": "2026-10-04T13:01:01.030575+00:00"
   },
   {
     "name": "Grendel Tales",

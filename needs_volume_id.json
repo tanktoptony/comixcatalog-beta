@@ -37908,23 +37908,6 @@
     "retry_after": "2026-10-06T00:48:43.878350+00:00"
   },
   {
-    "name": "The Drude",
-    "publisher": "First Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 92497,
-        "name": "The Drude",
-        "publisher": "1First Comics",
-        "start_year": 2016
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-01T18:02:45.546815+00:00",
-    "retry_after": "2026-10-02T18:02:45.546830+00:00"
-  },
-  {
     "name": "True Believers: Spider-Man - Spidey Fights in London!",
     "publisher": "Marvel Comics",
     "year": 2019,
@@ -37945,40 +37928,6 @@
     "retry_after": "2026-10-02T19:02:09.040398+00:00"
   },
   {
-    "name": "Fairy Quest",
-    "publisher": "BOOM! Studios",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 66229,
-        "name": "Fairy Quest",
-        "publisher": "Éditions Glénat",
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-01T19:02:15.832121+00:00",
-    "retry_after": "2026-10-02T19:02:15.832136+00:00"
-  },
-  {
-    "name": "Finn",
-    "publisher": "Rebellion",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 51360,
-        "name": "Finn",
-        "publisher": "Fleetway Quality",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-01T20:02:05.734550+00:00",
-    "retry_after": "2026-10-02T20:02:05.734566+00:00"
-  },
-  {
     "name": "Astonishing X-Men by Joss Whedon & John Cassaday Ultimate Collection",
     "publisher": "Marvel Comics",
     "year": 2012,
@@ -37997,23 +37946,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-01T20:11:24.165776+00:00",
     "retry_after": "2026-10-02T20:11:24.165795+00:00"
-  },
-  {
-    "name": "The Passion of Gengoroh Tagame: Master of Gay Erotic Manga",
-    "publisher": "Fantagraphics",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 60310,
-        "name": "The Passion of Gengoroh Tagame: Master of Gay Erotic Manga",
-        "publisher": "Picturebox",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-01T20:12:08.077974+00:00",
-    "retry_after": "2026-10-02T20:12:08.077993+00:00"
   },
   {
     "name": "Convergence Worlds' Finest",
@@ -38087,23 +38019,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-03T01:02:11.325242+00:00",
     "retry_after": "2026-10-06T01:02:11.325257+00:00"
-  },
-  {
-    "name": "Hack/Slash Omnibus",
-    "publisher": "Devil's Due",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 36766,
-        "name": "Hack/Slash: Omnibus",
-        "publisher": "Image",
-        "start_year": 2010
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-01T22:18:37.103613+00:00",
-    "retry_after": "2026-10-02T22:18:37.103628+00:00"
   },
   {
     "name": "Toy Fair Face-Off! [Amazing Spider-Man Toy Fair Special]",

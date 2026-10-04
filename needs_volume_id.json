@@ -20613,9 +20613,9 @@
     "year": 1986,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-27T22:02:15.089416+00:00",
-    "retry_after": "2026-10-04T22:02:15.089433+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-04T23:00:48.450774+00:00",
+    "retry_after": "2026-10-18T23:00:48.450790+00:00"
   },
   {
     "name": "Robin II",
@@ -20623,19 +20623,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-27T22:02:15.552220+00:00",
-    "retry_after": "2026-10-04T22:02:15.552238+00:00"
-  },
-  {
-    "name": "Fantastic Four: World's Greatest Comics Magazine",
-    "publisher": "Marvel Comics",
-    "year": 2001,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-27T22:02:15.986744+00:00",
-    "retry_after": "2026-10-04T22:02:15.986761+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-04T23:00:49.131227+00:00",
+    "retry_after": "2026-10-18T23:00:49.131243+00:00"
   },
   {
     "name": "Starmasters",
@@ -20643,9 +20633,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-27T22:02:16.636672+00:00",
-    "retry_after": "2026-10-04T22:02:16.636687+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-04T23:00:49.617233+00:00",
+    "retry_after": "2026-10-18T23:00:49.617246+00:00"
   },
   {
     "name": "Justice League of America [So Much Fun]",
@@ -40746,5 +40736,108 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T22:05:17.099024+00:00",
     "retry_after": "2026-10-05T22:05:17.099041+00:00"
+  },
+  {
+    "name": "Jet Scott",
+    "publisher": "Dark Horse Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T23:01:05.755570+00:00",
+    "retry_after": "2026-10-05T23:01:05.755583+00:00"
+  },
+  {
+    "name": "All-New X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 77305,
+        "name": "All-New X-Men",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 53919,
+        "name": "All-New X-Men",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 86334,
+        "name": "All-New X-Men",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T23:01:07.326890+00:00",
+    "retry_after": "2026-10-05T23:01:07.326912+00:00"
+  },
+  {
+    "name": "Magician Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23351,
+        "name": "Magician: Apprentice",
+        "publisher": "Dabel Brothers Productions",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T23:02:09.623218+00:00",
+    "retry_after": "2026-10-05T23:02:09.623235+00:00"
+  },
+  {
+    "name": "The Sandman Omnibus Silver Edition",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T23:02:18.735071+00:00",
+    "retry_after": "2026-10-05T23:02:18.735084+00:00"
+  },
+  {
+    "name": "Buck Rogers, Giant Movie Edition",
+    "publisher": "Gold Key",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29796,
+        "name": "Buck Rogers, Giant Movie Edition",
+        "publisher": "Marvel",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T23:02:33.483602+00:00",
+    "retry_after": "2026-10-05T23:02:33.483634+00:00"
+  },
+  {
+    "name": "The New Adventures of Pinocchio",
+    "publisher": "Dell Comics",
+    "year": 1962,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T23:02:33.991900+00:00",
+    "retry_after": "2026-10-05T23:02:33.991916+00:00"
+  },
+  {
+    "name": "Amazing Spider-Man by J. Michael Straczynski Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T23:03:22.184471+00:00",
+    "retry_after": "2026-10-05T23:03:22.184487+00:00"
   }
 ]

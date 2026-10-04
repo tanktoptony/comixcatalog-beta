@@ -9907,28 +9907,6 @@
     "retry_after": "2026-09-21T14:00:38.556009+00:00"
   },
   {
-    "name": "Captain America",
-    "publisher": "Marvel Comics",
-    "year": 2023,
-    "reason": "multiple_same_start_year",
-    "candidates": [
-      {
-        "id": 151915,
-        "name": "Captain America ",
-        "publisher": "Marvel",
-        "start_year": 2023
-      },
-      {
-        "id": 153610,
-        "name": "Captain America",
-        "publisher": "Marvel",
-        "start_year": 2023
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556012+00:00"
-  },
-  {
     "name": "Geiger",
     "publisher": "Image Comics",
     "year": 2021,

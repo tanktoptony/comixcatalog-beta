@@ -38073,9 +38073,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-02T23:01:07.137429+00:00",
-    "retry_after": "2026-10-03T23:01:07.137445+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-04T00:00:45.009371+00:00",
+    "retry_after": "2026-10-07T00:00:45.009388+00:00"
   },
   {
     "name": "Superman 32 Special Edition",
@@ -38083,9 +38083,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-02T23:01:11.478877+00:00",
-    "retry_after": "2026-10-03T23:01:11.478893+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-04T00:00:46.011981+00:00",
+    "retry_after": "2026-10-07T00:00:46.012002+00:00"
   },
   {
     "name": "DC Retroactive: Flash - The '80s",
@@ -39273,5 +39273,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T23:01:48.515585+00:00",
     "retry_after": "2026-10-04T23:01:48.515600+00:00"
+  },
+  {
+    "name": "The Cursed Earth",
+    "publisher": "Titan Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T00:03:09.109790+00:00",
+    "retry_after": "2026-10-05T00:03:09.109807+00:00"
   }
 ]

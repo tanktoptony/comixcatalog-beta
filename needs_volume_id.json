@@ -40703,5 +40703,48 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T21:04:24.930147+00:00",
     "retry_after": "2026-10-05T21:04:24.930162+00:00"
+  },
+  {
+    "name": "Star Wars: Kanan",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T22:01:25.505872+00:00",
+    "retry_after": "2026-10-05T22:01:25.505889+00:00"
+  },
+  {
+    "name": "Wildstorm: Michael Cray",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T22:02:06.907913+00:00",
+    "retry_after": "2026-10-05T22:02:06.907932+00:00"
+  },
+  {
+    "name": "JLA: World Without Grown-Ups",
+    "publisher": "DC Comics",
+    "year": 1998,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 33370,
+        "name": "JLA: World Without Grown-Ups",
+        "publisher": "DC Comics",
+        "start_year": 1998
+      },
+      {
+        "id": 6170,
+        "name": "JLA: World Without Grown-Ups",
+        "publisher": "DC Comics",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T22:05:17.099024+00:00",
+    "retry_after": "2026-10-05T22:05:17.099041+00:00"
   }
 ]

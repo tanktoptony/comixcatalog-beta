@@ -38143,9 +38143,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T01:00:48.313847+00:00",
-    "retry_after": "2026-10-04T01:00:48.313863+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-04T02:00:47.427245+00:00",
+    "retry_after": "2026-10-07T02:00:47.427262+00:00"
   },
   {
     "name": "American Flagg!: Definitive Collection",
@@ -38153,19 +38153,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T01:00:50.695608+00:00",
-    "retry_after": "2026-10-04T01:00:50.695625+00:00"
-  },
-  {
-    "name": "The Multiversity: The Society of Super-Heroes: Conquerors of the Counter-World",
-    "publisher": "DC Comics",
-    "year": 2014,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T01:01:45.484493+00:00",
-    "retry_after": "2026-10-04T01:01:45.484505+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-04T02:00:47.740491+00:00",
+    "retry_after": "2026-10-07T02:00:47.740507+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Bendis and Maleev",
@@ -38173,9 +38163,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T01:01:46.361939+00:00",
-    "retry_after": "2026-10-04T01:01:46.361952+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-04T02:00:58.289814+00:00",
+    "retry_after": "2026-10-07T02:00:58.289830+00:00"
   },
   {
     "name": "Marvel Milestone Edition: The Incredible Hulk #1",
@@ -38183,9 +38173,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T01:01:48.123594+00:00",
-    "retry_after": "2026-10-04T01:01:48.123610+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-04T02:00:47.120958+00:00",
+    "retry_after": "2026-10-07T02:00:47.120974+00:00"
   },
   {
     "name": "Airboy: Deadeye TPB",
@@ -38193,9 +38183,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T01:01:56.822419+00:00",
-    "retry_after": "2026-10-04T01:01:56.822434+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-04T02:00:59.068721+00:00",
+    "retry_after": "2026-10-07T02:00:59.068737+00:00"
   },
   {
     "name": "Count Duckula Annual",
@@ -38203,9 +38193,9 @@
     "year": 1988,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T01:02:14.043603+00:00",
-    "retry_after": "2026-10-04T01:02:14.043618+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-04T02:00:59.739111+00:00",
+    "retry_after": "2026-10-07T02:00:59.739126+00:00"
   },
   {
     "name": "Captain America Reborn: Who Will Wield the Shield? One-Shot",
@@ -39366,5 +39356,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T01:02:58.113280+00:00",
     "retry_after": "2026-10-05T01:02:58.113298+00:00"
+  },
+  {
+    "name": "Archie Adventure Series",
+    "publisher": "Archie Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T02:01:00.571365+00:00",
+    "retry_after": "2026-10-05T02:01:00.571380+00:00"
+  },
+  {
+    "name": "Global Frequency",
+    "publisher": "WildStorm",
+    "year": 2004,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 56398,
+        "name": "Global Frequency",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 18041,
+        "name": "Global Frequency",
+        "publisher": "DC Comics",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T02:01:14.993795+00:00",
+    "retry_after": "2026-10-05T02:01:14.993809+00:00"
+  },
+  {
+    "name": "John Constantine Hellblazer by Jamie Delano Omnibus",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T02:01:21.148062+00:00",
+    "retry_after": "2026-10-05T02:01:21.148079+00:00"
+  },
+  {
+    "name": "Stormwatch",
+    "publisher": "Image Comics",
+    "year": 2003,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5174,
+        "name": "Stormwatch",
+        "publisher": "Image",
+        "start_year": 1993
+      },
+      {
+        "id": 6095,
+        "name": "Stormwatch",
+        "publisher": "Image",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T02:01:38.772276+00:00",
+    "retry_after": "2026-10-05T02:01:38.772292+00:00"
   }
 ]

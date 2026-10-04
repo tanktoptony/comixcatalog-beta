@@ -40181,5 +40181,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T16:03:48.044002+00:00",
     "retry_after": "2026-10-05T16:03:48.044019+00:00"
+  },
+  {
+    "name": "Shoujo Pocket Manga",
+    "publisher": "Antarctic Press",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T17:00:47.206352+00:00",
+    "retry_after": "2026-10-05T17:00:47.206373+00:00"
+  },
+  {
+    "name": "Mighty Morphin Power Rangers: Necessary Evil",
+    "publisher": "BOOM! Studios",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T17:01:05.151406+00:00",
+    "retry_after": "2026-10-05T17:01:05.151425+00:00"
+  },
+  {
+    "name": "X-Men: Second Coming",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 32271,
+        "name": "X-Men: Second Coming",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 35716,
+        "name": "X-Men: Second Coming",
+        "publisher": "Marvel",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T17:02:21.640675+00:00",
+    "retry_after": "2026-10-05T17:02:21.640693+00:00"
+  },
+  {
+    "name": "Star Trek: Deep Space Nine / Star Trek: The Next Generation",
+    "publisher": "Malibu Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T17:02:30.544189+00:00",
+    "retry_after": "2026-10-05T17:02:30.544207+00:00"
   }
 ]

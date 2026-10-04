@@ -40586,5 +40586,32 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T20:12:11.476118+00:00",
     "retry_after": "2026-10-05T20:12:11.476134+00:00"
+  },
+  {
+    "name": "Convergence Flash",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88184,
+        "name": "Convergence: Flash",
+        "publisher": "Panini Verlag",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T20:36:12.549794+00:00",
+    "retry_after": "2026-10-05T20:36:12.549811+00:00"
+  },
+  {
+    "name": "Laurell K. Hamilton's Anita Blake - Vampire Hunter: The First Death",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T20:36:58.027389+00:00",
+    "retry_after": "2026-10-05T20:36:58.027406+00:00"
   }
 ]

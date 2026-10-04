@@ -40326,5 +40326,101 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T17:13:05.392209+00:00",
     "retry_after": "2026-10-05T17:13:05.392225+00:00"
+  },
+  {
+    "name": "Duncan's Kingdom",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T18:00:45.708930+00:00",
+    "retry_after": "2026-10-05T18:00:45.708947+00:00"
+  },
+  {
+    "name": "Ascension",
+    "publisher": "Top Cow Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20237,
+        "name": "Ascension",
+        "publisher": "Image",
+        "start_year": 1997
+      },
+      {
+        "id": 89659,
+        "name": "Ascension",
+        "publisher": "Splitter",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T18:00:55.010054+00:00",
+    "retry_after": "2026-10-05T18:00:55.010070+00:00"
+  },
+  {
+    "name": "Superman and Justice League America",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T18:00:55.534948+00:00",
+    "retry_after": "2026-10-05T18:00:55.534964+00:00"
+  },
+  {
+    "name": "B.C. -- But Theriously Folkth...",
+    "publisher": "Fawcett Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T18:02:00.020687+00:00",
+    "retry_after": "2026-10-05T18:02:00.020706+00:00"
+  },
+  {
+    "name": "Hey, Peanuts!",
+    "publisher": "Fawcett Comics",
+    "year": 1962,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T18:02:00.840884+00:00",
+    "retry_after": "2026-10-05T18:02:00.840900+00:00"
+  },
+  {
+    "name": "The Stardust Kid",
+    "publisher": "BOOM! Studios",
+    "year": 2006,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 107161,
+        "name": "The Stardust Kid",
+        "publisher": "Boom! Studios",
+        "start_year": 2017
+      },
+      {
+        "id": 32172,
+        "name": "The Stardust Kid",
+        "publisher": "Boom! Studios",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T18:02:27.719148+00:00",
+    "retry_after": "2026-10-05T18:02:27.719164+00:00"
+  },
+  {
+    "name": "Detective Comics Special Reprint [Toys 'R' Us Special Replica Edition]",
+    "publisher": "DC Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T18:02:28.176541+00:00",
+    "retry_after": "2026-10-05T18:02:28.176557+00:00"
   }
 ]

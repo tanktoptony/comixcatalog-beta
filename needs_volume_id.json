@@ -38476,57 +38476,6 @@
     "retry_after": "2026-10-04T14:05:06.816030+00:00"
   },
   {
-    "name": "Johnny Delgado Is Dead",
-    "publisher": "Image Comics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 48445,
-        "name": "Johnny Delgado Is Dead",
-        "publisher": "Platinum Studios Comics",
-        "start_year": 2007
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T14:05:07.361284+00:00",
-    "retry_after": "2026-10-04T14:05:07.361316+00:00"
-  },
-  {
-    "name": "Lensman",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 76368,
-        "name": "Lensman",
-        "publisher": "Eternity",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T14:05:45.917346+00:00",
-    "retry_after": "2026-10-04T14:05:45.917362+00:00"
-  },
-  {
-    "name": "Pop Gun War",
-    "publisher": "Image Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 61347,
-        "name": "Pop Gun War",
-        "publisher": "Dark Horse Comics",
-        "start_year": 2003
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T15:15:03.109386+00:00",
-    "retry_after": "2026-10-04T15:15:03.109401+00:00"
-  },
-  {
     "name": "X-Men: God Loves, Man Kills Extended Cut",
     "publisher": "Marvel Comics",
     "year": 2020,
@@ -39110,23 +39059,6 @@
     "retry_after": "2026-10-04T21:53:50.090453+00:00"
   },
   {
-    "name": "Usagi Yojimbo Color Special",
-    "publisher": "Dark Horse Comics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 4270,
-        "name": "Usagi Yojimbo Color Special",
-        "publisher": "Fantagraphics",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T21:53:50.809387+00:00",
-    "retry_after": "2026-10-04T21:53:50.809402+00:00"
-  },
-  {
     "name": "Chaos War: X-Men",
     "publisher": "Marvel Comics",
     "year": 2011,
@@ -39168,40 +39100,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-03T21:55:28.453662+00:00",
     "retry_after": "2026-10-04T21:55:28.453677+00:00"
-  },
-  {
-    "name": "Monkey Peak",
-    "publisher": "Antarctic Press",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 98784,
-        "name": "Monkey Peak",
-        "publisher": "Nihon Bungeisha",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T23:00:58.583280+00:00",
-    "retry_after": "2026-10-04T23:00:58.583295+00:00"
-  },
-  {
-    "name": "The Dare Detectives",
-    "publisher": "Dark Horse Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 54187,
-        "name": "The Dare Detectives!",
-        "publisher": "Archaia",
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T23:01:29.589869+00:00",
-    "retry_after": "2026-10-04T23:01:29.589884+00:00"
   },
   {
     "name": "Borderlands",
@@ -39903,23 +39801,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T11:02:09.869556+00:00",
     "retry_after": "2026-10-05T11:02:09.869575+00:00"
-  },
-  {
-    "name": "Sad Sack At Home for the Holidays",
-    "publisher": "Harvey Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20048,
-        "name": "Sad Sack At Home for the Holidays",
-        "publisher": "Lorne-Harvey",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-04T11:02:13.797659+00:00",
-    "retry_after": "2026-10-05T11:02:13.797677+00:00"
   },
   {
     "name": "Elvira Mistress of the Dark: The Classic Years",

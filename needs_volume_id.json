@@ -34451,19 +34451,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T00:01:26.429824+00:00",
-    "retry_after": "2026-10-04T00:01:26.429842+00:00"
-  },
-  {
-    "name": "Two-Gun Kid: Sunset Riders",
-    "publisher": "Marvel Comics",
-    "year": 1995,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T00:01:27.519685+00:00",
-    "retry_after": "2026-10-04T00:01:27.519703+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-04T00:12:17.576051+00:00",
+    "retry_after": "2026-10-11T00:12:17.576068+00:00"
   },
   {
     "name": "Driving Mother Up the Wall",
@@ -34471,9 +34461,9 @@
     "year": 1979,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T00:01:28.055776+00:00",
-    "retry_after": "2026-10-04T00:01:28.055794+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-04T00:12:24.920145+00:00",
+    "retry_after": "2026-10-11T00:12:24.920162+00:00"
   },
   {
     "name": "Za Za the Mystic",
@@ -34481,9 +34471,9 @@
     "year": 1956,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T00:01:28.664580+00:00",
-    "retry_after": "2026-10-04T00:01:28.664597+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-04T00:12:25.678562+00:00",
+    "retry_after": "2026-10-11T00:12:25.678579+00:00"
   },
   {
     "name": "Grease Monkey",
@@ -34504,9 +34494,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T00:01:29.308253+00:00",
-    "retry_after": "2026-10-04T00:01:29.308270+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-04T00:12:26.307666+00:00",
+    "retry_after": "2026-10-11T00:12:26.307682+00:00"
   },
   {
     "name": "Fun with Peanuts",
@@ -34514,9 +34504,9 @@
     "year": 1963,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T00:01:29.838852+00:00",
-    "retry_after": "2026-10-04T00:01:29.838870+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-04T00:12:26.863289+00:00",
+    "retry_after": "2026-10-11T00:12:26.863307+00:00"
   },
   {
     "name": "X-Men: Grand Design - Second Genesis",
@@ -38088,24 +38078,14 @@
     "retry_after": "2026-10-07T00:00:46.012002+00:00"
   },
   {
-    "name": "DC Retroactive: Flash - The '80s",
-    "publisher": "DC Comics",
-    "year": 2011,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T00:01:17.398784+00:00",
-    "retry_after": "2026-10-04T00:01:17.398800+00:00"
-  },
-  {
     "name": "Will Eisner's the Spirit Archives",
     "publisher": "Dark Horse Comics",
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T00:01:20.199628+00:00",
-    "retry_after": "2026-10-04T00:01:20.199643+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-04T00:12:16.043217+00:00",
+    "retry_after": "2026-10-07T00:12:16.043234+00:00"
   },
   {
     "name": "Street Angel: After School Kung Fu Special, Image Firsts",
@@ -38113,9 +38093,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T00:01:21.919736+00:00",
-    "retry_after": "2026-10-04T00:01:21.919752+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-04T00:12:16.714599+00:00",
+    "retry_after": "2026-10-07T00:12:16.714617+00:00"
   },
   {
     "name": "Ultimate Marvel Team-Up Vol. 1, No. 10 [Marvel Legends Reprint]",
@@ -38123,9 +38103,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T00:01:22.320858+00:00",
-    "retry_after": "2026-10-04T00:01:22.320870+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-04T00:12:17.125186+00:00",
+    "retry_after": "2026-10-07T00:12:17.125203+00:00"
   },
   {
     "name": "Albion: Ashcan Edition",
@@ -39283,5 +39263,68 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T00:03:09.109790+00:00",
     "retry_after": "2026-10-05T00:03:09.109807+00:00"
+  },
+  {
+    "name": "Zachary Holmes",
+    "publisher": "Dark Horse Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44440,
+        "name": "Zachary Holmes",
+        "publisher": "Kult Editionen",
+        "start_year": 2001
+      },
+      {
+        "id": 145840,
+        "name": "Zachary Holmes",
+        "publisher": "Venture Publishing",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T00:12:27.369941+00:00",
+    "retry_after": "2026-10-05T00:12:27.369958+00:00"
+  },
+  {
+    "name": "X-Men: Evolution - Digest Edition",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T00:12:51.430078+00:00",
+    "retry_after": "2026-10-05T00:12:51.430095+00:00"
+  },
+  {
+    "name": "Iron Empires",
+    "publisher": "Dark Horse Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T00:13:01.727701+00:00",
+    "retry_after": "2026-10-05T00:13:01.727718+00:00"
+  },
+  {
+    "name": "Classic Dan Dare: Operation Saturn",
+    "publisher": "Titan Comics",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T00:13:02.350120+00:00",
+    "retry_after": "2026-10-05T00:13:02.350138+00:00"
+  },
+  {
+    "name": "JSA Annual [Justice Society of America Annual]",
+    "publisher": "DC Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T00:13:12.228387+00:00",
+    "retry_after": "2026-10-05T00:13:12.228404+00:00"
   }
 ]

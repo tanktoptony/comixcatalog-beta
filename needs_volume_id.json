@@ -39465,5 +39465,108 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T03:02:43.494044+00:00",
     "retry_after": "2026-10-05T03:02:43.494059+00:00"
+  },
+  {
+    "name": "The Amory Wars: Good Apollo, I'm a Burning Star IV, Volume II - No World for Tomorrow",
+    "publisher": "BOOM! Studios",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T04:01:30.661638+00:00",
+    "retry_after": "2026-10-05T04:01:30.661654+00:00"
+  },
+  {
+    "name": "The Bag On Line Adventures: The Second Stage Turbine Blade",
+    "publisher": "Unknown Publisher",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T04:02:13.825349+00:00",
+    "retry_after": "2026-10-05T04:02:13.825366+00:00"
+  },
+  {
+    "name": "Titans 2025 Annual",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T04:02:15.497630+00:00",
+    "retry_after": "2026-10-05T04:02:15.497643+00:00"
+  },
+  {
+    "name": "Walt Disney's Mickey Mouse and the Beanstalk [Dynabrite Comics]",
+    "publisher": "Gold Key",
+    "year": 1978,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T04:02:15.981131+00:00",
+    "retry_after": "2026-10-05T04:02:15.981146+00:00"
+  },
+  {
+    "name": "101 Ways to End the Clone Saga",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T04:02:16.348548+00:00",
+    "retry_after": "2026-10-05T04:02:16.348564+00:00"
+  },
+  {
+    "name": "One for One: Conan the Barbarian",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T04:02:41.826508+00:00",
+    "retry_after": "2026-10-05T04:02:41.826524+00:00"
+  },
+  {
+    "name": "Ralph Azham",
+    "publisher": "Fantagraphics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 83422,
+        "name": "Ralph Azham",
+        "publisher": "Reprodukt",
+        "start_year": 2012
+      },
+      {
+        "id": 107822,
+        "name": "Ralph Azham",
+        "publisher": "Dupuis",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T04:03:17.966200+00:00",
+    "retry_after": "2026-10-05T04:03:17.966216+00:00"
+  },
+  {
+    "name": "Earth-Prime: Legends of Tomorrow",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T04:03:24.987161+00:00",
+    "retry_after": "2026-10-05T04:03:24.987174+00:00"
+  },
+  {
+    "name": "Bloodborne: FCBD",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T04:03:33.373134+00:00",
+    "retry_after": "2026-10-05T04:03:33.373149+00:00"
   }
 ]

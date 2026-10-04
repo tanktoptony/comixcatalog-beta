@@ -39830,5 +39830,125 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T10:03:28.079353+00:00",
     "retry_after": "2026-10-05T10:03:28.079369+00:00"
+  },
+  {
+    "name": "Sonic the Hedgehog Triple Trouble Special",
+    "publisher": "Archie Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T11:00:56.927468+00:00",
+    "retry_after": "2026-10-05T11:00:56.927488+00:00"
+  },
+  {
+    "name": "True Believers: Marvel Knights 20th Anniversary - Iron Fist by Thomas & Kane",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T11:01:05.310704+00:00",
+    "retry_after": "2026-10-05T11:01:05.310729+00:00"
+  },
+  {
+    "name": "Spectacular Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2870,
+        "name": "The Spectacular Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1976
+      },
+      {
+        "id": 11069,
+        "name": "Spectacular Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T11:01:43.745317+00:00",
+    "retry_after": "2026-10-05T11:01:43.745348+00:00"
+  },
+  {
+    "name": "Skulldigger and Skeleton Boy: From the World of Black Hammer",
+    "publisher": "Dark Horse Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T11:02:08.897996+00:00",
+    "retry_after": "2026-10-05T11:02:08.898016+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles Adventures Compendium",
+    "publisher": "IDW Publishing",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T11:02:09.428104+00:00",
+    "retry_after": "2026-10-05T11:02:09.428128+00:00"
+  },
+  {
+    "name": "Madman Omnibus",
+    "publisher": "Dark Horse Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T11:02:09.869556+00:00",
+    "retry_after": "2026-10-05T11:02:09.869575+00:00"
+  },
+  {
+    "name": "Sad Sack At Home for the Holidays",
+    "publisher": "Harvey Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20048,
+        "name": "Sad Sack At Home for the Holidays",
+        "publisher": "Lorne-Harvey",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T11:02:13.797659+00:00",
+    "retry_after": "2026-10-05T11:02:13.797677+00:00"
+  },
+  {
+    "name": "Elvira Mistress of the Dark: The Classic Years",
+    "publisher": "Dynamite Entertainment",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T11:02:14.344790+00:00",
+    "retry_after": "2026-10-05T11:02:14.344808+00:00"
+  },
+  {
+    "name": "Black Adam - The Justice Society Files: Atom Smasher",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T11:02:14.812597+00:00",
+    "retry_after": "2026-10-05T11:02:14.812617+00:00"
+  },
+  {
+    "name": "Harley Quinn [Regal Theaters Giveaway]",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T11:02:15.222583+00:00",
+    "retry_after": "2026-10-05T11:02:15.222603+00:00"
   }
 ]

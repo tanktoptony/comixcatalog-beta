@@ -40422,5 +40422,110 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T18:02:28.176541+00:00",
     "retry_after": "2026-10-05T18:02:28.176557+00:00"
+  },
+  {
+    "name": "Dan Curtis Giveaways Star Trek",
+    "publisher": "Gold Key",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T19:00:56.297590+00:00",
+    "retry_after": "2026-10-05T19:00:56.297609+00:00"
+  },
+  {
+    "name": "DC Comics Presents: Superman � The Kents",
+    "publisher": "DC Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T19:02:37.902157+00:00",
+    "retry_after": "2026-10-05T19:02:37.902171+00:00"
+  },
+  {
+    "name": "The Transformers: More Than Meets the Eye Official Guide Book",
+    "publisher": "IDW Publishing",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T19:02:38.523940+00:00",
+    "retry_after": "2026-10-05T19:02:38.523957+00:00"
+  },
+  {
+    "name": "Invincible Iron Man",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 21487,
+        "name": "Invincible Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2008
+      },
+      {
+        "id": 95596,
+        "name": "Invincible Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 146873,
+        "name": "The Invincible Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 85110,
+        "name": "Invincible Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T19:02:49.834507+00:00",
+    "retry_after": "2026-10-05T19:02:49.834524+00:00"
+  },
+  {
+    "name": "Grimm Fairy Tales: The Dream Eater Saga",
+    "publisher": "Zenescope Entertainment",
+    "year": 2011,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 40014,
+        "name": "Grimm Fairy Tales: The Dream Eater Saga",
+        "publisher": "Zenescope Entertainment",
+        "start_year": 2011
+      },
+      {
+        "id": 58169,
+        "name": "Grimm Fairy Tales: The Dream Eater Saga",
+        "publisher": "Zenescope Entertainment",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T19:03:37.984170+00:00",
+    "retry_after": "2026-10-05T19:03:37.984188+00:00"
+  },
+  {
+    "name": "DC / Marvel Crossover Classics",
+    "publisher": "DC Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34284,
+        "name": "DC/Marvel Crossover Classics",
+        "publisher": "Marvel",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T19:03:39.914815+00:00",
+    "retry_after": "2026-10-05T19:03:39.914832+00:00"
   }
 ]

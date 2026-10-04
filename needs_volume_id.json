@@ -40178,5 +40178,54 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T12:57:11.913726+00:00",
     "retry_after": "2026-10-05T12:57:11.913745+00:00"
+  },
+  {
+    "name": "RoboCop",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4418,
+        "name": "RoboCop",
+        "publisher": "Marvel",
+        "start_year": 1990
+      },
+      {
+        "id": 21547,
+        "name": "RoboCop",
+        "publisher": "Marvel",
+        "start_year": 1987
+      },
+      {
+        "id": 41444,
+        "name": "RoboCop",
+        "publisher": "Marvel",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T13:02:33.362452+00:00",
+    "retry_after": "2026-10-05T13:02:33.362468+00:00"
+  },
+  {
+    "name": "True Believers: Cable and New Mutants",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T13:03:10.488205+00:00",
+    "retry_after": "2026-10-05T13:03:10.488223+00:00"
+  },
+  {
+    "name": "Conan il Conquistatore",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T13:04:01.114062+00:00",
+    "retry_after": "2026-10-05T13:04:01.114077+00:00"
   }
 ]

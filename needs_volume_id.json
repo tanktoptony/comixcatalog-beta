@@ -40020,5 +40020,163 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T12:02:43.273755+00:00",
     "retry_after": "2026-10-05T12:02:43.273767+00:00"
+  },
+  {
+    "name": "Popeye [Bold Detergent Giveaway]",
+    "publisher": "Charlton Comics",
+    "year": 1969,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:55:44.421460+00:00",
+    "retry_after": "2026-10-05T12:55:44.421478+00:00"
+  },
+  {
+    "name": "Frank Frazetta's Death Dealer Black and White Special Edition",
+    "publisher": "Image Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:55:44.831324+00:00",
+    "retry_after": "2026-10-05T12:55:44.831342+00:00"
+  },
+  {
+    "name": "True Believers: Spider-Man - The Wedding of Aunt May & Doc Ock",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:55:45.244193+00:00",
+    "retry_after": "2026-10-05T12:55:45.244228+00:00"
+  },
+  {
+    "name": "Ultimate X-Men Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:55:45.749963+00:00",
+    "retry_after": "2026-10-05T12:55:45.749983+00:00"
+  },
+  {
+    "name": "True Believers: Conan - Swords in the Night!",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:55:46.250751+00:00",
+    "retry_after": "2026-10-05T12:55:46.250770+00:00"
+  },
+  {
+    "name": "The Marvel Comics Illustrated Version of Star Trek",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:55:48.128310+00:00",
+    "retry_after": "2026-10-05T12:55:48.128329+00:00"
+  },
+  {
+    "name": "Vertigo Double Shot",
+    "publisher": "DC Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:55:48.630310+00:00",
+    "retry_after": "2026-10-05T12:55:48.630328+00:00"
+  },
+  {
+    "name": "True Believers: What If the Fantastic Four Had Different Super-Powers?",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:56:02.635868+00:00",
+    "retry_after": "2026-10-05T12:56:02.635885+00:00"
+  },
+  {
+    "name": "Letter 44 [Square One Edition]",
+    "publisher": "Oni Press",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:56:21.140557+00:00",
+    "retry_after": "2026-10-05T12:56:21.140575+00:00"
+  },
+  {
+    "name": "Green Lantern Corps",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18248,
+        "name": "Green Lantern Corps",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 3600,
+        "name": "The Green Lantern Corps",
+        "publisher": "DC Comics",
+        "start_year": 1986
+      },
+      {
+        "id": 162400,
+        "name": "Green Lantern Corps",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      },
+      {
+        "id": 42916,
+        "name": "Green Lantern Corps",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:57:00.303741+00:00",
+    "retry_after": "2026-10-05T12:57:00.303758+00:00"
+  },
+  {
+    "name": "Superman Adventures Preview Edition",
+    "publisher": "DC Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:57:09.722327+00:00",
+    "retry_after": "2026-10-05T12:57:09.722347+00:00"
+  },
+  {
+    "name": "Unity",
+    "publisher": "Valiant Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 69121,
+        "name": "Unity",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2013
+      },
+      {
+        "id": 4830,
+        "name": "Unity",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T12:57:11.913726+00:00",
+    "retry_after": "2026-10-05T12:57:11.913745+00:00"
   }
 ]

@@ -40613,5 +40613,95 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T20:36:58.027389+00:00",
     "retry_after": "2026-10-05T20:36:58.027406+00:00"
+  },
+  {
+    "name": "Harlem Heroes",
+    "publisher": "Rebellion",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T21:00:49.434716+00:00",
+    "retry_after": "2026-10-05T21:00:49.434731+00:00"
+  },
+  {
+    "name": "Devlin Waugh",
+    "publisher": "DC Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22951,
+        "name": "Devlin Waugh",
+        "publisher": "Rebellion",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T21:00:49.780451+00:00",
+    "retry_after": "2026-10-05T21:00:49.780464+00:00"
+  },
+  {
+    "name": "DeMarco, P.I.",
+    "publisher": "Rebellion",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T21:00:50.146937+00:00",
+    "retry_after": "2026-10-05T21:00:50.146946+00:00"
+  },
+  {
+    "name": "The Collected Color Gold Digger",
+    "publisher": "Antarctic Press",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T21:01:29.996021+00:00",
+    "retry_after": "2026-10-05T21:01:29.996040+00:00"
+  },
+  {
+    "name": "Marvel's Doctor Strange Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 92035,
+        "name": "Marvel's Doctor Strange Prelude",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 94646,
+        "name": "Marvel's Doctor Strange Prelude",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T21:01:35.753421+00:00",
+    "retry_after": "2026-10-05T21:01:35.753437+00:00"
+  },
+  {
+    "name": "Beetle Bailey [Cerebral Palsy Association Edition]",
+    "publisher": "Charlton Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T21:04:21.184613+00:00",
+    "retry_after": "2026-10-05T21:04:21.184629+00:00"
+  },
+  {
+    "name": "Tiger & Bunny Comic Anthology (2-in-1)",
+    "publisher": "VIZ Media",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T21:04:24.930147+00:00",
+    "retry_after": "2026-10-05T21:04:24.930162+00:00"
   }
 ]

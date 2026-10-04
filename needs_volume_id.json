@@ -40118,5 +40118,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T14:01:17.779785+00:00",
     "retry_after": "2026-10-05T14:01:17.779803+00:00"
+  },
+  {
+    "name": "Sad Sack At Home for the Holidays",
+    "publisher": "Harvey Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20048,
+        "name": "Sad Sack At Home for the Holidays",
+        "publisher": "Lorne-Harvey",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T15:04:27.891281+00:00",
+    "retry_after": "2026-10-05T15:04:27.891297+00:00"
+  },
+  {
+    "name": "G-Man",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T15:05:26.897415+00:00",
+    "retry_after": "2026-10-05T15:05:26.897434+00:00"
+  },
+  {
+    "name": "Robotech Archives Robotech II: The Sentinels",
+    "publisher": "Titan Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T15:08:48.946210+00:00",
+    "retry_after": "2026-10-05T15:08:48.946226+00:00"
   }
 ]

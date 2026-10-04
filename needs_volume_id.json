@@ -40234,5 +40234,97 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T17:02:30.544189+00:00",
     "retry_after": "2026-10-05T17:02:30.544207+00:00"
+  },
+  {
+    "name": "2000 A.D. Regened",
+    "publisher": "Rebellion",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T17:12:07.566280+00:00",
+    "retry_after": "2026-10-05T17:12:07.566299+00:00"
+  },
+  {
+    "name": "Birds of Prey",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 127620,
+        "name": "Birds of Prey",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      },
+      {
+        "id": 6498,
+        "name": "Birds of Prey",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      },
+      {
+        "id": 153328,
+        "name": "Birds of Prey",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 33087,
+        "name": "Birds of Prey",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 85740,
+        "name": "Birds of Prey",
+        "publisher": "DC Comics",
+        "start_year": 2015
+      },
+      {
+        "id": 42806,
+        "name": "Birds of Prey",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 52139,
+        "name": "Birds of Prey",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 159708,
+        "name": "Birds of Prey",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      },
+      {
+        "id": 34200,
+        "name": "Birds of Prey",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T17:12:37.639238+00:00",
+    "retry_after": "2026-10-05T17:12:37.639258+00:00"
+  },
+  {
+    "name": "Tanpopo",
+    "publisher": "BOOM! Studios",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40152,
+        "name": "Tanpopo",
+        "publisher": "DMF Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-04T17:13:05.392209+00:00",
+    "retry_after": "2026-10-05T17:13:05.392225+00:00"
   }
 ]

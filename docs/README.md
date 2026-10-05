@@ -1,5 +1,20 @@
 # Documentation index
 
+## Canonical docs (start here)
+
+Written 2026-10-05 from the code, to replace reading conversation history. Agents read [AGENT_GUIDE.md](AGENT_GUIDE.md) before every task.
+
+| Doc | Covers |
+|---|---|
+| [PRODUCT.md](PRODUCT.md) | What the product is, users, surfaces, what's live vs planned |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Stack, API, auth, database, storage, search, constraints, debt |
+| [CATALOG_DATA.md](CATALOG_DATA.md) | Identifiers, GCD/ComicVine, covers pipeline, data risks |
+| [MARKETPLACE.md](MARKETPLACE.md) | Marketplace as built vs planned |
+| [UX_RULES.md](UX_RULES.md) | Interaction rules and known inconsistencies |
+| [ROADMAP.md](ROADMAP.md) | Now / next / later / parked |
+| [DECISIONS.md](DECISIONS.md) | Decision log (ADR-lite) |
+| [AGENT_GUIDE.md](AGENT_GUIDE.md) | Rules and workflows for coding agents |
+
 ## Authority order
 
 When documents disagree, resolve in this order:

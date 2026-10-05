@@ -167,20 +167,36 @@ export async function GET(req) {
       ...new Set(issueList.map((i) => i.publisher_gcd_id).filter(Boolean)),
     ];
 
-    const [seriesResult, publisherResult] = await Promise.all([
-      seriesGcdIds.length > 0
-        ? supabase
-            .from("series")
-            .select("gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)")
-            .in("gcd_id", seriesGcdIds)
-        : Promise.resolve({ data: [] }),
-      publisherGcdIds.length > 0
-        ? supabase
-            .from("gcd_publishers")
-            .select("gcd_id, name")
-            .in("gcd_id", publisherGcdIds)
-        : Promise.resolve({ data: [] }),
-    ]);
+    // Paged and chunked like the issue read above: a large, varied collection
+    // can pass 1,000 series or publishers, and a plain .in() stops there.
+    const readChunked = async (table, select, ids, orderCol) => {
+      const rows = [];
+      for (let i = 0; i < ids.length; i += 500) {
+        const chunk = ids.slice(i, i + 500);
+        rows.push(
+          ...(await fetchAllPages(() => supabase.from(table).select(select).in("gcd_id", chunk), orderCol))
+        );
+      }
+      return rows;
+    };
+    let seriesRows;
+    let publisherRows;
+    try {
+      [seriesRows, publisherRows] = await Promise.all([
+        readChunked(
+          "series",
+          "gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)",
+          seriesGcdIds,
+          "id"
+        ),
+        readChunked("gcd_publishers", "gcd_id, name", publisherGcdIds, "gcd_id"),
+      ]);
+    } catch (err) {
+      console.error("public profile series/publisher lookup failed:", err?.code, err?.message);
+      return NextResponse.json({ error: "Failed to load profile collection" }, { status: 502 });
+    }
+    const seriesResult = { data: seriesRows };
+    const publisherResult = { data: publisherRows };
 
     const seriesLookup = Object.fromEntries(
       (seriesResult.data ?? []).map((r) => [String(r.gcd_id), r])

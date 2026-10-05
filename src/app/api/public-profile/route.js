@@ -4,6 +4,7 @@ import { getAuthedUser } from "@/lib/authServer";
 import { getMarketValuesBulk } from "@/lib/marketValue";
 import { normTitle, titleVariants } from "@/lib/titleMatch";
 import { isOwnedStatus } from "@/lib/collectionStatus";
+import { fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
 
 function parseYear(value) {
   if (!value) return null;
@@ -197,6 +198,14 @@ export async function GET(req) {
     const seriesTitles = [
       ...new Set(intermediate.map((r) => r.seriesTitle).filter(Boolean)),
     ];
+    // Both cover reads below are narrowed to the issue numbers this
+    // collection actually holds, same as /api/library-hydrate. Without it
+    // they pulled every cover of every series in the collection: about
+    // 23,000 rows in ~24 sequential pages for a 214-book profile, 4-13s per
+    // load (measured 2026-10-05).
+    const issueNumbers = [
+      ...new Set(intermediate.map((r) => r.issue_number).filter((v) => v != null)),
+    ];
 
     // Year-aware cover lookup — same disambiguation as /api/library-hydrate.
     // Without it, multiple volumes of the same series_title share covers and
@@ -210,55 +219,46 @@ export async function GET(req) {
     const coversByIdKey = new Map();
     const coversByKey = new Map();
 
-    // PostgREST silently caps responses at 1000 rows. A user with broad
-    // title coverage (Batman + Conan + Spider-Man + …) easily exceeds that
-    // — Conan alone returned 1700+ rows — and the truncated set drops
-    // specific issues like Conan #183. Always paginate via .range().
-    const PAGE = 1000;
-    async function fetchAllPages(buildQuery) {
-      const all = [];
-      let from = 0;
-      while (true) {
-        const { data, error } = await buildQuery().range(from, from + PAGE - 1);
-        if (error) throw error;
-        if (!data || data.length === 0) break;
-        all.push(...data);
-        if (data.length < PAGE) break;
-        from += PAGE;
-      }
-      return all;
+    // PostgREST silently caps responses at 1000 rows, so both reads page
+    // through fetchAllPagesParallel. The two passes are independent and run
+    // together, two pages each, so one profile load never has more than four
+    // reads in flight.
+    const [idCovers, covers] = await Promise.all([
+      seriesGcdIds.length > 0 && issueNumbers.length > 0
+        ? fetchAllPagesParallel(() =>
+            supabase
+              .from("canonical_covers")
+              .select("series_gcd_id, issue_number, series_year, cover_date, storage_path")
+              .in("series_gcd_id", seriesGcdIds)
+              .in("issue_number", issueNumbers)
+              .not("storage_path", "is", null),
+            "id",
+            2
+          )
+        : [],
+      seriesTitles.length > 0 && issueNumbers.length > 0
+        ? fetchAllPagesParallel(() =>
+            supabase
+              .from("canonical_covers")
+              .select("series_title, issue_number, series_year, cover_date, storage_path")
+              // Title variants + normTitle keys, same as /api/library-hydrate.
+              .in("series_title", [...new Set(seriesTitles.flatMap(titleVariants))])
+              .in("issue_number", issueNumbers)
+              .not("storage_path", "is", null),
+            "id",
+            2
+          )
+        : [],
+    ]);
+    for (const c of idCovers) {
+      const key = `${c.series_gcd_id}::${norm(c.issue_number)}`;
+      if (!coversByIdKey.has(key)) coversByIdKey.set(key, []);
+      coversByIdKey.get(key).push(c);
     }
-
-    if (seriesGcdIds.length > 0) {
-      const idCovers = await fetchAllPages(() =>
-        supabase
-          .from("canonical_covers")
-          .select("series_gcd_id, issue_number, series_year, cover_date, storage_path")
-          .in("series_gcd_id", seriesGcdIds)
-          .not("storage_path", "is", null)
-          .order("id")
-      );
-      for (const c of idCovers) {
-        const key = `${c.series_gcd_id}::${norm(c.issue_number)}`;
-        if (!coversByIdKey.has(key)) coversByIdKey.set(key, []);
-        coversByIdKey.get(key).push(c);
-      }
-    }
-    if (seriesTitles.length > 0) {
-      const covers = await fetchAllPages(() =>
-        supabase
-          .from("canonical_covers")
-          .select("series_title, issue_number, series_year, cover_date, storage_path")
-          // Title variants + normTitle keys, same as /api/library-hydrate.
-          .in("series_title", [...new Set(seriesTitles.flatMap(titleVariants))])
-          .not("storage_path", "is", null)
-          .order("id")
-      );
-      for (const c of covers) {
-        const key = `${normTitle(c.series_title)}::${norm(c.issue_number)}`;
-        if (!coversByKey.has(key)) coversByKey.set(key, []);
-        coversByKey.get(key).push(c);
-      }
+    for (const c of covers) {
+      const key = `${normTitle(c.series_title)}::${norm(c.issue_number)}`;
+      if (!coversByKey.has(key)) coversByKey.set(key, []);
+      coversByKey.get(key).push(c);
     }
 
     // cover_date is THIS issue's publication date — it's the authoritative

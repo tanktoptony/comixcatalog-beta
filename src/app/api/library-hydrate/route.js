@@ -20,19 +20,26 @@ function parseYear(value) {
 // same comics each time, it was whichever ones got truncated out that
 // request. Found + fixed 2026-08-30 by reproducing a full-collection batch
 // request directly against prod.
+// Two pages at a time: each page is ~150-200ms of round trip whatever its
+// size, and the cover reads here run several pages for a big library. Two
+// per read keeps a request at four reads in flight when two run together.
 async function fetchAllPages(buildQuery) {
   const PAGE = 1000;
   const all = [];
-  let from = 0;
-  for (;;) {
-    const { data, error } = await buildQuery().range(from, from + PAGE - 1);
-    if (error) throw error;
-    if (!data || data.length === 0) break;
-    all.push(...data);
-    if (data.length < PAGE) break;
-    from += PAGE;
+  for (let from = 0; ; from += PAGE * 2) {
+    const pages = await Promise.all([
+      buildQuery().range(from, from + PAGE - 1),
+      buildQuery().range(from + PAGE, from + PAGE * 2 - 1),
+    ]);
+    let done = false;
+    for (const { data, error } of pages) {
+      if (error) throw error;
+      if (done) continue;
+      all.push(...(data ?? []));
+      if (!data || data.length < PAGE) done = true;
+    }
+    if (done) return all;
   }
-  return all;
 }
 
 // publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
@@ -265,55 +272,48 @@ export async function POST(req) {
       // query errors with "column does not exist" — we swallow that quietly
       // and let the title-based fallback do the work. Once the migration
       // lands and backfill runs, this becomes the primary path for everyone.
-      if (intermediateGcdIds.length > 0 && issueNumbers.length > 0) {
-        try {
-          const covers = await fetchAllPages(() =>
-            supabase
-              .from("canonical_covers")
-              .select("series_gcd_id, series_title, issue_number, series_year, cover_date, storage_path")
-              .in("series_gcd_id", intermediateGcdIds)
-              .in("issue_number", issueNumbers)
-              .not("storage_path", "is", null)
-              .order("id")
-          );
-          for (const c of covers) {
-            const key = `${c.series_gcd_id}::${norm(c.issue_number)}`;
-            if (!coversById.has(key)) coversById.set(key, []);
-            coversById.get(key).push(c);
-          }
-        } catch {
-          // column missing pre-migration, or transient PG hiccup — either
-          // way the title fallback below handles it.
-        }
+      // The ID pass and the title pass are independent, so they run together.
+      // The ID pass swallows its error (column missing pre-migration, or a
+      // transient PG hiccup) and the title fallback covers for it.
+      const [idCovers, titleCovers] = await Promise.all([
+        intermediateGcdIds.length > 0 && issueNumbers.length > 0
+          ? fetchAllPages(() =>
+              supabase
+                .from("canonical_covers")
+                .select("series_gcd_id, series_title, issue_number, series_year, cover_date, storage_path")
+                .in("series_gcd_id", intermediateGcdIds)
+                .in("issue_number", issueNumbers)
+                .not("storage_path", "is", null)
+                .order("id")
+            ).catch(() => [])
+          : [],
+        // Title-string lookup, the fallback. Not filtered to
+        // `series_gcd_id IS NULL`: the resolver below prefers coversById, so
+        // the title map only fills gaps. Every punctuation / leading-article
+        // variant of each GCD title, keyed with normTitle() so "The
+        // Transformers Universe" (GCD) finds "Transformers Universe"
+        // (ComicVine); found live 2026-09-21.
+        seriesTitles.length > 0 && issueNumbers.length > 0
+          ? fetchAllPages(() =>
+              supabase
+                .from("canonical_covers")
+                .select("series_title, issue_number, series_year, cover_date, storage_path")
+                .in("series_title", [...new Set(seriesTitles.flatMap(titleVariants))])
+                .in("issue_number", issueNumbers)
+                .not("storage_path", "is", null)
+                .order("id")
+            )
+          : [],
+      ]);
+      for (const c of idCovers) {
+        const key = `${c.series_gcd_id}::${norm(c.issue_number)}`;
+        if (!coversById.has(key)) coversById.set(key, []);
+        coversById.get(key).push(c);
       }
-
-      // Title-string lookup. Used unconditionally as the fallback. We do NOT
-      // filter by `series_gcd_id IS NULL` here — that would require the
-      // column to exist (breaking on un-migrated prod) and also locks the
-      // hydration to the migration order. Letting this return everything
-      // is harmless because the per-row resolver below prefers the
-      // coversById map first; the title map only fills gaps.
-      if (seriesTitles.length > 0 && issueNumbers.length > 0) {
-        const covers = await fetchAllPages(() =>
-          supabase
-            .from("canonical_covers")
-            .select("series_title, issue_number, series_year, cover_date, storage_path")
-            // Every punctuation / leading-article variant of each GCD title,
-            // keyed below with normTitle() so "The Transformers Universe"
-            // (GCD) finds "Transformers Universe" (ComicVine). Found live
-            // 2026-09-21: a library showed no covers for a series whose
-            // four covers were all present under the article-less title.
-            .in("series_title", [...new Set(seriesTitles.flatMap(titleVariants))])
-            .in("issue_number", issueNumbers)
-            .not("storage_path", "is", null)
-            .order("id")
-        );
-
-        for (const c of covers) {
-          const key = `${normTitle(c.series_title)}::${norm(c.issue_number)}`;
-          if (!coversByTitle.has(key)) coversByTitle.set(key, []);
-          coversByTitle.get(key).push(c);
-        }
+      for (const c of titleCovers) {
+        const key = `${normTitle(c.series_title)}::${norm(c.issue_number)}`;
+        if (!coversByTitle.has(key)) coversByTitle.set(key, []);
+        coversByTitle.get(key).push(c);
       }
 
       for (const row of intermediate) {

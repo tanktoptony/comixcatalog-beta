@@ -69,14 +69,24 @@ export async function getMarketValuesBulk({
   const issueById = new Map();
   for (let c = 0; c < issueIds.length; c += ISSUE_CHUNK) {
     const chunk = issueIds.slice(c, c + ISSUE_CHUNK);
-    const comps = await readAll(() =>
-      supabase
-        .from("market_comps")
-        .select("gcd_issue_id, grade_bucket, grade_numeric, sold_price, sold_date, source, listing_title")
-        .in("gcd_issue_id", chunk)
-        .gte("sold_date", sinceIso)
-        .order("id", { ascending: true })
-    );
+    // Comps and issue metadata are independent reads; run them together.
+    const [comps, issues] = await Promise.all([
+      readAll(() =>
+        supabase
+          .from("market_comps")
+          .select("gcd_issue_id, grade_bucket, grade_numeric, sold_price, sold_date, source, listing_title")
+          .in("gcd_issue_id", chunk)
+          .gte("sold_date", sinceIso)
+          .order("id", { ascending: true })
+      ),
+      readAll(() =>
+        supabase
+          .from("gcd_issues")
+          .select("gcd_id, series_gcd_id, key_date, publication_date")
+          .in("gcd_id", chunk)
+          .order("gcd_id", { ascending: true })
+      ),
+    ]);
     if (comps.error) {
       console.error("getMarketValuesBulk comp fetch failed:", comps.error);
       return fillEmpty(list, out);
@@ -86,14 +96,6 @@ export async function getMarketValuesBulk({
       if (!compsByIssue.has(key)) compsByIssue.set(key, []);
       compsByIssue.get(key).push(row);
     }
-
-    const issues = await readAll(() =>
-      supabase
-        .from("gcd_issues")
-        .select("gcd_id, series_gcd_id, key_date, publication_date")
-        .in("gcd_id", chunk)
-        .order("gcd_id", { ascending: true })
-    );
     if (issues.error) {
       console.error("getMarketValuesBulk issue fetch failed:", issues.error);
       return fillEmpty(list, out);

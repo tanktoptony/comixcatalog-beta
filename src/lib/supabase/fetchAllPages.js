@@ -54,3 +54,33 @@ export async function fetchAllPages(build, orderCol = "id") {
   }
   return rows;
 }
+
+// Same contract, but asks for `concurrency` pages at a time instead of one.
+// Every page is ~150-200ms of round trip regardless of size, so a 9-page read
+// drops from ~1.8s to ~0.5s. It may request up to concurrency-1 empty pages
+// past the end; those are cheap. Kept at 4 or fewer: wide parallel reads
+// against this database have taken the site down before (2026-10-01).
+export async function fetchAllPagesParallel(build, orderCol = "id", concurrency = 4) {
+  const rows = [];
+  for (let start = 0; ; start += PAGE * concurrency) {
+    const pages = await Promise.all(
+      Array.from({ length: concurrency }, (_, i) => {
+        const from = start + i * PAGE;
+        return build().order(orderCol, { ascending: true }).range(from, from + PAGE - 1);
+      })
+    );
+    let done = false;
+    for (const { data, error } of pages) {
+      if (error) throw error;
+      if (done) continue;
+      rows.push(...(data ?? []));
+      if (!data || data.length < PAGE) done = true;
+    }
+    if (done) break;
+    if (rows.length >= MAX_ROWS) {
+      console.warn(`fetchAllPagesParallel: stopped at ${rows.length} rows (MAX_ROWS). This query is probably missing a filter.`);
+      break;
+    }
+  }
+  return rows;
+}

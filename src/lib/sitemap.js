@@ -45,7 +45,7 @@ function allowlistedSeries(query) {
   return query
     .not("gcd_id", "is", null)
     .not("year_start_cached", "is", null)
-    .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST);
+    .or(`us_market.eq.true,resolved_publisher_cached.in.(${US_PUBLISHER_ALLOWLIST.map((value) => `"${value.replaceAll('"', '\\"')}"`).join(",")})`);
 }
 
 const STATIC_ROUTES = [

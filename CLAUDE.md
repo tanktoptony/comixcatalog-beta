@@ -219,7 +219,7 @@ Columns: `content`, `created_at`.
 #### `market_comps` (shipped May 20, 2026 — migration 0006)
 PK `id` (uuid). FK: loose `gcd_issue_id` (nullable — eBay titles don't always match a known issue, we still capture the row for review).
 Columns: `grade_bucket` (text, NOT NULL — output of `gradeBucket()`), `slab_company`, `grade_numeric` (numeric 3,1), `condition_label`, `sold_price` (numeric 10,2 NOT NULL), `sold_currency` (default 'USD'), `sold_date` (date NOT NULL), `source` (text NOT NULL — 'ebay' / 'heritage' / future), `external_listing_id` (text NOT NULL — dedup key), `listing_url`, `listing_title`, `fetched_at`, `created_at`.
-- Unique index on `(source, external_listing_id)` — refetching same eBay listing UPSERTs.
+- Unique index on `(source, external_listing_id, gcd_issue_id)` (migration 0033, 2026-10-05; was `(source, external_listing_id)`). Refetching the same listing for the same issue UPSERTs; the same listing can be a comp for two issues (near-duplicate GCD series), which the old key bounced between them.
 - Hot-path index on `(gcd_issue_id, grade_bucket, sold_date DESC)` for median lookups over last 90 days.
 - **No longer empty, but not real sold comps yet** (corrected 2026-08-29 — this doc previously said "currently empty," which was stale). Live count: 6,054 rows as of this writing, 100% `source = 'ebay-listed'` — active ASKING prices via eBay's Browse API (the interim fallback `getMarketValue()` already anticipated, see its comment on `comp_source`), not sold prices from the still-pending Insights API. Treat `auto_market_value` derived from these as a real-but-weaker signal (a listing price, not a confirmed sale) until `source = 'ebay'` rows actually land.
 

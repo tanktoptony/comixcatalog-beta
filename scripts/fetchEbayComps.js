@@ -439,7 +439,7 @@ async function upsertComps(rows) {
   // good rows still get through.
   const { error: batchErr, count } = await supabase
     .from("market_comps")
-    .upsert(rows, { onConflict: "source,external_listing_id", count: "exact" });
+    .upsert(rows, { onConflict: "source,external_listing_id,gcd_issue_id", count: "exact" });
   if (!batchErr) return { upserted: count ?? rows.length };
 
   // Per-row fallback. Slow but resilient.
@@ -447,7 +447,7 @@ async function upsertComps(rows) {
   for (const row of rows) {
     const { error } = await supabase
       .from("market_comps")
-      .upsert([row], { onConflict: "source,external_listing_id" });
+      .upsert([row], { onConflict: "source,external_listing_id,gcd_issue_id" });
     if (error) {
       bad++;
       if (bad <= 3) {

@@ -41324,5 +41324,83 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T07:06:36.211205+00:00",
     "retry_after": "2026-10-06T07:06:36.211220+00:00"
+  },
+  {
+    "name": "WWE Undertaker",
+    "publisher": "Titan Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T08:01:03.069103+00:00",
+    "retry_after": "2026-10-06T08:01:03.069123+00:00"
+  },
+  {
+    "name": "West Coast Avengers Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T08:01:30.373033+00:00",
+    "retry_after": "2026-10-06T08:01:30.373052+00:00"
+  },
+  {
+    "name": "Shadow",
+    "publisher": "Dynamite Entertainment",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 75720,
+        "name": "The Shadow",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2014
+      },
+      {
+        "id": 48063,
+        "name": "The Shadow",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2012
+      },
+      {
+        "id": 103409,
+        "name": "The Shadow",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T08:01:42.055211+00:00",
+    "retry_after": "2026-10-06T08:01:42.055243+00:00"
+  },
+  {
+    "name": "Robocop",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 4418,
+        "name": "RoboCop",
+        "publisher": "Marvel",
+        "start_year": 1990
+      },
+      {
+        "id": 21547,
+        "name": "RoboCop",
+        "publisher": "Marvel",
+        "start_year": 1987
+      },
+      {
+        "id": 41444,
+        "name": "RoboCop",
+        "publisher": "Marvel",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T08:03:00.333910+00:00",
+    "retry_after": "2026-10-06T08:03:00.333927+00:00"
   }
 ]

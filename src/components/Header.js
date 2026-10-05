@@ -47,7 +47,7 @@ function formatYearRange(start, end) {
 }
 
 export default function Header() {
-  const { user, profile, loading, signOut, isPro } = useAuth();
+  const { user, profile, loading, profileLoading, signOut, isPro } = useAuth();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   // The query lives in SearchQueryContext rather than local state so /search
@@ -630,6 +630,7 @@ export default function Header() {
             </Link>
             <UserMenu
               ref={userMenuRef}
+              profileLoading={loading || profileLoading}
               open={userMenuOpen}
               setOpen={setUserMenuOpen}
               user={user}
@@ -748,7 +749,7 @@ function MarketplaceIcon() {
 }
 
 const UserMenu = forwardRef(function UserMenu(
-  { open, setOpen, user, profile, isPro, onLogout, onSwitchAccount, onNavigate },
+  { open, setOpen, user, profile, profileLoading, isPro, onLogout, onSwitchAccount, onNavigate },
   ref
 ) {
   const username = profile?.username || null;
@@ -758,14 +759,16 @@ const UserMenu = forwardRef(function UserMenu(
   // which account you were signed into.
   const email = user?.email ?? null;
   const displayName = profile?.display_name || username || email || "Account";
-  // No profile yet means it's still loading (right after sign-in there's no
-  // cached copy). Draw an empty circle until then; the stock badge is only
-  // for a loaded profile with no photo, or it flashes before the real one.
-  const avatarSrc = !profile
-    ? null
-    : profile.avatar_url
-    ? profile.avatar_url
-    : `/avatars/${profile.avatar_key || "cc_badge"}.png`;
+  // Right after sign-in there's no cached profile, so we know who you are
+  // before we have your photo. Draw an empty circle while that read is in
+  // flight; the stock badge is for a profile with no photo (or a failed
+  // read), otherwise it flashes before the real one.
+  const avatarSrc =
+    !profile && profileLoading
+      ? null
+      : profile?.avatar_url
+      ? profile.avatar_url
+      : `/avatars/${profile?.avatar_key || "cc_badge"}.png`;
 
   function handleItem(callback) {
     return () => {

@@ -41431,5 +41431,186 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T11:01:51.191716+00:00",
     "retry_after": "2026-10-06T11:01:51.191732+00:00"
+  },
+  {
+    "name": "Rune / Wrath Ashcan Flip-Book",
+    "publisher": "Malibu Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T14:05:35.985701+00:00",
+    "retry_after": "2026-10-06T14:05:35.985716+00:00"
+  },
+  {
+    "name": "Plume",
+    "publisher": "Devil's Due",
+    "year": 2014,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 77338,
+        "name": "Plume",
+        "publisher": "Devil's Due",
+        "start_year": 2014
+      },
+      {
+        "id": 75793,
+        "name": "Plume",
+        "publisher": "Devil's Due",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T14:05:36.779426+00:00",
+    "retry_after": "2026-10-06T14:05:36.779442+00:00"
+  },
+  {
+    "name": "Avengelyne: Revelation Prelude",
+    "publisher": "Avatar Press",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T14:05:37.171917+00:00",
+    "retry_after": "2026-10-06T14:05:37.171936+00:00"
+  },
+  {
+    "name": "The Silver Surfer",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3857,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 1987
+      },
+      {
+        "id": 2411,
+        "name": "The Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 1968
+      },
+      {
+        "id": 87449,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 39031,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 22808,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 1982
+      },
+      {
+        "id": 54992,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 1993
+      },
+      {
+        "id": 72582,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 23576,
+        "name": "Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 2003
+      },
+      {
+        "id": 4070,
+        "name": "The Silver Surfer",
+        "publisher": "Marvel",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T14:05:37.557256+00:00",
+    "retry_after": "2026-10-06T14:05:37.557271+00:00"
+  },
+  {
+    "name": "Valiant Masters H.A.R.D. Corps",
+    "publisher": "Valiant Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T14:07:12.468516+00:00",
+    "retry_after": "2026-10-06T14:07:12.468532+00:00"
+  },
+  {
+    "name": "Satellite Falling #1 Ashcan",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T14:07:25.160541+00:00",
+    "retry_after": "2026-10-06T14:07:25.160556+00:00"
+  },
+  {
+    "name": "Star Trek: Manifest Destiny #1 Klingon Edition",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T14:07:25.521507+00:00",
+    "retry_after": "2026-10-06T14:07:25.521522+00:00"
+  },
+  {
+    "name": "Forever Evil",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 67014,
+        "name": "Forever Evil",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 76729,
+        "name": "Forever Evil",
+        "publisher": "DC Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T14:07:25.946855+00:00",
+    "retry_after": "2026-10-06T14:07:25.946869+00:00"
+  },
+  {
+    "name": "Gargoyles Facsimile Edition",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T14:07:26.405716+00:00",
+    "retry_after": "2026-10-06T14:07:26.405731+00:00"
+  },
+  {
+    "name": "A.B.C. Warriors",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T14:08:25.756047+00:00",
+    "retry_after": "2026-10-06T14:08:25.756064+00:00"
   }
 ]

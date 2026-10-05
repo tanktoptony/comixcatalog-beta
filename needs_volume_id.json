@@ -41488,5 +41488,74 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T09:45:19.575304+00:00",
     "retry_after": "2026-10-06T09:45:19.575319+00:00"
+  },
+  {
+    "name": "Doom Patrol",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2177,
+        "name": "Doom Patrol",
+        "publisher": "DC Comics",
+        "start_year": 1964
+      },
+      {
+        "id": 7329,
+        "name": "Doom Patrol",
+        "publisher": "DC Comics",
+        "start_year": 2001
+      },
+      {
+        "id": 27258,
+        "name": "Doom Patrol",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 94114,
+        "name": "Doom Patrol",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 3786,
+        "name": "Doom Patrol",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 88200,
+        "name": "Doom Patrol",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 11053,
+        "name": "Doom Patrol",
+        "publisher": "DC Comics",
+        "start_year": 2004
+      },
+      {
+        "id": 176685,
+        "name": "The Doom Patrol",
+        "publisher": "DC Comics",
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T10:00:48.605152+00:00",
+    "retry_after": "2026-10-06T10:00:48.605166+00:00"
+  },
+  {
+    "name": "George A. Romero's Dawn of the Dead",
+    "publisher": "IDW Publishing",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T10:01:46.109219+00:00",
+    "retry_after": "2026-10-06T10:01:46.109236+00:00"
   }
 ]

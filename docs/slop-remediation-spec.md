@@ -1,6 +1,6 @@
 # Slop remediation spec
 
-**Status:** Codex-reviewed (3 rounds), waiting on Tony's go-ahead · **Written:** 2026-10-04 · **Input:** `docs/slop-remediation-plan.md` · **Verified against:** `origin/main` at `5b9647f` (the plan's references were from `f546a55`)
+**Status:** Approved; in progress. WS0 done except the schema dump (deferred). WS1: PR 1b and S1 merged, rest of PR 1a open (see "Progress" below) · **Written:** 2026-10-04 · **Input:** `docs/slop-remediation-plan.md` · **Verified against:** `origin/main` at `5b9647f` (the plan's references were from `f546a55`)
 
 This turns the plan into files, functions, SQL, tests and PRs. The plan's goal, out-of-scope list and ground rules still apply as written. This file only adds detail and records where the plan was wrong or out of date.
 
@@ -71,9 +71,9 @@ Everything that needs you, in the order it blocks work. Nothing past WS0 starts 
 | When | What |
 |---|---|
 | Before WS1b merges | Run migration 0032 (profiles billing columns) |
-| Before WS2a merges | Run migration 0035 (one wishlist row per issue), after the Q3b dedupe if needed |
-| Before WS2b merges | Run migration 0033 (grading trigger fix) |
-| Before WS4b merges | Run migration 0034 (cover link lock) |
+| Before WS2a merges | Run migration 0036 (one wishlist row per issue), after the Q3b dedupe if needed |
+| Before WS2b merges | Run migration 0034 (grading trigger fix) |
+| Before WS4b merges | Run migration 0035 (cover link lock) |
 | WS4a review | Read the parity diff list and say go |
 | WS5 | Approve the `issue_count_cached` change list before the targeted refresh runs |
 | WS6 | Run the `comics.publisher` backfill |
@@ -94,11 +94,26 @@ Everything that needs you, in the order it blocks work. Nothing past WS0 starts 
 
 **Decisions**
 - D-a: **no auto-merge.** Claude asks, Tony merges.
-- **Multiple copies: build it now** (Tony, 2026-10-05). WS2 changes accordingly: a migration drops `user_collections_user_gcd_issue_unique` and adds 0035's one-wishlist-per-issue index plus an equivalent partial unique index so a user can't have two *wishlist* rows; owned/for_sale copies become unlimited. Remove-from-issue-page behavior (D-b) still defaults to "newest copy". The WS2 PR rewrites that section before implementation; the duplicate `(user_id, comic_id)` index is dropped in the same migration.
+- **Multiple copies: build it now** (Tony, 2026-10-05). WS2 changes accordingly: a migration drops `user_collections_user_gcd_issue_unique` and adds 0036's one-wishlist-per-issue index plus an equivalent partial unique index so a user can't have two *wishlist* rows; owned/for_sale copies become unlimited. Remove-from-issue-page behavior (D-b) still defaults to "newest copy". The WS2 PR rewrites that section before implementation; the duplicate `(user_id, comic_id)` index is dropped in the same migration.
 - D-c: targets confirmed: p95 ≤ 1.5 s per endpoint, search ≤ 0.8 s.
 - D-d: **WS8 not now.**
 
 **Speed baseline (2026-10-05):** `reports/perf-baseline-2026-10.md`, two warm 20-run passes against production. Meets target: issue, series, library load, marketplace, and the "batman" and "sandman" searches. Misses: **public profile** (p50 ~1.6s, p95 ~2.1s) and **short search queries** ("x-o" p95 1.2–2.8s against 0.8s). WS7 starts with those two and drops items that don't move a number. Cold starts aren't counted (a cold pass was 2–18s); `--cold` measures them.
+
+## Progress (2026-10-05)
+
+| Item | PR | State |
+|---|---|---|
+| WS0 decisions + Q1–Q5 | #197 (results), this spec | Done |
+| WS0 speed baseline | #203 | Merged |
+| WS0 schema dump | none | Deferred (no DB password handy) |
+| WS1 PR 1b: profiles billing lock (0032a/0032b) | #197 | Merged, both SQL steps verified live |
+| WS1 S1: JSON-LD escaping | #202 | Merged. Shipped as `safeJsonLd()` in `src/lib/jsonLd.js` (not `jsonLdString`); PR 1a drops S1 and reuses it |
+| WS1 PR 1a: S3 activity privacy, S4 `/api/comics` auth, S5a hydrate cap, S5b catalog-link escape, S5d | none | Not started |
+| WS7 public profile speed | #196 | Partial: cover reads narrowed and parallelized (11.3s → 1.7s library load for a 214-book collection). Profile p95 still above target per #203 |
+| WS2–WS6, WS9 | none | Not started. WS8 skipped (D-d) |
+
+**Migration numbers moved.** `0033` was taken on 2026-10-05 by `0033_market_comps_per_issue_unique.sql` (PR #199, eBay comps keyed per issue). This spec's migrations shift up by one: grading trigger fix is now **0034**, cover link lock **0035**, one-wishlist-per-issue **0036**. Check `scripts/migrations/` for the next free number before writing any migration.
 
 ## What changed since the plan was written
 
@@ -172,7 +187,7 @@ Two PRs so the code half isn't blocked on a migration.
 
 ### PR 1a · `agent/ws1-security-code` · ~350 lines
 
-**S1 (Critical): JSON-LD escaping**
+**S1 (Critical): JSON-LD escaping**: DONE in PR #202 as `safeJsonLd()`. Skip this item; the description below is kept for the record.
 - New `src/lib/jsonLd.js`:
   ```js
   // Serialize for <script type="application/ld+json">. JSON.stringify leaves
@@ -350,12 +365,12 @@ Rules for `planRemove`:
 - `scope: "latest-copy"`: delete the `owned`/`for_sale` row with the latest `created_at` (ties broken by `id`). A `for_sale` copy is only picked if there's no `owned` copy, so the button doesn't silently pull a listing.
 - `scope: "wishlist"`: delete the wishlist row only.
 
-### PR 2a · `agent/ws2-library-mutations` · ~450 lines + migration 0035
+### PR 2a · `agent/ws2-library-mutations` · ~450 lines + migration 0036
 
-**The one-wishlist rule lives in Postgres**, not only in `planAdd`: two tabs (or a double-click) can both see "no wishlist row" and both insert. Migration `scripts/migrations/0035_one_wishlist_row_per_issue.sql`:
+**The one-wishlist rule lives in Postgres**, not only in `planAdd`: two tabs (or a double-click) can both see "no wishlist row" and both insert. Migration `scripts/migrations/0036_one_wishlist_row_per_issue.sql`:
 
 ```sql
--- 0035_one_wishlist_row_per_issue.sql
+-- 0036_one_wishlist_row_per_issue.sql
 -- Run Q3b first. If it returns rows, run the dedupe below, then this.
 create unique index concurrently if not exists user_collections_one_wishlist_per_issue
   on public.user_collections (user_id, gcd_issue_id)
@@ -409,10 +424,10 @@ create unique index concurrently if not exists user_collections_one_wishlist_per
 
 ### PR 2b · `agent/ws2-grading-trigger` · migration only
 
-**D3 + the service-role bug: `scripts/migrations/0033_pro_grading_trigger_fix.sql`**
+**D3 + the service-role bug: `scripts/migrations/0034_pro_grading_trigger_fix.sql`**
 
 ```sql
--- 0033_pro_grading_trigger_fix.sql
+-- 0034_pro_grading_trigger_fix.sql
 -- Two fixes to enforce_pro_for_grading():
 -- 1. The service-role bypass compared current_user, which inside a
 --    SECURITY DEFINER function is the owner, never 'service_role'. Use the
@@ -492,7 +507,7 @@ commit;
   begin;
   set local role authenticated;
   select set_config('request.jwt.claims', json_build_object('sub','<free uuid>','role','authenticated')::text, true);
-  update public.user_collections set notes = 'x' where id = '<row id>';           -- expect UPDATE 1 (was ERROR before 0033)
+  update public.user_collections set notes = 'x' where id = '<row id>';           -- expect UPDATE 1 (was ERROR before 0034)
   update public.user_collections set grade_numeric = 9.6 where id = '<row id>';   -- expect ERROR 42501
   update public.user_collections set grade_numeric = null where id = '<row id>';  -- expect UPDATE 1
   rollback;
@@ -500,12 +515,12 @@ commit;
   begin;
   set local role service_role;
   select set_config('request.jwt.claims', json_build_object('role','service_role')::text, true);
-  update public.user_collections set grade_numeric = 9.6 where id = '<row id>';   -- expect UPDATE 1 (was ERROR before 0033)
+  update public.user_collections set grade_numeric = 9.6 where id = '<row id>';   -- expect UPDATE 1 (was ERROR before 0034)
   rollback;
   ```
   Revert check: the same script before applying shows the first and last statements erroring. Clean up the setup grade afterward.
 
-**Done when:** 2a merged with its suite in CI, 0033 applied, verification output pasted into the PR.
+**Done when:** 2a merged with its suite in CI, 0034 applied, verification output pasted into the PR.
 
 ---
 
@@ -603,10 +618,10 @@ Precedence (per issue, first hit wins):
 
 ### PR 4b · `agent/ws4b-cover-lock`
 
-**Migration `scripts/migrations/0034_canonical_covers_link_lock.sql`**
+**Migration `scripts/migrations/0035_canonical_covers_link_lock.sql`**
 
 ```sql
--- 0034_canonical_covers_link_lock.sql
+-- 0035_canonical_covers_link_lock.sql
 -- Repairs to a cover's issue/series link kept getting undone by the next
 -- ingest upsert. A locked row keeps its link columns unless the writer
 -- deliberately re-stamps link_locked_at, which only repair tools do.
@@ -674,7 +689,7 @@ commit;
 - **`issue_primary_cover` (D-e):** not built unless WS0 shows cover resolution is more than ~30% of the issue or series route's p95. With WS4a's 3 batched queries it's unlikely to be.
 - **Load:** adding three columns with constant defaults is metadata-only on Postgres 11+, no table rewrite. Still apply off-peak.
 
-**Done when:** 4a merged after Tony read the parity list; 0034 applied with its check pasted; the end-to-end re-ingest check passed.
+**Done when:** 4a merged after Tony read the parity list; 0035 applied with its check pasted; the end-to-end re-ingest check passed.
 
 ---
 
@@ -718,7 +733,7 @@ commit;
 - **Export** adds columns `gcd_issue_id`, `comic_id`, `variant_label`, `copy_number` (and already-exported grade fields stay).
 - **Import** (`src/app/api/csv-import/route.js`):
   - Uses `gcd_issue_id` when present and valid, skipping title matching.
-  - Writes `condition`, `grade_numeric`, `slab_company`, `slab_cert_number`, `notes`, `purchase_price`, `market_value`. The route already uses the service role; after 0033 the trigger's bypass actually works. Gated fields are only written when the importing user is Pro/Founding (checked in the route), so a free user's import can't smuggle grades in through the service role.
+  - Writes `condition`, `grade_numeric`, `slab_company`, `slab_cert_number`, `notes`, `purchase_price`, `market_value`. The route already uses the service role; after 0034 the trigger's bypass actually works. Gated fields are only written when the importing user is Pro/Founding (checked in the route), so a free user's import can't smuggle grades in through the service role.
   - Extra copies become extra rows (`copy_number` from the file, or next free).
   - Owned CSV row + existing wishlist row for that issue → wishlist row upgraded to owned (same rule as `planAdd`, reused from `libraryMutations.js`).
 - **D5:** `src/lib/createLocalComic.js`, `createLocalComic(supabase, { title, issue_number, publisher, release_year, variant_name, created_by })`: dedupes on `series.title_normalized` (the logic already in `/api/comics` POST, moved), normalizes publisher via `normalizePublisherName`, always sets `comics.publisher`. Used by `/api/comics` and CSV import.
@@ -791,8 +806,8 @@ Each item ships only with a before/after from `npm run perf:baseline` in its PR.
 
 ```
 PR0 (WS0) ─┬─ PR1a ── PR1b(0032)
-           ├─ PR2a(0035) ── PR2b(0033)
-           └─ (after PR1a) PR3a ─ PR3b ─ PR3c ─ PR4a ─ PR4b(0034) ─ PR7.*
+           ├─ PR2a(0036) ── PR2b(0034)
+           └─ (after PR1a) PR3a ─ PR3b ─ PR3c ─ PR4a ─ PR4b(0035) ─ PR7.*
                                       └─ PR5 ─ PR6
 PR8 any time after PR0, if D-d = go.   PR9 last.
 ```
@@ -813,7 +828,7 @@ Pre-review self-check (before round 1): found that `library/page.js` doesn't bat
 
 | # | Sev | Finding | Decision | Reason |
 |---|---|---|---|---|
-| 1 | High | One-wishlist-row rule only enforced client-side; two tabs can both insert | **Accept** | Real race, and `scope: "wishlist"` depends on it. Added migration 0035 (partial unique index, `concurrently`), Q3b dedupe check, 23505 treated as success |
+| 1 | High | One-wishlist-row rule only enforced client-side; two tabs can both insert | **Accept** | Real race, and `scope: "wishlist"` depends on it. Added migration 0036 (partial unique index, `concurrently`), Q3b dedupe check, 23505 treated as success |
 | 2 | High | WS5 picks refresh targets by distinct-key *count*; same-size key-set changes are missed | **Accept** | `{1/2, 2}` example is correct. Now flags any series where any issue's key changes |
 | 3 | Medium | "3 queries per call" ignores `.in()` chunking and pagination | **Accept** | Wording was wrong; spelled out the real request count and tier ordering. No scope change: the perf PR measures it |
 
@@ -823,7 +838,7 @@ Pre-review self-check (before round 1): found that `library/page.js` doesn't bat
 |---|---|---|---|---|
 | 1 | High | Concurrent owned adds can insert two owned rows | **Accept as Medium** | Real, but the outcome is a visible, removable extra copy, not data loss, and the same race exists today. Added a per-key in-flight guard + disabled button (covers double-click). Rejected the atomic RPC / lock: disproportionate for a rare two-tab race |
 | 2 | High | Tier-3 predicate (`normTitle` equality) is looser than what the `.in("series_title", titleVariants())` query can fetch | **Accept** | Verified in `src/lib/titleMatch.js`: variants are exact, case-preserving. Predicate now means exact membership in `titleVariants`, matching today's behavior. A normalized-title column on `canonical_covers` would be broader but is a new index + backfill; not needed for parity |
-| 3 | Medium | 0033 has no owner bypass, so its own setup step fails as `postgres` | **Accept** | Correct. Added a bypass keyed on `session_user` + absent JWT claims (not `current_user`, which is always the owner in a SECURITY DEFINER function); tests that set claims still hit the checks |
+| 3 | Medium | 0034 has no owner bypass, so its own setup step fails as `postgres` | **Accept** | Correct. Added a bypass keyed on `session_user` + absent JWT claims (not `current_user`, which is always the owner in a SECURITY DEFINER function); tests that set claims still hit the checks |
 
 ### Round 3 (2026-10-04, final round)
 

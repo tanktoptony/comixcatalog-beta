@@ -18,24 +18,59 @@ import { authedFetch } from "@/lib/apiClient";
 const CAP = 100;
 const pad = (n) => String(n).padStart(3, "0");
 
+// Your pass number, remembered per user so a returning founder sees it on
+// first paint instead of "★" and then the number.
+const NUMBER_KEY = (userId) => `cc:founding-number:${userId}`;
+function readNumber(userId) {
+  try {
+    const n = Number(window.localStorage.getItem(NUMBER_KEY(userId)));
+    return Number.isFinite(n) && n > 0 ? n : null;
+  } catch {
+    return null;
+  }
+}
+function writeNumber(userId, n) {
+  try {
+    if (userId && n) window.localStorage.setItem(NUMBER_KEY(userId), String(n));
+  } catch {
+    // Storage blocked; the number still arrives from the status call.
+  }
+}
+
 export default function FoundingCollectorsClient({ initialRemaining = null, roster = [] }) {
-  const { user } = useAuth();
+  const { user, profile, loading } = useAuth();
+  const userId = user?.id ?? null;
   const [status, setStatus] = useState({ remaining: initialRemaining, isFounding: false, canClaim: false });
+  // Whose status `status` describes: "anon", a user id, or null before the
+  // first fetch. Claim state renders only once it matches the current viewer,
+  // so the page never shows "Claim your pass" or "Go to your library" to a
+  // founder while it's still finding out who they are.
+  const [statusFor, setStatusFor] = useState(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
 
-  async function load() {
-    const response = user ? await authedFetch("/api/founding/status", { cache: "no-store" }) : await fetch("/api/founding/status", { cache: "no-store" });
-    if (response.ok) setStatus(await response.json());
+  async function fetchStatus() {
+    const response = userId
+      ? await authedFetch("/api/founding/status", { cache: "no-store" })
+      : await fetch("/api/founding/status", { cache: "no-store" });
+    return response.ok ? response.json() : null;
   }
+
+  // One status call per viewer, after auth has resolved. It used to fire
+  // once anonymously and again when the user arrived, and again on every
+  // token refresh because it keyed on the user object.
   useEffect(() => {
+    if (loading) return;
     let cancelled = false;
-    const request = user ? authedFetch("/api/founding/status", { cache: "no-store" }) : fetch("/api/founding/status", { cache: "no-store" });
-    request.then((response) => response.ok ? response.json() : null).then((data) => {
-      if (!cancelled && data) setStatus(data);
+    fetchStatus().then((data) => {
+      if (cancelled || !data) return;
+      setStatus(data);
+      setStatusFor(userId ?? "anon");
+      if (userId && data.number) writeNumber(userId, data.number);
     });
     return () => { cancelled = true; };
-  }, [user]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, userId]);
 
   async function claim() {
     setBusy(true); setMessage("");
@@ -44,8 +79,23 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
     setBusy(false);
     if (!response.ok) return setMessage(data.error || "Could not activate your membership");
     setMessage("Your Founding Collector pass is active. Welcome to Pro for life.");
-    await load();
+    const next = await fetchStatus();
+    if (next) {
+      setStatus(next);
+      setStatusFor(userId ?? "anon");
+      if (userId && next.number) writeNumber(userId, next.number);
+    }
   }
+
+  const statusReady = statusFor === (userId ?? "anon");
+  // The profile flag is known as soon as auth is (cached on the client), so
+  // a founder sees their state immediately; the status call fills in the rest.
+  const isFounder = (statusReady && status.isFounding) || Boolean(profile?.is_founding_collector);
+  // userId is null on the server and during hydration (auth starts out
+  // loading), so the localStorage read only ever runs in the browser.
+  const passNumber = (statusReady && status.number) || (userId ? readNumber(userId) : null);
+  // Signed out needs no status call: the server already rendered the count.
+  const claimStateKnown = !loading && (!userId || isFounder || statusReady);
 
   const remaining = status.remaining;
   const claimed = remaining == null ? null : Math.max(0, CAP - remaining);
@@ -69,8 +119,14 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
             for good.
           </p>
 
-          {status.isFounding ? (
-            <div className="fc-done">You&rsquo;re Founding Collector No. {status.number ? pad(status.number) : "★"}. Your lifetime Pro is active, and your name is on the wall.</div>
+          {!claimStateKnown ? (
+            // Same height as the CTA row, nothing visible, while we find out
+            // who's looking.
+            <div className="fc-ctas" aria-hidden="true" style={{ visibility: "hidden" }}>
+              <span className="lp-cta-primary">Claim your pass, free</span>
+            </div>
+          ) : isFounder ? (
+            <div className="fc-done">You&rsquo;re Founding Collector No. {passNumber ? pad(passNumber) : "★"}. Your lifetime Pro is active, and your name is on the wall.</div>
           ) : soldOut ? (
             <div className="fc-done">All {CAP} passes are claimed. Thank you to every one of them.</div>
           ) : !user ? (
@@ -102,7 +158,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
             <div className="fc-pass-title">Founding<br />Collector</div>
             <div className="fc-pass-sub">Collector Pro · for life</div>
             <div className="fc-pass-no">
-              <span>No.</span> {status.isFounding ? (status.number ? pad(status.number) : "★") : nextNumber == null ? "—" : pad(nextNumber)}
+              <span>No.</span> {!claimStateKnown ? "—" : isFounder ? (passNumber ? pad(passNumber) : "★") : nextNumber == null ? "—" : pad(nextNumber)}
               <em> / {CAP}</em>
             </div>
           </div>

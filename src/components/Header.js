@@ -565,7 +565,7 @@ export default function Header() {
             <MarketplaceIcon />
           </Link>
 
-          {!user && (
+          {!user && !loading && (
             <>
               <Link href="/login" className="nav-link nav-link-mobile-hide" onClick={closeMenu}>
                 Sign in
@@ -592,6 +592,10 @@ export default function Header() {
             visible on mobile while text links collapse behind the hamburger.
             The inbox came back with the marketplace (2026-10-01): "Make an
             offer" opens a thread with the seller. */}
+        {/* While auth resolves (first paint of a full page load, before the
+            stored session is read) hold the space the signed-in icons take,
+            instead of flashing Sign in / Create account and then swapping. */}
+        {!user && loading && <div className="header-user-actions header-auth-pending" aria-hidden="true" />}
         {user && (
           <div className="header-user-actions">
             {/* Persistent, always-available re-entry point into the

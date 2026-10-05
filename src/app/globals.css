@@ -11689,3 +11689,11 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .series-more { display: flex; justify-content: center; padding: 8px 0 32px; }
 .series-more button { padding: 10px 20px; border-radius: 8px; border: 1px solid rgba(244, 208, 63, 0.5); background: transparent; color: #F4D03F; font-weight: 700; cursor: pointer; }
 .series-more button:hover { background: rgba(244, 208, 63, 0.08); }
+
+/* Space the signed-in icon row takes (help, inbox, library, avatar: four
+   38px buttons plus gaps), held while auth resolves so the header doesn't
+   jump when it fills in. See Header.js. */
+.header-auth-pending {
+  width: 170px;
+  height: 38px;
+}

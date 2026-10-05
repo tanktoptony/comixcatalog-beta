@@ -89,7 +89,7 @@ Note: `target_volumes_seed.py` was referenced in older briefings but has been re
 ### GCD (Grand Comics Database)
 - **Primary source of truth** for all comic metadata: series, issues, story arcs, variants, publishers
 - Tables prefixed `gcd_*` (`gcd_series`, `gcd_issues`, `gcd_publishers`)
-- **Important:** `gcd_scraper_to_supabase.py` does NOT populate these tables. It's a *covers* scraper that hits comics.org HTML for issues in user collections. The metadata tables were populated by an earlier ingest (likely from GCD's public Postgres dump) that's no longer in the repo. `gcd-issue-refresh.yml` tops up the active catalog every 3 hours from GCD's API: recent ComicVine releases, series represented in member collections, and featured series. A complete bulk rebuild still requires a fresh GCD Postgres dump.
+- **Important:** `gcd_scraper_to_supabase.py` does NOT populate these tables. It's a *covers* scraper that hits comics.org HTML for issues in user collections. The metadata tables came from an old GCD dump and can lack entire series. `scripts/importGcdSeries.js --gcd-ids=...` imports a known missing series and its issue details. `gcd-publisher-sync.yml` follows a completed publisher pass with a cursor-based walk of GCD's series list, adding eligible English-language US and Canadian gaps without per-series requests. `gcd-issue-refresh.yml` tops up issue details for active catalog targets every 3 hours.
 - **GCD bulk-dump audit (May 19, 2026):** investigated whether the dump's `gcd_cover` table could 10x our coverage. **DEAD END.** Two reasons: (a) the user's local dump is metadata-only — no cover tables at all; (b) even if we had cover IDs, `files1.comics.org` is fully Cloudflare-walled — every request returns `Cf-Mitigated: challenge` regardless of User-Agent or Referer. This also explains why `gcd_scraper_to_supabase.py` never wrote a row: same Cloudflare wall. Treat that script as dead code pending removal.
 
 ### ComicVine
@@ -188,6 +188,7 @@ Columns: `title`, `created_at`, `cv_publisher`, `issue_count_cached`, `year_star
 #### `gcd_series` (raw GCD mirror)
 PK `gcd_id` (int4). FK `publisher_gcd_id` → `gcd_publishers.gcd_id`.
 Columns: `name`, `sort_name`, `year_began`, `year_ended`.
+- `scripts/discoverGcdSeries.js` creates missing mirror and app rows directly from 50-row GCD list pages. It also creates provisional `gcd_issues` rows from `active_issues` and `issue_descriptors`; dates and titles stay null until an issue-detail refresh. The search cache falls back to `gcd_series.year_began/year_ended` when those dates are null.
 
 #### `gcd_issues`
 PK `gcd_id` (int4). FK `series_gcd_id` → `series.gcd_id` AND `gcd_series.gcd_id`. Also `publisher_gcd_id` → `gcd_publishers.gcd_id`.

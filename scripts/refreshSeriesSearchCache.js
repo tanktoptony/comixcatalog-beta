@@ -293,25 +293,27 @@ function normalizePublisherForMatch(value) {
 async function fetchGcdSeriesMetadata(gcdIds) {
   const flags = new Map();
   const publisherIds = new Map();
+  const years = new Map();
   for (let i = 0; i < gcdIds.length; i += 500) {
     const { data, error } = await supabase
       .from("gcd_series")
-      .select("gcd_id, publishing_format, binding, publisher_gcd_id")
+      .select("gcd_id, publishing_format, binding, publisher_gcd_id, year_began, year_ended")
       .in("gcd_id", gcdIds.slice(i, i + 500));
     if (error) throw error;
     for (const row of data ?? []) {
       flags.set(row.gcd_id, isCollectedEdition(row));
       publisherIds.set(row.gcd_id, row.publisher_gcd_id);
+      years.set(row.gcd_id, { yearBegan: row.year_began, yearEnded: row.year_ended });
     }
   }
-  return { flags, publisherIds };
+  return { flags, publisherIds, years };
 }
 
 async function processBatch(seriesBatch) {
   if (seriesBatch.length === 0) return 0;
 
   const seriesGcdIds = seriesBatch.map((s) => s.gcd_id);
-  const { flags: collectedFlags, publisherIds: seriesPublisherIds } =
+  const { flags: collectedFlags, publisherIds: seriesPublisherIds, years: seriesYears } =
     await fetchGcdSeriesMetadata(seriesGcdIds);
   const seriesTitles = [
     ...new Set(seriesBatch.map((s) => s.title).filter(Boolean)),
@@ -613,8 +615,13 @@ async function processBatch(seriesBatch) {
       .map((r) => bestYearFor(r))
       .filter((y) => y != null);
 
-    const yearStart = years.length ? Math.min(...years) : null;
-    const yearEnd = years.length ? Math.max(...years) : null;
+    // Discovery can create useful issue rows from the list endpoint without
+    // spending one API request per issue. Those provisional rows deliberately
+    // have null dates, so fall back to the authoritative series span rather
+    // than hiding the series from search until a later issue-detail refresh.
+    const seriesSpan = seriesYears.get(series.gcd_id);
+    const yearStart = years.length ? Math.min(...years) : (seriesSpan?.yearBegan ?? null);
+    const yearEnd = years.length ? Math.max(...years) : (seriesSpan?.yearEnded ?? seriesSpan?.yearBegan ?? null);
 
     const issuePublisherNames = [
       ...new Set(

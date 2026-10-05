@@ -151,7 +151,7 @@ API for whether a run was ever created.**
 | `cron-watchdog.yml` | — | force-dispatches overdue workflows | grace windows live in `scripts/cronWatchdog.js` |
 | `instagram-post.yml` | — | posts an issue to Instagram | **never audited. The founder asked for an "Instagram bot refinement" and never specified what. Ask, do not guess.** |
 | `gcd-issue-refresh.yml` | every 3h `45 */3 * * *` | tops up `gcd_issues` for recent-release, member-owned, and featured series from comics.org's live API | active union was 316 series on 2026-10-05. **GCD's budget is ~30 requests per run and resets hourly**, so at 8 runs a day a check-only rotation takes about 1.4 days (it was 11+ days at the old daily cadence) and missing-issue fetches extend it. A 429 is exit 3 and expected. Rotation cursor lives in `gcd-refresh-cursor.json` |
-| `gcd-publisher-sync.yml` | `:15` on hours not used by issue refresh | incrementally mirrors GCD publishers, then waits seven days after a completed pass | upserts every fetched page before advancing `gcd-publisher-sync-cursor.json`; a 429 is exit 3 and expected; never deletes local-only rows |
+| `gcd-publisher-sync.yml` | `:15` on hours not used by issue refresh | incrementally mirrors GCD publishers, then walks GCD series pages for missing English-language US/Canadian catalog rows | publisher work finishes first; series discovery resumes from `gcd-series-discovery-cursor.json`; each 50-row list page supplies series metadata and provisional issue IDs without extra GCD requests; a 429 is exit 3 and expected; no phase deletes rows |
 | `snapshot-collection-value.yml`, `pr-ci.yml` | — | value snapshots, PR checks | |
 
 ---

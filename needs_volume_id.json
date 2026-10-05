@@ -41695,5 +41695,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T16:01:16.659519+00:00",
     "retry_after": "2026-10-06T16:01:16.659540+00:00"
+  },
+  {
+    "name": "Archie [Archie: The Complete Daily Newspaper Comics]",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T17:01:00.722451+00:00",
+    "retry_after": "2026-10-06T17:01:00.722467+00:00"
+  },
+  {
+    "name": "Siegel and Shuster: Dateline 1930s",
+    "publisher": "Eclipse Comics",
+    "year": 1984,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T17:02:16.067658+00:00",
+    "retry_after": "2026-10-06T17:02:16.067675+00:00"
+  },
+  {
+    "name": "The X-Files: Conspiracy",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 70908,
+        "name": "The X-Files: Conspiracy",
+        "publisher": "IDW Publishing",
+        "start_year": 2014
+      },
+      {
+        "id": 75370,
+        "name": "The X-Files: Conspiracy",
+        "publisher": "IDW Publishing",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T17:06:58.672166+00:00",
+    "retry_after": "2026-10-06T17:06:58.672182+00:00"
+  },
+  {
+    "name": "Avengers by Busiek and Perez Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T17:06:59.202290+00:00",
+    "retry_after": "2026-10-06T17:06:59.202306+00:00"
   }
 ]

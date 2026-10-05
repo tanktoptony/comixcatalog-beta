@@ -44,6 +44,12 @@ The app is **stable and content-rich** (217k series, 2.5M issues, year-aware pub
 | Styling | Tailwind CSS |
 | Config | `next.config.mjs`, `tailwind.config.cjs`, `postcss.config.cjs` |
 
+### Cover scanning
+
+`POST /api/cover-scan` accepts an authenticated, client-resized cover image and uses `claude-opus-5-5` to extract visible catalog metadata. It requires the server-only `ANTHROPIC_API_KEY`. Daily limits are 10 for regular members and 100 for `profiles.is_pro` members (the fixed admin ID also receives the Pro limit), measured per UTC day. `PATCH /api/cover-scan` records the issue chosen from a scan result.
+
+Scan records live in `cover_scans`. Original photos are retained in the private `cover-scans` storage bucket at `<user_id>/<scan_id>.jpg`; service role writes, and owners may read their own objects. Migration: `scripts/migrations/0040_cover_scans.sql`.
+
 ---
 
 ## Project Structure

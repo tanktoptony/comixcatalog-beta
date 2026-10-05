@@ -596,3 +596,9 @@ cards).
     instead of "unknown error". General lesson, third time now: **a health
     check that costs more than the work it guards will eventually lie about
     the work.**
+
+### Cover scan configuration
+
+- Apply `scripts/migrations/0040_cover_scans.sql` before enabling the UI. It creates the private `cover-scans` bucket, its owner-read policy, and the `cover_scans` audit table.
+- Set server-only `ANTHROPIC_API_KEY` in Vercel and local `.env.local`. A missing key returns HTTP 503 before accepting a photo.
+- Scan caps reset at 00:00 UTC. Attempts recorded as `capped` or `error` do not consume quota.

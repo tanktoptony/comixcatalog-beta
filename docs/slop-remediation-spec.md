@@ -98,6 +98,8 @@ Everything that needs you, in the order it blocks work. Nothing past WS0 starts 
 - D-c: targets confirmed: p95 ≤ 1.5 s per endpoint, search ≤ 0.8 s.
 - D-d: **WS8 not now.**
 
+**Speed baseline (2026-10-05):** `reports/perf-baseline-2026-10.md`, two warm 20-run passes against production. Meets target: issue, series, library load, marketplace, and the "batman" and "sandman" searches. Misses: **public profile** (p50 ~1.6s, p95 ~2.1s) and **short search queries** ("x-o" p95 1.2–2.8s against 0.8s). WS7 starts with those two and drops items that don't move a number. Cold starts aren't counted (a cold pass was 2–18s); `--cold` measures them.
+
 ## What changed since the plan was written
 
 Checked on `5b9647f`. Corrections the implementer should trust over the plan:

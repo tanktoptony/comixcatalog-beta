@@ -38,6 +38,7 @@
     "test:value-history": "node --test src/lib/valueHistory.test.js",
     "test:marketplace-facets": "node --test src/lib/marketplaceFacets.test.js",
     "audit:errors": "node scripts/auditErrorHandling.js",
+    "perf:baseline": "node scripts/perfBaseline.js",
     "docs:check": "node scripts/checkDocLinks.js",
     "data:plan-comics-gcd-dedupe": "node --max-old-space-size=2048 scripts/planComicsGcdDedupe.js",
     "covers:gap-priority": "node scripts/generatePriorityCoverTargets.js",

@@ -758,9 +758,14 @@ const UserMenu = forwardRef(function UserMenu(
   // which account you were signed into.
   const email = user?.email ?? null;
   const displayName = profile?.display_name || username || email || "Account";
-  const avatarSrc = profile?.avatar_url
+  // No profile yet means it's still loading (right after sign-in there's no
+  // cached copy). Draw an empty circle until then; the stock badge is only
+  // for a loaded profile with no photo, or it flashes before the real one.
+  const avatarSrc = !profile
+    ? null
+    : profile.avatar_url
     ? profile.avatar_url
-    : `/avatars/${profile?.avatar_key || "cc_badge"}.png`;
+    : `/avatars/${profile.avatar_key || "cc_badge"}.png`;
 
   function handleItem(callback) {
     return () => {
@@ -780,7 +785,11 @@ const UserMenu = forwardRef(function UserMenu(
         aria-expanded={open}
         aria-label="Account menu"
       >
-        <img src={avatarSrc} alt="" className="user-menu-avatar" />
+        {avatarSrc ? (
+          <img src={avatarSrc} alt="" className="user-menu-avatar" />
+        ) : (
+          <span className="user-menu-avatar user-menu-avatar--pending" aria-hidden="true" />
+        )}
         {isPro && <span className="user-menu-pro-dot" aria-hidden="true" />}
       </button>
 

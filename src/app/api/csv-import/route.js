@@ -89,7 +89,7 @@ export async function POST(req) {
       .from("profiles")
       .select("is_pro")
       .eq("id", user_id)
-      .single();
+      .maybeSingle(); // zero rows is an answer, not a failure
     if (profileError) {
       console.error("CSV import profile lookup failed:", profileError.code, profileError.message);
       return NextResponse.json({ error: "Failed to verify import limits" }, { status: 502 });

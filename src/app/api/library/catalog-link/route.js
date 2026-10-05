@@ -37,7 +37,7 @@ async function assertPro(supabase, user_id) {
     .from("profiles")
     .select("is_pro, is_founding_collector")
     .eq("id", user_id)
-    .single();
+    .maybeSingle(); // zero rows is an answer, not a failure
   if (error) {
     console.error("catalog-link profile lookup failed:", error.code, error.message);
     return null;

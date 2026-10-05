@@ -16,7 +16,7 @@ export async function DELETE(req, context) {
     .from("blog_comments")
     .select("user_id")
     .eq("id", id)
-    .single();
+    .maybeSingle(); // zero rows is an answer, not a failure
 
   if (commentError) {
     console.error("comment ownership lookup failed:", commentError.code, commentError.message);

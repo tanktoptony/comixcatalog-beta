@@ -78,7 +78,7 @@ export async function PATCH(req, context) {
       .from("comics")
       .select("created_by")
       .eq("id", id)
-      .single();
+      .maybeSingle(); // zero rows is an answer, not a failure
 
     if (ownershipError) {
       console.error("comic ownership lookup failed:", ownershipError.code, ownershipError.message);
@@ -128,7 +128,7 @@ export async function DELETE(req, context) {
       .from("comics")
       .select("created_by")
       .eq("id", id)
-      .single();
+      .maybeSingle(); // zero rows is an answer, not a failure
 
     if (ownershipError) {
       console.error("comic ownership lookup failed:", ownershipError.code, ownershipError.message);

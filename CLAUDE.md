@@ -153,6 +153,7 @@ PK `id` (uuid, FK → `auth.users.id`).
 Columns: `username`, `is_public`, `created_at`, `avatar_key`, `avatar_url`, `is_founding_collector`, `is_pro`, `stripe_customer_id`.
 - `is_pro` is the Stripe-driven flag. Admin is treated as Pro via `ADMIN_ID` short-circuit, NOT this column.
 - `stripe_customer_id` is mode-sensitive — a live-mode `cus_…` will fail under a test-mode key (we hit this).
+- **`is_pro`, `is_founding_collector` and `stripe_customer_id` are server-only (migration 0032a/0032b, 2026-10-05).** A trigger rejects any change to them unless the caller is the service role or postgres, because the "Users can update own profile" policy has no column limit and owners could otherwise grant themselves Pro. Browsers can't read `stripe_customer_id` at all, so client code must select explicit columns from `profiles`, never `select("*")`. A new `profiles` column needs adding to 0032b's grant list or browsers can't read it.
 
 #### `user_collections`
 PK `id` (uuid). FKs: `user_id` → `auth.users`, `comic_id` → `comics.id`, plus a non-FK `gcd_issue_id` (int4) link.

@@ -45,7 +45,11 @@ export function AuthProvider({ children }) {
 
       const { data: prof } = await supabase
         .from("profiles")
-        .select("*")
+        // Explicit columns: browsers can't read stripe_customer_id
+        // (migration 0032b), so a "*" here would fail the whole load.
+        .select(
+          "id, username, is_public, created_at, avatar_key, avatar_url, is_founding_collector, is_pro, display_name, location, bio, website_url, show_collection, show_wantlist, show_for_sale, show_value"
+        )
         .eq("id", nextUser.id)
         .single();
 

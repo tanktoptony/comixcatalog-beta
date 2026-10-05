@@ -41402,5 +41402,81 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T08:03:00.333910+00:00",
     "retry_after": "2026-10-06T08:03:00.333927+00:00"
+  },
+  {
+    "name": "The X-Men",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2133,
+        "name": "The X-Men",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 10731,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 34221,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 137402,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 4605,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 1991
+      },
+      {
+        "id": 62383,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 122077,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T09:03:30.147105+00:00",
+    "retry_after": "2026-10-06T09:03:30.147121+00:00"
+  },
+  {
+    "name": "Spectacular Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2870,
+        "name": "The Spectacular Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1976
+      },
+      {
+        "id": 11069,
+        "name": "Spectacular Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T09:05:51.239899+00:00",
+    "retry_after": "2026-10-06T09:05:51.239922+00:00"
   }
 ]

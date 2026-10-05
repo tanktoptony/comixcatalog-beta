@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useLibrary } from "@/context/LibraryContext";
+import { authedFetch } from "@/lib/apiClient";
 
 export default function AddComicPage() {
   const router = useRouter();
@@ -36,9 +37,8 @@ export default function AddComicPage() {
     fd.append("issue_number", form.issue_number);
     fd.append("publisher", form.publisher);
     if (form.release_year) fd.append("release_year", form.release_year);
-    fd.append("created_by", user.id);
 
-    const res = await fetch("/api/comics", {
+    const res = await authedFetch("/api/comics", {
       method: "POST",
       body: fd,
     });

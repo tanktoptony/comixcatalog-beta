@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getAuthedUser } from "@/lib/authServer";
 import { createClient } from "@supabase/supabase-js";
 import { getFeaturedSeries } from "@/lib/featuredSeriesData";
 import { normalizeKey, chooseSeries, matchIssue } from "@/lib/csvImport/matchRow";
@@ -110,7 +111,6 @@ async function readSubmission(req) {
       publisher: body?.publisher ?? "",
       release_year: body?.release_year ?? null,
       variant_name: body?.variant_name ?? null,
-      created_by: body?.created_by ?? null,
     };
   }
   const fd = await req.formData();
@@ -120,11 +120,18 @@ async function readSubmission(req) {
     publisher: fd.get("publisher") ?? "",
     release_year: fd.get("release_year") ?? null,
     variant_name: fd.get("variant_name") ?? null,
-    created_by: fd.get("created_by") ?? null,
   };
 }
 
 export async function POST(req) {
+  // Who's adding this comes from their verified token, never the form. The
+  // forms used to send created_by themselves, so anyone could file a comic
+  // under someone else's account, or with no account at all (audit S4).
+  const user = await getAuthedUser(req);
+  if (!user) {
+    return NextResponse.json({ error: "Sign in to add a comic" }, { status: 401 });
+  }
+
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -142,7 +149,7 @@ export async function POST(req) {
   const issue_number = String(submission.issue_number ?? "").trim();
   const publisher_name = String(submission.publisher ?? "").trim();
   const variant_name = submission.variant_name ? String(submission.variant_name).trim() : null;
-  const created_by = submission.created_by ? String(submission.created_by) : null;
+  const created_by = user.id;
   const release_year =
     submission.release_year === null || submission.release_year === ""
       ? null

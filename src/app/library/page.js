@@ -21,6 +21,10 @@ import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { coverThumb } from "@/lib/coverThumb";
 import { readLocal, writeLocal } from "@/lib/localCache";
 import { isOwnedStatus } from "@/lib/collectionStatus";
+import { chunk } from "@/lib/chunk";
+
+// Books per /api/library-hydrate request. The route caps a request at 2,000.
+const HYDRATE_CHUNK = 1000;
 
 // Module-scoped so it survives across component re-mounts within a tab
 // (see the user-change-clear logic below for why that's usually right).
@@ -782,42 +786,55 @@ function LibraryPageContent() {
           condition: c.condition ?? null,
         }));
 
+      // One request per HYDRATE_CHUNK books, sent one after another, so a big
+      // library fills in batch by batch and no request is huge. The route
+      // rejects more than 2,000 ids per call (audit S5a).
+      const keyBatches = chunk(
+        [...gcdIds.map((n) => ({ gcd: n })), ...comicIds.map((id) => ({ comic: id }))],
+        HYDRATE_CHUNK
+      );
       try {
-        const res = await fetch("/api/library-hydrate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            comic_ids: comicIds,
-            gcd_issue_ids: gcdIds,
-            collection_grades: collectionGrades,
-          }),
-        });
-        if (!res.ok || cancelled) return;
+        for (const batch of keyBatches) {
+          if (cancelled) return;
+          const batchGcd = batch.filter((k) => k.gcd != null).map((k) => k.gcd);
+          const batchComic = batch.filter((k) => k.comic != null).map((k) => k.comic);
+          const gcdSet = new Set(batchGcd);
+          const res = await fetch("/api/library-hydrate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              comic_ids: batchComic,
+              gcd_issue_ids: batchGcd,
+              collection_grades: collectionGrades.filter((g) => gcdSet.has(g.gcd_issue_id)),
+            }),
+          });
+          if (!res.ok || cancelled) return;
 
-        const data = await res.json();
-        const raw = data.items ?? {};
+          const data = await res.json();
+          const raw = data.items ?? {};
 
-        const fresh = {};
-        for (const [key, item] of Object.entries(raw)) {
-          const normalized = {
-            ...item,
-            publisher: normalizePublisherName(item.publisher),
-            rawPublisher: item.publisher ?? "Unknown Publisher",
-            cover: item.cover || "/fallback-cover.png",
-          };
-          fresh[key] = normalized;
-          hydrationCache.set(key, { data: normalized, cachedAt: Date.now() });
-        }
+          const fresh = {};
+          for (const [key, item] of Object.entries(raw)) {
+            const normalized = {
+              ...item,
+              publisher: normalizePublisherName(item.publisher),
+              rawPublisher: item.publisher ?? "Unknown Publisher",
+              cover: item.cover || "/fallback-cover.png",
+            };
+            fresh[key] = normalized;
+            hydrationCache.set(key, { data: normalized, cachedAt: Date.now() });
+          }
 
-        saveHydration(user?.id);
-        if (!cancelled) {
-          setComicIndex((prev) => ({ ...prev, ...fresh }));
-          if (data.market_values && typeof data.market_values === "object") {
-            setMarketValues((prev) => {
-              const next = { ...prev, ...data.market_values };
-              if (user?.id) writeLocal(`hydrate:mv:${user.id}`, next);
-              return next;
-            });
+          saveHydration(user?.id);
+          if (!cancelled) {
+            setComicIndex((prev) => ({ ...prev, ...fresh }));
+            if (data.market_values && typeof data.market_values === "object") {
+              setMarketValues((prev) => {
+                const next = { ...prev, ...data.market_values };
+                if (user?.id) writeLocal(`hydrate:mv:${user.id}`, next);
+                return next;
+              });
+            }
           }
         }
       } catch (err) {

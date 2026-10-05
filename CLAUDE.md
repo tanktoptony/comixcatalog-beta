@@ -394,6 +394,7 @@ Three bugs fixed:
 
 ## Engineering Reminders
 
+- **Activity and comic-add security:** `/api/activity` reads with the service role, so `src/lib/activityFeed.js` is the only privacy gate for the homepage feed; `POST /api/comics` derives `created_by` from the bearer token, never the form.
 - **API routes must be API routes.** Don't let Next.js page/component patterns bleed into `/api/` handlers — this has burned us before.
 - **Never fetch more records than needed.** The 500-record-to-find-one bug is fixed — don't reintroduce patterns like it.
 - **PostgREST 1000-row cap is silent.** Any `.in()` or `.select()` without `.range()` will silently cap at 1000 rows. This bit us twice (`diagnoseIssuesData.js` and the cache-refresh canonical_covers fetch). Always paginate with `.range(from, from + PAGE - 1)` in a loop when you might exceed 1000 rows.

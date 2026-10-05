@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { filterVisibleActivity } from "@/lib/activityFeed";
+
+// Rows read before the privacy filter. Private accounts and hidden lists
+// drop out, so read well past the 20 shown to keep the feed full.
+const READ_ROWS = 100;
+const SHOW_ROWS = 20;
 
 export async function GET() {
   try {
@@ -12,14 +18,35 @@ export async function GET() {
       .from("user_collections")
       .select("status, created_at, comic_id, gcd_issue_id, user_id")
       .order("created_at", { ascending: false })
-      .limit(20);
+      .limit(READ_ROWS);
 
     if (activityError) {
       console.error("Activity error:", activityError);
       return NextResponse.json({ activity: [] }, { status: 500 });
     }
 
-    const activity = Array.isArray(activityData) ? activityData : [];
+    const recent = Array.isArray(activityData) ? activityData : [];
+
+    if (recent.length === 0) {
+      return NextResponse.json({ activity: [] });
+    }
+
+    // Privacy first: the service role ignores RLS, so nothing below may run
+    // on a row before filterVisibleActivity has cleared it. A failed profile
+    // read means we can't check, so show nothing rather than everything.
+    const recentUserIds = [
+      ...new Set(recent.map((a) => a.user_id).filter((v) => v != null).map(String)),
+    ];
+    const { data: profileRows, error: profilesError } = await supabase
+      .from("profiles")
+      .select("id, username, is_public, show_collection, show_wantlist, show_for_sale")
+      .in("id", recentUserIds);
+    if (profilesError) {
+      console.error("Activity profiles lookup error:", profilesError);
+      return NextResponse.json({ activity: [] }, { status: 502 });
+    }
+    const profilesMap = Object.fromEntries((profileRows ?? []).map((p) => [String(p.id), p]));
+    const activity = filterVisibleActivity(recent, profilesMap, SHOW_ROWS);
 
     if (activity.length === 0) {
       return NextResponse.json({ activity: [] });
@@ -46,16 +73,7 @@ export async function GET() {
           .map(Number)
       ),
     ];
-    const userIds = [
-      ...new Set(
-        activity
-          .map((a) => a.user_id)
-          .filter((v) => v != null)
-          .map(String)
-      ),
-    ];
-
-    const [comicsResult, gcdIssuesResult, profilesResult] = await Promise.all([
+    const [comicsResult, gcdIssuesResult] = await Promise.all([
       comicIds.length > 0
         ? supabase
             .from("comics")
@@ -68,12 +86,6 @@ export async function GET() {
             .select("gcd_id, series_gcd_id, issue_number, title")
             .in("gcd_id", gcdIssueIds)
         : Promise.resolve({ data: [], error: null }),
-      userIds.length > 0
-        ? supabase
-            .from("profiles")
-            .select("id, username")
-            .in("id", userIds)
-        : Promise.resolve({ data: [], error: null }),
     ]);
 
     if (comicsResult.error) {
@@ -82,13 +94,9 @@ export async function GET() {
     if (gcdIssuesResult.error) {
       console.error("GCD issues lookup error:", gcdIssuesResult.error);
     }
-    if (profilesResult.error) {
-      console.error("Profiles lookup error:", profilesResult.error);
-    }
 
     const comics = Array.isArray(comicsResult.data) ? comicsResult.data : [];
     const gcdIssues = Array.isArray(gcdIssuesResult.data) ? gcdIssuesResult.data : [];
-    const profiles = Array.isArray(profilesResult.data) ? profilesResult.data : [];
 
     // For GCD-source rows, also resolve the canonical series title (better
     // than the raw `gcd_issues.title` which is often null) and a cover from
@@ -170,9 +178,6 @@ export async function GET() {
     const comicsMap = Object.fromEntries(
       comics.map((c) => [String(c.id), c])
     );
-    const profilesMap = Object.fromEntries(
-      profiles.map((p) => [String(p.id), p])
-    );
 
     const result = activity.map((a) => ({
       ...a,
@@ -182,7 +187,8 @@ export async function GET() {
           : a.gcd_issue_id != null
           ? gcdIssueByGcdId.get(String(a.gcd_issue_id)) ?? null
           : null,
-      profiles: profilesMap[String(a.user_id)] ?? null,
+      // Only the username goes out; the privacy flags stay server-side.
+      profiles: { username: profilesMap[String(a.user_id)]?.username ?? null },
     }));
 
     return NextResponse.json({ activity: result });

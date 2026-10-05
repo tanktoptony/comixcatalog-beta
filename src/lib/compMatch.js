@@ -33,7 +33,7 @@ const RANGE_RE = /#\s*\d+\s*-\s*\d+/;
 
 const NOT_A_PLAIN_COPY = [
   /\bFACSIMILE\b/, /\bREPRINTS?\b/, /\bMILESTONE\b/, /\bTRUE BELIEVERS\b/, /\bMASTERWORKS\b/,
-  /\bOMNIBUS\b/, /\bTPB\b/, /\bTRADE PAPERBACK\b/, /\bPAPERBACK\b/, /\bHARDCOVER\b/, /\bGRAPHIC NOVEL\b/,
+  /\bOMNIBUS\b/, /\bTPB\b/, /\bTRADE PAPERBACK\b/, /\bPAPERBACK\b/, /\bHARDCOVER\b/, /\bGRAPHIC NOVEL\b/, /\bMANGA\b/,
   /\bLOT\b/, /\bSET\b/, /\bCOMBO\b/, /\b\d+ ?PC\b/, /\b\d+ (COMICS|BOOKS|ISSUES)\b/,
   /\bINDEX\b/, /\bHOMAGE\b/, /\bCOVER ONLY\b/, /\bPA?GE?S? \d+ ONLY\b/, /\bPAGE ONLY\b/, /\bCOVERLESS\b/,
   /\bSTAN LEE EDITION\b/, /\bPOSTER\b/, /\bFOREIGN\b/, /\bUK\b/, /\bPENCE\b/,
@@ -108,12 +108,26 @@ export function compMatchesIssue({ title, seriesTitle, issueYear, seriesStartYea
 
   if (!core) return { ok: true, yearConfirmed };
   const padded = ` ${text} `;
+  const prefixBefore = (at) =>
+    padded.slice(0, at).trim().split(" ").filter((w) => w && !/^\d/.test(w)).pop() ?? "";
   const at = padded.indexOf(` ${core} `);
-  if (at < 0) return { ok: false, reason: "series" };
-  const prefix = padded.slice(0, at).trim().split(" ").filter((w) => w && !/^\d/.test(w)).pop() ?? "";
-  if (!NEUTRAL_PREFIX.has(prefix) && !yearConfirmed) return { ok: false, reason: "different series" };
+  if (at >= 0) {
+    if (!NEUTRAL_PREFIX.has(prefixBefore(at)) && !yearConfirmed) return { ok: false, reason: "different series" };
+    return { ok: true, yearConfirmed };
+  }
 
-  return { ok: true, yearConfirmed };
+  // Sellers shorten long GCD titles: "Marvel Super-Heroes Secret Wars #8" is
+  // listed as "Secret Wars #8 1984". For titles of three or more words, the
+  // last two are enough, but only with an in-range year and nothing but a
+  // neutral word in front, so "Spectacular Spider-Man" never stands in for
+  // The Amazing Spider-Man.
+  const words = core.split(" ");
+  if (words.length >= 3 && yearConfirmed) {
+    const tail = words.slice(-2).join(" ");
+    const tailAt = padded.indexOf(` ${tail} `);
+    if (tailAt >= 0 && NEUTRAL_PREFIX.has(prefixBefore(tailAt))) return { ok: true, yearConfirmed };
+  }
+  return { ok: false, reason: "series" };
 }
 
 // Filters an issue's comp rows down to the ones that describe it. Rows need

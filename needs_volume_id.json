@@ -41731,5 +41731,147 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T17:06:59.202290+00:00",
     "retry_after": "2026-10-06T17:06:59.202306+00:00"
+  },
+  {
+    "name": "They're Playing Your Song, Charlie Brown",
+    "publisher": "Fawcett Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:00:52.292776+00:00",
+    "retry_after": "2026-10-06T18:00:52.292792+00:00"
+  },
+  {
+    "name": "Bloodstrike Remastered",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:00:53.077458+00:00",
+    "retry_after": "2026-10-06T18:00:53.077476+00:00"
+  },
+  {
+    "name": "True Believers: Kirby 100th - Black Panther",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:00:53.525068+00:00",
+    "retry_after": "2026-10-06T18:00:53.525085+00:00"
+  },
+  {
+    "name": "Tales of the Green Hornet Two Issue Mini-Series",
+    "publisher": "Now Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:00:54.014339+00:00",
+    "retry_after": "2026-10-06T18:00:54.014356+00:00"
+  },
+  {
+    "name": "The Pound",
+    "publisher": "IDW Publishing",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44461,
+        "name": "The Pound",
+        "publisher": "Frozen Beach Studios",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:00:54.424280+00:00",
+    "retry_after": "2026-10-06T18:00:54.424296+00:00"
+  },
+  {
+    "name": "None of Your Lip, Andy Capp!",
+    "publisher": "Fawcett Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:01:04.865348+00:00",
+    "retry_after": "2026-10-06T18:01:04.865365+00:00"
+  },
+  {
+    "name": "Inhumanity",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 69688,
+        "name": "Inhumanity",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 74654,
+        "name": "Inhumanity",
+        "publisher": "Marvel",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:01:16.421337+00:00",
+    "retry_after": "2026-10-06T18:01:16.421354+00:00"
+  },
+  {
+    "name": "Lucifer",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 9744,
+        "name": "Lucifer",
+        "publisher": "DC Comics",
+        "start_year": 2000
+      },
+      {
+        "id": 62438,
+        "name": "Lucifer",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 86704,
+        "name": "Lucifer",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 114408,
+        "name": "Lucifer",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:01:16.931839+00:00",
+    "retry_after": "2026-10-06T18:01:16.931855+00:00"
+  },
+  {
+    "name": "March",
+    "publisher": "IDW Publishing",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66338,
+        "name": "March",
+        "publisher": "Top Shelf",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:02:06.911907+00:00",
+    "retry_after": "2026-10-06T18:02:06.911923+00:00"
   }
 ]

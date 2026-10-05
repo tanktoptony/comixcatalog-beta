@@ -41008,5 +41008,88 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T00:02:27.787821+00:00",
     "retry_after": "2026-10-06T00:02:27.787837+00:00"
+  },
+  {
+    "name": "Higher Earth",
+    "publisher": "BOOM! Studios",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 53543,
+        "name": "Higher Earth",
+        "publisher": "Boom! Studios",
+        "start_year": 2012
+      },
+      {
+        "id": 48908,
+        "name": "Higher Earth",
+        "publisher": "Boom! Studios",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T01:00:55.290543+00:00",
+    "retry_after": "2026-10-06T01:00:55.290578+00:00"
+  },
+  {
+    "name": "New X-Men Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T01:01:06.134699+00:00",
+    "retry_after": "2026-10-06T01:01:06.134721+00:00"
+  },
+  {
+    "name": "Walt Disney's Donald Duck: Sunday Classics",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T01:02:10.387204+00:00",
+    "retry_after": "2026-10-06T01:02:10.387223+00:00"
+  },
+  {
+    "name": "Spider-Man: Far from Home Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 117996,
+        "name": "Spider-Man: Far From Home Prelude",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 119556,
+        "name": "Spider-Man: Far From Home Prelude",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T01:02:34.036419+00:00",
+    "retry_after": "2026-10-06T01:02:34.036437+00:00"
+  },
+  {
+    "name": "Nikolai Dante",
+    "publisher": "DC Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22991,
+        "name": "Nikolai Dante",
+        "publisher": "Rebellion",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T01:02:42.026694+00:00",
+    "retry_after": "2026-10-06T01:02:42.026713+00:00"
   }
 ]

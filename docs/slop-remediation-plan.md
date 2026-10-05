@@ -1,6 +1,6 @@
 # Slop remediation plan
 
-**Status:** ready for spec · **Written:** 2026-10-02 · **Source audit:** https://claude.ai/artifact/9JHox5YfrwTWkudikAvUnG (audited `origin/main` at `f546a55`)
+**Status:** spec written and approved (`docs/slop-remediation-spec.md`, PR #193); implementation in progress, see the spec's "Progress" section · **Written:** 2026-10-02 · **Source audit:** https://claude.ai/artifact/9JHox5YfrwTWkudikAvUnG (audited `origin/main` at `f546a55`)
 
 This is the input for an agent that will write an implementation spec, have Codex audit it, and then implement it. Everything the spec needs from the audit is restated here, so the artifact link is a reference, not a dependency.
 

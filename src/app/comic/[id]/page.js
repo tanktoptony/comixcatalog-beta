@@ -18,6 +18,12 @@ export default function ComicDetailPage() {
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
   const [gradeData, setGradeData] = useState(null);
+  const [mutationError, setMutationError] = useState(null);
+
+  async function remove(scope) {
+    const result = await removeFromCollection(String(id), { scope });
+    setMutationError(result?.ok === false ? result.error || "Library update failed" : null);
+  }
 
   const inCollection = collectionIds?.has(String(id));
   const inWishlist = wishlistIds?.has(String(id));
@@ -171,15 +177,16 @@ export default function ComicDetailPage() {
                 </>
               )}
               {user && inCollection && (
-                <button className="add-comic-btn" onClick={() => removeFromCollection(String(id))}>
+                <button className="add-comic-btn" onClick={() => remove("latest-copy")}>
                   Remove from Collection
                 </button>
               )}
               {user && inWishlist && (
-                <button className="add-comic-btn" onClick={() => removeFromCollection(String(id))}>
+                <button className="add-comic-btn" onClick={() => remove("wishlist")}>
                   Remove from Wishlist
                 </button>
               )}
+              {mutationError && <div style={{ color: "#ff8a80", fontSize: "0.85rem" }}>{mutationError}</div>}
               {user && comic.source === "user" && user.id === comic.created_by && (
                 <button className="add-comic-btn" onClick={() => router.push(`/comic/${comic.id}/edit`)}>
                   Edit Comic

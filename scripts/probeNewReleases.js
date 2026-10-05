@@ -25,6 +25,7 @@ import fs from 'fs';
 import path from 'path';
 import { createClient } from '@supabase/supabase-js';
 import { normalizePublisherLabel } from '../src/lib/publisher.js';
+import { fetchRecentComicVineIssues } from './lib/cvRecentReleases.js';
 
 config({ path: '.env.local' });
 
@@ -63,22 +64,6 @@ function isoDaysAgo(days) {
   const d = new Date();
   d.setUTCDate(d.getUTCDate() - days);
   return d.toISOString().slice(0, 10);
-}
-
-async function fetchRecentIssues(sinceDate) {
-  // ComicVine /issues supports filter=store_date:since|today format.
-  // We page 100 at a time, max 5 pages = 500 issues. Adjust if needed.
-  const today = new Date().toISOString().slice(0, 10);
-  const all = [];
-  for (let offset = 0; offset < 500; offset += 100) {
-    const url = `https://comicvine.gamespot.com/api/issues/?api_key=${CV_KEY}&format=json&limit=100&offset=${offset}&filter=store_date:${sinceDate}|${today}&field_list=id,issue_number,store_date,cover_date,volume`;
-    const data = await cvFetch(url);
-    const results = data?.results || [];
-    all.push(...results);
-    if (results.length < 100) break;
-    await new Promise(r => setTimeout(r, 1100)); // CV 1 req/sec
-  }
-  return all;
 }
 
 async function fetchVolumeMeta(volumeId) {
@@ -136,7 +121,7 @@ async function createMinimalSeriesRow(sb, { name, publisher, year }) {
   const sinceDate = isoDaysAgo(DAYS);
   console.log(`Probing CV for issues with store_date >= ${sinceDate}…`);
 
-  const issues = await fetchRecentIssues(sinceDate);
+  const issues = await fetchRecentComicVineIssues({ apiKey: CV_KEY, sinceDate });
   console.log(`  ${issues.length} recent issues returned by CV`);
 
   // Group by volume_id

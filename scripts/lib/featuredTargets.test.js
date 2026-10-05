@@ -7,7 +7,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { pickBestCandidate, readCursor, rotate, writeCursor } from "./featuredTargets.js";
+import { orderActiveTargets, pickBestCandidate, readCursor, rotate, writeCursor } from "./featuredTargets.js";
 
 // A tiny in-memory stand-in for the two fs calls the cursor uses. Proving the
 // round-trip against the real GCD job would cost an hour of its rate-limit
@@ -72,6 +72,22 @@ test("an equal-year tie is decided by row order", () => {
 test("no candidates returns null rather than a plausible-looking row", () => {
   assert.equal(pickBestCandidate({ prefer_year: 2024 }, []), null);
   assert.equal(pickBestCandidate({ prefer_year: 2024 }, undefined), null);
+});
+
+test("active targets prioritize recent, then owned, then featured", () => {
+  assert.deepEqual(orderActiveTargets({
+    recent: [30, 10],
+    owned: [20, 30],
+    featured: [40, 10],
+  }), [30, 10, 20, 40]);
+});
+
+test("active targets discard duplicates and invalid ids", () => {
+  assert.deepEqual(orderActiveTargets({
+    recent: ["7", null, 0, "nope"],
+    owned: [7, 8, undefined],
+    featured: [8, 9],
+  }), [7, 8, 9]);
 });
 
 test("rotation resumes after the cursor and wraps", () => {

@@ -27,6 +27,23 @@ export function pickBestCandidate(entry, candidates) {
   return best;
 }
 
+// Build the active refresh walk in priority order. A series can qualify from
+// more than one source, but it must appear only once and keep the priority of
+// its first source: recent ComicVine release, member collection, featured.
+export function orderActiveTargets({ recent = [], owned = [], featured = [] }) {
+  const seen = new Set();
+  const ordered = [];
+  for (const source of [recent, owned, featured]) {
+    for (const value of source) {
+      const id = Number(value);
+      if (!Number.isFinite(id) || id <= 0 || seen.has(id)) continue;
+      seen.add(id);
+      ordered.push(id);
+    }
+  }
+  return ordered;
+}
+
 // Start just after the last series the previous run attempted, wrapping at
 // the end of the list.
 //

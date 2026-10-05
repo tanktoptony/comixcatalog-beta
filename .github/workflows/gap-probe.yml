@@ -108,13 +108,13 @@ jobs:
 
       - name: Commit gap-manual / gap-pinned additions
         run: |
-          if [[ -z "$(git status --porcelain gap-manual.json gap-pinned.json gap-user-collected.json needs_volume_id.json)" ]]; then
+          if [[ -z "$(git status --porcelain gap-manual.json gap-pinned.json gap-user-collected.json needs_volume_id.json .ingest-done.json)" ]]; then
             echo "No changes — nothing to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add gap-manual.json gap-pinned.json gap-user-collected.json needs_volume_id.json
+          git add gap-manual.json gap-pinned.json gap-user-collected.json needs_volume_id.json .ingest-done.json
           git commit -m "gap-manual: weekly auto-append (new releases + user-collected + resolved pins)"
           # This and weekly-refresh.yml both run long jobs then push at the
           # end, touching different files but the same ref — if their runs

@@ -1,7 +1,7 @@
 // probeNewReleases.js
 //
 // Pull recent ComicVine /issues releases, group by volume, and append any
-// volumes we don't already have canonical coverage for to gap-manual.json.
+// volumes whose recent issue numbers lack canonical coverage to gap-manual.json.
 // Run weekly via GHA (or manually) to keep new-release coverage current
 // without waiting for a user to add the book first.
 //
@@ -14,10 +14,9 @@
 //   1. Hit ComicVine /issues filtered by store_date >= today - N days.
 //      Limit to publishers we care about (US major + select indie).
 //   2. Group issues by volume_id, dedupe.
-//   3. For each volume, check if canonical_covers already has coverage
-//      (any row with comicvine_volume_id matching, OR series_gcd_id linked).
+//   3. Batch-read canonical_covers and compare normalized issue numbers.
 //   4. Append uncovered volumes to gap-manual.json — same shape the ingester
-//      already consumes. On the next GHA cycle they get processed.
+//      already consumes, and expire its done-ledger key for the next hourly run.
 
 import 'dotenv/config';
 import { config } from 'dotenv';
@@ -25,6 +24,7 @@ import fs from 'fs';
 import path from 'path';
 import { createClient } from '@supabase/supabase-js';
 import { normalizePublisherLabel } from '../src/lib/publisher.js';
+import { fetchAllPages } from '../src/lib/supabase/fetchAllPages.js';
 import { fetchRecentComicVineIssues } from './lib/cvRecentReleases.js';
 
 config({ path: '.env.local' });
@@ -48,6 +48,19 @@ if (!CV_KEY) {
 // times). Use the canonical resolver instead of a second copy of the list.
 
 const GAP_MANUAL_PATH = path.resolve('gap-manual.json');
+const DONE_PATH = path.resolve('.ingest-done.json');
+const IN_CHUNK_SIZE = 50;
+
+function normalizeIssueNumber(value) {
+  const raw = String(value ?? '').trim().toLowerCase();
+  const numeric = raw.match(/^#?\s*(\d+(?:\.\d+)?)/);
+  if (numeric) return String(Number(numeric[1]));
+  return raw.replace(/(?:[\s._-]*(?:variant|cover)?\s*[a-z])$/i, '');
+}
+
+function doneKey(target) {
+  return `${target.name}\u0001${target.publisher}\u0001${target.year}`;
+}
 
 async function cvFetch(url) {
   const res = await fetch(url, {
@@ -129,29 +142,44 @@ async function createMinimalSeriesRow(sb, { name, publisher, year }) {
   for (const iss of issues) {
     const v = iss.volume;
     if (!v?.id) continue;
-    if (!volMap.has(v.id)) volMap.set(v.id, { id: v.id, name: v.name, count: 0 });
-    volMap.get(v.id).count++;
+    if (!volMap.has(v.id)) volMap.set(v.id, { id: v.id, name: v.name, issueNumbers: new Set() });
+    volMap.get(v.id).issueNumbers.add(normalizeIssueNumber(iss.issue_number));
   }
   console.log(`  → ${volMap.size} distinct volumes`);
 
   // Load existing gap-manual to dedupe against
   const existing = JSON.parse(fs.readFileSync(GAP_MANUAL_PATH, 'utf-8'));
-  const existingVolIds = new Set(existing.map(e => e.volume_id).filter(Boolean));
+  const existingByVolId = new Map(existing.filter(e => e.volume_id).map(e => [Number(e.volume_id), e]));
+
+  const coveredIssueNumbers = new Map();
+  const volumeIds = [...volMap.keys()];
+  for (let start = 0; start < volumeIds.length; start += IN_CHUNK_SIZE) {
+    const chunk = volumeIds.slice(start, start + IN_CHUNK_SIZE);
+    const rows = await fetchAllPages(() => sb
+      .from('canonical_covers')
+      .select('id,comicvine_volume_id,issue_number')
+      .in('comicvine_volume_id', chunk), 'id');
+    for (const row of rows) {
+      const id = Number(row.comicvine_volume_id);
+      if (!coveredIssueNumbers.has(id)) coveredIssueNumbers.set(id, new Set());
+      coveredIssueNumbers.get(id).add(normalizeIssueNumber(row.issue_number));
+    }
+  }
+
+  const rawDone = fs.existsSync(DONE_PATH) ? JSON.parse(fs.readFileSync(DONE_PATH, 'utf-8')) : {};
+  const done = Array.isArray(rawDone)
+    ? Object.fromEntries(rawDone.map(key => [key, new Date().toISOString()]))
+    : rawDone;
+  let expiredDoneCount = 0;
 
   // For each volume, check canonical_covers coverage
   const candidates = [];
   let checked = 0;
   for (const vol of volMap.values()) {
     checked++;
-    if (existingVolIds.has(vol.id)) continue;
-
-    // Check if canonical_covers already has any row for this CV volume.
-    const { count } = await sb
-      .from('canonical_covers')
-      .select('id', { count: 'exact', head: true })
-      .eq('comicvine_volume_id', vol.id);
-
-    if (count && count > 0) continue;
+    const covered = coveredIssueNumbers.get(vol.id) ?? new Set();
+    const missing = [...vol.issueNumbers].filter(number => number && !covered.has(number));
+    if (!missing.length) continue;
 
     // Need to fetch volume meta to get publisher + start_year for gap entry.
     await new Promise(r => setTimeout(r, 1100));
@@ -171,21 +199,30 @@ async function createMinimalSeriesRow(sb, { name, publisher, year }) {
     // publisher gate to work (same convention the other gap-*.json
     // generators already follow).
     const year = meta.start_year ? Number(meta.start_year) : null;
-    candidates.push({ name: meta.name, publisher: canonicalPublisher, year, volume_id: vol.id });
+    const candidate = { name: meta.name, publisher: canonicalPublisher, year, volume_id: vol.id };
+    const queued = existingByVolId.get(vol.id);
+    if (!queued) candidates.push(candidate);
+
+    const key = doneKey(queued ?? candidate);
+    if (Object.hasOwn(done, key)) {
+      delete done[key];
+      expiredDoneCount++;
+    }
+    console.log(`  missing: ${meta.name} | vol ${vol.id} | issue(s) ${missing.join(', ')}`);
 
     if (await seriesRowExists(sb, meta.name)) {
-      console.log(`  + ${meta.name} (${canonicalPublisher}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s)`);
+      console.log(`  + ${meta.name} (${canonicalPublisher}, ${meta.start_year}) vol ${vol.id} — ${missing.length} missing recent issue(s)`);
     } else if (APPLY) {
       await createMinimalSeriesRow(sb, { name: meta.name, publisher: canonicalPublisher, year });
-      console.log(`  + ${meta.name} (${canonicalPublisher}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s) [created series row — no catalog entry existed]`);
+      console.log(`  + ${meta.name} (${canonicalPublisher}, ${meta.start_year}) vol ${vol.id} — ${missing.length} missing recent issue(s) [created series row — no catalog entry existed]`);
     } else {
-      console.log(`  + ${meta.name} (${canonicalPublisher}, ${meta.start_year}) vol ${vol.id} — ${vol.count} new issue(s) [would create series row — no catalog entry exists]`);
+      console.log(`  + ${meta.name} (${canonicalPublisher}, ${meta.start_year}) vol ${vol.id} — ${missing.length} missing recent issue(s) [would create series row — no catalog entry exists]`);
     }
   }
 
-  console.log(`\n${candidates.length} new volume(s) to add (checked ${checked}).`);
+  console.log(`\n${candidates.length} volume(s) to add to the queue (checked ${checked}).`);
 
-  if (!candidates.length) {
+  if (!candidates.length && !expiredDoneCount) {
     console.log('Nothing to write.');
     return;
   }
@@ -196,6 +233,10 @@ async function createMinimalSeriesRow(sb, { name, publisher, year }) {
   }
 
   const merged = [...existing, ...candidates];
-  fs.writeFileSync(GAP_MANUAL_PATH, JSON.stringify(merged, null, 2) + '\n', 'utf-8');
-  console.log(`Wrote ${candidates.length} additions to gap-manual.json (now ${merged.length} total).`);
-})();
+  if (candidates.length) fs.writeFileSync(GAP_MANUAL_PATH, JSON.stringify(merged, null, 2) + '\n', 'utf-8');
+  if (expiredDoneCount) fs.writeFileSync(DONE_PATH, JSON.stringify(done, null, 2) + '\n', 'utf-8');
+  console.log(`Wrote ${candidates.length} additions to gap-manual.json (now ${merged.length} total); expired ${expiredDoneCount} done-ledger target(s).`);
+})().catch(error => {
+  console.error('Recent-release probe failed:', error?.message || error);
+  process.exitCode = 1;
+});

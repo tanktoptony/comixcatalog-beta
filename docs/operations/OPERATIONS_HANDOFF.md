@@ -111,6 +111,13 @@ persisted in `needs_volume_id.json`, escalating 1/3/7/14/30-day windows. It
 survives gap-file regeneration because it keys on target identity rather
 than queue position.
 
+Done-ledger entries normally expire after 30 days. Entries written for a
+volume whose latest cover/store date is within 60 days expire after 7 days.
+Legacy entries and entries without a latest-release field keep the 30-day
+rule. The Mon/Thu recent-release probe also compares issue numbers for
+already-covered volumes, queues missing issues in `gap-manual.json`, and
+removes that target's done entry so the next hourly manual lane processes it.
+
 **Diagnostic:** if covers stop appearing, compare the `Finished cleanly.
 Counters:` line across two consecutive runs. Identical counters means the
 queue is not advancing.
@@ -139,7 +146,7 @@ API for whether a run was ever created.**
 |---|---|---|---|
 | `cover-ingest.yml` | hourly `0 * * * *` | six ingest lanes, auto-repair, health checks | see 2b. The health check correctly fails the job on zero new covers in 24h |
 | `weekly-refresh.yml` | Mon/Thu `0 9 * * 1,4` | search-cache rebuild (`--force --max-batches=700`, cursor persists, ~3 cycles for a full rotation), regenerates gap-width/depth | hit Postgres statement timeouts until the 0027 index landed |
-| `gap-probe.yml` | Mon/Thu `0 8 * * 1,4` | resolves the needs-volume-id backlog into `gap-pinned.json` | **collides with cover-ingest at `:00`** — both write `needs_volume_id.json`. PR #89 puts them in one concurrency group |
+| `gap-probe.yml` | Mon/Thu `0 8 * * 1,4` | queues recent missing issues, expires their done-ledger entries, and resolves the volume-id backlog | shares the cover-ingest concurrency group because both commit ledger files |
 | `nightly-cover-report.yml` | 06:00 UTC | writes `reports/cover-coverage-history.json` + HTML | the canonical answer to "where are covers at" — read it rather than re-deriving |
 | `cron-watchdog.yml` | — | force-dispatches overdue workflows | grace windows live in `scripts/cronWatchdog.js` |
 | `instagram-post.yml` | — | posts an issue to Instagram | **never audited. The founder asked for an "Instagram bot refinement" and never specified what. Ask, do not guess.** |

@@ -33,7 +33,7 @@ export async function fetchRecentComicVineIssues({
     if (!response.ok) throw new Error(`ComicVine HTTP ${response.status} for ${url}`);
     const body = await response.json();
     if (body?.error !== "OK" || Number(body?.status_code) !== 1) {
-      throw new Error(`ComicVine API error ${body?.status_code ?? "unknown"}: ${body?.error ?? "unknown error"}`);
+      throw new Error(`ComicVine API error: status_code=${body?.status_code} error=${JSON.stringify(body?.error)}`);
     }
 
     const results = Array.isArray(body.results) ? body.results : [];

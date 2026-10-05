@@ -104,9 +104,11 @@ Note: `target_volumes_seed.py` was referenced in older briefings but has been re
 - **Pipeline foundation already shipped** (May 20, 2026):
   - `market_comps` table — `scripts/migrations/0006_market_comps.sql` (applied)
   - `src/lib/valuation.js` — `gradeBucket()`, `snapToCgcGrade()`, `bucketFallbacks()`, `median()`
-  - `src/lib/marketValue.js` — `getMarketValue()` + `getMarketValuesBulk()` with fallback chain
+  - `src/lib/compMatch.js` — `compMatchesIssue()` / `filterCompsForIssue()`: decides whether a listing title is this exact issue (same series, in-range year, a plain copy, not a reprint/facsimile/later printing/signed/variant/lot). Applied at write time in the fetch script and again at read time, so rows stored before it existed stop counting too. Tests: `npm run test:comp-match`.
+  - `src/lib/compValue.js` — `valueFromComps()`: the one valuation implementation (filter → bucket chain → low-grade slab proxy for ungraded books → cover-price floor from 1990 on only; pre-1990 books with no clean comps show no value).
+  - `src/lib/marketValue.js` — `getMarketValuesBulk()` loads comps + issue/series metadata and calls `valueFromComps()`; `getMarketValue()` is a one-item wrapper.
   - `src/lib/ebayTitleParser.js` — parses listing titles into structured grade/issue/bucket
-  - `scripts/fetchEbayComps.js` — full pipeline scaffold; `fetchSoldListings()` is the only stub, ready to receive the real Insights endpoint when approval lands. Test via `--dry-run`.
+  - `scripts/fetchEbayComps.js` — live daily job (Browse API, asking prices). Pre-2000 issues get a second search with the year appended, merged on listing id.
   - `/api/library-hydrate` + library UI already wired to display `auto_market_value` when comps exist. Renders nothing while table is empty.
 - Future supplemental sources: CGC pop reports (slab values), Heritage Auctions API (auction comps for keys), MyComicShop buy-list (floor price).
 - **Facebook Marketplace was considered and ruled out** — no API since deprecation, scraping is hostile + TOS-violating, and FB doesn't expose sold prices (only asking prices). Bad signal-to-noise even if scrapable.
@@ -224,7 +226,7 @@ Columns: `grade_bucket` (text, NOT NULL — output of `gradeBucket()`), `slab_co
 PK `id` (uuid). FK `user_id` → `auth.users.id`.
 Columns: `snapshot_date` (date), `total_value` (numeric 12,2), `owned_count` (int4), `created_at`.
 - Unique on `(user_id, snapshot_date)` — one row per user per calendar day, upserted by `scripts/snapshotCollectionValue.js` on a 6-hour schedule (`.github/workflows/snapshot-collection-value.yml`). Re-running the same day just keeps that day's row current.
-- Value computation deliberately mirrors `getMarketValue()` in `src/lib/marketValue.js` exactly (same bucket-fallback chain, same cover-price floor) — duplicated rather than imported because that file pulls in a `@/` path alias that doesn't resolve from a raw Node script, same constraint as `ebayTitleParser.js`. Keep both in sync if the valuation logic changes.
+- Values come from `valueFromComps()` in `src/lib/compValue.js`, the same function `src/lib/marketValue.js` uses, imported by relative path. There is no second copy to keep in sync.
 - RLS: owner-only `SELECT` for now. Written only via the service-role key (bypasses RLS), so no write policy needed.
 - Feeds the Pro value-over-time chart on `/library` (`src/components/ValueHistoryChart.js`, shipped 2026-10-02; helpers + tests in `src/lib/valueHistory.js`). The chart reads rows client-side under the owner-only RLS policy and ends the line on the live library value. Free accounts see a Collector Pro pitch instead. Snapshots include books listed for sale (`OWNED_STATUSES`). The table has to run for a while before that graph is worth showing; there's no way to backfill history, so this started running before the UI that will consume it.
 

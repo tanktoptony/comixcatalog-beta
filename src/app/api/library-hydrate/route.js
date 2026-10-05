@@ -54,6 +54,10 @@ function norm(value) {
   return String(value ?? "").trim().toLowerCase();
 }
 
+const MAX_IDS = 2000;
+// Grades are per copy, so allow more than ids (several copies of one issue).
+const MAX_GRADES = 10000;
+
 export async function POST(req) {
   try {
     const body = await req.json();
@@ -70,6 +74,16 @@ export async function POST(req) {
     const collectionGrades = Array.isArray(body.collection_grades)
       ? body.collection_grades.filter((g) => g && g.collection_id)
       : [];
+
+    // The library sends at most 1,000 per request and the marketplace 500.
+    // Anything past this is either a bug or someone using the public route
+    // to run unbounded queries (audit S5a).
+    if (comicIds.length + gcdIds.length > MAX_IDS || collectionGrades.length > MAX_GRADES) {
+      return NextResponse.json(
+        { error: `Too many ids; send at most ${MAX_IDS} per request` },
+        { status: 413 }
+      );
+    }
 
     if (comicIds.length === 0 && gcdIds.length === 0) {
       return NextResponse.json({ items: {}, market_values: {} });

@@ -10,6 +10,8 @@
     "start": "next start",
     "lint": "eslint",
     "test:cover-match": "node --test src/lib/coverMatch.test.js",
+    "test:activity-feed": "node --test src/lib/activityFeed.test.js",
+    "test:chunk": "node --test src/lib/chunk.test.js",
     "test:smoke": "node --test tests/smoke.test.js",
     "test:format-sync": "node --test scripts/syncGcdSeriesFormat.test.js",
     "test:instagram": "node --test scripts/instagramBot.test.js",

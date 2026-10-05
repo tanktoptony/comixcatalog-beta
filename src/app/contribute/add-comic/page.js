@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { normalizeUpc, upcProblem } from "@/lib/printings";
+import { authedFetch } from "@/lib/apiClient";
 
 // Contribute a comic — but check the catalog first.
 //
@@ -138,9 +139,8 @@ export default function ContributeAddComicPage() {
     body.append("publisher", form.publisher);
     if (form.release_year) body.append("release_year", form.release_year);
     if (form.variant_name) body.append("variant_name", form.variant_name);
-    body.append("created_by", user.id);
 
-    const res = await fetch("/api/comics", { method: "POST", body });
+    const res = await authedFetch("/api/comics", { method: "POST", body });
 
     let data = null;
     try {
@@ -446,7 +446,6 @@ function ReportPrinting({ issue }) {
     setState("sending");
     setError(null);
     try {
-      const { authedFetch } = await import("@/lib/apiClient");
       const res = await authedFetch("/api/printings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

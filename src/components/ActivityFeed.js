@@ -58,7 +58,7 @@ export default function ActivityFeed() {
           <ul>
             {items.map((a, i) => {
               const username = a?.profiles?.username || "Collector";
-              const status = a?.status === "owned" ? "added" : "wishlisted";
+              const status = a?.verb || "added";
               const title = a?.comics?.series_title || "Unknown comic";
               const issue = a?.comics?.issue_number ? ` #${a.comics.issue_number}` : "";
 

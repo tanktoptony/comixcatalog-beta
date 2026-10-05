@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getAuthedUser } from "@/lib/authServer";
-
-const ADMIN_ID = "9ec650a2-8870-4175-82da-99d72cab9efc";
+import { ADMIN_ID } from "@/lib/admin";
 
 function getAnonClient() {
   return createClient(

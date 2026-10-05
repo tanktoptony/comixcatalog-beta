@@ -101,3 +101,37 @@ test("Absolute Batman #2 resolves with a cover and navigation", async () => {
   assert.equal(body.issue.prev_issue?.issue_number, "1");
   assert.equal(body.issue.next_issue?.issue_number, "3");
 });
+
+// ── Security: WS1 (2026-10-05) ────────────────────────────────────────────
+// Adding a comic needs a signed-in user, checked before the body is read.
+// The body here is empty on purpose: with the check missing the route
+// answers 400 ("Invalid form submission"), so this fails without writing.
+test("POST /api/comics without a token is refused with 401", async () => {
+  const res = await fetch(`${BASE_URL}/api/comics`, { method: "POST" });
+  assert.equal(res.status, 401);
+});
+
+// The homepage feed reads with the service role, so it must filter private
+// accounts itself and label each row. Every row has a username (no private
+// or nameless accounts) and a verb from the known set.
+test("activity feed rows are labelled and come from named accounts", async () => {
+  const { status, body } = await getJson("/api/activity");
+  assert.equal(status, 200);
+  assert.ok(Array.isArray(body.activity));
+  for (const row of body.activity) {
+    assert.ok(["added", "wishlisted", "listed"].includes(row.verb), `bad verb: ${row.verb}`);
+    assert.ok(row.profiles?.username, "row from an account with no username");
+    assert.equal(row.profiles.is_public, undefined, "privacy flags must not be sent");
+  }
+});
+
+// Library loads are batched by the client; the route refuses oversized calls.
+test("library-hydrate refuses more than 2,000 ids", async () => {
+  const ids = Array.from({ length: 2001 }, (_, i) => i + 1);
+  const res = await fetch(`${BASE_URL}/api/library-hydrate`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ gcd_issue_ids: ids }),
+  });
+  assert.equal(res.status, 413);
+});

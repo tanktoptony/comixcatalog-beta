@@ -61,6 +61,12 @@ jobs:
       - name: Cover-match tests
         run: npm run test:cover-match
 
+      - name: Activity feed privacy tests
+        run: npm run test:activity-feed
+
+      - name: Chunk helper tests
+        run: npm run test:chunk
+
       - name: GCD format-sync retry tests
         run: npm run test:format-sync
 

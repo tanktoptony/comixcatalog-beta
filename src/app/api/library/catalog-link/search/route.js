@@ -141,11 +141,19 @@ export async function GET(req) {
       return NextResponse.json({ results: [] });
     }
 
+    // normTitle keeps only [a-z0-9], the same form title_normalized is stored
+    // in, so this one filter covers what the old title ILIKE branch matched.
+    // That branch interpolated raw input into .or(), where a comma or paren
+    // in a search could inject PostgREST filter syntax (audit S5b); it was
+    // also an unindexed scan.
     const qNorm = normTitle(q);
+    if (qNorm.length < 2) {
+      return NextResponse.json({ results: [] });
+    }
     const { data: seriesRows } = await supabase
       .from("series")
       .select("id, gcd_id, title, title_normalized, year_start_cached, year_end_cached, issue_count_cached, resolved_publisher_cached, featured_cover_path_cached")
-      .or(`title.ilike.%${q}%,title_normalized.ilike.%${qNorm}%`)
+      .ilike("title_normalized", `%${qNorm}%`)
       .not("gcd_id", "is", null)
       .limit(20);
 

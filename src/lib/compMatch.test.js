@@ -155,3 +155,48 @@ test("from 1990 on, the cover-price floor still applies", () => {
   assert.equal(result.source, "cover-price");
   assert.equal(result.value, 1.5);
 });
+
+// Round two, 2026-10-05, after the first refresh with the new filter.
+const SECRET_WARS = { seriesTitle: "Marvel Super-Heroes Secret Wars", issueYear: 1984, seriesStartYear: 1984 };
+
+test("a shortened long title matches when the year confirms it", () => {
+  assert.equal(compMatchesIssue({ title: "Secret Wars #8 1984 1st Black Costume CGC 9.4", ...SECRET_WARS }).ok, true);
+  assert.equal(compMatchesIssue({ title: "Marvel Secret Wars #8 (1984) VF/NM", ...SECRET_WARS }).ok, true);
+});
+
+test("a shortened title without a year, or with a qualifier, still fails", () => {
+  assert.equal(compMatchesIssue({ title: "Secret Wars #8 NM", ...SECRET_WARS }).ok, false);
+  assert.equal(compMatchesIssue({ title: "Secret Wars #8 2015 Esad Ribic NM", ...SECRET_WARS }).ok, false);
+  const asm = { seriesTitle: "The Amazing Spider-Man", issueYear: 1985, seriesStartYear: 1963 };
+  assert.equal(compMatchesIssue({ title: "Web of Spider-Man #1 1985 VF", ...asm }).ok, false);
+});
+
+test("manga is not the comic", () => {
+  const sw = { seriesTitle: "Star Wars", issueYear: 1977, seriesStartYear: 1977 };
+  assert.equal(compMatchesIssue({ title: "Star Wars Lost Stars, Vol 1 (manga) (Star Wars Lost Stars (manga)) - GOOD", ...sw }).ok, false);
+});
+
+test("an ungraded book with only higher-grade slabs falls back to all clean comps", () => {
+  const sw = { seriesTitle: "Star Wars", issueYear: 1977, seriesStartYear: 1977 };
+  const comps = [
+    comp(4.5, "Raw VF", "29055: MARVEL STAR WARS #1 VF Grade"),
+    comp(240, "CGC 6.5", "STAR WARS #1 ~ Original 1st printing 1977 Marvel Comics ~ CGC 6.5 WHITE pages", 6.5),
+    comp(295.95, "Raw VF", "STAR WARS #1 (Marvel/1977) *1st Print! Key!* (VF) Super Bright & Glossy!"),
+    comp(299.95, "CGC 8.0", "Star Wars 1 CGC 8.0 VF white pages Marvel comics 4751860019", 8.0),
+    comp(334, "Raw VF", "Star Wars #1 VF+ 8.5 1st App Luke Skywalker Darth Vader! Marvel 1977"),
+    comp(650, "CGC 9.4", "Star Wars #1 CGC 9.4 WHITE Pages – 1977 Marvel Comics", 9.4),
+  ];
+  const result = valueFromComps({ comps, item: {}, issue: sw });
+  assert.ok(result.value > 200 && result.value < 400, `got ${result.value}`);
+});
+
+test("a modern book does not borrow slab prices for an ungraded copy", () => {
+  const saga = { seriesTitle: "Saga", issueYear: 2012, seriesStartYear: 2012 };
+  const comps = [
+    comp(450, "CGC 9.8", "Saga #1 CGC 9.8 2012 Image 1st Print", 9.8),
+    comp(475, "CGC 9.8", "Saga #1 CGC 9.8 White Pages 2012", 9.8),
+    comp(180, "CGC 9.4", "Saga #1 CGC 9.4 2012 First Print", 9.4),
+  ];
+  const result = valueFromComps({ comps, item: {}, issue: saga });
+  assert.equal(result.source, "cover-price");
+});

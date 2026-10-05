@@ -118,6 +118,15 @@ export function valueFromComps({ comps, item = {}, issue = {}, minSamples = MIN_
         lowGradeProxy = true;
       }
     }
+    // Still short, before 1990: every clean comp for the issue, at the same
+    // cautious percentile. Star Wars #1 (1977) had 20 clean comps, nearly all
+    // slabs graded 6.5 and up, and showed no value without this. Not for
+    // modern books, where a 9.8 slab is worth many times a raw copy: Saga #1
+    // (2012) went from $3.99 to $269.60 on a pool of mostly 9.8s.
+    if (pooled && matched.length < minSamples && rows.length >= minSamples && Number(issue.issueYear) < 1990) {
+      matched = rows;
+      lowGradeProxy = true;
+    }
     if (matched.length < minSamples) continue;
 
     const window = newestFirst(matched);

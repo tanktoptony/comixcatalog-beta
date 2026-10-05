@@ -81,6 +81,23 @@ Everything that needs you, in the order it blocks work. Nothing past WS0 starts 
 
 ---
 
+## WS0 results and decisions (2026-10-05)
+
+**Query results** (Tony ran the combined read-only query; full output in PR #194's description):
+- **Q1, Critical, confirmed.** `profiles` has `Users can update own profile` (`auth.uid() = id`, no column limit) and `Users can insert own profile`, and both `anon` and `authenticated` hold INSERT/UPDATE/SELECT on `is_pro`, `is_founding_collector` and `stripe_customer_id`. Any signed-in user could set their own `is_pro`. `Public profiles are viewable` exposes `stripe_customer_id` on every public profile. All 30 `is_pro` rows were checked: all comped, none with a Stripe id, so no sign of abuse. Fixed by 0032a/0032b in PR #194, ahead of the rest of WS1.
+- **Q2: one row per GCD issue is enforced.** `user_collections_user_gcd_issue_unique` is a partial unique index on `(user_id, gcd_issue_id) WHERE gcd_issue_id IS NOT NULL`. `(user_id, comic_id)` is unique twice over (`unique_user_comic` and `user_collections_user_id_comic_id_key`, identical). `user_collections_one_target_check` enforces the comic-or-GCD rule. So `addAnotherCopy` has always failed with 23505 (logged, not shown), and nobody has multiple copies.
+- **Q3:** 0 issues with multiple rows, 0 duplicate wishlist pairs.
+- **Q4:** `copy_number` and `variant_label` exist.
+- **Q5:** 150 `comics` rows with null publisher (matches the plan).
+- **Schema dump: deferred.** Tony signs in to Supabase with GitHub/Google and has no database password handy; nothing blocking needs the dump. A baseline will be built from SQL-editor catalog queries later in WS0 instead.
+- **Spec correction:** `src/context/AuthContext.js` read `profiles` with `select("*")` from the browser, so 0032b (hide `stripe_customer_id`) must run after that change deploys. The spec's earlier "no browser code selects *" claim was wrong.
+
+**Decisions**
+- D-a: **no auto-merge.** Claude asks, Tony merges.
+- **Multiple copies: build it now** (Tony, 2026-10-05). WS2 changes accordingly: a migration drops `user_collections_user_gcd_issue_unique` and adds 0035's one-wishlist-per-issue index plus an equivalent partial unique index so a user can't have two *wishlist* rows; owned/for_sale copies become unlimited. Remove-from-issue-page behavior (D-b) still defaults to "newest copy". The WS2 PR rewrites that section before implementation; the duplicate `(user_id, comic_id)` index is dropped in the same migration.
+- D-c: targets confirmed: p95 ≤ 1.5 s per endpoint, search ≤ 0.8 s.
+- D-d: **WS8 not now.**
+
 ## What changed since the plan was written
 
 Checked on `5b9647f`. Corrections the implementer should trust over the plan:

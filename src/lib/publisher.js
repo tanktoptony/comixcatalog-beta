@@ -96,6 +96,18 @@ export const US_PUBLISHER_ALLOWLIST = [
   // franchise, but Udon specifically was also an allowlist gap.
   "Udon Entertainment Corp.",
   "Udon Comics",
+  // 9 more Udon series (Street Fighter Unlimited among them) store the
+  // ComicVine spelling "UDON", which the entries above never matched.
+  "UDON",
+  // Aardvark-Vanaheim (Cerebus, 1977-2004, 300 issues) is Canadian but sold
+  // through the US direct market. It was never listed, so searching
+  // "cerebus" returned nothing at all (2026-10-05). Every stored spelling:
+  "Aardvark-Vanaheim",
+  "Aardvark-Vanaheim Inc.",
+  "Aardvark-Vanaheim Press",
+  "Aardvark Vanaheim Press",
+  "Aardvark-Vanaheim Inc. and Renegade Press",
+  "Aardvark",
 ];
 
 const MASTER_EXACT_MAP = {

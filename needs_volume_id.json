@@ -41224,5 +41224,65 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T05:02:11.171723+00:00",
     "retry_after": "2026-10-06T05:02:11.171739+00:00"
+  },
+  {
+    "name": "Police Trap",
+    "publisher": "Charlton Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57396,
+        "name": "Police Trap",
+        "publisher": "Mainline",
+        "start_year": 1954
+      },
+      {
+        "id": 1947,
+        "name": "Police Trap",
+        "publisher": "I.W. Publishing",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T06:03:41.594304+00:00",
+    "retry_after": "2026-10-06T06:03:41.594321+00:00"
+  },
+  {
+    "name": "Sherlock Holmes: The Classic Comic Strips",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T06:05:31.469124+00:00",
+    "retry_after": "2026-10-06T06:05:31.469143+00:00"
+  },
+  {
+    "name": "Lowlife",
+    "publisher": "Caliber Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50699,
+        "name": "Lowlife",
+        "publisher": "Mu Press",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T06:05:31.944757+00:00",
+    "retry_after": "2026-10-06T06:05:31.944774+00:00"
+  },
+  {
+    "name": "Road Rage: Duel",
+    "publisher": "IDW Publishing",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T06:05:41.811459+00:00",
+    "retry_after": "2026-10-06T06:05:41.811478+00:00"
   }
 ]

@@ -126,5 +126,8 @@ jobs:
       - name: eBay comp matching tests
         run: npm run test:comp-match
 
+      - name: JSON-LD escaping tests
+        run: npm run test:json-ld
+
       - name: Docs link check
         run: npm run docs:check

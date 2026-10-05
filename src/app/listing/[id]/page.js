@@ -4,6 +4,7 @@ import { getListing, getListingsForIssue } from "@/lib/marketplace";
 import { conditionLabel, contactLabel, formatValue, offerHref, shippingLabel } from "@/lib/marketplaceFormat";
 import { SITE_URL } from "@/lib/siteUrl";
 import ListingGallery from "@/components/ListingGallery";
+import { safeJsonLd } from "@/lib/jsonLd";
 
 // One copy for sale, Discogs item-page style: the copy, its condition, the
 // seller, the price, and the way to buy (an offer or a message while there's
@@ -60,7 +61,7 @@ export default async function ListingPage({ params }) {
 
   return (
     <main className="lp">
-      {jsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />}
+      {jsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />}
       <nav className="lp-crumbs" aria-label="Breadcrumb">
         <Link href="/marketplace">Marketplace</Link>
         {l.publisher && (

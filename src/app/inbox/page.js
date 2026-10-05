@@ -111,6 +111,8 @@ export default function InboxPage() {
       if (profilesError) {
         console.error("Inbox profile lookup failed:", profilesError.code, profilesError.message);
         setError("Failed to load conversations.");
+        // Leave the loading state, or the error never renders on a first visit.
+        setThreads((current) => current ?? []);
         return;
       }
 

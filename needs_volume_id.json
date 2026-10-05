@@ -41678,5 +41678,22 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T15:05:02.536563+00:00",
     "retry_after": "2026-10-06T15:05:02.536578+00:00"
+  },
+  {
+    "name": "Red Prophet: Tales of Alvin Maker",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23584,
+        "name": "Red Prophet: The Tales of Alvin Maker",
+        "publisher": "Dabel Brothers Productions",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T16:01:16.659519+00:00",
+    "retry_after": "2026-10-06T16:01:16.659540+00:00"
   }
 ]

@@ -1,4 +1,4 @@
-name: GCD issue refresh (daily)
+name: GCD issue refresh (every 3 hours)
 
 # Targeted top-up of gcd_issues from GCD's own live API - NOT a fresh bulk
 # dump. Our gcd_issues mirror was populated once from an old GCD Postgres
@@ -8,10 +8,9 @@ name: GCD issue refresh (daily)
 # fetches each series' current issue list directly from comics.org/api/ and
 # inserts only what's missing.
 #
-# Runs at 18:00, two hours before cover-ingest.yml's 20:00, so any
-# newly-discovered issues already exist in gcd_issues by the time that
-# workflow tries to match covers against them - a cover cannot attach to an
-# issue we do not know about.
+# Runs every 3 hours at :45, so newly-discovered issues exist in gcd_issues
+# before the next hourly cover-ingest.yml run tries to match covers against
+# them - a cover cannot attach to an issue we do not know about.
 #
 # Scope is the active catalog: recent ComicVine releases from the last 30
 # days, series represented in member collections, and featured series. The
@@ -34,21 +33,23 @@ name: GCD issue refresh (daily)
 
 on:
   schedule:
-    # Daily at 18:00 UTC, two hours before cover-ingest.yml at 20:00.
+    # Every 3 hours at :45 (since 2026-10-05; was daily at 18:00, and
+    # Wednesday-only before 2026-09-23). GCD's budget is about 30 requests
+    # per hourly window (the 429 came back with Retry-After ~59 min), so runs
+    # 3 hours apart each start with a full budget and never overlap a
+    # penalty window. That is ~240 requests a day against comics.org, under
+    # one a minute while a run is active, and the script still stops dead on
+    # a 429 and honours the full Retry-After rather than retrying.
     #
-    # Was Wednesday-only until 2026-09-23. GCD's budget resets on roughly an
-    # hourly window (the 429 came back with Retry-After 3525s, ~59 min), so
-    # runs a day apart each start with a full budget of about 30 requests -
-    # daily is 7x the traffic of weekly, not the same traffic spread thinner.
-    # That is ~30 requests a day against comics.org, under one request a
-    # minute while it runs, and the script stops dead on a 429 and honours
-    # the full Retry-After rather than retrying.
+    # Why: the active union measured 316 series on 2026-10-05. At ~30
+    # requests per run a check-only rotation took at least 11 days at daily
+    # cadence; at 8 runs a day it is about 1.4 days. Missing-issue fetches
+    # spend the same budget, so a real cycle runs longer.
     #
-    # The active union measured 316 series on 2026-10-05. At 30 requests per
-    # run, a check-only rotation needs at least 11 daily runs. A three-hour
-    # cadence would reduce that lower bound to about 1.4 days, but is only a
-    # recommendation. Missing-issue fetches consume the same request budget.
-    - cron: '0 18 * * *'
+    # :45 keeps it off :00 (cover-ingest) and :20 (gap-probe), which also
+    # spend ComicVine budget; this job uses ~10 ComicVine requests per run
+    # for the 30-day release list.
+    - cron: '45 */3 * * *'
   workflow_dispatch:
     inputs:
       source:

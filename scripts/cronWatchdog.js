@@ -39,7 +39,7 @@ const WATCHED = [
   // fire, and they did report success - but a daily job silently ceasing to
   // fire is the failure this file exists for, and the cadence change makes
   // that failure cheaper to hit.
-  { file: "gcd-issue-refresh.yml", maxAgeHours: 48 },
+  { file: "gcd-issue-refresh.yml", maxAgeHours: 12 },
 ];
 
 const DRY_RUN = process.argv.includes("--dry-run");

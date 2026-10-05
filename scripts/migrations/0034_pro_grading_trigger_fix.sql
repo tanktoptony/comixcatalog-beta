@@ -1,4 +1,4 @@
--- 0033_pro_grading_trigger_fix.sql
+-- 0034_pro_grading_trigger_fix.sql
 --
 -- Two fixes to enforce_pro_for_grading() from 0008:
 -- 1. Its service-role bypass compared current_user, which inside a

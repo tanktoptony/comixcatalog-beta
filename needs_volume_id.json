@@ -24720,9 +24720,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-28T18:06:06.523292+00:00",
-    "retry_after": "2026-10-05T18:06:06.523306+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-05T18:55:57.283453+00:00",
+    "retry_after": "2026-10-19T18:55:57.283471+00:00"
   },
   {
     "name": "Chilling Adventures of Sabrina - Halloween Comicfest Edition #1",
@@ -41873,5 +41873,174 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T18:02:06.911907+00:00",
     "retry_after": "2026-10-06T18:02:06.911923+00:00"
+  },
+  {
+    "name": "Weapon X",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18390,
+        "name": "Weapon X",
+        "publisher": "Marvel",
+        "start_year": 2002
+      },
+      {
+        "id": 100709,
+        "name": "Weapon X",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 5564,
+        "name": "Weapon X",
+        "publisher": "Marvel",
+        "start_year": 1995
+      },
+      {
+        "id": 35703,
+        "name": "Weapon X",
+        "publisher": "Marvel",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:55:58.262892+00:00",
+    "retry_after": "2026-10-06T18:55:58.262909+00:00"
+  },
+  {
+    "name": "Think Thinner, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:55:58.672660+00:00",
+    "retry_after": "2026-10-06T18:55:58.672678+00:00"
+  },
+  {
+    "name": "We Love You, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:55:59.424305+00:00",
+    "retry_after": "2026-10-06T18:55:59.424324+00:00"
+  },
+  {
+    "name": "Stone Star",
+    "publisher": "Dark Horse Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132202,
+        "name": "Stone Star",
+        "publisher": "Swords & Sassery",
+        "start_year": 2020
+      },
+      {
+        "id": 118008,
+        "name": "Stone Star",
+        "publisher": "Swords & Sassery",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:56:48.688521+00:00",
+    "retry_after": "2026-10-06T18:56:48.688539+00:00"
+  },
+  {
+    "name": "The Aliens",
+    "publisher": "Gold Key",
+    "year": 1967,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 136992,
+        "name": "Aliens",
+        "publisher": "Dark Horse International",
+        "start_year": 1991
+      },
+      {
+        "id": 168066,
+        "name": "Aliens",
+        "publisher": "Play Press",
+        "start_year": 1993
+      },
+      {
+        "id": 4132,
+        "name": "Aliens",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1988
+      },
+      {
+        "id": 4295,
+        "name": "Aliens",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1989
+      },
+      {
+        "id": 26519,
+        "name": "Aliens",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 130183,
+        "name": "Aliens",
+        "publisher": "Cross Cult",
+        "start_year": 2007
+      },
+      {
+        "id": 130477,
+        "name": "Aliens",
+        "publisher": "Egmont Ehapa Verlag",
+        "start_year": 1994
+      },
+      {
+        "id": 168065,
+        "name": "Aliens",
+        "publisher": "Play Press",
+        "start_year": 1991
+      },
+      {
+        "id": 113581,
+        "name": "Aliens ",
+        "publisher": "Abril",
+        "start_year": 1990
+      },
+      {
+        "id": 127779,
+        "name": "Aliens",
+        "publisher": "Soleil",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:59:47.855969+00:00",
+    "retry_after": "2026-10-06T18:59:47.855987+00:00"
+  },
+  {
+    "name": "Star Trek: The Newspaper Comics",
+    "publisher": "IDW Publishing",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T18:59:48.262769+00:00",
+    "retry_after": "2026-10-06T18:59:48.262801+00:00"
+  },
+  {
+    "name": "Western Gunfighters Summer Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-05T19:00:44.898596+00:00",
+    "retry_after": "2026-10-06T19:00:44.898613+00:00"
   }
 ]

@@ -64,6 +64,9 @@ jobs:
       - name: Activity feed privacy tests
         run: npm run test:activity-feed
 
+      - name: Library mutation tests
+        run: npm run test:library-mutations
+
       - name: Chunk helper tests
         run: npm run test:chunk
 

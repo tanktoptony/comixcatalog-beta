@@ -6,6 +6,12 @@ import { trackEvent } from "@/lib/analytics";
 import { attributionParams } from "@/lib/attribution";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { readLocal, writeLocal, clearLocalPrefix } from "@/lib/localCache";
+import {
+  nextCopyNumber,
+  planAdd,
+  planRemove,
+  withKeyLock,
+} from "@/lib/libraryMutations";
 
 const LibraryContext = createContext(null);
 
@@ -207,10 +213,12 @@ export function LibraryProvider({ children }) {
   );
 
   async function addToCollection(inputId, status) {
-    if (!user?.id) return;
+    if (!user?.id) return { ok: false, error: "Sign in required" };
 
     const { comic_id, gcd_issue_id, libraryKey } = parseLibraryInput(inputId);
-    if (!libraryKey) return;
+    if (!libraryKey) return { ok: false, error: "Invalid library item" };
+
+    return withKeyLock(libraryKey, async () => {
 
     // Give the optimistic row a temporary local ID so the UI can replace the
     // same logical item in one state update without waiting for the server
@@ -225,54 +233,104 @@ export function LibraryProvider({ children }) {
     const isFirstOfStatus =
       !loading && !loadError && !collections.some((c) => c.status === status);
 
-    const optimisticId = `optimistic-${libraryKey}-${Date.now()}`;
-    const optimisticRow = {
-      id: optimisticId,
-      user_id: user.id,
-      status,
-      comic_id,
-      gcd_issue_id,
-    };
-
-    setCollections((prev) => {
-      const filtered = prev.filter((c) => makeLibraryKey(c) !== libraryKey);
-      return [...filtered, optimisticRow];
-    });
-
     const supabase = getSupabaseClient();
-
     let error = null;
+    let plan = null;
 
     if (gcd_issue_id != null) {
       const existingResult = await supabase
         .from("user_collections")
-        .select("id, status")
+        .select("id, status, created_at")
         .eq("user_id", user.id)
-        .eq("gcd_issue_id", gcd_issue_id)
-        .maybeSingle();
+        .eq("gcd_issue_id", gcd_issue_id);
 
       if (existingResult.error) {
         error = existingResult.error;
-      } else if (existingResult.data?.id) {
-        const updateResult = await supabase
-          .from("user_collections")
-          .update({ status })
-          .eq("id", existingResult.data.id);
-
-        error = updateResult.error;
       } else {
-        const insertResult = await supabase
-          .from("user_collections")
-          .insert({
+        plan = planAdd(existingResult.data ?? [], { status });
+        const optimisticNow = new Date().toISOString();
+        setCollections((prev) => {
+          const keyRows = prev.filter((row) => makeLibraryKey(row) === libraryKey);
+          const planned = planAdd(keyRows, { status });
+          const deleteIds = new Set(planned.deletes);
+          const patches = new Map(planned.updates.map((update) => [update.id, update.patch]));
+          const kept = prev
+            .filter((row) => !deleteIds.has(row.id))
+            .map((row) => patches.has(row.id) ? { ...row, ...patches.get(row.id) } : row);
+          const inserted = planned.inserts.map((insert, index) => ({
+            id: `optimistic-${libraryKey}-${Date.now()}-${index}`,
             user_id: user.id,
-            status,
             comic_id: null,
             gcd_issue_id,
-          });
+            created_at: optimisticNow,
+            ...insert,
+          }));
+          return [...kept, ...inserted];
+        });
 
-        error = insertResult.error;
+        for (const update of plan.updates) {
+          const result = await supabase
+            .from("user_collections")
+            .update(update.patch)
+            .eq("id", update.id)
+            .eq("user_id", user.id)
+            .select("id");
+          if (result.error) { error = result.error; break; }
+          if (!result.data?.length) refreshLibrary({ background: true });
+        }
+        if (!error && plan.deletes.length) {
+          const result = await supabase
+            .from("user_collections")
+            .delete()
+            .eq("user_id", user.id)
+            .in("id", plan.deletes);
+          error = result.error;
+        }
+        for (const insert of plan.inserts) {
+          if (error) break;
+          const result = await supabase
+            .from("user_collections")
+            .insert({
+              user_id: user.id,
+              comic_id: null,
+              gcd_issue_id,
+              ...insert,
+            })
+            .select("*")
+            .single();
+          if (result.error?.code === "23505" && insert.status === "wishlist") {
+            refreshLibrary({ background: true });
+          } else if (result.error) {
+            error = result.error;
+          } else if (result.data) {
+            // Swap the optimistic row for the saved one, so a remove right
+            // after this add deletes the real id, not the temporary one.
+            const saved = result.data;
+            const tempPrefix = `optimistic-${libraryKey}-`;
+            setCollections((prev) => {
+              const i = prev.findIndex(
+                (row) => String(row.id).startsWith(tempPrefix) && row.status === saved.status
+              );
+              if (i === -1) return [...prev, saved];
+              const next = prev.slice();
+              next[i] = saved;
+              return next;
+            });
+          }
+        }
       }
     } else {
+      const optimisticRow = {
+        id: `optimistic-${libraryKey}-${Date.now()}`,
+        user_id: user.id,
+        status,
+        comic_id,
+        gcd_issue_id: null,
+      };
+      setCollections((prev) => [
+        ...prev.filter((row) => makeLibraryKey(row) !== libraryKey),
+        optimisticRow,
+      ]);
       const result = await supabase
         .from("user_collections")
         .upsert(
@@ -301,7 +359,7 @@ export function LibraryProvider({ children }) {
       user_id: user.id,
     });
     await refreshLibrary({ background: true });
-    return;
+    return { ok: false, error: error.message || "Failed to update library" };
   }
 
   // Named collection_add (not "first_"), fired on every add — GA4 can
@@ -321,27 +379,52 @@ export function LibraryProvider({ children }) {
       ...attributionParams(),
     });
   }
-}
+    return { ok: true };
+    });
+  }
 
-  async function removeFromCollection(inputId) {
-    if (!user?.id) return;
+  async function removeFromCollection(inputId, { rowId, scope = "latest-copy" } = {}) {
+    if (!user?.id) return { ok: false, error: "Sign in required" };
 
     const { comic_id, gcd_issue_id, libraryKey } = parseLibraryInput(inputId);
-    if (!libraryKey) return;
+    if (!libraryKey) return { ok: false, error: "Invalid library item" };
 
-    setCollections((prev) =>
-      prev.filter((c) => makeLibraryKey(c) !== libraryKey)
-    );
+    return withKeyLock(libraryKey, async () => {
+    const keyRows = collections.filter((row) => makeLibraryKey(row) === libraryKey);
+    let plan;
+    try {
+      plan = rowId
+        ? planRemove(keyRows, { scope: "copy", rowId })
+        : gcd_issue_id != null
+        ? planRemove(keyRows, { scope })
+        : { inserts: [], updates: [], deletes: keyRows.slice(0, 1).map((row) => row.id) };
+    } catch (error) {
+      return { ok: false, error: error.message };
+    }
+
+    if (!plan.deletes.length) return { ok: true };
+    // A row added a moment ago may still carry its temporary id until the
+    // save returns. Deleting that id would fail at the database (not a uuid).
+    // Local comics delete by comic_id below, so they're unaffected.
+    const deletesById = rowId || gcd_issue_id != null;
+    if (deletesById && plan.deletes.some((id) => String(id).startsWith("optimistic-"))) {
+      return { ok: false, error: "Still saving that book. Try again in a moment." };
+    }
+    const deleteIds = new Set(plan.deletes);
+    setCollections((prev) => prev.filter((row) => !deleteIds.has(row.id)));
 
     const supabase = getSupabaseClient();
-
     let query = supabase
       .from("user_collections")
       .delete()
       .eq("user_id", user.id);
 
-    if (gcd_issue_id != null) {
-      query = query.eq("gcd_issue_id", gcd_issue_id);
+    if (rowId) {
+      query = query.eq("id", rowId);
+    } else if (gcd_issue_id != null) {
+      query = plan.deletes.length === 1
+        ? query.eq("id", plan.deletes[0])
+        : query.in("id", plan.deletes);
     } else {
       query = query.eq("comic_id", comic_id);
     }
@@ -360,7 +443,10 @@ export function LibraryProvider({ children }) {
         user_id: user.id,
       });
       await refreshLibrary({ background: true });
+      return { ok: false, error: error.message || "Failed to remove item" };
     }
+    return { ok: true };
+    });
   }
 
   // Add an additional copy of an issue already (or not yet) in the collection.
@@ -369,40 +455,62 @@ export function LibraryProvider({ children }) {
   // sharing the same (user, gcd_issue_id, variant_label). Variant label
   // defaults to null (= same printing as base entry).
   async function addAnotherCopy(inputId, { variant_label = null } = {}) {
-    if (!user?.id) return;
-    const { comic_id, gcd_issue_id } = parseLibraryInput(inputId);
+    if (!user?.id) return { ok: false, error: "Sign in required" };
+    const { comic_id, gcd_issue_id, libraryKey } = parseLibraryInput(inputId);
+    if (!libraryKey) return { ok: false, error: "Invalid library item" };
+    return withKeyLock(libraryKey, async () => {
     const supabase = getSupabaseClient();
 
     // Find existing copies to determine next copy_number.
     let query = supabase
       .from("user_collections")
-      .select("copy_number")
+      .select("copy_number, variant_label")
       .eq("user_id", user.id);
     if (gcd_issue_id != null) query = query.eq("gcd_issue_id", gcd_issue_id);
     else if (comic_id != null) query = query.eq("comic_id", comic_id);
     if (variant_label) query = query.eq("variant_label", variant_label);
     else query = query.is("variant_label", null);
 
-    const { data: existing } = await query;
-    const maxCopy = (existing ?? []).reduce(
-      (m, r) => Math.max(m, Number(r.copy_number) || 1),
-      0
-    );
-    const nextCopy = maxCopy + 1;
+    const { data: existing, error: readError } = await query;
+    if (readError) {
+      console.error("addAnotherCopy read failed", readError);
+      return { ok: false, error: readError.message || "Failed to read copies" };
+    }
+    const nextCopy = nextCopyNumber(existing ?? [], variant_label);
 
-    const { error } = await supabase.from("user_collections").insert({
+    const optimisticId = `optimistic-${libraryKey}-${Date.now()}`;
+    setCollections((prev) => [...prev, {
+      id: optimisticId,
       user_id: user.id,
       status: "owned",
       comic_id: comic_id ?? null,
       gcd_issue_id: gcd_issue_id ?? null,
       variant_label,
       copy_number: nextCopy,
-    });
+      created_at: new Date().toISOString(),
+    }]);
+
+    const { data: saved, error } = await supabase
+      .from("user_collections")
+      .insert({
+        user_id: user.id,
+        status: "owned",
+        comic_id: comic_id ?? null,
+        gcd_issue_id: gcd_issue_id ?? null,
+        variant_label,
+        copy_number: nextCopy,
+      })
+      .select("*")
+      .single();
     if (error) {
       console.error("addAnotherCopy failed", error);
-      return;
+      await refreshLibrary({ background: true });
+      return { ok: false, error: error.message || "Failed to add copy" };
     }
-    await refreshLibrary({ background: true });
+    // Swap in the saved row so the copy can be removed right away.
+    setCollections((prev) => prev.map((row) => (row.id === optimisticId ? saved : row)));
+    return { ok: true };
+    });
   }
 
   return (

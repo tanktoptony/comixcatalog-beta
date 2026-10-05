@@ -486,7 +486,8 @@ function LibraryPageContent() {
     );
     if (!ok) return;
     try {
-      await removeFromCollection?.(item.libraryKey ?? item.id);
+      const result = await removeFromCollection?.(item.libraryKey ?? item.id, { rowId: item.id });
+      if (result?.ok === false) throw new Error(result.error || "Unlink failed");
       // re-run the audit so the panel reflects the unlinked state
       if (catalogAudit) await handleCatalogAudit();
     } catch (err) {
@@ -1038,10 +1039,8 @@ function LibraryPageContent() {
 
   // Hybrid-duplicate detection.
   //
-  // Same-key duplicates (two rows for the same comic_id or two rows for the
-  // same gcd_issue_id) are not the expected path, but they are still possible
-  // when stale cache state, older CSV imports, or mixed local/GCD rows land in
-  // the same account. A hybrid duplicate is the more common case: the same
+  // Multiple GCD rows can be intentional physical copies. A hybrid duplicate
+  // is the case this panel handles: the same
   // logical issue stored once as a local `comics` row and again as a
   // `gcd_issue_id` row after a later catalog match. Two different library keys,
   // same physical book.

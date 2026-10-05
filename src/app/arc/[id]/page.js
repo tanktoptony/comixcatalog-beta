@@ -121,8 +121,9 @@ export default function StoryArcPage() {
     let failed = 0;
     for (const issue of missingIssues) {
       try {
-        await addToCollection(`gcd-${issue.gcd_issue_id}`, "wishlist");
-        added += 1;
+        const result = await addToCollection(`gcd-${issue.gcd_issue_id}`, "wishlist");
+        if (result?.ok === false) failed += 1;
+        else added += 1;
       } catch (err) {
         console.error("Bulk add failed for", issue.gcd_issue_id, err);
         failed += 1;
@@ -337,8 +338,8 @@ export default function StoryArcPage() {
                 marginTop: 4,
               }}
             >
-              ✓ Added {bulkResult.added} to your wantlist
-              {bulkResult.failed > 0 && ` (${bulkResult.failed} failed — try again)`}
+              Added {bulkResult.added} to your wantlist
+              {bulkResult.failed > 0 && `, ${bulkResult.failed} failed — try again`}
               .
             </div>
           )}

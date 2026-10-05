@@ -180,8 +180,9 @@ export default function SeriesClient({ initialSeries = null }) {
     let failed = 0;
     for (const issue of runStats.missing) {
       try {
-        await addToCollection(String(issue.id), "wishlist");
-        added += 1;
+        const result = await addToCollection(String(issue.id), "wishlist");
+        if (result?.ok === false) failed += 1;
+        else added += 1;
       } catch (err) {
         console.error("Run-completion bulk add failed for", issue.id, err);
         failed += 1;
@@ -413,8 +414,8 @@ export default function SeriesClient({ initialSeries = null }) {
             )}
             {bulkResult && (
               <div style={{ marginTop: 8, fontSize: "0.85rem", opacity: 0.85 }}>
-                ✓ Added {bulkResult.added} to your wantlist
-                {bulkResult.failed > 0 && ` (${bulkResult.failed} failed)`}.
+                Added {bulkResult.added} to your wantlist
+                {bulkResult.failed > 0 && `, ${bulkResult.failed} failed`}.
               </div>
             )}
           </div>

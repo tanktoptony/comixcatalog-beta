@@ -118,6 +118,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
   const [isLoading, setIsLoading] = useState(false);
   const [isFirstLoad, setIsFirstLoad] = useState(!initialComics);
   const [loadError, setLoadError] = useState(null);
+  const [mutationError, setMutationError] = useState(null);
   const [hasMore, setHasMore] = useState(initialComics ? initialComics.length === PAGE_SIZE : true);
 
   const { wishlistIds, collectionIds, addToCollection, removeFromCollection } =
@@ -575,7 +576,10 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                     {inCollection && (
                       <button
                         className="comic-btn comic-btn-danger"
-                        onClick={() => removeFromCollection(item.id)}
+                        onClick={async () => {
+                          const result = await removeFromCollection(item.id, { scope: "latest-copy" });
+                          setMutationError(result?.ok === false ? result.error || "Library update failed" : null);
+                        }}
                       >
                         Remove
                       </button>
@@ -584,7 +588,10 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                     {inWishlist && (
                       <button
                         className="comic-btn comic-btn-danger"
-                        onClick={() => removeFromCollection(item.id)}
+                        onClick={async () => {
+                          const result = await removeFromCollection(item.id, { scope: "wishlist" });
+                          setMutationError(result?.ok === false ? result.error || "Library update failed" : null);
+                        }}
                       >
                         Remove
                       </button>
@@ -607,6 +614,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
             <SkeletonCard key={`more-${i}`} />
           ))}
       </div>
+      {mutationError && <p style={{ color: "#ff8a80" }}>{mutationError}</p>}
 
       {/* Load more */}
       {hasMore && !isLoading && !isFirstLoad && results.length > 0 && (

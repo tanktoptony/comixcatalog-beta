@@ -12,6 +12,7 @@ import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
+import { countCopies } from "@/lib/libraryMutations";
 
 function money(value) {
   if (value == null || value === "") return "—";
@@ -40,6 +41,7 @@ export default function IssuePage() {
   const [variantLabel, setVariantLabel] = useState("");
   const [variantSaveState, setVariantSaveState] = useState(null);
   const [gradeData, setGradeData] = useState(null);
+  const [mutationError, setMutationError] = useState(null);
 
   const { user, isPro, loading: authLoading } = useAuth();
   const libraryId = String(issue?.id || id || "");
@@ -98,9 +100,19 @@ export default function IssuePage() {
     return `${issue.series_title}${issue.issue_number ? ` #${issue.issue_number}` : ""}`;
   }, [issue]);
 
-  const collectionRow = collections?.find(
+  const issueRows = collections?.filter(
     (row) => issue?.source === "gcd" && Number(row.gcd_issue_id) === Number(String(issue.id || "").replace(/^gcd-/, ""))
-  ) ?? null;
+  ) ?? [];
+  const collectionRow = issueRows.find((row) => row.status === "owned")
+    ?? issueRows.find((row) => row.status === "for_sale")
+    ?? null;
+  const copyCount = countCopies(issueRows);
+
+  async function runMutation(mutation) {
+    setMutationError(null);
+    const result = await mutation();
+    if (result?.ok === false) setMutationError(result.error || "Library update failed");
+  }
 
   // The collector's own copy: a photo they uploaded or the printing they
   // picked (both live in user_cover_url). When there is one, the page leads
@@ -382,14 +394,14 @@ export default function IssuePage() {
                 <>
                   <button
                     className="add-comic-btn"
-                    onClick={() => addToCollection(libraryId, "owned")}
+                    onClick={() => runMutation(() => addToCollection(libraryId, "owned"))}
                   >
                     Add to Collection
                   </button>
 
                   <button
                     className="add-comic-btn"
-                    onClick={() => addToCollection(libraryId, "wishlist")}
+                    onClick={() => runMutation(() => addToCollection(libraryId, "wishlist"))}
                   >
                     Add to Wishlist
                   </button>
@@ -410,9 +422,9 @@ export default function IssuePage() {
                   </button>
                   <button
                     className="add-comic-btn"
-                    onClick={() => removeFromCollection(libraryId)}
+                    onClick={() => runMutation(() => removeFromCollection(libraryId, { scope: "latest-copy" }))}
                   >
-                    Remove from Collection
+                    {copyCount > 1 ? `Remove 1 copy (${copyCount} owned)` : "Remove from Collection"}
                   </button>
                 </>
               )}
@@ -420,10 +432,13 @@ export default function IssuePage() {
               {user && inWishlist && (
                 <button
                   className="add-comic-btn"
-                  onClick={() => removeFromCollection(libraryId)}
+                  onClick={() => runMutation(() => removeFromCollection(libraryId, { scope: "wishlist" }))}
                 >
                   Remove from Wishlist
                 </button>
+              )}
+              {mutationError && (
+                <div style={{ color: "#ff8a80", fontSize: "0.85rem" }}>{mutationError}</div>
               )}
             </div>
           </div>

@@ -18,7 +18,7 @@
 // don't, but the service-role write is what makes the path safe regardless.
 
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 import {
@@ -52,10 +52,7 @@ export async function GET(req) {
     }
     const user_id = authedUser.id;
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     const isPro = await assertPro(supabase, user_id);
     if (!isPro) {
@@ -263,10 +260,7 @@ export async function POST(req) {
       return NextResponse.json({ error: "links[] required" }, { status: 400 });
     }
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     const isPro = await assertPro(supabase, user_id);
     if (!isPro) {

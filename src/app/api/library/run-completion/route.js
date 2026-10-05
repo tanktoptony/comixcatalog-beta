@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
 import { baseIssueNumber } from "@/lib/coverMatch";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
@@ -21,10 +21,7 @@ export async function GET(req) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     const { data: ownedRows, error: ownedError } = await supabase
       .from("user_collections")

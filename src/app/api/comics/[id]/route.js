@@ -1,13 +1,6 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
-
-function getSupabase() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-}
 
 // GET /api/comics/[id]
 //
@@ -21,7 +14,7 @@ function getSupabase() {
 export async function GET(req, context) {
   try {
     const { id } = await context.params;
-    const supabase = getSupabase();
+    const supabase = getServiceClient();
 
     const { data: comic, error: comicError } = await supabase
       .from("comics")
@@ -76,7 +69,7 @@ export async function PATCH(req, context) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const supabase = getSupabase();
+    const supabase = getServiceClient();
     const body = await req.json();
     const { series_title, issue_number, publisher, release_year } = body;
 
@@ -123,7 +116,7 @@ export async function DELETE(req, context) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const supabase = getSupabase();
+    const supabase = getServiceClient();
 
     // Verify ownership
     const { data: existing } = await supabase

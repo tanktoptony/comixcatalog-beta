@@ -17,7 +17,7 @@
 // Pro-gated.
 
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 import { bestYearFor } from "@/lib/years";
@@ -46,10 +46,7 @@ export async function GET(req) {
     const { searchParams } = new URL(req.url);
     const mode = searchParams.get("mode") || "series";
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     const isPro = await assertPro(supabase, user_id);
     if (!isPro) {

@@ -13,7 +13,7 @@
 // so a 2020 reprint cover doesn't end up on a 1992 issue.
 
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import { parseYear } from "@/lib/years";
@@ -48,10 +48,7 @@ export async function GET(req, context) {
     const authedViewer = await getAuthedUser(req);
     const viewerId = authedViewer?.id ?? null;
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     // ── Resolve arc by UUID or cv-<id> ────────────────────────────────────
     const cvMatch = String(id).match(/^cv-(\d+)$/);

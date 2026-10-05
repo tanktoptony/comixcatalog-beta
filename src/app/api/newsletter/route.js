@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // `source` is what tells us which placement actually converts (the column
@@ -12,7 +12,7 @@ export async function POST(req) {
     const email = String(body.email || "").trim().toLowerCase();
     const source = SOURCES.has(body.source) ? body.source : "footer";
     if (!EMAIL.test(email) || email.length > 254) return NextResponse.json({ error: "Enter a valid email address" }, { status: 400 });
-    const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+    const supabase = getServiceClient();
     // Re-subscribing clears unsubscribed_at and records the placement that
     // brought them back.
     const { error } = await supabase.from("newsletter_subscribers").upsert(

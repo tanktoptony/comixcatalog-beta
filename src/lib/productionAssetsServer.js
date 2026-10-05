@@ -1,16 +1,12 @@
 // Server-only pieces shared by the /api/admin/production-assets routes.
 
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "./supabase/service.js";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 import { GET as issueRouteGET } from "@/app/api/issues/[id]/route";
 
 export function serviceClient() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-  );
+  return getServiceClient();
 }
 
 // Same gate as /api/admin/toggle-pro: a verified session whose user is ADMIN_ID.

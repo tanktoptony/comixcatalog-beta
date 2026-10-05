@@ -1,5 +1,5 @@
 import { unstable_cache } from "next/cache";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "./supabase/service.js";
 import { FEATURED_SERIES } from "@/lib/featuredSeries";
 import { baseIssueNumber } from "@/lib/coverMatch";
 import { fetchAllPages } from "./supabase/fetchAllPages.js";
@@ -66,11 +66,7 @@ function rotateFeaturedSeries(week) {
 }
 
 async function computeFeaturedSeries(weekIndex) {
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-  );
+  const supabase = getServiceClient();
 
   const rotatedFeatured = rotateFeaturedSeries(weekIndex);
 

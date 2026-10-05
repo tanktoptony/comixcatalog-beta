@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { parseSearchQuery, yearMatches, yearScore } from "@/lib/searchQuery";
 import { diversify } from "@/lib/searchVariety";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 
@@ -140,10 +140,7 @@ export async function GET(req) {
 
     if (!normalizedQ) return NextResponse.json({ series: [] });
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     let rows;
     try {

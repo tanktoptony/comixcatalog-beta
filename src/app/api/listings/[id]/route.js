@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
 import { validateListingEdit } from "@/lib/listingEdit";
 import { revalidateListings } from "@/lib/marketplace";
@@ -24,9 +24,7 @@ export async function PATCH(req, { params }) {
   const { patch, error: invalid } = validateListingEdit(body);
   if (invalid) return NextResponse.json({ error: invalid }, { status: 400 });
 
-  const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
-    auth: { autoRefreshToken: false, persistSession: false },
-  });
+  const sb = getServiceClient();
   try {
     const { data, error } = await sb
       .from("listings")

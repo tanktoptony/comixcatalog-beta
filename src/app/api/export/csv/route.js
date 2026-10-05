@@ -11,7 +11,7 @@
 // year-aware audited publisher used everywhere else in the read path.
 
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import Papa from "papaparse";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
@@ -44,10 +44,7 @@ export async function POST(req) {
     }
     const user_id = authedUser.id;
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     const [{ data: profile }, { data: collection, error: collErr }] = await Promise.all([
       supabase

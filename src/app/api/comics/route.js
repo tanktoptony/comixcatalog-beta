@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { getAuthedUser } from "@/lib/authServer";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getFeaturedSeries } from "@/lib/featuredSeriesData";
 import { normalizeKey, chooseSeries, matchIssue } from "@/lib/csvImport/matchRow";
 import { CDN_CACHE_LONG } from "@/lib/cdnCache";
@@ -119,10 +119,7 @@ export async function POST(req) {
     return NextResponse.json({ error: "Sign in to add a comic" }, { status: 401 });
   }
 
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
+  const supabase = getServiceClient();
 
   let submission;
   try {

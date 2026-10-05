@@ -47,7 +47,7 @@ function formatYearRange(start, end) {
 }
 
 export default function Header() {
-  const { user, profile, loading, signOut, isPro } = useAuth();
+  const { user, profile, loading, profileLoading, signOut, isPro } = useAuth();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   // The query lives in SearchQueryContext rather than local state so /search
@@ -630,6 +630,7 @@ export default function Header() {
             </Link>
             <UserMenu
               ref={userMenuRef}
+              profileLoading={loading || profileLoading}
               open={userMenuOpen}
               setOpen={setUserMenuOpen}
               user={user}
@@ -748,7 +749,7 @@ function MarketplaceIcon() {
 }
 
 const UserMenu = forwardRef(function UserMenu(
-  { open, setOpen, user, profile, isPro, onLogout, onSwitchAccount, onNavigate },
+  { open, setOpen, user, profile, profileLoading, isPro, onLogout, onSwitchAccount, onNavigate },
   ref
 ) {
   const username = profile?.username || null;
@@ -758,9 +759,16 @@ const UserMenu = forwardRef(function UserMenu(
   // which account you were signed into.
   const email = user?.email ?? null;
   const displayName = profile?.display_name || username || email || "Account";
-  const avatarSrc = profile?.avatar_url
-    ? profile.avatar_url
-    : `/avatars/${profile?.avatar_key || "cc_badge"}.png`;
+  // Right after sign-in there's no cached profile, so we know who you are
+  // before we have your photo. Draw an empty circle while that read is in
+  // flight; the stock badge is for a profile with no photo (or a failed
+  // read), otherwise it flashes before the real one.
+  const avatarSrc =
+    !profile && profileLoading
+      ? null
+      : profile?.avatar_url
+      ? profile.avatar_url
+      : `/avatars/${profile?.avatar_key || "cc_badge"}.png`;
 
   function handleItem(callback) {
     return () => {
@@ -780,7 +788,11 @@ const UserMenu = forwardRef(function UserMenu(
         aria-expanded={open}
         aria-label="Account menu"
       >
-        <img src={avatarSrc} alt="" className="user-menu-avatar" />
+        {avatarSrc ? (
+          <img src={avatarSrc} alt="" className="user-menu-avatar" />
+        ) : (
+          <span className="user-menu-avatar user-menu-avatar--pending" aria-hidden="true" />
+        )}
         {isPro && <span className="user-menu-pro-dot" aria-hidden="true" />}
       </button>
 

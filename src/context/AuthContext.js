@@ -57,6 +57,11 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  // True while the signed-in user's profile row is being read. Separate from
+  // `loading` because a sign-in happens after `loading` has already settled
+  // on "signed out", and pages gate on `loading`; the header only needs to
+  // know not to draw the stock avatar before the real one arrives.
+  const [profileLoading, setProfileLoading] = useState(false);
 
   // Before the first paint: with no stored session, show the signed-out state
   // now; with a stored session and that user's profile cached, show the
@@ -105,6 +110,7 @@ export function AuthProvider({ children }) {
         writeCachedProfile(null, null);
         setUser(null);
         setProfile(null);
+        setProfileLoading(false);
         setLoading(false);
         return;
       }
@@ -126,6 +132,7 @@ export function AuthProvider({ children }) {
       }
       profileLoadedFor = nextUserId;
 
+      setProfileLoading(true);
       const { data: prof, error: profError } = await supabase
         .from("profiles")
         // Explicit columns: browsers can't read stripe_customer_id
@@ -144,6 +151,7 @@ export function AuthProvider({ children }) {
       if (profError) {
         console.error("AuthContext profile read failed:", profError);
         profileLoadedFor = null;
+        setProfileLoading(false);
         setLoading(false);
         return;
       }
@@ -171,6 +179,7 @@ export function AuthProvider({ children }) {
       setProfile((current) =>
         current && JSON.stringify(current) === JSON.stringify(synthesized) ? current : synthesized
       );
+      setProfileLoading(false);
       setLoading(false);
     }
 
@@ -229,6 +238,7 @@ export function AuthProvider({ children }) {
         user,
         profile,
         loading,
+        profileLoading,
         signOut,
         isAdmin: user?.id === ADMIN_ID,
         isPro: Boolean(profile?.is_pro) || user?.id === ADMIN_ID,

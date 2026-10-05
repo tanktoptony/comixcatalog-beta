@@ -7903,6 +7903,11 @@ button.nav-link {
   display: block;
 }
 
+/* Placeholder while the profile loads: same size as the photo, no image. */
+.user-menu-avatar--pending {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 /* Tiny gold dot in the corner if user is Pro — subtle status pip. */
 .user-menu-pro-dot {
   position: absolute;

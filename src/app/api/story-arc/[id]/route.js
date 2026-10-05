@@ -16,15 +16,10 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getAuthedUser } from "@/lib/authServer";
 import { isOwnedStatus } from "@/lib/collectionStatus";
+import { parseYear } from "@/lib/years";
 
 function norm(value) {
   return String(value ?? "").trim().toLowerCase();
-}
-
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
 }
 
 function pickBestCover(candidates, targetYear) {

@@ -5,21 +5,12 @@ import { getMarketValuesBulk } from "@/lib/marketValue";
 import { normTitle, titleVariants } from "@/lib/titleMatch";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import { fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
-
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
-}
+import { bestYearFor, parseYear } from "@/lib/years";
 
 // publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
 // approximation) fills most of that gap. Without this fallback a collector's
 // owned issues show "Unknown" year ~⅔ of the time AND lose their cover (the
 // year-aware matcher below requires a non-null year).
-function bestYearFor(row) {
-  return parseYear(row?.publication_date) ?? parseYear(row?.key_date);
-}
-
 function norm(value) {
   return String(value ?? "").trim().toLowerCase();
 }

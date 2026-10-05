@@ -2,6 +2,7 @@ import { unstable_cache } from "next/cache";
 import { createClient } from "@supabase/supabase-js";
 import { FEATURED_SERIES } from "@/lib/featuredSeries";
 import { baseIssueNumber } from "@/lib/coverMatch";
+import { fetchAllPages } from "./supabase/fetchAllPages.js";
 
 // The homepage "Featured series" carousel and the no-query /search browse
 // list. Moved out of GET /api/comics (2026-10-01) so the homepage can render
@@ -145,22 +146,10 @@ async function computeFeaturedSeries(weekIndex) {
   const issuesByGcdId = new Map();
   const coveredByGcdId = new Map();
   if (gcdIds.length > 0) {
-    const PAGE = 1000;
-    const fetchAllPages = async (build) => {
-      const rows = [];
-      for (let from = 0; ; from += PAGE) {
-        const { data, error: pageError } = await build().range(from, from + PAGE - 1);
-        if (pageError) throw pageError;
-        if (!data?.length) break;
-        rows.push(...data);
-        if (data.length < PAGE) break;
-      }
-      return rows;
-    };
-
     const [issueRows, coverRows] = await Promise.all([
       fetchAllPages(() =>
-        supabase.from("gcd_issues").select("series_gcd_id, issue_number").in("series_gcd_id", gcdIds).order("series_gcd_id").order("gcd_id")
+        supabase.from("gcd_issues").select("gcd_id, series_gcd_id, issue_number").in("series_gcd_id", gcdIds).order("series_gcd_id").order("gcd_id"),
+        "gcd_id"
       ),
       fetchAllPages(() =>
         supabase

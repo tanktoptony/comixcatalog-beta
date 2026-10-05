@@ -14,7 +14,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-import { normTitle, normIssue, parseYear, bestYearFor, titleVariants, pickFromMatches } from "../src/lib/catalogLinkMatcher.js";
+import { normIssue, parseYear, bestYearFor, titleVariants, pickFromMatches } from "../src/lib/catalogLinkMatcher.js";
 
 
 async function main() {

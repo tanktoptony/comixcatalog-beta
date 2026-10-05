@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { baseIssueNumber } from "@/lib/coverMatch";
+import { parseYear } from "@/lib/years";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -21,12 +22,6 @@ function normalizeForScoring(value) {
 
 function normalizeIssueNumber(value) {
   return String(value ?? "").trim().toLowerCase();
-}
-
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
 }
 
 const COVER_YEAR_DIFF_THRESHOLD = 2;

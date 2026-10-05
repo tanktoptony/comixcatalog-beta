@@ -15,16 +15,18 @@ import { createClient } from "@supabase/supabase-js";
 import Papa from "papaparse";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
+import { bestYearFor } from "@/lib/years";
 
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
-}
+const IN_CHUNK = 500;
 
-// publication_date is null on ~65% of gcd_issues; key_date fills the gap.
-function bestYearFor(row) {
-  return parseYear(row?.publication_date) ?? parseYear(row?.key_date);
+async function fetchInChunks(ids, build, orderCol) {
+  const rows = [];
+  for (let i = 0; i < ids.length; i += IN_CHUNK) {
+    const chunk = ids.slice(i, i + IN_CHUNK);
+    rows.push(...(await fetchAllPages(() => build(chunk), orderCol)));
+  }
+  return rows;
 }
 
 function csvSafe(value) {
@@ -110,26 +112,34 @@ export async function POST(req) {
     ];
     const gcdById = {};
     if (gcdIds.length > 0) {
-      const { data: issues } = await supabase
-        .from("gcd_issues")
-        .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
-        .in("gcd_id", gcdIds);
+      const issues = await fetchInChunks(
+        gcdIds,
+        (ids) => supabase
+          .from("gcd_issues")
+          .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
+          .in("gcd_id", ids),
+        "gcd_id"
+      );
 
       const seriesGcdIds = [
         ...new Set((issues ?? []).map((i) => i.series_gcd_id).filter(Boolean)),
       ];
       const seriesByGcdId = {};
       if (seriesGcdIds.length > 0) {
-        const { data: seriesRows } = await supabase
-          .from("series")
-          .select("gcd_id, title, resolved_publisher_cached")
-          .in("gcd_id", seriesGcdIds);
-        for (const s of seriesRows ?? []) {
+        const seriesRows = await fetchInChunks(
+          seriesGcdIds,
+          (ids) => supabase
+            .from("series")
+            .select("id, gcd_id, title, resolved_publisher_cached")
+            .in("gcd_id", ids),
+          "id"
+        );
+        for (const s of seriesRows) {
           seriesByGcdId[String(s.gcd_id)] = s;
         }
       }
 
-      for (const issue of issues ?? []) {
+      for (const issue of issues) {
         const s = seriesByGcdId[String(issue.series_gcd_id)];
         gcdById[issue.gcd_id] = {
           series_title: s?.title ?? null,

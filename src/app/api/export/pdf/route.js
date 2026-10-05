@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { parseYear } from "@/lib/years";
 import { PDFDocument, rgb, StandardFonts, PageSizes } from "pdf-lib";
 import sharp from "sharp";
 import { ADMIN_ID } from "@/lib/admin";
@@ -29,11 +30,6 @@ function getSupabase() {
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
-}
-
-function parseYear(val) {
-  const m = String(val || "").match(/\b(18|19|20)\d{2}\b/);
-  return m ? Number(m[0]) : null;
 }
 
 function condAbbrev(cond) {

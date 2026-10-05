@@ -33,10 +33,10 @@
 // after someone had already filled the form in.
 
 import { NextResponse } from "next/server";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { createClient } from "@supabase/supabase-js";
 import { normalizeKey, chooseSeries, matchIssue } from "@/lib/csvImport/matchRow";
 
-const PAGE = 1000;
 
 // How many volumes we are willing to check issue-by-issue. Ten series are
 // called "Rai"; "The Amazing Spider-Man" and its neighbours run to dozens.
@@ -96,18 +96,6 @@ function relevanceTier(row, normalized, rawTitle) {
 // A popular title can exceed that on its own, and silently losing the tail
 // here means telling someone we do not have a book we do have — the exact
 // failure this endpoint exists to prevent.
-async function fetchAllPages(build) {
-  const rows = [];
-  for (let from = 0; ; from += PAGE) {
-    const { data, error } = await build().range(from, from + PAGE - 1);
-    if (error) throw error;
-    if (!data?.length) break;
-    rows.push(...data);
-    if (data.length < PAGE) break;
-  }
-  return rows;
-}
-
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
@@ -193,7 +181,8 @@ export async function GET(req) {
             .from("gcd_issues")
             .select("gcd_id, series_gcd_id, issue_number")
             .in("series_gcd_id", gcdIds)
-            .order("gcd_id")
+            .order("series_gcd_id"),
+          "gcd_id"
         );
         for (const row of issueRows) {
           if (!issuesBySeries.has(row.series_gcd_id)) issuesBySeries.set(row.series_gcd_id, []);

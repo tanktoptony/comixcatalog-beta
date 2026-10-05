@@ -12,16 +12,7 @@ import { createClient } from "@supabase/supabase-js";
 import Papa from "papaparse";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
-
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
-}
-
-function bestYearFor(row) {
-  return parseYear(row?.publication_date) ?? parseYear(row?.key_date);
-}
+import { bestYearFor } from "@/lib/years";
 
 function csvSafe(value) {
   if (value == null) return "";

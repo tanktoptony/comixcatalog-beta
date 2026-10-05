@@ -43,18 +43,23 @@ async function fetchCanonicalMatch(
   seriesYearMin = null,
   seriesYearMax = null,
   seriesGcdId = null,
-  allowTitlePath = true
+  allowTitlePath = true,
+  degradation = { value: false }
 ) {
   // ID path first: covers tagged with this gcd_series win every time, even
   // when CV's series_title differs from GCD's (e.g. CV "The Maxx" vs GCD
   // "The Maxx Trade Paperback"). Falls through to title path when the cc
   // row hasn't been tagged yet.
   if (seriesGcdId) {
-    const { data: idRows } = await supabase
+    const { data: idRows, error: idRowsError } = await supabase
       .from("canonical_covers")
       .select("id, storage_path, publisher, cover_date, series_year")
       .eq("series_gcd_id", seriesGcdId)
       .eq("issue_number", issueNumber);
+    if (idRowsError) {
+      console.error("issue cover id lookup failed:", idRowsError.code, idRowsError.message);
+      degradation.value = true;
+    }
     const idInSpan = (idRows ?? []).filter((r) =>
       inSeriesSpan(r, seriesYearMin, seriesYearMax)
     );
@@ -69,11 +74,15 @@ async function fetchCanonicalMatch(
 
   // Title variants: with/without a leading "The", with/without punctuation.
   // The year-span guard below still applies to every candidate.
-  const { data: exactRows } = await supabase
+  const { data: exactRows, error: exactRowsError } = await supabase
     .from("canonical_covers")
     .select("id, storage_path, publisher, cover_date, series_year")
     .in("series_title", titleVariants(seriesTitle))
     .eq("issue_number", issueNumber);
+  if (exactRowsError) {
+    console.error("issue cover title lookup failed:", exactRowsError.code, exactRowsError.message);
+    degradation.value = true;
+  }
 
   const exactInSpan = (exactRows ?? []).filter((r) =>
     inSeriesSpan(r, seriesYearMin, seriesYearMax)
@@ -247,6 +256,7 @@ export async function GET(req, context) {
     const viewerId = authedViewer?.id ?? null;
 
     const supabase = getServiceClient();
+    const degradation = { value: false };
 
     if (String(id).startsWith("gcd-")) {
       // gcd_id is an integer column — coerce explicitly to avoid implicit
@@ -325,10 +335,14 @@ export async function GET(req, context) {
       let gcdPublisherName = null;
       let seriesLevelPublisherName = null;
       if (publisherIdsToFetch.length > 0) {
-        const { data: gcdPublisherRows } = await supabase
+        const { data: gcdPublisherRows, error: gcdPublisherRowsError } = await supabase
           .from("gcd_publishers")
           .select("gcd_id, name")
           .in("gcd_id", publisherIdsToFetch);
+        if (gcdPublisherRowsError) {
+          console.error("issue publisher lookup failed:", gcdPublisherRowsError.code, gcdPublisherRowsError.message);
+          degradation.value = true;
+        }
 
         const nameByGcdId = new Map(
           (gcdPublisherRows ?? []).map((row) => [String(row.gcd_id), row.name])
@@ -397,7 +411,8 @@ export async function GET(req, context) {
         seriesYearMin,
         seriesYearMax,
         issue.series_gcd_id,
-        !collectedEdition
+        !collectedEdition,
+        degradation
       );
 
       // Prefer the precomputed cached value — same posture as the series route
@@ -436,11 +451,15 @@ export async function GET(req, context) {
 
       let variants = [];
       if (canonicalMatch.id) {
-        const { data: variantRows } = await supabase
+        const { data: variantRows, error: variantRowsError } = await supabase
           .from("cover_variants")
           .select("id, storage_path, sort_order")
           .eq("canonical_cover_id", canonicalMatch.id)
           .order("sort_order", { ascending: true });
+        if (variantRowsError) {
+          console.error("issue variants lookup failed:", variantRowsError.code, variantRowsError.message);
+          degradation.value = true;
+        }
         variants = (variantRows ?? []).map((variant) => ({
           id: variant.id,
           storageUrl: variant.storage_path
@@ -483,25 +502,37 @@ export async function GET(req, context) {
       // The result powers the "Part of X-Cutioner's Song — you own 1 of 14"
       // badge on the issue page, with a click-through to /arc/<id>.
       let arcs = [];
-      const { data: arcMemberships } = await supabase
+      const { data: arcMemberships, error: arcMembershipsError } = await supabase
         .from("story_arc_issues")
         .select("story_arc_id")
         .eq("gcd_issue_id", gcdId);
+      if (arcMembershipsError) {
+        console.error("issue arc membership lookup failed:", arcMembershipsError.code, arcMembershipsError.message);
+        degradation.value = true;
+      }
 
       const arcIds = [...new Set((arcMemberships ?? []).map((r) => r.story_arc_id))];
       if (arcIds.length > 0) {
         // Arc metadata
-        const { data: arcRows } = await supabase
+        const { data: arcRows, error: arcRowsError } = await supabase
           .from("story_arcs")
           .select("id, cv_id, name, image_url")
           .in("id", arcIds);
+        if (arcRowsError) {
+          console.error("issue arc metadata lookup failed:", arcRowsError.code, arcRowsError.message);
+          degradation.value = true;
+        }
 
         // All issues across these arcs — we need them both for the total
         // count (matchable to our catalog) and for the viewer's owned count.
-        const { data: allArcIssues } = await supabase
+        const { data: allArcIssues, error: allArcIssuesError } = await supabase
           .from("story_arc_issues")
           .select("story_arc_id, gcd_issue_id")
           .in("story_arc_id", arcIds);
+        if (allArcIssuesError) {
+          console.error("issue arc issues lookup failed:", allArcIssuesError.code, allArcIssuesError.message);
+          degradation.value = true;
+        }
 
         // Ownership lookup. Only Pro/Pro-equivalent users should see counts
         // long-term (TBD); for MVP we surface ownership to any signed-in
@@ -512,12 +543,16 @@ export async function GET(req, context) {
             ...new Set(allArcIssues.map((r) => r.gcd_issue_id).filter(Boolean)),
           ];
           if (arcGcdIds.length > 0) {
-            const { data: ownedRows } = await supabase
+            const { data: ownedRows, error: ownedRowsError } = await supabase
               .from("user_collections")
               .select("gcd_issue_id")
               .eq("user_id", viewerId)
               .in("status", OWNED_STATUSES)
               .in("gcd_issue_id", arcGcdIds);
+            if (ownedRowsError) {
+              console.error("issue arc ownership lookup failed:", ownedRowsError.code, ownedRowsError.message);
+              degradation.value = true;
+            }
             const ownedSet = new Set(
               (ownedRows ?? []).map((r) => Number(r.gcd_issue_id))
             );
@@ -550,6 +585,7 @@ export async function GET(req, context) {
       }
 
       return NextResponse.json({
+        degraded: degradation.value,
         issue: {
           id: `gcd-${issue.gcd_id}`,
           source: "gcd",
@@ -650,10 +686,14 @@ export async function GET(req, context) {
 
       let seriesLevelPublisherName = null;
       if (seriesLevelPublisherGcdId) {
-        const { data: gcdPublisherRows } = await supabase
+        const { data: gcdPublisherRows, error: gcdPublisherRowsError } = await supabase
           .from("gcd_publishers")
           .select("gcd_id, name")
           .eq("gcd_id", seriesLevelPublisherGcdId);
+        if (gcdPublisherRowsError) {
+          console.error("issue publisher lookup failed:", gcdPublisherRowsError.code, gcdPublisherRowsError.message);
+          degradation.value = true;
+        }
         seriesLevelPublisherName = gcdPublisherRows?.[0]?.name ?? null;
       }
 
@@ -680,11 +720,15 @@ export async function GET(req, context) {
 
       let variants = [];
       if (canonicalMatch.id) {
-        const { data: variantRows } = await supabase
+        const { data: variantRows, error: variantRowsError } = await supabase
           .from("cover_variants")
           .select("id, storage_path, sort_order")
           .eq("canonical_cover_id", canonicalMatch.id)
           .order("sort_order", { ascending: true });
+        if (variantRowsError) {
+          console.error("issue variants lookup failed:", variantRowsError.code, variantRowsError.message);
+          degradation.value = true;
+        }
         variants = (variantRows ?? []).map((variant) => ({
           id: variant.id,
           storageUrl: variant.storage_path
@@ -715,6 +759,7 @@ export async function GET(req, context) {
       }
 
       return NextResponse.json({
+        degraded: degradation.value,
         issue: {
           id,
           source: "canonical",
@@ -861,6 +906,7 @@ export async function GET(req, context) {
       relatedIssues = relatedIssues.map(stripBase);
 
       return NextResponse.json({
+        degraded: degradation.value,
         issue: {
           // Canonical encoded form, not necessarily byte-identical to
           // whatever the request URL happened to contain.
@@ -915,6 +961,7 @@ export async function GET(req, context) {
       comic.comic_covers?.find((c) => c.is_primary)?.image_path ?? null;
 
     return NextResponse.json({
+      degraded: degradation.value,
       issue: {
         id: comic.id,
         source: "user",

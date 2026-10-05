@@ -90,10 +90,14 @@ export async function POST(req) {
     ];
     const localById = {};
     if (localIds.length > 0) {
-      const { data: localRows } = await supabase
+      const { data: localRows, error: localRowsError } = await supabase
         .from("comics")
         .select("id, series_title, issue_number, publisher, release_year")
         .in("id", localIds);
+      if (localRowsError) {
+        console.error("CSV export local comics lookup failed:", localRowsError.code, localRowsError.message);
+        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
+      }
       for (const row of localRows ?? []) localById[row.id] = row;
     }
 

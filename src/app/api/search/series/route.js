@@ -177,12 +177,19 @@ export async function GET(req) {
     // real book" signal than year overlap — fetch it here and let it
     // override the year-based fingerprint below.
     const volumeIdByRowId = new Map();
+    let searchDegraded = false;
     if (rows.length > 0) {
-      const { data: volumeRows } = await supabase
+      const { data: volumeRows, error: volumeRowsError } = await supabase
         .from("series")
         .select("id, comicvine_volume_id")
         .in("id", rows.map((r) => r.id))
         .not("comicvine_volume_id", "is", null);
+      // Volume ids only refine how same-titled rows group; without them the
+      // year fingerprint below still groups correctly. Show results, flag it.
+      if (volumeRowsError) {
+        console.error("series search volume lookup failed:", volumeRowsError.code, volumeRowsError.message);
+        searchDegraded = true;
+      }
       for (const v of volumeRows ?? []) {
         volumeIdByRowId.set(v.id, v.comicvine_volume_id);
       }
@@ -489,6 +496,8 @@ export async function GET(req) {
       })(),
     }));
 
+    // A degraded result must not sit in the CDN for ten minutes.
+    if (searchDegraded) return NextResponse.json({ series, degraded: true });
     return NextResponse.json({ series }, { headers: CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/search/series crashed:", err);

@@ -53,6 +53,7 @@ export async function GET(req, context) {
     const { id } = await context.params;
 
     const supabase = getServiceClient();
+    let degraded = false;
 
     const { data: series, error: seriesError } = await supabase
       .from("series")
@@ -220,10 +221,14 @@ export async function GET(req, context) {
     let gcdPublisherNames = [];
     let seriesLevelPublisherName = null;
     if (publisherGcdIds.length > 0) {
-      const { data: gcdPublisherRows } = await supabase
+      const { data: gcdPublisherRows, error: gcdPublisherRowsError } = await supabase
         .from("gcd_publishers")
         .select("gcd_id, name")
         .in("gcd_id", publisherGcdIds);
+      if (gcdPublisherRowsError) {
+        console.error("series publisher lookup failed:", gcdPublisherRowsError.code, gcdPublisherRowsError.message);
+        degraded = true;
+      }
 
       const nameByGcdId = new Map(
         (gcdPublisherRows ?? []).map((row) => [String(row.gcd_id), row.name])
@@ -452,6 +457,7 @@ export async function GET(req, context) {
     const fullYearEnd = allYears.length ? Math.max(yearEnd ?? -Infinity, ...allYears) : yearEnd;
 
     return NextResponse.json({
+      degraded,
       series: {
         id: series.id,
         title: series.title ?? "Untitled Series",
@@ -464,7 +470,8 @@ export async function GET(req, context) {
         collects: collectedEdition ? collectsLines(seriesFormat?.format_notes) : [],
         issues: mappedIssues,
       },
-    }, { headers: CDN_CACHE_SHORT });
+    // A degraded response must not be cached at the CDN for ten minutes.
+    }, degraded ? undefined : { headers: CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/series/[id] crashed:", err);
     return NextResponse.json({ error: "Server error" }, { status: 500 });

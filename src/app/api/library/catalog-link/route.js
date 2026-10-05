@@ -33,11 +33,15 @@ import { OWNED_STATUSES } from "@/lib/collectionStatus";
 
 async function assertPro(supabase, user_id) {
   if (user_id === ADMIN_ID) return true;
-  const { data: profile } = await supabase
+  const { data: profile, error } = await supabase
     .from("profiles")
     .select("is_pro, is_founding_collector")
     .eq("id", user_id)
     .single();
+  if (error) {
+    console.error("catalog-link profile lookup failed:", error.code, error.message);
+    return null;
+  }
   return Boolean(profile?.is_pro || profile?.is_founding_collector);
 }
 
@@ -55,6 +59,9 @@ export async function GET(req) {
     const supabase = getServiceClient();
 
     const isPro = await assertPro(supabase, user_id);
+    if (isPro === null) {
+      return NextResponse.json({ error: "Failed to verify account tier" }, { status: 502 });
+    }
     if (!isPro) {
       return NextResponse.json(
         { error: "Pro tier required", upgrade: true },
@@ -86,10 +93,14 @@ export async function GET(req) {
     }
 
     const comicIds = [...new Set(localRows.map((r) => r.comic_id))];
-    const { data: comics } = await supabase
+    const { data: comics, error: comicsError } = await supabase
       .from("comics")
       .select("id, series_title, issue_number, publisher, release_year")
       .in("id", comicIds);
+    if (comicsError) {
+      console.error("catalog-link comics lookup failed:", comicsError.code, comicsError.message);
+      return NextResponse.json({ error: "Failed to load collection comics" }, { status: 502 });
+    }
     const comicById = {};
     for (const c of comics ?? []) comicById[c.id] = c;
 
@@ -108,11 +119,15 @@ export async function GET(req) {
 
     const seriesByNormTitle = new Map();
     if (titleNorms.length > 0) {
-      const { data: seriesRows } = await supabase
+      const { data: seriesRows, error: seriesRowsError } = await supabase
         .from("series")
         .select("id, gcd_id, title, title_normalized, year_start_cached, year_end_cached, resolved_publisher_cached")
         .in("title_normalized", titleNorms)
         .not("gcd_id", "is", null);
+      if (seriesRowsError) {
+        console.error("catalog-link series lookup failed:", seriesRowsError.code, seriesRowsError.message);
+        return NextResponse.json({ error: "Failed to load catalog series" }, { status: 502 });
+      }
       for (const s of seriesRows ?? []) {
         if (!seriesByNormTitle.has(s.title_normalized)) {
           seriesByNormTitle.set(s.title_normalized, []);
@@ -133,11 +148,15 @@ export async function GET(req) {
       const PAGE = 1000;
       let from = 0;
       while (true) {
-        const { data: page } = await supabase
+        const { data: page, error: pageError } = await supabase
           .from("gcd_issues")
           .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
           .in("series_gcd_id", allSeriesGcdIds)
           .range(from, from + PAGE - 1);
+        if (pageError) {
+          console.error("catalog-link issues lookup failed:", pageError.code, pageError.message);
+          return NextResponse.json({ error: "Failed to load catalog issues" }, { status: 502 });
+        }
         if (!page?.length) break;
         for (const i of page) {
           const k = `${i.series_gcd_id}::${normIssue(i.issue_number)}`;
@@ -263,6 +282,9 @@ export async function POST(req) {
     const supabase = getServiceClient();
 
     const isPro = await assertPro(supabase, user_id);
+    if (isPro === null) {
+      return NextResponse.json({ error: "Failed to verify account tier" }, { status: 502 });
+    }
     if (!isPro) {
       return NextResponse.json(
         { error: "Pro tier required", upgrade: true },
@@ -274,10 +296,14 @@ export async function POST(req) {
     // touch so a malicious client can't pass arbitrary collection_ids belonging
     // to other users. RLS would also catch this, but explicit > implicit.
     const collectionIds = links.map((l) => l.collection_id).filter(Boolean);
-    const { data: owned } = await supabase
+    const { data: owned, error: ownedError } = await supabase
       .from("user_collections")
       .select("id, user_id, gcd_issue_id, comic_id, user_cover_url")
       .in("id", collectionIds);
+    if (ownedError) {
+      console.error("catalog-link ownership lookup failed:", ownedError.code, ownedError.message);
+      return NextResponse.json({ error: "Failed to verify collection ownership" }, { status: 502 });
+    }
     const ownedById = new Map();
     for (const r of owned ?? []) ownedById.set(r.id, r);
 
@@ -294,10 +320,14 @@ export async function POST(req) {
       .map((r) => r.comic_id);
     const photoByComicId = new Map();
     if (comicIdsToProbe.length > 0) {
-      const { data: covers } = await supabase
+      const { data: covers, error: coversError } = await supabase
         .from("comic_covers")
         .select("comic_id, image_path, is_primary, created_at")
         .in("comic_id", comicIdsToProbe);
+      if (coversError) {
+        console.error("catalog-link photo lookup failed:", coversError.code, coversError.message);
+        return NextResponse.json({ error: "Failed to preserve collection photos" }, { status: 502 });
+      }
       // Prefer is_primary, else oldest (created_at ASC) — first upload tends
       // to be the user's own copy photo.
       const byComic = new Map();
@@ -342,12 +372,17 @@ export async function POST(req) {
       // mapped to the same GCD entry (e.g. miniseries with the same canonical
       // series but different physical printings). Surface it as a soft skip
       // with a reason the UI can render so the user can resolve manually.
-      const { data: collision } = await supabase
+      const { data: collision, error: collisionError } = await supabase
         .from("user_collections")
         .select("id")
         .eq("user_id", user_id)
         .eq("gcd_issue_id", gcd_issue_id)
         .maybeSingle();
+
+      if (collisionError) {
+        console.error("catalog-link collision lookup failed:", collisionError.code, collisionError.message);
+        return NextResponse.json({ error: "Failed to verify catalog link" }, { status: 502 });
+      }
 
       if (collision?.id && collision.id !== collection_id) {
         skipped += 1;

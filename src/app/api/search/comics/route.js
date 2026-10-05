@@ -140,11 +140,11 @@ async function fetchSeriesCandidates(supabase, normalizedQ) {
   );
   const { data: fallbackRows, error: fallbackError } = await supabase
     .from("series")
-    .select("gcd_id, title, resolved_publisher_cached, issue_count_cached")
+    .select("gcd_id, title, resolved_publisher_cached, issue_count_cached, us_market")
     .ilike("title_normalized", `%${normalizedQ}%`)
     .not("gcd_id", "is", null)
     .gt("issue_count_cached", 0)
-    .in("resolved_publisher_cached", US_PUBLISHER_ALLOWLIST)
+    .or(`us_market.eq.true,resolved_publisher_cached.in.(${US_PUBLISHER_ALLOWLIST.map((value) => `"${value.replaceAll('"', '\\"')}"`).join(",")})`)
     .order("issue_count_cached", { ascending: false })
     .limit(30);
   if (fallbackError) throw fallbackError;

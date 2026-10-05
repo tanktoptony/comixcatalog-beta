@@ -19,6 +19,7 @@ import { resolvePublisher } from "../src/lib/publisher.js";
 import { getSeriesOverride } from "../src/lib/seriesOverrides.js";
 import { normTitle, stripPunctuation, titleVariants } from "../src/lib/titleMatch.js";
 import { isCollectedEdition } from "../src/lib/seriesFormat.js";
+import { isUsMarketSeries } from "../src/lib/usMarket.js";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -230,6 +231,7 @@ async function fetchSeriesBatch() {
       year_start_cached,
       year_end_cached,
       resolved_publisher_cached,
+      us_market,
       featured_cover_path_cached,
       search_refreshed_at,
       publisher:publisher_id (
@@ -288,24 +290,29 @@ function normalizePublisherForMatch(value) {
 // is exactly how the Fables TPB series got a monthly thumbnail and
 // outranked the real run in search (2026-09-21). Tolerates the column not
 // existing yet (returns an empty map, i.e. nothing is treated as collected).
-async function fetchCollectedFlags(gcdIds) {
+async function fetchGcdSeriesMetadata(gcdIds) {
   const flags = new Map();
+  const publisherIds = new Map();
   for (let i = 0; i < gcdIds.length; i += 500) {
     const { data, error } = await supabase
       .from("gcd_series")
-      .select("gcd_id, publishing_format, binding")
+      .select("gcd_id, publishing_format, binding, publisher_gcd_id")
       .in("gcd_id", gcdIds.slice(i, i + 500));
-    if (error) return flags;
-    for (const row of data ?? []) flags.set(row.gcd_id, isCollectedEdition(row));
+    if (error) throw error;
+    for (const row of data ?? []) {
+      flags.set(row.gcd_id, isCollectedEdition(row));
+      publisherIds.set(row.gcd_id, row.publisher_gcd_id);
+    }
   }
-  return flags;
+  return { flags, publisherIds };
 }
 
 async function processBatch(seriesBatch) {
   if (seriesBatch.length === 0) return 0;
 
   const seriesGcdIds = seriesBatch.map((s) => s.gcd_id);
-  const collectedFlags = await fetchCollectedFlags(seriesGcdIds);
+  const { flags: collectedFlags, publisherIds: seriesPublisherIds } =
+    await fetchGcdSeriesMetadata(seriesGcdIds);
   const seriesTitles = [
     ...new Set(seriesBatch.map((s) => s.title).filter(Boolean)),
   ];
@@ -349,24 +356,25 @@ async function processBatch(seriesBatch) {
 
   const publisherGcdIds = [
     ...new Set(
-      (issueRows ?? [])
-        .map((r) => r.publisher_gcd_id)
+      [...(issueRows ?? []).map((r) => r.publisher_gcd_id), ...seriesPublisherIds.values()]
         .filter(Boolean)
         .map(String)
     ),
   ];
 
   const pubNameByGcdId = {};
+  const pubCountryByGcdId = {};
   if (publisherGcdIds.length > 0) {
     const { data: pubRows, error: pubErr } = await supabase
       .from("gcd_publishers")
-      .select("gcd_id, name")
+      .select("gcd_id, name, country")
       .in("gcd_id", publisherGcdIds);
 
     if (pubErr) throw pubErr;
 
     for (const row of pubRows ?? []) {
       pubNameByGcdId[String(row.gcd_id)] = row.name;
+      pubCountryByGcdId[String(row.gcd_id)] = row.country;
     }
   }
 
@@ -610,11 +618,11 @@ async function processBatch(seriesBatch) {
 
     const issuePublisherNames = [
       ...new Set(
-        issuesForSeries
+        [pubNameByGcdId[String(seriesPublisherIds.get(series.gcd_id))], ...issuesForSeries
           .map((r) => r.publisher_gcd_id)
           .filter(Boolean)
           .map((id) => pubNameByGcdId[String(id)])
-          .filter(Boolean)
+        ].filter(Boolean)
       ),
     ];
 
@@ -756,6 +764,12 @@ async function processBatch(seriesBatch) {
       : (override?.publisher ?? resolvedPublisher);
     const finalYearStart = override?.year_start ?? yearStart;
     const finalYearEnd = override?.year_end ?? yearEnd;
+    const gcdPublisherId = seriesPublisherIds.get(series.gcd_id);
+    const usMarket = isUsMarketSeries({
+      publisherCountry: pubCountryByGcdId[String(gcdPublisherId)],
+      gcdPublisherName: pubNameByGcdId[String(gcdPublisherId)],
+      resolvedPublisher: finalPublisher,
+    });
 
     return {
       series,
@@ -764,6 +778,7 @@ async function processBatch(seriesBatch) {
       yearStart: finalYearStart,
       yearEnd: finalYearEnd,
       resolvedPublisher: finalPublisher,
+      usMarket,
       coverCandidates,
       idPool,
       fallbackPool,
@@ -928,7 +943,7 @@ async function processBatch(seriesBatch) {
   let unchanged = 0;
 
   for (const entry of computed) {
-    const { series, issueCount, yearStart, yearEnd, resolvedPublisher } = entry;
+    const { series, issueCount, yearStart, yearEnd, resolvedPublisher, usMarket } = entry;
     const featuredCoverPath = coverPathByEntry.get(series.id) ?? null;
 
     if (DRY_RUN) {
@@ -953,6 +968,7 @@ async function processBatch(seriesBatch) {
       series.year_start_cached === yearStart &&
       series.year_end_cached === yearEnd &&
       series.resolved_publisher_cached === resolvedPublisher &&
+      series.us_market === usMarket &&
       (series.featured_cover_path_cached ?? null) === featuredCoverPath
     ) {
       unchanged += 1;
@@ -966,6 +982,7 @@ async function processBatch(seriesBatch) {
         year_start_cached: yearStart,
         year_end_cached: yearEnd,
         resolved_publisher_cached: resolvedPublisher,
+        us_market: usMarket,
         featured_cover_path_cached: featuredCoverPath,
         search_refreshed_at: now,
       })

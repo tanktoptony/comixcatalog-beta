@@ -195,7 +195,9 @@ Columns: `issue_number`, `title`, `publication_date`, `key_date`.
 - `publication_date` is null on ~65% of rows. `key_date` (GCD's sortable approximation) fills most of that gap — use `bestYearFor(row)` helper, never raw `parseYear(publication_date)`.
 
 #### `gcd_publishers`
-PK `gcd_id` (int4). Columns: `name`, `year_began`, `year_ended`.
+PK `gcd_id` (int4). Columns: `name`, `country`, `year_began`, `year_ended`, `synced_at`. `scripts/syncGcdPublishers.js` incrementally mirrors the live GCD publisher API with a committed page cursor. Publisher IDs must come from each API row's `api_url`; never infer them from page position.
+
+`series.us_market` is true when the linked GCD series publisher is US or Canada, except the explicit French-Canadian reprint-house exclusions in `src/lib/usMarket.js`, or when `resolved_publisher_cached` remains in `US_PUBLISHER_ALLOWLIST`. Search uses `us_market OR allowlist`, so the allowlist remains a compatibility path and existing visible series do not disappear.
 
 #### `publishers` (canonical publishers used by `series.publisher_id`)
 PK `id` (uuid). Columns: `name`, `created_at`, `gcd_id` (int4 — bridge to `gcd_publishers`).

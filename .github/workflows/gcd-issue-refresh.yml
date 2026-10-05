@@ -1,4 +1,4 @@
-name: GCD issue refresh (weekly)
+name: GCD issue refresh (daily)
 
 # Targeted top-up of gcd_issues from GCD's own live API - NOT a fresh bulk
 # dump. Our gcd_issues mirror was populated once from an old GCD Postgres
@@ -13,12 +13,9 @@ name: GCD issue refresh (weekly)
 # workflow tries to match covers against them - a cover cannot attach to an
 # issue we do not know about.
 #
-# Scope is deliberately narrow for now (--source=featured, ~79 series max):
-# GCD's public API rate limit is real, tight, and undocumented - it tripped
-# during manual testing on 2026-08-10 after well under 100 requests, with a
-# Retry-After in the tens of minutes. Widening scope to the full catalog is
-# a later step once this has run cleanly a few times and the actual
-# sustained rate is better understood - not something to guess at upfront.
+# Scope is the active catalog: recent ComicVine releases from the last 30
+# days, series represented in member collections, and featured series. The
+# sources are deduplicated in that priority order and walked with a cursor.
 #
 # Audited 2026-09-23: it had NOT in fact run cleanly. Every run since the job
 # was created ended on GCD's 429 after about 30 requests, which is normal and
@@ -47,17 +44,16 @@ on:
     # minute while it runs, and the script stops dead on a 429 and honours
     # the full Retry-After rather than retrying.
     #
-    # Why it is worth 7x: a bare check pass over the 78 featured series costs
-    # 78 requests, so weekly meant ~3 weeks just to look at every series once,
-    # before fetching a single missing issue. The real backlog is larger than
-    # that - two sampled series alone were short 56 and 150 issues - and at
-    # weekly cadence it would not have cleared this year.
+    # The active union measured 316 series on 2026-10-05. At 30 requests per
+    # run, a check-only rotation needs at least 11 daily runs. A three-hour
+    # cadence would reduce that lower bound to about 1.4 days, but is only a
+    # recommendation. Missing-issue fetches consume the same request budget.
     - cron: '0 18 * * *'
   workflow_dispatch:
     inputs:
       source:
-        description: 'Target source (featured = curated homepage list)'
-        default: 'featured'
+        description: 'Target source (active or featured)'
+        default: 'active'
         required: false
 
 permissions:
@@ -75,6 +71,7 @@ jobs:
     env:
       NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      COMICVINE_API_KEY: ${{ secrets.COMICVINE_API_KEY }}
 
     steps:
       - uses: actions/checkout@v4
@@ -98,11 +95,11 @@ jobs:
       # had walked the same first four series and stopped - the 74 behind
       # them had never been refreshed, because a truncated candidate list
       # and a fixed walk order put them permanently out of reach.
-      - name: Refresh featured-series issue lists from GCD
+      - name: Refresh active-series issue lists from GCD
         id: refresh
         run: |
           set +e
-          node scripts/refreshGcdIssuesFromApi.js --source=${{ github.event.inputs.source || 'featured' }}
+          node scripts/refreshGcdIssuesFromApi.js --source=${{ github.event.inputs.source || 'active' }}
           code=$?
           set -e
           if [ "$code" -eq 3 ]; then

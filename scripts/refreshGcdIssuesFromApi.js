@@ -13,7 +13,9 @@
 //
 // Usage:
 //   node scripts/refreshGcdIssuesFromApi.js --gcd-ids=217177,120640
-//   node scripts/refreshGcdIssuesFromApi.js --source=featured [--limit=20]
+//   node scripts/refreshGcdIssuesFromApi.js --source=active [--max-series=300]
+//   node scripts/refreshGcdIssuesFromApi.js --source=active --list-only
+//   node scripts/refreshGcdIssuesFromApi.js --source=featured [--max-series=20]
 //   node scripts/refreshGcdIssuesFromApi.js --gcd-ids=217177 --dry-run
 //   node scripts/refreshGcdIssuesFromApi.js --source=featured --no-cursor
 
@@ -24,9 +26,9 @@ import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
 
 import { describeError } from "./lib/describeError.js";
-import { pickBestCandidate, readCursor, rotate, writeCursor } from "./lib/featuredTargets.js";
+import { orderActiveTargets, pickBestCandidate, readCursor, rotate, writeCursor } from "./lib/featuredTargets.js";
+import { fetchRecentComicVineIssues } from "./lib/cvRecentReleases.js";
 import { fetchAllPages } from "../src/lib/supabase/fetchAllPages.js";
-import { withRetry } from "./lib/withRetry.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
@@ -43,6 +45,7 @@ const args = Object.fromEntries(
   })
 );
 const DRY_RUN = Boolean(args["dry-run"]);
+const LIST_ONLY = Boolean(args["list-only"]);
 const USE_CURSOR = !args["no-cursor"];
 // 700ms tripped a 429 (Retry-After ~52min) well under 100 requests in
 // testing on 2026-08-10. 2000ms is a more conservative starting point, not
@@ -55,7 +58,20 @@ const USE_CURSOR = !args["no-cursor"];
 // spacing requests further apart buys nothing, and the only thing that helps
 // is spending each run's budget on different series. See ROTATION below.
 const SLEEP_MS = Number(args.sleep ?? 2000);
-const LIMIT = args.limit ? Number(args.limit) : Infinity;
+// At two seconds per GCD request, 300 check-only series take about 10 minutes.
+// That leaves about 50 minutes of the workflow's 60-minute timeout for issue
+// fetches and database work if GCD ever stops enforcing its current ~30/hour
+// budget. --limit remains as a backwards-compatible alias.
+const maxSeriesArg = args["max-series"] ?? args.limit ?? 300;
+const MAX_SERIES = Number(maxSeriesArg);
+if (!Number.isInteger(MAX_SERIES) || MAX_SERIES < 0) {
+  throw new Error(`--max-series must be a non-negative integer, got ${maxSeriesArg}`);
+}
+const maxIssuesArg = args["max-issues"] ?? Infinity;
+const MAX_ISSUES = Number(maxIssuesArg);
+if (MAX_ISSUES < 0 || Number.isNaN(MAX_ISSUES)) {
+  throw new Error(`--max-issues must be non-negative, got ${maxIssuesArg}`);
+}
 
 const UA = { "User-Agent": "Mozilla/5.0 (ComixCatalog gcd-issue-refresh; contact via repo)", Accept: "application/json" };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -142,45 +158,107 @@ async function allFeaturedSeriesRows(titles) {
   }
 }
 
+function chunks(values, size = 300) {
+  const out = [];
+  for (let i = 0; i < values.length; i += size) out.push(values.slice(i, i + size));
+  return out;
+}
+
+async function getFeaturedGcdIds() {
+  const { FEATURED_SERIES } = await import("../src/lib/featuredSeries.js");
+  const titles = [...new Set(FEATURED_SERIES.map((e) => e.title))];
+  const rows = await allFeaturedSeriesRows(titles);
+
+  const pool = new Map();
+  for (const r of rows) {
+    const key = `${r.title.toLowerCase()}::${(r.resolved_publisher_cached ?? "").toLowerCase()}`;
+    if (!pool.has(key)) pool.set(key, []);
+    pool.get(key).push(r);
+  }
+
+  const ids = [];
+  const unmatched = [];
+  for (const entry of FEATURED_SERIES) {
+    const key = `${entry.title.toLowerCase()}::${entry.publisher.toLowerCase()}`;
+    const best = pickBestCandidate(entry, pool.get(key));
+    if (!best) {
+      unmatched.push(`${entry.title} (${entry.publisher})`);
+      continue;
+    }
+    ids.push(Number(best.gcd_id));
+  }
+
+  const unique = [...new Set(ids)];
+  console.log(`Featured source: ${FEATURED_SERIES.length} entries | ${rows.length} candidate rows | ${unique.length} distinct GCD series.`);
+  if (unmatched.length) {
+    console.log(`  ${unmatched.length} featured entries have no series row matching title+publisher:`);
+    for (const u of unmatched) console.log(`    - ${u}`);
+  }
+  return unique;
+}
+
+async function getOwnedGcdIds() {
+  const collectionRows = await fetchAllPages(() =>
+    supabase.from("user_collections").select("id, gcd_issue_id").not("gcd_issue_id", "is", null),
+  "id");
+  const issueIds = [...new Set(collectionRows.map((row) => Number(row.gcd_issue_id)).filter(Boolean))];
+  const seriesIds = new Set();
+  for (const chunk of chunks(issueIds)) {
+    const rows = await fetchAllPages(() =>
+      supabase.from("gcd_issues").select("gcd_id, series_gcd_id").in("gcd_id", chunk),
+    "gcd_id");
+    for (const row of rows) if (row.series_gcd_id) seriesIds.add(Number(row.series_gcd_id));
+  }
+  const ids = [...seriesIds].sort((a, b) => a - b);
+  console.log(`Owned source: ${collectionRows.length} collection rows | ${issueIds.length} distinct issues | ${ids.length} distinct GCD series.`);
+  return ids;
+}
+
+function isoDaysAgo(days) {
+  const date = new Date();
+  date.setUTCDate(date.getUTCDate() - days);
+  return date.toISOString().slice(0, 10);
+}
+
+async function getRecentGcdIds() {
+  const issues = await fetchRecentComicVineIssues({
+    apiKey: process.env.COMICVINE_API_KEY,
+    sinceDate: isoDaysAgo(30),
+  });
+  const volumeIds = [...new Set(issues.map((issue) => Number(issue.volume?.id)).filter(Boolean))];
+  const seriesIds = new Set();
+  let mappedRows = 0;
+  for (const chunk of chunks(volumeIds)) {
+    const rows = await fetchAllPages(() =>
+      supabase
+        .from("series")
+        .select("id, gcd_id, comicvine_volume_id")
+        .in("comicvine_volume_id", chunk)
+        .not("gcd_id", "is", null),
+    "id");
+    mappedRows += rows.length;
+    for (const row of rows) seriesIds.add(Number(row.gcd_id));
+  }
+  const ids = [...seriesIds].filter(Boolean).sort((a, b) => a - b);
+  console.log(`Recent source (30 days): ${issues.length} ComicVine issues | ${volumeIds.length} volumes | ${mappedRows} mapped series rows | ${ids.length} distinct GCD series.`);
+  return ids;
+}
+
 async function getTargetGcdIds() {
   if (args["gcd-ids"]) {
     return String(args["gcd-ids"]).split(",").map((s) => Number(s.trim())).filter(Boolean);
   }
-  if (args.source === "featured") {
-    const { FEATURED_SERIES } = await import("../src/lib/featuredSeries.js");
-    const titles = [...new Set(FEATURED_SERIES.map((e) => e.title))];
-    const rows = await allFeaturedSeriesRows(titles);
-
-    const pool = new Map();
-    for (const r of rows) {
-      const key = `${r.title.toLowerCase()}::${(r.resolved_publisher_cached ?? "").toLowerCase()}`;
-      if (!pool.has(key)) pool.set(key, []);
-      pool.get(key).push(r);
-    }
-
-    const ids = [];
-    const unmatched = [];
-    for (const entry of FEATURED_SERIES) {
-      const key = `${entry.title.toLowerCase()}::${entry.publisher.toLowerCase()}`;
-      const best = pickBestCandidate(entry, pool.get(key));
-      // Skipping in silence here is how the truncation stayed invisible for a
-      // month: a featured series with no candidate row looks exactly like one
-      // that is already up to date. Name them out loud.
-      if (!best) {
-        unmatched.push(`${entry.title} (${entry.publisher})`);
-        continue;
-      }
-      ids.push(best.gcd_id);
-    }
-
-    console.log(`Featured list: ${FEATURED_SERIES.length} entries | ${rows.length} candidate series rows | ${ids.length} resolved.`);
-    if (unmatched.length) {
-      console.log(`  ${unmatched.length} featured entries have no series row matching title+publisher:`);
-      for (const u of unmatched) console.log(`    - ${u}`);
-    }
-    return [...new Set(ids)];
+  const source = args.source ?? "active";
+  if (source === "featured") return getFeaturedGcdIds();
+  if (source === "active") {
+    const recent = await getRecentGcdIds();
+    const owned = await getOwnedGcdIds();
+    const featured = await getFeaturedGcdIds();
+    const ids = orderActiveTargets({ recent, owned, featured });
+    console.log(`Active union: ${ids.length} distinct GCD series (ordered recent, owned, featured).`);
+    return ids;
   }
-  throw new Error("Provide --gcd-ids=1,2,3 or --source=featured");
+  throw new Error("Provide --gcd-ids=1,2,3, --source=active, or --source=featured");
 }
 
 async function refreshOne(seriesGcdId) {
@@ -190,9 +268,9 @@ async function refreshOne(seriesGcdId) {
   const remoteIds = (seriesJson.active_issues ?? []).map(issueIdFromUrl).filter(Boolean);
   const remoteSet = new Set(remoteIds);
 
-  const localRows = await withRetry(`local issue list for series ${seriesGcdId}`, () =>
-    supabase.from("gcd_issues").select("gcd_id").eq("series_gcd_id", seriesGcdId)
-  );
+  const localRows = await fetchAllPages(() =>
+    supabase.from("gcd_issues").select("gcd_id").eq("series_gcd_id", seriesGcdId),
+  "gcd_id");
   const localSet = new Set((localRows ?? []).map((r) => Number(r.gcd_id)));
 
   const missing = remoteIds.filter((id) => !localSet.has(id));
@@ -211,7 +289,11 @@ async function refreshOne(seriesGcdId) {
   // instead of thrown away. Rows are safe/idempotent to upsert again later.
   let inserted = 0;
   let rateLimitedErr = null;
-  for (const issueId of missing) {
+  const issuesToFetch = missing.slice(0, MAX_ISSUES);
+  if (issuesToFetch.length < missing.length) {
+    console.log(`  Limiting this invocation to ${issuesToFetch.length} missing issue fetches.`);
+  }
+  for (const issueId of issuesToFetch) {
     let issueJson;
     try {
       issueJson = await fetchJson(`https://www.comics.org/api/issue/${issueId}/?format=json`);
@@ -243,16 +325,24 @@ async function refreshOne(seriesGcdId) {
 
 async function run() {
   const all = await getTargetGcdIds();
+  if (LIST_ONLY) {
+    if (args["contains"] != null) {
+      const containsId = Number(args["contains"]);
+      console.log(`Membership gcd_id ${containsId}: ${all.includes(containsId) ? "present" : "absent"}.`);
+    }
+    console.log(`Target gcd_ids (${all.length}): ${all.join(",")}`);
+    return;
+  }
   const rotating = USE_CURSOR && !args["gcd-ids"];
   const cursor = rotating ? readCursor(CURSOR_FILE, fs) : null;
   const ordered = rotating ? rotate(all, cursor) : all;
-  const ids = ordered.slice(0, LIMIT);
+  const ids = ordered.slice(0, MAX_SERIES);
 
   if (rotating) {
     if (cursor == null) {
-      console.log("No cursor yet - starting at the top of the featured list.");
+      console.log("No cursor yet - starting at the top of the target list.");
     } else if (!all.includes(cursor)) {
-      console.log(`Cursor gcd_id ${cursor} is no longer in the featured list - starting at the top.`);
+      console.log(`Cursor gcd_id ${cursor} is no longer in the target list - starting at the top.`);
     } else {
       console.log(`Resuming after gcd_id ${cursor} - this run starts at ${ids[0]} and wraps.`);
     }

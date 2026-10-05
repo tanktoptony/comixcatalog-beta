@@ -40301,23 +40301,6 @@
     "retry_after": "2026-10-05T17:12:37.639258+00:00"
   },
   {
-    "name": "Tanpopo",
-    "publisher": "BOOM! Studios",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 40152,
-        "name": "Tanpopo",
-        "publisher": "DMF Comics",
-        "start_year": 2016
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-04T17:13:05.392209+00:00",
-    "retry_after": "2026-10-05T17:13:05.392225+00:00"
-  },
-  {
     "name": "Duncan's Kingdom",
     "publisher": "Image Comics",
     "year": 1999,
@@ -40502,23 +40485,6 @@
     "retry_after": "2026-10-05T19:03:37.984188+00:00"
   },
   {
-    "name": "DC / Marvel Crossover Classics",
-    "publisher": "DC Comics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34284,
-        "name": "DC/Marvel Crossover Classics",
-        "publisher": "Marvel",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-04T19:03:39.914815+00:00",
-    "retry_after": "2026-10-05T19:03:39.914832+00:00"
-  },
-  {
     "name": "Tales of Suspense",
     "publisher": "Marvel Comics",
     "year": null,
@@ -40578,23 +40544,6 @@
     "retry_after": "2026-10-05T20:12:11.476134+00:00"
   },
   {
-    "name": "Convergence Flash",
-    "publisher": "DC Comics",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88184,
-        "name": "Convergence: Flash",
-        "publisher": "Panini Verlag",
-        "start_year": 2016
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-04T20:36:12.549794+00:00",
-    "retry_after": "2026-10-05T20:36:12.549811+00:00"
-  },
-  {
     "name": "Laurell K. Hamilton's Anita Blake - Vampire Hunter: The First Death",
     "publisher": "Marvel Comics",
     "year": 2007,
@@ -40613,23 +40562,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-04T21:00:49.434716+00:00",
     "retry_after": "2026-10-05T21:00:49.434731+00:00"
-  },
-  {
-    "name": "Devlin Waugh",
-    "publisher": "DC Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22951,
-        "name": "Devlin Waugh",
-        "publisher": "Rebellion",
-        "start_year": 2004
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-04T21:00:49.780451+00:00",
-    "retry_after": "2026-10-05T21:00:49.780464+00:00"
   },
   {
     "name": "DeMarco, P.I.",
@@ -40804,23 +40736,6 @@
     "retry_after": "2026-10-05T23:02:18.735084+00:00"
   },
   {
-    "name": "Buck Rogers, Giant Movie Edition",
-    "publisher": "Gold Key",
-    "year": 1979,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 29796,
-        "name": "Buck Rogers, Giant Movie Edition",
-        "publisher": "Marvel",
-        "start_year": 1979
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-04T23:02:33.483602+00:00",
-    "retry_after": "2026-10-05T23:02:33.483634+00:00"
-  },
-  {
     "name": "The New Adventures of Pinocchio",
     "publisher": "Dell Comics",
     "year": 1962,
@@ -40950,23 +40865,6 @@
     "retry_after": "2026-10-06T00:01:18.817430+00:00"
   },
   {
-    "name": "Edgeworld",
-    "publisher": "Dark Horse Comics",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 130295,
-        "name": "Edgeworld",
-        "publisher": "Wimzi, Inc.",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T00:02:26.274363+00:00",
-    "retry_after": "2026-10-06T00:02:26.274379+00:00"
-  },
-  {
     "name": "Syphon",
     "publisher": "Image Comics",
     "year": 2021,
@@ -41074,23 +40972,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T01:02:34.036419+00:00",
     "retry_after": "2026-10-06T01:02:34.036437+00:00"
-  },
-  {
-    "name": "Nikolai Dante",
-    "publisher": "DC Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22991,
-        "name": "Nikolai Dante",
-        "publisher": "Rebellion",
-        "start_year": 2004
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T01:02:42.026694+00:00",
-    "retry_after": "2026-10-06T01:02:42.026713+00:00"
   },
   {
     "name": "Showcase Presents the Doom Patrol",
@@ -41257,23 +41138,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T06:05:31.469124+00:00",
     "retry_after": "2026-10-06T06:05:31.469143+00:00"
-  },
-  {
-    "name": "Lowlife",
-    "publisher": "Caliber Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 50699,
-        "name": "Lowlife",
-        "publisher": "Mu Press",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T06:05:31.944757+00:00",
-    "retry_after": "2026-10-06T06:05:31.944774+00:00"
   },
   {
     "name": "Road Rage: Duel",

@@ -73,6 +73,12 @@ Scripts can import it directly — `import { fetchAllPages } from
 "../src/lib/supabase/fetchAllPages.js"` — so "it lives under `src/`" is not
 a reason to write another local loop.
 
+The read-only fuzzy-search verifier follows the same rule. Run
+`node --env-file=.env.local scripts/verifyFuzzySeriesSearch.js`; it walks
+`series` in ordered UUID pages, checks every response error, and exits nonzero
+when a required top hit changes. Migration 0038 adds spaced-word and pg_trgm
+tiers to the shared series RPC used by both search routes.
+
 Currently over the cap: The Beano (3,833 covers), Micky Maus (2,830),
 2000 AD (2,480), Four Color (1,321). Four more series are within 200 rows.
 **The trigger is "more covers per series", so this activates as coverage

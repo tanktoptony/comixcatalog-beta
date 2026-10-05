@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
+import { normalizeSeriesSearchWords } from "@/lib/seriesSearchMatch";
 import { baseIssueNumber } from "@/lib/coverMatch";
 import { parseYear } from "@/lib/years";
 
@@ -120,13 +121,22 @@ function isPlaceholderIssueNumber(value) {
 // worst-case real totals top out around 687, and 1000 is PostgREST's own
 // default response cap regardless of what's requested. Falls back to the
 // old ILIKE query if the migration hasn't been run yet.
-async function fetchSeriesCandidates(supabase, normalizedQ) {
-  const { data, error } = await supabase.rpc("search_series_by_relevance", {
-    normalized_term: normalizedQ,
+async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
+  let { data, error } = await supabase.rpc("search_series_by_relevance", {
+    normalized_term: searchWords,
     allowed_publishers: US_PUBLISHER_ALLOWLIST,
     result_limit: 1000,
   });
-  if (!error) return data ?? [];
+  if (!error && (data?.length || searchWords === normalizedQ)) return data ?? [];
+  if (searchWords !== normalizedQ) {
+    const legacy = await supabase.rpc("search_series_by_relevance", {
+      normalized_term: normalizedQ,
+      allowed_publishers: US_PUBLISHER_ALLOWLIST,
+      result_limit: 1000,
+    });
+    if (!legacy.error) return legacy.data ?? [];
+    error ??= legacy.error;
+  }
 
   console.error(
     "search_series_by_relevance RPC unavailable, falling back to ILIKE search — " +
@@ -154,6 +164,7 @@ export async function GET(req) {
     const strippedQuery = stripTrailingIssueNumber(q);
     const titleQuery = queriedIssueNumber && strippedQuery ? strippedQuery : q;
     const normalizedQ = normalizeSearch(titleQuery);
+    const searchWords = normalizeSeriesSearchWords(titleQuery);
     const normalizedQForScoring = normalizeForScoring(titleQuery);
     const limit = Math.max(1, Math.min(Number(searchParams.get("limit") || 36), 36));
     const offset = Math.max(0, Number(searchParams.get("offset") || 0));
@@ -196,7 +207,7 @@ export async function GET(req) {
             .order("created_at", { ascending: false })
             .limit(20)
         : Promise.resolve({ data: [] }),
-      fetchSeriesCandidates(supabase, normalizedQ).catch((err) => {
+      fetchSeriesCandidates(supabase, searchWords, normalizedQ).catch((err) => {
         console.error("series search for comics failed:", err);
         return [];
       }),

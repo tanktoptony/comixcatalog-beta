@@ -1,6 +1,6 @@
 # Slop remediation spec
 
-**Status:** In progress, updated 2026-10-05 evening. WS0, WS1 and WS2 done; WS3 two of three PRs merged, the third (#219) open for merge. See "Progress" below · **Written:** 2026-10-04 · **Input:** `docs/slop-remediation-plan.md` · **Verified against:** `origin/main` at `5b9647f` (the plan's references were from `f546a55`)
+**Status:** In progress, updated 2026-10-05 evening. WS0 through WS3 done. WS4 (cover resolver) next. See "Progress" below · **Written:** 2026-10-04 · **Input:** `docs/slop-remediation-plan.md` · **Verified against:** `origin/main` at `5b9647f` (the plan's references were from `f546a55`)
 
 This turns the plan into files, functions, SQL, tests and PRs. The plan's goal, out-of-scope list and ground rules still apply as written. This file only adds detail and records where the plan was wrong or out of date.
 
@@ -117,7 +117,8 @@ Every merged item below was checked after deploy where it could be: SQL steps co
 | Other | Header avatar no longer flashes the CC badge | #201 | **Merged** |
 | WS3 | PR 3a: one copy of each helper (32 copies removed); slow `gcd_issues` ordering fixed (~3s → ~0.2s per page); CSV export no longer truncates at 1,000 | #212 | **Merged** |
 | WS3 | PR 3b: one shared service-role client (40 files) | #215 | **Merged** |
-| WS3 | PR 3c: database errors stop reading as "no data" (46 sites in `src/`: 502 when the page can't be right, `degraded: true` + no CDN cache when the data is extra); public profiles past 1,000 books stop truncating; search survives a failed grouping lookup | #219 | **Open**, Codex reviewed (3 rounds). Error ratchet 101 → 55, zero left in `src/` |
+| WS3 | PR 3c: database errors stop reading as "no data" (46 sites in `src/`: 502 when the page can't be right, `degraded: true` + no CDN cache when the data is extra); public profiles past 1,000 books stop truncating; search survives a failed grouping lookup | #219 | **Merged**, Codex reviewed (3 rounds); live check after deploy: series, issue and search pages respond normally. Error ratchet 101 → 55, zero left in `src/` |
+| WS3 follow-up | Broad searches ("batman") never grouped volumes: the volume lookup sent up to 1,000 UUIDs in one URL and the API rejected it (works ≤300, fails ≥500). The error was silent until #219 flagged it as `degraded`. Now chunked at 200 | this PR | Open |
 | WS7 | Public profile speed | #196 | Partial: library load 11.3s → 1.7s for a 214-book collection. Profile p95 still over target |
 | WS4–WS6, WS9 | | none | Not started. WS8 skipped (D-d) |
 

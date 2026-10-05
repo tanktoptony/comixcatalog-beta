@@ -128,6 +128,10 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
   return fallbackRows ?? [];
 }
 
+// UUIDs per .in() in the volume lookup. 300 worked and 500 failed when
+// measured; 200 leaves headroom for longer query strings.
+const VOLUME_LOOKUP_CHUNK = 200;
+
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
@@ -179,11 +183,26 @@ export async function GET(req) {
     const volumeIdByRowId = new Map();
     let searchDegraded = false;
     if (rows.length > 0) {
-      const { data: volumeRows, error: volumeRowsError } = await supabase
-        .from("series")
-        .select("id, comicvine_volume_id")
-        .in("id", rows.map((r) => r.id))
-        .not("comicvine_volume_id", "is", null);
+      // Chunked: a broad query ("batman") returns up to 1,000 rows, and 1,000
+      // UUIDs in one .in() is a ~37 KB URL that the API rejects (400 above
+      // ~400 ids, measured 2026-10-05). Before WS3c that error was ignored,
+      // so volume grouping silently never ran for broad searches.
+      const ids = rows.map((r) => r.id);
+      const chunks = [];
+      for (let i = 0; i < ids.length; i += VOLUME_LOOKUP_CHUNK) {
+        chunks.push(ids.slice(i, i + VOLUME_LOOKUP_CHUNK));
+      }
+      const results = await Promise.all(
+        chunks.map((chunk) =>
+          supabase
+            .from("series")
+            .select("id, comicvine_volume_id")
+            .in("id", chunk)
+            .not("comicvine_volume_id", "is", null)
+        )
+      );
+      const volumeRowsError = results.find((r) => r.error)?.error ?? null;
+      const volumeRows = results.flatMap((r) => r.data ?? []);
       // Volume ids only refine how same-titled rows group; without them the
       // year fingerprint below still groups correctly. Show results, flag it.
       if (volumeRowsError) {

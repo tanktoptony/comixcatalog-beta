@@ -4,6 +4,7 @@ import { diversify } from "@/lib/searchVariety";
 import { createClient } from "@supabase/supabase-js";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
+import { normalizeSeriesSearchWords } from "@/lib/seriesSearchMatch";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -87,13 +88,26 @@ const SERIES_SELECT = `
 // Falls back to the old ILIKE-and-hope query if the migration hasn't been
 // run yet (function not found) or any other RPC error — never worse than
 // the pre-fix behavior, just not yet fixed until the migration lands.
-async function fetchSeriesCandidates(supabase, normalizedQ) {
-  const { data, error } = await supabase.rpc("search_series_by_relevance", {
-    normalized_term: normalizedQ,
+async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
+  let { data, error } = await supabase.rpc("search_series_by_relevance", {
+    normalized_term: searchWords,
     allowed_publishers: US_PUBLISHER_ALLOWLIST,
     result_limit: 1000,
   });
-  if (!error) return data ?? [];
+  if (!error && (data?.length || searchWords === normalizedQ)) return data ?? [];
+
+  // Before migration 0038 the RPC only understands compact terms. Retrying
+  // keeps existing searches working during the deploy window. The spaced
+  // first call is what unlocks word-order matching after 0038 is applied.
+  if (searchWords !== normalizedQ) {
+    const legacy = await supabase.rpc("search_series_by_relevance", {
+      normalized_term: normalizedQ,
+      allowed_publishers: US_PUBLISHER_ALLOWLIST,
+      result_limit: 1000,
+    });
+    if (!legacy.error) return legacy.data ?? [];
+    error ??= legacy.error;
+  }
 
   console.error(
     "search_series_by_relevance RPC unavailable, falling back to ILIKE search — " +
@@ -136,6 +150,7 @@ export async function GET(req) {
     const strippedQuery = stripTrailingIssueNumber(parsed.title || q);
     const titleQuery = strippedQuery || parsed.title || q;
     const normalizedQ = normalizeSearch(titleQuery);
+    const searchWords = normalizeSeriesSearchWords(titleQuery);
     const normalizedQForScoring = normalizeForScoring(titleQuery);
 
     if (!normalizedQ) return NextResponse.json({ series: [] });
@@ -147,7 +162,7 @@ export async function GET(req) {
 
     let rows;
     try {
-      rows = await fetchSeriesCandidates(supabase, normalizedQ);
+      rows = await fetchSeriesCandidates(supabase, searchWords, normalizedQ);
     } catch (fetchError) {
       console.error("GET /api/search/series failed:", fetchError);
       return NextResponse.json({ series: [] });

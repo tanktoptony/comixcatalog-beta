@@ -49,9 +49,31 @@ export default function SeriesClient({ initialSeries = null }) {
   const moreRef = useRef(null);
 
   const { user, isPro, loading: authLoading } = useAuth();
-  const { collectionIds, wishlistIds, addToCollection } = useLibrary();
+  const {
+    collectionIds,
+    wishlistIds,
+    addToCollection,
+    removeFromCollection,
+  } = useLibrary();
   const [bulkAdding, setBulkAdding] = useState(false);
   const [bulkResult, setBulkResult] = useState(null);
+  const [mutationError, setMutationError] = useState(null);
+
+  async function updateIssueLibrary(issueId, status) {
+    try {
+      const result = status
+        ? await addToCollection(issueId, status)
+        : await removeFromCollection(issueId, {
+            scope: collectionIds?.has(String(issueId)) ? "latest-copy" : "wishlist",
+          });
+      setMutationError(
+        result?.ok === false ? result.error || "Library update failed" : null
+      );
+    } catch (err) {
+      console.error("Series issue library update failed:", err);
+      setMutationError("Library update failed");
+    }
+  }
 
   useEffect(() => {
     if (!id) return;
@@ -580,11 +602,50 @@ export default function SeriesClient({ initialSeries = null }) {
                     {issue.release_year || "Unknown Year"}
                   </div>
                 </Link>
+                <div className="comic-card-actions series-issue-actions">
+                  {!isOwned && !isWanted && (
+                    user ? (
+                      <>
+                        <button
+                          type="button"
+                          className="comic-btn"
+                          onClick={() => updateIssueLibrary(key, "owned")}
+                        >
+                          + Collection
+                        </button>
+                        <button
+                          type="button"
+                          className="comic-btn"
+                          onClick={() => updateIssueLibrary(key, "wishlist")}
+                        >
+                          + Wantlist
+                        </button>
+                      </>
+                    ) : (
+                      <Link
+                        href={`/signup?next=${encodeURIComponent(`/series/${id}`)}`}
+                        className="comic-btn"
+                      >
+                        + Save
+                      </Link>
+                    )
+                  )}
+                  {(isOwned || isWanted) && (
+                    <button
+                      type="button"
+                      className="comic-btn comic-btn-danger"
+                      onClick={() => updateIssueLibrary(key, null)}
+                    >
+                      Remove
+                    </button>
+                  )}
+                </div>
               </article>
               );
             })}
           </div>
         )}
+        {mutationError && <p className="series-mutation-error">{mutationError}</p>}
         {sortedIssues.length > shown && (
           <div ref={moreRef} className="series-more">
             <button type="button" onClick={() => setShown(sortedIssues.length)}>

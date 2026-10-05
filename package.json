@@ -47,7 +47,8 @@
     "covers:resolve-pins": "node scripts/resolveNeedsVolumeIdBacklog.js",
     "covers:refresh-cache": "node scripts/refreshSeriesSearchCache.js --force",
     "covers:refresh-cache-test": "node scripts/refreshSeriesSearchCache.js --force --max-batches=1",
-    "covers:weekly": "npm run covers:refresh-cache && npm run covers:gap-featured"
+    "covers:weekly": "npm run covers:refresh-cache && npm run covers:gap-featured",
+    "test:comp-match": "node --test src/lib/compMatch.test.js"
   },
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2",

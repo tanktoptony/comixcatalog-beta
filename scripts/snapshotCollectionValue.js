@@ -3,16 +3,15 @@
 // for why this table exists (a value-over-time graph needs a history, and
 // the only way to have "30 days ago" a month from now is to start today).
 //
-// Value computation deliberately mirrors src/lib/marketValue.js's
-// getMarketValue() exactly — same bucket-fallback chain against
-// market_comps, same cover-price floor, same "no gcd_issue_id means zero"
-// behavior — so the number this stores matches what /library actually
-// shows a user right now. It's duplicated rather than imported because
-// marketValue.js pulls in `@/lib/valuation` (a Next.js path alias) that
-// doesn't resolve from a raw `node scripts/...` invocation — same
-// constraint noted on src/lib/ebayTitleParser.js. gradeBucket/
-// bucketFallbacks/median/coverPriceForYear ARE imported directly (relative
-// path) since valuation.js has no such alias dependency itself.
+// Each copy is valued by valueFromComps() in src/lib/compValue.js, the same
+// function src/lib/marketValue.js uses for /library and public profiles, so
+// the number stored here matches what the user sees. This script used to
+// carry a hand-copied version of that logic, kept in step only by a comment,
+// so it now imports the shared one (relative path, no Next alias).
+//
+// A user's own market_value override still wins, and a copy with no
+// gcd_issue_id gets no comps, only the cover-price floor where one applies,
+// same as the live UI.
 //
 // Usage:
 //   node scripts/snapshotCollectionValue.js            # snapshot all users, write to DB
@@ -22,27 +21,15 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
-import { describeError } from "./lib/describeError.js";
-import {
-  gradeBucket,
-  bucketFallbacks,
-  median,
-  coverPriceForYear,
-  isRawPool,
-  percentile,
-  RAW_POOL_BUCKETS,
-  RAW_POOL_PERCENTILE,
-} from "../src/lib/valuation.js";
+import { valueFromComps, issueYearFrom } from "../src/lib/compValue.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 
 const DRY_RUN = process.argv.includes("--dry-run");
 const PAGE = 1000;
+const CHUNK = 200;
 const WINDOW_DAYS = 90; // matches DEFAULT_WINDOW_DAYS in src/lib/marketValue.js
-const MIN_SAMPLES = 3; // matches MIN_SAMPLES in src/lib/marketValue.js
-const MAX_SAMPLES_TO_CONSIDER = 50;
-const CONCURRENCY = 8;
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -80,69 +67,17 @@ async function fetchAllPages(build, orderCol) {
   return rows;
 }
 
-// gcd_issues.publication_date is null on ~65% of rows — key_date is GCD's
-// sortable fallback. Same helper as scripts/refreshSeriesSearchCache.js.
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
-}
-function bestYearFor(row) {
-  return parseYear(row.publication_date) ?? parseYear(row.key_date);
+async function fetchByIds(table, columns, idColumn, ids, extra = (q) => q) {
+  const rows = [];
+  for (let i = 0; i < ids.length; i += CHUNK) {
+    const chunk = ids.slice(i, i + CHUNK);
+    rows.push(...(await fetchAllPages(() => extra(supabase.from(table).select(columns).in(idColumn, chunk)), idColumn === "gcd_id" ? "gcd_id" : "id")));
+  }
+  return rows;
 }
 
 function roundCurrency(value) {
   return Math.round(value * 100) / 100;
-}
-
-// Mirrors getMarketValue() in src/lib/marketValue.js exactly, including its
-// gcd_issue_id == null short-circuit — a local (comic_id-based) collection
-// item with no GCD link gets $0 here today too, matching what the live UI
-// would show it. Not "fixing" that gap silently as a side effect of this
-// script; it's a real but separate, pre-existing behavior worth revisiting
-// on its own if it turns out to matter (currently ~140 local comics
-// site-wide per CLAUDE.md, low overlap expected with owned rows).
-async function computeItemValue({ gcd_issue_id, market_value, grade_numeric, slab_company, condition, release_year }) {
-  const userValue = Number(market_value);
-  if (Number.isFinite(userValue) && userValue > 0) return userValue;
-
-  if (gcd_issue_id == null) return 0;
-
-  const primaryBucket = gradeBucket({ grade_numeric, slab_company, condition });
-  const tryBuckets = bucketFallbacks(primaryBucket);
-  const sinceIso = new Date(Date.now() - WINDOW_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-
-  // This mirrors src/lib/marketValue.js deliberately (that file imports a
-  // Next path alias this script cannot resolve). The two MUST agree, or the
-  // snapshot total contradicts the number the library shows the same user on
-  // the same day — so the pooled-bucket branch below is a copy of the one
-  // there, and both take their chain and percentile from valuation.js.
-  for (const candidate of tryBuckets) {
-    const pooled = isRawPool(candidate);
-    let query = supabase
-      .from("market_comps")
-      .select("sold_price")
-      .eq("gcd_issue_id", Number(gcd_issue_id));
-    query = pooled
-      ? query.in("grade_bucket", RAW_POOL_BUCKETS)
-      : query.eq("grade_bucket", candidate);
-    const { data, error } = await query
-      .gte("sold_date", sinceIso)
-      .order("sold_date", { ascending: false })
-      .limit(MAX_SAMPLES_TO_CONSIDER);
-    if (error) {
-      console.error(`  ⚠ market_comps lookup failed for gcd_issue_id=${gcd_issue_id}, bucket=${candidate}:`, describeError(error));
-      continue;
-    }
-    if ((data?.length ?? 0) >= MIN_SAMPLES) {
-      const prices = data.map((r) => r.sold_price);
-      const value = pooled ? percentile(prices, RAW_POOL_PERCENTILE) : median(prices);
-      return value != null ? roundCurrency(value) : 0;
-    }
-  }
-
-  const cover = coverPriceForYear(release_year);
-  return cover != null ? cover : 0;
 }
 
 async function run() {
@@ -159,36 +94,50 @@ async function run() {
   console.log(`Owned rows: ${owned.length}`);
 
   const gcdIssueIds = [...new Set(owned.map((r) => r.gcd_issue_id).filter((v) => v != null))];
-  const yearByGcdId = new Map();
-  const ISSUE_CHUNK = 500;
-  for (let i = 0; i < gcdIssueIds.length; i += ISSUE_CHUNK) {
-    const chunk = gcdIssueIds.slice(i, i + ISSUE_CHUNK);
-    const rows = await runWithRetry(`gcd_issues chunk ${i}`, () =>
-      supabase.from("gcd_issues").select("gcd_id, publication_date, key_date").in("gcd_id", chunk)
-    );
-    for (const row of rows) yearByGcdId.set(row.gcd_id, bestYearFor(row));
-  }
-  console.log(`Resolved years for ${yearByGcdId.size} distinct issues.`);
+  const sinceIso = new Date(Date.now() - WINDOW_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
-  console.log("Computing per-item values (this hits market_comps per unpriced item)...");
-  const valueById = new Map();
-  let i = 0;
-  async function worker() {
-    while (i < owned.length) {
-      const idx = i++;
-      const item = owned[idx];
-      const release_year = item.gcd_issue_id != null ? yearByGcdId.get(item.gcd_issue_id) ?? null : null;
-      try {
-        const value = await computeItemValue({ ...item, release_year });
-        valueById.set(item.id, value);
-      } catch (err) {
-        console.error(`  ⚠ value computation failed for collection row ${item.id}:`, err.message || err);
-        valueById.set(item.id, 0);
-      }
-      if ((idx + 1) % 200 === 0) console.log(`  ...${idx + 1}/${owned.length}`);
-    }
+  const issues = await fetchByIds("gcd_issues", "gcd_id, series_gcd_id, key_date, publication_date", "gcd_id", gcdIssueIds);
+  const issueById = new Map(issues.map((r) => [Number(r.gcd_id), r]));
+  const seriesIds = [...new Set(issues.map((r) => r.series_gcd_id).filter((v) => v != null))];
+  const series = await fetchByIds("series", "id, gcd_id, title, year_start_cached", "gcd_id", seriesIds);
+  const seriesById = new Map(series.map((r) => [Number(r.gcd_id), r]));
+  console.log(`Resolved ${issueById.size} distinct issues across ${seriesById.size} series.`);
+
+  const comps = await fetchByIds(
+    "market_comps",
+    "id, gcd_issue_id, grade_bucket, grade_numeric, sold_price, sold_date, source, listing_title",
+    "gcd_issue_id",
+    gcdIssueIds,
+    (q) => q.gte("sold_date", sinceIso)
+  );
+  const compsByIssue = new Map();
+  for (const row of comps) {
+    const key = Number(row.gcd_issue_id);
+    if (!compsByIssue.has(key)) compsByIssue.set(key, []);
+    compsByIssue.get(key).push(row);
   }
-  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, owned.length) }, worker));
+  console.log(`Loaded ${comps.length} comps in the ${WINDOW_DAYS}-day window.`);
+
+  const valueById = new Map();
+  for (const item of owned) {
+    const userValue = Number(item.market_value);
+    if (Number.isFinite(userValue) && userValue > 0) {
+      valueById.set(item.id, userValue);
+      continue;
+    }
+    const issueRow = issueById.get(Number(item.gcd_issue_id));
+    const seriesRow = issueRow ? seriesById.get(Number(issueRow.series_gcd_id)) : null;
+    const result = valueFromComps({
+      comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
+      item,
+      issue: {
+        seriesTitle: seriesRow?.title ?? null,
+        issueYear: issueYearFrom(issueRow),
+        seriesStartYear: seriesRow?.year_start_cached ?? null,
+      },
+    });
+    valueById.set(item.id, result.value ?? 0);
+  }
 
   const byUser = new Map(); // user_id -> { totalValue, ownedCount }
   for (const item of owned) {

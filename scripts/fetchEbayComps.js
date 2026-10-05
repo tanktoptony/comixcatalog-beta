@@ -40,6 +40,8 @@ import { createClient } from "@supabase/supabase-js";
 import { parseEbayTitle } from "../src/lib/ebayTitleParser.js";
 import { withRetry } from "./lib/withRetry.js";
 import { gradeBucket } from "../src/lib/valuation.js";
+import { compMatchesIssue } from "../src/lib/compMatch.js";
+import { issueYearFrom } from "../src/lib/compValue.js";
 import { describeError } from "./lib/describeError.js";
 
 const args = Object.fromEntries(
@@ -142,7 +144,7 @@ async function buildQueue() {
     const data = await withRetry(`gcd_issues chunk ${i}`, () =>
       supabase
         .from("gcd_issues")
-        .select("gcd_id, series_gcd_id, issue_number")
+        .select("gcd_id, series_gcd_id, issue_number, key_date, publication_date")
         .in("gcd_id", slice)
     );
     issues.push(...(data ?? []));
@@ -155,18 +157,23 @@ async function buildQueue() {
     const data = await withRetry(`series chunk ${i}`, () =>
       supabase
         .from("series")
-        .select("gcd_id, title")
+        .select("gcd_id, title, year_start_cached")
         .in("gcd_id", slice)
     );
-    for (const s of data ?? []) seriesByGcd.set(String(s.gcd_id), s.title);
+    for (const s of data ?? []) seriesByGcd.set(String(s.gcd_id), s);
   }
 
   const queue = issues
-    .map((i) => ({
-      gcd_issue_id: i.gcd_id,
-      series_title: seriesByGcd.get(String(i.series_gcd_id)) ?? null,
-      issue_number: i.issue_number,
-    }))
+    .map((i) => {
+      const series = seriesByGcd.get(String(i.series_gcd_id));
+      return {
+        gcd_issue_id: i.gcd_id,
+        series_title: series?.title ?? null,
+        series_start_year: series?.year_start_cached ?? null,
+        issue_year: issueYearFrom(i),
+        issue_number: i.issue_number,
+      };
+    })
     .filter((q) => q.series_title && q.issue_number != null);
 
   return LIMIT ? queue.slice(0, LIMIT) : queue;
@@ -263,7 +270,23 @@ function soldDateFilter() {
   return `lastSoldDate:[${fmt(ninety)}..${fmt(now)}]`;
 }
 
-async function fetchSoldListings({ series_title, issue_number }) {
+// Before 2000 the plain "<series> <number>" search is dominated by later
+// volumes and reprints that share the number (The X-Men 2 returned seven
+// listings, none of them the 1963 book). A second search with the year finds
+// the real copies; the plain one still catches slab listings that leave the
+// year off. Results are merged on listing id.
+const YEAR_QUERY_BEFORE = 2000;
+
+async function fetchListingsForIssue(item) {
+  const plain = await fetchSoldListings(item);
+  if (DRY_RUN || !item.issue_year || item.issue_year >= YEAR_QUERY_BEFORE) return plain;
+  await sleep(SLEEP_MS);
+  const dated = await fetchSoldListings({ ...item, year_hint: item.issue_year });
+  const seen = new Set(plain.map((l) => String(l.listing_id)));
+  return [...plain, ...dated.filter((l) => !seen.has(String(l.listing_id)))];
+}
+
+async function fetchSoldListings({ series_title, issue_number, year_hint }) {
   if (DRY_RUN) {
     // Synth path stays for offline pipeline testing.
     const baseId = `synth-${series_title.replace(/\W/g, "")}-${issue_number}`;
@@ -280,7 +303,7 @@ async function fetchSoldListings({ series_title, issue_number }) {
   // For Insights we also filter by lastSoldDate (90-day window). For Browse
   // there's no sold-date concept — only active listings are returned, so the
   // date filter is omitted and listing freshness is "right now."
-  const query = `${series_title} ${issue_number}`;
+  const query = year_hint ? `${series_title} ${issue_number} ${year_hint}` : `${series_title} ${issue_number}`;
   const params = new URLSearchParams({
     q: query,
     category_ids: "63",
@@ -348,9 +371,19 @@ async function fetchSoldListings({ series_title, issue_number }) {
 // build market_comps rows.
 // ─────────────────────────────────────────────────────────────────────────
 
-function buildCompRows({ gcd_issue_id, series_title, issue_number, listings }) {
+function buildCompRows({ gcd_issue_id, series_title, series_start_year, issue_year, issue_number, listings }) {
   const rows = [];
   for (const listing of listings) {
+    // Same series, same era, a plain copy (src/lib/compMatch.js). Valuation
+    // applies this again at read time, which covers rows stored before it existed.
+    const match = compMatchesIssue({
+      title: listing.title,
+      seriesTitle: series_title,
+      issueYear: issue_year,
+      seriesStartYear: series_start_year,
+    });
+    if (!match.ok) continue;
+
     const parsed = parseEbayTitle(listing.title);
 
     // Confidence gate: require a real grade signal. A title with no slab
@@ -460,7 +493,7 @@ async function run() {
 
     let listings = [];
     try {
-      listings = await fetchSoldListings(item);
+      listings = await fetchListingsForIssue(item);
     } catch (err) {
       console.log(`  ${label} — fetch failed: ${describeError(err)}`);
       totalFailed += 1;
@@ -477,6 +510,8 @@ async function run() {
     const rows = buildCompRows({
       gcd_issue_id: item.gcd_issue_id,
       series_title: item.series_title,
+      series_start_year: item.series_start_year,
+      issue_year: item.issue_year,
       issue_number: item.issue_number,
       listings,
     });

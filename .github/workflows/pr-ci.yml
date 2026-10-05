@@ -120,5 +120,11 @@ jobs:
       - name: Marketplace filter tests
         run: npm run test:marketplace-facets
 
+      - name: Valuation tests
+        run: npm run test:valuation
+
+      - name: eBay comp matching tests
+        run: npm run test:comp-match
+
       - name: Docs link check
         run: npm run docs:check

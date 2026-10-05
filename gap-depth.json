@@ -85,8 +85,8 @@
     "year": null
   },
   {
-    "name": "Popeye",
-    "publisher": "Charlton Comics",
+    "name": "Zorro",
+    "publisher": "Topps Comics",
     "year": null
   },
   {
@@ -95,14 +95,14 @@
     "year": 1961
   },
   {
+    "name": "Popeye",
+    "publisher": "Charlton Comics",
+    "year": null
+  },
+  {
     "name": "Simpsons Comics Presents Bart Simpson",
     "publisher": "Titan Comics",
     "year": 2000
-  },
-  {
-    "name": "Zorro",
-    "publisher": "Topps Comics",
-    "year": null
   },
   {
     "name": "Tarzan",
@@ -170,13 +170,13 @@
     "year": 1950
   },
   {
-    "name": "Flash Gordon",
-    "publisher": "Mad Cave Studios",
+    "name": "Tarzan",
+    "publisher": "DC Comics",
     "year": null
   },
   {
-    "name": "Tarzan",
-    "publisher": "DC Comics",
+    "name": "Flash Gordon",
+    "publisher": "Mad Cave Studios",
     "year": null
   },
   {
@@ -205,6 +205,11 @@
     "year": null
   },
   {
+    "name": "Tarzan",
+    "publisher": "DC Comics",
+    "year": null
+  },
+  {
     "name": "Pep Comics",
     "publisher": "Archie Comics",
     "year": null
@@ -220,14 +225,14 @@
     "year": 1955
   },
   {
-    "name": "Tarzan",
-    "publisher": "DC Comics",
-    "year": null
-  },
-  {
     "name": "Hitman",
     "publisher": "DC Comics",
     "year": 1996
+  },
+  {
+    "name": "Popeye",
+    "publisher": "Charlton Comics",
+    "year": 2017
   },
   {
     "name": "Scalped",
@@ -238,11 +243,6 @@
     "name": "Chew",
     "publisher": "Image Comics",
     "year": 2009
-  },
-  {
-    "name": "Popeye",
-    "publisher": "Charlton Comics",
-    "year": 2017
   },
   {
     "name": "Tomahawk",
@@ -290,19 +290,19 @@
     "year": 1983
   },
   {
-    "name": "Justice Society of America",
-    "publisher": "DC Comics",
-    "year": 2007
-  },
-  {
     "name": "Indian Chief",
     "publisher": "Dell Comics",
     "year": null
   },
   {
-    "name": "Catwoman",
+    "name": "Justice Society of America",
     "publisher": "DC Comics",
-    "year": 2011
+    "year": 2007
+  },
+  {
+    "name": "Donald Duck",
+    "publisher": "BOOM! Studios",
+    "year": 2020
   },
   {
     "name": "Beetle Bailey",
@@ -310,9 +310,9 @@
     "year": 1969
   },
   {
-    "name": "Donald Duck",
-    "publisher": "BOOM! Studios",
-    "year": 2020
+    "name": "Catwoman",
+    "publisher": "DC Comics",
+    "year": 2011
   },
   {
     "name": "Barbie",
@@ -330,21 +330,6 @@
     "year": null
   },
   {
-    "name": "Batgirl",
-    "publisher": "DC Comics",
-    "year": 2016
-  },
-  {
-    "name": "Ex Machina",
-    "publisher": "DC Comics",
-    "year": 2004
-  },
-  {
-    "name": "ALF",
-    "publisher": "Marvel Comics",
-    "year": 1988
-  },
-  {
     "name": "The Vigilante",
     "publisher": "DC Comics",
     "year": 1983
@@ -352,6 +337,21 @@
   {
     "name": "Old Man Logan",
     "publisher": "Marvel Comics",
+    "year": 2016
+  },
+  {
+    "name": "ALF",
+    "publisher": "Marvel Comics",
+    "year": 1988
+  },
+  {
+    "name": "Ex Machina",
+    "publisher": "DC Comics",
+    "year": 2004
+  },
+  {
+    "name": "Batgirl",
+    "publisher": "DC Comics",
     "year": 2016
   },
   {
@@ -365,11 +365,6 @@
     "year": null
   },
   {
-    "name": "Simpsons Comics Presents Bart Simpson",
-    "publisher": "Titan Comics",
-    "year": 2001
-  },
-  {
     "name": "Teen Titans",
     "publisher": "DC Comics",
     "year": 2016
@@ -380,14 +375,19 @@
     "year": 2012
   },
   {
+    "name": "Simpsons Comics Presents Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2001
+  },
+  {
     "name": "Cheryl Blossom",
     "publisher": "Archie Comics",
     "year": 1996
   },
   {
-    "name": "Popeye",
-    "publisher": "Charlton Comics",
-    "year": 1969
+    "name": "Batman and Robin",
+    "publisher": "DC Comics",
+    "year": 2011
   },
   {
     "name": "Barbie",
@@ -395,9 +395,9 @@
     "year": null
   },
   {
-    "name": "Batman and Robin",
-    "publisher": "DC Comics",
-    "year": 2011
+    "name": "Popeye",
+    "publisher": "Charlton Comics",
+    "year": 1969
   },
   {
     "name": "East of West",
@@ -415,9 +415,9 @@
     "year": 2012
   },
   {
-    "name": "Old Man Logan",
-    "publisher": "Marvel Comics",
-    "year": 2016
+    "name": "Berserk",
+    "publisher": "Dark Horse Comics",
+    "year": 2001
   },
   {
     "name": "House of Mystery",
@@ -430,19 +430,9 @@
     "year": 1995
   },
   {
-    "name": "Classics Illustrated",
-    "publisher": "First Comics",
-    "year": null
-  },
-  {
-    "name": "Berserk",
-    "publisher": "Dark Horse Comics",
-    "year": null
-  },
-  {
-    "name": "New Funnies",
-    "publisher": "Dell Comics",
-    "year": null
+    "name": "Old Man Logan",
+    "publisher": "Marvel Comics",
+    "year": 2016
   },
   {
     "name": "Miles Morales: Spider-Man",
@@ -450,9 +440,19 @@
     "year": 2023
   },
   {
+    "name": "New Funnies",
+    "publisher": "Dell Comics",
+    "year": null
+  },
+  {
     "name": "Berserk",
     "publisher": "Dark Horse Comics",
-    "year": 2001
+    "year": null
+  },
+  {
+    "name": "Classics Illustrated",
+    "publisher": "First Comics",
+    "year": null
   },
   {
     "name": "Bugs Bunny",
@@ -465,14 +465,14 @@
     "year": 1998
   },
   {
-    "name": "Roy Rogers Comics",
-    "publisher": "Dell Comics",
-    "year": 1948
-  },
-  {
     "name": "Gen 13",
     "publisher": "Image Comics",
     "year": 2006
+  },
+  {
+    "name": "Roy Rogers Comics",
+    "publisher": "Dell Comics",
+    "year": 1948
   },
   {
     "name": "Bugs Bunny",
@@ -480,14 +480,14 @@
     "year": null
   },
   {
+    "name": "Harley Quinn",
+    "publisher": "DC Comics",
+    "year": 2000
+  },
+  {
     "name": "Moon Knight",
     "publisher": "Marvel Comics",
     "year": 1980
-  },
-  {
-    "name": "Flash Gordon",
-    "publisher": "Mad Cave Studios",
-    "year": null
   },
   {
     "name": "Spawn",
@@ -495,9 +495,19 @@
     "year": null
   },
   {
-    "name": "Harley Quinn",
-    "publisher": "DC Comics",
-    "year": 2000
+    "name": "Flash Gordon",
+    "publisher": "Mad Cave Studios",
+    "year": null
+  },
+  {
+    "name": "Spider-Gwen",
+    "publisher": "Marvel Comics",
+    "year": 2016
+  },
+  {
+    "name": "Gantz",
+    "publisher": "Dark Horse Comics",
+    "year": null
   },
   {
     "name": "Gantz",
@@ -512,27 +522,7 @@
   {
     "name": "Gantz",
     "publisher": "Dark Horse Comics",
-    "year": null
-  },
-  {
-    "name": "Spider-Gwen",
-    "publisher": "Marvel Comics",
-    "year": 2016
-  },
-  {
-    "name": "Gantz",
-    "publisher": "Dark Horse Comics",
     "year": 2002
-  },
-  {
-    "name": "Freddy",
-    "publisher": "Charlton Comics",
-    "year": 1958
-  },
-  {
-    "name": "Gen 13",
-    "publisher": "Image Comics",
-    "year": 1995
   },
   {
     "name": "Ghost",
@@ -540,9 +530,9 @@
     "year": 1995
   },
   {
-    "name": "Mind Mgmt",
-    "publisher": "Dark Horse Comics",
-    "year": 2012
+    "name": "Freddy",
+    "publisher": "Charlton Comics",
+    "year": 1958
   },
   {
     "name": "Question",
@@ -550,14 +540,14 @@
     "year": 1988
   },
   {
-    "name": "Avengers: The Initiative",
-    "publisher": "Marvel Comics",
-    "year": 2007
+    "name": "Mind Mgmt",
+    "publisher": "Dark Horse Comics",
+    "year": 2012
   },
   {
-    "name": "Bugs Bunny",
-    "publisher": "Dell Comics",
-    "year": null
+    "name": "Gen 13",
+    "publisher": "Image Comics",
+    "year": 1995
   },
   {
     "name": "All-New Wolverine",
@@ -565,19 +555,29 @@
     "year": 2016
   },
   {
+    "name": "Bugs Bunny",
+    "publisher": "Dell Comics",
+    "year": null
+  },
+  {
+    "name": "Avengers: The Initiative",
+    "publisher": "Marvel Comics",
+    "year": 2007
+  },
+  {
     "name": "New Avengers",
     "publisher": "Marvel Comics",
     "year": 2010
   },
   {
-    "name": "Wyatt Earp",
-    "publisher": "Marvel Comics",
-    "year": 1958
-  },
-  {
     "name": "Zorro",
     "publisher": "Topps Comics",
     "year": null
+  },
+  {
+    "name": "Batman: The Dark Knight",
+    "publisher": "DC Comics",
+    "year": 2011
   },
   {
     "name": "Hawkman",
@@ -590,9 +590,9 @@
     "year": 2015
   },
   {
-    "name": "Batman: The Dark Knight",
-    "publisher": "DC Comics",
-    "year": 2011
+    "name": "Wyatt Earp",
+    "publisher": "Marvel Comics",
+    "year": 1958
   },
   {
     "name": "Yogi Bear",
@@ -605,19 +605,24 @@
     "year": 2014
   },
   {
-    "name": "Sabrina the Teenage Witch",
-    "publisher": "Archie Comics",
-    "year": 1997
-  },
-  {
-    "name": "Hawkworld",
-    "publisher": "DC Comics",
-    "year": 1990
+    "name": "Descender",
+    "publisher": "Image Comics",
+    "year": 2015
   },
   {
     "name": "Ultimate Fantastic Four",
     "publisher": "Marvel Comics",
     "year": 2004
+  },
+  {
+    "name": "Sabrina the Teenage Witch",
+    "publisher": "Archie Comics",
+    "year": 1997
+  },
+  {
+    "name": "Harrow County",
+    "publisher": "Dark Horse Comics",
+    "year": 2015
   },
   {
     "name": "Saban's Go Go Power Rangers",
@@ -630,14 +635,9 @@
     "year": 2017
   },
   {
-    "name": "Harrow County",
-    "publisher": "Dark Horse Comics",
-    "year": 2015
-  },
-  {
-    "name": "Descender",
-    "publisher": "Image Comics",
-    "year": 2015
+    "name": "Hawkworld",
+    "publisher": "DC Comics",
+    "year": 1990
   },
   {
     "name": "Ultimate Fantastic Four",
@@ -650,64 +650,24 @@
     "year": 2011
   },
   {
-    "name": "Harley Quinn",
-    "publisher": "DC Comics",
-    "year": 2014
-  },
-  {
     "name": "Usagi Yojimbo",
     "publisher": "Dark Horse Comics",
     "year": 2019
   },
   {
-    "name": "Billy the Kid",
-    "publisher": "Charlton Comics",
-    "year": null
-  },
-  {
-    "name": "Komi Can't Communicate",
-    "publisher": "VIZ Media",
-    "year": 2024
-  },
-  {
-    "name": "Popeye",
-    "publisher": "Charlton Comics",
-    "year": 1959
-  },
-  {
-    "name": "Thundercats",
-    "publisher": "Marvel Comics",
-    "year": null
-  },
-  {
-    "name": "Popeye",
-    "publisher": "Charlton Comics",
-    "year": null
-  },
-  {
-    "name": "The Incredible Hulks",
-    "publisher": "Marvel Comics",
+    "name": "Harley Quinn",
+    "publisher": "DC Comics",
     "year": 2014
   },
   {
-    "name": "Harley Quinn",
-    "publisher": "DC Comics",
-    "year": 2015
+    "name": "Mighty Thor",
+    "publisher": "Marvel Comics",
+    "year": 2016
   },
   {
-    "name": "Komi Can't Communicate",
-    "publisher": "VIZ Media",
+    "name": "Billy the Kid",
+    "publisher": "Charlton Comics",
     "year": null
-  },
-  {
-    "name": "Tarzan",
-    "publisher": "DC Comics",
-    "year": null
-  },
-  {
-    "name": "Judge Dredd",
-    "publisher": "Titan Comics",
-    "year": 2012
   },
   {
     "name": "Tarzan",
@@ -720,14 +680,24 @@
     "year": 2020
   },
   {
-    "name": "Shutter",
-    "publisher": "Image Comics",
-    "year": 2014
+    "name": "Tarzan",
+    "publisher": "DC Comics",
+    "year": null
   },
   {
-    "name": "Billy the Kid",
-    "publisher": "Charlton Comics",
+    "name": "Komi Can't Communicate",
+    "publisher": "VIZ Media",
     "year": null
+  },
+  {
+    "name": "Thundercats",
+    "publisher": "Marvel Comics",
+    "year": null
+  },
+  {
+    "name": "Judge Dredd",
+    "publisher": "Titan Comics",
+    "year": 2012
   },
   {
     "name": "Gantz",
@@ -735,19 +705,39 @@
     "year": 2006
   },
   {
-    "name": "Mighty Thor",
-    "publisher": "Marvel Comics",
-    "year": 2016
+    "name": "Komi Can't Communicate",
+    "publisher": "VIZ Media",
+    "year": 2024
   },
   {
-    "name": "Archie Comics",
-    "publisher": "Archie Comics",
+    "name": "Billy the Kid",
+    "publisher": "Charlton Comics",
     "year": null
   },
   {
-    "name": "Incredible Hercules",
+    "name": "The Incredible Hulks",
     "publisher": "Marvel Comics",
-    "year": 2008
+    "year": 2014
+  },
+  {
+    "name": "Popeye",
+    "publisher": "Charlton Comics",
+    "year": null
+  },
+  {
+    "name": "Harley Quinn",
+    "publisher": "DC Comics",
+    "year": 2015
+  },
+  {
+    "name": "Popeye",
+    "publisher": "Charlton Comics",
+    "year": 1959
+  },
+  {
+    "name": "Shutter",
+    "publisher": "Image Comics",
+    "year": 2014
   },
   {
     "name": "Planet of the Apes",
@@ -755,13 +745,13 @@
     "year": 1974
   },
   {
-    "name": "Justice League Dark",
-    "publisher": "DC Comics",
-    "year": 2018
-  },
-  {
     "name": "The Powerpuff Girls",
     "publisher": "DC Comics",
+    "year": null
+  },
+  {
+    "name": "Archie Comics",
+    "publisher": "Archie Comics",
     "year": null
   },
   {
@@ -770,13 +760,28 @@
     "year": 2018
   },
   {
-    "name": "Lone Wolf and Cub",
-    "publisher": "First Comics",
-    "year": 2000
+    "name": "Incredible Hercules",
+    "publisher": "Marvel Comics",
+    "year": 2008
+  },
+  {
+    "name": "Justice League Dark",
+    "publisher": "DC Comics",
+    "year": 2018
+  },
+  {
+    "name": "The Amazing Spider-Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 1964
   },
   {
     "name": "Donald Duck",
     "publisher": "BOOM! Studios",
+    "year": null
+  },
+  {
+    "name": "Usagi Yojimbo",
+    "publisher": "Dark Horse Comics",
     "year": null
   },
   {
@@ -785,19 +790,19 @@
     "year": 2008
   },
   {
-    "name": "Usagi Yojimbo",
-    "publisher": "Dark Horse Comics",
-    "year": null
+    "name": "A Distant Soil",
+    "publisher": "Image Comics",
+    "year": 1996
+  },
+  {
+    "name": "Lone Wolf and Cub",
+    "publisher": "First Comics",
+    "year": 2000
   },
   {
     "name": "Kaguya-Sama: Love Is War",
     "publisher": "VIZ Media",
     "year": null
-  },
-  {
-    "name": "A Distant Soil",
-    "publisher": "Image Comics",
-    "year": 1996
   },
   {
     "name": "The Lone Ranger",
@@ -810,9 +815,9 @@
     "year": 2009
   },
   {
-    "name": "The Amazing Spider-Man Annual",
+    "name": "The Incredible Hulks",
     "publisher": "Marvel Comics",
-    "year": 1964
+    "year": 2012
   },
   {
     "name": "Dreadstar",
@@ -820,24 +825,9 @@
     "year": null
   },
   {
-    "name": "The Incredible Hulks",
-    "publisher": "Marvel Comics",
-    "year": 2012
-  },
-  {
-    "name": "Angel",
-    "publisher": "IDW Publishing",
-    "year": 2009
-  },
-  {
     "name": "Usagi Yojimbo",
     "publisher": "Dark Horse Comics",
     "year": 1997
-  },
-  {
-    "name": "Super Comics",
-    "publisher": "Dell Comics",
-    "year": 1990
   },
   {
     "name": "Gideon Falls",
@@ -845,9 +835,24 @@
     "year": 2018
   },
   {
-    "name": "Red Hood and the Outlaws",
-    "publisher": "DC Comics",
-    "year": 2016
+    "name": "Super Comics",
+    "publisher": "Dell Comics",
+    "year": 1990
+  },
+  {
+    "name": "Angel",
+    "publisher": "IDW Publishing",
+    "year": 2009
+  },
+  {
+    "name": "Classics Illustrated",
+    "publisher": "First Comics",
+    "year": null
+  },
+  {
+    "name": "Gen 13",
+    "publisher": "Image Comics",
+    "year": null
   },
   {
     "name": "The Shadow",
@@ -855,14 +860,29 @@
     "year": 2012
   },
   {
-    "name": "Hot Rods and Racing Cars",
-    "publisher": "Charlton Comics",
+    "name": "Tarzan",
+    "publisher": "DC Comics",
     "year": null
   },
   {
-    "name": "Gen 13",
-    "publisher": "Image Comics",
-    "year": null
+    "name": "DC Universe Online Legends",
+    "publisher": "DC Comics",
+    "year": 2011
+  },
+  {
+    "name": "Red Hood and the Outlaws",
+    "publisher": "DC Comics",
+    "year": 2016
+  },
+  {
+    "name": "Batman and Robin",
+    "publisher": "DC Comics",
+    "year": 2009
+  },
+  {
+    "name": "Red Robin",
+    "publisher": "DC Comics",
+    "year": 2009
   },
   {
     "name": "The Phantom",
@@ -875,29 +895,9 @@
     "year": 2011
   },
   {
-    "name": "Batman and Robin",
-    "publisher": "DC Comics",
-    "year": 2009
-  },
-  {
-    "name": "Tarzan",
-    "publisher": "DC Comics",
+    "name": "Hot Rods and Racing Cars",
+    "publisher": "Charlton Comics",
     "year": null
-  },
-  {
-    "name": "Classics Illustrated",
-    "publisher": "First Comics",
-    "year": null
-  },
-  {
-    "name": "DC Universe Online Legends",
-    "publisher": "DC Comics",
-    "year": 2011
-  },
-  {
-    "name": "Red Robin",
-    "publisher": "DC Comics",
-    "year": 2009
   },
   {
     "name": "The Lone Ranger",
@@ -905,44 +905,19 @@
     "year": 1949
   },
   {
-    "name": "The Complete Peanuts",
-    "publisher": "Fantagraphics",
-    "year": 2007
-  },
-  {
-    "name": "The Lone Ranger",
-    "publisher": "Dell Comics",
-    "year": 2012
-  },
-  {
-    "name": "Jaguar",
-    "publisher": "Archie Comics",
-    "year": 1967
-  },
-  {
-    "name": "Zorro",
-    "publisher": "Topps Comics",
-    "year": null
-  },
-  {
-    "name": "Zorro",
-    "publisher": "Topps Comics",
-    "year": null
-  },
-  {
-    "name": "Thundercats",
-    "publisher": "Marvel Comics",
-    "year": null
-  },
-  {
-    "name": "Spider-Man 2099",
-    "publisher": "Marvel Comics",
-    "year": 2015
-  },
-  {
     "name": "Kamisama Kiss",
     "publisher": "VIZ Media",
     "year": null
+  },
+  {
+    "name": "Grimm Fairy Tales Myths & Legends",
+    "publisher": "Zenescope Entertainment",
+    "year": 2011
+  },
+  {
+    "name": "The Complete Peanuts",
+    "publisher": "Fantagraphics",
+    "year": 2007
   },
   {
     "name": "Judge Dredd",
@@ -950,13 +925,8 @@
     "year": 1981
   },
   {
-    "name": "Four Color",
-    "publisher": "Dell Comics",
-    "year": 1939
-  },
-  {
-    "name": "Miracleman",
-    "publisher": "Eclipse Comics",
+    "name": "Zorro",
+    "publisher": "Topps Comics",
     "year": null
   },
   {
@@ -975,6 +945,36 @@
     "year": 2013
   },
   {
+    "name": "Four Color",
+    "publisher": "Dell Comics",
+    "year": 1939
+  },
+  {
+    "name": "Zorro",
+    "publisher": "Topps Comics",
+    "year": null
+  },
+  {
+    "name": "Jaguar",
+    "publisher": "Archie Comics",
+    "year": 1967
+  },
+  {
+    "name": "Thundercats",
+    "publisher": "Marvel Comics",
+    "year": null
+  },
+  {
+    "name": "The Lone Ranger",
+    "publisher": "Dell Comics",
+    "year": 2012
+  },
+  {
+    "name": "Immortal Thor",
+    "publisher": "Marvel Comics",
+    "year": 2023
+  },
+  {
     "name": "Phantom",
     "publisher": "Charlton Comics",
     "year": null
@@ -985,9 +985,9 @@
     "year": 1969
   },
   {
-    "name": "Grimm Fairy Tales Myths & Legends",
-    "publisher": "Zenescope Entertainment",
-    "year": 2011
+    "name": "Spider-Man 2099",
+    "publisher": "Marvel Comics",
+    "year": 2015
   },
   {
     "name": "House of Secrets",
@@ -995,14 +995,9 @@
     "year": 1996
   },
   {
-    "name": "Immortal Thor",
-    "publisher": "Marvel Comics",
-    "year": 2023
-  },
-  {
-    "name": "Batman and Robin",
-    "publisher": "DC Comics",
-    "year": 2023
+    "name": "Miracleman",
+    "publisher": "Eclipse Comics",
+    "year": null
   },
   {
     "name": "Batgirl",
@@ -1015,13 +1010,18 @@
     "year": 2013
   },
   {
-    "name": "War",
-    "publisher": "Charlton Comics",
+    "name": "Barbie",
+    "publisher": "Marvel Comics",
     "year": null
   },
   {
     "name": "Tarzan",
     "publisher": "DC Comics",
+    "year": null
+  },
+  {
+    "name": "War",
+    "publisher": "Charlton Comics",
     "year": null
   },
   {
@@ -1045,13 +1045,13 @@
     "year": null
   },
   {
-    "name": "Barbie",
-    "publisher": "Marvel Comics",
-    "year": null
+    "name": "Batman and Robin",
+    "publisher": "DC Comics",
+    "year": 2023
   },
   {
-    "name": "Nancy",
-    "publisher": "Dell Comics",
+    "name": "Spawn Origins Collection",
+    "publisher": "Image Comics",
     "year": null
   },
   {
@@ -1060,28 +1060,13 @@
     "year": 2012
   },
   {
-    "name": "Donald Duck",
-    "publisher": "BOOM! Studios",
-    "year": null
+    "name": "Hikaru No Go",
+    "publisher": "VIZ Media",
+    "year": 2004
   },
   {
-    "name": "Super Dinosaur",
-    "publisher": "Image Comics",
-    "year": 2011
-  },
-  {
-    "name": "Beetle Bailey",
-    "publisher": "Charlton Comics",
-    "year": null
-  },
-  {
-    "name": "The Powerpuff Girls",
-    "publisher": "DC Comics",
-    "year": null
-  },
-  {
-    "name": "Spawn Origins Collection",
-    "publisher": "Image Comics",
+    "name": "Nancy",
+    "publisher": "Dell Comics",
     "year": null
   },
   {
@@ -1090,9 +1075,19 @@
     "year": 1997
   },
   {
-    "name": "Hikaru No Go",
-    "publisher": "VIZ Media",
-    "year": 2004
+    "name": "Super Dinosaur",
+    "publisher": "Image Comics",
+    "year": 2011
+  },
+  {
+    "name": "Donald Duck",
+    "publisher": "BOOM! Studios",
+    "year": null
+  },
+  {
+    "name": "Totally Awesome Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2016
   },
   {
     "name": "The Transformers",
@@ -1105,13 +1100,13 @@
     "year": null
   },
   {
-    "name": "Totally Awesome Hulk",
-    "publisher": "Marvel Comics",
-    "year": 2016
+    "name": "Beetle Bailey",
+    "publisher": "Charlton Comics",
+    "year": null
   },
   {
-    "name": "Popeye",
-    "publisher": "Charlton Comics",
+    "name": "The Powerpuff Girls",
+    "publisher": "DC Comics",
     "year": null
   },
   {
@@ -1120,57 +1115,7 @@
     "year": null
   },
   {
-    "name": "What's the Furthest Place from Here?",
-    "publisher": "Image Comics",
-    "year": 2021
-  },
-  {
-    "name": "Turok Son of Stone",
-    "publisher": "Gold Key",
-    "year": null
-  },
-  {
-    "name": "Roy Rogers and Trigger",
-    "publisher": "Dell Comics",
-    "year": null
-  },
-  {
-    "name": "Bugs Bunny",
-    "publisher": "Dell Comics",
-    "year": null
-  },
-  {
-    "name": "Batman: The Brave and the Bold",
-    "publisher": "DC Comics",
-    "year": 2009
-  },
-  {
-    "name": "Spawn",
-    "publisher": "Image Comics",
-    "year": 2006
-  },
-  {
-    "name": "Cisco Kid",
-    "publisher": "Dell Comics",
-    "year": null
-  },
-  {
-    "name": "The Complete Peanuts",
-    "publisher": "Fantagraphics",
-    "year": 2014
-  },
-  {
-    "name": "Essential X-Men",
-    "publisher": "Marvel Comics",
-    "year": null
-  },
-  {
     "name": "Trinity",
-    "publisher": "DC Comics",
-    "year": 2016
-  },
-  {
-    "name": "Batgirl & the Birds of Prey",
     "publisher": "DC Comics",
     "year": 2016
   },
@@ -1180,9 +1125,64 @@
     "year": null
   },
   {
+    "name": "Roy Rogers and Trigger",
+    "publisher": "Dell Comics",
+    "year": null
+  },
+  {
+    "name": "Cisco Kid",
+    "publisher": "Dell Comics",
+    "year": null
+  },
+  {
+    "name": "What's the Furthest Place from Here?",
+    "publisher": "Image Comics",
+    "year": 2021
+  },
+  {
+    "name": "Bugs Bunny",
+    "publisher": "Dell Comics",
+    "year": null
+  },
+  {
+    "name": "Turok Son of Stone",
+    "publisher": "Gold Key",
+    "year": null
+  },
+  {
+    "name": "Popeye",
+    "publisher": "Charlton Comics",
+    "year": null
+  },
+  {
     "name": "The Invisibles",
     "publisher": "DC Comics",
     "year": 1997
+  },
+  {
+    "name": "Batgirl & the Birds of Prey",
+    "publisher": "DC Comics",
+    "year": 2016
+  },
+  {
+    "name": "Spawn",
+    "publisher": "Image Comics",
+    "year": 2006
+  },
+  {
+    "name": "Essential X-Men",
+    "publisher": "Marvel Comics",
+    "year": null
+  },
+  {
+    "name": "Batman: The Brave and the Bold",
+    "publisher": "DC Comics",
+    "year": 2009
+  },
+  {
+    "name": "The Complete Peanuts",
+    "publisher": "Fantagraphics",
+    "year": 2014
   },
   {
     "name": "Conan: The Barbarian",
@@ -1195,14 +1195,9 @@
     "year": 2007
   },
   {
-    "name": "Donald Duck",
-    "publisher": "BOOM! Studios",
-    "year": 2015
-  },
-  {
-    "name": "Ultimate Comics Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2010
+    "name": "Conan",
+    "publisher": "Dark Horse Comics",
+    "year": 2005
   },
   {
     "name": "Tarzan",
@@ -1210,9 +1205,9 @@
     "year": null
   },
   {
-    "name": "Uncle Scrooge",
-    "publisher": "IDW Publishing",
-    "year": 2009
+    "name": "Captain America Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2014
   },
   {
     "name": "Fables",
@@ -1220,19 +1215,9 @@
     "year": 2002
   },
   {
-    "name": "Conan",
-    "publisher": "Dark Horse Comics",
-    "year": 2005
-  },
-  {
-    "name": "Spider-Woman",
-    "publisher": "Marvel Comics",
-    "year": 2020
-  },
-  {
-    "name": "Captain America Epic Collection",
-    "publisher": "Marvel Comics",
-    "year": 2014
+    "name": "Uncle Scrooge",
+    "publisher": "IDW Publishing",
+    "year": 2009
   },
   {
     "name": "The Phantom",
@@ -1240,19 +1225,34 @@
     "year": 2000
   },
   {
+    "name": "Ultimate Comics Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2010
+  },
+  {
     "name": "Thundercats",
     "publisher": "Marvel Comics",
     "year": null
   },
   {
-    "name": "Love and Rockets",
-    "publisher": "Fantagraphics",
-    "year": 2001
+    "name": "Spider-Woman",
+    "publisher": "Marvel Comics",
+    "year": 2020
   },
   {
-    "name": "Classic G.I. Joe TPB",
+    "name": "Donald Duck",
+    "publisher": "BOOM! Studios",
+    "year": 2015
+  },
+  {
+    "name": "Fallen Angel",
     "publisher": "IDW Publishing",
-    "year": 2009
+    "year": 2003
+  },
+  {
+    "name": "Ghostbusters",
+    "publisher": "IDW Publishing",
+    "year": 2013
   },
   {
     "name": "Flash Gordon",
@@ -1260,29 +1260,9 @@
     "year": null
   },
   {
-    "name": "Peter Parker: The Spectacular Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2018
-  },
-  {
-    "name": "Tegami Bachi, Letter Bee",
-    "publisher": "VIZ Media",
-    "year": 2009
-  },
-  {
-    "name": "Thor and the X-Men",
-    "publisher": "Marvel Comics",
-    "year": 1983
-  },
-  {
-    "name": "Micronauts",
-    "publisher": "Marvel Comics",
-    "year": 1984
-  },
-  {
-    "name": "Karmatr�n y los Transformables",
-    "publisher": "BOOM! Studios",
-    "year": 2002
+    "name": "Captain Midnight",
+    "publisher": "Dark Horse Comics",
+    "year": null
   },
   {
     "name": "Tex Ritter Western",
@@ -1295,59 +1275,9 @@
     "year": 2004
   },
   {
-    "name": "Phantom",
-    "publisher": "Charlton Comics",
-    "year": null
-  },
-  {
-    "name": "Deathstroke",
-    "publisher": "DC Comics",
-    "year": 2014
-  },
-  {
-    "name": "Zorro",
-    "publisher": "Topps Comics",
-    "year": 1968
-  },
-  {
-    "name": "Pok�mon Black and White",
-    "publisher": "VIZ Media",
-    "year": 2011
-  },
-  {
-    "name": "Fallen Angel",
-    "publisher": "IDW Publishing",
-    "year": 2003
-  },
-  {
-    "name": "Zorro",
-    "publisher": "Topps Comics",
-    "year": 2008
-  },
-  {
-    "name": "Ghostbusters",
-    "publisher": "IDW Publishing",
-    "year": 2013
-  },
-  {
-    "name": "Bakuman?",
-    "publisher": "VIZ Media",
-    "year": 2010
-  },
-  {
-    "name": "Grimm Fairy Tales Presents Robyn Hood",
-    "publisher": "Zenescope Entertainment",
-    "year": 2014
-  },
-  {
     "name": "I Hate Fairyland Volume 2",
     "publisher": "Image Comics",
     "year": 2022
-  },
-  {
-    "name": "The Official Handbook of the Marvel Universe Deluxe Edition",
-    "publisher": "Marvel Comics",
-    "year": 1985
   },
   {
     "name": "Babyteeth",
@@ -1355,8 +1285,78 @@
     "year": 2017
   },
   {
-    "name": "Captain Midnight",
-    "publisher": "Dark Horse Comics",
+    "name": "Peter Parker: The Spectacular Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2018
+  },
+  {
+    "name": "Zorro",
+    "publisher": "Topps Comics",
+    "year": 1968
+  },
+  {
+    "name": "Phantom",
+    "publisher": "Charlton Comics",
     "year": null
+  },
+  {
+    "name": "Classic G.I. Joe TPB",
+    "publisher": "IDW Publishing",
+    "year": 2009
+  },
+  {
+    "name": "Micronauts",
+    "publisher": "Marvel Comics",
+    "year": 1984
+  },
+  {
+    "name": "Karmatr�n y los Transformables",
+    "publisher": "BOOM! Studios",
+    "year": 2002
+  },
+  {
+    "name": "Tegami Bachi, Letter Bee",
+    "publisher": "VIZ Media",
+    "year": 2009
+  },
+  {
+    "name": "Grimm Fairy Tales Presents Robyn Hood",
+    "publisher": "Zenescope Entertainment",
+    "year": 2014
+  },
+  {
+    "name": "The Official Handbook of the Marvel Universe Deluxe Edition",
+    "publisher": "Marvel Comics",
+    "year": 1985
+  },
+  {
+    "name": "Pok�mon Black and White",
+    "publisher": "VIZ Media",
+    "year": 2011
+  },
+  {
+    "name": "Zorro",
+    "publisher": "Topps Comics",
+    "year": 2008
+  },
+  {
+    "name": "Deathstroke",
+    "publisher": "DC Comics",
+    "year": 2014
+  },
+  {
+    "name": "Love and Rockets",
+    "publisher": "Fantagraphics",
+    "year": 2001
+  },
+  {
+    "name": "Bakuman?",
+    "publisher": "VIZ Media",
+    "year": 2010
+  },
+  {
+    "name": "Thor and the X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1983
   }
 ]

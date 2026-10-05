@@ -5,12 +5,8 @@ import { titleVariants } from "@/lib/titleMatch";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { collectsLines, formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
-
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
-}
+import { baseIssueNumber } from "@/lib/coverMatch";
+import { bestYearFor, parseYear } from "@/lib/years";
 
 function normalizeIssueNumber(value) {
   return String(value ?? "").trim().toLowerCase();
@@ -23,20 +19,8 @@ function normalizeSeriesTitle(value) {
 // Strip variant/printing suffixes — same logic as the cache refresh.
 // "1 [Newsstand]" → "1", "5/1981" → "5", "Annual 1" → null.
 // See scripts/refreshSeriesSearchCache.js for the rationale.
-function baseIssueNumber(value) {
-  if (value == null) return null;
-  const s = String(value).trim();
-  if (!s) return null;
-  const m = s.match(/^(\d+(?:\.\d+)?)/);
-  return m ? m[1] : null;
-}
-
 // publication_date is null on ~65% of gcd_issues. key_date is GCD's sortable
 // approximation that's populated more reliably. Fall back to it.
-function bestYearFor(row) {
-  return parseYear(row.publication_date) ?? parseYear(row.key_date);
-}
-
 // Dedupe by BASE issue number so "1", "1 [Newsstand]", "1 [Variant Cover]"
 // collapse to a single issue. When duplicates exist, prefer the row with the
 // earliest valid date (original printing beats reprints) and prefer dated

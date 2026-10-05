@@ -2,6 +2,10 @@
 // Keep the ingestion mirror in comicvine_api_to_supabase.py aligned with the
 // fixture in scripts/fixtures/cover-match-cases.json when changing this file.
 
+import { normalizePublisherKey } from "./publisher.js";
+
+export { normalizePublisherKey as normalizePublisher } from "./publisher.js";
+
 export function normalizeTitle(value) {
   const normalized = String(value ?? "")
     .toLowerCase()
@@ -20,10 +24,6 @@ export function baseIssueNumber(value) {
   return match ? match[1] : null;
 }
 
-export function normalizePublisher(value) {
-  return String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "").trim();
-}
-
 const PUBLISHER_FAMILIES = [
   ["marvel", /^(marvel|timelycomics|atlascomics)/],
   ["dc", /^(dc|dccomics|detectivecomics|nationalperiodicalpublications)/],
@@ -38,14 +38,14 @@ const PUBLISHER_FAMILIES = [
 ];
 
 export function publisherFamily(value) {
-  const normalized = normalizePublisher(value);
+  const normalized = normalizePublisherKey(value);
   if (!normalized) return null;
   return PUBLISHER_FAMILIES.find(([, pattern]) => pattern.test(normalized))?.[0] ?? null;
 }
 
 export function publishersCompatible(left, right) {
-  const leftNormalized = normalizePublisher(left);
-  const rightNormalized = normalizePublisher(right);
+  const leftNormalized = normalizePublisherKey(left);
+  const rightNormalized = normalizePublisherKey(right);
   if (!leftNormalized || !rightNormalized) return false;
   const leftFamily = publisherFamily(left);
   const rightFamily = publisherFamily(right);

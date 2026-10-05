@@ -20,24 +20,11 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
-
-function normTitle(v) {
-  return String(v ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
-}
+import { bestYearFor } from "@/lib/years";
+import { toTitleNormalizedKey } from "@/lib/catalogLinkMatcher";
 function normIssue(v) {
   return String(v ?? "").trim().toLowerCase();
 }
-function parseYear(v) {
-  if (v == null) return null;
-  const n = Number(v);
-  if (!Number.isNaN(n) && n > 1800 && n < 2200) return n;
-  const m = String(v).match(/\b(18|19|20)\d{2}\b/);
-  return m ? Number(m[0]) : null;
-}
-function bestYearFor(row) {
-  return parseYear(row?.publication_date) ?? parseYear(row?.key_date);
-}
-
 async function assertPro(supabase, user_id) {
   if (user_id === ADMIN_ID) return true;
   const { data: profile } = await supabase
@@ -141,12 +128,12 @@ export async function GET(req) {
       return NextResponse.json({ results: [] });
     }
 
-    // normTitle keeps only [a-z0-9], the same form title_normalized is stored
+    // toTitleNormalizedKey keeps only [a-z0-9], matching title_normalized.
     // in, so this one filter covers what the old title ILIKE branch matched.
     // That branch interpolated raw input into .or(), where a comma or paren
     // in a search could inject PostgREST filter syntax (audit S5b); it was
     // also an unindexed scan.
-    const qNorm = normTitle(q);
+    const qNorm = toTitleNormalizedKey(q);
     if (qNorm.length < 2) {
       return NextResponse.json({ results: [] });
     }
@@ -201,7 +188,7 @@ export async function GET(req) {
         .eq("issue_number", issueHint)
         .not("storage_path", "is", null);
       for (const c of covers ?? []) {
-        const key = normTitle(c.series_title);
+        const key = toTitleNormalizedKey(c.series_title);
         if (!coverIndex.has(key)) coverIndex.set(key, c);
       }
     }
@@ -210,7 +197,7 @@ export async function GET(req) {
     const results = seriesRows
       .map((s) => {
         const matchingIssue = matchingIssuesBySeries.get(String(s.gcd_id)) ?? null;
-        const coverRow = coverIndex.get(normTitle(s.title));
+        const coverRow = coverIndex.get(toTitleNormalizedKey(s.title));
         const sampleCover = coverRow?.storage_path
           ? `${supabaseUrl}/storage/v1/object/public/canonical-covers/${coverRow.storage_path}`
           : s.featured_cover_path_cached

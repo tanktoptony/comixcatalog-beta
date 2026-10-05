@@ -61,6 +61,9 @@ jobs:
       - name: Cover-match tests
         run: npm run test:cover-match
 
+      - name: Year helper tests
+        run: npm run test:years
+
       - name: Activity feed privacy tests
         run: npm run test:activity-feed
 

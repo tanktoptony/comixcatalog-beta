@@ -22,7 +22,6 @@ import { createClient } from "@supabase/supabase-js";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 import {
-  normTitle,
   normIssue,
   parseYear,
   bestYearFor,

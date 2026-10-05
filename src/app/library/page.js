@@ -22,6 +22,7 @@ import { coverThumb } from "@/lib/coverThumb";
 import { readLocal, writeLocal } from "@/lib/localCache";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import { chunk } from "@/lib/chunk";
+import { normalizePublisherDisplayName } from "@/lib/publisher";
 
 // Books per /api/library-hydrate request. The route caps a request at 2,000.
 const HYDRATE_CHUNK = 1000;
@@ -108,21 +109,6 @@ function resolveUserCover(value) {
   if (!supa) return null;
   // Bare filename: presumed to live at the root of the comic-covers bucket.
   return `${supa}/storage/v1/object/public/comic-covers/${value.replace(/^\/+/, "")}`;
-}
-
-function normalizePublisherName(value) {
-  const raw = String(value || "").trim();
-  const lower = raw.toLowerCase();
-
-  if (!raw) return "Unknown Publisher";
-  if (["marvel", "marvel comics"].includes(lower)) return "Marvel";
-  if (["dc", "dc comics"].includes(lower)) return "DC";
-  if (["image", "image comics"].includes(lower)) return "Image";
-  if (["boom", "boom!", "boom studios", "boom! studios"].includes(lower)) return "Boom";
-  if (["idw", "idw publishing"].includes(lower)) return "IDW";
-  if (["dark horse", "dark horse comics"].includes(lower)) return "Dark Horse";
-
-  return raw;
 }
 
 function makeLibraryKey(item) {
@@ -818,7 +804,7 @@ function LibraryPageContent() {
           for (const [key, item] of Object.entries(raw)) {
             const normalized = {
               ...item,
-              publisher: normalizePublisherName(item.publisher),
+              publisher: normalizePublisherDisplayName(item.publisher),
               rawPublisher: item.publisher ?? "Unknown Publisher",
               cover: item.cover || "/fallback-cover.png",
             };
@@ -901,7 +887,7 @@ function LibraryPageContent() {
   const availablePublishers = useMemo(() => {
     const counts = {};
     for (const item of libraryItems) {
-      const publisher = normalizePublisherName(item.comic?.publisher);
+      const publisher = normalizePublisherDisplayName(item.comic?.publisher);
       counts[publisher] = (counts[publisher] || 0) + 1;
     }
     return Object.entries(counts)
@@ -928,7 +914,7 @@ function LibraryPageContent() {
 
     if (publisherFilter !== "all") {
       result = result.filter(
-        (item) => normalizePublisherName(item.comic?.publisher) === publisherFilter
+        (item) => normalizePublisherDisplayName(item.comic?.publisher) === publisherFilter
       );
     }
 
@@ -982,12 +968,12 @@ function LibraryPageContent() {
 
     const uniqueSeries = new Set(
       hydratedCurrent.map(
-        (item) => `${item.comic?.title || "Untitled"}::${normalizePublisherName(item.comic?.publisher)}`
+        (item) => `${item.comic?.title || "Untitled"}::${normalizePublisherDisplayName(item.comic?.publisher)}`
       )
     ).size;
 
     const uniquePublishers = new Set(
-      hydratedCurrent.map((item) => normalizePublisherName(item.comic?.publisher))
+      hydratedCurrent.map((item) => normalizePublisherDisplayName(item.comic?.publisher))
     ).size;
 
     const withYear = hydratedCurrent.filter((item) => item.comic.year);
@@ -1053,7 +1039,7 @@ function LibraryPageContent() {
   // would mean our dedup broke, which we want to know about separately and
   // is not what this panel is for.
   const duplicates = useMemo(() => {
-    function normTitle(s) {
+    function normalizeDuplicateTitle(s) {
       return String(s || "").trim().toLowerCase().replace(/\s+/g, " ");
     }
     function normIssue(s) {
@@ -1066,7 +1052,7 @@ function LibraryPageContent() {
       if (!key) continue;
       const comic = comicIndex[key];
       if (!comic) continue; // skip until hydrated
-      const t = normTitle(comic.title);
+      const t = normalizeDuplicateTitle(comic.title);
       const n = normIssue(comic.issue_number);
       if (!t || !n) continue;
       const gkey = `${t}::${n}`;

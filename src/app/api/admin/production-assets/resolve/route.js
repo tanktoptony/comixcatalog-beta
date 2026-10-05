@@ -30,6 +30,7 @@ import { NextResponse } from "next/server";
 import { matchIssue, issueKey } from "@/lib/csvImport/matchRow";
 import { isCollectedEdition } from "@/lib/seriesFormat";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
+import { parseYear } from "@/lib/years";
 import { parseRequestLines, titleKey } from "@/lib/productionAssets";
 import { serviceClient, isAdminRequest, lookupIssue, mapLimit } from "@/lib/productionAssetsServer";
 
@@ -44,11 +45,6 @@ const MAX_CANDIDATES = 12;
 
 const SERIES_COLS =
   "id, gcd_id, title, title_normalized, resolved_publisher_cached, year_start_cached, year_end_cached, issue_count_cached, comicvine_volume_id";
-
-function parseYear(value) {
-  const m = String(value ?? "").match(/\b(18|19|20)\d{2}\b/);
-  return m ? Number(m[0]) : null;
-}
 
 // Both spellings a stored issue_number might use for what was typed.
 function issueForms(issue) {
@@ -112,6 +108,7 @@ async function findCarriers(supabase, pool, issue) {
         .from("gcd_issues")
         .select("gcd_id, series_gcd_id, issue_number, key_date, publication_date")
         .in("series_gcd_id", ids)
+        .order("series_gcd_id")
         .in("issue_number", forms),
     "gcd_id"
   );

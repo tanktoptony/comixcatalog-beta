@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { baseIssueNumber } from "@/lib/coverMatch";
+import { bestYearFor, parseYear } from "@/lib/years";
 import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "@/lib/publisher";
 import { getAuthedUser } from "@/lib/authServer";
@@ -90,19 +92,9 @@ async function fetchCanonicalMatch(
   return { storage_path: null, publisher: null };
 }
 
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
-}
-
 // publication_date is null on ~65% of gcd_issues. key_date is GCD's sortable
 // approximation that's populated far more reliably — fall back to it so the
 // issue's year (and the year-aware cover match) resolve instead of going blank.
-function bestYearFor(row) {
-  return parseYear(row?.publication_date) ?? parseYear(row?.key_date);
-}
-
 const MONTH_NAMES = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December",
@@ -160,14 +152,6 @@ function normalizeIssueNumber(value) {
 // /api/series/[id] uses to collapse "1", "1 [Newsstand]" together and to
 // decide which canonical_covers rows are "the same issue" for orphan
 // synthesis below.
-function baseIssueNumber(value) {
-  if (value == null) return null;
-  const s = String(value).trim();
-  if (!s) return null;
-  const m = s.match(/^(\d+(?:\.\d+)?)/);
-  return m ? m[1] : null;
-}
-
 function issueSortValue(issueNumber) {
   const raw = String(issueNumber ?? "").trim();
 

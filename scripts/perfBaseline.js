@@ -12,6 +12,8 @@
 //   node scripts/perfBaseline.js --base=https://<preview>.vercel.app
 //
 // Requests are sequential, never parallel: this points at production.
+// Before each endpoint's timed runs, one request is sent and thrown away, so
+// a cold serverless start isn't counted. Pass --cold to keep it.
 // Each request carries a cache-busting query param and no-cache headers so
 // the number is the route's real work, not a CDN hit. The x-vercel-cache
 // header is recorded anyway, so a HIT would show up in the table.
@@ -30,6 +32,7 @@ function arg(name, fallback) {
 const BASE = arg("base", "https://www.comixcatalog.com").replace(/\/$/, "");
 const RUNS = Number(arg("runs", "20"));
 const OUT = arg("out", null);
+const COLD = process.argv.includes("--cold");
 const TIMEOUT_MS = 60000;
 
 const hydrateIds = JSON.parse(fs.readFileSync(path.join(here, "perf", "hydrate-ids.json"), "utf8"));
@@ -106,6 +109,7 @@ async function main() {
   const rows = [];
   for (const c of CASES) {
     const samples = [];
+    if (!COLD) await timeOnce(c, "warm");
     for (let run = 0; run < RUNS; run++) samples.push(await timeOnce(c, run));
     const okMs = samples.filter((s) => s.ok).map((s) => s.ms).sort((a, b) => a - b);
     const errors = samples.filter((s) => !s.ok);
@@ -127,7 +131,7 @@ async function main() {
   const lines = [
     `# Endpoint timings`,
     ``,
-    `Base: ${BASE} · ${RUNS} sequential runs per endpoint · started ${started.toISOString()}`,
+    `Base: ${BASE} · ${RUNS} sequential runs per endpoint${COLD ? " · cold (no warm-up)" : " · 1 warm-up request discarded per endpoint"} · started ${started.toISOString()}`,
     ``,
     `Time is to the last byte of the response, measured from this machine, with the CDN bypassed. Errors are non-2xx responses or timeouts (${TIMEOUT_MS / 1000}s) and are left out of the percentiles.`,
     ``,

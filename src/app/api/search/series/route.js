@@ -4,7 +4,7 @@ import { diversify } from "@/lib/searchVariety";
 import { createClient } from "@supabase/supabase-js";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
-import { normalizeSeriesSearchWords } from "@/lib/seriesSearchMatch";
+import { normalizeSeriesSearchWords, searchWordCoverage } from "@/lib/seriesSearchMatch";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -205,6 +205,13 @@ export async function GET(req) {
       const aExact = aTitle === normalizedQForScoring ? 1 : 0;
       const bExact = bTitle === normalizedQForScoring ? 1 : 0;
       if (bExact !== aExact) return bExact - aExact;
+
+      // More of the searched words in the title wins before cover state and
+      // issue count. Single-word and squashed queries ("batman", "spiderman")
+      // score every candidate the same, so they keep today's ordering.
+      const aWords = searchWordCoverage(a.title, titleQuery);
+      const bWords = searchWordCoverage(b.title, titleQuery);
+      if (bWords !== aWords) return bWords - aWords;
 
       // When a year was asked for it is the most specific thing the searcher
       // said, so it outranks cover state and issue count. Exact start year

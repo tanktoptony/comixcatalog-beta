@@ -490,20 +490,25 @@ export function LibraryProvider({ children }) {
       created_at: new Date().toISOString(),
     }]);
 
-    const { error } = await supabase.from("user_collections").insert({
-      user_id: user.id,
-      status: "owned",
-      comic_id: comic_id ?? null,
-      gcd_issue_id: gcd_issue_id ?? null,
-      variant_label,
-      copy_number: nextCopy,
-    });
+    const { data: saved, error } = await supabase
+      .from("user_collections")
+      .insert({
+        user_id: user.id,
+        status: "owned",
+        comic_id: comic_id ?? null,
+        gcd_issue_id: gcd_issue_id ?? null,
+        variant_label,
+        copy_number: nextCopy,
+      })
+      .select("*")
+      .single();
     if (error) {
       console.error("addAnotherCopy failed", error);
       await refreshLibrary({ background: true });
       return { ok: false, error: error.message || "Failed to add copy" };
     }
-    refreshLibrary({ background: true });
+    // Swap in the saved row so the copy can be removed right away.
+    setCollections((prev) => prev.map((row) => (row.id === optimisticId ? saved : row)));
     return { ok: true };
     });
   }

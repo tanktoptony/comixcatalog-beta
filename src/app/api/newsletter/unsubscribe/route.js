@@ -6,14 +6,14 @@
 // just returns 200. Both verify the HMAC token before writing anything, so
 // a guessed email cannot unsubscribe someone else.
 
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { emailFromParam, verifyUnsubscribeToken } from "@/lib/newsletter";
 
 async function unsubscribe(searchParams) {
   const email = emailFromParam(searchParams.get("e"));
   const token = searchParams.get("t");
   if (!email || !verifyUnsubscribeToken(email, token)) return { ok: false, status: 400 };
-  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+  const supabase = getServiceClient();
   const { error } = await supabase
     .from("newsletter_subscribers")
     .update({ unsubscribed_at: new Date().toISOString() })

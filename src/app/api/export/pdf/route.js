@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { parseYear } from "@/lib/years";
 import { PDFDocument, rgb, StandardFonts, PageSizes } from "pdf-lib";
 import sharp from "sharp";
@@ -24,13 +24,6 @@ const DGRAY  = rgb(0.18, 0.18, 0.18);
 const MGRAY  = rgb(0.55, 0.55, 0.55);
 const LGRAY  = rgb(0.88, 0.88, 0.90);
 const PGRAY  = rgb(0.92, 0.92, 0.94);
-
-function getSupabase() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-}
 
 function condAbbrev(cond) {
   if (!cond) return null;
@@ -143,7 +136,7 @@ export async function POST(req) {
     }
     const user_id = authedUser.id;
 
-    const supabase = getSupabase();
+    const supabase = getServiceClient();
 
     const [{ data: profile }, { data: collRows, error: collErr }] = await Promise.all([
       supabase.from("profiles").select("username, is_pro").eq("id", user_id).single(),

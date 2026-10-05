@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { baseIssueNumber } from "@/lib/coverMatch";
 import { bestYearFor, parseYear } from "@/lib/years";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { resolvePublisher } from "@/lib/publisher";
 import { getAuthedUser } from "@/lib/authServer";
 import { formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
@@ -246,10 +246,7 @@ export async function GET(req, context) {
     const authedViewer = await getAuthedUser(req);
     const viewerId = authedViewer?.id ?? null;
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     if (String(id).startsWith("gcd-")) {
       // gcd_id is an integer column — coerce explicitly to avoid implicit

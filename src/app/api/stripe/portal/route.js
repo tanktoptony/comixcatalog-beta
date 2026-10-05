@@ -1,14 +1,7 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getStripe, getSiteUrl } from "@/lib/stripe";
 import { getAuthedUser } from "@/lib/authServer";
-
-function getSupabase() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-}
 
 export async function POST(req) {
   try {
@@ -18,7 +11,7 @@ export async function POST(req) {
     }
     const user_id = authedUser.id;
 
-    const supabase = getSupabase();
+    const supabase = getServiceClient();
 
     const { data: profile, error } = await supabase
       .from("profiles")

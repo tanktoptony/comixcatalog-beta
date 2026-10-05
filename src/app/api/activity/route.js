@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { filterVisibleActivity } from "@/lib/activityFeed";
 
 // Rows read before the privacy filter. Private accounts and hidden lists
@@ -9,10 +9,7 @@ const SHOW_ROWS = 20;
 
 export async function GET() {
   try {
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     const { data: activityData, error: activityError } = await supabase
       .from("user_collections")

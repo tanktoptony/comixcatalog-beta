@@ -34,7 +34,7 @@
 
 import { NextResponse } from "next/server";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { normalizeKey, chooseSeries, matchIssue } from "@/lib/csvImport/matchRow";
 
 
@@ -109,10 +109,7 @@ export async function GET(req) {
       return NextResponse.json({ status: "none", candidates: [] });
     }
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     // Substring rather than prefix: a collector types "future force" for
     // "Rai and the Future Force" as readily as they type the full title.

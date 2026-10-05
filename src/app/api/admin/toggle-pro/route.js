@@ -4,19 +4,11 @@
 // test accounts, comps, etc.).
 
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 
 export const dynamic = "force-dynamic";
-
-function srv() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-  );
-}
 
 export async function POST(req) {
   const authedUser = await getAuthedUser(req);
@@ -34,7 +26,7 @@ export async function POST(req) {
     return NextResponse.json({ error: "is_pro must be boolean" }, { status: 400 });
   }
 
-  const supabase = srv();
+  const supabase = getServiceClient();
   const { data: profile, error: fetchErr } = await supabase
     .from("profiles")
     .select("id, username, is_pro")
@@ -79,7 +71,7 @@ export async function GET(req) {
     return NextResponse.json({ error: "Missing username" }, { status: 400 });
   }
 
-  const supabase = srv();
+  const supabase = getServiceClient();
   const { data: profile, error } = await supabase
     .from("profiles")
     .select("id, username, is_pro, is_founding_collector, stripe_customer_id, created_at")

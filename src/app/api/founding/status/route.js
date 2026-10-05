@@ -1,15 +1,8 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
 
 const CAP = 100;
-
-function getSupabase() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-}
 
 async function getAvailability(supabase) {
   // Must count actual founding-collector claims, not total signups — a
@@ -27,7 +20,7 @@ async function getAvailability(supabase) {
 
 export async function GET(req) {
   try {
-    const supabase = getSupabase();
+    const supabase = getServiceClient();
     const availability = await getAvailability(supabase);
     const user = await getAuthedUser(req);
     let isFounding = false;
@@ -71,7 +64,7 @@ export async function POST(req) {
   try {
     const user = await getAuthedUser(req);
     if (!user) return NextResponse.json({ error: "Sign in to activate your membership" }, { status: 401 });
-    const supabase = getSupabase();
+    const supabase = getServiceClient();
     const availability = await getAvailability(supabase);
     if (availability.remaining < 1) return NextResponse.json({ error: "All founding passes have been claimed" }, { status: 409 });
     const { error } = await supabase.from("profiles").update({ is_pro: true, is_founding_collector: true }).eq("id", user.id);

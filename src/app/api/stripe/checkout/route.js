@@ -1,15 +1,8 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getStripe, PRO_PRICE_ID, FOUNDING_PRICE_ID, getSiteUrl } from "@/lib/stripe";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
-
-function getSupabase() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-}
 
 export async function POST(req) {
   try {
@@ -30,7 +23,7 @@ export async function POST(req) {
       );
     }
 
-    const supabase = getSupabase();
+    const supabase = getServiceClient();
 
     const { data: profile, error: profErr } = await supabase
       .from("profiles")

@@ -1,5 +1,5 @@
 import { unstable_cache } from "next/cache";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "./supabase/service.js";
 import { SITE_NEWS } from "@/lib/siteNews";
 
 // Data for the homepage: the live catalog numbers in the proof strip and the
@@ -7,12 +7,6 @@ import { SITE_NEWS } from "@/lib/siteNews";
 // the server and cached for an hour, so the static homepage never waits on
 // it. Each part fails on its own: a broken read drops that part (and is
 // logged) rather than blanking the section or caching a wrong zero.
-
-function client() {
-  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
-    auth: { autoRefreshToken: false, persistSession: false },
-  });
-}
 
 // One retry: these counts can take a few seconds and occasionally hit the
 // statement timeout when the database is busy (a HEAD request reports that
@@ -106,7 +100,7 @@ const settle = (label, p) =>
   });
 
 async function computeHomeData() {
-  const sb = client();
+  const sb = getServiceClient();
   const [stats, newCovers, posts] = await Promise.all([
     settle("stats", loadStats(sb)),
     settle("new covers", loadNewCovers(sb)),

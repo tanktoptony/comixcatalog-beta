@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { resolvePublisher } from "@/lib/publisher";
 import { titleVariants } from "@/lib/titleMatch";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
@@ -52,10 +52,7 @@ export async function GET(req, context) {
   try {
     const { id } = await context.params;
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     const { data: series, error: seriesError } = await supabase
       .from("series")

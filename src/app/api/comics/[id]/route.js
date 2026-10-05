@@ -74,11 +74,16 @@ export async function PATCH(req, context) {
     const { series_title, issue_number, publisher, release_year } = body;
 
     // Verify ownership
-    const { data: existing } = await supabase
+    const { data: existing, error: ownershipError } = await supabase
       .from("comics")
       .select("created_by")
       .eq("id", id)
-      .single();
+      .maybeSingle(); // zero rows is an answer, not a failure
+
+    if (ownershipError) {
+      console.error("comic ownership lookup failed:", ownershipError.code, ownershipError.message);
+      return NextResponse.json({ error: "Failed to verify comic ownership" }, { status: 502 });
+    }
 
     if (!existing || existing.created_by !== authedUser.id) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
@@ -119,11 +124,16 @@ export async function DELETE(req, context) {
     const supabase = getServiceClient();
 
     // Verify ownership
-    const { data: existing } = await supabase
+    const { data: existing, error: ownershipError } = await supabase
       .from("comics")
       .select("created_by")
       .eq("id", id)
-      .single();
+      .maybeSingle(); // zero rows is an answer, not a failure
+
+    if (ownershipError) {
+      console.error("comic ownership lookup failed:", ownershipError.code, ownershipError.message);
+      return NextResponse.json({ error: "Failed to verify comic ownership" }, { status: 502 });
+    }
 
     if (!existing || existing.created_by !== authedUser.id) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });

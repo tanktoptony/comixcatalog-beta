@@ -150,7 +150,7 @@ API for whether a run was ever created.**
 | `nightly-cover-report.yml` | 06:00 UTC | writes `reports/cover-coverage-history.json` + HTML | the canonical answer to "where are covers at" — read it rather than re-deriving |
 | `cron-watchdog.yml` | — | force-dispatches overdue workflows | grace windows live in `scripts/cronWatchdog.js` |
 | `instagram-post.yml` | — | posts an issue to Instagram | **never audited. The founder asked for an "Instagram bot refinement" and never specified what. Ask, do not guess.** |
-| `gcd-issue-refresh.yml` | daily `0 18 * * *` | tops up `gcd_issues` for recent-release, member-owned, and featured series from comics.org's live API | active union was 316 series on 2026-10-05. **GCD's budget is ~30 requests per run and resets hourly**, so a check-only rotation takes at least 11 daily runs and missing-issue fetches extend it. A three-hour cadence would lower the check-only bound to about 1.4 days, but is only a recommendation. A 429 is exit 3 and expected. Rotation cursor lives in `gcd-refresh-cursor.json` |
+| `gcd-issue-refresh.yml` | every 3h `45 */3 * * *` | tops up `gcd_issues` for recent-release, member-owned, and featured series from comics.org's live API | active union was 316 series on 2026-10-05. **GCD's budget is ~30 requests per run and resets hourly**, so at 8 runs a day a check-only rotation takes about 1.4 days (it was 11+ days at the old daily cadence) and missing-issue fetches extend it. A 429 is exit 3 and expected. Rotation cursor lives in `gcd-refresh-cursor.json` |
 | `snapshot-collection-value.yml`, `pr-ci.yml` | — | value snapshots, PR checks | |
 
 ---

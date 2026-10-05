@@ -7,8 +7,8 @@
 // labelled anything that wasn't "owned" as "wishlisted" (audit S3,
 // 2026-10-05).
 //
-// Privacy flags follow the marketplace view's convention: a missing or null
-// show_* flag counts as shown; only an explicit false hides.
+// is_public must be explicitly true. The show_* flags follow the marketplace
+// view's convention: a missing or null flag counts as shown; only false hides.
 
 export const ACTIVITY_VERB = {
   owned: "added",
@@ -26,7 +26,8 @@ export function isVisibleActivity(row, profile) {
   if (!row || !profile) return false;
   if (!ACTIVITY_VERB[row.status]) return false;
   if (!profile.username) return false;
-  if (profile.is_public === false) return false;
+  // Public means explicitly true, matching the RLS policy and /api/public-profile.
+  if (profile.is_public !== true) return false;
   if (profile.show_collection === false) return false;
   const flag = STATUS_FLAG[row.status];
   if (flag && profile[flag] === false) return false;

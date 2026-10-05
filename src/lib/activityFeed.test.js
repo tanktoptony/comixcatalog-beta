@@ -53,8 +53,14 @@ test("a profile with no username, or no profile at all, is dropped", () => {
 });
 
 test("null show_* flags count as shown", () => {
-  const p = { ...pub, is_public: null, show_collection: null, show_wantlist: null };
+  const p = { ...pub, show_collection: null, show_wantlist: null };
   assert.equal(isVisibleActivity({ status: "wishlist" }, p), true);
+});
+
+test("is_public null or missing counts as private", () => {
+  assert.equal(isVisibleActivity({ status: "owned" }, { ...pub, is_public: null }), false);
+  const { is_public: _omit, ...noFlag } = pub;
+  assert.equal(isVisibleActivity({ status: "owned" }, noFlag), false);
 });
 
 test("unknown statuses are dropped", () => {

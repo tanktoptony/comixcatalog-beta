@@ -9,8 +9,9 @@ Run: python test_done_ledger.py
 """
 
 import sys
+from datetime import datetime, timedelta, timezone
 
-from comicvine_api_to_supabase import _done_mark_blockers
+from comicvine_api_to_supabase import _done_mark_blockers, _is_done_fresh, _load_done
 
 
 def should_mark_done(attempts, successes, already_covered):
@@ -62,11 +63,36 @@ def main():
         )
         print(f"       {description}")
 
+    now = datetime.now(timezone.utc)
+    iso = lambda days: (now - timedelta(days=days)).isoformat()
+    ttl_cases = [
+        ({"processed_at": iso(8), "latest_release_date": iso(10)}, False, "recent release, processed 8 days ago"),
+        ({"processed_at": iso(6), "latest_release_date": iso(10)}, True, "recent release, processed 6 days ago"),
+        ({"processed_at": iso(8), "latest_release_date": iso(90)}, True, "old release, processed 8 days ago"),
+        ({"processed_at": iso(8)}, True, "missing release field uses 30-day TTL"),
+    ]
+    for entry, expected, description in ttl_cases:
+        actual = _is_done_fresh({"target": entry}, "target", 30)
+        print(f"  {'ok  ' if actual == expected else 'FAIL'} {description}: fresh={actual} (expected {expected})")
+        if actual != expected:
+            failures.append(description)
+
+    import tempfile
+    from pathlib import Path
+    with tempfile.TemporaryDirectory() as directory:
+        ledger = Path(directory) / "done.json"
+        ledger.write_text('["legacy-key"]', encoding="utf-8")
+        legacy = _load_done(str(ledger))
+        actual = _is_done_fresh(legacy, "legacy-key", 30)
+        print(f"  {'ok  ' if actual else 'FAIL'} legacy list format parses as fresh")
+        if not actual:
+            failures.append("legacy list format")
+
     print()
     if failures:
         print(f"FAILED: {len(failures)} of {len(CASES)} cases")
         return 1
-    print(f"OK: {len(CASES)} cases")
+    print(f"OK: {len(CASES) + len(ttl_cases) + 1} cases")
     return 0
 
 

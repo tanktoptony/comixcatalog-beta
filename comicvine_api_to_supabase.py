@@ -506,6 +506,8 @@ def _done_key(target: dict) -> str:
 # instead. Cost of rechecking a truly-finished series is ~1 API call
 # (--skip-existing makes its issue loop free) -- cheap insurance.
 DONE_TTL_DAYS = 30
+ACTIVE_DONE_TTL_DAYS = 7
+ACTIVE_RELEASE_DAYS = 60
 
 
 def _now_iso() -> str:
@@ -558,16 +560,40 @@ def _done_mark_blockers(attempts: int, successes: int, already_covered: int):
 
 
 def _is_done_fresh(done: dict, key: str, ttl_days: int) -> bool:
-    stamp = done.get(key)
-    if not stamp:
+    entry = done.get(key)
+    if not entry:
         return False
+    stamp = entry.get("processed_at") if isinstance(entry, dict) else entry
+    latest_release = entry.get("latest_release_date") if isinstance(entry, dict) else None
     try:
         processed = datetime.fromisoformat(stamp)
-    except ValueError:
+        released = datetime.fromisoformat(latest_release) if latest_release else None
+    except (TypeError, ValueError):
         return False
     if processed.tzinfo is None:
         processed = processed.replace(tzinfo=timezone.utc)
-    return datetime.now(timezone.utc) - processed < timedelta(days=ttl_days)
+    now = datetime.now(timezone.utc)
+    if released and released.tzinfo is None:
+        released = released.replace(tzinfo=timezone.utc)
+    effective_ttl = (
+        ACTIVE_DONE_TTL_DAYS
+        if released and now - released <= timedelta(days=ACTIVE_RELEASE_DAYS)
+        else ttl_days
+    )
+    return now - processed < timedelta(days=effective_ttl)
+
+
+def _done_entry(issues: list[dict]) -> dict:
+    dates = [
+        str(value)[:10]
+        for issue in issues
+        for value in (issue.get("cover_date"), issue.get("store_date"))
+        if value
+    ]
+    return {
+        "processed_at": _now_iso(),
+        "latest_release_date": max(dates) if dates else None,
+    }
 
 
 # Targets we refused to auto-resolve: the ComicVine match was ambiguous
@@ -1583,13 +1609,12 @@ def main():
         # whole --max-search-calls budget every run and starving every
         # resolvable target behind them.
         #
-        # A target carrying an explicit volume_id (the gap-pinned.json lane)
-        # is fetched by id and costs no search call, so the budget this
-        # backoff protects isn't at stake — never gate those on it.
+        # Explicit volume IDs avoid a search call, but image-less issues still
+        # consume issue/detail work. Honor their recorded cooldown so they do
+        # not loop on every hourly run.
         if (
             use_backoff
             and not args.volume_id
-            and not target.get("volume_id")
             and _is_backing_off(
                 _backlog_key(
                     target.get("name"), target.get("publisher"), target.get("year")
@@ -1930,7 +1955,7 @@ def main():
                         volume_name, publisher_name, target.get("year"), reason, []
                     )
                 else:
-                    done[_done_key(target)] = _now_iso()
+                    done[_done_key(target)] = _done_entry(issues)
                     _save_done(args.done_file, done)
 
         except RateLimited as e:

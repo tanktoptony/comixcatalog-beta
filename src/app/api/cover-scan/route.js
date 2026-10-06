@@ -45,6 +45,8 @@ async function findCandidates(supabase, extracted) {
     // scope the main search uses: search_series_by_relevance accepts a series
     // that is US-market OR has an allowlisted publisher. gcd_publishers holds
     // GCD's own names ("DC", not "DC Comics"), so country carries most of it.
+    // US only: the us_market policy (migration 0037) excludes some Canadian
+    // publishers on purpose; Canadian series still come through the main search.
     const pubIds = [...new Set(gcdSeriesRows.map((row) => row.publisher_gcd_id).filter((v) => v != null))];
     const { data: pubs, error: pubError } = pubIds.length
       ? await supabase.from("gcd_publishers").select("gcd_id, name, country").in("gcd_id", pubIds)
@@ -55,7 +57,7 @@ async function findCandidates(supabase, extracted) {
       const allowed = new Set(US_PUBLISHER_ALLOWLIST);
       const pubName = new Map((pubs ?? []).map((p) => [p.gcd_id, p.name]));
       const inScope = new Set((pubs ?? [])
-        .filter((p) => ["us", "ca"].includes(String(p.country ?? "").toLowerCase()) || allowed.has(p.name))
+        .filter((p) => String(p.country ?? "").toLowerCase() === "us" || allowed.has(p.name))
         .map((p) => p.gcd_id));
       gcdOnlyRows = gcdSeriesRows
         .filter((row) => inScope.has(row.publisher_gcd_id))

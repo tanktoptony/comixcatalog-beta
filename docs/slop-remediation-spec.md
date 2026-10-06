@@ -1,6 +1,6 @@
 # Slop remediation spec
 
-**Status:** Approved; in progress. WS0 done except the schema dump (deferred). WS1: PR 1b and S1 merged, rest of PR 1a open (see "Progress" below) · **Written:** 2026-10-04 · **Input:** `docs/slop-remediation-plan.md` · **Verified against:** `origin/main` at `5b9647f` (the plan's references were from `f546a55`)
+**Status:** In progress, updated 2026-10-05 evening. WS0 through WS3 done (11 PRs merged: #193, #197, #201, #203, #206, #209, #212, #215, #218, #219, #220). WS4 (cover resolver) next, waiting on Codex availability. See "Progress" below · **Written:** 2026-10-04 · **Input:** `docs/slop-remediation-plan.md` · **Verified against:** `origin/main` at `5b9647f` (the plan's references were from `f546a55`)
 
 This turns the plan into files, functions, SQL, tests and PRs. The plan's goal, out-of-scope list and ground rules still apply as written. This file only adds detail and records where the plan was wrong or out of date.
 
@@ -8,7 +8,7 @@ This turns the plan into files, functions, SQL, tests and PRs. The plan's goal, 
 
 ## Tony's list (batch these)
 
-Everything that needs you, in the order it blocks work. Nothing past WS0 starts until items 1 to 3 are back.
+Everything that needs you, in the order it blocks work. Items 2 and 3 are done (results below); item 1, the schema dump, is deferred.
 
 **Before WS0 can finish**
 
@@ -70,9 +70,9 @@ Everything that needs you, in the order it blocks work. Nothing past WS0 starts 
 
 | When | What |
 |---|---|
-| Before WS1b merges | Run migration 0032 (profiles billing columns) |
-| Before WS2a merges | Run migration 0036 (one wishlist row per issue), after the Q3b dedupe if needed |
-| Before WS2b merges | Run migration 0034 (grading trigger fix) |
+| ~~Before WS1b merges~~ | ~~Run migration 0032 (profiles billing columns)~~ Done 2026-10-05 |
+| ~~Before WS2a merges~~ | ~~Run migration 0036 (one wishlist row per issue)~~ Done 2026-10-05 |
+| ~~Before WS2b merges~~ | ~~Run migration 0034 (grading trigger fix)~~ Done 2026-10-05 |
 | Before WS4b merges | Run migration 0035 (cover link lock) |
 | WS4a review | Read the parity diff list and say go |
 | WS5 | Approve the `issue_count_cached` change list before the targeted refresh runs |
@@ -100,20 +100,37 @@ Everything that needs you, in the order it blocks work. Nothing past WS0 starts 
 
 **Speed baseline (2026-10-05):** `reports/perf-baseline-2026-10.md`, two warm 20-run passes against production. Meets target: issue, series, library load, marketplace, and the "batman" and "sandman" searches. Misses: **public profile** (p50 ~1.6s, p95 ~2.1s) and **short search queries** ("x-o" p95 1.2–2.8s against 0.8s). WS7 starts with those two and drops items that don't move a number. Cold starts aren't counted (a cold pass was 2–18s); `--cold` measures them.
 
-## Progress (2026-10-05)
+## Progress (updated 2026-10-05, evening)
 
-| Item | PR | State |
-|---|---|---|
-| WS0 decisions + Q1–Q5 | #197 (results), this spec | Done |
-| WS0 speed baseline | #203 | Merged |
-| WS0 schema dump | none | Deferred (no DB password handy) |
-| WS1 PR 1b: profiles billing lock (0032a/0032b) | #197 | Merged, both SQL steps verified live |
-| WS1 S1: JSON-LD escaping | #202 | Merged. Shipped as `safeJsonLd()` in `src/lib/jsonLd.js` (not `jsonLdString`); PR 1a drops S1 and reuses it |
-| WS1 PR 1a: S3 activity privacy, S4 `/api/comics` auth, S5a hydrate cap, S5b catalog-link escape, S5d | none | Not started |
-| WS7 public profile speed | #196 | Partial: cover reads narrowed and parallelized (11.3s → 1.7s library load for a 214-book collection). Profile p95 still above target per #203 |
-| WS2–WS6, WS9 | none | Not started. WS8 skipped (D-d) |
+Every merged item below was checked after deploy where it could be: SQL steps confirmed by a query Tony ran, live behaviour by smoke tests or a manual check.
 
-**Migration numbers moved.** `0033` was taken on 2026-10-05 by `0033_market_comps_per_issue_unique.sql` (PR #199, eBay comps keyed per issue). This spec's migrations shift up by one: grading trigger fix is now **0034**, cover link lock **0035**, one-wishlist-per-issue **0036**. Check `scripts/migrations/` for the next free number before writing any migration.
+| Workstream | Item | PR | State |
+|---|---|---|---|
+| WS0 | Decisions + Q1–Q5 | #197, this spec | **Done** |
+| WS0 | Speed baseline (`npm run perf:baseline`) | #203 | **Merged.** Misses: public profile, short search queries |
+| WS0 | Schema dump | none | Deferred (no DB password handy) |
+| WS1 | S1 JSON-LD escaping | #202 | **Merged**, as `safeJsonLd()` |
+| WS1 | S2b profiles billing lock (0032a/0032b) | #197 | **Merged**, SQL verified (`true \| true`), anon read of Stripe id blocked |
+| WS1 | S3 activity privacy, S4 comic-add auth, S5a hydrate cap + client batching, S5b catalog-link filter, S5d ADMIN_ID | #206 | **Merged**, three live smoke tests passed after deploy |
+| WS1 | S5c dead routes, lint/comment fixes | #192 (Codex) | **Merged** |
+| WS2 | D1 multiple copies per issue, D2 real bulk-add failures, D3 grading trigger fix (0034 + 0036) | #209 | **Merged**, SQL verified (`true × 3`), Tony confirmed live |
+| Other | Header avatar no longer flashes the CC badge | #201 | **Merged** |
+| WS3 | PR 3a: one copy of each helper (32 copies removed); slow `gcd_issues` ordering fixed (~3s → ~0.2s per page); CSV export no longer truncates at 1,000 | #212 | **Merged** |
+| WS3 | PR 3b: one shared service-role client (40 files) | #215 | **Merged** |
+| WS3 | PR 3c: database errors stop reading as "no data" (46 sites in `src/`: 502 when the page can't be right, `degraded: true` + no CDN cache when the data is extra); public profiles past 1,000 books stop truncating; search survives a failed grouping lookup | #219 | **Merged**, Codex reviewed (3 rounds); live check after deploy: series, issue and search pages respond normally. Error ratchet 101 → 55, zero left in `src/` |
+| WS3 follow-up | Broad searches ("batman") never grouped volumes: the volume lookup sent up to 1,000 UUIDs in one URL and the API rejected it (works ≤300, fails ≥500). The error was silent until #219 flagged it as `degraded`. Now chunked at 200 | #220 | **Merged** 2026-10-05 |
+| WS7 | Public profile speed | #196 | Partial: library load 11.3s → 1.7s for a 214-book collection. Profile p95 still over target |
+| WS4 | PR 4a-1: cover resolver (`src/lib/catalog/covers.js`) for the issue and series pages; keyset paging (`fetchAllByKeyset`); parity script | (this PR) | **Open, waiting on Tony's approval of the cover-change list.** Parity on 5,470 issues: 5,058 same, 392 gained, 19 lost (none owned), 1 changed (data error, WS4b). Transformers Universe data fixed by SQL 2026-10-06. Report: `reports/cover-resolver-parity-2026-10-06.md` |
+| WS4 | PR 4a-2 note | none | Before library-hydrate/public-profile move onto the resolver, its tier-2 read must also filter by issue number: today it reads every cover of every series in the batch (5,470 mixed issues took 75s). The old library code filtered by number |
+| WS5, WS6, WS9 | | none | Not started. WS8 skipped (D-d) |
+
+**Audit scorecard** (21 findings in the 2026-10-02 audit): 8 fixed, 4 partly fixed, 9 not started (D6 and P5 deferred on purpose). Every security finding is closed. The cover findings (I1, I2) and variant parsing (I3) are untouched and are what WS4–WS5 fix.
+
+**How the work is split now:** Codex CLI writes the implementation from a written prompt; Claude scopes it, reviews the diff, fixes what it finds, commits, runs the Codex review and opens the PR. Tony merges every PR.
+
+**Outside this program:** eBay Marketplace Insights (sold prices) was requested through eBay's Application Growth Check on 2026-10-05, ref 261005-000064. When it's granted, set the `EBAY_API` repo variable to `insights`; no code change needed.
+
+**Migration numbers moved.** `0033` was taken on 2026-10-05 by `0033_market_comps_per_issue_unique.sql` (PR #199, eBay comps keyed per issue). This program's migrations are numbered: grading trigger fix **0034**, multiple copies + one-wishlist-per-issue **0036** (both applied 2026-10-05; the files were first committed as 0033 and 0035 in #209 and renamed here), cover link lock **0035** (WS4b, not written yet). Two other files share **0037** (`0037_after_publisher_sync_backfill.sql`, `0037_gcd_publishers_country_us_market.sql`, from another session); left alone here. The next free number is **0039**. Check `scripts/migrations/` before writing any migration.
 
 ## What changed since the plan was written
 

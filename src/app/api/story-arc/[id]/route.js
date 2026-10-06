@@ -13,18 +13,13 @@
 // so a 2020 reprint cover doesn't end up on a 1992 issue.
 
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
 import { isOwnedStatus } from "@/lib/collectionStatus";
+import { parseYear } from "@/lib/years";
 
 function norm(value) {
   return String(value ?? "").trim().toLowerCase();
-}
-
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
 }
 
 function pickBestCover(candidates, targetYear) {
@@ -53,10 +48,7 @@ export async function GET(req, context) {
     const authedViewer = await getAuthedUser(req);
     const viewerId = authedViewer?.id ?? null;
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     // ── Resolve arc by UUID or cv-<id> ────────────────────────────────────
     const cvMatch = String(id).match(/^cv-(\d+)$/);
@@ -80,15 +72,20 @@ export async function GET(req, context) {
     }
 
     const issues = arcIssues ?? [];
+    let degraded = false;
 
     // ── Year hints from gcd_issues for cover year-matching ────────────────
     const gcdIds = issues.map((i) => i.gcd_issue_id).filter((v) => v != null);
     const yearByGcdId = new Map();
     if (gcdIds.length > 0) {
-      const { data: gcdRows } = await supabase
+      const { data: gcdRows, error: gcdRowsError } = await supabase
         .from("gcd_issues")
         .select("gcd_id, publication_date, key_date")
         .in("gcd_id", gcdIds);
+      if (gcdRowsError) {
+        console.error("story arc year lookup failed:", gcdRowsError.code, gcdRowsError.message);
+        degraded = true;
+      }
       for (const r of gcdRows ?? []) {
         const y = parseYear(r.publication_date) ?? parseYear(r.key_date);
         yearByGcdId.set(r.gcd_id, y);
@@ -100,12 +97,16 @@ export async function GET(req, context) {
     const issueNumbers = [...new Set(issues.map((i) => i.issue_number).filter((v) => v != null))];
     const coversByKey = new Map();
     if (seriesTitles.length > 0 && issueNumbers.length > 0) {
-      const { data: covers } = await supabase
+      const { data: covers, error: coversError } = await supabase
         .from("canonical_covers")
         .select("series_title, issue_number, storage_path, cover_date, series_year")
         .in("series_title", seriesTitles)
         .in("issue_number", issueNumbers)
         .not("storage_path", "is", null);
+      if (coversError) {
+        console.error("story arc cover lookup failed:", coversError.code, coversError.message);
+        degraded = true;
+      }
       for (const c of covers ?? []) {
         const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
         if (!coversByKey.has(key)) coversByKey.set(key, []);
@@ -117,11 +118,15 @@ export async function GET(req, context) {
     const ownedSet = new Set();
     const wishlistSet = new Set();
     if (viewerId && gcdIds.length > 0) {
-      const { data: collected } = await supabase
+      const { data: collected, error: collectedError } = await supabase
         .from("user_collections")
         .select("gcd_issue_id, status")
         .eq("user_id", viewerId)
         .in("gcd_issue_id", gcdIds);
+      if (collectedError) {
+        console.error("story arc collection lookup failed:", collectedError.code, collectedError.message);
+        degraded = true;
+      }
       for (const r of collected ?? []) {
         const gid = Number(r.gcd_issue_id);
         if (isOwnedStatus(r.status)) ownedSet.add(gid);
@@ -175,6 +180,7 @@ export async function GET(req, context) {
         total: totalCount,
         matchable: matchableCount,
       },
+      degraded,
     });
   } catch (err) {
     console.error("GET /api/story-arc/[id] crashed:", err);

@@ -61,6 +61,15 @@ jobs:
       - name: Cover-match tests
         run: npm run test:cover-match
 
+      - name: Cover resolver tests
+        run: npm run test:covers
+
+      - name: Supabase pagination tests
+        run: npm run test:fetch-all
+
+      - name: Year helper tests
+        run: npm run test:years
+
       - name: Activity feed privacy tests
         run: npm run test:activity-feed
 

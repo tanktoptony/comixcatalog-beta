@@ -1,5 +1,7 @@
 import { collectionStats } from "./collectionStats.js";
 import { isOwnedStatus } from "@/lib/collectionStatus";
+import { fetchAllPages } from "../supabase/fetchAllPages.js";
+import { parseYear } from "../years.js";
 
 // Server-only loader for the "My Collection" share card. Takes a service-role
 // client and a VERIFIED user id (from getAuthedUser, never from the request),
@@ -9,32 +11,14 @@ import { isOwnedStatus } from "@/lib/collectionStatus";
 // and an unpaginated read here would print a wrong number on a card someone
 // then posts publicly. This codebase has shipped that bug three times.
 
-const PAGE = 1000;
 const IN_CHUNK = 300; // keep .in() lists well inside URL length limits
 
-async function fetchAllPages(buildQuery) {
-  const all = [];
-  for (let from = 0; ; from += PAGE) {
-    const { data, error } = await buildQuery().range(from, from + PAGE - 1);
-    if (error) throw error;
-    if (!data || data.length === 0) break;
-    all.push(...data);
-    if (data.length < PAGE) break;
-  }
-  return all;
-}
-
-async function fetchIn(ids, buildQuery) {
+async function fetchIn(ids, buildQuery, orderCol) {
   const out = [];
   for (let i = 0; i < ids.length; i += IN_CHUNK) {
-    out.push(...(await fetchAllPages(() => buildQuery(ids.slice(i, i + IN_CHUNK)))));
+    out.push(...(await fetchAllPages(() => buildQuery(ids.slice(i, i + IN_CHUNK)), orderCol)));
   }
   return out;
-}
-
-function parseYear(value) {
-  const m = String(value ?? "").match(/\b(18|19|20)\d{2}\b/);
-  return m ? Number(m[0]) : null;
 }
 
 const norm = (v) => String(v ?? "").trim().toLowerCase();
@@ -70,7 +54,8 @@ export async function loadCollectionCard(supabase, userId) {
       .from("gcd_issues")
       .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
       .in("gcd_id", chunk)
-      .order("gcd_id")
+      .order("gcd_id"),
+    "gcd_id"
   );
   const issueById = new Map(issues.map((i) => [i.gcd_id, i]));
 
@@ -78,9 +63,10 @@ export async function loadCollectionCard(supabase, userId) {
   const seriesRows = await fetchIn(seriesIds, (chunk) =>
     supabase
       .from("series")
-      .select("gcd_id, title, resolved_publisher_cached, publisher:publisher_id(name)")
+      .select("id, gcd_id, title, resolved_publisher_cached, publisher:publisher_id(name)")
       .in("gcd_id", chunk)
-      .order("gcd_id")
+      .order("gcd_id"),
+    "id"
   );
   const seriesById = new Map(seriesRows.map((s) => [String(s.gcd_id), s]));
 

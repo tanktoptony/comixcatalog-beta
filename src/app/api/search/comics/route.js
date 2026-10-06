@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
-import { baseIssueNumber } from "@/lib/coverMatch";
+import { normalizeSeriesSearchWords } from "@/lib/seriesSearchMatch";
+import { baseIssueNumber, compareIssueNumbers } from "@/lib/coverMatch";
+import { parseYear } from "@/lib/years";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -21,12 +23,6 @@ function normalizeForScoring(value) {
 
 function normalizeIssueNumber(value) {
   return String(value ?? "").trim().toLowerCase();
-}
-
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
 }
 
 const COVER_YEAR_DIFF_THRESHOLD = 2;
@@ -125,13 +121,22 @@ function isPlaceholderIssueNumber(value) {
 // worst-case real totals top out around 687, and 1000 is PostgREST's own
 // default response cap regardless of what's requested. Falls back to the
 // old ILIKE query if the migration hasn't been run yet.
-async function fetchSeriesCandidates(supabase, normalizedQ) {
-  const { data, error } = await supabase.rpc("search_series_by_relevance", {
-    normalized_term: normalizedQ,
+async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
+  let { data, error } = await supabase.rpc("search_series_by_relevance", {
+    normalized_term: searchWords,
     allowed_publishers: US_PUBLISHER_ALLOWLIST,
     result_limit: 1000,
   });
-  if (!error) return data ?? [];
+  if (!error && (data?.length || searchWords === normalizedQ)) return data ?? [];
+  if (searchWords !== normalizedQ) {
+    const legacy = await supabase.rpc("search_series_by_relevance", {
+      normalized_term: normalizedQ,
+      allowed_publishers: US_PUBLISHER_ALLOWLIST,
+      result_limit: 1000,
+    });
+    if (!legacy.error) return legacy.data ?? [];
+    error ??= legacy.error;
+  }
 
   console.error(
     "search_series_by_relevance RPC unavailable, falling back to ILIKE search — " +
@@ -159,6 +164,7 @@ export async function GET(req) {
     const strippedQuery = stripTrailingIssueNumber(q);
     const titleQuery = queriedIssueNumber && strippedQuery ? strippedQuery : q;
     const normalizedQ = normalizeSearch(titleQuery);
+    const searchWords = normalizeSeriesSearchWords(titleQuery);
     const normalizedQForScoring = normalizeForScoring(titleQuery);
     const limit = Math.max(1, Math.min(Number(searchParams.get("limit") || 36), 36));
     const offset = Math.max(0, Number(searchParams.get("offset") || 0));
@@ -167,10 +173,7 @@ export async function GET(req) {
       return NextResponse.json({ comics: [] });
     }
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     // User-comics search and series-candidate search are independent —
     // run them concurrently instead of back-to-back (found while chasing
@@ -201,7 +204,7 @@ export async function GET(req) {
             .order("created_at", { ascending: false })
             .limit(20)
         : Promise.resolve({ data: [] }),
-      fetchSeriesCandidates(supabase, normalizedQ).catch((err) => {
+      fetchSeriesCandidates(supabase, searchWords, normalizedQ).catch((err) => {
         console.error("series search for comics failed:", err);
         return [];
       }),
@@ -225,7 +228,11 @@ export async function GET(req) {
         ...s,
         __score: scoreSeriesTitle(s.title, normalizedQForScoring),
       }))
-      .sort((a, b) => b.__score - a.__score);
+      .sort((a, b) => {
+        const scoreDelta = b.__score - a.__score;
+        if (scoreDelta) return scoreDelta;
+        return compareIssueNumbers(a.issue_number, b.issue_number);
+      });
 
     const strongSeries = scoredSeries.filter((s) => s.__score > 10);
     const seriesPool = (strongSeries.length > 0 ? strongSeries : scoredSeries).slice(

@@ -1,11 +1,9 @@
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "./supabase/service.js";
 
 // Server-only helpers for the listing photo routes.
 
 export function adminClient() {
-  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
-    auth: { autoRefreshToken: false, persistSession: false },
-  });
+  return getServiceClient();
 }
 
 // The collection row, only if it's the caller's and in their collection

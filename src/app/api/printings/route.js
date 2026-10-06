@@ -15,16 +15,9 @@
 // millions can, so review here is a person looking, not a quorum.
 
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
 import { normalizeUpc, isValidUpc, upcProblem } from "@/lib/printings";
-
-function admin() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-}
 
 export async function GET(req) {
   try {
@@ -36,7 +29,7 @@ export async function GET(req) {
 
     // Only accepted reports are public. A pending one is somebody's
     // unreviewed guess and must not read as catalog fact.
-    const { data, error } = await admin()
+    const { data, error } = await getServiceClient()
       .from("issue_printings")
       .select("id, printing_name, upc, created_at")
       .eq("gcd_issue_id", gcdIssueId)
@@ -90,7 +83,7 @@ export async function POST(req) {
       );
     }
 
-    const supabase = admin();
+    const supabase = getServiceClient();
 
     // The issue has to exist. A report against a gcd_id we do not carry is
     // unreviewable, and silently keeping it would grow a second shadow

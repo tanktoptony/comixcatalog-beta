@@ -11723,3 +11723,14 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
   width: 170px;
   height: 38px;
 }
+.cover-scanner { margin: 0 0 24px; }
+.cover-scan-notice { margin: 7px 0 10px; font-size: 0.8rem; }
+.search-prompt { margin: 0 0 14px; }
+.search-empty .cover-scanner { display: inline-block; }
+.search-issues-heading { margin-top: 24px; }
+.search-series-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 640px) {
+  .search-series-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.cover-scan-preview { display: block; width: min(180px, 46vw); max-height: 270px; object-fit: contain; border-radius: 8px; margin: 12px 0; }
+.cover-scan-error { color: #ff8a80; }

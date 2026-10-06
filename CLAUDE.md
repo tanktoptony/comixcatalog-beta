@@ -44,6 +44,12 @@ The app is **stable and content-rich** (217k series, 2.5M issues, year-aware pub
 | Styling | Tailwind CSS |
 | Config | `next.config.mjs`, `tailwind.config.cjs`, `postcss.config.cjs` |
 
+### Cover scanning
+
+`POST /api/cover-scan` accepts an authenticated, client-resized cover image and uses `claude-opus-5-5` to extract visible catalog metadata. It requires the server-only `ANTHROPIC_API_KEY`. Daily limits are 10 for regular members and 100 for `profiles.is_pro` members (the fixed admin ID also receives the Pro limit), measured per UTC day. `PATCH /api/cover-scan` records the issue chosen from a scan result.
+
+Scan records live in `cover_scans`. Original photos are retained in the private `cover-scans` storage bucket at `<user_id>/<scan_id>.jpg`; service role writes, and owners may read their own objects. Migration: `scripts/migrations/0040_cover_scans.sql`.
+
 ---
 
 ## Project Structure
@@ -184,6 +190,7 @@ Columns: `title`, `created_at`, `cv_publisher`, `issue_count_cached`, `year_star
 - **The invariant is enforced by `reconcileDuplicateFeaturedCovers()`, not by in-memory state.** An earlier attempt hardened the per-title `claimed` set inside `processBatch()` into a hard exclusion and still shipped the 12-way X-O Manowar collision, because that set only spans one batch of 100 and `--force` orders by UUID — same-title siblings scatter across ~2,000 batches. The reconciliation pass reads the whole table's final committed state, picks one winner per contested path, and nulls the rest. It runs after every pass and standalone via `--reconcile-only`. A partial unique index was rejected: per-row UPDATEs would fail mid-run and leave rows at their **stale** value rather than null.
 - **Verify matcher changes with `--only-ids-file=<path>`, not `--only-ids=`.** The previous fix passed verification on 46 rows via `--only-ids`, which fit in a single batch and so could not exercise the cross-batch bug it was meant to fix. `--only-ids-file` chunks an arbitrarily long id list across batches; ~14k series is the population with any cover data at all, and runs in ~100 minutes vs ~6h for the full 207k pass.
 - **Variant dedupe (Phase 1):** `issue_count_cached` collapses `1`, `1 [Newsstand]`, `1 [Variant Cover]` to a single base issue via `baseIssueNumber()`. Proper variant *schema* (variant_of_gcd_id, variant_name, variant_type) deferred until variant ingestion sources are settled.
+- **Series search migration 0038:** `search_series_by_relevance` accepts lowercase words with spaces, derives the compact form internally, matches exact/prefix/substring first, then all significant words in any order, and only uses pg_trgm typo matching when those tiers return fewer than 20 rows. Stopwords are `a`, `an`, `and`, `of`, and `the`. Both search routes retry the legacy compact RPC input when the spaced call returns no rows, so ordinary searches keep working during deployment. Apply 0038 before relying on missing-word or typo behavior.
 
 #### `gcd_series` (raw GCD mirror)
 PK `gcd_id` (int4). FK `publisher_gcd_id` → `gcd_publishers.gcd_id`.
@@ -405,7 +412,7 @@ Three bugs fixed:
 - **Publisher resolution:** prefer `series.resolved_publisher_cached` (year-aware, audited) over re-running `resolvePublisher()` on request. Re-resolving introduces the "1984 TMNT shows IDW" regression. Only re-resolve as a fallback when the cached value is null.
 - **Issue dedupe:** use `baseIssueNumber()` to collapse variant suffixes when counting issues. Don't double-count `1`, `1 [Newsstand]`, `1 [Variant Cover]`.
 - **`gcd_issue_id` is an integer.** Treat it consistently everywhere — no implicit string coercion.
-- **Cover image priority:** `canonical_covers.storage_path` → `public/fallback-cover.png`. The `public/covers/` local stubs are legacy and should be removed — do not add to them.
+- **Issue covers:** use `src/lib/catalog/covers.js` `resolveCovers()`; tiers are exact `gcd_issue_id`, then volume-exact `series_gcd_id` + base issue number, then untagged exact title variant + base issue number within the year guard. New code must not query `canonical_covers` directly for an issue cover.
 - **User avatars:** The `public/avatars/` hero image set is legacy. The target is user-uploaded profile photos. Do not build new features that depend on the static avatar set.
 - **`gcd_scraper_to_supabase.py` does NOT ingest GCD metadata.** It's a covers scraper hitting comics.org HTML. If you need to rebuild `gcd_issues` from source, that pipeline is not in the repo and must be rebuilt from a fresh GCD Postgres dump.
 - **GoCollect is dead.** Do not write new code against any GoCollect endpoint. Valuation goes through eBay Browse API.

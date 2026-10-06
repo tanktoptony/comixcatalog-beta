@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
 import { baseIssueNumber } from "@/lib/coverMatch";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { OWNED_STATUSES } from "@/lib/collectionStatus";
 
 // Surfaces "runs you're close to finishing" on the profile/library home —
@@ -13,20 +14,6 @@ import { OWNED_STATUSES } from "@/lib/collectionStatus";
 
 const MIN_RUN_SIZE = 3; // one-shots/minis under this aren't a "run" worth chasing
 const MAX_RESULTS = 6;
-const PAGE = 1000;
-
-async function fetchAllPages(build) {
-  const rows = [];
-  for (let from = 0; ; from += PAGE) {
-    const { data, error } = await build().range(from, from + PAGE - 1);
-    if (error) throw error;
-    if (!data?.length) break;
-    rows.push(...data);
-    if (data.length < PAGE) break;
-  }
-  return rows;
-}
-
 export async function GET(req) {
   try {
     const user = await getAuthedUser(req);
@@ -34,10 +21,7 @@ export async function GET(req) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     const { data: ownedRows, error: ownedError } = await supabase
       .from("user_collections")
@@ -58,7 +42,8 @@ export async function GET(req) {
       supabase
         .from("gcd_issues")
         .select("gcd_id, series_gcd_id, issue_number")
-        .in("gcd_id", ownedGcdIssueIds)
+        .in("gcd_id", ownedGcdIssueIds),
+      "gcd_id"
     );
 
     const ownedBySeriesGcdId = new Map();
@@ -80,8 +65,10 @@ export async function GET(req) {
     const allIssueRows = await fetchAllPages(() =>
       supabase
         .from("gcd_issues")
-        .select("series_gcd_id, issue_number")
+        .select("gcd_id, series_gcd_id, issue_number")
         .in("series_gcd_id", seriesGcdIds)
+        .order("series_gcd_id"),
+      "gcd_id"
     );
 
     const totalBySeriesGcdId = new Map();

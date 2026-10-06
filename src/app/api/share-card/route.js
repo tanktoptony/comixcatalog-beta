@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { ImageResponse } from "next/og";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
 import { TEMPLATES, CARD_SIZE, loadFonts } from "./templates";
 
@@ -30,10 +30,7 @@ export async function GET(req) {
     return NextResponse.json({ error: "Unknown card type." }, { status: 400 });
   }
 
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
+  const supabase = getServiceClient();
 
   let data;
   try {

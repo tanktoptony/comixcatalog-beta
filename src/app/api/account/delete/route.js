@@ -29,7 +29,7 @@
 // non-critical.
 
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { supabaseServer } from "@/lib/supabase/server";
 
 export async function POST(request) {
@@ -69,11 +69,7 @@ export async function POST(request) {
   }
 
   // Service-role client for the destructive operations.
-  const admin = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-  );
+  const admin = getServiceClient();
 
   // Best-effort: delete user_collections (they reference auth.users but we
   // don't trust the FK cascade is in place across all environments).

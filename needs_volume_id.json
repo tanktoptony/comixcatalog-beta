@@ -42312,5 +42312,65 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T04:03:48.102826+00:00",
     "retry_after": "2026-10-07T04:03:48.102844+00:00"
+  },
+  {
+    "name": "Thor by J. Michael Straczynski",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T05:00:58.469446+00:00",
+    "retry_after": "2026-10-07T05:00:58.469461+00:00"
+  },
+  {
+    "name": "Hanna-Barbera the Addams Family",
+    "publisher": "Gold Key",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T05:02:10.348792+00:00",
+    "retry_after": "2026-10-07T05:02:10.348810+00:00"
+  },
+  {
+    "name": "Secret Warriors",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 25640,
+        "name": "Secret Warriors",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 101411,
+        "name": "Secret Warriors",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T05:02:58.147230+00:00",
+    "retry_after": "2026-10-07T05:02:58.147245+00:00"
+  },
+  {
+    "name": "Persona 5: Mementos Mission",
+    "publisher": "Udon Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119057,
+        "name": "Persona 5: Mementos Mission",
+        "publisher": "ASCII Media Works",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T05:03:00.218080+00:00",
+    "retry_after": "2026-10-07T05:03:00.218095+00:00"
   }
 ]

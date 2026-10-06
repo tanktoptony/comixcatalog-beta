@@ -67,6 +67,7 @@ These describe work that's still in progress or planned, each with its own statu
 
 Dated, point-in-time records — not living status docs (those are PROJECT_STATUS.md / LAUNCH_CHECKLIST.md above) and not specs. Each covers a specific day/session's commits with a review and a next-steps list; superseded by newer reviews, not updated in place.
 
+- [2026-10-06-handoff.md](2026-10-06-handoff.md) — slop-remediation handoff: open PRs, stale `gcd_publishers` names (finding), catalog gap audit (89 series, `reports/catalog-gap-2026-10-06.md`), next steps and working conventions.
 - [2026-08-03-review-and-next-steps.md](2026-08-03-review-and-next-steps.md) — full-day review across two concurrent AI sessions (14 commits: cover-ingest ledger/matching fixes, Instagram bot fixes, orphaned-series-row fix + backfill, pricing CSS, Absolute-line dedup, docs restructure). Full detail in `reports/ComixCatalog-Daily-Report-2026-08-03.pdf` (local only).
 
 ## Agent task templates

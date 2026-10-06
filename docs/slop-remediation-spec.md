@@ -102,6 +102,8 @@ Everything that needs you, in the order it blocks work. Items 2 and 3 are done (
 
 ## Progress (updated 2026-10-05, evening)
 
+**Latest handoff:** [2026-10-06-handoff.md](2026-10-06-handoff.md): open PRs (#227, #228, #230), the stale `gcd_publishers` finding, the catalog gap audit, and what's next.
+
 Every merged item below was checked after deploy where it could be: SQL steps confirmed by a query Tony ran, live behaviour by smoke tests or a manual check.
 
 | Workstream | Item | PR | State |

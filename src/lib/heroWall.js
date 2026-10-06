@@ -1,5 +1,5 @@
 import { unstable_cache } from "next/cache";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "./supabase/service.js";
 
 // The homepage hero's cover wall: a weekly mix of all-time classics and
 // this week's featured series, so it reads as "every era of comics" rather
@@ -37,9 +37,7 @@ function seededShuffle(arr, seed) {
 }
 
 async function loadClassicCovers() {
-  const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
-    auth: { autoRefreshToken: false, persistSession: false },
-  });
+  const sb = getServiceClient();
   const titles = [...new Set(CLASSICS.map(([t]) => t))];
   const issues = [...new Set(CLASSICS.map(([, i]) => i))];
   const { data, error } = await sb

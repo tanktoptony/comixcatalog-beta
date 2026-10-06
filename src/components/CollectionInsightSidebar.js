@@ -12,6 +12,7 @@
 
 import { useMemo } from "react";
 import { isOwnedStatus } from "@/lib/collectionStatus";
+import { normalizePublisherDisplayName } from "@/lib/publisher";
 
 function formatCurrency(n) {
   return new Intl.NumberFormat("en-US", {
@@ -19,19 +20,6 @@ function formatCurrency(n) {
     currency: "USD",
     maximumFractionDigits: 0,
   }).format(n);
-}
-
-function normalizePublisher(value) {
-  const raw = String(value || "").trim();
-  if (!raw) return "Unknown Publisher";
-  const lower = raw.toLowerCase();
-  if (["marvel", "marvel comics"].includes(lower)) return "Marvel";
-  if (["dc", "dc comics"].includes(lower)) return "DC";
-  if (["image", "image comics"].includes(lower)) return "Image";
-  if (["boom", "boom!", "boom studios", "boom! studios"].includes(lower)) return "Boom";
-  if (["idw", "idw publishing"].includes(lower)) return "IDW";
-  if (["dark horse", "dark horse comics"].includes(lower)) return "Dark Horse";
-  return raw;
 }
 
 export default function CollectionInsightSidebar({
@@ -58,7 +46,7 @@ export default function CollectionInsightSidebar({
         const decade = Math.floor(year / 10) * 10;
         decadeCounts[decade] = (decadeCounts[decade] || 0) + 1;
       }
-      const publisher = normalizePublisher(
+      const publisher = normalizePublisherDisplayName(
         item.display?.publisher ?? item.comic?.publisher ?? item.comics?.publisher
       );
       publisherCounts[publisher] = (publisherCounts[publisher] || 0) + 1;

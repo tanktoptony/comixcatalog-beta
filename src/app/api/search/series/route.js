@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import { parseSearchQuery, yearMatches, yearScore } from "@/lib/searchQuery";
 import { diversify } from "@/lib/searchVariety";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
+import { normalizeSeriesSearchWords, searchWordCoverage } from "@/lib/seriesSearchMatch";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -87,13 +88,26 @@ const SERIES_SELECT = `
 // Falls back to the old ILIKE-and-hope query if the migration hasn't been
 // run yet (function not found) or any other RPC error — never worse than
 // the pre-fix behavior, just not yet fixed until the migration lands.
-async function fetchSeriesCandidates(supabase, normalizedQ) {
-  const { data, error } = await supabase.rpc("search_series_by_relevance", {
-    normalized_term: normalizedQ,
+async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
+  let { data, error } = await supabase.rpc("search_series_by_relevance", {
+    normalized_term: searchWords,
     allowed_publishers: US_PUBLISHER_ALLOWLIST,
     result_limit: 1000,
   });
-  if (!error) return data ?? [];
+  if (!error && (data?.length || searchWords === normalizedQ)) return data ?? [];
+
+  // Before migration 0038 the RPC only understands compact terms. Retrying
+  // keeps existing searches working during the deploy window. The spaced
+  // first call is what unlocks word-order matching after 0038 is applied.
+  if (searchWords !== normalizedQ) {
+    const legacy = await supabase.rpc("search_series_by_relevance", {
+      normalized_term: normalizedQ,
+      allowed_publishers: US_PUBLISHER_ALLOWLIST,
+      result_limit: 1000,
+    });
+    if (!legacy.error) return legacy.data ?? [];
+    error ??= legacy.error;
+  }
 
   console.error(
     "search_series_by_relevance RPC unavailable, falling back to ILIKE search — " +
@@ -113,6 +127,10 @@ async function fetchSeriesCandidates(supabase, normalizedQ) {
   if (fallbackError) throw fallbackError;
   return fallbackRows ?? [];
 }
+
+// UUIDs per .in() in the volume lookup. 300 worked and 500 failed when
+// measured; 200 leaves headroom for longer query strings.
+const VOLUME_LOOKUP_CHUNK = 200;
 
 export async function GET(req) {
   try {
@@ -136,18 +154,16 @@ export async function GET(req) {
     const strippedQuery = stripTrailingIssueNumber(parsed.title || q);
     const titleQuery = strippedQuery || parsed.title || q;
     const normalizedQ = normalizeSearch(titleQuery);
+    const searchWords = normalizeSeriesSearchWords(titleQuery);
     const normalizedQForScoring = normalizeForScoring(titleQuery);
 
     if (!normalizedQ) return NextResponse.json({ series: [] });
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     let rows;
     try {
-      rows = await fetchSeriesCandidates(supabase, normalizedQ);
+      rows = await fetchSeriesCandidates(supabase, searchWords, normalizedQ);
     } catch (fetchError) {
       console.error("GET /api/search/series failed:", fetchError);
       return NextResponse.json({ series: [] });
@@ -165,12 +181,34 @@ export async function GET(req) {
     // real book" signal than year overlap — fetch it here and let it
     // override the year-based fingerprint below.
     const volumeIdByRowId = new Map();
+    let searchDegraded = false;
     if (rows.length > 0) {
-      const { data: volumeRows } = await supabase
-        .from("series")
-        .select("id, comicvine_volume_id")
-        .in("id", rows.map((r) => r.id))
-        .not("comicvine_volume_id", "is", null);
+      // Chunked: a broad query ("batman") returns up to 1,000 rows, and 1,000
+      // UUIDs in one .in() is a ~37 KB URL that the API rejects (400 above
+      // ~400 ids, measured 2026-10-05). Before WS3c that error was ignored,
+      // so volume grouping silently never ran for broad searches.
+      const ids = rows.map((r) => r.id);
+      const chunks = [];
+      for (let i = 0; i < ids.length; i += VOLUME_LOOKUP_CHUNK) {
+        chunks.push(ids.slice(i, i + VOLUME_LOOKUP_CHUNK));
+      }
+      const results = await Promise.all(
+        chunks.map((chunk) =>
+          supabase
+            .from("series")
+            .select("id, comicvine_volume_id")
+            .in("id", chunk)
+            .not("comicvine_volume_id", "is", null)
+        )
+      );
+      const volumeRowsError = results.find((r) => r.error)?.error ?? null;
+      const volumeRows = results.flatMap((r) => r.data ?? []);
+      // Volume ids only refine how same-titled rows group; without them the
+      // year fingerprint below still groups correctly. Show results, flag it.
+      if (volumeRowsError) {
+        console.error("series search volume lookup failed:", volumeRowsError.code, volumeRowsError.message);
+        searchDegraded = true;
+      }
       for (const v of volumeRows ?? []) {
         volumeIdByRowId.set(v.id, v.comicvine_volume_id);
       }
@@ -190,6 +228,13 @@ export async function GET(req) {
       const aExact = aTitle === normalizedQForScoring ? 1 : 0;
       const bExact = bTitle === normalizedQForScoring ? 1 : 0;
       if (bExact !== aExact) return bExact - aExact;
+
+      // More of the searched words in the title wins before cover state and
+      // issue count. Single-word and squashed queries ("batman", "spiderman")
+      // score every candidate the same, so they keep today's ordering.
+      const aWords = searchWordCoverage(a.title, titleQuery);
+      const bWords = searchWordCoverage(b.title, titleQuery);
+      if (bWords !== aWords) return bWords - aWords;
 
       // When a year was asked for it is the most specific thing the searcher
       // said, so it outranks cover state and issue count. Exact start year
@@ -477,6 +522,8 @@ export async function GET(req) {
       })(),
     }));
 
+    // A degraded result must not sit in the CDN for ten minutes.
+    if (searchDegraded) return NextResponse.json({ series, degraded: true });
     return NextResponse.json({ series }, { headers: CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/search/series crashed:", err);

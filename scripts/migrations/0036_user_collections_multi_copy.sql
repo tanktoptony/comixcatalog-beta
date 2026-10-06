@@ -1,4 +1,4 @@
--- 0035_user_collections_multi_copy.sql
+-- 0036_user_collections_multi_copy.sql
 --
 -- Let a collector own several copies of one GCD issue (Tony, 2026-10-05).
 -- Until now user_collections_user_gcd_issue_unique allowed one row per

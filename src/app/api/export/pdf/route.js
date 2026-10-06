@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
+import { parseYear } from "@/lib/years";
 import { PDFDocument, rgb, StandardFonts, PageSizes } from "pdf-lib";
 import sharp from "sharp";
 import { ADMIN_ID } from "@/lib/admin";
@@ -23,18 +24,6 @@ const DGRAY  = rgb(0.18, 0.18, 0.18);
 const MGRAY  = rgb(0.55, 0.55, 0.55);
 const LGRAY  = rgb(0.88, 0.88, 0.90);
 const PGRAY  = rgb(0.92, 0.92, 0.94);
-
-function getSupabase() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-}
-
-function parseYear(val) {
-  const m = String(val || "").match(/\b(18|19|20)\d{2}\b/);
-  return m ? Number(m[0]) : null;
-}
 
 function condAbbrev(cond) {
   if (!cond) return null;
@@ -147,7 +136,7 @@ export async function POST(req) {
     }
     const user_id = authedUser.id;
 
-    const supabase = getSupabase();
+    const supabase = getServiceClient();
 
     const [{ data: profile }, { data: collRows, error: collErr }] = await Promise.all([
       supabase.from("profiles").select("username, is_pro").eq("id", user_id).single(),
@@ -188,10 +177,15 @@ export async function POST(req) {
     // ── Local comics ──
     const localIds = collRows.filter((r) => r.comic_id).map((r) => r.comic_id);
     if (localIds.length > 0) {
-      const { data: comics } = await supabase
+      const { data: comics, error: comicsError } = await supabase
         .from("comics")
         .select("id, series_title, publisher, issue_number, release_year, comic_covers(image_path, is_primary)")
         .in("id", localIds);
+
+      if (comicsError) {
+        console.error("PDF export local comics lookup failed:", comicsError.code, comicsError.message);
+        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
+      }
 
       for (const c of comics || []) {
         const path = c.comic_covers?.find((x) => x.is_primary)?.image_path ?? null;
@@ -210,10 +204,15 @@ export async function POST(req) {
     // ── GCD issues ──
     const gcdIds = collRows.filter((r) => r.gcd_issue_id).map((r) => r.gcd_issue_id);
     if (gcdIds.length > 0) {
-      const { data: issues } = await supabase
+      const { data: issues, error: issuesError } = await supabase
         .from("gcd_issues")
         .select("gcd_id, issue_number, publication_date, series_gcd_id, title")
         .in("gcd_id", gcdIds);
+
+      if (issuesError) {
+        console.error("PDF export issues lookup failed:", issuesError.code, issuesError.message);
+        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
+      }
 
       const seriesGcdIds = [...new Set((issues || []).map((i) => i.series_gcd_id).filter(Boolean))];
       const { data: seriesRows } = seriesGcdIds.length

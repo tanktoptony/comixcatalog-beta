@@ -1,15 +1,8 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getStripe, FOUNDING_PRICE_ID } from "@/lib/stripe";
 
 export const runtime = "nodejs";
-
-function getSupabase() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-}
 
 async function setProStatusByCustomer(supabase, customerId, isPro, isFounding = false) {
   if (!customerId) return;
@@ -50,7 +43,7 @@ export async function POST(req) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
   }
 
-  const supabase = getSupabase();
+  const supabase = getServiceClient();
 
   try {
     switch (event.type) {

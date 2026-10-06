@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { getAuthedUser } from "@/lib/authServer";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getFeaturedSeries } from "@/lib/featuredSeriesData";
 import { normalizeKey, chooseSeries, matchIssue } from "@/lib/csvImport/matchRow";
 import { CDN_CACHE_LONG } from "@/lib/cdnCache";
@@ -81,23 +82,9 @@ export async function GET(req) {
 // caller sends the user to the real book instead.
 
 
-const PAGE = 1000;
-
 // §2a: an unbounded PostgREST select stops at 1000 rows and reports success.
 // Truncating here would mean failing to find a book we have, and creating
 // the duplicate this function exists to prevent.
-async function fetchAllPages(build) {
-  const rows = [];
-  for (let from = 0; ; from += PAGE) {
-    const { data, error } = await build().range(from, from + PAGE - 1);
-    if (error) throw error;
-    if (!data?.length) break;
-    rows.push(...data);
-    if (data.length < PAGE) break;
-  }
-  return rows;
-}
-
 // Accept multipart (what /library/add sends) and JSON (what
 // /contribute/add-comic sent for months into a handler that could not read
 // it). Returning a plain object either way keeps the rest honest.
@@ -132,10 +119,7 @@ export async function POST(req) {
     return NextResponse.json({ error: "Sign in to add a comic" }, { status: 401 });
   }
 
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
+  const supabase = getServiceClient();
 
   let submission;
   try {
@@ -201,7 +185,8 @@ export async function POST(req) {
             .from("gcd_issues")
             .select("gcd_id, series_gcd_id, issue_number")
             .in("series_gcd_id", gcdIds)
-            .order("gcd_id")
+            .order("series_gcd_id"),
+          "gcd_id"
         );
 
         const bySeries = new Map();

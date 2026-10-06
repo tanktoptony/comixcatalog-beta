@@ -1,13 +1,9 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getMarketValuesBulk } from "@/lib/marketValue";
 import { normTitle, titleVariants } from "@/lib/titleMatch";
-
-function parseYear(value) {
-  if (!value) return null;
-  const match = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return match ? Number(match[0]) : null;
-}
+import { bestYearFor, parseYear } from "@/lib/years";
+import { fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
 
 // PostgREST silently caps any unpaginated response at 1000 rows. A single
 // series' cover query stays well under that, but a real collection's full
@@ -23,33 +19,10 @@ function parseYear(value) {
 // Two pages at a time: each page is ~150-200ms of round trip whatever its
 // size, and the cover reads here run several pages for a big library. Two
 // per read keeps a request at four reads in flight when two run together.
-async function fetchAllPages(buildQuery) {
-  const PAGE = 1000;
-  const all = [];
-  for (let from = 0; ; from += PAGE * 2) {
-    const pages = await Promise.all([
-      buildQuery().range(from, from + PAGE - 1),
-      buildQuery().range(from + PAGE, from + PAGE * 2 - 1),
-    ]);
-    let done = false;
-    for (const { data, error } of pages) {
-      if (error) throw error;
-      if (done) continue;
-      all.push(...(data ?? []));
-      if (!data || data.length < PAGE) done = true;
-    }
-    if (done) return all;
-  }
-}
-
 // publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
 // approximation) fills most of that gap. Without this fallback a library item
 // shows "Unknown" year ~⅔ of the time AND loses its cover (the year-aware
 // matcher below requires a non-null year).
-function bestYearFor(row) {
-  return parseYear(row?.publication_date) ?? parseYear(row?.key_date);
-}
-
 function norm(value) {
   return String(value ?? "").trim().toLowerCase();
 }
@@ -89,10 +62,7 @@ export async function POST(req) {
       return NextResponse.json({ items: {}, market_values: {} });
     }
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabase = getServiceClient();
 
     const items = {};
 
@@ -102,7 +72,7 @@ export async function POST(req) {
     // its tail past whichever id the 1000-row cap lands on.
     const [localData, gcdIssuesData] = await Promise.all([
       comicIds.length > 0
-        ? fetchAllPages(() =>
+        ? fetchAllPagesParallel(() =>
             supabase
               .from("comics")
               .select("id, series_title, publisher, issue_number, release_year, comic_covers(image_path, is_primary)")
@@ -111,12 +81,14 @@ export async function POST(req) {
           )
         : [],
       gcdIds.length > 0
-        ? fetchAllPages(() =>
-            supabase
-              .from("gcd_issues")
-              .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
-              .in("gcd_id", gcdIds)
-              .order("gcd_id")
+        ? fetchAllPagesParallel(
+            () =>
+              supabase
+                .from("gcd_issues")
+                .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
+                .in("gcd_id", gcdIds)
+                .order("gcd_id"),
+            "gcd_id"
           )
         : [],
     ]);
@@ -133,7 +105,7 @@ export async function POST(req) {
       const localCoversByKey = new Map();
 
       if (localSeriesTitles.length > 0 && localIssueNumbers.length > 0) {
-        const localCovers = await fetchAllPages(() =>
+        const localCovers = await fetchAllPagesParallel(() =>
           supabase
             .from("canonical_covers")
             .select("series_title, issue_number, series_year, cover_date, storage_path")
@@ -291,7 +263,7 @@ export async function POST(req) {
       // transient PG hiccup) and the title fallback covers for it.
       const [idCovers, titleCovers] = await Promise.all([
         intermediateGcdIds.length > 0 && issueNumbers.length > 0
-          ? fetchAllPages(() =>
+          ? fetchAllPagesParallel(() =>
               supabase
                 .from("canonical_covers")
                 .select("series_gcd_id, series_title, issue_number, series_year, cover_date, storage_path")
@@ -308,7 +280,7 @@ export async function POST(req) {
         // Transformers Universe" (GCD) finds "Transformers Universe"
         // (ComicVine); found live 2026-09-21.
         seriesTitles.length > 0 && issueNumbers.length > 0
-          ? fetchAllPages(() =>
+          ? fetchAllPagesParallel(() =>
               supabase
                 .from("canonical_covers")
                 .select("series_title, issue_number, series_year, cover_date, storage_path")

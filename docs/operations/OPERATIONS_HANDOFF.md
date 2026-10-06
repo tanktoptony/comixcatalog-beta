@@ -73,6 +73,12 @@ Scripts can import it directly — `import { fetchAllPages } from
 "../src/lib/supabase/fetchAllPages.js"` — so "it lives under `src/`" is not
 a reason to write another local loop.
 
+The read-only fuzzy-search verifier follows the same rule. Run
+`node --env-file=.env.local scripts/verifyFuzzySeriesSearch.js`; it walks
+`series` in ordered UUID pages, checks every response error, and exits nonzero
+when a required top hit changes. Migration 0038 adds spaced-word and pg_trgm
+tiers to the shared series RPC used by both search routes.
+
 Currently over the cap: The Beano (3,833 covers), Micky Maus (2,830),
 2000 AD (2,480), Four Color (1,321). Four more series are within 200 rows.
 **The trigger is "more covers per series", so this activates as coverage
@@ -494,8 +500,9 @@ cards).
    sanity vs the ComicVine volume).
 4. `src/app/api/comics/route.js`: was paginated after all, but ordered by
    `gcd_id` under an `IN (series_gcd_id)` filter (the 4.5s/page plan);
-   reordered 2026-09-22. Consolidating the local `fetchAllPages` copies onto
-   `src/lib/supabase/fetchAllPages.js` (with a keyset mode) is still open.
+   reordered 2026-09-22. Keyset mode now exists as `fetchAllByKeyset`; use it
+   for deep reads ordered by a unique, non-null key, and keep `fetchAllPages`
+   for small result sets where offset paging remains inexpensive.
    This item was originally filed as "unpaginated `gcd_issues` `.in()`",
    which was wrong. What remains is a duplication cleanup, not a truncation
    bug — nothing is returning short counts because of it. Do not re-file it
@@ -590,3 +597,9 @@ cards).
     instead of "unknown error". General lesson, third time now: **a health
     check that costs more than the work it guards will eventually lie about
     the work.**
+
+### Cover scan configuration
+
+- Apply `scripts/migrations/0040_cover_scans.sql` before enabling the UI. It creates the private `cover-scans` bucket, its owner-read policy, and the `cover_scans` audit table.
+- Set server-only `ANTHROPIC_API_KEY` in Vercel and local `.env.local`. A missing key returns HTTP 503 before accepting a photo.
+- Scan caps reset at 00:00 UTC. Attempts recorded as `capped` or `error` do not consume quota.

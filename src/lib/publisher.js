@@ -12,6 +12,25 @@ export function normalizePublisherName(value) {
   return String(value ?? "").trim();
 }
 
+// Short display labels used by collection filters and insight summaries.
+export function normalizePublisherDisplayName(value) {
+  const raw = normalizePublisherName(value);
+  if (!raw) return "Unknown Publisher";
+  const lower = raw.toLowerCase();
+  if (["marvel", "marvel comics"].includes(lower)) return "Marvel";
+  if (["dc", "dc comics"].includes(lower)) return "DC";
+  if (["image", "image comics"].includes(lower)) return "Image";
+  if (["boom", "boom!", "boom studios", "boom! studios"].includes(lower)) return "Boom";
+  if (["idw", "idw publishing"].includes(lower)) return "IDW";
+  if (["dark horse", "dark horse comics"].includes(lower)) return "Dark Horse";
+  return raw;
+}
+
+// Punctuation-insensitive key used when comparing publisher families.
+export function normalizePublisherKey(value) {
+  return normalizePublisherName(value).toLowerCase().replace(/[^a-z0-9]+/g, "");
+}
+
 // MVP filter: restrict search surfaces to US publishers while we get the app
 // off the ground. Values must match exactly what `resolvePublisher` produces
 // (see MASTER_EXACT_MAP below). To expand, add the normalized name here and

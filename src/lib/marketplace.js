@@ -1,5 +1,5 @@
 import { unstable_cache, revalidateTag } from "next/cache";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "./supabase/service.js";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { POST as libraryHydratePOST } from "@/app/api/library-hydrate/route";
 import { normalizePublisherLabel } from "@/lib/publisher";
@@ -23,12 +23,6 @@ import { KIND_LABELS, photoUrl } from "@/lib/listingPhotos";
 
 export const LISTINGS_TAG = "listings";
 
-function client() {
-  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
-    auth: { autoRefreshToken: false, persistSession: false },
-  });
-}
-
 async function hydrate(gcdIds) {
   const items = {};
   // The hydrate route handles whole collections; chunk to keep each call
@@ -50,7 +44,7 @@ async function hydrate(gcdIds) {
 // Fill cover_path and the normalized publisher for listings whose snapshot
 // hasn't been refreshed (new, or relinked to another issue). Pass sellerId
 // to limit it to one seller's listings. Returns how many rows it updated.
-export async function refreshListingSnapshots({ sellerId, sb = client() } = {}) {
+export async function refreshListingSnapshots({ sellerId, sb = getServiceClient() } = {}) {
   const stale = await fetchAllPages(() => {
     let q = sb
       .from("listings")
@@ -129,7 +123,7 @@ async function photoCounts(sb, collectionIds) {
 }
 
 async function computeListings() {
-  const sb = client();
+  const sb = getServiceClient();
   await refreshListingSnapshots({ sb });
   const rows = await fetchAllPages(() => sb.from("marketplace_listings").select(VIEW_COLUMNS));
   const listings = rows.map((r) => toListing(r, process.env.NEXT_PUBLIC_SUPABASE_URL));
@@ -143,7 +137,7 @@ async function computeListings() {
 }
 
 async function computeListingsForIssue(gcdIssueId) {
-  const sb = client();
+  const sb = getServiceClient();
   const { data, error } = await sb
     .from("marketplace_listings")
     .select(VIEW_COLUMNS)
@@ -186,7 +180,7 @@ export function revalidateListings() {
 // so an edit shows up on the next load.
 async function computeListing(id) {
   if (!/^[0-9a-f-]{36}$/i.test(String(id))) return null;
-  const sb = client();
+  const sb = getServiceClient();
   const { data: l, error } = await sb
     .from("listings")
     .select(

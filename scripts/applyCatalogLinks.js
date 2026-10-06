@@ -30,7 +30,7 @@ const supabase = createClient(
 // ─────────────────────────────────────────────────────────────────────────
 // Matcher (mirror of auditCatalogLink.js)
 // ─────────────────────────────────────────────────────────────────────────
-import { normTitle, normIssue, parseYear, bestYearFor, titleVariants, pickFromMatches } from "../src/lib/catalogLinkMatcher.js";
+import { normIssue, parseYear, bestYearFor, titleVariants, pickFromMatches } from "../src/lib/catalogLinkMatcher.js";
 
 
 

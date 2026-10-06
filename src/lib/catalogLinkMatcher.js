@@ -8,7 +8,7 @@
 // node CLI scripts also import it.
 //
 // Public API:
-//   normTitle(v)                  — lowercase, strip non-alnum
+//   toTitleNormalizedKey(v)       — lowercase, strip non-alnum
 //   normIssue(v)                  — trim, lowercase
 //   parseYear(v)                  — pull a 4-digit year from anything string-ish
 //   bestYearFor(row)              — prefer publication_date, fall back to key_date
@@ -29,7 +29,7 @@ const ROMAN_TO_ARABIC = Object.fromEntries(
   Object.entries(ARABIC_TO_ROMAN).map(([a, r]) => [r, Number(a)])
 );
 
-export function normTitle(value) {
+export function toTitleNormalizedKey(value) {
   return String(value ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
@@ -37,17 +37,8 @@ export function normIssue(value) {
   return String(value ?? "").trim().toLowerCase();
 }
 
-export function parseYear(value) {
-  if (value == null) return null;
-  const n = Number(value);
-  if (!Number.isNaN(n) && n > 1800 && n < 2200) return n;
-  const m = String(value).match(/\b(18|19|20)\d{2}\b/);
-  return m ? Number(m[0]) : null;
-}
-
-export function bestYearFor(row) {
-  return parseYear(row?.publication_date) ?? parseYear(row?.key_date);
-}
+export { bestYearFor, parseYear } from "./years.js";
+import { parseYear } from "./years.js";
 
 // User-side titles often carry annotations that GCD doesn't index in the
 // series name. We generate a set of candidate normalized forms per title
@@ -59,7 +50,7 @@ export function titleVariants(rawTitle) {
   const seen = new Set();
   const out = [];
   function push(s) {
-    const n = normTitle(s);
+    const n = toTitleNormalizedKey(s);
     if (!n || seen.has(n)) return;
     seen.add(n);
     out.push(n);

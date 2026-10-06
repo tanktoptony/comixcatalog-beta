@@ -10,6 +10,10 @@
     "start": "next start",
     "lint": "eslint",
     "test:cover-match": "node --test src/lib/coverMatch.test.js",
+    "test:cover-scan": "node --test src/lib/coverScan.test.js",
+    "test:covers": "node --test src/lib/catalog/covers.test.js",
+    "test:fetch-all": "node --test src/lib/supabase/fetchAllPages.test.js",
+    "test:years": "node --test src/lib/years.test.js",
     "test:activity-feed": "node --test src/lib/activityFeed.test.js",
     "test:library-mutations": "node --test src/lib/libraryMutations.test.js",
     "test:chunk": "node --test src/lib/chunk.test.js",
@@ -58,6 +62,7 @@
     "test:json-ld": "node --test src/lib/jsonLd.test.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
     "@resvg/resvg-js": "^2.6.2",
     "@sentry/nextjs": "^10.74.0",
     "@supabase/ssr": "^0.8.0",

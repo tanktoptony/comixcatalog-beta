@@ -2,6 +2,10 @@
 // Keep the ingestion mirror in comicvine_api_to_supabase.py aligned with the
 // fixture in scripts/fixtures/cover-match-cases.json when changing this file.
 
+import { normalizePublisherKey } from "./publisher.js";
+
+export { normalizePublisherKey as normalizePublisher } from "./publisher.js";
+
 export function normalizeTitle(value) {
   const normalized = String(value ?? "")
     .toLowerCase()
@@ -20,8 +24,17 @@ export function baseIssueNumber(value) {
   return match ? match[1] : null;
 }
 
-export function normalizePublisher(value) {
-  return String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "").trim();
+export function compareIssueNumbers(left, right) {
+  const leftBase = baseIssueNumber(left);
+  const rightBase = baseIssueNumber(right);
+  const leftNumber = leftBase == null ? null : Number(leftBase);
+  const rightNumber = rightBase == null ? null : Number(rightBase);
+  if (leftNumber == null && rightNumber != null) return 1;
+  if (leftNumber != null && rightNumber == null) return -1;
+  if (leftNumber != null && rightNumber != null && leftNumber !== rightNumber) {
+    return leftNumber - rightNumber;
+  }
+  return String(left ?? "").localeCompare(String(right ?? ""), undefined, { numeric: true });
 }
 
 const PUBLISHER_FAMILIES = [
@@ -38,14 +51,14 @@ const PUBLISHER_FAMILIES = [
 ];
 
 export function publisherFamily(value) {
-  const normalized = normalizePublisher(value);
+  const normalized = normalizePublisherKey(value);
   if (!normalized) return null;
   return PUBLISHER_FAMILIES.find(([, pattern]) => pattern.test(normalized))?.[0] ?? null;
 }
 
 export function publishersCompatible(left, right) {
-  const leftNormalized = normalizePublisher(left);
-  const rightNormalized = normalizePublisher(right);
+  const leftNormalized = normalizePublisherKey(left);
+  const rightNormalized = normalizePublisherKey(right);
   if (!leftNormalized || !rightNormalized) return false;
   const leftFamily = publisherFamily(left);
   const rightFamily = publisherFamily(right);

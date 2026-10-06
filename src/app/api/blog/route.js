@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
 import { ADMIN_ID } from "@/lib/admin";
 
@@ -7,13 +8,6 @@ function getAnonClient() {
   return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  );
-}
-
-function getAdminClient() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 }
 
@@ -61,7 +55,7 @@ export async function POST(req) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
   }
 
-  const supabase = getAdminClient();
+  const supabase = getServiceClient();
 
   const body = await req.json();
   const { title, slug, content, excerpt } = body;
@@ -104,7 +98,7 @@ export async function DELETE(req) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
   }
 
-  const supabase = getAdminClient();
+  const supabase = getServiceClient();
 
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");

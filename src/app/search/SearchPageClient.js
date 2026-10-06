@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
 import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
@@ -11,6 +12,9 @@ import { trackEvent } from "@/lib/analytics";
 import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
 import { coverThumb } from "@/lib/coverThumb";
+import ComicResultCard from "@/components/ComicResultCard";
+import CoverScanner from "@/components/CoverScanner";
+import { compareIssueNumbers, normalizeTitle } from "@/lib/coverMatch";
 
 const PAGE_SIZE = 36;
 
@@ -114,9 +118,8 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
   const [publisherFilter, setPublisherFilter] = useState(null);
   const [collectionFilter, setCollectionFilter] = useState("all");
 
-  const [isBrowsing, setIsBrowsing] = useState(!initialQuery);
   const [isLoading, setIsLoading] = useState(false);
-  const [isFirstLoad, setIsFirstLoad] = useState(!initialComics);
+  const [isFirstLoad, setIsFirstLoad] = useState(Boolean(initialQuery) && !initialComics);
   const [loadError, setLoadError] = useState(null);
   const [mutationError, setMutationError] = useState(null);
   const [hasMore, setHasMore] = useState(initialComics ? initialComics.length === PAGE_SIZE : true);
@@ -134,6 +137,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     // render fired the browse request (/api/comics, the slowest route on the
     // site) with no delay, for results that were thrown away a moment later.
     if (awaitingUrlSeed) return;
+    if (!query) return;
     if (page === 0 && skipComicsFetchFor.current !== null && skipComicsFetchFor.current === query) {
       skipComicsFetchFor.current = null;
       return;
@@ -147,11 +151,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         setIsLoading(true);
         setLoadError(null);
 
-        const url = query
-          ? `/api/search/comics?q=${encodeURIComponent(query)}&limit=${PAGE_SIZE}&offset=${page * PAGE_SIZE}`
-          : `/api/comics?limit=${PAGE_SIZE}&offset=${page * PAGE_SIZE}`;
-
-        setIsBrowsing(!query);
+        const url = `/api/search/comics?q=${encodeURIComponent(query)}&limit=${PAGE_SIZE}&offset=${page * PAGE_SIZE}`;
 
         const res = await fetch(url, { cache: "no-store" });
 
@@ -197,7 +197,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
           setIsFirstLoad(false);
         }
       }
-    }, query ? 400 : 0);
+    }, 400);
 
     return () => {
       cancelled = true;
@@ -218,9 +218,9 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     setHasMore(true);
     setLoadError(null);
     setPublisherFilter(null);
-    // Suggestions only clear when the box empties; while typing, the old
-    // list stays up until the debounced fetch below replaces it.
-    if (!query) setSeriesResults([]);
+    setSupabaseComics([]);
+    setSeriesResults([]);
+    setIsFirstLoad(Boolean(query));
   }
 
   // ── Series suggestions ───────────────────────────────────────────────────────
@@ -237,7 +237,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     const timeout = setTimeout(async () => {
       try {
         const res = await fetch(
-          `/api/search/series?q=${encodeURIComponent(query)}`,
+          `/api/search/series?q=${encodeURIComponent(query)}&limit=4`,
           { cache: "no-store" }
         );
         if (!res.ok) throw new Error(`Series request failed: ${res.status}`);
@@ -271,10 +271,31 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     return deduped;
   }, [supabaseComics]);
 
+  const orderedComics = useMemo(() => {
+    const seriesRankById = new Map();
+    const seriesRankByTitle = new Map();
+    seriesResults.forEach((series, index) => {
+      for (const id of [series?.id, series?.gcd_id]) {
+        if (id != null) seriesRankById.set(String(id), index);
+      }
+      const title = normalizeTitle(series?.title);
+      if (title && !seriesRankByTitle.has(title)) seriesRankByTitle.set(title, index);
+    });
+    const rank = (item) => seriesRankById.get(String(item.seriesId))
+      ?? seriesRankByTitle.get(normalizeTitle(item.title))
+      ?? Number.MAX_SAFE_INTEGER;
+
+    return mappedComics.toSorted((a, b) => {
+      const seriesDelta = rank(a) - rank(b);
+      if (seriesDelta) return seriesDelta;
+      return compareIssueNumbers(a.issueNumber, b.issueNumber);
+    });
+  }, [mappedComics, seriesResults]);
+
   // ── Dynamic publisher list from current results ──────────────────────────────
   const availablePublishers = useMemo(() => {
     const counts = {};
-    for (const item of mappedComics) {
+    for (const item of orderedComics) {
       const pub = (item.publisher || "").trim();
       if (!pub) continue;
       counts[pub] = (counts[pub] || 0) + 1;
@@ -283,11 +304,11 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       .sort((a, b) => b[1] - a[1])
       .slice(0, 10)
       .map(([name]) => name);
-  }, [mappedComics]);
+  }, [orderedComics]);
 
   // ── Apply collection/wishlist filters only (server already handled query+publisher) ──
   const results = useMemo(() => {
-    let filtered = mappedComics;
+    let filtered = orderedComics;
 
     // Publisher filter (client-side on current page's results)
     if (publisherFilter) {
@@ -303,7 +324,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     }
 
     return filtered;
-  }, [mappedComics, publisherFilter, collectionFilter, collectionIds, wishlistIds]);
+  }, [orderedComics, publisherFilter, collectionFilter, collectionIds, wishlistIds]);
 
   const togglePublisher = useCallback((pub) => {
     setPublisherFilter((prev) => (prev === pub ? null : pub));
@@ -312,6 +333,17 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
   const toggleCollection = useCallback((val) => {
     setCollectionFilter((prev) => (prev === val ? "all" : val));
   }, []);
+
+  if (!shownQuery) {
+    return (
+      <section className="comic-panel search-empty">
+        <div className="section-label badge-x">Search</div>
+        <h1 className="hero-title">Find Comics</h1>
+        <p className="muted search-prompt">Search a title in the bar above, or scan a cover.</p>
+        <CoverScanner />
+      </section>
+    );
+  }
 
   return (
     <section className="comic-panel">
@@ -324,36 +356,9 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       {seriesResults.length > 0 && (
         <div style={{ marginBottom: "20px" }}>
           <h3 className="section-label">Series</h3>
-          {(() => {
-            // Group consecutive rows by normalized title so "Batman" 1940 and
-            // "Batman" 2016 sit together, with a horizontal divider between
-            // distinct titles.
-            const titleKey = (s) =>
-              String(s?.title ?? "")
-                .trim()
-                .toLowerCase()
-                .replace(/\b(the|a|an)\b/g, "")
-                .replace(/[^a-z0-9]/g, "");
-
-            const groups = [];
-            for (const s of seriesResults) {
-              if (!s?.id) continue;
-              const key = titleKey(s);
-              const last = groups[groups.length - 1];
-              if (last && last.key === key) last.rows.push(s);
-              else groups.push({ key, rows: [s] });
-            }
-
-            return groups.map((group, gi) => (
-              <div key={`series-group-${gi}`}>
-                {gi > 0 && <hr className="series-volume-divider" />}
-                <div className="comic-grid">
-                  {group.rows.map((s) => {
+          <div className="comic-grid search-series-grid">
+            {seriesResults.filter((s) => s?.id).map((s) => {
                     const yearLabel = formatYearRange(s.year_start, s.year_end);
-                    const volumeLabel =
-                      s.volume_count && s.volume_count > 1 && s.volume_index
-                        ? `Vol. ${s.volume_index} of ${s.volume_count}`
-                        : null;
                     return (
                       <Link prefetch={false}
                         key={s.id}
@@ -369,7 +374,6 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                       >
                         <div className="comic-card-cover">
                           {s.cover && (
-                            // eslint-disable-next-line @next/next/no-img-element
                             <img src={coverThumb(s.cover)} alt={s.title || ""} />
                           )}
                         </div>
@@ -380,7 +384,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                           {[
                             s.publisher?.name || "Unknown Publisher",
                             yearLabel,
-                            volumeLabel,
+                            s.issue_count != null ? `${s.issue_count} issues` : null,
                           ]
                             .filter(Boolean)
                             .join(" · ")}
@@ -388,12 +392,11 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                       </Link>
                     );
                   })}
-                </div>
-              </div>
-            ));
-          })()}
+          </div>
         </div>
       )}
+
+      <h2 className="section-label search-issues-heading">Issues</h2>
 
       {/* Filter bar */}
       <div className="filter-bar">
@@ -439,27 +442,19 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       {!isFirstLoad && !loadError && (
         <p className="muted">
           {results.length} result{results.length === 1 ? "" : "s"}
-          {shownQuery ? ` for "${shownQuery}"` : " — featured series"}
+          {` for "${shownQuery}"`}
           {publisherFilter ? ` · ${publisherFilter}` : ""}
         </p>
       )}
 
       {/* Empty state */}
       {!isLoading && !loadError && !isFirstLoad && results.length === 0 && (
-        shownQuery ? (
-          <EmptyState
+        <EmptyState
             icon="🔍"
             title={`No results for "${shownQuery}"`}
             body="Try a broader search, fewer words, or check the spelling. Series titles are the most reliable way to find an issue."
             secondary={{ href: "/search", label: "Clear search" }}
           />
-        ) : (
-          <EmptyState
-            icon="📚"
-            title="Nothing to browse yet"
-            body="The database is still being populated. Check back soon."
-          />
-        )
       )}
 
       {/* Comic grid */}
@@ -471,6 +466,9 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         {/* Real results */}
         {!isFirstLoad &&
           results.map((item, index) => {
+            if (item.id) {
+              return <ComicResultCard key={item.id} item={item} index={index} query={query} onMutationError={setMutationError} />;
+            }
             const isSeries = item.__source === "series";
             const isUserAdded = item.__source === "user";
             const inCollection = !isSeries && collectionIds.has(item.id);
@@ -604,7 +602,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         {/* House-ad row, pinned by CSS to grid row 3 (after two full rows of
             results at any column count). */}
         {!isFirstLoad && results.length > 0 && (
-          <AdSlot position={SLOT.SEARCH_INLINE_1} pageKey={shownQuery || "browse"} className="ad-slot--row3" />
+          <AdSlot position={SLOT.SEARCH_INLINE_1} pageKey={shownQuery} className="ad-slot--row3" />
         )}
 
         {/* Inline skeleton cards while loading more */}

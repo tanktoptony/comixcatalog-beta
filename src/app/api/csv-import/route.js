@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getServiceClient } from "@/lib/supabase/service";
 import Papa from "papaparse";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
@@ -18,10 +18,7 @@ const FREE_ROW_CAP = 25;
 const PRO_ROW_CAP = 200;
 
 export async function POST(req) {
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
+  const supabase = getServiceClient();
 
   try {
     const authedUser = await getAuthedUser(req);
@@ -88,11 +85,15 @@ export async function POST(req) {
     // Pro/founding subscribers (and ADMIN_ID). Matches the auth posture of
     // /api/export/pdf and /api/export/csv — we return 402 with upgrade: true so
     // the library UI can redirect to /upgrade.
-    const { data: profile } = await supabase
+    const { data: profile, error: profileError } = await supabase
       .from("profiles")
       .select("is_pro")
       .eq("id", user_id)
-      .single();
+      .maybeSingle(); // zero rows is an answer, not a failure
+    if (profileError) {
+      console.error("CSV import profile lookup failed:", profileError.code, profileError.message);
+      return NextResponse.json({ error: "Failed to verify import limits" }, { status: 502 });
+    }
     const isProOrAdmin =
       Boolean(profile?.is_pro) || user_id === ADMIN_ID;
     const rowCap = isProOrAdmin ? PRO_ROW_CAP : FREE_ROW_CAP;

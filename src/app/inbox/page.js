@@ -103,10 +103,18 @@ export default function InboxPage() {
       }
 
       // Hydrate profiles for the other participants.
-      const { data: profiles } = await supabase
+      const { data: profiles, error: profilesError } = await supabase
         .from("profiles")
         .select("id, username, avatar_url, display_name")
         .in("id", otherIds);
+
+      if (profilesError) {
+        console.error("Inbox profile lookup failed:", profilesError.code, profilesError.message);
+        setError("Failed to load conversations.");
+        // Leave the loading state, or the error never renders on a first visit.
+        setThreads((current) => current ?? []);
+        return;
+      }
 
       const profilesById = new Map((profiles ?? []).map((p) => [p.id, p]));
 

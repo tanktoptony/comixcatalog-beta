@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  searchWordCoverage,
   compactSeriesSearch,
   normalizeSeriesSearchWords,
   significantSeriesSearchWords,
@@ -32,4 +33,11 @@ test("matches significant words in any order as whole words", () => {
 test("typo fallback scores Cerebus but rejects unrelated titles", () => {
   assert.ok(scoreSeriesSearchTitle("Cerebus", "cerbus") > 0);
   assert.equal(scoreSeriesSearchTitle("Batman", "cerbus"), 0);
+});
+
+test("searchWordCoverage ranks titles holding more of the searched words", () => {
+  const q = "street fighter ii animated";
+  assert.equal(searchWordCoverage("Street Fighter II: The Animated Movie Official", q), 4);
+  assert.equal(searchWordCoverage("Street Fighter Unlimited", q), 2);
+  assert.equal(searchWordCoverage("Batman", "batman"), searchWordCoverage("Batman: Legends of the Dark Knight", "batman"));
 });

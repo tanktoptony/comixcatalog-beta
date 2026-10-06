@@ -3,7 +3,7 @@ import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { normalizeSeriesSearchWords } from "@/lib/seriesSearchMatch";
-import { baseIssueNumber } from "@/lib/coverMatch";
+import { baseIssueNumber, compareIssueNumbers } from "@/lib/coverMatch";
 import { parseYear } from "@/lib/years";
 
 function normalizeSearch(value) {
@@ -228,7 +228,11 @@ export async function GET(req) {
         ...s,
         __score: scoreSeriesTitle(s.title, normalizedQForScoring),
       }))
-      .sort((a, b) => b.__score - a.__score);
+      .sort((a, b) => {
+        const scoreDelta = b.__score - a.__score;
+        if (scoreDelta) return scoreDelta;
+        return compareIssueNumbers(a.issue_number, b.issue_number);
+      });
 
     const strongSeries = scoredSeries.filter((s) => s.__score > 10);
     const seriesPool = (strongSeries.length > 0 ? strongSeries : scoredSeries).slice(

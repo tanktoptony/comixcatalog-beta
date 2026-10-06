@@ -3,6 +3,7 @@ import fs from "node:fs";
 import test from "node:test";
 import {
   baseIssueNumber,
+  compareIssueNumbers,
   createCoverMatcher,
   pickSeriesByYear,
   publishersCompatible,
@@ -33,6 +34,11 @@ test("baseIssueNumber matches the ingestion fixture", () => {
   for (const row of fixture.issueNumbers) {
     assert.equal(baseIssueNumber(row.input), row.base, row.input);
   }
+});
+
+test("compareIssueNumbers sorts numeric bases first and variants together", () => {
+  const values = ["Special", "10", "2", "1 [Newsstand]", "1"];
+  assert.deepEqual(values.toSorted(compareIssueNumbers), ["1", "1 [Newsstand]", "2", "10", "Special"]);
 });
 
 test("pickSeriesByYear disambiguates repeated titles", () => {

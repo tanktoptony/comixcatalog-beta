@@ -16865,9 +16865,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-29T06:00:53.558484+00:00",
-    "retry_after": "2026-10-06T06:00:53.558501+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-06T06:59:03.004434+00:00",
+    "retry_after": "2026-10-20T06:59:03.004450+00:00"
   },
   {
     "name": "The Michael Moorcock Library - The Chronicles of Corum",
@@ -18783,9 +18783,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-29T06:00:53.104138+00:00",
-    "retry_after": "2026-10-06T06:00:53.104156+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-06T06:59:03.668942+00:00",
+    "retry_after": "2026-10-20T06:59:03.668957+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Lee & Everett",
@@ -20004,9 +20004,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-29T06:00:52.696461+00:00",
-    "retry_after": "2026-10-06T06:00:52.696481+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-06T06:59:04.134088+00:00",
+    "retry_after": "2026-10-20T06:59:04.134104+00:00"
   },
   {
     "name": "The Holo Brothers Special: Angst for the Memories",
@@ -25105,9 +25105,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-29T06:00:59.666365+00:00",
-    "retry_after": "2026-10-06T06:00:59.666383+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-06T06:59:02.426630+00:00",
+    "retry_after": "2026-10-20T06:59:02.426645+00:00"
   },
   {
     "name": "Collector's Guide to the Ultraverse",
@@ -42392,5 +42392,68 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T06:06:16.439494+00:00",
     "retry_after": "2026-10-07T06:06:16.439513+00:00"
+  },
+  {
+    "name": "Incredibles 2: Crisis in Mid-Life! & Other Stories",
+    "publisher": "Dark Horse Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T07:01:33.321847+00:00",
+    "retry_after": "2026-10-07T07:01:33.321865+00:00"
+  },
+  {
+    "name": "Shazam!",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 115760,
+        "name": "Shazam!",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 137674,
+        "name": "Shazam!",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 160598,
+        "name": "Shazam!",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      },
+      {
+        "id": 38615,
+        "name": "Shazam!",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 2622,
+        "name": "Shazam!",
+        "publisher": "DC Comics",
+        "start_year": 1973
+      },
+      {
+        "id": 150016,
+        "name": "Shazam!",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 67696,
+        "name": "Shazam!",
+        "publisher": "DC Comics",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T07:01:34.105369+00:00",
+    "retry_after": "2026-10-07T07:01:34.105385+00:00"
   }
 ]

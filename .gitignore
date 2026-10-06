@@ -62,6 +62,7 @@ __pycache__/
 !/reports/covers-*.html
 !/reports/cover-coverage-history.json
 !/reports/perf-*.md
+!/reports/catalog-gap-*.md
 !/reports/cover-resolver-parity-*.md
 /reports/.cover-parity-cache-*.jsonl
 /reports/.cover-parity-sample-*.json

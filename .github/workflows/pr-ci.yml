@@ -61,6 +61,9 @@ jobs:
       - name: Cover-match tests
         run: npm run test:cover-match
 
+      - name: Cover-scan tests
+        run: npm run test:cover-scan
+
       - name: Cover resolver tests
         run: npm run test:covers
 

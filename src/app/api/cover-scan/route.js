@@ -5,8 +5,9 @@ import { ADMIN_ID } from "@/lib/admin";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { normalizeSeriesSearchWords } from "@/lib/seriesSearchMatch";
 import { baseIssueNumber } from "@/lib/coverMatch";
-import { capStatus, coverScanConfigStatus, coverScanModelFailure, COVER_SCAN_MODEL, rankCoverCandidates } from "@/lib/coverScan";
+import { capStatus, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, COVER_SCAN_MODEL, rankCoverCandidates, titleTokens } from "@/lib/coverScan";
 import { extractCover } from "@/lib/coverScanClaude";
+import { resolveCovers } from "@/lib/catalog/covers";
 
 export const runtime = "nodejs";
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
@@ -21,32 +22,50 @@ async function quota(supabase, userId, isPro) {
   return capStatus(count ?? 0, isPro);
 }
 
-async function coverPaths(supabase, ranked) {
-  const ids = ranked.map((r) => Number(r.issue.gcd_id));
-  if (!ids.length) return new Map();
-  const { data, error } = await supabase.from("canonical_covers").select("gcd_issue_id, storage_path").in("gcd_issue_id", ids).order("id", { ascending: true });
-  if (error) throw error;
-  return new Map((data ?? []).filter((r) => r.storage_path).map((r) => [Number(r.gcd_issue_id), r.storage_path]));
-}
-
 async function findCandidates(supabase, extracted) {
   const term = normalizeSeriesSearchWords(extracted.series_title);
-  const { data: seriesRows, error: seriesError } = await supabase.rpc("search_series_by_relevance", { normalized_term: term, allowed_publishers: US_PUBLISHER_ALLOWLIST, result_limit: 1000 });
+  const directTokens = titleTokens(extracted.series_title).filter((token) => token.length > 1).slice(0, 8);
+  let directQuery = supabase.from("gcd_series").select("gcd_id, name, year_began, year_ended").limit(50);
+  for (const token of directTokens) directQuery = directQuery.ilike("name", `%${token}%`);
+  const [{ data: seriesRows, error: seriesError }, { data: gcdSeriesRows, error: gcdSeriesError }] = await Promise.all([
+    supabase.rpc("search_series_by_relevance", { normalized_term: term, allowed_publishers: US_PUBLISHER_ALLOWLIST, result_limit: 1000 }),
+    directTokens.length ? directQuery : Promise.resolve({ data: [], error: null }),
+  ]);
   if (seriesError) throw seriesError;
-  const series = (seriesRows ?? []).slice(0, 100);
+  if (gcdSeriesError) throw gcdSeriesError;
+  const seriesById = new Map((seriesRows ?? []).slice(0, 100).map((row) => [Number(row.gcd_id), row]));
+  for (const row of gcdSeriesRows ?? []) {
+    const id = Number(row.gcd_id);
+    if (!seriesById.has(id)) seriesById.set(id, {
+      gcd_id: id,
+      title: row.name,
+      year_start_cached: row.year_began,
+      year_end_cached: row.year_ended,
+      resolved_publisher_cached: null,
+    });
+  }
+  const series = [...seriesById.values()];
   const ids = series.map((s) => Number(s.gcd_id)).filter(Number.isFinite);
   if (!ids.length) return [];
   const base = baseIssueNumber(extracted.issue_number);
+  if (!base) return [];
   const { data: issues, error: issueError } = await supabase.from("gcd_issues")
     .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
     .in("series_gcd_id", ids).ilike("issue_number", `${base}%`).order("gcd_id", { ascending: true }).limit(1000);
   if (issueError) throw issueError;
-  const ranked = rankCoverCandidates(extracted, series, issues ?? []).slice(0, 3);
-  const paths = await coverPaths(supabase, ranked);
-  return ranked.map(({ issue, series: s }) => ({
+  const ranked = rankCoverCandidates(extracted, series, issues ?? []);
+  const coverInputs = ranked.map(({ issue, series: s }) => ({
+    gcd_issue_id: Number(issue.gcd_id), series_gcd_id: Number(issue.series_gcd_id),
+    series_title: s.title, issue_number: issue.issue_number,
+    year: Number(String(issue.key_date ?? issue.publication_date ?? "").match(/\b(\d{4})\b/)?.[1]) || null,
+    series_year_start: s.year_start_cached ?? null, series_year_end: s.year_end_cached ?? null,
+  }));
+  const covers = await resolveCovers(supabase, coverInputs);
+  const distinct = collapseCoverPrintings(ranked, covers).slice(0, 3);
+  return distinct.map(({ issue, series: s }) => ({
     id: `gcd-${issue.gcd_id}`, gcd_issue_id: Number(issue.gcd_id), series_title: s.title,
     issue_number: issue.issue_number, year: Number(String(issue.key_date ?? issue.publication_date ?? "").match(/\b(\d{4})\b/)?.[1]) || null,
-    publisher: s.resolved_publisher_cached ?? null, cover_path: publicCover(paths.get(Number(issue.gcd_id))), __source: "gcd",
+    publisher: s.resolved_publisher_cached ?? null, cover_path: publicCover(covers.get(Number(issue.gcd_id))?.storage_path), __source: "gcd",
   }));
 }
 
@@ -81,7 +100,7 @@ export async function POST(req) {
     uploaded = true;
     const { extracted, usage } = await extractCover(bytes.toString("base64"), image.type);
     const candidates = extracted.is_comic_cover ? await findCandidates(supabase, extracted) : [];
-    const outcome = !extracted.is_comic_cover ? "not_a_comic" : candidates.length ? "matched" : (extracted.confidence === "low" ? "not_a_comic" : "not_in_catalog");
+    const outcome = coverScanOutcome(extracted, candidates);
     const { error: insertError } = await supabase.from("cover_scans").insert({ id: scanId, user_id: user.id, storage_path: storagePath, model: COVER_SCAN_MODEL, extracted, candidates, outcome, input_tokens: usage?.input_tokens ?? null, output_tokens: usage?.output_tokens ?? null });
     if (insertError) throw insertError;
     const nextQuota = capStatus(current.used + 1, isPro);

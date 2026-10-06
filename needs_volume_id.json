@@ -42015,9 +42015,9 @@
     "year": 1982,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T21:00:59.296318+00:00",
-    "retry_after": "2026-10-06T21:00:59.296334+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-06T21:10:19.371271+00:00",
+    "retry_after": "2026-10-09T21:10:19.371289+00:00"
   },
   {
     "name": "Beetlejuice Elliot Mess and the Unwashables",
@@ -42025,9 +42025,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T21:01:20.127628+00:00",
-    "retry_after": "2026-10-06T21:01:20.127647+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-06T21:10:19.865859+00:00",
+    "retry_after": "2026-10-09T21:10:19.865878+00:00"
   },
   {
     "name": "Cable - Blood and Metal",
@@ -42035,9 +42035,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T21:01:20.608913+00:00",
-    "retry_after": "2026-10-06T21:01:20.608935+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-06T21:10:20.298246+00:00",
+    "retry_after": "2026-10-09T21:10:20.298264+00:00"
   },
   {
     "name": "B.C. It's a Funny World",
@@ -42045,9 +42045,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T21:02:29.618645+00:00",
-    "retry_after": "2026-10-06T21:02:29.618662+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-06T21:10:20.780303+00:00",
+    "retry_after": "2026-10-09T21:10:20.780320+00:00"
   },
   {
     "name": "The Manhattan Projects",
@@ -42940,5 +42940,63 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T16:13:15.050880+00:00",
     "retry_after": "2026-10-07T16:13:15.050896+00:00"
+  },
+  {
+    "name": "Manhunter",
+    "publisher": "DC Comics",
+    "year": 1952,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 32687,
+        "name": "Manhunter",
+        "publisher": "DC Comics",
+        "start_year": 1984
+      },
+      {
+        "id": 11797,
+        "name": "Manhunter",
+        "publisher": "DC Comics",
+        "start_year": 2004
+      },
+      {
+        "id": 22970,
+        "name": "Manhunter",
+        "publisher": "DC Comics",
+        "start_year": 1994
+      },
+      {
+        "id": 4009,
+        "name": "Manhunter",
+        "publisher": "DC Comics",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T21:11:12.986785+00:00",
+    "retry_after": "2026-10-07T21:11:12.986803+00:00"
+  },
+  {
+    "name": "The House of Mystery",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 19439,
+        "name": "House of Mystery",
+        "publisher": "DC Comics",
+        "start_year": 1951
+      },
+      {
+        "id": 21513,
+        "name": "House of Mystery",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T21:12:54.601238+00:00",
+    "retry_after": "2026-10-07T21:12:54.601254+00:00"
   }
 ]

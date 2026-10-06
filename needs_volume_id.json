@@ -42068,9 +42068,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T23:29:13.667842+00:00",
-    "retry_after": "2026-10-06T23:29:13.667857+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-06T23:37:57.141768+00:00",
+    "retry_after": "2026-10-09T23:37:57.141813+00:00"
   },
   {
     "name": "The Battle of Genryu",
@@ -42078,9 +42078,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T23:29:14.197823+00:00",
-    "retry_after": "2026-10-06T23:29:14.197838+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-06T23:37:57.728034+00:00",
+    "retry_after": "2026-10-09T23:37:57.728050+00:00"
   },
   {
     "name": "Big Ethel Energy",
@@ -43039,8 +43039,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-06T23:09:04.746767+00:00",
-    "retry_after": "2026-10-07T23:09:04.746789+00:00"
+    "last_attempt_at": "2026-10-06T23:38:35.771807+00:00",
+    "retry_after": "2026-10-07T23:38:35.771823+00:00"
   },
   {
     "name": "The Funtastic World of Hanna-Barbera",
@@ -43049,17 +43049,7 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-06T23:16:15.533046+00:00",
-    "retry_after": "2026-10-07T23:16:15.533066+00:00"
-  },
-  {
-    "name": "She-Hulk Epic Collection",
-    "publisher": "Marvel Comics",
-    "year": 2022,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T23:32:29.950105+00:00",
-    "retry_after": "2026-10-07T23:32:29.950124+00:00"
+    "last_attempt_at": "2026-10-06T23:39:27.120904+00:00",
+    "retry_after": "2026-10-07T23:39:27.120919+00:00"
   }
 ]

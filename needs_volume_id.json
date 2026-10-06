@@ -16085,9 +16085,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-29T10:02:16.136931+00:00",
-    "retry_after": "2026-10-06T10:02:16.136947+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-06T11:00:51.582070+00:00",
+    "retry_after": "2026-10-20T11:00:51.582086+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -42596,5 +42596,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T10:02:34.092187+00:00",
     "retry_after": "2026-10-07T10:02:34.092196+00:00"
+  },
+  {
+    "name": "The Untold Legend of the Batman [MPI Audio Edition]",
+    "publisher": "DC Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T11:02:51.138666+00:00",
+    "retry_after": "2026-10-07T11:02:51.138684+00:00"
+  },
+  {
+    "name": "Black Panther Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T11:02:59.610661+00:00",
+    "retry_after": "2026-10-07T11:02:59.610679+00:00"
+  },
+  {
+    "name": "The Hedge Knight",
+    "publisher": "Devil's Due",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18329,
+        "name": "The Hedge Knight",
+        "publisher": "Image",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T11:03:28.210040+00:00",
+    "retry_after": "2026-10-07T11:03:28.210055+00:00"
   }
 ]

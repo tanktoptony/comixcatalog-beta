@@ -111,9 +111,7 @@ export function collapseCoverPrintings(ranked, covers = new Map()) {
     const current = groups.get(key);
     const candidateHasCover = covers.has(Number(candidate.issue.gcd_id));
     const currentHasCover = current && covers.has(Number(current.issue.gcd_id));
-    if (!current
-      || (candidateHasCover && !currentHasCover)
-      || (candidateHasCover === currentHasCover && Number(candidate.issue.gcd_id) < Number(current.issue.gcd_id))) {
+    if (!current || (candidateHasCover && !currentHasCover)) {
       groups.set(key, candidate);
     }
   }

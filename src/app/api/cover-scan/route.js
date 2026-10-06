@@ -25,7 +25,10 @@ async function quota(supabase, userId, isPro) {
 async function findCandidates(supabase, extracted) {
   const term = normalizeSeriesSearchWords(extracted.series_title);
   const directTokens = titleTokens(extracted.series_title).filter((token) => token.length > 1).slice(0, 8);
-  let directQuery = supabase.from("gcd_series").select("gcd_id, name, year_began, year_ended").limit(50);
+  let directQuery = supabase.from("gcd_series")
+    .select("gcd_id, name, year_began, year_ended, gcd_publishers!inner(name)")
+    .in("gcd_publishers.name", US_PUBLISHER_ALLOWLIST)
+    .limit(50);
   for (const token of directTokens) directQuery = directQuery.ilike("name", `%${token}%`);
   const [{ data: seriesRows, error: seriesError }, { data: gcdSeriesRows, error: gcdSeriesError }] = await Promise.all([
     supabase.rpc("search_series_by_relevance", { normalized_term: term, allowed_publishers: US_PUBLISHER_ALLOWLIST, result_limit: 1000 }),
@@ -41,7 +44,7 @@ async function findCandidates(supabase, extracted) {
       title: row.name,
       year_start_cached: row.year_began,
       year_end_cached: row.year_ended,
-      resolved_publisher_cached: null,
+      resolved_publisher_cached: row.gcd_publishers?.name ?? null,
     });
   }
   const series = [...seriesById.values()];

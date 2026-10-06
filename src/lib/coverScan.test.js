@@ -48,6 +48,21 @@ test("printings collapse to one issue and prefer a covered printing", () => {
   const covers = new Map([[1244016, { storage_path: "squidder.jpg" }]]);
   assert.equal(collapseCoverPrintings(ranked, covers)[0].issue.gcd_id, 1244016);
 });
+test("printings collapse keeps the highest-ranked covered edition", () => {
+  const series = [{ gcd_id: 81844, title: "The Squidder", year_start_cached: 2014, year_end_cached: 2014, resolved_publisher_cached: "IDW" }];
+  const issues = [
+    { gcd_id: 100, series_gcd_id: 81844, issue_number: "1", key_date: "2014-07" },
+    { gcd_id: 200, series_gcd_id: 81844, issue_number: "1 [2nd printing]", key_date: "2014-07" },
+  ];
+  const input = { ...extracted, series_title: "Squidder", issue_number: "1", publisher: "IDW", cover_year: 2014, edition_clues: ["2nd printing"] };
+  const ranked = rankCoverCandidates(input, series, issues);
+  const covers = new Map([
+    [100, { storage_path: "squidder-first.jpg" }],
+    [200, { storage_path: "squidder-second.jpg" }],
+  ]);
+  assert.equal(ranked[0].issue.gcd_id, 200);
+  assert.equal(collapseCoverPrintings(ranked, covers)[0].issue.gcd_id, 200);
+});
 test("Cerebus 1977 number one ranks first", () => {
   const input = { ...extracted, series_title: "Cerebus", issue_number: "1", publisher: "", cover_year: 1977 };
   const series = [{ gcd_id: 1, title: "Cerebus", year_start_cached: 1977, year_end_cached: 2004, resolved_publisher_cached: "Aardvark-Vanaheim" }, { gcd_id: 2, title: "Cerebus", year_start_cached: 2019, year_end_cached: 2019, resolved_publisher_cached: "Aardvark-Vanaheim" }];

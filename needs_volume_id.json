@@ -15621,9 +15621,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-29T06:00:42.358718+00:00",
-    "retry_after": "2026-10-06T06:00:42.358735+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-06T06:00:45.336679+00:00",
+    "retry_after": "2026-10-20T06:00:45.336694+00:00"
   },
   {
     "name": "Spider-Man Family Featuring Spider-Man's Amazing Friends",
@@ -19755,9 +19755,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-29T06:00:41.946248+00:00",
-    "retry_after": "2026-10-06T06:00:41.946266+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-06T06:00:45.958523+00:00",
+    "retry_after": "2026-10-20T06:00:45.958540+00:00"
   },
   {
     "name": "Steam Wars #1 FCBD Edition",
@@ -21683,9 +21683,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-29T05:02:48.727921+00:00",
-    "retry_after": "2026-10-06T05:02:48.727936+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-06T06:00:46.559031+00:00",
+    "retry_after": "2026-10-20T06:00:46.559046+00:00"
   },
   {
     "name": "Action Comics",
@@ -25292,9 +25292,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-29T05:01:53.615172+00:00",
-    "retry_after": "2026-10-06T05:01:53.615190+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-06T06:00:47.192209+00:00",
+    "retry_after": "2026-10-20T06:00:47.192225+00:00"
   },
   {
     "name": "Iron Man by Michelinie, Layton & Romita Jr. Omnibus",
@@ -42372,5 +42372,25 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T05:03:00.218080+00:00",
     "retry_after": "2026-10-07T05:03:00.218095+00:00"
+  },
+  {
+    "name": "The Cold Witch",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T06:05:12.465297+00:00",
+    "retry_after": "2026-10-07T06:05:12.465315+00:00"
+  },
+  {
+    "name": "Avengers Legends",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T06:06:16.439494+00:00",
+    "retry_after": "2026-10-07T06:06:16.439513+00:00"
   }
 ]

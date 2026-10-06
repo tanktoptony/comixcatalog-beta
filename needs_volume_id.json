@@ -42135,5 +42135,56 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T00:03:52.992976+00:00",
     "retry_after": "2026-10-07T00:03:52.993002+00:00"
+  },
+  {
+    "name": "Batwoman",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 171015,
+        "name": "Batwoman",
+        "publisher": "DC Comics",
+        "start_year": 2026
+      },
+      {
+        "id": 106110,
+        "name": "Batwoman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 36950,
+        "name": "Batwoman",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 99849,
+        "name": "Batwoman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 83439,
+        "name": "Batwoman",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T00:36:22.993883+00:00",
+    "retry_after": "2026-10-07T00:36:22.993899+00:00"
+  },
+  {
+    "name": "Edgar Rice Burroughs' the Return of Tarzan",
+    "publisher": "Dark Horse Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T00:36:49.925854+00:00",
+    "retry_after": "2026-10-07T00:36:49.925871+00:00"
   }
 ]

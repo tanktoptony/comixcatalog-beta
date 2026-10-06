@@ -27,11 +27,15 @@ function normIssue(v) {
 }
 async function assertPro(supabase, user_id) {
   if (user_id === ADMIN_ID) return true;
-  const { data: profile } = await supabase
+  const { data: profile, error } = await supabase
     .from("profiles")
     .select("is_pro, is_founding_collector")
     .eq("id", user_id)
-    .single();
+    .maybeSingle(); // zero rows is an answer, not a failure
+  if (error) {
+    console.error("catalog-link search profile lookup failed:", error.code, error.message);
+    return null;
+  }
   return Boolean(profile?.is_pro || profile?.is_founding_collector);
 }
 
@@ -49,12 +53,16 @@ export async function GET(req) {
     const supabase = getServiceClient();
 
     const isPro = await assertPro(supabase, user_id);
+    if (isPro === null) {
+      return NextResponse.json({ error: "Failed to verify account tier" }, { status: 502 });
+    }
     if (!isPro) {
       return NextResponse.json(
         { error: "Pro tier required", upgrade: true },
         { status: 402 }
       );
     }
+    let degraded = false;
 
     // ─────────────────────────────────────────────────────────────────────
     // mode=issue — return the gcd_issue for (series_gcd_id, issue)
@@ -67,28 +75,40 @@ export async function GET(req) {
       }
       const iNorm = normIssue(issue);
 
-      const { data: issues } = await supabase
+      const { data: issues, error: issuesError } = await supabase
         .from("gcd_issues")
         .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date, title")
         .eq("series_gcd_id", series_gcd_id);
+      if (issuesError) {
+        console.error("catalog-link issue search failed:", issuesError.code, issuesError.message);
+        return NextResponse.json({ error: "Failed to search catalog issues" }, { status: 502 });
+      }
 
       const hits = (issues ?? []).filter((i) => normIssue(i.issue_number) === iNorm);
 
       // Look up a canonical_cover for any of these via the series's title.
-      const { data: series } = await supabase
+      const { data: series, error: seriesError } = await supabase
         .from("series")
         .select("title")
         .eq("gcd_id", series_gcd_id)
         .maybeSingle();
+      if (seriesError) {
+        console.error("catalog-link issue series lookup failed:", seriesError.code, seriesError.message);
+        degraded = true;
+      }
 
       let coverIndex = new Map();
       if (series?.title) {
-        const { data: covers } = await supabase
+        const { data: covers, error: coversError } = await supabase
           .from("canonical_covers")
           .select("issue_number, storage_path, cover_date, series_year")
           .eq("series_title", series.title)
           .eq("issue_number", issue)
           .not("storage_path", "is", null);
+        if (coversError) {
+          console.error("catalog-link issue cover lookup failed:", coversError.code, coversError.message);
+          degraded = true;
+        }
         for (const c of covers ?? []) {
           const key = normIssue(c.issue_number);
           if (!coverIndex.has(key)) coverIndex.set(key, c);
@@ -112,7 +132,7 @@ export async function GET(req) {
         // Lowest gcd_id first = base issue (variants come after).
         .sort((a, b) => a.gcd_issue_id - b.gcd_issue_id);
 
-      return NextResponse.json({ results });
+      return NextResponse.json({ results, degraded });
     }
 
     // ─────────────────────────────────────────────────────────────────────
@@ -134,12 +154,16 @@ export async function GET(req) {
     if (qNorm.length < 2) {
       return NextResponse.json({ results: [] });
     }
-    const { data: seriesRows } = await supabase
+    const { data: seriesRows, error: seriesRowsError } = await supabase
       .from("series")
       .select("id, gcd_id, title, title_normalized, year_start_cached, year_end_cached, issue_count_cached, resolved_publisher_cached, featured_cover_path_cached")
       .ilike("title_normalized", `%${qNorm}%`)
       .not("gcd_id", "is", null)
       .limit(20);
+    if (seriesRowsError) {
+      console.error("catalog-link series search failed:", seriesRowsError.code, seriesRowsError.message);
+      return NextResponse.json({ error: "Failed to search catalog series" }, { status: 502 });
+    }
 
     if (!seriesRows?.length) {
       return NextResponse.json({ results: [] });
@@ -152,10 +176,14 @@ export async function GET(req) {
 
     const matchingIssuesBySeries = new Map();
     if (hintNorm) {
-      const { data: issues } = await supabase
+      const { data: issues, error: issuesError } = await supabase
         .from("gcd_issues")
         .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date, title")
         .in("series_gcd_id", seriesGcdIds);
+      if (issuesError) {
+        console.error("catalog-link matching issues lookup failed:", issuesError.code, issuesError.message);
+        return NextResponse.json({ error: "Failed to load matching issues" }, { status: 502 });
+      }
       for (const i of issues ?? []) {
         if (normIssue(i.issue_number) !== hintNorm) continue;
         const key = String(i.series_gcd_id);
@@ -178,12 +206,16 @@ export async function GET(req) {
     const seriesTitles = seriesRows.map((s) => s.title).filter(Boolean);
     const coverIndex = new Map();
     if (hintNorm && seriesTitles.length > 0) {
-      const { data: covers } = await supabase
+      const { data: covers, error: coversError } = await supabase
         .from("canonical_covers")
         .select("series_title, issue_number, storage_path, cover_date, series_year")
         .in("series_title", seriesTitles)
         .eq("issue_number", issueHint)
         .not("storage_path", "is", null);
+      if (coversError) {
+        console.error("catalog-link result cover lookup failed:", coversError.code, coversError.message);
+        degraded = true;
+      }
       for (const c of covers ?? []) {
         const key = toTitleNormalizedKey(c.series_title);
         if (!coverIndex.has(key)) coverIndex.set(key, c);
@@ -231,7 +263,7 @@ export async function GET(req) {
         return ya - yb;
       });
 
-    return NextResponse.json({ results });
+    return NextResponse.json({ results, degraded });
   } catch (err) {
     console.error("GET /api/library/catalog-link/search crashed:", err);
     return NextResponse.json({ error: "Server error" }, { status: 500 });

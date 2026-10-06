@@ -177,10 +177,15 @@ export async function POST(req) {
     // ── Local comics ──
     const localIds = collRows.filter((r) => r.comic_id).map((r) => r.comic_id);
     if (localIds.length > 0) {
-      const { data: comics } = await supabase
+      const { data: comics, error: comicsError } = await supabase
         .from("comics")
         .select("id, series_title, publisher, issue_number, release_year, comic_covers(image_path, is_primary)")
         .in("id", localIds);
+
+      if (comicsError) {
+        console.error("PDF export local comics lookup failed:", comicsError.code, comicsError.message);
+        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
+      }
 
       for (const c of comics || []) {
         const path = c.comic_covers?.find((x) => x.is_primary)?.image_path ?? null;
@@ -199,10 +204,15 @@ export async function POST(req) {
     // ── GCD issues ──
     const gcdIds = collRows.filter((r) => r.gcd_issue_id).map((r) => r.gcd_issue_id);
     if (gcdIds.length > 0) {
-      const { data: issues } = await supabase
+      const { data: issues, error: issuesError } = await supabase
         .from("gcd_issues")
         .select("gcd_id, issue_number, publication_date, series_gcd_id, title")
         .in("gcd_id", gcdIds);
+
+      if (issuesError) {
+        console.error("PDF export issues lookup failed:", issuesError.code, issuesError.message);
+        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
+      }
 
       const seriesGcdIds = [...new Set((issues || []).map((i) => i.series_gcd_id).filter(Boolean))];
       const { data: seriesRows } = seriesGcdIds.length

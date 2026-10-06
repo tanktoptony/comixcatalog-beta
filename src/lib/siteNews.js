@@ -8,6 +8,23 @@
 
 export const SITE_NEWS = [
   {
+    date: "2026-10-05",
+    title: "Search forgives your typos",
+    body: "Type \"cerbus\" and you get Cerebus. Spider-Man without the hyphen works, and so does a title with words missing or out of order, like \"street fighter ii animated\".",
+    href: "/search",
+  },
+  {
+    date: "2026-10-05",
+    title: "Indie and 90s books you couldn't find",
+    body: "Search was quietly hiding a lot of smaller publishers. Cerebus, Malibu's 1993 Street Fighter, Tokuma's Street Fighter II and more now show up and can go in your collection. If a book you own still won't come up, tell me and I'll add it.",
+    href: "/search",
+  },
+  {
+    date: "2026-10-05",
+    title: "New issues land faster",
+    body: "New issues of the series you collect, and of this month's releases, now get added to the catalog within a day or two instead of waiting on the featured list. A new issue of a series we already have covers for gets its cover the next day.",
+  },
+  {
     date: "2026-10-02",
     title: "Show the actual copy",
     body: "Add up to 10 photos of the exact book you're selling, front, back, spine and any defects, right from your phone. They're on the listing page next to the catalog cover, and location data is stripped from every photo before it's saved.",

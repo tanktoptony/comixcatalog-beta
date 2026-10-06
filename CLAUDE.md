@@ -412,7 +412,7 @@ Three bugs fixed:
 - **Publisher resolution:** prefer `series.resolved_publisher_cached` (year-aware, audited) over re-running `resolvePublisher()` on request. Re-resolving introduces the "1984 TMNT shows IDW" regression. Only re-resolve as a fallback when the cached value is null.
 - **Issue dedupe:** use `baseIssueNumber()` to collapse variant suffixes when counting issues. Don't double-count `1`, `1 [Newsstand]`, `1 [Variant Cover]`.
 - **`gcd_issue_id` is an integer.** Treat it consistently everywhere — no implicit string coercion.
-- **Cover image priority:** `canonical_covers.storage_path` → `public/fallback-cover.png`. The `public/covers/` local stubs are legacy and should be removed — do not add to them.
+- **Issue covers:** use `src/lib/catalog/covers.js` `resolveCovers()`; tiers are exact `gcd_issue_id`, then volume-exact `series_gcd_id` + base issue number, then untagged exact title variant + base issue number within the year guard. New code must not query `canonical_covers` directly for an issue cover.
 - **User avatars:** The `public/avatars/` hero image set is legacy. The target is user-uploaded profile photos. Do not build new features that depend on the static avatar set.
 - **`gcd_scraper_to_supabase.py` does NOT ingest GCD metadata.** It's a covers scraper hitting comics.org HTML. If you need to rebuild `gcd_issues` from source, that pipeline is not in the repo and must be rebuilt from a fresh GCD Postgres dump.
 - **GoCollect is dead.** Do not write new code against any GoCollect endpoint. Valuation goes through eBay Browse API.

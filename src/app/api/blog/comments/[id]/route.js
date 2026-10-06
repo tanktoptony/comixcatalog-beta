@@ -12,11 +12,16 @@ export async function DELETE(req, context) {
 
   const supabase = getServiceClient();
 
-  const { data: comment } = await supabase
+  const { data: comment, error: commentError } = await supabase
     .from("blog_comments")
     .select("user_id")
     .eq("id", id)
-    .single();
+    .maybeSingle(); // zero rows is an answer, not a failure
+
+  if (commentError) {
+    console.error("comment ownership lookup failed:", commentError.code, commentError.message);
+    return NextResponse.json({ error: "Failed to verify comment ownership" }, { status: 502 });
+  }
 
   if (!comment || String(comment.user_id) !== String(authedUser.id)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 403 });

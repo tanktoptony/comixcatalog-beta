@@ -1,20 +1,11 @@
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
+import { fetchSeriesCoverRows, resolveCovers } from "@/lib/catalog/covers";
 import { resolvePublisher } from "@/lib/publisher";
-import { titleVariants } from "@/lib/titleMatch";
-import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { collectsLines, formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { baseIssueNumber } from "@/lib/coverMatch";
 import { bestYearFor, parseYear } from "@/lib/years";
-
-function normalizeIssueNumber(value) {
-  return String(value ?? "").trim().toLowerCase();
-}
-
-function normalizeSeriesTitle(value) {
-  return String(value ?? "").trim().toLowerCase();
-}
 
 // Strip variant/printing suffixes — same logic as the cache refresh.
 // "1 [Newsstand]" → "1", "5/1981" → "5", "Annual 1" → null.
@@ -53,6 +44,7 @@ export async function GET(req, context) {
     const { id } = await context.params;
 
     const supabase = getServiceClient();
+    let degraded = false;
 
     const { data: series, error: seriesError } = await supabase
       .from("series")
@@ -91,39 +83,21 @@ export async function GET(req, context) {
     // below relies on; that's the same trade-off the title-path already
     // makes there.
     if (!series.gcd_id) {
-      const titleQueries = [];
-      if (series.title) {
-        // One query over every title variant (punctuation, leading "The");
-        // see titleVariants() for the Transformers Universe case.
-        titleQueries.push(() =>
-          supabase
-            .from("canonical_covers")
-            .select("issue_number, series_year, cover_date, storage_path, publisher")
-            .in("series_title", titleVariants(series.title))
-            .is("series_gcd_id", null)
-        );
+      let coverRows = [];
+      try {
+        coverRows = await fetchSeriesCoverRows(supabase, { seriesTitles: [series.title] });
+      } catch (error) {
+        console.error("GET /api/series/[id] gcd-less title lookup failed:", error);
+        degraded = true;
       }
-      // Paged: a single title can exceed PostgREST's 1000-row cap (The Beano
-      // holds 3,833 covers, 2000 AD 2,480), and an unpaginated read silently
-      // drops the remainder rather than erroring.
-      const settled = await Promise.all(
-        titleQueries.map((build) =>
-          fetchAllPages(build).catch((error) => {
-            console.error("GET /api/series/[id] gcd-less title lookup failed:", error);
-            return [];
-          })
-        )
-      );
       const byBase = new Map();
-      for (const rows of settled) {
-        for (const row of rows) {
+      for (const row of coverRows) {
           if (!row.storage_path) continue;
           const base = baseIssueNumber(row.issue_number);
           if (!base) continue;
           const existing = byBase.get(base);
           const rowYear = parseYear(row.cover_date) ?? Number(row.series_year ?? 0);
           if (!existing || rowYear < existing.year) byBase.set(base, { row, year: rowYear });
-        }
       }
       const mappedIssues = [...byBase.entries()]
         .map(([base, { row }]) => ({
@@ -137,9 +111,10 @@ export async function GET(req, context) {
         .sort((a, b) => Number(a.issue_number) - Number(b.issue_number) || 0);
 
       const years = mappedIssues.map((i) => i.release_year).filter((y) => y != null);
-      const cvPublisher = settled.flatMap((r) => r.data ?? []).find((r) => r.publisher)?.publisher ?? null;
+      const cvPublisher = coverRows.find((row) => row.publisher)?.publisher ?? null;
 
       return NextResponse.json({
+        ...(degraded ? { degraded: true } : {}),
         series: {
           id: series.id,
           title: series.title ?? "Untitled Series",
@@ -154,7 +129,7 @@ export async function GET(req, context) {
           featured_cover: mappedIssues.find((i) => i.cover)?.cover ?? null,
           issues: mappedIssues,
         },
-      }, { headers: CDN_CACHE_SHORT });
+      }, degraded ? undefined : { headers: CDN_CACHE_SHORT });
     }
 
     const [issuesResult, gcdSeriesResult, gcdFormatResult] = await Promise.all([
@@ -220,10 +195,14 @@ export async function GET(req, context) {
     let gcdPublisherNames = [];
     let seriesLevelPublisherName = null;
     if (publisherGcdIds.length > 0) {
-      const { data: gcdPublisherRows } = await supabase
+      const { data: gcdPublisherRows, error: gcdPublisherRowsError } = await supabase
         .from("gcd_publishers")
         .select("gcd_id, name")
         .in("gcd_id", publisherGcdIds);
+      if (gcdPublisherRowsError) {
+        console.error("series publisher lookup failed:", gcdPublisherRowsError.code, gcdPublisherRowsError.message);
+        degraded = true;
+      }
 
       const nameByGcdId = new Map(
         (gcdPublisherRows ?? []).map((row) => [String(row.gcd_id), row.name])
@@ -264,45 +243,15 @@ export async function GET(req, context) {
     // duplicates from rows that match both paths.
     let canonicalRows = [];
     if (issueNumbers.length > 0) {
-      const queries = [];
-      if (series.gcd_id != null) {
-        queries.push(() =>
-          supabase
-            .from("canonical_covers")
-            .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
-            .eq("series_gcd_id", series.gcd_id)
-        );
+      try {
+        canonicalRows = await fetchSeriesCoverRows(supabase, {
+          seriesGcdIds: [series.gcd_id],
+          seriesTitles: collectedEdition ? [] : [series.title],
+        });
+      } catch (error) {
+        console.error("GET /api/series/[id] canonical cover lookup failed:", error);
+        degraded = true;
       }
-      if (series.title && !collectedEdition) {
-        // Punctuation and leading-article variants in one query: ComicVine
-        // drops colons GCD keeps ("DC Comics: Bombshells") and drops the
-        // article GCD keeps ("The Transformers Universe"). Either stranded
-        // every cover for the title from an exact-match lookup.
-        queries.push(() =>
-          supabase
-            .from("canonical_covers")
-            .select("series_title, series_gcd_id, issue_number, series_year, cover_date, storage_path, publisher")
-            .in("series_title", titleVariants(series.title))
-            .is("series_gcd_id", null)
-        );
-      }
-      // Paged for the same reason as the title path above: four series
-      // already hold more than 1000 covers under one series_gcd_id.
-      const settled = await Promise.all(
-        queries.map((build) =>
-          fetchAllPages(build).catch((error) => {
-            console.error("GET /api/series/[id] canonical cover lookup failed:", error);
-            return [];
-          })
-        )
-      );
-      const merged = new Map();
-      for (const rows of settled) {
-        for (const row of rows) {
-          merged.set(`${row.series_gcd_id ?? "_"}::${row.series_title ?? "_"}::${row.issue_number}::${row.storage_path ?? "_"}`, row);
-        }
-      }
-      canonicalRows = [...merged.values()];
     }
 
     const canonicalPublisherName =
@@ -326,19 +275,7 @@ export async function GET(req, context) {
         seriesTitle: series.title,
       });
 
-    // Key by issue_number only. We already constrained canonicalRows to
-    // this series (via series_gcd_id OR exact series_title), so cross-series
-    // pollution isn't possible. Keying by the canonical row's series_title
-    // would break the ID-path case where canonical's title differs from
-    // series.title (e.g. Marvel's "G.I. Joe, a Real American Hero" vs CV's
-    // "G.I. Joe: A Real American Hero").
-    const candidatesByIssue = canonicalRows.reduce((acc, row) => {
-      if (!row?.storage_path) return acc;
-      const key = normalizeIssueNumber(row.issue_number);
-      if (!acc[key]) acc[key] = [];
-      acc[key].push(row);
-      return acc;
-    }, {});
+    let resolvedCovers = new Map();
 
     // Series year span — used as the tolerance window for picking a canonical
     // cover. Without this, a 2022 "Robin: The Lazarus Tournament" cover ends
@@ -349,45 +286,25 @@ export async function GET(req, context) {
       .filter((y) => y != null);
     const seriesYearMin = seriesYears.length ? Math.min(...seriesYears) : null;
     const seriesYearMax = seriesYears.length ? Math.max(...seriesYears) : null;
-    const COVER_YEAR_TOLERANCE = 1;
+    try {
+      resolvedCovers = await resolveCovers(supabase, issueRows.map((issue) => ({
+        gcd_issue_id: issue.gcd_id,
+        series_gcd_id: issue.series_gcd_id,
+        series_title: collectedEdition ? null : series.title,
+        issue_number: issue.issue_number,
+        year: bestYearFor(issue),
+        series_year_start: seriesYearMin,
+        series_year_end: seriesYearMax,
+      })));
+    } catch (error) {
+      console.error("GET /api/series/[id] cover resolution failed:", error);
+      degraded = true;
+    }
 
     const mappedIssuesRaw = issueRows.map((issue) => {
       const gcdYear = bestYearFor(issue);
-
-      const issueKey = normalizeIssueNumber(issue.issue_number);
-
-      // For the fallback path, only accept covers whose series_year sits
-      // inside this series's actual year span (with a small tolerance). If
-      // every candidate fails that test, return no cover rather than the
-      // wrong one. This stops cross-volume bleed at the per-issue level.
-      const allCandidates = candidatesByIssue[issueKey] ?? [];
-      const inSpanCandidates =
-        seriesYearMin != null && seriesYearMax != null
-          ? allCandidates.filter(
-              (row) =>
-                row.series_year != null &&
-                Number(row.series_year) >= seriesYearMin - COVER_YEAR_TOLERANCE &&
-                Number(row.series_year) <= seriesYearMax + COVER_YEAR_TOLERANCE
-            )
-          : allCandidates;
-
-      // Pick the candidate whose cover_date / series_year is closest to the
-      // issue's publication year. If GCD doesn't have a publication_date,
-      // any in-span candidate is fine — pick the first by cover_date.
-      const ranked = [...inSpanCandidates].sort((a, b) => {
-        const aYear = parseYear(a.cover_date) ?? Number(a.series_year ?? 0);
-        const bYear = parseYear(b.cover_date) ?? Number(b.series_year ?? 0);
-        if (gcdYear != null) {
-          return Math.abs(aYear - gcdYear) - Math.abs(bYear - gcdYear);
-        }
-        return aYear - bYear;
-      });
-
-      const best = ranked[0] ?? null;
+      const best = resolvedCovers.get(issue.gcd_id) ?? null;
       const storagePath = best?.storage_path ?? null;
-
-      // Year fallback: if gcd_issues.publication_date is missing, fall back to
-      // the chosen canonical cover's cover_date (per-issue) or its series_year.
       const releaseYear =
         gcdYear ??
         (best ? parseYear(best.cover_date) ?? Number(best.series_year ?? null) : null) ??
@@ -452,6 +369,7 @@ export async function GET(req, context) {
     const fullYearEnd = allYears.length ? Math.max(yearEnd ?? -Infinity, ...allYears) : yearEnd;
 
     return NextResponse.json({
+      degraded,
       series: {
         id: series.id,
         title: series.title ?? "Untitled Series",
@@ -464,7 +382,8 @@ export async function GET(req, context) {
         collects: collectedEdition ? collectsLines(seriesFormat?.format_notes) : [],
         issues: mappedIssues,
       },
-    }, { headers: CDN_CACHE_SHORT });
+    // A degraded response must not be cached at the CDN for ten minutes.
+    }, degraded ? undefined : { headers: CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/series/[id] crashed:", err);
     return NextResponse.json({ error: "Server error" }, { status: 500 });

@@ -74,10 +74,14 @@ export async function POST(req) {
     ];
     const localById = {};
     if (localIds.length > 0) {
-      const { data: localRows } = await supabase
+      const { data: localRows, error: localRowsError } = await supabase
         .from("comics")
         .select("id, series_title, issue_number, publisher, release_year")
         .in("id", localIds);
+      if (localRowsError) {
+        console.error("wantlist export local comics lookup failed:", localRowsError.code, localRowsError.message);
+        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
+      }
       for (const row of localRows ?? []) localById[row.id] = row;
     }
 
@@ -92,20 +96,28 @@ export async function POST(req) {
     ];
     const gcdById = {};
     if (gcdIds.length > 0) {
-      const { data: issues } = await supabase
+      const { data: issues, error: issuesError } = await supabase
         .from("gcd_issues")
         .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
         .in("gcd_id", gcdIds);
+      if (issuesError) {
+        console.error("wantlist export issues lookup failed:", issuesError.code, issuesError.message);
+        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
+      }
 
       const seriesGcdIds = [
         ...new Set((issues ?? []).map((i) => i.series_gcd_id).filter(Boolean)),
       ];
       const seriesByGcdId = {};
       if (seriesGcdIds.length > 0) {
-        const { data: seriesRows } = await supabase
+        const { data: seriesRows, error: seriesRowsError } = await supabase
           .from("series")
           .select("gcd_id, title, resolved_publisher_cached")
           .in("gcd_id", seriesGcdIds);
+        if (seriesRowsError) {
+          console.error("wantlist export series lookup failed:", seriesRowsError.code, seriesRowsError.message);
+          return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
+        }
         for (const s of seriesRows ?? []) {
           seriesByGcdId[String(s.gcd_id)] = s;
         }

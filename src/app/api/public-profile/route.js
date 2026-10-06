@@ -4,7 +4,7 @@ import { getAuthedUser } from "@/lib/authServer";
 import { getMarketValuesBulk } from "@/lib/marketValue";
 import { normTitle, titleVariants } from "@/lib/titleMatch";
 import { isOwnedStatus } from "@/lib/collectionStatus";
-import { fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
+import { fetchAllPages, fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
 import { bestYearFor, parseYear } from "@/lib/years";
 
 // publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
@@ -17,6 +17,7 @@ function norm(value) {
 
 export async function GET(req) {
   const supabase = getServiceClient();
+  let degraded = false;
 
   const { searchParams } = new URL(req.url);
   const username = searchParams.get("username");
@@ -111,10 +112,14 @@ export async function GET(req) {
   // round-trips.
   const keyIssueLookup = {};
   if (gcdIds.length > 0) {
-    const { data: keyIssues } = await supabase
+    const { data: keyIssues, error: keyIssuesError } = await supabase
       .from("key_issues")
       .select("gcd_issue_id, character, reason, tier")
       .in("gcd_issue_id", gcdIds);
+    if (keyIssuesError) {
+      console.error("public profile key issue lookup failed:", keyIssuesError.code, keyIssuesError.message);
+      degraded = true;
+    }
     for (const row of keyIssues ?? []) {
       keyIssueLookup[row.gcd_issue_id] = {
         character: row.character,
@@ -127,10 +132,31 @@ export async function GET(req) {
   const gcdDisplayLookup = {};
 
   if (gcdIds.length > 0) {
-    const { data: issues } = await supabase
-      .from("gcd_issues")
-      .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
-      .in("gcd_id", gcdIds);
+    // Paged and chunked: a plain .in() here stopped at PostgREST's 1,000-row
+    // cap, so a collection past 1,000 GCD books silently lost the rest.
+    let issues = [];
+    let issuesError = null;
+    try {
+      for (let i = 0; i < gcdIds.length; i += 500) {
+        const chunk = gcdIds.slice(i, i + 500);
+        issues.push(
+          ...(await fetchAllPages(
+            () =>
+              supabase
+                .from("gcd_issues")
+                .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
+                .in("gcd_id", chunk),
+            "gcd_id"
+          ))
+        );
+      }
+    } catch (err) {
+      issuesError = err;
+    }
+    if (issuesError) {
+      console.error("public profile issue lookup failed:", issuesError.code, issuesError.message);
+      return NextResponse.json({ error: "Failed to load profile collection" }, { status: 502 });
+    }
 
     const issueList = issues || [];
 
@@ -141,20 +167,36 @@ export async function GET(req) {
       ...new Set(issueList.map((i) => i.publisher_gcd_id).filter(Boolean)),
     ];
 
-    const [seriesResult, publisherResult] = await Promise.all([
-      seriesGcdIds.length > 0
-        ? supabase
-            .from("series")
-            .select("gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)")
-            .in("gcd_id", seriesGcdIds)
-        : Promise.resolve({ data: [] }),
-      publisherGcdIds.length > 0
-        ? supabase
-            .from("gcd_publishers")
-            .select("gcd_id, name")
-            .in("gcd_id", publisherGcdIds)
-        : Promise.resolve({ data: [] }),
-    ]);
+    // Paged and chunked like the issue read above: a large, varied collection
+    // can pass 1,000 series or publishers, and a plain .in() stops there.
+    const readChunked = async (table, select, ids, orderCol) => {
+      const rows = [];
+      for (let i = 0; i < ids.length; i += 500) {
+        const chunk = ids.slice(i, i + 500);
+        rows.push(
+          ...(await fetchAllPages(() => supabase.from(table).select(select).in("gcd_id", chunk), orderCol))
+        );
+      }
+      return rows;
+    };
+    let seriesRows;
+    let publisherRows;
+    try {
+      [seriesRows, publisherRows] = await Promise.all([
+        readChunked(
+          "series",
+          "gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)",
+          seriesGcdIds,
+          "id"
+        ),
+        readChunked("gcd_publishers", "gcd_id, name", publisherGcdIds, "gcd_id"),
+      ]);
+    } catch (err) {
+      console.error("public profile series/publisher lookup failed:", err?.code, err?.message);
+      return NextResponse.json({ error: "Failed to load profile collection" }, { status: 502 });
+    }
+    const seriesResult = { data: seriesRows };
+    const publisherResult = { data: publisherRows };
 
     const seriesLookup = Object.fromEntries(
       (seriesResult.data ?? []).map((r) => [String(r.gcd_id), r])
@@ -359,12 +401,16 @@ export async function GET(req) {
   const localCanonicalByKey = new Map();
 
   if (localSeriesTitles.length > 0 && localIssueNumbers.length > 0) {
-    const { data: localCovers } = await supabase
+    const { data: localCovers, error: localCoversError } = await supabase
       .from("canonical_covers")
       .select("series_title, issue_number, series_year, cover_date, storage_path")
       .in("series_title", localSeriesTitles)
       .in("issue_number", localIssueNumbers)
       .not("storage_path", "is", null);
+    if (localCoversError) {
+      console.error("public profile local cover lookup failed:", localCoversError.code, localCoversError.message);
+      degraded = true;
+    }
 
     for (const c of localCovers ?? []) {
       const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
@@ -520,5 +566,6 @@ export async function GET(req) {
     visibility,
     collection: visibleCollection,
     dominantPublisher,
+    degraded,
   });
 }

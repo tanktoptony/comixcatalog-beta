@@ -31,6 +31,7 @@ export async function GET() {
     // Privacy first: the service role ignores RLS, so nothing below may run
     // on a row before filterVisibleActivity has cleared it. A failed profile
     // read means we can't check, so show nothing rather than everything.
+    let degraded = false;
     const recentUserIds = [
       ...new Set(recent.map((a) => a.user_id).filter((v) => v != null).map(String)),
     ];
@@ -105,10 +106,14 @@ export async function GET() {
 
     let seriesByGcdId = new Map();
     if (seriesGcdIds.length > 0) {
-      const { data: seriesRows } = await supabase
+      const { data: seriesRows, error: seriesRowsError } = await supabase
         .from("series")
         .select("gcd_id, title")
         .in("gcd_id", seriesGcdIds);
+      if (seriesRowsError) {
+        console.error("activity series lookup failed:", seriesRowsError.code, seriesRowsError.message);
+        degraded = true;
+      }
       seriesByGcdId = new Map(
         (seriesRows ?? []).map((r) => [String(r.gcd_id), r.title])
       );
@@ -132,12 +137,16 @@ export async function GET() {
 
     const coverByKey = new Map();
     if (seriesTitlesForCovers.length > 0 && issueNumbersForCovers.length > 0) {
-      const { data: coverRows } = await supabase
+      const { data: coverRows, error: coverRowsError } = await supabase
         .from("canonical_covers")
         .select("series_title, issue_number, storage_path")
         .in("series_title", seriesTitlesForCovers)
         .in("issue_number", issueNumbersForCovers)
         .not("storage_path", "is", null);
+      if (coverRowsError) {
+        console.error("activity cover lookup failed:", coverRowsError.code, coverRowsError.message);
+        degraded = true;
+      }
 
       for (const row of coverRows ?? []) {
         const key = `${String(row.series_title).trim().toLowerCase()}::${String(
@@ -188,7 +197,7 @@ export async function GET() {
       profiles: { username: profilesMap[String(a.user_id)]?.username ?? null },
     }));
 
-    return NextResponse.json({ activity: result });
+    return NextResponse.json({ activity: result, degraded });
   } catch (error) {
     console.error("Unhandled activity route error:", error);
     return NextResponse.json({ activity: [] }, { status: 500 });

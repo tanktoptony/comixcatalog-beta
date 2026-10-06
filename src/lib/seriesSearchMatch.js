@@ -25,6 +25,17 @@ export function titleHasAllSearchWords(title, query) {
   return wanted.every((word) => available.has(word));
 }
 
+// How many of the query's significant words appear as whole words in the
+// title. The route re-sorts RPC rows by cover and issue count, which threw
+// away the RPC's relevance: "street fighter ii animated" put 2-of-4-word
+// matches like Street Fighter Unlimited above the 4-of-4 Animated Movie.
+export function searchWordCoverage(title, query) {
+  const wanted = significantSeriesSearchWords(query);
+  if (!wanted.length) return 0;
+  const available = new Set(normalizeSeriesSearchWords(title).split(" "));
+  return wanted.filter((word) => available.has(word)).length;
+}
+
 function trigrams(value) {
   const padded = `  ${compactSeriesSearch(value)} `;
   const values = [];

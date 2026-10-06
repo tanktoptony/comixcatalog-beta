@@ -17,6 +17,12 @@
 // which previously had none at all — which is precisely why the API routes
 // under src/app/api were the ones still truncating.
 //
+// Offset paging is fine for small result sets. For deep reads, use
+// fetchAllByKeyset: production canonical_covers measurements on 2026-10-06
+// rose from 180ms at offset 0 to 3.6s at 10,000 and 8.0s at 30,000, with
+// deeper pages hitting Postgres 57014 statement timeout. Keyset pages stay at
+// approximately first-page cost.
+//
 // Usage — pass a THUNK that rebuilds the query, not a built query, since a
 // PostgREST builder can only be awaited once:
 //
@@ -33,6 +39,7 @@ const PAGE = 1000;
 // with no filter. 50k rows is far above any legitimate per-series or
 // per-user result set here and still well under gcd_issues' ~2.4M.
 const MAX_ROWS = 50000;
+const KEYSET_MAX_ROWS = 200000;
 
 export async function fetchAllPages(build, orderCol = "id") {
   const rows = [];
@@ -51,6 +58,33 @@ export async function fetchAllPages(build, orderCol = "id") {
       );
       break;
     }
+  }
+  return rows;
+}
+
+// Pages by the last value seen instead of making Postgres walk an ever-deeper
+// offset. `keyCol` must be unique and non-null or pages can overlap/skip rows.
+// maxRows: a guard against an unfiltered scan. A whole-table read on purpose
+// (an audit script) must pass a cap above the table size, or it truncates.
+export async function fetchAllByKeyset(build, keyCol = "id", { maxRows = KEYSET_MAX_ROWS } = {}) {
+  const rows = [];
+  let last;
+  while (true) {
+    let query = build().order(keyCol, { ascending: true }).limit(PAGE);
+    if (last !== undefined) query = query.gt(keyCol, last);
+    const { data, error } = await query;
+    if (error) throw error;
+    if (!data?.length) break;
+    rows.push(...data);
+    if (data.length < PAGE) break;
+    if (rows.length >= maxRows) {
+      console.warn(
+        `fetchAllByKeyset: stopped at ${rows.length} rows (KEYSET_MAX_ROWS). ` +
+          `This query is probably missing a filter.`
+      );
+      break;
+    }
+    last = data.at(-1)[keyCol];
   }
   return rows;
 }

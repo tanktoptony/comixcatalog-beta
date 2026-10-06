@@ -120,3 +120,18 @@ test("a gcd_issue_id link to another volume's cover is rejected by the year chec
   assert.equal(picked?.storage_path, "teen-titans/vol-75697/21.jpg");
   assert.equal(picked?.tier, 2);
 });
+
+test("a title-matched cover is checked against the series span, not the issue year", () => {
+  // Untagged volume-start year 1990; issue #40 published 1993 in a 1990-1994 run.
+  const issue = {
+    gcd_issue_id: 1800040, series_gcd_id: 4242, series_title: "Ghost Rider",
+    issue_number: "40", year: 1993, series_year_start: 1990, series_year_end: 1994,
+  };
+  const rows = [
+    { id: "t3", gcd_issue_id: null, series_gcd_id: null, series_title: "Ghost Rider",
+      issue_number: "40", series_year: 1990, storage_path: "ghost-rider/vol-1990/40.jpg" },
+  ];
+  const picked = pickCovers([issue], rows).get(1800040);
+  assert.equal(picked?.storage_path, "ghost-rider/vol-1990/40.jpg");
+  assert.equal(picked?.tier, 3);
+});

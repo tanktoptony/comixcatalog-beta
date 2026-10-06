@@ -107,8 +107,12 @@ export function pickCovers(issues, candidateRows) {
 
     if (issue.series_gcd_id != null && seriesWithCovers.has(String(issue.series_gcd_id))) continue;
     const variants = new Set(titleVariants(issue.series_title));
-    const windowStart = issue.year ?? issue.series_year_start;
-    const windowEnd = issue.year ?? issue.series_year_end;
+    // An untagged cover's series_year is its volume's START year, so it is
+    // compared with the series span (+-1), as the old pages did. The issue's
+    // own year is only a fallback when the span is unknown; using it first
+    // rejected every issue more than a year past the volume start.
+    const windowStart = issue.series_year_start ?? issue.year;
+    const windowEnd = issue.series_year_end ?? issue.year;
     const tier3 = rows.filter((row) =>
       row.series_gcd_id == null
       && variants.has(row.series_title)

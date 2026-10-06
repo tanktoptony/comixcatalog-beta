@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { capStatus, coverScanConfigStatus, coverScanModelFailure, parseCoverExtraction, rankCoverCandidates } from "./coverScan.js";
+import { COVER_SCAN_SCHEMA, capStatus, coverScanConfigStatus, coverScanModelFailure, parseCoverExtraction, rankCoverCandidates } from "./coverScan.js";
 import { extractCover } from "./coverScanClaude.js";
 import { baseIssueNumber } from "./coverMatch.js";
 
@@ -40,4 +40,14 @@ test("missing API key fails cleanly without a model call", async () => {
   const old = process.env.ANTHROPIC_API_KEY; delete process.env.ANTHROPIC_API_KEY;
   await assert.rejects(extractCover("abc"), (error) => error.status === 503);
   if (old) process.env.ANTHROPIC_API_KEY = old;
+});
+
+test("schema has no integer bounds the API rejects; parser clamps instead", () => {
+  const json = JSON.stringify(COVER_SCAN_SCHEMA);
+  assert.equal(/"(minimum|maximum)"/.test(json), false);
+  const msg = (v) => ({ stop_reason: "end_turn", content: [{ type: "text", text: JSON.stringify(v) }] });
+  const base = { series_title: "X-Men", issue_number: "20", publisher: "Marvel", cover_year: 1993, cover_month: 5, cover_price: "$1.25", edition_clues: [], other_text: "", is_comic_cover: true, confidence: "high" };
+  assert.equal(parseCoverExtraction(msg({ ...base, cover_month: 13 })).cover_month, null);
+  assert.equal(parseCoverExtraction(msg({ ...base, cover_year: 199 })).cover_year, null);
+  assert.equal(parseCoverExtraction(msg(base)).cover_month, 5);
 });

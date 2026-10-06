@@ -2007,6 +2007,27 @@ input[type="file"] {
   border-color: #ef4444;
 }
 
+/* Series issue cards use the search-card actions, with a phone-friendly
+ * target height. At 390px the issue grid remains two columns, so keeping the
+ * actions stacked avoids squeezed labels and horizontal reflow. */
+.series-issue-actions .comic-btn {
+  min-height: 40px;
+}
+
+.series-issue-actions a.comic-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+}
+
+.series-mutation-error {
+  color: #ff8a80;
+  margin-top: 10px;
+}
+
 /* ===========================================================
    LANDING PAGE / HERO
    =========================================================== */

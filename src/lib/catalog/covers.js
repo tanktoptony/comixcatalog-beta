@@ -81,8 +81,13 @@ export function pickCovers(issues, candidateRows) {
     const key = baseIssueNumber(issue.issue_number);
     if (!key) continue;
 
+    // The year check applies here too. Some gcd_issue_id links in the table
+    // come from mis-pinned volumes (parity run 2026-10-06: Transformers
+    // Universe 1986 linked to The Transformers 1984 covers, Teen Titans
+    // 2014-16 to the 2011 volume, Wildcats 1999-2001 to the 2006 volume).
     const tier1 = rows.filter((row) =>
       row.gcd_issue_id != null && String(row.gcd_issue_id) === String(issue.gcd_issue_id)
+      && inWindow(row.series_year, issue.series_year_start, issue.series_year_end, true)
     );
     if (tier1.length) {
       resolved.set(issue.gcd_issue_id, result(rankRows(tier1, issue, 1)[0], 1, "gcd_issue_id"));

@@ -103,3 +103,20 @@ test('"1 [Newsstand]" matches issue "1"', () => {
   const result = pickCovers([issue()], [cover({ issue_number: "1 [Newsstand]" })]);
   assert.equal(result.get(1).storage_path, "example.jpg");
 });
+
+test("a gcd_issue_id link to another volume's cover is rejected by the year check", () => {
+  // Teen Titans (2014-2016) #21 linked by id to a cover from the 2011 volume.
+  const issue = {
+    gcd_issue_id: 1700001, series_gcd_id: 75697, series_title: "Teen Titans",
+    issue_number: "21", year: 2016, series_year_start: 2014, series_year_end: 2016,
+  };
+  const rows = [
+    { id: "wrong", gcd_issue_id: 1700001, series_gcd_id: 75697, series_title: "Teen Titans",
+      issue_number: "21", series_year: 2011, storage_path: "teen-titans/vol-43004/21.jpg" },
+    { id: "right", gcd_issue_id: null, series_gcd_id: 75697, series_title: "Teen Titans",
+      issue_number: "21", series_year: 2014, storage_path: "teen-titans/vol-75697/21.jpg" },
+  ];
+  const picked = pickCovers([issue], rows).get(1700001);
+  assert.equal(picked?.storage_path, "teen-titans/vol-75697/21.jpg");
+  assert.equal(picked?.tier, 2);
+});

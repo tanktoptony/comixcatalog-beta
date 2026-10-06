@@ -239,6 +239,12 @@ if (!url || !key) throw new Error("Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_
 const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
 const random = rng(SEED);
 
+// Progress to stderr so a long run can be watched and a stuck step named.
+const runStart = Date.now();
+function stage(name) {
+  console.error(`[${((Date.now() - runStart) / 1000).toFixed(0)}s] ${name}`);
+}
+stage("covers table");
 const coverLinks = await fetchAllByKeyset(() => supabase.from("canonical_covers")
   .select("id, gcd_issue_id, series_gcd_id").not("storage_path", "is", null), "id", { maxRows: 2000000 });
 const seriesCoverCounts = new Map();
@@ -250,6 +256,7 @@ for (const row of coverLinks) {
 const topSeriesIds = [...seriesCoverCounts].sort((a, b) => b[1] - a[1]).slice(0, 30).map(([id]) => id);
 
 // Whole-table read on purpose: series is ~208k rows, past the default cap.
+stage("series table");
 const allSeries = await fetchAllByKeyset(() => supabase.from("series")
   .select("id, gcd_id, title, year_start_cached, year_end_cached"), "id", { maxRows: 2000000 });
 const byTitle = new Map();
@@ -269,10 +276,12 @@ const addCohort = (name, rows) => {
 };
 // Ordered series_gcd_id, gcd_id: gcd_id alone under an IN(series_gcd_id)
 // filter measured ~3s per page on production (see #212).
+stage("top-series issues");
 const topSeriesRows = await fetchChunked(topSeriesIds, (group) => supabase.from("gcd_issues")
   .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date").in("series_gcd_id", group)
   .order("series_gcd_id"));
 const topSeriesCohort = addCohort("top series", sampleEvenlyBySeries(topSeriesRows, TOP_SERIES_CAP, random));
+stage("title-cluster issues");
 const titleClusterRows = await fetchChunked(clusterSeriesIds, (group) => supabase.from("gcd_issues")
   .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date").in("series_gcd_id", group)
   .order("series_gcd_id"));
@@ -281,6 +290,7 @@ const titleClusterCohort = addCohort("title clusters", shuffle(titleClusterCandi
 
 const randomCovered = shuffle([...coveredIssueIds].filter((id) => !selected.has(id)), random).slice(0, RANDOM_CAP);
 const randomRows = [];
+stage("random cohort");
 for (const group of chunks(randomCovered)) {
   randomRows.push(...await fetchAllPages(() => supabase.from("gcd_issues")
     .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date").in("gcd_id", group), "gcd_id"));
@@ -305,6 +315,7 @@ const resolverIssues = sample.map((row) => {
     series_year_end: series?.year_end_cached ?? null,
   };
 });
+stage("new-path resolveCovers");
 const newCovers = await resolveCovers(supabase, resolverIssues);
 if (BREAK_TIER_2) {
   for (const [id, value] of newCovers) if (value.tier === 2) newCovers.delete(id);

@@ -1327,6 +1327,9 @@ function LibraryPageContent() {
                       : "Export Wantlist (Pro)"}
                 </button>
               )}
+              <Link href="/scan" className="library-primary-btn">
+                Scan a cover
+              </Link>
               <Link
                 href="/library/add"
                 className="library-primary-btn"

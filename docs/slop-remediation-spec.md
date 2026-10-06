@@ -1,6 +1,6 @@
 # Slop remediation spec
 
-**Status:** In progress, updated 2026-10-05 evening. WS0 through WS3 done (16 PRs merged). WS4 (cover resolver) next, waiting on Codex availability. See "Progress" below · **Written:** 2026-10-04 · **Input:** `docs/slop-remediation-plan.md` · **Verified against:** `origin/main` at `5b9647f` (the plan's references were from `f546a55`)
+**Status:** In progress, updated 2026-10-05 evening. WS0 through WS3 done (11 PRs merged: #193, #197, #201, #203, #206, #209, #212, #215, #218, #219, #220). WS4 (cover resolver) next, waiting on Codex availability. See "Progress" below · **Written:** 2026-10-04 · **Input:** `docs/slop-remediation-plan.md` · **Verified against:** `origin/main` at `5b9647f` (the plan's references were from `f546a55`)
 
 This turns the plan into files, functions, SQL, tests and PRs. The plan's goal, out-of-scope list and ground rules still apply as written. This file only adds detail and records where the plan was wrong or out of date.
 

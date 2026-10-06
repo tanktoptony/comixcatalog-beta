@@ -1,105 +1,12 @@
 import { NextResponse } from "next/server";
 import { baseIssueNumber } from "@/lib/coverMatch";
+import { fetchSeriesCoverRows, resolveCovers } from "@/lib/catalog/covers";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { getServiceClient } from "@/lib/supabase/service";
 import { resolvePublisher } from "@/lib/publisher";
 import { getAuthedUser } from "@/lib/authServer";
 import { formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
-import { titleVariants } from "@/lib/titleMatch";
 import { OWNED_STATUSES } from "@/lib/collectionStatus";
-
-// Volume-disambiguation tolerance. canonical_covers is keyed only by
-// (series_title, issue_number), so "Teenage Mutant Ninja Turtles" #2 exists
-// for both the 1984 Mirage volume and the 2011 IDW volume. We reject any cover
-// whose series_year (the year ITS volume began) falls outside this issue's
-// series year span — the same guard /api/series/[id] applies — so an old issue
-// can't pick up a modern-reboot cover.
-//
-// Covers with a null series_year used to be kept regardless ("can't
-// disambiguate, let pickBestCoverRow's date ranking sort it out") — that was
-// the bug behind Nova (1994) #4 showing the 2013 Marvel NOW! cover: Nova has
-// 17 distinct volumes sharing the title, the only title-matched candidate for
-// that issue had series_year=null, so it sailed through untested and became
-// the only (wrong) option pickBestCoverRow ever saw. /api/series/[id] never
-// had this hole — it already requires a non-null, in-span series_year. Match
-// that here: a candidate we can't place in a volume is excluded, not kept.
-const COVER_YEAR_TOLERANCE = 1;
-
-function inSeriesSpan(row, seriesYearMin, seriesYearMax) {
-  if (seriesYearMin == null || seriesYearMax == null) return true;
-  if (row.series_year == null) return false;
-  const sy = Number(row.series_year);
-  return (
-    sy >= seriesYearMin - COVER_YEAR_TOLERANCE &&
-    sy <= seriesYearMax + COVER_YEAR_TOLERANCE
-  );
-}
-
-async function fetchCanonicalMatch(
-  supabase,
-  seriesTitle,
-  issueNumber,
-  targetYear,
-  seriesYearMin = null,
-  seriesYearMax = null,
-  seriesGcdId = null,
-  allowTitlePath = true,
-  degradation = { value: false }
-) {
-  // ID path first: covers tagged with this gcd_series win every time, even
-  // when CV's series_title differs from GCD's (e.g. CV "The Maxx" vs GCD
-  // "The Maxx Trade Paperback"). Falls through to title path when the cc
-  // row hasn't been tagged yet.
-  if (seriesGcdId) {
-    const { data: idRows, error: idRowsError } = await supabase
-      .from("canonical_covers")
-      .select("id, storage_path, publisher, cover_date, series_year")
-      .eq("series_gcd_id", seriesGcdId)
-      .eq("issue_number", issueNumber);
-    if (idRowsError) {
-      console.error("issue cover id lookup failed:", idRowsError.code, idRowsError.message);
-      degradation.value = true;
-    }
-    const idInSpan = (idRows ?? []).filter((r) =>
-      inSeriesSpan(r, seriesYearMin, seriesYearMax)
-    );
-    const bestById = pickBestCoverRow(idInSpan, targetYear);
-    if (bestById) return bestById;
-  }
-
-  // Collected editions (trade paperbacks, hardcovers) share a title with the
-  // run they collect, so the title path would hand TPB #1 the monthly #1's
-  // cover (Fables, 2026-09-21). Their covers only ever come via the ID path.
-  if (!seriesTitle || !allowTitlePath) return { storage_path: null, publisher: null };
-
-  // Title variants: with/without a leading "The", with/without punctuation.
-  // The year-span guard below still applies to every candidate.
-  const { data: exactRows, error: exactRowsError } = await supabase
-    .from("canonical_covers")
-    .select("id, storage_path, publisher, cover_date, series_year")
-    .in("series_title", titleVariants(seriesTitle))
-    .eq("issue_number", issueNumber);
-  if (exactRowsError) {
-    console.error("issue cover title lookup failed:", exactRowsError.code, exactRowsError.message);
-    degradation.value = true;
-  }
-
-  const exactInSpan = (exactRows ?? []).filter((r) =>
-    inSeriesSpan(r, seriesYearMin, seriesYearMax)
-  );
-  const best = pickBestCoverRow(exactInSpan, targetYear);
-  if (best) return best;
-
-  // No exact-issue cover exists (ID path or title path). This used to fall
-  // back to "borrow a representative cover from elsewhere in the same
-  // volume" — that silently displayed a plausible-but-wrong issue's cover
-  // instead of admitting the gap, which is what actually showed the wrong
-  // Thor issue art for #440-479 (real ComicVine data gap, confirmed
-  // 2026-08-04/05: issues #407-490 live under a separate ComicVine volume
-  // ID that was never ingested until now). Killed sitewide: an honest blank
-  // is correct, a confident wrong cover is not.
-  return { storage_path: null, publisher: null };
-}
 
 // publication_date is null on ~65% of gcd_issues. key_date is GCD's sortable
 // approximation that's populated far more reliably — fall back to it so the
@@ -128,29 +35,6 @@ function formatDisplayDate(row) {
   // No usable key_date — emit just the year if we can derive one at all.
   const year = bestYearFor(row);
   return year != null ? String(year) : null;
-}
-
-function pickBestCoverRow(rows, targetYear) {
-  if (!rows?.length) return null;
-  let best = null;
-  let bestDiff = Infinity;
-  for (const r of rows) {
-    if (targetYear == null) {
-      if (!best) best = r;
-      continue;
-    }
-    const y = parseYear(r.cover_date);
-    if (y == null) {
-      if (!best) best = r;
-      continue;
-    }
-    const diff = Math.abs(y - targetYear);
-    if (diff < bestDiff) {
-      best = r;
-      bestDiff = diff;
-    }
-  }
-  return best;
 }
 
 function normalizeIssueNumber(value) {
@@ -365,7 +249,7 @@ export async function GET(req, context) {
       let seriesYearMin = null;
       let seriesYearMax = null;
       if (issue.series_gcd_id) {
-        const [{ data: allIssues }, { data: seriesCoverRows }] = await Promise.all([
+        const [{ data: allIssues }, seriesCoverRows] = await Promise.all([
           supabase
             .from("gcd_issues")
             .select(`
@@ -378,11 +262,12 @@ export async function GET(req, context) {
             .eq("series_gcd_id", issue.series_gcd_id)
             .order("gcd_id", { ascending: true })
             .limit(500),
-          supabase
-            .from("canonical_covers")
-            .select("issue_number, storage_path, cover_date, series_year")
-            .eq("series_gcd_id", issue.series_gcd_id)
-            .not("storage_path", "is", null),
+          fetchSeriesCoverRows(supabase, { seriesGcdIds: [issue.series_gcd_id] })
+            .catch((error) => {
+              console.error("issue series cover navigation failed:", error);
+              degradation.value = true;
+              return [];
+            }),
         ]);
 
         seriesIssuesMapped = buildCombinedIssueList(
@@ -403,17 +288,22 @@ export async function GET(req, context) {
       }
 
       const issueYear = bestYearFor(issue);
-      const canonicalMatch = await fetchCanonicalMatch(
-        supabase,
-        seriesTitle,
-        issue.issue_number,
-        issueYear,
-        seriesYearMin,
-        seriesYearMax,
-        issue.series_gcd_id,
-        !collectedEdition,
-        degradation
-      );
+      let canonicalMatch = { storage_path: null, canonical_cover_id: null };
+      try {
+        const resolved = await resolveCovers(supabase, [{
+          gcd_issue_id: issue.gcd_id,
+          series_gcd_id: issue.series_gcd_id,
+          series_title: collectedEdition ? null : seriesTitle,
+          issue_number: issue.issue_number,
+          year: issueYear,
+          series_year_start: seriesYearMin,
+          series_year_end: seriesYearMax,
+        }]);
+        canonicalMatch = resolved.get(issue.gcd_id) ?? canonicalMatch;
+      } catch (error) {
+        console.error("issue cover resolution failed:", error);
+        degradation.value = true;
+      }
 
       // Prefer the precomputed cached value — same posture as the series route
       // (/api/series/[id]). It went through the year-aware audit pipeline, so
@@ -440,7 +330,7 @@ export async function GET(req, context) {
             seriesLevelPublisherName,
             seriesRow?.publisher?.name ?? null,
             seriesRow?.cv_publisher ?? null,
-            canonicalMatch.publisher ?? null,
+            null,
           ],
           seriesTitle,
         });
@@ -450,11 +340,11 @@ export async function GET(req, context) {
         : null;
 
       let variants = [];
-      if (canonicalMatch.id) {
+      if (canonicalMatch.canonical_cover_id) {
         const { data: variantRows, error: variantRowsError } = await supabase
           .from("cover_variants")
           .select("id, storage_path, sort_order")
-          .eq("canonical_cover_id", canonicalMatch.id)
+          .eq("canonical_cover_id", canonicalMatch.canonical_cover_id)
           .order("sort_order", { ascending: true });
         if (variantRowsError) {
           console.error("issue variants lookup failed:", variantRowsError.code, variantRowsError.message);
@@ -652,11 +542,13 @@ export async function GET(req, context) {
             .select("publisher_gcd_id")
             .eq("gcd_id", seriesGcdId)
             .single(),
-          supabase
-            .from("canonical_covers")
-            .select("id, issue_number, storage_path, publisher, cover_date, series_year")
-            .eq("series_gcd_id", seriesGcdId)
-            .not("storage_path", "is", null),
+          fetchSeriesCoverRows(supabase, { seriesGcdIds: [seriesGcdId] })
+            .then((data) => ({ data, error: null }))
+            .catch((error) => {
+              console.error("orphan issue cover lookup failed:", error);
+              degradation.value = true;
+              return { data: [], error };
+            }),
           supabase
             .from("gcd_issues")
             .select("gcd_id, issue_number, title, publication_date, key_date")
@@ -823,12 +715,13 @@ export async function GET(req, context) {
           .eq("title", seriesTitle)
           .is("gcd_id", null)
           .single(),
-        supabase
-          .from("canonical_covers")
-          .select("issue_number, storage_path, publisher, cover_date, series_year")
-          .in("series_title", titleVariants(seriesTitle))
-          .is("series_gcd_id", null)
-          .not("storage_path", "is", null),
+        fetchSeriesCoverRows(supabase, { seriesTitles: [seriesTitle] })
+          .then((data) => ({ data, error: null }))
+          .catch((error) => {
+            console.error("gcd-less issue cover lookup failed:", error);
+            degradation.value = true;
+            return { data: [], error };
+          }),
       ]);
 
       const seriesRow = seriesResult.data;

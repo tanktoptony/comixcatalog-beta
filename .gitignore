@@ -62,6 +62,7 @@ __pycache__/
 !/reports/covers-*.html
 !/reports/cover-coverage-history.json
 !/reports/perf-*.md
+!/reports/cover-resolver-parity-*.md
 /comicvine_api_output/ingest-loop-*.log
 /scripts/tony_stack_targets.json
 /scripts/fixtures/valuation-calibration-sample.json

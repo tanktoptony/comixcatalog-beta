@@ -42742,5 +42742,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T14:08:01.210574+00:00",
     "retry_after": "2026-10-07T14:08:01.210592+00:00"
+  },
+  {
+    "name": "Mystic Funnies",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54729,
+        "name": "Mystic Funnies",
+        "publisher": "Last Gasp",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T15:01:25.352541+00:00",
+    "retry_after": "2026-10-07T15:01:25.352561+00:00"
+  },
+  {
+    "name": "Darkstalkers the Night Warriors",
+    "publisher": "Udon Entertainment Corp.",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T15:05:14.617138+00:00",
+    "retry_after": "2026-10-07T15:05:14.617158+00:00"
+  },
+  {
+    "name": "Doctor Who: The Eleventh Doctor Archives Omnibus",
+    "publisher": "Titan Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T15:05:15.031855+00:00",
+    "retry_after": "2026-10-07T15:05:15.031874+00:00"
   }
 ]

@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import ComicResultCard from "./ComicResultCard";
@@ -16,6 +17,8 @@ async function resizeImage(file) {
 
 export default function CoverScanner() {
   const { user } = useAuth(); const input = useRef(null);
+  // Signed-out visitors sign up and come back to the page they started on.
+  const next = encodeURIComponent(usePathname() || "/scan");
   const [preview, setPreview] = useState(null), [loading, setLoading] = useState(false), [result, setResult] = useState(null), [error, setError] = useState(null);
   async function choose(event) {
     const file = event.target.files?.[0]; if (!file) return;
@@ -29,7 +32,7 @@ export default function CoverScanner() {
   async function record(item) { if (!result?.scan_id) return; try { await authedFetch("/api/cover-scan", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ scan_id: result.scan_id, gcd_issue_id: item.gcd_issue_id }) }); } catch (e) { console.error("Could not record cover scan choice", e); } }
   const items = (result?.candidates ?? []).map((row) => ({ ...row, title: row.series_title, issueNumber: row.issue_number, cover: row.cover_path }));
   return <div className="cover-scanner">
-    {user ? <><button className="comic-btn" onClick={() => input.current?.click()} disabled={loading}>Scan a cover</button><input ref={input} hidden type="file" accept="image/*" capture="environment" onChange={choose} /></> : <Link href="/signup?next=%2Fsearch" className="comic-btn">Scan a cover</Link>}
+    {user ? <><button className="comic-btn" onClick={() => input.current?.click()} disabled={loading}>Scan a cover</button><input ref={input} hidden type="file" accept="image/*" capture="environment" onChange={choose} /></> : <Link href={`/signup?next=${next}`} className="comic-btn">Scan a cover</Link>}
     <p className="muted cover-scan-notice">Photos are saved to improve matching.</p>
     {preview && <img className="cover-scan-preview" src={preview} alt="Cover preview" />}
     {loading && <p role="status">Reading the cover...</p>}

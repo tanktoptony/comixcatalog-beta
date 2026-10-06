@@ -92,6 +92,9 @@ export default function HomeClient({ featured = null, heroWall = null, stats = n
             >
               {user ? "Go to your library" : "Start free"}
             </Link>
+            <Link href="/scan" className="lp-cta-secondary" onClick={cta("hero_scan")}>
+              Scan a cover
+            </Link>
           </div>
         </div>
         <div className="lp-hero-img" aria-hidden="true">

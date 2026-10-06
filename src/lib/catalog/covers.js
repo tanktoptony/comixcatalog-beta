@@ -3,6 +3,8 @@ import { fetchAllByKeyset } from "../supabase/fetchAllPages.js";
 import { titleVariants } from "../titleMatch.js";
 
 const CHUNK_SIZE = 500;
+const TIER3_ISSUE_BATCH_SIZE = 100;
+const TIER3_FILTER_LIMIT = 300;
 const PICK_COLUMNS = [
   "id",
   "gcd_issue_id",
@@ -23,6 +25,36 @@ function chunks(values) {
     out.push(values.slice(index, index + CHUNK_SIZE));
   }
   return out;
+}
+
+function tier3Batches(issues) {
+  const batches = [];
+  let batch = [];
+  let titles = new Set();
+  let numbers = new Set();
+
+  for (const issue of issues) {
+    const issueTitles = titleVariants(issue.series_title).filter(Boolean);
+    const issueNumbers = [issue.issue_number, baseIssueNumber(issue.issue_number)]
+      .filter((value) => value != null && value !== "");
+    const nextTitles = new Set([...titles, ...issueTitles]);
+    const nextNumbers = new Set([...numbers, ...issueNumbers]);
+    if (batch.length && (
+      batch.length >= TIER3_ISSUE_BATCH_SIZE
+      || nextTitles.size > TIER3_FILTER_LIMIT
+      || nextNumbers.size > TIER3_FILTER_LIMIT
+    )) {
+      batches.push({ titles: [...titles], numbers: [...numbers] });
+      batch = [];
+      titles = new Set();
+      numbers = new Set();
+    }
+    batch.push(issue);
+    issueTitles.forEach((title) => titles.add(title));
+    issueNumbers.forEach((number) => numbers.add(number));
+  }
+  if (batch.length) batches.push({ titles: [...titles], numbers: [...numbers] });
+  return batches;
 }
 
 function yearOf(value) {
@@ -170,9 +202,14 @@ export async function resolveCovers(supabase, issues) {
   );
   if (!tier3Issues.length) return early;
 
-  const titles = [...new Set(tier3Issues.flatMap((issue) => titleVariants(issue.series_title)))];
-  const tier3Rows = await fetchChunks(titles, (group) => supabase.from("canonical_covers")
-    .select(PICK_COLUMNS).in("series_title", group).is("series_gcd_id", null)
-    .not("storage_path", "is", null));
+  const tier3Rows = [];
+  for (const batch of tier3Batches(tier3Issues)) {
+    // This prefilter only removes rows whose raw number equals neither the
+    // issue's raw number nor its base key; the old pages matched exact raw numbers.
+    tier3Rows.push(...await fetchAllByKeyset(() => supabase.from("canonical_covers")
+      .select(PICK_COLUMNS).in("series_title", batch.titles)
+      .in("issue_number", batch.numbers).is("series_gcd_id", null)
+      .not("storage_path", "is", null), "id"));
+  }
   return pickCovers(usable, [...tier1Rows, ...tier2Rows, ...tier3Rows]);
 }

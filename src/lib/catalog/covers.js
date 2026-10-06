@@ -1,6 +1,6 @@
-import { baseIssueNumber } from "../coverMatch.js";
+import { baseIssueNumber, compareIssueNumbers, publishersCompatible } from "../coverMatch.js";
 import { fetchAllByKeyset } from "../supabase/fetchAllPages.js";
-import { titleVariants } from "../titleMatch.js";
+import { normTitle, titleVariants } from "../titleMatch.js";
 
 const CHUNK_SIZE = 500;
 const TIER3_ISSUE_BATCH_SIZE = 100;
@@ -102,6 +102,35 @@ function result(row, tier, source) {
   };
 }
 
+function compactTitle(value) {
+  return String(value ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+function knownPublisher(value) {
+  const publisher = String(value ?? "").trim();
+  return publisher && publisher.toLowerCase() !== "unknown publisher" ? publisher : null;
+}
+
+export function pickUniqueSiblingCover(issue, rows) {
+  const key = baseIssueNumber(issue?.issue_number);
+  const issueYear = issue?.year ?? issue?.series_year_start;
+  if (!key || issueYear == null) return null;
+  const titles = new Set(titleVariants(issue.series_title).map(normTitle).filter(Boolean));
+  const candidates = (rows ?? []).filter((row) => {
+    if (!row?.storage_path || row.series_gcd_id == null) return false;
+    if (String(row.series_gcd_id) === String(issue.series_gcd_id)) return false;
+    if (!titles.has(normTitle(row.series_title))) return false;
+    if (baseIssueNumber(row.issue_number) !== key) return false;
+    const candidateYear = yearOf(row.cover_date) ?? (row.series_year == null ? null : Number(row.series_year));
+    if (candidateYear == null || Math.abs(candidateYear - Number(issueYear)) > 1) return false;
+    const issuePublisher = knownPublisher(issue.publisher);
+    const rowPublisher = knownPublisher(row.publisher);
+    return !issuePublisher || !rowPublisher || publishersCompatible(issuePublisher, rowPublisher);
+  });
+  const unique = [...new Map(candidates.map((row) => [String(row.id ?? row.storage_path), row])).values()];
+  return unique.length === 1 ? result(unique[0], 4, "sibling") : null;
+}
+
 export function pickCovers(issues, candidateRows) {
   const rows = (candidateRows ?? []).filter((row) => row?.storage_path);
   const resolved = new Map();
@@ -134,6 +163,12 @@ export function pickCovers(issues, candidateRows) {
     );
     if (tier2.length) {
       resolved.set(issue.gcd_issue_id, result(rankRows(tier2, issue, 2)[0], 2, "series_gcd_id"));
+      continue;
+    }
+
+    const sibling = pickUniqueSiblingCover(issue, rows);
+    if (sibling) {
+      resolved.set(issue.gcd_issue_id, sibling);
       continue;
     }
 
@@ -195,11 +230,7 @@ export async function resolveCovers(supabase, issues) {
 
   const early = pickCovers(usable, [...tier1Rows, ...tier2Rows]);
   const unresolved = usable.filter((issue) => !early.has(issue.gcd_issue_id));
-  const blockedSeries = new Set(tier2Rows.map((row) => String(row.series_gcd_id)));
-  const tier3Issues = unresolved.filter((issue) =>
-    issue.series_title
-    && (issue.series_gcd_id == null || !blockedSeries.has(String(issue.series_gcd_id)))
-  );
+  const tier3Issues = unresolved.filter((issue) => issue.series_title);
   if (!tier3Issues.length) return early;
 
   const tier3Rows = [];
@@ -208,8 +239,64 @@ export async function resolveCovers(supabase, issues) {
     // issue's raw number nor its base key; the old pages matched exact raw numbers.
     tier3Rows.push(...await fetchAllByKeyset(() => supabase.from("canonical_covers")
       .select(PICK_COLUMNS).in("series_title", batch.titles)
-      .in("issue_number", batch.numbers).is("series_gcd_id", null)
+      .in("issue_number", batch.numbers)
       .not("storage_path", "is", null), "id"));
   }
+  const normalizedTitles = [...new Set(tier3Issues.map((issue) => compactTitle(issue.series_title)).filter(Boolean))];
+  const siblingSeriesIds = [];
+  for (const group of chunks(normalizedTitles)) {
+    siblingSeriesIds.push(...await fetchAllByKeyset(() => supabase.from("series")
+      .select("id, gcd_id").in("title_normalized", group).not("gcd_id", "is", null), "id"));
+  }
+  const siblingIds = [...new Set(siblingSeriesIds.map((row) => row.gcd_id).filter((id) => id != null))];
+  const siblingNumbers = [...new Set(tier3Issues.flatMap((issue) =>
+    [issue.issue_number, baseIssueNumber(issue.issue_number)]
+  ).filter(Boolean))];
+  for (const idGroup of chunks(siblingIds)) {
+    for (const numberGroup of chunks(siblingNumbers)) {
+      tier3Rows.push(...await fetchAllByKeyset(() => supabase.from("canonical_covers")
+        .select(PICK_COLUMNS).in("series_gcd_id", idGroup).in("issue_number", numberGroup)
+        .not("storage_path", "is", null), "id"));
+    }
+  }
   return pickCovers(usable, [...tier1Rows, ...tier2Rows, ...tier3Rows]);
+}
+
+export async function resolveSeriesCovers(supabase, seriesRows) {
+  const series = (seriesRows ?? []).filter((row) => row?.gcd_id != null);
+  if (!series.length) return new Map();
+  const byGcdId = new Map(series.map((row) => [String(row.gcd_id), row]));
+  const ids = series.map((row) => row.gcd_id);
+  const issueRows = [];
+  for (const group of chunks(ids)) {
+    issueRows.push(...await fetchAllByKeyset(() => supabase.from("gcd_issues")
+      .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
+      .in("series_gcd_id", group), "gcd_id"));
+  }
+  const issues = issueRows.map((issue) => {
+    const owner = byGcdId.get(String(issue.series_gcd_id));
+    return {
+      gcd_issue_id: issue.gcd_id,
+      series_gcd_id: issue.series_gcd_id,
+      series_title: owner.title,
+      issue_number: issue.issue_number,
+      year: yearOf(issue.key_date) ?? yearOf(issue.publication_date),
+      series_year_start: owner.year_start_cached,
+      series_year_end: owner.year_end_cached,
+      publisher: owner.resolved_publisher_cached,
+    };
+  });
+  const covers = await resolveCovers(supabase, issues);
+  const picked = new Map();
+  for (const owner of series) {
+    const covered = issues.filter((issue) =>
+      String(issue.series_gcd_id) === String(owner.gcd_id) && covers.has(issue.gcd_issue_id)
+    ).sort((left, right) => {
+      const leftOne = baseIssueNumber(left.issue_number) === "1" ? 0 : 1;
+      const rightOne = baseIssueNumber(right.issue_number) === "1" ? 0 : 1;
+      return leftOne - rightOne || compareIssueNumbers(left.issue_number, right.issue_number);
+    });
+    if (covered.length) picked.set(owner.id, covers.get(covered[0].gcd_issue_id));
+  }
+  return picked;
 }

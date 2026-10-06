@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { pickCovers } from "./covers.js";
+import { pickCovers, pickUniqueSiblingCover } from "./covers.js";
 
 const issue = (overrides = {}) => ({
   gcd_issue_id: 1,
@@ -134,4 +134,47 @@ test("a title-matched cover is checked against the series span, not the issue ye
   const picked = pickCovers([issue], rows).get(1800040);
   assert.equal(picked?.storage_path, "ghost-rider/vol-1990/40.jpg");
   assert.equal(picked?.tier, 3);
+});
+
+test("a unique same-book sibling cover qualifies", () => {
+  const picked = pickUniqueSiblingCover(issue({
+    series_gcd_id: 20,
+    series_title: "The Example",
+    year: 2000,
+    publisher: "Image Comics",
+  }), [cover({
+    series_gcd_id: 21,
+    series_title: "Example",
+    series_year: 2001,
+    publisher: "Image",
+    storage_path: "sibling.jpg",
+  })]);
+  assert.equal(picked?.storage_path, "sibling.jpg");
+  assert.equal(picked?.source, "sibling");
+});
+
+test("Tug & Buster 1998 Image #1 rejects the 1995 Art & Soul sibling", () => {
+  const picked = pickUniqueSiblingCover(issue({
+    series_gcd_id: 151248,
+    series_title: "Tug & Buster",
+    year: 1998,
+    series_year_start: 1998,
+    publisher: "Image Comics",
+  }), [cover({
+    series_gcd_id: 5447,
+    series_title: "TUG & buster",
+    series_year: 1995,
+    cover_date: "1995-01-01",
+    publisher: "Art & Soul",
+    storage_path: "art-and-soul-1.jpg",
+  })]);
+  assert.equal(picked, null);
+});
+
+test("sibling fallback stays blank when more than one candidate qualifies", () => {
+  const target = issue({ series_gcd_id: 20, year: 2000, publisher: null });
+  assert.equal(pickUniqueSiblingCover(target, [
+    cover({ series_gcd_id: 21, storage_path: "one.jpg" }),
+    cover({ id: 2, series_gcd_id: 22, storage_path: "two.jpg" }),
+  ]), null);
 });

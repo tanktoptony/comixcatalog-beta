@@ -11,6 +11,8 @@ import { trackEvent } from "@/lib/analytics";
 import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
 import { coverThumb } from "@/lib/coverThumb";
+import ComicResultCard from "@/components/ComicResultCard";
+import CoverScanner from "@/components/CoverScanner";
 
 const PAGE_SIZE = 36;
 
@@ -318,6 +320,8 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       <div className="section-label badge-x">Search</div>
       <h1 className="hero-title">Find Comics</h1>
 
+      <CoverScanner />
+
       {/* The search input is the header's — see SearchQueryContext. */}
 
       {/* Series suggestions — grouped by title, divider between groups */}
@@ -471,6 +475,9 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         {/* Real results */}
         {!isFirstLoad &&
           results.map((item, index) => {
+            if (item.id) {
+              return <ComicResultCard key={item.id} item={item} index={index} query={query} onMutationError={setMutationError} />;
+            }
             const isSeries = item.__source === "series";
             const isUserAdded = item.__source === "user";
             const inCollection = !isSeries && collectionIds.has(item.id);

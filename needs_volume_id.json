@@ -42559,5 +42559,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T09:04:12.868179+00:00",
     "retry_after": "2026-10-07T09:04:12.868197+00:00"
+  },
+  {
+    "name": "Misfits of Avalon",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T10:01:34.631871+00:00",
+    "retry_after": "2026-10-07T10:01:34.631891+00:00"
+  },
+  {
+    "name": "Dark Horse Futures",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T10:02:33.586418+00:00",
+    "retry_after": "2026-10-07T10:02:33.586437+00:00"
+  },
+  {
+    "name": "Superman / Tarzan: Sons of the Jungle",
+    "publisher": "Dark Horse Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28406,
+        "name": "Superman/Tarzan: Sons of the Jungle",
+        "publisher": "DC Comics",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T10:02:34.092187+00:00",
+    "retry_after": "2026-10-07T10:02:34.092196+00:00"
   }
 ]

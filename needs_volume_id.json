@@ -42633,5 +42633,57 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T11:03:28.210040+00:00",
     "retry_after": "2026-10-07T11:03:28.210055+00:00"
+  },
+  {
+    "name": "Shade, the Changing Man",
+    "publisher": "DC Comics",
+    "year": 2003,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2891,
+        "name": "Shade, the Changing Man",
+        "publisher": "DC Comics",
+        "start_year": 1977
+      },
+      {
+        "id": 4375,
+        "name": "Shade, the Changing Man",
+        "publisher": "DC Comics",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T12:00:49.774356+00:00",
+    "retry_after": "2026-10-07T12:00:49.774373+00:00"
+  },
+  {
+    "name": "Jennifer Blood",
+    "publisher": "Dynamite Entertainment",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 157221,
+        "name": "Jennifer Blood",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2022
+      },
+      {
+        "id": 39051,
+        "name": "Jennifer Blood",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2011
+      },
+      {
+        "id": 139493,
+        "name": "Jennifer Blood",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T12:04:39.942230+00:00",
+    "retry_after": "2026-10-07T12:04:39.942247+00:00"
   }
 ]

@@ -6,6 +6,7 @@ import { collectsLines, formatLabel, isCollectedEdition } from "@/lib/seriesForm
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { baseIssueNumber } from "@/lib/coverMatch";
 import { bestYearFor, parseYear } from "@/lib/years";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 
 // Strip variant/printing suffixes — same logic as the cache refresh.
 // "1 [Newsstand]" → "1", "5/1981" → "5", "Annual 1" → null.
@@ -55,6 +56,8 @@ export async function GET(req, context) {
         publisher_id,
         cv_publisher,
         resolved_publisher_cached,
+        year_start_cached,
+        year_end_cached,
         publisher:publisher_id (
           id,
           name,
@@ -133,7 +136,7 @@ export async function GET(req, context) {
     }
 
     const [issuesResult, gcdSeriesResult, gcdFormatResult] = await Promise.all([
-      supabase
+      fetchAllPages(() => supabase
         .from("gcd_issues")
         .select(`
           gcd_id,
@@ -144,9 +147,9 @@ export async function GET(req, context) {
           publication_date,
           key_date
         `)
-        .eq("series_gcd_id", series.gcd_id)
-        .order("gcd_id", { ascending: true })
-        .limit(500),
+        .eq("series_gcd_id", series.gcd_id), "gcd_id")
+        .then((data) => ({ data, error: null }))
+        .catch((error) => ({ data: null, error })),
       // Series-level publisher per GCD. More reliable than per-issue
       // publisher_gcd_id, which is often a distributor or shell company.
       supabase
@@ -284,8 +287,12 @@ export async function GET(req, context) {
     const seriesYears = issueRows
       .map((row) => bestYearFor(row))
       .filter((y) => y != null);
-    const seriesYearMin = seriesYears.length ? Math.min(...seriesYears) : null;
-    const seriesYearMax = seriesYears.length ? Math.max(...seriesYears) : null;
+    const seriesYearMin = seriesYears.length
+      ? Math.min(...seriesYears)
+      : parseYear(series.year_start_cached);
+    const seriesYearMax = seriesYears.length
+      ? Math.max(...seriesYears)
+      : parseYear(series.year_end_cached);
     try {
       resolvedCovers = await resolveCovers(supabase, issueRows.map((issue) => ({
         gcd_issue_id: issue.gcd_id,

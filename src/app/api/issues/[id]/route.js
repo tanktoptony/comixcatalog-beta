@@ -3,6 +3,7 @@ import { baseIssueNumber } from "@/lib/coverMatch";
 import { fetchSeriesCoverRows, resolveCovers } from "@/lib/catalog/covers";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { getServiceClient } from "@/lib/supabase/service";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { resolvePublisher } from "@/lib/publisher";
 import { getAuthedUser } from "@/lib/authServer";
 import { formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
@@ -178,6 +179,8 @@ export async function GET(req, context) {
             publisher_id,
             cv_publisher,
             resolved_publisher_cached,
+            year_start_cached,
+            year_end_cached,
             publisher:publisher_id (
               id,
               name,
@@ -249,8 +252,8 @@ export async function GET(req, context) {
       let seriesYearMin = null;
       let seriesYearMax = null;
       if (issue.series_gcd_id) {
-        const [{ data: allIssues }, seriesCoverRows] = await Promise.all([
-          supabase
+        const [allIssues, seriesCoverRows] = await Promise.all([
+          fetchAllPages(() => supabase
             .from("gcd_issues")
             .select(`
               gcd_id,
@@ -259,9 +262,12 @@ export async function GET(req, context) {
               publication_date,
               key_date
             `)
-            .eq("series_gcd_id", issue.series_gcd_id)
-            .order("gcd_id", { ascending: true })
-            .limit(500),
+            .eq("series_gcd_id", issue.series_gcd_id), "gcd_id")
+            .catch((error) => {
+              console.error("issue series navigation lookup failed:", error);
+              degradation.value = true;
+              return [];
+            }),
           fetchSeriesCoverRows(supabase, { seriesGcdIds: [issue.series_gcd_id] })
             .catch((error) => {
               console.error("issue series cover navigation failed:", error);
@@ -285,6 +291,10 @@ export async function GET(req, context) {
           .filter((y) => y != null);
         seriesYearMin = spanYears.length ? Math.min(...spanYears) : null;
         seriesYearMax = spanYears.length ? Math.max(...spanYears) : null;
+        if (!spanYears.length) {
+          seriesYearMin = parseYear(seriesRow?.year_start_cached);
+          seriesYearMax = parseYear(seriesRow?.year_end_cached);
+        }
       }
 
       const issueYear = bestYearFor(issue);
@@ -529,6 +539,8 @@ export async function GET(req, context) {
               publisher_id,
               cv_publisher,
               resolved_publisher_cached,
+              year_start_cached,
+              year_end_cached,
               publisher:publisher_id (
                 id,
                 name,
@@ -549,12 +561,16 @@ export async function GET(req, context) {
               degradation.value = true;
               return { data: [], error };
             }),
-          supabase
+          fetchAllPages(() => supabase
             .from("gcd_issues")
             .select("gcd_id, issue_number, title, publication_date, key_date")
-            .eq("series_gcd_id", seriesGcdId)
-            .order("gcd_id", { ascending: true })
-            .limit(500),
+            .eq("series_gcd_id", seriesGcdId), "gcd_id")
+            .then((data) => ({ data, error: null }))
+            .catch((error) => {
+              console.error("orphan issue navigation lookup failed:", error);
+              degradation.value = true;
+              return { data: [], error };
+            }),
         ]);
 
       const seriesRow = seriesResult.data;

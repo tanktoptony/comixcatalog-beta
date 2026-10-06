@@ -42660,5 +42660,285 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T15:05:15.031855+00:00",
     "retry_after": "2026-10-07T15:05:15.031874+00:00"
+  },
+  {
+    "name": "X-Men",
+    "publisher": "Sociedad Editora Am�rica, S. A.",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2133,
+        "name": "The X-Men",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 43672,
+        "name": "X-Men",
+        "publisher": "Panini Verlag",
+        "start_year": 2001
+      },
+      {
+        "id": 10731,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 34221,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 46130,
+        "name": "X-Men",
+        "publisher": "Planeta DeAgostini",
+        "start_year": 1992
+      },
+      {
+        "id": 117893,
+        "name": "X-Men",
+        "publisher": "Panini Brasil",
+        "start_year": 2017
+      },
+      {
+        "id": 137402,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 56350,
+        "name": "X-Men",
+        "publisher": "Semic S.A.",
+        "start_year": 1992
+      },
+      {
+        "id": 57741,
+        "name": "X-Men",
+        "publisher": "Abril",
+        "start_year": 1989
+      },
+      {
+        "id": 74075,
+        "name": "X-Men",
+        "publisher": "Panini Brasil",
+        "start_year": 2014
+      },
+      {
+        "id": 104729,
+        "name": "X-Men",
+        "publisher": "Panini France",
+        "start_year": 2017
+      },
+      {
+        "id": 118014,
+        "name": "X-Men",
+        "publisher": "Panini Verlag",
+        "start_year": 2016
+      },
+      {
+        "id": 43640,
+        "name": "X-Men",
+        "publisher": "Panini France",
+        "start_year": 1997
+      },
+      {
+        "id": 43634,
+        "name": "X-Men",
+        "publisher": "Panini Brasil",
+        "start_year": 2002
+      },
+      {
+        "id": 4605,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 1991
+      },
+      {
+        "id": 45796,
+        "name": "X-Men",
+        "publisher": "Planeta DeAgostini",
+        "start_year": 1996
+      },
+      {
+        "id": 69176,
+        "name": "X-Men",
+        "publisher": "Panini Brasil",
+        "start_year": 2013
+      },
+      {
+        "id": 62383,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 122077,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 43575,
+        "name": "X-Men",
+        "publisher": "Panini España",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T16:00:47.513095+00:00",
+    "retry_after": "2026-10-07T16:00:47.513111+00:00"
+  },
+  {
+    "name": "The Pound",
+    "publisher": "IDW Publishing",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44461,
+        "name": "The Pound",
+        "publisher": "Frozen Beach Studios",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T16:08:23.315256+00:00",
+    "retry_after": "2026-10-07T16:08:23.315273+00:00"
+  },
+  {
+    "name": "March",
+    "publisher": "IDW Publishing",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66338,
+        "name": "March",
+        "publisher": "Top Shelf",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T16:08:23.827037+00:00",
+    "retry_after": "2026-10-07T16:08:23.827055+00:00"
+  },
+  {
+    "name": "Persona 5: Mementos Mission",
+    "publisher": "Udon Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119057,
+        "name": "Persona 5: Mementos Mission",
+        "publisher": "ASCII Media Works",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T16:08:24.363774+00:00",
+    "retry_after": "2026-10-07T16:08:24.363791+00:00"
+  },
+  {
+    "name": "The Killer: Affairs of the State II",
+    "publisher": "Archaia",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 164472,
+        "name": "The Killer: Affairs of the State II",
+        "publisher": "Boom! Studios",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T16:08:25.059612+00:00",
+    "retry_after": "2026-10-07T16:08:25.059628+00:00"
+  },
+  {
+    "name": "The Hedge Knight",
+    "publisher": "Devil's Due",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18329,
+        "name": "The Hedge Knight",
+        "publisher": "Image",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T16:08:25.731930+00:00",
+    "retry_after": "2026-10-07T16:08:25.731948+00:00"
+  },
+  {
+    "name": "Id",
+    "publisher": "Fantagraphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57681,
+        "name": "ID",
+        "publisher": "Eros Comix",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T16:08:26.279132+00:00",
+    "retry_after": "2026-10-07T16:08:26.279147+00:00"
+  },
+  {
+    "name": "Mystic Funnies",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54729,
+        "name": "Mystic Funnies",
+        "publisher": "Last Gasp",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T16:08:26.710101+00:00",
+    "retry_after": "2026-10-07T16:08:26.710114+00:00"
+  },
+  {
+    "name": "Wolverine & Black Cat: Claws 2",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T16:09:43.032628+00:00",
+    "retry_after": "2026-10-07T16:09:43.032646+00:00"
+  },
+  {
+    "name": "The Powers of Grayskull",
+    "publisher": "Dark Horse Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T16:13:14.462632+00:00",
+    "retry_after": "2026-10-07T16:13:14.462650+00:00"
+  },
+  {
+    "name": "Wildstorm Universe 97",
+    "publisher": "Image Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T16:13:15.050880+00:00",
+    "retry_after": "2026-10-07T16:13:15.050896+00:00"
   }
 ]

@@ -4,55 +4,47 @@ Sample: 5470; top series: 2000; title clusters: 1500; random: 1970; seed: 41; br
 
 ## Review (2026-10-06)
 
-Counts below are from the last complete run, taken **before** the Transformers Universe data fix.
+Old = what production's `/api/issues/[id]` returns today. New = `resolveCovers`. Same seeded sample throughout (saved, so reruns compare like with like).
 
-- **Gained 392:** issues with no cover today that get one. 302 via tier 1 (exact issue link), 90 via tier 2. Spot-checked every 20th row: all the right issue and volume. Most are The Beano and The Beezer, whose cover counts passed the old pages' 1,000-row read.
-- **Lost 27 → 19 after the data fix:**
-  - The Transformers Universe (8 records). The covers were filed under duplicate series 199403 and series 11216 was pinned to the wrong ComicVine volume (20559). Fixed by SQL Tony ran on 2026-10-06 (moved covers 145669–145672 to 11216, unlinked 144915/145026/145137/145181, moved the pins). Re-checked directly through `resolveCovers`: all 8 now resolve to the vol-33530 covers. This was the only lost group in a user library (3 owned books).
-  - Carnage (13): the old pages put one cover on several different Carnage issue records (one #1 cover on 4 records; the 2022 and 2023 #1s sharing one). That's cross-volume bleed, refused on purpose. None owned.
-  - From Hell ×2, Grimm, New Warriors (2014) #1, Super DC Giant S-21, Wynd #1: matched only by title to covers tagged to a different series record. None owned. Fixable by pinning when they matter.
-- **Changed 1:** Justice League (2018) #37 (gcd 1776091) would take a 2011-volume cover via one wrong `gcd_issue_id` link that passes the year check. Data fix in WS4b, which adds relink tooling. Not owned.
-- Before the tier-1 year check was added, 10 covers changed, all tier-1 links from mis-pinned volumes (Transformers Universe, Teen Titans, Wildcats, X-Files). The check is now in `pickCovers` with a test.
+- **Gained 392:** issues with no cover today that get one. 302 via tier 1 (exact issue link), 90 via tier 2 (series + issue number). Spot-checked every 20th row: all the right issue and volume. Most are The Beano and The Beezer, whose cover counts passed the old pages' 1,000-row read.
+- **Lost 19, none in any user's library:**
+  - Carnage (13): the old pages put one cover on several different Carnage issue records (one #1 cover on 4 records; the 2022 and 2023 #1s sharing one). Cross-volume bleed, refused on purpose.
+  - From Hell ×2, Grimm, New Warriors (2014) #1, Super DC Giant S-21, Wynd #1: matched only by title to covers tagged to a different series record. Fixable by pinning when they matter.
+- **Changed 1:** Justice League (2018) #37 (gcd 1776091) would take a 2011-volume cover through one wrong `gcd_issue_id` link that passes the year check. Data fix in WS4b (relink tooling). Not owned.
+- **Fixed during review:** The Transformers Universe (8 records, 3 owned books) was lost because its covers sat under duplicate series 199403 and series 11216 was pinned to the wrong ComicVine volume. Tony ran the data fix 2026-10-06; all 8 now resolve to the right covers. Before the tier-1 year check was added, 10 covers changed, all tier-1 links from mis-pinned volumes (Transformers Universe, Teen Titans, Wildcats, X-Files).
+- **Can this check fail?** With tier 2 disabled (`--break-tier=2`), the same sample reports **1,264 lost** instead of 19.
 
 | Same | Gained | Lost | Changed |
 |---:|---:|---:|---:|
-| 5050 | 392 | 27 | 1 |
+| 5058 | 392 | 19 | 1 |
 
 | Result | Series | Year | Issue | GCD ID | Old path | New path | Tier |
 |---|---|---:|---|---:|---|---|---:|
 | gained | The Beano |  | 1177 | 161668 |  | comicvine/the-beano/vol-26847/741200-issue-1177.jpg | 1 |
 | gained | Detective Comics | 2010 | 868 | 2124995 |  | comicvine/detective-comics/vol-18058/231610-batman-impostors-part-two-the-s-laughter-of-fools.jpg | 2 |
-| lost | The Transformers Universe | 1987 | 2 | 936615 | comicvine/transformers-universe/vol-33530/217615-issue-2.jpg |  |  |
 | gained | Batman | 2004 | 632 | 224151 |  | comicvine/batman/vol-796/100887-orpheus-in-the-underworld.jpg | 1 |
 | gained | The Beano |  | 3480 | 740165 |  | comicvine/the-beano/vol-26847/223100-issue-3480.jpg | 1 |
 | gained | Spawn |  | 317 | 2267662 |  | comicvine/spawn/vol-4937/846035-chain-gang-part-four.jpg | 2 |
-| lost | The Transformers Universe | 1986 | 1 | 935263 | comicvine/transformers-universe/vol-33530/217614-issue-1.jpg |  |  |
 | gained | The Beano |  | 2864 | 163355 |  | comicvine/the-beano/vol-26847/758988-issue-2864.jpg | 1 |
 | gained | Detective Comics | 2005 | 802 | 2236973 |  | comicvine/detective-comics/vol-18058/113386-city-of-crime-part-2-the-secret-keepers-when-you-re-strange-part-2.jpg | 2 |
-| lost | The Transformers Universe | 1986 | 1 | 134240 | comicvine/transformers-universe/vol-33530/217614-issue-1.jpg |  |  |
 | gained | Action Comics | 1994 | 700 | 1965004 |  | comicvine/action-comics/vol-18005/111014-swan-song.jpg | 2 |
 | gained | Detective Comics | 1983 | 522 | 37072 |  | comicvine/detective-comics/vol-18058/112935-snow-blind-automatic-pirate.jpg | 1 |
-| lost | The Transformers Universe | 1987 | 4 | 134243 | comicvine/transformers-universe/vol-33530/217617-issue-4.jpg |  |  |
 | gained | The Beano |  | 1422 | 161913 |  | comicvine/the-beano/vol-26847/161732-issue-1422.jpg | 1 |
 | gained | Action Comics | 1981 | 519 | 2107520 |  | comicvine/action-comics/vol-18005/120907-where-the-space-winds-blows-family-plot.jpg | 2 |
 | gained | Detective Comics | 1984 | 541 | 1705061 |  | comicvine/detective-comics/vol-18058/112996-c-c-cold-the-nightfly.jpg | 2 |
 | gained | The Beezer |  | 277 | 584242 |  | comicvine/the-beezer/vol-27927/945235-issue-277.jpg | 1 |
 | gained | Spawn | 2023 | 346 | 2617144 |  | comicvine/spawn/vol-4937/1027130-issue-346.jpg | 2 |
-| lost | The Transformers Universe | 1987 | 4 | 936616 | comicvine/transformers-universe/vol-33530/217617-issue-4.jpg |  |  |
 | gained | The Beano |  | 3286 | 596829 |  | comicvine/the-beano/vol-26847/768606-issue-3286.jpg | 1 |
 | gained | Action Comics | 2005 | 826 | 224128 |  | comicvine/action-comics/vol-18005/112410-lightning-strikes-twice.jpg | 1 |
 | gained | Detective Comics | 1983 | 530 | 1119864 |  | comicvine/detective-comics/vol-18058/112944-passion-nocturnale-survival-of-the-fittest.jpg | 2 |
 | gained | The Beezer |  | 624 | 584589 |  | comicvine/the-beezer/vol-27927/281177-issue-624.jpg | 1 |
-| lost | The Transformers Universe | 1987 | 3 | 936394 | comicvine/transformers-universe/vol-33530/217616-issue-3.jpg |  |  |
 | gained | The Beano | 2000 | 2998 | 163489 |  | comicvine/the-beano/vol-26847/277890-issue-2998.jpg | 1 |
 | gained | Action Comics | 1991 | 661 | 1564945 |  | comicvine/action-comics/vol-18005/118038-stretching-a-point.jpg | 2 |
 | gained | Detective Comics | 2007 | 832 | 311413 |  | comicvine/detective-comics/vol-18058/108964-triage.jpg | 1 |
-| lost | The Transformers Universe | 1987 | 3 | 134242 | comicvine/transformers-universe/vol-33530/217616-issue-3.jpg |  |  |
 | gained | The Beano |  | 4140 | 2414431 |  | comicvine/the-beano/vol-26847/1049704-issue-4140.jpg | 1 |
 | gained | Action Comics | 1994 | 704 | 55950 |  | comicvine/action-comics/vol-18005/115670-eradication-day.jpg | 1 |
 | gained | Detective Comics | 2002 | 772 | 2016110 |  | comicvine/detective-comics/vol-18058/113324-bruce-wayne-fugitive-part-16-principle-lost-voices-part-10.jpg | 2 |
 | gained | The Beezer |  | 263 | 584228 |  | comicvine/the-beezer/vol-27927/945232-issue-263.jpg | 1 |
-| lost | The Transformers Universe | 1987 | 2 | 134241 | comicvine/transformers-universe/vol-33530/217615-issue-2.jpg |  |  |
 | gained | The Beano |  | 3195 | 163686 |  | comicvine/the-beano/vol-26847/565813-issue-3195.jpg | 1 |
 | gained | Action Comics | 1982 | 534 | 36552 |  | comicvine/action-comics/vol-18005/120766-two-for-the-death-of-one-air-wave-s-close-encounter.jpg | 1 |
 | gained | Batman | 2005 | 637 | 224156 |  | comicvine/batman/vol-796/100892-under-the-hood-part-3-overnight-deliveries.jpeg | 1 |

@@ -42186,5 +42186,48 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T00:36:49.925854+00:00",
     "retry_after": "2026-10-07T00:36:49.925871+00:00"
+  },
+  {
+    "name": "Art & Beauty Magazine",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47769,
+        "name": "Art & Beauty Magazine",
+        "publisher": "Kitchen Sink",
+        "start_year": 1996
+      },
+      {
+        "id": 141301,
+        "name": "Art & Beauty Magazine",
+        "publisher": "Ediciones La Cúpula S.L.",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T02:02:59.558990+00:00",
+    "retry_after": "2026-10-07T02:02:59.559007+00:00"
+  },
+  {
+    "name": "The Ring of the Nibelung Vol. 3 [Siegfried]",
+    "publisher": "Dark Horse Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T02:03:57.460894+00:00",
+    "retry_after": "2026-10-07T02:03:57.460913+00:00"
+  },
+  {
+    "name": "Looney Tunes Greatest Hits",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T02:04:10.819315+00:00",
+    "retry_after": "2026-10-07T02:04:10.819330+00:00"
   }
 ]

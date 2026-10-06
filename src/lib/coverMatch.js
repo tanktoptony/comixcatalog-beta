@@ -24,6 +24,19 @@ export function baseIssueNumber(value) {
   return match ? match[1] : null;
 }
 
+export function compareIssueNumbers(left, right) {
+  const leftBase = baseIssueNumber(left);
+  const rightBase = baseIssueNumber(right);
+  const leftNumber = leftBase == null ? null : Number(leftBase);
+  const rightNumber = rightBase == null ? null : Number(rightBase);
+  if (leftNumber == null && rightNumber != null) return 1;
+  if (leftNumber != null && rightNumber == null) return -1;
+  if (leftNumber != null && rightNumber != null && leftNumber !== rightNumber) {
+    return leftNumber - rightNumber;
+  }
+  return String(left ?? "").localeCompare(String(right ?? ""), undefined, { numeric: true });
+}
+
 const PUBLISHER_FAMILIES = [
   ["marvel", /^(marvel|timelycomics|atlascomics)/],
   ["dc", /^(dc|dccomics|detectivecomics|nationalperiodicalpublications)/],

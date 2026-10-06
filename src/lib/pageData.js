@@ -47,7 +47,7 @@ const cachedSearchComics = unstable_cache(
 );
 
 const cachedSearchSeries = unstable_cache(
-  (q) => callRoute(searchSeriesGET, `http://internal/api/search/series?q=${encodeURIComponent(q)}`, "series"),
+  (q) => callRoute(searchSeriesGET, `http://internal/api/search/series?q=${encodeURIComponent(q)}&limit=4`, "series"),
   ["page-search-series-v1"],
   { revalidate: 600 }
 );

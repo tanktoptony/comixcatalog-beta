@@ -95,6 +95,10 @@ async function main() {
   }
   if (cursor.completed_at) Object.assign(cursor, { next_page: 1, started_at: null, completed_at: null });
   cursor.started_at ||= new Date().toISOString();
+  // Persist the in-progress state before the first request. Series discovery
+  // reads this cursor and must not compete with a weekly publisher pass that
+  // was rate-limited on its first page.
+  writeCursor(cursor);
 
   let page = Number(cursor.next_page || 1);
   while (true) {

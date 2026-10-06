@@ -38,16 +38,28 @@ jobs:
             exit 0
           fi
           exit "$code"
-      - name: Commit the publisher cursor
+      - name: Discover missing GCD series
+        id: discover
+        run: |
+          set +e
+          node scripts/discoverGcdSeries.js
+          code=$?
+          set -e
+          if [ "$code" -eq 3 ]; then
+            echo "GCD rate-limited this run. The series cursor records where to resume."
+            exit 0
+          fi
+          exit "$code"
+      - name: Commit the GCD cursors
         if: always() && steps.sync.outcome != 'skipped'
         run: |
-          if [[ -z "$(git status --porcelain gcd-publisher-sync-cursor.json)" ]]; then
-            echo "Cursor unchanged. Nothing to commit."
+          if [[ -z "$(git status --porcelain gcd-publisher-sync-cursor.json gcd-series-discovery-cursor.json)" ]]; then
+            echo "Cursors unchanged. Nothing to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add gcd-publisher-sync-cursor.json
-          git commit -m "gcd-publisher-sync: advance cursor"
+          git add gcd-publisher-sync-cursor.json gcd-series-discovery-cursor.json
+          git commit -m "gcd-sync: advance cursors"
           git pull --rebase origin main
           git push origin HEAD:main

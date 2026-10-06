@@ -5,7 +5,7 @@ import process from "node:process";
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 import { resolveCovers } from "../src/lib/catalog/covers.js";
-import { fetchAllPages } from "../src/lib/supabase/fetchAllPages.js";
+import { fetchAllByKeyset, fetchAllPages } from "../src/lib/supabase/fetchAllPages.js";
 
 dotenv.config({ path: path.resolve(".env.local") });
 
@@ -119,24 +119,6 @@ function proportionalSlice(cohorts, limit) {
 async function fetchChunked(values, build, order = "gcd_id") {
   const rows = [];
   for (const group of chunks(values)) rows.push(...await fetchAllPages(() => build(group), order));
-  return rows;
-}
-
-// fetchAllPages intentionally guards individual scans at 50k rows. Keyset
-// segments retain that safety while allowing this audit to inspect the full table.
-async function fetchAllByKeyset(build, order = "id") {
-  const rows = [];
-  let cursor = null;
-  while (true) {
-    const page = await fetchAllPages(() => {
-      let query = build();
-      if (cursor != null) query = query.gt(order, cursor);
-      return query.limit(50000);
-    }, order);
-    rows.push(...page);
-    if (page.length < 50000) break;
-    cursor = page.at(-1)[order];
-  }
   return rows;
 }
 

@@ -11,6 +11,7 @@
     "lint": "eslint",
     "test:cover-match": "node --test src/lib/coverMatch.test.js",
     "test:covers": "node --test src/lib/catalog/covers.test.js",
+    "test:fetch-all": "node --test src/lib/supabase/fetchAllPages.test.js",
     "test:years": "node --test src/lib/years.test.js",
     "test:activity-feed": "node --test src/lib/activityFeed.test.js",
     "test:library-mutations": "node --test src/lib/libraryMutations.test.js",

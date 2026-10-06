@@ -64,6 +64,9 @@ jobs:
       - name: Cover resolver tests
         run: npm run test:covers
 
+      - name: Supabase pagination tests
+        run: npm run test:fetch-all
+
       - name: Year helper tests
         run: npm run test:years
 

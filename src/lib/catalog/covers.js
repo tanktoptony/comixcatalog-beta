@@ -1,5 +1,5 @@
 import { baseIssueNumber } from "../coverMatch.js";
-import { fetchAllPages } from "../supabase/fetchAllPages.js";
+import { fetchAllByKeyset } from "../supabase/fetchAllPages.js";
 import { titleVariants } from "../titleMatch.js";
 
 const CHUNK_SIZE = 500;
@@ -121,7 +121,7 @@ export function pickCovers(issues, candidateRows) {
 async function fetchChunks(values, build) {
   const rows = [];
   for (const group of chunks(values)) {
-    rows.push(...await fetchAllPages(() => build(group), "id"));
+    rows.push(...await fetchAllByKeyset(() => build(group), "id"));
   }
   return rows;
 }

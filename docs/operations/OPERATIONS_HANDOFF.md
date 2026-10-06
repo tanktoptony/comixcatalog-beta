@@ -500,8 +500,9 @@ cards).
    sanity vs the ComicVine volume).
 4. `src/app/api/comics/route.js`: was paginated after all, but ordered by
    `gcd_id` under an `IN (series_gcd_id)` filter (the 4.5s/page plan);
-   reordered 2026-09-22. Consolidating the local `fetchAllPages` copies onto
-   `src/lib/supabase/fetchAllPages.js` (with a keyset mode) is still open.
+   reordered 2026-09-22. Keyset mode now exists as `fetchAllByKeyset`; use it
+   for deep reads ordered by a unique, non-null key, and keep `fetchAllPages`
+   for small result sets where offset paging remains inexpensive.
    This item was originally filed as "unpaginated `gcd_issues` `.in()`",
    which was wrong. What remains is a duplication cleanup, not a truncation
    bug — nothing is returning short counts because of it. Do not re-file it

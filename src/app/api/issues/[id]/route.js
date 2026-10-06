@@ -330,7 +330,7 @@ export async function GET(req, context) {
             seriesLevelPublisherName,
             seriesRow?.publisher?.name ?? null,
             seriesRow?.cv_publisher ?? null,
-            null,
+            canonicalMatch.publisher ?? null,
           ],
           seriesTitle,
         });

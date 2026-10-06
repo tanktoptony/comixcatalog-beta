@@ -32,11 +32,15 @@ test("TMNT volumes resolve #2 by series id", () => {
     issue({ gcd_issue_id: 2, series_gcd_id: 11, series_title: "Teenage Mutant Ninja Turtles", issue_number: "2", year: 2011, series_year_start: 2011, series_year_end: 2015 }),
   ];
   const rows = [
-    cover({ id: 84, series_gcd_id: 84, issue_number: "2", series_year: 1984, storage_path: "tmnt-1984.jpg" }),
+    cover({ id: 84, series_gcd_id: 84, issue_number: "2", series_year: 1984, cover_date: "1984-06-01", publisher: "Mirage Studios", storage_path: "tmnt-1984.jpg" }),
     cover({ id: 11, series_gcd_id: 11, issue_number: "2", series_year: 2011, storage_path: "tmnt-2011.jpg" }),
   ];
   const result = pickCovers(issues, rows);
   assert.equal(result.get(1).storage_path, "tmnt-1984.jpg");
+  assert.deepEqual(
+    { publisher: result.get(1).publisher, cover_date: result.get(1).cover_date, series_year: result.get(1).series_year },
+    { publisher: "Mirage Studios", cover_date: "1984-06-01", series_year: 1984 }
+  );
   assert.equal(result.get(2).storage_path, "tmnt-2011.jpg");
 });
 

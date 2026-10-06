@@ -16,12 +16,11 @@ function option(name, fallback) {
 }
 
 if (process.argv.includes("--help")) {
-  console.log("Usage: node scripts/coverResolverParity.js [--base=URL] [--sample-size=5000] [--seed=41] [--limit=N] [--break-tier=2]");
+  console.log("Usage: node scripts/coverResolverParity.js [--base=URL] [--seed=41] [--limit=N] [--break-tier=2]");
   process.exit(0);
 }
 
 const BASE = option("base", "https://www.comixcatalog.com").replace(/\/$/, "");
-const SAMPLE_SIZE = Number(option("sample-size", "5000"));
 const SEED = Number(option("seed", "41"));
 const LIMIT = option("limit", null) == null ? null : Number(option("limit", null));
 const BREAK_TIER_2 = option("break-tier", "") === "2";
@@ -47,6 +46,25 @@ function chunks(values, size = 500) {
   const out = [];
   for (let index = 0; index < values.length; index += size) out.push(values.slice(index, index + size));
   return out;
+}
+
+function proportionalSlice(cohorts, limit) {
+  const total = cohorts.reduce((sum, cohort) => sum + cohort.rows.length, 0);
+  if (limit == null || limit >= total) return cohorts;
+  const target = Math.max(0, limit);
+  const allocations = cohorts.map((cohort) => {
+    const exact = total ? target * cohort.rows.length / total : 0;
+    return { ...cohort, count: Math.floor(exact), remainder: exact - Math.floor(exact) };
+  });
+  let remaining = target - allocations.reduce((sum, cohort) => sum + cohort.count, 0);
+  for (const cohort of [...allocations].sort((a, b) => b.remainder - a.remainder)) {
+    if (remaining <= 0) break;
+    if (cohort.count < cohort.rows.length) {
+      cohort.count += 1;
+      remaining -= 1;
+    }
+  }
+  return allocations.map((cohort) => ({ name: cohort.name, rows: cohort.rows.slice(0, cohort.count) }));
 }
 
 async function fetchChunked(values, build, order = "gcd_id") {
@@ -117,26 +135,32 @@ for (const row of allSeries) {
 }
 const clusterSeriesIds = shuffle([...byTitle.values()].filter((rows) => rows.length >= 3), random)
   .slice(0, 50).flatMap((rows) => rows.map((row) => row.gcd_id)).filter(Boolean);
-const selectedSeriesIds = [...new Set([...topSeriesIds, ...clusterSeriesIds])];
-
 const selected = new Map();
-const addIssues = (rows) => rows.forEach((row) => selected.set(row.gcd_id, row));
+const addCohort = (name, rows) => {
+  const unique = rows.filter((row) => !selected.has(row.gcd_id));
+  unique.forEach((row) => selected.set(row.gcd_id, row));
+  return { name, rows: unique };
+};
 // Ordered series_gcd_id, gcd_id: gcd_id alone under an IN(series_gcd_id)
 // filter measured ~3s per page on production (see #212).
-addIssues(await fetchChunked(selectedSeriesIds, (group) => supabase.from("gcd_issues")
+const topSeriesCohort = addCohort("top series", await fetchChunked(topSeriesIds, (group) => supabase.from("gcd_issues")
+  .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date").in("series_gcd_id", group)
+  .order("series_gcd_id")));
+const titleClusterCohort = addCohort("title clusters", await fetchChunked(clusterSeriesIds, (group) => supabase.from("gcd_issues")
   .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date").in("series_gcd_id", group)
   .order("series_gcd_id")));
 
-const randomCovered = shuffle([...coveredIssueIds], random);
-const fillTarget = Math.max(SAMPLE_SIZE, 5000);
+const randomCovered = shuffle([...coveredIssueIds].filter((id) => !selected.has(id)), random).slice(0, 2000);
+const randomRows = [];
 for (const group of chunks(randomCovered)) {
-  if (selected.size >= fillTarget) break;
-  addIssues(await fetchAllPages(() => supabase.from("gcd_issues")
+  randomRows.push(...await fetchAllPages(() => supabase.from("gcd_issues")
     .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date").in("gcd_id", group), "gcd_id"));
 }
+const randomCohort = addCohort("random", randomRows);
 
-let sample = [...selected.values()];
-if (LIMIT != null) sample = sample.slice(0, LIMIT);
+const cohorts = proportionalSlice([topSeriesCohort, titleClusterCohort, randomCohort], LIMIT);
+const cohortCounts = Object.fromEntries(cohorts.map((cohort) => [cohort.name, cohort.rows.length]));
+const sample = cohorts.flatMap((cohort) => cohort.rows);
 const seriesByGcd = new Map(allSeries.filter((row) => row.gcd_id != null).map((row) => [String(row.gcd_id), row]));
 const resolverIssues = sample.map((row) => {
   const series = seriesByGcd.get(String(row.series_gcd_id));
@@ -171,7 +195,7 @@ const date = new Date().toISOString().slice(0, 10);
 const report = [
   `# Cover resolver parity — ${date}`,
   "",
-  `Sample: ${rows.length}; seed: ${SEED}; break tier 2: ${BREAK_TIER_2 ? "yes" : "no"}`,
+  `Sample: ${rows.length}; top series: ${cohortCounts["top series"]}; title clusters: ${cohortCounts["title clusters"]}; random: ${cohortCounts.random}; seed: ${SEED}; break tier 2: ${BREAK_TIER_2 ? "yes" : "no"}`,
   "",
   "| Same | Gained | Lost | Changed |",
   "|---:|---:|---:|---:|",

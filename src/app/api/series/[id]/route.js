@@ -305,7 +305,10 @@ export async function GET(req, context) {
       const gcdYear = bestYearFor(issue);
       const best = resolvedCovers.get(issue.gcd_id) ?? null;
       const storagePath = best?.storage_path ?? null;
-      const releaseYear = gcdYear ?? null;
+      const releaseYear =
+        gcdYear ??
+        (best ? parseYear(best.cover_date) ?? Number(best.series_year ?? null) : null) ??
+        null;
 
       return {
         id: `gcd-${issue.gcd_id}`,

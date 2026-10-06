@@ -11,10 +11,11 @@ const PICK_COLUMNS = [
   "issue_number",
   "series_year",
   "cover_date",
+  "publisher",
   "storage_path",
   "created_at",
 ].join(", ");
-const SERIES_COLUMNS = `${PICK_COLUMNS}, publisher`;
+const SERIES_COLUMNS = PICK_COLUMNS;
 
 function chunks(values) {
   const out = [];
@@ -63,6 +64,9 @@ function result(row, tier, source) {
     source,
     tier,
     canonical_cover_id: row.id,
+    publisher: row.publisher,
+    cover_date: row.cover_date,
+    series_year: row.series_year,
   };
 }
 

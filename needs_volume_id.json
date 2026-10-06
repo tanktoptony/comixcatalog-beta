@@ -42115,5 +42115,25 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-05T23:29:14.197823+00:00",
     "retry_after": "2026-10-06T23:29:14.197838+00:00"
+  },
+  {
+    "name": "Big Ethel Energy",
+    "publisher": "Archie Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T00:03:11.759683+00:00",
+    "retry_after": "2026-10-07T00:03:11.759705+00:00"
+  },
+  {
+    "name": "Hi-Fi Fight Club",
+    "publisher": "BOOM! Studios",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T00:03:52.992976+00:00",
+    "retry_after": "2026-10-07T00:03:52.993002+00:00"
   }
 ]

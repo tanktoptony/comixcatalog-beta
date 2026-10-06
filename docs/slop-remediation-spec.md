@@ -120,7 +120,7 @@ Every merged item below was checked after deploy where it could be: SQL steps co
 | WS3 | PR 3c: database errors stop reading as "no data" (46 sites in `src/`: 502 when the page can't be right, `degraded: true` + no CDN cache when the data is extra); public profiles past 1,000 books stop truncating; search survives a failed grouping lookup | #219 | **Merged**, Codex reviewed (3 rounds); live check after deploy: series, issue and search pages respond normally. Error ratchet 101 → 55, zero left in `src/` |
 | WS3 follow-up | Broad searches ("batman") never grouped volumes: the volume lookup sent up to 1,000 UUIDs in one URL and the API rejected it (works ≤300, fails ≥500). The error was silent until #219 flagged it as `degraded`. Now chunked at 200 | #220 | **Merged** 2026-10-05 |
 | WS7 | Public profile speed | #196 | Partial: library load 11.3s → 1.7s for a 214-book collection. Profile p95 still over target |
-| WS4 | PR 4a-1: cover resolver module + issue/series pages | (PR number TBD) | Open |
+| WS4 | PR 4a-1: cover resolver (`src/lib/catalog/covers.js`) for the issue and series pages; keyset paging (`fetchAllByKeyset`); parity script | (this PR) | **Open.** Parity on 5,470 issues: 5,050 same, 392 gained, 19 lost (none owned after the Transformers Universe data fix), 1 changed (a data error, fixed in WS4b). Report: `reports/cover-resolver-parity-2026-10-06.md` |
 | WS5, WS6, WS9 | | none | Not started. WS8 skipped (D-d) |
 
 **Audit scorecard** (21 findings in the 2026-10-02 audit): 8 fixed, 4 partly fixed, 9 not started (D6 and P5 deferred on purpose). Every security finding is closed. The cover findings (I1, I2) and variant parsing (I3) are untouched and are what WS4–WS5 fix.

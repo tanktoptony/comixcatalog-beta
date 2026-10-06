@@ -1,4 +1,29 @@
-import { baseIssueNumber, normalizeTitle, publishersCompatible } from "./coverMatch.js";
+import { baseIssueNumber, publishersCompatible } from "./coverMatch.js";
+
+// A 0.6 Jaccard threshold requires most distinct title words to agree while
+// allowing a small subtitle difference. Reordered titles score 1; the known
+// false match "Batman Immortal Legend" / "Batman Urban Legends" scores 0.2.
+export const COVER_TITLE_SIMILARITY_THRESHOLD = 0.6;
+
+export function titleTokens(value) {
+  const tokens = String(value ?? "")
+    .normalize("NFKD")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+  if (tokens[0] === "the") tokens.shift();
+  return [...new Set(tokens)];
+}
+
+export function titleSimilarity(left, right) {
+  const leftTokens = new Set(titleTokens(left));
+  const rightTokens = new Set(titleTokens(right));
+  if (!leftTokens.size || !rightTokens.size) return 0;
+  const intersection = [...leftTokens].filter((token) => rightTokens.has(token)).length;
+  return intersection / new Set([...leftTokens, ...rightTokens]).size;
+}
 
 export const COVER_SCAN_MODEL = "claude-opus-5-5";
 export function coverScanConfigStatus(env = process.env) {
@@ -60,13 +85,35 @@ export function rankCoverCandidates(extracted, seriesRows, issueRows) {
     .map((issue) => {
       const series = seriesRows.find((row) => Number(row.gcd_id) === Number(issue.series_gcd_id));
       if (!series) return null;
-      const titleExact = normalizeTitle(series.title) === normalizeTitle(extracted.series_title);
+      const titleScore = titleSimilarity(series.title, extracted.series_title);
+      if (titleScore < COVER_TITLE_SIMILARITY_THRESHOLD) return null;
       const inSpan = extracted.cover_year != null && Number(series.year_start_cached) <= extracted.cover_year && Number(series.year_end_cached ?? 9999) >= extracted.cover_year;
       const publisher = extracted.publisher && publishersCompatible(extracted.publisher, series.resolved_publisher_cached);
       const issueYear = yearOf(issue);
       const yearDelta = extracted.cover_year != null && issueYear != null ? Math.abs(extracted.cover_year - issueYear) : 99;
-      return { issue, series, score: (titleExact ? 100 : 0) + (inSpan ? 45 : 0) + (publisher ? 35 : 0) + Math.max(0, 20 - yearDelta * 5) + editionScore(issue.issue_number, extracted.edition_clues) };
+      return { issue, series, titleScore, score: titleScore * 100 + (inSpan ? 45 : 0) + (publisher ? 35 : 0) + Math.max(0, 20 - yearDelta * 5) + editionScore(issue.issue_number, extracted.edition_clues) };
     })
     .filter(Boolean)
     .sort((a, b) => b.score - a.score || Number(a.issue.gcd_id) - Number(b.issue.gcd_id));
+}
+
+export function coverScanOutcome(extracted, candidates) {
+  if (!extracted.is_comic_cover) return "not_a_comic";
+  if (candidates.length) return "matched";
+  return extracted.confidence === "low" ? "not_a_comic" : "not_in_catalog";
+}
+
+export function collapseCoverPrintings(ranked, covers = new Map()) {
+  const groups = new Map();
+  for (const candidate of ranked ?? []) {
+    const base = baseIssueNumber(candidate.issue.issue_number);
+    const key = `${candidate.issue.series_gcd_id}:${base}`;
+    const current = groups.get(key);
+    const candidateHasCover = covers.has(Number(candidate.issue.gcd_id));
+    const currentHasCover = current && covers.has(Number(current.issue.gcd_id));
+    if (!current || (candidateHasCover && !currentHasCover)) {
+      groups.set(key, candidate);
+    }
+  }
+  return [...groups.values()].sort((a, b) => b.score - a.score || Number(a.issue.gcd_id) - Number(b.issue.gcd_id));
 }

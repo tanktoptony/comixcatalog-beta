@@ -30,7 +30,7 @@ export default function CoverScanner() {
     } catch (e) { setError(e.message); setResult(e.data ?? null); } finally { setLoading(false); event.target.value = ""; }
   }
   async function record(item) { if (!result?.scan_id) return; try { await authedFetch("/api/cover-scan", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ scan_id: result.scan_id, gcd_issue_id: item.gcd_issue_id }) }); } catch (e) { console.error("Could not record cover scan choice", e); } }
-  const items = (result?.candidates ?? []).map((row) => ({ ...row, title: row.series_title, issueNumber: row.issue_number, cover: row.cover_path }));
+  const items = (result?.candidates ?? []).map((row) => ({ ...row, title: row.series_title, issueNumber: row.issue_number, cover: row.cover_path || preview, coverCaption: row.cover_path ? null : "Your photo" }));
   return <div className="cover-scanner">
     {user ? <><button className="comic-btn" onClick={() => input.current?.click()} disabled={loading}>Scan a cover</button><input ref={input} hidden type="file" accept="image/*" capture="environment" onChange={choose} /></> : <Link href={`/signup?next=${next}`} className="comic-btn">Scan a cover</Link>}
     <p className="muted cover-scan-notice">Photos are saved to improve matching.</p>
@@ -40,6 +40,6 @@ export default function CoverScanner() {
     {result?.quota && <p className="muted">{result.quota.remaining} of {result.quota.limit} scans left today</p>}
     {result?.outcome === "not_in_catalog" && <p>We don&apos;t have this one yet, we&apos;ve noted it.</p>}
     {result?.outcome === "not_a_comic" && <p>That doesn&apos;t look like a comic cover. Try another photo.</p>}
-    {items.length > 0 && <><h2 className="section-label">Best matches</h2><div className="comic-grid">{items.map((item, i) => <ComicResultCard key={item.id} item={item} index={i} query="cover scan" onMutationError={setError} onChosen={record} />)}</div></>}
+    {items.length > 0 && <><h2 className="section-label">Best matches</h2><div className="comic-grid">{items.map((item, i) => <ComicResultCard key={item.id} item={item} index={i} query="cover scan" coverCaption={item.coverCaption} onMutationError={setError} onChosen={record} />)}</div></>}
   </div>;
 }

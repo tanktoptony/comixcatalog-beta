@@ -42229,5 +42229,68 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T02:04:10.819315+00:00",
     "retry_after": "2026-10-07T02:04:10.819330+00:00"
+  },
+  {
+    "name": "The Courageous Princess",
+    "publisher": "Antarctic Press",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 44081,
+        "name": "Courageous Princess",
+        "publisher": "Antarctic Press",
+        "start_year": 2000
+      },
+      {
+        "id": 63094,
+        "name": "The Courageous Princess",
+        "publisher": "Antarctic Press",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T03:00:44.927694+00:00",
+    "retry_after": "2026-10-07T03:00:44.927710+00:00"
+  },
+  {
+    "name": "Daredevil by Ed Brubaker and Michael Lark Ultimate Collection",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T03:01:41.563638+00:00",
+    "retry_after": "2026-10-07T03:01:41.563657+00:00"
+  },
+  {
+    "name": "Russ Manning's Magnus, Robot Fighter",
+    "publisher": "Dark Horse Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T03:06:53.254523+00:00",
+    "retry_after": "2026-10-07T03:06:53.254539+00:00"
+  },
+  {
+    "name": "Black Science Premiere",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T03:06:54.715118+00:00",
+    "retry_after": "2026-10-07T03:06:54.715135+00:00"
+  },
+  {
+    "name": "Runaways by Rainbow Rowell & Kris Anka",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T03:07:47.208756+00:00",
+    "retry_after": "2026-10-07T03:07:47.208773+00:00"
   }
 ]

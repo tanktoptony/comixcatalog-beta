@@ -42998,5 +42998,38 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T21:12:54.601238+00:00",
     "retry_after": "2026-10-07T21:12:54.601254+00:00"
+  },
+  {
+    "name": "Star Wars: The Original Marvel Years Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T22:00:50.869652+00:00",
+    "retry_after": "2026-10-07T22:00:50.869671+00:00"
+  },
+  {
+    "name": "Batman: White Knight",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 104775,
+        "name": "Batman: White Knight",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 114046,
+        "name": "Batman: White Knight",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T22:03:37.811982+00:00",
+    "retry_after": "2026-10-07T22:03:37.812002+00:00"
   }
 ]

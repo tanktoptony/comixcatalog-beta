@@ -31,8 +31,8 @@ const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 // at this size; three at nearly twice the size are actually legible, which
 // is the entire job of this image.
 //
-// If a path goes stale (404 from storage) that slot renders as an empty
-// card rather than breaking the image.
+// If a path goes stale or storage errors, that slot renders as an empty
+// card rather than breaking the image (see coverDataUrl below).
 const COVERS = [
   { path: "comicvine/absolute-batman/1136229-vol-1-the-zoo.jpg", rotate: -7 },
   { path: "comicvine/ultimate-spider-man/vol-48343/333461-cake-ultimate-peter-parker.jpg", rotate: 1 },
@@ -61,7 +61,32 @@ const STEP = 162;
 const FAN_LEFT = 640;
 const FAN_TOP = 156;
 
+// Satori throws "Unsupported image type" when an <img src> answers with
+// anything but an image, and that throw fails the whole Vercel build because
+// this route prerenders. On 2026-10-06 storage returned HTTP 544 (JSON) while
+// the database was out of disk I/O budget, and the production deploy of two
+// merged PRs failed on exactly this. So fetch each cover first, keep it only
+// if it really is an image, and render an empty card otherwise.
+async function coverDataUrl(path) {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`, {
+      signal: AbortSignal.timeout(8000),
+    });
+    const type = res.headers.get("content-type") ?? "";
+    if (!res.ok || !type.startsWith("image/")) {
+      console.warn(`opengraph-image: cover ${path} unavailable (${res.status} ${type})`);
+      return null;
+    }
+    const bytes = Buffer.from(await res.arrayBuffer()).toString("base64");
+    return `data:${type};base64,${bytes}`;
+  } catch (err) {
+    console.warn(`opengraph-image: cover ${path} failed:`, err);
+    return null;
+  }
+}
+
 export default async function OpengraphImage() {
+  const coverSrcs = await Promise.all(COVERS.map((cover) => coverDataUrl(cover.path)));
   return new ImageResponse(
     (
       <div
@@ -174,13 +199,15 @@ export default async function OpengraphImage() {
               zIndex: 3 + i,
             }}
           >
-            <img
-              src={`${SUPABASE_URL}/storage/v1/object/public/canonical-covers/${cover.path}`}
-              alt=""
-              width={CARD_W}
-              height={CARD_H}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
+            {coverSrcs[i] && (
+              <img
+                src={coverSrcs[i]}
+                alt=""
+                width={CARD_W}
+                height={CARD_H}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            )}
           </div>
         ))}
       </div>

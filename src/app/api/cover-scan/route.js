@@ -26,8 +26,7 @@ async function findCandidates(supabase, extracted) {
   const term = normalizeSeriesSearchWords(extracted.series_title);
   const directTokens = titleTokens(extracted.series_title).filter((token) => token.length > 1).slice(0, 8);
   let directQuery = supabase.from("gcd_series")
-    .select("gcd_id, name, year_began, year_ended, gcd_publishers!inner(name)")
-    .in("gcd_publishers.name", US_PUBLISHER_ALLOWLIST)
+    .select("gcd_id, name, year_began, year_ended, publisher_gcd_id")
     .limit(50);
   for (const token of directTokens) directQuery = directQuery.ilike("name", `%${token}%`);
   const [{ data: seriesRows, error: seriesError }, { data: gcdSeriesRows, error: gcdSeriesError }] = await Promise.all([
@@ -35,16 +34,43 @@ async function findCandidates(supabase, extracted) {
     directTokens.length ? directQuery : Promise.resolve({ data: [], error: null }),
   ]);
   if (seriesError) throw seriesError;
-  if (gcdSeriesError) throw gcdSeriesError;
+  // The gcd_series lookup only adds GCD-only series to the main search, so a
+  // failure there costs those extras, not the whole scan.
+  let gcdOnlyRows = [];
+  if (gcdSeriesError) {
+    console.error("cover-scan gcd_series lookup failed:", gcdSeriesError.code, gcdSeriesError.message);
+  } else if (gcdSeriesRows?.length) {
+    // No FK from gcd_series to gcd_publishers exists (PostgREST can't embed
+    // it), so publishers are read separately and held to the same US
+    // scope the main search uses: search_series_by_relevance accepts a series
+    // that is US-market OR has an allowlisted publisher. gcd_publishers holds
+    // GCD's own names ("DC", not "DC Comics"), so country carries most of it.
+    const pubIds = [...new Set(gcdSeriesRows.map((row) => row.publisher_gcd_id).filter((v) => v != null))];
+    const { data: pubs, error: pubError } = pubIds.length
+      ? await supabase.from("gcd_publishers").select("gcd_id, name, country").in("gcd_id", pubIds)
+      : { data: [], error: null };
+    if (pubError) {
+      console.error("cover-scan publisher lookup failed:", pubError.code, pubError.message);
+    } else {
+      const allowed = new Set(US_PUBLISHER_ALLOWLIST);
+      const pubName = new Map((pubs ?? []).map((p) => [p.gcd_id, p.name]));
+      const inScope = new Set((pubs ?? [])
+        .filter((p) => ["us", "ca"].includes(String(p.country ?? "").toLowerCase()) || allowed.has(p.name))
+        .map((p) => p.gcd_id));
+      gcdOnlyRows = gcdSeriesRows
+        .filter((row) => inScope.has(row.publisher_gcd_id))
+        .map((row) => ({ ...row, publisher_name: pubName.get(row.publisher_gcd_id) }));
+    }
+  }
   const seriesById = new Map((seriesRows ?? []).slice(0, 100).map((row) => [Number(row.gcd_id), row]));
-  for (const row of gcdSeriesRows ?? []) {
+  for (const row of gcdOnlyRows) {
     const id = Number(row.gcd_id);
     if (!seriesById.has(id)) seriesById.set(id, {
       gcd_id: id,
       title: row.name,
       year_start_cached: row.year_began,
       year_end_cached: row.year_ended,
-      resolved_publisher_cached: row.gcd_publishers?.name ?? null,
+      resolved_publisher_cached: row.publisher_name ?? null,
     });
   }
   const series = [...seriesById.values()];

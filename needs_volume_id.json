@@ -42522,5 +42522,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T08:05:31.891627+00:00",
     "retry_after": "2026-10-07T08:05:31.891642+00:00"
+  },
+  {
+    "name": "Silent M�bius: Hell",
+    "publisher": "VIZ Media",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T09:02:16.669039+00:00",
+    "retry_after": "2026-10-07T09:02:16.669056+00:00"
+  },
+  {
+    "name": "The Killer: Affairs of the State II",
+    "publisher": "Archaia",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 164472,
+        "name": "The Killer: Affairs of the State II",
+        "publisher": "Boom! Studios",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T09:04:12.388233+00:00",
+    "retry_after": "2026-10-07T09:04:12.388251+00:00"
+  },
+  {
+    "name": "Look Who's Here [Family Circus]",
+    "publisher": "Fawcett Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-06T09:04:12.868179+00:00",
+    "retry_after": "2026-10-07T09:04:12.868197+00:00"
   }
 ]

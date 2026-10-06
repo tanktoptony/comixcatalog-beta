@@ -5,6 +5,7 @@ import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { normalizeSeriesSearchWords, searchWordCoverage } from "@/lib/seriesSearchMatch";
+import { resolveSeriesCovers } from "@/lib/catalog/covers";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -252,10 +253,6 @@ export async function GET(req) {
       // would suppress legit runs like the 2024 Dynamite ThunderCats, since
       // only ~2.5% of series carry a cached cover.) For marquee titles where
       // every volume is covered, this is a no-op and issue-count ordering wins.
-      const aCover = a.featured_cover_path_cached ? 1 : 0;
-      const bCover = b.featured_cover_path_cached ? 1 : 0;
-      if (bCover !== aCover) return bCover - aCover;
-
       const aTier = significanceTier(a.issue_count_cached ?? 0);
       const bTier = significanceTier(b.issue_count_cached ?? 0);
       if (bTier !== aTier) return bTier - aTier;
@@ -378,130 +375,9 @@ export async function GET(req) {
     const deduped = dedupeById(ranked);
     const top = askedYear != null ? deduped.slice(0, limit) : diversify(deduped, { limit, perTitle: 2 });
 
-    // Cover fallback for rows where featured_cover_path_cached is null.
-    //
-    // Two-path with year disambiguation. The old approach (title-string only,
-    // pick first hit) caused G.I. Joe ARAH's 5 volumes to share one cover
-    // because they share a title. Now:
-    //   1. ID path — match series.gcd_id == canonical_covers.series_gcd_id
-    //      (set by migration 0009 backfill). Volume-exact.
-    //   2. Title path — when ID path comes up empty, fall back to title-match
-    //      AND pick the canonical whose series_year is closest to the
-    //      series row's year_start_cached. Stops cross-volume bleed.
-    const missingCover = top.filter((row) => !row.featured_cover_path_cached);
-    const fallbackPathById = new Map();
-    if (missingCover.length > 0) {
-      const missingGcdIds = [
-        ...new Set(missingCover.map((r) => r.gcd_id).filter(Boolean)),
-      ];
-      const missingTitles = [
-        ...new Set(missingCover.map((r) => r.title).filter(Boolean)),
-      ];
-
-      const byIdKey = new Map();   // gcd_id -> [{path, series_year, cover_date}]
-      const byTitleKey = new Map(); // titleLower -> [{path, series_year, cover_date, publisher}]
-
-      // ID path and title path are independent of each other — run them
-      // concurrently instead of back-to-back (was two sequential awaits;
-      // this was one of several serial round trips found while chasing the
-      // "slow, staggered" search complaint 2026-08-28 — see 0023's comment
-      // for the bigger fix, this is the cheap complementary one).
-      const [idQuery, titleQuery] = await Promise.all([
-        missingGcdIds.length > 0
-          ? supabase
-              .from("canonical_covers")
-              .select("series_gcd_id, storage_path, series_year, cover_date")
-              .in("series_gcd_id", missingGcdIds)
-              .not("storage_path", "is", null)
-              .limit(missingGcdIds.length * 20)
-          : Promise.resolve({ data: [] }),
-        missingTitles.length > 0
-          ? supabase
-              .from("canonical_covers")
-              .select("series_title, storage_path, series_year, cover_date, publisher")
-              .in("series_title", missingTitles)
-              .not("storage_path", "is", null)
-              .limit(missingTitles.length * 20)
-          : Promise.resolve({ data: [] }),
-      ]);
-
-      for (const c of idQuery.data ?? []) {
-        if (!c.storage_path) continue;
-        if (!byIdKey.has(c.series_gcd_id)) byIdKey.set(c.series_gcd_id, []);
-        byIdKey.get(c.series_gcd_id).push(c);
-      }
-      for (const c of titleQuery.data ?? []) {
-        if (!c.storage_path) continue;
-        const k = String(c.series_title ?? "").toLowerCase();
-        if (!byTitleKey.has(k)) byTitleKey.set(k, []);
-        byTitleKey.get(k).push(c);
-      }
-
-      const yearOf = (c) => {
-        const cd = c.cover_date ? Number(String(c.cover_date).slice(0, 4)) : null;
-        if (cd && !Number.isNaN(cd)) return cd;
-        return c.series_year != null ? Number(c.series_year) : null;
-      };
-      // Year-bounded closest match. Without an upper bound, a single
-      // canonical_cover from one Venom volume gets falsely assigned to all
-      // 11 Venom volumes in search results because it's the "closest" of one.
-      // Tolerance=5yrs is generous enough to handle late-issue covers
-      // (Venom 2003 vol ran through 2004 issues), strict enough to avoid
-      // a 14yr cross-volume bleed. When the only candidate is too far off,
-      // return null and let the styled empty-card placeholder show instead.
-      const MAX_YEAR_DELTA = 5;
-      // No storage_path may appear on two tiles in one response. The cached
-      // column now guarantees this at the DB level (see
-      // reconcileDuplicateFeaturedCovers in
-      // scripts/refreshSeriesSearchCache.js), but this request-time fallback
-      // is a second, independent way for one cover to land on several rows:
-      // every "X-O Manowar" volume missing a cached cover resolves the same
-      // title-path candidate and picks the same closest-year winner, so the
-      // user sees the identical thumbnail 12 times. Seed the used set with
-      // the covers already committed on this page's rows, then let each
-      // fallback claim a path at most once.
-      const usedPaths = new Set(
-        top.map((r) => r.featured_cover_path_cached).filter(Boolean)
-      );
-      const pickClosest = (candidates, targetYear) => {
-        if (!candidates || candidates.length === 0) return null;
-        const available = candidates.filter(
-          (c) => c.storage_path && !usedPaths.has(c.storage_path)
-        );
-        if (available.length === 0) return null;
-        if (targetYear == null) return available[0].storage_path;
-        let best = null;
-        let bestDiff = Infinity;
-        for (const c of available) {
-          const cy = yearOf(c);
-          if (cy == null) continue;
-          const diff = Math.abs(cy - targetYear);
-          if (diff < bestDiff) { best = c; bestDiff = diff; }
-        }
-        if (best && bestDiff <= MAX_YEAR_DELTA) return best.storage_path;
-        return null;
-      };
-
-      for (const row of missingCover) {
-        // ID path first.
-        const idCandidates = row.gcd_id ? byIdKey.get(row.gcd_id) : null;
-        let path = pickClosest(idCandidates, row.year_start_cached);
-        if (!path) {
-          // Title path — narrow to publisher-matching candidates first if any.
-          const titleCandidates = byTitleKey.get(String(row.title ?? "").toLowerCase()) ?? [];
-          const pubKey = String(row.resolved_publisher_cached ?? "").toLowerCase();
-          const pubFiltered = pubKey
-            ? titleCandidates.filter((c) => String(c.publisher ?? "").toLowerCase() === pubKey)
-            : [];
-          path = pickClosest(pubFiltered.length ? pubFiltered : titleCandidates, row.year_start_cached);
-        }
-        if (path) {
-          usedPaths.add(path);
-          fallbackPathById.set(row.id, path);
-        }
-      }
-    }
-
+    // The card is derived from this series' resolved issues, never from the
+    // independently refreshed featured_cover_path_cached value.
+    const resolvedSeriesCovers = await resolveSeriesCovers(supabase, top);
     const series = top.map((row) => ({
       id: row.id,
       gcd_id: row.gcd_id ?? null,
@@ -515,7 +391,7 @@ export async function GET(req) {
         name: row.resolved_publisher_cached ?? "Unknown Publisher",
       },
       cover: (() => {
-        const path = row.featured_cover_path_cached ?? fallbackPathById.get(row.id);
+        const path = resolvedSeriesCovers.get(row.id)?.storage_path;
         return path
           ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`
           : null;

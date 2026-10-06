@@ -3,8 +3,9 @@ import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { normalizeSeriesSearchWords } from "@/lib/seriesSearchMatch";
-import { baseIssueNumber, compareIssueNumbers } from "@/lib/coverMatch";
+import { compareIssueNumbers } from "@/lib/coverMatch";
 import { parseYear } from "@/lib/years";
+import { resolveCovers } from "@/lib/catalog/covers";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -23,29 +24,6 @@ function normalizeForScoring(value) {
 
 function normalizeIssueNumber(value) {
   return String(value ?? "").trim().toLowerCase();
-}
-
-const COVER_YEAR_DIFF_THRESHOLD = 2;
-
-function pickBestCoverPath(rows, targetYear) {
-  if (!rows?.length) return null;
-  let best = null;
-  let bestDiff = Infinity;
-  for (const r of rows) {
-    if (!r.storage_path) continue;
-    const y = parseYear(r.cover_date);
-    if (y == null || targetYear == null) {
-      if (!best) best = r;
-      continue;
-    }
-    const diff = Math.abs(y - targetYear);
-    if (diff > COVER_YEAR_DIFF_THRESHOLD) continue;
-    if (diff < bestDiff) {
-      best = r;
-      bestDiff = diff;
-    }
-  }
-  return best?.storage_path ?? null;
 }
 
 function scoreSeriesTitle(title, normalizedQ) {
@@ -249,6 +227,8 @@ export async function GET(req) {
         {
           title: s.title ?? null,
           publisher: s.resolved_publisher_cached ?? "Unknown Publisher",
+          year_start: s.year_start_cached ?? null,
+          year_end: s.year_end_cached ?? null,
         },
       ])
     );
@@ -299,6 +279,8 @@ export async function GET(req) {
             const seriesInfo = seriesLookup[String(issue.series_gcd_id)] ?? {};
             return {
               id: `gcd-${issue.gcd_id}`,
+              gcd_issue_id: issue.gcd_id,
+              series_gcd_id: issue.series_gcd_id,
               series_title: seriesInfo.title ?? issue.title ?? null,
               publisher: seriesInfo.publisher ?? "Unknown Publisher",
               issue_number: issue.issue_number,
@@ -306,6 +288,8 @@ export async function GET(req) {
               variant_name: null,
               created_by: null,
               __source: "gcd",
+              series_year_start: seriesInfo.year_start,
+              series_year_end: seriesInfo.year_end,
             };
           });
       }
@@ -367,39 +351,16 @@ export async function GET(req) {
     const pageSlice = collapsed.slice(offset, offset + limit);
 
     const gcdSlice = pageSlice.filter((row) => row.__source === "gcd");
-    const sliceSeriesTitles = [
-      ...new Set(gcdSlice.map((r) => r.series_title).filter(Boolean)),
-    ];
-    // GCD files variants as "1 [Cover A]" while their covers sit under "1",
-    // so fetch the base number too and fall back to it below. Without this
-    // X-Men #1 [Cover A] (1991) showed a blank tile in search.
-    const sliceIssueNumbers = [
-      ...new Set(
-        gcdSlice
-          .flatMap((r) => [r.issue_number, baseIssueNumber(r.issue_number)])
-          .filter((v) => v != null && v !== "")
-      ),
-    ];
-
-    const canonicalCandidatesByKey = {};
-    if (sliceSeriesTitles.length > 0 && sliceIssueNumbers.length > 0) {
-      const { data: canonicalRows, error: canonicalError } = await supabase
-        .from("canonical_covers")
-        .select("series_title, issue_number, storage_path, cover_date")
-        .in("series_title", sliceSeriesTitles)
-        .in("issue_number", sliceIssueNumbers);
-
-      if (canonicalError) {
-        console.error("canonical cover lookup failed:", canonicalError);
-      } else {
-        for (const row of canonicalRows ?? []) {
-          if (!row.storage_path) continue;
-          const key = `${normalizeSearch(row.series_title)}::${normalizeIssueNumber(row.issue_number)}`;
-          if (!canonicalCandidatesByKey[key]) canonicalCandidatesByKey[key] = [];
-          canonicalCandidatesByKey[key].push(row);
-        }
-      }
-    }
+    const resolvedCovers = await resolveCovers(supabase, gcdSlice.map((row) => ({
+      gcd_issue_id: row.gcd_issue_id,
+      series_gcd_id: row.series_gcd_id,
+      series_title: row.series_title,
+      issue_number: row.issue_number,
+      year: row.release_year,
+      series_year_start: row.series_year_start,
+      series_year_end: row.series_year_end,
+      publisher: row.publisher,
+    })));
 
     const comics = pageSlice.map(({ __score, ...row }) => {
       // Keep __source on the response. Stripping it made the frontend default
@@ -407,14 +368,10 @@ export async function GET(req) {
       // `row.__source || "user"`), so canonical gcd issues were mislabeled
       // "User Added". Now "gcd" rows correctly carry their source.
       if (row.__source !== "gcd") return row;
-      const title = normalizeSearch(row.series_title);
-      const exact = canonicalCandidatesByKey[`${title}::${normalizeIssueNumber(row.issue_number)}`];
-      const base = baseIssueNumber(row.issue_number);
-      const storagePath =
-        pickBestCoverPath(exact, row.release_year) ??
-        (base ? pickBestCoverPath(canonicalCandidatesByKey[`${title}::${normalizeIssueNumber(base)}`], row.release_year) : null);
+      const storagePath = resolvedCovers.get(row.gcd_issue_id)?.storage_path ?? null;
+      const { gcd_issue_id, series_gcd_id, series_year_start, series_year_end, ...publicRow } = row;
       return {
-        ...row,
+        ...publicRow,
         cover_path: storagePath
           ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
           : null,

@@ -116,9 +116,12 @@ function proportionalSlice(cohorts, limit) {
   return allocations.map((cohort) => ({ name: cohort.name, rows: cohort.rows.slice(0, cohort.count) }));
 }
 
-async function fetchChunked(values, build, order = "gcd_id") {
+// Series-filtered gcd_issues reads go a few series at a time: a big series
+// runs to thousands of issues, and offset paging deep into one combined
+// result hit the statement timeout (57014) on 2026-10-06.
+async function fetchChunked(values, build, order = "gcd_id", size = 5) {
   const rows = [];
-  for (const group of chunks(values)) rows.push(...await fetchAllPages(() => build(group), order));
+  for (const group of chunks(values, size)) rows.push(...await fetchAllPages(() => build(group), order));
   return rows;
 }
 
@@ -237,7 +240,7 @@ const supabase = createClient(url, key, { auth: { persistSession: false, autoRef
 const random = rng(SEED);
 
 const coverLinks = await fetchAllByKeyset(() => supabase.from("canonical_covers")
-  .select("id, gcd_issue_id, series_gcd_id").not("storage_path", "is", null));
+  .select("id, gcd_issue_id, series_gcd_id").not("storage_path", "is", null), "id", { maxRows: 2000000 });
 const seriesCoverCounts = new Map();
 const coveredIssueIds = new Set();
 for (const row of coverLinks) {
@@ -246,8 +249,9 @@ for (const row of coverLinks) {
 }
 const topSeriesIds = [...seriesCoverCounts].sort((a, b) => b[1] - a[1]).slice(0, 30).map(([id]) => id);
 
+// Whole-table read on purpose: series is ~208k rows, past the default cap.
 const allSeries = await fetchAllByKeyset(() => supabase.from("series")
-  .select("id, gcd_id, title, year_start_cached, year_end_cached"));
+  .select("id, gcd_id, title, year_start_cached, year_end_cached"), "id", { maxRows: 2000000 });
 const byTitle = new Map();
 for (const row of allSeries) {
   if (!row.title) continue;

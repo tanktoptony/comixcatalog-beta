@@ -64,7 +64,9 @@ export async function fetchAllPages(build, orderCol = "id") {
 
 // Pages by the last value seen instead of making Postgres walk an ever-deeper
 // offset. `keyCol` must be unique and non-null or pages can overlap/skip rows.
-export async function fetchAllByKeyset(build, keyCol = "id") {
+// maxRows: a guard against an unfiltered scan. A whole-table read on purpose
+// (an audit script) must pass a cap above the table size, or it truncates.
+export async function fetchAllByKeyset(build, keyCol = "id", { maxRows = KEYSET_MAX_ROWS } = {}) {
   const rows = [];
   let last;
   while (true) {
@@ -75,7 +77,7 @@ export async function fetchAllByKeyset(build, keyCol = "id") {
     if (!data?.length) break;
     rows.push(...data);
     if (data.length < PAGE) break;
-    if (rows.length >= KEYSET_MAX_ROWS) {
+    if (rows.length >= maxRows) {
       console.warn(
         `fetchAllByKeyset: stopped at ${rows.length} rows (KEYSET_MAX_ROWS). ` +
           `This query is probably missing a filter.`

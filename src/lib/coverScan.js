@@ -13,7 +13,7 @@ export const COVER_SCAN_SCHEMA = {
   properties: {
     series_title: { type: "string" }, issue_number: { type: "string" },
     publisher: { type: "string" }, cover_year: { type: ["integer", "null"] },
-    cover_month: { type: ["integer", "null"], minimum: 1, maximum: 12 },
+    cover_month: { type: ["integer", "null"] },
     cover_price: { type: ["string", "null"] },
     edition_clues: { type: "array", items: { type: "string" } },
     other_text: { type: "string" }, is_comic_cover: { type: "boolean" },
@@ -30,6 +30,11 @@ export function parseCoverExtraction(message) {
   const value = JSON.parse(text);
   for (const key of COVER_SCAN_SCHEMA.required) if (!(key in value)) throw new Error(`Missing extracted field: ${key}`);
   if (!["low", "medium", "high"].includes(value.confidence) || typeof value.is_comic_cover !== "boolean") throw new Error("Invalid cover response.");
+  // The API's structured outputs reject minimum/maximum on integers (a live
+  // scan 400'd on it 2026-10-06), so range checks live here instead. An
+  // out-of-range month or year is a misread, not a reason to fail the scan.
+  if (!(Number.isInteger(value.cover_month) && value.cover_month >= 1 && value.cover_month <= 12)) value.cover_month = null;
+  if (!(Number.isInteger(value.cover_year) && value.cover_year >= 1930 && value.cover_year <= new Date().getFullYear() + 1)) value.cover_year = null;
   return value;
 }
 

@@ -249,10 +249,14 @@ jobs:
         continue-on-error: true
         run: python comicvine_api_to_supabase.py --targets gap-featured.json --skip-existing --max-search-calls 10 --vol-sleep 1.0
 
+      # Per-lane caps: one huge volume (2000 AD, ~2,500 progs) ate the whole
+      # 45-minute job three hours running and starved every lane after it.
+      # The ledger saves atomically per target, so a capped lane resumes next hour.
       - name: Ingest manual-gap targets
         id: lane_manual
         if: hashFiles('gap-manual.json') != ''
         continue-on-error: true
+        timeout-minutes: 15
         run: python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --newest-first --max-search-calls 15 --vol-sleep 1.0
 
       # Targets with a confirmed volume_id (see resolveNeedsVolumeIdBacklog.js)
@@ -262,18 +266,21 @@ jobs:
         id: lane_pinned
         if: hashFiles('gap-pinned.json') != ''
         continue-on-error: true
+        timeout-minutes: 8
         run: python comicvine_api_to_supabase.py --targets gap-pinned.json --skip-existing --max-search-calls 20 --vol-sleep 1.0
 
       - name: Ingest width-gap targets
         id: lane_width
         if: hashFiles('gap-width.json') != ''
         continue-on-error: true
+        timeout-minutes: 6
         run: python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --max-search-calls 20 --vol-sleep 1.0
 
       - name: Ingest depth-gap targets
         id: lane_depth
         if: hashFiles('gap-depth.json') != ''
         continue-on-error: true
+        timeout-minutes: 5
         run: python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --max-search-calls 10 --vol-sleep 1.0
 
       # Runs for real (not --dry-run) so any mis-tagged volumes from this

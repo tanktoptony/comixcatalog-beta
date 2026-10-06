@@ -18,7 +18,7 @@ const args = Object.fromEntries(process.argv.slice(2).filter((arg) => arg.starts
   const [key, value] = arg.slice(2).split("=");
   return [key, value ?? true];
 }));
-const MAX_PAGES = Number(args["max-pages"] ?? Infinity);
+const MAX_PAGES = args["max-pages"] === undefined ? Infinity : Number(args["max-pages"]);
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 class RateLimited extends Error {}
@@ -109,7 +109,7 @@ async function importPageRows(rows) {
 }
 
 async function main() {
-  if (!Number.isInteger(MAX_PAGES) || MAX_PAGES < 1) throw new Error("--max-pages must be a positive integer");
+  if (MAX_PAGES !== Infinity && (!Number.isInteger(MAX_PAGES) || MAX_PAGES < 1)) throw new Error("--max-pages must be a positive integer");
   const publisherCursor = readJson(PUBLISHER_CURSOR_FILE, {});
   if (!publisherCursor.completed_at) {
     console.log("Publisher pass is not complete; series discovery will wait.");

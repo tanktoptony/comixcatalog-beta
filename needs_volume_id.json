@@ -42348,9 +42348,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T07:09:13.781178+00:00",
-    "retry_after": "2026-10-07T07:09:13.781195+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T08:00:40.438276+00:00",
+    "retry_after": "2026-10-10T08:00:40.438292+00:00"
   },
   {
     "name": "Shazam!",
@@ -42401,9 +42401,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T07:09:14.200809+00:00",
-    "retry_after": "2026-10-07T07:09:14.200827+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T08:00:40.820906+00:00",
+    "retry_after": "2026-10-10T08:00:40.820925+00:00"
   },
   {
     "name": "The Ring of the Nibelung Vol. 2 [The Valkyrie]",
@@ -43356,5 +43356,38 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T07:02:47.877662+00:00",
     "retry_after": "2026-10-08T07:02:47.877678+00:00"
+  },
+  {
+    "name": "Marvel's Avengers: Endgame Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 150391,
+        "name": "Marvel's Avengers: Endgame Prelude",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 118136,
+        "name": "Marvel's Avengers: Endgame Prelude",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T08:01:23.952776+00:00",
+    "retry_after": "2026-10-08T08:01:23.952792+00:00"
+  },
+  {
+    "name": "USAgent",
+    "publisher": "Marvel Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T08:01:34.794538+00:00",
+    "retry_after": "2026-10-08T08:01:34.794555+00:00"
   }
 ]

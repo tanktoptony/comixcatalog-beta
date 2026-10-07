@@ -42172,9 +42172,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T02:02:59.558990+00:00",
-    "retry_after": "2026-10-07T02:02:59.559007+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T03:00:51.433378+00:00",
+    "retry_after": "2026-10-10T03:00:51.433393+00:00"
   },
   {
     "name": "The Ring of the Nibelung Vol. 3 [Siegfried]",
@@ -42182,9 +42182,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T02:03:57.460894+00:00",
-    "retry_after": "2026-10-07T02:03:57.460913+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T03:00:52.062960+00:00",
+    "retry_after": "2026-10-10T03:00:52.062977+00:00"
   },
   {
     "name": "Looney Tunes Greatest Hits",
@@ -42192,9 +42192,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T02:04:10.819315+00:00",
-    "retry_after": "2026-10-07T02:04:10.819330+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T03:00:52.527112+00:00",
+    "retry_after": "2026-10-10T03:00:52.527127+00:00"
   },
   {
     "name": "The Courageous Princess",
@@ -42215,9 +42215,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T03:00:44.927694+00:00",
-    "retry_after": "2026-10-07T03:00:44.927710+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T03:00:52.945397+00:00",
+    "retry_after": "2026-10-10T03:00:52.945412+00:00"
   },
   {
     "name": "Daredevil by Ed Brubaker and Michael Lark Ultimate Collection",
@@ -43181,5 +43181,77 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T02:04:10.000629+00:00",
     "retry_after": "2026-10-08T02:04:10.000644+00:00"
+  },
+  {
+    "name": "Widow the Origin",
+    "publisher": "Avatar Press",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T03:01:14.317730+00:00",
+    "retry_after": "2026-10-08T03:01:14.317746+00:00"
+  },
+  {
+    "name": "Letter 44 Deluxe Edition",
+    "publisher": "Oni Press",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T03:01:14.845540+00:00",
+    "retry_after": "2026-10-08T03:01:14.845556+00:00"
+  },
+  {
+    "name": "Queen & Country: Declassified",
+    "publisher": "Oni Press",
+    "year": 2005,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 19297,
+        "name": "Queen & Country Declassified",
+        "publisher": "Oni Press",
+        "start_year": 2005
+      },
+      {
+        "id": 19298,
+        "name": "Queen & Country: Declassified",
+        "publisher": "Oni Press",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T03:02:28.196605+00:00",
+    "retry_after": "2026-10-08T03:02:28.196628+00:00"
+  },
+  {
+    "name": "American Gods",
+    "publisher": "Dark Horse Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 105142,
+        "name": "American Gods",
+        "publisher": "Splitter",
+        "start_year": 2017
+      },
+      {
+        "id": 153591,
+        "name": "American Gods",
+        "publisher": "Urban Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 140509,
+        "name": "American Gods",
+        "publisher": "Planeta DeAgostini",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T03:02:38.588001+00:00",
+    "retry_after": "2026-10-08T03:02:38.588015+00:00"
   }
 ]

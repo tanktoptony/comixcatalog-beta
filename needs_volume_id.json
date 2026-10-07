@@ -42568,9 +42568,9 @@
         "start_year": 1990
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T12:00:49.774356+00:00",
-    "retry_after": "2026-10-07T12:00:49.774373+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T13:00:40.092001+00:00",
+    "retry_after": "2026-10-10T13:00:40.092019+00:00"
   },
   {
     "name": "Jennifer Blood",
@@ -42597,9 +42597,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T12:04:39.942230+00:00",
-    "retry_after": "2026-10-07T12:04:39.942247+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T13:00:41.169898+00:00",
+    "retry_after": "2026-10-10T13:00:41.169916+00:00"
   },
   {
     "name": "Robotech Archives The Macross Saga",
@@ -43496,5 +43496,49 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T11:01:28.655450+00:00",
     "retry_after": "2026-10-08T11:01:28.655469+00:00"
+  },
+  {
+    "name": "Darkchylde",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 17982,
+        "name": "Darkchylde",
+        "publisher": "Darkchylde Entertainment",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T13:01:07.088462+00:00",
+    "retry_after": "2026-10-08T13:01:07.088483+00:00"
+  },
+  {
+    "name": "Captain Planet and the Planeteers",
+    "publisher": "Dynamite Entertainment",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4584,
+        "name": "Captain Planet and the Planeteers",
+        "publisher": "Marvel",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T13:01:49.485691+00:00",
+    "retry_after": "2026-10-08T13:01:49.485707+00:00"
+  },
+  {
+    "name": "Remember the Golden Rule [The Wizard of Id]",
+    "publisher": "Fawcett Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T13:02:41.665388+00:00",
+    "retry_after": "2026-10-08T13:02:41.665408+00:00"
   }
 ]

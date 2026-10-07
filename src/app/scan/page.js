@@ -9,13 +9,18 @@ export const metadata = {
 // here, so the scanner isn't only findable on /search.
 export default function ScanPage() {
   return (
-    <main className="page-wrapper">
-      <section className="comic-panel">
-        <div className="section-label badge-x">Scan</div>
-        <h1 className="hero-title">Scan a cover</h1>
-        <p className="muted">Snap the cover, get the issue. Add it to your collection or wantlist in one tap.</p>
-        <CoverScanner />
-      </section>
+    <main className="scan-page">
+      <header className="scan-intro">
+        <p className="scan-kicker">Scan a cover</p>
+        <h1 className="scan-title">Snap it. We&apos;ll find the issue.</h1>
+        <p className="scan-lede">Take a photo of a comic&apos;s front cover and we match it to the exact issue in the catalog. Add it to your collection or wantlist in one tap.</p>
+      </header>
+      <CoverScanner />
+      <ul className="scan-tips" aria-label="Tips for a good scan">
+        <li><strong>Whole cover in frame.</strong> Corners in, title readable.</li>
+        <li><strong>Good light, no glare.</strong> Slide it out of the bag if the plastic shines.</li>
+        <li><strong>One book per photo.</strong> Keep other covers out of the shot.</li>
+      </ul>
     </main>
   );
 }

@@ -69,7 +69,8 @@ export async function POST(req) {
   if (!body?.id || !update) return NextResponse.json({ error: "Invalid review action" }, { status: 400 });
   const supabase = getServiceClient();
   if (body.kind === "printings" && body.action === "approve") {
-    const { data: printing } = await supabase.from("issue_printings").select("photo_path").eq("id", body.id).eq("status", "pending").maybeSingle();
+    const { data: printing, error: lookupError } = await supabase.from("issue_printings").select("photo_path").eq("id", body.id).eq("status", "pending").maybeSingle();
+    if (lookupError) { console.error("admin review printing lookup failed", lookupError); return NextResponse.json({ error: "Could not load that submission." }, { status: 500 }); }
     if (!printing) return NextResponse.json({ error: "That submission is no longer pending." }, { status: 404 });
     // Printings reported from the issue page carry no photo; those approve
     // without a cover. Scan submissions publish their photo as the cover.

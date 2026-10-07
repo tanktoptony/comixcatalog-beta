@@ -252,12 +252,21 @@ jobs:
       # Per-lane caps: one huge volume (2000 AD, ~2,500 progs) ate the whole
       # 45-minute job three hours running and starved every lane after it.
       # The ledger saves atomically per target, so a capped lane resumes next hour.
+      # Shell timeout, not step timeout-minutes: a step timeout reads as a failed
+      # lane to "Report lane outcomes" and emails a false alarm.
       - name: Ingest manual-gap targets
         id: lane_manual
         if: hashFiles('gap-manual.json') != ''
         continue-on-error: true
-        timeout-minutes: 15
-        run: python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --newest-first --max-search-calls 15 --vol-sleep 1.0
+        run: |
+          set +e
+          timeout --kill-after=60s 15m python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --newest-first --max-search-calls 15 --vol-sleep 1.0
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 15-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
 
       # Targets with a confirmed volume_id (see resolveNeedsVolumeIdBacklog.js)
       # — fetches the ComicVine volume directly by id, skipping the fuzzy
@@ -266,22 +275,43 @@ jobs:
         id: lane_pinned
         if: hashFiles('gap-pinned.json') != ''
         continue-on-error: true
-        timeout-minutes: 8
-        run: python comicvine_api_to_supabase.py --targets gap-pinned.json --skip-existing --max-search-calls 20 --vol-sleep 1.0
+        run: |
+          set +e
+          timeout --kill-after=60s 8m python comicvine_api_to_supabase.py --targets gap-pinned.json --skip-existing --max-search-calls 20 --vol-sleep 1.0
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 8-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
 
       - name: Ingest width-gap targets
         id: lane_width
         if: hashFiles('gap-width.json') != ''
         continue-on-error: true
-        timeout-minutes: 6
-        run: python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --max-search-calls 20 --vol-sleep 1.0
+        run: |
+          set +e
+          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --max-search-calls 20 --vol-sleep 1.0
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 6-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
 
       - name: Ingest depth-gap targets
         id: lane_depth
         if: hashFiles('gap-depth.json') != ''
         continue-on-error: true
-        timeout-minutes: 5
-        run: python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --max-search-calls 10 --vol-sleep 1.0
+        run: |
+          set +e
+          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --max-search-calls 10 --vol-sleep 1.0
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 5-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
 
       # Runs for real (not --dry-run) so any mis-tagged volumes from this
       # run's own ingestion get fixed automatically instead of waiting for

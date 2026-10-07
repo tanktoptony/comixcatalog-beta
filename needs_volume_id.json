@@ -43461,5 +43461,40 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T10:41:07.563221+00:00",
     "retry_after": "2026-10-08T10:41:07.563238+00:00"
+  },
+  {
+    "name": "Stumptown",
+    "publisher": "Oni Press",
+    "year": 2021,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 29346,
+        "name": "Stumptown",
+        "publisher": "Oni Press",
+        "start_year": 2009
+      },
+      {
+        "id": 52064,
+        "name": "Stumptown",
+        "publisher": "Oni Press",
+        "start_year": 2012
+      },
+      {
+        "id": 62520,
+        "name": "Stumptown",
+        "publisher": "Oni Press",
+        "start_year": 2011
+      },
+      {
+        "id": 76894,
+        "name": "Stumptown",
+        "publisher": "Oni Press",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T11:01:28.655450+00:00",
+    "retry_after": "2026-10-08T11:01:28.655469+00:00"
   }
 ]

@@ -42478,9 +42478,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T09:02:16.669039+00:00",
-    "retry_after": "2026-10-07T09:02:16.669056+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T10:01:02.504029+00:00",
+    "retry_after": "2026-10-10T10:01:02.504046+00:00"
   },
   {
     "name": "Look Who's Here [Family Circus]",
@@ -42488,9 +42488,9 @@
     "year": 1972,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T09:04:12.868179+00:00",
-    "retry_after": "2026-10-07T09:04:12.868197+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T10:01:02.995772+00:00",
+    "retry_after": "2026-10-10T10:01:02.995789+00:00"
   },
   {
     "name": "Misfits of Avalon",
@@ -43422,5 +43422,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T09:04:00.711664+00:00",
     "retry_after": "2026-10-08T09:04:00.711681+00:00"
+  },
+  {
+    "name": "Siren: Shapes",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T10:01:20.849896+00:00",
+    "retry_after": "2026-10-08T10:01:20.849914+00:00"
   }
 ]

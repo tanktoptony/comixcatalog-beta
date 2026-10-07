@@ -8,6 +8,7 @@ import { baseIssueNumber } from "@/lib/coverMatch";
 import { capStatus, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, COVER_SCAN_MODEL, rankCoverCandidates, titleTokens } from "@/lib/coverScan";
 import { extractCover } from "@/lib/coverScanClaude";
 import { resolveCovers } from "@/lib/catalog/covers";
+import { isOwnedStatus } from "@/lib/collectionStatus";
 
 export const runtime = "nodejs";
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
@@ -153,10 +154,41 @@ export async function PATCH(req) {
   const body = await req.json();
   if (!body.scan_id || !Number.isInteger(Number(body.gcd_issue_id))) return NextResponse.json({ error: "Invalid selection" }, { status: 400 });
   const supabase = getServiceClient();
-  const { data: scan, error: scanError } = await supabase.from("cover_scans").select("id, candidates").eq("id", body.scan_id).eq("user_id", user.id).maybeSingle();
+  const attaching = Boolean(body.collection_id);
+  const { data: scan, error: scanError } = await supabase.from("cover_scans").select("id, candidates, storage_path").eq("id", body.scan_id).eq("user_id", user.id).maybeSingle();
   if (scanError) { console.error("PATCH /api/cover-scan lookup failed", scanError); return NextResponse.json({ error: "Could not record selection" }, { status: 500 }); }
   if (!scan) return NextResponse.json({ error: "Scan not found" }, { status: 404 });
   if (!(scan.candidates ?? []).some((row) => Number(row.gcd_issue_id) === Number(body.gcd_issue_id))) return NextResponse.json({ error: "That issue was not a scan result" }, { status: 400 });
+  if (attaching) {
+    if (!scan.storage_path) return NextResponse.json({ error: "This scan has no photo" }, { status: 422 });
+    const { data: collection, error: collectionError } = await supabase.from("user_collections")
+      .select("id, status, gcd_issue_id").eq("id", body.collection_id).eq("user_id", user.id).maybeSingle();
+    if (collectionError) { console.error("PATCH /api/cover-scan collection lookup failed", collectionError); return NextResponse.json({ error: "Could not check that copy" }, { status: 500 }); }
+    if (!collection) return NextResponse.json({ error: "Collection copy not found" }, { status: 404 });
+    if (Number(collection.gcd_issue_id) !== Number(body.gcd_issue_id)) return NextResponse.json({ error: "That copy is for a different issue" }, { status: 400 });
+    if (!isOwnedStatus(collection.status)) return NextResponse.json({ error: "That copy is not owned" }, { status: 409 });
+    try {
+      const { data: photo, error: downloadError } = await supabase.storage.from("cover-scans").download(scan.storage_path);
+      if (downloadError || !photo) throw downloadError ?? new Error("Scan photo was empty");
+      const path = `library/${collection.id}.jpg`;
+      const { error: uploadError } = await supabase.storage.from("comic-covers").upload(path, photo, { upsert: true, contentType: "image/jpeg" });
+      if (uploadError) throw uploadError;
+      const { data: publicData } = supabase.storage.from("comic-covers").getPublicUrl(path);
+      if (!publicData?.publicUrl) throw new Error("Could not resolve public cover URL");
+      const userCoverUrl = `${publicData.publicUrl}?t=${Date.now()}`;
+      const { data: updated, error: updateError } = await supabase.from("user_collections").update({ user_cover_url: userCoverUrl })
+        .eq("id", collection.id).eq("user_id", user.id).select("id").maybeSingle();
+      if (updateError) throw updateError;
+      if (!updated) return NextResponse.json({ error: "Collection copy not found" }, { status: 404 });
+      const { error: choiceError } = await supabase.from("cover_scans").update({ chosen_gcd_issue_id: Number(body.gcd_issue_id) })
+        .eq("id", body.scan_id).eq("user_id", user.id);
+      if (choiceError) throw choiceError;
+      return NextResponse.json({ ok: true, user_cover_url: userCoverUrl });
+    } catch (error) {
+      console.error("PATCH /api/cover-scan attach failed", error);
+      return NextResponse.json({ error: "Could not save this photo to your copy" }, { status: 500 });
+    }
+  }
   const { data, error } = await supabase.from("cover_scans").update({ chosen_gcd_issue_id: Number(body.gcd_issue_id) }).eq("id", body.scan_id).eq("user_id", user.id).select("id").maybeSingle();
   if (error) { console.error("PATCH /api/cover-scan failed", error); return NextResponse.json({ error: "Could not record selection" }, { status: 500 }); }
   if (!data) return NextResponse.json({ error: "Scan not found" }, { status: 404 });

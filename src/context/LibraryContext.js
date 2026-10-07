@@ -509,7 +509,7 @@ export function LibraryProvider({ children }) {
     }
     // Swap in the saved row so the copy can be removed right away.
     setCollections((prev) => prev.map((row) => (row.id === optimisticId ? saved : row)));
-    return { ok: true };
+    return { ok: true, row: saved };
     });
   }
 

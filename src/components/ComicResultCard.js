@@ -6,7 +6,7 @@ import { useLibrary } from "@/context/LibraryContext";
 import { coverThumb } from "@/lib/coverThumb";
 import { trackEvent } from "@/lib/analytics";
 
-export default function ComicResultCard({ item, index = 0, query = "", coverCaption, onMutationError, onChosen }) {
+export default function ComicResultCard({ item, index = 0, query = "", coverCaption, onMutationError, onChosen, hideActions = false, actionContent = null }) {
   const { user } = useAuth();
   const { wishlistIds, collectionIds, addToCollection, removeFromCollection } = useLibrary();
   const isSeries = item.__source === "series", isUserAdded = item.__source === "user";
@@ -29,10 +29,11 @@ export default function ComicResultCard({ item, index = 0, query = "", coverCapt
       {isUserAdded && <span className="pill pill-new">User Added</span>}
     </Link>
     {!isSeries && <div className="comic-card-pills">{inCollection && <span className="pill pill-collection">In Collection</span>}{inWishlist && <span className="pill pill-wishlist">On Wishlist</span>}</div>}
-    {!isSeries && <div className="comic-card-actions">
+    {!isSeries && !hideActions && <div className="comic-card-actions">
       {!inCollection && !inWishlist && (user ? <><button className="comic-btn" onClick={() => add("owned")}>+ Collection</button><button className="comic-btn" onClick={() => add("wishlist")}>+ Wantlist</button></> : <Link href={`/signup?next=${encodeURIComponent("/search")}`} className="comic-btn" style={{ textDecoration: "none", textAlign: "center" }}>+ Save</Link>)}
       {inCollection && <button className="comic-btn comic-btn-danger" onClick={() => remove("latest-copy")}>Remove</button>}
       {inWishlist && <button className="comic-btn comic-btn-danger" onClick={() => remove("wishlist")}>Remove</button>}
     </div>}
+    {actionContent}
   </article>;
 }

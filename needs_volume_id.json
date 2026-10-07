@@ -42411,9 +42411,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T08:02:39.490260+00:00",
-    "retry_after": "2026-10-07T08:02:39.490278+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T09:00:39.848161+00:00",
+    "retry_after": "2026-10-10T09:00:39.848178+00:00"
   },
   {
     "name": "Doctor Who: The Seventh Doctor",
@@ -42421,9 +42421,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T08:04:08.020692+00:00",
-    "retry_after": "2026-10-07T08:04:08.020710+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T09:00:40.420819+00:00",
+    "retry_after": "2026-10-10T09:00:40.420838+00:00"
   },
   {
     "name": "Appleseed",
@@ -42468,9 +42468,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T08:05:31.891627+00:00",
-    "retry_after": "2026-10-07T08:05:31.891642+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T09:00:40.858237+00:00",
+    "retry_after": "2026-10-10T09:00:40.858253+00:00"
   },
   {
     "name": "Silent M�bius: Hell",
@@ -43389,5 +43389,38 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T08:01:34.794538+00:00",
     "retry_after": "2026-10-08T08:01:34.794555+00:00"
+  },
+  {
+    "name": "The Question",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3805,
+        "name": "The Question",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 11490,
+        "name": "The Question",
+        "publisher": "DC Comics",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T09:03:16.857321+00:00",
+    "retry_after": "2026-10-08T09:03:16.857337+00:00"
+  },
+  {
+    "name": "R.E.B.E.L.S. '96",
+    "publisher": "DC Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T09:04:00.711664+00:00",
+    "retry_after": "2026-10-08T09:04:00.711681+00:00"
   }
 ]

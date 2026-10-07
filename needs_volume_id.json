@@ -42498,9 +42498,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T10:01:34.631871+00:00",
-    "retry_after": "2026-10-07T10:01:34.631891+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T10:39:30.647991+00:00",
+    "retry_after": "2026-10-10T10:39:30.648008+00:00"
   },
   {
     "name": "Dark Horse Futures",
@@ -42508,9 +42508,9 @@
     "year": null,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T10:02:33.586418+00:00",
-    "retry_after": "2026-10-07T10:02:33.586437+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T10:39:31.212926+00:00",
+    "retry_after": "2026-10-10T10:39:31.212945+00:00"
   },
   {
     "name": "Superman / Tarzan: Sons of the Jungle",
@@ -42525,9 +42525,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T10:02:34.092187+00:00",
-    "retry_after": "2026-10-07T10:02:34.092196+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T10:39:31.671653+00:00",
+    "retry_after": "2026-10-10T10:39:31.671670+00:00"
   },
   {
     "name": "The Untold Legend of the Batman [MPI Audio Edition]",
@@ -43432,5 +43432,34 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T10:01:20.849896+00:00",
     "retry_after": "2026-10-08T10:01:20.849914+00:00"
+  },
+  {
+    "name": "True Blood",
+    "publisher": "IDW Publishing",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 32697,
+        "name": "True Blood",
+        "publisher": "IDW Publishing",
+        "start_year": 2010
+      },
+      {
+        "id": 49195,
+        "name": "True Blood",
+        "publisher": "IDW Publishing",
+        "start_year": 2012
+      },
+      {
+        "id": 39211,
+        "name": "True Blood",
+        "publisher": "IDW Publishing",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T10:41:07.563221+00:00",
+    "retry_after": "2026-10-08T10:41:07.563238+00:00"
   }
 ]

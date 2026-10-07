@@ -43051,5 +43051,75 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-06T23:39:27.120904+00:00",
     "retry_after": "2026-10-07T23:39:27.120919+00:00"
+  },
+  {
+    "name": "She-Hulk Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T00:00:50.295771+00:00",
+    "retry_after": "2026-10-08T00:00:50.295786+00:00"
+  },
+  {
+    "name": "House of  Mystery",
+    "publisher": "DC Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 19439,
+        "name": "House of Mystery",
+        "publisher": "DC Comics",
+        "start_year": 1951
+      },
+      {
+        "id": 21513,
+        "name": "House of Mystery",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T00:00:58.806811+00:00",
+    "retry_after": "2026-10-08T00:00:58.806827+00:00"
+  },
+  {
+    "name": "Deadpool by Skottie Young",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T00:01:37.625900+00:00",
+    "retry_after": "2026-10-08T00:01:37.625918+00:00"
+  },
+  {
+    "name": "Amabilia - Int�grale",
+    "publisher": "Dynamite Entertainment",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130156,
+        "name": "Amabilia Intégrale",
+        "publisher": "Dynamite (France)",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T00:01:38.715660+00:00",
+    "retry_after": "2026-10-08T00:01:38.715674+00:00"
+  },
+  {
+    "name": "B.C. Great Zot, I'm Beautiful",
+    "publisher": "Fawcett Comics",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T00:01:39.272682+00:00",
+    "retry_after": "2026-10-08T00:01:39.272696+00:00"
   }
 ]

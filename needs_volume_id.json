@@ -42328,9 +42328,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T06:05:12.465297+00:00",
-    "retry_after": "2026-10-07T06:05:12.465315+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T07:00:46.283080+00:00",
+    "retry_after": "2026-10-10T07:00:46.283094+00:00"
   },
   {
     "name": "Avengers Legends",
@@ -42338,9 +42338,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T06:06:16.439494+00:00",
-    "retry_after": "2026-10-07T06:06:16.439513+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T07:00:46.899945+00:00",
+    "retry_after": "2026-10-10T07:00:46.899961+00:00"
   },
   {
     "name": "Incredibles 2: Crisis in Mid-Life! & Other Stories",
@@ -43346,5 +43346,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T06:01:18.080702+00:00",
     "retry_after": "2026-10-08T06:01:18.080718+00:00"
+  },
+  {
+    "name": "7 Warriors",
+    "publisher": "BOOM! Studios",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T07:02:47.877662+00:00",
+    "retry_after": "2026-10-08T07:02:47.877678+00:00"
   }
 ]

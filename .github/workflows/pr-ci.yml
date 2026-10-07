@@ -70,6 +70,9 @@ jobs:
       - name: Supabase pagination tests
         run: npm run test:fetch-all
 
+      - name: Fetch retry tests
+        run: npm run test:fetch-with-retry
+
       - name: Year helper tests
         run: npm run test:years
 

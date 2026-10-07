@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
+import { ADMIN_ID } from "@/lib/admin";
+import { canSeeComic } from "@/lib/review";
 
 // GET /api/comics/[id]
 //
@@ -14,6 +16,7 @@ import { getAuthedUser } from "@/lib/authServer";
 export async function GET(req, context) {
   try {
     const { id } = await context.params;
+    const authedUser = await getAuthedUser(req);
     const supabase = getServiceClient();
 
     const { data: comic, error: comicError } = await supabase
@@ -25,6 +28,7 @@ export async function GET(req, context) {
         issue_number,
         release_year,
         created_by,
+        review_status,
         comic_covers (
           image_path,
           is_primary
@@ -33,7 +37,7 @@ export async function GET(req, context) {
       .eq("id", id)
       .single();
 
-    if (comicError || !comic) {
+    if (comicError || !comic || !canSeeComic(comic, authedUser?.id, ADMIN_ID)) {
       return NextResponse.json({ error: "Comic not found" }, { status: 404 });
     }
 

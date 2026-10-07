@@ -70,8 +70,8 @@ export default function FirstRunLibrary() {
         </form>
 
         <div className="first-run-secondary">
-          <Link href="/library/add" className="first-run-secondary-link">
-            Or add a comic manually →
+          <Link href="/scan" className="first-run-secondary-link">
+            Or scan a cover →
           </Link>
         </div>
       </div>

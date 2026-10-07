@@ -5549,7 +5549,8 @@ button.nav-link {
     min-height: 44px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 14px;
     padding: 0.65rem 0;
     border: 0;
     border-bottom: 1px solid var(--cc-line);
@@ -5561,7 +5562,13 @@ button.nav-link {
     text-decoration: none;
   }
 
+  .library-mobile-action-icon {
+    flex-shrink: 0;
+    color: var(--cc-gold);
+  }
+
   .library-mobile-pro {
+    margin-left: auto;
     padding: 0.15rem 0.4rem;
     border: 1px solid var(--cc-gold);
     border-radius: 999px;

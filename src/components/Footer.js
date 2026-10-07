@@ -24,7 +24,7 @@ const COLUMNS = [
     links: [
       { label: "Collection", href: "/library" },
       { label: "Wantlist", href: "/library?tab=wishlist" },
-      { label: "Add a comic", href: "/contribute/add-comic" },
+      { label: "Scan a cover", href: "/scan" },
       { label: "Submission Guidelines", href: "/contribute/guidelines", todo: true },
     ],
   },

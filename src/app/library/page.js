@@ -20,6 +20,7 @@ import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { coverThumb } from "@/lib/coverThumb";
 import { readLocal, writeLocal } from "@/lib/localCache";
+import { fetchWithRetry } from "@/lib/fetchWithRetry";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import { chunk } from "@/lib/chunk";
 import { normalizePublisherDisplayName } from "@/lib/publisher";
@@ -722,8 +723,13 @@ function LibraryPageContent() {
     return keys.join("|");
   }, [collections]);
 
+  // Bumped 30s after a hydration batch fails every retry, so the effect runs
+  // again for whatever is still missing instead of leaving "…" stubs up.
+  const [hydrateRetryTick, setHydrateRetryTick] = useState(0);
+
   useEffect(() => {
     let cancelled = false;
+    let retryTimer = null;
 
     async function loadLibraryItems() {
       const uniqueKeys = librarySignature ? librarySignature.split("|") : [];
@@ -786,16 +792,21 @@ function LibraryPageContent() {
           const batchGcd = batch.filter((k) => k.gcd != null).map((k) => k.gcd);
           const batchComic = batch.filter((k) => k.comic != null).map((k) => k.comic);
           const gcdSet = new Set(batchGcd);
-          const res = await fetch("/api/library-hydrate", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              comic_ids: batchComic,
-              gcd_issue_ids: batchGcd,
-              collection_grades: collectionGrades.filter((g) => gcdSet.has(g.gcd_issue_id)),
-            }),
+          const body = JSON.stringify({
+            comic_ids: batchComic,
+            gcd_issue_ids: batchGcd,
+            collection_grades: collectionGrades.filter((g) => gcdSet.has(g.gcd_issue_id)),
           });
-          if (!res.ok || cancelled) return;
+          const res = await fetchWithRetry(
+            () => fetch("/api/library-hydrate", { method: "POST", headers: { "Content-Type": "application/json" }, body }),
+            { isCancelled: () => cancelled }
+          );
+          if (cancelled) return;
+          if (!res) {
+            console.error("library-hydrate failed after retries; trying again in 30s");
+            retryTimer = setTimeout(() => setHydrateRetryTick((t) => t + 1), 30000);
+            return;
+          }
 
           const data = await res.json();
           const raw = data.items ?? {};
@@ -832,8 +843,9 @@ function LibraryPageContent() {
     loadLibraryItems();
     return () => {
       cancelled = true;
+      if (retryTimer) clearTimeout(retryTimer);
     };
-  }, [librarySignature]);
+  }, [librarySignature, hydrateRetryTick]);
 
   // All-status hydrated view of the collection — used by the unified stats
   // strip and insight sidebar, which need owned/wantlist/for_sale counts

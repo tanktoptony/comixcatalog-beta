@@ -43224,5 +43224,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T03:10:48.507602+00:00",
     "retry_after": "2026-10-08T03:10:48.507613+00:00"
+  },
+  {
+    "name": "American Gods",
+    "publisher": "Dark Horse Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 105142,
+        "name": "American Gods",
+        "publisher": "Splitter",
+        "start_year": 2017
+      },
+      {
+        "id": 153591,
+        "name": "American Gods",
+        "publisher": "Urban Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 140509,
+        "name": "American Gods",
+        "publisher": "Planeta DeAgostini",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T04:00:38.362269+00:00",
+    "retry_after": "2026-10-08T04:00:38.362283+00:00"
+  },
+  {
+    "name": "You Can't Win Them All, Charlie Brown",
+    "publisher": "Fawcett Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T04:02:55.521518+00:00",
+    "retry_after": "2026-10-08T04:02:55.521531+00:00"
+  },
+  {
+    "name": "Sonic Legacy",
+    "publisher": "Archie Comics",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T04:03:20.331501+00:00",
+    "retry_after": "2026-10-08T04:03:20.331518+00:00"
+  },
+  {
+    "name": "Shannon Wheeler's Postage Stamp Funnies",
+    "publisher": "Dark Horse Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T04:03:20.769816+00:00",
+    "retry_after": "2026-10-08T04:03:20.769823+00:00"
   }
 ]

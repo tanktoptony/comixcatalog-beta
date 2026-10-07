@@ -10,6 +10,20 @@ const SORT_OPTIONS = [
   ["issue-asc", "Issue low–high"], ["issue-desc", "Issue high–low"],
 ];
 
+// Gold stroke icons for the More sheet, drawn to match the approved mockup.
+const ACTION_ICON_PATHS = {
+  share: <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />,
+  story: <><rect x="6" y="3" width="12" height="18" rx="2" /><path d="M10 17h4" /></>,
+  sell: <><path d="M3 12l9-9h8v8l-9 9z" /><circle cx="15.5" cy="8.5" r="1.5" /></>,
+  importCsv: <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />,
+  exportCsv: <path d="M12 20V9M7 14l5-5 5 5M5 4h14" />,
+  pdf: <><path d="M7 3h7l5 5v13H7z" /><path d="M14 3v5h5" /></>,
+  link: <><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1" /><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" /></>,
+};
+function ActionIcon({ name }) {
+  return <svg className="library-mobile-action-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{ACTION_ICON_PATHS[name]}</svg>;
+}
+
 function Sheet({ open, onClose, labelledBy, children }) {
   const panelRef = useRef(null);
   useEffect(() => {
@@ -89,16 +103,15 @@ export default function LibraryMobileBar(props) {
       {!isPublicPreview && <Sheet open={sheet === "more"} onClose={closeSheet} labelledBy="library-mobile-more-title">
         <h2 id="library-mobile-more-title">More actions</h2>
         <div className="library-mobile-action-label">Share</div>
-        <button type="button" className="library-mobile-action" onClick={() => run(handleShare)}>{shareCopied ? "Link copied" : "Share my collection"}</button>
-        <ShareCardButton ownerId={ownerId} username={username} className="library-mobile-action" label="Make a Story card" />
-        <div className="library-mobile-action-label">Add and sell</div>
-        <Link href="/library/add" className="library-mobile-action" onClick={closeSheet}>Add a book manually</Link>
-        {counts.owned > counts.forSale && <button type="button" className="library-mobile-action" disabled={bulkSaleBusy} onClick={() => run(() => setAllForSale(true))}>{bulkSaleBusy ? "Listing..." : "List everything for sale"}</button>}
+        <button type="button" className="library-mobile-action" onClick={() => run(handleShare)}><ActionIcon name="share" />{shareCopied ? "Link copied" : "Share my collection"}</button>
+        <ShareCardButton ownerId={ownerId} username={username} className="library-mobile-action" label={<><ActionIcon name="story" />Make a Story card</>} />
+        {counts.owned > counts.forSale && <div className="library-mobile-action-label">Sell</div>}
+        {counts.owned > counts.forSale && <button type="button" className="library-mobile-action" disabled={bulkSaleBusy} onClick={() => run(() => setAllForSale(true))}><ActionIcon name="sell" />{bulkSaleBusy ? "Listing..." : "List everything for sale"}</button>}
         <div className="library-mobile-action-label">Import and export</div>
-        <form onSubmit={(event) => { handleCsvImport(event); closeSheet(); }} className="library-mobile-import"><label className="library-mobile-action">{selectedFile ? selectedFile.name : "Import a CSV"}<input type="file" name="file" accept=".csv" hidden onChange={(event) => setSelectedFile(event.target.files[0] || null)} /></label>{selectedFile && <button type="submit" className="library-mobile-action">Upload CSV</button>}</form>
-        <button type="button" className="library-mobile-action" disabled={csvExporting} onClick={() => run(handleExportCsv)}>{csvExporting ? "Exporting..." : <>Export CSV {!isPro && <span className="library-mobile-pro">Pro</span>}</>}</button>
-        <button type="button" className="library-mobile-action" disabled={pdfExporting} onClick={() => run(handleExportPdf)}>{pdfExporting ? "Generating..." : <>Export PDF {!isPro && <span className="library-mobile-pro">Pro</span>}</>}</button>
-        <button type="button" className="library-mobile-action" disabled={catalogAuditing} onClick={() => run(handleCatalogAudit)}>{catalogAuditing ? "Scanning..." : <>Link books to the catalog {!isPro && <span className="library-mobile-pro">Pro</span>}</>}</button>
+        <form onSubmit={(event) => { handleCsvImport(event); closeSheet(); }} className="library-mobile-import"><label className="library-mobile-action"><ActionIcon name="importCsv" />{selectedFile ? selectedFile.name : "Import a CSV"}<input type="file" name="file" accept=".csv" hidden onChange={(event) => setSelectedFile(event.target.files[0] || null)} /></label>{selectedFile && <button type="submit" className="library-mobile-action"><ActionIcon name="importCsv" />Upload CSV</button>}</form>
+        <button type="button" className="library-mobile-action" disabled={csvExporting} onClick={() => run(handleExportCsv)}><ActionIcon name="exportCsv" />{csvExporting ? "Exporting..." : <>Export CSV {!isPro && <span className="library-mobile-pro">Pro</span>}</>}</button>
+        <button type="button" className="library-mobile-action" disabled={pdfExporting} onClick={() => run(handleExportPdf)}><ActionIcon name="pdf" />{pdfExporting ? "Generating..." : <>Export PDF {!isPro && <span className="library-mobile-pro">Pro</span>}</>}</button>
+        <button type="button" className="library-mobile-action" disabled={catalogAuditing} onClick={() => run(handleCatalogAudit)}><ActionIcon name="link" />{catalogAuditing ? "Scanning..." : <>Link books to the catalog {!isPro && <span className="library-mobile-pro">Pro</span>}</>}</button>
       </Sheet>}
     </section>
   );

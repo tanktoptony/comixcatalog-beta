@@ -1417,13 +1417,6 @@ function LibraryPageContent() {
               <Link href="/scan" className="library-primary-btn">
                 Scan a cover
               </Link>
-              <Link
-                href="/library/add"
-                className="library-primary-btn"
-                title="For a book not already in our catalog — search above first if you're not sure."
-              >
-                + Add manually
-              </Link>
             </>
           )}
         </div>
@@ -2042,7 +2035,7 @@ function LibraryPageContent() {
                     body="Search the database for any series or issue, then add it to your collection to start tracking grades, values, and variants."
                     ctaHref="/search"
                     ctaLabel="Browse the database"
-                    secondary={{ href: "/library/add", label: "Add a comic manually" }}
+                    secondary={{ href: "/scan", label: "Scan a cover" }}
                   />
                 ) : (
                   <EmptyState

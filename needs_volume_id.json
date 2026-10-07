@@ -42607,9 +42607,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T13:02:21.661895+00:00",
-    "retry_after": "2026-10-07T13:02:21.661914+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T14:00:44.004678+00:00",
+    "retry_after": "2026-10-10T14:00:44.004697+00:00"
   },
   {
     "name": "Star Wars: The Classic Newspaper Comics",
@@ -42617,9 +42617,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T13:04:45.236365+00:00",
-    "retry_after": "2026-10-07T13:04:45.236381+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T14:00:44.592702+00:00",
+    "retry_after": "2026-10-10T14:00:44.592725+00:00"
   },
   {
     "name": "Sonic's Friendly Nemesis Knuckles",
@@ -42627,9 +42627,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T13:04:45.682153+00:00",
-    "retry_after": "2026-10-07T13:04:45.682164+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T14:00:45.019192+00:00",
+    "retry_after": "2026-10-10T14:00:45.019211+00:00"
   },
   {
     "name": "Justice League by Scott Snyder The Deluxe Edition",
@@ -43540,5 +43540,25 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T13:02:41.665388+00:00",
     "retry_after": "2026-10-08T13:02:41.665408+00:00"
+  },
+  {
+    "name": "Jericho",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T14:03:01.156620+00:00",
+    "retry_after": "2026-10-08T14:03:01.156639+00:00"
+  },
+  {
+    "name": "Dragonlance Chronicles",
+    "publisher": "IDW Publishing",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T14:03:27.038439+00:00",
+    "retry_after": "2026-10-08T14:03:27.038458+00:00"
   }
 ]

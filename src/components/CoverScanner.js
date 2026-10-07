@@ -58,6 +58,33 @@ function OwnedActions({ item, copies, scanId, justAdded, photo, addAnotherCopy, 
   </div>;
 }
 
+// "Different cover or printing?": reports a variant/printing of this match
+// with the scan photo attached. It goes to the admin review queue and only
+// shows for everyone once approved.
+const PRINTING_KINDS = [["variant", "Variant cover"], ["newsstand", "Newsstand"], ["reprint", "Reprint or 2nd print"], ["other", "Other"]];
+function PrintingReport({ item, scanId }) {
+  const [open, setOpen] = useState(false), [kind, setKind] = useState("variant");
+  const [name, setName] = useState(""), [upc, setUpc] = useState("");
+  const [busy, setBusy] = useState(false), [message, setMessage] = useState(null), [error, setError] = useState(null);
+  async function submit(e) {
+    e.preventDefault(); setBusy(true); setError(null);
+    try {
+      const response = await authedFetch("/api/cover-scan/printing", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ scan_id: scanId, gcd_issue_id: item.gcd_issue_id, kind, printing_name: name, upc }) });
+      const data = await response.json(); if (!response.ok) throw new Error(data.error || "Could not send that report.");
+      setMessage(data.duplicate ? "You already reported this one." : "Thanks. We'll review it, and it shows up for everyone once approved.");
+    } catch (e) { setError(e.message); } finally { setBusy(false); }
+  }
+  if (message) return <p className="scan-report-done" role="status">{message}</p>;
+  if (!open) return <button type="button" className="scan-report-toggle" onClick={() => setOpen(true)}>Different cover or printing?</button>;
+  return <form className="scan-report" onSubmit={submit}>
+    <fieldset className="scan-report-kinds"><legend>Which is it?</legend>{PRINTING_KINDS.map(([value, label]) => <label key={value} className={kind === value ? "is-on" : ""}><input type="radio" name={`kind-${item.id}`} value={value} checked={kind === value} onChange={() => setKind(value)} />{label}</label>)}</fieldset>
+    <label className="scan-report-field">Name <span>(optional)</span><input value={name} onChange={(e) => setName(e.target.value)} placeholder="Cover B, 1:25, 2nd print" maxLength={120} /></label>
+    <label className="scan-report-field">UPC <span>(optional, the barcode digits)</span><input value={upc} onChange={(e) => setUpc(e.target.value.replace(/\D/g, ""))} inputMode="numeric" pattern="\d{12,18}" maxLength={18} /></label>
+    <div className="scan-report-actions"><button type="submit" className="scan-btn scan-btn-primary" disabled={busy}>{busy ? "Sending..." : "Send for review"}</button><button type="button" className="scan-btn scan-btn-secondary" onClick={() => setOpen(false)}>Cancel</button></div>
+    {error && <p className="cover-scan-error">{error}</p>}
+  </form>;
+}
+
 const CameraIcon = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13.5" r="3.5"></circle></svg>;
 const LockIcon = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>;
 
@@ -116,7 +143,7 @@ export default function CoverScanner() {
     {result?.outcome === "not_a_comic" && <div className="scan-callout"><strong>That doesn&apos;t look like a comic cover.</strong> Try again with the whole front cover in frame.</div>}
     {items.length > 0 && <section className="scan-results"><h2 className="scan-results-title">Best matches</h2><div className="comic-grid">{items.map((item, i) => {
       const copies = ownedCopiesFor(collections, item.gcd_issue_id);
-      return <ComicResultCard key={item.id} item={item} index={i} query="cover scan" coverCaption={item.coverCaption} onMutationError={setError} onChosen={record} hideActions={copies.length > 0} actionContent={copies.length > 0 ? <OwnedActions item={item} copies={copies} scanId={result.scan_id} justAdded={!ownedAtScan.has(Number(item.gcd_issue_id))} photo={preview} addAnotherCopy={addAnotherCopy} refreshLibrary={refreshLibrary} /> : null} />;
+      return <ComicResultCard key={item.id} item={item} index={i} query="cover scan" coverCaption={item.coverCaption} onMutationError={setError} onChosen={record} hideActions={copies.length > 0} actionContent={<>{copies.length > 0 && <OwnedActions item={item} copies={copies} scanId={result.scan_id} justAdded={!ownedAtScan.has(Number(item.gcd_issue_id))} photo={preview} addAnotherCopy={addAnotherCopy} refreshLibrary={refreshLibrary} />}<PrintingReport item={item} scanId={result.scan_id} /></>} />;
     })}</div></section>}
     {result?.quota && <p className="scan-quota">{result.quota.remaining} of {result.quota.limit} scans left today</p>}
   </div>;

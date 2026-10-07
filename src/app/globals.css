@@ -11786,6 +11786,20 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .scan-read-chip { padding: 5px 12px; border: 1px solid var(--cc-line); border-radius: 999px; background: var(--cc-surface-2); font-size: 0.9rem; }
 .scan-results { margin-top: 20px; }
 .scan-results-title { margin: 0 0 12px; font-size: 1.15rem; font-weight: 800; }
+.scan-report-toggle { display: block; width: 100%; min-height: 44px; margin-top: 6px; border: none; background: none; color: var(--cc-gold); font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.scan-report-done { margin: 8px 0 0; font-size: 0.85rem; color: var(--cc-gold-soft); }
+.scan-report { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; padding: 12px; border: 1px solid var(--cc-line); border-radius: 10px; background: var(--cc-surface-2); text-align: left; }
+.scan-report-kinds { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; border: none; }
+.scan-report-kinds legend { margin-bottom: 6px; font-size: 0.8rem; font-weight: 700; color: var(--cc-text-muted); }
+.scan-report-kinds label { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--cc-line); border-radius: 18px; font-size: 0.82rem; cursor: pointer; }
+.scan-report-kinds label.is-on { border-color: var(--cc-gold); background: rgba(216, 176, 75, 0.14); }
+.scan-report-kinds input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.scan-report-kinds label:focus-within { outline: 2px solid var(--cc-gold); outline-offset: 2px; }
+.scan-report-field { display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem; font-weight: 700; color: var(--cc-text-muted); }
+.scan-report-field span { font-weight: 400; }
+.scan-report-field input { min-height: 40px; padding: 0 10px; border: 1px solid var(--cc-line); border-radius: 8px; background: var(--cc-bg); color: var(--cc-text); font-size: 0.95rem; }
+.scan-report-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.scan-report-actions .scan-btn { min-height: 40px; padding: 0 14px; font-size: 0.85rem; }
 .scan-quota { margin: 14px 0 0; font-size: 0.85rem; color: var(--cc-text-muted); }
 .scan-tips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 8px 0 0; padding: 0; list-style: none; }
 .scan-tips li { padding: 14px; border: 1px solid var(--cc-line-soft); border-radius: 12px; font-size: 0.9rem; line-height: 1.45; color: var(--cc-text-muted); }

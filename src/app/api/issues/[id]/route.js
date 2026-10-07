@@ -6,6 +6,8 @@ import { getServiceClient } from "@/lib/supabase/service";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { resolvePublisher } from "@/lib/publisher";
 import { getAuthedUser } from "@/lib/authServer";
+import { ADMIN_ID } from "@/lib/admin";
+import { canSeeComic } from "@/lib/review";
 import { formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
 import { OWNED_STATUSES } from "@/lib/collectionStatus";
 
@@ -854,6 +856,7 @@ export async function GET(req, context) {
         issue_number,
         release_year,
         created_by,
+        review_status,
         comic_covers (
           image_path,
           is_primary
@@ -862,7 +865,7 @@ export async function GET(req, context) {
       .eq("id", id)
       .single();
 
-    if (comicError || !comic) {
+    if (comicError || !comic || !canSeeComic(comic, authedViewer?.id, ADMIN_ID)) {
       return NextResponse.json({ error: "Issue not found" }, { status: 404 });
     }
 

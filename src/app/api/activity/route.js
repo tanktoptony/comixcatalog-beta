@@ -77,6 +77,7 @@ export async function GET() {
             .from("comics")
             .select("id, series_title, issue_number")
             .in("id", comicIds)
+            .eq("review_status", "approved")
         : Promise.resolve({ data: [], error: null }),
       gcdIssueIds.length > 0
         ? supabase
@@ -185,7 +186,9 @@ export async function GET() {
       comics.map((c) => [String(c.id), c])
     );
 
-    const result = activity.map((a) => ({
+    // A user-added book that hasn't been approved is filtered out of the
+    // comics lookup above; drop its activity rather than show "Unknown comic".
+    const result = activity.filter((a) => a.comic_id == null || comicsMap[String(a.comic_id)]).map((a) => ({
       ...a,
       comics:
         a.comic_id != null

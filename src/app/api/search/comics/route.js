@@ -6,6 +6,8 @@ import { normalizeSeriesSearchWords } from "@/lib/seriesSearchMatch";
 import { compareIssueNumbers } from "@/lib/coverMatch";
 import { parseYear } from "@/lib/years";
 import { resolveCovers } from "@/lib/catalog/covers";
+import { getAuthedUser } from "@/lib/authServer";
+import { ADMIN_ID } from "@/lib/admin";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -136,6 +138,7 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
 
 export async function GET(req) {
   try {
+    const viewer = await getAuthedUser(req);
     const { searchParams } = new URL(req.url);
     const q = (searchParams.get("q") || "").trim();
     const queriedIssueNumber = extractIssueNumberFromQuery(q);
@@ -169,6 +172,7 @@ export async function GET(req) {
               release_year,
               variant_name,
               created_by,
+              review_status,
               comic_covers (
                 image_path,
                 is_primary
@@ -179,6 +183,7 @@ export async function GET(req) {
             // (comics.gcd_id) already shows up as that issue; listing it
             // again just puts a duplicate in the results.
             .is("gcd_id", null)
+            .or(viewer?.id === ADMIN_ID ? "review_status.eq.approved,review_status.neq.approved" : viewer ? `review_status.eq.approved,created_by.eq.${viewer.id}` : "review_status.eq.approved")
             .order("created_at", { ascending: false })
             .limit(20)
         : Promise.resolve({ data: [] }),
@@ -378,7 +383,10 @@ export async function GET(req) {
       };
     });
 
-    return NextResponse.json({ comics }, { headers: CDN_CACHE_SHORT });
+    // Signed-in results can include the viewer's own pending books, so they
+    // must never land in the shared CDN cache (it keys on the URL, not the
+    // viewer). Signed-out results are the same for everyone and stay cached.
+    return NextResponse.json({ comics }, { headers: viewer ? { "Cache-Control": "private, no-store" } : CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/search/comics crashed:", err);
     return NextResponse.json({ comics: [] });

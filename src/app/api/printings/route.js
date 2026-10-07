@@ -31,7 +31,7 @@ export async function GET(req) {
     // unreviewed guess and must not read as catalog fact.
     const { data, error } = await getServiceClient()
       .from("issue_printings")
-      .select("id, printing_name, upc, created_at")
+      .select("id, printing_name, upc, created_at, kind, cover_url")
       .eq("gcd_issue_id", gcdIssueId)
       .eq("status", "accepted")
       .order("created_at", { ascending: true });

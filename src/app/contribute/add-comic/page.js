@@ -285,7 +285,7 @@ export default function ContributeAddComicPage() {
                 color: "#86efac",
               }}
             >
-              Comic added. Thanks for contributing.
+              Added to your collection. It will appear in search for everyone once reviewed.
             </div>
           )}
 

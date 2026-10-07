@@ -286,7 +286,7 @@ export async function POST(req) {
 async function insertComic(supabase, fields) {
   const { data: comic, error } = await supabase
     .from("comics")
-    .insert(fields)
+    .insert({ ...fields, review_status: "pending" })
     .select()
     .single();
   if (error) throw error;

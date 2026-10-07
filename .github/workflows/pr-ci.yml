@@ -64,6 +64,9 @@ jobs:
       - name: Cover-scan tests
         run: npm run test:cover-scan
 
+      - name: Review queue tests
+        run: npm run test:review
+
       - name: Cover resolver tests
         run: npm run test:covers
 

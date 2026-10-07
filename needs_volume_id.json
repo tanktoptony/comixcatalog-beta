@@ -42173,8 +42173,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-07T03:00:51.433378+00:00",
-    "retry_after": "2026-10-10T03:00:51.433393+00:00"
+    "last_attempt_at": "2026-10-07T03:09:59.349923+00:00",
+    "retry_after": "2026-10-10T03:09:59.349941+00:00"
   },
   {
     "name": "The Ring of the Nibelung Vol. 3 [Siegfried]",
@@ -42183,8 +42183,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-07T03:00:52.062960+00:00",
-    "retry_after": "2026-10-10T03:00:52.062977+00:00"
+    "last_attempt_at": "2026-10-07T03:09:59.400109+00:00",
+    "retry_after": "2026-10-10T03:09:59.400120+00:00"
   },
   {
     "name": "Looney Tunes Greatest Hits",
@@ -42193,8 +42193,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-07T03:00:52.527112+00:00",
-    "retry_after": "2026-10-10T03:00:52.527127+00:00"
+    "last_attempt_at": "2026-10-07T03:09:59.475084+00:00",
+    "retry_after": "2026-10-10T03:09:59.475093+00:00"
   },
   {
     "name": "The Courageous Princess",
@@ -42216,8 +42216,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-07T03:00:52.945397+00:00",
-    "retry_after": "2026-10-10T03:00:52.945412+00:00"
+    "last_attempt_at": "2026-10-07T03:09:59.532552+00:00",
+    "retry_after": "2026-10-10T03:09:59.532560+00:00"
   },
   {
     "name": "Daredevil by Ed Brubaker and Michael Lark Ultimate Collection",
@@ -42225,9 +42225,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T03:01:41.563638+00:00",
-    "retry_after": "2026-10-07T03:01:41.563657+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T03:09:59.885836+00:00",
+    "retry_after": "2026-10-10T03:09:59.885850+00:00"
   },
   {
     "name": "Russ Manning's Magnus, Robot Fighter",
@@ -42235,9 +42235,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T03:06:53.254523+00:00",
-    "retry_after": "2026-10-07T03:06:53.254539+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T03:10:00.448052+00:00",
+    "retry_after": "2026-10-10T03:10:00.448068+00:00"
   },
   {
     "name": "Black Science Premiere",
@@ -42245,9 +42245,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T03:06:54.715118+00:00",
-    "retry_after": "2026-10-07T03:06:54.715135+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T03:10:01.066844+00:00",
+    "retry_after": "2026-10-10T03:10:01.066860+00:00"
   },
   {
     "name": "Runaways by Rainbow Rowell & Kris Anka",
@@ -42255,9 +42255,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T03:07:47.208756+00:00",
-    "retry_after": "2026-10-07T03:07:47.208773+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T03:10:01.644545+00:00",
+    "retry_after": "2026-10-10T03:10:01.644561+00:00"
   },
   {
     "name": "Batman versus Predator [Regular]",
@@ -43189,8 +43189,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-07T03:01:14.317730+00:00",
-    "retry_after": "2026-10-08T03:01:14.317746+00:00"
+    "last_attempt_at": "2026-10-07T03:10:11.667888+00:00",
+    "retry_after": "2026-10-08T03:10:11.667899+00:00"
   },
   {
     "name": "Letter 44 Deluxe Edition",
@@ -43199,8 +43199,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-07T03:01:14.845540+00:00",
-    "retry_after": "2026-10-08T03:01:14.845556+00:00"
+    "last_attempt_at": "2026-10-07T03:10:11.716747+00:00",
+    "retry_after": "2026-10-08T03:10:11.716756+00:00"
   },
   {
     "name": "Queen & Country: Declassified",
@@ -43222,36 +43222,7 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-07T03:02:28.196605+00:00",
-    "retry_after": "2026-10-08T03:02:28.196628+00:00"
-  },
-  {
-    "name": "American Gods",
-    "publisher": "Dark Horse Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 105142,
-        "name": "American Gods",
-        "publisher": "Splitter",
-        "start_year": 2017
-      },
-      {
-        "id": 153591,
-        "name": "American Gods",
-        "publisher": "Urban Comics",
-        "start_year": 2018
-      },
-      {
-        "id": 140509,
-        "name": "American Gods",
-        "publisher": "Planeta DeAgostini",
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T03:02:38.588001+00:00",
-    "retry_after": "2026-10-08T03:02:38.588015+00:00"
+    "last_attempt_at": "2026-10-07T03:10:48.507602+00:00",
+    "retry_after": "2026-10-08T03:10:48.507613+00:00"
   }
 ]

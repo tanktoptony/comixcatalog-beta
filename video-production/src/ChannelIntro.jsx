@@ -86,7 +86,7 @@ function ClipShot({ asset, fallback, from }) {
   );
 }
 
-function Logo() {
+export function Logo() {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const slam = spring({ frame, fps, config: { damping: 11, stiffness: 190 } });
@@ -142,3 +142,18 @@ export function ChannelIntro({ episodeId = "episode-001" }) {
 }
 
 export const CHANNEL_INTRO_FRAMES = CHANNEL_INTRO.frames;
+
+// A compact brand hit for the post-cold-open transition. It intentionally
+// uses the same logo animation and Funkorama sting as the full legacy intro.
+export function ChannelSting({ episodeId = "episode-001" }) {
+  useFonts();
+  const sting = resolveAudio(episodeId, "audio/MUSIC_STING", available);
+  return (
+    <EpisodeContext.Provider value={{ episodeId }}>
+      <AbsoluteFill style={{ backgroundColor: brand.bg }}>
+        <Logo />
+        {sting && <Audio src={staticFile(sting)} volume={0.9} />}
+      </AbsoluteFill>
+    </EpisodeContext.Provider>
+  );
+}

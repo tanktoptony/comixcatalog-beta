@@ -1,0 +1,29 @@
+{
+  "id": "episode-002",
+  "number": 2,
+  "slug": "hickman-x-men",
+  "titleOptions": ["TODO: Tony — title option 1", "TODO: Tony — title option 2", "TODO: Tony — title option 3"],
+  "narrator": "tony-human",
+  "utmCampaign": "ep002",
+  "sections": [
+    { "id": "01-hook", "chapter": "TODO: Tony — opening chapter label" },
+    { "id": "02-setup", "chapter": "TODO: Tony — setup chapter label" },
+    { "id": "03-house-of-x", "chapter": "House of X" },
+    { "id": "04-moira", "chapter": "Moira" },
+    { "id": "05-machines", "chapter": "Machines" },
+    { "id": "06-what-worked", "chapter": "What worked" },
+    { "id": "07-ending", "chapter": "TODO: Tony — ending chapter label" }
+  ],
+  "books": [
+    { "label": "House of X #1-6 (2019)", "request": "House of X #1 (2019)", "searchQuery": "house of x" },
+    { "label": "Powers of X #1-6 (2019)", "request": "Powers of X #1 (2019)", "searchQuery": "powers of x" },
+    { "label": "X-Men #1 (2019)", "request": "X-Men #1 (2019)", "searchQuery": "x-men 1 2019" }
+  ],
+  "tags": ["x-men", "house of x", "powers of x", "jonathan hickman", "marvel comics"],
+  "descriptionIntro": "TODO: Tony — write the episode description introduction.",
+  "pinnedComment": "TODO: Tony — write the pinned comment.",
+  "credits": ["TODO: Tony — add music and media credits."],
+  "shorts": [
+    { "id": "short-01", "title": "TODO: Tony — Short title", "hook": "TODO: Tony — standalone Short hook" }
+  ]
+}

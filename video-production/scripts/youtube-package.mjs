@@ -19,17 +19,21 @@ import ep from "../episode-001/timeline.v3.js";
 import words from "../episode-001/narration.words.js";
 import { narrationWords } from "../episode-001/timeline.v3.js";
 import { fixCaption } from "../episode-001/captionFixes.js";
+import { loadEpisodeConfig } from "../shared/episodeConfig.js";
+import { chaptersFromSections, chaptersFromTimeline, chapterText as formatChapters, mmss } from "../shared/chapters.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const out = path.join(os.homedir(), "Desktop", "episode-001-youtube");
+const requestedNumber = process.argv[2] ?? "001";
+const { config, id: episodeId } = loadEpisodeConfig(root, requestedNumber);
+if (episodeId !== "episode-001") {
+  await packageConfiguredEpisode();
+  process.exit(0);
+}
+const out = path.join(os.homedir(), "Desktop", `${episodeId}-youtube`);
 fs.mkdirSync(out, { recursive: true });
 const scratch = String(words.source ?? "").startsWith("NARRATION_SCRATCH");
 const VOICE_AT = ep.audio?.narration?.at ?? 0;
 
-const mmss = (s) => {
-  const t = Math.max(0, Math.floor(s));
-  return `${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}`;
-};
 const srtTime = (s) => {
   const ms = Math.max(0, Math.round(s * 1000));
   const h = Math.floor(ms / 3600000);
@@ -211,3 +215,108 @@ for (const [from, to] of [["Thumb001Shelf.jpg", "thumbnail-A-shelf.jpg"], ["Thum
   if (fs.existsSync(src)) fs.copyFileSync(src, path.join(out, to));
 }
 console.log(`wrote ${out}${scratch ? " (scratch-voice timings)" : ""}; ${cues.length} caption lines; ${chapters.length} chapters`);
+
+async function packageConfiguredEpisode() {
+  const episodeDir = path.join(root, episodeId);
+  const transcriptFile = path.join(episodeDir, "narration.words.js");
+  if (!fs.existsSync(transcriptFile)) throw new Error(`Missing ${transcriptFile}; run the transcribe stage first.`);
+  const transcript = (await import(`${new URL(`../${episodeId}/narration.words.js`, import.meta.url).href}?t=${Date.now()}`)).default;
+  const sectionsFile = path.join(episodeDir, "transcript", "sections.json");
+  let chapters;
+  if (fs.existsSync(sectionsFile)) {
+    const sectionData = JSON.parse(fs.readFileSync(sectionsFile, "utf8"));
+    chapters = chaptersFromSections(config, sectionData, { strict: false });
+  } else {
+    const timelineFile = path.join(episodeDir, "timeline.js");
+    if (!fs.existsSync(timelineFile)) throw new Error(`No ${sectionsFile} or fallback ${timelineFile} found.`);
+    const timeline = (await import(`${new URL(`../${episodeId}/timeline.js`, import.meta.url).href}?t=${Date.now()}`)).default;
+    chapters = chaptersFromTimeline(config.sections.filter((s) => s.chapter != null).map((s) => [s.beat ?? s.id, s.chapter]), timeline);
+    const missing = chapters.find((c) => c.at == null);
+    if (missing) throw new Error(`Chapter anchor not in fallback timeline: ${missing.label}`);
+  }
+  const expectedChapters = config.sections.filter((s) => s.chapter != null).length;
+  if (chapters.length < expectedChapters) console.warn(`Only ${chapters.length}/${expectedChapters} chapter boundaries are available. A continuous recording works, but add section starts to transcript/sections.json for complete chapters.`);
+  if (!chapters.length) chapters.push({ label: config.titleOptions[0], at: 0 });
+  warnShortChapters(chapters);
+  const chapterBlock = formatChapters(chapters);
+  const output = path.join(os.homedir(), "Desktop", `${episodeId}-youtube`);
+  fs.mkdirSync(output, { recursive: true });
+  const cues = captionLines(transcript.words ?? [], 0, (x) => x);
+  fs.writeFileSync(path.join(output, "captions.srt"), cuesToSrt(cues));
+  const utm = `utm_source=youtube&utm_medium=video&utm_campaign=${config.utmCampaign}`;
+  const site = (p) => `https://www.comixcatalog.com${p}${p.includes("?") ? "&" : "?"}${utm}`;
+  const search = (q) => site(`/search?q=${encodeURIComponent(q)}`);
+  const description = `${config.descriptionIntro}\n\n${chapterBlock}\n\n📚 Books mentioned:\n${config.books.map((b) => `• ${b.label}: ${search(b.searchQuery)}`).join("\n")}\n\nTrack what you own and what you're hunting, free: ${site("/start")}\n\n${config.credits.join("\n\n")}`;
+  const pinned = config.pinnedComment.replaceAll("{{startUrl}}", site("/start"));
+  const md = `# Episode ${String(config.number).padStart(3, "0")} YouTube package
+
+## Title (pick one)
+${config.titleOptions.map((x, i) => `${i + 1}. ${x}`).join("\n")}
+
+## Description (paste as-is)
+\`\`\`
+${description}
+\`\`\`
+
+## Tags
+${config.tags.join(", ")}
+
+## Captions
+Upload \`captions.srt\` (English) under Subtitles.
+
+## Pinned comment
+${pinned}
+
+## Upload settings
+- Visibility: **Unlisted** first. Wait for Checks to finish, then schedule or publish.
+- Audience: Not made for kids.
+- Language: English; captions: English.
+${config.narrator === "heygen-scratch" ? "- Altered or synthetic content: **Yes** if this scratch narration is published." : "- Altered or synthetic content: **No** (Tony's real voice)."}
+
+## Shorts (standalone recordings; rendering reserved for a later change)
+${config.shorts.map((s) => `- \`${s.id}\`: ${s.title} — hook: ${s.hook}`).join("\n")}
+
+## Chapters
+\`\`\`
+${chapterBlock}
+\`\`\`
+`;
+  fs.writeFileSync(path.join(output, "PACKAGE.md"), md);
+  console.log(`wrote ${output}; ${cues.length} caption lines; ${chapters.length} chapters`);
+}
+
+function warnShortChapters(chapters) {
+  for (let i = 1; i < chapters.length; i++) if (chapters[i].at - chapters[i - 1].at < 10) console.warn(`chapter "${chapters[i - 1].label}" is under 10 s; YouTube may drop chapters`);
+}
+
+function captionLines(words, voiceAt, fix) {
+  const glueWord = (prev, word) => (prev && !/^[-,.!?;:']/.test(word) ? `${prev} ${word}` : prev + word);
+  const grouped = [];
+  let current = null;
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    const next = words[i + 1];
+    if (current && glueWord(current.t, word.w).length > 84) { grouped.push(current); current = null; }
+    current = current ? { ...current, t: glueWord(current.t, word.w), e: word.e } : { t: word.w, s: word.s, e: word.e };
+    if (!next || (/[.!?]["”]?$/.test(word.w) && current.t.length > 12) || next.s - word.e > 0.6) { grouped.push(current); current = null; }
+  }
+  return grouped.map((line, i) => {
+    const start = voiceAt + line.s;
+    const next = i + 1 < grouped.length ? voiceAt + grouped[i + 1].s : Infinity;
+    const end = Math.min(next - 0.05, voiceAt + line.e + 0.6);
+    return { s: +start.toFixed(3), e: +Math.max(end, start + 0.8).toFixed(3), t: fix(line.t) };
+  });
+}
+
+function cuesToSrt(cues) {
+  return cues.map((cue, i) => {
+    let wrapped = cue.t;
+    if (cue.t.length > 42) {
+      const mid = cue.t.length / 2;
+      let cut = -1;
+      for (let j = cue.t.indexOf(" "); j >= 0; j = cue.t.indexOf(" ", j + 1)) if (cut < 0 || Math.abs(j - mid) < Math.abs(cut - mid)) cut = j;
+      if (cut > 0) wrapped = `${cue.t.slice(0, cut)}\n${cue.t.slice(cut + 1)}`;
+    }
+    return `${i + 1}\n${srtTime(cue.s)} --> ${srtTime(cue.e)}\n${wrapped}\n`;
+  }).join("\n");
+}

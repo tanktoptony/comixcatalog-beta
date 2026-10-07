@@ -1,0 +1,26 @@
+{
+  "id": "episode-001",
+  "number": 1,
+  "slug": "where-to-start-x-men",
+  "titleOptions": ["Where to Start Reading X-Men (Without Losing Your Mind)", "Don't Start X-Men at #1. Start Here Instead.", "The Only 5 X-Men Books You Need to Start"],
+  "narrator": "tony-human",
+  "utmCampaign": "ep001",
+  "sections": [{ "id": "01-full-episode", "chapter": null }],
+  "books": [
+    { "label": "The Dark Phoenix Saga: Uncanny X-Men #129-137 (1980)", "request": "X-Men #129 (1980)", "searchQuery": "x-men 129" },
+    { "label": "Days of Future Past: Uncanny X-Men #141-142 (1981)", "request": "X-Men #141 (1981)", "searchQuery": "x-men 141" },
+    { "label": "X-Cutioner's Song: X-Men #14-16 and crossovers (1992-93)", "request": "X-Men #14 (1992)", "searchQuery": "x-men 14" },
+    { "label": "God Loves, Man Kills: Marvel Graphic Novel #5 (1982)", "request": "Marvel Graphic Novel #5 (1982)", "searchQuery": "god loves man kills" },
+    { "label": "House of M #1-8 (2005)", "request": "House of M #1 (2005)", "searchQuery": "house of m" },
+    { "label": "Later: House of X / Powers of X (2019)", "request": "House of X #1 (2019)", "searchQuery": "house of x" }
+  ],
+  "tags": ["x-men", "xmen", "where to start reading x-men", "x-men reading order", "how to read x-men", "x-men comics for beginners", "dark phoenix saga", "days of future past", "x-cutioners song", "god loves man kills", "house of m", "house of x", "powers of x", "x-men 97", "x-men the animated series", "marvel comics", "comic books", "comics for beginners", "gambit", "colossus", "chris claremont"],
+  "descriptionIntro": "Sixty years of X-Men, a dozen books with \"X-Men\" in the title, and reading orders that look like tax forms. Here's the shortcut: five books, one shelf, no homework.",
+  "pinnedComment": "Which one did you start with? Mine was House of M, handed to me at Graham Crackers. If you want the whole shelf in one place, it's on ComixCatalog: {{startUrl}}",
+  "credits": ["Music:\n\"Rollin at 5\" and \"Funkorama\" by Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/", "Comic covers and artwork are the property of Marvel Entertainment and their creators, shown here for commentary and review.", "#XMen #Comics #MarvelComics"],
+  "shorts": [
+    { "id": "Short001NotNumberOne", "title": "Don't start X-Men at #1 #xmen #comics #marvel", "hook": "Don't start X-Men at #1" },
+    { "id": "Short001Colossus", "title": "I didn't pick my favorite X-Man. He picked me. #xmen #colossus #xmen97", "hook": "I didn't pick my favorite X-Man" },
+    { "id": "Short001ShopLikeAKid", "title": "How to actually get into comics #comics #comicbooks #xmen", "hook": "How to actually get into comics" }
+  ]
+}

@@ -4,7 +4,40 @@ Deterministic Remotion renders for ComixCatalog YouTube videos. Isolated from
 the website: its own `package.json` and `node_modules`, and nothing in `src/`
 imports from here.
 
-## Setup
+## Current episode workflow
+
+Each `episode-NNN/episode.json` is the source of truth for titles, sections,
+books, upload copy, credits, and planned standalone Shorts. Tony's recorded
+audio is the master clock.
+
+```sh
+npm install
+npm run ep -- 002 init
+# Write/lock the script, then record one file per section into:
+# episode-002/audio/approved/01-hook.wav, 02-setup.wav, ...
+# A single wav, m4a, or mp3 recording also works.
+npm run ep -- 002 assets
+npm run ep -- 002 audio
+npm run setup:whisper       # once; creates persistent .venv/
+npm run ep -- 002 transcribe
+npm run ep -- 002 package
+```
+
+`assets` uses the deployed ComixCatalog admin resolver when `CC_ADMIN_TOKEN`
+is set (`CC_BASE_URL` defaults to `https://www.comixcatalog.com`). Without a
+token, it imports an existing `~/Desktop/episode-NNN-assets/covers` pack. It
+writes `assets/manifest.json` and reports missing or ambiguous requests without
+failing the episode. The `audio` stage concatenates recordings alphabetically,
+writes `public/<episode>/audio/narration-master.wav`, and records section
+boundaries in `transcript/sections.json`. The package goes to
+`~/Desktop/episode-NNN-youtube/`.
+
+HeyGen is optional scratch/previsualization only. The standard workflow does
+not require it. Shorts have their own scripts and recordings in
+`audio/shorts/`; standalone rendering is reserved for a later change. See
+`FORMAT.md` for the editorial and visual rules.
+
+## Legacy Episode 001 setup
 
 ```
 cd video-production
@@ -17,7 +50,7 @@ dropping `tas/` or `screenshots/` folders into `~/Desktop/episode-001-assets/`
 and re-running it brings them in. Copied art lands in `public/<episode>/` and is
 gitignored.
 
-## Commands
+## Legacy Episode 001 commands
 
 | Command | What it does |
 |---|---|

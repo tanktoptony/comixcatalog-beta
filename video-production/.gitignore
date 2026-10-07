@@ -1,7 +1,10 @@
 node_modules/
+.venv/
 # Rendered video and copied third-party cover art stay out of git; recreate
 # with `npm run sync:001` and `npm run render:001`.
 */output/
 public/episode-*/
 shared/generated/
 public/brand/
+episode-*/audio/
+episode-*/assets/covers/

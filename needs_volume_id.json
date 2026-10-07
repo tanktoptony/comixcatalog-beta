@@ -43121,5 +43121,65 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T00:01:39.272682+00:00",
     "retry_after": "2026-10-08T00:01:39.272696+00:00"
+  },
+  {
+    "name": "Doctor Who: The Tenth Doctor Archives Omnibus",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T02:01:20.456088+00:00",
+    "retry_after": "2026-10-08T02:01:20.456106+00:00"
+  },
+  {
+    "name": "Night of the Ghoul",
+    "publisher": "Dark Horse Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 139636,
+        "name": "Night of the Ghoul",
+        "publisher": "Best Jackett Press",
+        "start_year": 2021
+      },
+      {
+        "id": 157570,
+        "name": "Night of the Ghoul ",
+        "publisher": "Splitter",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T02:02:00.986444+00:00",
+    "retry_after": "2026-10-08T02:02:00.986461+00:00"
+  },
+  {
+    "name": "Tumbleweeds",
+    "publisher": "Fawcett Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T02:02:46.402955+00:00",
+    "retry_after": "2026-10-08T02:02:46.402969+00:00"
+  },
+  {
+    "name": "Les Petites Vicieuses",
+    "publisher": "Dynamite Entertainment",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148898,
+        "name": "Les Petites Vicieuses",
+        "publisher": "Dynamite (France)",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T02:04:10.000629+00:00",
+    "retry_after": "2026-10-08T02:04:10.000644+00:00"
   }
 ]

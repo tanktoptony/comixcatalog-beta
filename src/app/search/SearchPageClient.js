@@ -217,8 +217,13 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
   // Seeded from the server's query first: the URL wins over whatever the
   // shared box held on arrival, so server results are never wiped and then
   // skipped (the skip refs above would leave the skeletons up forever).
+  // Skipped while the box is still empty and waiting to be seeded from the
+  // URL (arriving from the header, which clears its box as it navigates):
+  // that one render is not a new search, and treating it as one wiped the
+  // server's results, then the skip refs suppressed the refetch, leaving
+  // twelve skeleton cards up forever.
   const [lastQuery, setLastQuery] = useState(initialQuery || term);
-  if (term !== lastQuery) {
+  if (!awaitingUrlSeed && term !== lastQuery) {
     setLastQuery(term);
     setPage(0);
     setHasMore(true);

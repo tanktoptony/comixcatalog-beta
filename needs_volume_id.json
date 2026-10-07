@@ -42265,9 +42265,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T04:01:00.392337+00:00",
-    "retry_after": "2026-10-07T04:01:00.392353+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T05:00:52.899049+00:00",
+    "retry_after": "2026-10-10T05:00:52.899064+00:00"
   },
   {
     "name": "Cyberforce Origins",
@@ -42275,9 +42275,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T04:03:48.102826+00:00",
-    "retry_after": "2026-10-07T04:03:48.102844+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T05:00:53.452600+00:00",
+    "retry_after": "2026-10-10T05:00:53.452616+00:00"
   },
   {
     "name": "Thor by J. Michael Straczynski",
@@ -43283,5 +43283,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T04:03:20.769816+00:00",
     "retry_after": "2026-10-08T04:03:20.769823+00:00"
+  },
+  {
+    "name": "Mighty Avengers",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 67223,
+        "name": "Mighty Avengers",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 18239,
+        "name": "The Mighty Avengers",
+        "publisher": "Marvel",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T05:02:46.738973+00:00",
+    "retry_after": "2026-10-08T05:02:46.738989+00:00"
+  },
+  {
+    "name": "Black Siddha",
+    "publisher": "Rebellion",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T05:05:11.851419+00:00",
+    "retry_after": "2026-10-08T05:05:11.851435+00:00"
+  },
+  {
+    "name": "M�nag�res",
+    "publisher": "Dynamite Entertainment",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T05:05:30.559088+00:00",
+    "retry_after": "2026-10-08T05:05:30.559104+00:00"
+  },
+  {
+    "name": "Ultimate Galactus",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T05:05:55.896987+00:00",
+    "retry_after": "2026-10-08T05:05:55.897000+00:00"
   }
 ]

@@ -43603,5 +43603,45 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T19:01:05.490935+00:00",
     "retry_after": "2026-10-08T19:01:05.490951+00:00"
+  },
+  {
+    "name": "Room Service",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T20:01:05.373016+00:00",
+    "retry_after": "2026-10-08T20:01:05.373036+00:00"
+  },
+  {
+    "name": "I Can't Untie My Shoes! [Family Circus]",
+    "publisher": "Fawcett Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T20:01:08.288776+00:00",
+    "retry_after": "2026-10-08T20:01:08.288795+00:00"
+  },
+  {
+    "name": "UFO Mysteries",
+    "publisher": "Gold Key",
+    "year": 1978,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T20:01:08.690702+00:00",
+    "retry_after": "2026-10-08T20:01:08.690739+00:00"
+  },
+  {
+    "name": "I Hate Fairyland Volume 2",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T20:01:09.895690+00:00",
+    "retry_after": "2026-10-08T20:01:09.895719+00:00"
   }
 ]

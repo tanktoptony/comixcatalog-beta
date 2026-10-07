@@ -46,7 +46,7 @@ The app is **stable and content-rich** (217k series, 2.5M issues, year-aware pub
 
 ### Cover scanning
 
-`POST /api/cover-scan` accepts an authenticated, client-resized cover image and uses `claude-opus-5-5` to extract visible catalog metadata. It requires the server-only `ANTHROPIC_API_KEY`. Daily limits are 10 for regular members and 100 for `profiles.is_pro` members (the fixed admin ID also receives the Pro limit), measured per UTC day. `PATCH /api/cover-scan` records the issue chosen from a scan result.
+`POST /api/cover-scan` accepts an authenticated, client-resized cover image and uses `claude-opus-5-5` to extract visible catalog metadata. It requires the server-only `ANTHROPIC_API_KEY`. The daily limit is 100 scans for every signed-in member, measured per UTC day (a cost cap, not a Pro feature, since 2026-10-07). `PATCH /api/cover-scan` records the issue chosen from a scan result.
 
 Scan records live in `cover_scans`. Original photos are retained in the private `cover-scans` storage bucket at `<user_id>/<scan_id>.jpg`; service role writes, and owners may read their own objects. Migration: `scripts/migrations/0040_cover_scans.sql`.
 
@@ -239,7 +239,7 @@ Columns: `snapshot_date` (date), `total_value` (numeric 12,2), `owned_count` (in
 - Unique on `(user_id, snapshot_date)` — one row per user per calendar day, upserted by `scripts/snapshotCollectionValue.js` on a 6-hour schedule (`.github/workflows/snapshot-collection-value.yml`). Re-running the same day just keeps that day's row current.
 - Values come from `valueFromComps()` in `src/lib/compValue.js`, the same function `src/lib/marketValue.js` uses, imported by relative path. There is no second copy to keep in sync.
 - RLS: owner-only `SELECT` for now. Written only via the service-role key (bypasses RLS), so no write policy needed.
-- Feeds the Pro value-over-time chart on `/library` (`src/components/ValueHistoryChart.js`, shipped 2026-10-02; helpers + tests in `src/lib/valueHistory.js`). The chart reads rows client-side under the owner-only RLS policy and ends the line on the live library value. Free accounts see a Collector Pro pitch instead. Snapshots include books listed for sale (`OWNED_STATUSES`). The table has to run for a while before that graph is worth showing; there's no way to backfill history, so this started running before the UI that will consume it.
+- Feeds the value-over-time chart on `/library` (free for everyone since 2026-10-07) (`src/components/ValueHistoryChart.js`, shipped 2026-10-02; helpers + tests in `src/lib/valueHistory.js`). The chart reads rows client-side under the owner-only RLS policy and ends the line on the live library value. Snapshots include books listed for sale (`OWNED_STATUSES`). The table has to run for a while before that graph is worth showing; there's no way to backfill history, so this started running before the UI that will consume it.
 
 #### `listings` + `marketplace_listings` view (Marketplace v2 Phase 0, migration 0031)
 One row per listed copy. FKs `seller_id` → `auth.users`, `collection_id` → `user_collections` (cascade); `gcd_issue_id` required. Status `draft|active|reserved|sold|withdrawn|removed`; partial unique index allows one draft/active/reserved listing per collection row, so unlist/relist keeps withdrawn history.
@@ -300,7 +300,7 @@ Always use these terms correctly in code, comments, and UI copy:
 | **Supporter** (Patreon) | $3/mo | Badge, Discord access, behind-the-scenes updates |
 | **Collector Beta** (Patreon) | $8/mo | Early feature access, feature voting, beta previews |
 | **Founding Collector** (Patreon) | $20/mo | Limited tier. Permanent badge, name on founders page, roadmap access |
-| **Collector Pro** (in-app) | $8/mo | Grading tools, PDF export, unlimited import. *Priced to match Patreon Collector Beta — no cannibalization.* **Phase 2 launch.** |
+| **Collector Pro** (in-app) | $8/mo | **Supporter tier since 2026-10-07:** profile badge, no upsell house ads. Grading, photos, PDF, exports, value history and bulk wantlist are free (decision: paywall only what competitors don't have, see docs/DECISIONS.md). Originally: grading tools, PDF export, unlimited import. *Priced to match Patreon Collector Beta — no cannibalization.* **Phase 2 launch.** |
 | **Vault** (in-app) | $18/mo | PDF reports, private sharing link, priority marketplace placement. **Phase 2.** |
 | **Verified Collector badge** | $10 one-time | Links CGC registry to profile. Marketplace credential. |
 

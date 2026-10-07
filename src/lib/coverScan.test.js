@@ -82,7 +82,7 @@ test("Cerebus 1977 number one ranks first", () => {
   assert.equal(rankCoverCandidates(input, series, issues)[0].issue.gcd_id, 10);
 });
 test("daily limits allow the last scan and reject the next", () => {
-  assert.equal(capStatus(9, false).allowed, true); assert.equal(capStatus(10, false).allowed, false);
+  assert.equal(capStatus(99, false).allowed, true); assert.equal(capStatus(100, false).allowed, false);
   assert.equal(capStatus(99, true).allowed, true); assert.equal(capStatus(100, true).allowed, false);
 });
 test("missing API key fails cleanly without a model call", async () => {

@@ -1,6 +1,6 @@
 "use client";
 
-// /arc/[id] — story arc completion page.
+// /arc/[id] - story arc completion page.
 //
 // Shows an arc's full issue list (cross-series, in arc order), the user's
 // completion progress against it, and direct links to each issue's detail
@@ -23,7 +23,7 @@ import { coverThumb } from "@/lib/coverThumb";
 
 export default function StoryArcPage() {
   const { id } = useParams();
-  const { user, isPro } = useAuth();
+  const { user } = useAuth();
   const { addToCollection } = useLibrary();
   const [bulkAdding, setBulkAdding] = useState(false);
   const [bulkResult, setBulkResult] = useState(null);
@@ -104,17 +104,17 @@ export default function StoryArcPage() {
     ...new Set(issues.map((i) => i.series_title).filter(Boolean)),
   ];
 
-  // Pro arc-completion intelligence: issues in the arc that are catalogued
+  // Arc-completion intelligence: issues in the arc that are catalogued
   // (have a gcd_issue_id we can add to a library row) but the viewer doesn't
   // already own or have wishlisted. Powers the "add all missing to wantlist"
-  // Pro action.
+  // bulk action.
   const missingIssues = issues.filter(
     (i) => i.gcd_issue_id != null && !i.owned && !i.wishlisted
   );
   const wishlistedCount = issues.filter((i) => i.wishlisted && !i.owned).length;
 
   async function handleAddAllMissingToWantlist() {
-    if (!user?.id || !isPro || missingIssues.length === 0) return;
+    if (!user?.id || missingIssues.length === 0) return;
     setBulkAdding(true);
     setBulkResult(null);
     let added = 0;
@@ -270,12 +270,8 @@ export default function StoryArcPage() {
             marginBottom: "1.5rem",
             padding: "14px 16px",
             borderRadius: 10,
-            background: isPro
-              ? "rgba(76,175,80,0.06)"
-              : "rgba(255,255,255,0.04)",
-            border: isPro
-              ? "1px solid rgba(76,175,80,0.25)"
-              : "1px solid rgba(255,255,255,0.08)",
+            background: "rgba(76,175,80,0.06)",
+            border: "1px solid rgba(76,175,80,0.25)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -286,14 +282,8 @@ export default function StoryArcPage() {
           <div style={{ fontSize: "0.95rem" }}>
             <strong>{missingIssues.length} issue{missingIssues.length === 1 ? "" : "s"} not yet tracked</strong>
             {" "}from this arc{wishlistedCount > 0 ? ` (${wishlistedCount} already on your wantlist)` : ""}.
-            {!isPro && (
-              <span style={{ opacity: 0.7 }}>
-                {" "}Skip {missingIssues.length} clicks &mdash; Pro adds the whole missing run to your wantlist in one tap.
-              </span>
-            )}
           </div>
-          {isPro ? (
-            <button
+          <button
               type="button"
               onClick={handleAddAllMissingToWantlist}
               disabled={bulkAdding}
@@ -312,23 +302,7 @@ export default function StoryArcPage() {
               {bulkAdding
                 ? `Adding… (${missingIssues.length})`
                 : `+ Add all ${missingIssues.length} to wantlist`}
-            </button>
-          ) : (
-            <Link
-              href="/upgrade"
-              style={{
-                padding: "8px 14px",
-                borderRadius: 8,
-                border: "1px solid var(--cc-gold, #FFD700)",
-                color: "var(--cc-gold, #FFD700)",
-                fontWeight: 700,
-                textDecoration: "none",
-                flexShrink: 0,
-              }}
-            >
-              See Pro membership options →
-            </Link>
-          )}
+          </button>
           {bulkResult && (
             <div
               style={{
@@ -339,7 +313,7 @@ export default function StoryArcPage() {
               }}
             >
               Added {bulkResult.added} to your wantlist
-              {bulkResult.failed > 0 && `, ${bulkResult.failed} failed — try again`}
+              {bulkResult.failed > 0 && `, ${bulkResult.failed} failed - try again`}
               .
             </div>
           )}

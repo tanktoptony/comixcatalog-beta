@@ -60,7 +60,7 @@ Verified live:
 Phase 2 — Revenue Engine is current. Three tracks:
 - **Track A (covers):** structural linking shipped; global structural-link repair + exception review still open (`reports/canonical-cover-link-repair-*.json` shows repeated repair runs 2026-08-01/02 — in progress).
 - **Track B (valuation):** see §3 — further along than documented, still blocked on Insights approval for true sold-comp data.
-- **Track C (revenue convergence):** Stripe wired, PDF export exists and is Pro-gated, grading UI shipped. Formal launch plan puts "PDF and subscription convergence" at 78% and "valuation pipeline" at 68% readiness as of 2026-08-01.
+- **Track C (revenue convergence):** Stripe wired, PDF export exists (free for everyone since 2026-10-07; Pro is now a supporter tier), grading UI shipped. Formal launch plan puts "PDF and subscription convergence" at 78% and "valuation pipeline" at 68% readiness as of 2026-08-01.
 
 ## 5. Known blockers going into the Aug 31–Sep 11 launch window
 

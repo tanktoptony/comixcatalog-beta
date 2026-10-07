@@ -32,13 +32,13 @@ const HYDRATE_CHUNK = 1000;
 // Module-scoped so it survives across component re-mounts within a tab
 // (see the user-change-clear logic below for why that's usually right).
 // Entries carry a `cachedAt` timestamp and are treated as stale past
-// HYDRATION_CACHE_MAX_AGE_MS — added 2026-08-29 after a real incident: a
+// HYDRATION_CACHE_MAX_AGE_MS - added 2026-08-29 after a real incident: a
 // tab left open for hours during live backend cover-relinking work cached
 // an empty/mid-repair cover result and never re-checked it, since the
 // original cache had no expiry at all. The underlying data was correct
 // again within seconds (verified live against /api/library-hydrate
 // directly), but the browser tab never found out. A hard refresh always
-// fixed it (fresh page load = fresh module = empty cache) — this makes
+// fixed it (fresh page load = fresh module = empty cache) - this makes
 // that automatic instead of requiring one.
 const HYDRATION_CACHE_MAX_AGE_MS = 10 * 60 * 1000;
 const hydrationCache = new Map();
@@ -103,7 +103,7 @@ function getLibraryHref(item, comic) {
 // just the filename (`<uuid>.jpg`) instead of the full Supabase URL, which
 // the browser then resolved as a relative path → 404. Existing DB rows were
 // backfilled to absolute URLs, but new writes from any unrelated source
-// path could regress this — so we normalize at render-time too.
+// path could regress this - so we normalize at render-time too.
 function resolveUserCover(value) {
   if (!value) return null;
   if (/^https?:\/\//i.test(value)) return value;
@@ -119,7 +119,7 @@ function makeLibraryKey(item) {
   return null;
 }
 
-// Shared across all three view modes (list/grid/rows) — each computes its
+// Shared across all three view modes (list/grid/rows) - each computes its
 // own totalCount/pageSize (item count for list/grid, group count for rows)
 // and renders nothing when everything fits on one page, so a small
 // collection never sees pagination chrome it doesn't need.
@@ -164,20 +164,20 @@ export default function LibraryPage() {
 
 function LibraryPageContent() {
   const { collections, loading, loadError, refreshLibrary, removeFromCollection } = useLibrary();
-  const { user, isPro, profile, loading: authLoading } = useAuth();
+  const { user, profile, loading: authLoading } = useAuth();
   const supabase = getSupabaseClient();
 
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Honor ?tab=wishlist (or ?tab=owned) on first load — used by the footer
+  // Honor ?tab=wishlist (or ?tab=owned) on first load - used by the footer
   // "Wantlist" link and any other deep-link entry into the library.
   const [tab, setTab] = useState(() => {
     const t = searchParams.get("tab");
     return t === "wishlist" || t === "owned" || t === "for_sale" ? t : "owned";
   });
 
-  // Phase 3 unify — preview mode. URL `?view=public` (or localStorage memory
+  // Phase 3 unify - preview mode. URL `?view=public` (or localStorage memory
   // of the last choice) flips the library into a render that mirrors what
   // visitors see at /u/<username>: management chrome hidden (no CSV upload,
   // no inline GradeEditor, no Add Comic button, no catalog-linking panel),
@@ -185,14 +185,14 @@ function LibraryPageContent() {
   // The toggle button at the top of the header lets the owner round-trip.
   // Initialize deterministically so server + initial client render match.
   // The previous version read localStorage in the useState initializer,
-  // which only exists on the client — server returned "manage", client
+  // which only exists on the client - server returned "manage", client
   // could return "public", and React hydration would scream. Now we always
   // start at "manage" and sync from URL/storage in an effect on mount.
   const [previewMode, setPreviewMode] = useState("manage");
   const isPublicPreview = previewMode === "public";
 
   // Sync after mount: URL ?view= overrides stored preference. This is a
-  // deliberate one-time read of browser-only state (URL/localStorage) —
+  // deliberate one-time read of browser-only state (URL/localStorage) -
   // see the comment above previewMode's declaration for why this can't be
   // a lazy useState initializer instead (that shape previously caused a
   // server/client hydration mismatch, since window doesn't exist on the
@@ -208,7 +208,7 @@ function LibraryPageContent() {
     if (stored === "public" || stored === "manage") {
       setPreviewMode(stored);
     }
-    // searchParams is intentionally not in deps — we only want the URL/
+    // searchParams is intentionally not in deps - we only want the URL/
     // storage handshake on initial mount. Manual toggles update state
     // directly via setPreviewMode in the tab onClick handlers.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -236,7 +236,7 @@ function LibraryPageContent() {
 
   // hydrationCache is module-scoped and survives navigation/sign-out, which
   // means a previous account's hydrated covers can flash before the new
-  // user's data loads. Wipe it whenever the active user changes — adjusted
+  // user's data loads. Wipe it whenever the active user changes - adjusted
   // during render (React's documented pattern for "reset state when an
   // identity prop changes") rather than in an effect, so there's no extra
   // stale-cache render in between. hydrationCache.clear() is idempotent, so
@@ -257,13 +257,13 @@ function LibraryPageContent() {
 
   const [search, setSearch] = useState("");
   const [shareCopied, setShareCopied] = useState(false);
-  // Duplicates panel — collapsed by default to stay out of the way; expands
+  // Duplicates panel - collapsed by default to stay out of the way; expands
   // on click so users who don't have dupes never see clutter.
   const [dupesOpen, setDupesOpen] = useState(false);
   // Wantlist export busy flag (separate from the full-collection csv export
   // so the two buttons can spin independently).
   const [wantlistExporting, setWantlistExporting] = useState(false);
-  // Catalog-link state — Pro feature that upgrades local-only `comics` rows
+  // Catalog-link state upgrades local-only `comics` rows
   // to canonical `gcd_issue_id` rows. Audit is on-demand (button click), not
   // automatic, because the matcher does several round-trips and we don't
   // want to fire it on every library page load.
@@ -272,7 +272,7 @@ function LibraryPageContent() {
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [catalogApplying, setCatalogApplying] = useState(false);
   const [catalogResult, setCatalogResult] = useState(null);
-  // Picker modal state — holds the entry being resolved (one of the audit's
+  // Picker modal state - holds the entry being resolved (one of the audit's
   // entries[] items). Null = modal closed.
   const [pickerEntry, setPickerEntry] = useState(null);
 
@@ -289,7 +289,7 @@ function LibraryPageContent() {
   const [viewMode, setViewMode] = useState("list");
   // Persist view choice in localStorage. Defaults to "list"; on mobile
   // we'd prefer "rows" for density but don't force it (user can pick).
-  // Deliberately NOT a lazy useState initializer — same server/client
+  // Deliberately NOT a lazy useState initializer - same server/client
   // hydration mismatch risk documented above for previewMode (window
   // doesn't exist during the server render pass), so this reads localStorage
   // in an effect after mount instead.
@@ -306,12 +306,12 @@ function LibraryPageContent() {
     setViewMode(next);
     try { window.localStorage.setItem("library-view", next); } catch {}
   };
-  // Pagination — the Workshop used to render every filtered item in one
+  // Pagination - the Workshop used to render every filtered item in one
   // shot regardless of collection size, which stopped being manageable once
   // a collection ran into the hundreds. list/grid paginate by item count;
   // rows paginate by series-group count instead (a group's issues shouldn't
   // split across pages just because the item count crossed a boundary).
-  // One shared `page` cursor across all three view modes — each view mode's
+  // One shared `page` cursor across all three view modes - each view mode's
   // render block computes its own page count from its own denominator, so
   // switching view modes doesn't need to reconcile different units, it just
   // clamps back to page 1 on the same effect that resets it for filters.
@@ -330,7 +330,7 @@ function LibraryPageContent() {
   const [pdfExporting, setPdfExporting] = useState(false);
   const [csvExporting, setCsvExporting] = useState(false);
   // Capture the upgrade flag once at mount. After router.replace() strips the
-  // query param (in the effect below), this state still holds — so the banner
+  // query param (in the effect below), this state still holds - so the banner
   // stays visible until the user dismisses it.
   const [upgradeBanner, setUpgradeBanner] = useState(() => {
     const flag = searchParams.get("upgrade");
@@ -352,10 +352,6 @@ function LibraryPageContent() {
 
   async function handleExportPdf() {
     if (!user) return;
-    if (!isPro) {
-      window.location.href = "/upgrade";
-      return;
-    }
     setPdfExporting(true);
     try {
       const res = await authedFetch("/api/export/pdf", {
@@ -365,10 +361,6 @@ function LibraryPageContent() {
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
-        if (res.status === 402 || err.upgrade) {
-          window.location.href = "/upgrade";
-          return;
-        }
         alert(err.error || "PDF generation failed");
         return;
       }
@@ -389,10 +381,6 @@ function LibraryPageContent() {
 
   async function handleCatalogAudit() {
     if (!user) return;
-    if (!isPro) {
-      window.location.href = "/upgrade";
-      return;
-    }
     setCatalogAuditing(true);
     setCatalogResult(null);
     try {
@@ -402,10 +390,6 @@ function LibraryPageContent() {
       );
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
-        if (res.status === 402 || err.upgrade) {
-          window.location.href = "/upgrade";
-          return;
-        }
         alert(err.error || "Audit failed");
         return;
       }
@@ -458,7 +442,7 @@ function LibraryPageContent() {
     }
   }
 
-  // Unlink action — removes a GCD-linked row from user_collections so the
+  // Unlink action - removes a GCD-linked row from user_collections so the
   // user can re-add it via search if they want a different match. Soft "undo"
   // for a bad catalog-link choice. We don't try to convert it back to a
   // local `comics` row because (a) we'd be reconstructing data from GCD that
@@ -507,7 +491,7 @@ function LibraryPageContent() {
         setPickerEntry(null);
       } else if (data.errors?.[0]?.reason === "collision") {
         alert(
-          "Couldn't link — you already have another row pointing at this catalog entry. " +
+          "Couldn't link - you already have another row pointing at this catalog entry. " +
           "Remove one of them first if you didn't mean to track this book twice."
         );
       } else {
@@ -520,10 +504,6 @@ function LibraryPageContent() {
 
   async function handleExportWantlist() {
     if (!user) return;
-    if (!isPro) {
-      window.location.href = "/upgrade";
-      return;
-    }
     setWantlistExporting(true);
     try {
       const res = await authedFetch("/api/export/wantlist", {
@@ -533,10 +513,6 @@ function LibraryPageContent() {
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
-        if (res.status === 402 || err.upgrade) {
-          window.location.href = "/upgrade";
-          return;
-        }
         alert(err.error || "Wantlist export failed");
         return;
       }
@@ -556,10 +532,6 @@ function LibraryPageContent() {
 
   async function handleExportCsv() {
     if (!user) return;
-    if (!isPro) {
-      window.location.href = "/upgrade";
-      return;
-    }
     setCsvExporting(true);
     try {
       const res = await authedFetch("/api/export/csv", {
@@ -569,10 +541,6 @@ function LibraryPageContent() {
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
-        if (res.status === 402 || err.upgrade) {
-          window.location.href = "/upgrade";
-          return;
-        }
         alert(err.error || "CSV export failed");
         return;
       }
@@ -601,23 +569,6 @@ function LibraryPageContent() {
     const fd = new FormData();
     fd.append("file", file);
     const res = await authedFetch("/api/csv-import", { method: "POST", body: fd });
-    // Pro-gated row cap. 402 = exceeded the free cap; surface the
-    // server's explanation in the import-summary panel AND offer a
-    // direct route to /upgrade so users can act on it.
-    if (res.status === 402) {
-      const json = await res.json().catch(() => ({}));
-      const proceed = window.confirm(
-        `${json.error || "Collector Pro is required to import this many rows."}\n\nSee membership options now?`
-      );
-      if (proceed) window.location.href = "/upgrade";
-      setCsvResult({
-        created: 0,
-        reused: 0,
-        skipped: json.attempted ?? 0,
-        errors: [{ row: "-", message: json.error || "Collector Pro allows larger imports" }],
-      });
-      return;
-    }
     const json = await res.json();
     setCsvResult(json.results || null);
   }
@@ -775,7 +726,7 @@ function LibraryPageContent() {
 
       // Merge cache into existing state instead of replacing it. Replacing on
       // every signature change blanks out items that were hydrated mid-session
-      // but happened to roll out of `hydrationCache` (e.g. via a tab swap) —
+      // but happened to roll out of `hydrationCache` (e.g. via a tab swap) -
       // which is what made fresh wishlist/collection adds appear missing on
       // the library page until a reload re-fetched them.
       const missingKeys = new Set();
@@ -800,7 +751,7 @@ function LibraryPageContent() {
         }
       }
 
-      // Build collection_grades payload — Phase 2 auto-valuation needs the
+      // Build collection_grades payload - Phase 2 auto-valuation needs the
       // per-item grade signal to look up matching comps. Only items that have
       // a gcd_issue_id can be valued (no comps for local-only `comic_id`s).
       const collectionGrades = collections
@@ -881,7 +832,7 @@ function LibraryPageContent() {
     };
   }, [librarySignature, hydrateRetryTick]);
 
-  // All-status hydrated view of the collection — used by the unified stats
+  // All-status hydrated view of the collection - used by the unified stats
   // strip and insight sidebar, which need owned/wantlist/for_sale counts
   // simultaneously. Separate from libraryItems (tab-filtered) which the grid
   // consumes.
@@ -942,7 +893,7 @@ function LibraryPageContent() {
   }, [libraryItems]);
 
   // Era-focus / top-publishers / slab-ratio used to be computed here.
-  // CollectionInsightSidebar now owns that math — same logic, single source.
+  // CollectionInsightSidebar now owns that math - same logic, single source.
 
   const filteredItems = useMemo(() => {
     let result = [...libraryItems];
@@ -987,7 +938,7 @@ function LibraryPageContent() {
   }, [libraryItems, search, publisherFilter, sortBy]);
 
   // Land back on page 1 whenever the underlying result set or its shape
-  // changes — otherwise switching tabs (or typing a new search) can strand
+  // changes - otherwise switching tabs (or typing a new search) can strand
   // you on a page number that no longer exists for the new filtered set.
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -1025,7 +976,7 @@ function LibraryPageContent() {
     const withYear = hydratedCurrent.filter((item) => item.comic.year);
     const newestYear = withYear.length
       ? Math.max(...withYear.map((item) => Number(item.comic.year)))
-      : "—";
+      : "-";
 
     // Phase 1 unify: bring Slabbed + Collection Value stats from the public
     // profile onto /library so the owner's management view matches what
@@ -1082,11 +1033,11 @@ function LibraryPageContent() {
   // `gcd_issue_id` row after a later catalog match. Two different library keys,
   // same physical book.
   //
-  // We group owned rows by normalized (title, issue_number) — sourced from
+  // We group owned rows by normalized (title, issue_number) - sourced from
   // the hydrated `comic` object, since the raw library row doesn't carry
   // human-readable metadata. Rows whose comic hasn't hydrated yet are skipped
   // (they'll re-evaluate once hydration lands). A group counts as a dupe only
-  // when at least one local AND one gcd row coexist — pure same-source pairs
+  // when at least one local AND one gcd row coexist - pure same-source pairs
   // would mean our dedup broke, which we want to know about separately and
   // is not what this panel is for.
   const duplicates = useMemo(() => {
@@ -1115,7 +1066,7 @@ function LibraryPageContent() {
       if (rows.length < 2) continue;
       const localCount = rows.filter((r) => r.item.gcd_issue_id == null).length;
       const gcdCount = rows.filter((r) => r.item.gcd_issue_id != null).length;
-      // Only surface true hybrids — mixed sources. Two pure-local or two
+      // Only surface true hybrids - mixed sources. Two pure-local or two
       // pure-gcd rows would indicate a dedup bug; we don't pitch those as
       // "library health" because the cleanup path is different.
       if (localCount === 0 || gcdCount === 0) continue;
@@ -1138,7 +1089,7 @@ function LibraryPageContent() {
 
   // Logged-out visitors get bounced to /login. This is the account owner's
   // collection-management view (CSV import/export, grade editing, catalog
-  // linking) — not a public page (that's /u/[username]'s "public preview").
+  // linking) - not a public page (that's /u/[username]'s "public preview").
   // Without this guard, an anonymous visitor sees a fully-rendered "My
   // Library" shell (0 items, CSV upload buttons, Manage toggle) with no
   // indication they need to log in, and every mutating action silently
@@ -1163,7 +1114,7 @@ function LibraryPageContent() {
         <div className="library-upgrade-banner success" role="status">
           <span className="library-upgrade-banner-icon" aria-hidden="true">✓</span>
           <div className="library-upgrade-banner-body">
-            <strong>Welcome to Pro.</strong> The Export PDF button below is now unlocked.
+            <strong>Welcome to Collector Pro.</strong> Thanks for supporting ComixCatalog.
           </div>
           <button
             type="button"
@@ -1178,7 +1129,7 @@ function LibraryPageContent() {
       {upgradeBanner === "cancelled" && (
         <div className="library-upgrade-banner cancelled" role="status">
           <div className="library-upgrade-banner-body">
-            Checkout cancelled — no charge. <Link href="/upgrade">Try again</Link> when you&rsquo;re ready.
+            Checkout cancelled - no charge. <Link href="/upgrade">Try again</Link> when you&rsquo;re ready.
           </div>
           <button
             type="button"
@@ -1204,7 +1155,7 @@ function LibraryPageContent() {
           </div>
         </div>
       )}
-      {/* View-mode toggle — owner round-trips between Manage and Public
+      {/* View-mode toggle - owner round-trips between Manage and Public
           preview. Public preview = exactly what visitors see at /u/<name>,
           but rendered on the same data without losing scroll position. */}
       <div
@@ -1278,7 +1229,7 @@ function LibraryPageContent() {
           }}
         >
           👁 You&rsquo;re in <strong>Public preview</strong>. This is how visitors see your
-          collection at <code>/u/{profile?.username}</code> — management controls are hidden,
+          collection at <code>/u/{profile?.username}</code> - management controls are hidden,
           stats respect your privacy toggles. Click <strong>Manage</strong> above to edit.
         </div>
       )}
@@ -1312,7 +1263,6 @@ function LibraryPageContent() {
         handleExportPdf={handleExportPdf}
         csvExporting={csvExporting}
         pdfExporting={pdfExporting}
-        isPro={isPro}
         handleCatalogAudit={handleCatalogAudit}
         catalogAuditing={catalogAuditing}
         setAllForSale={setAllForSale}
@@ -1357,26 +1307,22 @@ function LibraryPageContent() {
                 onClick={handleExportPdf}
                 disabled={pdfExporting}
                 type="button"
-                title={isPro ? "Export your collection as an insurance PDF" : "Pro feature — click to upgrade"}
+                title="Export your collection as an insurance PDF"
               >
                 {pdfExporting
                   ? "Generating…"
-                  : isPro
-                    ? "Export PDF"
-                    : "Export PDF (Pro)"}
+                  : "Export PDF"}
               </button>
               <button
                 className="library-secondary-btn"
                 onClick={handleExportCsv}
                 disabled={csvExporting}
                 type="button"
-                title={isPro ? "Export your collection as a CSV (Discogs-style)" : "Pro feature — click to upgrade"}
+                title="Export your collection as a CSV (Discogs-style)"
               >
                 {csvExporting
                   ? "Exporting…"
-                  : isPro
-                    ? "Export CSV"
-                    : "Export CSV (Pro)"}
+                  : "Export CSV"}
               </button>
               {(tab === "owned" || tab === "for_sale") && stats.ownedCount > stats.forSaleCount && (
                 <button
@@ -1405,13 +1351,11 @@ function LibraryPageContent() {
                   onClick={handleExportWantlist}
                   disabled={wantlistExporting}
                   type="button"
-                  title={isPro ? "Printable shopping list for cons & shops" : "Pro feature — click to upgrade"}
+                  title="Printable shopping list for cons & shops"
                 >
                   {wantlistExporting
                     ? "Exporting…"
-                    : isPro
-                      ? "Export Wantlist"
-                      : "Export Wantlist (Pro)"}
+                    : "Export Wantlist"}
                 </button>
               )}
               <Link href="/scan" className="library-primary-btn">
@@ -1461,7 +1405,7 @@ function LibraryPageContent() {
           <button
             type="submit"
             className="library-secondary-btn"
-            title={isPro ? "Pro: up to 200 rows per import" : "Free: up to 25 rows. Collector Pro allows up to 200."}
+            title="Up to 200 rows per upload"
           >
             Upload CSV
           </button>
@@ -1491,7 +1435,6 @@ function LibraryPageContent() {
       {user && !isPublicPreview && (
         <ValueHistoryChart
           userId={user.id}
-          isPro={isPro}
           currentValue={stats.collectionValue > 0 ? stats.collectionValue : null}
           className={`library-value-history ${mobileValueOpen ? "is-open" : ""}`}
         />
@@ -1512,12 +1455,12 @@ function LibraryPageContent() {
         />
       )}
 
-      {/* ── Catalog linking (Pro) ─────────────────────────────────────────
+      {/* ── Catalog linking ─────────────────────────────────────────
           Local-only books (added by CSV import or the manual /library/add
           form before a GCD match existed) are invisible to arc completion,
           run tracking, and future automatic valuation. This panel scans
           for matches in our catalog and offers a one-click upgrade.
-          Hidden in public preview — it's a management action. */}
+          Hidden in public preview - it's a management action. */}
       {!isPublicPreview && (
       <section
         className={`library-catalog-linking ${catalogAuditing || catalogAudit || catalogOpen ? "is-active" : ""}`}
@@ -1546,8 +1489,7 @@ function LibraryPageContent() {
                 : "Find books in your collection that aren't yet linked to our catalog. Linking unlocks story arc badges, run completion, and future valuation."}
             </span>
           </div>
-          {isPro ? (
-            <button
+          <button
               type="button"
               className="library-secondary-btn"
               onClick={handleCatalogAudit}
@@ -1555,19 +1497,10 @@ function LibraryPageContent() {
               style={{ flexShrink: 0 }}
             >
               {catalogAuditing ? "Scanning…" : catalogAudit ? "Re-scan" : "Scan my library"}
-            </button>
-          ) : (
-            <Link
-              href="/upgrade"
-              className="library-secondary-btn"
-              style={{ flexShrink: 0, textDecoration: "none" }}
-            >
-              Available with Pro →
-            </Link>
-          )}
+          </button>
         </div>
 
-        {isPro && catalogAudit && (catalogAudit.summary.confident > 0 || catalogAudit.summary.ambiguous > 0) && (
+        {catalogAudit && (catalogAudit.summary.confident > 0 || catalogAudit.summary.ambiguous > 0) && (
           <div style={{ marginTop: 12 }}>
             {catalogAudit.summary.confident > 0 && (
               <div
@@ -1669,7 +1602,7 @@ function LibraryPageContent() {
                 {catalogAudit.summary.ambiguous > 0 && (
                   <>
                     <div style={{ fontWeight: 700, fontSize: "0.85rem", opacity: 0.7, marginBottom: 6 }}>
-                      Ambiguous — multiple catalog candidates
+                      Ambiguous - multiple catalog candidates
                     </div>
                     <ul style={{ margin: "0 0 14px", padding: 0, listStyle: "none" }}>
                       {catalogAudit.entries
@@ -1714,7 +1647,7 @@ function LibraryPageContent() {
                 {catalogAudit.summary.no_match > 0 && (
                   <>
                     <div style={{ fontWeight: 700, fontSize: "0.85rem", opacity: 0.7, marginBottom: 6 }}>
-                      Not auto-matched — search the catalog manually
+                      Not auto-matched - search the catalog manually
                     </div>
                     <ul style={{ margin: "0 0 6px", padding: 0, listStyle: "none" }}>
                       {catalogAudit.entries
@@ -1751,7 +1684,7 @@ function LibraryPageContent() {
                         ))}
                     </ul>
                     <div style={{ fontSize: "0.75rem", opacity: 0.55, marginTop: 6 }}>
-                      Books that aren&rsquo;t in our catalog yet stay as local entries — they still appear in your collection, they just don&rsquo;t link to canonical art or arc badges until ingested.
+                      Books that aren&rsquo;t in our catalog yet stay as local entries - they still appear in your collection, they just don&rsquo;t link to canonical art or arc badges until ingested.
                     </div>
                   </>
                 )}
@@ -1760,7 +1693,7 @@ function LibraryPageContent() {
           </div>
         )}
 
-        {isPro && catalogAudit && catalogAudit.summary.total === 0 && (
+        {catalogAudit && catalogAudit.summary.total === 0 && (
           <div style={{ marginTop: 8, fontSize: "0.85rem", opacity: 0.7 }}>
             ✓ All your owned books are already linked to the catalog. Nothing to do here.
           </div>
@@ -1769,11 +1702,11 @@ function LibraryPageContent() {
       )}
 
       {/* ── Library health: hybrid duplicates ─────────────────────────────
-          Surfaces when an issue is tracked once locally and once via GCD —
+          Surfaces when an issue is tracked once locally and once via GCD -
           a real data-hygiene problem caused by adding a book before our
           catalog had a match, then again after. Same-key dupes are blocked
           by the write path, so this is the only meaningful dupe class.
-          Hidden in public preview — also a management action. */}
+          Hidden in public preview - also a management action. */}
       {!isPublicPreview && duplicates.length > 0 && (
         <section
           style={{
@@ -1800,33 +1733,23 @@ function LibraryPageContent() {
               <span style={{ opacity: 0.85 }}>
                 {duplicates.length} issue{duplicates.length === 1 ? "" : "s"}{" "}
                 {duplicates.length === 1 ? "is" : "are"} tracked twice
-                {" "}— once as a local entry and once linked to our catalog.
+                {" "}- once as a local entry and once linked to our catalog.
                 {" "}Merging removes {dupeTotal} extra row{dupeTotal === 1 ? "" : "s"}.
               </span>
             </div>
-            {isPro ? (
-              <button
+            <button
                 type="button"
                 className="library-secondary-btn"
                 onClick={() => setDupesOpen((v) => !v)}
                 style={{ flexShrink: 0 }}
               >
                 {dupesOpen ? "Hide details" : "Review"}
-              </button>
-            ) : (
-              <Link
-                href="/upgrade"
-                className="library-secondary-btn"
-                style={{ flexShrink: 0, textDecoration: "none" }}
-              >
-                Review with Pro →
-              </Link>
-            )}
+            </button>
           </div>
-          {isPro && dupesOpen && (
+          {dupesOpen && (
             <ul style={{ margin: "12px 0 0", padding: 0, listStyle: "none" }}>
               {duplicates.map((g) => {
-                // Prefer the GCD row as the "canonical" link target — it
+                // Prefer the GCD row as the "canonical" link target - it
                 // carries cover art and our catalog metadata. Falls back to
                 // any row's library key if GCD link is unavailable.
                 const gcdRow = g.rows.find((r) => r.item.gcd_issue_id != null);
@@ -1862,7 +1785,7 @@ function LibraryPageContent() {
               })}
               <li style={{ paddingTop: 10, opacity: 0.6, fontSize: "0.8rem" }}>
                 Auto-merge is coming. For now, open each issue and remove the older
-                local entry — your catalog-linked row keeps the cover art and metadata.
+                local entry - your catalog-linked row keeps the cover art and metadata.
               </li>
             </ul>
           )}
@@ -2152,7 +2075,7 @@ function LibraryPageContent() {
                             </span>
                           </>
                         )}
-                        {/* Auto-value — only when no user override exists.
+                        {/* Auto-value - only when no user override exists.
                             Two sources, distinguished by source field:
                               market-comp → median of recent eBay sold-comps
                               cover-price → era-based floor estimate (no comps yet) */}
@@ -2172,19 +2095,19 @@ function LibraryPageContent() {
                             // label says so and the tooltip says how to make
                             // it precise.
                             if (isComp && mv.condition_unknown) {
-                              tooltip = `Estimated from ${mv.sample_size} raw ${isListed ? "listing" : "sale"}${mv.sample_size === 1 ? "" : "s"} of this issue across all conditions, because no grade is recorded for your copy. Deliberately conservative — set a grade to get a value matched to your actual condition.`;
+                              tooltip = `Estimated from ${mv.sample_size} raw ${isListed ? "listing" : "sale"}${mv.sample_size === 1 ? "" : "s"} of this issue across all conditions, because no grade is recorded for your copy. Deliberately conservative - set a grade to get a value matched to your actual condition.`;
                               label = `est. ungraded, ${mv.sample_size}`;
                             } else if (isSold) {
                               tooltip = `Median of ${mv.sample_size} recent sold listing${mv.sample_size === 1 ? "" : "s"} in bucket ${mv.bucket_used}${mv.fallback ? " (fallback bucket)" : ""}`;
                               label = `auto, ${mv.sample_size} ${mv.sample_size === 1 ? "sale" : "sales"}`;
                             } else if (isListed) {
-                              tooltip = `Median of ${mv.sample_size} active eBay listing${mv.sample_size === 1 ? "" : "s"} in bucket ${mv.bucket_used}. Asking prices, not sold — typically skew high. Sold-comp data unlocks when our Marketplace Insights access lands.`;
+                              tooltip = `Median of ${mv.sample_size} active eBay listing${mv.sample_size === 1 ? "" : "s"} in bucket ${mv.bucket_used}. Asking prices, not sold, so they typically skew high. We do not have sold-price data yet.`;
                               label = `asking, ${mv.sample_size} ${mv.sample_size === 1 ? "listing" : "listings"}`;
                             } else if (isComp) {
                               tooltip = `Median of ${mv.sample_size} comp${mv.sample_size === 1 ? "" : "s"} in bucket ${mv.bucket_used}`;
                               label = `auto, ${mv.sample_size}`;
                             } else {
-                              tooltip = "No recent sales data yet — showing era-based cover-price floor. Real comps will replace this once eBay data is fetched.";
+                              tooltip = "No recent sales data yet - showing era-based cover-price floor. Real comps will replace this once eBay data is fetched.";
                               label = "cover price";
                             }
                             return (
@@ -2204,7 +2127,6 @@ function LibraryPageContent() {
                       {(tab === "owned" || tab === "for_sale") && !isPublicPreview && (
                         <GradeEditor
                           collectionId={item.id}
-                          isPro={isPro}
                           initialData={liveGrade}
                           canonicalCover={comic.cover || null}
                           releaseYear={comic.year || null}
@@ -2250,7 +2172,7 @@ function LibraryPageContent() {
                           Not on the Marketplace yet. Link it to a catalog issue to list it.
                         </span>
                       )}
-                      {/* Unlink — only on GCD-linked rows, only in manage mode.
+                      {/* Unlink - only on GCD-linked rows, only in manage mode.
                           Undoes a bad catalog-link by removing the row so user
                           can re-add via search. */}
                       {!isPublicPreview && item.gcd_issue_id != null && (
@@ -2287,7 +2209,7 @@ function LibraryPageContent() {
             for (const item of filteredItems) {
               const c = item.comic || {};
               const title = c.title || "Untitled";
-              // Group by title only — all volumes of e.g. "Fantastic Four"
+              // Group by title only - all volumes of e.g. "Fantastic Four"
               // collapse into one row regardless of launch year. Matches the
               // profile Rows view behavior.
               const key = title;
@@ -2312,7 +2234,7 @@ function LibraryPageContent() {
               return g;
             }).sort((a, b) => a.title.localeCompare(b.title));
 
-            // Paginate by GROUP, not raw item count — a series' issues
+            // Paginate by GROUP, not raw item count - a series' issues
             // shouldn't split across pages just because the running item
             // total crossed LIBRARY_PAGE_SIZE mid-group.
             const pagedGroupList = groupList.slice(
@@ -2448,7 +2370,6 @@ function LibraryPageContent() {
                                     <div style={{ marginTop: 6 }}>
                                       <GradeEditor
                                         collectionId={item.id}
-                                        isPro={isPro}
                                         initialData={liveGrade}
                                         canonicalCover={comic.cover || null}
                                         releaseYear={comic.year || null}
@@ -2545,7 +2466,6 @@ function LibraryPageContent() {
                       <div className="comic-card-grade">
                         <GradeEditor
                           collectionId={item.id}
-                          isPro={isPro}
                           initialData={liveGrade}
                           canonicalCover={comic.cover || null}
                           releaseYear={comic.year || null}
@@ -2569,7 +2489,7 @@ function LibraryPageContent() {
         </section>
       </section>
 
-      {/* Catalog-link picker modal — opens when the user clicks "Choose match…"
+      {/* Catalog-link picker modal - opens when the user clicks "Choose match…"
           or "Search…" on a row in the catalog-linking audit panel. */}
       {pickerEntry && (
         <CatalogLinkPicker

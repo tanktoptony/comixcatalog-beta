@@ -1,19 +1,13 @@
-// CSV export of a user's collection — Pro feature.
-//
-// Mirrors the auth posture of /api/export/pdf: requires user_id in the POST
-// body, looks up profiles.is_pro, allows ADMIN_ID through, returns 402 with
-// { upgrade: true } if the caller isn't Pro. The frontend handler reads that
-// flag and redirects to /upgrade (same UX as the PDF button).
+// CSV export of an authenticated user's collection.
 //
 // Output is one row per user_collections entry (owned + wishlist + for_sale),
 // with metadata resolved from comics (for local rows) or gcd_issues+series
-// (for GCD rows). The resolved_publisher_cached value is preferred — it's the
+// (for GCD rows). The resolved_publisher_cached value is preferred - it's the
 // year-aware audited publisher used everywhere else in the read path.
 
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import Papa from "papaparse";
-import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { bestYearFor } from "@/lib/years";
@@ -49,7 +43,7 @@ export async function POST(req) {
     const [{ data: profile }, { data: collection, error: collErr }] = await Promise.all([
       supabase
         .from("profiles")
-        .select("username, is_pro")
+        .select("username")
         .eq("id", user_id)
         .single(),
       supabase
@@ -60,14 +54,6 @@ export async function POST(req) {
         .eq("user_id", user_id)
         .order("created_at", { ascending: false }),
     ]);
-
-    const isProOrAdmin = Boolean(profile?.is_pro) || user_id === ADMIN_ID;
-    if (!isProOrAdmin) {
-      return NextResponse.json(
-        { error: "Pro tier required", upgrade: true },
-        { status: 402 }
-      );
-    }
 
     if (collErr) {
       console.error("CSV export: user_collections query failed", collErr);

@@ -20,7 +20,7 @@
  ┌──────────────────────── Supabase ─────────────────────────┐
  │ Postgres: catalog mirror (gcd_*), series, canonical_covers,│
  │   user_collections, listings, profiles, …                  │
- │ Triggers: enforce_pro_for_grading, protect_profile_billing │
+ │ Triggers: protect_profile_billing, collection sync triggers │
  │   _columns, user_collections_sync_listing                  │
  │ RPC: search_series_by_relevance                            │
  │ Storage: canonical-covers, cover-thumbs, comic-covers,     │
@@ -112,7 +112,7 @@ Important tables (full column notes in CLAUDE.md):
 
 Triggers that change behavior:
 
-- `enforce_pro_for_grading` (0008): blocks grade/slab/photo fields for non-Pro users. Its service-role bypass never worked (fix planned, slop WS2b).
+- `enforce_pro_for_grading` was removed by migration 0043; grade, slab, cert, and per-copy photo fields are free for signed-in users.
 - `protect_profile_billing_columns` (0032a): only service role may change `is_pro`, `is_founding_collector`, `stripe_customer_id`. 0032b hides `stripe_customer_id` from browsers, so browser code must select explicit `profiles` columns.
 - `user_collections_sync_listing` (0031): setting a collection row to `for_sale` creates a listing; changing it away withdraws it. Errors are swallowed so the library never breaks.
 

@@ -11,7 +11,7 @@ export default function ComicDetailPage() {
   const { id } = useParams();
   const { collections, collectionIds, wishlistIds, addToCollection, removeFromCollection } =
     useLibrary();
-  const { user, isPro } = useAuth();
+  const { user } = useAuth();
   const router = useRouter();
 
   const [comic, setComic] = useState(null);
@@ -209,20 +209,19 @@ export default function ComicDetailPage() {
             <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "18px", marginBottom: "22px" }}>
               <div className="metadata-section" style={{ margin: 0 }}>
                 <h3 className="issue-section-title">Issue Info</h3>
-                <p><strong>Series:</strong> {comic.title || "—"}</p>
-                <p><strong>Issue:</strong> {comic.issueNumber || "—"}</p>
+                <p><strong>Series:</strong> {comic.title || "-"}</p>
+                <p><strong>Issue:</strong> {comic.issueNumber || "-"}</p>
                 <p><strong>Publisher:</strong> {comic.publisher || "Unknown"}</p>
-                <p><strong>Year:</strong> {comic.year || "—"}</p>
+                <p><strong>Year:</strong> {comic.year || "-"}</p>
               </div>
             </div>
 
-            {/* Grade editor — only shown when this comic is in the user's collection */}
+            {/* Grade editor - only shown when this comic is in the user's collection */}
             {user && inCollection && collectionRow?.id && (
               <div className="metadata-section" style={{ margin: 0, marginBottom: "22px" }}>
                 <h3 className="issue-section-title">Condition & Grade</h3>
                 <GradeEditor
                   collectionId={collectionRow.id}
-                  isPro={isPro}
                   releaseYear={comic?.year ?? null}
                   initialData={{
                     grade_numeric: gradeData?.grade_numeric ?? collectionRow.grade_numeric ?? null,

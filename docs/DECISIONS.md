@@ -103,11 +103,20 @@ Consequences: Revenue starts only after 100 passes are gone or the flag `AUTO_PR
 
 ## Decision: Pro features enforced in the database for grading
 
-Status: Active (bypass bug open)
+Status: Superseded on 2026-10-07
 Date: Unknown (migration 0008)
 Decision: Trigger `enforce_pro_for_grading` blocks grade, slab and photo fields for non-Pro users.
 Reason: Rationale not documented beyond keeping the paywall honest against direct browser writes.
 Consequences: Its service-role bypass never worked (uses `current_user` inside `SECURITY DEFINER`). Fix planned with `auth.role()`.
+
+## 2026-10-07: Paywall only what competitors don't have
+
+Decision: Grading, per-copy photos, PDF and CSV exports, value history, duplicate
+and missing-issue tools, imports, cover scanning, and catalog linking are free for
+every signed-in collector. League of Comic Geeks and CLZ already offer these
+capabilities, so ComixCatalog competes on trust and collector ownership instead
+of charging for parity. Collector Pro is a supporter badge, with house upgrade
+prompts hidden, until unique paid features ship.
 
 ## Decision: One `user_collections` table for owned, wanted and for-sale
 

@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import Papa from "papaparse";
-import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 import {
   normalizeKey,
@@ -10,12 +9,10 @@ import {
   ambiguityMessage,
 } from "@/lib/csvImport/matchRow";
 
-// Tiered row caps. Free is the hook (you can try CSV import); Pro raises the
-// ceiling for bulk imports of a real collection. The Pro cap matches the
-// historical 200-row global cap so existing Pro users see no regression; free
-// gets a lower bar that's enough to evaluate the feature.
-const FREE_ROW_CAP = 25;
-const PRO_ROW_CAP = 200;
+// One ceiling for every signed-in collector. Rows are resolved and inserted
+// one at a time, so this stays at the size known to finish inside the
+// function time limit; a batched importer is what lifts it, not a bigger number.
+const ROW_CAP = 200;
 
 export async function POST(req) {
   const supabase = getServiceClient();
@@ -81,37 +78,9 @@ export async function POST(req) {
 
     const rows = parsed.data;
 
-    // Pro-tier check: lift the row cap from FREE_ROW_CAP to PRO_ROW_CAP for
-    // Pro/founding subscribers (and ADMIN_ID). Matches the auth posture of
-    // /api/export/pdf and /api/export/csv — we return 402 with upgrade: true so
-    // the library UI can redirect to /upgrade.
-    const { data: profile, error: profileError } = await supabase
-      .from("profiles")
-      .select("is_pro")
-      .eq("id", user_id)
-      .maybeSingle(); // zero rows is an answer, not a failure
-    if (profileError) {
-      console.error("CSV import profile lookup failed:", profileError.code, profileError.message);
-      return NextResponse.json({ error: "Failed to verify import limits" }, { status: 502 });
-    }
-    const isProOrAdmin =
-      Boolean(profile?.is_pro) || user_id === ADMIN_ID;
-    const rowCap = isProOrAdmin ? PRO_ROW_CAP : FREE_ROW_CAP;
-
-    if (rows.length > rowCap) {
-      if (!isProOrAdmin) {
-        return NextResponse.json(
-          {
-            error: `Free import is limited to ${FREE_ROW_CAP} rows. Upgrade to Collector Pro to import up to ${PRO_ROW_CAP}.`,
-            upgrade: true,
-            limit: FREE_ROW_CAP,
-            attempted: rows.length,
-          },
-          { status: 402 }
-        );
-      }
+    if (rows.length > ROW_CAP) {
       return NextResponse.json(
-        { error: `CSV exceeds ${PRO_ROW_CAP} row limit`, limit: PRO_ROW_CAP },
+        { error: `CSV exceeds ${ROW_CAP} row limit`, limit: ROW_CAP, attempted: rows.length },
         { status: 400 }
       );
     }
@@ -130,12 +99,11 @@ export async function POST(req) {
 
     // Catalog prefetch.
     //
-    // Resolution used to be three queries per row, which at the 200-row Pro
-    // cap is 600 round trips. Every distinct title in the file is loaded
+    // Resolution used to be three queries per row. Every distinct title is loaded
     // once here instead, and the per-row work below is then in-memory.
     //
     // Paginated, because PostgREST caps a read at 1000 rows with no error
-    // and no truncation signal (OPERATIONS_HANDOFF 2a) — and a truncated
+    // and no truncation signal (OPERATIONS_HANDOFF 2a) - and a truncated
     // candidate list would look exactly like "this series is not in the
     // catalog", which is the branch that used to invent a duplicate.
     const wantedTitles = [
@@ -243,7 +211,7 @@ export async function POST(req) {
         //
         // Nothing is created here. The previous version looked the
         // publisher up by exact name and the series by exact title, both
-        // with .maybeSingle(), and destructured only `data` — so a
+        // with .maybeSingle(), and destructured only `data` - so a
         // different publisher spelling and a title with more than one
         // volume BOTH silently took the "not found" branch and inserted
         // duplicates. See src/lib/csvImport/matchRow.js.
@@ -256,7 +224,7 @@ export async function POST(req) {
         // Last narrowing before giving up: which of the tied volumes
         // actually contains this issue number? Two different runs called
         // "Rai" both start in 2014 (16 issues and 4), so a year cannot
-        // separate them — but only one of them has issue #12. If exactly
+        // separate them - but only one of them has issue #12. If exactly
         // one candidate has the issue, that is evidence rather than a
         // guess. If several do, it stays ambiguous.
         let resolved = decision;
@@ -322,7 +290,7 @@ export async function POST(req) {
 
         // 2. status === "none": the catalog genuinely has no series by this
         // title. Falling back to a local entry keeps the escape hatch for
-        // books we do not carry, which is a real case — but it is now
+        // books we do not carry, which is a real case - but it is now
         // reached only when there was nothing to match, never because a
         // lookup errored and got swallowed.
         let { data: publisher, error: pubErr } = await supabase

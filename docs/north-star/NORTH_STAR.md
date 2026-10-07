@@ -362,7 +362,7 @@ These are first-class capabilities ComixCatalog must eventually support:
 
 ### 5.7 Subscriptions (P2)
 - ✅ Stripe scaffold (in progress)
-- ⬜ Collector Pro ($8/mo): grading tools, PDF export, unlimited import
+- ⬜ Collector Pro ($8/mo): grading tools, PDF export, unlimited import. *Superseded 2026-10-07: these tools are free; Pro is a supporter tier until features competitors lack ship (docs/DECISIONS.md).*
 - ⬜ Vault ($18/mo): PDF reports, private sharing, priority marketplace placement
 - ⬜ Verified Collector ($10 one-time): CGC registry linkage
 - ⬜ Founding Collector ($20/mo, capped): permanent badge, name on founders page, roadmap access

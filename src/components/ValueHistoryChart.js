@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { rangeSlice, valueChange, chartPoints, withLivePoint } from "@/lib/valueHistory";
 
 // Collection value over time, from collection_value_history (one row per
-// day, written every 6 hours by scripts/snapshotCollectionValue.js). Pro
-// feature: free accounts see a short pitch instead of the chart. RLS lets a
-// user read only their own rows, so this reads straight from the browser.
+// day, written every 6 hours by scripts/snapshotCollectionValue.js). RLS lets
+// a user read only their own rows, so this reads straight from the browser.
 
 const RANGES = [
   ["30", "30D"],
@@ -20,11 +18,11 @@ const H = 180;
 const PAD = { top: 12, right: 8, bottom: 8, left: 8 };
 
 const money = (v) =>
-  v == null ? "—" : `$${Number(v).toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
+  v == null ? "-" : `$${Number(v).toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
 const day = (iso) =>
   new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 
-export default function ValueHistoryChart({ userId, isPro, currentValue, initialRows = null, className = "" }) {
+export default function ValueHistoryChart({ userId, currentValue, initialRows = null, className = "" }) {
   // initialRows: history already in hand (skips the fetch).
   const [rows, setRows] = useState(initialRows);
   const [failed, setFailed] = useState(false);
@@ -33,7 +31,7 @@ export default function ValueHistoryChart({ userId, isPro, currentValue, initial
   const svgRef = useRef(null);
 
   useEffect(() => {
-    if (!isPro || !userId || initialRows) return;
+    if (!userId || initialRows) return;
     let cancelled = false;
     getSupabaseClient()
       .from("collection_value_history")
@@ -53,27 +51,13 @@ export default function ValueHistoryChart({ userId, isPro, currentValue, initial
     return () => {
       cancelled = true;
     };
-  }, [isPro, userId, initialRows]);
+  }, [userId, initialRows]);
 
   // The line ends on today's live value (the same number as the header),
   // not on the last snapshot, which can be up to a day old.
   const series = useMemo(() => withLivePoint(rangeSlice(rows ?? [], range), currentValue), [rows, range, currentValue]);
   const change = useMemo(() => valueChange(series, currentValue), [series, currentValue]);
   const pts = useMemo(() => chartPoints(series, { W, H, PAD }), [series]);
-
-  if (!isPro) {
-    return (
-      <section className={`vh vh-pitch ${className}`} aria-label="Collection value over time">
-        <div>
-          <h3>Your collection&rsquo;s value, over time</h3>
-          <p>See how the market moves your books week to week, from real eBay comps. Part of Collector Pro.</p>
-        </div>
-        <Link href="/upgrade" className="vh-pitch-cta">
-          See Collector Pro
-        </Link>
-      </section>
-    );
-  }
 
   if (failed) return null;
 

@@ -80,7 +80,7 @@ Each section lists **Current** (what the code does) and **Intended / incomplete*
 
 **Current**
 - One action per issue: Add to Collection, Add to Wishlist, Remove. The library has tabs Owned (includes for sale), Wishlist, For Sale.
-- Grading, slab, cert, notes, photo are inline in the library (`GradeEditor`). Grade and photo fields are Pro only, enforced by a DB trigger.
+- Grading, slab, cert, notes, and per-copy photos are inline in the library (`GradeEditor`) and free for signed-in users.
 - Changes are optimistic and the library is cached in localStorage, refreshed on tab focus.
 
 **Inconsistencies**

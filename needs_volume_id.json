@@ -42637,9 +42637,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T14:08:01.210574+00:00",
-    "retry_after": "2026-10-07T14:08:01.210592+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T15:06:27.495230+00:00",
+    "retry_after": "2026-10-10T15:06:27.495247+00:00"
   },
   {
     "name": "Darkstalkers the Night Warriors",
@@ -42647,9 +42647,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T15:05:14.617138+00:00",
-    "retry_after": "2026-10-07T15:05:14.617158+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T15:06:28.911218+00:00",
+    "retry_after": "2026-10-10T15:06:28.911234+00:00"
   },
   {
     "name": "Doctor Who: The Eleventh Doctor Archives Omnibus",
@@ -42657,9 +42657,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T15:05:15.031855+00:00",
-    "retry_after": "2026-10-07T15:05:15.031874+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T15:06:29.298556+00:00",
+    "retry_after": "2026-10-10T15:06:29.298572+00:00"
   },
   {
     "name": "X-Men",
@@ -43560,5 +43560,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T14:03:27.038439+00:00",
     "retry_after": "2026-10-08T14:03:27.038458+00:00"
+  },
+  {
+    "name": "The Walking Dead #1 Emerald City 2014 Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T15:06:26.983251+00:00",
+    "retry_after": "2026-10-08T15:06:26.983267+00:00"
   }
 ]

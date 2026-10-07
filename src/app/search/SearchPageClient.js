@@ -3,7 +3,7 @@
 
 import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useLibrary } from "../../context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { useSearchQuery } from "@/context/SearchQueryContext";
@@ -74,7 +74,6 @@ function SkeletonCard() {
 // client fetches as it always did.
 export default function SearchPageClient({ initialQuery = "", initialComics = null, initialSeries = null } = {}) {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const urlQuery = searchParams.get("q") || "";
 
   // This page had its own <input> directly under the header's, so /search
@@ -82,6 +81,10 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
   // only this one filtered results as you typed. Now the header's input is
   // this page's input: it writes to SearchQueryContext and we read it here.
   const { query, setQuery } = useSearchQuery();
+  // What we search for. The box keeps exactly what was typed (a trailing
+  // space mid-word is normal); every comparison and fetch uses the trimmed
+  // term so "street fighter " is not a different search from "street fighter".
+  const term = query.trim();
   const [page, setPage] = useState(0);
 
   // Seed the shared query from the URL, and re-seed on back/forward or a
@@ -90,23 +93,23 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
   const [syncedUrlQuery, setSyncedUrlQuery] = useState(null);
   if (urlQuery !== syncedUrlQuery) {
     setSyncedUrlQuery(urlQuery);
-    if (urlQuery !== query) setQuery(urlQuery);
+    if (urlQuery.trim() !== term) setQuery(urlQuery);
   }
 
-  // …and push it back, so the URL stays shareable and the back button still
-  // works. Debounced and replace(), not push(): typing "batman" should not
-  // leave six history entries to walk back through. `scroll: false` keeps
-  // the results list from jumping to the top on every keystroke.
+  // …and push it back, so the URL stays shareable. Debounced, and replacing
+  // the entry: typing "batman" should not leave six history entries.
+  // window.history.replaceState, not router.replace(): router.replace asked
+  // the server to re-render /search (a full search, up to ~12s cold) for every
+  // pause in typing, and when an older render landed late its URL re-seeded
+  // the box above, wiping results back to skeletons in a loop. Next keeps
+  // useSearchParams in sync with replaceState without a server round trip.
   useEffect(() => {
-    const q = query.trim();
-    if (q === urlQuery.trim()) return;
+    if (term === urlQuery.trim()) return;
     const timeout = setTimeout(() => {
-      router.replace(q ? `/search?q=${encodeURIComponent(q)}` : "/search", {
-        scroll: false,
-      });
+      window.history.replaceState(null, "", term ? `/search?q=${encodeURIComponent(term)}` : "/search");
     }, 400);
     return () => clearTimeout(timeout);
-  }, [query, urlQuery, router]);
+  }, [term, urlQuery]);
 
   const [supabaseComics, setSupabaseComics] = useState(initialComics ?? []);
   const [seriesResults, setSeriesResults] = useState(initialSeries ?? []);
@@ -129,16 +132,16 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
   const { user } = useAuth();
 
   // ── Fetch comics (browse or search) ─────────────────────────────────────────
-  const awaitingUrlSeed = !query && Boolean(urlQuery);
-  const shownQuery = awaitingUrlSeed ? urlQuery : query;
+  const awaitingUrlSeed = !term && Boolean(urlQuery.trim());
+  const shownQuery = awaitingUrlSeed ? urlQuery.trim() : term;
   useEffect(() => {
     // On a fresh load of /search?q=… the shared query is still "" for the
     // first render (it is seeded from the URL above). Without this guard that
     // render fired the browse request (/api/comics, the slowest route on the
     // site) with no delay, for results that were thrown away a moment later.
     if (awaitingUrlSeed) return;
-    if (!query) return;
-    if (page === 0 && skipComicsFetchFor.current !== null && skipComicsFetchFor.current === query) {
+    if (!term) return;
+    if (page === 0 && skipComicsFetchFor.current !== null && skipComicsFetchFor.current === term) {
       skipComicsFetchFor.current = null;
       return;
     }
@@ -151,7 +154,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         setIsLoading(true);
         setLoadError(null);
 
-        const url = `/api/search/comics?q=${encodeURIComponent(query)}&limit=${PAGE_SIZE}&offset=${page * PAGE_SIZE}`;
+        const url = `/api/search/comics?q=${encodeURIComponent(term)}&limit=${PAGE_SIZE}&offset=${page * PAGE_SIZE}`;
 
         const res = await fetch(url, { cache: "no-store" });
 
@@ -163,9 +166,9 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         if (cancelled) return;
 
         // First page of a real query only — pagination is not a new search.
-        if (query && page === 0) {
+        if (page === 0) {
           trackEvent("search", {
-            search_term: query,
+            search_term: term,
             result_count: comics.length,
             logged_in: Boolean(user),
           });
@@ -206,27 +209,35 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     // `user` is read for the event only; re-fetching on auth changes would
     // double-load the page.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query, page, awaitingUrlSeed]);
+  }, [term, page, awaitingUrlSeed]);
 
   // ── Reset page/filter on new query (keep old results visible until new ones arrive) ──
   // Same derive-during-render pattern as the URL sync above: reset paging
   // state the moment the query changes, before the fetch effect runs.
-  const [lastQuery, setLastQuery] = useState(query || initialQuery);
-  if (query !== lastQuery) {
-    setLastQuery(query);
+  // Seeded from the server's query first: the URL wins over whatever the
+  // shared box held on arrival, so server results are never wiped and then
+  // skipped (the skip refs above would leave the skeletons up forever).
+  // Skipped while the box is still empty and waiting to be seeded from the
+  // URL (arriving from the header, which clears its box as it navigates):
+  // that one render is not a new search, and treating it as one wiped the
+  // server's results, then the skip refs suppressed the refetch, leaving
+  // twelve skeleton cards up forever.
+  const [lastQuery, setLastQuery] = useState(initialQuery || term);
+  if (!awaitingUrlSeed && term !== lastQuery) {
+    setLastQuery(term);
     setPage(0);
     setHasMore(true);
     setLoadError(null);
     setPublisherFilter(null);
     setSupabaseComics([]);
     setSeriesResults([]);
-    setIsFirstLoad(Boolean(query));
+    setIsFirstLoad(Boolean(term));
   }
 
   // ── Series suggestions ───────────────────────────────────────────────────────
   useEffect(() => {
-    if (!query) return;
-    if (skipSeriesFetchFor.current !== null && skipSeriesFetchFor.current === query) {
+    if (!term) return;
+    if (skipSeriesFetchFor.current !== null && skipSeriesFetchFor.current === term) {
       skipSeriesFetchFor.current = null;
       return;
     }
@@ -237,7 +248,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     const timeout = setTimeout(async () => {
       try {
         const res = await fetch(
-          `/api/search/series?q=${encodeURIComponent(query)}&limit=4`,
+          `/api/search/series?q=${encodeURIComponent(term)}&limit=4`,
           { cache: "no-store" }
         );
         if (!res.ok) throw new Error(`Series request failed: ${res.status}`);
@@ -255,7 +266,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       cancelled = true;
       clearTimeout(timeout);
     };
-  }, [query]);
+  }, [term]);
 
   // ── Map + dedupe comics ──────────────────────────────────────────────────────
   const mappedComics = useMemo(() => {
@@ -368,7 +379,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                           trackEvent("search_result_click", {
                             result_type: "series_match",
                             result_id: s.id,
-                            search_term: query,
+                            search_term: term,
                           })
                         }
                       >
@@ -467,7 +478,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         {!isFirstLoad &&
           results.map((item, index) => {
             if (item.id) {
-              return <ComicResultCard key={item.id} item={item} index={index} query={query} onMutationError={setMutationError} />;
+              return <ComicResultCard key={item.id} item={item} index={index} query={term} onMutationError={setMutationError} />;
             }
             const isSeries = item.__source === "series";
             const isUserAdded = item.__source === "user";
@@ -489,7 +500,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                     trackEvent("search_result_click", {
                       result_type: isSeries ? "series" : isUserAdded ? "comic" : "issue",
                       result_id: item.id,
-                      search_term: query,
+                      search_term: term,
                       position: index,
                     })
                   }

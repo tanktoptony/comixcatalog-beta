@@ -1,10 +1,22 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { COVER_SCAN_SCHEMA, COVER_TITLE_SIMILARITY_THRESHOLD, capStatus, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, parseCoverExtraction, rankCoverCandidates, titleSimilarity } from "./coverScan.js";
+import { COVER_SCAN_SCHEMA, COVER_TITLE_SIMILARITY_THRESHOLD, capStatus, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, ownedCopiesFor, ownedCopyLabel, parseCoverExtraction, rankCoverCandidates, titleSimilarity } from "./coverScan.js";
 import { extractCover } from "./coverScanClaude.js";
 import { baseIssueNumber } from "./coverMatch.js";
 
 const extracted = { series_title: "Street Fighter II", issue_number: "3", publisher: "Tokuma", cover_year: 1994, cover_month: 2, cover_price: "$2.95", edition_clues: [], other_text: "", is_comic_cover: true, confidence: "high" };
+const collectionRow = (overrides = {}) => ({ id: "one", gcd_issue_id: 10, status: "owned", copy_number: 1, variant_label: null, ...overrides });
+test("owned copies ignores absent issues and wishlist rows", () => {
+  assert.deepEqual(ownedCopiesFor([], 10), []);
+  assert.deepEqual(ownedCopiesFor([collectionRow({ status: "wishlist" })], 10), []);
+});
+test("owned copies returns one owned copy", () => assert.deepEqual(ownedCopiesFor([collectionRow()], 10), [{ id: "one", copy_number: 1, variant_label: null }]));
+test("owned copies sorts copies and labels variants", () => {
+  const copies = ownedCopiesFor([collectionRow({ id: "two", copy_number: 2, variant_label: "Newsstand" }), collectionRow()], 10);
+  assert.deepEqual(copies.map((copy) => copy.id), ["one", "two"]);
+  assert.equal(ownedCopyLabel(copies[1]), "Copy 2 (Newsstand)");
+});
+test("for-sale copies count as owned", () => assert.equal(ownedCopiesFor([collectionRow({ status: "for_sale" })], 10).length, 1));
 test("structured cover output parses", () => assert.deepEqual(parseCoverExtraction({ stop_reason: "end_turn", content: [{ type: "text", text: JSON.stringify(extracted) }] }), extracted));
 test("refusal and truncation are rejected before content", () => {
   assert.throws(() => parseCoverExtraction({ stop_reason: "refusal", content: [] }), /safely/);

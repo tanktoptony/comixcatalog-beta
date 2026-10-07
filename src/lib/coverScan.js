@@ -1,4 +1,17 @@
 import { baseIssueNumber, publishersCompatible } from "./coverMatch.js";
+import { isOwnedStatus } from "./collectionStatus.js";
+
+export function ownedCopiesFor(rows, gcdIssueId) {
+  return (rows ?? [])
+    .filter((row) => Number(row.gcd_issue_id) === Number(gcdIssueId) && isOwnedStatus(row.status))
+    .map(({ id, copy_number, variant_label }) => ({ id, copy_number, variant_label }))
+    .sort((a, b) => Number(a.copy_number ?? 1) - Number(b.copy_number ?? 1));
+}
+
+export function ownedCopyLabel(copy) {
+  const label = `Copy ${copy.copy_number ?? 1}`;
+  return copy.variant_label ? `${label} (${copy.variant_label})` : label;
+}
 
 // A 0.6 Jaccard threshold requires most distinct title words to agree while
 // allowing a small subtitle difference. Reordered titles score 1; the known

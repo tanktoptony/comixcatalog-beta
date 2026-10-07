@@ -24,7 +24,7 @@ const money = (v) =>
 const day = (iso) =>
   new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 
-export default function ValueHistoryChart({ userId, isPro, currentValue, initialRows = null }) {
+export default function ValueHistoryChart({ userId, isPro, currentValue, initialRows = null, className = "" }) {
   // initialRows: history already in hand (skips the fetch).
   const [rows, setRows] = useState(initialRows);
   const [failed, setFailed] = useState(false);
@@ -63,7 +63,7 @@ export default function ValueHistoryChart({ userId, isPro, currentValue, initial
 
   if (!isPro) {
     return (
-      <section className="vh vh-pitch" aria-label="Collection value over time">
+      <section className={`vh vh-pitch ${className}`} aria-label="Collection value over time">
         <div>
           <h3>Your collection&rsquo;s value, over time</h3>
           <p>See how the market moves your books week to week, from real eBay comps. Part of Collector Pro.</p>
@@ -94,7 +94,7 @@ export default function ValueHistoryChart({ userId, isPro, currentValue, initial
   const up = change && change.delta >= 0;
 
   return (
-    <section className="vh" aria-label="Collection value over time">
+    <section className={`vh ${className}`} aria-label="Collection value over time">
       <div className="vh-head">
         <div>
           <div className="vh-label">Collection value</div>

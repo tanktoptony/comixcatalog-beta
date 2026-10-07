@@ -23,7 +23,7 @@ import { isOwnedStatus } from "@/lib/collectionStatus";
 // has to be client-side because sessions live in localStorage, so a server
 // component's own isOwner never sees a user. The API enforces ownership
 // regardless; this gate only decides whether the button shows.
-export default function ShareCardButton({ ownerId, username, type = "collection", className = "" }) {
+export default function ShareCardButton({ ownerId, username, type = "collection", className = "", label = "📸 Make a Story card" }) {
   const { user } = useAuth();
   const { collections } = useLibrary();
   const isOwner = Boolean(user?.id && ownerId && user.id === ownerId);
@@ -100,7 +100,7 @@ export default function ShareCardButton({ ownerId, username, type = "collection"
   return (
     <>
       <button type="button" className={className} onClick={open}>
-        📸 Make a Story card
+        {label}
       </button>
 
       <dialog

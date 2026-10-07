@@ -1,23 +1,32 @@
 import Link from "next/link";
 
+// Must match what the marketplace actually does today (docs/MARKETPLACE.md):
+// listings from the library, offers by message, nothing paid through us.
 export default function SellPage() {
   return (
     <main className="page-shell">
       <section className="content-panel">
         <div className="section-label badge-x">Sell</div>
-        <h1>Seller Tools Coming Soon</h1>
+        <h1>Sell from your collection</h1>
         <p>
-          Selling tools are planned for a later ComixCatalog phase. The current
-          focus is building a reliable collection engine first.
+          Any book in your library can be listed for sale. Mark it for sale, set a
+          price or leave it open to offers, add up to 10 photos and your condition
+          notes, and it shows up in the marketplace and on that issue&rsquo;s page.
         </p>
         <p>
-          Future seller tools may include public sale pages, collection-based
-          listings, slab tracking, trust signals, and lightweight marketplace
-          workflows.
+          The marketplace is in beta. Buyers message you to make an offer, and you
+          work out payment and shipping with them directly. There&rsquo;s no checkout,
+          no buyer protection and no payout through ComixCatalog yet, and no fees
+          during the beta.
         </p>
-        <Link href="/founding-collectors" className="primary-btn">
-          Join for Free Lifetime Pro
-        </Link>
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <Link href="/library" className="primary-btn">
+            Go to your library
+          </Link>
+          <Link href="/marketplace" className="primary-btn">
+            Browse the marketplace
+          </Link>
+        </div>
       </section>
     </main>
   );

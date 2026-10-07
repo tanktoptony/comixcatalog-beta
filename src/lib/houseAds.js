@@ -4,7 +4,7 @@
 // drop into later without touching any page.
 //
 // Before anything paid goes into a slot, read src/app/upgrade/page.js:
-// Pro subscribers are told the $8 buys "no ads". That copy is a positioning
+// Pro subscribers are told the $8 buys "no third-party ads". That copy is a positioning
 // decision the founder makes on purpose, not a side effect of this file.
 //
 // `show` decides eligibility per viewer. Upsells (Founding, Pro) are hidden

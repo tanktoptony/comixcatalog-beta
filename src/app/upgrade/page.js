@@ -15,15 +15,22 @@ const TIERS = [
     viaLabel: "no card, no trial clock",
     headline: "A real catalog and a real collection tracker, for nothing",
     description: "The part most sites charge for is free here. Track what you own, find what you are missing, and read the guides. Pro adds the tools a serious collection needs, not the basics.",
+    // Every line here must be true of the shipped product today. If a
+    // feature isn't live, it doesn't go on this page, "soon" or otherwise.
     features: [
-      { label: "2,400,000 issues across 208,000 series, with the covers attached to the right book" },
-      { label: "Track what you own and what you are hunting, with no cap on collection size" },
-      { label: "Search by title, year or issue — \"rai 1994\" finds the volume you mean" },
-      { label: "Key issue flags — first appearances and the big deaths, with a line on why they matter" },
+      { label: "2.5 million issues across 200,000+ series, from the Grand Comics Database" },
+      { label: "Covers matched to the right issue. If we don't have the right cover, the spot stays blank instead of showing a wrong one" },
+      { label: "Track what you own and what you are hunting, with no cap on collection size and room for more than one copy of a book" },
+      { label: "Search by title, year or issue, typos and all. \"rai 1994\" finds the volume you mean" },
+      { label: "Scan a cover with your phone to find the issue, 10 scans a day" },
+      { label: "Estimated values from current eBay asking prices, labeled as asking. We don't have sold-price data yet, so we don't claim it" },
+      { label: "Run completion: see how much of a series you own and exactly which issues you're missing" },
+      { label: "Pick which variant cover is the one on your shelf" },
+      { label: "Key issue flags on the big first appearances and deaths, with a line on why they matter. The list is short and growing" },
+      { label: "List books from your collection for sale (beta). No fees. Buyers message you with offers; there's no checkout yet" },
       { label: "Reading guides and articles, written by a collector rather than generated" },
       { label: "A public profile you can share, if you want one" },
       { label: "CSV import up to 25 rows per upload" },
-      { label: "Heat seekers — the books moving fastest on recent sales, updated as the comps come in", soon: true },
     ],
     cta: "Create a free account",
     tier: "free",
@@ -37,29 +44,23 @@ const TIERS = [
     via: "stripe",
     viaLabel: "via Stripe · cancel anytime",
     headline: "The full toolkit for serious collectors",
-    description: "Everything you need to manage a real collection — professional grading, slab tracking, your own photos, and a PDF you can hand to your insurance agent.",
+    description: "Everything you need to manage a real collection: professional grading, slab tracking, your own photos, and a PDF you can hand to your insurance agent.",
     features: [
-      { label: "Automatic market valuation from 13,000+ recent sold listings — no manual price entry" },
-      { label: "Insurance & appraisal PDF export — cover art, grades, cert numbers, value totals, date-stamped" },
-      { label: "Professional grading — CGC/CBCS/PGX slab tracking, 0.5–10.0 numeric grades, cert numbers" },
-      { label: "Upload your own photo for each book in your collection" },
-      { label: "Run completion tracker — see your % owned on any series, add every missing issue to your wantlist in one click" },
-      { label: "Story arc completion — \"You own 11 of 14 from X-Cutioner's Song\" with bulk-add-to-wantlist" },
-      { label: "Wantlist CSV export — printable shopping list for cons and shops, sorted by title" },
-      { label: "Library health audit — find books accidentally tracked twice (local entry + catalog entry for the same issue)" },
-      { label: "Catalog linking — auto-match your manually-added books to our catalog so arc badges, run completion, and valuation light up retroactively" },
-      { label: "CSV import up to 200 rows per upload (vs. 25 on free)" },
-      { label: "Full-collection CSV export (Discogs-style)" },
+      { label: "Professional grading: CGC, CBCS and PGX slabs, 0.5 to 10.0 numeric grades, cert numbers" },
+      { label: "Upload your own photo for each copy in your collection" },
+      { label: "Insurance and appraisal PDF: cover art, grades, cert numbers, value totals with their source, date-stamped" },
+      { label: "Collection value over time, charted from the same asking-price estimates" },
+      { label: "Add every missing issue of a run to your wantlist in one click" },
+      { label: "Story arc completion: \"You own 11 of 14 from X-Cutioner's Song,\" with one-click add of the rest" },
+      { label: "Full-collection CSV export" },
+      { label: "Wantlist CSV export: a printable shopping list for cons and shops, sorted by title" },
+      { label: "Library health audit: find books accidentally tracked twice" },
+      { label: "Catalog linking: match books you added by hand to the catalog, so run completion, arcs and values pick them up" },
+      { label: "CSV import up to 200 rows per upload (25 on Free)" },
+      { label: "Cover scanning up to 100 a day (10 on Free)" },
       { label: "Collector Pro badge on your profile" },
-      { label: "Want-list price alerts — get notified when a book drops to your target price", soon: true },
-      { label: "Collection value over time — a chart of what your books have done, month by month", soon: true },
-      { label: "Printing & variant tracking — newsstand, Cover B, 2nd print, tracked separately from the base issue", soon: true },
-      { label: "Scan a barcode to add a book — point your phone at the back cover", soon: true },
-      { label: "Grade-aware valuation — what your 9.8 is worth, not just what a raw copy sells for", soon: true },
-      { label: "Your movers — the same heat-seeker data, filtered to the books you actually own", soon: true },
-      { label: "Early marketplace access — buy and sell when it launches (Pro subscribers first)", soon: true },
     ],
-    cta: "Start Collector Pro — $8/month",
+    cta: "Start Collector Pro, $8/month",
     tier: "pro",
   },
 ];
@@ -69,7 +70,10 @@ export default function UpgradePage() {
   const [busy, setBusy] = useState(null); // stores tier id while loading
   const [err, setErr] = useState(null);
   const [mounted, setMounted] = useState(false);
-  const [foundingRemaining, setFoundingRemaining] = useState(83);
+  // null until /api/founding/status answers. A hardcoded guess here used to
+  // flash a wrong count on every page load.
+  const [foundingRemaining, setFoundingRemaining] = useState(null);
+  const foundingOpen = foundingRemaining == null || foundingRemaining > 0;
 
   useEffect(() => {
     // Hydration guard: auth state is client-only and the initial server render
@@ -104,7 +108,7 @@ export default function UpgradePage() {
       }
       window.location.assign(data.url);
     } catch {
-      setErr("Network error — please try again.");
+      setErr("Network error. Please try again.");
     } finally {
       setBusy(null);
     }
@@ -127,7 +131,7 @@ export default function UpgradePage() {
       }
       window.location.href = data.url;
     } catch {
-      setErr("Network error — please try again.");
+      setErr("Network error. Please try again.");
     } finally {
       setBusy(null);
     }
@@ -141,22 +145,31 @@ export default function UpgradePage() {
       <section className="upgrade-hero">
         <div className="upgrade-kicker">Simple pricing</div>
         <h1 className="upgrade-title">
-          Join now. Keep Pro for life.
+          {foundingOpen ? "Join now. Keep Pro for life." : "Free to collect. Pro when you need it."}
         </h1>
         <p className="upgrade-sub">
           The first 100 members receive Collector Pro for life at no charge.
           After the founding memberships are gone, Collector Pro is $8/month.
         </p>
-        <p className="upgrade-founding-offer">
-          <Link href="/signup"><strong>{foundingRemaining} free lifetime Pro memberships remain.</strong> Create your account and receive yours automatically →</Link>
-        </p>
+        {foundingOpen && (
+          <p className="upgrade-founding-offer">
+            <Link href="/signup">
+              <strong>
+                {foundingRemaining == null
+                  ? "Free lifetime Pro memberships are still available."
+                  : `${foundingRemaining} free lifetime Pro memberships remain.`}
+              </strong>{" "}
+              Create your account and receive yours automatically →
+            </Link>
+          </p>
+        )}
       </section>
 
       {alreadyPro && (
         <section className="upgrade-already">
           <p>
             {isFounding
-              ? "You're a Founding Collector — thank you for being part of this from the start."
+              ? "You're a Founding Collector. Thank you for being part of this from the start."
               : "You're on Collector Pro."}
             {" "}
             <Link href="/library">Back to your library →</Link>
@@ -241,7 +254,7 @@ export default function UpgradePage() {
                 <button type="button" className="upgrade-cta" disabled>
                   {isFounding && tier.id === "founding" ? "Your current plan" : isPro && tier.id === "pro" ? "Your current plan" : "Already a member"}
                 </button>
-              ) : foundingRemaining > 0 ? (
+              ) : foundingOpen ? (
                 <Link href={user ? "/founding-collectors" : "/signup"} className="upgrade-cta">
                   Get Pro free for life
                 </Link>
@@ -270,7 +283,7 @@ export default function UpgradePage() {
         <div className="upgrade-faq-item">
           <h3>Can I cancel?</h3>
           <p>
-            Yes — cancel anytime from the Stripe billing portal (button above if you&rsquo;re
+            Yes. Cancel anytime from the Stripe billing portal (button above if you&rsquo;re
             already subscribed). No cancellation fees. Your Pro features stay active until the
             end of your billing period. Free lifetime Founding passes do not require billing.
           </p>
@@ -278,8 +291,8 @@ export default function UpgradePage() {
         <div className="upgrade-faq-item">
           <h3>Why $8 for Pro?</h3>
           <p>
-            ComixCatalog is built solo. $8 keeps the servers running and features shipping — no
-            ads, no data sales, and no VC pressure to flip the product.
+            ComixCatalog is built solo. $8 keeps the servers running and features shipping, with
+            no third-party ads, no data sales, and no VC pressure to flip the product.
           </p>
         </div>
       </section>

@@ -9,7 +9,7 @@
 2. **Finish WS1 security.** Activity feed leaks private collections and wantlists (S3). `POST /api/comics` trusts client `created_by` (S4). Hydrate request size cap (S5a). Catalog-link search builds a filter string from raw input (S5b). Billing columns (0032a/b) already landed.
 3. **Library mutations (WS2).** Multi-copy approved: drop the one-row-per-issue index, add one-wishlist-row-per-issue, key mutations by row id, return real errors. Fix the grading trigger's service-role bypass (WS2b).
 4. **Schema baseline in the repo (WS0 remainder).** Base tables, RLS policies, triggers and functions captured from catalog queries into `docs/schema/`. Every later migration and audit depends on it.
-5. **Stale public copy.** `/upgrade` says "sold listings" (data is asking prices) and lists shipped features as "soon"; `/sell` says seller tools are coming while the marketplace is live.
+5. ~~**Stale public copy.**~~ Done 2026-10-07: `/upgrade` lists only shipped features (no "soon" items, no "sold" claim, valuation shown as free and asking-based) and `/sell` describes the live beta. Rule going forward: public copy claims only what ships.
 
 ## NEXT: once NOW is stable
 

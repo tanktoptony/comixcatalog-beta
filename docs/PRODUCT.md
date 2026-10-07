@@ -92,7 +92,7 @@ Public beta, part-time solo development, no fixed launch date. Small real user b
 | Marketplace browse, listing page, price, photos | Implemented (beta) |
 | Structured offers, checkout, payouts, ratings | Planned |
 | Block/report users | Schema only, no UI or API |
-| Price alerts, barcode scan, heat seekers | Planned (shown as "soon" on `/upgrade`) |
+| Price alerts, barcode scan, heat seekers | Planned (not advertised; `/upgrade` lists shipped features only since 2026-10-07) |
 | Google sign-in | Built, disabled pending session-persistence fix |
 | Forum, events | Placeholder pages only |
 

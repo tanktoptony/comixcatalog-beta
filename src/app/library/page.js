@@ -13,8 +13,9 @@ import EmptyState from "@/components/EmptyState";
 import FirstRunLibrary from "@/components/FirstRunLibrary";
 import ShareCardButton from "@/components/ShareCardButton";
 import CatalogLinkPicker from "@/components/CatalogLinkPicker";
-import CollectionStatsStrip from "@/components/CollectionStatsStrip";
+import CollectionStatsStrip, { getCollectionStats } from "@/components/CollectionStatsStrip";
 import ValueHistoryChart from "@/components/ValueHistoryChart";
+import LibraryMobileBar from "@/components/LibraryMobileBar";
 import ListingEditor from "@/components/ListingEditor";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
@@ -251,6 +252,7 @@ function LibraryPageContent() {
   }
   const [csvResult, setCsvResult] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [mobileValueOpen, setMobileValueOpen] = useState(false);
   const [gradeData, setGradeData] = useState({});
 
   const [search, setSearch] = useState("");
@@ -586,6 +588,38 @@ function LibraryPageContent() {
     } finally {
       setCsvExporting(false);
     }
+  }
+
+  async function handleCsvImport(e) {
+    e.preventDefault();
+    const file = e.currentTarget.elements.file?.files?.[0] || selectedFile;
+    if (!file || !user) return;
+    if (!file.name.endsWith(".csv")) {
+      setCsvResult({ created: 0, reused: 0, skipped: 0, errors: [{ row: "-", message: "Invalid file type" }] });
+      return;
+    }
+    const fd = new FormData();
+    fd.append("file", file);
+    const res = await authedFetch("/api/csv-import", { method: "POST", body: fd });
+    // Pro-gated row cap. 402 = exceeded the free cap; surface the
+    // server's explanation in the import-summary panel AND offer a
+    // direct route to /upgrade so users can act on it.
+    if (res.status === 402) {
+      const json = await res.json().catch(() => ({}));
+      const proceed = window.confirm(
+        `${json.error || "Collector Pro is required to import this many rows."}\n\nSee membership options now?`
+      );
+      if (proceed) window.location.href = "/upgrade";
+      setCsvResult({
+        created: 0,
+        reused: 0,
+        skipped: json.attempted ?? 0,
+        errors: [{ row: "-", message: json.error || "Collector Pro allows larger imports" }],
+      });
+      return;
+    }
+    const json = await res.json();
+    setCsvResult(json.results || null);
   }
 
   // The database turns a for_sale status into a marketplace listing; this
@@ -1035,6 +1069,11 @@ function LibraryPageContent() {
     };
   }, [collections, comicIndex, tab, marketValues]);
 
+  const mobileStats = useMemo(
+    () => getCollectionStats(allHydrated, marketValues),
+    [allHydrated, marketValues]
+  );
+
   // Hybrid-duplicate detection.
   //
   // Multiple GCD rows can be intentional physical copies. A hybrid duplicate
@@ -1244,6 +1283,42 @@ function LibraryPageContent() {
         </div>
       )}
 
+      <LibraryMobileBar
+        isPublicPreview={isPublicPreview}
+        tab={tab}
+        setTab={setTab}
+        counts={{ owned: stats.ownedCount, wantlist: stats.wishlistCount, forSale: stats.forSaleCount }}
+        stats={mobileStats}
+        valueOpen={mobileValueOpen}
+        setValueOpen={setMobileValueOpen}
+        search={search}
+        setSearch={setSearch}
+        publisherFilter={publisherFilter}
+        setPublisherFilter={setPublisherFilter}
+        availablePublishers={availablePublishers}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        filteredCount={filteredItems.length}
+        viewMode={viewMode}
+        updateViewMode={updateViewMode}
+        handleShare={handleShare}
+        shareCopied={shareCopied}
+        ownerId={user.id}
+        username={profile?.username}
+        handleCsvImport={handleCsvImport}
+        selectedFile={selectedFile}
+        setSelectedFile={setSelectedFile}
+        handleExportCsv={handleExportCsv}
+        handleExportPdf={handleExportPdf}
+        csvExporting={csvExporting}
+        pdfExporting={pdfExporting}
+        isPro={isPro}
+        handleCatalogAudit={handleCatalogAudit}
+        catalogAuditing={catalogAuditing}
+        setAllForSale={setAllForSale}
+        bulkSaleBusy={bulkSaleBusy}
+      />
+
       <section className="library-page-header">
         <div>
           <div className="library-kicker">
@@ -1379,40 +1454,7 @@ function LibraryPageContent() {
         </div>
 
         {!isPublicPreview && (
-        <form
-          onSubmit={async (e) => {
-            e.preventDefault();
-            const file = e.target.file.files[0];
-            if (!file || !user) return;
-            if (!file.name.endsWith(".csv")) {
-              setCsvResult({ created: 0, reused: 0, skipped: 0, errors: [{ row: "-", message: "Invalid file type" }] });
-              return;
-            }
-            const fd = new FormData();
-            fd.append("file", file);
-            const res = await authedFetch("/api/csv-import", { method: "POST", body: fd });
-            // Pro-gated row cap. 402 = exceeded the free cap; surface the
-            // server's explanation in the import-summary panel AND offer a
-            // direct route to /upgrade so users can act on it.
-            if (res.status === 402) {
-              const json = await res.json().catch(() => ({}));
-              const proceed = window.confirm(
-                `${json.error || "Collector Pro is required to import this many rows."}\n\nSee membership options now?`
-              );
-              if (proceed) window.location.href = "/upgrade";
-              setCsvResult({
-                created: 0,
-                reused: 0,
-                skipped: json.attempted ?? 0,
-                errors: [{ row: "-", message: json.error || "Collector Pro allows larger imports" }],
-              });
-              return;
-            }
-            const json = await res.json();
-            setCsvResult(json.results || null);
-          }}
-          className="library-upload-bar"
-        >
+        <form onSubmit={handleCsvImport} className="library-upload-bar">
           <label className={`library-secondary-btn ${selectedFile ? "ready" : ""}`}>
             {selectedFile ? "CSV Ready ✓" : "Choose CSV"}
             <input
@@ -1458,6 +1500,7 @@ function LibraryPageContent() {
           userId={user.id}
           isPro={isPro}
           currentValue={stats.collectionValue > 0 ? stats.collectionValue : null}
+          className={`library-value-history ${mobileValueOpen ? "is-open" : ""}`}
         />
       )}
 
@@ -1484,6 +1527,7 @@ function LibraryPageContent() {
           Hidden in public preview — it's a management action. */}
       {!isPublicPreview && (
       <section
+        className={`library-catalog-linking ${catalogAuditing || catalogAudit || catalogOpen ? "is-active" : ""}`}
         style={{
           margin: "0 0 18px",
           padding: "12px 16px",
@@ -1858,7 +1902,7 @@ function LibraryPageContent() {
 
       <section className="library-layout">
         <aside className="library-sidebar">
-          <div className="library-sidebar-section">
+          <div className="library-sidebar-section library-sidebar-filter-section">
             <div className="library-sidebar-title">Search Library</div>
             <input
               className="library-search-input"
@@ -1868,7 +1912,7 @@ function LibraryPageContent() {
             />
           </div>
 
-          <div className="library-sidebar-section">
+          <div className="library-sidebar-section library-sidebar-filter-section">
             <div className="library-sidebar-title">Publisher</div>
             <select
               className="library-select"
@@ -1882,7 +1926,7 @@ function LibraryPageContent() {
             </select>
           </div>
 
-          <div className="library-sidebar-section">
+          <div className="library-sidebar-section library-sidebar-filter-section">
             <div className="library-sidebar-title">Quick Filters</div>
             <button
               className={`library-filter-chip ${publisherFilter === "all" ? "active" : ""}`}

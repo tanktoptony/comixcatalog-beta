@@ -4743,6 +4743,11 @@ button.nav-link {
   padding: 2rem;
 }
 
+.library-mobile-bar,
+.library-mobile-sheet-backdrop {
+  display: none;
+}
+
 .library-upgrade-banner {
   display: flex;
   align-items: center;
@@ -5273,6 +5278,296 @@ button.nav-link {
 @media (max-width: 640px) {
   .library-shell {
     padding: 0.75rem;
+  }
+
+  .library-page-header,
+  .library-topbar,
+  .collection-stats-strip,
+  .library-results-controls,
+  .library-sidebar-filter-section,
+  .library-catalog-linking:not(.is-active) {
+    display: none !important;
+  }
+
+  /* Collapsed until the summary line is tapped. !important because the
+     chart's own rules (.vh-pitch is display:flex) come later in this file. */
+  .library-value-history:not(.is-open) {
+    display: none !important;
+  }
+
+  .library-mobile-bar {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--cc-text);
+  }
+
+  .library-mobile-title-row,
+  .library-mobile-toolbar,
+  .library-mobile-tabs,
+  .library-mobile-sheet-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .library-mobile-title-row h1 {
+    flex: 1;
+    margin: 0;
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .library-mobile-scan {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.4rem;
+    color: var(--cc-gold);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .library-mobile-icon-btn {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--cc-line);
+    border-radius: 50%;
+    background: var(--cc-surface);
+    color: var(--cc-text);
+  }
+
+  .library-mobile-icon-btn svg,
+  .library-mobile-stat-line svg,
+  .library-mobile-sheet-close svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .library-mobile-tabs {
+    margin-top: 0.85rem;
+    overflow-x: auto;
+  }
+
+  .library-mobile-tabs button,
+  .library-mobile-chips button {
+    min-height: 40px;
+    padding: 0 0.85rem;
+    border: 1px solid var(--cc-line);
+    border-radius: 20px;
+    background: var(--cc-surface);
+    color: var(--cc-text-muted);
+    white-space: nowrap;
+  }
+
+  .library-mobile-tabs button.active,
+  .library-mobile-chips button.active {
+    border-color: var(--cc-gold);
+    background: color-mix(in srgb, var(--cc-gold) 14%, transparent);
+    color: var(--cc-gold);
+  }
+
+  .library-mobile-stat-line {
+    width: 100%;
+    min-height: 44px;
+    margin-top: 0.55rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+    background: transparent;
+    color: var(--cc-text-muted);
+    text-align: left;
+  }
+
+  .library-mobile-stat-line svg {
+    fill: none;
+  }
+
+  .library-mobile-toolbar {
+    margin-top: 0.55rem;
+  }
+
+  .library-mobile-filter-btn,
+  .library-mobile-sort-btn {
+    min-height: 44px;
+    overflow: hidden;
+    border: 1px solid var(--cc-line);
+    border-radius: 12px;
+    background: var(--cc-surface);
+    color: var(--cc-text);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .library-mobile-filter-btn {
+    flex: 1;
+    min-width: 0;
+    padding: 0 0.75rem;
+    text-align: left;
+  }
+
+  .library-mobile-sort-btn {
+    max-width: 32%;
+    padding: 0 0.65rem;
+    font-size: 0.78rem;
+  }
+
+  .library-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .library-results-panel {
+    order: 1;
+    width: 100%;
+  }
+
+  .library-sidebar {
+    order: 2;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .library-mobile-sheet-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.68);
+  }
+
+  .library-mobile-sheet {
+    position: relative;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 0.75rem 1rem calc(1rem + env(safe-area-inset-bottom));
+    border: 1px solid var(--cc-line);
+    border-bottom: 0;
+    border-radius: 20px 20px 0 0;
+    background: var(--cc-surface);
+    color: var(--cc-text);
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .library-mobile-sheet-handle {
+    width: 42px;
+    height: 4px;
+    margin: 0 auto 0.8rem;
+    border-radius: 4px;
+    background: var(--cc-line);
+  }
+
+  .library-mobile-sheet h2 {
+    margin: 0 3rem 1rem 0;
+    font-size: 1.25rem;
+  }
+
+  .library-mobile-sheet-close {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.75rem;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: transparent;
+    color: var(--cc-text-muted);
+  }
+
+  .library-mobile-sheet-close svg {
+    fill: none;
+  }
+
+  .library-mobile-field-label,
+  .library-mobile-action-label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    color: var(--cc-text-muted);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .library-mobile-search {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 0.8rem;
+    border: 1px solid var(--cc-line);
+    border-radius: 10px;
+    background: var(--cc-bg);
+    color: var(--cc-text);
+    font-size: 1rem;
+  }
+
+  .library-mobile-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .library-mobile-sheet-footer {
+    position: sticky;
+    bottom: -1rem;
+    margin: 1.25rem -1rem -1rem;
+    padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--cc-line);
+    background: var(--cc-surface);
+  }
+
+  .library-mobile-sheet-footer button {
+    min-height: 44px;
+    flex: 1;
+    border: 1px solid var(--cc-line);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--cc-text);
+  }
+
+  .library-mobile-sheet-footer button.primary {
+    border-color: var(--cc-gold);
+    background: var(--cc-gold);
+    color: var(--cc-bg);
+    font-weight: 800;
+  }
+
+  .library-mobile-action,
+  .library-mobile-import .library-mobile-action {
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--cc-line);
+    border-radius: 0;
+    background: transparent;
+    color: var(--cc-text);
+    font: inherit;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .library-mobile-pro {
+    padding: 0.15rem 0.4rem;
+    border: 1px solid var(--cc-gold);
+    border-radius: 999px;
+    color: var(--cc-gold);
+    font-size: 0.65rem;
+    font-weight: 800;
   }
 
   /* Header stacks vertically — title block on top, actions below.

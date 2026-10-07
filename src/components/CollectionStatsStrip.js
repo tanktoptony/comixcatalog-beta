@@ -42,47 +42,52 @@ function rowValue(item, autoMap) {
   return 0;
 }
 
+// Shared by the strip and the phone library's one-line summary, so the two
+// can never disagree on a number.
+export function getCollectionStats(collection, autoMarketValues) {
+  let owned = 0;
+  let wantlist = 0;
+  let forSale = 0;
+  let slabbed = 0;
+  let value = 0;
+  const seriesKeys = new Set();
+
+  for (const item of collection ?? []) {
+    // "Owned" is everything in your collection, listed or not; the
+    // for-sale count is the listed subset.
+    if (isOwnedStatus(item.status)) owned += 1;
+    else if (item.status === "wishlist") wantlist += 1;
+    if (item.status === "for_sale") forSale += 1;
+
+    if (item.slab_company) slabbed += 1;
+
+    // Value counts everything you own, including books you've listed:
+    // they're yours until they sell. Wantlist never counts.
+    if (isOwnedStatus(item.status)) value += rowValue(item, autoMarketValues);
+
+    // Unique series key — title (lowercased) + publisher to disambiguate
+    // multi-publisher reprints (Conan, Star Wars, etc.).
+    const title = String(
+      item.display?.title ?? item.comic?.title ?? item.comics?.series_title ?? ""
+    ).trim().toLowerCase();
+    const publisher = String(
+      item.display?.publisher ?? item.comic?.publisher ?? item.comics?.publisher ?? ""
+    ).trim().toLowerCase();
+    if (title) seriesKeys.add(`${title}::${publisher}`);
+  }
+
+  return { owned, wantlist, forSale, slabbed, value, uniqueSeries: seriesKeys.size };
+}
+
 export default function CollectionStatsStrip({
   collection,
   visibility = {},
   autoMarketValues, // optional — only the library page passes this
 }) {
-  const stats = useMemo(() => {
-    let owned = 0;
-    let wantlist = 0;
-    let forSale = 0;
-    let slabbed = 0;
-    let value = 0;
-    const seriesKeys = new Set();
-
-    for (const item of collection ?? []) {
-      // "Owned" is everything in your collection, listed or not; the
-      // for-sale count is the listed subset.
-      if (isOwnedStatus(item.status)) owned += 1;
-      else if (item.status === "wishlist") wantlist += 1;
-      if (item.status === "for_sale") forSale += 1;
-
-      if (item.slab_company) slabbed += 1;
-
-      // Value counts everything you own, including books you've listed:
-      // they're yours until they sell. Wantlist never counts.
-      if (isOwnedStatus(item.status)) {
-        value += rowValue(item, autoMarketValues);
-      }
-
-      // Unique series key — title (lowercased) + publisher to disambiguate
-      // multi-publisher reprints (Conan, Star Wars, etc.).
-      const title = String(
-        item.display?.title ?? item.comic?.title ?? item.comics?.series_title ?? ""
-      ).trim().toLowerCase();
-      const publisher = String(
-        item.display?.publisher ?? item.comic?.publisher ?? item.comics?.publisher ?? ""
-      ).trim().toLowerCase();
-      if (title) seriesKeys.add(`${title}::${publisher}`);
-    }
-
-    return { owned, wantlist, forSale, slabbed, value, uniqueSeries: seriesKeys.size };
-  }, [collection, autoMarketValues]);
+  const stats = useMemo(
+    () => getCollectionStats(collection, autoMarketValues),
+    [collection, autoMarketValues]
+  );
 
   const showWantlist = visibility.wantlist !== false;
   const showForSale = visibility.for_sale !== false;

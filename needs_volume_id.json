@@ -42798,9 +42798,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T16:09:43.032628+00:00",
-    "retry_after": "2026-10-07T16:09:43.032646+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T17:36:31.217718+00:00",
+    "retry_after": "2026-10-10T17:36:31.217734+00:00"
   },
   {
     "name": "The Powers of Grayskull",
@@ -42808,9 +42808,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T16:13:14.462632+00:00",
-    "retry_after": "2026-10-07T16:13:14.462650+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T17:36:32.140319+00:00",
+    "retry_after": "2026-10-10T17:36:32.140336+00:00"
   },
   {
     "name": "Wildstorm Universe 97",
@@ -42818,9 +42818,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T16:13:15.050880+00:00",
-    "retry_after": "2026-10-07T16:13:15.050896+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-07T17:36:32.498579+00:00",
+    "retry_after": "2026-10-10T17:36:32.498596+00:00"
   },
   {
     "name": "Manhunter",
@@ -43483,5 +43483,85 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T16:05:55.543132+00:00",
     "retry_after": "2026-10-08T16:05:55.543149+00:00"
+  },
+  {
+    "name": "WildC.A.T.s / X-Men: The Golden Age 3-D",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T17:36:23.058062+00:00",
+    "retry_after": "2026-10-08T17:36:23.058078+00:00"
+  },
+  {
+    "name": "Image Introduces... Primate",
+    "publisher": "Image Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T17:36:24.750915+00:00",
+    "retry_after": "2026-10-08T17:36:24.750932+00:00"
+  },
+  {
+    "name": "Walt Disney's Alice in Wonderland",
+    "publisher": "Gold Key",
+    "year": 1984,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T17:36:30.205869+00:00",
+    "retry_after": "2026-10-08T17:36:30.205886+00:00"
+  },
+  {
+    "name": "The Foozle",
+    "publisher": "Eclipse Comics",
+    "year": 1985,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T17:36:30.815247+00:00",
+    "retry_after": "2026-10-08T17:36:30.815264+00:00"
+  },
+  {
+    "name": "Captain America Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T17:36:33.158655+00:00",
+    "retry_after": "2026-10-08T17:36:33.158671+00:00"
+  },
+  {
+    "name": "Classic G.I. Joe TPB",
+    "publisher": "IDW Publishing",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T17:37:15.265161+00:00",
+    "retry_after": "2026-10-08T17:37:15.265179+00:00"
+  },
+  {
+    "name": "Karmatr�n y los Transformables",
+    "publisher": "BOOM! Studios",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T17:37:15.861148+00:00",
+    "retry_after": "2026-10-08T17:37:15.861166+00:00"
+  },
+  {
+    "name": "The Official Handbook of the Marvel Universe Deluxe Edition",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-07T17:37:16.398241+00:00",
+    "retry_after": "2026-10-08T17:37:16.398256+00:00"
   }
 ]

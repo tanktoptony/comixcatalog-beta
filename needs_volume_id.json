@@ -43361,9 +43361,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T14:03:27.038439+00:00",
-    "retry_after": "2026-10-08T14:03:27.038458+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T18:28:41.608020+00:00",
+    "retry_after": "2026-10-11T18:28:41.608041+00:00"
   },
   {
     "name": "The Walking Dead #1 Emerald City 2014 Comicon Exclusive",
@@ -44354,5 +44354,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-08T17:01:29.618143+00:00",
     "retry_after": "2026-10-09T17:01:29.618158+00:00"
+  },
+  {
+    "name": "Fantastic Four [So Much Fun]",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T18:28:41.031691+00:00",
+    "retry_after": "2026-10-09T18:28:41.031710+00:00"
   }
 ]

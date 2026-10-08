@@ -80,6 +80,17 @@ export function scanLimit(isPro) {
   void isPro;
   return 100;
 }
+// A scan of a book we don't have is a contribution, not usage: the first
+// FREE_NOT_IN_CATALOG of those each day don't count toward the daily limit.
+// Past that they count like any scan, which bounds the AI cost if someone
+// scripts it.
+export const FREE_NOT_IN_CATALOG = 30;
+export function scanUsage(counted, notInCatalog) {
+  return counted + Math.max(0, notInCatalog - FREE_NOT_IN_CATALOG);
+}
+export function scanWasFree(outcome, notInCatalogBefore) {
+  return outcome === "not_in_catalog" && notInCatalogBefore < FREE_NOT_IN_CATALOG;
+}
 export function capStatus(used, isPro) {
   const limit = scanLimit(isPro);
   return { allowed: used < limit, used, limit, remaining: Math.max(0, limit - used) };

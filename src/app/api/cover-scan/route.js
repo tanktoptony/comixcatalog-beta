@@ -4,7 +4,7 @@ import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { normalizeSeriesSearchWords } from "@/lib/seriesSearchMatch";
 import { baseIssueNumber } from "@/lib/coverMatch";
-import { capStatus, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, COVER_SCAN_MODEL, rankCoverCandidates, titleTokens } from "@/lib/coverScan";
+import { capStatus, scanUsage, scanWasFree, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, COVER_SCAN_MODEL, rankCoverCandidates, titleTokens } from "@/lib/coverScan";
 import { extractCover } from "@/lib/coverScanClaude";
 import { resolveCovers } from "@/lib/catalog/covers";
 import { isOwnedStatus } from "@/lib/collectionStatus";
@@ -16,10 +16,16 @@ const publicCover = (path) => path ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/st
 
 async function quota(supabase, userId) {
   const start = new Date(); start.setUTCHours(0, 0, 0, 0);
-  const { count, error } = await supabase.from("cover_scans").select("id", { count: "exact", head: true })
-    .eq("user_id", userId).gte("created_at", start.toISOString()).not("outcome", "in", '("capped","error")');
-  if (error) throw error;
-  return capStatus(count ?? 0, false);
+  const today = () => supabase.from("cover_scans").select("id", { count: "exact", head: true })
+    .eq("user_id", userId).gte("created_at", start.toISOString());
+  const [counted, notInCatalog] = await Promise.all([
+    today().not("outcome", "in", '("capped","error","not_in_catalog")'),
+    today().eq("outcome", "not_in_catalog"),
+  ]);
+  if (counted.error) throw counted.error;
+  if (notInCatalog.error) throw notInCatalog.error;
+  const status = capStatus(scanUsage(counted.count ?? 0, notInCatalog.count ?? 0), false);
+  return { ...status, notInCatalog: notInCatalog.count ?? 0 };
 }
 
 async function findCandidates(supabase, extracted) {
@@ -131,8 +137,9 @@ export async function POST(req) {
     const outcome = coverScanOutcome(extracted, candidates);
     const { error: insertError } = await supabase.from("cover_scans").insert({ id: scanId, user_id: user.id, storage_path: storagePath, model: COVER_SCAN_MODEL, extracted, candidates, outcome, input_tokens: usage?.input_tokens ?? null, output_tokens: usage?.output_tokens ?? null });
     if (insertError) throw insertError;
-    const nextQuota = capStatus(current.used + 1, false);
-    return NextResponse.json({ scan_id: scanId, outcome, extracted, candidates, quota: nextQuota });
+    const free = scanWasFree(outcome, current.notInCatalog);
+    const nextQuota = capStatus(free ? current.used : current.used + 1, false);
+    return NextResponse.json({ scan_id: scanId, outcome, extracted, candidates, quota: nextQuota, free });
   } catch (error) {
     console.error("POST /api/cover-scan failed", error);
     const failure = error?.status === 503

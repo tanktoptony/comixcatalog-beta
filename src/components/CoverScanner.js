@@ -139,7 +139,7 @@ export default function CoverScanner() {
     <p className="scan-privacy"><LockIcon />Photos are saved privately to improve matching.</p>
     {error && <div className="scan-callout scan-callout-error" role="alert">{error}</div>}
     {read.length > 0 && <div className="scan-read"><span className="scan-read-label">We read</span>{read.map((part) => <span key={part} className="scan-read-chip">{part}</span>)}</div>}
-    {result?.outcome === "not_in_catalog" && <div className="scan-callout"><strong>We don&apos;t have this one yet.</strong> We&apos;ve noted it so it can be added to the catalog.</div>}
+    {result?.outcome === "not_in_catalog" && <div className="scan-callout"><strong>We don&apos;t have this one yet.</strong> We&apos;ve noted it so it can be added to the catalog.{result.free && " It didn't count against your daily scans."}</div>}
     {result?.outcome === "not_a_comic" && <div className="scan-callout"><strong>That doesn&apos;t look like a comic cover.</strong> Try again with the whole front cover in frame.</div>}
     {items.length > 0 && <section className="scan-results"><h2 className="scan-results-title">Best matches</h2><div className="comic-grid">{items.map((item, i) => {
       const copies = ownedCopiesFor(collections, item.gcd_issue_id);

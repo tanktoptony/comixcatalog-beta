@@ -26524,9 +26524,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-01T00:00:46.546581+00:00",
-    "retry_after": "2026-10-08T00:00:46.546599+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-08T12:00:45.009846+00:00",
+    "retry_after": "2026-10-22T12:00:45.009864+00:00"
   },
   {
     "name": "Doctor Who 25th Anniversary Special",
@@ -30243,16 +30243,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-09-28T09:02:31.880748+00:00",
     "retry_after": "2026-10-01T09:02:31.880762+00:00"
-  },
-  {
-    "name": "Classic Star Wars: Return of the Jedi",
-    "publisher": "Dark Horse Comics",
-    "year": 1994,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-01T09:00:49.670252+00:00",
-    "retry_after": "2026-10-08T09:00:49.670270+00:00"
   },
   {
     "name": "Sonic vs. Knuckles \"Battle Royal\" Special",
@@ -39329,9 +39319,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T05:00:51.148618+00:00",
-    "retry_after": "2026-10-08T05:00:51.148634+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-08T12:00:42.895299+00:00",
+    "retry_after": "2026-10-15T12:00:42.895317+00:00"
   },
   {
     "name": "The Bag On Line Adventures: The Second Stage Turbine Blade",
@@ -39339,9 +39329,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T05:00:51.687887+00:00",
-    "retry_after": "2026-10-08T05:00:51.687904+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-08T12:00:43.375746+00:00",
+    "retry_after": "2026-10-15T12:00:43.375764+00:00"
   },
   {
     "name": "Titans 2025 Annual",
@@ -39432,9 +39422,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T09:44:29.573156+00:00",
-    "retry_after": "2026-10-08T09:44:29.573172+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-08T12:00:45.576115+00:00",
+    "retry_after": "2026-10-15T12:00:45.576133+00:00"
   },
   {
     "name": "Soulfire: The Heart of Eternity",
@@ -43643,5 +43633,175 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-07T20:01:09.895690+00:00",
     "retry_after": "2026-10-08T20:01:09.895719+00:00"
+  },
+  {
+    "name": "Black Sun: Colossus and Nightcrawler",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:00:53.575845+00:00",
+    "retry_after": "2026-10-09T12:00:53.575861+00:00"
+  },
+  {
+    "name": "Angel Spotlight: Connor",
+    "publisher": "IDW Publishing",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:00:54.252782+00:00",
+    "retry_after": "2026-10-09T12:00:54.252800+00:00"
+  },
+  {
+    "name": "Allura Special",
+    "publisher": "Avatar Press",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:22.412380+00:00",
+    "retry_after": "2026-10-09T12:01:22.412396+00:00"
+  },
+  {
+    "name": "Angelman",
+    "publisher": "Fantagraphics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:22.769304+00:00",
+    "retry_after": "2026-10-09T12:01:22.769323+00:00"
+  },
+  {
+    "name": "What Next, Andy Capp?",
+    "publisher": "Fawcett Comics",
+    "year": 1965,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:23.253548+00:00",
+    "retry_after": "2026-10-09T12:01:23.253565+00:00"
+  },
+  {
+    "name": "Stan Lee Meets Dr. Doom",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:30.084874+00:00",
+    "retry_after": "2026-10-09T12:01:30.084892+00:00"
+  },
+  {
+    "name": "Rise and Shine, Andy Capp!",
+    "publisher": "Fawcett Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:30.536343+00:00",
+    "retry_after": "2026-10-09T12:01:30.536360+00:00"
+  },
+  {
+    "name": "Captain America in \"The Challenge of Super Sport\" [Giant Comics to Color]",
+    "publisher": "Gold Key",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:31.002941+00:00",
+    "retry_after": "2026-10-09T12:01:31.002957+00:00"
+  },
+  {
+    "name": "James Patterson's Witch & Wizard",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:31.499024+00:00",
+    "retry_after": "2026-10-09T12:01:31.499042+00:00"
+  },
+  {
+    "name": "Silver Surfer #33 [JC Penney Marvel Vintage Pack]",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:53.148182+00:00",
+    "retry_after": "2026-10-09T12:01:53.148200+00:00"
+  },
+  {
+    "name": "Invincible #1 Local Comic Shop Day",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:53.745947+00:00",
+    "retry_after": "2026-10-09T12:01:53.745966+00:00"
+  },
+  {
+    "name": "Avengers Presented by Gillette, Custom Comic",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:54.344372+00:00",
+    "retry_after": "2026-10-09T12:01:54.344390+00:00"
+  },
+  {
+    "name": "Seedless",
+    "publisher": "Image Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:54.736825+00:00",
+    "retry_after": "2026-10-09T12:01:54.736844+00:00"
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Madison Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:55.286295+00:00",
+    "retry_after": "2026-10-09T12:01:55.286313+00:00"
+  },
+  {
+    "name": "Marvel's Greatest Creators: Iron Fist - Misty Knight",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:01:55.987704+00:00",
+    "retry_after": "2026-10-09T12:01:55.987726+00:00"
+  },
+  {
+    "name": "Tegami Bachi, Letter Bee",
+    "publisher": "VIZ Media",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:02:54.615016+00:00",
+    "retry_after": "2026-10-09T12:02:54.615034+00:00"
+  },
+  {
+    "name": "Thor and the X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T12:03:30.667967+00:00",
+    "retry_after": "2026-10-09T12:03:30.667988+00:00"
   }
 ]

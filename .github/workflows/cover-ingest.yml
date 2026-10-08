@@ -320,11 +320,21 @@ jobs:
       # four repair passes this month. continue-on-error so a transient
       # Supabase hiccup here doesn't block the ledger commit below — the
       # health check afterward still catches anything left mis-linked.
+      # Every 6 hours, not every run (2026-10-08). Each pass loads all ~138k
+      # covers and fetches issue lists for ~3,900 series; hourly that was 24
+      # full scans a day while the Supabase Disk IO budget was running out,
+      # and most runs fixed nothing. (The external cron-job.org trigger also
+      # arrives as workflow_dispatch, so this gates on the clock, not the event.)
       - name: Auto-repair mis-linked volumes
         id: auto_repair
         if: always()
         continue-on-error: true
-        run: node scripts/repairAllCoverSeriesLinks.js
+        run: |
+          hour="$(date -u +%H)"
+          case "$hour" in
+            00|06|12|18) node scripts/repairAllCoverSeriesLinks.js ;;
+            *) echo "Repair runs on the 00/06/12/18 UTC runs (full cover-table scan); skipping at ${hour}:00." ;;
+          esac
 
       # Every lane above runs with continue-on-error so one bad lane cannot
       # stop the other six — that part is deliberate and stays. What was
@@ -440,6 +450,14 @@ jobs:
           fi
           node scripts/checkCoverIngestHealth.js --mode=stall --lookback-days=1
 
+      # Daily, like the stall check (2026-10-08). It re-runs the repair script
+      # as a dry run right after the real repair, so hourly it could only ever
+      # report 0 while doing a second full cover-table scan.
       - name: Check pipeline health (mis-linked volumes)
         if: always()
-        run: node scripts/checkCoverIngestHealth.js --mode=mislink
+        run: |
+          if [ "$(date -u +%H)" != "12" ]; then
+            echo "Mis-link check runs on the 12:00 UTC run only (one full scan a day)."
+            exit 0
+          fi
+          node scripts/checkCoverIngestHealth.js --mode=mislink

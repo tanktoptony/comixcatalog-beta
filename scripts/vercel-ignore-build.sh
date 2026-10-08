@@ -8,8 +8,18 @@
 # (2026-10-03). This skips commits that only touch files the site never
 # reads: bot ledgers and cursors, reports, docs, the video workspace and CI
 # config. Anything else, or any doubt (no base commit in the shallow clone),
-# builds.
+# builds. 2026-10-08: added gcd-*-cursor.json and comicvine_api_output/ after
+# 33 bot data commits in one week still triggered full production deploys,
+# each throwing away the cached pages.
 set -u
+# Preview deployments (every push to a PR branch) are skipped (2026-10-08).
+# PR CI already runs `npm run build`, so a preview build only re-checks the
+# same compile while costing Vercel build minutes and deployment storage.
+# Production (main) builds still go through the file check below.
+if [ "${VERCEL_ENV:-}" != "production" ]; then
+  echo "Preview deployment (VERCEL_ENV=${VERCEL_ENV:-unset}); skipping. PR CI builds the branch."
+  exit 0
+fi
 BASE="${VERCEL_GIT_PREVIOUS_SHA:-}"
 [ -n "$BASE" ] || BASE="HEAD^"
 if ! git cat-file -e "${BASE}^{commit}" 2>/dev/null; then
@@ -21,7 +31,7 @@ if [ -z "$CHANGED" ]; then
   echo "No file changes since ${BASE}; building (manual redeploy)."
   exit 1
 fi
-SITE="$(printf '%s\n' "$CHANGED" | grep -v -E '^(\.ingest-done\.json|needs_volume_id\.json|gap-[a-z-]+\.json|gcd-refresh-cursor\.json|scripts/\.instagram-[a-z-]+\.json|reports/|docs/|video-production/|\.github/|[^/]+\.md$)')"
+SITE="$(printf '%s\n' "$CHANGED" | grep -v -E '^(\.ingest-done\.json|needs_volume_id\.json|gap-[a-z-]+\.json|gcd-[a-z-]+-cursor\.json|comicvine_api_output/|scripts/\.instagram-[a-z-]+\.json|reports/|docs/|video-production/|\.github/|[^/]+\.md$)')"
 if [ -z "$SITE" ]; then
   echo "Only non-site files changed since ${BASE}; skipping the build:"
   printf '%s\n' "$CHANGED" | head -20

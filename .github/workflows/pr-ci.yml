@@ -67,6 +67,9 @@ jobs:
       - name: Review queue tests
         run: npm run test:review
 
+      - name: Admin two-factor tests
+        run: npm run test:admin-aal
+
       - name: Cover resolver tests
         run: npm run test:covers
 

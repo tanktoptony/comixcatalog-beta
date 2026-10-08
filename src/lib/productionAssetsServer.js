@@ -1,18 +1,18 @@
 // Server-only pieces shared by the /api/admin/production-assets routes.
 
 import { getServiceClient } from "./supabase/service.js";
-import { ADMIN_ID } from "@/lib/admin";
-import { getAuthedUser } from "@/lib/authServer";
+import { requireAdmin } from "@/lib/adminAuth";
 import { GET as issueRouteGET } from "@/app/api/issues/[id]/route";
 
 export function serviceClient() {
   return getServiceClient();
 }
 
-// Same gate as /api/admin/toggle-pro: a verified session whose user is ADMIN_ID.
-export async function isAdminRequest(req) {
-  const user = await getAuthedUser(req);
-  return !!user && user.id === ADMIN_ID;
+// Same gate as every admin write: the admin account with a two-factor (aal2) session.
+// Returns null when the caller may proceed, or the refusal response to send.
+export async function adminRefusal(req) {
+  const { response } = await requireAdmin(req);
+  return response ?? null;
 }
 
 const PUBLIC_PREFIX = () =>

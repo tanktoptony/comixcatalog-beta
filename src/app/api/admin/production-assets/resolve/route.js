@@ -32,7 +32,7 @@ import { isCollectedEdition } from "@/lib/seriesFormat";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { parseYear } from "@/lib/years";
 import { parseRequestLines, titleKey } from "@/lib/productionAssets";
-import { serviceClient, isAdminRequest, lookupIssue, mapLimit } from "@/lib/productionAssetsServer";
+import { serviceClient, adminRefusal, lookupIssue, mapLimit } from "@/lib/productionAssetsServer";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
@@ -325,9 +325,8 @@ async function finish(base, carriers, { inferred, notes, forceAmbiguous = false 
 }
 
 export async function POST(req) {
-  if (!(await isAdminRequest(req))) {
-    return NextResponse.json({ error: "Not authorized" }, { status: 403 });
-  }
+  const refusal = await adminRefusal(req);
+  if (refusal) return refusal;
   const body = await req.json().catch(() => ({}));
   const parsed = parseRequestLines(body.text);
   if (!parsed.length) {

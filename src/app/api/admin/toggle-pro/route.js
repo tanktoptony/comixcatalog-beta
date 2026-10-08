@@ -1,20 +1,17 @@
 // Admin endpoint: flip a user's is_pro flag.
-// Gated by ADMIN_ID. Used by the /admin tool to grant or revoke
+// Gated by requireAdmin (admin account + two-factor). Used by the /admin tool to grant or revoke
 // comped Pro memberships (Founding Collectors carry-over,
 // test accounts, comps, etc.).
 
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
-import { ADMIN_ID } from "@/lib/admin";
-import { getAuthedUser } from "@/lib/authServer";
+import { requireAdmin } from "@/lib/adminAuth";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req) {
-  const authedUser = await getAuthedUser(req);
-  if (!authedUser || authedUser.id !== ADMIN_ID) {
-    return NextResponse.json({ error: "Not authorized" }, { status: 403 });
-  }
+  const { response } = await requireAdmin(req);
+  if (response) return response;
 
   const body = await req.json().catch(() => ({}));
   const { target_username, is_pro } = body;
@@ -59,10 +56,8 @@ export async function POST(req) {
 // GET — look up current state without modifying. UI uses this to fetch
 // before showing the toggle so the admin sees the right starting state.
 export async function GET(req) {
-  const authedUser = await getAuthedUser(req);
-  if (!authedUser || authedUser.id !== ADMIN_ID) {
-    return NextResponse.json({ error: "Not authorized" }, { status: 403 });
-  }
+  const { response } = await requireAdmin(req);
+  if (response) return response;
 
   const url = new URL(req.url);
   const target_username = url.searchParams.get("username");

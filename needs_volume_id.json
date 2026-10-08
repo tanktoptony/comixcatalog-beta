@@ -43601,9 +43601,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T20:01:05.373016+00:00",
-    "retry_after": "2026-10-08T20:01:05.373036+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T21:00:47.893597+00:00",
+    "retry_after": "2026-10-11T21:00:47.893614+00:00"
   },
   {
     "name": "I Can't Untie My Shoes! [Family Circus]",
@@ -43611,9 +43611,9 @@
     "year": 1975,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T20:01:08.288776+00:00",
-    "retry_after": "2026-10-08T20:01:08.288795+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T21:00:48.340602+00:00",
+    "retry_after": "2026-10-11T21:00:48.340621+00:00"
   },
   {
     "name": "UFO Mysteries",
@@ -43621,9 +43621,9 @@
     "year": 1978,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T20:01:08.690702+00:00",
-    "retry_after": "2026-10-08T20:01:08.690739+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T21:00:49.610658+00:00",
+    "retry_after": "2026-10-11T21:00:49.610676+00:00"
   },
   {
     "name": "I Hate Fairyland Volume 2",
@@ -43631,9 +43631,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T20:01:09.895690+00:00",
-    "retry_after": "2026-10-08T20:01:09.895719+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T21:00:51.066142+00:00",
+    "retry_after": "2026-10-11T21:00:51.066160+00:00"
   },
   {
     "name": "Black Sun: Colossus and Nightcrawler",
@@ -44384,5 +44384,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-08T20:01:03.206127+00:00",
     "retry_after": "2026-10-09T20:01:03.206143+00:00"
+  },
+  {
+    "name": "In Your Eye, Andy Capp",
+    "publisher": "Fawcett Comics",
+    "year": 1967,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T21:00:50.056394+00:00",
+    "retry_after": "2026-10-09T21:00:50.056412+00:00"
   }
 ]

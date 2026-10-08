@@ -58,7 +58,7 @@ export default function LibraryMobileBar(props) {
     search, setSearch, publisherFilter, setPublisherFilter, availablePublishers,
     sortBy, setSortBy, filteredCount, viewMode, updateViewMode, handleShare,
     shareCopied, ownerId, username, handleCsvImport, selectedFile, setSelectedFile,
-    handleExportCsv, handleExportPdf, csvExporting, pdfExporting, isPro,
+    handleExportCsv, handleExportPdf, csvExporting, pdfExporting,
     handleCatalogAudit, catalogAuditing, setAllForSale, bulkSaleBusy,
   } = props;
   const [sheet, setSheet] = useState(null);
@@ -109,9 +109,9 @@ export default function LibraryMobileBar(props) {
         {counts.owned > counts.forSale && <button type="button" className="library-mobile-action" disabled={bulkSaleBusy} onClick={() => run(() => setAllForSale(true))}><ActionIcon name="sell" />{bulkSaleBusy ? "Listing..." : "List everything for sale"}</button>}
         <div className="library-mobile-action-label">Import and export</div>
         <form onSubmit={(event) => { handleCsvImport(event); closeSheet(); }} className="library-mobile-import"><label className="library-mobile-action"><ActionIcon name="importCsv" />{selectedFile ? selectedFile.name : "Import a CSV"}<input type="file" name="file" accept=".csv" hidden onChange={(event) => setSelectedFile(event.target.files[0] || null)} /></label>{selectedFile && <button type="submit" className="library-mobile-action"><ActionIcon name="importCsv" />Upload CSV</button>}</form>
-        <button type="button" className="library-mobile-action" disabled={csvExporting} onClick={() => run(handleExportCsv)}><ActionIcon name="exportCsv" />{csvExporting ? "Exporting..." : <>Export CSV {!isPro && <span className="library-mobile-pro">Pro</span>}</>}</button>
-        <button type="button" className="library-mobile-action" disabled={pdfExporting} onClick={() => run(handleExportPdf)}><ActionIcon name="pdf" />{pdfExporting ? "Generating..." : <>Export PDF {!isPro && <span className="library-mobile-pro">Pro</span>}</>}</button>
-        <button type="button" className="library-mobile-action" disabled={catalogAuditing} onClick={() => run(handleCatalogAudit)}><ActionIcon name="link" />{catalogAuditing ? "Scanning..." : <>Link books to the catalog {!isPro && <span className="library-mobile-pro">Pro</span>}</>}</button>
+        <button type="button" className="library-mobile-action" disabled={csvExporting} onClick={() => run(handleExportCsv)}><ActionIcon name="exportCsv" />{csvExporting ? "Exporting..." : "Export CSV"}</button>
+        <button type="button" className="library-mobile-action" disabled={pdfExporting} onClick={() => run(handleExportPdf)}><ActionIcon name="pdf" />{pdfExporting ? "Generating..." : "Export PDF"}</button>
+        <button type="button" className="library-mobile-action" disabled={catalogAuditing} onClick={() => run(handleCatalogAudit)}><ActionIcon name="link" />{catalogAuditing ? "Scanning..." : "Link books to the catalog"}</button>
       </Sheet>}
     </section>
   );

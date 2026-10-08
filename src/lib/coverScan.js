@@ -76,7 +76,10 @@ export function parseCoverExtraction(message) {
   return value;
 }
 
-export function scanLimit(isPro) { return isPro ? 100 : 10; }
+export function scanLimit(isPro) {
+  void isPro;
+  return 100;
+}
 export function capStatus(used, isPro) {
   const limit = scanLimit(isPro);
   return { allowed: used < limit, used, limit, remaining: Math.max(0, limit - used) };

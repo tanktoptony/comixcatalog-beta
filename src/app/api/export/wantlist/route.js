@@ -1,16 +1,13 @@
-// CSV export of a user's wantlist — Pro feature.
-//
-// Same auth posture as /api/export/csv (Pro-gated, ADMIN_ID short-circuit),
-// but scoped to status = 'wishlist' rows only and shaped as a "shopping list"
+// CSV export of an authenticated user's wantlist, scoped to status =
+// 'wishlist' rows and shaped as a "shopping list"
 // for cons and shops: series, issue, year, target price, notes. The
-// 'condition' / slab columns are dropped — they don't apply to a book you
-// don't own yet — and 'market_value' is renamed to 'target_price' to make
+// 'condition' / slab columns are dropped - they don't apply to a book you
+// don't own yet - and 'market_value' is renamed to 'target_price' to make
 // the column's purpose obvious when sellers/buyers glance at it.
 
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import Papa from "papaparse";
-import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 import { bestYearFor } from "@/lib/years";
 
@@ -32,7 +29,7 @@ export async function POST(req) {
     const [{ data: profile }, { data: collection, error: collErr }] = await Promise.all([
       supabase
         .from("profiles")
-        .select("username, is_pro")
+        .select("username")
         .eq("id", user_id)
         .single(),
       supabase
@@ -44,14 +41,6 @@ export async function POST(req) {
         .eq("status", "wishlist")
         .order("created_at", { ascending: false }),
     ]);
-
-    const isProOrAdmin = Boolean(profile?.is_pro) || user_id === ADMIN_ID;
-    if (!isProOrAdmin) {
-      return NextResponse.json(
-        { error: "Pro tier required", upgrade: true },
-        { status: 402 }
-      );
-    }
 
     if (collErr) {
       console.error("Wantlist export: query failed", collErr);

@@ -23,7 +23,7 @@ Internal model: Discogs (catalog + collection + peer marketplace). External pitc
 
 1. Find a comic: search a series by title (optionally with year or issue number), open the series, open an issue.
 2. Record it: add to collection or wantlist, then grade it, photo it, note it.
-3. Know what it's worth: per-copy and total estimated value, value over time (Pro).
+3. Know what it's worth: per-copy and total estimated value, value over time.
 4. Finish a run: run and story-arc completion, "add all missing to wantlist."
 5. Show it off: public profile at `/u/[username]`, share cards for Instagram Stories.
 6. Sell it (beta): list from the library, buyers message to make an offer.
@@ -59,7 +59,7 @@ Internal model: Discogs (catalog + collection + peer marketplace). External pitc
 - Honest valuation labeling: the UI says "asking" when the data is listing prices, not sales.
 - Honest covers: a missing cover shows as missing. Borrowing another issue's cover was removed sitewide on purpose.
 - Collector identity: public profiles with shelves, badges, share cards.
-- Insurance/appraisal PDF export (Pro).
+- Insurance/appraisal PDF export.
 
 ## What ComixCatalog is not
 
@@ -85,14 +85,23 @@ Public beta, part-time solo development, no fixed launch date. Small real user b
 | Community-reported printings (UPC) | Implemented, low usage |
 | Key issue flags | Implemented (curated seed list) |
 | Valuation | Partial: based on eBay asking prices, not sold prices |
-| Value over time chart | Implemented (Pro) |
-| CSV import/export, wantlist export, PDF | Implemented (limits and Pro gates apply) |
+| Value over time chart | Implemented; free for signed-in users |
+| CSV import/export, wantlist export, PDF | Implemented; free for signed-in users, with a 200-row import cap |
 | Public profiles, share cards | Implemented |
 | Pro subscription (Stripe) | Implemented |
 | Marketplace browse, listing page, price, photos | Implemented (beta) |
 | Structured offers, checkout, payouts, ratings | Planned |
 | Block/report users | Schema only, no UI or API |
 | Price alerts, barcode scan, heat seekers | Planned (not advertised; `/upgrade` lists shipped features only since 2026-10-07) |
+
+## Free and supporter tiers
+
+As of 2026-10-07, grading, per-copy photos, PDF and CSV exports, value history,
+bulk missing-issue wantlisting, library health, catalog linking, and cover scanning
+are free for every signed-in collector. CSV imports are capped at 200 rows per
+upload and cover scanning at 100 scans per UTC day for cost and abuse control.
+Collector Pro is a supporter tier: it adds the profile badge and hides upgrade
+prompts in house promos, while funding the solo-built service.
 | Google sign-in | Built, disabled pending session-persistence fix |
 | Forum, events | Placeholder pages only |
 

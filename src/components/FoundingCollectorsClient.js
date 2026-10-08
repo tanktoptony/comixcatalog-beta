@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 
-// initialRemaining comes from the server-rendered page (see page.js) — this
+// initialRemaining comes from the server-rendered page (see page.js) - this
 // used to default to a hardcoded 83 in useState, which flashed to the real
 // count as soon as the client fetch below resolved. Same bug and fix as
 // FoundingBanner.js. null means "don't know yet"; render a dash rather than
@@ -110,7 +110,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
         <div className="fc-hero-copy">
           <p className="fc-kicker">Founding Collectors · The first {CAP}</p>
           <h1 className="fc-title">
-            {remaining == null ? "—" : remaining}{" "}
+            {remaining == null ? "-" : remaining}{" "}
             <span>lifetime Pro passes left.</span>
           </h1>
           <p className="fc-lede">
@@ -158,7 +158,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
             <div className="fc-pass-title">Founding<br />Collector</div>
             <div className="fc-pass-sub">Collector Pro · for life</div>
             <div className="fc-pass-no">
-              <span>No.</span> {!claimStateKnown ? "—" : isFounder ? (passNumber ? pad(passNumber) : "★") : nextNumber == null ? "—" : pad(nextNumber)}
+              <span>No.</span> {!claimStateKnown ? "-" : isFounder ? (passNumber ? pad(passNumber) : "★") : nextNumber == null ? "-" : pad(nextNumber)}
               <em> / {CAP}</em>
             </div>
           </div>
@@ -209,9 +209,8 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
       <section className="fc-perks">
         <h2>What you keep, for life</h2>
         <div className="fc-perk-grid">
-          <div className="fc-perk"><b>Grading &amp; slab tools</b><span>Grades, slab company and cert numbers on every book.</span></div>
-          <div className="fc-perk"><b>Insurance-ready exports</b><span>The PDF with covers, grades and values, plus full CSV.</span></div>
-          <div className="fc-perk"><b>Imports &amp; run tools</b><span>Bulk imports, catalog linking and completion tracking.</span></div>
+          <div className="fc-perk"><b>Collector Pro</b><span>Your lifetime membership supports an independent, solo-built site.</span></div>
+          <div className="fc-perk"><b>No upgrade prompts</b><span>House promos will not ask you to upgrade.</span></div>
           <div className="fc-perk"><b>The badge</b><span>A permanent Founding Collector badge on your profile.</span></div>
         </div>
       </section>
@@ -249,7 +248,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
       </section>
 
       <p className="founding-terms fc-terms">
-        Lifetime means the lifetime of your ComixCatalog account and the ComixCatalog service. The pass is non-transferable and covers the standard Collector Pro feature set; marketplace fees, third-party data costs, physical services, and unrelated future products are not included.
+        Lifetime means the lifetime of your ComixCatalog account and the ComixCatalog service. The pass is non-transferable and includes the standard Collector Pro membership benefits; marketplace fees, third-party data costs, physical services, and unrelated future products are not included.
       </p>
     </main>
   );

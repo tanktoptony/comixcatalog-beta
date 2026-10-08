@@ -14,7 +14,7 @@ const TIERS = [
     via: "none",
     viaLabel: "no card, no trial clock",
     headline: "A real catalog and a real collection tracker, for nothing",
-    description: "The part most sites charge for is free here. Track what you own, find what you are missing, and read the guides. Pro adds the tools a serious collection needs, not the basics.",
+    description: "The whole collector toolkit is free. Track, grade, value, organize, import, and export your collection without a subscription.",
     // Every line here must be true of the shipped product today. If a
     // feature isn't live, it doesn't go on this page, "soon" or otherwise.
     features: [
@@ -22,7 +22,7 @@ const TIERS = [
       { label: "Covers matched to the right issue. If we don't have the right cover, the spot stays blank instead of showing a wrong one" },
       { label: "Track what you own and what you are hunting, with no cap on collection size and room for more than one copy of a book" },
       { label: "Search by title, year or issue, typos and all. \"rai 1994\" finds the volume you mean" },
-      { label: "Scan a cover with your phone to find the issue, 10 scans a day" },
+      { label: "Scan a cover with your phone to find the issue, 100 scans a day" },
       { label: "Estimated values from current eBay asking prices, labeled as asking. We don't have sold-price data yet, so we don't claim it" },
       { label: "Run completion: see how much of a series you own and exactly which issues you're missing" },
       { label: "Pick which variant cover is the one on your shelf" },
@@ -30,7 +30,15 @@ const TIERS = [
       { label: "List books from your collection for sale (beta). No fees. Buyers message you with offers; there's no checkout yet" },
       { label: "Reading guides and articles, written by a collector rather than generated" },
       { label: "A public profile you can share, if you want one" },
-      { label: "CSV import up to 25 rows per upload" },
+      { label: "Professional grading: CGC, CBCS and PGX slabs, 0.5 to 10.0 numeric grades, cert numbers" },
+      { label: "Upload your own photo for each copy in your collection" },
+      { label: "Insurance and appraisal PDF with cover art, grades, cert numbers, value totals, sources, and date" },
+      { label: "Collection value over time, charted from the same asking-price estimates" },
+      { label: "Add every missing issue of a run or story arc to your wantlist in one click" },
+      { label: "Full collection and wantlist CSV exports" },
+      { label: "Library health audit to find books accidentally tracked twice" },
+      { label: "Catalog linking for books added by hand" },
+      { label: "CSV import up to 200 rows per upload" },
     ],
     cta: "Create a free account",
     tier: "free",
@@ -43,22 +51,11 @@ const TIERS = [
     badge: "Recommended",
     via: "stripe",
     viaLabel: "via Stripe · cancel anytime",
-    headline: "The full toolkit for serious collectors",
-    description: "Everything you need to manage a real collection: professional grading, slab tracking, your own photos, and a PDF you can hand to your insurance agent.",
+    headline: "Support an independent collector site",
+    description: "Everything collectors need is free. Collector Pro is how you support an independent site built and run by one person.",
     features: [
-      { label: "Professional grading: CGC, CBCS and PGX slabs, 0.5 to 10.0 numeric grades, cert numbers" },
-      { label: "Upload your own photo for each copy in your collection" },
-      { label: "Insurance and appraisal PDF: cover art, grades, cert numbers, value totals with their source, date-stamped" },
-      { label: "Collection value over time, charted from the same asking-price estimates" },
-      { label: "Add every missing issue of a run to your wantlist in one click" },
-      { label: "Story arc completion: \"You own 11 of 14 from X-Cutioner's Song,\" with one-click add of the rest" },
-      { label: "Full-collection CSV export" },
-      { label: "Wantlist CSV export: a printable shopping list for cons and shops, sorted by title" },
-      { label: "Library health audit: find books accidentally tracked twice" },
-      { label: "Catalog linking: match books you added by hand to the catalog, so run completion, arcs and values pick them up" },
-      { label: "CSV import up to 200 rows per upload (25 on Free)" },
-      { label: "Cover scanning up to 100 a day (10 on Free)" },
       { label: "Collector Pro badge on your profile" },
+      { label: "No upgrade prompts in house promos" },
     ],
     cta: "Start Collector Pro, $8/month",
     tier: "pro",
@@ -145,7 +142,7 @@ export default function UpgradePage() {
       <section className="upgrade-hero">
         <div className="upgrade-kicker">Simple pricing</div>
         <h1 className="upgrade-title">
-          {foundingOpen ? "Join now. Keep Pro for life." : "Free to collect. Pro when you need it."}
+          {foundingOpen ? "Join now. Keep Pro for life." : "Free to collect. Pro to support it."}
         </h1>
         <p className="upgrade-sub">
           The first 100 members receive Collector Pro for life at no charge.
@@ -284,15 +281,15 @@ export default function UpgradePage() {
           <h3>Can I cancel?</h3>
           <p>
             Yes. Cancel anytime from the Stripe billing portal (button above if you&rsquo;re
-            already subscribed). No cancellation fees. Your Pro features stay active until the
+            already subscribed). No cancellation fees. Your Pro membership stays active until the
             end of your billing period. Free lifetime Founding passes do not require billing.
           </p>
         </div>
         <div className="upgrade-faq-item">
-          <h3>Why $8 for Pro?</h3>
+          <h3>Why pay at all?</h3>
           <p>
-            ComixCatalog is built solo. $8 keeps the servers running and features shipping, with
-            no third-party ads, no data sales, and no VC pressure to flip the product.
+            ComixCatalog is built solo, without third-party ads or selling your data. Collector Pro
+            keeps the servers running and helps an independent site keep improving.
           </p>
         </div>
       </section>

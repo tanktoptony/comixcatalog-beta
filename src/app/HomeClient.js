@@ -55,7 +55,7 @@ export default function HomeClient({ featured = null, heroWall = null, stats = n
             from real sold comps, and a wantlist for the hunt.
           </p>
 
-          {/* Hero search — the activation surface. Anonymous visitors can act
+          {/* Hero search - the activation surface. Anonymous visitors can act
               before signing up; this is how Discogs/Letterboxd onboard. */}
           <form
             className={`lp-hero-search${isSearching ? " is-searching" : ""}`}
@@ -66,7 +66,7 @@ export default function HomeClient({ featured = null, heroWall = null, stats = n
             <input
               type="search"
               className="lp-hero-search-input"
-              placeholder="Search any comic — Absolute Batman, Saga #1, Amazing Spider-Man 300…"
+              placeholder="Search any comic - Absolute Batman, Saga #1, Amazing Spider-Man 300…"
               value={heroQuery}
               onChange={(e) => setHeroQuery(e.target.value)}
               readOnly={isSearching}
@@ -159,7 +159,7 @@ export default function HomeClient({ featured = null, heroWall = null, stats = n
           <div className="lp-feature-icon">◈</div>
           <h3>Catalog</h3>
           <p>
-            Every series, issue, printing, and variant — indexed from the
+            Every series, issue, printing, and variant - indexed from the
             Grand Comics Database with ComicVine cover art on top.
           </p>
         </div>
@@ -168,7 +168,7 @@ export default function HomeClient({ featured = null, heroWall = null, stats = n
           <h3>Collect</h3>
           <p>
             Track grades, slab cert numbers, purchase prices, and current values.
-            Generate an insurance-ready PDF with one click — cover art, grades,
+            Generate an insurance-ready PDF with one click - cover art, grades,
             and market-value totals included.
           </p>
         </div>
@@ -189,7 +189,7 @@ export default function HomeClient({ featured = null, heroWall = null, stats = n
           <p className="lp-founding-kicker">Limited · Lifetime passes are going fast</p>
           <h2 className="lp-founding-h2">Founding Collector</h2>
           <p className="lp-founding-body">
-            Join while spots remain and receive Collector Pro for life—free,
+            Join while spots remain and receive Collector Pro for life, free,
             automatically, with no card required. You&rsquo;ll also receive a permanent Founding Collector badge.
           </p>
           <Link

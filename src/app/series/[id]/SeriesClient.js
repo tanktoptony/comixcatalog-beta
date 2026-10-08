@@ -14,7 +14,7 @@ const ISSUE_BATCH = 60;
 
 function issueSortValue(issueNumber) {
   // Comics often store dual-numbered issues like "30 (471)" (Vol 2 / Vol 1
-  // legacy numbering — Spider-Man, Fantastic Four, X-Men all do this), or
+  // legacy numbering - Spider-Man, Fantastic Four, X-Men all do this), or
   // "1A", "1.MU", "300.1". A naive Number() returns NaN on these and shoves
   // them to the end. Extract the leading numeric portion so they sort by
   // their primary issue number.
@@ -48,7 +48,7 @@ export default function SeriesClient({ initialSeries = null }) {
   const [shown, setShown] = useState(ISSUE_BATCH);
   const moreRef = useRef(null);
 
-  const { user, isPro, loading: authLoading } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const {
     collectionIds,
     wishlistIds,
@@ -167,7 +167,7 @@ export default function SeriesClient({ initialSeries = null }) {
     }, [series, sortMode]);
 
   // Run completion math. issue.id is already the library key
-  // ("gcd-<gcd_id>" for GCD issues, plain uuid for local user comics) — same
+  // ("gcd-<gcd_id>" for GCD issues, plain uuid for local user comics) - same
   // shape LibraryContext stores in collectionIds / wishlistIds.
   const runStats = useMemo(() => {
     if (!sortedIssues.length) return { owned: 0, wishlisted: 0, total: 0, missing: [] };
@@ -187,7 +187,7 @@ export default function SeriesClient({ initialSeries = null }) {
   const runPct = runStats.total > 0 ? Math.round((runStats.owned / runStats.total) * 100) : 0;
 
   async function handleAddAllMissingToWantlist() {
-    if (!user?.id || !isPro || runStats.missing.length === 0) return;
+    if (!user?.id || runStats.missing.length === 0) return;
     // Long runs (1000+ Action Comics, 700+ Spider-Man) can blow up the
     // optimistic-state churn. Confirm first for >50.
     if (runStats.missing.length > 50) {
@@ -245,7 +245,7 @@ export default function SeriesClient({ initialSeries = null }) {
         <div
           style={{
             display: "grid",
-            // Same auto-fit pattern as the issue page hero — collapses to
+            // Same auto-fit pattern as the issue page hero - collapses to
             // a single column under ~520px so phones don't horizontal-scroll.
             gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
             gap: "24px",
@@ -322,7 +322,7 @@ export default function SeriesClient({ initialSeries = null }) {
 
         {/* ── Run completion ────────────────────────────────────────────
             Only render when the viewer is signed in and there's at least one
-            owned/wishlisted issue from this run — otherwise it's noise on
+            owned/wishlisted issue from this run - otherwise it's noise on
             series the user has no relationship to. */}
         {user && sortedIssues.length > 0 && (runStats.owned > 0 || runStats.wishlisted > 0) && (
           <div
@@ -389,14 +389,8 @@ export default function SeriesClient({ initialSeries = null }) {
               >
                 <div style={{ fontSize: "0.9rem", opacity: 0.85 }}>
                   Missing {runStats.missing.length} issue{runStats.missing.length === 1 ? "" : "s"}.
-                  {!isPro && (
-                    <span style={{ opacity: 0.7 }}>
-                      {" "}Upgrade to add them all to your wantlist in one click.
-                    </span>
-                  )}
                 </div>
-                {isPro ? (
-                  <button
+                <button
                     type="button"
                     onClick={handleAddAllMissingToWantlist}
                     disabled={bulkAdding}
@@ -415,23 +409,7 @@ export default function SeriesClient({ initialSeries = null }) {
                     {bulkAdding
                       ? `Adding… (${runStats.missing.length})`
                       : `+ Add all ${runStats.missing.length} to wantlist`}
-                  </button>
-                ) : (
-                  <Link
-                    href="/upgrade"
-                    style={{
-                      padding: "8px 14px",
-                      borderRadius: 8,
-                      border: "1px solid var(--cc-gold, #FFD700)",
-                      color: "var(--cc-gold, #FFD700)",
-                      fontWeight: 700,
-                      textDecoration: "none",
-                      flexShrink: 0,
-                    }}
-                  >
-                    See Pro membership options →
-                  </Link>
-                )}
+                </button>
               </div>
             )}
             {bulkResult && (
@@ -443,7 +421,7 @@ export default function SeriesClient({ initialSeries = null }) {
           </div>
         )}
 
-        {/* Anonymous-visitor nudge — mirrors the issue page's pattern.
+        {/* Anonymous-visitor nudge - mirrors the issue page's pattern.
             Previously this whole engagement slot only rendered for signed-in
             users who already owned/wishlisted something from this run, so an
             anonymous visitor (or a logged-in user new to this series) saw no
@@ -464,7 +442,7 @@ export default function SeriesClient({ initialSeries = null }) {
             }}
           >
             <div style={{ fontSize: "0.9rem", opacity: 0.9 }}>
-              Track your progress on this {sortedIssues.length}-issue run — see what you own and what you&rsquo;re missing.
+              Track your progress on this {sortedIssues.length}-issue run - see what you own and what you&rsquo;re missing.
             </div>
             <Link
               href={`/signup?next=${encodeURIComponent(`/series/${id}`)}`}
@@ -478,7 +456,7 @@ export default function SeriesClient({ initialSeries = null }) {
                 flexShrink: 0,
               }}
             >
-              Start tracking — free →
+              Start tracking - free →
             </Link>
           </div>
         )}
@@ -547,7 +525,7 @@ export default function SeriesClient({ initialSeries = null }) {
                         style={{
                           position: "absolute",
                           // .comic-card-cover img sets z-index:1 explicitly
-                          // (globals.css) — without a competing z-index here,
+                          // (globals.css) - without a competing z-index here,
                           // that explicit layer paints over this badge
                           // regardless of DOM order, hiding it completely
                           // behind the cover. Found live 2026-08-29.

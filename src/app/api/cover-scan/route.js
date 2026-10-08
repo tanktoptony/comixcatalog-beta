@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
 import { getServiceClient } from "@/lib/supabase/service";
-import { ADMIN_ID } from "@/lib/admin";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { normalizeSeriesSearchWords } from "@/lib/seriesSearchMatch";
 import { baseIssueNumber } from "@/lib/coverMatch";
@@ -15,12 +14,12 @@ const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 const IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
 const publicCover = (path) => path ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}` : null;
 
-async function quota(supabase, userId, isPro) {
+async function quota(supabase, userId) {
   const start = new Date(); start.setUTCHours(0, 0, 0, 0);
   const { count, error } = await supabase.from("cover_scans").select("id", { count: "exact", head: true })
     .eq("user_id", userId).gte("created_at", start.toISOString()).not("outcome", "in", '("capped","error")');
   if (error) throw error;
-  return capStatus(count ?? 0, isPro);
+  return capStatus(count ?? 0, false);
 }
 
 async function findCandidates(supabase, extracted) {
@@ -105,11 +104,8 @@ export async function POST(req) {
   const user = await getAuthedUser(req);
   if (!user) return NextResponse.json({ error: "Sign in to scan a cover." }, { status: 401 });
   const supabase = getServiceClient();
-  const { data: profile, error: profileError } = await supabase.from("profiles").select("is_pro").eq("id", user.id).single();
-  if (profileError) return NextResponse.json({ error: "Could not check your scan limit." }, { status: 503 });
-  const isPro = Boolean(profile?.is_pro) || user.id === ADMIN_ID;
   let current;
-  try { current = await quota(supabase, user.id, isPro); } catch (error) { console.error("cover scan quota failed", error); return NextResponse.json({ error: "Could not check your scan limit." }, { status: 503 }); }
+  try { current = await quota(supabase, user.id); } catch (error) { console.error("cover scan quota failed", error); return NextResponse.json({ error: "Could not check your scan limit." }, { status: 503 }); }
   if (!current.allowed) {
     const { error: cappedError } = await supabase.from("cover_scans").insert({ user_id: user.id, outcome: "capped" });
     if (cappedError) console.error("cover scan capped log failed", cappedError);
@@ -135,7 +131,7 @@ export async function POST(req) {
     const outcome = coverScanOutcome(extracted, candidates);
     const { error: insertError } = await supabase.from("cover_scans").insert({ id: scanId, user_id: user.id, storage_path: storagePath, model: COVER_SCAN_MODEL, extracted, candidates, outcome, input_tokens: usage?.input_tokens ?? null, output_tokens: usage?.output_tokens ?? null });
     if (insertError) throw insertError;
-    const nextQuota = capStatus(current.used + 1, isPro);
+    const nextQuota = capStatus(current.used + 1, false);
     return NextResponse.json({ scan_id: scanId, outcome, extracted, candidates, quota: nextQuota });
   } catch (error) {
     console.error("POST /api/cover-scan failed", error);

@@ -1,6 +1,6 @@
 // /api/library/catalog-link
 //
-// GET  — return the user's local-only owned rows with their best GCD candidate
+// GET  - return the user's local-only owned rows with their best GCD candidate
 //        per row. Each entry is one of:
 //          { status: "confident", collection_id, comic, candidate }
 //          { status: "ambiguous", collection_id, comic, candidates: [...] }
@@ -8,18 +8,16 @@
 //        Confident means exactly one (series, issue_number) match OR a
 //        year-disambiguated single best.
 //
-// POST — apply a list of links. Body: { user_id, links: [{collection_id, gcd_issue_id}, ...] }
+// POST - apply a list of links. Body: { user_id, links: [{collection_id, gcd_issue_id}, ...] }
 //        For each link: validates ownership, sets gcd_issue_id, nulls comic_id
 //        (the schema invariant: a row is either-or, never both). Returns the
 //        per-row apply result.
 //
-// Pro-gated. ADMIN_ID short-circuits. Service-role bypasses Pro grading
-// trigger (migration 0008) when we null grade fields back out — which we
-// don't, but the service-role write is what makes the path safe regardless.
+// Requires an authenticated user. Every read and write below is scoped to
+// that user's collection rows.
 
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
-import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 import {
   normIssue,
@@ -31,22 +29,8 @@ import {
 import { OWNED_STATUSES } from "@/lib/collectionStatus";
 
 
-async function assertPro(supabase, user_id) {
-  if (user_id === ADMIN_ID) return true;
-  const { data: profile, error } = await supabase
-    .from("profiles")
-    .select("is_pro, is_founding_collector")
-    .eq("id", user_id)
-    .maybeSingle(); // zero rows is an answer, not a failure
-  if (error) {
-    console.error("catalog-link profile lookup failed:", error.code, error.message);
-    return null;
-  }
-  return Boolean(profile?.is_pro || profile?.is_founding_collector);
-}
-
 // ─────────────────────────────────────────────────────────────────────────
-// GET — find candidates
+// GET - find candidates
 // ─────────────────────────────────────────────────────────────────────────
 export async function GET(req) {
   try {
@@ -58,19 +42,8 @@ export async function GET(req) {
 
     const supabase = getServiceClient();
 
-    const isPro = await assertPro(supabase, user_id);
-    if (isPro === null) {
-      return NextResponse.json({ error: "Failed to verify account tier" }, { status: 502 });
-    }
-    if (!isPro) {
-      return NextResponse.json(
-        { error: "Pro tier required", upgrade: true },
-        { status: 402 }
-      );
-    }
-
     // Fetch only local-only owned rows. Wishlist/for_sale would also benefit
-    // from linking, but the user's primary value lives in owned — start there
+    // from linking, but the user's primary value lives in owned - start there
     // to keep the candidate set small and the audit fast.
     const { data: localRows, error: lrErr } = await supabase
       .from("user_collections")
@@ -144,7 +117,7 @@ export async function GET(req) {
     }
     const issuesBySeriesIssue = new Map();
     if (allSeriesGcdIds.length > 0) {
-      // PostgREST silent 1000-row cap — paginate.
+      // PostgREST silent 1000-row cap - paginate.
       const PAGE = 1000;
       let from = 0;
       while (true) {
@@ -183,7 +156,7 @@ export async function GET(req) {
       const variants = variantsByComicId.get(comic.id) ?? [];
       const iNorm = normIssue(comic.issue_number);
 
-      // Collect series across all title variants. Dedup by series.gcd_id —
+      // Collect series across all title variants. Dedup by series.gcd_id -
       // multiple variant forms can map to the same series and we don't want
       // to double-count it as ambiguous.
       const seenSeries = new Set();
@@ -263,7 +236,7 @@ export async function GET(req) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// POST — apply links
+// POST - apply links
 // ─────────────────────────────────────────────────────────────────────────
 export async function POST(req) {
   try {
@@ -280,17 +253,6 @@ export async function POST(req) {
     }
 
     const supabase = getServiceClient();
-
-    const isPro = await assertPro(supabase, user_id);
-    if (isPro === null) {
-      return NextResponse.json({ error: "Failed to verify account tier" }, { status: 502 });
-    }
-    if (!isPro) {
-      return NextResponse.json(
-        { error: "Pro tier required", upgrade: true },
-        { status: 402 }
-      );
-    }
 
     // Two-step safety: pull ownership for the collection rows we're about to
     // touch so a malicious client can't pass arbitrary collection_ids belonging
@@ -312,7 +274,7 @@ export async function POST(req) {
     // photo of their copy (which is what comic_covers represents pre-linking)
     // and they don't already have a personal cover on the user_collections
     // row, carry it over. The image lives in the same `comic-covers` bucket
-    // so the path is reusable as-is — we just copy the string. Without this,
+    // so the path is reusable as-is - we just copy the string. Without this,
     // a wood-grain photo of your physical book disappears the second the
     // row gets a gcd_issue_id, even though we still know which book it is.
     const comicIdsToProbe = (owned ?? [])
@@ -328,7 +290,7 @@ export async function POST(req) {
         console.error("catalog-link photo lookup failed:", coversError.code, coversError.message);
         return NextResponse.json({ error: "Failed to preserve collection photos" }, { status: 502 });
       }
-      // Prefer is_primary, else oldest (created_at ASC) — first upload tends
+      // Prefer is_primary, else oldest (created_at ASC) - first upload tends
       // to be the user's own copy photo.
       const byComic = new Map();
       for (const c of covers ?? []) {
@@ -361,13 +323,13 @@ export async function POST(req) {
         continue;
       }
       if (existing.gcd_issue_id != null) {
-        // Already linked — idempotent skip.
+        // Already linked - idempotent skip.
         skipped += 1;
         continue;
       }
 
       // Check for an existing row on the same user_id + target gcd_issue_id.
-      // If one exists, REFUSE to link this row — auto-deleting would be data
+      // If one exists, REFUSE to link this row - auto-deleting would be data
       // loss any time the user's local titles are genuinely different books
       // mapped to the same GCD entry (e.g. miniseries with the same canonical
       // series but different physical printings). Surface it as a soft skip
@@ -389,7 +351,7 @@ export async function POST(req) {
         errors.push({
           collection_id,
           reason: "collision",
-          message: "Another row already links to this catalog entry — manual review needed",
+          message: "Another row already links to this catalog entry - manual review needed",
         });
         continue;
       }

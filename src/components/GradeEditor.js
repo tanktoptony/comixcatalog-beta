@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { estimateCoverPrice } from "@/lib/coverPrice";
 import { trackEvent } from "@/lib/analytics";
@@ -34,7 +33,7 @@ const CGC_GRADES = [
   9.2, 9.4, 9.6, 9.8, 10.0,
 ];
 
-// Public cert-lookup pages, confirmed live (2026-08-25) — not deep-linkable
+// Public cert-lookup pages, confirmed live (2026-08-25) - not deep-linkable
 // by cert number for either service (no documented query-string param), so
 // this opens the registry's own lookup tool rather than pretending we can
 // prefill it. PGX has no confirmed public lookup tool as of this writing;
@@ -97,13 +96,7 @@ function GradeBadge({ grade, company, condition }) {
 
 export { GradeBadge };
 
-export default function GradeEditor({ collectionId, initialData = {}, canonicalCover = null, releaseYear = null, isPro = false, onSave }) {
-  // Pro gate: professional grading (slab company, numeric grade, cert number)
-  // and per-book photo upload are Collector Pro features. Free collectors still
-  // track raw condition, what they paid, market value, and notes — enough to
-  // manage a collection, which is the free hook. Client-side gate for now;
-  // server-side enforcement (RLS / Pro-checked write path) is a follow-up.
-  const canGrade = isPro;
+export default function GradeEditor({ collectionId, initialData = {}, canonicalCover = null, releaseYear = null, onSave }) {
   const [open, setOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
@@ -121,7 +114,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
   );
   const [userCoverUrl, setUserCoverUrl] = useState(initialData.user_cover_url || null);
   // Tracks the initialData prop itself (not derived state) so we can detect
-  // a genuine prop change during render and re-sync userCoverUrl — e.g. when
+  // a genuine prop change during render and re-sync userCoverUrl - e.g. when
   // library hydration delivers a freshly-uploaded photo for the same
   // component instance. Adjusting state during render (React's documented
   // pattern for this) instead of in a useEffect avoids the extra
@@ -135,7 +128,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
   const [uploading, setUploading] = useState(false);
   // Variant + multi-copy fields. variantLabel is freeform (collector types
   // "Newsstand", "Cover B", etc.). copyNumber distinguishes duplicates of
-  // the same (issue, variant) — defaults to 1.
+  // the same (issue, variant) - defaults to 1.
   const [variantLabel, setVariantLabel] = useState(initialData.variant_label || "");
   const [copyNumber, setCopyNumber] = useState(
     initialData.copy_number != null ? String(initialData.copy_number) : "1"
@@ -181,7 +174,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
       onSave?.({ user_cover_url: url });
     } catch (err) {
       console.error("cover upload failed:", err);
-      setError("Upload failed — please try again.");
+      setError("Upload failed - please try again.");
     } finally {
       setUploading(false);
     }
@@ -301,8 +294,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
       {open && (
         <div className="grade-editor-panel">
 
-          {/* Your photo of the book — Pro feature. */}
-          {USER_COVER_UPLOAD_ENABLED && canGrade && (
+          {USER_COVER_UPLOAD_ENABLED && (
             <div className="grade-field grade-cover-field">
               <label className="grade-label">Your photo of this book</label>
               <div className="grade-cover-row">
@@ -357,8 +349,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
             </div>
           )}
 
-          {canGrade ? (
-            <>
+          <>
               {/* Slab company */}
               <div className="grade-field">
                 <label className="grade-label">Grading Company</label>
@@ -441,53 +432,9 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
                   </select>
                 </div>
               )}
-            </>
-          ) : (
-            <>
-              {/* Free tier: raw condition only (slab grading is Pro). */}
-              <div className="grade-field">
-                <label className="grade-label">Condition</label>
-                <select
-                  className="grade-select"
-                  value={condition}
-                  onChange={(e) => setCondition(e.target.value)}
-                >
-                  {RAW_CONDITIONS.map((c) => (
-                    <option key={c.value} value={c.value}>{c.label}</option>
-                  ))}
-                </select>
-              </div>
+          </>
 
-              {/* In-context Pro upsell where the grading controls would be. */}
-              <div
-                className="grade-pro-upsell"
-                style={{
-                  border: "1px solid rgba(255,215,0,0.35)",
-                  background: "rgba(255,215,0,0.06)",
-                  borderRadius: 8,
-                  padding: "10px 12px",
-                  marginBottom: 12,
-                }}
-              >
-                <div style={{ fontWeight: 700, fontSize: "0.85rem", marginBottom: 4 }}>
-                  Professional grading is a Pro feature
-                </div>
-                <p style={{ fontSize: "0.8rem", opacity: 0.8, margin: "0 0 8px" }}>
-                  Track CGC/CBCS/PGX slab grades, cert numbers, and upload your own
-                  photo of each book.
-                </p>
-                <Link
-                  href="/upgrade"
-                  className="grade-hint-link"
-                  style={{ fontWeight: 700, color: "var(--cc-gold, #FFD700)" }}
-                >
-                  See Collector Pro membership options →
-                </Link>
-              </div>
-            </>
-          )}
-
-          {/* Variant + copy number — distinguishes "Cover B" from "Newsstand"
+          {/* Variant + copy number - distinguishes "Cover B" from "Newsstand"
               and "Copy 1 of 2" from "Copy 2 of 2" when the collector owns
               multiple copies of the same physical issue. */}
           <div className="grade-field-row">

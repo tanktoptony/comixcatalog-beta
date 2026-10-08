@@ -15,9 +15,9 @@ import GradeEditor from "@/components/GradeEditor";
 import { countCopies } from "@/lib/libraryMutations";
 
 function money(value) {
-  if (value == null || value === "") return "—";
+  if (value == null || value === "") return "-";
   const num = Number(value);
-  if (Number.isNaN(num)) return "—";
+  if (Number.isNaN(num)) return "-";
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -33,7 +33,7 @@ export default function IssuePage() {
   const [issue, setIssue] = useState(null);
   const [loading, setLoading] = useState(true);
   // Inline modal for "+ Add another copy". window.prompt() doesn't work
-  // under Next.js Turbopack — explicit React state instead.
+  // under Next.js Turbopack - explicit React state instead.
   const [addCopyOpen, setAddCopyOpen] = useState(false);
   const [addCopyLabel, setAddCopyLabel] = useState("");
   const [addCopyBusy, setAddCopyBusy] = useState(false);
@@ -43,7 +43,7 @@ export default function IssuePage() {
   const [gradeData, setGradeData] = useState(null);
   const [mutationError, setMutationError] = useState(null);
 
-  const { user, isPro, loading: authLoading } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const libraryId = String(issue?.id || id || "");
 
   const inCollection = collectionIds?.has(libraryId);
@@ -57,8 +57,8 @@ export default function IssuePage() {
 
       try {
         // authedFetch sends the caller's session so the API can compute
-        // per-arc ownership counts for the "Part of [Arc Name] — you own
-        // X of Y" badge — server derives identity from the verified token,
+        // per-arc ownership counts for the "Part of [Arc Name] - you own
+        // X of Y" badge - server derives identity from the verified token,
         // not a query param.
         const res = await authedFetch(`/api/issues/${id}`, { cache: "no-store" });
         const data = await res.json();
@@ -132,12 +132,12 @@ export default function IssuePage() {
     setVariantSaveState("saving");
     try {
       // `variant_of_gcd_id` is a forward-hook for a future GCD-native
-      // variant-issue link (see migration 0010) — it points to a *different*
+      // variant-issue link (see migration 0010) - it points to a *different*
       // base gcd_issue, which this page never has. Writing this issue's own
       // id into it (the old behavior) was a no-op self-reference that also
       // ignored which cover thumbnail the collector actually clicked. The
       // thing the user is picking here is which `cover_variants` image is
-      // their printing, so persist that into `user_cover_url` — the field
+      // their printing, so persist that into `user_cover_url` - the field
       // already used sitewide as "the image representing this specific
       // copy" (library, public profile, PDF export). Only write it when a
       // thumbnail was actually selected, so confirming just a label doesn't
@@ -296,8 +296,8 @@ export default function IssuePage() {
                   </div>
                   <div style={{ fontSize: "0.85rem", opacity: 0.85, marginTop: 2 }}>
                     {user
-                      ? `You own ${arc.owned} of ${arc.total}${arc.owned === arc.total && arc.total > 0 ? " — complete!" : ""}`
-                      : `${arc.total} issue${arc.total === 1 ? "" : "s"} — sign in to track completion`}
+                      ? `You own ${arc.owned} of ${arc.total}${arc.owned === arc.total && arc.total > 0 ? " - complete!" : ""}`
+                      : `${arc.total} issue${arc.total === 1 ? "" : "s"} - sign in to track completion`}
                   </div>
                 </div>
                 <div style={{ color: "var(--cc-gold, #FFD700)", fontWeight: 700, fontSize: "1.2rem" }}>→</div>
@@ -460,7 +460,7 @@ export default function IssuePage() {
             <div
               style={{
                 display: "grid",
-                // Listings/Median/Low-High stat cards — collapse to fewer
+                // Listings/Median/Low-High stat cards - collapse to fewer
                 // columns on narrow phones rather than squeezing.
                 gridTemplateColumns: "repeat(auto-fit, minmax(min(140px, 100%), 1fr))",
                 gap: "12px",
@@ -485,7 +485,7 @@ export default function IssuePage() {
             <div
               style={{
                 display: "grid",
-                // Issue Info + Quick Actions — stack under ~520px.
+                // Issue Info + Quick Actions - stack under ~520px.
                 gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))",
                 gap: "18px",
                 marginBottom: "22px",
@@ -520,7 +520,7 @@ export default function IssuePage() {
               </div>
             </div>
 
-            {/* Condition & Grade — including "your photo of this book," which
+            {/* Condition & Grade - including "your photo of this book," which
                 is otherwise easy to never discover (previously only lived on
                 /library and /comic/[id], never on the page where users
                 actually add canonical issues to their collection). */}
@@ -529,7 +529,6 @@ export default function IssuePage() {
                 <h3 className="issue-section-title">Condition & Grade</h3>
                 <GradeEditor
                   collectionId={collectionRow.id}
-                  isPro={isPro}
                   canonicalCover={selectedCover || issue.cover || null}
                   releaseYear={issue?.release_year ?? null}
                   initialData={{
@@ -556,7 +555,7 @@ export default function IssuePage() {
                 <div
                   style={{
                     display: "grid",
-                    // Nearby Issues thumbnails — 4-up on desktop, 2-up on
+                    // Nearby Issues thumbnails - 4-up on desktop, 2-up on
                     // mobile (covers stay legible at ~140px min).
                     gridTemplateColumns: "repeat(auto-fit, minmax(min(140px, 100%), 1fr))",
                     gap: "12px",
@@ -620,7 +619,7 @@ export default function IssuePage() {
             </h2>
             <p className="onboarding-body" style={{ textAlign: "left" }}>
               Track an additional copy of this issue. Optionally label the
-              variant — Newsstand, Cover B, 1:25 Incentive, etc. Leave blank
+              variant - Newsstand, Cover B, 1:25 Incentive, etc. Leave blank
               if it&rsquo;s the same printing as your existing copy.
             </p>
             <input

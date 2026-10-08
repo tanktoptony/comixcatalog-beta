@@ -31,8 +31,8 @@ export const HOUSE_ADS = [
   {
     id: "value",
     kicker: "Collector Pro",
-    headline: "Know what your collection is worth.",
-    body: "Market values on every issue, grades and cert numbers tracked, and an insurance-ready PDF in one click.",
+    headline: "Everything here is free.",
+    body: "Grading, values, exports and the insurance PDF cost nothing. Collector Pro is how you support an independent, solo-built site.",
     cta: "See Pro",
     href: "/upgrade",
     show: ({ isPro }) => !isPro,

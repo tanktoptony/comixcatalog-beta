@@ -2,43 +2,28 @@
 //
 // Two modes, controlled by `mode`:
 //
-//   mode=series (default) — search the catalog for series whose title matches
+//   mode=series (default) - search the catalog for series whose title matches
 //      `q` (ILIKE on title and title_normalized). Returns up to 20 series
 //      with metadata (year span, publisher, issue count, sample cover). If
 //      `issue` is provided as a hint, each result also carries a
-//      `matching_issue` field — the specific gcd_issue for that issue
+//      `matching_issue` field - the specific gcd_issue for that issue
 //      number under this series, or null if the series doesn't carry it.
 //
-//   mode=issue — given a `series_gcd_id` and `issue` number, return the
+//   mode=issue - given a `series_gcd_id` and `issue` number, return the
 //      matching gcd_issue (one row or null). Used after the user picks a
 //      series in the modal, in case they want to pick a different issue #
 //      than the one we suggested.
 //
-// Pro-gated.
+// Requires an authenticated user.
 
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
-import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 import { bestYearFor } from "@/lib/years";
 import { toTitleNormalizedKey } from "@/lib/catalogLinkMatcher";
 function normIssue(v) {
   return String(v ?? "").trim().toLowerCase();
 }
-async function assertPro(supabase, user_id) {
-  if (user_id === ADMIN_ID) return true;
-  const { data: profile, error } = await supabase
-    .from("profiles")
-    .select("is_pro, is_founding_collector")
-    .eq("id", user_id)
-    .maybeSingle(); // zero rows is an answer, not a failure
-  if (error) {
-    console.error("catalog-link search profile lookup failed:", error.code, error.message);
-    return null;
-  }
-  return Boolean(profile?.is_pro || profile?.is_founding_collector);
-}
-
 export async function GET(req) {
   try {
     const authedUser = await getAuthedUser(req);
@@ -52,20 +37,10 @@ export async function GET(req) {
 
     const supabase = getServiceClient();
 
-    const isPro = await assertPro(supabase, user_id);
-    if (isPro === null) {
-      return NextResponse.json({ error: "Failed to verify account tier" }, { status: 502 });
-    }
-    if (!isPro) {
-      return NextResponse.json(
-        { error: "Pro tier required", upgrade: true },
-        { status: 402 }
-      );
-    }
     let degraded = false;
 
     // ─────────────────────────────────────────────────────────────────────
-    // mode=issue — return the gcd_issue for (series_gcd_id, issue)
+    // mode=issue - return the gcd_issue for (series_gcd_id, issue)
     // ─────────────────────────────────────────────────────────────────────
     if (mode === "issue") {
       const series_gcd_id = Number(searchParams.get("series_gcd_id"));
@@ -136,7 +111,7 @@ export async function GET(req) {
     }
 
     // ─────────────────────────────────────────────────────────────────────
-    // mode=series — search series, optionally hint a specific issue number
+    // mode=series - search series, optionally hint a specific issue number
     // ─────────────────────────────────────────────────────────────────────
     const q = (searchParams.get("q") ?? "").trim();
     const issueHint = (searchParams.get("issue") ?? "").trim();
@@ -201,7 +176,7 @@ export async function GET(req) {
     }
 
     // Cover lookup: for each (series_title, hinted issue) pair, find a cover.
-    // We don't try to cover every issue of every series — that explodes —
+    // We don't try to cover every issue of every series - that explodes -
     // just the suggested one per series.
     const seriesTitles = seriesRows.map((s) => s.title).filter(Boolean);
     const coverIndex = new Map();

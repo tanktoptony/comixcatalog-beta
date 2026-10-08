@@ -3,7 +3,6 @@ import { getServiceClient } from "@/lib/supabase/service";
 import { parseYear } from "@/lib/years";
 import { PDFDocument, rgb, StandardFonts, PageSizes } from "pdf-lib";
 import sharp from "sharp";
-import { ADMIN_ID } from "@/lib/admin";
 import { coverPriceForYear } from "@/lib/valuation";
 import { getMarketValuesBulk } from "@/lib/marketValue";
 import { getAuthedUser } from "@/lib/authServer";
@@ -32,7 +31,7 @@ function condAbbrev(cond) {
 }
 
 // pdf-lib's StandardFonts (Helvetica family) use WinAnsi encoding, which is
-// roughly Latin-1 — anything outside it (smart quotes, em-dashes, ellipsis
+// roughly Latin-1 - anything outside it (smart quotes, em-dashes, ellipsis
 // characters, accented letters in some publisher names, the U+FFFD replacement
 // glyph from upstream decoding errors) throws "WinAnsi cannot encode" at draw
 // time and crashes the whole PDF. Rather than bundle a Unicode font (would
@@ -41,11 +40,11 @@ function condAbbrev(cond) {
 function pdfSafe(text) {
   if (text == null) return "";
   let s = String(text);
-  // Common typographic substitutions — preserve meaning, drop encoding
+  // Common typographic substitutions - preserve meaning, drop encoding
   s = s
     .replace(/[‘’‚‛]/g, "'")  // single quotes / primes
     .replace(/[“”„‟]/g, '"')  // double quotes
-    .replace(/[–—―]/g, "-")        // en/em/horizontal dash
+    .replace(/[–-―]/g, "-")        // en/em/horizontal dash
     .replace(/…/g, "...")                       // ellipsis
     .replace(/ /g, " ")                         // non-breaking space
     .replace(/[•‣◦]/g, "*")         // bullet variants
@@ -68,7 +67,7 @@ async function fetchImageBytes(url) {
     const raw = Buffer.from(await res.arrayBuffer());
 
     // Resize + re-encode as JPEG. sharp handles the input format detection
-    // (PNG, JPEG, WebP, HEIC) so we no longer need to track isPng — the
+    // (PNG, JPEG, WebP, HEIC) so we no longer need to track isPng - the
     // output is always JPEG, which pdf-lib embeds via embedJpg().
     // q=80 is a sweet spot for thumbnails: visually clean, ~5-10KB per cover.
     try {
@@ -79,7 +78,7 @@ async function fetchImageBytes(url) {
       return { bytes: new Uint8Array(resized), isPng: false };
     } catch (sharpErr) {
       // sharp can't handle this image (corrupt, unsupported format, etc).
-      // Fall back to the raw bytes — embed will either work at original
+      // Fall back to the raw bytes - embed will either work at original
       // size or fail gracefully inside the per-row try/catch downstream.
       console.warn("Cover resize failed, embedding raw:", url, sharpErr?.message);
       const ct = res.headers.get("content-type") || "";
@@ -111,7 +110,7 @@ function wrapText(text, font, size, maxWidth) {
 function truncate(text, font, size, maxWidth) {
   let s = pdfSafe(text);
   if (font.widthOfTextAtSize(s, size) <= maxWidth) return s;
-  // Use "..." not "…" — even though we sanitize, this keeps the truncation
+  // Use "..." not "…" - even though we sanitize, this keeps the truncation
   // marker visually identical pre/post sanitize.
   while (s.length > 0 && font.widthOfTextAtSize(s + "...", size) > maxWidth) {
     s = s.slice(0, -1);
@@ -139,21 +138,13 @@ export async function POST(req) {
     const supabase = getServiceClient();
 
     const [{ data: profile }, { data: collRows, error: collErr }] = await Promise.all([
-      supabase.from("profiles").select("username, is_pro").eq("id", user_id).single(),
+      supabase.from("profiles").select("username").eq("id", user_id).single(),
       supabase
         .from("user_collections")
         .select("id, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes, purchase_price, market_value, user_cover_url")
         .eq("user_id", user_id)
         .in("status", OWNED_STATUSES),
     ]);
-
-    const isProOrAdmin = Boolean(profile?.is_pro) || user_id === ADMIN_ID;
-    if (!isProOrAdmin) {
-      return NextResponse.json(
-        { error: "Pro tier required", upgrade: true },
-        { status: 402 }
-      );
-    }
 
     if (collErr) {
       console.error("PDF export: user_collections query failed", {
@@ -293,9 +284,9 @@ export async function POST(req) {
 
     // ── Pre-resolve auto valuations for everything with a gcd_issue_id ──
     // Same fallback chain as the library page (getMarketValue):
-    //   1. user-entered market_value (override) — handled below
+    //   1. user-entered market_value (override) - handled below
     //   2. market_comps median (sold-comp / asking-price from eBay)
-    //   3. era-based cover-price floor — handled below
+    //   3. era-based cover-price floor - handled below
     // We pass each issue's grade signal so the median bucket is right.
     const marketValueMap = await getMarketValuesBulk({
       supabase,
@@ -325,7 +316,7 @@ export async function POST(req) {
           : null;
         const mv = marketValueMap.get(row.id);
         // getMarketValue already applied the cover-price fallback when no
-        // comps cleared minSamples — so mv.value carries either the comp
+        // comps cleared minSamples - so mv.value carries either the comp
         // median (source="market-comp") or the cover floor (source="cover-price").
         const autoValue = mv?.value != null ? Number(mv.value) : null;
         const effective = userOverride != null
@@ -398,7 +389,7 @@ export async function POST(req) {
 
     // Market-value field uses effective_market_value (user override → cover-
     // price floor). Caption discloses the mix so the report stays honest:
-    // a $0 collection becomes "$N — X user-entered, Y from cover-price floor."
+    // a $0 collection becomes "$N - X user-entered, Y from cover-price floor."
     function buildMarketValueField() {
       const userCount = items.filter((i) => i.value_source === "user").length;
       const coverCount = items.filter((i) => i.value_source === "cover-price").length;
@@ -407,7 +398,7 @@ export async function POST(req) {
       const total = items.reduce((sum, i) => sum + (Number(i.effective_market_value) || 0), 0);
       const anyValued = userCount + coverCount + ebayAskingCount + ebaySoldCount > 0;
       const value = anyValued ? money(total) : "Not recorded";
-      // Every value_source that contributes to the total gets named here —
+      // Every value_source that contributes to the total gets named here -
       // this caption is the one place a reader sees the full mix, so a
       // silently-omitted category (ebay-listed asking prices, in particular)
       // would misrepresent how solid "total market value" actually is.
@@ -444,7 +435,7 @@ export async function POST(req) {
 
     cover.drawRectangle({ x: MARGIN + 18, y: fy - 8, width: W - (MARGIN + 18) * 2, height: 1, color: GOLD, opacity: 0.3 });
 
-    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Purchase-price totals reflect self-reported figures entered by the collector. Market-value totals combine self-reported values, eBay-derived comps, and an era-based cover-price floor estimate for issues without a user-entered value. eBay comps are current asking prices, not confirmed sold prices, unless individually noted otherwise — they typically skew high. Neither total constitutes a formal written appraisal.";
+    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Purchase-price totals reflect self-reported figures entered by the collector. Market-value totals combine self-reported values, eBay-derived comps, and an era-based cover-price floor estimate for issues without a user-entered value. eBay comps are current asking prices, not confirmed sold prices, unless individually noted otherwise - they typically skew high. Neither total constitutes a formal written appraisal.";
     const dLines = wrapText(disclaimer, reg, 8.5, W - (MARGIN + 18) * 2);
     let dy = fy - 28;
     for (const line of dLines) {
@@ -596,10 +587,10 @@ export async function POST(req) {
         });
       }
       // Publisher
-      page.drawText(truncate(item.publisher || "—", reg, ts, CW.pub - 4), {
+      page.drawText(truncate(item.publisher || "-", reg, ts, CW.pub - 4), {
         x: CX.pub, y: ty + 4, size: ts, font: reg, color: DGRAY,
       });
-      // Year — em-dash placeholder swapped for ASCII so we don't depend on
+      // Year - em-dash placeholder swapped for ASCII so we don't depend on
       // pdfSafe() reaching this path (this drawText is not wrapped in truncate).
       page.drawText(item.year ? String(item.year) : "-", {
         x: CX.year, y: ty + 4, size: ts, font: reg, color: DGRAY,
@@ -625,31 +616,31 @@ export async function POST(req) {
       });
 
       // Slab
-      page.drawText(truncate(item.slab_company || "—", reg, ts, CW.slab - 4), {
+      page.drawText(truncate(item.slab_company || "-", reg, ts, CW.slab - 4), {
         x: CX.slab, y: ty + 4, size: ts, font: reg, color: DGRAY,
       });
 
       // Cert
-      page.drawText(truncate(item.slab_cert_number || "—", reg, ts, CW.cert - 4), {
+      page.drawText(truncate(item.slab_cert_number || "-", reg, ts, CW.cert - 4), {
         x: CX.cert, y: ty + 4, size: ts, font: reg, color: DGRAY,
       });
 
       // Paid
       const paidLabel = item.purchase_price != null && !Number.isNaN(Number(item.purchase_price))
         ? money(Number(item.purchase_price))
-        : "—";
+        : "-";
       page.drawText(truncate(paidLabel, reg, ts, CW.paid - 4), {
         x: CX.paid, y: ty + 4, size: ts, font: reg, color: DGRAY,
       });
 
-      // Market value — uses effective_market_value (user override → cover-
+      // Market value - uses effective_market_value (user override → cover-
       // price floor). Cover-price and eBay-asking rows draw in italic to
       // visually distinguish unconfirmed estimates from solid values
       // (collector-entered, or a real eBay sold comp); those stay bold.
       const valueLabel = item.effective_market_value != null
         ? money(Number(item.effective_market_value))
-        : "—";
-      const valueHasNumber = valueLabel !== "—";
+        : "-";
+      const valueHasNumber = valueLabel !== "-";
       const isEstimate = valueHasNumber && (item.value_source === "cover-price" || item.value_source === "ebay-listed");
       page.drawText(truncate(valueLabel, isEstimate ? italic : bold, ts, CW.value - 4), {
         x: CX.value, y: ty + 4, size: ts,

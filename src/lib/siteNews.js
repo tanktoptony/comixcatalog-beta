@@ -51,7 +51,7 @@ export const SITE_NEWS = [
   {
     date: "2026-10-02",
     title: "Watch your collection's value move",
-    body: "Collector Pro now charts your collection's estimated value day by day in your library, with the change over 30 days, 90 days or all time. It moves with the market even when your collection doesn't.",
+    body: "Your library now charts its estimated value day by day, with the change over 30 days, 90 days or all time. It moves with the market even when your collection doesn't.",
     href: "/library",
   },
   {

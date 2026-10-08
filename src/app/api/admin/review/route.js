@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import { ADMIN_ID } from "@/lib/admin";
-import { getAuthedUser } from "@/lib/authServer";
+import { requireAdmin } from "@/lib/adminAuth";
 import { resolveCovers } from "@/lib/catalog/covers";
 import { reviewActionToUpdate } from "@/lib/review";
 import { getServiceClient } from "@/lib/supabase/service";
@@ -8,14 +7,9 @@ import { getServiceClient } from "@/lib/supabase/service";
 const publicCanonicalCover = (path) => path ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}` : null;
 const normalize = (value) => String(value ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
-async function admin(req) {
-  const user = await getAuthedUser(req);
-  return user?.id === ADMIN_ID ? user : null;
-}
-
 export async function GET(req) {
-  const user = await admin(req);
-  if (!user) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  const { admin: user, response } = await requireAdmin(req);
+  if (response) return response;
   const kind = new URL(req.url).searchParams.get("kind");
   if (!new Set(["printings", "books"]).has(kind)) return NextResponse.json({ error: "Invalid kind" }, { status: 400 });
   const supabase = getServiceClient();
@@ -62,8 +56,8 @@ export async function GET(req) {
 }
 
 export async function POST(req) {
-  const user = await admin(req);
-  if (!user) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  const { admin: user, response } = await requireAdmin(req);
+  if (response) return response;
   const body = await req.json().catch(() => null);
   const update = reviewActionToUpdate(body?.kind, body?.action, body?.note, user.id);
   if (!body?.id || !update) return NextResponse.json({ error: "Invalid review action" }, { status: 400 });

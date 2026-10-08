@@ -16,7 +16,7 @@
 import { NextResponse } from "next/server";
 import { sniffImage, assetBaseName } from "@/lib/productionAssets";
 import { titleVariants } from "@/lib/titleMatch";
-import { serviceClient, isAdminRequest, lookupIssue } from "@/lib/productionAssetsServer";
+import { serviceClient, adminRefusal, lookupIssue } from "@/lib/productionAssetsServer";
 
 export const dynamic = "force-dynamic";
 
@@ -67,7 +67,8 @@ async function findCoverRow(supabase, issueId, info) {
 }
 
 export async function GET(req) {
-  if (!(await isAdminRequest(req))) return fail(403, "Not authorized");
+  const refusal = await adminRefusal(req);
+  if (refusal) return refusal;
 
   const issueId = new URL(req.url).searchParams.get("issueId") ?? "";
   if (!ISSUE_ID.test(issueId)) return fail(400, "Invalid issueId");

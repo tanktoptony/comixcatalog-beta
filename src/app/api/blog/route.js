@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getServiceClient } from "@/lib/supabase/service";
-import { getAuthedUser } from "@/lib/authServer";
-import { ADMIN_ID } from "@/lib/admin";
+import { requireAdmin } from "@/lib/adminAuth";
 
 function getAnonClient() {
   return createClient(
@@ -50,10 +49,8 @@ export async function GET(req) {
 }
 
 export async function POST(req) {
-  const authedUser = await getAuthedUser(req);
-  if (!authedUser || authedUser.id !== ADMIN_ID) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
-  }
+  const { admin: authedUser, response } = await requireAdmin(req);
+  if (response) return response;
 
   const supabase = getServiceClient();
 
@@ -93,10 +90,8 @@ export async function POST(req) {
 }
 
 export async function DELETE(req) {
-  const authedUser = await getAuthedUser(req);
-  if (!authedUser || authedUser.id !== ADMIN_ID) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
-  }
+  const { response } = await requireAdmin(req);
+  if (response) return response;
 
   const supabase = getServiceClient();
 

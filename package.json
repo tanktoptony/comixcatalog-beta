@@ -18,6 +18,7 @@
     "test:activity-feed": "node --test src/lib/activityFeed.test.js",
     "test:library-mutations": "node --test src/lib/libraryMutations.test.js",
     "test:chunk": "node --test src/lib/chunk.test.js",
+    "test:admin-aal": "node --test src/lib/adminAal.test.js",
     "test:fetch-with-retry": "node --test src/lib/fetchWithRetry.test.js",
     "test:smoke": "node --test tests/smoke.test.js",
     "test:format-sync": "node --test scripts/syncGcdSeriesFormat.test.js",

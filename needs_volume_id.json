@@ -43561,9 +43561,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T19:01:02.876615+00:00",
-    "retry_after": "2026-10-08T19:01:02.876631+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T20:00:52.823240+00:00",
+    "retry_after": "2026-10-11T20:00:52.823256+00:00"
   },
   {
     "name": "Play Ball, Snoopy",
@@ -43571,9 +43571,9 @@
     "year": 1985,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T19:01:03.405356+00:00",
-    "retry_after": "2026-10-08T19:01:03.405373+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T20:00:53.709744+00:00",
+    "retry_after": "2026-10-11T20:00:53.709761+00:00"
   },
   {
     "name": "Gen 13: September Song",
@@ -43581,9 +43581,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T19:01:04.766095+00:00",
-    "retry_after": "2026-10-08T19:01:04.766110+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T20:00:54.702060+00:00",
+    "retry_after": "2026-10-11T20:00:54.702075+00:00"
   },
   {
     "name": "Pok�mon Black and White",
@@ -43591,9 +43591,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T19:01:05.490935+00:00",
-    "retry_after": "2026-10-08T19:01:05.490951+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T20:01:04.105598+00:00",
+    "retry_after": "2026-10-11T20:01:04.105614+00:00"
   },
   {
     "name": "Room Service",
@@ -44364,5 +44364,25 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-08T18:28:41.031691+00:00",
     "retry_after": "2026-10-09T18:28:41.031710+00:00"
+  },
+  {
+    "name": "Marvel Heartbreakers 1 (MDCU)",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T20:00:52.288966+00:00",
+    "retry_after": "2026-10-09T20:00:52.288982+00:00"
+  },
+  {
+    "name": "Chili Annual",
+    "publisher": "Marvel Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T20:01:03.206127+00:00",
+    "retry_after": "2026-10-09T20:01:03.206143+00:00"
   }
 ]

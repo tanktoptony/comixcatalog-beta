@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { COVER_SCAN_SCHEMA, COVER_TITLE_SIMILARITY_THRESHOLD, capStatus, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, ownedCopiesFor, ownedCopyLabel, parseCoverExtraction, rankCoverCandidates, titleSimilarity } from "./coverScan.js";
+import { COVER_SCAN_SCHEMA, COVER_TITLE_SIMILARITY_THRESHOLD, capStatus, FREE_NOT_IN_CATALOG, scanUsage, scanWasFree, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, ownedCopiesFor, ownedCopyLabel, parseCoverExtraction, rankCoverCandidates, titleSimilarity } from "./coverScan.js";
 import { extractCover } from "./coverScanClaude.js";
 import { baseIssueNumber } from "./coverMatch.js";
 
@@ -100,4 +100,19 @@ test("schema has no integer bounds the API rejects; parser clamps instead", () =
   assert.equal(parseCoverExtraction(msg({ ...base, cover_month: 13 })).cover_month, null);
   assert.equal(parseCoverExtraction(msg({ ...base, cover_year: 199 })).cover_year, null);
   assert.equal(parseCoverExtraction(msg(base)).cover_month, 5);
+});
+
+test("scans of books we don't have are free up to the daily ceiling", () => {
+  assert.equal(scanUsage(10, 0), 10);
+  assert.equal(scanUsage(10, FREE_NOT_IN_CATALOG), 10);
+  assert.equal(scanUsage(10, FREE_NOT_IN_CATALOG + 5), 15);
+  assert.equal(scanWasFree("not_in_catalog", 0), true);
+  assert.equal(scanWasFree("not_in_catalog", FREE_NOT_IN_CATALOG - 1), true);
+  assert.equal(scanWasFree("not_in_catalog", FREE_NOT_IN_CATALOG), false);
+  assert.equal(scanWasFree("matched", 0), false);
+  assert.equal(scanWasFree("not_a_comic", 0), false);
+});
+test("free not-in-catalog scans never unlock past the cap", () => {
+  assert.equal(capStatus(scanUsage(100, FREE_NOT_IN_CATALOG), false).allowed, false);
+  assert.equal(capStatus(scanUsage(99, FREE_NOT_IN_CATALOG + 1), false).allowed, false);
 });

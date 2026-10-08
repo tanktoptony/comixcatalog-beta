@@ -12114,3 +12114,42 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .cover-scan-owned-ask { display: flex; gap: 10px; align-items: flex-start; }
 .cover-scan-owned-ask p { margin: 0; }
 .cover-scan-owned-thumb { width: 44px; height: 66px; object-fit: cover; border-radius: 4px; flex-shrink: 0; outline: 2px solid var(--cc-gold, #d8b04b); outline-offset: 1px; }
+
+/* ---------- /library header buttons: one size (2026-10-07) ----------
+   The header mixed <button>s (browser default font), a <Link> (body font,
+   larger) and small share pills, and labels wrapped onto two lines, so no
+   two buttons matched. One height, one font, no wrapping. Colors keep
+   their roles: gold outline for share + sell, gold fill for Scan. */
+.library-page-header .library-header-actions {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.library-page-header .library-share-btn,
+.library-page-header .library-header-actions .library-secondary-btn,
+.library-page-header .library-header-actions .library-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.library-page-header .library-share-btn { margin: 12px 8px 0 0; }
+.library-page-header .library-header-actions .library-primary-btn {
+  border-color: var(--cc-gold);
+  background: var(--cc-gold);
+  color: #11161d;
+}
+.library-page-header .library-header-actions .library-primary-btn:hover {
+  background: var(--cc-gold-soft);
+  color: #11161d;
+}

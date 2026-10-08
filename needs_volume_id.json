@@ -11621,8 +11621,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556262+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:01:12.623062+00:00",
+    "retry_after": "2026-10-11T16:01:12.623085+00:00"
   },
   {
     "name": "Detective Comics",
@@ -42843,9 +42844,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T21:11:12.986785+00:00",
-    "retry_after": "2026-10-07T21:11:12.986803+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:06:54.954025+00:00",
+    "retry_after": "2026-10-11T16:06:54.954042+00:00"
   },
   {
     "name": "The House of Mystery",
@@ -42866,9 +42867,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T21:12:54.601238+00:00",
-    "retry_after": "2026-10-07T21:12:54.601254+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:06:55.544429+00:00",
+    "retry_after": "2026-10-11T16:06:55.544446+00:00"
   },
   {
     "name": "Star Wars: The Original Marvel Years Omnibus",
@@ -42876,9 +42877,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T22:00:50.869652+00:00",
-    "retry_after": "2026-10-07T22:00:50.869671+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:06:56.127419+00:00",
+    "retry_after": "2026-10-11T16:06:56.127436+00:00"
   },
   {
     "name": "Batman: White Knight",
@@ -42899,9 +42900,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T22:03:37.811982+00:00",
-    "retry_after": "2026-10-07T22:03:37.812002+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:06:56.722935+00:00",
+    "retry_after": "2026-10-11T16:06:56.722952+00:00"
   },
   {
     "name": "Can I Have a Cookie?",
@@ -42909,9 +42910,9 @@
     "year": 1973,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T23:38:35.771807+00:00",
-    "retry_after": "2026-10-07T23:38:35.771823+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:06:57.432156+00:00",
+    "retry_after": "2026-10-11T16:06:57.432174+00:00"
   },
   {
     "name": "The Funtastic World of Hanna-Barbera",
@@ -42919,9 +42920,9 @@
     "year": 1977,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-06T23:39:27.120904+00:00",
-    "retry_after": "2026-10-07T23:39:27.120919+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:06:58.070858+00:00",
+    "retry_after": "2026-10-11T16:06:58.070875+00:00"
   },
   {
     "name": "She-Hulk Epic Collection",
@@ -42929,9 +42930,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T00:00:50.295771+00:00",
-    "retry_after": "2026-10-08T00:00:50.295786+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:06:58.670127+00:00",
+    "retry_after": "2026-10-11T16:06:58.670145+00:00"
   },
   {
     "name": "House of  Mystery",
@@ -42952,9 +42953,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T00:00:58.806811+00:00",
-    "retry_after": "2026-10-08T00:00:58.806827+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:06:59.166128+00:00",
+    "retry_after": "2026-10-11T16:06:59.166146+00:00"
   },
   {
     "name": "Deadpool by Skottie Young",
@@ -42962,9 +42963,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T00:01:37.625900+00:00",
-    "retry_after": "2026-10-08T00:01:37.625918+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:06:59.821844+00:00",
+    "retry_after": "2026-10-11T16:06:59.821861+00:00"
   },
   {
     "name": "B.C. Great Zot, I'm Beautiful",
@@ -43370,9 +43371,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T15:06:26.983251+00:00",
-    "retry_after": "2026-10-08T15:06:26.983267+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:05:11.052212+00:00",
+    "retry_after": "2026-10-11T16:05:11.052230+00:00"
   },
   {
     "name": "AAFES 5th Edition [New Avengers: The Spirit of America]",
@@ -43470,9 +43471,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-07T16:05:55.543132+00:00",
-    "retry_after": "2026-10-08T16:05:55.543149+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-08T16:07:00.652712+00:00",
+    "retry_after": "2026-10-11T16:07:00.652729+00:00"
   },
   {
     "name": "WildC.A.T.s / X-Men: The Golden Age 3-D",
@@ -44253,5 +44254,95 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-08T15:01:52.271879+00:00",
     "retry_after": "2026-10-09T15:01:52.271900+00:00"
+  },
+  {
+    "name": "Cerebus",
+    "publisher": "Aardvark-Vanaheim Inc.",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T16:00:55.432168+00:00",
+    "retry_after": "2026-10-09T16:00:55.432185+00:00"
+  },
+  {
+    "name": "In Rage",
+    "publisher": "Unknown Publisher",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T16:00:56.081041+00:00",
+    "retry_after": "2026-10-09T16:00:56.081060+00:00"
+  },
+  {
+    "name": "Justice League Special",
+    "publisher": "DC Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T16:05:09.912698+00:00",
+    "retry_after": "2026-10-09T16:05:09.912718+00:00"
+  },
+  {
+    "name": "Doom Patrol Director's Cut",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T16:05:10.463449+00:00",
+    "retry_after": "2026-10-09T16:05:10.463467+00:00"
+  },
+  {
+    "name": "Doktor Strange",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T16:06:07.531806+00:00",
+    "retry_after": "2026-10-09T16:06:07.531824+00:00"
+  },
+  {
+    "name": "You've Come a Long Way, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T16:06:08.539176+00:00",
+    "retry_after": "2026-10-09T16:06:08.539196+00:00"
+  },
+  {
+    "name": "Madballs vs Garbage Pail Kids, Volume 1, Free Comic Book Day",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-08T16:06:54.352539+00:00",
+    "retry_after": "2026-10-09T16:06:54.352556+00:00"
   }
 ]

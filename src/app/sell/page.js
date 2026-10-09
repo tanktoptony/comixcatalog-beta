@@ -19,6 +19,10 @@ export default function SellPage() {
           no buyer protection and no payout through ComixCatalog yet, and no fees
           during the beta.
         </p>
+        <p>
+          If we add checkout later, listings you make now carry over. You won&rsquo;t
+          have to list anything again.
+        </p>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
           <Link href="/library" className="primary-btn">
             Go to your library

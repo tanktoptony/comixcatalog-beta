@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
       <article className="legal-prose">
         <p className="legal-kicker">Legal</p>
         <h1>Privacy Policy</h1>
-        <p className="legal-meta">Last updated: April 2026</p>
+        <p className="legal-meta">Last updated: October 2026</p>
 
         <p>
           ComixCatalog (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) operates the website at
@@ -42,8 +42,9 @@ export default function PrivacyPolicyPage() {
           values, notes, and any cover photos you upload.
         </p>
         <p>
-          <strong>Payment information.</strong> Subscription and marketplace
-          payments are processed by Stripe. We do not store your full card
+          <strong>Payment information.</strong> Subscription payments are
+          processed by Stripe. The marketplace doesn&rsquo;t process payments during
+          the beta. We do not store your full card
           number on our servers; Stripe holds that data subject to its own
           policies.
         </p>
@@ -61,8 +62,8 @@ export default function PrivacyPolicyPage() {
         <h2>2. How We Use Your Information</h2>
         <ul>
           <li>To provide and operate the Service.</li>
-          <li>To process subscription payments and marketplace transactions.</li>
-          <li>To send transactional email (receipts, password resets, order updates).</li>
+          <li>To process subscription payments.</li>
+          <li>To send transactional email (receipts and password resets).</li>
           <li>
             To send product updates and newsletters, only if you opt in. You
             can unsubscribe at any time from any newsletter email.

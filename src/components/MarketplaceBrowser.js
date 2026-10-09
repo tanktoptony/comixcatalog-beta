@@ -22,8 +22,8 @@ import {
 } from "@/lib/marketplaceFacets";
 
 // /marketplace, Discogs style. With no search or filter it's a short landing
-// page of shelves (just listed, most wanted, most valuable, publishers, top
-// sellers). Searching or picking any filter switches to browse mode: facet
+// page of shelves (just listed, most wanted, most valuable, publishers, most
+// books listed). Searching or picking any filter switches to browse mode: facet
 // sidebar with live counts, a compact one-row-per-copy list, sort, pages.
 // All state lives in the URL so back/forward and shared links just work.
 
@@ -143,7 +143,7 @@ function Landing({ listings, params, wanted }) {
       {s.sellers.length > 0 && (
         <section className="mk-shelf">
           <div className="mk-shelf-head">
-            <h2>Top sellers</h2>
+            <h2>Most books listed</h2>
           </div>
           <ul className="mk-sellers">
             {s.sellers.map(([name, n]) => (

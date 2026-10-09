@@ -312,8 +312,7 @@ export default function SeriesClient({ initialSeries = null }) {
               </div>
             ) : (
               <p className="muted" style={{ maxWidth: "760px" }}>
-                Browse the run, jump into exact issues, and eventually compare copies
-                for sale tied to the canonical issue page.
+                Browse the run and jump into any issue.
               </p>
             )}
           </div>

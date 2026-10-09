@@ -14,7 +14,7 @@ export default function TermsOfServicePage() {
       <article className="legal-prose">
         <p className="legal-kicker">Legal</p>
         <h1>Terms of Service</h1>
-        <p className="legal-meta">Last updated: April 2026</p>
+        <p className="legal-meta">Last updated: October 2026</p>
 
         <p>
           Welcome to ComixCatalog. These Terms of Service (&ldquo;Terms&rdquo;) govern
@@ -89,9 +89,11 @@ export default function TermsOfServicePage() {
         <p>
           Sellers are responsible for accurately describing items, complying
           with all applicable laws (including taxes), and shipping promptly.
-          Buyers are responsible for paying for items they purchase. We
-          charge a transaction fee on each completed sale, disclosed before
-          listing.
+          Buyers are responsible for paying for items they agree to buy. The
+          marketplace is in beta. ComixCatalog doesn&rsquo;t charge fees or process
+          payments for marketplace sales during the beta. Buyers and sellers
+          arrange payment and shipping directly. If we add fees or checkout,
+          we&rsquo;ll update these Terms and tell you before anything changes.
         </p>
 
         <h2>6. Database Contributions</h2>

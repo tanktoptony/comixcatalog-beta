@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import { fetchSeriesCoverRows, resolveCovers } from "@/lib/catalog/covers";
 import { resolvePublisher } from "@/lib/publisher";
-import { collectsLines, formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
+import { collectsLines, formatLabel, formatNoun, isCollectedEdition } from "@/lib/seriesFormat";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { baseIssueNumber } from "@/lib/coverMatch";
 import { bestYearFor, parseYear } from "@/lib/years";
@@ -38,6 +38,26 @@ function dedupeIssuesByBase(issues) {
     }
   }
   return [...byBase.values()];
+}
+
+const KEY_ISSUE_ID_CHUNK = 400;
+
+async function loadKeyIssues(supabase, issues) {
+  const ids = issues.map((issue) => issue.gcd_id).filter((id) => id != null);
+  if (ids.length === 0) return [];
+  const chunks = [];
+  for (let index = 0; index < ids.length; index += KEY_ISSUE_ID_CHUNK) {
+    chunks.push(ids.slice(index, index + KEY_ISSUE_ID_CHUNK));
+  }
+  const results = await Promise.all(chunks.map((idChunk) => supabase
+    .from("key_issues")
+    .select("gcd_issue_id, reason, tier, issue_number")
+    .in("gcd_issue_id", idChunk)));
+  const failed = results.find((result) => result.error);
+  if (failed) throw failed.error;
+  return results
+    .flatMap((result) => result.data ?? [])
+    .sort((a, b) => a.tier - b.tier || String(a.issue_number).localeCompare(String(b.issue_number), undefined, { numeric: true }));
 }
 
 export async function GET(req, context) {
@@ -183,6 +203,13 @@ export async function GET(req, context) {
     }
 
     const issueRows = issues ?? [];
+    let keyIssues = [];
+    try {
+      keyIssues = await loadKeyIssues(supabase, issueRows);
+    } catch (error) {
+      console.error("GET /api/series/[id] key issue lookup failed:", error);
+      degraded = true;
+    }
 
     const publisherGcdIds = [
       ...new Set(
@@ -386,7 +413,9 @@ export async function GET(req, context) {
         year_end: fullYearEnd,
         featured_cover: featuredCover,
         format_label: formatLabel(seriesFormat ?? {}),
+        format_noun: formatNoun(seriesFormat ?? {}),
         collects: collectedEdition ? collectsLines(seriesFormat?.format_notes) : [],
+        key_issues: keyIssues,
         issues: mappedIssues,
       },
     // A degraded response must not be cached at the CDN for ten minutes.

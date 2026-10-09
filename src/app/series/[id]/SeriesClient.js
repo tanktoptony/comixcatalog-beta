@@ -9,6 +9,7 @@ import { trackEvent } from "@/lib/analytics";
 import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
 import { coverThumb } from "@/lib/coverThumb";
+import { buildSeriesIntro } from "@/lib/seriesSeo";
 
 const ISSUE_BATCH = 60;
 
@@ -273,6 +274,10 @@ export default function SeriesClient({ initialSeries = null }) {
               {series.title}
             </h1>
 
+            <p style={{ maxWidth: "760px", marginBottom: "12px" }}>
+              {buildSeriesIntro(series)}
+            </p>
+
             <p className="muted" style={{ marginBottom: "16px" }}>
               {series.publisher} · {series.issue_count} issue
               {series.issue_count === 1 ? "" : "s"} · {yearLabel}
@@ -293,6 +298,21 @@ export default function SeriesClient({ initialSeries = null }) {
                 <span className="pill">Canonical Run</span>
               )}
             </div>
+
+            {series.key_issues?.length > 0 && (
+              <div style={{ maxWidth: "760px", marginBottom: "16px" }}>
+                <h2 style={{ fontSize: "1rem", marginBottom: "6px" }}>Key issues</h2>
+                <ul style={{ margin: 0, paddingLeft: "20px" }}>
+                  {series.key_issues.map((keyIssue) => (
+                    <li key={keyIssue.gcd_issue_id}>
+                      <Link href={`/issue/gcd-${keyIssue.gcd_issue_id}`}>
+                        #{keyIssue.issue_number}: {keyIssue.reason}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {series.collects?.length > 0 ? (
               // Collected edition: say what each volume collects (from GCD's
@@ -516,7 +536,7 @@ export default function SeriesClient({ initialSeries = null }) {
                   <div className="comic-card-cover" style={{ position: "relative" }}>
                     <img
                       src={coverThumb(issue.cover || "/fallback-cover.png")}
-                      alt={`${series.title} #${issue.issue_number}`}
+                      alt={`${series.title} #${issue.issue_number}${issue.release_year ? ` (${issue.release_year})` : ""} cover`}
                       loading="lazy"
                     />
                     {isOwned && (
@@ -564,19 +584,12 @@ export default function SeriesClient({ initialSeries = null }) {
                     )}
                   </div>
 
-                  <div className="comic-card-title">
-                    {series.title}
-                    {issue.issue_number ? ` #${issue.issue_number}` : ""}
-                  </div>
-
-                  {issue.title && issue.title !== series.title && (
-                    <div className="comic-card-meta" style={{ marginBottom: 4 }}>
-                      {issue.title}
-                    </div>
-                  )}
+                  <div className="comic-card-title">{series.title}</div>
 
                   <div className="comic-card-meta">
-                    {issue.release_year || "Unknown Year"}
+                    {issue.issue_number ? `#${issue.issue_number}` : "Issue"}
+                    {issue.title && issue.title !== series.title ? ` ${issue.title}` : ""}
+                    {issue.release_year ? ` (${issue.release_year})` : ""}
                   </div>
                 </Link>
                 <div className="comic-card-actions series-issue-actions">

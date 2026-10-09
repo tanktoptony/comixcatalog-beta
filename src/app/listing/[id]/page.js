@@ -5,6 +5,7 @@ import { conditionLabel, contactLabel, formatValue, offerHref, shippingLabel } f
 import { SITE_URL } from "@/lib/siteUrl";
 import ListingGallery from "@/components/ListingGallery";
 import { safeJsonLd } from "@/lib/jsonLd";
+import ReportButton from "@/components/ReportButton";
 
 // One copy for sale, Discogs item-page style: the copy, its condition, the
 // seller, the price, and the way to buy (an offer or a message while there's
@@ -153,6 +154,7 @@ export default async function ListingPage({ params }) {
                 {l.sellerInfo.otherListings.toLocaleString("en-US")} more {l.sellerInfo.otherListings === 1 ? "book" : "books"} for sale from @{l.seller}
               </Link>
             )}
+            <ReportButton targetType="listing" targetId={l.id} ownerId={l.sellerInfo.id} />
           </section>
 
           {others.length > 0 && (

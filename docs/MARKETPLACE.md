@@ -42,7 +42,7 @@
 
 | Piece | What exists | What's missing |
 |---|---|---|
-| Safety tables | `user_blocks` (used by messaging), `reports` tables with RLS (0031) | Reports have no API or UI yet (package 5) |
+| Reports | Report button on listings, profiles and threads → `POST /api/reports` (10/day per reporter, dedupes open reports, emails `REPORTS_NOTIFY_EMAIL`). `/admin/reports` (admin + two-factor): dismiss, mark handled, remove listing (also sets the copy back to `owned`) | A removed book can be re-listed by the seller as a fresh listing; no seller suspension |
 | Listing photos | Upload, process, reorder, delete, cleanup | High-value listings aren't required to have photos; the old single `user_cover_url` photo isn't migrated |
 | Statuses | Full status enum and partial unique index | No `reserved` or `sold` transitions; sold books just get unlisted |
 | Messaging | `messages` table, inbox, unread count (refreshes as soon as a thread is read), Realtime on open thread. Sends go through `POST /api/messages` (migration 0045 removes direct inserts): blocks either way, 10/hour and 3 new conversations/day for accounts under 7 days, 60/hour and 20/day otherwise (`src/lib/messageLimits.js`). Block/unblock in the thread; inbound links get a warning. Recipients can only update `read_at` (0044) | No email notifications (package 6); blocks don't hide listings |

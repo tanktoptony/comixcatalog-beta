@@ -230,6 +230,7 @@ async function computeListing(id) {
     signed: Boolean(l.signed),
     soldAt: l.sold_at ?? null,
     sellerInfo: {
+      id: l.seller_id,
       username: seller.username,
       since: seller.created_at,
       founder: Boolean(seller.is_founding_collector),

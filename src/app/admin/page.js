@@ -80,7 +80,10 @@ export default function AdminPage() {
         <h1 className="admin-title">User management</h1>
         <p className="admin-lede">Comp, grant, or revoke Pro memberships by username.</p>
       </header>
-      <p><Link className="admin-btn" href="/admin/review">Open review queue</Link></p>
+      <div className="admin-actions">
+        <Link className="admin-btn" href="/admin/review">Open review queue</Link>
+        <Link className="admin-btn" href="/admin/reports">Open reports</Link>
+      </div>
 
       <section className="admin-card">
         <h2 className="admin-card-title">Toggle Pro membership</h2>

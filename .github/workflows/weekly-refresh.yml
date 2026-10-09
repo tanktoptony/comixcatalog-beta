@@ -74,8 +74,13 @@ jobs:
       # restarts from id 0 next week. The unique run_id key forces a fresh save
       # each run; restore-keys pulls the most recent prior cursor. On a clean
       # completion the script unlinks the cursor, so the next run starts fresh.
+      #
+      # Restore and save are separate steps so the save runs even when the
+      # refresh fails. actions/cache@v4's built-in post-step only saves on
+      # success, so a mid-run statement timeout used to throw the cursor away
+      # and the next run started over at id 0.
       - name: Restore refresh cursor
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: scripts/.refresh-cursor
           key: refresh-cursor-${{ github.run_id }}
@@ -94,6 +99,13 @@ jobs:
       # rotation completes over ~3 weekly cycles.
       - name: Refresh series search cache
         run: node scripts/refreshSeriesSearchCache.js --force --max-batches=700
+
+      - name: Save refresh cursor
+        if: always() && hashFiles('scripts/.refresh-cursor') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: scripts/.refresh-cursor
+          key: refresh-cursor-${{ github.run_id }}
 
       # Regenerate the featured-gaps list. Not used by the workflow itself
       # but committed for visibility — you can grep through commits or run

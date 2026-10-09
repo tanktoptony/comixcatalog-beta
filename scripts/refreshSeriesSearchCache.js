@@ -94,10 +94,13 @@ let onlyIdsCursor = 0;
 // stepped away during the run).
 //
 // Pass a thunk that returns a fresh Supabase query — we re-invoke it on
-// each retry. Up to 4 attempts with 1s, 3s, 8s backoffs. Errors that
-// aren't transient throw on the first attempt.
+// each retry. Up to 6 attempts with 1s, 3s, 8s, 20s, 45s backoffs. Errors
+// that aren't transient throw on the first attempt. 4 attempts over ~12s
+// was not enough: on 2026-10-08 the weekly run hit the hourly cover ingest
+// while the DB was short on disk IO, and one page timed out four times in a
+// row and killed the whole run.
 const TRANSIENT_CODES = new Set(["57014", "53300", "PGRST116", "ETIMEDOUT"]);
-async function runWithRetry(label, thunk, maxAttempts = 4) {
+async function runWithRetry(label, thunk, maxAttempts = 6) {
   let lastError = null;
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     try {
@@ -118,7 +121,7 @@ async function runWithRetry(label, thunk, maxAttempts = 4) {
       if (!transient || attempt === maxAttempts) throw err;
       lastError = err;
     }
-    const backoffMs = [1000, 3000, 8000][attempt - 1] ?? 8000;
+    const backoffMs = [1000, 3000, 8000, 20000, 45000][attempt - 1] ?? 45000;
     process.stdout.write(
       `\n  ⚠ ${label} transient error (attempt ${attempt}/${maxAttempts}): ${lastError?.message ?? lastError?.code ?? "?"} — retrying in ${backoffMs}ms\n`
     );
@@ -518,6 +521,10 @@ async function processBatch(seriesBatch) {
             .from("canonical_covers")
             .select(COVER_SCORING_COLUMNS)
             .in("series_title", coverFetchTitles)
+            // (series_title, id) matches idx_canonical_covers_series_title_id
+            // exactly. ORDER BY id alone lets the planner walk the primary
+            // key and filter titles, which is what times out under load.
+            .order("series_title", { ascending: true })
             .order("id", { ascending: true })
             .range(from, from + COVER_PAGE - 1)
       );
@@ -1323,6 +1330,7 @@ async function run() {
 
   let total = 0;
   let batchesRun = 0;
+  let reachedEnd = false;
 
   while (true) {
     if (batchesRun >= MAX_BATCHES) {
@@ -1331,14 +1339,23 @@ async function run() {
     }
 
     const batch = await fetchSeriesBatch();
-    if (batch.length === 0) break;
+    if (batch.length === 0) {
+      reachedEnd = true;
+      break;
+    }
 
     const count = await processBatch(batch);
     total += count;
     batchesRun += 1;
     console.log(`Processed ${count} (total ${total})`);
 
-    if (count === 0) {
+    // Only the non-force mode can loop forever: it re-selects rows where
+    // search_refreshed_at is null. --force walks an id cursor that always
+    // advances, and since it skips unchanged rows a batch of 100 already-
+    // current series legitimately writes 0. Stopping there made every weekly
+    // run since 2026-10-01 quit after the first batch, clear its cursor and
+    // report success with "Total updated: 0".
+    if (count === 0 && !FORCE) {
       console.error("Batch returned 0 updates — stopping to avoid infinite loop.");
       break;
     }
@@ -1346,8 +1363,11 @@ async function run() {
 
   console.log("DONE. Total updated:", total);
 
-  // Clean run — drop the resume cursor so the next --force starts fresh.
-  if (FORCE) clearCursor();
+  // Walked the whole table: drop the resume cursor so the next --force starts
+  // fresh. A run stopped by --max-batches keeps it. This used to clear it on
+  // every exit, so the weekly --max-batches=700 run restarted at id 0 each
+  // time and never reached series past the first ~70k.
+  if (FORCE && reachedEnd) clearCursor();
 
   // Enforce the "one cover, one series" invariant across the whole table.
   // Runs after every pass, including partial ones, because a partial pass

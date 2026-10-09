@@ -1,0 +1,29 @@
+#!/bin/sh
+# Runs the fast PR-check steps locally before a push, so a failing check is
+# caught here instead of in CI (where every failure emails Tony). On
+# 2026-10-09 two PRs failed CI on the error-handling ratchet and the docs
+# link check, both of which run in seconds. The build is left to CI.
+#
+# Test steps are read from .github/workflows/pr-ci.yml, so this stays in
+# sync when CI gains a test. Skip only for a deliberate exception:
+# git push --no-verify
+
+fail() { echo "pre-push: $1 failed. Fix it before pushing (CI would fail the same way)." >&2; exit 1; }
+
+npm run --silent audit:errors >/dev/null 2>&1 || { npm run --silent audit:errors; fail "error-handling ratchet"; }
+npm run --silent docs:check >/dev/null 2>&1 || { npm run --silent docs:check; fail "docs link check"; }
+
+base=$(git merge-base HEAD origin/main 2>/dev/null)
+if [ -n "$base" ]; then
+  files=$(git diff --name-only --diff-filter=ACMR "$base" HEAD -- '*.js' '*.jsx' '*.mjs')
+  if [ -n "$files" ]; then
+    # shellcheck disable=SC2086
+    npx eslint --quiet $files || fail "lint"
+  fi
+fi
+
+for script in $(grep -oE "npm run test:[a-z0-9-]+" .github/workflows/pr-ci.yml | awk '{print $3}' | sort -u); do
+  npm run --silent "$script" >/dev/null 2>&1 || { npm run --silent "$script"; fail "$script"; }
+done
+
+echo "pre-push: PR checks passed locally (build runs in CI)."

@@ -486,6 +486,22 @@ export async function GET(req, context) {
         }));
       }
 
+      // One indexed lookup supplies the curated key-issue reason used by the
+      // public issue page and its metadata. Keeping it in this route means the
+      // cached server render and the authenticated browser refresh agree.
+      let keyIssue = null;
+      const { data: keyIssueRow, error: keyIssueError } = await supabase
+        .from("key_issues")
+        .select("character, reason, tier")
+        .eq("gcd_issue_id", gcdId)
+        .maybeSingle();
+      if (keyIssueError) {
+        console.error("issue key lookup failed:", keyIssueError.code, keyIssueError.message);
+        degradation.value = true;
+      } else if (keyIssueRow) {
+        keyIssue = keyIssueRow;
+      }
+
       return NextResponse.json({
         degraded: degradation.value,
         issue: {
@@ -495,6 +511,7 @@ export async function GET(req, context) {
           series_title: seriesTitle,
           series_format: formatLabel(seriesFormat ?? {}),
           issue_number: issue.issue_number,
+          title: issue.title ?? null,
           release_year: bestYearFor(issue),
           publication_date: issue.publication_date ?? null,
           display_date: formatDisplayDate(issue),
@@ -506,6 +523,7 @@ export async function GET(req, context) {
           next_issue: nextIssue,
           related_issues: relatedIssues,
           arcs,
+          key_issue: keyIssue,
           market: {
             listings_count: 0,
             low: null,

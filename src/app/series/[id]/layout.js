@@ -1,5 +1,6 @@
 import { SITE_URL } from "@/lib/siteUrl";
 import { getSeriesData } from "@/lib/pageData";
+import { buildSeriesDescription } from "@/lib/seriesSeo";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -17,17 +18,7 @@ export async function generateMetadata({ params }) {
         ? String(series.year_start)
         : "";
     const title = `${series.title}${yearRange ? ` (${yearRange})` : ""}`;
-    const description = [
-      series.title,
-      series.publisher,
-      yearRange,
-      series.issue_count
-        ? `${series.issue_count} issue${series.issue_count === 1 ? "" : "s"}`
-        : null,
-      "Indexed on ComixCatalog.",
-    ]
-      .filter(Boolean)
-      .join(" · ");
+    const description = buildSeriesDescription(series);
 
     return {
       title,

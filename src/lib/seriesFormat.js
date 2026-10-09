@@ -38,6 +38,16 @@ export function formatLabel({ publishing_format, binding } = {}) {
   return null;
 }
 
+// Plain noun used in factual prose. Keep this aligned with formatLabel so
+// unsynced format data never turns into a claim about the publication type.
+export function formatNoun(format = {}) {
+  if (isCollectedEdition(format)) return "collected edition";
+  if (format.publishing_format && /one-shot/i.test(format.publishing_format)) {
+    return "one-shot";
+  }
+  return "series";
+}
+
 // GCD collected-edition notes read like
 //   "Volume 1 - Legends in Exile collects Fables (DC, 2002 series) #1–5;\r\nVolume 2 - ..."
 // Split them into one line per volume for display. Returns [] for notes

@@ -15,6 +15,9 @@ alter table public.notification_settings enable row level security;
 
 revoke all on public.notification_settings from anon;
 grant select, insert, update on public.notification_settings to authenticated;
+-- Supabase's default privileges grant everything on new tables; there's no
+-- delete policy, but don't leave the privilege lying around either.
+revoke delete, truncate, references, trigger on public.notification_settings from authenticated;
 
 create policy "notification_settings_select_own"
   on public.notification_settings for select to authenticated

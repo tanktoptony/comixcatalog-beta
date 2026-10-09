@@ -1,6 +1,6 @@
 # ComixCatalog: Marketplace
 
-**Status:** canonical, describes current state · **Verified against code:** `origin/main` at `040d7d1`, 2026-10-05
+**Status:** canonical, describes current state · **Verified against code:** `origin/main` at `4abf5dc`, 2026-10-09
 **Plan of record:** [marketplace-v2-build-brief.md](marketplace-v2-build-brief.md) (phases 0 to 6, open questions for the founder). [marketplace-launch-spec.md](marketplace-launch-spec.md) is older; its mechanics are superseded.
 
 **One line:** a public beta where collectors list copies from their library and buyers contact them by direct message. No money moves through ComixCatalog. Don't describe checkout, buyer protection, payouts, fees or seller ratings as available.
@@ -44,10 +44,9 @@
 | Safety tables | `user_blocks`, `reports` tables with RLS (0031) | No API, no UI, nothing reads them |
 | Listing photos | Upload, process, reorder, delete, cleanup | High-value listings aren't required to have photos; the old single `user_cover_url` photo isn't migrated |
 | Statuses | Full status enum and partial unique index | No `reserved` or `sold` transitions; sold books just get unlisted |
-| Messaging | `messages` table, inbox, unread count, Realtime on open thread | Browser inserts directly under RLS: no rate limit, no block check, no link/scam warnings. Recipient update policy covers every column, not just `read_at` |
-| SEO | `Product`/`Offer` JSON-LD on priced listings | **JSON-LD is not escaped and includes seller notes. A note containing `</script>` breaks out of the tag (stored XSS). Slop spec S1, still open** |
+| Messaging | `messages` table, inbox, unread count, Realtime on open thread | Browser inserts directly under RLS: no rate limit, no block check, no link/scam warnings. Recipients can only update `read_at` (column grant, migration 0044) |
+| SEO | `Product`/`Offer` JSON-LD on priced listings, escaped with `safeJsonLd` (`src/lib/jsonLd.js`) | Listings aren't in the sitemap |
 | Scale | Snapshot table, browse indexes, trigram index on title | `getListings()` loads all listings into memory; `refreshListingSnapshots` runs before every uncached read |
-| `/sell` | Route exists | Still says "Seller Tools Coming Soon," contradicting the live beta |
 
 ## Planned or placeholder
 
@@ -71,10 +70,9 @@ From the v2 brief, not built:
 
 ## Required before real transactions
 
-1. Fix the JSON-LD escape (S1).
-2. Server-side messaging with rate limits, blocks and reports (Phase 2).
-3. Founder answers the brief's §12 questions: fee model, payout timing, who can sell, shipping, returns, sales tax, photo requirements.
-4. Stripe Connect accounts, server-computed amounts, idempotent webhooks, reservation with expiry (Phase 4).
-5. Terms and `/trust` updated for payments, disputes and prohibited items.
-6. Admin moderation tools (Phase 5).
-7. Server-side browse once listings reach the low thousands.
+1. Server-side messaging with rate limits, blocks and reports (Phase 2).
+2. Founder answers the brief's §12 questions: fee model, payout timing, who can sell, shipping, returns, sales tax, photo requirements.
+3. Stripe Connect accounts, server-computed amounts, idempotent webhooks, reservation with expiry (Phase 4).
+4. Terms and `/trust` updated for payments, disputes and prohibited items.
+5. Admin moderation tools (Phase 5).
+6. Server-side browse once listings reach the low thousands.

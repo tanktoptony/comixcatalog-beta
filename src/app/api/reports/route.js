@@ -75,7 +75,8 @@ export async function POST(req) {
     if (decision.kind === "limited") return NextResponse.json({ error: decision.error }, { status: 429 });
     const { data: inserted, error } = await supabase.from("reports").insert({ reporter_id: user.id, ...report }).select("id, reporter_id, target_type, target_id, reason, details, status, created_at").single();
     if (error) throw error;
-    const { data: profile } = await supabase.from("profiles").select("username").eq("id", user.id).maybeSingle();
+    const { data: profile, error: profileError } = await supabase.from("profiles").select("username").eq("id", user.id).maybeSingle();
+    if (profileError) console.error("Report email: reporter lookup failed:", profileError.message);
     try { await notify(inserted, profile?.username, target); } catch (emailError) { console.error("Report notification email failed:", emailError); }
     return NextResponse.json({ ok: true }, { status: 201 });
   } catch (error) {

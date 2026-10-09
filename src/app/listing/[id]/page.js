@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
   if (!l) return { title: "Listing not found" };
   const price = l.price != null ? formatValue(l.price) : null;
   const title = `${titleOf(l)}${l.year ? ` (${l.year})` : ""} for sale`;
-  const description = [conditionLabel(l), price ?? (l.estValue ? `${formatValue(l.estValue)} est.` : "Open to offers"), `from @${l.seller}`, "on ComixCatalog"].join(" · ");
+  const description = [conditionLabel(l), price ?? "Open to offers", `from @${l.seller}`, "on ComixCatalog"].join(" · ");
   return {
     title,
     description,
@@ -98,10 +98,6 @@ export default async function ListingPage({ params }) {
                 <div className="lp-price">
                   {l.price != null ? (
                     <b>{formatValue(l.price)}</b>
-                  ) : l.estValue != null ? (
-                    <>
-                      <b>{formatValue(l.estValue)}</b> <em>est. value</em>
-                    </>
                   ) : (
                     <b>Open to offers</b>
                   )}
@@ -168,7 +164,7 @@ export default async function ListingPage({ params }) {
                     <Link href={`/listing/${o.id}`}>
                       <span>{conditionLabel(o)}</span>
                       <span>@{o.seller}</span>
-                      <b>{formatValue(o.price ?? o.estValue) ? `${formatValue(o.price ?? o.estValue)}${o.price == null ? " est." : ""}` : "Offers"}</b>
+                      <b>{o.price != null ? formatValue(o.price) : "Offers"}</b>
                     </Link>
                   </li>
                 ))}

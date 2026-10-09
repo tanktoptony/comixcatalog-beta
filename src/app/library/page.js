@@ -630,7 +630,7 @@ function LibraryPageContent() {
         for (const l of listings) {
           if (l.seller && l.seller === profile?.username) continue;
           const id = Number(l.gcdIssueId);
-          const v = l.price ?? l.estValue ?? null;
+          const v = l.price ?? null;
           const cur = out[id] ?? { n: 0, min: null };
           cur.n += 1;
           if (v != null && (cur.min == null || v < cur.min)) cur.min = v;
@@ -663,8 +663,7 @@ function LibraryPageContent() {
   }
 
   // Marketplace: list (or unlist) every owned book in one go. Each listed
-  // book shows up on /marketplace and on its issue page, priced at its
-  // estimated value with "Make an offer".
+  // book shows up on /marketplace and on its issue page as open to offers.
   const [bulkSaleBusy, setBulkSaleBusy] = useState(false);
   async function setAllForSale(listing) {
     if (!user?.id) return;
@@ -674,7 +673,7 @@ function LibraryPageContent() {
     if (count === 0) return;
     const ok = window.confirm(
       listing
-        ? `List all ${count} books in your collection for sale? They'll appear on the Marketplace and on each issue's page, at their estimated value with "Make an offer". You can take any of them off sale later.`
+        ? `List all ${count} books in your collection for sale? They'll appear on the Marketplace and on each issue's page as open to offers. You can take any of them off sale later.`
         : `Take all ${count} books off sale? They stay in your collection.`
     );
     if (!ok) return;

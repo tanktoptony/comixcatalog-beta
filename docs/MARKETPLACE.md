@@ -28,11 +28,12 @@
 **Buyer flow**
 1. Browse `/marketplace` (`MarketplaceBrowser`): shelves (just listed, most wanted, most valuable, publishers, top sellers), then a facet sidebar with search, filters, sort, 25 per page. All state in the URL. Filtering runs client-side over every listing (`src/lib/marketplaceFacets.js`).
 2. See copies for sale on an issue page (`IssueForSale`, `GET /api/marketplace?gcd=<id>`).
-3. Open `/listing/[id]`: photos, condition, price or "Open to offers," shipping, seller since.
+3. Open `/listing/[id]`: photos, condition, the seller's price or "Open to offers," shipping, seller since.
 4. "Make an offer" opens `/inbox/<seller>?about=<book>`, a pre-filled free-text message. Payment and shipping are arranged off-platform.
 
 **Pricing shown**
-- The seller's price if set. Otherwise "est. value": the seller's `market_value`, else `auto_market_value` from eBay asking-price comps.
+- Buyers only see the seller's price (`price_cents`). Unpriced listings read "Open to offers" on browse, listing, issue and profile pages, in page metadata, and in wantlist matches. Price sorts, the price facet and the "Highest priced" shelf ignore unpriced listings.
+- The estimate (`market_value`, else eBay asking-price `auto_market_value`) is only shown to the seller, in the library and `ListingEditor`, as a pricing hint.
 
 **Fees**
 - None. "No fees during the beta" is public copy on `/listing/[id]` and in `MarketplaceBrowser`. Changing it needs copy and Terms updates.

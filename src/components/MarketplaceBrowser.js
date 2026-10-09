@@ -22,7 +22,7 @@ import {
 } from "@/lib/marketplaceFacets";
 
 // /marketplace, Discogs style. With no search or filter it's a short landing
-// page of shelves (just listed, most wanted, most valuable, publishers, most
+// page of shelves (just listed, most wanted, highest priced, publishers, most
 // books listed). Searching or picking any filter switches to browse mode: facet
 // sidebar with live counts, a compact one-row-per-copy list, sort, pages.
 // All state lives in the URL so back/forward and shared links just work.
@@ -52,7 +52,6 @@ function hrefWith(params, changes) {
 
 function priceText(l) {
   if (l.price != null) return { main: formatValue(l.price), note: null };
-  if (l.estValue != null) return { main: formatValue(l.estValue), note: "est." };
   return { main: null, note: "Make an offer" };
 }
 
@@ -138,7 +137,7 @@ function Landing({ listings, params, wanted }) {
       </section>
 
       <Shelf title="Most wanted" note="On the most wantlists right now" items={s.mostWanted} />
-      <Shelf title="Most valuable" items={s.mostValuable} more={hrefWith(params, { view: "all", sort: "value-desc" })} />
+      <Shelf title="Highest priced" items={s.mostValuable} more={hrefWith(params, { view: "all", sort: "value-desc" })} />
 
       {s.sellers.length > 0 && (
         <section className="mk-shelf">
@@ -369,6 +368,7 @@ function MarketplaceView({ listings, params }) {
   const f = readFilters(params);
   const browsing = isBrowsing(f) || params.get("view") === "all";
   const sellers = new Set(listings.map((l) => l.seller)).size;
+  const priced = listings.filter((l) => l.price != null).length;
 
   return (
     <div className="mk">
@@ -391,8 +391,8 @@ function MarketplaceView({ listings, params }) {
         <SearchBox f={f} params={params} />
         {!browsing && listings.length > 0 && (
           <p className="mk-stats">
-            {listings.length.toLocaleString("en-US")} comic{listings.length === 1 ? "" : "s"} for sale from{" "}
-            {sellers.toLocaleString("en-US")} collector{sellers === 1 ? "" : "s"}.{" "}
+            {listings.length.toLocaleString("en-US")} comic{listings.length === 1 ? "" : "s"} listed by{" "}
+            {sellers.toLocaleString("en-US")} collector{sellers === 1 ? "" : "s"} · {priced.toLocaleString("en-US")} with a price. {" "}
             <Link prefetch={false} href="/marketplace?view=all">
               Browse everything
             </Link>

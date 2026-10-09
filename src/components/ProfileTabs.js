@@ -289,16 +289,19 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
               const showOwnerPhotoTag =
                 !isForSale && d.personalCoverUrl && coverUrl !== d.personalCoverUrl;
               const value =
-                item.market_value != null && Number(item.market_value) > 0
+                isForSale
+                  ? item.listing_price
+                  : item.market_value != null && Number(item.market_value) > 0
                   ? Number(item.market_value)
                   : null;
+              const cardHref = isForSale && item.listing_id ? `/listing/${item.listing_id}` : d.href;
 
               const fullTitle = `${d.title}${d.issueNumber ? ` #${d.issueNumber}` : ""}`;
 
               return (
                 <Link
                   key={item.id}
-                  href={d.href}
+                  href={cardHref}
                   className={`comic-card${isWall ? " comic-card--wall" : ""}`}
                   title={isWall ? fullTitle : undefined}
                 >
@@ -349,6 +352,8 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                           <span className="profile-card-value">
                             {" · "}${value.toLocaleString()}
                           </span>
+                        ) : isForSale ? (
+                          <span className="profile-card-value"> · Open to offers</span>
                         ) : null}
                       </div>
                     </>
@@ -418,7 +423,7 @@ function SeriesRowsView({ items, activeTab }) {
           ? formatIssueRanges(issueNums)
           : `${g.items.length} item${g.items.length === 1 ? "" : "s"}`;
         const totalValue = g.items.reduce((sum, it) => {
-          const v = Number(it.market_value);
+          const v = Number(isForSale ? it.listing_price : it.market_value);
           return Number.isFinite(v) && v > 0 ? sum + v : sum;
         }, 0);
 
@@ -467,11 +472,14 @@ function SeriesRowsView({ items, activeTab }) {
                     ? d.personalCoverUrl || d.canonicalCoverUrl || d.communityCoverUrl || d.coverUrl || "/fallback-cover.png"
                     : d.canonicalCoverUrl || d.communityCoverUrl || d.personalCoverUrl || d.coverUrl || "/fallback-cover.png";
                   const value =
-                    item.market_value != null && Number(item.market_value) > 0
+                    isForSale
+                      ? item.listing_price
+                      : item.market_value != null && Number(item.market_value) > 0
                       ? Number(item.market_value)
                       : null;
+                  const cardHref = isForSale && item.listing_id ? `/listing/${item.listing_id}` : d.href;
                   return (
-                    <Link key={item.id} href={d.href} className="comic-card">
+                    <Link key={item.id} href={cardHref} className="comic-card">
                       <div className="comic-card-cover" style={{ position: "relative" }}>
                         <img src={coverThumb(coverUrl)} alt={d.title} />
                         {item.slab_company && item.grade_numeric ? (
@@ -494,6 +502,8 @@ function SeriesRowsView({ items, activeTab }) {
                           <span className="profile-card-value">
                             {" · "}${value.toLocaleString()}
                           </span>
+                        ) : isForSale ? (
+                          <span className="profile-card-value"> · Open to offers</span>
                         ) : null}
                       </div>
                     </Link>

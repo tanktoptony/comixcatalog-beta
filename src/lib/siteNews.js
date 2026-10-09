@@ -8,6 +8,24 @@
 
 export const SITE_NEWS = [
   {
+    date: "2026-10-09",
+    title: "Know when someone writes",
+    body: "When someone messages you, you get an email with a link to the conversation, at most one per conversation every few hours. Turn it off any time in your account settings. The inbox badge also clears the moment you read a message now, instead of a minute later.",
+    href: "/account#notifications",
+  },
+  {
+    date: "2026-10-09",
+    title: "Report and block",
+    body: "Every listing, profile and conversation has a Report link, and reports come straight to me. Every conversation has a Block button too. The Trust & Safety page has the short version of how to trade safely.",
+    href: "/trust",
+  },
+  {
+    date: "2026-10-09",
+    title: "Marketplace prices are the seller's",
+    body: "A listing shows the price the seller set, or Open to offers. It used to show an estimate from eBay asking prices when there was no price, which looked like a price and wasn't one.",
+    href: "/marketplace",
+  },
+  {
     date: "2026-10-05",
     title: "Search forgives your typos",
     body: "Type \"cerbus\" and you get Cerebus. Spider-Man without the hyphen works, and so does a title with words missing or out of order, like \"street fighter ii animated\".",

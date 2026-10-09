@@ -1,4 +1,5 @@
 import { baseIssueNumber, compareIssueNumbers, publishersCompatible } from "../coverMatch.js";
+import { isCollectedEdition } from "../seriesFormat.js";
 import { fetchAllByKeyset } from "../supabase/fetchAllPages.js";
 import { normTitle, titleVariants } from "../titleMatch.js";
 
@@ -111,14 +112,23 @@ function knownPublisher(value) {
   return publisher && publisher.toLowerCase() !== "unknown publisher" ? publisher : null;
 }
 
-export function pickUniqueSiblingCover(issue, rows) {
+function seriesFormat(seriesFormats, seriesGcdId) {
+  return seriesFormats.get(String(seriesGcdId)) ?? seriesFormats.get(seriesGcdId) ?? {};
+}
+
+function siblingCandidates(issue, rows, seriesFormats) {
   const key = baseIssueNumber(issue?.issue_number);
   const issueYear = issue?.year ?? issue?.series_year_start;
-  if (!key || issueYear == null) return null;
+  if (!key || issueYear == null) return [];
   const titles = new Set(titleVariants(issue.series_title).map(normTitle).filter(Boolean));
-  const candidates = (rows ?? []).filter((row) => {
+  return (rows ?? []).filter((row) => {
     if (!row?.storage_path || row.series_gcd_id == null) return false;
     if (String(row.series_gcd_id) === String(issue.series_gcd_id)) return false;
+    if (seriesFormats) {
+      const issueCollected = isCollectedEdition(seriesFormat(seriesFormats, issue.series_gcd_id));
+      const rowCollected = isCollectedEdition(seriesFormat(seriesFormats, row.series_gcd_id));
+      if (issueCollected !== rowCollected) return false;
+    }
     if (!titles.has(normTitle(row.series_title))) return false;
     if (baseIssueNumber(row.issue_number) !== key) return false;
     const candidateYear = yearOf(row.cover_date) ?? (row.series_year == null ? null : Number(row.series_year));
@@ -127,11 +137,15 @@ export function pickUniqueSiblingCover(issue, rows) {
     const rowPublisher = knownPublisher(row.publisher);
     return !issuePublisher || !rowPublisher || publishersCompatible(issuePublisher, rowPublisher);
   });
+}
+
+export function pickUniqueSiblingCover(issue, rows, seriesFormats) {
+  const candidates = siblingCandidates(issue, rows, seriesFormats);
   const unique = [...new Map(candidates.map((row) => [String(row.id ?? row.storage_path), row])).values()];
   return unique.length === 1 ? result(unique[0], 4, "sibling") : null;
 }
 
-export function pickCovers(issues, candidateRows) {
+export function pickCovers(issues, candidateRows, seriesFormats) {
   const rows = (candidateRows ?? []).filter((row) => row?.storage_path);
   const resolved = new Map();
   const seriesWithCovers = new Set(rows
@@ -166,7 +180,7 @@ export function pickCovers(issues, candidateRows) {
       continue;
     }
 
-    const sibling = pickUniqueSiblingCover(issue, rows);
+    const sibling = pickUniqueSiblingCover(issue, rows, seriesFormats);
     if (sibling) {
       resolved.set(issue.gcd_issue_id, sibling);
       continue;
@@ -202,6 +216,18 @@ async function fetchChunks(values, build) {
   return rows;
 }
 
+async function fetchSeriesFormats(supabase, seriesGcdIds) {
+  const formats = new Map();
+  const ids = [...new Set(seriesGcdIds.filter((value) => value != null))];
+  for (const group of chunks(ids)) {
+    const { data, error } = await supabase.from("gcd_series")
+      .select("gcd_id, publishing_format, binding").in("gcd_id", group);
+    if (error) throw error;
+    for (const row of data ?? []) formats.set(String(row.gcd_id), row);
+  }
+  return formats;
+}
+
 export async function fetchSeriesCoverRows(supabase, { seriesGcdIds = [], seriesTitles = [] }) {
   const ids = [...new Set(seriesGcdIds.filter((value) => value != null))];
   const titles = [...new Set(seriesTitles.flatMap(titleVariants).filter(Boolean))];
@@ -229,6 +255,9 @@ export async function resolveCovers(supabase, issues) {
   ]);
 
   const early = pickCovers(usable, [...tier1Rows, ...tier2Rows]);
+  for (const [issueId, cover] of early) {
+    if (cover.source === "sibling") early.delete(issueId);
+  }
   const unresolved = usable.filter((issue) => !early.has(issue.gcd_issue_id));
   const tier3Issues = unresolved.filter((issue) => issue.series_title);
   if (!tier3Issues.length) return early;
@@ -259,7 +288,20 @@ export async function resolveCovers(supabase, issues) {
         .not("storage_path", "is", null), "id"));
     }
   }
-  return pickCovers(usable, [...tier1Rows, ...tier2Rows, ...tier3Rows]);
+  const rows = [...tier1Rows, ...tier2Rows, ...tier3Rows];
+  const provisional = pickCovers(usable, rows);
+  const siblingRows = tier3Issues.flatMap((issue) => siblingCandidates(issue, rows));
+  if (!siblingRows.length) return provisional;
+
+  // Format metadata is only needed when the otherwise-valid fallback would
+  // cross GCD series. Missing or unsynced rows remain non-collected by the
+  // shared series-format contract.
+  const formatSeriesIds = [
+    ...usable.map((issue) => issue.series_gcd_id),
+    ...siblingRows.map((row) => row.series_gcd_id),
+  ];
+  const seriesFormats = await fetchSeriesFormats(supabase, formatSeriesIds);
+  return pickCovers(usable, rows, seriesFormats);
 }
 
 export async function resolveSeriesCovers(supabase, seriesRows) {

@@ -8,6 +8,10 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
+// Fired on window by the thread page after it marks messages read, so the
+// badge updates immediately instead of on its next 60 s poll.
+export const UNREAD_CHANGED_EVENT = "cc:unread-changed";
+
 export function useUnreadMessageCount() {
   const { user } = useAuth();
   // Tagged with the user it was fetched for, so a different account never
@@ -44,11 +48,13 @@ export function useUnreadMessageCount() {
       if (document.visibilityState === "visible") refresh();
     }
     document.addEventListener("visibilitychange", onVisible);
+    window.addEventListener(UNREAD_CHANGED_EVENT, refresh);
 
     return () => {
       cancelled = true;
       clearInterval(poll);
       document.removeEventListener("visibilitychange", onVisible);
+      window.removeEventListener(UNREAD_CHANGED_EVENT, refresh);
     };
   }, [user]);
 

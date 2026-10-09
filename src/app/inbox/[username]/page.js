@@ -8,6 +8,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { inboxCache } from "@/lib/inboxCache";
+import { authedFetch } from "@/lib/apiClient";
+import { containsMessageUrl } from "@/lib/messageContent";
+import { UNREAD_CHANGED_EVENT } from "@/hooks/useUnreadMessageCount";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
@@ -60,6 +63,9 @@ export default function ThreadPage() {
   }
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
+  const [isBlocked, setIsBlocked] = useState(false);
+  const [confirmingBlock, setConfirmingBlock] = useState(false);
+  const [blockBusy, setBlockBusy] = useState(false);
   const scrollerRef = useRef(null);
 
   // Resolve the other user by username.
@@ -164,15 +170,32 @@ export default function ThreadPage() {
       setMessages(data ?? []);
       inboxCache(user.id).messages.set(otherProfile.id, data ?? []);
 
-      // Mark any unread inbound as read.
-      const unreadIds = (data ?? [])
+      await markRead(data ?? []);
+    }
+
+    // Mark inbound messages read only while the thread is on screen, then
+    // tell the header badge and the inbox list right away instead of
+    // leaving them stale until their next poll (useUnreadMessageCount).
+    async function markRead(rows) {
+      if (document.visibilityState !== "visible") return;
+      const unreadIds = rows
         .filter((m) => m.recipient_id === user.id && m.read_at == null)
         .map((m) => m.id);
-      if (unreadIds.length > 0) {
-        const now = new Date().toISOString();
-        await supabase.from("messages").update({ read_at: now }).in("id", unreadIds);
-      }
+      if (unreadIds.length === 0) return;
+      const now = new Date().toISOString();
+      const { error: readError } = await supabase.from("messages").update({ read_at: now }).in("id", unreadIds);
+      if (readError || cancelled) return;
+      const ids = new Set(unreadIds);
+      setMessages((prev) => (prev ?? []).map((m) => (ids.has(m.id) ? { ...m, read_at: now } : m)));
+      const thread = inboxCache(user.id).threads?.find((t) => t.otherId === otherProfile.id);
+      if (thread) thread.unread = 0;
+      window.dispatchEvent(new Event(UNREAD_CHANGED_EVENT));
     }
+
+    function onVisible() {
+      if (document.visibilityState === "visible") load();
+    }
+    document.addEventListener("visibilitychange", onVisible);
 
     load();
 
@@ -194,6 +217,7 @@ export default function ThreadPage() {
             if (prev.some((x) => x.id === m.id)) return prev;
             return [...prev, m];
           });
+          markRead([m]);
         }
       )
       .subscribe();
@@ -205,6 +229,32 @@ export default function ThreadPage() {
       cancelled = true;
       if (channel) supabase.removeChannel(channel);
       if (pollInterval) clearInterval(pollInterval);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
+  }, [user, otherProfile]);
+
+  // RLS only exposes blocks created by the viewer, so this does not reveal
+  // whether the other member has blocked them.
+  useEffect(() => {
+    if (!user || !otherProfile) return;
+    let cancelled = false;
+    const supabase = getSupabaseClient();
+    supabase
+      .from("user_blocks")
+      .select("blocked_id")
+      .eq("blocker_id", user.id)
+      .eq("blocked_id", otherProfile.id)
+      .maybeSingle()
+      .then(({ data, error: blockError }) => {
+        if (cancelled) return;
+        if (blockError) {
+          setError(blockError.message);
+          return;
+        }
+        setIsBlocked(Boolean(data));
+      });
+    return () => {
+      cancelled = true;
     };
   }, [user, otherProfile]);
 
@@ -221,7 +271,7 @@ export default function ThreadPage() {
 
   async function handleSend(e) {
     e.preventDefault();
-    if (sending) return;
+    if (sending || isBlocked) return;
     const trimmed = body.trim();
     if (!trimmed || !user || !otherProfile) return;
     if (trimmed.length > MAX_BODY) {
@@ -232,7 +282,6 @@ export default function ThreadPage() {
     setSending(true);
     setError(null);
 
-    const supabase = getSupabaseClient();
     const optimistic = {
       id: `optimistic-${Date.now()}`,
       sender_id: user.id,
@@ -246,18 +295,23 @@ export default function ThreadPage() {
     setBody("");
     setMessages((prev) => (prev ? [...prev, optimistic] : [optimistic]));
 
-    const { data, error: sErr } = await supabase
-      .from("messages")
-      .insert({
-        sender_id: user.id,
-        recipient_id: otherProfile.id,
-        body: trimmed,
-      })
-      .select()
-      .single();
+    let data;
+    let sendError = null;
+    try {
+      const response = await authedFetch("/api/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ recipient: otherProfile.username, body: trimmed }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) sendError = result.error || "Could not send message.";
+      else data = result;
+    } catch {
+      sendError = "Could not send message.";
+    }
 
-    if (sErr) {
-      setError(sErr.message);
+    if (sendError) {
+      setError(sendError);
       // Roll back the optimistic insert.
       setMessages((prev) => (prev ?? []).filter((m) => m.id !== optimistic.id));
       setBody(trimmed);
@@ -268,6 +322,39 @@ export default function ThreadPage() {
       );
     }
     setSending(false);
+  }
+
+  async function handleBlock() {
+    if (!user || !otherProfile || blockBusy) return;
+    setBlockBusy(true);
+    setError(null);
+    const supabase = getSupabaseClient();
+    const { error: blockError } = await supabase.from("user_blocks").insert({
+      blocker_id: user.id,
+      blocked_id: otherProfile.id,
+    });
+    if (blockError) setError(blockError.message);
+    else {
+      setIsBlocked(true);
+      setBody("");
+    }
+    setConfirmingBlock(false);
+    setBlockBusy(false);
+  }
+
+  async function handleUnblock() {
+    if (!user || !otherProfile || blockBusy) return;
+    setBlockBusy(true);
+    setError(null);
+    const supabase = getSupabaseClient();
+    const { error: blockError } = await supabase
+      .from("user_blocks")
+      .delete()
+      .eq("blocker_id", user.id)
+      .eq("blocked_id", otherProfile.id);
+    if (blockError) setError(blockError.message);
+    else setIsBlocked(false);
+    setBlockBusy(false);
   }
 
   if ((!user && authLoading) || (messages === null && !error)) {
@@ -320,6 +407,23 @@ export default function ThreadPage() {
             <span className={styles.peerHandle}>@{otherProfile?.username || username}</span>
           </span>
         </Link>
+        <div className={styles.blockActions}>
+          {isBlocked ? (
+            <button type="button" onClick={handleUnblock} disabled={blockBusy}>
+              Unblock @{otherProfile?.username || username}
+            </button>
+          ) : confirmingBlock ? (
+            <>
+              <span>Block @{otherProfile?.username || username}?</span>
+              <button type="button" onClick={handleBlock} disabled={blockBusy}>Yes</button>
+              <button type="button" onClick={() => setConfirmingBlock(false)} disabled={blockBusy}>Cancel</button>
+            </>
+          ) : (
+            <button type="button" onClick={() => setConfirmingBlock(true)}>
+              Block @{otherProfile?.username || username}
+            </button>
+          )}
+        </div>
       </header>
 
       <div className={styles.scroller} ref={scrollerRef}>
@@ -343,6 +447,11 @@ export default function ThreadPage() {
           return (
             <div key={m.id} className={classNames}>
               <div className={styles.bubble}>{m.body}</div>
+              {!mine && containsMessageUrl(m.body) && (
+                <div className={styles.linkWarning}>
+                  Contains a link. Never pay through a link someone sends you.
+                </div>
+              )}
               <div className={styles.meta}>{formatTimestamp(m.created_at)}</div>
             </div>
           );
@@ -350,6 +459,12 @@ export default function ThreadPage() {
       </div>
 
       {error && <div className={styles.errorBanner}>{error}</div>}
+
+      {isBlocked && (
+        <div className={styles.blockNotice}>
+          You blocked @{otherProfile?.username || username}. They can&apos;t message you.
+        </div>
+      )}
 
       <form onSubmit={handleSend} className={styles.composer}>
         <textarea
@@ -359,6 +474,7 @@ export default function ThreadPage() {
           onChange={(e) => setBody(e.target.value)}
           rows={1}
           maxLength={MAX_BODY}
+          disabled={isBlocked}
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey) {
               e.preventDefault();
@@ -369,7 +485,7 @@ export default function ThreadPage() {
         <button
           type="submit"
           className={styles.send}
-          disabled={sending || !body.trim()}
+          disabled={sending || isBlocked || !body.trim()}
           aria-label="Send message"
           title="Send (Enter)"
         >

@@ -10,7 +10,7 @@ So before I start asking people to list their books, I want to be straight about
 
 ## What it is
 
-Every book in your library can be listed for sale. You mark it for sale, set a price (or leave it open to offers), add photos of the actual copy and your condition notes, and it shows up on the [marketplace](/marketplace) and on that issue's page.
+Every book in your library can be listed for sale. You mark it for sale, set a price (or leave it open to offers), add photos of the actual copy and your condition notes, and it shows up on the [marketplace](https://www.comixcatalog.com/marketplace) and on that issue's page.
 
 Buyers browse by publisher, series, grade, decade or price. When they find something, they message you. You two work out payment and shipping.
 
@@ -30,7 +30,7 @@ If checkout ever happens, anything you list now carries over. You will not have 
 
 **Limits on brand-new accounts.** An account under a week old can only send so many messages an hour and start a few new conversations a day. If you are a real person, you will never notice. If you are a spam bot, you will notice immediately.
 
-**You find out when someone writes.** When someone messages you, you get an email with a link to the conversation. It never includes the message itself, and it is one email per conversation every few hours at most. You can turn it off in your [account settings](/account#notifications).
+**You find out when someone writes.** When someone messages you, you get an email with a link to the conversation. It never includes the message itself, and it is one email per conversation every few hours at most. You can turn it off in your [account settings](https://www.comixcatalog.com/account#notifications).
 
 ## How to trade without getting burned
 
@@ -42,7 +42,7 @@ This is the same advice I would give for any comic deal with a stranger:
 - Keep the conversation in ComixCatalog messages so there is a record.
 - If someone pushes gift cards, wire transfers or a payment app with no protection, walk away.
 
-All of that lives on the [Trust & Safety page](/trust) too.
+All of that lives on the [Trust & Safety page](https://www.comixcatalog.com/trust) too.
 
 ## If you have a long box
 

@@ -59,6 +59,10 @@ __pycache__/
 # not local scratch output. /reports/* (not /reports/) so the negation
 # below can still see inside the directory.
 /reports/*
+!/reports/amory-wars/
+/reports/amory-wars/*
+!/reports/amory-wars/PLAN.md
+!/reports/amory-wars/cover-targets.json
 !/reports/covers-*.html
 !/reports/cover-coverage-history.json
 !/reports/perf-*.md

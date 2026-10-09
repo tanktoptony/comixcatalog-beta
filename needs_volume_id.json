@@ -44252,9 +44252,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-08T16:00:55.432168+00:00",
-    "retry_after": "2026-10-09T16:00:55.432185+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-09T17:00:48.714915+00:00",
+    "retry_after": "2026-10-12T17:00:48.714929+00:00"
   },
   {
     "name": "Justice League Special",
@@ -44262,9 +44262,9 @@
     "year": 1990,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-08T16:05:09.912698+00:00",
-    "retry_after": "2026-10-09T16:05:09.912718+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-09T17:02:07.228527+00:00",
+    "retry_after": "2026-10-12T17:02:07.228542+00:00"
   },
   {
     "name": "Doom Patrol Director's Cut",
@@ -44272,9 +44272,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-08T16:05:10.463449+00:00",
-    "retry_after": "2026-10-09T16:05:10.463467+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-09T17:02:09.439500+00:00",
+    "retry_after": "2026-10-12T17:02:09.439517+00:00"
   },
   {
     "name": "Doktor Strange",
@@ -44282,9 +44282,9 @@
     "year": null,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-08T16:06:07.531806+00:00",
-    "retry_after": "2026-10-09T16:06:07.531824+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-09T17:02:11.247059+00:00",
+    "retry_after": "2026-10-12T17:02:11.247077+00:00"
   },
   {
     "name": "You've Come a Long Way, Snoopy",
@@ -44292,9 +44292,9 @@
     "year": 1973,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-08T16:06:08.539176+00:00",
-    "retry_after": "2026-10-09T16:06:08.539196+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-09T17:02:12.112801+00:00",
+    "retry_after": "2026-10-12T17:02:12.112818+00:00"
   },
   {
     "name": "Madballs vs Garbage Pail Kids, Volume 1, Free Comic Book Day",
@@ -44302,9 +44302,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-08T16:06:54.352539+00:00",
-    "retry_after": "2026-10-09T16:06:54.352556+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-09T17:02:12.699235+00:00",
+    "retry_after": "2026-10-12T17:02:12.699251+00:00"
   },
   {
     "name": "Betty and Veronica: FCBD Edition",
@@ -44312,9 +44312,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-08T17:01:29.618143+00:00",
-    "retry_after": "2026-10-09T17:01:29.618158+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-09T17:02:09.978367+00:00",
+    "retry_after": "2026-10-12T17:02:09.978383+00:00"
   },
   {
     "name": "Fantastic Four [So Much Fun]",
@@ -44582,5 +44582,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-09T16:04:41.518366+00:00",
     "retry_after": "2026-10-10T16:04:41.518383+00:00"
+  },
+  {
+    "name": "DC Comics Essentials - Batman and Son Special Edition",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-09T17:02:10.437826+00:00",
+    "retry_after": "2026-10-10T17:02:10.437842+00:00"
   }
 ]

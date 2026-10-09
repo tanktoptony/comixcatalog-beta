@@ -97,6 +97,28 @@ export async function GET(req) {
     );
   }
 
+  // For-sale books show the seller's asking price, never an estimate. Look
+  // listings up by seller (not an .in() of collection ids, which overflows
+  // the URL for big for-sale shelves) and page past the 1000-row cap.
+  const listingByCollectionId = new Map();
+  if ((collection ?? []).some((item) => item.status === "for_sale")) {
+    try {
+      const listings = await fetchAllPages(
+        () =>
+          supabase
+            .from("listings")
+            .select("id, collection_id, price_cents")
+            .eq("seller_id", profile.id)
+            .eq("status", "active"),
+        "id"
+      );
+      for (const listing of listings) listingByCollectionId.set(listing.collection_id, listing);
+    } catch (listingsError) {
+      console.error("public profile listing price lookup failed:", listingsError?.code, listingsError?.message);
+      degraded = true;
+    }
+  }
+
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const gcdIds = [
     ...new Set(
@@ -530,11 +552,18 @@ export async function GET(req) {
   }
 
   const pricedCollection = normalizedCollection.map((item) => {
+    const listing = listingByCollectionId.get(item.id);
+    const listingFields = item.status === "for_sale"
+      ? {
+          listing_id: listing?.id ?? null,
+          listing_price: listing?.price_cents != null ? listing.price_cents / 100 : null,
+        }
+      : {};
     const existing = Number(item.market_value);
-    if (!Number.isNaN(existing) && existing > 0) return item; // user override wins
+    if (!Number.isNaN(existing) && existing > 0) return { ...item, ...listingFields }; // user override wins
     const auto = autoValueByCollectionId.get(item.id);
-    if (auto?.value > 0) return { ...item, market_value: auto.value };
-    return item;
+    if (auto?.value > 0) return { ...item, market_value: auto.value, ...listingFields };
+    return { ...item, ...listingFields };
   });
 
   // Apply per-section privacy. Owners see everything. Non-owners get items

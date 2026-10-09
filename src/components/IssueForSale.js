@@ -113,7 +113,7 @@ export default function IssueForSale({ gcdIssueId }) {
               </Link>
               <Link prefetch={false} href={`/listing/${l.id}`} className="issue-sale-grade">{conditionLabel(l)}</Link>
               <span className="issue-sale-price">
-                {formatValue(l.price ?? l.estValue) ? `${formatValue(l.price ?? l.estValue)}${l.price == null ? " est." : ""}` : "Open to offers"}
+                {l.price != null ? formatValue(l.price) : "Open to offers"}
                 {shippingLabel(l) && <small className="issue-sale-ship"> {shippingLabel(l)}</small>}
               </span>
               <Link prefetch={false} href={offerHref(l)} className="mkt-offer-btn">

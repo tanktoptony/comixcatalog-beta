@@ -57,9 +57,11 @@ test("filters combine and search matches title + issue words", () => {
   assert.deepEqual(filterListings(listings, readFilters({ publisher: "Other publishers" })).map((l) => l.id), [5]);
 });
 
-test("price filter uses the asking price over the est. value", () => {
-  // Batman is worth $2,000 but asks $5.
+test("price filter only includes seller-set asking prices", () => {
+  // Batman has a $2,000 estimate but asks $5. Unpriced estimates stay out.
   assert.deepEqual(filterListings(listings, readFilters({ price: "0-10" })).map((l) => l.id), [4]);
+  const priceBuckets = facetCounts(listings, readFilters({})).price;
+  assert.deepEqual(priceBuckets, [["0-10", 1]]);
 });
 
 test("a facet's counts ignore its own selection but apply the others", () => {
@@ -79,9 +81,9 @@ test("grade and decade buckets", () => {
   assert.deepEqual(c.decade.map(([d]) => d), ["1990s", "1960s", "1940s"]);
 });
 
-test("sorts: value uses asking price; unknown values sink; title orders issues numerically", () => {
-  assert.deepEqual(sortListings(listings, "value-desc").map((l) => l.id), [1, 2, 3, 4, 5]);
-  assert.deepEqual(sortListings(listings, "value-asc").map((l) => l.id), [4, 3, 2, 1, 5]);
+test("price sorts use asking price and sink unpriced high estimates", () => {
+  assert.deepEqual(sortListings(listings, "value-desc").map((l) => l.id), [4, 1, 2, 3, 5]);
+  assert.deepEqual(sortListings(listings, "value-asc").map((l) => l.id), [4, 1, 2, 3, 5]);
   assert.deepEqual(sortListings(listings, "title").map((l) => l.id), [4, 5, 1, 3, 2]);
   assert.deepEqual(sortListings(listings, "newest").map((l) => l.id), [3, 2, 1, 4, 5]);
 });
@@ -99,7 +101,7 @@ test("landing shelves", () => {
   const s = landingSections(listings, 2);
   assert.deepEqual(s.justListed.map((l) => l.id), [3, 2]);
   assert.deepEqual(s.mostWanted.map((l) => l.id), [1, 3]);
-  assert.deepEqual(s.mostValuable.map((l) => l.id), [1, 2]);
+  assert.deepEqual(s.mostValuable.map((l) => l.id), [4]);
   assert.deepEqual(s.publishers[0], ["Marvel Comics", 3]);
   assert.deepEqual(s.sellers, [["tony", 3], ["pete", 2]]);
 });
@@ -141,7 +143,7 @@ test("wantlist matches: on your list, not your own copies, cheapest first", () =
     L({ id: "c", gcdIssueId: 10, estValue: 20, seller: "dan" }),
     L({ id: "d", gcdIssueId: 99, price: 5, seller: "dan" }),
   ];
-  assert.deepEqual(wantlistMatches(ls, new Set([10]), "tony").map((l) => l.id), ["c", "a"]);
+  assert.deepEqual(wantlistMatches(ls, new Set([10]), "tony").map((l) => l.id), ["a", "c"]);
   assert.deepEqual(wantlistMatches(ls, new Set(), "tony"), []);
   assert.deepEqual(wantlistMatches(ls, null, "tony"), []);
   const f = readFilters(new URLSearchParams("wants=1"));

@@ -24,8 +24,8 @@ The marketplace already ships as a labeled beta: listings come from a collector'
 
 | # | Package | Gate | Migration | PR |
 |---|---|---|---|---|
-| 1 | Copy honesty pass: Terms/Privacy, Beta labels, `/trust` safe-trading page, "Most books listed", `/sell` carry-over line | Before recruiting | none | this PR |
-| 2 | Honest prices: "Open to offers" for unpriced listings, estimates only in the seller's library, shelves and headline count real prices | Before recruiting | none | |
+| 1 | Copy honesty pass: Terms/Privacy, Beta labels, `/trust` safe-trading page, "Most books listed", `/sell` carry-over line | Before recruiting | none | #255 (merged) |
+| 2 | Honest prices: "Open to offers" for unpriced listings, estimates only in the seller's library, shelves and headline count real prices | Before recruiting | none | this PR |
 | 3 | Lock message editing to `read_at` | Before recruiting | 0044 | #254 |
 | 4 | Server-side message send: rate limits (stricter under 7 days), block enforced on send, link warning; close the direct insert path | Before public push | yes | |
 | 5 | Reports: button on listing, thread, profile; email + `/admin/reports` behind the admin MFA gate; admin can resolve or remove a listing | Before public push | yes | |

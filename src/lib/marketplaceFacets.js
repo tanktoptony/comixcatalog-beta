@@ -13,8 +13,8 @@ export const PAGE_SIZE = 25;
 export const SORTS = {
   relevance: "Best match",
   newest: "Newest",
-  "value-desc": "Value: high to low",
-  "value-asc": "Value: low to high",
+  "value-desc": "Price: high to low",
+  "value-asc": "Price: low to high",
   title: "Title A–Z",
 };
 
@@ -45,9 +45,9 @@ export function decadeOf(l) {
   return Number.isFinite(y) && y > 1800 ? `${Math.floor(y / 10) * 10}s` : null;
 }
 
-// The price a buyer sees: the asking price when set, else the est. value.
+// The only price a buyer sees is the seller's asking price.
 export function shownValue(l) {
-  return l.price ?? l.estValue ?? null;
+  return l.price ?? null;
 }
 
 function gradeBand(l) {
@@ -250,7 +250,7 @@ export function landingSections(listings, n = 6) {
 
 // Listings of issues on the viewer's wantlist, not their own. wantIds is a
 // Set of catalog issue ids (gcd_issue_id) from the viewer's wishlist rows.
-// Best deals first: cheapest shown price, then newest.
+// Priced listings first by seller-set price, then unpriced listings by newest.
 export function wantlistMatches(listings, wantIds, ownSeller) {
   if (!wantIds || wantIds.size === 0) return [];
   return listings

@@ -29,7 +29,7 @@ The marketplace already ships as a labeled beta: listings come from a collector'
 | 3 | Lock message editing to `read_at` | Before recruiting | 0044 | #254 (merged) |
 | 4 | Server-side message send: rate limits (stricter under 7 days), block enforced on send, link warning; close the direct insert path. Also: unread badge refreshes as soon as a thread is read | Before public push | 0045 | #257 (merged) |
 | 5 | Reports: button on listing, thread, profile; email + `/admin/reports` behind the admin MFA gate; admin can resolve or remove a listing | Before public push | none (table from 0031) | #258 (merged) |
-| 6 | New-message email via Resend, throttled per conversation, with opt-out | Before public push | 0046 | this PR |
+| 6 | New-message email via Resend, throttled per conversation, with opt-out | Before public push | 0046 | #259 (merged) |
 | 7 | Listing completeness: price/photo prompt after listing, "N need a price" on the For sale tab | Worth showing off | none | |
 | 8 | Mark as sold + sale price, private sold history | Worth showing off | yes | |
 | 9 | Listing trigger logs failures instead of swallowing them; nightly check for for-sale books with no listing | Anytime | yes | |

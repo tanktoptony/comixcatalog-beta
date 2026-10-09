@@ -153,6 +153,64 @@ test("a unique same-book sibling cover qualifies", () => {
   assert.equal(picked?.source, "sibling");
 });
 
+test("a collected-edition issue rejects a single-issue sibling cover", () => {
+  const formats = new Map([
+    ["56561", { publishing_format: "collected edition", binding: "trade paperback" }],
+    ["49190", { publishing_format: "limited series", binding: "saddle-stitched" }],
+  ]);
+  const picked = pickUniqueSiblingCover(issue({
+    series_gcd_id: 56561,
+    series_title: "The Amory Wars: In Keeping Secrets of Silent Earth: 3",
+    year: 2010,
+  }), [cover({
+    series_gcd_id: 49190,
+    series_title: "The Amory Wars in Keeping Secrets of Silent Earth: 3",
+    series_year: 2010,
+    cover_date: "2010-01-01",
+    storage_path: "single-issue.jpg",
+  })], formats);
+  assert.equal(picked, null);
+});
+
+test("a single issue rejects a collected-edition sibling cover", () => {
+  const formats = new Map([
+    ["10", { publishing_format: "limited series", binding: "saddle-stitched" }],
+    ["11", { publishing_format: "collected edition", binding: "hardcover" }],
+  ]);
+  assert.equal(pickUniqueSiblingCover(issue(), [
+    cover({ series_gcd_id: 11, storage_path: "hardcover.jpg" }),
+  ], formats), null);
+});
+
+test("collected-edition sibling formats may lend covers to each other", () => {
+  const formats = new Map([
+    ["10", { publishing_format: "collected edition", binding: "hardcover" }],
+    ["11", { publishing_format: "collected edition", binding: "trade paperback" }],
+  ]);
+  const picked = pickUniqueSiblingCover(issue(), [
+    cover({ series_gcd_id: 11, storage_path: "paperback.jpg" }),
+  ], formats);
+  assert.equal(picked?.storage_path, "paperback.jpg");
+});
+
+test("missing format info preserves sibling fallback behaviour", () => {
+  const picked = pickUniqueSiblingCover(issue(), [
+    cover({ series_gcd_id: 11, storage_path: "unsynced.jpg" }),
+  ]);
+  assert.equal(picked?.storage_path, "unsynced.jpg");
+});
+
+test("two unsynced series remain compatible when format rows are loaded", () => {
+  const formats = new Map([
+    ["10", { publishing_format: null, binding: null }],
+    ["11", { publishing_format: null, binding: null }],
+  ]);
+  const picked = pickUniqueSiblingCover(issue(), [
+    cover({ series_gcd_id: 11, storage_path: "unsynced.jpg" }),
+  ], formats);
+  assert.equal(picked?.storage_path, "unsynced.jpg");
+});
+
 test("Tug & Buster 1998 Image #1 rejects the 1995 Art & Soul sibling", () => {
   const picked = pickUniqueSiblingCover(issue({
     series_gcd_id: 151248,

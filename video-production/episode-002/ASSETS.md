@@ -80,8 +80,7 @@ Sources: Comic Book Herald (Pitarra interview, Hickmania East of West episode), 
 | Item | Needed at | Source | Real-art fallback |
 |---|---|---|---|
 | Secret and The Dying and the Dead covers | P44 | Pull the exact real covers from an approved source pack | Text-only title cards, as already planned |
-| Tony camera takes `cam-002-01` to `cam-002-04` | P1 to P4, P7 to P9, P18, P28, P56 to P59 | Record HOST footage | Use covers, title cards, and Tony's hands with real books, except P28 needs the spoken camera beat or a script change |
-| Tony shelf, pull, flip, and optional GPK footage | P5, P21, P26, P55 | Record HOST footage of Tony's real shelf, books, and owned card only | Use the downloaded cover grids and fans. Skip the GPK insert if Tony owns no card |
+| Tony shelf, pull, flip, copy-to-lens, ending long-box, and optional GPK footage | P3, P5, P8 to P9, P21, P26, P28, P55 to P59 | Record hands-only HOST footage of Tony's real shelf, books, and owned card only | Use the downloaded cover grids and fans. Skip the GPK insert if Tony owns no card |
 | Optional East of West series page | P37 | Record SCREEN after duplicate rows are fixed | East of West #45 cover |
 
 ## Licensing
@@ -97,6 +96,7 @@ Sources: Comic Book Herald (Pitarra interview, Hickmania East of West episode), 
 - Confirm which Manhattan Projects and East of West issues he owns, and which issue he holds in P28.
 - Confirm whether he bought issues monthly, roughly when, and at which shop if he wants that detail.
 - Confirm whether to keep P20, P36's rack memory, and P58.
-- Record four camera setups and shelf, pull, flip, and long-box B-roll.
+- Record hands-only shelf, pull, flip, copy-to-lens, and long-box B-roll.
+- A face thumbnail is not used for this episode.
 - Record the optional ComixCatalog series page only after the duplicate rows are addressed.
 - Choose and license music before upload.

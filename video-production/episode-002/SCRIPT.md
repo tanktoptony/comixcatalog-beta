@@ -6,7 +6,7 @@
 **How to read this file**
 - Each `##` section is one recording file: `audio/approved/<section-id>.wav`. Record a section in one or more takes and keep the best.
 - Paragraphs are numbered (P1, P2...). SHOTS.md matches every visual to a paragraph and an anchor phrase, so picture and narration stay locked together.
-- **ON CAMERA** means webcam. **VO** means voice only, recorded at the desk mic.
+- **No on-camera segments in this episode** (Tony's call, 2026-10-09). Everything is voice-over. The only footage of Tony is hands with comics, filmed from overhead or chest-down, face out of frame.
 - Sections 01 and 02 are the approved intro, word for word (see INTRO_APPROVED.md).
 - **(your call: ...)** marks a spot where only Tony knows the truth. Replace it or cut it. Nothing in brackets gets read aloud.
 - Spoiler level is noted per section. Nothing here spoils an ending.
@@ -18,7 +18,7 @@
 
 ---
 
-## 01-cold-open · ON CAMERA · ~0:10
+## 01-cold-open · VO over cover slams · ~0:10
 
 P1. If you've been following Marvel comics for the last decade or so, you've probably heard the name Jonathan Hickman.
 
@@ -28,7 +28,7 @@ P2. Fantastic Four. Avengers. Secret Wars. House of X. Powers of X.
 
 ---
 
-## 02-intro · ON CAMERA, then VO over Tony's own books · ~1:40
+## 02-intro · VO over your books and covers · ~1:40
 
 P3. This guy has written some of the biggest, most ambitious stories Marvel has published in recent memory. And with the MCU exploring so many of the same enormous concepts, it's not surprising that people are paying attention to his work.
 
@@ -77,7 +77,7 @@ P21. OK. That's the Marvel guy. Now the books I was buying without knowing he wr
 
 ---
 
-## 04-manhattan-projects · VO, one ON CAMERA beat · ~2:10
+## 04-manhattan-projects · VO, one hands-only beat · ~2:10
 Spoilers: none beyond the publisher's own pitch. Issue #1's twist is teased, not told.
 
 P22. The Manhattan Projects. Image Comics, started in 2012. Written by Hickman, drawn by Nick Pitarra, with Ryan Browne on some issues.
@@ -92,7 +92,7 @@ P26. And then there's the art, which is what got me in the first place. Nick Pit
 
 P27. Pitarra has said he's a big Moebius, Geof Darrow, Frank Quitely and Seth Fisher fan, and once you know that, you can see it. Dense detail, weird anatomy, nothing generic.
 
-P28. [ON CAMERA, holding his copy] This is my copy of (your call: which issue). Full disclosure, I bought these as they came out, and years later I couldn't tell you the plot in any real detail. What stuck was the look of it. And the fact that I kept buying it.
+P28. [HANDS ONLY: your copy held up to the lens] This is my copy of (your call: which issue). Full disclosure, I bought these as they came out, and years later I couldn't tell you the plot in any real detail. What stuck was the look of it. And the fact that I kept buying it.
 
 P29. It ran 25 issues, 2012 to 2015, plus a four-issue follow-up called The Sun Beyond the Stars.
 
@@ -168,7 +168,7 @@ P55. And honestly? Check your long boxes first. You might already own some of th
 
 ---
 
-## 09-ending · ON CAMERA · ~0:45
+## 09-ending · VO over your long box · ~0:45
 
 P56. That's the part I keep thinking about. I had these books for years. I bought them because of how they looked. And the whole time, they were written by the same guy behind some of my favorite Marvel comics of the last decade.
 

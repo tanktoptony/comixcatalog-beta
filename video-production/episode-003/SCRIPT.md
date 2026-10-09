@@ -6,7 +6,8 @@
 **How to read this file**
 - Each `##` section is one recording file: `audio/approved/<section-id>.wav`.
 - Paragraphs are numbered (P1, P2...). SHOTS.md ties each one to a visual and an anchor phrase.
-- **ON CAMERA** means webcam. **VO** means voice only. **B-ROLL** is silent footage Tony films (boxes, hands, stacks).
+- **No on-camera segments in this episode** (Tony's call, 2026-10-09). Everything is voice-over. The only footage of Tony is hands with comics, filmed from overhead or chest-down, face out of frame.
+- **B-ROLL** is silent footage Tony films (boxes, hands, stacks).
 - Sections 01 and 02 are the approved intro, word for word (see INTRO_APPROVED.md).
 - **(your call: ...)** marks facts only Tony has. Every specific comic named in this script is either one of the four confirmed in the brief (Cerebus, Milk & Cheese, Scud, "obscure Malibu") or flagged for confirmation. Do not add titles from memory of other collections.
 - Catalog facts in section 06 and 07 were checked against the live site on 2026-10-08. Re-check them the day you record (RESEARCH.md has the exact searches).
@@ -18,7 +19,7 @@
 
 ---
 
-## 01-cold-open · ON CAMERA (boxes in frame) · ~0:15
+## 01-cold-open · VO over the two boxes · ~0:15
 
 P1. A friend of mine recently gave me two long boxes full of comic books.
 
@@ -34,7 +35,7 @@ P5. And second, how well could the comic-book website I'd been building actually
 
 ---
 
-## 02-origin · ON CAMERA, then VO · ~1:30
+## 02-origin · VO · ~1:30
 
 P6. But before I get into that, I should probably explain why I started building ComixCatalog in the first place.
 
@@ -119,7 +120,7 @@ P36. Scud the Disposable Assassin, by Rob Schrab. Best premise in comics, maybe.
 
 P37. And Malibu. Malibu Comics was a nineties publisher with its own superhero universe, the Ultraverse, right up until Marvel bought the company in 1994. (your call: name the Malibu books from the boxes.)
 
-P38. (your call: any book you still can't identify. If there is one, hold it up and say so. That's a great beat.)
+P38. (your call: any book you still can't identify. If there is one, film your hands holding it up. That's a great beat.)
 
 P39. And this is where it got humbling.
 
@@ -131,7 +132,7 @@ P42. (your call: one real frustration with the experience itself, not the data. 
 
 ---
 
-## 07-what-changed · VO, ending ON CAMERA · ~1:15
+## 07-what-changed · VO · ~1:15
 
 P43. So, remember Discogs? One guy's electronic music collection that turned into the catalog for everything?
 
@@ -143,7 +144,7 @@ P46. And honestly, that's the real test. Anybody can find Amazing Spider-Man. Th
 
 ---
 
-## 08-ending · ON CAMERA · ~0:50
+## 08-ending · VO over the sorted piles · ~0:50
 
 P47. Corey, thank you. For the comics, and for accidentally running the best test this website has ever had.
 

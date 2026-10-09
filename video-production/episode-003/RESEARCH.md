@@ -13,7 +13,7 @@ Checked 2026-10-08. Paragraph numbers refer to SCRIPT.md.
 - Sorted by series or publisher, added to his ComixCatalog account.
 - Mainstream runs were easy ("Wow, I made this"); obscure books exposed data gaps and UX problems.
 
-## Not confirmed: do not say on camera until Tony confirms
+## Not confirmed: do not say in the video until Tony confirms
 - Who Corey is, how they know each other, why he gave the boxes away (P23, P24).
 - Any specific mainstream series in the boxes (P29).
 - Which Malibu titles (P37).
@@ -23,7 +23,7 @@ Checked 2026-10-08. Paragraph numbers refer to SCRIPT.md.
 ## Strong lead, needs Tony's confirmation
 Tony's phone QA punch list from **2026-09-18** (memory: "Valiant/Malibu coverage gaps") lists books he couldn't find or that had wrong covers: Valiant (Chaos Effect, Armorines, Bloodshot, Deathmate, Ninjak, Shadowman, Rai...), **Scud's whole Fireman Press run and #13**, Mortal Kombat: Battlewave, Star Trek: Generations, Elric, Evil Ernie, **Cerebus ("investigate")**, Goro: Prince of Pain, **Street Fighter (Malibu)**, and **"Malibu Comics generally."** It also notes a real UX problem: several Ninjak runs looked identical in the search dropdown.
 
-That list overlaps the confirmed box contents (Scud, Cerebus, Malibu) almost exactly, and the timing fits. **If those came from Corey's boxes, Tony can name any of them on camera,** and the Ninjak dropdown problem is the perfect P42. If they didn't, leave them out.
+That list overlaps the confirmed box contents (Scud, Cerebus, Malibu) almost exactly, and the timing fits. **If those came from Corey's boxes, Tony can name any of them in the video,** and the Ninjak dropdown problem is the perfect P42. If they didn't, leave them out.
 
 ## Fact table
 
@@ -65,7 +65,7 @@ That list overlaps the confirmed box contents (Scud, Cerebus, Malibu) almost exa
 - **Coheed:** one line in P22 only. Episode 004 owns the subject.
 
 ## Open questions for Tony
-1. Who is Corey to you? (P23) Does he want to be named and/or on camera? Get his OK before naming him in a published video.
+1. Who is Corey to you? (P23) Is he OK being named in the video? Get his OK before naming him in a published video.
 2. Why did he give the boxes away? (P24)
 3. Which mainstream series were in there? (P29)
 4. Which Malibu titles? (P37)

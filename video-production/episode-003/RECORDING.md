@@ -2,10 +2,8 @@
 
 ## Setup
 
-- OBS and webcam. Record 1920x1080.
-- Use a soft front light. Close window curtains halfway to avoid backlight.
-- Tidy the bookshelf background.
-- Keep the mic close. Record narration at 48 kHz WAV.
+- Keep the mic close.
+- Record narration at 48 kHz WAV in a quiet room.
 - Record 10 seconds of room tone.
 - Record paragraph by paragraph. Pause 2 seconds between paragraphs. Redo a flubbed paragraph immediately.
 
@@ -13,25 +11,18 @@
 
 | Section | File | Mode | Paragraphs | Approx. duration |
 |---|---|---|---|---|
-| `01-cold-open` | `audio/approved/01-cold-open.wav` | ON CAMERA | P1 to P5 | 0:15 |
-| `02-origin` | `audio/approved/02-origin.wav` | ON CAMERA, then VO | P6 to P17 | 1:30 |
+| `01-cold-open` | `audio/approved/01-cold-open.wav` | VO | P1 to P5 | 0:15 |
+| `02-origin` | `audio/approved/02-origin.wav` | VO | P6 to P17 | 1:30 |
 | `03-why-discogs-works` | `audio/approved/03-why-discogs-works.wav` | VO | P18 to P22 | 1:20 |
 | `04-the-boxes` | `audio/approved/04-the-boxes.wav` | VO | P23 to P28 | 1:30 |
 | `05-the-easy-part` | `audio/approved/05-the-easy-part.wav` | VO | P29 to P32 | 1:10 |
 | `06-the-weird-stuff` | `audio/approved/06-the-weird-stuff.wav` | VO | P33 to P42 | 2:30 |
-| `07-what-changed` | `audio/approved/07-what-changed.wav` | VO, ending ON CAMERA | P43 to P46 | 1:15 |
-| `08-ending` | `audio/approved/08-ending.wav` | ON CAMERA | P47 to P51 | 0:50 |
-
-## On-camera shots
-
-| What | Duration | Framing or angle | Props or issues | Speaks or silent B-roll | Screen substitute |
-|---|---:|---|---|---|---|
-| Cold open | 1 min raw | Medium close-up, both boxes in frame | Two real long boxes | Speaks, P1 to P5 | No |
-| Origin setup | 1 min raw | Medium close-up | Laptop and collection behind Tony | Speaks, P6 and P15 | No |
-| Unidentified book, if real | 20 s | Medium, book readable | Actual unidentified book | Speaks, P38 | No, cut if none |
-| Ending | 1 min raw | Medium close-up, boxes visible | Real boxes | Speaks, P47 to P51 | No |
+| `07-what-changed` | `audio/approved/07-what-changed.wav` | VO | P43 to P46 | 1:15 |
+| `08-ending` | `audio/approved/08-ending.wav` | VO | P47 to P51 | 0:50 |
 
 ## B-roll
+
+Framing rule: Film overhead or chest-down. Tony's face must never be in frame. A phone on a stand or overhead mount is fine. Use soft, even light. Avoid backlight.
 
 | What | Duration | Framing or angle | Props or issues | Speaks or silent B-roll | Screen substitute |
 |---|---:|---|---|---|---|
@@ -65,7 +56,7 @@ Use 1920x1080, browser zoom 125%, a non-test account with real books, and hide t
 
 ## Shorts
 
-Record each Short as its own complete take. A vertical camera is optional.
+Record each Short as its own complete VO take at the listed path.
 
 | Short | File |
 |---|---|
@@ -76,7 +67,7 @@ Record each Short as its own complete take. A vertical camera is optional.
 ## Pre-record questions
 
 - Who is Corey, how does Tony know him, and why did Corey give him the boxes?
-- Does Corey consent to use of his name, face, and voice?
+- Does Corey consent to use of his name, voice, or any footage of him?
 - What Coheed book or run was Tony trying to find?
 - What did the room look like after sorting?
 - Which mainstream series were in the boxes?

@@ -11,6 +11,9 @@ Nothing is approved. Nothing will be rendered or published without Tony's explic
 - Recording checklist.
 - Three standalone Shorts scripts (SHORTS.md).
 - `episode.json` with upload copy, books, chapters, credits, and Shorts metadata.
+- Converted to voice-over only, no on-camera segments (Tony, 2026-10-09).
+
+FORMAT.md's on-camera guidance is overridden for this episode by Tony's decision.
 
 ## Review gates
 
@@ -26,12 +29,12 @@ Nothing is approved. Nothing will be rendered or published without Tony's explic
 
 ## Dependencies
 
-- Corey consent for name, face, and voice. Do not show his face without it.
+- Corey consent for his name and for any footage or voice used.
 - Tony's answers about Corey, the handoff, actual mainstream and Malibu titles, the QA list, unidentified books, and the real UX problem.
 - Recording-day catalog re-check for Milk & Cheese, original Scud, Cerebus, and Malibu.
 - Recording-day marketplace status re-check.
 - The publisher allowlist decision in `RESEARCH.md` open question 8.
-- Tony's long boxes, physical books, camera footage, B-roll, and non-test account.
+- Tony's long boxes, physical books, hands-only B-roll, and non-test account.
 - Licensed music and Shorts recordings.
 
 ## Next actions
@@ -42,6 +45,6 @@ Nothing is approved. Nothing will be rendered or published without Tony's explic
 4. Owner: Tony. Run the recording-day catalog and marketplace checks.
 5. Owner: Tony. Review and approve or revise `SCRIPT.md`.
 6. Owner: Claude. Update the plan to match Tony's confirmed titles and current site state.
-7. Owner: Tony. Record narration, camera footage, B-roll, screens, and Shorts.
+7. Owner: Tony. Record narration, hands-only B-roll, screens, and Shorts.
 8. Owner: Claude. Assemble a rough cut only after approval and recordings exist.
 9. Owner: Tony. Review the rough cut and explicitly approve each later gate.

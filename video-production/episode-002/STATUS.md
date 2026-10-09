@@ -12,6 +12,9 @@ Nothing is approved. Nothing will be rendered or published without Tony's explic
 - Recording checklist.
 - Three standalone Shorts scripts (SHORTS.md).
 - `episode.json` with upload copy, books, chapters, credits, and Shorts metadata.
+- Converted to voice-over only, no on-camera segments (Tony, 2026-10-09).
+
+FORMAT.md's on-camera guidance is overridden for this episode by Tony's decision.
 
 ## Review gates
 
@@ -28,7 +31,7 @@ Nothing is approved. Nothing will be rendered or published without Tony's explic
 ## Dependencies
 
 - Tony's answers for P28, P36, P58, buying history, and the MCU paragraph.
-- Tony's camera footage, shelf footage, long-box footage, and owned issues.
+- Tony's hands-only shelf footage, long-box footage, and owned issues.
 - ComixCatalog duplicate-series cleanup if the optional screen beat is used.
 - Licensed music and Shorts recordings.
 
@@ -37,6 +40,6 @@ Nothing is approved. Nothing will be rendered or published without Tony's explic
 1. Owner: Tony. Answer the pre-record questions in `RECORDING.md`.
 2. Owner: Tony. Review and approve or revise `SCRIPT.md`.
 3. Owner: Claude. Apply Tony's approved script changes to the shot and asset plans.
-4. Owner: Tony. Record narration, camera footage, B-roll, screens, and Shorts.
+4. Owner: Tony. Record narration, hands-only B-roll, screens, and Shorts.
 5. Owner: Claude. Assemble a rough cut only after approval and recordings exist.
 6. Owner: Tony. Review the rough cut and explicitly approve each later gate.

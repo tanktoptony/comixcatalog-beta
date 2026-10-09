@@ -28,8 +28,7 @@ Reusable pieces: ChannelSting, TitleCard, ChapterCard, CoverGrid, CoverPair, Cov
 
 | Item | Needed at | Source | Fallback using real art on hand |
 |---|---|---|---|
-| `cam-003-01`, `cam-003-02`, `cam-003-03` | P1 to P5, P6, P15, P47, P50 | Record Tony with OBS and webcam | Use Tony's hands and the real boxes, except spoken camera sections need a script or edit decision |
-| `cam-003-unidentified` | P38 | Record only if Tony has a real unidentified book | Cut P38 |
+| `broll-003-unidentified` | P38 | Record hands-only only if Tony has a real unidentified book | Cut P38 |
 | `broll-003-boxes-open`, `first-look`, `laptop-stack` | P2, P4, P5 | Record the real boxes, books, and laptop | Use Cerebus, Milk & Cheese, and Scud cover grids without implying they were adjacent |
 | `broll-003-record-laptop`, `tony-collection`, `coheed-gap`, `coding-desk`, `coheed-books`, `coheed-target` | P7, P10 to P13, P22 | Record Tony's real property and confirmed collection gaps | Use The Amory Wars cover and ComixCatalog brand cards |
 | `broll-003-box-handoff-recreation`, `test-setup`, `closed-boxes`, `handoff`, `long-box-wide`, `box-lift` | P16, P17, P23 to P25 | Record HOST footage. Do not show Corey without consent | Use the real boxes in static close shots |
@@ -54,11 +53,11 @@ Reusable pieces: ChannelSting, TitleCard, ChapterCard, CoverGrid, CoverPair, Cov
 - Do not use film or TV stills.
 - Music must be licensed. Episode 001 used Kevin MacLeod under CC BY 4.0. Episode 003 music is still TBD.
 - Discogs screen recordings must be brief and tied to commentary. Do not imply a partnership. Do not use the Discogs logo as decoration.
-- Get Corey's consent for his name, face, and voice. Do not show his face without confirmed consent.
+- Get Corey's consent for his name, voice, and any footage of him.
 
 ## Material needed from Tony
 
-- Answer who Corey is, why he gave Tony the boxes, and whether Corey consents to name, face, and voice use.
+- Answer who Corey is, why he gave Tony the boxes, and whether Corey consents to use of his name, voice, or any footage of him.
 - Name the actual mainstream and Malibu books in the boxes. Confirm whether the QA punch-list books came from them.
 - Confirm any unidentified book and one real UX frustration.
 - Decide whether Episode 004 is locked as Coheed.
@@ -67,3 +66,4 @@ Reusable pieces: ChannelSting, TitleCard, ChapterCard, CoverGrid, CoverPair, Cov
 - Film the boxes, sorting, stacks, publisher piles, bagged books, physical Scud #1, and confirmed titles.
 - Record Discogs and ComixCatalog screens at the specified settings.
 - Choose and license music before upload.
+- A face thumbnail is not used for this episode.

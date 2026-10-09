@@ -2,18 +2,18 @@
 
 Every visual is pinned to a script paragraph and an exact anchor phrase. When Tony's audio is transcribed, these anchors become timeline anchors.
 
-- Type uses only the renderer segments in `README.md`, plus CAM, HOST B-roll, and SCREEN.
+- Type uses only the renderer segments in `README.md`, plus HOST B-roll and SCREEN.
 - Cover files come from `~/Desktop/episode-003-assets/covers/`.
 - `HOST-confirm` means Tony must confirm the title was in Corey's boxes before it is presented that way.
-- Do not show Corey's face unless Tony confirms Corey's consent. Get consent for Corey's name and voice too.
+- Get Corey's consent before using his name, voice, or any footage of him.
 
 ## 01-cold-open
 
 | P | Anchor | Visual | Type | Asset |
 |---|---|---|---|---|
-| P1 | "A friend of mine recently" | Tony at desk with both long boxes in frame | CAM | MISSING: `cam-003-01` |
-| P2 | "Hundreds of comics" | Slow pass over bagged and boarded books inside both boxes | HOST B-roll | MISSING: `broll-003-boxes-open` |
-| P3 | "two things" | Tony holds up two fingers | CAM | MISSING: `cam-003-01` |
+| P1 | "A friend of mine recently" | Two closed long boxes, no person in frame | HOST B-roll | MISSING: `broll-003-closed-boxes` |
+| P2 | "Hundreds of comics" | The two lids come off, then a slow pass over bagged and boarded books inside both boxes | HOST B-roll | MISSING: `broll-003-boxes-open` |
+| P3 | "two things" | Text card: TWO THINGS over a split view of the two boxes | quote | brand |
 | P4 | "what the hell was in these boxes" | Hands flip through one box, titles not held long enough to imply confirmation | HOST B-roll | MISSING: `broll-003-first-look` |
 | P5 | "how well could the comic-book website" | ComixCatalog collection page on laptop behind a foreground stack | HOST B-roll | MISSING: `broll-003-laptop-stack` |
 | | after P5 | Channel sting | ChannelSting | existing |
@@ -22,7 +22,7 @@ Every visual is pinned to a script paragraph and an exact anchor phrase. When To
 
 | P | Anchor | Visual | Type | Asset |
 |---|---|---|---|---|
-| P6 | "why I started building ComixCatalog" | Tony on camera | CAM | MISSING: `cam-003-02` |
+| P6 | "why I started building ComixCatalog" | ComixCatalog home page, slow screen move | SCREEN | MISSING: `screen-003-home` |
 | P7 | "roommate who was constantly buying records" | Hands placing a record beside a laptop. No roommate shown | HOST B-roll | MISSING: `broll-003-record-laptop` |
 | P8 | "showed me how he used it" | Tony records Discogs browsing | SCREEN | MISSING: `screen-003-discogs-browse` |
 | P9 | "catalog his records" | Discogs collection, release page, then marketplace listings. Brief commentary only | SCREEN | MISSING: `screen-003-discogs-features` |
@@ -31,7 +31,7 @@ Every visual is pinned to a script paragraph and an exact anchor phrase. When To
 | P12 | "runs I wanted to finish" | Physical Coheed books with a visible gap, only if accurate | HOST B-roll | MISSING: `broll-003-coheed-gap` |
 | P13 | "master's degree in software engineering" | Tony at the desk, hands on keyboard. Do not invent school details | HOST B-roll | MISSING: `broll-003-coding-desk` |
 | P14 | "Discogs for comics" | Text card: DISCOGS FOR COMICS? | quote | brand |
-| P15 | "what if that somebody was me" | Tony on camera | CAM | MISSING: `cam-003-02` |
+| P15 | "what if that somebody was me" | Text card: WHAT IF THAT SOMEBODY WAS ME? | quote | brand |
 | P16 | "Corey handing me two enormous boxes" | Tony carries or slides the two boxes into frame. Do not show Corey without consent | HOST B-roll | MISSING: `broll-003-box-handoff-recreation` |
 | P17 | "whether the thing I'd been building actually worked" | Tony opens a box beside the ComixCatalog home page | HOST B-roll | MISSING: `broll-003-test-setup` |
 | | after P17 | Title card: TWO LONG BOXES / sub: THE REAL TEST FOR COMIXCATALOG | title | faint early Cerebus, Milk & Cheese, and Scud cover wall |
@@ -53,7 +53,7 @@ Every visual is pinned to a script paragraph and an exact anchor phrase. When To
 
 | P | Anchor | Visual | Type | Asset |
 |---|---|---|---|---|
-| P23 | "So. Corey." | Tony's hands on the closed boxes. No face, name card, or photo without consent | HOST B-roll | MISSING: `broll-003-closed-boxes` |
+| P23 | "So. Corey." | Tony's hands on the closed boxes. Use Corey's name only with consent | HOST B-roll | MISSING: `broll-003-closed-boxes` |
 | P24 | "why he gave them to you" | Box handoff recreation or boxes arriving at desk. HOST-confirm the account | HOST B-roll | MISSING: `broll-003-handoff` |
 | P25 | "A long box is exactly" | Wide side view showing the full length of one box | HOST B-roll | MISSING: `broll-003-long-box-wide` |
 | P25 | "A full one is heavy" | Tony lifts one box safely from floor to table | HOST B-roll | MISSING: `broll-003-box-lift` |
@@ -91,7 +91,7 @@ Every visual is pinned to a script paragraph and an exact anchor phrase. When To
 | P36 | "finished it at Image" | #21, slow push | cover, `slowPush` | `covers/scud-the-disposable-assassin-image-021-2008.jpg` |
 | P37 | "Malibu Comics" | Prime, Hardcase, and The Strangers only as Ultraverse context | grid | `covers/prime-001-1993.jpg`, `hardcase-001-1993.jpg`, `the-strangers-001-1993.jpg` |
 | P37 | "name the Malibu books from the boxes" | Replace context grid with Tony's physical Malibu books if named | HOST B-roll | MISSING: `broll-003-malibu-confirmed`, HOST-confirm |
-| P38 | "any book you still can't identify" | Tony holds the real unidentified book, if one exists | CAM | MISSING: `cam-003-unidentified`, HOST-confirm |
+| P38 | "any book you still can't identify" | Tony's hands hold the real unidentified book under the overhead camera, if one exists | HOST B-roll | MISSING: `broll-003-unidentified`, HOST-confirm |
 | P39 | "where it got humbling" | Odd pile beside failed search page | HOST B-roll | MISSING: `broll-003-failed-search-setup` |
 | P40 | "didn't show up in search" | Recording-day failed search for Milk and Cheese | SCREEN | MISSING: `screen-003-fail-milk-cheese` |
 | P40 | "not the original twenty issues" | Recording-day failed search for original Scud | SCREEN | MISSING: `screen-003-fail-scud-original` |
@@ -117,10 +117,10 @@ Every visual is pinned to a script paragraph and an exact anchor phrase. When To
 
 | P | Anchor | Visual | Type | Asset |
 |---|---|---|---|---|
-| P47 | "Corey, thank you" | Tony on camera with boxes. No Corey footage without consent | CAM | MISSING: `cam-003-03` |
-| P48 | "Finding stuff you didn't know existed" | Three beats: odd book, a run gap, hands talking over a box | HOST B-roll | MISSING: `broll-003-three-things` |
+| P47 | "Corey, thank you" | Overhead view of the sorted piles and both boxes. Keep Corey's name only with consent | HOST B-roll | MISSING: `broll-003-sorted-piles` |
+| P48 | "Finding stuff you didn't know existed" | Three overhead beats: odd book, a run gap, hands sorting a box | HOST B-roll | MISSING: `broll-003-three-things` |
 | P49 | "works today" | Current collection page, then current marketplace beta page | SCREEN | MISSING: `screen-003-collection-marketplace` |
 | P49 | "no checkout yet" | Hold on the actual beta explanation after recording-day re-check | SCREEN | MISSING: `screen-003-marketplace-status` |
-| P50 | "tell me what's in it" | Tony on camera | CAM | MISSING: `cam-003-03` |
+| P50 | "tell me what's in it" | Hands place the last book into its sorted pile | HOST B-roll | MISSING: `broll-003-last-book` |
 | P51 | "Next time" | Use only if Episode 004 is locked. The Amory Wars cover | cover | `covers/amory-wars-keeping-secrets-001-2010.jpg` |
 | | end | End card, right half clear for YouTube end screens | end | existing |

@@ -4,7 +4,7 @@ Three standalone Shorts, each with its own script and recording (`audio/shorts/<
 
 ---
 
-## Short003DiscogsForComics · ~45 s · ON CAMERA, long boxes in frame
+## Short003DiscogsForComics · ~45 s · VO over the long boxes
 
 **Hook:** Discogs started as one guy cataloging his own records.
 
@@ -18,7 +18,7 @@ Three standalone Shorts, each with its own script and recording (`audio/shorts/<
 >
 > A real catalog has to handle what real collectors actually own. Not just what I like. That's the job.
 
-**Visuals:** Tony on camera → Discogs screen recording (a release page) → back to Tony with the boxes → SCREEN: a mainstream run filling in → SCREEN: a search with no results (only if still true on recording day) → Tony.
+**Visuals:** Overhead hands opening the two long boxes, then a Discogs screen recording of a release page, then hands flipping through the boxes, then SCREEN: a mainstream run filling in, then SCREEN: a search with no results only if still true on recording day, then hands place the last book into a sorted pile.
 **Ending:** "That's the job." Cut.
 
 ---

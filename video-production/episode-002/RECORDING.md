@@ -2,10 +2,8 @@
 
 ## Setup
 
-- OBS and webcam. Record 1920x1080.
-- Use a soft front light. Close window curtains halfway to avoid backlight.
-- Tidy the bookshelf background.
-- Keep the mic close. Record narration at 48 kHz WAV.
+- Keep the mic close.
+- Record narration at 48 kHz WAV in a quiet room.
 - Record 10 seconds of room tone.
 - Record paragraph by paragraph. Pause 2 seconds between paragraphs. Redo a flubbed paragraph immediately.
 
@@ -13,26 +11,19 @@
 
 | Section | File | Mode | Paragraphs | Approx. duration |
 |---|---|---|---|---|
-| `01-cold-open` | `audio/approved/01-cold-open.wav` | ON CAMERA | P1 to P2 | 0:10 |
-| `02-intro` | `audio/approved/02-intro.wav` | ON CAMERA, then VO | P3 to P11 | 1:40 |
+| `01-cold-open` | `audio/approved/01-cold-open.wav` | VO | P1 to P2 | 0:10 |
+| `02-intro` | `audio/approved/02-intro.wav` | VO | P3 to P11 | 1:40 |
 | `03-the-marvel-guy` | `audio/approved/03-the-marvel-guy.wav` | VO | P12 to P21 | 1:50 |
-| `04-manhattan-projects` | `audio/approved/04-manhattan-projects.wav` | VO, P28 ON CAMERA | P22 to P29 | 2:10 |
+| `04-manhattan-projects` | `audio/approved/04-manhattan-projects.wav` | VO | P22 to P29 | 2:10 |
 | `05-east-of-west` | `audio/approved/05-east-of-west.wav` | VO | P30 to P37 | 2:00 |
 | `06-deep-cuts` | `audio/approved/06-deep-cuts.wav` | VO | P38 to P44 | 1:50 |
 | `07-the-thread` | `audio/approved/07-the-thread.wav` | VO | P45 to P48 | 1:10 |
 | `08-where-to-start` | `audio/approved/08-where-to-start.wav` | VO | P49 to P55 | 1:00 |
-| `09-ending` | `audio/approved/09-ending.wav` | ON CAMERA | P56 to P59 | 0:45 |
-
-## On-camera shots
-
-| What | Duration | Framing or angle | Props or issues | Speaks or silent B-roll | Screen substitute |
-|---|---:|---|---|---|---|
-| Cold open and intro | 2 min raw | Medium close-up, eye level | MP and EoW stack nearby | Speaks, P1 to P4 and P7 to P11 | No |
-| House of X reaction | 10 s | Same frame | House of X #2 optional | Silent reaction | Yes |
-| Manhattan Projects confession | 30 s | Medium, issue readable | Tony's confirmed MP issue | Speaks, P28 | No |
-| Ending | 1 min raw | Medium close-up | Tony's MP and EoW issues on desk | Speaks, P56 to P59 | No |
+| `09-ending` | `audio/approved/09-ending.wav` | VO | P56 to P59 | 0:45 |
 
 ## B-roll
+
+Framing rule: Film overhead or chest-down. Tony's face must never be in frame. A phone on a stand or overhead mount is fine. Use soft, even light. Avoid backlight.
 
 | What | Duration | Framing or angle | Props or issues | Speaks or silent B-roll | Screen substitute |
 |---|---:|---|---|---|---|
@@ -51,7 +42,7 @@ Use 1920x1080, browser zoom 125%, a non-test account with real books, and hide t
 
 ## Shorts
 
-Record each Short as its own complete take. A vertical camera is optional.
+Record each Short as its own complete VO take at the listed path.
 
 | Short | File |
 |---|---|

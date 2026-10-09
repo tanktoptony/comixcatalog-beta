@@ -62,7 +62,7 @@ Checked 2026-10-08. Paragraph numbers refer to SCRIPT.md. "Verified" means confi
 **Visual rule:** no interior pages from the last third of any issue that has a reveal. SHOTS.md lists only covers and early-issue panels.
 
 ## Open questions for Tony
-1. Which Manhattan Projects and East of West issues do you physically own? (Needed for P28 and the on-camera shots.)
+1. Which Manhattan Projects and East of West issues do you physically own? (Needed for P28 and the hands-only shots.)
 2. Roughly when were you buying them, and where? One shop name would give P28 texture. Optional.
 3. Did you buy them as monthly issues or trades? The script assumes monthlies ("bought these as they came out"). Fix P28 if not.
 4. P58, "going back through them": keep only if you actually plan to.

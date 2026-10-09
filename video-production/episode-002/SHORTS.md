@@ -6,7 +6,7 @@ Standalone Shorts rendering isn't in the pipeline yet (`shorts.js` still cuts ra
 
 ---
 
-## Short002WhoWroteThis · ~40 s · ON CAMERA + covers
+## Short002WhoWroteThis · ~40 s · VO, hands + covers
 
 **Hook:** I collected these comics for years before I noticed who wrote them.
 
@@ -20,7 +20,7 @@ Standalone Shorts rendering isn't in the pipeline yet (`shorts.js` still cuts ra
 >
 > He'd been in my long box the whole time. So check yours. You might own more Hickman than you think.
 
-**Visuals:** Tony holding his own copies (CAM) → East of West #1 and Manhattan Projects #1, full frame → interior face crop (interiors/mp-001-groves-panel) → Secret Wars #1 and House of X #1 flash on "the guy who wrote" → back to Tony.
+**Visuals:** Tony's hands holding his own copies, face out of frame, then East of West #1 and Manhattan Projects #1 full frame, then interior face crop (interiors/mp-001-groves-panel), then Secret Wars #1 and House of X #1 flash on "the guy who wrote," then hands return the books to the long box.
 **Ending:** "You might own more Hickman than you think." Hard cut to black.
 
 ---
@@ -63,5 +63,5 @@ Standalone Shorts rendering isn't in the pipeline yet (`shorts.js` still cuts ra
 
 ## Recording notes
 - Record each Short in one go, as if nobody has seen the long video. Don't say "in this video" or "like I said."
-- Short002WhoWroteThis works best on camera. The other two can be VO.
+- All three are VO. Short002WhoWroteThis opens on your hands holding your own copies.
 - No ComixCatalog pitch in the Short itself. Put the link in the Short's description or pinned comment.

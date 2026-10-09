@@ -2666,28 +2666,6 @@
     "retry_after": "2026-09-21T14:00:38.554386+00:00"
   },
   {
-    "name": "Grimm's Ghost Stories",
-    "publisher": "Gold Key",
-    "year": 1972,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18838,
-        "name": "Grimm's Ghost Stories",
-        "publisher": "Western Publishing",
-        "start_year": 1972
-      },
-      {
-        "id": 50601,
-        "name": "Grimm's Ghost Stories",
-        "publisher": "Western Publishing",
-        "start_year": 1976
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554389+00:00"
-  },
-  {
     "name": "G.I. Combat",
     "publisher": "DC Comics",
     "year": 1957,
@@ -44277,23 +44255,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-08T16:00:55.432168+00:00",
     "retry_after": "2026-10-09T16:00:55.432185+00:00"
-  },
-  {
-    "name": "In Rage",
-    "publisher": "Unknown Publisher",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88863,
-        "name": "In Rage",
-        "publisher": "Creative Force Designs",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-08T16:00:56.081041+00:00",
-    "retry_after": "2026-10-09T16:00:56.081060+00:00"
   },
   {
     "name": "Justice League Special",

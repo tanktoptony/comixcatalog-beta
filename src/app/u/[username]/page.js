@@ -15,6 +15,7 @@ import { createClient } from "@supabase/supabase-js";
 import { coverThumb } from "@/lib/coverThumb";
 import { getPublicProfile } from "@/lib/pageData";
 import { isOwnedStatus } from "@/lib/collectionStatus";
+import ReportButton from "@/components/ReportButton";
 
 function formatJoinDate(iso) {
   if (!iso) return null;
@@ -207,6 +208,7 @@ export default async function PublicProfilePage({ params }) {
               {/* MessageButton self-gates: hidden when viewing own profile or
                   not signed in. Renders as null otherwise. */}
               <MessageButton recipientUsername={username} recipientId={profile.id} />
+              <ReportButton targetType="user" targetId={profile.id} ownerId={profile.id} />
               {isOwner && (
                 <Link href="/library" className="profile-action-btn">
                   Manage library

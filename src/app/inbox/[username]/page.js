@@ -15,6 +15,7 @@ import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import styles from "./thread.module.css";
+import ReportButton from "@/components/ReportButton";
 
 const MAX_BODY = 4000;
 
@@ -423,6 +424,7 @@ export default function ThreadPage() {
               Block @{otherProfile?.username || username}
             </button>
           )}
+          {otherProfile && <ReportButton targetType="user" targetId={otherProfile.id} ownerId={otherProfile.id} />}
         </div>
       </header>
 

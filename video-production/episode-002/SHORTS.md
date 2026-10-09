@@ -20,7 +20,7 @@ Standalone Shorts rendering isn't in the pipeline yet (`shorts.js` still cuts ra
 >
 > He'd been in my long box the whole time. So check yours. You might own more Hickman than you think.
 
-**Visuals:** Tony holding his own copies (CAM) → East of West #1 and Manhattan Projects #1, full frame → interior face crop (MISSING, see ASSETS.md; fallback MP #20) → Secret Wars #1 and House of X #1 flash on "the guy who wrote" → back to Tony.
+**Visuals:** Tony holding his own copies (CAM) → East of West #1 and Manhattan Projects #1, full frame → interior face crop (interiors/mp-001-groves-panel) → Secret Wars #1 and House of X #1 flash on "the guy who wrote" → back to Tony.
 **Ending:** "You might own more Hickman than you think." Hard cut to black.
 
 ---

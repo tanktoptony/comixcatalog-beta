@@ -52,16 +52,33 @@ Reusable pieces: ChannelSting after P2, TitleCard after P11, ChapterCard, CoverG
 
 House of X #1 and Powers of X #1 are reused from the Episode 001 pack and are now in `episode-002-assets/covers` and `sources.json`.
 
+## Interiors (sourced online, 2026-10-08)
+
+13 early-issue interior images in `~/Desktop/episode-002-assets/interiors/`, each with its source URL in `interiors/sources.json`. All were checked by eye for spoilers. Nothing from the last third of an issue with a reveal, no Death's-son or Xiaolian panels, and the Manhattan Projects #1 page with "I am not my brother" is cropped down to the Groves panel only.
+
+| File | Book | Used at |
+|---|---|---|
+| mp-einstein-gateway-panel.jpg | Manhattan Projects | P6 |
+| mp-001-groves-panel.jpg | Manhattan Projects #1 | P6, P26, Short002WhoWroteThis |
+| mp-001-torii-gate-battle.jpg | Manhattan Projects #1 | P23 |
+| mp-von-braun-arm-panel.jpg | Manhattan Projects Vol. 1 | P24 |
+| mp-fermi-einstein-faces.jpg | Manhattan Projects Vol. 1 | P24, P26 |
+| mp-feynman-face-panel.jpg | Manhattan Projects | P26 |
+| eow-death-in-white-panel.png | East of West | P32, P35 |
+| eow-the-chosen-table.png | East of West | P33 |
+| eow-design-page-how-things-were.png | East of West | P35 |
+| pax-romana-001-p01..p04 | Pax Romana #1 pp. 1-4 (Hickman's own preview, archived from pronea.com) | P40, P41 |
+
+Sources: Comic Book Herald (Pitarra interview, Hickmania East of West episode), ComicsAlliance's 2012 Manhattan Projects review, and Hickman's old site via the Wayback Machine.
+
+**Resolution:** Manhattan Projects panels are 400 to 1170 px wide. Use them as framed panel cards at roughly half-frame with a slow push, not full-bleed. Pax Romana pages are 741x1154 and East of West panels 750 to 960 px, fine at most of the frame height.
+
+**Not found online:** an FDR-as-AI panel (P25 uses a text card) and a Nightly News interior (P40 uses the Pax Romana "Hidden Records" page, which makes the same point about Hickman's design).
+
 ## Missing
 
 | Item | Needed at | Source | Real-art fallback |
 |---|---|---|---|
-| Manhattan Projects early interior face panel | P6 | Tony scans or photographs his own copy at 300dpi, flat, or use official Image preview pages | Manhattan Projects #1 cover, focused on the face |
-| Franklin Roosevelt AI interior | P25 | Tony scan or photo at 300dpi, flat, or official Image preview | Manhattan Projects #6 cover and a text card |
-| Manhattan Projects face crops | P26 | Tony scans or photographs a few early panels at 300dpi, flat, or official Image preview | Quick cuts among issues #1, #2, and #4 |
-| East of West early action panel | P35 | Tony scan or photo at 300dpi, flat, or official Image preview | East of West #1 and #2 covers |
-| The Nightly News design page | P40 | Tony scan or photo at 300dpi, flat, or official Image preview | Hold on The Nightly News #1 cover |
-| Pax Romana map page | P41 | Tony scan or photo at 300dpi, flat, or official Image preview | Pax Romana #1 and #2 covers |
 | Secret and The Dying and the Dead covers | P44 | Pull the exact real covers from an approved source pack | Text-only title cards, as already planned |
 | Tony camera takes `cam-002-01` to `cam-002-04` | P1 to P4, P7 to P9, P18, P28, P56 to P59 | Record HOST footage | Use covers, title cards, and Tony's hands with real books, except P28 needs the spoken camera beat or a script change |
 | Tony shelf, pull, flip, and optional GPK footage | P5, P21, P26, P55 | Record HOST footage of Tony's real shelf, books, and owned card only | Use the downloaded cover grids and fans. Skip the GPK insert if Tony owns no card |
@@ -70,7 +87,7 @@ House of X #1 and Powers of X #1 are reused from the Episode 001 pack and are no
 ## Licensing
 
 - Covers and interiors are shown for commentary and review. Fair use is a judgment, not a guarantee.
-- Keep interiors brief. Use a few panels per book. Do not show full page sequences.
+- Keep interiors brief. Use a few panels per book. Do not show full page sequences. Pax Romana uses its opening pages, which Hickman himself posted as a free preview.
 - Do not use film or TV stills. Episode 002 uses text cards for MCU references.
 - Music must be licensed. Episode 001 used Kevin MacLeod under CC BY 4.0. Episode 002 music is still TBD.
 - Get consent before using any third party name, face, or voice.
@@ -81,6 +98,5 @@ House of X #1 and Powers of X #1 are reused from the Episode 001 pack and are no
 - Confirm whether he bought issues monthly, roughly when, and at which shop if he wants that detail.
 - Confirm whether to keep P20, P36's rack memory, and P58.
 - Record four camera setups and shelf, pull, flip, and long-box B-roll.
-- Supply the listed interior scans or approve the cover-only fallbacks.
 - Record the optional ComixCatalog series page only after the duplicate rows are addressed.
 - Choose and license music before upload.

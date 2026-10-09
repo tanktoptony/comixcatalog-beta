@@ -8,6 +8,7 @@ Nothing is approved. Nothing will be rendered or published without Tony's explic
 - Shot plan tied to script paragraphs and anchor phrases.
 - 41 covers pulled from ComicVine, plus House of X #1 and Powers of X #1 reused from the Episode 001 pack (43 total).
 - Asset inventory and missing-material fallbacks.
+- 13 spoiler-checked interior panels/pages sourced online (no scanning needed from Tony).
 - Recording checklist.
 - Three standalone Shorts scripts (SHORTS.md).
 - `episode.json` with upload copy, books, chapters, credits, and Shorts metadata.
@@ -19,7 +20,7 @@ Nothing is approved. Nothing will be rendered or published without Tony's explic
 | 1. Scripts and research | Draft complete | Not approved |
 | 2. Tony approves scripts | Blocked | Tony must answer open questions and approve the final words |
 | 3. Tony records | Blocked | Gate 2, issue choices, and recording session |
-| 4. Assemble visuals and rough cut | Blocked | Approved audio, HOST footage, interiors, and missing covers |
+| 4. Assemble visuals and rough cut | Blocked | Approved audio and HOST footage |
 | 5. Tony reviews rough cut | Blocked | Rough cut does not exist |
 | 6. Final edit, mix, captions, thumbnails, Shorts | Blocked | Gate 5 approval and licensed music |
 | 7. Publish | Blocked | Explicit Tony approval only |
@@ -28,7 +29,6 @@ Nothing is approved. Nothing will be rendered or published without Tony's explic
 
 - Tony's answers for P28, P36, P58, buying history, and the MCU paragraph.
 - Tony's camera footage, shelf footage, long-box footage, and owned issues.
-- Early interior scans or approval of cover-only fallbacks.
 - ComixCatalog duplicate-series cleanup if the optional screen beat is used.
 - Licensed music and Shorts recordings.
 

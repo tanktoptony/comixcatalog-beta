@@ -3,7 +3,7 @@
 Every visual is pinned to a script paragraph and an **anchor phrase** (the words the cut lands on). This replaces Episode 001's timecode-first approach, where picture and narration drifted apart. When Tony's audio is transcribed, these anchors become V3 timeline anchors (`shared/anchors.js`).
 
 - **Type** uses the existing renderer segment types (`shared/EpisodeRenderer.jsx`).
-- **Assets** are filenames in `~/Desktop/episode-002-assets/covers/` unless marked CAM (webcam), HOST (Tony films it), or SCREEN.
+- **Assets** are filenames in `~/Desktop/episode-002-assets/covers/` (or `interiors/` when prefixed) unless marked CAM (webcam), HOST (Tony films it), or SCREEN.
 - Rule from RESEARCH.md: covers and early-issue art only. No reveal pages.
 
 ## 01-cold-open
@@ -25,8 +25,8 @@ Every visual is pinned to a script paragraph and an **anchor phrase** (the words
 | P5 | "East of West and The Manhattan Projects" | Tony's hands pulling his own copies out of a box | HOST B-roll | broll-002-pull |
 | P6 | "I loved the covers" | Cover grid, 4 EoW + 4 MP, lights one at a time | grid (columns 4) | east-of-west-001/002/003/004, the-manhattan-projects-001/002/003/004 |
 | P6 | "sparse, mysterious" | East of West #1, slowPush | cover | east-of-west-001-2013 |
-| P6 | "completely nuts" | Manhattan Projects interior panel (early issue, face close-up) | cover `focus` | **MISSING: interior panel, see ASSETS.md** |
-| P6 | "Garbage Pail Kids" | Same panel, zoom tighter on a face | cover `focus` | same |
+| P6 | "completely nuts" | Einstein close-up panel, slowPush | cover `focus` | interiors/mp-einstein-gateway-panel |
+| P6 | "Garbage Pail Kids" | Groves-with-cigar panel, zoom on the face | cover `focus` | interiors/mp-001-groves-panel |
 | P7 | "hadn't connected those books" | Back to Tony | CAM | cam-002-01 |
 | P8-P9 | "So that got me thinking" | Tony | CAM | |
 | P10 | "what he did with the X-Men" | Pair: HoX #1 and Secret Wars #1 | pair | house-of-x-001-2019, secret-wars-001-2015 |
@@ -63,12 +63,13 @@ Title card text: **THE OTHER JONATHAN HICKMAN** / sub: *Creator-owned comics you
 | P22 | "The Manhattan Projects" | Chapter card over MP #1 | chapter | the-manhattan-projects-001-2012 |
 | P22 | "Nick Pitarra" | Credit lower third: HICKMAN · PITARRA · BROWNE | cover with sub | |
 | P23 | "the bomb was the cover story" | MP #3 ("The Bomb"), slowPush to the bomb icon | cover `focus` | the-manhattan-projects-003-2012 |
-| P23 | "way, way weirder" | Hard cut, MP #2 (black), still | cover | the-manhattan-projects-002-2012 |
+| P23 | "way, way weirder" | Torii-gate battle panel from #1, slowPush | cover | interiors/mp-001-torii-gate-battle |
+| P24 | "Wernher von Braun" | von Braun robot-arm panel | cover `focus` | interiors/mp-von-braun-arm-panel |
 | P24 | "Oppenheimer. Einstein." | One cover per name, cut on each word: MP #1, #20 ("Einstein the Barbarian"), #4, #5, #6, #10 | cover x6, cut | as listed |
 | P25 | "a twist about Oppenheimer" | MP #1, focus on the half-red face | cover `focus` | the-manhattan-projects-001-2012 |
 | P25 | "Laika" | MP #6 (Soviet red, hammer and sickle), slowPush | cover | the-manhattan-projects-006-2012 |
-| P25 | "Franklin Roosevelt" | Interior panel of FDR AI (only if from an early arc) | cover `focus` | **MISSING interior** |
-| P26 | "draws faces like he's mad at them" | Two or three interior face crops, quick cuts | cover `focus` x3 | **MISSING interiors** |
+| P25 | "Franklin Roosevelt" | Text card: FDR, BUT AN A.I. (no interior found online; text card is the plan) | quote | |
+| P26 | "draws faces like he's mad at them" | Three face panels, quick cuts | cover `focus` x3 | interiors/mp-feynman-face-panel, mp-fermi-einstein-faces, mp-001-groves-panel |
 | P26 | "wax pack" | Optional: Tony holding a real GPK card if he owns one | HOST (optional) | |
 | P27 | "Moebius, Geof Darrow" | Text list on halftone, no art from those artists | quote | |
 | P28 | "This is my copy" | **Tony on camera holding his MP issue** | CAM | cam-002-03 |
@@ -89,10 +90,10 @@ Cover note: the MP covers have a circle badge with the solicitation text printed
 | P32 | "Death has gone off script" | EoW #1, slowPush on the hatted figure | cover `focus` | east-of-west-001-2013 |
 | P33 | "a prophecy called the Message" | EoW #10 | cover | east-of-west-010-2013 |
 | P33 | "a hell of a group chat" | Text gag: three names stacked: LONGSTREET · RED CLOUD · MAO | quote | |
-| P33 | "the Chosen" | EoW #20, #30 | cover x2 | |
+| P33 | "the Chosen" | The Chosen around their table, slowPush | cover | interiors/eow-the-chosen-table |
 | P34 | tagline | Quote card with the tagline | quote | |
-| P35 | "data pages in House of X" | Pair: HoX #1 / EoW #1 | pair | |
-| P35 | "Dragotta's art" | Interior action panel, early issue | **MISSING interior** | |
+| P35 | "data pages in House of X" | EoW design page "How things were is not how they will always be" | cover | interiors/eow-design-page-how-things-were |
+| P35 | "Dragotta's art" | Death in white with the giant revolver | cover `focus` | interiors/eow-death-in-white-panel |
 | P36 | "those covers" | Slow scroll across 01-45 covers in a row | grid (6 columns) | all EoW covers |
 | P37 | "East of West is finished" | EoW #45, panUp | cover | east-of-west-045-2013 |
 | P37 | "Eisner nomination" | Text: 2014 EISNER NOMINEE · BEST CONTINUING SERIES | quote | |
@@ -105,10 +106,10 @@ Cover note: the MP covers have a circle badge with the solicitation text printed
 | P39 | "The Nightly News" | Nightly News #1, slowPush | cover | the-nightly-news-001-2007 |
 | P39 | "he did all of it" | Text: WRITER · ARTIST · COLORIST · LETTERER | quote | |
 | P39 | "Eisner nomination" | Nightly News #2 | cover | the-nightly-news-002-2007 |
-| P40 | "graphic designer" | Nightly News interior design page | **MISSING interior** | fallback: hold #1 |
-| P41 | "Pax Romana" | Pax Romana #1, panDown | cover | pax-romana-001-2007 |
+| P40 | "graphic designer" | Pax Romana #1 page 3, "The Hidden Records" text block (no Nightly News interior found online) | cover `panDown` | interiors/pax-romana-001-p03-hidden-records |
+| P41 | "Pax Romana" | Pax Romana #1, panDown, then page 1 art | cover x2 | pax-romana-001-2007, interiors/pax-romana-001-p01-constantinople |
 | P41 | "the year 312" | Pax Romana #2 ("I. Constantine"), focus on the text | cover `focus` | pax-romana-002-2007 |
-| P41 | "transcripts and maps" | Pax Romana interior map page | **MISSING interior** | |
+| P41 | "transcripts and maps" | Pax Romana #1 page 4, "Secret Vatican Archives" data boxes | cover `panDown` | interiors/pax-romana-001-p04-vatican-archives |
 | P42 | "The Black Monday Murders" | BMM #1, slowPush | cover | the-black-monday-murders-001-2016 |
 | P42 | "Theodore Dumas" | BMM #2 (detective in hat) | cover | the-black-monday-murders-002-2016 |
 | P43 | "on hiatus since 2018" | BMM #5, desaturate slightly. Text: 8 ISSUES · NO ENDING (YET) | cover + text | the-black-monday-murders-005-2016 |

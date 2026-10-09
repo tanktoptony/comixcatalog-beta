@@ -26,7 +26,7 @@ Checked 2026-10-08. Paragraph numbers refer to SCRIPT.md. "Verified" means confi
 | P29 | 25 issues 2012-2015, plus The Sun Beyond the Stars (4 issues, 2015) | Verified | Wikipedia |
 | P30 | East of West: Image, 2013-2019, 45 issues, Dragotta, Frank Martin, Rus Wooton | Verified | Wikipedia, East of West |
 | P31-32 | Civil War lasts until a 1908 comet hits Kansas; seven nations; story in 2064; Four Horsemen | Verified | Wikipedia |
-| P32 | Death dressed all in white | **Verify against the pulled covers/panels** before recording | |
+| P32 | Death dressed all in white | Verified visually | `interiors/eow-death-in-white-panel.png` (white hair, white clothes) |
 | P33 | The Message comes from a Confederate soldier, a Native American chief (Red Cloud), and Mao; the Chosen | Verified | Wikipedia |
 | P34 | Tagline "The things that divide us are stronger than the things that unite us." | Verified | Wikipedia (series tagline) |
 | P35 | HoX/PoX "data pages" | Verified | Tom Muller built the design toolkit, Hickman used it to build the pages (SYFY Wire; Off Panel #215) |

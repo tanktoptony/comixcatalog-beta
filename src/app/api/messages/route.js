@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
+import { notifyRecipient } from "@/lib/messageEmail";
 import { checkLimits, MESSAGE_LIMITS } from "@/lib/messageLimits";
 import { getServiceClient } from "@/lib/supabase/service";
 
@@ -108,7 +109,7 @@ export async function POST(req) {
         "hourly message count failed"
       ),
       hasConversation(supabase, user.id, recipient.id),
-      supabase.from("profiles").select("created_at").eq("id", user.id).single(),
+      supabase.from("profiles").select("created_at, username").eq("id", user.id).single(),
     ]);
     if (profileResult.error || !profileResult.data?.created_at) {
       throw new Error(`sender profile lookup failed: ${profileResult.error?.message || "missing created_at"}`);
@@ -144,6 +145,13 @@ export async function POST(req) {
       .select(MESSAGE_COLUMNS)
       .single();
     if (insertError) throw new Error(`message insert failed: ${insertError.message}`);
+    after(() => notifyRecipient({
+      supabase,
+      senderId: user.id,
+      senderUsername: profileResult.data.username,
+      recipientId: recipient.id,
+      recipientUsername: recipient.username,
+    }));
     return NextResponse.json(message, { status: 201 });
   } catch (error) {
     console.error("POST /api/messages failed:", error);

@@ -27,6 +27,8 @@ export default function AccountSettingsPage() {
 
   const [isPublic, setIsPublic] = useState(false);
   const [privacyMsg, setPrivacyMsg] = useState(null);
+  const [emailOnMessage, setEmailOnMessage] = useState(true);
+  const [notificationMsg, setNotificationMsg] = useState(null);
 
   // Mirror profile.is_public into local state once profile resolves so the
   // checkbox is checked correctly on first render. Adjusted during render
@@ -44,6 +46,32 @@ export default function AccountSettingsPage() {
   useEffect(() => {
     if (!loading && !user) router.replace("/login");
   }, [loading, user, router]);
+
+  useEffect(() => {
+    if (!user) return;
+    let active = true;
+    async function loadNotificationSetting() {
+      const { data, error } = await supabase
+        .from("notification_settings")
+        .select("email_on_message")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      if (!active) return;
+      if (error) {
+        setNotificationMsg({ kind: "error", text: error.message });
+      } else {
+        setEmailOnMessage(data?.email_on_message !== false);
+      }
+    }
+    loadNotificationSetting();
+    return () => { active = false; };
+  }, [supabase, user]);
+
+  useEffect(() => {
+    if (notificationMsg?.kind !== "success") return;
+    const timer = setTimeout(() => setNotificationMsg(null), 2000);
+    return () => clearTimeout(timer);
+  }, [notificationMsg]);
 
   if (loading || !user) {
     return (
@@ -66,6 +94,23 @@ export default function AccountSettingsPage() {
       setPrivacyMsg({ kind: "error", text: error.message ?? "Could not update privacy setting." });
     } else {
       setPrivacyMsg({ kind: "success", text: next ? "Profile is now public." : "Profile is now private." });
+    }
+  }
+
+  async function handleNotificationToggle(e) {
+    const next = e.target.checked;
+    setEmailOnMessage(next);
+    setNotificationMsg(null);
+    const { error } = await supabase.from("notification_settings").upsert({
+      user_id: user.id,
+      email_on_message: next,
+      updated_at: new Date().toISOString(),
+    });
+    if (error) {
+      setEmailOnMessage(!next);
+      setNotificationMsg({ kind: "error", text: error.message });
+    } else {
+      setNotificationMsg({ kind: "success", text: "Saved" });
     }
   }
 
@@ -110,6 +155,26 @@ export default function AccountSettingsPage() {
             style={{ marginTop: 8 }}
           >
             {privacyMsg.text}
+          </div>
+        )}
+      </section>
+
+      <section className="account-section" id="notifications">
+        <h2 className="account-section-title">Notifications</h2>
+        <label style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 8 }}>
+          <input
+            type="checkbox"
+            checked={emailOnMessage}
+            onChange={handleNotificationToggle}
+          />
+          Email me when someone sends me a message
+        </label>
+        {notificationMsg && (
+          <div
+            className={notificationMsg.kind === "success" ? "auth-success" : "auth-error"}
+            style={{ marginTop: 8 }}
+          >
+            {notificationMsg.text}
           </div>
         )}
       </section>

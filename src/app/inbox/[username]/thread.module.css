@@ -90,6 +90,25 @@
   color: rgba(255, 255, 255, 0.45);
 }
 
+.blockActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.76rem;
+}
+.blockActions button {
+  border: 0;
+  padding: 5px 7px;
+  background: transparent;
+  color: #fca5a5;
+  cursor: pointer;
+  font: inherit;
+}
+.blockActions button:hover:not(:disabled) { text-decoration: underline; }
+.blockActions button:disabled { opacity: 0.5; cursor: default; }
+
 .scroller {
   flex: 1;
   display: flex;
@@ -151,6 +170,15 @@
 }
 .msgGrouped .meta { display: none; }
 
+.linkWarning {
+  max-width: 330px;
+  margin-top: 5px;
+  padding: 0 8px;
+  color: #facc15;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
 .errorBanner {
   margin: 0 18px;
   padding: 10px 14px;
@@ -159,6 +187,14 @@
   color: #fca5a5;
   border-radius: 10px;
   font-size: 0.86rem;
+}
+
+.blockNotice {
+  margin: 0 18px;
+  padding: 10px 14px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.84rem;
+  text-align: center;
 }
 
 .composer {
@@ -237,4 +273,6 @@
     height: calc(100vh - 120px);
   }
   .msg { max-width: 88%; }
+  .blockActions span { display: none; }
+  .blockActions button { padding: 4px; }
 }

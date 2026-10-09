@@ -2,6 +2,7 @@ import { unstable_cache } from "next/cache";
 import { GET as searchComicsGET } from "@/app/api/search/comics/route";
 import { GET as searchSeriesGET } from "@/app/api/search/series/route";
 import { GET as seriesGET } from "@/app/api/series/[id]/route";
+import { GET as issueGET } from "@/app/api/issues/[id]/route";
 import { GET as publicProfileGET } from "@/app/api/public-profile/route";
 
 // Server-side reads for pages that used to render empty and fetch their
@@ -22,9 +23,11 @@ import { GET as publicProfileGET } from "@/app/api/public-profile/route";
 // one extra request.
 
 class EmptyResult extends Error {}
+class IssueNotFoundError extends Error {}
 
 async function callRoute(handler, url, key, context) {
   const res = await handler(new Request(url), context);
+  if (res.status === 404) throw new IssueNotFoundError(url);
   if (!res.ok) throw new Error(`${url} returned ${res.status}`);
   const body = await res.json();
   const value = body?.[key];
@@ -80,6 +83,29 @@ const cachedSeries = unstable_cache(
 // error the client fetch can retry).
 export function getSeriesData(id) {
   return settle(cachedSeries(id));
+}
+
+const cachedIssue = unstable_cache(
+  (id) =>
+    callRoute(issueGET, `http://internal/api/issues/${encodeURIComponent(id)}`, "issue", {
+      params: Promise.resolve({ id }),
+    }),
+  ["page-issue-v1"],
+  { revalidate: 3600 }
+);
+
+// Anonymous public issue data. The browser still refreshes this with the
+// viewer's session after hydration for ownership-specific fields.
+export function getIssueData(id) {
+  return cachedIssue(id).catch((error) => {
+    if (error instanceof IssueNotFoundError) throw error;
+    if (!(error instanceof EmptyResult)) console.error("pageData:", error);
+    return null;
+  });
+}
+
+export function isIssueNotFoundError(error) {
+  return error instanceof IssueNotFoundError;
 }
 
 // The public profile (/u/[username]) for anonymous viewers. The page used to

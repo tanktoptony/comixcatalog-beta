@@ -1,56 +1,37 @@
-// Per-issue metadata. Runs on the server and fetches the same /api/issues/[id]
-// the page uses, so the title and OG card reflect the actual issue. The page
-// itself stays a client component for the interactive add-to-collection logic.
-
 import { SITE_URL } from "@/lib/siteUrl";
+import { getIssueData } from "@/lib/pageData";
+import { buildIssueDescription, issueName } from "@/lib/issueSeo";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
 
   try {
-    const res = await fetch(`${SITE_URL}/api/issues/${id}`, {
-      // Issue metadata changes rarely; cache for an hour.
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) throw new Error("issue fetch failed");
-    const data = await res.json();
-    const issue = data?.issue;
+    const issue = await getIssueData(id);
     if (!issue) throw new Error("no issue");
 
-    const seriesTitle = issue.series_title || "Untitled";
-    const issueNumber = issue.issue_number || "";
-    const year = issue.release_year || "";
-    const publisher = issue.publisher || "";
     const cover = issue.cover || null;
-
-    const title = `${seriesTitle}${issueNumber ? ` #${issueNumber}` : ""}${year ? ` (${year})` : ""}`;
-    const descriptionParts = [
-      `${seriesTitle}${issueNumber ? ` #${issueNumber}` : ""}`,
-      publisher,
-      year ? String(year) : null,
-      "Cataloged on ComixCatalog.",
-    ].filter(Boolean);
+    const title = issueName(issue);
+    const description = buildIssueDescription(issue);
 
     return {
       title,
-      description: descriptionParts.join(" · "),
+      description,
       openGraph: {
-        title: `${title} — ComixCatalog`,
-        description: descriptionParts.join(" · "),
+        title: `${title} | ComixCatalog`,
+        description,
         url: `${SITE_URL}/issue/${id}`,
         type: "article",
-        images: cover ? [{ url: cover, alt: title }] : undefined,
+        images: cover ? [{ url: cover, alt: `${title} cover` }] : undefined,
       },
       twitter: {
         card: "summary_large_image",
-        title: `${title} — ComixCatalog`,
-        description: descriptionParts.join(" · "),
+        title: `${title} | ComixCatalog`,
+        description,
         images: cover ? [cover] : undefined,
       },
       alternates: { canonical: `${SITE_URL}/issue/${id}` },
     };
   } catch {
-    // Falls back to root layout's defaults if anything goes wrong.
     return {};
   }
 }

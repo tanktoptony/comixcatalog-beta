@@ -177,7 +177,7 @@ export default function HomeClient({ featured = null, heroWall = null, stats = n
           <h3>Marketplace <span className="lp-feature-pill">Beta</span></h3>
           <p>
             Books from real collections, linked to the exact issue, with grade
-            and condition up front. Make an offer straight to the collector.{" "}
+            and condition up front. Message the collector to make an offer.{" "}
             <Link href="/marketplace">Browse listings →</Link>
           </p>
         </div>

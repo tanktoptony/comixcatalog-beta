@@ -63,7 +63,7 @@ export default async function ListingPage({ params }) {
     <main className="lp">
       {jsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />}
       <nav className="lp-crumbs" aria-label="Breadcrumb">
-        <Link href="/marketplace">Marketplace</Link>
+        <Link href="/marketplace">Marketplace</Link> <span className="mk-beta">Beta</span>
         {l.publisher && (
           <>
             <span aria-hidden="true">/</span>
@@ -108,7 +108,7 @@ export default async function ListingPage({ params }) {
                 </div>
                 {shippingLabel(l) && <div className="lp-ship">{shippingLabel(l)}</div>}
                 {reserved ? (
-                  <div className="lp-status">Someone&rsquo;s checking out with this one</div>
+                  <div className="lp-status">On hold</div>
                 ) : (
                   <Link href={offerHref(l)} className="lp-cta">
                     {contactLabel(l)}

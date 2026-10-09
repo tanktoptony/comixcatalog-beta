@@ -70,7 +70,7 @@ export default function IssueForSale({ gcdIssueId }) {
 
   return (
     <div className="metadata-section issue-for-sale" style={{ margin: 0, marginBottom: "22px" }}>
-      <h3 className="issue-section-title">Copies for Sale</h3>
+      <h3 className="issue-section-title">Copies for Sale <span className="mk-beta">Beta</span></h3>
 
       {user && mine.length > 0 && (
         <div className="issue-sale-mine">

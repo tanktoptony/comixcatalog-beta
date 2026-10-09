@@ -12,7 +12,7 @@ const COLUMNS = [
     title: "Explore",
     links: [
       { label: "Search the database", href: "/search" },
-      { label: "Marketplace", href: "/marketplace" },
+      { label: "Marketplace (beta)", href: "/marketplace" },
       { label: "Reads", href: "/reads" },
       { label: "The Dispatch", href: "/blog" },
       { label: "Crate Dig — Chicago", href: "/crate-dig", todo: true },

@@ -559,8 +559,8 @@ export default function Header() {
             href="/marketplace"
             className="nav-icon-btn"
             onClick={closeMenu}
-            title="Marketplace"
-            aria-label="Marketplace"
+            title="Marketplace (beta)"
+            aria-label="Marketplace (beta)"
           >
             <MarketplaceIcon />
           </Link>

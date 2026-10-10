@@ -427,5 +427,16 @@
     "seriesWithCoverCount": 10646,
     "allowlistedSeriesCount": 48054,
     "newCoversInWindow": 22
+  },
+  {
+    "date": "2026-10-10",
+    "generatedAt": "2026-10-10T11:30:26.241Z",
+    "coveredIssues": 108911,
+    "totalAllowlistedIssues": 267547,
+    "remainingIssues": 158636,
+    "allowlistedCoveragePct": 40.71,
+    "seriesWithCoverCount": 10653,
+    "allowlistedSeriesCount": 48157,
+    "newCoversInWindow": 1
   }
 ]

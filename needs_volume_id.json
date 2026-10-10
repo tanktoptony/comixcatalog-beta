@@ -42234,9 +42234,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-07T05:00:52.899049+00:00",
-    "retry_after": "2026-10-10T05:00:52.899064+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T05:00:56.784234+00:00",
+    "retry_after": "2026-10-17T05:00:56.784249+00:00"
   },
   {
     "name": "Cyberforce Origins",
@@ -42244,9 +42244,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-07T05:00:53.452600+00:00",
-    "retry_after": "2026-10-10T05:00:53.452616+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T05:00:58.272373+00:00",
+    "retry_after": "2026-10-17T05:00:58.272387+00:00"
   },
   {
     "name": "Thor by J. Michael Straczynski",
@@ -44442,9 +44442,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-09T04:01:20.812199+00:00",
-    "retry_after": "2026-10-10T04:01:20.812217+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-10T05:00:55.743574+00:00",
+    "retry_after": "2026-10-13T05:00:55.743590+00:00"
   },
   {
     "name": "Wolverine: Enemy of the State MGC",
@@ -44452,9 +44452,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-09T04:01:21.574335+00:00",
-    "retry_after": "2026-10-10T04:01:21.574354+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-10T05:00:56.345737+00:00",
+    "retry_after": "2026-10-13T05:00:56.345753+00:00"
   },
   {
     "name": "Mischief Night",
@@ -44622,5 +44622,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-10T01:00:57.873855+00:00",
     "retry_after": "2026-10-11T01:00:57.873870+00:00"
+  },
+  {
+    "name": "Justice League Adventures [Six Flags Giveaway]",
+    "publisher": "DC Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T05:00:53.688468+00:00",
+    "retry_after": "2026-10-11T05:00:53.688483+00:00"
   }
 ]

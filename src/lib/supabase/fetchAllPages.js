@@ -41,19 +41,21 @@ const PAGE = 1000;
 const MAX_ROWS = 50000;
 const KEYSET_MAX_ROWS = 200000;
 
-export async function fetchAllPages(build, orderCol = "id") {
+export async function fetchAllPages(build, orderCol = "id", { maxRows = MAX_ROWS } = {}) {
   const rows = [];
   for (let from = 0; ; from += PAGE) {
+    const pageSize = Math.min(PAGE, maxRows - rows.length);
+    if (pageSize <= 0) break;
     const { data, error } = await build()
       .order(orderCol, { ascending: true })
-      .range(from, from + PAGE - 1);
+      .range(from, from + pageSize - 1);
     if (error) throw error;
     if (!data?.length) break;
     rows.push(...data);
-    if (data.length < PAGE) break;
-    if (rows.length >= MAX_ROWS) {
+    if (data.length < pageSize) break;
+    if (rows.length >= maxRows) {
       console.warn(
-        `fetchAllPages: stopped at ${rows.length} rows (MAX_ROWS). ` +
+        `fetchAllPages: stopped at ${rows.length} rows (maxRows). ` +
           `This query is probably missing a filter.`
       );
       break;

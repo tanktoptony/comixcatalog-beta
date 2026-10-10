@@ -69,10 +69,12 @@ async function keyCandidates(supabase, wanted) {
 
 async function featuredSeriesIds(supabase) {
   const titles = [...new Set(FEATURED_SERIES.map((entry) => entry.title))];
-  const rows = []; let last = 0;
+  const rows = []; let last; // series.id is a uuid: no numeric starting cursor
   for (;;) {
-    const { data, error } = await supabase.from("series").select("id,gcd_id,title,resolved_publisher_cached,year_start_cached")
-      .in("title", titles).not("gcd_id", "is", null).gt("id", last).order("id").limit(1000);
+    let query = supabase.from("series").select("id,gcd_id,title,resolved_publisher_cached,year_start_cached")
+      .in("title", titles).not("gcd_id", "is", null).order("id").limit(1000);
+    if (last) query = query.gt("id", last);
+    const { data, error } = await query;
     fail("read featured series", error); rows.push(...(data ?? []));
     if (!data?.length || data.length < 1000) break; last = data.at(-1).id;
   }
@@ -117,10 +119,12 @@ async function collectedCandidates(supabase, wanted) {
 }
 
 async function popularCandidates(supabase, wanted) {
-  const out = []; let last = 0;
+  const out = []; let last; // series.id is a uuid
   while (out.length < wanted) {
-    const { data, error } = await supabase.from("series").select("id,gcd_id").eq("us_market", true)
-      .not("gcd_id", "is", null).gt("id", last).order("id").limit(1000);
+    let query = supabase.from("series").select("id,gcd_id").eq("us_market", true)
+      .not("gcd_id", "is", null).order("id").limit(1000);
+    if (last) query = query.gt("id", last);
+    const { data, error } = await query;
     fail("read US-market series", error);
     if (!data?.length) break;
     out.push(...await issuesForSeries(supabase, data.map((row) => Number(row.gcd_id)), wanted - out.length));

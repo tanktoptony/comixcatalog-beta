@@ -44582,9 +44582,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-09T18:04:44.789191+00:00",
-    "retry_after": "2026-10-10T18:04:44.789208+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-10T19:00:55.122496+00:00",
+    "retry_after": "2026-10-13T19:00:55.122516+00:00"
   },
   {
     "name": "All-New, All-Different Point One",
@@ -44662,5 +44662,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-10T16:04:23.134580+00:00",
     "retry_after": "2026-10-11T16:04:23.134589+00:00"
+  },
+  {
+    "name": "Doctor Strange: The Oath Halloween Comic Fest 2015",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T19:00:54.709485+00:00",
+    "retry_after": "2026-10-11T19:00:54.709499+00:00"
   }
 ]

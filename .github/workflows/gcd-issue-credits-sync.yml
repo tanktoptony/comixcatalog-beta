@@ -1,0 +1,38 @@
+name: GCD issue creator-credit sync
+
+on:
+  schedule:
+    # Free of the other GCD jobs at :15, :25, and :45.
+    - cron: '35 * * * *'
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'priority, keys, featured, collected, or popular'
+        required: false
+        default: 'priority'
+      limit:
+        description: 'issues per run (keep under GCD rate limit)'
+        required: false
+        default: '60'
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: gcd-api
+      cancel-in-progress: false
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci --no-audit --no-fund
+      - name: Sync issue details and creator credits
+        run: node scripts/syncGcdIssueCredits.js --source=${{ github.event.inputs.source || 'priority' }} --limit=${{ github.event.inputs.limit || '60' }}

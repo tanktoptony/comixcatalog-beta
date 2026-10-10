@@ -30079,9 +30079,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T08:06:08.124382+00:00",
-    "retry_after": "2026-10-01T08:06:08.124398+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T23:21:27.998705+00:00",
+    "retry_after": "2026-10-17T23:21:27.998714+00:00"
   },
   {
     "name": "Wonder Woman and Justice League America",
@@ -44682,5 +44682,405 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-10T22:00:52.371276+00:00",
     "retry_after": "2026-10-11T22:00:52.371290+00:00"
+  },
+  {
+    "name": "Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1977,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:16:22.455389+00:00",
+    "retry_after": "2026-10-11T23:16:22.455400+00:00"
+  },
+  {
+    "name": "Punisher",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 11164,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 41758,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 112965,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 6586,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2000
+      },
+      {
+        "id": 90118,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 71435,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 18328,
+        "name": "Punisher",
+        "publisher": "Marvel",
+        "start_year": 1995
+      },
+      {
+        "id": 25370,
+        "name": "Punisher",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 141843,
+        "name": "Punisher",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 3855,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 1987
+      },
+      {
+        "id": 9133,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 170671,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 2026
+      },
+      {
+        "id": 3649,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 1986
+      },
+      {
+        "id": 21768,
+        "name": "The Punisher",
+        "publisher": "Marvel",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:26:10.694121+00:00",
+    "retry_after": "2026-10-11T23:26:10.694139+00:00"
+  },
+  {
+    "name": "Superman",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 773,
+        "name": "Superman",
+        "publisher": "DC Comics",
+        "start_year": 1939
+      },
+      {
+        "id": 91298,
+        "name": "Superman",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 3816,
+        "name": "Superman",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 148476,
+        "name": "Superman",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:26:11.105809+00:00",
+    "retry_after": "2026-10-11T23:26:11.105823+00:00"
+  },
+  {
+    "name": "The Rabbi's Cat",
+    "publisher": "EC Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22363,
+        "name": "The Rabbi's Cat",
+        "publisher": "Pantheon Books",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:26:12.491908+00:00",
+    "retry_after": "2026-10-11T23:26:12.491923+00:00"
+  },
+  {
+    "name": "Dementia's Dirty Girls",
+    "publisher": "Fantagraphics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:26:44.108481+00:00",
+    "retry_after": "2026-10-11T23:26:44.108498+00:00"
+  },
+  {
+    "name": "Top Cow Holiday Special",
+    "publisher": "Image Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:26:58.653965+00:00",
+    "retry_after": "2026-10-11T23:26:58.653980+00:00"
+  },
+  {
+    "name": "Korak Son of Tarzan",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2203,
+        "name": "Korak, Son of Tarzan",
+        "publisher": "Western Publishing",
+        "start_year": 1964
+      },
+      {
+        "id": 97832,
+        "name": "Korak Son of Tarzan",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:26:59.078526+00:00",
+    "retry_after": "2026-10-11T23:26:59.078538+00:00"
+  },
+  {
+    "name": "Recollections Sampler",
+    "publisher": "Harvey Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:26:59.446204+00:00",
+    "retry_after": "2026-10-11T23:26:59.446218+00:00"
+  },
+  {
+    "name": "X-Files Season 10 Greatest Hits",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:27:45.319681+00:00",
+    "retry_after": "2026-10-11T23:27:45.319696+00:00"
+  },
+  {
+    "name": "Superm�n",
+    "publisher": "Harvey Comics",
+    "year": 1952,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:27:46.166130+00:00",
+    "retry_after": "2026-10-11T23:27:46.166146+00:00"
+  },
+  {
+    "name": "Domingos Alegres",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53933,
+        "name": "Domingos Alegres",
+        "publisher": "Editorial Novaro",
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:27:46.604848+00:00",
+    "retry_after": "2026-10-11T23:27:46.604864+00:00"
+  },
+  {
+    "name": "Archi",
+    "publisher": "Harvey Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127973,
+        "name": "Archi",
+        "publisher": "Editorial Novaro",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:27:47.069746+00:00",
+    "retry_after": "2026-10-11T23:27:47.069762+00:00"
+  },
+  {
+    "name": "Susy",
+    "publisher": "Harvey Comics",
+    "year": 1961,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 162084,
+        "name": "Susy",
+        "publisher": "Editorial Novaro",
+        "start_year": 1961
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:27:47.577609+00:00",
+    "retry_after": "2026-10-11T23:27:47.577623+00:00"
+  },
+  {
+    "name": "Chiquilladas",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68422,
+        "name": "Chiquilladas",
+        "publisher": "Editorial Novaro",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:27:48.148332+00:00",
+    "retry_after": "2026-10-11T23:27:48.148346+00:00"
+  },
+  {
+    "name": "Fantomas",
+    "publisher": "Harvey Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31041,
+        "name": "Fantomas",
+        "publisher": "Editorial Novaro",
+        "start_year": 1975
+      },
+      {
+        "id": 31067,
+        "name": "Fantomas",
+        "publisher": "Edizioni BD",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:27:48.688028+00:00",
+    "retry_after": "2026-10-11T23:27:48.688041+00:00"
+  },
+  {
+    "name": "Lorenzo y Pepita",
+    "publisher": "Harvey Comics",
+    "year": 1954,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:27:49.447023+00:00",
+    "retry_after": "2026-10-11T23:27:49.447038+00:00"
+  },
+  {
+    "name": "Zagor Gigante [Zenith Gigante]",
+    "publisher": "Marvel Comics",
+    "year": 1965,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:27:49.865572+00:00",
+    "retry_after": "2026-10-11T23:27:49.865587+00:00"
+  },
+  {
+    "name": "La Zorra y el Cuervo",
+    "publisher": "Harvey Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170628,
+        "name": "La Zorra y el Cuervo",
+        "publisher": "Editorial Novaro",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:27:50.817121+00:00",
+    "retry_after": "2026-10-11T23:27:50.817136+00:00"
+  },
+  {
+    "name": "Porky y sus amigos",
+    "publisher": "Marvel Comics",
+    "year": 1958,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32087,
+        "name": "Porky y Sus Amigos",
+        "publisher": "Editorial Novaro",
+        "start_year": 1951
+      },
+      {
+        "id": 55979,
+        "name": "Porky y sus Amigos",
+        "publisher": "Editorial Novaro",
+        "start_year": 1975
+      },
+      {
+        "id": 155955,
+        "name": "Porky y sus amigos",
+        "publisher": "Editorial Fher",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T23:27:51.444114+00:00",
+    "retry_after": "2026-10-11T23:27:51.444125+00:00"
   }
 ]

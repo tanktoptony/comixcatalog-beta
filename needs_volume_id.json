@@ -33711,9 +33711,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T12:00:48.652886+00:00",
-    "retry_after": "2026-10-10T12:00:48.652903+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-10T13:00:48.951117+00:00",
+    "retry_after": "2026-10-24T13:00:48.951132+00:00"
   },
   {
     "name": "The X-Men Creators' Choice",
@@ -42504,9 +42504,9 @@
     "year": 1989,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-07T12:00:41.680045+00:00",
-    "retry_after": "2026-10-10T12:00:41.680060+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T13:00:51.033459+00:00",
+    "retry_after": "2026-10-17T13:00:51.033474+00:00"
   },
   {
     "name": "Black Panther Epic Collection",
@@ -42514,9 +42514,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-07T12:00:42.317017+00:00",
-    "retry_after": "2026-10-10T12:00:42.317035+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T13:00:51.550291+00:00",
+    "retry_after": "2026-10-17T13:00:51.550306+00:00"
   },
   {
     "name": "Shade, the Changing Man",
@@ -42537,9 +42537,9 @@
         "start_year": 1990
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-07T13:00:40.092001+00:00",
-    "retry_after": "2026-10-10T13:00:40.092019+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T13:00:51.959904+00:00",
+    "retry_after": "2026-10-17T13:00:51.959919+00:00"
   },
   {
     "name": "Jennifer Blood",
@@ -42566,9 +42566,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-07T13:00:41.169898+00:00",
-    "retry_after": "2026-10-10T13:00:41.169916+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T13:00:52.468275+00:00",
+    "retry_after": "2026-10-17T13:00:52.468290+00:00"
   },
   {
     "name": "Robotech Archives The Macross Saga",
@@ -44522,9 +44522,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-09T13:00:44.152973+00:00",
-    "retry_after": "2026-10-10T13:00:44.152991+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-10T13:00:50.032258+00:00",
+    "retry_after": "2026-10-13T13:00:50.032274+00:00"
   },
   {
     "name": "Laramie",
@@ -44642,5 +44642,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-10T07:00:48.407243+00:00",
     "retry_after": "2026-10-11T07:00:48.407257+00:00"
+  },
+  {
+    "name": "War of the Supermen (FCBD)",
+    "publisher": "DC Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T13:00:50.315974+00:00",
+    "retry_after": "2026-10-11T13:00:50.315990+00:00"
   }
 ]

@@ -76,6 +76,9 @@ jobs:
       - name: Supabase pagination tests
         run: npm run test:fetch-all
 
+      - name: Creator page tests
+        run: npm run test:creator-page
+
       - name: Fetch retry tests
         run: npm run test:fetch-with-retry
 

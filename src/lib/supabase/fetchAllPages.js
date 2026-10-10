@@ -41,7 +41,7 @@ const PAGE = 1000;
 const MAX_ROWS = 50000;
 const KEYSET_MAX_ROWS = 200000;
 
-export async function fetchAllPages(build, orderCol = "id") {
+export async function fetchAllPages(build, orderCol = "id", { maxRows = MAX_ROWS } = {}) {
   const rows = [];
   for (let from = 0; ; from += PAGE) {
     const { data, error } = await build()
@@ -51,9 +51,9 @@ export async function fetchAllPages(build, orderCol = "id") {
     if (!data?.length) break;
     rows.push(...data);
     if (data.length < PAGE) break;
-    if (rows.length >= MAX_ROWS) {
+    if (rows.length >= maxRows) {
       console.warn(
-        `fetchAllPages: stopped at ${rows.length} rows (MAX_ROWS). ` +
+        `fetchAllPages: stopped at ${rows.length} rows (maxRows ${maxRows}). ` +
           `This query is probably missing a filter.`
       );
       break;

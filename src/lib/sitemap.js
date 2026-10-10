@@ -22,6 +22,7 @@ import { SITE_URL } from "@/lib/siteUrl";
 export { SITE_URL };
 
 export const SERIES_CHUNKS = "0123456789abcdef".split("");
+export const CREATOR_CHUNKS = ["0-9", ..."abcdefghijklmnopqrstuvwxyz".split("")];
 
 // Every chunk is generated at build time, so one transient Supabase error
 // (seen once on series-4, 2026-09-21) would fail the whole deploy. Retry
@@ -191,6 +192,32 @@ export async function seriesEntries(prefix) {
     }
     if (data.length < PAGE) break;
     after = data[data.length - 1].id;
+  }
+  return entries;
+}
+
+// Creator slugs are normalized ASCII. Splitting by their first character
+// keeps every file safely below the 45,000-URL ceiling without aggregating
+// the much larger issue_creators table just to enforce a credit threshold.
+export async function creatorEntries(prefix) {
+  if (!CREATOR_CHUNKS.includes(prefix)) return null;
+  const supabase = supabaseServer();
+  const lower = prefix === "0-9" ? "0" : prefix;
+  const upper = prefix === "0-9" ? ":" : String.fromCharCode(prefix.charCodeAt(0) + 1);
+  const entries = [];
+  let after = null;
+  for (;;) {
+    const cursor = after;
+    const data = await withRetry(() => {
+      let query = supabase.from("creators").select("slug")
+        .gte("slug", lower).lt("slug", upper).order("slug", { ascending: true }).limit(1000);
+      if (cursor) query = query.gt("slug", cursor);
+      return query;
+    }, `creators-${prefix} after ${cursor ?? "start"}`);
+    for (const row of data) entries.push({ url: `${SITE_URL}/creator/${row.slug}`, changeFrequency: "monthly", priority: 0.5 });
+    if (data.length < 1000) break;
+    after = data.at(-1).slug;
+    if (entries.length >= 45000) throw new Error(`Creator sitemap chunk ${prefix} exceeds 45,000 URLs`);
   }
   return entries;
 }

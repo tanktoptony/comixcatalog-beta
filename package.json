@@ -23,6 +23,7 @@
     "test:smoke": "node --test tests/smoke.test.js",
     "test:format-sync": "node --test scripts/syncGcdSeriesFormat.test.js",
     "test:gcd-series-import": "node --test scripts/lib/gcdSeriesImport.test.js",
+    "test:gcd-credits": "node --test scripts/lib/gcdCredits.test.js",
     "test:instagram": "node --test scripts/instagramBot.test.js",
     "test:health-check": "node --test scripts/checkCoverIngestHealth.test.js",
     "test:describe-error": "node --test scripts/lib/describeError.test.js",

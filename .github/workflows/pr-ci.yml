@@ -94,6 +94,9 @@ jobs:
       - name: GCD format-sync retry tests
         run: npm run test:format-sync
 
+      - name: GCD creator-credit parsing tests
+        run: npm run test:gcd-credits
+
       - name: Instagram dedupe tests
         run: npm run test:instagram
 

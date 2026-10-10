@@ -5,6 +5,7 @@ import { normalizeTimeline } from "../shared/timeline.js";
 import { EpisodeRenderer } from "../shared/EpisodeRenderer.jsx";
 import { VIDEO, CHANNEL_INTRO } from "../shared/brand.js";
 import { ThumbShelf, ThumbNotHere, ThumbFace } from "./Thumbnails.jsx";
+import { THUMBNAILS_002 } from "./Thumbnails002.jsx";
 import { ShortClip } from "./Shorts.jsx";
 import { ChannelBanner } from "./Banner.jsx";
 import { ChannelIntro, ChannelSting } from "./ChannelIntro.jsx";
@@ -17,6 +18,7 @@ export const THUMBNAILS = [
   ["Thumb001Shelf", ThumbShelf],
   ["Thumb001NotHere", ThumbNotHere],
   ["Thumb001Face", ThumbFace],
+  ...THUMBNAILS_002,
 ];
 
 export function Root() {

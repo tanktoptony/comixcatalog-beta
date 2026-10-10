@@ -1,0 +1,33 @@
+{
+  "id": "episode-003",
+  "number": 3,
+  "slug": "two-long-boxes",
+  "titleOptions": ["Two Long Boxes and the Birth of ComixCatalog", "My Friend Gave Me 2 Long Boxes. They Broke My Website.", "I Built Discogs for Comics. Then I Tried to Use It."],
+  "narrator": "tony-human",
+  "utmCampaign": "ep003",
+  "sections": [
+    { "id": "01-cold-open", "chapter": null },
+    { "id": "02-origin", "chapter": "Why I built it" },
+    { "id": "03-why-discogs-works", "chapter": "Why Discogs works" },
+    { "id": "04-the-boxes", "chapter": "The two long boxes" },
+    { "id": "05-the-easy-part", "chapter": "The easy part" },
+    { "id": "06-the-weird-stuff", "chapter": "The weird stuff" },
+    { "id": "07-what-changed", "chapter": "What changed" },
+    { "id": "08-ending", "chapter": "The real test" }
+  ],
+  "books": [
+    { "label": "Cerebus #1 (1977)", "request": "Cerebus #1 (1977)", "searchQuery": "cerebus" },
+    { "label": "Milk & Cheese #1 (1991)", "request": "Milk & Cheese #1 (1991)", "searchQuery": "milk and cheese" },
+    { "label": "Scud the Disposable Assassin #1 (1994)", "request": "Scud the Disposable Assassin #1 (1994)", "searchQuery": "scud disposable assassin" },
+    { "label": "Prime #1 (1993), Malibu/Ultraverse example, not a confirmed box book", "request": "Prime #1 (1993)", "searchQuery": "prime malibu 1993" }
+  ],
+  "tags": ["comixcatalog", "comic collection", "comic book catalog", "long box", "discogs for comics", "cerebus", "milk and cheese", "scud the disposable assassin", "malibu comics", "ultraverse", "indie comics", "90s comics", "comic collecting", "comic database", "bagged and boarded"],
+  "descriptionIntro": "Two long boxes were enough to show me what ComixCatalog could do. They also showed me exactly what it could not do.",
+  "pinnedComment": "What is the weirdest book in your long box? Tell me what it is, especially if ComixCatalog cannot find it yet.",
+  "credits": ["Cover art is the property of Aardvark-Vanaheim, SLG Publishing, Fireman Press, Image Comics, Malibu Comics, Boom! Studios, and the respective creators, shown for commentary and review.", "Music: TBD before upload"],
+  "shorts": [
+    { "id": "Short003DiscogsForComics", "title": "How one collection became Discogs #discogs #comics #collecting", "hook": "Discogs started as one guy cataloging his own records." },
+    { "id": "Short003MilkAndCheese", "title": "The comic with two number ones #milkandcheese #comics", "hook": "The second issue of this comic is called Other Number One." },
+    { "id": "Short003ScudVendingMachine", "title": "The assassin you buy from a vending machine #scud #comics #indiecomics", "hook": "In this comic, you buy your assassin from a vending machine." }
+  ]
+}

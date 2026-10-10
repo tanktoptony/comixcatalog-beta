@@ -44532,9 +44532,9 @@
     "year": 1962,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-09T14:00:48.179530+00:00",
-    "retry_after": "2026-10-10T14:00:48.179545+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-10T15:04:33.208385+00:00",
+    "retry_after": "2026-10-13T15:04:33.208401+00:00"
   },
   {
     "name": "Devil's Reign 1/2: Silver Surfer / Witchblade",
@@ -44542,9 +44542,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-09T14:00:48.883720+00:00",
-    "retry_after": "2026-10-10T14:00:48.883736+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-10T15:04:34.308207+00:00",
+    "retry_after": "2026-10-13T15:04:34.308224+00:00"
   },
   {
     "name": "Ultimate Fantastic Four / X-Men",
@@ -44552,9 +44552,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-09T15:00:51.010243+00:00",
-    "retry_after": "2026-10-10T15:00:51.010263+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-10T15:04:33.763591+00:00",
+    "retry_after": "2026-10-13T15:04:33.763607+00:00"
   },
   {
     "name": "IDW's Tales of Terror",
@@ -44635,5 +44635,22 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-10T13:00:50.315974+00:00",
     "retry_after": "2026-10-11T13:00:50.315990+00:00"
+  },
+  {
+    "name": "In Rage",
+    "publisher": "Unknown Publisher",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T15:00:43.444541+00:00",
+    "retry_after": "2026-10-11T15:00:43.444554+00:00"
   }
 ]

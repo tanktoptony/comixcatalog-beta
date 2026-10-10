@@ -40,20 +40,24 @@ function splitCharacters(text) {
   const out = [];
   let depth = 0;
   let current = "";
+  // Brackets nest for teams ("Fantastic Four [Human Torch [Johnny Storm]; ...]"),
+  // so convert character by character: [ -> (, ] -> ), inner ; -> ,
   for (const ch of String(text ?? "")) {
-    if (ch === "[") depth += 1;
-    if (ch === "]") depth = Math.max(0, depth - 1);
-    if ((ch === ";" || ch === "\n") && depth === 0) {
+    if (ch === "[") {
+      depth += 1;
+      current += "(";
+    } else if (ch === "]") {
+      depth = Math.max(0, depth - 1);
+      current += ")";
+    } else if ((ch === ";" || ch === "\n") && depth === 0) {
       out.push(current);
       current = "";
     } else {
-      current += ch;
+      current += ch === ";" ? "," : ch;
     }
   }
   out.push(current);
-  return out.map((name) =>
-    name.replace(/\[([^\]]*)\]/g, (_, inner) => `(${inner.split(";").map((x) => x.trim()).join(", ")})`)
-  );
+  return out.map((name) => name.replace(/\s*\(\s*/g, " (").replace(/\s*,\s*/g, ", ").replace(/\s*\)/g, ")"));
 }
 
 function storyCharacters(value) {

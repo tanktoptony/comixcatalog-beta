@@ -47,3 +47,29 @@ test("JSON-LD with quotes and a closing script sequence is escaped by safeJsonLd
   assert.equal(serialized.includes("<"), false);
   assert.deepEqual(JSON.parse(serialized), jsonLd);
 });
+
+test("no credits preserves the existing metadata and JSON-LD shape", () => {
+  assert.equal(buildIssueDescription(baseIssue), "Wolverine / Punisher: Revelation #1, published by Marvel Comics in 1999. Cover, release date and story details, plus copies for sale from collectors.");
+  assert.equal(buildIssueJsonLd(baseIssue, "gcd-1").author, undefined);
+});
+
+test("credits enrich the description and ComicIssue JSON-LD", () => {
+  const issue = { ...baseIssue, credits: [
+    { role: "writer", name: "Ann Writer", slug: "ann-writer" },
+    { role: "penciller", name: "Pat Artist", slug: "pat-artist" },
+    { role: "inker", name: "Inez Ink", slug: "inez-ink" },
+  ], stories: [{ characters: "Hero, Villain", synopsis: "A short adventure." }] };
+  assert.match(buildIssueDescription(issue), /By Ann Writer and Pat Artist\./);
+  const jsonLd = buildIssueJsonLd(issue, "gcd-1");
+  assert.equal(jsonLd.author[0].name, "Ann Writer");
+  assert.equal(jsonLd.illustrator[0].name, "Pat Artist");
+  assert.equal(jsonLd.inker[0].name, "Inez Ink");
+  assert.deepEqual(jsonLd.character.map((entry) => entry.name), ["Hero", "Villain"]);
+});
+
+test("long story synopsis is truncated to 300 characters", () => {
+  const jsonLd = buildIssueJsonLd({ ...baseIssue, stories: [{ synopsis: "x".repeat(400) }] }, "gcd-1");
+  assert.equal(jsonLd.abstract.length, 300);
+  assert.match(jsonLd.abstract, /\.\.\.$/);
+  assert.equal(jsonLd.description, jsonLd.abstract);
+});

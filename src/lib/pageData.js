@@ -75,7 +75,7 @@ const cachedSeries = unstable_cache(
     callRoute(seriesGET, `http://internal/api/series/${encodeURIComponent(id)}`, "series", {
       params: Promise.resolve({ id }),
     }),
-  ["page-series-v1"],
+  ["page-series-v2"],
   { revalidate: 600 }
 );
 
@@ -90,7 +90,7 @@ const cachedIssue = unstable_cache(
     callRoute(issueGET, `http://internal/api/issues/${encodeURIComponent(id)}`, "issue", {
       params: Promise.resolve({ id }),
     }),
-  ["page-issue-v1"],
+  ["page-issue-v2"],
   { revalidate: 3600 }
 );
 

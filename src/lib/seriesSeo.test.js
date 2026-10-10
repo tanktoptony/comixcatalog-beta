@@ -31,3 +31,26 @@ test("metadata keeps key issue numbers within its length target", () => {
   assert.ok(description.length <= 160);
   assert.match(description, /Key issues: #1, #129\.$/);
 });
+
+test("intro only calls out creators at the 40 percent threshold", () => {
+  const top_creators = { writers: [{ name: "A Writer", issues: 4 }], artists: [{ name: "An Artist", issues: 3 }] };
+  assert.equal(buildSeriesIntro({ title: "Run", issue_count: 10, top_creators }), "Run is a 10-issue series. Written mostly by A Writer.");
+  assert.doesNotMatch(buildSeriesIntro({ title: "Run", issue_count: 11, top_creators }), /mostly/);
+});
+
+test("creator threshold uses issues with credits when that count is available", () => {
+  const intro = buildSeriesIntro({
+    title: "Run",
+    issue_count: 100,
+    top_creators: { writers: [{ name: "A Writer", issues: 4 }], artists: [] },
+    creator_credited_issues: { writers: 10, artists: 0 },
+  });
+  assert.match(intro, /Written mostly by A Writer/);
+});
+
+test("metadata includes the top writer and artist", () => {
+  const description = buildSeriesDescription({ title: "Run", issue_count: 10, top_creators: { writers: [{ name: "A Writer", issues: 2 }], artists: [{ name: "An Artist", issues: 2 }] } });
+  assert.match(description, /Writer: A Writer\./);
+  assert.match(description, /Artist: An Artist\./);
+  assert.ok(description.length <= 160);
+});

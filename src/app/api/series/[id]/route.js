@@ -41,6 +41,50 @@ function dedupeIssuesByBase(issues) {
 }
 
 const KEY_ISSUE_ID_CHUNK = 400;
+const CREATOR_ROW_CAP = 5000;
+
+async function loadTopCreators(supabase, issues) {
+  const ids = issues.map((issue) => issue.gcd_id).filter((id) => id != null);
+  const rows = [];
+  // Credits are chunked to keep PostgREST IN filters small and capped at
+  // 5,000 total rows so unusually large series cannot create an open-ended read.
+  for (let index = 0; index < ids.length && rows.length < CREATOR_ROW_CAP; index += 400) {
+    const idChunk = ids.slice(index, index + 400);
+    const remaining = CREATOR_ROW_CAP - rows.length;
+    const page = await fetchAllPages(() => supabase
+      .from("issue_creators")
+      .select("gcd_issue_id, role, creators(name, slug)")
+      .in("gcd_issue_id", idChunk)
+      .in("role", ["writer", "penciller"]), "gcd_issue_id", { maxRows: remaining });
+    rows.push(...page);
+  }
+
+  const rank = (role) => {
+    const byCreator = new Map();
+    for (const row of rows) {
+      if (row.role !== role) continue;
+      const creator = Array.isArray(row.creators) ? row.creators[0] : row.creators;
+      if (!creator?.name || !creator?.slug) continue;
+      const entry = byCreator.get(creator.slug) ?? { name: creator.name, slug: creator.slug, issueIds: new Set() };
+      entry.issueIds.add(row.gcd_issue_id);
+      byCreator.set(creator.slug, entry);
+    }
+    return [...byCreator.values()]
+      .map(({ name, slug, issueIds }) => ({ name, slug, issues: issueIds.size }))
+      .sort((a, b) => b.issues - a.issues || a.name.localeCompare(b.name))
+      .slice(0, 5);
+  };
+  const creditedIssueCount = (role) => new Set(
+    rows.filter((row) => row.role === role).map((row) => row.gcd_issue_id)
+  ).size;
+  return {
+    topCreators: { writers: rank("writer"), artists: rank("penciller") },
+    creditedIssueCounts: {
+      writers: creditedIssueCount("writer"),
+      artists: creditedIssueCount("penciller"),
+    },
+  };
+}
 
 async function loadKeyIssues(supabase, issues) {
   const ids = issues.map((issue) => issue.gcd_id).filter((id) => id != null);
@@ -204,10 +248,18 @@ export async function GET(req, context) {
 
     const issueRows = issues ?? [];
     let keyIssues = [];
+    let topCreators = { writers: [], artists: [] };
+    let creatorCreditedIssues = { writers: 0, artists: 0 };
     try {
-      keyIssues = await loadKeyIssues(supabase, issueRows);
+      const [loadedKeyIssues, creatorSummary] = await Promise.all([
+        loadKeyIssues(supabase, issueRows),
+        loadTopCreators(supabase, issueRows),
+      ]);
+      keyIssues = loadedKeyIssues;
+      topCreators = creatorSummary.topCreators;
+      creatorCreditedIssues = creatorSummary.creditedIssueCounts;
     } catch (error) {
-      console.error("GET /api/series/[id] key issue lookup failed:", error);
+      console.error("GET /api/series/[id] enrichment lookup failed:", error);
       degraded = true;
     }
 
@@ -416,6 +468,8 @@ export async function GET(req, context) {
         format_noun: formatNoun(seriesFormat ?? {}),
         collects: collectedEdition ? collectsLines(seriesFormat?.format_notes) : [],
         key_issues: keyIssues,
+        top_creators: topCreators,
+        creator_credited_issues: creatorCreditedIssues,
         issues: mappedIssues,
       },
     // A degraded response must not be cached at the CDN for ten minutes.

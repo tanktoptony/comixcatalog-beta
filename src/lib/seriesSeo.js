@@ -5,6 +5,8 @@ export function buildSeriesIntro({
   year_start: yearStart,
   year_end: yearEnd,
   format_noun: formatNoun = "series",
+  top_creators: topCreators,
+  creator_credited_issues: creatorCreditedIssues,
 } = {}) {
   const safeTitle = title || "This title";
   const type = formatNoun || "series";
@@ -19,17 +21,33 @@ export function buildSeriesIntro({
   let dates = "";
   if (start && end && start !== end) dates = `, published from ${start} to ${end}`;
   else if (start || end) dates = `, published in ${start || end}`;
-  return `${safeTitle} is a ${countedType}${source}${dates}.`;
+  const additions = [];
+  const writer = topCreators?.writers?.[0];
+  const artist = topCreators?.artists?.[0];
+  const writerDenominator = Number(creatorCreditedIssues?.writers) || count;
+  const artistDenominator = Number(creatorCreditedIssues?.artists) || count;
+  if (writerDenominator > 0 && writer?.issues / writerDenominator >= 0.4) {
+    additions.push(`Written mostly by ${writer.name}`);
+  }
+  if (artistDenominator > 0 && artist?.issues / artistDenominator >= 0.4) {
+    additions.push(`art mostly by ${artist.name}`);
+  }
+  return `${safeTitle} is a ${countedType}${source}${dates}.${additions.length ? ` ${additions.join(", ")}.` : ""}`;
 }
 
 export function buildSeriesDescription(series, maxLength = 160) {
   const intro = buildSeriesIntro(series);
+  const writer = series?.top_creators?.writers?.[0]?.name;
+  const artist = series?.top_creators?.artists?.[0]?.name;
+  const creatorText = writer || artist
+    ? ` ${writer ? `Writer: ${writer}.` : ""}${artist ? ` Artist: ${artist}.` : ""}`
+    : "";
   const numbers = (series?.key_issues ?? [])
     .map((keyIssue) => keyIssue.issue_number)
     .filter(Boolean);
   const full = numbers.length
-    ? `${intro} Key issues: ${numbers.map((number) => `#${number}`).join(", ")}.`
-    : intro;
+    ? `${intro}${creatorText} Key issues: ${numbers.map((number) => `#${number}`).join(", ")}.`
+    : `${intro}${creatorText}`;
   if (full.length <= maxLength) return full;
   if (numbers.length) {
     const suffix = ` Key issues: ${numbers.map((number) => `#${number}`).join(", ")}.`;

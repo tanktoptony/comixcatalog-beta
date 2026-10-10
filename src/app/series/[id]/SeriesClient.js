@@ -278,6 +278,20 @@ export default function SeriesClient({ initialSeries = null }) {
               {buildSeriesIntro(series)}
             </p>
 
+            {(series.top_creators?.writers?.length > 0 || series.top_creators?.artists?.length > 0) && (
+              <p style={{ maxWidth: "760px", marginBottom: "12px" }}>
+                {series.top_creators.writers?.length > 0 && (
+                  <>Written by {series.top_creators.writers.map((creator, index, list) => (
+                    <span key={creator.slug}>{index ? (index === list.length - 1 ? " and " : ", ") : ""}<Link href={`/creator/${creator.slug}`}>{creator.name}</Link></span>
+                  ))}.</>
+                )}{series.top_creators.artists?.length > 0 && (
+                  <>{series.top_creators.writers?.length > 0 ? " " : ""}Art by {series.top_creators.artists.map((creator, index, list) => (
+                    <span key={creator.slug}>{index ? (index === list.length - 1 ? " and " : ", ") : ""}<Link href={`/creator/${creator.slug}`}>{creator.name}</Link></span>
+                  ))}.</>
+                )}
+              </p>
+            )}
+
             <p className="muted" style={{ marginBottom: "16px" }}>
               {series.publisher} · {series.issue_count} issue
               {series.issue_count === 1 ? "" : "s"} · {yearLabel}

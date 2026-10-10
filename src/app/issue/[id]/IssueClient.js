@@ -25,6 +25,43 @@ function money(value) {
   }).format(num);
 }
 
+const CREDIT_ROLES = [
+  ["writer", "Writer"],
+  ["penciller", "Penciller"],
+  ["inker", "Inker"],
+  ["colorist", "Colorist"],
+  ["letterer", "Letterer"],
+  ["cover", "Cover"],
+];
+
+// GCD lists characters as "Wolverine [Logan; James Howlett]; Lucy Mellace":
+// split on semicolons outside brackets only, and show aliases in parentheses.
+function splitCharacters(text) {
+  const out = [];
+  let depth = 0;
+  let current = "";
+  for (const ch of String(text ?? "")) {
+    if (ch === "[") depth += 1;
+    if (ch === "]") depth = Math.max(0, depth - 1);
+    if ((ch === ";" || ch === "\n") && depth === 0) {
+      out.push(current);
+      current = "";
+    } else {
+      current += ch;
+    }
+  }
+  out.push(current);
+  return out.map((name) =>
+    name.replace(/\[([^\]]*)\]/g, (_, inner) => `(${inner.split(";").map((x) => x.trim()).join(", ")})`)
+  );
+}
+
+function storyCharacters(value) {
+  const all = (Array.isArray(value) ? value : splitCharacters(value))
+    .map((name) => String(name).trim()).filter(Boolean);
+  return { shown: all.slice(0, 12), remaining: Math.max(0, all.length - 12) };
+}
+
 export default function IssueClient({ initialIssue = null }) {
   const { id } = useParams();
   const { collections, collectionIds, wishlistIds, addToCollection, addAnotherCopy, removeFromCollection } =
@@ -533,6 +570,57 @@ export default function IssueClient({ initialIssue = null }) {
                 </div>
               </div>
             </div>
+
+            {issue.credits?.length > 0 && (
+              <div className="metadata-section" style={{ margin: "0 0 22px" }}>
+                <h2 className="issue-section-title">Credits</h2>
+                <div style={{ display: "grid", gap: "8px" }}>
+                  {CREDIT_ROLES.map(([role, label]) => {
+                    const people = issue.credits.filter((credit) => credit.role === role);
+                    if (!people.length) return null;
+                    return (
+                      <div key={role}>
+                        <strong>{label}:</strong>{" "}
+                        {people.map((person, index) => (
+                          <span key={`${role}-${person.slug}`}>
+                            {index > 0 ? ", " : ""}<Link href={`/creator/${person.slug}`}>{person.name}</Link>
+                          </span>
+                        ))}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {issue.stories?.length > 0 && (
+              <div className="metadata-section" style={{ margin: "0 0 22px" }}>
+                <h2 className="issue-section-title">Stories</h2>
+                <div style={{ display: "grid", gap: "18px" }}>
+                  {issue.stories.map((story, index) => {
+                    const characters = storyCharacters(story.characters);
+                    return (
+                      <article key={`${story.title ?? story.feature ?? "story"}-${index}`}>
+                        {(story.title || story.feature) && <h3 style={{ fontSize: "1rem", marginBottom: "6px" }}>{story.title || story.feature}</h3>}
+                        {characters.shown.length > 0 && (
+                          <p className="muted" style={{ marginBottom: story.synopsis ? "6px" : 0 }}>
+                            <strong>Characters:</strong> {characters.shown.join(", ")}{characters.remaining ? `, and ${characters.remaining} more` : ""}
+                          </p>
+                        )}
+                        {story.synopsis && <p style={{ margin: 0 }}>{story.synopsis}</p>}
+                      </article>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {(issue.credits?.length > 0 || issue.stories?.length > 0) && (
+              <p className="muted" style={{ fontSize: "0.75rem", margin: "-10px 0 22px" }}>
+                Credits and story details from the{" "}
+                <a href={`https://www.comics.org/issue/${String(issue.id).replace(/^gcd-/, "")}/`} target="_blank" rel="noreferrer">Grand Comics Database (CC BY-SA 4.0)</a>
+              </p>
+            )}
 
             {/* Condition & Grade - including "your photo of this book," which
                 is otherwise easy to never discover (previously only lived on

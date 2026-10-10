@@ -33370,9 +33370,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T06:03:26.125842+00:00",
-    "retry_after": "2026-10-10T06:03:26.125857+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-10T07:00:46.136638+00:00",
+    "retry_after": "2026-10-24T07:00:46.136654+00:00"
   },
   {
     "name": "Lady Death II: Between Heaven & Hell",
@@ -42254,9 +42254,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-07T06:00:50.188972+00:00",
-    "retry_after": "2026-10-10T06:00:50.188987+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T07:00:49.017800+00:00",
+    "retry_after": "2026-10-17T07:00:49.017816+00:00"
   },
   {
     "name": "Hanna-Barbera the Addams Family",
@@ -42264,9 +42264,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-07T06:00:50.692256+00:00",
-    "retry_after": "2026-10-10T06:00:50.692272+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T07:00:50.263012+00:00",
+    "retry_after": "2026-10-17T07:00:50.263028+00:00"
   },
   {
     "name": "Secret Warriors",
@@ -42287,9 +42287,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-07T06:00:51.778275+00:00",
-    "retry_after": "2026-10-10T06:00:51.778290+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T07:00:50.927928+00:00",
+    "retry_after": "2026-10-17T07:00:50.927943+00:00"
   },
   {
     "name": "The Cold Witch",
@@ -42297,9 +42297,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-07T07:00:46.283080+00:00",
-    "retry_after": "2026-10-10T07:00:46.283094+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T07:00:51.715843+00:00",
+    "retry_after": "2026-10-17T07:00:51.715857+00:00"
   },
   {
     "name": "Avengers Legends",
@@ -42307,9 +42307,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-07T07:00:46.899945+00:00",
-    "retry_after": "2026-10-10T07:00:46.899961+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-10T07:00:52.082710+00:00",
+    "retry_after": "2026-10-17T07:00:52.082728+00:00"
   },
   {
     "name": "Incredibles 2: Crisis in Mid-Life! & Other Stories",
@@ -44462,9 +44462,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-09T06:00:48.239104+00:00",
-    "retry_after": "2026-10-10T06:00:48.239127+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-10T07:00:47.647956+00:00",
+    "retry_after": "2026-10-13T07:00:47.647973+00:00"
   },
   {
     "name": "G.I Joe Spring Special",
@@ -44472,9 +44472,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-09T06:00:48.873883+00:00",
-    "retry_after": "2026-10-10T06:00:48.873901+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-10T07:00:48.058103+00:00",
+    "retry_after": "2026-10-13T07:00:48.058122+00:00"
   },
   {
     "name": "Marvel Milestone Edition: Giant-Size X-Men #1",
@@ -44632,5 +44632,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-10T05:00:53.688468+00:00",
     "retry_after": "2026-10-11T05:00:53.688483+00:00"
+  },
+  {
+    "name": "Mangazine Gold Digger Color Remix Special",
+    "publisher": "Antarctic Press",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-10T07:00:48.407243+00:00",
+    "retry_after": "2026-10-11T07:00:48.407257+00:00"
   }
 ]

@@ -8,7 +8,7 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import { brand } from "./brand.js";
 import { EpisodeContext, SegmentContext, Backdrop, LogoBug, available } from "./components/primitives.jsx";
-import { CoverFull, KenBurnsCover, MediaFull, CoverPair, CoverGrid, CoverFan, CoverStack, Triptych, StarterShelf, ShelfLater } from "./components/covers.jsx";
+import { CoverFull, KenBurnsCover, MediaFull, CoverPair, CoverGrid, CoverFan, CoverStack, Triptych, StarterShelf, ShelfLater, PanelCard } from "./components/covers.jsx";
 import { ChapterCard, QuoteCard, TitleCard, ComixCatalogCard, EndCard, PlaceholderCard, ScreenCapture } from "./components/cards.jsx";
 import { withFallbacks, resolveAudio } from "./timeline.js";
 
@@ -20,6 +20,7 @@ export const SEGMENT_TYPES = {
   cover: CoverFull,
   kenBurns: KenBurnsCover,
   media: MediaFull,
+  panel: PanelCard,
   pair: CoverPair,
   stack: CoverStack,
   triptych: Triptych,

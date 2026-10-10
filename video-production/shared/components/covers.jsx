@@ -443,3 +443,25 @@ export function ShelfLater({ items = [], later = [], laterLabel = "Later", title
     </AbsoluteFill>
   );
 }
+
+// One interior panel or page, shown whole (never cropped) inside a comic
+// panel border, over its own art blurred. `size` is the image's pixel
+// [width, height]; it is scaled to fit the frame but never more than
+// `maxUpscale`, so small web panels stay sharp. Slow push like the covers.
+export function PanelCard({ asset, size = [1000, 1000], treatment = "slowPush", maxUpscale = 2, kicker, title, sub, captionAlign = "left" }) {
+  const p = useProgress();
+  const [w0, h0] = size;
+  const s = Math.min(1560 / w0, (title || kicker ? 820 : 900) / h0, maxUpscale);
+  const scale = treatment === "still" ? 1 : treatment === "slowPull" ? 1.05 - 0.05 * p : 1 + 0.05 * p;
+  return (
+    <AbsoluteFill>
+      <CoverBackdrop asset={asset} />
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", paddingBottom: title || kicker ? 120 : 0 }}>
+        <div style={{ transform: `scale(${scale})` }}>
+          <Panel asset={asset} width={Math.round(w0 * s) + 14} height={Math.round(h0 * s) + 14} fit="contain" />
+        </div>
+      </AbsoluteFill>
+      <NarrationBox kicker={kicker} title={title} sub={sub} align={captionAlign} />
+    </AbsoluteFill>
+  );
+}

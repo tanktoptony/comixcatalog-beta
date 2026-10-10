@@ -171,7 +171,7 @@ export async function GET(req, context) {
         return NextResponse.json({ error: "Issue not found" }, { status: 404 });
       }
 
-      const [seriesResult, gcdSeriesResult, gcdFormatResult] = await Promise.all([
+      const [seriesResult, gcdSeriesResult, gcdFormatResult, creditsResult, storiesResult, detailsResult] = await Promise.all([
         supabase
           .from("series")
           .select(`
@@ -206,7 +206,40 @@ export async function GET(req, context) {
           .select("publishing_format, binding")
           .eq("gcd_id", issue.series_gcd_id)
           .maybeSingle(),
+        supabase
+          .from("issue_creators")
+          .select("role, creators(name, slug)")
+          .eq("gcd_issue_id", gcdId),
+        supabase
+          .from("gcd_stories")
+          .select("type, title, feature, characters, synopsis, sequence_number")
+          .eq("gcd_issue_id", gcdId)
+          .order("sequence_number", { ascending: true }),
+        supabase
+          .from("gcd_issue_details")
+          .select("on_sale_date, price, page_count")
+          .eq("gcd_issue_id", gcdId)
+          .maybeSingle(),
       ]);
+
+      for (const [label, result] of [["credits", creditsResult], ["stories", storiesResult], ["details", detailsResult]]) {
+        if (result.error) {
+          console.error(`issue ${label} lookup failed:`, result.error.code, result.error.message);
+          degradation.value = true;
+        }
+      }
+      const credits = (creditsResult.data ?? []).flatMap((row) => {
+        const creator = Array.isArray(row.creators) ? row.creators[0] : row.creators;
+        return creator?.name && creator?.slug
+          ? [{ role: row.role, name: creator.name, slug: creator.slug }]
+          : [];
+      });
+      const stories = (storiesResult.data ?? [])
+        .filter((story) => !/\b(ad|advertisement|filler)\b/i.test(String(story.type ?? "").trim()))
+        .map(({ type, title, feature, characters, synopsis }) => ({
+          type, title, feature, characters, synopsis,
+        }));
+      const details = detailsResult.error ? null : detailsResult.data ?? null;
 
       const seriesRow = seriesResult.data;
       const seriesLevelPublisherGcdId = gcdSeriesResult.data?.publisher_gcd_id ?? null;
@@ -524,6 +557,9 @@ export async function GET(req, context) {
           related_issues: relatedIssues,
           arcs,
           key_issue: keyIssue,
+          credits,
+          stories,
+          details,
           market: {
             listings_count: 0,
             low: null,

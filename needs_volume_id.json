@@ -4734,10 +4734,22 @@
   },
   {
     "name": "The Titans",
-    "publisher": "DC Comics",
+    "publisher": "Marvel Comics",
     "year": 1975,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
+      {
+        "id": 44350,
+        "name": "Titans",
+        "publisher": "Editions Lug",
+        "start_year": 1976
+      },
+      {
+        "id": 47616,
+        "name": "Titans",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1975
+      },
       {
         "id": 92577,
         "name": "Titans",
@@ -4749,6 +4761,12 @@
         "name": "Titans",
         "publisher": "DC Comics",
         "start_year": 2017
+      },
+      {
+        "id": 164704,
+        "name": "Titans",
+        "publisher": "Splitter",
+        "start_year": null
       },
       {
         "id": 21159,
@@ -4763,10 +4781,22 @@
         "start_year": 2023
       },
       {
+        "id": 111617,
+        "name": "Titans",
+        "publisher": "Panini Verlag",
+        "start_year": 2017
+      },
+      {
         "id": 9145,
         "name": "The Titans",
         "publisher": "DC Comics",
         "start_year": 1999
+      },
+      {
+        "id": 61651,
+        "name": "Titans",
+        "publisher": "Panini Verlag",
+        "start_year": 2009
       },
       {
         "id": 160481,
@@ -4776,7 +4806,8 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554736+00:00"
+    "last_attempt_at": "2026-10-11T08:01:45.256110+00:00",
+    "retry_after": "2026-10-12T08:01:45.256126+00:00"
   },
   {
     "name": "Garfield",
@@ -47084,5 +47115,227 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T07:01:47.385768+00:00",
     "retry_after": "2026-10-12T07:01:47.385786+00:00"
+  },
+  {
+    "name": "Lois & Clark: As Aventuras do Superman",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:00:47.703713+00:00",
+    "retry_after": "2026-10-12T08:00:47.703728+00:00"
+  },
+  {
+    "name": "Mad Hodgepodge of Humor",
+    "publisher": "EC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:00:53.958020+00:00",
+    "retry_after": "2026-10-12T08:00:53.958037+00:00"
+  },
+  {
+    "name": "Wizard Presents: X-O Manowar",
+    "publisher": "Valiant Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:00:54.408937+00:00",
+    "retry_after": "2026-10-12T08:00:54.408953+00:00"
+  },
+  {
+    "name": "All-New Wolverine Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:00:59.966047+00:00",
+    "retry_after": "2026-10-12T08:00:59.966063+00:00"
+  },
+  {
+    "name": "Rex Allen",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37005,
+        "name": "Rex Allen",
+        "publisher": "Dell",
+        "start_year": 1951
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:01:14.488781+00:00",
+    "retry_after": "2026-10-12T08:01:14.488797+00:00"
+  },
+  {
+    "name": "Marvel Masterworks: The Silver Surfer - Barnes & Noble Edition",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:01:20.670467+00:00",
+    "retry_after": "2026-10-12T08:01:20.670482+00:00"
+  },
+  {
+    "name": "Marvel Masterworks: The Incredible Hulk - Barnes & Noble Edition",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:01:21.030870+00:00",
+    "retry_after": "2026-10-12T08:01:21.030887+00:00"
+  },
+  {
+    "name": "Hawkeye Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:01:21.490330+00:00",
+    "retry_after": "2026-10-12T08:01:21.490347+00:00"
+  },
+  {
+    "name": "Amazing Mysteries",
+    "publisher": "Fantagraphics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21608,
+        "name": "Amazing Mysteries",
+        "publisher": "Marvel",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:01:26.622558+00:00",
+    "retry_after": "2026-10-12T08:01:26.622573+00:00"
+  },
+  {
+    "name": "Archie's Super Hero Comics Digest Magazine",
+    "publisher": "Archie Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:01:27.949885+00:00",
+    "retry_after": "2026-10-12T08:01:27.949901+00:00"
+  },
+  {
+    "name": "Wizard Presents: Ripclaw",
+    "publisher": "Top Cow Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:01:29.709763+00:00",
+    "retry_after": "2026-10-12T08:01:29.709780+00:00"
+  },
+  {
+    "name": "Anders And Classic",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:01:43.552790+00:00",
+    "retry_after": "2026-10-12T08:01:43.552806+00:00"
+  },
+  {
+    "name": "Baticomic",
+    "publisher": "Harvey Comics",
+    "year": 1967,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53800,
+        "name": "Baticomic",
+        "publisher": "Editorial Novaro",
+        "start_year": 1968
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:01:44.318738+00:00",
+    "retry_after": "2026-10-12T08:01:44.318754+00:00"
+  },
+  {
+    "name": "Albi Avventura",
+    "publisher": "Dell Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:01:44.728623+00:00",
+    "retry_after": "2026-10-12T08:01:44.728640+00:00"
+  },
+  {
+    "name": "Donald Duck & Co julehefte",
+    "publisher": "Harvey Comics",
+    "year": 1968,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148471,
+        "name": "Donald Duck & Co julehefte ",
+        "publisher": "Hjemmet",
+        "start_year": 1968
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:01:45.597274+00:00",
+    "retry_after": "2026-10-12T08:01:45.597289+00:00"
+  },
+  {
+    "name": "Eros Graphic Albums",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25078,
+        "name": "Eros Graphic Albums",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:02:54.052093+00:00",
+    "retry_after": "2026-10-12T08:02:54.052109+00:00"
+  },
+  {
+    "name": "Dylan Dog Color Fest",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41321,
+        "name": "Dylan Dog Color Fest",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:02:54.513041+00:00",
+    "retry_after": "2026-10-12T08:02:54.513057+00:00"
+  },
+  {
+    "name": "Superm�n Librocomic",
+    "publisher": "Harvey Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T08:04:47.750976+00:00",
+    "retry_after": "2026-10-12T08:04:47.750992+00:00"
   }
 ]

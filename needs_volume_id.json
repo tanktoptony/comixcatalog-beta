@@ -28269,8 +28269,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-11T13:03:12.769592+00:00",
-    "retry_after": "2026-10-12T13:03:12.769604+00:00"
+    "last_attempt_at": "2026-10-11T14:01:37.089406+00:00",
+    "retry_after": "2026-10-12T14:01:37.089420+00:00"
   },
   {
     "name": "Cerebus",
@@ -48699,5 +48699,201 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T13:04:55.709261+00:00",
     "retry_after": "2026-10-12T13:04:55.709271+00:00"
+  },
+  {
+    "name": "Canadian Vark!",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115995,
+        "name": "Canadian Vark",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:00:37.345241+00:00",
+    "retry_after": "2026-10-12T14:00:37.345259+00:00"
+  },
+  {
+    "name": "Is This Another Complaint, Beetle Bailey?",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:00:38.816320+00:00",
+    "retry_after": "2026-10-12T14:00:38.816338+00:00"
+  },
+  {
+    "name": "Mary Roberts Rinehart's the Bat",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35807,
+        "name": "Mary Roberts Rinehart's The Bat",
+        "publisher": "Adventure",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:00:45.154449+00:00",
+    "retry_after": "2026-10-12T14:00:45.154465+00:00"
+  },
+  {
+    "name": "Hot Stuff Halloween Special",
+    "publisher": "Dark Horse Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:01:00.191956+00:00",
+    "retry_after": "2026-10-12T14:01:00.191970+00:00"
+  },
+  {
+    "name": "Superman: Faster Than... with Jeff Gordon",
+    "publisher": "DC Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:01:13.146088+00:00",
+    "retry_after": "2026-10-12T14:01:13.146106+00:00"
+  },
+  {
+    "name": "Lady Pendragon Remastered",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:01:25.460755+00:00",
+    "retry_after": "2026-10-12T14:01:25.460763+00:00"
+  },
+  {
+    "name": "Eternal Warriors: The Immortal Enemy",
+    "publisher": "Valiant Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:01:26.004816+00:00",
+    "retry_after": "2026-10-12T14:01:26.004834+00:00"
+  },
+  {
+    "name": "Lil' Donnie",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:01:26.583942+00:00",
+    "retry_after": "2026-10-12T14:01:26.583959+00:00"
+  },
+  {
+    "name": "Funko Presents DC Legion of Collectors: Batgirl",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:01:26.983790+00:00",
+    "retry_after": "2026-10-12T14:01:26.983808+00:00"
+  },
+  {
+    "name": "Wendy",
+    "publisher": "Harvey Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133257,
+        "name": "Wendy",
+        "publisher": "Delcourt",
+        "start_year": 2013
+      },
+      {
+        "id": 113548,
+        "name": "Wendy",
+        "publisher": "Koyama Press",
+        "start_year": 2014
+      },
+      {
+        "id": 150165,
+        "name": "Wendy",
+        "publisher": "Americom",
+        "start_year": 1984
+      },
+      {
+        "id": 45222,
+        "name": "Wendy",
+        "publisher": "Egmont Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:03:16.498330+00:00",
+    "retry_after": "2026-10-12T14:03:16.498340+00:00"
+  },
+  {
+    "name": "Army Combat Picture Stories",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:03:16.897205+00:00",
+    "retry_after": "2026-10-12T14:03:16.897211+00:00"
+  },
+  {
+    "name": "Humphrey Monthly",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:03:17.264900+00:00",
+    "retry_after": "2026-10-12T14:03:17.264907+00:00"
+  },
+  {
+    "name": "Invisible Avenger",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52650,
+        "name": "Invisible Avenger",
+        "publisher": "Magazine Management",
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:03:59.668463+00:00",
+    "retry_after": "2026-10-12T14:03:59.668473+00:00"
+  },
+  {
+    "name": "Sport-Billy - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:04:00.027083+00:00",
+    "retry_after": "2026-10-12T14:04:00.027093+00:00"
+  },
+  {
+    "name": "La Zorra y el Cuervo - Serie Colibr�",
+    "publisher": "Harvey Comics",
+    "year": 1977,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T14:04:00.403198+00:00",
+    "retry_after": "2026-10-12T14:04:00.403206+00:00"
   }
 ]

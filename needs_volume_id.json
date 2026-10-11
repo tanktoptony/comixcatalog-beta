@@ -47337,5 +47337,218 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T08:04:47.750976+00:00",
     "retry_after": "2026-10-12T08:04:47.750992+00:00"
+  },
+  {
+    "name": "The Powerpuff Girls [Choice Hotels International Giveaway]",
+    "publisher": "DC Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:00:59.860562+00:00",
+    "retry_after": "2026-10-12T09:00:59.860572+00:00"
+  },
+  {
+    "name": "Incredible Science Fiction",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1732,
+        "name": "Incredible Science Fiction",
+        "publisher": "EC",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:01:00.252841+00:00",
+    "retry_after": "2026-10-12T09:01:00.252848+00:00"
+  },
+  {
+    "name": "Slug 'N' Ginger",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71822,
+        "name": "Slug 'N' Ginger",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:01:00.787288+00:00",
+    "retry_after": "2026-10-12T09:01:00.787294+00:00"
+  },
+  {
+    "name": "The Tandy Computer Whiz Kids (The Community Action Program)",
+    "publisher": "Archie Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:01:05.441569+00:00",
+    "retry_after": "2026-10-12T09:01:05.441579+00:00"
+  },
+  {
+    "name": "Witch Hunter",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49635,
+        "name": "Witch Hunter",
+        "publisher": "Seven Seas Entertainment",
+        "start_year": 2012
+      },
+      {
+        "id": 20482,
+        "name": "Witch Hunter",
+        "publisher": "Malibu",
+        "start_year": 1996
+      },
+      {
+        "id": 70138,
+        "name": "Witch Hunter",
+        "publisher": "Monarch Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 53692,
+        "name": "Witch Hunter",
+        "publisher": "Daewon C.I.",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:01:18.801234+00:00",
+    "retry_after": "2026-10-12T09:01:18.801242+00:00"
+  },
+  {
+    "name": "Bible Tales for Young Folks [Bible Tales for Young Folk]",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:01:42.978658+00:00",
+    "retry_after": "2026-10-12T09:01:42.978666+00:00"
+  },
+  {
+    "name": "The American Princess",
+    "publisher": "Dell Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:02:00.242465+00:00",
+    "retry_after": "2026-10-12T09:02:00.242475+00:00"
+  },
+  {
+    "name": "7Days",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:02:01.304859+00:00",
+    "retry_after": "2026-10-12T09:02:01.304870+00:00"
+  },
+  {
+    "name": "Sn�fte Smith",
+    "publisher": "Harvey Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:02:01.660341+00:00",
+    "retry_after": "2026-10-12T09:02:01.660348+00:00"
+  },
+  {
+    "name": "Ai Confini della Storia",
+    "publisher": "Dell Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:02:01.973605+00:00",
+    "retry_after": "2026-10-12T09:02:01.973611+00:00"
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Dark Horse Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:02:02.501255+00:00",
+    "retry_after": "2026-10-12T09:02:02.501261+00:00"
+  },
+  {
+    "name": "Colt Western Library",
+    "publisher": "Marvel Comics",
+    "year": 1957,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:02:02.981225+00:00",
+    "retry_after": "2026-10-12T09:02:02.981232+00:00"
+  },
+  {
+    "name": "Archie's Fun Book",
+    "publisher": "Archie Comics",
+    "year": 1956,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:02:07.580175+00:00",
+    "retry_after": "2026-10-12T09:02:07.580182+00:00"
+  },
+  {
+    "name": "Tarz�n Librocomic",
+    "publisher": "Harvey Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:02:07.972360+00:00",
+    "retry_after": "2026-10-12T09:02:07.972366+00:00"
+  },
+  {
+    "name": "Bip Bip el Correcaminos",
+    "publisher": "Harvey Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:02:08.528875+00:00",
+    "retry_after": "2026-10-12T09:02:08.528882+00:00"
+  },
+  {
+    "name": "Batman: Vigilantes de Gotham",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54160,
+        "name": "Batman: Vigilantes de Gotham",
+        "publisher": "Abril",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T09:02:08.927559+00:00",
+    "retry_after": "2026-10-12T09:02:08.927568+00:00"
   }
 ]

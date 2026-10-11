@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-11T22:02:02.590016+00:00",
-    "retry_after": "2026-10-12T22:02:02.590027+00:00"
+    "last_attempt_at": "2026-10-11T23:04:10.119064+00:00",
+    "retry_after": "2026-10-12T23:04:10.119074+00:00"
   },
   {
     "name": "Cerebus",
@@ -49975,5 +49975,88 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T22:02:03.706658+00:00",
     "retry_after": "2026-10-12T22:02:03.706666+00:00"
+  },
+  {
+    "name": "Katy Keene Fashion Book Magazine",
+    "publisher": "Archie Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T23:01:05.079752+00:00",
+    "retry_after": "2026-10-12T23:01:05.079768+00:00"
+  },
+  {
+    "name": "Nouveau Terrytoons , Heckle Et Jeckle",
+    "publisher": "Gold Key",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T23:01:05.707544+00:00",
+    "retry_after": "2026-10-12T23:01:05.707558+00:00"
+  },
+  {
+    "name": "Palace of the Omega",
+    "publisher": "VIZ Media",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T23:01:06.195566+00:00",
+    "retry_after": "2026-10-12T23:01:06.195582+00:00"
+  },
+  {
+    "name": "Loucademia de Pol�cia",
+    "publisher": "Avatar Press",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T23:01:22.248896+00:00",
+    "retry_after": "2026-10-12T23:01:22.248913+00:00"
+  },
+  {
+    "name": "L'il Willie Comics",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T23:02:31.588509+00:00",
+    "retry_after": "2026-10-12T23:02:31.588525+00:00"
+  },
+  {
+    "name": "She Buccaneer",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T23:03:50.784881+00:00",
+    "retry_after": "2026-10-12T23:03:50.784896+00:00"
+  },
+  {
+    "name": "My Favorite Martian",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29702,
+        "name": "My Favorite Martian",
+        "publisher": "Western Publishing",
+        "start_year": 1964
+      },
+      {
+        "id": 48967,
+        "name": "My Favorite Martian",
+        "publisher": "Hermes Press",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T23:04:09.734732+00:00",
+    "retry_after": "2026-10-12T23:04:09.734748+00:00"
   }
 ]

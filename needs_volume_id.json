@@ -37061,9 +37061,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T05:56:12.446027+00:00",
-    "retry_after": "2026-10-06T05:56:12.446045+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-11T01:01:01.607825+00:00",
+    "retry_after": "2026-10-18T01:01:01.607841+00:00"
   },
   {
     "name": "Loki Modern Era Epic Collection",
@@ -45408,5 +45408,403 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T00:08:14.606993+00:00",
     "retry_after": "2026-10-12T00:08:14.607014+00:00"
+  },
+  {
+    "name": "Ice Cream Man",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 107948,
+        "name": "Ice Cream Man",
+        "publisher": "Image",
+        "start_year": 2018
+      },
+      {
+        "id": 111675,
+        "name": "Ice Cream Man",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:00:45.739884+00:00",
+    "retry_after": "2026-10-12T01:00:45.739898+00:00"
+  },
+  {
+    "name": "Preacher",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5516,
+        "name": "Preacher",
+        "publisher": "DC Comics",
+        "start_year": 1995
+      },
+      {
+        "id": 29843,
+        "name": "Preacher",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:09.240427+00:00",
+    "retry_after": "2026-10-12T01:02:09.240441+00:00"
+  },
+  {
+    "name": "Dylan Dog Oldboy nuova serie",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:10.460101+00:00",
+    "retry_after": "2026-10-12T01:02:10.460117+00:00"
+  },
+  {
+    "name": "Stimulator",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26834,
+        "name": "Stimulator",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:10.929004+00:00",
+    "retry_after": "2026-10-12T01:02:10.929019+00:00"
+  },
+  {
+    "name": "Jerntid",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 98987,
+        "name": "Jerntid",
+        "publisher": "Telemark Tegneserieverksted",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:11.941664+00:00",
+    "retry_after": "2026-10-12T01:02:11.941679+00:00"
+  },
+  {
+    "name": "Rom Summer Special",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52566,
+        "name": "Rom Summer Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:12.311493+00:00",
+    "retry_after": "2026-10-12T01:02:12.311508+00:00"
+  },
+  {
+    "name": "Confessions Illustrated",
+    "publisher": "Marvel Comics",
+    "year": 1974,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1803,
+        "name": "Confessions Illustrated",
+        "publisher": "EC",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:16.327185+00:00",
+    "retry_after": "2026-10-12T01:02:16.327200+00:00"
+  },
+  {
+    "name": "The Wizard of Id / Yield",
+    "publisher": "Fawcett Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:20.814363+00:00",
+    "retry_after": "2026-10-12T01:02:20.814384+00:00"
+  },
+  {
+    "name": "Word Girl",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:22.629925+00:00",
+    "retry_after": "2026-10-12T01:02:22.629947+00:00"
+  },
+  {
+    "name": "The Mystic Hands of Dr. Strange (B&W)",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:24.441498+00:00",
+    "retry_after": "2026-10-12T01:02:24.441513+00:00"
+  },
+  {
+    "name": "Three Dimension Comics",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58913,
+        "name": "Three Dimension Comics",
+        "publisher": "St. John Publishing Co.",
+        "start_year": 1953
+      },
+      {
+        "id": 69100,
+        "name": "Three Dimension Comics",
+        "publisher": "Unknown Publisher",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:40.346273+00:00",
+    "retry_after": "2026-10-12T01:02:40.346285+00:00"
+  },
+  {
+    "name": "Tusj Raptusj spesial",
+    "publisher": "Harvey Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:44.264012+00:00",
+    "retry_after": "2026-10-12T01:02:44.264026+00:00"
+  },
+  {
+    "name": "Doctor Solar",
+    "publisher": "Marvel Comics",
+    "year": 1963,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:49.890369+00:00",
+    "retry_after": "2026-10-12T01:02:49.890393+00:00"
+  },
+  {
+    "name": "Melody On Stage",
+    "publisher": "Fantagraphics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26798,
+        "name": "Melody on Stage",
+        "publisher": "Eros Comix",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:55.644360+00:00",
+    "retry_after": "2026-10-12T01:02:55.644375+00:00"
+  },
+  {
+    "name": "Aquaman by Geoff Johns",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:56.029477+00:00",
+    "retry_after": "2026-10-12T01:02:56.029492+00:00"
+  },
+  {
+    "name": "Mister No",
+    "publisher": "Marvel Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28596,
+        "name": "Mister No",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1975
+      },
+      {
+        "id": 32828,
+        "name": "Mister No",
+        "publisher": "Comma 22",
+        "start_year": null
+      },
+      {
+        "id": 152256,
+        "name": "Mister No",
+        "publisher": "Veseli Četvrtak",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:56.809256+00:00",
+    "retry_after": "2026-10-12T01:02:56.809271+00:00"
+  },
+  {
+    "name": "Aventuras de la Vida Real",
+    "publisher": "Harvey Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78302,
+        "name": "Aventuras de la Vida Real",
+        "publisher": "Editorial Novaro",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:57.210171+00:00",
+    "retry_after": "2026-10-12T01:02:57.210186+00:00"
+  },
+  {
+    "name": "Marvila, la Mujer Maravilla",
+    "publisher": "Harvey Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:57.489470+00:00",
+    "retry_after": "2026-10-12T01:02:57.489484+00:00"
+  },
+  {
+    "name": "Cuentos de Misterio",
+    "publisher": "Harvey Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 176509,
+        "name": "Cuentos de Misterio",
+        "publisher": "Editorial Novaro",
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:57.897285+00:00",
+    "retry_after": "2026-10-12T01:02:57.897300+00:00"
+  },
+  {
+    "name": "Sal y Pimienta",
+    "publisher": "Harvey Comics",
+    "year": 1965,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 114854,
+        "name": "Sal y Pimienta",
+        "publisher": "Editorial Novaro",
+        "start_year": 1964
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:58.243877+00:00",
+    "retry_after": "2026-10-12T01:02:58.243892+00:00"
+  },
+  {
+    "name": "L'Uomo Ragno [Collana Super-Eroi]",
+    "publisher": "Dark Horse Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:58.757834+00:00",
+    "retry_after": "2026-10-12T01:02:58.757850+00:00"
+  },
+  {
+    "name": "Estrellas del Deporte",
+    "publisher": "Harvey Comics",
+    "year": 1965,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42308,
+        "name": "Estrellas del Deporte",
+        "publisher": "Editorial Novaro",
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:59.145483+00:00",
+    "retry_after": "2026-10-12T01:02:59.145498+00:00"
+  },
+  {
+    "name": "I Fantastici Quattro",
+    "publisher": "Dark Horse Comics",
+    "year": 1971,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2527,
+        "name": "I Fantastici Quattro",
+        "publisher": "Editoriale Corno",
+        "start_year": 1971
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:02:59.650117+00:00",
+    "retry_after": "2026-10-12T01:02:59.650133+00:00"
+  },
+  {
+    "name": "Gasparin el fantasma amistoso",
+    "publisher": "Harvey Comics",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 103725,
+        "name": "Gasparin el Fantasma Amistoso",
+        "publisher": "Editorial Novaro",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:03:00.138114+00:00",
+    "retry_after": "2026-10-12T01:03:00.138129+00:00"
+  },
+  {
+    "name": "Satanik",
+    "publisher": "Dark Horse Comics",
+    "year": 1964,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27829,
+        "name": "Satanik",
+        "publisher": "Editoriale Corno",
+        "start_year": 1964
+      },
+      {
+        "id": 140371,
+        "name": "Satanik",
+        "publisher": "Max Bunker Press",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T01:03:01.484290+00:00",
+    "retry_after": "2026-10-12T01:03:01.484306+00:00"
   }
 ]

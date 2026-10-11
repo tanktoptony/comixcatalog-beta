@@ -48250,5 +48250,215 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T11:16:08.639620+00:00",
     "retry_after": "2026-10-12T11:16:08.639632+00:00"
+  },
+  {
+    "name": "Retief: Grime and Punishment",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61605,
+        "name": "Retief: Grime and Punishment",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:00:46.439496+00:00",
+    "retry_after": "2026-10-12T12:00:46.439511+00:00"
+  },
+  {
+    "name": "2026 Shantae Swimsuit Special",
+    "publisher": "Udon Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:01:05.399320+00:00",
+    "retry_after": "2026-10-12T12:01:05.399338+00:00"
+  },
+  {
+    "name": "TMNT Mutant Universe Update",
+    "publisher": "Archie Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:01:12.740459+00:00",
+    "retry_after": "2026-10-12T12:01:12.740475+00:00"
+  },
+  {
+    "name": "2026 Street Fighter Swimsuit Special",
+    "publisher": "Udon Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:01:13.058473+00:00",
+    "retry_after": "2026-10-12T12:01:13.058489+00:00"
+  },
+  {
+    "name": "Strange Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 105581,
+        "name": "Strange Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:01:13.538005+00:00",
+    "retry_after": "2026-10-12T12:01:13.538021+00:00"
+  },
+  {
+    "name": "Tweety Et Sylvester",
+    "publisher": "Gold Key",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:01:32.557858+00:00",
+    "retry_after": "2026-10-12T12:01:32.557874+00:00"
+  },
+  {
+    "name": "G.I. Mutants",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75119,
+        "name": "G.I. Mutants",
+        "publisher": "Eternity",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:01:58.633226+00:00",
+    "retry_after": "2026-10-12T12:01:58.633245+00:00"
+  },
+  {
+    "name": "The Cow Special",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:01:58.956448+00:00",
+    "retry_after": "2026-10-12T12:01:58.956464+00:00"
+  },
+  {
+    "name": "El Hombre Invisible",
+    "publisher": "Harvey Comics",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42368,
+        "name": "El Hombre Invisible",
+        "publisher": "Editorial Continente",
+        "start_year": 1957
+      },
+      {
+        "id": 42367,
+        "name": "El Hombre Invisible",
+        "publisher": "Editorial Novaro",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:01:59.521493+00:00",
+    "retry_after": "2026-10-12T12:01:59.521508+00:00"
+  },
+  {
+    "name": "Naruto - �dition Hokage",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:01:59.822034+00:00",
+    "retry_after": "2026-10-12T12:01:59.822051+00:00"
+  },
+  {
+    "name": "Speciale Nathan Never",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40473,
+        "name": "Speciale Nathan Never",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:02:00.234165+00:00",
+    "retry_after": "2026-10-12T12:02:00.234180+00:00"
+  },
+  {
+    "name": "Teen-Age Romances",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34277,
+        "name": "Teen-Age Romances",
+        "publisher": "St. John Publishing Co.",
+        "start_year": 1949
+      },
+      {
+        "id": 88793,
+        "name": "Teen-Age Romances",
+        "publisher": "Canton Street Press",
+        "start_year": 2016
+      },
+      {
+        "id": 78652,
+        "name": "Teen-Age Romances",
+        "publisher": "Yojimbo Press LLC",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:02:00.522115+00:00",
+    "retry_after": "2026-10-12T12:02:00.522131+00:00"
+  },
+  {
+    "name": "Topolino Story",
+    "publisher": "Dell Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:02:00.826309+00:00",
+    "retry_after": "2026-10-12T12:02:00.826325+00:00"
+  },
+  {
+    "name": "Tiny Toon Adventures",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:02:01.094595+00:00",
+    "retry_after": "2026-10-12T12:02:01.094612+00:00"
+  },
+  {
+    "name": "Topolino Story",
+    "publisher": "Dell Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T12:05:56.996181+00:00",
+    "retry_after": "2026-10-12T12:05:56.996194+00:00"
   }
 ]

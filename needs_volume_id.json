@@ -48075,5 +48075,180 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T11:02:30.923830+00:00",
     "retry_after": "2026-10-12T11:02:30.923847+00:00"
+  },
+  {
+    "name": "The Undateable Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111216,
+        "name": "Undateable Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:14:36.408889+00:00",
+    "retry_after": "2026-10-12T11:14:36.408905+00:00"
+  },
+  {
+    "name": "Teenage Revels",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84398,
+        "name": "Teenage Revels",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:14:36.878927+00:00",
+    "retry_after": "2026-10-12T11:14:36.878941+00:00"
+  },
+  {
+    "name": "The Uncanny X-Men [So Much Fun]",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:14:46.909349+00:00",
+    "retry_after": "2026-10-12T11:14:46.909364+00:00"
+  },
+  {
+    "name": "True Believers: Empyre - Hulkling",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:14:53.975624+00:00",
+    "retry_after": "2026-10-12T11:14:53.975635+00:00"
+  },
+  {
+    "name": "Super Tiny Dragon Arms Stand Alone Special",
+    "publisher": "Antarctic Press",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:14:54.540488+00:00",
+    "retry_after": "2026-10-12T11:14:54.540502+00:00"
+  },
+  {
+    "name": "Magnus Robot Fighter Invasion TPB",
+    "publisher": "Valiant Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:14:56.860143+00:00",
+    "retry_after": "2026-10-12T11:14:56.860158+00:00"
+  },
+  {
+    "name": "Murena",
+    "publisher": "Harvey Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40692,
+        "name": "Murena",
+        "publisher": "Dargaud",
+        "start_year": 1997
+      },
+      {
+        "id": 126090,
+        "name": "Murena",
+        "publisher": "Dargaud Benelux",
+        "start_year": 1997
+      },
+      {
+        "id": 101875,
+        "name": "Murena",
+        "publisher": "Kult Editionen",
+        "start_year": 2002
+      },
+      {
+        "id": 117634,
+        "name": "Murena",
+        "publisher": "Splitter",
+        "start_year": 2016
+      },
+      {
+        "id": 96027,
+        "name": "Murena",
+        "publisher": "Europe Comics",
+        "start_year": 2015
+      },
+      {
+        "id": 58238,
+        "name": "Murena",
+        "publisher": "Splitter",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:15:17.907456+00:00",
+    "retry_after": "2026-10-12T11:15:17.907471+00:00"
+  },
+  {
+    "name": "2021",
+    "publisher": "Titan Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 107553,
+        "name": "2021",
+        "publisher": "Soleil",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:15:50.015213+00:00",
+    "retry_after": "2026-10-12T11:15:50.015226+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe: The Murders in the Rue Morgue and Other Stories",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62562,
+        "name": "Edgar Allan Poe: The Murders in the Rue Morgue and Other Stories",
+        "publisher": "Eternity",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:15:50.769669+00:00",
+    "retry_after": "2026-10-12T11:15:50.769681+00:00"
+  },
+  {
+    "name": "Wonder Woman [ashcan]",
+    "publisher": "DC Comics",
+    "year": 1942,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:16:02.166903+00:00",
+    "retry_after": "2026-10-12T11:16:02.166918+00:00"
+  },
+  {
+    "name": "It's My Birthday Suit",
+    "publisher": "Fawcett Comics",
+    "year": 1984,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:16:08.639620+00:00",
+    "retry_after": "2026-10-12T11:16:08.639632+00:00"
   }
 ]

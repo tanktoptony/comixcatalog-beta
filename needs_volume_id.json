@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:03:13.156281+00:00",
-    "retry_after": "2026-10-12T21:03:13.156297+00:00"
+    "last_attempt_at": "2026-10-11T21:34:58.819084+00:00",
+    "retry_after": "2026-10-12T21:34:58.819095+00:00"
   },
   {
     "name": "Cerebus",
@@ -49574,5 +49574,207 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T21:05:24.894282+00:00",
     "retry_after": "2026-10-12T21:05:24.894297+00:00"
+  },
+  {
+    "name": "Atoll",
+    "publisher": "Vault Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51672,
+        "name": "Atoll",
+        "publisher": "Jeunesse et Vacances",
+        "start_year": 1967
+      },
+      {
+        "id": 96271,
+        "name": "The Atoll",
+        "publisher": "Creative Mind Energy",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:33:06.692719+00:00",
+    "retry_after": "2026-10-12T21:33:06.692734+00:00"
+  },
+  {
+    "name": "Sexy Sushi",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36011,
+        "name": "Sexy Sushi",
+        "publisher": "Eros Comix",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:34:09.873562+00:00",
+    "retry_after": "2026-10-12T21:34:09.873578+00:00"
+  },
+  {
+    "name": "Sundance",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 162915,
+        "name": "Sundance",
+        "publisher": "Arboris",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:34:18.191221+00:00",
+    "retry_after": "2026-10-12T21:34:18.191235+00:00"
+  },
+  {
+    "name": "Amelia Shadows",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:34:24.158507+00:00",
+    "retry_after": "2026-10-12T21:34:24.158522+00:00"
+  },
+  {
+    "name": "Pussycats: The End of Everything",
+    "publisher": "BOOM! Studios",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109456,
+        "name": "Pussycats: The End of Everything",
+        "publisher": "E-Comix",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:34:24.563789+00:00",
+    "retry_after": "2026-10-12T21:34:24.563804+00:00"
+  },
+  {
+    "name": "Pondus bok",
+    "publisher": "Harvey Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:34:30.564261+00:00",
+    "retry_after": "2026-10-12T21:34:30.564276+00:00"
+  },
+  {
+    "name": "Dose",
+    "publisher": "Gold Key",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 128520,
+        "name": "Dose!",
+        "publisher": "It's Alive",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:34:46.301383+00:00",
+    "retry_after": "2026-10-12T21:34:46.301398+00:00"
+  },
+  {
+    "name": "The Transformers Collected Comics",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34936,
+        "name": "Transformers Collected Comics",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1985
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:34:52.136254+00:00",
+    "retry_after": "2026-10-12T21:34:52.136268+00:00"
+  },
+  {
+    "name": "The Invincible Ed",
+    "publisher": "Dark Horse Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:34:58.453370+00:00",
+    "retry_after": "2026-10-12T21:34:58.453382+00:00"
+  },
+  {
+    "name": "Fam�lia Dinossauros",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:34:59.328864+00:00",
+    "retry_after": "2026-10-12T21:34:59.328887+00:00"
+  },
+  {
+    "name": "Triple Western Pictorial Monthly",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:35:35.456359+00:00",
+    "retry_after": "2026-10-12T21:35:35.456374+00:00"
+  },
+  {
+    "name": "Her�is da TV",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158264,
+        "name": "Heróis da TV",
+        "publisher": "Abril",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:35:36.620183+00:00",
+    "retry_after": "2026-10-12T21:35:36.620198+00:00"
+  },
+  {
+    "name": "Spicy Tales",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20657,
+        "name": "Spicy Tales",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:35:37.036201+00:00",
+    "retry_after": "2026-10-12T21:35:37.036216+00:00"
+  },
+  {
+    "name": "Graphic Journalism",
+    "publisher": "Dell Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:35:37.408562+00:00",
+    "retry_after": "2026-10-12T21:35:37.408577+00:00"
   }
 ]

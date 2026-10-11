@@ -21675,13 +21675,13 @@
   },
   {
     "name": "Mega Man X Timelines",
-    "publisher": "Udon Entertainment Corp.",
+    "publisher": "Eclipse Comics",
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T10:00:43.419842+00:00",
-    "retry_after": "2026-09-27T10:00:43.419856+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T06:00:57.538195+00:00",
+    "retry_after": "2026-10-12T06:00:57.538215+00:00"
   },
   {
     "name": "Dick Tracy",
@@ -46837,5 +46837,99 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T05:05:43.635160+00:00",
     "retry_after": "2026-10-12T05:05:43.635178+00:00"
+  },
+  {
+    "name": "Hasbro / Uncanny X-Men [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T06:01:00.662745+00:00",
+    "retry_after": "2026-10-12T06:01:00.662764+00:00"
+  },
+  {
+    "name": "The Art of Aubrey Beardsley",
+    "publisher": "Caliber Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T06:01:10.973639+00:00",
+    "retry_after": "2026-10-12T06:01:10.973656+00:00"
+  },
+  {
+    "name": "Wizard Presents: Lady Death",
+    "publisher": "Chaos! Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T06:01:39.319036+00:00",
+    "retry_after": "2026-10-12T06:01:39.319055+00:00"
+  },
+  {
+    "name": "Mad Presents Spy vs. Spy",
+    "publisher": "EC Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T06:01:44.096031+00:00",
+    "retry_after": "2026-10-12T06:01:44.096048+00:00"
+  },
+  {
+    "name": "Unknown Worlds",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2025,
+        "name": "Unknown Worlds",
+        "publisher": "American Comics Group",
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T06:01:44.717456+00:00",
+    "retry_after": "2026-10-12T06:01:44.717474+00:00"
+  },
+  {
+    "name": "Super Secret Crisis War! Foster's Home for Imaginary Friends",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T06:01:45.112745+00:00",
+    "retry_after": "2026-10-12T06:01:45.112765+00:00"
+  },
+  {
+    "name": "DOS Comics Presents Trashmasters",
+    "publisher": "Marvel Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T06:01:57.081548+00:00",
+    "retry_after": "2026-10-12T06:01:57.081567+00:00"
+  },
+  {
+    "name": "Time Wankers: First Hand Tales",
+    "publisher": "Fantagraphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73029,
+        "name": "Time Wankers: First Hand Tales",
+        "publisher": "Eros Comix",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T06:01:58.928009+00:00",
+    "retry_after": "2026-10-12T06:01:58.928024+00:00"
   }
 ]

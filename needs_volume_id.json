@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-11T20:02:04.930665+00:00",
-    "retry_after": "2026-10-12T20:02:04.930680+00:00"
+    "last_attempt_at": "2026-10-11T21:03:13.156281+00:00",
+    "retry_after": "2026-10-12T21:03:13.156297+00:00"
   },
   {
     "name": "Cerebus",
@@ -49366,5 +49366,213 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T20:03:37.985701+00:00",
     "retry_after": "2026-10-12T20:03:37.985711+00:00"
+  },
+  {
+    "name": "Dragon Ball: A Lenda de Shenron",
+    "publisher": "Avatar Press",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:01:13.453416+00:00",
+    "retry_after": "2026-10-12T21:01:13.453431+00:00"
+  },
+  {
+    "name": "Pirate Corp$!",
+    "publisher": "Malibu Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3925,
+        "name": "Pirate Corp$!",
+        "publisher": "Eternity",
+        "start_year": 1987
+      },
+      {
+        "id": 61223,
+        "name": "Pirate Corp$!",
+        "publisher": "SLG Publishing",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:01:13.948232+00:00",
+    "retry_after": "2026-10-12T21:01:13.948246+00:00"
+  },
+  {
+    "name": "Baltimore",
+    "publisher": "Dark Horse Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 120973,
+        "name": "Baltimore",
+        "publisher": "Cross Cult",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:01:55.314164+00:00",
+    "retry_after": "2026-10-12T21:01:55.314179+00:00"
+  },
+  {
+    "name": "The Big Prize",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71886,
+        "name": "Big Prize",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:02:03.982120+00:00",
+    "retry_after": "2026-10-12T21:02:03.982134+00:00"
+  },
+  {
+    "name": "DC Nation Super Spectacular Issue",
+    "publisher": "DC Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:02:04.404151+00:00",
+    "retry_after": "2026-10-12T21:02:04.404167+00:00"
+  },
+  {
+    "name": "Playtime Comics",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:02:11.399196+00:00",
+    "retry_after": "2026-10-12T21:02:11.399212+00:00"
+  },
+  {
+    "name": "Astonishing X-Men Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:02:57.338690+00:00",
+    "retry_after": "2026-10-12T21:02:57.338705+00:00"
+  },
+  {
+    "name": "Taoland Adventure",
+    "publisher": "Antarctic Press",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:02:58.168905+00:00",
+    "retry_after": "2026-10-12T21:02:58.168920+00:00"
+  },
+  {
+    "name": "Hardthrob",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26734,
+        "name": "Hardthrob",
+        "publisher": "Eros Comix",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:02:58.619398+00:00",
+    "retry_after": "2026-10-12T21:02:58.619413+00:00"
+  },
+  {
+    "name": "Battle Stations Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:03:12.751209+00:00",
+    "retry_after": "2026-10-12T21:03:12.751224+00:00"
+  },
+  {
+    "name": "Straight Arrow Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1959,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:04:32.035121+00:00",
+    "retry_after": "2026-10-12T21:04:32.035139+00:00"
+  },
+  {
+    "name": "Il Dylan Dog di Tiziano Sclavi",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:04:32.443512+00:00",
+    "retry_after": "2026-10-12T21:04:32.443527+00:00"
+  },
+  {
+    "name": "Love Pic",
+    "publisher": "Atlas Comics",
+    "year": 1953,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:04:44.943227+00:00",
+    "retry_after": "2026-10-12T21:04:44.943242+00:00"
+  },
+  {
+    "name": "Arsenio Lupin",
+    "publisher": "Harvey Comics",
+    "year": 1972,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88987,
+        "name": "Arsenio Lupin",
+        "publisher": "Epucol",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:04:45.449386+00:00",
+    "retry_after": "2026-10-12T21:04:45.449401+00:00"
+  },
+  {
+    "name": "Boot & Van Dijk",
+    "publisher": "BOOM! Studios",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:04:46.048146+00:00",
+    "retry_after": "2026-10-12T21:04:46.048162+00:00"
+  },
+  {
+    "name": "Heckle and Jeckle the Talking Magpies",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54818,
+        "name": "Heckle and Jeckle the Talking Magpies",
+        "publisher": "Magazine Management",
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T21:05:24.894282+00:00",
+    "retry_after": "2026-10-12T21:05:24.894297+00:00"
   }
 ]

@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-11T14:01:37.089406+00:00",
-    "retry_after": "2026-10-12T14:01:37.089420+00:00"
+    "last_attempt_at": "2026-10-11T15:07:09.387846+00:00",
+    "retry_after": "2026-10-12T15:07:09.387861+00:00"
   },
   {
     "name": "Cerebus",
@@ -30660,13 +30660,13 @@
   },
   {
     "name": "Gears of War Reader",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T17:10:51.014003+00:00",
-    "retry_after": "2026-10-01T17:10:51.014021+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:06:07.809335+00:00",
+    "retry_after": "2026-10-12T15:06:07.809349+00:00"
   },
   {
     "name": "Underworld Unleashed: Apokolips -- Dark Uprising",
@@ -44420,6 +44420,23 @@
     "retry_after": "2026-10-11T13:00:50.315990+00:00"
   },
   {
+    "name": "In Rage",
+    "publisher": "Unknown Publisher",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 2,
+    "last_attempt_at": "2026-10-11T15:05:44.153296+00:00",
+    "retry_after": "2026-10-14T15:05:44.153310+00:00"
+  },
+  {
     "name": "Sandman Mystery Theatre Compendium",
     "publisher": "DC Comics",
     "year": 2023,
@@ -47281,5 +47298,233 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T14:04:00.403198+00:00",
     "retry_after": "2026-10-12T14:04:00.403206+00:00"
+  },
+  {
+    "name": "Astounding Wolf-Man Compendium",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:05:46.578577+00:00",
+    "retry_after": "2026-10-12T15:05:46.578590+00:00"
+  },
+  {
+    "name": "Bulls Eye Comics",
+    "publisher": "Harvey Comics",
+    "year": 1944,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30205,
+        "name": "Bulls Eye Comics",
+        "publisher": "Harry A. Chesler/Dynamic",
+        "start_year": 1944
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:05:47.115908+00:00",
+    "retry_after": "2026-10-12T15:05:47.115924+00:00"
+  },
+  {
+    "name": "Double Action Comics [ashcan]",
+    "publisher": "DC Comics",
+    "year": 1939,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:06:07.308558+00:00",
+    "retry_after": "2026-10-12T15:06:07.308574+00:00"
+  },
+  {
+    "name": "Magnus Robot Fighter Preview",
+    "publisher": "Valiant Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:06:09.083839+00:00",
+    "retry_after": "2026-10-12T15:06:09.083856+00:00"
+  },
+  {
+    "name": "Original Warrior Nun Special Edition",
+    "publisher": "Antarctic Press",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:06:09.540733+00:00",
+    "retry_after": "2026-10-12T15:06:09.540749+00:00"
+  },
+  {
+    "name": "Foodang",
+    "publisher": "Harvey Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31994,
+        "name": "Foodang",
+        "publisher": "Express Publications",
+        "start_year": 1995
+      },
+      {
+        "id": 31996,
+        "name": "Foodang",
+        "publisher": "August House",
+        "start_year": 1995
+      },
+      {
+        "id": 31995,
+        "name": "Foodang",
+        "publisher": "Continüm",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:06:10.042436+00:00",
+    "retry_after": "2026-10-12T15:06:10.042451+00:00"
+  },
+  {
+    "name": "Lann",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:06:32.252983+00:00",
+    "retry_after": "2026-10-12T15:06:32.253022+00:00"
+  },
+  {
+    "name": "Eliminator Full Color Special",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74450,
+        "name": "Eliminator Full Color Special",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:06:37.950183+00:00",
+    "retry_after": "2026-10-12T15:06:37.950198+00:00"
+  },
+  {
+    "name": "The Collected Warrior Nun Areala",
+    "publisher": "Antarctic Press",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:06:38.427981+00:00",
+    "retry_after": "2026-10-12T15:06:38.428013+00:00"
+  },
+  {
+    "name": "The Decorator",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26729,
+        "name": "Decorator",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:06:56.709634+00:00",
+    "retry_after": "2026-10-12T15:06:56.709650+00:00"
+  },
+  {
+    "name": "Watchvark",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 107525,
+        "name": "Watchvark",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:07:09.026420+00:00",
+    "retry_after": "2026-10-12T15:07:09.026438+00:00"
+  },
+  {
+    "name": "Donald Duck Junior",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 149545,
+        "name": "Donald Duck Junior",
+        "publisher": "Hjemmet",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:07:09.732021+00:00",
+    "retry_after": "2026-10-12T15:07:09.732038+00:00"
+  },
+  {
+    "name": "glamourpuss",
+    "publisher": "Aardvark-Vanaheim Inc.",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23362,
+        "name": "Glamourpuss",
+        "publisher": "Aardvark",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:07:10.173211+00:00",
+    "retry_after": "2026-10-12T15:07:10.173228+00:00"
+  },
+  {
+    "name": "Fantomet gullalderen",
+    "publisher": "Harvey Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 92995,
+        "name": "Fantomet gullalderen",
+        "publisher": "Hjemmet",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:07:10.778900+00:00",
+    "retry_after": "2026-10-12T15:07:10.778916+00:00"
+  },
+  {
+    "name": "Marvel Comics Presenta: Zona M",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:10:04.630306+00:00",
+    "retry_after": "2026-10-12T15:10:04.630322+00:00"
+  },
+  {
+    "name": "Turok - Serie Colibr�",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T15:10:58.109670+00:00",
+    "retry_after": "2026-10-12T15:10:58.109686+00:00"
   }
 ]

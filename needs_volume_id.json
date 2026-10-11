@@ -13992,13 +13992,13 @@
   },
   {
     "name": "Stay With It, Snoopy",
-    "publisher": "Fawcett Comics",
+    "publisher": "Heavy Metal",
     "year": 1980,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-09-20T18:05:04.279801+00:00",
-    "retry_after": "2026-09-21T18:05:04.279819+00:00"
+    "last_attempt_at": "2026-10-11T13:01:11.575282+00:00",
+    "retry_after": "2026-10-12T13:01:11.575291+00:00"
   },
   {
     "name": "The Real Ghostbusters 3-D Annual",
@@ -28264,13 +28264,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:33:52.729495+00:00",
-    "retry_after": "2026-10-23T22:33:52.729513+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:03:12.769592+00:00",
+    "retry_after": "2026-10-12T13:03:12.769604+00:00"
   },
   {
     "name": "Cerebus",
@@ -48460,5 +48460,244 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T12:05:56.996181+00:00",
     "retry_after": "2026-10-12T12:05:56.996194+00:00"
+  },
+  {
+    "name": "Top Cat's T. V Comic Show",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 128781,
+        "name": "Top Cat's T. V Comic Show",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:00:53.256351+00:00",
+    "retry_after": "2026-10-12T13:00:53.256361+00:00"
+  },
+  {
+    "name": "Let's Hear It for Dinner, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:00:59.143423+00:00",
+    "retry_after": "2026-10-12T13:00:59.143435+00:00"
+  },
+  {
+    "name": "Lisa Cheese and Ghost Guitar",
+    "publisher": "IDW Publishing",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:00:59.704407+00:00",
+    "retry_after": "2026-10-12T13:00:59.704416+00:00"
+  },
+  {
+    "name": "Channel X",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:01:00.094189+00:00",
+    "retry_after": "2026-10-12T13:01:00.094197+00:00"
+  },
+  {
+    "name": "Jogging Is In, Snoopy",
+    "publisher": "Heavy Metal",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:01:00.481862+00:00",
+    "retry_after": "2026-10-12T13:01:00.481871+00:00"
+  },
+  {
+    "name": "Fleur d'argent",
+    "publisher": "Dynamite Entertainment",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167386,
+        "name": "Fleur d'Argent",
+        "publisher": "Dynamite (France)",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:01:01.061638+00:00",
+    "retry_after": "2026-10-12T13:01:01.061647+00:00"
+  },
+  {
+    "name": "Terror Tales",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54007,
+        "name": "Terror Tales",
+        "publisher": "Eerie Publications",
+        "start_year": 1969
+      },
+      {
+        "id": 95145,
+        "name": "Terror Tales",
+        "publisher": "Federal",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:01:10.341004+00:00",
+    "retry_after": "2026-10-12T13:01:10.341019+00:00"
+  },
+  {
+    "name": "Anton's Drekbook",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44523,
+        "name": "Anton's Drekbook",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:01:10.729347+00:00",
+    "retry_after": "2026-10-12T13:01:10.729357+00:00"
+  },
+  {
+    "name": "normalman",
+    "publisher": "Aardvark-Vanaheim Inc. and Renegade Press",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3384,
+        "name": "normalman",
+        "publisher": "Aardvark",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:01:11.137903+00:00",
+    "retry_after": "2026-10-12T13:01:11.137916+00:00"
+  },
+  {
+    "name": "Smiley's Spring Break",
+    "publisher": "Chaos! Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:01:12.066169+00:00",
+    "retry_after": "2026-10-12T13:01:12.066178+00:00"
+  },
+  {
+    "name": "Spot on Adventure",
+    "publisher": "Action Lab Entertainment",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:01:12.701322+00:00",
+    "retry_after": "2026-10-12T13:01:12.701331+00:00"
+  },
+  {
+    "name": "Beach Party",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24557,
+        "name": "Beach Party",
+        "publisher": "Eternity",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:01:25.192030+00:00",
+    "retry_after": "2026-10-12T13:01:25.192040+00:00"
+  },
+  {
+    "name": "Buck Ryan",
+    "publisher": "Atlas Comics",
+    "year": 1954,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:03:13.293340+00:00",
+    "retry_after": "2026-10-12T13:03:13.293352+00:00"
+  },
+  {
+    "name": "Teenage Love",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84468,
+        "name": "Teenage Love",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:03:13.776934+00:00",
+    "retry_after": "2026-10-12T13:03:13.776941+00:00"
+  },
+  {
+    "name": "Gli Eterni",
+    "publisher": "Dark Horse Comics",
+    "year": 1978,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2966,
+        "name": "Gli Eterni",
+        "publisher": "Editoriale Corno",
+        "start_year": 1978
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:03:14.162278+00:00",
+    "retry_after": "2026-10-12T13:03:14.162288+00:00"
+  },
+  {
+    "name": "Graphic Novel",
+    "publisher": "Avatar Press",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109384,
+        "name": "Graphic Novel",
+        "publisher": "Abril",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:04:08.107885+00:00",
+    "retry_after": "2026-10-12T13:04:08.107896+00:00"
+  },
+  {
+    "name": "Knights of the Zodiac (Saint Seiya)",
+    "publisher": "VIZ Media",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T13:04:55.709261+00:00",
+    "retry_after": "2026-10-12T13:04:55.709271+00:00"
   }
 ]

@@ -45806,5 +45806,233 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T01:03:01.484290+00:00",
     "retry_after": "2026-10-12T01:03:01.484306+00:00"
+  },
+  {
+    "name": "True Believers: Conan - The Secret of Skull River",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:00:47.549888+00:00",
+    "retry_after": "2026-10-12T02:00:47.549904+00:00"
+  },
+  {
+    "name": "The Avengers: Menace of the Mole Man!",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:01:04.258883+00:00",
+    "retry_after": "2026-10-12T02:01:04.258897+00:00"
+  },
+  {
+    "name": "Spider-Man: Amazing Fantasy [Family Dollar Edition]",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:01:09.936096+00:00",
+    "retry_after": "2026-10-12T02:01:09.936107+00:00"
+  },
+  {
+    "name": "Marvel Holiday Special 2007",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:01:10.295326+00:00",
+    "retry_after": "2026-10-12T02:01:10.295336+00:00"
+  },
+  {
+    "name": "Cyberforce Trade Paperback",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:01:10.790473+00:00",
+    "retry_after": "2026-10-12T02:01:10.790483+00:00"
+  },
+  {
+    "name": "Past Lies (An Amy Devlin Mystery)",
+    "publisher": "Oni Press",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:01:11.284866+00:00",
+    "retry_after": "2026-10-12T02:01:11.284880+00:00"
+  },
+  {
+    "name": "Secret Wars Halloween Comic Fest 2014",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:01:32.167961+00:00",
+    "retry_after": "2026-10-12T02:01:32.167976+00:00"
+  },
+  {
+    "name": "Deadworld Omnibus",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:02:20.283978+00:00",
+    "retry_after": "2026-10-12T02:02:20.283993+00:00"
+  },
+  {
+    "name": "Romantic Love Library",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:02:29.998729+00:00",
+    "retry_after": "2026-10-12T02:02:29.998743+00:00"
+  },
+  {
+    "name": "Alan Ford",
+    "publisher": "Dark Horse Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2456,
+        "name": "Alan Ford",
+        "publisher": "1000VolteMeglio Publishing",
+        "start_year": 1969
+      },
+      {
+        "id": 164710,
+        "name": "Alan Ford",
+        "publisher": "Maverick (Serbian)",
+        "start_year": 1994
+      },
+      {
+        "id": 53409,
+        "name": "Alan Ford",
+        "publisher": "Unknown Publisher",
+        "start_year": null
+      },
+      {
+        "id": 164711,
+        "name": "Alan Ford",
+        "publisher": "Maverick (Serbian)",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:02:30.471204+00:00",
+    "retry_after": "2026-10-12T02:02:30.471220+00:00"
+  },
+  {
+    "name": "Grandes Viajes",
+    "publisher": "Harvey Comics",
+    "year": 1963,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33711,
+        "name": "Grandes Viajes",
+        "publisher": "Editorial Novaro",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:02:30.916565+00:00",
+    "retry_after": "2026-10-12T02:02:30.916579+00:00"
+  },
+  {
+    "name": "Super-Homem",
+    "publisher": "Avatar Press",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53787,
+        "name": "Super-Homem",
+        "publisher": "Abril",
+        "start_year": 1984
+      },
+      {
+        "id": 53865,
+        "name": "Super-Homem",
+        "publisher": "Abril",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:02:31.758494+00:00",
+    "retry_after": "2026-10-12T02:02:31.758509+00:00"
+  },
+  {
+    "name": "A-1",
+    "publisher": "Heavy Metal",
+    "year": 1945,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:06:29.327972+00:00",
+    "retry_after": "2026-10-12T02:06:29.327987+00:00"
+  },
+  {
+    "name": "A Teia do Aranha",
+    "publisher": "Avatar Press",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:06:30.353987+00:00",
+    "retry_after": "2026-10-12T02:06:30.354003+00:00"
+  },
+  {
+    "name": "Capitan America",
+    "publisher": "Dark Horse Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2656,
+        "name": "Capitan America",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      },
+      {
+        "id": 150566,
+        "name": "Capitan America",
+        "publisher": "Panini Comics",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:06:30.718582+00:00",
+    "retry_after": "2026-10-12T02:06:30.718597+00:00"
+  },
+  {
+    "name": "Os Novos Tit�s",
+    "publisher": "Avatar Press",
+    "year": 1986,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:06:31.560034+00:00",
+    "retry_after": "2026-10-12T02:06:31.560050+00:00"
+  },
+  {
+    "name": "El Poderoso Sans�n",
+    "publisher": "Harvey Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T02:06:32.263347+00:00",
+    "retry_after": "2026-10-12T02:06:32.263363+00:00"
   }
 ]

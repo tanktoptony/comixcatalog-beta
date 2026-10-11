@@ -13762,13 +13762,13 @@
   },
   {
     "name": "Love and Kisses, Snoopy",
-    "publisher": "Fawcett Comics",
+    "publisher": "Heavy Metal",
     "year": 1980,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-09-20T17:04:08.708117+00:00",
-    "retry_after": "2026-09-21T17:04:08.708133+00:00"
+    "last_attempt_at": "2026-10-11T18:01:24.645991+00:00",
+    "retry_after": "2026-10-12T18:01:24.645999+00:00"
   },
   {
     "name": "Stay With It, Snoopy",
@@ -28044,13 +28044,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:26.188004+00:00",
-    "retry_after": "2026-10-12T17:32:26.188019+00:00"
+    "last_attempt_at": "2026-10-11T18:00:38.873394+00:00",
+    "retry_after": "2026-10-12T18:00:38.873412+00:00"
   },
   {
     "name": "Cerebus",
@@ -48908,5 +48908,92 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T17:32:27.991956+00:00",
     "retry_after": "2026-10-12T17:32:27.991971+00:00"
+  },
+  {
+    "name": "Flash Annual No. 1 Replica Edition",
+    "publisher": "DC Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T18:00:44.979065+00:00",
+    "retry_after": "2026-10-12T18:00:44.979075+00:00"
+  },
+  {
+    "name": "The Lands of Prester John",
+    "publisher": "Chaos! Comics",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T18:00:45.411778+00:00",
+    "retry_after": "2026-10-12T18:00:45.411786+00:00"
+  },
+  {
+    "name": "The Twelve Must Have",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T18:00:45.837362+00:00",
+    "retry_after": "2026-10-12T18:00:45.837371+00:00"
+  },
+  {
+    "name": "Fathom Annual",
+    "publisher": "Aspen Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T18:01:24.242938+00:00",
+    "retry_after": "2026-10-12T18:01:24.242948+00:00"
+  },
+  {
+    "name": "Crisis of Infinite Cerebi",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T18:01:25.580128+00:00",
+    "retry_after": "2026-10-12T18:01:25.580135+00:00"
+  },
+  {
+    "name": "Meet Andy Capp",
+    "publisher": "Fawcett Comics",
+    "year": 1964,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T18:01:25.911184+00:00",
+    "retry_after": "2026-10-12T18:01:25.911192+00:00"
+  },
+  {
+    "name": "The Marvel Comics Illustrated Version of Dune",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73710,
+        "name": "Marvel Comics Illustrated Version of Dune",
+        "publisher": "Berkley Books",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T18:01:30.187157+00:00",
+    "retry_after": "2026-10-12T18:01:30.187167+00:00"
+  },
+  {
+    "name": "Dr. Strange Annual",
+    "publisher": "Marvel Comics",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T18:01:40.431502+00:00",
+    "retry_after": "2026-10-12T18:01:40.431511+00:00"
   }
 ]

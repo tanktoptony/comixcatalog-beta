@@ -46399,5 +46399,178 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T04:05:59.538517+00:00",
     "retry_after": "2026-10-12T04:05:59.538527+00:00"
+  },
+  {
+    "name": "Man the Beast and the Wild, Wild Women",
+    "publisher": "Dell Comics",
+    "year": 1953,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:14:09.549372+00:00",
+    "retry_after": "2026-10-12T04:14:09.549390+00:00"
+  },
+  {
+    "name": "Action Comics [Nestl� Quik 10� Cover]",
+    "publisher": "DC Comics",
+    "year": 1983,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:14:10.110607+00:00",
+    "retry_after": "2026-10-12T04:14:10.110639+00:00"
+  },
+  {
+    "name": "World Wrestling Federation Lifestyles of the Brutal & Infamous",
+    "publisher": "Valiant Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:14:10.470717+00:00",
+    "retry_after": "2026-10-12T04:14:10.470734+00:00"
+  },
+  {
+    "name": "LGBTQ Etc People",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:14:11.128071+00:00",
+    "retry_after": "2026-10-12T04:14:11.128087+00:00"
+  },
+  {
+    "name": "Dakkon Blackblade on the World of Magic: The Gathering",
+    "publisher": "Valiant Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:14:11.947801+00:00",
+    "retry_after": "2026-10-12T04:14:11.947818+00:00"
+  },
+  {
+    "name": "Captain Universe / Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:14:17.322033+00:00",
+    "retry_after": "2026-10-12T04:14:17.322051+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe: The Tell-Tale Heart and Other Stories",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74384,
+        "name": "Edgar Allan Poe: The Tell-Tale Heart and Other Stories",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:14:35.630426+00:00",
+    "retry_after": "2026-10-12T04:14:35.630444+00:00"
+  },
+  {
+    "name": "Bloodsucker",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41075,
+        "name": "Bloodsucker",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      },
+      {
+        "id": 123899,
+        "name": "Bloodsucker",
+        "publisher": "Drawn Light",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:14:36.239928+00:00",
+    "retry_after": "2026-10-12T04:14:36.239945+00:00"
+  },
+  {
+    "name": "Captain Britain and MI13 Annual",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:14:46.953166+00:00",
+    "retry_after": "2026-10-12T04:14:46.953183+00:00"
+  },
+  {
+    "name": "Athena",
+    "publisher": "Antarctic Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11096,
+        "name": "Athena",
+        "publisher": "A.M. Works",
+        "start_year": 1995
+      },
+      {
+        "id": 28056,
+        "name": "Athena",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2009
+      },
+      {
+        "id": 37095,
+        "name": "Athena",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:15:10.806540+00:00",
+    "retry_after": "2026-10-12T04:15:10.806558+00:00"
+  },
+  {
+    "name": "The Walking Dead Zombie Special",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50845,
+        "name": "The Walking Dead Zombie Special",
+        "publisher": "Aircel Publishing",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:15:11.572545+00:00",
+    "retry_after": "2026-10-12T04:15:11.572561+00:00"
+  },
+  {
+    "name": "Orgasm Island",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37416,
+        "name": "Orgasm Island",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:15:12.046256+00:00",
+    "retry_after": "2026-10-12T04:15:12.046273+00:00"
   }
 ]

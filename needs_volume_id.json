@@ -46931,5 +46931,158 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T06:01:58.928009+00:00",
     "retry_after": "2026-10-12T06:01:58.928024+00:00"
+  },
+  {
+    "name": "Space Station 6969",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36058,
+        "name": "Space Station 6969",
+        "publisher": "Eros Comix",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:00:37.864104+00:00",
+    "retry_after": "2026-10-12T07:00:37.864120+00:00"
+  },
+  {
+    "name": "Blackstone",
+    "publisher": "EC Comics",
+    "year": 1947,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:00:38.231663+00:00",
+    "retry_after": "2026-10-12T07:00:38.231682+00:00"
+  },
+  {
+    "name": "Witchblade: Witch Hunt",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:00:45.834721+00:00",
+    "retry_after": "2026-10-12T07:00:45.834738+00:00"
+  },
+  {
+    "name": "11-Sep",
+    "publisher": "Dark Horse Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:01:19.470587+00:00",
+    "retry_after": "2026-10-12T07:01:19.470604+00:00"
+  },
+  {
+    "name": "Marvel Treasury Special Featuring Captain America's Bicentennial Battles",
+    "publisher": "Marvel Comics",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:01:25.106101+00:00",
+    "retry_after": "2026-10-12T07:01:25.106120+00:00"
+  },
+  {
+    "name": "Spider-Man Enter: Lightmaster!",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:01:25.616571+00:00",
+    "retry_after": "2026-10-12T07:01:25.616589+00:00"
+  },
+  {
+    "name": "Adventures into the Unknown",
+    "publisher": "Atlas Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25279,
+        "name": "Adventures into the Unknown",
+        "publisher": "American Comics Group",
+        "start_year": 1948
+      },
+      {
+        "id": 155162,
+        "name": "Adventures into the Unknown",
+        "publisher": "Arnold Book Company (ABC)",
+        "start_year": 1950
+      },
+      {
+        "id": 20516,
+        "name": "Adventures Into The Unknown",
+        "publisher": "A-Plus",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:01:40.296915+00:00",
+    "retry_after": "2026-10-12T07:01:40.296933+00:00"
+  },
+  {
+    "name": "Marvel Universe Avengers and Ultimate Spider-Man [Halloween Comicfest 2012]",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:01:40.739015+00:00",
+    "retry_after": "2026-10-12T07:01:40.739032+00:00"
+  },
+  {
+    "name": "Adventure Time Halloween Special: Those Who Fight Monsters",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:01:41.417886+00:00",
+    "retry_after": "2026-10-12T07:01:41.417904+00:00"
+  },
+  {
+    "name": "Invader Zim Quarterly: GIR's Big Day",
+    "publisher": "Oni Press",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:01:41.882972+00:00",
+    "retry_after": "2026-10-12T07:01:41.882990+00:00"
+  },
+  {
+    "name": "Tales of the Vienna Sausage Woods",
+    "publisher": "Top Cow Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71419,
+        "name": "Tales of the Vienna Sausage Woods",
+        "publisher": "self published",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:01:42.430651+00:00",
+    "retry_after": "2026-10-12T07:01:42.430666+00:00"
+  },
+  {
+    "name": "CBS Presents Action Zone",
+    "publisher": "Image Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T07:01:47.385768+00:00",
+    "retry_after": "2026-10-12T07:01:47.385786+00:00"
   }
 ]

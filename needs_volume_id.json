@@ -48995,5 +48995,82 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T18:01:40.431502+00:00",
     "retry_after": "2026-10-12T18:01:40.431511+00:00"
+  },
+  {
+    "name": "Aardvark Comics",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 104678,
+        "name": "Aardvark Comics",
+        "publisher": "Aardvark",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T19:00:54.131714+00:00",
+    "retry_after": "2026-10-12T19:00:54.131729+00:00"
+  },
+  {
+    "name": "Barney and Betty Rubble Digest Annual",
+    "publisher": "Charlton Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T19:00:54.930568+00:00",
+    "retry_after": "2026-10-12T19:00:54.930585+00:00"
+  },
+  {
+    "name": "Dennis the Menace Little Pip-Squeak",
+    "publisher": "Fawcett Comics",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T19:00:56.047623+00:00",
+    "retry_after": "2026-10-12T19:00:56.047640+00:00"
+  },
+  {
+    "name": "Les DIY de Ma�lie",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T19:01:39.583870+00:00",
+    "retry_after": "2026-10-12T19:01:39.583887+00:00"
+  },
+  {
+    "name": "Preacher 1 AMC Edition",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T19:01:41.411556+00:00",
+    "retry_after": "2026-10-12T19:01:41.411572+00:00"
+  },
+  {
+    "name": "One for One: Captain Midnight",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T19:02:12.083157+00:00",
+    "retry_after": "2026-10-12T19:02:12.083172+00:00"
+  },
+  {
+    "name": "Atlas Creator Collection",
+    "publisher": "Fantagraphics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T19:02:48.676621+00:00",
+    "retry_after": "2026-10-12T19:02:48.676645+00:00"
   }
 ]

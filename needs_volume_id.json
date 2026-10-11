@@ -46034,5 +46034,146 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T02:06:32.263347+00:00",
     "retry_after": "2026-10-12T02:06:32.263363+00:00"
+  },
+  {
+    "name": "Magneto: The Twisting of a Soul",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:00:49.645836+00:00",
+    "retry_after": "2026-10-12T03:00:49.645852+00:00"
+  },
+  {
+    "name": "Lewd Moana",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26769,
+        "name": "Lewd Moana",
+        "publisher": "Eros Comix",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:00:56.288063+00:00",
+    "retry_after": "2026-10-12T03:00:56.288079+00:00"
+  },
+  {
+    "name": "Flash Comics [ashcan]",
+    "publisher": "Fawcett Comics",
+    "year": 1940,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:00:56.659925+00:00",
+    "retry_after": "2026-10-12T03:00:56.659958+00:00"
+  },
+  {
+    "name": "Savage Sewer Sluts",
+    "publisher": "Fantagraphics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67000,
+        "name": "Savage Sewer Sluts",
+        "publisher": "Eros Comix",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:00:57.065473+00:00",
+    "retry_after": "2026-10-12T03:00:57.065488+00:00"
+  },
+  {
+    "name": "Flesh Gordon Special Limited Edition",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74833,
+        "name": "Flesh Gordon Special Limited Edition",
+        "publisher": "Aircel Publishing",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:00:57.518780+00:00",
+    "retry_after": "2026-10-12T03:00:57.518795+00:00"
+  },
+  {
+    "name": "Aspen Splash 2010 Swimsuit Spectacular",
+    "publisher": "Aspen Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:01:11.112876+00:00",
+    "retry_after": "2026-10-12T03:01:11.112892+00:00"
+  },
+  {
+    "name": "Deadly Artisans",
+    "publisher": "Harvey Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:01:11.596923+00:00",
+    "retry_after": "2026-10-12T03:01:11.596957+00:00"
+  },
+  {
+    "name": "Otari Larsen et la vie",
+    "publisher": "Heavy Metal",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:01:18.909329+00:00",
+    "retry_after": "2026-10-12T03:01:18.909343+00:00"
+  },
+  {
+    "name": "Peace, Mommy, Peace! [Family Circus]",
+    "publisher": "Fawcett Comics",
+    "year": 1969,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:01:27.515768+00:00",
+    "retry_after": "2026-10-12T03:01:27.515783+00:00"
+  },
+  {
+    "name": "Blue Monday",
+    "publisher": "Oni Press",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:01:32.884839+00:00",
+    "retry_after": "2026-10-12T03:01:32.884855+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe: The Masque of Red Death and Other Stories",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:02:17.182085+00:00",
+    "retry_after": "2026-10-12T03:02:17.182100+00:00"
+  },
+  {
+    "name": "Super Cerebus Annual",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T03:02:21.984410+00:00",
+    "retry_after": "2026-10-12T03:02:21.984425+00:00"
   }
 ]

@@ -46175,5 +46175,229 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T03:02:21.984410+00:00",
     "retry_after": "2026-10-12T03:02:21.984425+00:00"
+  },
+  {
+    "name": "Hip-Hop Variant Sampler",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:01:04.601313+00:00",
+    "retry_after": "2026-10-12T04:01:04.601325+00:00"
+  },
+  {
+    "name": "Skinheads in Love",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71651,
+        "name": "Skinheads in Love",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:01:18.748839+00:00",
+    "retry_after": "2026-10-12T04:01:18.748851+00:00"
+  },
+  {
+    "name": "Strange Worlds",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1384,
+        "name": "Strange Worlds",
+        "publisher": "Avon",
+        "start_year": 1950
+      },
+      {
+        "id": 1883,
+        "name": "Strange Worlds",
+        "publisher": "Marvel",
+        "start_year": 1958
+      },
+      {
+        "id": 69672,
+        "name": "Strange Worlds",
+        "publisher": "I.W. Publishing",
+        "start_year": 1958
+      },
+      {
+        "id": 64283,
+        "name": "Strange Worlds",
+        "publisher": "Eternity",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:01:26.884247+00:00",
+    "retry_after": "2026-10-12T04:01:26.884256+00:00"
+  },
+  {
+    "name": "Sherlock Holmes: Adventure of the Copper Beeches",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:01:46.532499+00:00",
+    "retry_after": "2026-10-12T04:01:46.532512+00:00"
+  },
+  {
+    "name": "Ninja Special",
+    "publisher": "Malibu Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72264,
+        "name": "Ninja Special",
+        "publisher": "Eternity",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:02:19.490858+00:00",
+    "retry_after": "2026-10-12T04:02:19.490871+00:00"
+  },
+  {
+    "name": "Casanova in Venice",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72624,
+        "name": "Casanova in Venice",
+        "publisher": "Aircel Publishing",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:02:26.389627+00:00",
+    "retry_after": "2026-10-12T04:02:26.389639+00:00"
+  },
+  {
+    "name": "Archie vs. The Terminator: Ashcan Edition",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:02:27.762790+00:00",
+    "retry_after": "2026-10-12T04:02:27.762802+00:00"
+  },
+  {
+    "name": "Rat-man Collection",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27840,
+        "name": "Rat-Man Collection",
+        "publisher": "Panini Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:02:28.505534+00:00",
+    "retry_after": "2026-10-12T04:02:28.505544+00:00"
+  },
+  {
+    "name": "Illustrated Romance Library",
+    "publisher": "Marvel Comics",
+    "year": 1958,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126200,
+        "name": "Illustrated Romance Library",
+        "publisher": "Magazine Management",
+        "start_year": 1957
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:02:29.081367+00:00",
+    "retry_after": "2026-10-12T04:02:29.081376+00:00"
+  },
+  {
+    "name": "Devil & Hulk",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27428,
+        "name": "Devil & Hulk",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:02:30.937611+00:00",
+    "retry_after": "2026-10-12T04:02:30.937620+00:00"
+  },
+  {
+    "name": "Porky y sus amigos - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:02:33.258114+00:00",
+    "retry_after": "2026-10-12T04:02:33.258126+00:00"
+  },
+  {
+    "name": "Senninha e Sua Turma",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:05:17.534911+00:00",
+    "retry_after": "2026-10-12T04:05:17.534921+00:00"
+  },
+  {
+    "name": "Fiinbeck og Fia",
+    "publisher": "Harvey Comics",
+    "year": 1930,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:05:18.002202+00:00",
+    "retry_after": "2026-10-12T04:05:18.002211+00:00"
+  },
+  {
+    "name": "L'Uomo Ragno Gigante",
+    "publisher": "Dark Horse Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:05:18.449310+00:00",
+    "retry_after": "2026-10-12T04:05:18.449318+00:00"
+  },
+  {
+    "name": "Eureka Pocket",
+    "publisher": "Dark Horse Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27400,
+        "name": "Eureka Pocket",
+        "publisher": "Editoriale Corno",
+        "start_year": 1968
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T04:05:59.538517+00:00",
+    "retry_after": "2026-10-12T04:05:59.538527+00:00"
   }
 ]

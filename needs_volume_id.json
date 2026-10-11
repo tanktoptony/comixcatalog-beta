@@ -28044,13 +28044,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-11T18:00:38.873394+00:00",
-    "retry_after": "2026-10-12T18:00:38.873412+00:00"
+    "last_attempt_at": "2026-10-11T20:02:04.930665+00:00",
+    "retry_after": "2026-10-12T20:02:04.930680+00:00"
   },
   {
     "name": "Cerebus",
@@ -49072,5 +49072,299 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T19:02:48.676621+00:00",
     "retry_after": "2026-10-12T19:02:48.676645+00:00"
+  },
+  {
+    "name": "The Original Bondage Fairies",
+    "publisher": "Fantagraphics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67364,
+        "name": "The Original Bondage Fairies",
+        "publisher": "Eros Comix",
+        "start_year": 2006
+      },
+      {
+        "id": 28176,
+        "name": "The Original Bondage Fairies",
+        "publisher": "Eros Comix",
+        "start_year": 1998
+      },
+      {
+        "id": 125522,
+        "name": "Original Bondage Fairies",
+        "publisher": "BD Erotix",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:00:44.656910+00:00",
+    "retry_after": "2026-10-12T20:00:44.656929+00:00"
+  },
+  {
+    "name": "Gunfighter",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18761,
+        "name": "Gunfighter",
+        "publisher": "EC",
+        "start_year": 1948
+      },
+      {
+        "id": 124505,
+        "name": "Gunfighter",
+        "publisher": "Splitter",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:01:21.659426+00:00",
+    "retry_after": "2026-10-12T20:01:21.659445+00:00"
+  },
+  {
+    "name": "Change World",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:01:22.152050+00:00",
+    "retry_after": "2026-10-12T20:01:22.152069+00:00"
+  },
+  {
+    "name": "Moon & Sun",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:01:22.684347+00:00",
+    "retry_after": "2026-10-12T20:01:22.684364+00:00"
+  },
+  {
+    "name": "Final Crisis: Superman Beyond",
+    "publisher": "DC Comics",
+    "year": 2008,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 22763,
+        "name": "Final Crisis: Superman Beyond",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 150190,
+        "name": "Final Crisis: Superman Beyond",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:01:23.155534+00:00",
+    "retry_after": "2026-10-12T20:01:23.155552+00:00"
+  },
+  {
+    "name": "Deanna of the Dead",
+    "publisher": "Fantagraphics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79962,
+        "name": "Deanna of the Dead",
+        "publisher": "Eros Comix",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:01:36.437499+00:00",
+    "retry_after": "2026-10-12T20:01:36.437513+00:00"
+  },
+  {
+    "name": "Hot Lips",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56311,
+        "name": "Hot Lips",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:01:37.000483+00:00",
+    "retry_after": "2026-10-12T20:01:37.000500+00:00"
+  },
+  {
+    "name": "The Tale of Halima",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37424,
+        "name": "Tale Of Halima",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:01:37.480199+00:00",
+    "retry_after": "2026-10-12T20:01:37.480215+00:00"
+  },
+  {
+    "name": "Books of Lore",
+    "publisher": "Devil's Due",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:01:49.698099+00:00",
+    "retry_after": "2026-10-12T20:01:49.698116+00:00"
+  },
+  {
+    "name": "Teena Comics",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84143,
+        "name": "Teena Comics",
+        "publisher": "Magazine Management",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:01:50.148328+00:00",
+    "retry_after": "2026-10-12T20:01:50.148345+00:00"
+  },
+  {
+    "name": "Frank",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 47391,
+        "name": "Frank",
+        "publisher": "Fantagraphics",
+        "start_year": 1996
+      },
+      {
+        "id": 58672,
+        "name": "Frank",
+        "publisher": "Fantagraphics",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:01:50.800784+00:00",
+    "retry_after": "2026-10-12T20:01:50.800803+00:00"
+  },
+  {
+    "name": "Donald Duck De spannendste avonturen",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:02:05.262408+00:00",
+    "retry_after": "2026-10-12T20:02:05.262426+00:00"
+  },
+  {
+    "name": "Dragonero il ribelle",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129307,
+        "name": "Dragonero il ribelle",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:02:05.640571+00:00",
+    "retry_after": "2026-10-12T20:02:05.640587+00:00"
+  },
+  {
+    "name": "Booklet [Baseball Booklets]",
+    "publisher": "Topps Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:02:06.329183+00:00",
+    "retry_after": "2026-10-12T20:02:06.329201+00:00"
+  },
+  {
+    "name": "Comics Library",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52670,
+        "name": "Comics Library",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:02:06.816701+00:00",
+    "retry_after": "2026-10-12T20:02:06.816717+00:00"
+  },
+  {
+    "name": "Hana-Kimi: For You in Full Blossom",
+    "publisher": "VIZ Media",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:02:07.391293+00:00",
+    "retry_after": "2026-10-12T20:02:07.391309+00:00"
+  },
+  {
+    "name": "Color Tex",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66110,
+        "name": "Color Tex",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:03:09.047519+00:00",
+    "retry_after": "2026-10-12T20:03:09.047535+00:00"
+  },
+  {
+    "name": "Storie da Altrove",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46013,
+        "name": "Storie da Altrove",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T20:03:37.985701+00:00",
+    "retry_after": "2026-10-12T20:03:37.985711+00:00"
   }
 ]

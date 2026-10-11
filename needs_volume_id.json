@@ -46572,5 +46572,270 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T04:15:12.046256+00:00",
     "retry_after": "2026-10-12T04:15:12.046273+00:00"
+  },
+  {
+    "name": "Crack Western Library",
+    "publisher": "Marvel Comics",
+    "year": 1957,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:00:48.009464+00:00",
+    "retry_after": "2026-10-12T05:00:48.009483+00:00"
+  },
+  {
+    "name": "Bushwhacked",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:00:52.750614+00:00",
+    "retry_after": "2026-10-12T05:00:52.750634+00:00"
+  },
+  {
+    "name": "All-Flash Quarterly [ashcan]",
+    "publisher": "DC Comics",
+    "year": 1941,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:01:26.279153+00:00",
+    "retry_after": "2026-10-12T05:01:26.279170+00:00"
+  },
+  {
+    "name": "Gnomes, Fairies and Sex Kittens",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:01:26.648584+00:00",
+    "retry_after": "2026-10-12T05:01:26.648602+00:00"
+  },
+  {
+    "name": "Bulletproof Monk: Tales of the BPM",
+    "publisher": "Image Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:01:34.301045+00:00",
+    "retry_after": "2026-10-12T05:01:34.301063+00:00"
+  },
+  {
+    "name": "The Exiled",
+    "publisher": "Devil's Due",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28922,
+        "name": "Exiled",
+        "publisher": "Peregrine Entertainment",
+        "start_year": 1998
+      },
+      {
+        "id": 48555,
+        "name": "Exiled",
+        "publisher": "Marvel",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:01:38.956538+00:00",
+    "retry_after": "2026-10-12T05:01:38.956548+00:00"
+  },
+  {
+    "name": "Superman [Kellogg's]",
+    "publisher": "DC Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:01:39.413192+00:00",
+    "retry_after": "2026-10-12T05:01:39.413209+00:00"
+  },
+  {
+    "name": "Terry Toons Big Book of Comics Jumbo Edition",
+    "publisher": "Marvel Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:01:39.836249+00:00",
+    "retry_after": "2026-10-12T05:01:39.836266+00:00"
+  },
+  {
+    "name": "Crime Mysteries",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10802,
+        "name": "Crime Mysteries",
+        "publisher": "Trojan Magazines",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:01:45.342621+00:00",
+    "retry_after": "2026-10-12T05:01:45.342638+00:00"
+  },
+  {
+    "name": "Michel Vaillant",
+    "publisher": "Dell Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 96022,
+        "name": "Michel Vaillant",
+        "publisher": "Europe Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 98083,
+        "name": "Michel Vaillant",
+        "publisher": "Mosaik Steinchen für Steinchen Verlag",
+        "start_year": 2006
+      },
+      {
+        "id": 145594,
+        "name": "Michel Vaillant ",
+        "publisher": "Zack Edition",
+        "start_year": 2012
+      },
+      {
+        "id": 170911,
+        "name": "Michel Vaillant",
+        "publisher": "Meribérica-Líber",
+        "start_year": 1959
+      },
+      {
+        "id": 28668,
+        "name": "Michel Vaillant",
+        "publisher": "Graton Editeur",
+        "start_year": 1992
+      },
+      {
+        "id": 140249,
+        "name": "Michel Vaillant",
+        "publisher": "Le Lombard",
+        "start_year": 1959
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:02:04.488563+00:00",
+    "retry_after": "2026-10-12T05:02:04.488577+00:00"
+  },
+  {
+    "name": "Storia del West",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 146339,
+        "name": "Storia del West",
+        "publisher": "Il Sole 24 Ore",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:02:04.783560+00:00",
+    "retry_after": "2026-10-12T05:02:04.783578+00:00"
+  },
+  {
+    "name": "Dylan Dog Super Book",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72089,
+        "name": "Dylan Dog Super Book",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:02:05.121649+00:00",
+    "retry_after": "2026-10-12T05:02:05.121662+00:00"
+  },
+  {
+    "name": "Storia del west",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 146339,
+        "name": "Storia del West",
+        "publisher": "Il Sole 24 Ore",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:02:05.456582+00:00",
+    "retry_after": "2026-10-12T05:02:05.456590+00:00"
+  },
+  {
+    "name": "Liga da Justi�a",
+    "publisher": "Avatar Press",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42512,
+        "name": "Liga da Justiça",
+        "publisher": "Panini Brasil",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:02:06.450038+00:00",
+    "retry_after": "2026-10-12T05:02:06.450049+00:00"
+  },
+  {
+    "name": "Honeymoon Library",
+    "publisher": "Marvel Comics",
+    "year": 1958,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127863,
+        "name": "Honeymoon Library",
+        "publisher": "World Distributors",
+        "start_year": 1957
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:02:06.722774+00:00",
+    "retry_after": "2026-10-12T05:02:06.722787+00:00"
+  },
+  {
+    "name": "Jonathan Steele",
+    "publisher": "Marvel Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35720,
+        "name": "Jonathan Steele",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1999
+      },
+      {
+        "id": 116571,
+        "name": "Jonathan Steele",
+        "publisher": "Edizioni Star Comics",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T05:05:43.635160+00:00",
+    "retry_after": "2026-10-12T05:05:43.635178+00:00"
   }
 ]

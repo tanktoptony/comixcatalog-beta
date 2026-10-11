@@ -47910,5 +47910,170 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T10:03:17.421258+00:00",
     "retry_after": "2026-10-12T10:03:17.421269+00:00"
+  },
+  {
+    "name": "Amora",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29174,
+        "name": "Amora",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:00:50.416666+00:00",
+    "retry_after": "2026-10-12T11:00:50.416682+00:00"
+  },
+  {
+    "name": "A Very Zombie Summer",
+    "publisher": "Antarctic Press",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:00:50.803547+00:00",
+    "retry_after": "2026-10-12T11:00:50.803581+00:00"
+  },
+  {
+    "name": "Up from Bondage",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73618,
+        "name": "Up from Bondage",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:01:10.992247+00:00",
+    "retry_after": "2026-10-12T11:01:10.992262+00:00"
+  },
+  {
+    "name": "Mystic Arcana: Black Knight",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:01:11.498238+00:00",
+    "retry_after": "2026-10-12T11:01:11.498255+00:00"
+  },
+  {
+    "name": "Rockola",
+    "publisher": "Mirage Studios",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:01:58.363610+00:00",
+    "retry_after": "2026-10-12T11:01:58.363627+00:00"
+  },
+  {
+    "name": "Box",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 138391,
+        "name": "The Box",
+        "publisher": "Red 5 Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 49310,
+        "name": "Box",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      },
+      {
+        "id": 76668,
+        "name": "The Box",
+        "publisher": "self published",
+        "start_year": 2014
+      },
+      {
+        "id": 107564,
+        "name": "Box",
+        "publisher": "Grand Angle",
+        "start_year": 2006
+      },
+      {
+        "id": 119835,
+        "name": "Box",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      },
+      {
+        "id": 147655,
+        "name": "The Box",
+        "publisher": "Red 5 Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:01:59.786442+00:00",
+    "retry_after": "2026-10-12T11:01:59.786458+00:00"
+  },
+  {
+    "name": "Weapon X Noir (MDCU)",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:02:10.500596+00:00",
+    "retry_after": "2026-10-12T11:02:10.500613+00:00"
+  },
+  {
+    "name": "2025 Shantae Swimsuit Special",
+    "publisher": "Udon Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:02:11.013260+00:00",
+    "retry_after": "2026-10-12T11:02:11.013277+00:00"
+  },
+  {
+    "name": "Nick Calm, Agent of C.O.D.P.I.E.C.E.",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113097,
+        "name": "Nick Calm: Agent of C.O.D.P.I.E.C.E.",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:02:11.349078+00:00",
+    "retry_after": "2026-10-12T11:02:11.349094+00:00"
+  },
+  {
+    "name": "Final Street",
+    "publisher": "First Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111746,
+        "name": "Final Street",
+        "publisher": "Devil's Due",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-11T11:02:30.923830+00:00",
+    "retry_after": "2026-10-12T11:02:30.923847+00:00"
   }
 ]

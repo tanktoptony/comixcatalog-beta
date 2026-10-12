@@ -22,12 +22,12 @@
     { "label": "Prime #1 (1993), Malibu/Ultraverse example, not a confirmed box book", "request": "Prime #1 (1993)", "searchQuery": "prime malibu 1993" }
   ],
   "tags": ["comixcatalog", "comic collection", "comic book catalog", "long box", "discogs for comics", "cerebus", "milk and cheese", "scud the disposable assassin", "malibu comics", "ultraverse", "indie comics", "90s comics", "comic collecting", "comic database", "bagged and boarded"],
-  "descriptionIntro": "Two long boxes were enough to show me what ComixCatalog could do. They also showed me exactly what it could not do.",
-  "pinnedComment": "What is the weirdest book in your long box? Tell me what it is, especially if ComixCatalog cannot find it yet.",
+  "descriptionIntro": "Two long boxes showed me what ComixCatalog could do. They also showed me exactly what it couldn't.",
+  "pinnedComment": "What's the weirdest book in your long box? Tell me, especially if ComixCatalog can't find it yet.",
   "credits": ["Cover art is the property of Aardvark-Vanaheim, SLG Publishing, Fireman Press, Image Comics, Malibu Comics, Marvel, Evil Ink/Boom! Studios, and the respective creators, shown for commentary and review.", "Music: \"Rollin at 5\" and \"Funkorama\" by Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License. http://creativecommons.org/licenses/by/4.0/"],
   "shorts": [
-    { "id": "Short003DiscogsForComics", "title": "How one collection became Discogs #discogs #comics #collecting", "hook": "Discogs started as one guy cataloging his own records." },
-    { "id": "Short003MilkAndCheese", "title": "The comic with two number ones #milkandcheese #comics", "hook": "The second issue of this comic is called Other Number One." },
-    { "id": "Short003ScudVendingMachine", "title": "The assassin you buy from a vending machine #scud #comics #indiecomics", "hook": "In this comic, you buy your assassin from a vending machine." }
+    { "id": "Short003DiscogsForComics", "title": "How one collection became Discogs #discogs #comics #collecting", "hook": "Discogs started as one guy cataloging his own records.", "description": "Discogs started in 2000 as one programmer's catalog of his own electronic music. Then other collectors showed up. Full episode on the channel: Two Long Boxes and the Birth of ComixCatalog.\n#discogs #comics #collecting", "schedule": "Tue Oct 20 · 5:00 PM" },
+    { "id": "Short003MilkAndCheese", "title": "The comic with two number ones #milkandcheese #comics", "hook": "The second issue of this comic is called Other Number One.", "description": "Milk & Cheese by Evan Dorkin, Slave Labor Graphics, 1991. Issue 2 is called Other Number One. Full episode on the channel.\n#milkandcheese #comics #indiecomics", "schedule": "Thu Oct 22 · 5:00 PM" },
+    { "id": "Short003ScudVendingMachine", "title": "The assassin you buy from a vending machine #scud #comics #indiecomics", "hook": "In this comic, you buy your assassin from a vending machine.", "description": "Scud the Disposable Assassin by Rob Schrab. Fireman Press, 1994. Twenty issues, a cliffhanger, and a finale at Image in 2008. Full episode on the channel.\n#scud #comics #indiecomics", "schedule": "Sat Oct 24 · 11:00 AM" }
   ]
 }

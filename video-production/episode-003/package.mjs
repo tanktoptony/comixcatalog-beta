@@ -1,6 +1,7 @@
 // Episode 003 YouTube package. The timeline's exported words already include
 // the 2.5 second channel-sting gap.
 import fs from "node:fs";
+import crypto from "node:crypto";
 import os from "node:os";
 import path from "node:path";
 import ep, { narrationWords, stingGap } from "./timeline.js";
@@ -39,7 +40,7 @@ const FIXES = [
   [/Rob Strad/g, "Rob Schrab"], [/\bShrab\b/g, "Schrab"], [/slave labor graphics/gi, "Slave Labor Graphics"], [/other number one/gi, "Other Number One"],
   [/third number one/gi, "Third Number One"], [/smart ass/gi, "smart-ass"], [/R &B/g, "R&B"], [/This guy's nailed/g, "Discogs nailed"], [/ -/g, "-"],
 ];
-const fix = (text) => FIXES.reduce((value, [pattern, replacement]) => value.replace(pattern, replacement), text).replace(/^./, (char) => char.toUpperCase());
+const fix = (text) => FIXES.reduce((value, [pattern, replacement]) => value.replace(pattern, replacement), text);
 const cues = [];
 let current = [];
 const push = () => { if (current.length) cues.push({ s: current[0].s, e: current.at(-1).e, t: current.map((w) => w.w).join(" ") }); current = []; };
@@ -53,23 +54,31 @@ const gapStart = stingGap.at;
 const gapEnd = stingGap.at + stingGap.dur;
 if (cues.some((cue) => cue.s + VOICE_AT < gapStart && cue.e + VOICE_AT > gapEnd)) throw new Error("caption cue straddles channel sting");
 const ts = (time) => { const ms = Math.round(time * 1000); return `${String(Math.floor(ms / 3600000)).padStart(2, "0")}:${String(Math.floor(ms / 60000) % 60).padStart(2, "0")}:${String(Math.floor(ms / 1000) % 60).padStart(2, "0")},${String(ms % 1000).padStart(3, "0")}`; };
-const srt = cues.map((cue, i) => `${i + 1}\n${ts(cue.s + VOICE_AT)} --> ${ts(Math.max(cue.e, cue.s + 0.8) + VOICE_AT)}\n${fix(cue.t)}\n`).join("\n");
-const captionText = cues.map((cue) => fix(cue.t)).join("\n");
+const captionTextFor = (cue, i) => {
+  const text = fix(cue.t);
+  return i === 0 || /[.?!]$/.test(cues[i - 1].t.trim()) ? text.replace(/^./, (char) => char.toUpperCase()) : text;
+};
+const srt = cues.map((cue, i) => `${i + 1}\n${ts(cue.s + VOICE_AT)} --> ${ts(Math.max(cue.e, cue.s + 0.8) + VOICE_AT)}\n${captionTextFor(cue, i)}\n`).join("\n");
+const captionText = cues.map(captionTextFor).join("\n");
 const WRONG = [/\bcomics catalog\b/i, /\bdiscogs\b/, /co -hidden/i, /called Hidden Cambria/i, /In my Coheed books for/i, /comics to tell you/i, /The collector is adding/i, /Everyone starting over/i, /new stand/i, /bagged and bordered/i, /next to image/, /and image runs/, /\bCory\b/, /Dave Sims/, /Cerebus the aardvark/, /aardvark Vanneheim/i, /starring in aardvark/i, /Rob Strad/, /\bShrab\b/, /slave labor graphics/, /smart ass/i, /R &B/, /This guy's nailed/, / -/];
 const remaining = WRONG.filter((pattern) => pattern.test(captionText));
 if (remaining.length) throw new Error(`caption fixes incomplete: ${remaining.join(", ")}`);
 fs.writeFileSync(path.join(out, "captions.srt"), srt);
 
-const utm = `https://www.comixcatalog.com?utm_source=youtube&utm_medium=video&utm_campaign=${config.utmCampaign}`;
+const utm = (pathname = "") => `https://www.comixcatalog.com${pathname}?utm_source=youtube&utm_medium=video&utm_campaign=${config.utmCampaign}`;
 const description = `${config.descriptionIntro}
 
 Books in this episode:
 - Cerebus by Dave Sim, Aardvark-Vanaheim, 1977 to 2004
+  ${utm("/series/12e7f062-06db-4731-928c-7b934d3cfcda")}
 - Milk & Cheese by Evan Dorkin, Slave Labor Graphics, 1991
-- Scud the Disposable Assassin by Rob Schrab, Fireman Press 1994 and Image 2008
-- Malibu's Ultraverse, 1993
+  ${utm("/series/256f81c4-6039-47b4-86bf-23354abe1d7d")}
+- Scud the Disposable Assassin by Rob Schrab, Fireman Press 1994 and Image 2008 (the 2008 Image finale is on ComixCatalog so far)
+  ${utm("/series/73ef87ef-3fbc-4afc-970f-df6c9df18b8f")}
+- Malibu's Ultraverse, 1993. Start with Hardcase
+  ${utm("/series/eb2cfc76-b82d-4911-8e36-cb6d5b16fbd0")}
 
-Track your collection on ComixCatalog: ${utm}
+Track your collection on ComixCatalog: ${utm()}
 
 Chapters
 ${chapters.join("\n")}
@@ -80,6 +89,18 @@ Music: "Rollin at 5" and "Funkorama" by Kevin MacLeod (incompetech.com). License
 
 #ComixCatalog #ComicCollecting #IndieComics #LongBox`;
 if (description.includes("—")) throw new Error("description contains an em dash");
+const shorts = config.shorts.map((short) => `### ${short.id}
+
+File: \`shorts/${short.id}.mp4\`
+
+Title: ${short.title}
+
+Description:
+\`\`\`
+${short.description}
+\`\`\`
+
+Suggested time: ${short.schedule}`).join("\n\n");
 const md = `# Episode 003 upload package
 
 Video: \`episode-003.mp4\` (in this folder) · ${mmss(ep.duration)} · 1920x1080
@@ -101,6 +122,12 @@ ${config.tags.join(", ")}
 ${config.pinnedComment}
 \`\`\`
 
+## Shorts
+
+The episode itself is suggested for Mon Oct 19. These times are suggestions. You schedule them in Studio.
+
+${shorts}
+
 ## Upload checklist
 - [ ] Upload as Unlisted first, watch it through once
 - [ ] Title, description, tags pasted
@@ -110,7 +137,12 @@ ${config.pinnedComment}
 - [ ] Add to the channel's episode playlist
 - [ ] Public, then pin the comment
 `;
-const packageName = fs.existsSync(path.join(out, "PACKAGE.md")) ? "PACKAGE.generated.md" : "PACKAGE.md";
+const packagePath = path.join(out, "PACKAGE.md");
+const hashPath = path.join(out, ".package-hash");
+const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
+const packageIsSafe = !fs.existsSync(packagePath) || (fs.existsSync(hashPath) && sha256(fs.readFileSync(packagePath)) === fs.readFileSync(hashPath, "utf8").trim());
+const packageName = packageIsSafe ? "PACKAGE.md" : "PACKAGE.generated.md";
 fs.writeFileSync(path.join(out, packageName), md);
-if (packageName !== "PACKAGE.md") console.log("PACKAGE.md already exists; wrote PACKAGE.generated.md instead.");
+if (packageIsSafe) fs.writeFileSync(hashPath, `${sha256(md)}\n`);
+if (packageName !== "PACKAGE.md") console.log("PACKAGE.md has no matching .package-hash and may be hand-edited; wrote PACKAGE.generated.md instead.");
 console.log(`wrote ${out}: ${packageName}, captions.srt (${cues.length} cues)\n${chapters.join("\n")}`);

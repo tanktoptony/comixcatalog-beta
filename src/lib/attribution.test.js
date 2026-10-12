@@ -5,7 +5,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { parseAttribution, isFresh, attributionParams, seedAttribution } from "./attribution.js";
+import { parseAttribution, isFresh, attributionParams, seedAttribution, sanitizeSavedAttribution } from "./attribution.js";
 
 const qs = (s) => new URLSearchParams(s);
 const NOW = 1_800_000_000_000;
@@ -71,6 +71,12 @@ test("GA params never carry the referrer's username", () => {
 
 test("no record means no params", () => {
   assert.deepEqual(attributionParams(null), {});
+});
+
+test("saved attribution sanitizes the referrer to a host and drops referral usernames", () => {
+  assert.deepEqual(sanitizeSavedAttribution({
+    source: "Instagram", landing: "/start", referrer_host: "https://Reddit.com/u/collector?ref=tony_c", ref: "tony_c",
+  }), { source: "instagram", referrer_host: "reddit.com", landing_path: "/start" });
 });
 
 // seedAttribution runs in the browser (/auth/callback). Stand in a minimal

@@ -52,6 +52,33 @@ export function parseAttribution(params, landingPath = "/", now = Date.now()) {
   return out;
 }
 
+export function cleanReferrerHost(value) {
+  if (!value) return null;
+  try {
+    const host = new URL(value).hostname.toLowerCase().replace(/^www\./, "");
+    return /^[a-z0-9.-]{1,253}$/.test(host) ? host : null;
+  } catch {
+    return null;
+  }
+}
+
+// Revalidate the user-writable metadata before it crosses the server boundary.
+export function sanitizeSavedAttribution(record) {
+  if (!record || typeof record !== "object") return {};
+  const params = new URLSearchParams();
+  for (const key of UTM_KEYS) if (record[key]) params.set(`utm_${key}`, record[key]);
+  const cleanRecord = parseAttribution(params, record.landing || "/", Date.now()) || {};
+  const landing = String(record.landing || "/");
+  const landingPath = landing.startsWith("/") ? landing.slice(0, 64) : "/";
+  return {
+    ...(cleanRecord.source ? { source: cleanRecord.source } : {}),
+    ...(cleanRecord.medium ? { medium: cleanRecord.medium } : {}),
+    ...(cleanRecord.campaign ? { campaign: cleanRecord.campaign } : {}),
+    ...(cleanReferrerHost(record.referrer_host) ? { referrer_host: cleanReferrerHost(record.referrer_host) } : {}),
+    ...(landingPath ? { landing_path: landingPath } : {}),
+  };
+}
+
 // Pure: is a stored record still usable?
 export function isFresh(record, now = Date.now()) {
   return Boolean(record && Number.isFinite(record.ts) && now - record.ts < MAX_AGE_MS);
@@ -73,11 +100,16 @@ export function captureAttribution() {
   if (typeof window === "undefined") return null;
   const existing = read();
   if (isFresh(existing)) return existing;
-  const next = parseAttribution(
+  let next = parseAttribution(
     new URLSearchParams(window.location.search),
     window.location.pathname
   );
+  const referrerHost = cleanReferrerHost(document.referrer);
+  if (!next && referrerHost) next = { landing: window.location.pathname.slice(0, 64) || "/", ts: Date.now() };
   if (!next) return null;
+  if (referrerHost && referrerHost !== window.location.hostname.replace(/^www\./, "")) {
+    next.referrer_host = referrerHost;
+  }
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
   } catch {

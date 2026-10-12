@@ -10537,6 +10537,9 @@ button.nav-link {
   max-width: 1280px;
 }
 
+.admin-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.admin-table th, .admin-table td { padding: 0.65rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.12); white-space: nowrap; }
+
 .pa-label {
   display: block;
   font-size: 0.8rem;

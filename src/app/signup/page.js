@@ -9,6 +9,7 @@ import { trackEvent } from "@/lib/analytics";
 import { evaluatePassword, passwordStrength, STRENGTH_LABELS, MIN_LENGTH } from "@/lib/passwordPolicy";
 import { redirectAfterAuth, safeNextPath } from "@/lib/auth/postAuthRedirect";
 import { getAttribution, attributionParams } from "@/lib/attribution";
+import { authedFetch } from "@/lib/apiClient";
 // import OAuthButtons from "@/components/OAuthButtons"; // re-enable with the <OAuthButtons /> usage below
 
 // Avatar selection deferred to /profile/edit. Signup is now 3 fields
@@ -263,6 +264,12 @@ export default function SignUpPage() {
         );
         setSaving(false);
         return;
+      } else if (attribution) {
+        await authedFetch("/api/attribution", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(attribution),
+        }).catch(() => null);
       }
 
       // Grant the founding pass, if any of the 100 are left. Server-side, so

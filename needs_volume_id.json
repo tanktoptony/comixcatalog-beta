@@ -28044,13 +28044,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-12T01:03:19.738349+00:00",
-    "retry_after": "2026-10-13T01:03:19.738364+00:00"
+    "last_attempt_at": "2026-10-12T02:03:20.309617+00:00",
+    "retry_after": "2026-10-13T02:03:20.309633+00:00"
   },
   {
     "name": "Cerebus",
@@ -45244,9 +45244,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T02:00:47.549888+00:00",
-    "retry_after": "2026-10-12T02:00:47.549904+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T02:00:53.451261+00:00",
+    "retry_after": "2026-10-15T02:00:53.451277+00:00"
   },
   {
     "name": "The Avengers: Menace of the Mole Man!",
@@ -45324,9 +45324,9 @@
     "year": 1960,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T02:02:29.998729+00:00",
-    "retry_after": "2026-10-12T02:02:29.998743+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T02:03:18.737090+00:00",
+    "retry_after": "2026-10-15T02:03:18.737105+00:00"
   },
   {
     "name": "Alan Ford",
@@ -45359,9 +45359,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T02:02:30.471204+00:00",
-    "retry_after": "2026-10-12T02:02:30.471220+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T02:03:19.313662+00:00",
+    "retry_after": "2026-10-15T02:03:19.313678+00:00"
   },
   {
     "name": "Super-Homem",
@@ -45382,9 +45382,9 @@
         "start_year": 1996
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T02:02:31.758494+00:00",
-    "retry_after": "2026-10-12T02:02:31.758509+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T02:03:19.905767+00:00",
+    "retry_after": "2026-10-15T02:03:19.905782+00:00"
   },
   {
     "name": "A-1",
@@ -50185,5 +50185,177 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T01:03:39.658438+00:00",
     "retry_after": "2026-10-13T01:03:39.658454+00:00"
+  },
+  {
+    "name": "As Novas Aventuras de Ciclope e F�nix",
+    "publisher": "Avatar Press",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T02:00:59.951198+00:00",
+    "retry_after": "2026-10-13T02:00:59.951215+00:00"
+  },
+  {
+    "name": "The Contessa",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26728,
+        "name": "The Contessa",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T02:01:31.433818+00:00",
+    "retry_after": "2026-10-13T02:01:31.433834+00:00"
+  },
+  {
+    "name": "Excalibur Especial",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57595,
+        "name": "Excalibur Especial",
+        "publisher": "Abril",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T02:01:31.943119+00:00",
+    "retry_after": "2026-10-13T02:01:31.943135+00:00"
+  },
+  {
+    "name": "Comic Parade",
+    "publisher": "Marvel Comics",
+    "year": 1963,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T02:01:32.396808+00:00",
+    "retry_after": "2026-10-13T02:01:32.396824+00:00"
+  },
+  {
+    "name": "Star Trek Romulans: Hollow Crown",
+    "publisher": "IDW Publishing",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T02:01:43.857621+00:00",
+    "retry_after": "2026-10-13T02:01:43.857636+00:00"
+  },
+  {
+    "name": "Love Nest 2nd",
+    "publisher": "VIZ Media",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T02:03:15.984654+00:00",
+    "retry_after": "2026-10-13T02:03:15.984670+00:00"
+  },
+  {
+    "name": "Pink Heart Jam",
+    "publisher": "VIZ Media",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 163252,
+        "name": "Pink Heart Jam",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T02:03:16.381308+00:00",
+    "retry_after": "2026-10-13T02:03:16.381323+00:00"
+  },
+  {
+    "name": "Secret Life of Pets",
+    "publisher": "Titan Comics",
+    "year": 2019,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 119304,
+        "name": "The Secret Life of Pets",
+        "publisher": "Titan Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 122150,
+        "name": "The Secret Life of Pets",
+        "publisher": "Titan Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 119553,
+        "name": "The Secret Life of Pets",
+        "publisher": "Titan Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T02:03:16.770791+00:00",
+    "retry_after": "2026-10-13T02:03:16.770807+00:00"
+  },
+  {
+    "name": "NoMan",
+    "publisher": "Antarctic Press",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2318,
+        "name": "NoMan",
+        "publisher": "Tower",
+        "start_year": 1966
+      },
+      {
+        "id": 142927,
+        "name": "Noman",
+        "publisher": "Kodansha",
+        "start_year": 2022
+      },
+      {
+        "id": 148922,
+        "name": "Noman",
+        "publisher": "Kodansha",
+        "start_year": 1981
+      },
+      {
+        "id": 107252,
+        "name": "Noman",
+        "publisher": "Asahi Sonorama",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T02:03:17.347201+00:00",
+    "retry_after": "2026-10-13T02:03:17.347216+00:00"
+  },
+  {
+    "name": "Jeremiah: The Heirs",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55464,
+        "name": "Jeremiah: The Heirs",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T02:03:17.855376+00:00",
+    "retry_after": "2026-10-13T02:03:17.855392+00:00"
   }
 ]

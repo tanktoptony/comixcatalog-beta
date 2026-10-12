@@ -19,6 +19,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import styles from "./account.module.css";
 
 export default function AccountSettingsPage() {
   const { user, profile, loading, signOut } = useAuth();
@@ -68,6 +69,12 @@ export default function AccountSettingsPage() {
   }, [supabase, user]);
 
   useEffect(() => {
+    if (privacyMsg?.kind !== "success") return;
+    const timer = setTimeout(() => setPrivacyMsg(null), 2000);
+    return () => clearTimeout(timer);
+  }, [privacyMsg]);
+
+  useEffect(() => {
     if (notificationMsg?.kind !== "success") return;
     const timer = setTimeout(() => setNotificationMsg(null), 2000);
     return () => clearTimeout(timer);
@@ -75,8 +82,8 @@ export default function AccountSettingsPage() {
 
   if (loading || !user) {
     return (
-      <main className="account-shell">
-        <p style={{ opacity: 0.7, padding: 24 }}>Loading…</p>
+      <main className={styles.shell}>
+        <p className={styles.loading}>Loading...</p>
       </main>
     );
   }
@@ -93,7 +100,7 @@ export default function AccountSettingsPage() {
       setIsPublic(!next); // revert
       setPrivacyMsg({ kind: "error", text: error.message ?? "Could not update privacy setting." });
     } else {
-      setPrivacyMsg({ kind: "success", text: next ? "Profile is now public." : "Profile is now private." });
+      setPrivacyMsg({ kind: "success", text: "Saved" });
     }
   }
 
@@ -115,99 +122,129 @@ export default function AccountSettingsPage() {
   }
 
   return (
-    <main className="account-shell">
-      <header className="account-header">
-        <div>
-          <div className="account-kicker">Account Settings</div>
-          <h1 className="account-title">
+    <main className={styles.shell}>
+      <header className={styles.header}>
+        <div className={styles.headerCopy}>
+          <div className={styles.eyebrow}>Account settings</div>
+          <h1 className={styles.title}>
             {profile?.username ?? user.email}
           </h1>
-          <p className="account-subtitle">
+          <p className={styles.subtitle}>
             Manage your sign-in, email, privacy, and account data.
           </p>
+          <div className={styles.membershipRow}>
+            <div className="profile-badges" aria-label="Membership status">
+              {profile?.is_founding_collector && (
+                <span className="profile-badge founding">★ Founding Collector</span>
+              )}
+              {profile?.is_pro && <span className="profile-badge pro">PRO</span>}
+              {profile?.membership_tier === "collector_plus" && (
+                <span className="profile-badge pro">Collector+</span>
+              )}
+            </div>
+            <Link href="/upgrade" className={styles.membershipLink}>
+              Manage membership
+            </Link>
+          </div>
         </div>
-        <Link href="/library" className="account-link-back">
+        <Link href="/library" className={styles.backLink}>
           ← Back to library
         </Link>
       </header>
 
-      <section className="account-section">
-        <h2 className="account-section-title">Profile</h2>
-        <p className="account-section-desc">
-          Username: <strong>{profile?.username ?? "(not set)"}</strong>
-          {profile?.username && profile.is_public && (
-            <>
-              {" "}— <Link href={`/u/${profile.username}`} className="auth-link">View public profile</Link>
-            </>
-          )}
-        </p>
-        <label style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 8 }}>
-          <input
-            type="checkbox"
+      <div className={styles.grid}>
+        <section className={styles.card}>
+          <div className={styles.cardHeading}>
+            <h2>Profile</h2>
+            <span className={styles.username}>@{profile?.username ?? "not set"}</span>
+          </div>
+          <ToggleSetting
+            id="public-collection"
             checked={isPublic}
             onChange={handlePublicToggle}
-          />
-          Make my collection public
-        </label>
-        {privacyMsg && (
-          <div
-            className={privacyMsg.kind === "success" ? "auth-success" : "auth-error"}
-            style={{ marginTop: 8 }}
+            label="Make my collection public"
+            message={privacyMsg}
           >
-            {privacyMsg.text}
-          </div>
-        )}
-      </section>
+            Anyone with your link can see your profile at /u/{profile?.username ?? "username"}.
+            {profile?.username && (
+              <> <Link href={`/u/${profile.username}`} className={styles.inlineLink}>View my profile</Link></>
+            )}
+          </ToggleSetting>
+        </section>
 
-      <section className="account-section" id="notifications">
-        <h2 className="account-section-title">Notifications</h2>
-        <label style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 8 }}>
-          <input
-            type="checkbox"
+        <section className={styles.card} id="notifications">
+          <div className={styles.cardHeading}><h2>Notifications</h2></div>
+          <ToggleSetting
+            id="email-on-message"
             checked={emailOnMessage}
             onChange={handleNotificationToggle}
+            label="Email me when someone sends me a message"
+            message={notificationMsg}
           />
-          Email me when someone sends me a message
-        </label>
-        {notificationMsg && (
-          <div
-            className={notificationMsg.kind === "success" ? "auth-success" : "auth-error"}
-            style={{ marginTop: 8 }}
-          >
-            {notificationMsg.text}
-          </div>
-        )}
-      </section>
+        </section>
 
-      <section className="account-section">
-        <h2 className="account-section-title">Change password</h2>
-        <ChangePassword supabase={supabase} />
-      </section>
+        <section className={`${styles.card} ${styles.wide}`}>
+          <div className={styles.cardHeading}><h2>Change password</h2></div>
+          <ChangePassword supabase={supabase} />
+        </section>
 
-      <section className="account-section">
-        <h2 className="account-section-title">Change email</h2>
-        <p className="account-section-desc">
-          Current: <strong>{user.email}</strong>. You&rsquo;ll receive a confirmation
-          email at the new address; the change takes effect after you click it.
-        </p>
-        <ChangeEmail supabase={supabase} currentEmail={user.email} />
-      </section>
+        <section className={`${styles.card} ${styles.wide}`}>
+          <div className={styles.cardHeading}><h2>Change email</h2></div>
+          <p className={styles.description}>
+            Current: <strong>{user.email}</strong>. You&rsquo;ll receive a confirmation
+            email at the new address; the change takes effect after you click it.
+          </p>
+          <ChangeEmail supabase={supabase} currentEmail={user.email} />
+        </section>
 
-      <section className="account-section account-section-danger">
-        <h2 className="account-section-title">Delete account</h2>
-        <p className="account-section-desc">
-          Permanently delete your account, profile, and collection data. This
-          can&rsquo;t be undone.
-        </p>
-        <DeleteAccount
-          supabase={supabase}
-          onDeleted={async () => {
-            await signOut();
-            if (typeof window !== "undefined") window.location.href = "/";
-          }}
-        />
-      </section>
+        <section className={`${styles.card} ${styles.danger} ${styles.wide}`}>
+          <div className={styles.cardHeading}><h2>Danger zone</h2></div>
+          <h3 className={styles.dangerTitle}>Delete account</h3>
+          <p className={styles.description}>
+            Permanently delete your account, profile, and collection data. This
+            can&rsquo;t be undone.
+          </p>
+          <DeleteAccount
+            supabase={supabase}
+            onDeleted={async () => {
+              await signOut();
+              if (typeof window !== "undefined") window.location.href = "/";
+            }}
+          />
+        </section>
+      </div>
     </main>
+  );
+}
+
+function ToggleSetting({ id, checked, onChange, label, message, children }) {
+  const helpId = children ? `${id}-help` : undefined;
+  return (
+    <div className={styles.setting}>
+      <div className={styles.settingCopy}>
+        <label htmlFor={id} className={styles.settingLabel}>{label}</label>
+        {children && <p id={helpId} className={styles.settingHelp}>{children}</p>}
+      </div>
+      <div className={styles.settingControl}>
+        {message && (
+          <span className={message.kind === "success" ? styles.saved : styles.error} role="status">
+            {message.text}
+          </span>
+        )}
+        <label className={styles.switch}>
+          <span className={styles.srOnly}>{label}</span>
+          <input
+            id={id}
+            type="checkbox"
+            role="switch"
+            checked={checked}
+            onChange={onChange}
+            aria-describedby={helpId}
+          />
+          <span className={styles.switchTrack} aria-hidden="true" />
+        </label>
+      </div>
+    </div>
   );
 }
 
@@ -248,10 +285,11 @@ function ChangePassword({ supabase }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="account-form">
+    <form onSubmit={handleSubmit} className={styles.inlineForm}>
       <input
         type="password"
-        className="auth-input"
+        className={`auth-input ${styles.input}`}
+        aria-label="New password"
         placeholder="New password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
@@ -261,7 +299,8 @@ function ChangePassword({ supabase }) {
       />
       <input
         type="password"
-        className="auth-input"
+        className={`auth-input ${styles.input}`}
+        aria-label="Confirm new password"
         placeholder="Confirm new password"
         value={confirm}
         onChange={(e) => setConfirm(e.target.value)}
@@ -269,11 +308,11 @@ function ChangePassword({ supabase }) {
         minLength={8}
         required
       />
-      <button type="submit" className="primary-btn" disabled={busy}>
-        {busy ? "Updating…" : "Update password"}
+      <button type="submit" className={`primary-btn ${styles.formButton}`} disabled={busy}>
+        {busy ? "Updating..." : "Update password"}
       </button>
       {msg && (
-        <div className={msg.kind === "success" ? "auth-success" : "auth-error"}>
+        <div className={msg.kind === "success" ? styles.formSuccess : styles.formError} role="status">
           {msg.text}
         </div>
       )}
@@ -320,21 +359,22 @@ function ChangeEmail({ supabase, currentEmail }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="account-form">
+    <form onSubmit={handleSubmit} className={styles.inlineForm}>
       <input
         type="email"
-        className="auth-input"
+        className={`auth-input ${styles.input}`}
+        aria-label="New email"
         placeholder="New email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         autoComplete="email"
         required
       />
-      <button type="submit" className="primary-btn" disabled={busy}>
-        {busy ? "Sending…" : "Send confirmation"}
+      <button type="submit" className={`primary-btn ${styles.formButton}`} disabled={busy}>
+        {busy ? "Sending..." : "Send confirmation"}
       </button>
       {msg && (
-        <div className={msg.kind === "success" ? "auth-success" : "auth-error"}>
+        <div className={msg.kind === "success" ? styles.formSuccess : styles.formError} role="status">
           {msg.text}
         </div>
       )}
@@ -393,33 +433,34 @@ function DeleteAccount({ supabase, onDeleted }) {
         className="danger-btn"
         onClick={() => setExpanded(true)}
       >
-        Delete my account…
+        Delete my account...
       </button>
     );
   }
 
   return (
-    <div className="account-form">
-      <p className="account-section-desc">
+    <div className={styles.deleteForm}>
+      <p className={styles.description}>
         Type <strong>DELETE</strong> below to confirm. This deletes your auth
         record, your profile, your collection, and any covers you&rsquo;ve uploaded.
       </p>
       <input
         type="text"
-        className="auth-input"
+        className={`auth-input ${styles.deleteInput}`}
+        aria-label="Type DELETE to confirm"
         placeholder='Type "DELETE" to confirm'
         value={confirmText}
         onChange={(e) => setConfirmText(e.target.value)}
         autoComplete="off"
       />
-      <div style={{ display: "flex", gap: 8 }}>
+      <div className={styles.deleteActions}>
         <button
           type="button"
           className="danger-btn"
           onClick={handleDelete}
           disabled={busy || confirmText !== "DELETE"}
         >
-          {busy ? "Deleting…" : "Permanently delete"}
+          {busy ? "Deleting..." : "Permanently delete"}
         </button>
         <button
           type="button"
@@ -434,7 +475,7 @@ function DeleteAccount({ supabase, onDeleted }) {
           Cancel
         </button>
       </div>
-      {msg && <div className="auth-error">{msg.text}</div>}
+      {msg && <div className={styles.formError} role="status">{msg.text}</div>}
     </div>
   );
 }

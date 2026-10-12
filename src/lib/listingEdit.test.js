@@ -13,6 +13,13 @@ test("dollar strings become cents", () => {
   assert.ok(Number.isNaN(toCents("-5")));
 });
 
+test("an estimate can never become the listing price without seller input", () => {
+  const result = validateListingEdit({ price: "", estValue: 85, auto_market_value: 85 });
+  assert.equal(result.patch.price_cents, null);
+  assert.equal("estValue" in result.patch, false);
+  assert.equal("auto_market_value" in result.patch, false);
+});
+
 test("a full edit passes and only known fields go through", () => {
   const r = validateListingEdit({ price: "40", shipping: "5", acceptsOffers: true, conditionNotes: "  Light spine stress.  ", signed: true, seller_id: "x", status: "sold" });
   assert.deepEqual(r.patch, { price_cents: 4000, shipping_cents: 500, accepts_offers: true, signed: true, condition_notes: "Light spine stress." });

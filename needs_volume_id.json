@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-12T08:03:09.666414+00:00",
-    "retry_after": "2026-10-13T08:03:09.666428+00:00"
+    "last_attempt_at": "2026-10-12T08:43:22.846735+00:00",
+    "retry_after": "2026-10-13T08:43:22.846755+00:00"
   },
   {
     "name": "Cerebus",
@@ -46154,9 +46154,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T08:01:20.670467+00:00",
-    "retry_after": "2026-10-12T08:01:20.670482+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T08:40:23.514041+00:00",
+    "retry_after": "2026-10-15T08:40:23.514057+00:00"
   },
   {
     "name": "Marvel Masterworks: The Incredible Hulk - Barnes & Noble Edition",
@@ -46164,9 +46164,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T08:01:21.030870+00:00",
-    "retry_after": "2026-10-12T08:01:21.030887+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T08:40:23.879757+00:00",
+    "retry_after": "2026-10-15T08:40:23.879774+00:00"
   },
   {
     "name": "Hawkeye Modern Era Epic Collection",
@@ -46174,9 +46174,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T08:01:21.490330+00:00",
-    "retry_after": "2026-10-12T08:01:21.490347+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T08:40:24.146472+00:00",
+    "retry_after": "2026-10-15T08:40:24.146488+00:00"
   },
   {
     "name": "Archie's Super Hero Comics Digest Magazine",
@@ -46184,9 +46184,9 @@
     "year": 1979,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T08:01:27.949885+00:00",
-    "retry_after": "2026-10-12T08:01:27.949901+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T08:40:24.573391+00:00",
+    "retry_after": "2026-10-15T08:40:24.573407+00:00"
   },
   {
     "name": "Wizard Presents: Ripclaw",
@@ -46194,9 +46194,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T08:01:29.709763+00:00",
-    "retry_after": "2026-10-12T08:01:29.709780+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T08:40:24.926607+00:00",
+    "retry_after": "2026-10-15T08:40:24.926625+00:00"
   },
   {
     "name": "Anders And Classic",
@@ -46224,9 +46224,9 @@
     "year": 1973,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T08:04:47.750976+00:00",
-    "retry_after": "2026-10-12T08:04:47.750992+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T08:43:22.783755+00:00",
+    "retry_after": "2026-10-15T08:43:22.783776+00:00"
   },
   {
     "name": "The Powerpuff Girls [Choice Hotels International Giveaway]",
@@ -50773,5 +50773,49 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T08:01:24.814351+00:00",
     "retry_after": "2026-10-13T08:01:24.814366+00:00"
+  },
+  {
+    "name": "Teen-In",
+    "publisher": "Antarctic Press",
+    "year": 1968,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11453,
+        "name": "Teen-In",
+        "publisher": "Tower",
+        "start_year": 1968
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T08:40:25.808406+00:00",
+    "retry_after": "2026-10-13T08:40:25.808422+00:00"
+  },
+  {
+    "name": "Blood Junkies on Capitol Hill",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29486,
+        "name": "Blood Junkies On Capitol Hill",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T08:40:46.103744+00:00",
+    "retry_after": "2026-10-13T08:40:46.103761+00:00"
+  },
+  {
+    "name": "Titanium Rain Double-Sized Relaunch",
+    "publisher": "Archaia",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T08:40:46.495273+00:00",
+    "retry_after": "2026-10-13T08:40:46.495290+00:00"
   }
 ]

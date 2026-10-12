@@ -13766,9 +13766,9 @@
     "year": 1980,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T18:01:24.645991+00:00",
-    "retry_after": "2026-10-12T18:01:24.645999+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T19:08:22.247794+00:00",
+    "retry_after": "2026-10-15T19:08:22.247810+00:00"
   },
   {
     "name": "Stay With It, Snoopy",
@@ -28044,13 +28044,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-12T17:00:47.954954+00:00",
-    "retry_after": "2026-10-13T17:00:47.954965+00:00"
+    "last_attempt_at": "2026-10-12T18:46:14.400668+00:00",
+    "retry_after": "2026-10-13T18:46:14.400682+00:00"
   },
   {
     "name": "Cerebus",
@@ -44035,9 +44035,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-09T17:00:48.714915+00:00",
-    "retry_after": "2026-10-12T17:00:48.714929+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-12T18:08:48.656055+00:00",
+    "retry_after": "2026-10-19T18:08:48.656070+00:00"
   },
   {
     "name": "Justice League Special",
@@ -44418,23 +44418,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-10T13:00:50.315974+00:00",
     "retry_after": "2026-10-11T13:00:50.315990+00:00"
-  },
-  {
-    "name": "In Rage",
-    "publisher": "Unknown Publisher",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88863,
-        "name": "In Rage",
-        "publisher": "Creative Force Designs",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-11T15:05:44.153296+00:00",
-    "retry_after": "2026-10-14T15:05:44.153310+00:00"
   },
   {
     "name": "Sandman Mystery Theatre Compendium",
@@ -47310,23 +47293,6 @@
     "retry_after": "2026-10-15T16:00:45.211210+00:00"
   },
   {
-    "name": "Bulls Eye Comics",
-    "publisher": "Harvey Comics",
-    "year": 1944,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 30205,
-        "name": "Bulls Eye Comics",
-        "publisher": "Harry A. Chesler/Dynamic",
-        "start_year": 1944
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T16:00:45.509967+00:00",
-    "retry_after": "2026-10-15T16:00:45.509982+00:00"
-  },
-  {
     "name": "Double Action Comics [ashcan]",
     "publisher": "DC Comics",
     "year": 1939,
@@ -47396,23 +47362,6 @@
     "retry_after": "2026-10-15T16:00:48.706455+00:00"
   },
   {
-    "name": "Eliminator Full Color Special",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 74450,
-        "name": "Eliminator Full Color Special",
-        "publisher": "Eternity",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T16:00:49.181834+00:00",
-    "retry_after": "2026-10-15T16:00:49.181852+00:00"
-  },
-  {
     "name": "The Collected Warrior Nun Areala",
     "publisher": "Antarctic Press",
     "year": 1995,
@@ -47421,91 +47370,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-12T16:00:49.882265+00:00",
     "retry_after": "2026-10-15T16:00:49.882281+00:00"
-  },
-  {
-    "name": "The Decorator",
-    "publisher": "Fantagraphics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26729,
-        "name": "Decorator",
-        "publisher": "Eros Comix",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T16:00:50.384030+00:00",
-    "retry_after": "2026-10-15T16:00:50.384044+00:00"
-  },
-  {
-    "name": "Watchvark",
-    "publisher": "Aardvark-Vanaheim",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 107525,
-        "name": "Watchvark",
-        "publisher": "Aardvark",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T16:00:51.094134+00:00",
-    "retry_after": "2026-10-15T16:00:51.094151+00:00"
-  },
-  {
-    "name": "Donald Duck Junior",
-    "publisher": "Fantagraphics",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 149545,
-        "name": "Donald Duck Junior",
-        "publisher": "Hjemmet",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T16:02:20.995346+00:00",
-    "retry_after": "2026-10-15T16:02:20.995358+00:00"
-  },
-  {
-    "name": "glamourpuss",
-    "publisher": "Aardvark-Vanaheim Inc.",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 23362,
-        "name": "Glamourpuss",
-        "publisher": "Aardvark",
-        "start_year": 2008
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T16:02:21.258499+00:00",
-    "retry_after": "2026-10-15T16:02:21.258516+00:00"
-  },
-  {
-    "name": "Fantomet gullalderen",
-    "publisher": "Harvey Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 92995,
-        "name": "Fantomet gullalderen",
-        "publisher": "Hjemmet",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T16:02:21.743994+00:00",
-    "retry_after": "2026-10-15T16:02:21.744012+00:00"
   },
   {
     "name": "Marvel Comics Presenta: Zona M",
@@ -48067,9 +47931,9 @@
         "start_year": 1951
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:41.345726+00:00",
-    "retry_after": "2026-10-12T17:08:41.345745+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:36.543628+00:00",
+    "retry_after": "2026-10-15T18:12:36.543643+00:00"
   },
   {
     "name": "Amazing Mysteries",
@@ -48084,9 +47948,9 @@
         "start_year": 1949
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:41.759341+00:00",
-    "retry_after": "2026-10-12T17:08:41.759358+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:36.888643+00:00",
+    "retry_after": "2026-10-15T18:12:36.888659+00:00"
   },
   {
     "name": "Incredible Science Fiction",
@@ -48101,9 +47965,9 @@
         "start_year": 1955
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:43.793144+00:00",
-    "retry_after": "2026-10-12T17:08:43.793162+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:37.180584+00:00",
+    "retry_after": "2026-10-15T18:12:37.180600+00:00"
   },
   {
     "name": "Slug 'N' Ginger",
@@ -48118,9 +47982,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:44.447988+00:00",
-    "retry_after": "2026-10-12T17:08:44.448004+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:37.700055+00:00",
+    "retry_after": "2026-10-15T18:12:37.700071+00:00"
   },
   {
     "name": "Yank Adventure Comics",
@@ -48135,9 +47999,9 @@
         "start_year": null
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:44.937968+00:00",
-    "retry_after": "2026-10-12T17:08:44.937981+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:38.098861+00:00",
+    "retry_after": "2026-10-15T18:12:38.098873+00:00"
   },
   {
     "name": "Peach and the Isle of Monsters",
@@ -48152,9 +48016,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:46.124726+00:00",
-    "retry_after": "2026-10-12T17:08:46.124745+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:38.551837+00:00",
+    "retry_after": "2026-10-15T18:12:38.551852+00:00"
   },
   {
     "name": "Amora",
@@ -48169,9 +48033,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:46.460052+00:00",
-    "retry_after": "2026-10-12T17:08:46.460068+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:38.795830+00:00",
+    "retry_after": "2026-10-15T18:12:38.795845+00:00"
   },
   {
     "name": "Up from Bondage",
@@ -48186,9 +48050,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:46.908833+00:00",
-    "retry_after": "2026-10-12T17:08:46.908848+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:39.175920+00:00",
+    "retry_after": "2026-10-15T18:12:39.175936+00:00"
   },
   {
     "name": "Nick Calm, Agent of C.O.D.P.I.E.C.E.",
@@ -48203,9 +48067,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:47.216300+00:00",
-    "retry_after": "2026-10-12T17:08:47.216318+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:39.560211+00:00",
+    "retry_after": "2026-10-15T18:12:39.560226+00:00"
   },
   {
     "name": "Final Street",
@@ -48220,9 +48084,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:47.769222+00:00",
-    "retry_after": "2026-10-12T17:08:47.769239+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:40.207070+00:00",
+    "retry_after": "2026-10-15T18:12:40.207086+00:00"
   },
   {
     "name": "The Undateable Cerebus",
@@ -48237,9 +48101,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:48.012846+00:00",
-    "retry_after": "2026-10-12T17:08:48.012865+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:40.618838+00:00",
+    "retry_after": "2026-10-15T18:12:40.618853+00:00"
   },
   {
     "name": "Teenage Revels",
@@ -48254,9 +48118,9 @@
         "start_year": null
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:48.314549+00:00",
-    "retry_after": "2026-10-12T17:08:48.314563+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:40.930261+00:00",
+    "retry_after": "2026-10-15T18:12:40.930273+00:00"
   },
   {
     "name": "2021",
@@ -48271,9 +48135,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:48.587999+00:00",
-    "retry_after": "2026-10-12T17:08:48.588015+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:41.328071+00:00",
+    "retry_after": "2026-10-15T18:12:41.328086+00:00"
   },
   {
     "name": "Edgar Allan Poe: The Murders in the Rue Morgue and Other Stories",
@@ -48288,9 +48152,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:48.912802+00:00",
-    "retry_after": "2026-10-12T17:08:48.912819+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:41.733547+00:00",
+    "retry_after": "2026-10-15T18:12:41.733562+00:00"
   },
   {
     "name": "Retief: Grime and Punishment",
@@ -48305,9 +48169,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:49.212302+00:00",
-    "retry_after": "2026-10-12T17:08:49.212319+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:42.193533+00:00",
+    "retry_after": "2026-10-15T18:12:42.193548+00:00"
   },
   {
     "name": "Strange Cerebus",
@@ -48322,9 +48186,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:49.528758+00:00",
-    "retry_after": "2026-10-12T17:08:49.528776+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:44.875008+00:00",
+    "retry_after": "2026-10-15T18:12:44.875023+00:00"
   },
   {
     "name": "G.I. Mutants",
@@ -48339,9 +48203,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:49.776394+00:00",
-    "retry_after": "2026-10-12T17:08:49.776411+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:48.145731+00:00",
+    "retry_after": "2026-10-15T18:12:48.145749+00:00"
   },
   {
     "name": "Top Cat's T. V Comic Show",
@@ -48356,9 +48220,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:50.282235+00:00",
-    "retry_after": "2026-10-12T17:08:50.282253+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:48.502722+00:00",
+    "retry_after": "2026-10-15T18:12:48.502738+00:00"
   },
   {
     "name": "Fleur d'argent",
@@ -48373,9 +48237,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:50.782554+00:00",
-    "retry_after": "2026-10-12T17:08:50.782610+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:48.800259+00:00",
+    "retry_after": "2026-10-15T18:12:48.800275+00:00"
   },
   {
     "name": "Estrellas del Deporte",
@@ -48390,9 +48254,9 @@
         "start_year": 1965
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:51.410327+00:00",
-    "retry_after": "2026-10-12T17:08:51.410345+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:49.839652+00:00",
+    "retry_after": "2026-10-15T18:12:49.839668+00:00"
   },
   {
     "name": "I Fantastici Quattro",
@@ -48407,9 +48271,9 @@
         "start_year": 1971
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:51.804802+00:00",
-    "retry_after": "2026-10-12T17:08:51.804822+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:50.286173+00:00",
+    "retry_after": "2026-10-15T18:12:50.286190+00:00"
   },
   {
     "name": "Gasparin el fantasma amistoso",
@@ -48424,9 +48288,9 @@
         "start_year": 1979
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:52.100969+00:00",
-    "retry_after": "2026-10-12T17:08:52.100987+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:50.599185+00:00",
+    "retry_after": "2026-10-15T18:12:50.599200+00:00"
   },
   {
     "name": "Grandes Viajes",
@@ -48441,9 +48305,9 @@
         "start_year": 1963
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:52.524852+00:00",
-    "retry_after": "2026-10-12T17:08:52.524868+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:51.181237+00:00",
+    "retry_after": "2026-10-15T18:12:51.181253+00:00"
   },
   {
     "name": "Rat-man Collection",
@@ -48458,9 +48322,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:52.816836+00:00",
-    "retry_after": "2026-10-12T17:08:52.816852+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:51.515683+00:00",
+    "retry_after": "2026-10-15T18:12:51.515697+00:00"
   },
   {
     "name": "Illustrated Romance Library",
@@ -48475,9 +48339,9 @@
         "start_year": 1957
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:53.086280+00:00",
-    "retry_after": "2026-10-12T17:08:53.086300+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:51.956686+00:00",
+    "retry_after": "2026-10-15T18:12:51.956703+00:00"
   },
   {
     "name": "Devil & Hulk",
@@ -48492,9 +48356,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:53.530380+00:00",
-    "retry_after": "2026-10-12T17:08:53.530396+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:52.243702+00:00",
+    "retry_after": "2026-10-15T18:12:52.243718+00:00"
   },
   {
     "name": "Eureka Pocket",
@@ -48509,9 +48373,9 @@
         "start_year": 1968
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:53.910269+00:00",
-    "retry_after": "2026-10-12T17:08:53.910285+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:52.606333+00:00",
+    "retry_after": "2026-10-15T18:12:52.606350+00:00"
   },
   {
     "name": "Storia del West",
@@ -48526,9 +48390,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:54.503715+00:00",
-    "retry_after": "2026-10-12T17:08:54.503731+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:52.979459+00:00",
+    "retry_after": "2026-10-15T18:12:52.979474+00:00"
   },
   {
     "name": "Dylan Dog Super Book",
@@ -48543,9 +48407,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:08:54.962684+00:00",
-    "retry_after": "2026-10-12T17:08:54.962700+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:53.562498+00:00",
+    "retry_after": "2026-10-15T18:12:53.562513+00:00"
   },
   {
     "name": "Anton's Drekbook",
@@ -48560,9 +48424,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:31:44.124758+00:00",
-    "retry_after": "2026-10-12T17:31:44.124773+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:12:49.151216+00:00",
+    "retry_after": "2026-10-15T18:12:49.151231+00:00"
   },
   {
     "name": "normalman",
@@ -48577,9 +48441,9 @@
         "start_year": 1984
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:31:44.569545+00:00",
-    "retry_after": "2026-10-12T17:31:44.569561+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:45:59.662805+00:00",
+    "retry_after": "2026-10-15T18:45:59.662837+00:00"
   },
   {
     "name": "Beach Party",
@@ -48594,9 +48458,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:31:44.972790+00:00",
-    "retry_after": "2026-10-12T17:31:44.972803+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:00.027701+00:00",
+    "retry_after": "2026-10-15T18:46:00.027717+00:00"
   },
   {
     "name": "Canadian Vark!",
@@ -48611,9 +48475,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:31:45.542761+00:00",
-    "retry_after": "2026-10-12T17:31:45.542775+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:00.660853+00:00",
+    "retry_after": "2026-10-15T18:46:00.660869+00:00"
   },
   {
     "name": "Mary Roberts Rinehart's the Bat",
@@ -48628,9 +48492,9 @@
         "start_year": 1992
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:31:47.076479+00:00",
-    "retry_after": "2026-10-12T17:31:47.076494+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:01.140608+00:00",
+    "retry_after": "2026-10-15T18:46:01.140622+00:00"
   },
   {
     "name": "Blade den ud�delige",
@@ -48651,9 +48515,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:31:52.377118+00:00",
-    "retry_after": "2026-10-12T17:31:52.377132+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:03.178216+00:00",
+    "retry_after": "2026-10-15T18:46:03.178231+00:00"
   },
   {
     "name": "DC Comics Presents: Darkseid War 100-Page Super Spectacular",
@@ -48661,60 +48525,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:31:57.986984+00:00",
-    "retry_after": "2026-10-12T17:31:57.986999+00:00"
-  },
-  {
-    "name": "The Amazing Cerebus",
-    "publisher": "Aardvark-Vanaheim",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 108983,
-        "name": "The Amazing Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:31:58.440619+00:00",
-    "retry_after": "2026-10-12T17:31:58.440633+00:00"
-  },
-  {
-    "name": "Blade of Shuriken",
-    "publisher": "Malibu Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 29481,
-        "name": "Blade of Shuriken",
-        "publisher": "Eternity",
-        "start_year": 1987
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:31:59.010879+00:00",
-    "retry_after": "2026-10-12T17:31:59.010894+00:00"
-  },
-  {
-    "name": "Retief: The Giant Killer",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 61603,
-        "name": "Retief: The Giant Killer",
-        "publisher": "Adventure",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:31:59.478220+00:00",
-    "retry_after": "2026-10-12T17:31:59.478234+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:03.479398+00:00",
+    "retry_after": "2026-10-15T18:46:03.479411+00:00"
   },
   {
     "name": "Monkeybug Madness: Search for New Lifeforms",
@@ -48722,9 +48535,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:00.053441+00:00",
-    "retry_after": "2026-10-12T17:32:00.053457+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:06.764492+00:00",
+    "retry_after": "2026-10-15T18:46:06.764508+00:00"
   },
   {
     "name": "Lloyd Kaufman Presents The Toxic Avenger and Other Tromatic Tales",
@@ -48732,9 +48545,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:00.829255+00:00",
-    "retry_after": "2026-10-12T17:32:00.829271+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:07.721803+00:00",
+    "retry_after": "2026-10-15T18:46:07.721819+00:00"
   },
   {
     "name": "The Unwritten Ashcan Edition",
@@ -48742,9 +48555,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:01.351607+00:00",
-    "retry_after": "2026-10-12T17:32:01.351622+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:08.286277+00:00",
+    "retry_after": "2026-10-15T18:46:08.286292+00:00"
   },
   {
     "name": "Amazing Spider-Man: You're Hired",
@@ -48752,162 +48565,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:18.957206+00:00",
-    "retry_after": "2026-10-12T17:32:18.957220+00:00"
-  },
-  {
-    "name": "Eros Graphic Albums",
-    "publisher": "Fantagraphics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 25078,
-        "name": "Eros Graphic Albums",
-        "publisher": "Eros Comix",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:24.014065+00:00",
-    "retry_after": "2026-10-12T17:32:24.014081+00:00"
-  },
-  {
-    "name": "Dylan Dog Color Fest",
-    "publisher": "Marvel Comics",
-    "year": 2007,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 41321,
-        "name": "Dylan Dog Color Fest",
-        "publisher": "Sergio Bonelli Editore",
-        "start_year": 2007
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:24.460430+00:00",
-    "retry_after": "2026-10-12T17:32:24.460445+00:00"
-  },
-  {
-    "name": "Gli Albi dei Super-Eroi",
-    "publisher": "Dark Horse Comics",
-    "year": 1973,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34647,
-        "name": "Gli Albi dei Super-Eroi",
-        "publisher": "Editoriale Corno",
-        "start_year": 1973
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:24.983745+00:00",
-    "retry_after": "2026-10-12T17:32:24.983759+00:00"
-  },
-  {
-    "name": "Batman: Vigilantes de Gotham",
-    "publisher": "Avatar Press",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 54160,
-        "name": "Batman: Vigilantes de Gotham",
-        "publisher": "Abril",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:25.516364+00:00",
-    "retry_after": "2026-10-12T17:32:25.516379+00:00"
-  },
-  {
-    "name": "Speciale Nathan Never",
-    "publisher": "Marvel Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 40473,
-        "name": "Speciale Nathan Never",
-        "publisher": "Sergio Bonelli Editore",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:25.916819+00:00",
-    "retry_after": "2026-10-12T17:32:25.916834+00:00"
-  },
-  {
-    "name": "Teenage Love",
-    "publisher": "Marvel Comics",
-    "year": 1953,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 84468,
-        "name": "Teenage Love",
-        "publisher": "Magazine Management",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:26.670851+00:00",
-    "retry_after": "2026-10-12T17:32:26.670862+00:00"
-  },
-  {
-    "name": "Gli Eterni",
-    "publisher": "Dark Horse Comics",
-    "year": 1978,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2966,
-        "name": "Gli Eterni",
-        "publisher": "Editoriale Corno",
-        "start_year": 1978
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:27.041906+00:00",
-    "retry_after": "2026-10-12T17:32:27.041921+00:00"
-  },
-  {
-    "name": "Graphic Novel",
-    "publisher": "Avatar Press",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 109384,
-        "name": "Graphic Novel",
-        "publisher": "Abril",
-        "start_year": 1988
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:27.532374+00:00",
-    "retry_after": "2026-10-12T17:32:27.532389+00:00"
-  },
-  {
-    "name": "Invisible Avenger",
-    "publisher": "Marvel Comics",
-    "year": 1950,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52650,
-        "name": "Invisible Avenger",
-        "publisher": "Magazine Management",
-        "start_year": 1950
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T17:32:27.991956+00:00",
-    "retry_after": "2026-10-12T17:32:27.991971+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:09.213061+00:00",
+    "retry_after": "2026-10-15T18:46:09.213077+00:00"
   },
   {
     "name": "Flash Annual No. 1 Replica Edition",
@@ -48915,9 +48575,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T18:00:44.979065+00:00",
-    "retry_after": "2026-10-12T18:00:44.979075+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:09.786279+00:00",
+    "retry_after": "2026-10-15T18:46:09.786294+00:00"
   },
   {
     "name": "The Lands of Prester John",
@@ -48925,9 +48585,9 @@
     "year": 1976,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T18:00:45.411778+00:00",
-    "retry_after": "2026-10-12T18:00:45.411786+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:10.331188+00:00",
+    "retry_after": "2026-10-15T18:46:10.331204+00:00"
   },
   {
     "name": "The Twelve Must Have",
@@ -48935,9 +48595,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T18:00:45.837362+00:00",
-    "retry_after": "2026-10-12T18:00:45.837371+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T18:46:11.543228+00:00",
+    "retry_after": "2026-10-15T18:46:11.543244+00:00"
   },
   {
     "name": "Fathom Annual",
@@ -48945,9 +48605,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T18:01:24.242938+00:00",
-    "retry_after": "2026-10-12T18:01:24.242948+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T19:08:21.895083+00:00",
+    "retry_after": "2026-10-15T19:08:21.895099+00:00"
   },
   {
     "name": "Crisis of Infinite Cerebi",
@@ -48955,9 +48615,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T18:01:25.580128+00:00",
-    "retry_after": "2026-10-12T18:01:25.580135+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T19:08:22.626733+00:00",
+    "retry_after": "2026-10-15T19:08:22.626748+00:00"
   },
   {
     "name": "Meet Andy Capp",
@@ -48965,26 +48625,9 @@
     "year": 1964,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T18:01:25.911184+00:00",
-    "retry_after": "2026-10-12T18:01:25.911192+00:00"
-  },
-  {
-    "name": "The Marvel Comics Illustrated Version of Dune",
-    "publisher": "Marvel Comics",
-    "year": 1984,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 73710,
-        "name": "Marvel Comics Illustrated Version of Dune",
-        "publisher": "Berkley Books",
-        "start_year": 1984
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T18:01:30.187157+00:00",
-    "retry_after": "2026-10-12T18:01:30.187167+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T19:08:22.964453+00:00",
+    "retry_after": "2026-10-15T19:08:22.964468+00:00"
   },
   {
     "name": "Dr. Strange Annual",
@@ -48992,26 +48635,9 @@
     "year": 1976,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T18:01:40.431502+00:00",
-    "retry_after": "2026-10-12T18:01:40.431511+00:00"
-  },
-  {
-    "name": "Aardvark Comics",
-    "publisher": "Aardvark-Vanaheim",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 104678,
-        "name": "Aardvark Comics",
-        "publisher": "Aardvark",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T19:00:54.131714+00:00",
-    "retry_after": "2026-10-12T19:00:54.131729+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T19:08:23.895061+00:00",
+    "retry_after": "2026-10-15T19:08:23.895076+00:00"
   },
   {
     "name": "Barney and Betty Rubble Digest Annual",
@@ -49019,9 +48645,9 @@
     "year": 1972,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T19:00:54.930568+00:00",
-    "retry_after": "2026-10-12T19:00:54.930585+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T19:08:24.794943+00:00",
+    "retry_after": "2026-10-15T19:08:24.794957+00:00"
   },
   {
     "name": "Dennis the Menace Little Pip-Squeak",
@@ -49029,9 +48655,9 @@
     "year": 1976,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T19:00:56.047623+00:00",
-    "retry_after": "2026-10-12T19:00:56.047640+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T19:08:25.264341+00:00",
+    "retry_after": "2026-10-15T19:08:25.264357+00:00"
   },
   {
     "name": "Les DIY de Ma�lie",
@@ -49039,9 +48665,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T19:01:39.583870+00:00",
-    "retry_after": "2026-10-12T19:01:39.583887+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T19:08:27.307970+00:00",
+    "retry_after": "2026-10-15T19:08:27.307985+00:00"
   },
   {
     "name": "Preacher 1 AMC Edition",
@@ -49049,9 +48675,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T19:01:41.411556+00:00",
-    "retry_after": "2026-10-12T19:01:41.411572+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T19:08:28.546073+00:00",
+    "retry_after": "2026-10-15T19:08:28.546089+00:00"
   },
   {
     "name": "One for One: Captain Midnight",
@@ -49059,9 +48685,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T19:02:12.083157+00:00",
-    "retry_after": "2026-10-12T19:02:12.083172+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T19:08:30.277600+00:00",
+    "retry_after": "2026-10-15T19:08:30.277614+00:00"
   },
   {
     "name": "Atlas Creator Collection",
@@ -49069,9 +48695,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T19:02:48.676621+00:00",
-    "retry_after": "2026-10-12T19:02:48.676645+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T19:08:30.709521+00:00",
+    "retry_after": "2026-10-15T19:08:30.709537+00:00"
   },
   {
     "name": "The Original Bondage Fairies",
@@ -49169,57 +48795,6 @@
     "retry_after": "2026-10-12T20:01:23.155552+00:00"
   },
   {
-    "name": "Deanna of the Dead",
-    "publisher": "Fantagraphics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 79962,
-        "name": "Deanna of the Dead",
-        "publisher": "Eros Comix",
-        "start_year": 2004
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T20:01:36.437499+00:00",
-    "retry_after": "2026-10-12T20:01:36.437513+00:00"
-  },
-  {
-    "name": "Hot Lips",
-    "publisher": "Fantagraphics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 56311,
-        "name": "Hot Lips",
-        "publisher": "Eros Comix",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T20:01:37.000483+00:00",
-    "retry_after": "2026-10-12T20:01:37.000500+00:00"
-  },
-  {
-    "name": "The Tale of Halima",
-    "publisher": "Fantagraphics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37424,
-        "name": "Tale Of Halima",
-        "publisher": "Eros Comix",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T20:01:37.480199+00:00",
-    "retry_after": "2026-10-12T20:01:37.480215+00:00"
-  },
-  {
     "name": "Books of Lore",
     "publisher": "Devil's Due",
     "year": 1997,
@@ -49228,23 +48803,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T20:01:49.698099+00:00",
     "retry_after": "2026-10-12T20:01:49.698116+00:00"
-  },
-  {
-    "name": "Teena Comics",
-    "publisher": "Marvel Comics",
-    "year": 1955,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 84143,
-        "name": "Teena Comics",
-        "publisher": "Magazine Management",
-        "start_year": 1955
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T20:01:50.148328+00:00",
-    "retry_after": "2026-10-12T20:01:50.148345+00:00"
   },
   {
     "name": "Frank",
@@ -49280,23 +48838,6 @@
     "retry_after": "2026-10-12T20:02:05.262426+00:00"
   },
   {
-    "name": "Dragonero il ribelle",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 129307,
-        "name": "Dragonero il ribelle",
-        "publisher": "Sergio Bonelli Editore",
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T20:02:05.640571+00:00",
-    "retry_after": "2026-10-12T20:02:05.640587+00:00"
-  },
-  {
     "name": "Booklet [Baseball Booklets]",
     "publisher": "Topps Comics",
     "year": 1970,
@@ -49307,23 +48848,6 @@
     "retry_after": "2026-10-12T20:02:06.329201+00:00"
   },
   {
-    "name": "Comics Library",
-    "publisher": "Marvel Comics",
-    "year": 1953,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52670,
-        "name": "Comics Library",
-        "publisher": "Magazine Management",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T20:02:06.816701+00:00",
-    "retry_after": "2026-10-12T20:02:06.816717+00:00"
-  },
-  {
     "name": "Hana-Kimi: For You in Full Blossom",
     "publisher": "VIZ Media",
     "year": 2004,
@@ -49332,40 +48856,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T20:02:07.391293+00:00",
     "retry_after": "2026-10-12T20:02:07.391309+00:00"
-  },
-  {
-    "name": "Color Tex",
-    "publisher": "Marvel Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 66110,
-        "name": "Color Tex",
-        "publisher": "Sergio Bonelli Editore",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T20:03:09.047519+00:00",
-    "retry_after": "2026-10-12T20:03:09.047535+00:00"
-  },
-  {
-    "name": "Storie da Altrove",
-    "publisher": "Marvel Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 46013,
-        "name": "Storie da Altrove",
-        "publisher": "Sergio Bonelli Editore",
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T20:03:37.985701+00:00",
-    "retry_after": "2026-10-12T20:03:37.985711+00:00"
   },
   {
     "name": "Dragon Ball: A Lenda de Shenron",
@@ -49418,23 +48908,6 @@
     "retry_after": "2026-10-12T21:01:55.314179+00:00"
   },
   {
-    "name": "The Big Prize",
-    "publisher": "Malibu Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 71886,
-        "name": "Big Prize",
-        "publisher": "Eternity",
-        "start_year": 1988
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:02:03.982120+00:00",
-    "retry_after": "2026-10-12T21:02:03.982134+00:00"
-  },
-  {
     "name": "DC Nation Super Spectacular Issue",
     "publisher": "DC Comics",
     "year": 2012,
@@ -49473,23 +48946,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T21:02:58.168905+00:00",
     "retry_after": "2026-10-12T21:02:58.168920+00:00"
-  },
-  {
-    "name": "Hardthrob",
-    "publisher": "Fantagraphics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26734,
-        "name": "Hardthrob",
-        "publisher": "Eros Comix",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:02:58.619398+00:00",
-    "retry_after": "2026-10-12T21:02:58.619413+00:00"
   },
   {
     "name": "Battle Stations Giant Edition",
@@ -49532,23 +48988,6 @@
     "retry_after": "2026-10-12T21:04:44.943242+00:00"
   },
   {
-    "name": "Arsenio Lupin",
-    "publisher": "Harvey Comics",
-    "year": 1972,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88987,
-        "name": "Arsenio Lupin",
-        "publisher": "Epucol",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:04:45.449386+00:00",
-    "retry_after": "2026-10-12T21:04:45.449401+00:00"
-  },
-  {
     "name": "Boot & Van Dijk",
     "publisher": "BOOM! Studios",
     "year": 2012,
@@ -49557,23 +48996,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T21:04:46.048146+00:00",
     "retry_after": "2026-10-12T21:04:46.048162+00:00"
-  },
-  {
-    "name": "Heckle and Jeckle the Talking Magpies",
-    "publisher": "Marvel Comics",
-    "year": 1954,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 54818,
-        "name": "Heckle and Jeckle the Talking Magpies",
-        "publisher": "Magazine Management",
-        "start_year": 1954
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:05:24.894282+00:00",
-    "retry_after": "2026-10-12T21:05:24.894297+00:00"
   },
   {
     "name": "Atoll",
@@ -49599,40 +49021,6 @@
     "retry_after": "2026-10-12T21:33:06.692734+00:00"
   },
   {
-    "name": "Sexy Sushi",
-    "publisher": "Fantagraphics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 36011,
-        "name": "Sexy Sushi",
-        "publisher": "Eros Comix",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:34:09.873562+00:00",
-    "retry_after": "2026-10-12T21:34:09.873578+00:00"
-  },
-  {
-    "name": "Sundance",
-    "publisher": "Marvel Comics",
-    "year": 1960,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 162915,
-        "name": "Sundance",
-        "publisher": "Arboris",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:34:18.191221+00:00",
-    "retry_after": "2026-10-12T21:34:18.191235+00:00"
-  },
-  {
     "name": "Amelia Shadows",
     "publisher": "Mad Cave Studios",
     "year": 2026,
@@ -49643,23 +49031,6 @@
     "retry_after": "2026-10-12T21:34:24.158522+00:00"
   },
   {
-    "name": "Pussycats: The End of Everything",
-    "publisher": "BOOM! Studios",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 109456,
-        "name": "Pussycats: The End of Everything",
-        "publisher": "E-Comix",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:34:24.563789+00:00",
-    "retry_after": "2026-10-12T21:34:24.563804+00:00"
-  },
-  {
     "name": "Pondus bok",
     "publisher": "Harvey Comics",
     "year": 2007,
@@ -49668,40 +49039,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T21:34:30.564261+00:00",
     "retry_after": "2026-10-12T21:34:30.564276+00:00"
-  },
-  {
-    "name": "Dose",
-    "publisher": "Gold Key",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 128520,
-        "name": "Dose!",
-        "publisher": "It's Alive",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:34:46.301383+00:00",
-    "retry_after": "2026-10-12T21:34:46.301398+00:00"
-  },
-  {
-    "name": "The Transformers Collected Comics",
-    "publisher": "Marvel Comics",
-    "year": 1985,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34936,
-        "name": "Transformers Collected Comics",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1985
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:34:52.136254+00:00",
-    "retry_after": "2026-10-12T21:34:52.136268+00:00"
   },
   {
     "name": "The Invincible Ed",
@@ -49732,23 +49069,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T21:35:35.456359+00:00",
     "retry_after": "2026-10-12T21:35:35.456374+00:00"
-  },
-  {
-    "name": "Her�is da TV",
-    "publisher": "Avatar Press",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 158264,
-        "name": "Heróis da TV",
-        "publisher": "Abril",
-        "start_year": 1979
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:35:36.620183+00:00",
-    "retry_after": "2026-10-12T21:35:36.620198+00:00"
   },
   {
     "name": "Spicy Tales",
@@ -49836,23 +49156,6 @@
     "retry_after": "2026-10-12T22:01:13.183647+00:00"
   },
   {
-    "name": "The Final Taboo",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37133,
-        "name": "Final Taboo",
-        "publisher": "Aircel Publishing",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T22:01:13.764018+00:00",
-    "retry_after": "2026-10-12T22:01:13.764032+00:00"
-  },
-  {
     "name": "The Classic Alex Toth Zorro",
     "publisher": "Image Comics",
     "year": 1998,
@@ -49933,23 +49236,6 @@
     "retry_after": "2026-10-12T22:01:56.343945+00:00"
   },
   {
-    "name": "Speciale Mister No",
-    "publisher": "Marvel Comics",
-    "year": 1986,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 32827,
-        "name": "Speciale Mister No",
-        "publisher": "Sergio Bonelli Editore",
-        "start_year": 1986
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T22:02:03.021787+00:00",
-    "retry_after": "2026-10-12T22:02:03.021797+00:00"
-  },
-  {
     "name": "Terry Toons",
     "publisher": "Marvel Comics",
     "year": 1957,
@@ -49958,23 +49244,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-11T22:02:03.391406+00:00",
     "retry_after": "2026-10-12T22:02:03.391416+00:00"
-  },
-  {
-    "name": "Speciale Dampyr",
-    "publisher": "Marvel Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 46647,
-        "name": "Speciale Dampyr",
-        "publisher": "Sergio Bonelli Editore",
-        "start_year": 2005
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T22:02:03.706658+00:00",
-    "retry_after": "2026-10-12T22:02:03.706666+00:00"
   },
   {
     "name": "Katy Keene Fashion Book Magazine",
@@ -50133,23 +49402,6 @@
     "retry_after": "2026-10-13T00:01:32.596842+00:00"
   },
   {
-    "name": "Idol of Flesh",
-    "publisher": "Fantagraphics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26761,
-        "name": "Idol of Flesh",
-        "publisher": "Eros Comix",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T00:01:33.018106+00:00",
-    "retry_after": "2026-10-13T00:01:33.018123+00:00"
-  },
-  {
     "name": "Justiceiro Extra",
     "publisher": "Avatar Press",
     "year": 1997,
@@ -50158,23 +49410,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T00:01:33.366305+00:00",
     "retry_after": "2026-10-13T00:01:33.366321+00:00"
-  },
-  {
-    "name": "A Strange Kind of Woman",
-    "publisher": "Fantagraphics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 68859,
-        "name": "A Strange Kind of Woman",
-        "publisher": "Eros Comix",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T01:03:38.202854+00:00",
-    "retry_after": "2026-10-13T01:03:38.202870+00:00"
   },
   {
     "name": "Tombstone Territory",
@@ -50195,40 +49430,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T02:00:59.951198+00:00",
     "retry_after": "2026-10-13T02:00:59.951215+00:00"
-  },
-  {
-    "name": "The Contessa",
-    "publisher": "Fantagraphics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26728,
-        "name": "The Contessa",
-        "publisher": "Eros Comix",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T02:01:31.433818+00:00",
-    "retry_after": "2026-10-13T02:01:31.433834+00:00"
-  },
-  {
-    "name": "Excalibur Especial",
-    "publisher": "Avatar Press",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57595,
-        "name": "Excalibur Especial",
-        "publisher": "Abril",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T02:01:31.943119+00:00",
-    "retry_after": "2026-10-13T02:01:31.943135+00:00"
   },
   {
     "name": "Comic Parade",
@@ -50259,23 +49460,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T02:03:15.984654+00:00",
     "retry_after": "2026-10-13T02:03:15.984670+00:00"
-  },
-  {
-    "name": "Pink Heart Jam",
-    "publisher": "VIZ Media",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 163252,
-        "name": "Pink Heart Jam",
-        "publisher": "Milky Way Ediciones",
-        "start_year": 2024
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T02:03:16.381308+00:00",
-    "retry_after": "2026-10-13T02:03:16.381323+00:00"
   },
   {
     "name": "Secret Life of Pets",
@@ -50342,57 +49526,6 @@
     "retry_after": "2026-10-13T02:03:17.347216+00:00"
   },
   {
-    "name": "Jeremiah: The Heirs",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 55464,
-        "name": "Jeremiah: The Heirs",
-        "publisher": "Adventure",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T02:03:17.855376+00:00",
-    "retry_after": "2026-10-13T02:03:17.855392+00:00"
-  },
-  {
-    "name": "Star Wars Summer Special",
-    "publisher": "Marvel Comics",
-    "year": 1983,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64158,
-        "name": "Star Wars Summer Special",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1983
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T03:01:52.123645+00:00",
-    "retry_after": "2026-10-13T03:01:52.123661+00:00"
-  },
-  {
-    "name": "R. R. H.",
-    "publisher": "First Comics",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 85305,
-        "name": "R.R.H.",
-        "publisher": "1First Comics",
-        "start_year": 2015
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T03:01:52.579550+00:00",
-    "retry_after": "2026-10-13T03:01:52.579563+00:00"
-  },
-  {
     "name": "Collection Atomic Comics",
     "publisher": "Eclipse Comics",
     "year": 1989,
@@ -50423,40 +49556,6 @@
     "retry_after": "2026-10-13T03:02:00.411642+00:00"
   },
   {
-    "name": "X-Factor Especial",
-    "publisher": "Avatar Press",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57740,
-        "name": "X-Factor Especial",
-        "publisher": "Abril",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T03:02:00.741036+00:00",
-    "retry_after": "2026-10-13T03:02:00.741053+00:00"
-  },
-  {
-    "name": "Boris Karloff Thriller",
-    "publisher": "Marvel Comics",
-    "year": 1962,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 128348,
-        "name": "Boris Karloff Thriller",
-        "publisher": "Western Publishing",
-        "start_year": 1962
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T04:01:11.928465+00:00",
-    "retry_after": "2026-10-13T04:01:11.928480+00:00"
-  },
-  {
     "name": "Patricia Briggs' Alpha and Omega: Cry Wolf",
     "publisher": "Marvel Comics",
     "year": 2012,
@@ -50478,40 +49577,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T04:01:12.504451+00:00",
     "retry_after": "2026-10-13T04:01:12.504466+00:00"
-  },
-  {
-    "name": "Home Time",
-    "publisher": "IDW Publishing",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 103582,
-        "name": "Home Time",
-        "publisher": "Top Shelf",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T04:01:22.086475+00:00",
-    "retry_after": "2026-10-13T04:01:22.086490+00:00"
-  },
-  {
-    "name": "Sherlock Holmes Casebook",
-    "publisher": "Malibu Comics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 72033,
-        "name": "Sherlock Holmes Casebook",
-        "publisher": "Eternity",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T04:01:38.875404+00:00",
-    "retry_after": "2026-10-13T04:01:38.875419+00:00"
   },
   {
     "name": "O Homem-Aranha & Wolverine",
@@ -50618,57 +49683,6 @@
     "retry_after": "2026-10-13T06:02:14.336798+00:00"
   },
   {
-    "name": "The Detectives",
-    "publisher": "Marvel Comics",
-    "year": 1962,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 28030,
-        "name": "The Detectives",
-        "publisher": "Alpha Productions",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T06:02:25.448222+00:00",
-    "retry_after": "2026-10-13T06:02:25.448238+00:00"
-  },
-  {
-    "name": "Spicy Tales Special",
-    "publisher": "Malibu Comics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20659,
-        "name": "Spicy Tales Special",
-        "publisher": "Eternity",
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T06:02:25.920908+00:00",
-    "retry_after": "2026-10-13T06:02:25.920924+00:00"
-  },
-  {
-    "name": "Le straordinarie avventure di Ad�le Blanc-Sec",
-    "publisher": "Dell Comics",
-    "year": 2010,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 157726,
-        "name": "Le straordinarie avventure di Adèle Blanc-Sec",
-        "publisher": "Rizzoli Lizard",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T06:02:50.146442+00:00",
-    "retry_after": "2026-10-13T06:02:50.146458+00:00"
-  },
-  {
     "name": "Asesino 55",
     "publisher": "Eclipse Comics",
     "year": 2000,
@@ -50677,40 +49691,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T07:01:10.858648+00:00",
     "retry_after": "2026-10-13T07:01:10.858663+00:00"
-  },
-  {
-    "name": "Le Club des divorc�s",
-    "publisher": "Dynamite Entertainment",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 167166,
-        "name": "Le Club des Divorcés",
-        "publisher": "Dargaud",
-        "start_year": 2015
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T07:01:11.246062+00:00",
-    "retry_after": "2026-10-13T07:01:11.246076+00:00"
-  },
-  {
-    "name": "The Libertine",
-    "publisher": "Fantagraphics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62170,
-        "name": "The Libertine",
-        "publisher": "Eros Comix",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T07:01:11.617585+00:00",
-    "retry_after": "2026-10-13T07:01:11.617602+00:00"
   },
   {
     "name": "The yFu",
@@ -50773,40 +49753,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T08:01:24.814351+00:00",
     "retry_after": "2026-10-13T08:01:24.814366+00:00"
-  },
-  {
-    "name": "Teen-In",
-    "publisher": "Antarctic Press",
-    "year": 1968,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 11453,
-        "name": "Teen-In",
-        "publisher": "Tower",
-        "start_year": 1968
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T08:40:25.808406+00:00",
-    "retry_after": "2026-10-13T08:40:25.808422+00:00"
-  },
-  {
-    "name": "Blood Junkies on Capitol Hill",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 29486,
-        "name": "Blood Junkies On Capitol Hill",
-        "publisher": "Eternity",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T08:40:46.103744+00:00",
-    "retry_after": "2026-10-13T08:40:46.103761+00:00"
   },
   {
     "name": "Titanium Rain Double-Sized Relaunch",
@@ -51208,5 +50154,617 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T16:01:26.568741+00:00",
     "retry_after": "2026-10-13T16:01:26.568759+00:00"
+  },
+  {
+    "name": "In Rage",
+    "publisher": "Unknown Publisher",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:38:23.875243+00:00",
+    "retry_after": "2026-10-13T18:38:23.875257+00:00"
+  },
+  {
+    "name": "Bulls Eye Comics",
+    "publisher": "Harvey Comics",
+    "year": 1944,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30205,
+        "name": "Bulls Eye Comics",
+        "publisher": "Harry A. Chesler/Dynamic",
+        "start_year": 1944
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:01.547535+00:00",
+    "retry_after": "2026-10-13T18:46:01.547547+00:00"
+  },
+  {
+    "name": "Eliminator Full Color Special",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74450,
+        "name": "Eliminator Full Color Special",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:01.882352+00:00",
+    "retry_after": "2026-10-13T18:46:01.882365+00:00"
+  },
+  {
+    "name": "The Decorator",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26729,
+        "name": "Decorator",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:02.542121+00:00",
+    "retry_after": "2026-10-13T18:46:02.542138+00:00"
+  },
+  {
+    "name": "Watchvark",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 107525,
+        "name": "Watchvark",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:02.843203+00:00",
+    "retry_after": "2026-10-13T18:46:02.843218+00:00"
+  },
+  {
+    "name": "The Amazing Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 108983,
+        "name": "The Amazing Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:04.548293+00:00",
+    "retry_after": "2026-10-13T18:46:04.548309+00:00"
+  },
+  {
+    "name": "Blade of Shuriken",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29481,
+        "name": "Blade of Shuriken",
+        "publisher": "Eternity",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:05.430321+00:00",
+    "retry_after": "2026-10-13T18:46:05.430336+00:00"
+  },
+  {
+    "name": "Retief: The Giant Killer",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61603,
+        "name": "Retief: The Giant Killer",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:05.789377+00:00",
+    "retry_after": "2026-10-13T18:46:05.789393+00:00"
+  },
+  {
+    "name": "Eros Graphic Albums",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25078,
+        "name": "Eros Graphic Albums",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:12.385103+00:00",
+    "retry_after": "2026-10-13T18:46:12.385117+00:00"
+  },
+  {
+    "name": "Dylan Dog Color Fest",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41321,
+        "name": "Dylan Dog Color Fest",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:12.734694+00:00",
+    "retry_after": "2026-10-13T18:46:12.734709+00:00"
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Dark Horse Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:13.057616+00:00",
+    "retry_after": "2026-10-13T18:46:13.057628+00:00"
+  },
+  {
+    "name": "Batman: Vigilantes de Gotham",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54160,
+        "name": "Batman: Vigilantes de Gotham",
+        "publisher": "Abril",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:13.484519+00:00",
+    "retry_after": "2026-10-13T18:46:13.484535+00:00"
+  },
+  {
+    "name": "Speciale Nathan Never",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40473,
+        "name": "Speciale Nathan Never",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:14.045427+00:00",
+    "retry_after": "2026-10-13T18:46:14.045442+00:00"
+  },
+  {
+    "name": "Teenage Love",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84468,
+        "name": "Teenage Love",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:14.705310+00:00",
+    "retry_after": "2026-10-13T18:46:14.705321+00:00"
+  },
+  {
+    "name": "Gli Eterni",
+    "publisher": "Dark Horse Comics",
+    "year": 1978,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2966,
+        "name": "Gli Eterni",
+        "publisher": "Editoriale Corno",
+        "start_year": 1978
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:15.135082+00:00",
+    "retry_after": "2026-10-13T18:46:15.135096+00:00"
+  },
+  {
+    "name": "Graphic Novel",
+    "publisher": "Avatar Press",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109384,
+        "name": "Graphic Novel",
+        "publisher": "Abril",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:15.934123+00:00",
+    "retry_after": "2026-10-13T18:46:15.934137+00:00"
+  },
+  {
+    "name": "Invisible Avenger",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52650,
+        "name": "Invisible Avenger",
+        "publisher": "Magazine Management",
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T18:46:16.327071+00:00",
+    "retry_after": "2026-10-13T18:46:16.327085+00:00"
+  },
+  {
+    "name": "The Marvel Comics Illustrated Version of Dune",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73710,
+        "name": "Marvel Comics Illustrated Version of Dune",
+        "publisher": "Berkley Books",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:23.366266+00:00",
+    "retry_after": "2026-10-13T19:08:23.366280+00:00"
+  },
+  {
+    "name": "Aardvark Comics",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 104678,
+        "name": "Aardvark Comics",
+        "publisher": "Aardvark",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:24.376826+00:00",
+    "retry_after": "2026-10-13T19:08:24.376841+00:00"
+  },
+  {
+    "name": "Deanna of the Dead",
+    "publisher": "Fantagraphics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79962,
+        "name": "Deanna of the Dead",
+        "publisher": "Eros Comix",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:31.069530+00:00",
+    "retry_after": "2026-10-13T19:08:31.069545+00:00"
+  },
+  {
+    "name": "Hot Lips",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56311,
+        "name": "Hot Lips",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:31.699239+00:00",
+    "retry_after": "2026-10-13T19:08:31.699254+00:00"
+  },
+  {
+    "name": "The Tale of Halima",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37424,
+        "name": "Tale Of Halima",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:31.992523+00:00",
+    "retry_after": "2026-10-13T19:08:31.992539+00:00"
+  },
+  {
+    "name": "Teena Comics",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84143,
+        "name": "Teena Comics",
+        "publisher": "Magazine Management",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:32.447686+00:00",
+    "retry_after": "2026-10-13T19:08:32.447701+00:00"
+  },
+  {
+    "name": "The Big Prize",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71886,
+        "name": "Big Prize",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:32.998813+00:00",
+    "retry_after": "2026-10-13T19:08:32.998828+00:00"
+  },
+  {
+    "name": "Hardthrob",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26734,
+        "name": "Hardthrob",
+        "publisher": "Eros Comix",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:33.487527+00:00",
+    "retry_after": "2026-10-13T19:08:33.487543+00:00"
+  },
+  {
+    "name": "Sexy Sushi",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36011,
+        "name": "Sexy Sushi",
+        "publisher": "Eros Comix",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:34.256297+00:00",
+    "retry_after": "2026-10-13T19:08:34.256311+00:00"
+  },
+  {
+    "name": "Donald Duck Junior",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 149545,
+        "name": "Donald Duck Junior",
+        "publisher": "Hjemmet",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:37.646771+00:00",
+    "retry_after": "2026-10-13T19:08:37.646786+00:00"
+  },
+  {
+    "name": "glamourpuss",
+    "publisher": "Aardvark-Vanaheim Inc.",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23362,
+        "name": "Glamourpuss",
+        "publisher": "Aardvark",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:39.112249+00:00",
+    "retry_after": "2026-10-13T19:08:39.112265+00:00"
+  },
+  {
+    "name": "Fantomet gullalderen",
+    "publisher": "Harvey Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 92995,
+        "name": "Fantomet gullalderen",
+        "publisher": "Hjemmet",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:40.239171+00:00",
+    "retry_after": "2026-10-13T19:08:40.239186+00:00"
+  },
+  {
+    "name": "Dragonero il ribelle",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129307,
+        "name": "Dragonero il ribelle",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:40.669443+00:00",
+    "retry_after": "2026-10-13T19:08:40.669459+00:00"
+  },
+  {
+    "name": "Comics Library",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52670,
+        "name": "Comics Library",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:41.064118+00:00",
+    "retry_after": "2026-10-13T19:08:41.064134+00:00"
+  },
+  {
+    "name": "Color Tex",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66110,
+        "name": "Color Tex",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:41.610836+00:00",
+    "retry_after": "2026-10-13T19:08:41.610850+00:00"
+  },
+  {
+    "name": "Storie da Altrove",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46013,
+        "name": "Storie da Altrove",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:43.072383+00:00",
+    "retry_after": "2026-10-13T19:08:43.072398+00:00"
+  },
+  {
+    "name": "Arsenio Lupin",
+    "publisher": "Harvey Comics",
+    "year": 1972,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88987,
+        "name": "Arsenio Lupin",
+        "publisher": "Epucol",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:43.406978+00:00",
+    "retry_after": "2026-10-13T19:08:43.406994+00:00"
+  },
+  {
+    "name": "Heckle and Jeckle the Talking Magpies",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54818,
+        "name": "Heckle and Jeckle the Talking Magpies",
+        "publisher": "Magazine Management",
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:43.715358+00:00",
+    "retry_after": "2026-10-13T19:08:43.715372+00:00"
+  },
+  {
+    "name": "Her�is da TV",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158264,
+        "name": "Heróis da TV",
+        "publisher": "Abril",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T19:08:44.140306+00:00",
+    "retry_after": "2026-10-13T19:08:44.140321+00:00"
   }
 ]

@@ -61,6 +61,7 @@
     "data:plan-comics-gcd-dedupe": "node --max-old-space-size=2048 scripts/planComicsGcdDedupe.js",
     "covers:gap-priority": "node scripts/generatePriorityCoverTargets.js",
     "report:engineering": "node scripts/generateEngineeringReport.js",
+    "report:scan-accuracy": "node scripts/scanAccuracyReport.js",
     "covers:gap-featured": "node scripts/generateFeaturedGapTargets.js",
     "covers:gap-both": "node scripts/generateCoverGapTargets.js --mode=both --limit=5000",
     "covers:resolve-pins": "node scripts/resolveNeedsVolumeIdBacklog.js",

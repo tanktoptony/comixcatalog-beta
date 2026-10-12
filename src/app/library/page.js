@@ -17,6 +17,8 @@ import CollectionStatsStrip, { getCollectionStats } from "@/components/Collectio
 import ValueHistoryChart from "@/components/ValueHistoryChart";
 import LibraryMobileBar from "@/components/LibraryMobileBar";
 import ListingEditor from "@/components/ListingEditor";
+import ListingCompletionPanel from "@/components/ListingCompletionPanel";
+import ListingQuickPrice from "@/components/ListingQuickPrice";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { coverThumb } from "@/lib/coverThumb";
@@ -25,6 +27,7 @@ import { fetchWithRetry } from "@/lib/fetchWithRetry";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import { chunk } from "@/lib/chunk";
 import { normalizePublisherDisplayName } from "@/lib/publisher";
+import { listingCompleteness } from "@/lib/listingCompleteness";
 
 // Books per /api/library-hydrate request. The route caps a request at 2,000.
 const HYDRATE_CHUNK = 1000;
@@ -42,6 +45,35 @@ const HYDRATE_CHUNK = 1000;
 // that automatic instead of requiring one.
 const HYDRATION_CACHE_MAX_AGE_MS = 10 * 60 * 1000;
 const hydrationCache = new Map();
+
+async function fetchSellerListingData(supabase, userId) {
+  const listingRows = [];
+  for (let pageStart = 0; ; pageStart += 1000) {
+    const { data, error } = await supabase
+      .from("listings")
+      .select("id, collection_id, price_cents, shipping_cents, accepts_offers, condition_notes, restored, signed")
+      .eq("seller_id", userId)
+      .in("status", ["draft", "active"])
+      .range(pageStart, pageStart + 999);
+    if (error) throw error;
+    listingRows.push(...(data ?? []));
+    if ((data?.length ?? 0) < 1000) break;
+  }
+  const listings = Object.fromEntries(listingRows.map((listing) => [listing.collection_id, listing]));
+  const ids = Object.keys(listings);
+  const photoCollectionIds = new Set();
+  for (let chunkStart = 0; chunkStart < ids.length; chunkStart += 500) {
+    const collectionIds = ids.slice(chunkStart, chunkStart + 500);
+    for (let pageStart = 0; ; pageStart += 1000) {
+      const { data: photos, error: photoError } = await supabase
+        .from("listing_photos").select("collection_id").in("collection_id", collectionIds).range(pageStart, pageStart + 999);
+      if (photoError) throw photoError;
+      for (const photo of photos ?? []) photoCollectionIds.add(photo.collection_id);
+      if ((photos?.length ?? 0) < 1000) break;
+    }
+  }
+  return { listings, photoCollectionIds };
+}
 
 function freshCacheEntry(key) {
   const entry = hydrationCache.get(key);
@@ -580,7 +612,7 @@ function LibraryPageContent() {
   // fills in its cover and refreshes /marketplace right away. Best effort:
   // the marketplace catches up on its own within two minutes if it fails.
   function syncListings() {
-    authedFetch("/api/listings/sync", { method: "POST" }).catch((err) =>
+    return authedFetch("/api/listings/sync", { method: "POST" }).catch((err) =>
       console.warn("Listing sync failed:", err)
     );
   }
@@ -590,6 +622,10 @@ function LibraryPageContent() {
   // seller read their own listings; edits go through /api/listings/:id.
   const [myListings, setMyListings] = useState({});
   const [editing, setEditing] = useState(null);
+  const [completingId, setCompletingId] = useState(null);
+  const [photoCollectionIds, setPhotoCollectionIds] = useState(new Set());
+  const [completionFilter, setCompletionFilter] = useState(() => searchParams.get("completion") || "all");
+  const [saleNotice, setSaleNotice] = useState("");
   const forSaleSignature = useMemo(
     () => collections.filter((c) => c.status === "for_sale").map((c) => c.id).sort().join(","),
     [collections]
@@ -599,24 +635,29 @@ function LibraryPageContent() {
     // for-sale rows, so stale entries never render.
     if (!user?.id || !forSaleSignature) return;
     let cancelled = false;
-    supabase
-      .from("listings")
-      .select("id, collection_id, price_cents, shipping_cents, accepts_offers, condition_notes, restored, signed")
-      .eq("seller_id", user.id)
-      .in("status", ["draft", "active"])
-      .then(({ data, error }) => {
+    fetchSellerListingData(supabase, user.id)
+      .then(({ listings, photoCollectionIds: photos }) => {
         if (cancelled) return;
-        if (error) {
-          console.error("Loading your listings failed:", error);
-          return;
-        }
-        setMyListings(Object.fromEntries((data ?? []).map((l) => [l.collection_id, l])));
+        setMyListings(listings);
+        setPhotoCollectionIds(photos);
+      })
+      .catch((error) => {
+        if (cancelled) return;
+        console.error("Loading your listings failed:", error);
       });
     return () => {
       cancelled = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id, forSaleSignature]);
+  }, [user?.id, forSaleSignature, supabase]);
+
+  const completeness = useMemo(
+    () => listingCompleteness(collections, myListings, photoCollectionIds),
+    [collections, myListings, photoCollectionIds]
+  );
+
+  function updateListing(collectionId, listing) {
+    setMyListings((prev) => ({ ...prev, [collectionId]: { ...prev[collectionId], ...listing } }));
+  }
 
   // Wantlist books someone is selling: "2 for sale from $12". Reads the
   // same cached listing feed as /marketplace, only while the wantlist tab
@@ -661,8 +702,17 @@ function LibraryPageContent() {
       console.error("Sale toggle error:", error);
       return;
     }
-    syncListings();
+    await syncListings();
     await refreshLibrary?.({ background: true });
+    if (newStatus === "for_sale") {
+      const fresh = await fetchSellerListingData(supabase, user.id).catch(() => ({ listings: {}, photoCollectionIds: new Set() }));
+      setMyListings(fresh.listings);
+      setPhotoCollectionIds(fresh.photoCollectionIds);
+      const listings = fresh.listings;
+      if (listings[item.id]) setCompletingId(item.id);
+    } else if (completingId === item.id) {
+      setCompletingId(null);
+    }
   }
 
   // Marketplace: list (or unlist) every owned book in one go. Each listed
@@ -692,9 +742,16 @@ function LibraryPageContent() {
         alert("Couldn't update your listings. Please try again.");
         return;
       }
-      syncListings();
+      await syncListings();
       await refreshLibrary?.({ background: true });
-      if (listing) setTab("for_sale");
+      if (listing) {
+        const fresh = await fetchSellerListingData(supabase, user.id).catch(() => null);
+        if (fresh) {
+          setMyListings(fresh.listings);
+          setPhotoCollectionIds(fresh.photoCollectionIds);
+        }
+        setSaleNotice(`${count} book${count === 1 ? "" : "s"} listed. ${count} need a price.`);
+      }
     } finally {
       setBulkSaleBusy(false);
     }
@@ -921,6 +978,11 @@ function LibraryPageContent() {
       );
     }
 
+    if (tab === "for_sale" && completionFilter !== "all") {
+      const needed = new Set((completionFilter === "photo" ? completeness.needsPhoto : completeness.needsPrice).map((item) => item.id));
+      result = result.filter((item) => needed.has(item.id));
+    }
+
     result.sort((a, b) => {
       const titleA = String(a.comic.title || "").toLowerCase();
       const titleB = String(b.comic.title || "").toLowerCase();
@@ -941,7 +1003,7 @@ function LibraryPageContent() {
     });
 
     return result;
-  }, [libraryItems, search, publisherFilter, sortBy, justAddedIds]);
+  }, [libraryItems, search, publisherFilter, sortBy, tab, completionFilter, completeness, justAddedIds]);
 
   // Land back on page 1 whenever the underlying result set or its shape
   // changes - otherwise switching tabs (or typing a new search) can strand
@@ -1452,6 +1514,10 @@ function LibraryPageContent() {
           title={editing.title}
           estValue={editing.estValue}
           onClose={() => setEditing(null)}
+          onPhotoAdded={(collectionId) => {
+            trackEvent("listing_photo_added");
+            setPhotoCollectionIds((prev) => new Set(prev).add(collectionId));
+          }}
           onSaved={(saved) =>
             setMyListings((prev) => {
               const row = Object.values(prev).find((l) => l.id === saved.id);
@@ -1926,6 +1992,37 @@ function LibraryPageContent() {
             </div>
           </div>
 
+          {tab === "for_sale" && !isPublicPreview && (
+            <div className="listing-completeness-head">
+              <span><b>{completeness.needsPrice.length}</b> need a price</span>
+              <span><b>{completeness.needsPhoto.length}</b> need a photo</span>
+              <button type="button" className={completionFilter === "price" ? "active" : ""} onClick={() => setCompletionFilter(completionFilter === "price" ? "all" : "price")}>Needs a price</button>
+              <button type="button" className={completionFilter === "photo" ? "active" : ""} onClick={() => setCompletionFilter(completionFilter === "photo" ? "all" : "photo")}>Needs a photo</button>
+            </div>
+          )}
+
+          {saleNotice && (
+            <div className="listing-sale-notice" role="status">
+              <span>{saleNotice}</span>
+              <Link href="/library?tab=for_sale&completion=price" onClick={() => { setTab("for_sale"); setCompletionFilter("price"); setSaleNotice(""); }}>Price these books</Link>
+              <button type="button" aria-label="Dismiss" onClick={() => setSaleNotice("")}>×</button>
+            </div>
+          )}
+
+          {!loading && tab === "for_sale" && completionFilter === "price" && filteredItems.length > 0 && (
+            <div className="listing-price-run">
+              {filteredItems.map((item) => {
+                const listing = myListings[item.id];
+                return listing ? (
+                  <article key={item.id} className="listing-price-run-card">
+                    <div><strong>{item.comic.title}{item.comic.issueNumber ? ` #${item.comic.issueNumber}` : ""}</strong><small>{item.comic.publisher || "Unknown Publisher"}</small></div>
+                    <ListingQuickPrice listing={listing} estimate={Number(item.market_value) > 0 ? Number(item.market_value) : marketValues?.[item.id]?.value ?? null} onSaved={(saved) => updateListing(item.id, saved)} />
+                  </article>
+                ) : null;
+              })}
+            </div>
+          )}
+
           {loading && <div className="library-empty-state">Loading…</div>}
 
           {!loading && filteredItems.length === 0 && isHydrating && (
@@ -1988,7 +2085,7 @@ function LibraryPageContent() {
           )}
 
           {/* ── LIST VIEW ── */}
-          {!loading && filteredItems.length > 0 && viewMode === "list" && (
+          {!loading && filteredItems.length > 0 && !(tab === "for_sale" && completionFilter === "price") && viewMode === "list" && (
             <div className="library-list">
               {filteredItems.slice((page - 1) * LIBRARY_PAGE_SIZE, page * LIBRARY_PAGE_SIZE).map((item) => {
                 const comic = item.comic;
@@ -2196,12 +2293,15 @@ function LibraryPageContent() {
                         View
                       </Link>
                     </div>
+                    {completingId === item.id && myListings[item.id] && (
+                      <ListingCompletionPanel listing={myListings[item.id]} estimate={Number(liveGrade?.market_value) > 0 ? Number(liveGrade.market_value) : marketValues?.[item.id]?.value ?? null} onSaved={(saved) => updateListing(item.id, saved)} onPhotoAdded={() => setPhotoCollectionIds((prev) => new Set(prev).add(item.id))} onClose={() => setCompletingId(null)} />
+                    )}
                   </article>
                 );
               })}
             </div>
           )}
-          {!loading && filteredItems.length > 0 && viewMode === "list" && (
+          {!loading && filteredItems.length > 0 && !(tab === "for_sale" && completionFilter === "price") && viewMode === "list" && (
             <PaginationBar page={page} setPage={setPage} totalCount={filteredItems.length} pageSize={LIBRARY_PAGE_SIZE} />
           )}
 
@@ -2210,7 +2310,7 @@ function LibraryPageContent() {
               Click to expand and reveal the existing list-row rendering
               (with full GradeEditor for owned items). Best for collectors
               with dense runs across many series and for mobile density. */}
-          {!loading && filteredItems.length > 0 && viewMode === "rows" && (() => {
+          {!loading && filteredItems.length > 0 && !(tab === "for_sale" && completionFilter === "price") && viewMode === "rows" && (() => {
             const groups = new Map();
             for (const item of filteredItems) {
               const c = item.comic || {};
@@ -2404,7 +2504,7 @@ function LibraryPageContent() {
           })()}
 
           {/* ── GRID VIEW ── */}
-          {!loading && filteredItems.length > 0 && viewMode === "grid" && (
+          {!loading && filteredItems.length > 0 && !(tab === "for_sale" && completionFilter === "price") && viewMode === "grid" && (
             <div className="comic-grid">
               {filteredItems.slice((page - 1) * LIBRARY_PAGE_SIZE, page * LIBRARY_PAGE_SIZE).map((item) => {
                 const comic = item.comic;
@@ -2484,12 +2584,15 @@ function LibraryPageContent() {
                           />
                       </div>
                     )}
+                    {completingId === item.id && myListings[item.id] && (
+                      <ListingCompletionPanel listing={myListings[item.id]} estimate={Number(liveGrade?.market_value) > 0 ? Number(liveGrade.market_value) : marketValues?.[item.id]?.value ?? null} onSaved={(saved) => updateListing(item.id, saved)} onPhotoAdded={() => setPhotoCollectionIds((prev) => new Set(prev).add(item.id))} onClose={() => setCompletingId(null)} />
+                    )}
                   </article>
                 );
               })}
             </div>
           )}
-          {!loading && filteredItems.length > 0 && viewMode === "grid" && (
+          {!loading && filteredItems.length > 0 && !(tab === "for_sale" && completionFilter === "price") && viewMode === "grid" && (
             <PaginationBar page={page} setPage={setPage} totalCount={filteredItems.length} pageSize={LIBRARY_PAGE_SIZE} />
           )}
         </section>

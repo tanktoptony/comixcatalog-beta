@@ -193,7 +193,7 @@ export function ScreenCapture({ asset, treatment = "push", focus, zoom = 1.12, c
                   );
                 })()
               ) : (
-                <Media asset={asset} style={{ width: "100%", height: panDown ? "auto" : "100%", minHeight: "100%", objectFit: "cover", objectPosition: "top", transform: panDown ? `translateY(${-30 * p}%)` : undefined }} />
+                <Media asset={asset} style={{ width: "100%", height: panDown ? "auto" : "100%", minHeight: "100%", objectFit: "cover", objectPosition: "top", transform: panDown ? `translateY(calc(${-p} * max(0px, 100% - ${H}px)))` : undefined }} />
               )}
             </div>
           </div>

@@ -74,6 +74,16 @@ Reusable pieces: ChannelSting, TitleCard, ChapterCard, CoverGrid, CoverPair, Cov
 |---|---|
 | `covers/iron-man-290-1993.jpg`, `covers/silver-surfer-075-1992.jpg`, `covers/avengers-350-1992.jpg` | 90s issues standing in for the Iron Man, Silver Surfer and Avengers runs Tony named (series confirmed, not these exact issues). ComicVine, logged in sources.json |
 | `screens/*.png` | Live comixcatalog.com, captured headless at 1920 wide on 2026-10-12, promo bar cropped: home, Silver Surfer / Iron Man / Avengers / Cerebus / Milk & Cheese / Hardcase / The Strangers series pages, Iron Man and Scud searches, /sell, /marketplace |
+| `screens/discogs-2001-home.png`, `screens/discogs-homework-top.png`, `screens/discogs-homework-versions.png`, `screens/discogs-homework-sellers.png` | Discogs historical homepage and Daft Punk “Homework” release, versions, and marketplace captures. Wayback Machine captures |
+| `screens/gcd-milk-and-cheese.png` | Grand Comics Database page for Milk & Cheese (Slave Labor, 1991). Wayback Machine capture |
+| `screens/cerebus-search.png`, `screens/spider-man-search.png` | Live comixcatalog.com searches, captured at 1920 wide on 2026-10-12 |
+| `screens/allowlist-code.png` | Real `US_PUBLISHER_ALLOWLIST` code from `src/lib/publisher.js` lines 34–50 |
+| `covers/cerebus-005-1977.jpg` through `covers/cerebus-008-1977.jpg`, `covers/cerebus-020-1977.jpg`, `covers/cerebus-026-1977.jpg` | Additional Cerebus issues. ComicVine |
+| `covers/milk-and-cheese-004-1991.jpg` through `covers/milk-and-cheese-007-1991.jpg` | Additional Milk & Cheese issues. ComicVine |
+| `covers/scud-the-disposable-assassin-004-1994.jpg`, `-005-1994.jpg`, `-006-1994.jpg`, `-010-1994.jpg`, `-015-1994.jpg`, `-018-1994.jpg` | Additional Scud the Disposable Assassin issues. ComicVine |
+| `covers/mantra-001-1993.jpg`, `covers/firearm-001-1993.jpg`, `covers/the-night-man-001-1993.jpg`, `covers/freex-001-1993.jpg`, `covers/prototype-001-1993.jpg` | Additional Malibu/Ultraverse issues. ComicVine |
+| `covers/amory-wars-keeping-secrets-002-2010.jpg` through `-005-2010.jpg`, `covers/amory-wars-good-apollo-001-2017.jpg`, `-002-2017.jpg`, `covers/amory-wars-no-world-for-tomorrow-001-2024.jpg` | Additional The Amory Wars issues. ComicVine |
+| `covers/x-men-001-1991.jpg`, `covers/x-men-001-1991-variant-1.jpg`, `-variant-3.jpg`, `-variant-4.jpg`, `-variant-5.jpg` | X-Men #1 (1991) standard and variant covers. ComicVine |
 | `audio/MUSIC_BED.mp3`, `audio/MUSIC_STING.mp3` | Kevin MacLeod, "Rollin at 5" and "Funkorama", CC BY 4.0 (same as Ep 001/002) |
 
-No B-roll or screen recordings from Tony were used. Discogs is shown only as text cards.
+No B-roll or screen recordings from Tony were used. Discogs is shown through archival and marketplace screen captures.

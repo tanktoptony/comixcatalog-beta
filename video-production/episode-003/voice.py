@@ -20,7 +20,7 @@ import numpy as np
 import soundfile as sf
 from scipy.ndimage import minimum_filter1d
 
-TARGET = -15.0  # speech RMS, dBFS. With timeline volume 0.85 this sits ~12.5 dB over the music bed at 0.3.
+TARGET = -13.0  # speech RMS, dBFS. Ep 002 ran -11.5, but that limits ~2 s of syllables by up to 6 dB here; -13 keeps the limiter light and the music bed comes down instead. Remotion spreads a mono file across both stereo channels at -3 dB, so the file runs hotter than the mix it lands in.
 
 
 def speech_rms(a, sr):

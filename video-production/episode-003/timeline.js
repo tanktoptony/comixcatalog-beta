@@ -163,9 +163,9 @@ export default {
   id: "episode-003", assetEpisodeId: "episode-003", outputDir: "episode-003", outputName: "episode-003", compositionId: "Episode003",
   title: config.titleOptions[0], duration: +(VOICE_AT + edited.duration + GAP_DUR + 4).toFixed(3), nudges: [], segments,
   audio: {
-    narration: { asset: "audio/NARRATION_EDITED.wav", at: VOICE_AT, volume: 0.85, clips: narrationClips.map((clip) => ({ at: +(VOICE_AT + clip.out).toFixed(3), from: clip.from, to: clip.to })) },
-    music: { asset: "audio/MUSIC_BED.mp3", volume: 0.3, fadeIn: 2, fadeOut: 4, loop: true, duck: [{ from: stingGap.at, to: stingGap.at + stingGap.dur }] },
+    narration: { asset: "audio/NARRATION_EDITED.wav", at: VOICE_AT, volume: 1, clips: narrationClips.map((clip) => ({ at: +(VOICE_AT + clip.out).toFixed(3), from: clip.from, to: clip.to })) },
+    music: { asset: "audio/MUSIC_BED.mp3", volume: 0.25, fadeIn: 2, fadeOut: 4, loop: true, duck: [{ from: stingGap.at, to: stingGap.at + stingGap.dur }] },
     // Skip Funkorama's quiet intro so its first downbeat lands with the logo slam.
-    sting: { asset: "audio/MUSIC_STING.mp3", at: stingGap.at, from: 7.10, dur: stingGap.dur, volume: 0.8, fadeOut: 0.4 },
+    sting: { asset: "audio/MUSIC_STING.mp3", at: stingGap.at, from: 7.10, dur: stingGap.dur, volume: 1, fadeOut: 0.4 },
   },
 };

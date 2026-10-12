@@ -848,7 +848,7 @@ const UserMenu = forwardRef(function UserMenu(
               role="menuitem"
               onClick={handleItem()}
             >
-              My Public Profile
+              My Profile
             </Link>
           )}
           <Link
@@ -871,7 +871,7 @@ const UserMenu = forwardRef(function UserMenu(
           <div className="user-menu-divider" />
 
           {/* Account settings — change password, email, privacy, delete account.
-              Distinct from "My Profile" (public-facing /u/<username>). */}
+              Distinct from the collector profile at /u/<username>. */}
           <Link
             href="/account"
             className="user-menu-item"

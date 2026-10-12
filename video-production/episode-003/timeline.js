@@ -37,7 +37,20 @@ const C = {
 const BOX6 = [C.cerebus1, C.iron, C.milk1, C.surfer, C.scud1, C.avengers];
 const BOX9 = [C.cerebus1, C.cerebus2, C.milk1, C.milk2, C.scud1, C.scud2, C.iron, C.surfer, C.avengers];
 const cover = (asset, extra = {}) => ({ type: "cover", asset, treatment: "slowPush", ...extra });
-const screen = (asset, treatment = "push", title, extra = {}) => ({ type: "screen", asset: s(asset), treatment, ...(title ? { title } : {}), ...extra });
+// Captures from other sites say where they came from in the address bar.
+const SOURCE = {
+  "discogs-2001-home": "web.archive.org · discogs.com, February 2001",
+  "discogs-homework-top": "web.archive.org · discogs.com, September 2026",
+  "discogs-homework-versions": "web.archive.org · discogs.com, September 2026",
+  "discogs-homework-sellers": "web.archive.org · discogs.com, May 2024",
+  "gcd-milk-and-cheese": "web.archive.org · comics.org, 2019",
+  "allowlist-code": "src/lib/publisher.js",
+};
+const screen = (asset, treatment = "push", title, extra = {}) => ({
+  type: "screen", asset: s(asset), treatment, ...(title ? { title } : {}),
+  ...(SOURCE[asset] ? { url: SOURCE[asset] } : {}), ...(asset === "allowlist-code" ? { dots: false } : {}),
+  ...(extra.focus ? { centerFocus: true } : {}), ...extra,
+});
 
 const CUES = [
   ["A friend of mine recently", { type: "grid", assets: BOX6, columns: 3 }],
@@ -49,7 +62,7 @@ const CUES = [
   ["But before I get into that", { type: "chapter", kicker: "Part one", title: "Why I built it", transitionIn: "cut" }],
   ["living with a roommate", screen("discogs-homework-top")],
   ["He could catalog his records", screen("discogs-homework-top", "push", undefined, { focus: { x: 0.72, y: 0.12 }, zoom: 1.5 })],
-  ["find specific pressings", screen("discogs-homework-versions")],
+  ["find specific pressings", screen("discogs-homework-versions", "push", undefined, { focus: { x: 0.3, y: 0.5 }, zoom: 1.6 })],
   ["buy from sellers all over the world", screen("discogs-homework-sellers")],
   ["my own comic collection", { type: "grid", assets: [C.ks1, C.ks2, C.ks3, C.ks4, C.ks5], columns: 5, title: "The Amory Wars", sub: "Coheed and Cambria" }],
   ["books I wanted to find", { type: "fan", assets: [C.ks2, C.ks3, C.ks4, C.ks5, C.goodApollo1, C.noWorld1] }],
@@ -63,12 +76,12 @@ const CUES = [
   ["If you've never used discogs", { type: "chapter", title: "Why Discogs works", transitionIn: "cut" }],
   ["Every record has its own page", screen("discogs-homework-top", "push", undefined, { focus: { x: 0.3, y: 0.12 }, zoom: 1.6 })],
   ["you click a button", screen("discogs-homework-top", "push", undefined, { focus: { x: 0.72, y: 0.12 }, zoom: 1.7 })],
-  ["built by the people who use it", screen("discogs-2001-home", "push", undefined, { focus: { x: 0.08, y: 0.25 }, zoom: 1.7 })],
+  ["built by the people who use it", screen("discogs-2001-home", "push", undefined, { focus: { x: 0.12, y: 0.27 }, zoom: 1.4 })],
   ["started in 2000", screen("discogs-2001-home", "push", "Discogs.com, February 2001")],
   ["No rock and roll", screen("discogs-2001-home", "push", undefined, { focus: { x: 0.5, y: 0.1 }, zoom: 1.6 })],
-  ["other collectors showed up", screen("discogs-homework-versions", "push", "Today: 108 versions of one Daft Punk album")],
-  ["Hold on to that", screen("discogs-2001-home", "push", "2001: 1,943 releases. 56 contributors.", { focus: { x: 0.07, y: 0.46 }, zoom: 1.8 })],
-  ["Comics have the exact same problem", { type: "grid", assets: [C.xmen3, C.xmen4, C.xmen5, C.xmen, { asset: C.xmen1, aspect: 1.94 }], columns: 5, title: "X-Men #1 (1991): five covers" }],
+  ["other collectors showed up", screen("discogs-homework-versions", "push", "Today: 108 versions of one Daft Punk album", { focus: { x: 0.3, y: 0.5 }, zoom: 1.6 })],
+  ["Hold on to that", screen("discogs-2001-home", "push", "2001: 1,943 releases. 56 contributors.", { focus: { x: 0.12, y: 0.47 }, zoom: 1.45 })],
+  ["Comics have the exact same problem", { type: "grid", assets: [C.xmen3, C.xmen4, C.xmen5, C.xmen], columns: 4, title: "X-Men #1 (1991): one issue, five covers" }],
   ["second printings", cover(C.scud1, { treatment: "still", title: "Scud #1, second printing" })],
   ["same title relaunched five times", screen("iron-man-search", "push", "Same title. New number one.")],
   ["In my Coheed books", { type: "grid", assets: [C.ks1, C.ks2, C.ks3, C.ks4, C.ks5], columns: 5 }],
@@ -149,7 +162,7 @@ const CUES = [
   ["Finding stuff you didn't know existed", { type: "grid", assets: [C.milk6, C.scud10, C.cerebus20, C.freex], columns: 4 }],
   ["finishing the run", screen("cerebus-series", "panDown")],
   ["talking to other people", { type: "quote", text: "3. Talking to people who care as much as you do." }],
-  ["This guy's nailed that for records", screen("discogs-homework-versions")],
+  ["This guy's nailed that for records", screen("discogs-homework-top", "push", undefined, { focus: { x: 0.72, y: 0.12 }, zoom: 1.5 })],
   ["The catalog and the collection part", screen("silver-surfer-series", "push", "Catalog and collection: live")],
   ["buying and selling part is in beta", screen("sell", "push", "Marketplace: beta")],
   ["no checkout yet", screen("sell", "push", "Marketplace: beta")],

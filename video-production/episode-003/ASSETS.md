@@ -83,7 +83,7 @@ Reusable pieces: ChannelSting, TitleCard, ChapterCard, CoverGrid, CoverPair, Cov
 | `covers/scud-the-disposable-assassin-004-1994.jpg`, `-005-1994.jpg`, `-006-1994.jpg`, `-010-1994.jpg`, `-015-1994.jpg`, `-018-1994.jpg` | Additional Scud the Disposable Assassin issues. ComicVine |
 | `covers/mantra-001-1993.jpg`, `covers/firearm-001-1993.jpg`, `covers/the-night-man-001-1993.jpg`, `covers/freex-001-1993.jpg`, `covers/prototype-001-1993.jpg` | Additional Malibu/Ultraverse issues. ComicVine |
 | `covers/amory-wars-keeping-secrets-002-2010.jpg` through `-005-2010.jpg`, `covers/amory-wars-good-apollo-001-2017.jpg`, `-002-2017.jpg`, `covers/amory-wars-no-world-for-tomorrow-001-2024.jpg` | Additional The Amory Wars issues. ComicVine |
-| `covers/x-men-001-1991.jpg`, `covers/x-men-001-1991-variant-1.jpg`, `-variant-3.jpg`, `-variant-4.jpg`, `-variant-5.jpg` | X-Men #1 (1991) standard and variant covers. ComicVine |
+| `covers/x-men-001-1991.jpg`, `-variant-3.jpg`, `-variant-4.jpg`, `-variant-5.jpg` | X-Men #1 (1991) covers. ComicVine. (`-variant-1.jpg`, the wide fold-out, is not used: its trade dress looks like the 2011 anniversary reprint, not 1991.) |
 | `audio/MUSIC_BED.mp3`, `audio/MUSIC_STING.mp3` | Kevin MacLeod, "Rollin at 5" and "Funkorama", CC BY 4.0 (same as Ep 001/002) |
 
 No B-roll or screen recordings from Tony were used. Discogs is shown through archival and marketplace screen captures.

@@ -16,6 +16,7 @@ import { coverThumb } from "@/lib/coverThumb";
 import { getPublicProfile } from "@/lib/pageData";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import ReportButton from "@/components/ReportButton";
+import ProfileFollow from "@/components/ProfileFollow";
 
 function formatJoinDate(iso) {
   if (!iso) return null;
@@ -199,6 +200,7 @@ export default async function PublicProfilePage({ params }) {
               )}
             </div>
             {profile.bio && <p className="profile-bio">{profile.bio}</p>}
+            <ProfileFollow username={username} ownerId={profile.id} />
             <div className="profile-actions">
               <ShareProfileButton username={username} />
               {/* Self-gates to the signed-in owner with 1+ owned book. */}

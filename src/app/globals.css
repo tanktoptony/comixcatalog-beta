@@ -2779,6 +2779,82 @@ input[type="file"] {
   box-shadow: 0 0 0 2px rgba(244, 208, 63, 0.4);
 }
 
+/* -----------------------------
+   PEOPLE + FOLLOWS
+------------------------------ */
+.profile-follow-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.65rem;
+  color: var(--cc-muted, #aeb4c0);
+  font-size: 0.9rem;
+}
+
+.profile-follow-counts strong { color: var(--cc-text, #fff); }
+.follow-button-wrap { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.follow-button { min-width: 92px; }
+.follow-button .unfollow-label { display: none; }
+.follow-button.is-following:hover .follow-label,
+.follow-button.is-following:focus-visible .follow-label { display: none; }
+.follow-button.is-following:hover .unfollow-label,
+.follow-button.is-following:focus-visible .unfollow-label { display: inline; }
+.follow-error { max-width: 220px; color: #ff9b9b; font-size: 0.75rem; }
+
+.people-page {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.people-heading h1 { margin: 0.2rem 0; font-family: var(--font-display); font-size: clamp(2rem, 7vw, 3.2rem); }
+.people-heading p:last-child { margin-top: 0.35rem; color: var(--cc-muted, #aeb4c0); }
+.people-search-label { display: block; margin: 2rem 0 0.5rem; font-weight: 700; }
+.people-search {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 46px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.06);
+  color: inherit;
+  font: inherit;
+}
+
+.people-list { display: grid; gap: 0.65rem; margin-top: 1rem; }
+.people-card {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.035);
+}
+
+.people-profile-link { display: flex; min-width: 0; flex: 1; align-items: center; gap: 0.75rem; color: inherit; text-decoration: none; }
+.people-avatar { width: 48px; height: 48px; flex: none; border-radius: 50%; object-fit: cover; background: #0b1e6b; }
+.people-member-copy { display: flex; min-width: 0; flex-direction: column; }
+.people-member-copy strong, .people-member-copy span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.people-member-copy span { color: var(--cc-muted, #aeb4c0); font-size: 0.88rem; }
+.people-state, .people-signin { color: var(--cc-muted, #aeb4c0); }
+.people-error { color: #ff9b9b; }
+.people-signin { margin: 2rem 0; }
+.people-connections { margin-top: 2.5rem; }
+.people-tabs { display: flex; gap: 0.4rem; border-bottom: 1px solid rgba(255,255,255,0.12); }
+.people-tabs button { padding: 0.7rem 1rem; border: 0; border-bottom: 2px solid transparent; background: none; color: inherit; font: inherit; font-weight: 700; cursor: pointer; }
+.people-tabs button.active { border-bottom-color: var(--cc-gold, #f4d03f); color: var(--cc-gold, #f4d03f); }
+
+@media (max-width: 420px) {
+  .people-page { padding-inline: 0.75rem; }
+  .people-card { align-items: flex-start; }
+  .people-card .follow-button { min-width: 78px; padding-inline: 0.6rem; }
+  .people-avatar { width: 42px; height: 42px; }
+}
+
 
 /* -----------------------------
    PROFILE HERO

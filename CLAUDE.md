@@ -161,6 +161,9 @@ Columns: `username`, `is_public`, `created_at`, `avatar_key`, `avatar_url`, `is_
 - `stripe_customer_id` is mode-sensitive — a live-mode `cus_…` will fail under a test-mode key (we hit this).
 - **`is_pro`, `is_founding_collector` and `stripe_customer_id` are server-only (migration 0032a/0032b, 2026-10-05).** A trigger rejects any change to them unless the caller is the service role or postgres, because the "Users can update own profile" policy has no column limit and owners could otherwise grant themselves Pro. Browsers can't read `stripe_customer_id` at all, so client code must select explicit columns from `profiles`, never `select("*")`. A new `profiles` column needs adding to 0032b's grant list or browsers can't read it.
 
+#### `follows` (migration 0048)
+One-way member relationships keyed by `(follower_id, followee_id)`. Participants can read rows; all writes use the rate-limited `/api/follows` service route, which also enforces privacy and blocks. Public member search lives at `/people`.
+
 #### `user_collections`
 PK `id` (uuid). FKs: `user_id` → `auth.users`, `comic_id` → `comics.id`, plus a non-FK `gcd_issue_id` (int4) link.
 Columns: `status`, `condition`, `grade_numeric` (numeric), `slab_company`, `slab_cert_number`, `notes`, `purchase_price` (numeric), `market_value` (numeric), `publisher`, `created_at`, `created_by`, `user_cover_url`, `auto_market_value` (numeric), `auto_market_value_at` (timestamptz), `auto_market_value_n` (int4).

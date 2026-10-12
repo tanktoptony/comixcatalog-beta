@@ -156,6 +156,9 @@ jobs:
       - name: Marketplace filter tests
         run: npm run test:marketplace-facets
 
+      - name: Follow rule tests
+        run: npm run test:follows
+
       - name: Valuation tests
         run: npm run test:valuation
 

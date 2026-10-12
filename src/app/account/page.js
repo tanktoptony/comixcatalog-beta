@@ -29,7 +29,9 @@ export default function AccountSettingsPage() {
   const [isPublic, setIsPublic] = useState(false);
   const [privacyMsg, setPrivacyMsg] = useState(null);
   const [emailOnMessage, setEmailOnMessage] = useState(true);
+  const [emailTips, setEmailTips] = useState(true);
   const [notificationMsg, setNotificationMsg] = useState(null);
+  const [tipsMsg, setTipsMsg] = useState(null);
 
   // Mirror profile.is_public into local state once profile resolves so the
   // checkbox is checked correctly on first render. Adjusted during render
@@ -69,6 +71,19 @@ export default function AccountSettingsPage() {
   }, [supabase, user]);
 
   useEffect(() => {
+    if (!user) return;
+    let active = true;
+    async function loadTipsSetting() {
+      const { data, error } = await supabase.from("profiles").select("email_tips").eq("id", user.id).single();
+      if (!active) return;
+      if (error) setTipsMsg({ kind: "error", text: error.message });
+      else setEmailTips(data.email_tips !== false);
+    }
+    loadTipsSetting();
+    return () => { active = false; };
+  }, [supabase, user]);
+
+  useEffect(() => {
     if (privacyMsg?.kind !== "success") return;
     const timer = setTimeout(() => setPrivacyMsg(null), 2000);
     return () => clearTimeout(timer);
@@ -79,6 +94,12 @@ export default function AccountSettingsPage() {
     const timer = setTimeout(() => setNotificationMsg(null), 2000);
     return () => clearTimeout(timer);
   }, [notificationMsg]);
+
+  useEffect(() => {
+    if (tipsMsg?.kind !== "success") return;
+    const timer = setTimeout(() => setTipsMsg(null), 2000);
+    return () => clearTimeout(timer);
+  }, [tipsMsg]);
 
   if (loading || !user) {
     return (
@@ -118,6 +139,19 @@ export default function AccountSettingsPage() {
       setNotificationMsg({ kind: "error", text: error.message });
     } else {
       setNotificationMsg({ kind: "success", text: "Saved" });
+    }
+  }
+
+  async function handleTipsToggle(e) {
+    const next = e.target.checked;
+    setEmailTips(next);
+    setTipsMsg(null);
+    const { error } = await supabase.from("profiles").update({ email_tips: next }).eq("id", user.id);
+    if (error) {
+      setEmailTips(!next);
+      setTipsMsg({ kind: "error", text: error.message });
+    } else {
+      setTipsMsg({ kind: "success", text: "Saved" });
     }
   }
 
@@ -181,6 +215,15 @@ export default function AccountSettingsPage() {
             label="Email me when someone sends me a message"
             message={notificationMsg}
           />
+          <ToggleSetting
+            id="email-tips"
+            checked={emailTips}
+            onChange={handleTipsToggle}
+            label="Tips to get started"
+            message={tipsMsg}
+          >
+            A couple of short emails to help you add your first comic.
+          </ToggleSetting>
         </section>
 
         <section className={`${styles.card} ${styles.wide}`}>

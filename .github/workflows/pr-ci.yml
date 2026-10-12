@@ -171,5 +171,8 @@ jobs:
       - name: JSON-LD escaping tests
         run: npm run test:json-ld
 
+      - name: Activation nudge tests
+        run: npm run test:activation-nudges
+
       - name: Docs link check
         run: npm run docs:check

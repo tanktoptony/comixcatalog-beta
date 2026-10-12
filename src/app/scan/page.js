@@ -1,8 +1,8 @@
 import CoverScanner from "@/components/CoverScanner";
 
 export const metadata = {
-  title: "Scan a cover | ComixCatalog",
-  description: "Take a photo of a comic cover and find the issue in the catalog.",
+  title: "Scan comics | ComixCatalog",
+  description: "Scan a comic cover or barcode and find the issue in the catalog.",
 };
 
 // A destination for "Scan a cover": the homepage hero and the library link
@@ -11,9 +11,9 @@ export default function ScanPage() {
   return (
     <main className="scan-page">
       <header className="scan-intro">
-        <p className="scan-kicker">Scan a cover</p>
-        <h1 className="scan-title">Snap it. We&apos;ll find the issue.</h1>
-        <p className="scan-lede">Take a photo of a comic&apos;s front cover and we match it to the exact issue in the catalog. Add it to your collection or wantlist in one tap.</p>
+        <p className="scan-kicker">Scan comics</p>
+        <h1 className="scan-title">Scan it. We&apos;ll find the issue.</h1>
+        <p className="scan-lede">Use the cover or the barcode to find a comic in the catalog, then add it to your collection or wantlist.</p>
       </header>
       <CoverScanner />
       <ul className="scan-tips" aria-label="Tips for a good scan">

@@ -1,6 +1,15 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { reviewRowsToAddPayload, runScanQueue } from "./scanBulk.js";
+import { createScanInput, reviewRowsToAddPayload, runScanQueue, scanInputUsesVision } from "./scanBulk.js";
+
+test("a barcode read never uses the daily vision quota", () => {
+  const barcode = createScanInput({ source: "barcode", barcode: "759606083121" });
+  const photo = createScanInput({ source: "photo", file: { name: "cover.jpg" } });
+  assert.equal(scanInputUsesVision(barcode), false);
+  assert.equal(scanInputUsesVision(photo), true);
+  assert.equal(barcode.status, "identifying");
+  assert.equal(photo.status, "queued");
+});
 
 test("bulk queue holds at three requests in flight", async () => {
   let active = 0, peak = 0;

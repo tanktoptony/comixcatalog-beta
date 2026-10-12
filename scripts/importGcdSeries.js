@@ -6,6 +6,7 @@ import { createClient } from "@supabase/supabase-js";
 import { resolvePublisher } from "../src/lib/publisher.js";
 import { isUsMarketSeries } from "../src/lib/usMarket.js";
 import { cachedIssueCount, gcdIdFromUrl } from "./lib/gcdSeriesImport.js";
+import { catalogBarcodeRow, insertCatalogBarcode } from "./lib/gcdBarcodes.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
@@ -80,6 +81,7 @@ async function importOne(gcdId) {
     });
     const { error } = await supabase.from("gcd_issues").upsert(issueRows[index], { onConflict: "gcd_id" });
     if (error) throw error;
+    await insertCatalogBarcode(supabase, catalogBarcodeRow(issueIds[index], issueJson.barcode));
     if (index < issueIds.length - 1) await sleep(SLEEP_MS);
   }
 

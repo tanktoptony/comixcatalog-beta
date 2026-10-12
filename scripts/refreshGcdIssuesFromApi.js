@@ -29,6 +29,7 @@ import { describeError } from "./lib/describeError.js";
 import { orderActiveTargets, pickBestCandidate, readCursor, rotate, writeCursor } from "./lib/featuredTargets.js";
 import { fetchRecentComicVineIssues } from "./lib/cvRecentReleases.js";
 import { fetchAllPages } from "../src/lib/supabase/fetchAllPages.js";
+import { catalogBarcodeRow, insertCatalogBarcode } from "./lib/gcdBarcodes.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
@@ -315,6 +316,14 @@ async function refreshOne(seriesGcdId) {
         key_date: issueJson.key_date || null,
       }, { onConflict: "gcd_id" });
     if (upsertErr) { console.error(`    upsert failed for issue ${issueId}: ${describeError(upsertErr)}`); continue; }
+    const barcodeRow = catalogBarcodeRow(issueId, issueJson.barcode);
+    if (barcodeRow) {
+      try {
+        await insertCatalogBarcode(supabase, barcodeRow);
+      } catch (err) {
+        console.error(`    barcode upsert failed for issue ${issueId}: ${describeError(err)}`);
+      }
+    }
     inserted++;
   }
 

@@ -3,7 +3,7 @@ import { getAuthedUser } from "@/lib/authServer";
 import { escapeLike } from "@/lib/follows";
 import { getServiceClient } from "@/lib/supabase/service";
 
-const PROFILE_COLUMNS = "id, username, display_name, avatar_url";
+const PROFILE_COLUMNS = "id, username, display_name, avatar_url, avatar_key";
 
 async function memberQuery(supabase, column, pattern) {
   const { data, error } = await supabase
@@ -53,9 +53,11 @@ export async function GET(req) {
     }
     return NextResponse.json(
       ordered.map((profile) => ({
+        id: profile.id,
         username: profile.username,
         display_name: profile.display_name,
         avatar_url: profile.avatar_url,
+        avatar_key: profile.avatar_key,
         following: followed.has(profile.id),
       }))
     );

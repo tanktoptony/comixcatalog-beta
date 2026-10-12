@@ -10,6 +10,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { inboxCache } from "@/lib/inboxCache";
 import Link from "next/link";
+import Avatar from "@/components/Avatar";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
@@ -30,8 +31,7 @@ function NewFollowersStrip({ followers }) {
         {followers.map((follower) => (
           <article className="inbox-follower" key={follower.id}>
             <Link href={`/u/${follower.username}`} className="inbox-follower-person">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={follower.avatar_url || `/avatars/${follower.avatar_key || "cc_badge"}.png`} alt="" />
+              <Avatar profile={follower} />
               <span><strong>{follower.display_name || follower.username}</strong><small>@{follower.username}</small></span>
             </Link>
             <FollowButton username={follower.username} ownerId={follower.id} initialFollowing={follower.following} compact />
@@ -147,7 +147,7 @@ export default function InboxPage() {
       // Hydrate profiles for the other participants.
       const { data: profiles, error: profilesError } = await supabase
         .from("profiles")
-        .select("id, username, avatar_url, display_name")
+        .select("id, username, avatar_url, avatar_key, display_name")
         .in("id", otherIds);
 
       if (profilesError) {
@@ -231,12 +231,7 @@ export default function InboxPage() {
             <li key={t.otherId} className={`inbox-thread ${isUnread ? "is-unread" : ""}`}>
               <Link href={`/inbox/${username}`} className="inbox-thread-link">
                 <div className="inbox-thread-avatar">
-                  {t.profile?.avatar_url ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={t.profile.avatar_url} alt="" />
-                  ) : (
-                    <span aria-hidden="true">{name[0]?.toUpperCase() ?? "?"}</span>
-                  )}
+                  <Avatar profile={t.profile || { id: t.otherId, username }} />
                 </div>
                 <div className="inbox-thread-body">
                   <div className="inbox-thread-top">

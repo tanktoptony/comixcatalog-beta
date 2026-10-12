@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { avatarForProfile } from "@/lib/defaultAvatar";
 import { forwardRef, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { groupByTitle, flattenGroups } from "@/lib/searchVariety";
 import { useRouter, usePathname } from "next/navigation";
@@ -770,9 +771,7 @@ const UserMenu = forwardRef(function UserMenu(
   const avatarSrc =
     !profile && profileLoading
       ? null
-      : profile?.avatar_url
-      ? profile.avatar_url
-      : `/avatars/${profile?.avatar_key || "cc_badge"}.png`;
+      : avatarForProfile({ ...profile, id: profile?.id || user?.id });
 
   function handleItem(callback) {
     return () => {

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import { avatarForProfile } from "@/lib/defaultAvatar";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
 const BIO_MAX = 500;
@@ -392,7 +393,7 @@ export default function EditProfileModal({ profile, onClose, onSaved }) {
 
   if (typeof document === "undefined") return null;
 
-  const fallbackAvatar = `/avatars/${profile.avatar_key || "cc_badge"}.png`;
+  const fallbackAvatar = avatarForProfile({ ...profile, avatar_url: null });
 
   const modal = (
     <div style={S.overlay} onClick={onClose} role="presentation">

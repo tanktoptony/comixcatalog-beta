@@ -19,3 +19,17 @@ export function planCleanup({ originals = [], publicFiles = [], referenced = new
     .map((f) => f.path);
   return { originals: stale, orphans };
 }
+
+// Photo files a private sold record (sold_items.seller_photo_keys, 0052)
+// still points to. Their listing_photos rows are gone once a book is marked
+// sold, so the cleanup must count these as referenced.
+export function soldPhotoPaths(rows = []) {
+  const paths = [];
+  for (const row of rows) {
+    for (const photo of Array.isArray(row?.seller_photo_keys) ? row.seller_photo_keys : []) {
+      if (photo?.storage_path) paths.push(photo.storage_path);
+      if (photo?.thumb_path) paths.push(photo.thumb_path);
+    }
+  }
+  return paths;
+}

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { planCleanup } from "./photoCleanupPlan.js";
+import { planCleanup, soldPhotoPaths } from "./photoCleanupPlan.js";
 
 const now = Date.parse("2026-10-03T06:00:00Z");
 const at = (hoursAgo) => new Date(now - hoursAgo * 3600 * 1000).toISOString();
@@ -36,4 +36,18 @@ test("only unreferenced public files past the grace window are orphans", () => {
 
 test("nothing to do is an empty plan", () => {
   assert.deepEqual(planCleanup({ now }), { originals: [], orphans: [] });
+});
+
+test("photos of a sold book are not orphans", () => {
+  const referenced = new Set(soldPhotoPaths([
+    { seller_photo_keys: [{ storage_path: "l/u1/sold.webp", thumb_path: "l/u1/sold_t.webp" }] },
+    { seller_photo_keys: null },
+  ]));
+  const old = "2026-10-01T00:00:00Z";
+  const plan = planCleanup({
+    publicFiles: [{ path: "l/u1/sold.webp", createdAt: old }, { path: "l/u1/sold_t.webp", createdAt: old }, { path: "l/u1/gone.webp", createdAt: old }],
+    referenced,
+    now,
+  });
+  assert.deepEqual(plan.orphans, ["l/u1/gone.webp"]);
 });

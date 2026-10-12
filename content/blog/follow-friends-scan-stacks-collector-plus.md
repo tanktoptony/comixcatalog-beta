@@ -1,10 +1,10 @@
 ---
 title: Follow your friends, scan a whole stack, and what Collector+ is
 slug: follow-friends-scan-stacks-collector-plus
-excerpt: A bunch of you asked how to find your friends on here. Fair. You can now, plus you can scan a stack of comics in one go, mark books sold, and there's finally a way to support the site after the founding spots are gone.
+excerpt: You can find and follow your friends now. You can also scan a stack of comics in one go and mark books sold, and there's finally a way to support the site after the founding spots are gone.
 ---
 
-A bunch of you asked me the same question: how do I find my friends on here? And the honest answer was "know their exact username and type it into the address bar like it's 1997." Not great.
+I've had people ask me how to find their friends on here. The honest answer was "know their exact username and type it into the address bar like it's 1997." Not great.
 
 So that got fixed, along with a pile of other things. Here's what's new.
 
@@ -18,7 +18,7 @@ Private profiles stay private. You can't find them in search, and if you set you
 
 ## Scan a whole stack
 
-This is the one I've been waiting for. On the [Scan page](https://www.comixcatalog.com/scan) there's now a Scan a stack mode. Point your phone at a cover, snap, next cover, snap. You don't wait for each one to finish. When you're done, you get one list with every match, and right there in the list you can:
+On the [Scan page](https://www.comixcatalog.com/scan) there's now a Scan a stack mode. Point your phone at a cover, snap, next cover, snap. You don't wait for each one to finish. When you're done, you get one list with every match, and right there in the list you can:
 
 - swap a match if it guessed the wrong issue
 - add another copy or skip a book you already own

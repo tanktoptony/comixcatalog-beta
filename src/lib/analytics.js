@@ -24,6 +24,8 @@
 //   signup_started / signup_completed also carry attr_*
 //   first_collection_add { attr_* }   first owned book on the account (activation)
 //   first_wantlist_add   { attr_* }   first wantlist book on the account
+//   first_comic_added    { collection_count, attr_* } database-claimed first owned/for-sale comic
+//   collection_25       { collection_count, attr_* } database-claimed 25-comic threshold
 //   share_card_generated { card_type }
 //   share_card_action    { card_type, method }   method: share_sheet | download | copy_invite_link
 //

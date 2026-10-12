@@ -6,6 +6,7 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 import { claimFoundingPass } from "@/lib/launchFlags";
 import { redirectAfterAuth, safeNextPath } from "@/lib/auth/postAuthRedirect";
 import { seedAttribution } from "@/lib/attribution";
+import { authedFetch } from "@/lib/apiClient";
 
 // Handles both the Google OAuth redirect and the email/password
 // confirmation redirect (both use this exact URL as their
@@ -157,6 +158,11 @@ export default function AuthCallbackPage() {
       // confirmation link usually opens in a different browser than the one
       // that signed up. Re-checked here because metadata is user-writable.
       seedAttribution(user.user_metadata?.signup_attribution);
+      await authedFetch("/api/attribution", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user.user_metadata?.signup_attribution || {}),
+      }).catch(() => null);
       const next = safeNextPath(user.user_metadata?.signup_next);
       redirectAfterAuth(next || `/u/${username}`);
     }

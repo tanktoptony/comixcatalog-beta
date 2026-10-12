@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useAuth } from "./AuthContext";
 import { trackEvent } from "@/lib/analytics";
 import { attributionParams } from "@/lib/attribution";
+import { authedFetch } from "@/lib/apiClient";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { readLocal, writeLocal, clearLocalPrefix } from "@/lib/localCache";
 import {
@@ -367,6 +368,20 @@ export function LibraryProvider({ children }) {
   // literal "first" name here would be misleading since this fires on
   // every add, not just the first ever.
   trackEvent("collection_add", { status });
+
+  if (status === "owned" || status === "for_sale") {
+    try {
+      const response = await authedFetch("/api/traction/milestones", { method: "POST" });
+      if (response.ok) {
+        const result = await response.json();
+        for (const eventName of result.claimed || []) {
+          trackEvent(eventName, { collection_count: result.count, ...attributionParams() });
+        }
+      }
+    } catch {
+      // Collection writes must not fail because analytics claiming is unavailable.
+    }
+  }
 
   // The funnel's activation events. collection_add above fires on every
   // add; these fire once per account per status (strictly: whenever that

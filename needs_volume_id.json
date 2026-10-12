@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-12T05:01:31.581393+00:00",
-    "retry_after": "2026-10-13T05:01:31.581406+00:00"
+    "last_attempt_at": "2026-10-12T06:02:51.941087+00:00",
+    "retry_after": "2026-10-13T06:02:51.941102+00:00"
   },
   {
     "name": "Cerebus",
@@ -45792,9 +45792,9 @@
     "year": 1941,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T05:01:26.279153+00:00",
-    "retry_after": "2026-10-12T05:01:26.279170+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T06:00:51.467461+00:00",
+    "retry_after": "2026-10-15T06:00:51.467476+00:00"
   },
   {
     "name": "Gnomes, Fairies and Sex Kittens",
@@ -45802,9 +45802,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T05:01:26.648584+00:00",
-    "retry_after": "2026-10-12T05:01:26.648602+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T06:00:51.956762+00:00",
+    "retry_after": "2026-10-15T06:00:51.956779+00:00"
   },
   {
     "name": "Bulletproof Monk: Tales of the BPM",
@@ -45812,9 +45812,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T05:01:34.301045+00:00",
-    "retry_after": "2026-10-12T05:01:34.301063+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T06:00:52.483724+00:00",
+    "retry_after": "2026-10-15T06:00:52.483740+00:00"
   },
   {
     "name": "The Exiled",
@@ -45835,9 +45835,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T05:01:38.956538+00:00",
-    "retry_after": "2026-10-12T05:01:38.956548+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T06:00:52.879562+00:00",
+    "retry_after": "2026-10-15T06:00:52.879578+00:00"
   },
   {
     "name": "Superman [Kellogg's]",
@@ -45845,9 +45845,9 @@
     "year": 1955,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T05:01:39.413192+00:00",
-    "retry_after": "2026-10-12T05:01:39.413209+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T06:00:53.277833+00:00",
+    "retry_after": "2026-10-15T06:00:53.277851+00:00"
   },
   {
     "name": "Terry Toons Big Book of Comics Jumbo Edition",
@@ -45855,9 +45855,9 @@
     "year": 1971,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T05:01:39.836249+00:00",
-    "retry_after": "2026-10-12T05:01:39.836266+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T06:00:53.969864+00:00",
+    "retry_after": "2026-10-15T06:00:53.969880+00:00"
   },
   {
     "name": "Michel Vaillant",
@@ -45902,9 +45902,9 @@
         "start_year": 1959
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T05:02:04.488563+00:00",
-    "retry_after": "2026-10-12T05:02:04.488577+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T06:02:50.907397+00:00",
+    "retry_after": "2026-10-15T06:02:50.907412+00:00"
   },
   {
     "name": "Jonathan Steele",
@@ -45925,9 +45925,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T05:05:43.635160+00:00",
-    "retry_after": "2026-10-12T05:05:43.635178+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T06:02:51.868978+00:00",
+    "retry_after": "2026-10-15T06:02:51.868994+00:00"
   },
   {
     "name": "Hasbro / Uncanny X-Men [Marvel Legends Reprint]",
@@ -50522,5 +50522,150 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T05:01:29.493049+00:00",
     "retry_after": "2026-10-13T05:01:29.493065+00:00"
+  },
+  {
+    "name": "Groo, o Inteligente",
+    "publisher": "Avatar Press",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T06:00:54.375028+00:00",
+    "retry_after": "2026-10-13T06:00:54.375048+00:00"
+  },
+  {
+    "name": "I Mage",
+    "publisher": "Action Lab Entertainment",
+    "year": 2016,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 88017,
+        "name": "I, Mage",
+        "publisher": "Action Lab",
+        "start_year": 2016
+      },
+      {
+        "id": 89601,
+        "name": "I, Mage",
+        "publisher": "Action Lab",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T06:01:04.433210+00:00",
+    "retry_after": "2026-10-13T06:01:04.433226+00:00"
+  },
+  {
+    "name": "Persepolis",
+    "publisher": "EC Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62908,
+        "name": "Persepolis",
+        "publisher": "Bumkniga",
+        "start_year": 2013
+      },
+      {
+        "id": 149301,
+        "name": "Persepolis",
+        "publisher": "Botime Pegi",
+        "start_year": 2015
+      },
+      {
+        "id": 40757,
+        "name": "Persepolis",
+        "publisher": "L'Association",
+        "start_year": 2000
+      },
+      {
+        "id": 23005,
+        "name": "Persepolis",
+        "publisher": "Pantheon Books",
+        "start_year": 2003
+      },
+      {
+        "id": 151147,
+        "name": "Persepolis",
+        "publisher": "Post",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T06:01:05.146042+00:00",
+    "retry_after": "2026-10-13T06:01:05.146057+00:00"
+  },
+  {
+    "name": "O Homem-Aranha: Tormento",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T06:02:13.901744+00:00",
+    "retry_after": "2026-10-13T06:02:13.901761+00:00"
+  },
+  {
+    "name": "Homem-Aranha: Carnificina Total",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T06:02:14.336781+00:00",
+    "retry_after": "2026-10-13T06:02:14.336798+00:00"
+  },
+  {
+    "name": "The Detectives",
+    "publisher": "Marvel Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28030,
+        "name": "The Detectives",
+        "publisher": "Alpha Productions",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T06:02:25.448222+00:00",
+    "retry_after": "2026-10-13T06:02:25.448238+00:00"
+  },
+  {
+    "name": "Spicy Tales Special",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20659,
+        "name": "Spicy Tales Special",
+        "publisher": "Eternity",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T06:02:25.920908+00:00",
+    "retry_after": "2026-10-13T06:02:25.920924+00:00"
+  },
+  {
+    "name": "Le straordinarie avventure di Ad�le Blanc-Sec",
+    "publisher": "Dell Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157726,
+        "name": "Le straordinarie avventure di Adèle Blanc-Sec",
+        "publisher": "Rizzoli Lizard",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T06:02:50.146442+00:00",
+    "retry_after": "2026-10-13T06:02:50.146458+00:00"
   }
 ]

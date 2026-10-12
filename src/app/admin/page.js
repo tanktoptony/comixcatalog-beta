@@ -19,6 +19,8 @@ export default function AdminPage() {
   const [lookupErr, setLookupErr] = useState(null);
   const [working, setWorking] = useState(false);
   const [message, setMessage] = useState(null);
+  const [listingSync, setListingSync] = useState(null);
+  const [listingSyncError, setListingSyncError] = useState(null);
 
   useEffect(() => {
     if (loading) return;
@@ -26,6 +28,17 @@ export default function AdminPage() {
       router.replace("/");
     }
   }, [user, loading, router]);
+
+  useEffect(() => {
+    if (loading || user?.id !== ADMIN_ID) return;
+    authedFetch("/api/admin/listing-sync")
+      .then(async (res) => {
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error || "Could not load listing sync status");
+        setListingSync(json);
+      })
+      .catch((error) => setListingSyncError(error.message));
+  }, [user, loading]);
 
   async function lookup(e) {
     e?.preventDefault();
@@ -84,6 +97,24 @@ export default function AdminPage() {
         <Link className="admin-btn" href="/admin/review">Open review queue</Link>
         <Link className="admin-btn" href="/admin/reports">Open reports</Link>
       </div>
+
+      <section className="admin-card">
+        <h2 className="admin-card-title">Listing sync</h2>
+        {listingSyncError && <p className="admin-err">{listingSyncError}</p>}
+        {!listingSync && !listingSyncError && <p>Loading listing sync status...</p>}
+        {listingSync && (
+          <div className="admin-target">
+            <div className="admin-target-row"><span className="admin-target-label">Missing active listings</span><span className="admin-target-value">{listingSync.missing_count}</span></div>
+            <div className="admin-target-row"><span className="admin-target-label">Unresolved failures</span><span className="admin-target-value">{listingSync.unresolved_failure_count}</span></div>
+            {(listingSync.latest_failures ?? []).map((failure) => (
+              <div className="admin-target-row" key={failure.id}>
+                <span className="admin-target-label">{new Date(failure.created_at).toLocaleString()}</span>
+                <span className="admin-target-value mono" style={{ overflowWrap: "anywhere", minWidth: 0, textAlign: "right" }}>{failure.collection_item_id}: {failure.sqlstate} {failure.error_message}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
 
       <section className="admin-card">
         <h2 className="admin-card-title">Toggle Pro membership</h2>

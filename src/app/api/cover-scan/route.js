@@ -106,6 +106,18 @@ async function findCandidates(supabase, extracted) {
   }));
 }
 
+export async function GET(req) {
+  const user = await getAuthedUser(req);
+  if (!user) return NextResponse.json({ error: "Sign in to scan a cover." }, { status: 401 });
+  try {
+    const current = await quota(getServiceClient(), user.id);
+    return NextResponse.json({ quota: current });
+  } catch (error) {
+    console.error("cover scan quota failed", error);
+    return NextResponse.json({ error: "Could not check your scan limit." }, { status: 503 });
+  }
+}
+
 export async function POST(req) {
   const user = await getAuthedUser(req);
   if (!user) return NextResponse.json({ error: "Sign in to scan a cover." }, { status: 401 });

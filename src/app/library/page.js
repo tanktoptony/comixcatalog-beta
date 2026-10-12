@@ -169,6 +169,9 @@ function LibraryPageContent() {
 
   const router = useRouter();
   const searchParams = useSearchParams();
+  const justAddedIds = useMemo(() => new Set(
+    String(searchParams.get("added") || "").split(",").map((id) => id.trim()).filter(Boolean)
+  ), [searchParams]);
 
   // Honor ?tab=wishlist (or ?tab=owned) on first load - used by the footer
   // "Wantlist" link and any other deep-link entry into the library.
@@ -897,6 +900,10 @@ function LibraryPageContent() {
   const filteredItems = useMemo(() => {
     let result = [...libraryItems];
 
+    if (justAddedIds.size) {
+      result = result.filter((item) => justAddedIds.has(String(item.id)));
+    }
+
     if (search.trim()) {
       const q = search.trim().toLowerCase();
       result = result.filter((item) => {
@@ -934,7 +941,7 @@ function LibraryPageContent() {
     });
 
     return result;
-  }, [libraryItems, search, publisherFilter, sortBy]);
+  }, [libraryItems, search, publisherFilter, sortBy, justAddedIds]);
 
   // Land back on page 1 whenever the underlying result set or its shape
   // changes - otherwise switching tabs (or typing a new search) can strand

@@ -10,6 +10,7 @@
 //   node scripts/perfBaseline.js                       # production, 20 runs
 //   node scripts/perfBaseline.js --runs=10 --out=reports/perf-x.md
 //   node scripts/perfBaseline.js --base=https://<preview>.vercel.app
+//   node scripts/perfBaseline.js --ci --out="$GITHUB_STEP_SUMMARY"
 //
 // Requests are sequential, never parallel: this points at production.
 // Before each endpoint's timed runs, one request is sent and thrown away, so
@@ -33,6 +34,7 @@ const BASE = arg("base", "https://www.comixcatalog.com").replace(/\/$/, "");
 const RUNS = Number(arg("runs", "20"));
 const OUT = arg("out", null);
 const COLD = process.argv.includes("--cold");
+const CI = process.argv.includes("--ci");
 const TIMEOUT_MS = 60000;
 
 const hydrateIds = JSON.parse(fs.readFileSync(path.join(here, "perf", "hydrate-ids.json"), "utf8"));
@@ -71,9 +73,9 @@ function pct(sorted, p) {
 
 async function timeOnce(c, run) {
   const sep = c.path.includes("?") ? "&" : "?";
-  const url = `${BASE}${c.path}${sep}_pb=${Date.now()}-${run}`;
+  const url = CI ? `${BASE}${c.path}` : `${BASE}${c.path}${sep}_pb=${Date.now()}-${run}`;
   const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
+  const timer = setTimeout(() => ctrl.abort(), CI ? 6000 : TIMEOUT_MS);
   const t0 = performance.now();
   try {
     const res = await fetch(url, {
@@ -87,21 +89,73 @@ async function timeOnce(c, run) {
       signal: ctrl.signal,
       redirect: "manual",
     });
+    const ttfb = performance.now() - t0;
     // Read the whole body: time-to-last-byte is what the page waits for.
-    const text = await res.text();
+    const body = await res.arrayBuffer();
     const ms = performance.now() - t0;
     return {
       ms,
+      ttfb,
       ok: res.status >= 200 && res.status < 300,
       status: res.status,
       cache: res.headers.get("x-vercel-cache") || "-",
-      bytes: text.length,
+      bytes: body.byteLength,
     };
   } catch (err) {
     return { ms: performance.now() - t0, ok: false, status: err.name === "AbortError" ? "timeout" : "error", cache: "-", bytes: 0 };
   } finally {
     clearTimeout(timer);
   }
+}
+
+async function runCi() {
+  const configPath = path.join(here, "perf", "ci-budgets.json");
+  const cases = JSON.parse(fs.readFileSync(configPath, "utf8"));
+  const rows = [];
+  let failed = false;
+
+  for (const c of cases) {
+    const over = (sample) =>
+      !sample.ok ||
+      sample.ttfb > c.budget.ttfbMs ||
+      sample.ms > c.budget.totalMs ||
+      sample.bytes > c.budget.bytes;
+    const samples = [await timeOnce(c, 0)];
+    if (over(samples[0])) samples.push(await timeOnce(c, 1));
+    const isFailure = samples.length === 2 && samples.every(over);
+    failed ||= isFailure;
+    rows.push({ ...c, samples, isFailure });
+    process.stderr.write(`${c.label}: ${isFailure ? "FAIL" : "pass"} (${formatSample(samples[0])}${samples[1] ? `, ${formatSample(samples[1])}` : ""})\n`);
+  }
+
+  const lines = [
+    "# Production performance check",
+    "",
+    `Base: ${BASE} · ${new Date().toISOString()} · two attempts per URL`,
+    "",
+    "A URL fails only when both attempts exceed a budget or return an error. Times are TTFB / total.",
+    "",
+    "| URL | Attempt 1 | Attempt 2 | Size | Budget (TTFB / total / size) | Result |",
+    "|---|---:|---:|---:|---:|---|",
+    ...rows.map(({ label, path: urlPath, samples, budget, isFailure }) => {
+      const sample = samples.find((s) => s.ok) ?? samples[0];
+      const result = isFailure ? "FAIL" : "pass";
+      return `| [${label}](${BASE}${urlPath}) | ${formatSample(samples[0])} | ${samples[1] ? formatSample(samples[1]) : "not needed"} | ${formatBytes(sample.bytes)} | ${fmt(budget.ttfbMs)} / ${fmt(budget.totalMs)} / ${formatBytes(budget.bytes)} | ${result} |`;
+    }),
+    "",
+  ];
+  const markdown = lines.join("\n");
+  if (OUT) fs.writeFileSync(OUT, markdown);
+  else process.stdout.write(markdown);
+  if (failed) process.exitCode = 1;
+}
+
+function formatSample(sample) {
+  return sample.ok ? `${fmt(sample.ttfb)} / ${fmt(sample.ms)}` : `${sample.status}`;
+}
+
+function formatBytes(bytes) {
+  return `${(bytes / 1024).toFixed(0)} KB`;
 }
 
 async function main() {
@@ -158,7 +212,7 @@ function fmt(ms) {
   return ms >= 1000 ? `${(ms / 1000).toFixed(2)}s` : `${Math.round(ms)}ms`;
 }
 
-main().catch((err) => {
+(CI ? runCi() : main()).catch((err) => {
   console.error(err);
   process.exit(1);
 });

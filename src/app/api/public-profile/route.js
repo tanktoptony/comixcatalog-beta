@@ -25,20 +25,24 @@ export async function GET(req) {
   // A viewer_id can only mean "you are the owner" if it's backed by a real
   // verified session; a spoofable query param would let anyone see a
   // non-public profile's private data by guessing its owner's id.
-  const authedViewer = await getAuthedUser(req);
-  const viewerId = authedViewer?.id ?? null;
-
   if (!username) {
     return NextResponse.json({ error: "Username required" }, { status: 400 });
   }
 
-  const { data: profile, error: profileError } = await supabase
-    .from("profiles")
-    .select(
-      "id, username, is_public, avatar_key, avatar_url, is_founding_collector, is_pro, membership_tier, created_at, display_name, location, bio, website_url, show_collection, show_wantlist, show_for_sale, show_value"
-    )
-    .eq("username", username)
-    .single();
+  // Viewer auth and the public profile lookup are independent. Starting both
+  // together removes one Supabase round trip from every request.
+  const [authedViewer, profileResult] = await Promise.all([
+    getAuthedUser(req),
+    supabase
+      .from("profiles")
+      .select(
+        "id, username, is_public, avatar_key, avatar_url, is_founding_collector, is_pro, membership_tier, created_at, display_name, location, bio, website_url, show_collection, show_wantlist, show_for_sale, show_value"
+      )
+      .eq("username", username)
+      .single(),
+  ]);
+  const viewerId = authedViewer?.id ?? null;
+  const { data: profile, error: profileError } = profileResult;
 
   if (profileError || !profile) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
@@ -59,16 +63,15 @@ export async function GET(req) {
     value: isOwner || profile.show_value !== false,
   };
 
-  const { data: collection, error: collectionError } = await supabase
-    .from("user_collections")
-    .select(`
+  let collection;
+  try {
+    collection = await fetchAllPages(() =>
+      supabase.from("user_collections").select(`
       id,
       status,
       condition,
       grade_numeric,
       slab_company,
-      slab_cert_number,
-      notes,
       purchase_price,
       market_value,
       created_at,
@@ -77,7 +80,6 @@ export async function GET(req) {
       user_cover_url,
       variant_label,
       copy_number,
-      variant_of_gcd_id,
       comics!user_collections_comic_id_fkey (
         id,
         issue_number,
@@ -86,11 +88,12 @@ export async function GET(req) {
         publisher,
         comic_covers ( image_path, is_primary )
       )
-    `)
-    .eq("user_id", profile.id)
-    .order("created_at", { ascending: false });
-
-  if (collectionError) {
+    `).eq("user_id", profile.id),
+      "id"
+    );
+    collection.sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+  } catch (collectionError) {
+    console.error("public profile collection lookup failed:", collectionError?.code, collectionError?.message);
     return NextResponse.json(
       { error: "Failed to load collection" },
       { status: 500 }
@@ -100,10 +103,8 @@ export async function GET(req) {
   // For-sale books show the seller's asking price, never an estimate. Look
   // listings up by seller (not an .in() of collection ids, which overflows
   // the URL for big for-sale shelves) and page past the 1000-row cap.
-  const listingByCollectionId = new Map();
-  if ((collection ?? []).some((item) => item.status === "for_sale")) {
-    try {
-      const listings = await fetchAllPages(
+  const listingsPromise = (collection ?? []).some((item) => item.status === "for_sale")
+    ? fetchAllPages(
         () =>
           supabase
             .from("listings")
@@ -111,13 +112,8 @@ export async function GET(req) {
             .eq("seller_id", profile.id)
             .eq("status", "active"),
         "id"
-      );
-      for (const listing of listings) listingByCollectionId.set(listing.collection_id, listing);
-    } catch (listingsError) {
-      console.error("public profile listing price lookup failed:", listingsError?.code, listingsError?.message);
-      degraded = true;
-    }
-  }
+      ).catch((error) => ({ error }))
+    : Promise.resolve([]);
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const gcdIds = [
@@ -132,36 +128,23 @@ export async function GET(req) {
   // see keyIssuesSeed.js. A tiny reference table, cheap to check per-request
   // rather than caching; revisit if this profile route ever needs to shed
   // round-trips.
-  const keyIssueLookup = {};
-  if (gcdIds.length > 0) {
-    const { data: keyIssues, error: keyIssuesError } = await supabase
+  const keyIssuesPromise = gcdIds.length > 0
+    ? supabase
       .from("key_issues")
       .select("gcd_issue_id, character, reason, tier")
-      .in("gcd_issue_id", gcdIds);
-    if (keyIssuesError) {
-      console.error("public profile key issue lookup failed:", keyIssuesError.code, keyIssuesError.message);
-      degraded = true;
-    }
-    for (const row of keyIssues ?? []) {
-      keyIssueLookup[row.gcd_issue_id] = {
-        character: row.character,
-        reason: row.reason,
-        tier: row.tier,
-      };
-    }
-  }
+      .in("gcd_issue_id", gcdIds)
+    : Promise.resolve({ data: [], error: null });
 
   const gcdDisplayLookup = {};
 
   if (gcdIds.length > 0) {
     // Paged and chunked: a plain .in() here stopped at PostgREST's 1,000-row
     // cap, so a collection past 1,000 GCD books silently lost the rest.
-    let issues = [];
-    let issuesError = null;
-    try {
+    const issuesPromise = (async () => {
+      const rows = [];
       for (let i = 0; i < gcdIds.length; i += 500) {
         const chunk = gcdIds.slice(i, i + 500);
-        issues.push(
+        rows.push(
           ...(await fetchAllPages(
             () =>
               supabase
@@ -172,11 +155,13 @@ export async function GET(req) {
           ))
         );
       }
-    } catch (err) {
-      issuesError = err;
-    }
-    if (issuesError) {
-      console.error("public profile issue lookup failed:", issuesError.code, issuesError.message);
+      return rows;
+    })();
+    let issues;
+    try {
+      issues = await issuesPromise;
+    } catch (issuesError) {
+      console.error("public profile issue lookup failed:", issuesError?.code, issuesError?.message);
       return NextResponse.json({ error: "Failed to load profile collection" }, { status: 502 });
     }
 
@@ -188,6 +173,24 @@ export async function GET(req) {
     const publisherGcdIds = [
       ...new Set(issueList.map((i) => i.publisher_gcd_id).filter(Boolean)),
     ];
+    const issueNumbers = [
+      ...new Set(issueList.map((i) => i.issue_number).filter((v) => v != null)),
+    ];
+
+    // This cover path needs only issue metadata, so overlap it with the
+    // series and publisher lookups below.
+    const idCoversPromise = seriesGcdIds.length > 0 && issueNumbers.length > 0
+      ? fetchAllPagesParallel(() =>
+          supabase
+            .from("canonical_covers")
+            .select("series_gcd_id, issue_number, series_year, cover_date, storage_path")
+            .in("series_gcd_id", seriesGcdIds)
+            .in("issue_number", issueNumbers)
+            .not("storage_path", "is", null),
+          "id",
+          2
+        )
+      : Promise.resolve([]);
 
     // Paged and chunked like the issue read above: a large, varied collection
     // can pass 1,000 series or publishers, and a plain .in() stops there.
@@ -255,10 +258,6 @@ export async function GET(req) {
     // they pulled every cover of every series in the collection: about
     // 23,000 rows in ~24 sequential pages for a 214-book profile, 4-13s per
     // load (measured 2026-10-05).
-    const issueNumbers = [
-      ...new Set(intermediate.map((r) => r.issue_number).filter((v) => v != null)),
-    ];
-
     // Year-aware cover lookup — same disambiguation as /api/library-hydrate.
     // Without it, multiple volumes of the same series_title share covers and
     // a 2011 IDW TMNT issue ends up with a 1984 Mirage cover.
@@ -276,18 +275,7 @@ export async function GET(req) {
     // together, two pages each, so one profile load never has more than four
     // reads in flight.
     const [idCovers, covers] = await Promise.all([
-      seriesGcdIds.length > 0 && issueNumbers.length > 0
-        ? fetchAllPagesParallel(() =>
-            supabase
-              .from("canonical_covers")
-              .select("series_gcd_id, issue_number, series_year, cover_date, storage_path")
-              .in("series_gcd_id", seriesGcdIds)
-              .in("issue_number", issueNumbers)
-              .not("storage_path", "is", null),
-            "id",
-            2
-          )
-        : [],
+      idCoversPromise,
       seriesTitles.length > 0 && issueNumbers.length > 0
         ? fetchAllPagesParallel(() =>
             supabase
@@ -402,18 +390,35 @@ export async function GET(req) {
         issueNumber: row.issue_number ?? "",
         year: row.year,
         publisher: row.publisher,
-        // Legacy single `coverUrl` kept for back-compat (defaults to canonical
-        // because GCD-linked rows are catalog-grade by definition). Render
-        // sites that care about the canonical-vs-personal distinction should
-        // read the three separate fields below.
-        coverUrl: canonicalUrl,
         canonicalCoverUrl: canonicalUrl,
         // personalCoverUrl is set per-row later (it's on user_collections, not
         // on the GCD lookup which is shared across users).
         href: `/issue/gcd-${row.gcd_id}`,
-        sourceType: "gcd",
       };
     }
+  }
+
+  const listingByCollectionId = new Map();
+  const listings = await listingsPromise;
+  if (listings?.error) {
+    console.error("public profile listing price lookup failed:", listings.error?.code, listings.error?.message);
+    degraded = true;
+  } else {
+    for (const listing of listings) listingByCollectionId.set(listing.collection_id, listing);
+  }
+
+  const keyIssueLookup = {};
+  const { data: keyIssues, error: keyIssuesError } = await keyIssuesPromise;
+  if (keyIssuesError) {
+    console.error("public profile key issue lookup failed:", keyIssuesError.code, keyIssuesError.message);
+    degraded = true;
+  }
+  for (const row of keyIssues ?? []) {
+    keyIssueLookup[row.gcd_issue_id] = {
+      character: row.character,
+      reason: row.reason,
+      tier: row.tier,
+    };
   }
 
   // Canonical cover lookup for local comics
@@ -445,6 +450,25 @@ export async function GET(req) {
   const personalUrlFromPath = (path) =>
     path ? `${supabaseUrl}/storage/v1/object/public/comic-covers/${path}` : null;
 
+  // Keep the wire shape limited to fields the shared profile renderer uses.
+  // In particular, do not serialize the joined comics row or raw cover path
+  // again after they have been resolved into display.
+  const presentItem = (item, display, keyIssue = null) => ({
+    id: item.id,
+    status: item.status,
+    condition: item.condition,
+    grade_numeric: item.grade_numeric,
+    slab_company: item.slab_company,
+    purchase_price: item.purchase_price,
+    market_value: item.market_value,
+    created_at: item.created_at,
+    gcd_issue_id: item.gcd_issue_id,
+    variant_label: item.variant_label,
+    copy_number: item.copy_number,
+    display,
+    key_issue: keyIssue,
+  });
+
   const normalizedCollection = (collection || [])
     .map((item) => {
       // Personal cover lives on the user_collections row itself and applies
@@ -464,7 +488,7 @@ export async function GET(req) {
           // Keep coverUrl pointing at the canonical (already set in the GCD
           // lookup) so existing UI keeps rendering as before.
         };
-        return { ...item, display, key_issue: keyIssueLookup[item.gcd_issue_id] ?? null };
+        return presentItem(item, display, keyIssueLookup[item.gcd_issue_id] ?? null);
       }
 
       const comic = item.comics;
@@ -513,15 +537,13 @@ export async function GET(req) {
         publisher: comic.publisher ?? null,
         // Public-profile priority: canonical > community fallback. Personal
         // surfaces as an overlay if the UI wants it.
-        coverUrl: canonicalCoverUrl ?? communityCoverUrl,
         canonicalCoverUrl,
         personalCoverUrl,
         communityCoverUrl,
         href: `/comic/${comic.id}`,
-        sourceType: "local",
       };
 
-      return { ...item, display };
+      return presentItem(item, display);
     })
     .filter(Boolean);
 

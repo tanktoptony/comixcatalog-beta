@@ -6,6 +6,7 @@ import EmptyState from "./EmptyState";
 import { coverThumb } from "@/lib/coverThumb";
 
 const VIEW_STORAGE_KEY = "cc:profile-view";
+const INITIAL_GRID_ITEMS = 60;
 
 // Compress an array of issue-number strings into ranges like "#1, #3, #5-9".
 function formatIssueRanges(issues) {
@@ -96,6 +97,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
   );
   // Default: title A–Z. Collectors typically want to scan a shelf by series.
   const [sortMode, setSortMode] = useState("title-asc");
+  const [visibleGridItems, setVisibleGridItems] = useState(INITIAL_GRID_ITEMS);
   // View mode: "grid" (cards) or "rows" (one row per series, expand to see issues).
   // Default to rows on narrow viewports; persists in localStorage.
   const [viewMode, setViewMode] = useState("grid");
@@ -209,7 +211,10 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
             role="tab"
             aria-selected={activeTab === tab.id}
             className={`profile-tab ${activeTab === tab.id ? "is-active" : ""}`}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => {
+              setActiveTab(tab.id);
+              setVisibleGridItems(INITIAL_GRID_ITEMS);
+            }}
           >
             <span className="profile-tab-label">{tab.label}</span>
             <span className="profile-tab-count">{counts[tab.id]}</span>
@@ -244,7 +249,10 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                 id="profile-sort"
                 className="profile-sort-select"
                 value={sortMode}
-                onChange={(e) => setSortMode(e.target.value)}
+                onChange={(e) => {
+                  setSortMode(e.target.value);
+                  setVisibleGridItems(INITIAL_GRID_ITEMS);
+                }}
               >
                 {SORT_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -263,7 +271,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
           <SeriesRowsView items={activeItems} activeTab={activeTab} />
         ) : (
           <div className={`comic-grid${activeTab === "owned" ? " comic-grid--wall" : ""}`}>
-            {activeItems.map((item) => {
+            {activeItems.slice(0, visibleGridItems).map((item) => {
               const d = item.display;
               if (!d) return null;
               // "The Case" is a showcase, not a management view — the owned
@@ -306,7 +314,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                   title={isWall ? fullTitle : undefined}
                 >
                   <div className="comic-card-cover" style={{ position: "relative" }}>
-                    <img src={coverThumb(coverUrl)} alt={d.title} />
+                    <img src={coverThumb(coverUrl)} alt={d.title} width="400" height="600" loading="lazy" decoding="async" />
                     {item.slab_company && item.grade_numeric ? (
                       <span className="profile-grade-badge">
                         {item.slab_company} {Number(item.grade_numeric).toFixed(1)}
@@ -361,6 +369,16 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                 </Link>
               );
             })}
+            {activeItems.length > visibleGridItems && (
+              <button
+                type="button"
+                className="primary-btn"
+                style={{ gridColumn: "1 / -1", justifySelf: "center" }}
+                onClick={() => setVisibleGridItems(activeItems.length)}
+              >
+                Show all {activeItems.length} books
+              </button>
+            )}
           </div>
         )}
       </div>
@@ -437,7 +455,7 @@ function SeriesRowsView({ items, activeTab }) {
             >
               <div className="series-row-thumb">
                 {g.cover ? (
-                  <img src={coverThumb(g.cover)} alt="" loading="lazy" />
+                  <img src={coverThumb(g.cover)} alt="" width="400" height="600" loading="lazy" decoding="async" />
                 ) : (
                   <div className="series-row-thumb-empty" />
                 )}
@@ -481,7 +499,7 @@ function SeriesRowsView({ items, activeTab }) {
                   return (
                     <Link key={item.id} href={cardHref} className="comic-card">
                       <div className="comic-card-cover" style={{ position: "relative" }}>
-                        <img src={coverThumb(coverUrl)} alt={d.title} />
+                        <img src={coverThumb(coverUrl)} alt={d.title} width="400" height="600" loading="lazy" decoding="async" />
                         {item.slab_company && item.grade_numeric ? (
                           <span className="profile-grade-badge">
                             {item.slab_company} {Number(item.grade_numeric).toFixed(1)}
@@ -583,11 +601,11 @@ function ActivityList({ items }) {
       {items.map((item) => {
         const d = item.display;
         if (!d) return null;
-        const cover = d.coverUrl || "/fallback-cover.png";
+        const cover = d.canonicalCoverUrl || d.communityCoverUrl || d.personalCoverUrl || "/fallback-cover.png";
         return (
           <li key={item.id} className="profile-activity-item">
             <Link href={d.href} className="profile-activity-link">
-              <img className="profile-activity-cover" src={coverThumb(cover)} alt="" />
+              <img className="profile-activity-cover" src={coverThumb(cover)} alt="" width="400" height="600" loading="lazy" decoding="async" />
               <div className="profile-activity-body">
                 <div className="profile-activity-line">
                   <ActivityVerb status={item.status} />{" "}

@@ -13,6 +13,7 @@ This is not a roadmap and not a pitch. It's a snapshot. Update `Last verified` w
 - Comic database: search, series pages, issue pages, GCD-backed metadata.
 - Collection manager: grading (raw/slabbed, CGC/CBCS/PGX, cert numbers), notes, purchase price, per-item user cover photos.
 - Public collector profiles (`/u/[username]`).
+- One-way collector follows and public member search (`/people`).
 - Stripe subscriptions: the free toolkit and Collector+ supporter tier ($4/month or $36/year) are wired. Legacy Collector Pro remains for founders, comped users, and admin but is not sold.
 - PDF export (`/api/export/pdf`), gated behind Pro.
 - Automated valuation (`auto_market_value`) — **partially live, see §3**.

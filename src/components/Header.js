@@ -831,6 +831,14 @@ const UserMenu = forwardRef(function UserMenu(
           >
             Manage Collection
           </Link>
+          <Link
+            href="/people"
+            className="user-menu-item"
+            role="menuitem"
+            onClick={handleItem()}
+          >
+            Find collectors
+          </Link>
           {username && (
             <Link
               href={`/u/${username}`}

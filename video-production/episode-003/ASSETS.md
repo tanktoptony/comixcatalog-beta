@@ -67,3 +67,13 @@ Reusable pieces: ChannelSting, TitleCard, ChapterCard, CoverGrid, CoverPair, Cov
 - Record Discogs and ComixCatalog screens at the specified settings.
 - Choose and license music before upload.
 - A face thumbnail is not used for this episode.
+
+## Added 2026-10-12 (used in the cut)
+
+| File | What |
+|---|---|
+| `covers/iron-man-290-1993.jpg`, `covers/silver-surfer-075-1992.jpg`, `covers/avengers-350-1992.jpg` | 90s issues standing in for the Iron Man, Silver Surfer and Avengers runs Tony named (series confirmed, not these exact issues). ComicVine, logged in sources.json |
+| `screens/*.png` | Live comixcatalog.com, captured headless at 1920 wide on 2026-10-12, promo bar cropped: home, Silver Surfer / Iron Man / Avengers / Cerebus / Milk & Cheese / Hardcase / The Strangers series pages, Iron Man and Scud searches, /sell, /marketplace |
+| `audio/MUSIC_BED.mp3`, `audio/MUSIC_STING.mp3` | Kevin MacLeod, "Rollin at 5" and "Funkorama", CC BY 4.0 (same as Ep 001/002) |
+
+No B-roll or screen recordings from Tony were used. Discogs is shown only as text cards.

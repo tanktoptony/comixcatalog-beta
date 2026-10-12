@@ -6,6 +6,7 @@ import FollowButton from "@/components/FollowButton";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
+import SuggestedCollectors from "./SuggestedCollectors";
 
 function MemberAvatar({ member }) {
   return <img src={member.avatar_url || "/avatars/cc_badge.png"} alt="" className="people-avatar" />;
@@ -92,6 +93,7 @@ export default function PeopleClient({ initialTab = "following" }) {
         <h1>Find collectors</h1>
         <p>Search for friends and see what they collect.</p>
       </header>
+      <SuggestedCollectors />
       <label className="people-search-label" htmlFor="member-search">Find collectors by username or name</label>
       <input
         id="member-search"

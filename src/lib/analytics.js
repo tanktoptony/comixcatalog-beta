@@ -29,7 +29,7 @@
 //
 // Post-signup (existing users):
 //   signup_completed, pro_upgrade, pdf_export, grade_set, collection_add
-//   follow, unfollow, member_search { had_results }
+//   follow, unfollow, member_search { had_results }, follow_bulk { count }
 
 // Thin wrapper around gtag's event API. GA itself is loaded conditionally
 // (production only — see src/app/layout.js), so this guards against gtag

@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-12T12:03:49.030998+00:00",
-    "retry_after": "2026-10-13T12:03:49.031007+00:00"
+    "last_attempt_at": "2026-10-12T13:03:14.851669+00:00",
+    "retry_after": "2026-10-13T13:03:14.851701+00:00"
   },
   {
     "name": "Cerebus",
@@ -46915,9 +46915,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T12:01:05.399320+00:00",
-    "retry_after": "2026-10-12T12:01:05.399338+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T13:00:55.270891+00:00",
+    "retry_after": "2026-10-15T13:00:55.270906+00:00"
   },
   {
     "name": "TMNT Mutant Universe Update",
@@ -46925,9 +46925,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T12:01:12.740459+00:00",
-    "retry_after": "2026-10-12T12:01:12.740475+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T13:00:55.786232+00:00",
+    "retry_after": "2026-10-15T13:00:55.786249+00:00"
   },
   {
     "name": "2026 Street Fighter Swimsuit Special",
@@ -46935,9 +46935,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T12:01:13.058473+00:00",
-    "retry_after": "2026-10-12T12:01:13.058489+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T13:00:56.183725+00:00",
+    "retry_after": "2026-10-15T13:00:56.183746+00:00"
   },
   {
     "name": "Tweety Et Sylvester",
@@ -46945,9 +46945,9 @@
     "year": 1970,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T12:01:32.557858+00:00",
-    "retry_after": "2026-10-12T12:01:32.557874+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T13:00:56.822205+00:00",
+    "retry_after": "2026-10-15T13:00:56.822220+00:00"
   },
   {
     "name": "The Cow Special",
@@ -46955,9 +46955,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T12:01:58.956448+00:00",
-    "retry_after": "2026-10-12T12:01:58.956464+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T13:00:57.231574+00:00",
+    "retry_after": "2026-10-15T13:00:57.231589+00:00"
   },
   {
     "name": "El Hombre Invisible",
@@ -47047,9 +47047,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T12:05:56.996181+00:00",
-    "retry_after": "2026-10-12T12:05:56.996194+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T13:03:14.795656+00:00",
+    "retry_after": "2026-10-15T13:03:14.795692+00:00"
   },
   {
     "name": "Let's Hear It for Dinner, Snoopy",
@@ -47140,9 +47140,9 @@
     "year": 1954,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T13:03:13.293340+00:00",
-    "retry_after": "2026-10-12T13:03:13.293352+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T13:03:15.502493+00:00",
+    "retry_after": "2026-10-15T13:03:15.502508+00:00"
   },
   {
     "name": "Knights of the Zodiac (Saint Seiya)",
@@ -51085,5 +51085,55 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T12:03:17.824841+00:00",
     "retry_after": "2026-10-13T12:03:17.824854+00:00"
+  },
+  {
+    "name": "Clive Barker's Hellbreed",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T13:00:57.716923+00:00",
+    "retry_after": "2026-10-13T13:00:57.716938+00:00"
+  },
+  {
+    "name": "Walt Disney's Picnic Party",
+    "publisher": "Dell Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T13:00:58.601027+00:00",
+    "retry_after": "2026-10-13T13:00:58.601043+00:00"
+  },
+  {
+    "name": "Star Wars - La bataille des Jedi",
+    "publisher": "Dark Horse Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T13:00:59.272301+00:00",
+    "retry_after": "2026-10-13T13:00:59.272316+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles Compendium",
+    "publisher": "IDW Publishing",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T13:01:56.016866+00:00",
+    "retry_after": "2026-10-13T13:01:56.016881+00:00"
+  },
+  {
+    "name": "Archie as Capt. Pureheart",
+    "publisher": "Archie Comics",
+    "year": 1967,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T13:03:05.914032+00:00",
+    "retry_after": "2026-10-13T13:03:05.914047+00:00"
   }
 ]

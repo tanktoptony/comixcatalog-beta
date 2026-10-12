@@ -7,3 +7,7 @@ export function listingCompleteness(collections, listingsByCollection, photoColl
   const needsPhoto = listed.filter((item) => !photos.has(item.id));
   return { listed, needsPrice, needsPhoto };
 }
+
+export function isUnlinkedForSale(item) {
+  return item?.status === "for_sale" && item?.gcd_issue_id == null;
+}

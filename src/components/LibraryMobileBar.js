@@ -82,7 +82,7 @@ export default function LibraryMobileBar(props) {
       <div className="library-mobile-tabs" role="tablist" aria-label="Library sections">
         <button type="button" role="tab" aria-selected={tab === "owned"} className={tab === "owned" ? "active" : ""} onClick={() => setTab("owned")}>Collection {counts.owned}</button>
         <button type="button" role="tab" aria-selected={tab === "wishlist"} className={tab === "wishlist" ? "active" : ""} onClick={() => setTab("wishlist")}>Wantlist {counts.wantlist}</button>
-        {(counts.forSale > 0 || tab === "for_sale") && <button type="button" role="tab" aria-selected={tab === "for_sale"} className={tab === "for_sale" ? "active" : ""} onClick={() => setTab("for_sale")}>For sale {counts.forSale}</button>}
+        {(counts.forSale > 0 || tab === "for_sale") && <button type="button" role="tab" aria-selected={tab === "for_sale"} className={tab === "for_sale" ? "active" : ""} onClick={() => setTab("for_sale")}>For sale {counts.forSale}{!isPublicPreview && counts.unlinkedForSale > 0 ? ` · ${counts.unlinkedForSale} not listed (link to catalog)` : ""}</button>}
       </div>
       {!isPublicPreview && <button type="button" className="library-mobile-stat-line" onClick={() => setValueOpen((open) => !open)} aria-expanded={valueOpen}>{stats.owned} owned · ${Math.round(stats.value).toLocaleString("en-US")} · {stats.uniqueSeries} series<svg viewBox="0 0 24 24" aria-hidden="true"><path d={valueOpen ? "M6 15l6-6 6 6" : "M6 9l6 6 6-6"} /></svg></button>}
       <div className="library-mobile-toolbar">

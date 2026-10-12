@@ -28,7 +28,7 @@ import { fetchWithRetry } from "@/lib/fetchWithRetry";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import { chunk } from "@/lib/chunk";
 import { normalizePublisherDisplayName } from "@/lib/publisher";
-import { listingCompleteness } from "@/lib/listingCompleteness";
+import { isUnlinkedForSale, listingCompleteness } from "@/lib/listingCompleteness";
 
 // Books per /api/library-hydrate request. The route caps a request at 2,000.
 const HYDRATE_CHUNK = 1000;
@@ -150,6 +150,16 @@ function makeLibraryKey(item) {
   if (item?.gcd_issue_id != null) return `gcd-${item.gcd_issue_id}`;
   if (item?.comic_id != null) return String(item.comic_id);
   return null;
+}
+
+function UnlinkedForSaleNotice({ item, onLink }) {
+  if (!isUnlinkedForSale(item)) return null;
+  return (
+    <div className="library-unlinked-notice">
+      <span>Not in the marketplace yet. Link this book to the catalog to list it.</span>
+      <button type="button" className="library-row-btn" onClick={onLink}>Link to catalog</button>
+    </div>
+  );
 }
 
 // Shared across all three view modes (list/grid/rows) - each computes its
@@ -1038,6 +1048,7 @@ function LibraryPageContent() {
     const ownedCount = collections.filter((c) => c.status === "owned" || c.status === "for_sale").length;
     const wishlistCount = collections.filter((c) => c.status === "wishlist").length;
     const forSaleCount = collections.filter((c) => c.status === "for_sale").length;
+    const unlinkedForSaleCount = collections.filter(isUnlinkedForSale).length;
 
     const uniqueSeries = new Set(
       hydratedCurrent.map(
@@ -1087,6 +1098,7 @@ function LibraryPageContent() {
       ownedCount,
       wishlistCount,
       forSaleCount,
+      unlinkedForSaleCount,
       uniqueSeries,
       uniquePublishers,
       newestYear,
@@ -1314,7 +1326,7 @@ function LibraryPageContent() {
         isPublicPreview={isPublicPreview}
         tab={tab}
         setTab={setTab}
-        counts={{ owned: stats.ownedCount, wantlist: stats.wishlistCount, forSale: stats.forSaleCount }}
+        counts={{ owned: stats.ownedCount, wantlist: stats.wishlistCount, forSale: stats.forSaleCount, unlinkedForSale: stats.unlinkedForSaleCount }}
         stats={mobileStats}
         valueOpen={mobileValueOpen}
         setValueOpen={setMobileValueOpen}
@@ -1462,6 +1474,7 @@ function LibraryPageContent() {
               onClick={() => setTab("for_sale")}
             >
               For sale <span className="library-tab-count">{stats.forSaleCount}</span>
+              {!isPublicPreview && stats.unlinkedForSaleCount > 0 && <span className="library-tab-unlisted">{stats.unlinkedForSaleCount} not listed (link to catalog)</span>}
             </button>
           )}
           {!isPublicPreview && <Link className="library-tab" href="/library/sold">Sold</Link>}
@@ -2237,6 +2250,8 @@ function LibraryPageContent() {
                           })()}
                       </div>
 
+                      {!isPublicPreview && <UnlinkedForSaleNotice item={item} onLink={() => setPickerEntry({ collection_id: item.id, comic: { series_title: comic.title, issue_number: comic.issueNumber, release_year: comic.year } })} />}
+
                       {(tab === "owned" || tab === "for_sale") && !isPublicPreview && (
                         <GradeEditor
                           collectionId={item.id}
@@ -2282,11 +2297,6 @@ function LibraryPageContent() {
                       )}
                       {item.status === "for_sale" && !isPublicPreview && (
                         <MarkSoldButton collectionItemId={item.id} ownerId={user.id} onRecorded={saleRecorded} />
-                      )}
-                      {item.status === "for_sale" && item.gcd_issue_id == null && !isPublicPreview && (
-                        <span className="library-sale-note">
-                          Not on the Marketplace yet. Link it to a catalog issue to list it.
-                        </span>
                       )}
                       {/* Unlink - only on GCD-linked rows, only in manage mode.
                           Undoes a bad catalog-link by removing the row so user
@@ -2485,6 +2495,7 @@ function LibraryPageContent() {
                                       </>
                                     )}
                                   </div>
+                                  {!isPublicPreview && <UnlinkedForSaleNotice item={item} onLink={() => setPickerEntry({ collection_id: item.id, comic: { series_title: comic.title, issue_number: comic.issueNumber, release_year: comic.year } })} />}
                                   {(tab === "owned" || tab === "for_sale") && !isPublicPreview && (
                                     <div style={{ marginTop: 6 }}>
                                       <GradeEditor
@@ -2570,6 +2581,8 @@ function LibraryPageContent() {
                         {item.copy_number > 1 ? ` · Copy ${item.copy_number}` : ""}
                       </div>
                     </Link>
+
+                    {!isPublicPreview && <UnlinkedForSaleNotice item={item} onLink={() => setPickerEntry({ collection_id: item.id, comic: { series_title: comic.title, issue_number: comic.issueNumber, release_year: comic.year } })} />}
 
                     {(liveGrade.grade_numeric || liveGrade.condition) && (
                       <div style={{ padding: "4px 10px 0" }}>

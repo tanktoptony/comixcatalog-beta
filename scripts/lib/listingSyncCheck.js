@@ -2,8 +2,10 @@ export function normalizeListingSyncReport(value) {
   const report = value && typeof value === "object" ? value : {};
   return {
     missingCount: Number(report.missing_count) || 0,
+    unlinkedForSaleCount: Number(report.unlinked_for_sale_count) || 0,
     unresolvedFailureCount: Number(report.unresolved_failure_count) || 0,
     missingExamples: Array.isArray(report.missing_examples) ? report.missing_examples : [],
+    unlinkedExamples: Array.isArray(report.unlinked_examples) ? report.unlinked_examples : [],
     latestFailures: Array.isArray(report.latest_failures) ? report.latest_failures : [],
     repairRowsTouched: Number(report.repair_rows_touched) || 0,
   };
@@ -18,6 +20,7 @@ export function listingSyncSummary(report) {
     "## Listing sync check",
     "",
     `- Missing active listings: ${report.missingCount}`,
+    `- For sale but not linked to the catalog (can't be listed): ${report.unlinkedForSaleCount}`,
     `- Unresolved trigger failures: ${report.unresolvedFailureCount}`,
   ];
   if (report.missingExamples.length) {

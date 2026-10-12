@@ -105,6 +105,7 @@ export default function AdminPage() {
         {listingSync && (
           <div className="admin-target">
             <div className="admin-target-row"><span className="admin-target-label">Missing active listings</span><span className="admin-target-value">{listingSync.missing_count}</span></div>
+            <div className="admin-target-row"><span className="admin-target-label">For sale but not linked to the catalog (can&apos;t be listed)</span><span className="admin-target-value">{listingSync.unlinked_for_sale_count ?? 0}</span></div>
             <div className="admin-target-row"><span className="admin-target-label">Unresolved failures</span><span className="admin-target-value">{listingSync.unresolved_failure_count}</span></div>
             {(listingSync.latest_failures ?? []).map((failure) => (
               <div className="admin-target-row" key={failure.id}>

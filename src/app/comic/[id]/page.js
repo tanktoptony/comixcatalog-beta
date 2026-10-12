@@ -6,6 +6,9 @@ import { useParams, useRouter } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import GradeEditor from "@/components/GradeEditor";
+import CatalogLinkPicker from "@/components/CatalogLinkPicker";
+import { authedFetch } from "@/lib/apiClient";
+import { isUnlinkedForSale } from "@/lib/listingCompleteness";
 
 export default function ComicDetailPage() {
   const { id } = useParams();
@@ -19,6 +22,7 @@ export default function ComicDetailPage() {
   const [notFound, setNotFound] = useState(false);
   const [gradeData, setGradeData] = useState(null);
   const [mutationError, setMutationError] = useState(null);
+  const [catalogPickerOpen, setCatalogPickerOpen] = useState(false);
 
   async function remove(scope) {
     const result = await removeFromCollection(String(id), { scope });
@@ -29,9 +33,12 @@ export default function ComicDetailPage() {
   const inWishlist = wishlistIds?.has(String(id));
 
   // Find the user_collections row for this comic so GradeEditor has an ID
-  const collectionRow = collections?.find(
+  const matchingCollectionRows = collections?.filter(
     (c) => c.comic_id != null && String(c.comic_id) === String(id)
-  ) ?? null;
+  ) ?? [];
+  const collectionRow = matchingCollectionRows.find((c) => c.status === "for_sale")
+    ?? matchingCollectionRows[0]
+    ?? null;
 
   useEffect(() => {
     if (!id) return;
@@ -81,6 +88,23 @@ export default function ComicDetailPage() {
     const url = window.location.href;
     if (navigator.clipboard) {
       navigator.clipboard.writeText(url);
+    }
+  }
+
+  async function handleCatalogLink(gcdIssueId) {
+    try {
+      const res = await authedFetch("/api/library/catalog-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ links: [{ collection_id: collectionRow.id, gcd_issue_id: gcdIssueId }] }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.linked !== 1) {
+        throw new Error(data.errors?.[0]?.message || data.error || "Link failed");
+      }
+      router.push(`/issue/gcd-${gcdIssueId}`);
+    } catch (error) {
+      alert(error.message || "Link failed. Please try again.");
     }
   }
 
@@ -206,6 +230,13 @@ export default function ComicDetailPage() {
               {comic.year ? ` · ${comic.year}` : ""}
             </p>
 
+            {isUnlinkedForSale(collectionRow) && (
+              <div className="library-unlinked-notice" style={{ marginBottom: "22px" }}>
+                <span>Not in the marketplace yet. Link this book to the catalog to list it.</span>
+                <button type="button" className="library-row-btn" onClick={() => setCatalogPickerOpen(true)}>Link to catalog</button>
+              </div>
+            )}
+
             <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "18px", marginBottom: "22px" }}>
               <div className="metadata-section" style={{ margin: 0 }}>
                 <h3 className="issue-section-title">Issue Info</h3>
@@ -237,6 +268,13 @@ export default function ComicDetailPage() {
           </div>
         </div>
       </section>
+      {catalogPickerOpen && collectionRow && (
+        <CatalogLinkPicker
+          entry={{ collection_id: collectionRow.id, comic: { series_title: comic.title, issue_number: comic.issueNumber, release_year: comic.year } }}
+          onApply={handleCatalogLink}
+          onClose={() => setCatalogPickerOpen(false)}
+        />
+      )}
     </main>
   );
 }

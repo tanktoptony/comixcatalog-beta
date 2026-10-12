@@ -11787,6 +11787,8 @@ button.nav-link {
 }
 .library-sale-tag.is-unlisted { background: rgba(255, 255, 255, 0.85); color: #333; }
 .library-sale-note { align-self: center; color: rgba(255, 255, 255, 0.65); font-size: 0.8rem; }
+.library-unlinked-notice { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 8px; color: #ffd180; font-size: 0.82rem; }
+.library-tab-unlisted { margin-left: 7px; color: #ffd180; font-size: 0.76rem; font-weight: 600; }
 .library-sell-all-btn { border-color: rgba(244, 208, 63, 0.6) !important; color: #F4D03F !important; }
 
 .lp-feature-pill {

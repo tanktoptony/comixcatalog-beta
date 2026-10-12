@@ -12359,7 +12359,7 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .cover-scan-owned-thumb { width: 44px; height: 66px; object-fit: cover; border-radius: 4px; flex-shrink: 0; outline: 2px solid var(--cc-gold, #d8b04b); outline-offset: 1px; }
 
 /* Stack scanning and shared scan details */
-.scan-mode-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 0 0 16px; padding: 5px; border: 1px solid var(--cc-line); border-radius: 14px; background: var(--cc-surface); }
+.scan-mode-tabs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; margin: 0 0 16px; padding: 5px; border: 1px solid var(--cc-line); border-radius: 14px; background: var(--cc-surface); }
 .scan-mode-tabs button { min-height: 44px; border: 0; border-radius: 10px; background: transparent; color: var(--cc-text-muted); font-weight: 800; cursor: pointer; }
 .scan-mode-tabs button.is-active { background: rgba(216,176,75,.16); color: var(--cc-gold); }
 .scan-bulk-capture, .scan-resume { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 16px; border: 1px solid var(--cc-line); border-radius: 14px; background: var(--cc-surface); }
@@ -12388,6 +12388,18 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .scan-bulk-submit { position: sticky; z-index: 5; bottom: 8px; margin-top: 16px; padding: 10px; border: 1px solid rgba(216,176,75,.45); border-radius: 14px; background: rgba(15,19,25,.94); backdrop-filter: blur(10px); }.scan-bulk-submit .scan-btn { width: 100%; }
 .scan-single-match { margin-top: 16px; }.scan-single-match h2 { font-size: 1.1rem; }.scan-single-match .scan-review-row { margin-bottom: 8px; }.scan-single-add { width: 100%; margin-top: 8px; }
 @media (max-width: 520px) { .scan-review-row { grid-template-columns: 94px minmax(0,1fr); gap: 10px; padding: 10px; }.scan-details { grid-template-columns: 1fr; }.scan-bulk-capture .scan-btn { flex: 1 1 100%; }.scan-review-heading { align-items: flex-start; }.scan-remove { min-width: 54px; padding: 0; }.scan-page { overflow-x: clip; } }
+.scan-barcode-flow { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 12px; }
+.scan-barcode-flow button { min-height: 44px; border: 1px solid var(--cc-line); border-radius: 10px; background: var(--cc-surface); color: var(--cc-text-muted); font-weight: 700; cursor: pointer; }
+.scan-barcode-flow button.is-active { border-color: var(--cc-gold); color: var(--cc-gold); background: rgba(216,176,75,.12); }
+.scan-viewfinder { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; border: 1px solid var(--cc-line); border-radius: 16px; background: #05070a; }
+.scan-viewfinder video { width: 100%; height: 100%; object-fit: cover; }
+.scan-viewfinder p { position: absolute; right: 12px; bottom: 10px; left: 12px; margin: 0; padding: 8px 10px; border-radius: 8px; background: rgba(5,7,10,.76); color: #fff; font-size: .82rem; text-align: center; }
+.scan-frame { position: absolute; top: 50%; left: 50%; width: min(82%,500px); height: 35%; border: 2px solid var(--cc-gold); border-radius: 12px; box-shadow: 0 0 0 999px rgba(0,0,0,.32); transform: translate(-50%,-58%); }
+.scan-barcode-note { margin: 10px 2px 0; color: var(--cc-text-muted); font-size: .82rem; line-height: 1.4; }
+.scan-photo-fallback { width: 100%; margin-top: 10px; }
+.scan-barcode-tile { overflow-wrap: anywhere; color: var(--cc-gold); font-weight: 800; letter-spacing: .08em; }
+.scan-barcode-card { overflow-wrap: anywhere; color: var(--cc-gold); font-size: .7rem; letter-spacing: .04em; }
+@media (max-width: 380px) { .scan-mode-tabs { gap: 3px; padding: 4px; }.scan-mode-tabs button { padding: 0 5px; font-size: .78rem; } }
 
 /* ---------- /library header buttons: one size (2026-10-07) ----------
    The header mixed <button>s (browser default font), a <Link> (body font,

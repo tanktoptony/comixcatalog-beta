@@ -19,7 +19,13 @@
 // Barcodes get typed with spaces and dashes, or scanned as one run of
 // digits. Strip to digits and judge the length.
 export function normalizeUpc(value) {
-  return String(value ?? "").replace(/\D/g, "");
+  const digits = String(value ?? "").replace(/\D/g, "");
+  // BarcodeDetector reports UPC-A as EAN-13 on some browsers. A leading zero
+  // is only the EAN representation of the same UPC, so keep one catalog key.
+  if ((digits.length === 13 || digits.length === 18) && digits.startsWith("0")) {
+    return digits.slice(1);
+  }
+  return digits;
 }
 
 // What we accept, and why each length:
@@ -33,7 +39,40 @@ const VALID_LENGTHS = new Set([12, 13, 17, 18]);
 
 export function isValidUpc(value) {
   const digits = normalizeUpc(value);
-  return VALID_LENGTHS.has(digits.length);
+  if (!VALID_LENGTHS.has(digits.length)) return false;
+  const base = digits.length > 13 ? digits.slice(0, -5) : digits;
+  return hasValidBarcodeCheckDigit(base);
+}
+
+export function hasValidBarcodeCheckDigit(value) {
+  const digits = String(value ?? "").replace(/\D/g, "");
+  if (digits.length !== 12 && digits.length !== 13) return false;
+  const body = digits.slice(0, -1);
+  const sum = [...body].reduce((total, digit, index) => {
+    const positionFromRight = body.length - index;
+    return total + Number(digit) * (positionFromRight % 2 === 1 ? 3 : 1);
+  }, 0);
+  return (10 - (sum % 10)) % 10 === Number(digits.at(-1));
+}
+
+export function combineBarcodeParts(values = []) {
+  const normalized = values.map(normalizeUpc).filter(Boolean);
+  const base = normalized.find((value) => value.length === 12 || value.length === 13);
+  const supplement = normalized.find((value) => value.length === 5);
+  const combined = base && supplement ? `${base}${supplement}` : normalized.find((value) => VALID_LENGTHS.has(value.length));
+  return combined && isValidUpc(combined) ? normalizeUpc(combined) : null;
+}
+
+export function createDuplicateDebouncer(windowMs = 3000) {
+  const reads = new Map();
+  return (value, now = Date.now()) => {
+    const code = normalizeUpc(value);
+    const previous = reads.get(code);
+    for (const [key, timestamp] of reads) if (now - timestamp >= windowMs) reads.delete(key);
+    if (previous != null && now - previous < windowMs) return true;
+    reads.set(code, now);
+    return false;
+  };
 }
 
 // Split a scanned barcode into the parts that mean something.

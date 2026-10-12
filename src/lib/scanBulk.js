@@ -1,6 +1,18 @@
 export const BULK_SCAN_CONCURRENCY = 3;
 export const BULK_ADD_BATCH_SIZE = 25;
 
+export function createScanInput({ source, file = null, photoUrl = null, barcode = null } = {}) {
+  return {
+    id: crypto.randomUUID(), source, file, photoUrl, barcode,
+    status: source === "photo" ? "queued" : "identifying",
+    details: emptyScanDetails(), wantlist: false, owned: false, ownedChoice: "another",
+  };
+}
+
+export function scanInputUsesVision(input) {
+  return (typeof input === "string" ? input : input?.source) !== "barcode";
+}
+
 export function emptyScanDetails() {
   return { condition: "", slab_company: "", grade_numeric: "", slab_cert_number: "", purchase_price: "" };
 }

@@ -7,10 +7,10 @@
 
 import test from "node:test";
 import assert from "node:assert/strict";
-import { normalizeUpc, isValidUpc, parseUpc, upcProblem, describeSubmission } from "./printings.js";
+import { combineBarcodeParts, createDuplicateDebouncer, normalizeUpc, isValidUpc, parseUpc, upcProblem, describeSubmission } from "./printings.js";
 
-const BASE = "759606083120"; // 12 digits
-const EAN = "9771234567896"; // 13 digits
+const BASE = "759606083121"; // 12 digits
+const EAN = "9771234567898"; // 13 digits
 
 test("the fixtures are the lengths they claim to be", () => {
   // The bug that broke the first draft of this file, asserted so it cannot
@@ -20,11 +20,16 @@ test("the fixtures are the lengths they claim to be", () => {
 });
 
 test("a barcode typed with spaces or dashes is the same barcode", () => {
-  assert.equal(normalizeUpc("7 59606 08312 0"), BASE);
-  assert.equal(normalizeUpc("759606-08312-0"), BASE);
-  assert.equal(normalizeUpc("  759606083120  "), BASE);
+  assert.equal(normalizeUpc("7 59606 08312 1"), BASE);
+  assert.equal(normalizeUpc("759606-08312-1"), BASE);
+  assert.equal(normalizeUpc("  759606083121  "), BASE);
   assert.equal(normalizeUpc(null), "");
   assert.equal(normalizeUpc(undefined), "");
+});
+
+test("a UPC reported as EAN-13 normalizes to the catalog UPC", () => {
+  assert.equal(normalizeUpc(`0${BASE}`), BASE);
+  assert.equal(normalizeUpc(`0${BASE}00111`), `${BASE}00111`);
 });
 
 test("the four lengths a comic actually carries are accepted", () => {
@@ -40,6 +45,24 @@ test("a length no comic carries is refused rather than stored", () => {
   assert.ok(!isValidUpc(BASE + "001"), "15");
   assert.ok(!isValidUpc(BASE + BASE), "24, a doubled scan");
   assert.ok(!isValidUpc(""));
+});
+
+test("a bad UPC or EAN check digit is refused", () => {
+  assert.equal(isValidUpc(BASE.slice(0, -1) + "2"), false);
+  assert.equal(isValidUpc(EAN.slice(0, -1) + "3"), false);
+  assert.equal(isValidUpc(BASE.slice(0, -1) + "2" + "00111"), false);
+});
+
+test("a separately decoded five digit add-on joins the UPC", () => {
+  assert.equal(combineBarcodeParts([BASE, "00111"]), `${BASE}00111`);
+  assert.equal(combineBarcodeParts([`0${BASE}`]), BASE);
+});
+
+test("the same barcode is debounced for three seconds", () => {
+  const duplicate = createDuplicateDebouncer(3000);
+  assert.equal(duplicate(BASE, 1000), false);
+  assert.equal(duplicate(BASE, 3999), true);
+  assert.equal(duplicate(BASE, 4000), false);
 });
 
 test("13 digits is a real EAN-13, not a broken UPC", () => {
@@ -124,7 +147,7 @@ test("a report describes itself with whichever halves it has", () => {
   assert.equal(describeSubmission({ printingName: "Newsstand" }), "Newsstand");
   assert.equal(describeSubmission({ upc: BASE }), BASE);
   assert.equal(
-    describeSubmission({ printingName: "Cover B", upc: "7 59606 08312 0" }),
+    describeSubmission({ printingName: "Cover B", upc: "7 59606 08312 1" }),
     `Cover B (${BASE})`
   );
 });

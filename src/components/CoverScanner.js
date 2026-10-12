@@ -8,7 +8,8 @@ import { useLibrary } from "@/context/LibraryContext";
 import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
 import { ownedCopiesFor } from "@/lib/coverScan";
-import { emptyScanDetails, reviewRowsToAddPayload, splitScanBatches } from "@/lib/scanBulk";
+import { createScanInput, emptyScanDetails, reviewRowsToAddPayload, scanInputUsesVision, splitScanBatches } from "@/lib/scanBulk";
+import { combineBarcodeParts, createDuplicateDebouncer } from "@/lib/printings";
 import ScanDetails from "./ScanDetails";
 
 const STORAGE_KEY = "cover-scan-stack-v1";
@@ -63,7 +64,7 @@ function PrintingReport({ item, scanId }) {
 function ReviewRow({ row, update, remove, compact = false }) {
   const [searching, setSearching] = useState(false); const selected = row.selected;
   return <article className={`scan-review-row${compact ? " is-compact" : ""}`}>
-    <div className="scan-review-covers"><div>{row.photoUrl ? <img src={row.photoUrl} alt="Your scan" /> : <div className="scan-photo-missing">Photo unavailable</div>}<small>Your scan</small></div>{selected && <div><img src={selected.cover_path || "/fallback-cover.png"} alt="Matched cover" /><small>Match</small></div>}</div>
+    <div className="scan-review-covers"><div>{row.photoUrl ? <img src={row.photoUrl} alt="Your scan" /> : row.source === "barcode" ? <div className="scan-photo-missing scan-barcode-card">{row.barcode}</div> : <div className="scan-photo-missing">Photo unavailable</div>}<small>{row.source === "barcode" ? "Barcode" : "Your scan"}</small></div>{selected && <div><img src={selected.cover_path || "/fallback-cover.png"} alt="Matched cover" /><small>Match</small></div>}</div>
     <div className="scan-review-body"><div className="scan-review-heading"><div><span className={`scan-state is-${row.status}`}>{row.status === "identifying" ? "Identifying" : row.status === "matched" ? (row.candidates?.length > 1 ? "Needs a pick" : "Matched") : row.status === "no-match" ? "No match" : "Could not scan"}</span>{selected && <h3>{selected.series_title} #{selected.issue_number}</h3>}{selected && <p>{[selected.publisher, selected.year].filter(Boolean).join(" · ")}</p>}</div>{!compact && <button type="button" className="scan-remove" onClick={remove}>Remove</button>}</div>
       {row.status === "matched" && <>{row.candidates?.length > 1 ? <label className="scan-match-picker">Swap match<select value={selected?.gcd_issue_id ?? ""} onChange={(e) => update({ selected: row.candidates.find((item) => Number(item.gcd_issue_id) === Number(e.target.value)) })}>{row.candidates.map((item) => <option key={item.gcd_issue_id} value={item.gcd_issue_id}>{item.series_title} #{item.issue_number} ({item.year || "year unknown"})</option>)}</select></label> : <button type="button" className="scan-text-button" onClick={() => setSearching(true)}>Search instead</button>}
       {searching && <SearchPicker row={row} onClose={() => setSearching(false)} onPick={(match) => { update({ selected: match, candidates: [...(row.candidates ?? []), match] }); setSearching(false); }} />}
@@ -86,7 +87,7 @@ function BulkScan({ collections, refreshLibrary }) {
   const save = useCallback((nextRows) => { try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(nextRows.map(({ photoUrl, file, ...row }) => row))); } catch (error) { console.warn("Could not save cover scan session", error); } }, []);
   const changeRows = useCallback((fn) => setRows((current) => { const next = fn(current); save(next); return next; }), [save]);
   const processRow = useCallback(async (row) => { try { const data = await identify(row.file); setQuota(data.quota); if (data.quota?.remaining === 0) setMessage("You have used today's cover scans. New photos will not be queued until the daily reset."); const selected = data.candidates?.[0] ?? null; const owned = selected ? ownedCopiesFor(collections, selected.gcd_issue_id).length > 0 : false; changeRows((all) => all.map((item) => item.id === row.id ? { ...item, file: null, scanId: data.scan_id, status: selected ? "matched" : "no-match", candidates: data.candidates ?? [], selected, extracted: data.extracted, owned, ownedChoice: owned ? "skip" : "another" } : item)); } catch (error) { if (error.status === 429) { setQuota(error.data?.quota ?? { remaining: 0 }); setMessage(error.message); } changeRows((all) => all.map((item) => item.id === row.id ? { ...item, file: null, status: "error", error: error.message } : item)); } finally { active.current -= 1; } }, [changeRows, collections]);
-  const pump = useCallback(() => { if (quota?.remaining === 0) return; while (active.current < 3) { const row = rowsRef.current.find((item) => item.status === "queued" && !item.started); if (!row) break; row.started = true; active.current += 1; processRow(row); } }, [processRow, quota?.remaining]);
+  const pump = useCallback(() => { if (quota?.remaining === 0) return; while (active.current < 3) { const row = rowsRef.current.find((item) => scanInputUsesVision(item) && item.status === "queued" && !item.started); if (!row) break; row.started = true; active.current += 1; processRow(row); } }, [processRow, quota?.remaining]);
   useEffect(() => { pump(); }, [rows, pump]);
   useEffect(() => {
     let cancelled = false;
@@ -97,10 +98,121 @@ function BulkScan({ collections, refreshLibrary }) {
     return () => { cancelled = true; };
   }, []);
   useEffect(() => { try { const saved = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "[]"); if (saved.length) setResume(saved.map((row) => row.status === "queued" || row.status === "identifying" ? { ...row, status: "error", error: "This photo had not finished uploading. Scan it again." } : row)); } catch (error) { console.warn("Could not resume cover scan session", error); } }, []);
-  function addFiles(files, reopen = false) { if (quota?.remaining === 0) { setMessage("No scans left today. Your current stack is safe here."); return; } const additions = [...files].filter((file) => file.type.startsWith("image/")).map((file) => ({ id: crypto.randomUUID(), file, photoUrl: URL.createObjectURL(file), status: "queued", details: emptyScanDetails(), wantlist: false, owned: false, ownedChoice: "another" })); if (!additions.length) return; changeRows((current) => [...current, ...additions]); if (reopen) camera.current?.click(); }
+  function addFiles(files, reopen = false) { if (quota?.remaining === 0) { setMessage("No scans left today. Your current stack is safe here."); return; } const additions = [...files].filter((file) => file.type.startsWith("image/")).map((file) => createScanInput({ source: "photo", file, photoUrl: URL.createObjectURL(file) })); if (!additions.length) return; changeRows((current) => [...current, ...additions]); if (reopen) camera.current?.click(); }
   async function addAll() { const payload = reviewRowsToAddPayload(rows); if (!payload.length) return; setAdding(true); setMessage(null); let added = [], skipped = []; try { for (const items of splitScanBatches(payload)) { const response = await authedFetch("/api/cover-scan/collection", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error); added = [...added, ...(data.added ?? [])]; skipped = [...skipped, ...(data.skipped ?? [])]; } await refreshLibrary({ background: true }); trackEvent("scan_bulk_added", { count: added.length }); sessionStorage.removeItem(STORAGE_KEY); setRows([]); setAddedIds(added.map((item) => item.collection_id)); setMessage(`Added ${added.length}. ${skipped.length} skipped.`); } catch (error) { setMessage(error.message); } finally { setAdding(false); } }
   const count = reviewRowsToAddPayload(rows).length;
   return <div className="scan-bulk">{resume && !rows.length && <div className="scan-resume"><strong>Resume your stack ({resume.length} books)</strong><button className="scan-btn scan-btn-primary" onClick={() => { setRows(resume); setResume(null); }}>Resume</button><button className="scan-btn scan-btn-secondary" onClick={() => { sessionStorage.removeItem(STORAGE_KEY); setResume(null); }}>Discard</button></div>}<div className="scan-bulk-capture"><button className="scan-btn scan-btn-primary" onClick={() => camera.current?.click()} disabled={quota?.remaining === 0}><CameraIcon />Scan next cover</button><button className="scan-btn scan-btn-secondary" onClick={() => picker.current?.click()} disabled={quota?.remaining === 0}>Choose photos</button><input ref={camera} hidden type="file" accept="image/*" capture="environment" onChange={(e) => { const files = e.target.files; e.target.value = ""; addFiles(files, true); }} /><input ref={picker} hidden multiple type="file" accept="image/*" onChange={(e) => { addFiles(e.target.files); e.target.value = ""; }} /><p>{quota ? `${quota.remaining} scans left today` : "Up to 3 covers identify at once"}</p></div>{message && <div className="scan-callout" role="status">{message} {message.startsWith("Added") && <Link href={`/library?added=${encodeURIComponent(addedIds.join(","))}`}>View just-added books</Link>}</div>}{rows.length > 0 && <div className="scan-queue-strip">{rows.map((row, index) => <div key={row.id} className={`is-${row.status}`}>{row.photoUrl ? <img src={row.photoUrl} alt="" /> : <span>#{index + 1}</span>}<small>{row.status === "queued" ? "Identifying" : row.status === "matched" ? (row.candidates?.length > 1 ? "Needs a pick" : "Matched") : "No match"}</small></div>)}</div>}<section className="scan-review-list">{rows.map((row) => <ReviewRow key={row.id} row={{ ...row, status: row.status === "queued" ? "identifying" : row.status }} update={(patch) => changeRows((all) => all.map((item) => item.id === row.id ? { ...item, ...patch, owned: patch.selected ? ownedCopiesFor(collections, patch.selected.gcd_issue_id).length > 0 : item.owned } : item))} remove={() => changeRows((all) => all.filter((item) => item.id !== row.id))} />)}</section>{rows.length > 0 && <div className="scan-bulk-submit"><button className="scan-btn scan-btn-primary" disabled={!count || adding} onClick={addAll}>{adding ? "Adding..." : `Add ${count} ${count === 1 ? "book" : "books"}`}</button></div>}</div>;
 }
 
-export default function CoverScanner() { const { user } = useAuth(); const { collections, refreshLibrary } = useLibrary(); const next = encodeURIComponent(usePathname() || "/scan"); const [mode, setMode] = useState("single"); return <div><div className="scan-mode-tabs" role="tablist"><button className={mode === "single" ? "is-active" : ""} onClick={() => setMode("single")}>Single scan</button><button className={mode === "bulk" ? "is-active" : ""} onClick={() => { setMode("bulk"); trackEvent("scan_bulk_started"); }}>Scan a stack</button></div>{mode === "single" ? <SingleScan user={user} collections={collections} refreshLibrary={refreshLibrary} next={next} /> : user ? <BulkScan collections={collections} refreshLibrary={refreshLibrary} /> : <div className="scan-capture"><Link href={`/signup?next=${next}`} className="scan-btn scan-btn-primary">Sign up to scan a stack</Link></div>}</div>; }
+function BarcodeScan({ collections, refreshLibrary, onPhoto }) {
+  const video = useRef(null), stream = useRef(null), decoderControls = useRef(null), photoPicker = useRef(null), photoRow = useRef(null);
+  const duplicate = useRef(createDuplicateDebouncer(3000));
+  const [stack, setStack] = useState(false), [rows, setRows] = useState([]), [cameraState, setCameraState] = useState("starting");
+  const [message, setMessage] = useState(null), [adding, setAdding] = useState(false), [addedIds, setAddedIds] = useState([]);
+
+  const stopCamera = useCallback(() => {
+    decoderControls.current?.stop?.(); decoderControls.current = null;
+    stream.current?.getTracks().forEach((track) => track.stop()); stream.current = null;
+    if (video.current) video.current.srcObject = null;
+  }, []);
+
+  const changeRow = useCallback((id, patch) => {
+    setRows((current) => current.map((row) => row.id === id ? { ...row, ...patch } : row));
+  }, []);
+
+  const handleRead = useCallback(async (values) => {
+    const upc = combineBarcodeParts(values);
+    if (!upc || duplicate.current(upc)) return;
+    navigator.vibrate?.(45);
+    const id = crypto.randomUUID();
+    const input = { ...createScanInput({ source: "barcode", barcode: upc }), id };
+    setRows((current) => stack ? [...current, input] : [input]);
+    try {
+      const response = await authedFetch("/api/printings/barcode", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ upc }) });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "Could not check that barcode.");
+      trackEvent("scan_barcode_read", { matched: data.matched });
+      const selected = data.candidates?.[0] ?? null;
+      const owned = selected ? ownedCopiesFor(collections, selected.gcd_issue_id).length > 0 : false;
+      changeRow(id, { status: selected ? "matched" : "no-match", candidates: data.candidates ?? [], selected, owned, ownedChoice: owned ? "skip" : "another" });
+      if (!data.matched) setMessage("We don't have that barcode yet. Snap the cover instead.");
+      if (!stack) stopCamera();
+    } catch (error) {
+      changeRow(id, { status: "error", error: error.message });
+    }
+  }, [changeRow, collections, stack, stopCamera]);
+
+  useEffect(() => {
+    let cancelled = false, frame;
+    async function start() {
+      stopCamera(); setCameraState("starting"); setMessage(null);
+      if (!navigator.mediaDevices?.getUserMedia) { setCameraState("unavailable"); return; }
+      try {
+        const media = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" } }, audio: false });
+        if (cancelled) { media.getTracks().forEach((track) => track.stop()); return; }
+        stream.current = media; video.current.srcObject = media; await video.current.play(); setCameraState("ready");
+        if ("BarcodeDetector" in window) {
+          const supported = await window.BarcodeDetector.getSupportedFormats?.() ?? [];
+          const wanted = ["upc_a", "ean_13", "ean_5", "upc_e"].filter((format) => !supported.length || supported.includes(format));
+          const detector = wanted.length ? new window.BarcodeDetector({ formats: wanted }) : new window.BarcodeDetector();
+          const detect = async () => {
+            if (cancelled || !video.current) return;
+            try {
+              const found = await detector.detect(video.current);
+              if (found.length) handleRead(found.map((item) => item.rawValue));
+            } catch (error) { if (error.name !== "InvalidStateError") console.warn("Barcode detection failed", error); }
+            frame = requestAnimationFrame(detect);
+          };
+          detect();
+        } else {
+          const { BrowserMultiFormatReader } = await import("@zxing/browser");
+          const reader = new BrowserMultiFormatReader();
+          decoderControls.current = await reader.decodeFromVideoElement(video.current, (result) => {
+            if (result) handleRead([result.getText()]);
+          });
+        }
+      } catch (error) {
+        if (error.name === "NotAllowedError" || error.name === "SecurityError") setCameraState("denied");
+        else setCameraState("unavailable");
+      }
+    }
+    start();
+    return () => { cancelled = true; cancelAnimationFrame(frame); stopCamera(); };
+  }, [handleRead, stopCamera]);
+
+  async function scanUnknownCover(file) {
+    const id = photoRow.current; photoRow.current = null;
+    if (!id || !file) return;
+    const photoUrl = URL.createObjectURL(file);
+    changeRow(id, { source: "photo", file, photoUrl, status: "identifying", error: null });
+    setMessage(null);
+    try {
+      const data = await identify(file); const selected = data.candidates?.[0] ?? null;
+      const owned = selected ? ownedCopiesFor(collections, selected.gcd_issue_id).length > 0 : false;
+      changeRow(id, { file: null, scanId: data.scan_id, status: selected ? "matched" : "no-match", candidates: data.candidates ?? [], selected, extracted: data.extracted, owned, ownedChoice: owned ? "skip" : "another" });
+    } catch (error) { changeRow(id, { file: null, status: "error", error: error.message }); }
+  }
+
+  function snapUnknownCover(id) {
+    photoRow.current = id; photoPicker.current?.click();
+  }
+
+  async function addAll() {
+    const payload = reviewRowsToAddPayload(rows); if (!payload.length) return;
+    setAdding(true); setMessage(null); let added = [], skipped = [];
+    try {
+      for (const items of splitScanBatches(payload)) {
+        const response = await authedFetch("/api/cover-scan/collection", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items }) });
+        const data = await response.json(); if (!response.ok) throw new Error(data.error);
+        added = [...added, ...(data.added ?? [])]; skipped = [...skipped, ...(data.skipped ?? [])];
+      }
+      await refreshLibrary({ background: true }); setRows([]); setAddedIds(added.map((item) => item.collection_id));
+      setMessage(`Added ${added.length}. ${skipped.length} skipped.`);
+    } catch (error) { setMessage(error.message); } finally { setAdding(false); }
+  }
+  const count = reviewRowsToAddPayload(rows).length;
+  const cameraProblem = cameraState === "denied" ? "Camera access was denied. Allow camera access in your browser settings, or use a photo scan." : cameraState === "unavailable" ? "No camera is available here. You can still scan or choose a cover photo." : null;
+  return <div className="scan-barcode"><input ref={photoPicker} hidden type="file" accept="image/*" capture="environment" onChange={(event) => { const file = event.target.files?.[0]; event.target.value = ""; scanUnknownCover(file); }} /><div className="scan-barcode-flow" role="group" aria-label="Barcode scan flow"><button className={!stack ? "is-active" : ""} onClick={() => setStack(false)}>One book</button><button className={stack ? "is-active" : ""} onClick={() => setStack(true)}>Keep scanning</button></div><div className="scan-viewfinder"><video ref={video} muted playsInline aria-label="Live barcode camera" /><div className="scan-frame" aria-hidden="true" /><p>{cameraState === "starting" ? "Starting camera..." : "Line up the UPC and the small 5-digit block"}</p></div>{cameraProblem && <div className="scan-callout scan-callout-error">{cameraProblem}</div>}<p className="scan-barcode-note">Barcode reads skip cover recognition and do not use your daily scan limit.</p>{message && <div className="scan-callout" role="status">{message} {message.startsWith("Added") && <Link href={`/library?added=${encodeURIComponent(addedIds.join(","))}`}>View just-added books</Link>}</div>} {cameraProblem && <button className="scan-btn scan-btn-secondary scan-photo-fallback" type="button" onClick={() => onPhoto(stack ? "bulk" : "single")}>Use a photo instead</button>} {rows.length > 0 && <div className="scan-queue-strip">{rows.map((row) => <div key={row.id} className={`is-${row.status}`}><span className="scan-barcode-tile">{row.barcode.slice(-5)}</span><small>{row.status === "identifying" ? "Checking" : row.status === "matched" ? "Matched" : "No match"}</small></div>)}</div>}<section className="scan-review-list">{rows.map((row) => <div key={row.id}><ReviewRow row={row} update={(patch) => changeRow(row.id, { ...patch, owned: patch.selected ? ownedCopiesFor(collections, patch.selected.gcd_issue_id).length > 0 : row.owned })} remove={() => setRows((current) => current.filter((item) => item.id !== row.id))} />{row.source === "barcode" && row.status === "no-match" && <button className="scan-btn scan-btn-secondary scan-photo-fallback" type="button" onClick={() => snapUnknownCover(row.id)}>Snap the cover instead</button>}</div>)}</section>{rows.length > 0 && <div className="scan-bulk-submit"><button className="scan-btn scan-btn-primary" disabled={!count || adding} onClick={addAll}>{adding ? "Adding..." : `Add ${count} ${count === 1 ? "book" : "books"}`}</button></div>}</div>;
+}
+
+export default function CoverScanner() { const { user } = useAuth(); const { collections, refreshLibrary } = useLibrary(); const next = encodeURIComponent(usePathname() || "/scan"); const [mode, setMode] = useState("single"); return <div><div className="scan-mode-tabs" role="tablist"><button className={mode === "single" ? "is-active" : ""} onClick={() => setMode("single")}>Single scan</button><button className={mode === "bulk" ? "is-active" : ""} onClick={() => { setMode("bulk"); trackEvent("scan_bulk_started"); }}>Scan a stack</button><button className={mode === "barcode" ? "is-active" : ""} onClick={() => setMode("barcode")}>Barcode</button></div>{mode === "single" ? <SingleScan user={user} collections={collections} refreshLibrary={refreshLibrary} next={next} /> : mode === "bulk" ? (user ? <BulkScan collections={collections} refreshLibrary={refreshLibrary} /> : <div className="scan-capture"><Link href={`/signup?next=${next}`} className="scan-btn scan-btn-primary">Sign up to scan a stack</Link></div>) : user ? <BarcodeScan collections={collections} refreshLibrary={refreshLibrary} onPhoto={setMode} /> : <div className="scan-capture"><Link href={`/signup?next=${next}`} className="scan-btn scan-btn-primary">Sign up to scan barcodes</Link></div>}</div>; }

@@ -21,6 +21,8 @@
     "thumbs:001": "npm run index && node scripts/thumbs.mjs",
     "shorts:001": "npm run index && node scripts/render-shorts.mjs Short001Colossus Short001NotNumberOne Short001ShopLikeAKid",
     "shorts:002": "npm run index && node scripts/render-shorts.mjs Short002WhoWroteThis Short002ManhattanProjects Short002EastOfWest",
+    "shorts:003": "npm run index && node scripts/render-shorts.mjs Short003DiscogsForComics Short003MilkAndCheese Short003ScudVendingMachine",
+    "thumbs:003": "npm run index && node scripts/thumbs.mjs episode-003 Thumb003LongBoxes Thumb003CouldntFind",
     "package:001": "node scripts/ep.mjs 001 package"
   },
   "dependencies": {

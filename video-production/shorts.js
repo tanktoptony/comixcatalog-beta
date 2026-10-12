@@ -52,6 +52,30 @@ export const SHORTS = [
     endNudge: -0.93,
     hook: "A comet ended the Civil War",
   },
+  {
+    id: "Short003DiscogsForComics",
+    episode: "episode-003",
+    fromBeat: "If you've never used discogs",
+    toBeat: "Hold on to that",
+    endNudge: -0.18,
+    hook: "Discogs started as one guy's record collection",
+  },
+  {
+    id: "Short003MilkAndCheese",
+    episode: "episode-003",
+    fromBeat: "Milk and Cheese by Evan Dorkin",
+    toBeat: "Scud the Disposable Assassin",
+    endNudge: 0.13,
+    hook: "The comic with two number ones",
+  },
+  {
+    id: "Short003ScudVendingMachine",
+    episode: "episode-003",
+    fromBeat: "Scud the Disposable Assassin",
+    toBeat: "And Malibu Malibu Comics",
+    endNudge: 0.125,
+    hook: "Your assassin comes from a vending machine",
+  },
 ];
 
 // Seconds of each clip. The clip stops just before the next beat.

@@ -162,13 +162,14 @@ export function PlaceholderCard({ asset, label }) {
 // push and drift. focus {x, y} (0..1) is where the push heads.
 // `crop` { left, top, right, bottom } in source pixels (source assumed
 // 1920x1080) trims a capture that includes someone's own browser UI.
-export function ScreenCapture({ asset, focus, zoom = 1.12, crop, kicker, title, sub }) {
+export function ScreenCapture({ asset, treatment = "push", focus, zoom = 1.12, crop, kicker, title, sub }) {
   const p = useProgress();
   const e = useEntrance(0, 0, 2);
   const f = { x: 0.5, y: 0.3, ...focus };
   const W = 1560;
   const H = 878;
-  const scale = 1 + (zoom - 1) * p;
+  const panDown = treatment === "panDown";
+  const scale = panDown ? 1 : 1 + (zoom - 1) * p;
   return (
     <AbsoluteFill>
       <Backdrop />
@@ -192,7 +193,7 @@ export function ScreenCapture({ asset, focus, zoom = 1.12, crop, kicker, title, 
                   );
                 })()
               ) : (
-                <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+                <Media asset={asset} style={{ width: "100%", height: panDown ? "auto" : "100%", minHeight: "100%", objectFit: "cover", objectPosition: "top", transform: panDown ? `translateY(${-30 * p}%)` : undefined }} />
               )}
             </div>
           </div>

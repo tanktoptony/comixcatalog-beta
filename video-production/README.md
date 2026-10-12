@@ -80,6 +80,7 @@ Segment types (`shared/EpisodeRenderer.jsx`):
 | `shelf` | StarterShelf | `items: [{asset, label, sub}]`, `kicker`, `title` |
 | `quote` | QuoteCard | `text`, `attribution`, `asset` |
 | `comixcatalog` | ComixCatalogCard | `title`, `sub`, `screenshot` |
+| `screen` | ScreenCapture | `asset`, `treatment` (`push` or `panDown`), optional `title` |
 | `end` | EndCard | `title`, `sub` (right half left clear for YouTube end screens) |
 | `placeholder` | PlaceholderCard | `asset`, `label` |
 

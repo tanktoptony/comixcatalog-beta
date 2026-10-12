@@ -11,7 +11,7 @@
 
 import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
-import { planCleanup } from "./lib/photoCleanupPlan.js";
+import { planCleanup, soldPhotoPaths } from "./lib/photoCleanupPlan.js";
 
 dotenv.config({ path: ".env.local", quiet: true });
 const APPLY = process.argv.includes("--apply");
@@ -47,6 +47,14 @@ async function referencedPaths() {
       set.add(r.storage_path);
       set.add(r.thumb_path);
     }
+    if (!data || data.length < 1000) break;
+  }
+  // Marking a book sold cascades its listing_photos rows away, but the files
+  // stay referenced by the private sold record (0052), so they aren't orphans.
+  for (let from = 0; ; from += 1000) {
+    const { data, error } = await sb.from("sold_items").select("id, seller_photo_keys").order("id").range(from, from + 999);
+    if (error) throw new Error(`sold_items: ${error.message}`);
+    for (const path of soldPhotoPaths(data ?? [])) set.add(path);
     if (!data || data.length < 1000) break;
   }
   return set;

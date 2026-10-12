@@ -19,6 +19,7 @@ import LibraryMobileBar from "@/components/LibraryMobileBar";
 import ListingEditor from "@/components/ListingEditor";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
+import MarkSoldButton from "@/components/MarkSoldButton";
 import { coverThumb } from "@/lib/coverThumb";
 import { readLocal, writeLocal } from "@/lib/localCache";
 import { fetchWithRetry } from "@/lib/fetchWithRetry";
@@ -176,6 +177,13 @@ function LibraryPageContent() {
     const t = searchParams.get("tab");
     return t === "wishlist" || t === "owned" || t === "for_sale" ? t : "owned";
   });
+  const [saleToast, setSaleToast] = useState("");
+
+  async function saleRecorded() {
+    setSaleToast("Recorded. Moved to your sold history.");
+    window.setTimeout(() => setSaleToast(""), 4500);
+    await refreshLibrary({ background: true });
+  }
 
   // Phase 3 unify - preview mode. URL `?view=public` (or localStorage memory
   // of the last choice) flips the library into a render that mirrors what
@@ -1387,6 +1395,7 @@ function LibraryPageContent() {
               For sale <span className="library-tab-count">{stats.forSaleCount}</span>
             </button>
           )}
+          {!isPublicPreview && <Link className="library-tab" href="/library/sold">Sold</Link>}
         </div>
 
         {!isPublicPreview && (
@@ -1453,6 +1462,7 @@ function LibraryPageContent() {
           }
         />
       )}
+      {saleToast && <div className="sale-toast" role="status">{saleToast}</div>}
 
       {/* ── Catalog linking ─────────────────────────────────────────
           Local-only books (added by CSV import or the manual /library/add
@@ -2166,6 +2176,9 @@ function LibraryPageContent() {
                             : "Set price"}
                         </button>
                       )}
+                      {item.status === "for_sale" && !isPublicPreview && (
+                        <MarkSoldButton collectionItemId={item.id} ownerId={user.id} onRecorded={saleRecorded} />
+                      )}
                       {item.status === "for_sale" && item.gcd_issue_id == null && !isPublicPreview && (
                         <span className="library-sale-note">
                           Not on the Marketplace yet. Link it to a catalog issue to list it.
@@ -2475,6 +2488,9 @@ function LibraryPageContent() {
                             }))
                           }
                           />
+                        {item.status === "for_sale" && (
+                          <MarkSoldButton collectionItemId={item.id} ownerId={user.id} onRecorded={saleRecorded} />
+                        )}
                       </div>
                     )}
                   </article>

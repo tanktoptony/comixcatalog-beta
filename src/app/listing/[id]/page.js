@@ -6,6 +6,7 @@ import { SITE_URL } from "@/lib/siteUrl";
 import ListingGallery from "@/components/ListingGallery";
 import { safeJsonLd } from "@/lib/jsonLd";
 import ReportButton from "@/components/ReportButton";
+import MarkSoldButton from "@/components/MarkSoldButton";
 
 // One copy for sale, Discogs item-page style: the copy, its condition, the
 // seller, the price, and the way to buy (an offer or a message while there's
@@ -112,6 +113,12 @@ export default async function ListingPage({ params }) {
                   </Link>
                 )}
                 <p className="lp-fine">No fees during the beta. You and the seller work out payment and shipping by message.</p>
+                <MarkSoldButton
+                  collectionItemId={l.collectionId}
+                  ownerId={l.sellerInfo.id}
+                  className="lp-mark-sold"
+                  redirectTo="/library/sold?recorded=1"
+                />
               </>
             )}
           </div>

@@ -1,4 +1,5 @@
 import { unstable_cache } from "next/cache";
+import { avatarForProfile } from "@/lib/defaultAvatar";
 import { getServiceClient } from "./supabase/service.js";
 
 // The Founding Collectors wall: every founder in the order they joined
@@ -15,7 +16,7 @@ export const getFoundingRoster = unstable_cache(
     const sb = getServiceClient();
     const { data, error } = await sb
       .from("profiles")
-      .select("username, display_name, is_public, avatar_key, avatar_url, created_at")
+      .select("id, username, display_name, is_public, avatar_key, avatar_url, created_at")
       .eq("is_founding_collector", true)
       .order("created_at", { ascending: true })
       .limit(100);
@@ -27,10 +28,8 @@ export const getFoundingRoster = unstable_cache(
       return {
         number: i + 1,
         username: visible ? p.username : null,
-        avatar: visible ? p.avatar_url || `/avatars/${p.avatar_key || "cc_badge"}.png` : null,
-        // Still on the signup default (no upload, no icon picked): the wall
-        // stamps their initial into the gold instead of the stock mask.
-        defaultAvatar: !p.avatar_url && (!p.avatar_key || p.avatar_key === "hero_01"),
+        avatar: visible ? avatarForProfile(p) : null,
+        defaultAvatar: false,
         initial: visible ? initialOf(p.display_name || p.username) : null,
       };
     });

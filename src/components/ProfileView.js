@@ -2,6 +2,7 @@ import Link from "next/link";
 import ShareProfileButton from "@/components/ShareProfileButton";
 import ShareCardButton from "@/components/ShareCardButton";
 import Image from "next/image";
+import { avatarForProfile } from "@/lib/defaultAvatar";
 import EditProfileButton from "@/components/EditProfileButton";
 import MessageButton from "@/components/MessageButton";
 import ProfileTabs from "@/components/ProfileTabs";
@@ -98,9 +99,7 @@ export default function ProfileView({ data, isOwner = false }) {
   const recentlyAdded = ownedItems.filter((item) => item.display).slice(0, 10);
 
   const joinDate = formatJoinDate(profile.created_at);
-  const avatarSrc = profile.avatar_url
-    ? profile.avatar_url
-    : `/avatars/${profile?.avatar_key || "cc_badge"}.png`;
+  const avatarSrc = avatarForProfile(profile);
 
   return (
     <main className="profile-page">
@@ -227,7 +226,7 @@ export default function ProfileView({ data, isOwner = false }) {
               return (
                 <Link key={item.id} href={d.href} className="profile-top-shelf-card">
                   <div className="profile-top-shelf-cover">
-                    <img src={coverThumb(topShelfCoverUrl(d))} alt={d.title} />
+                    <img src={coverThumb(topShelfCoverUrl(d))} alt={d.title} width="400" height="600" decoding="async" />
                     {item.key_issue ? (
                       <span className="profile-key-badge" title={item.key_issue.reason}>
                         KEY
@@ -282,7 +281,7 @@ export default function ProfileView({ data, isOwner = false }) {
               return (
                 <Link key={item.id} href={d.href} className="profile-top-shelf-card">
                   <div className="profile-top-shelf-cover">
-                    <img src={coverThumb(topShelfCoverUrl(d))} alt={d.title} />
+                    <img src={coverThumb(topShelfCoverUrl(d))} alt={d.title} width="400" height="600" loading="lazy" decoding="async" />
                     {item.slab_company && item.grade_numeric ? (
                       <span className="profile-grade-badge">
                         {item.slab_company} {Number(item.grade_numeric).toFixed(1)}

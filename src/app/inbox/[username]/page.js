@@ -12,6 +12,7 @@ import { authedFetch } from "@/lib/apiClient";
 import { containsMessageUrl } from "@/lib/messageContent";
 import { UNREAD_CHANGED_EVENT } from "@/hooks/useUnreadMessageCount";
 import Link from "next/link";
+import Avatar from "@/components/Avatar";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import styles from "./thread.module.css";
@@ -108,7 +109,7 @@ export default function ThreadPage() {
       // permanent "Loading…".
       const lookup = supabase
         .from("profiles")
-        .select("id, username, display_name, avatar_url")
+        .select("id, username, display_name, avatar_url, avatar_key")
         .eq("username", username)
         .maybeSingle();
 
@@ -396,12 +397,7 @@ export default function ThreadPage() {
           title={`View ${otherName}'s profile`}
         >
           <span className={styles.peerAvatar}>
-            {otherProfile?.avatar_url ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={otherProfile.avatar_url} alt="" />
-            ) : (
-              <span aria-hidden="true">{otherName[0]?.toUpperCase() ?? "?"}</span>
-            )}
+            <Avatar profile={otherProfile || { username }} />
           </span>
           <span className={styles.peerMeta}>
             <span className={styles.peerName}>{otherName}</span>

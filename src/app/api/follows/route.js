@@ -141,7 +141,7 @@ export async function GET(req) {
     if (ids.length === 0) return NextResponse.json([]);
     const { data: profiles, error: profilesError } = await supabase
       .from("profiles")
-      .select("id, username, display_name, avatar_url, is_public")
+      .select("id, username, display_name, avatar_url, avatar_key, is_public")
       .in("id", ids);
     if (profilesError) throw new Error(`follow profiles failed: ${profilesError.message}`);
     const byId = new Map((profiles ?? []).map((profile) => [profile.id, profile]));
@@ -149,9 +149,11 @@ export async function GET(req) {
       (rows ?? []).flatMap((row) => {
         const profile = byId.get(row[memberColumn]);
         return profile ? [{
+          id: profile.id,
           username: profile.username,
           display_name: profile.display_name,
           avatar_url: profile.avatar_url,
+          avatar_key: profile.avatar_key,
           is_public: profile.is_public,
           followed_at: row.created_at,
         }] : [];

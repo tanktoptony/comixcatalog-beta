@@ -7,9 +7,10 @@ import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
 import SuggestedCollectors from "./SuggestedCollectors";
+import Avatar from "@/components/Avatar";
 
 function MemberAvatar({ member }) {
-  return <img src={member.avatar_url || "/avatars/cc_badge.png"} alt="" className="people-avatar" />;
+  return <Avatar profile={member} className="people-avatar" />;
 }
 
 function MemberCard({ member, showFollow, privateWithoutLink = false }) {

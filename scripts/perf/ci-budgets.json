@@ -1,0 +1,9 @@
+[
+  { "label": "Home", "path": "/", "budget": { "ttfbMs": 1200, "totalMs": 2500, "bytes": 512000 } },
+  { "label": "Series", "path": "/series/d585a799-50f5-4127-98c3-0dfe2b13c968", "budget": { "ttfbMs": 1500, "totalMs": 3500, "bytes": 512000 } },
+  { "label": "Issue", "path": "/issue/gcd-2663120", "budget": { "ttfbMs": 1500, "totalMs": 3000, "bytes": 384000 } },
+  { "label": "Public profile", "path": "/u/legendofpayne", "budget": { "ttfbMs": 1500, "totalMs": 3000, "bytes": 460000 } },
+  { "label": "Public profile API", "path": "/api/public-profile?username=legendofpayne", "budget": { "ttfbMs": 1000, "totalMs": 1200, "bytes": 230000 } },
+  { "label": "People", "path": "/people", "budget": { "ttfbMs": 1500, "totalMs": 3000, "bytes": 384000 } },
+  { "label": "Marketplace", "path": "/marketplace", "budget": { "ttfbMs": 1500, "totalMs": 3000, "bytes": 512000 } }
+]

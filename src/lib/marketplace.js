@@ -1,4 +1,5 @@
 import { unstable_cache, revalidateTag } from "next/cache";
+import { avatarForProfile } from "@/lib/defaultAvatar";
 import { getServiceClient } from "./supabase/service.js";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { POST as libraryHydratePOST } from "@/app/api/library-hydrate/route";
@@ -234,7 +235,7 @@ async function computeListing(id) {
       username: seller.username,
       since: seller.created_at,
       founder: Boolean(seller.is_founding_collector),
-      avatar: seller.avatar_url || `/avatars/${seller.avatar_key || "cc_badge"}.png`,
+      avatar: avatarForProfile({ ...seller, id: l.seller_id }),
       otherListings: otherCount ?? 0,
     },
   };

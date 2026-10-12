@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
+import Avatar from "@/components/Avatar";
 
 function badgeFor(member) {
   if (member.is_founding_collector) return "Founding Collector";
@@ -110,7 +111,7 @@ export default function SuggestedCollectors() {
                   {member.following || isSelected ? "✓" : ""}
                 </button>
                 <Link href={`/u/${member.username}`} className="people-suggestion-profile">
-                  <img src={member.avatar_url || "/avatars/cc_badge.png"} alt="" className="people-avatar" />
+                  <Avatar profile={member} className="people-avatar" />
                   <span className="people-member-copy"><strong>{member.display_name || member.username}</strong><span>@{member.username}</span></span>
                 </Link>
                 <div className="people-suggestion-stat">

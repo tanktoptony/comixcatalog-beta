@@ -9,6 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 import { SIGNUP_HREF as START_SIGNUP_HREF } from "@/app/start/StartClient";
 import { useSearchQuery } from "@/context/SearchQueryContext";
 import { useUnreadMessageCount } from "@/hooks/useUnreadMessageCount";
+import { inboxAriaLabel, inboxBadgeTotal } from "@/lib/inboxNotifications";
 import { coverThumb } from "@/lib/coverThumb";
 
 function resolveCoverUrl(rawCover) {
@@ -692,17 +693,18 @@ function HelpIcon() {
 
 function InboxNavButton() {
   const unread = useUnreadMessageCount();
+  const total = inboxBadgeTotal(unread);
   return (
     <Link
       href="/inbox"
       className="nav-icon-btn nav-icon-btn-inbox"
       title="Inbox"
-      aria-label={unread > 0 ? `Inbox (${unread} unread)` : "Inbox"}
+      aria-label={inboxAriaLabel(unread)}
     >
       <InboxIcon />
-      {unread > 0 && (
+      {total > 0 && (
         <span className="nav-icon-badge" aria-hidden="true">
-          {unread > 99 ? "99+" : unread}
+          {total > 99 ? "99+" : total}
         </span>
       )}
     </Link>

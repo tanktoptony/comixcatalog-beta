@@ -5,6 +5,7 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function PeoplePage() {
-  return <PeopleClient />;
+export default async function PeoplePage({ searchParams }) {
+  const { tab } = await searchParams;
+  return <PeopleClient initialTab={tab === "followers" ? "followers" : "following"} />;
 }

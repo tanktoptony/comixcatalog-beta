@@ -14,6 +14,33 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import EmptyState from "@/components/EmptyState";
+import FollowButton from "@/components/FollowButton";
+import { authedFetch } from "@/lib/apiClient";
+import { UNREAD_CHANGED_EVENT } from "@/hooks/useUnreadMessageCount";
+
+function NewFollowersStrip({ followers }) {
+  if (!followers?.length) return null;
+  return (
+    <section className="inbox-followers" aria-labelledby="new-followers-heading">
+      <div className="inbox-followers-heading">
+        <h2 id="new-followers-heading">New followers</h2>
+        <Link href="/people?tab=followers">See all</Link>
+      </div>
+      <div className="inbox-followers-list">
+        {followers.map((follower) => (
+          <article className="inbox-follower" key={follower.id}>
+            <Link href={`/u/${follower.username}`} className="inbox-follower-person">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={follower.avatar_url || `/avatars/${follower.avatar_key || "cc_badge"}.png`} alt="" />
+              <span><strong>{follower.display_name || follower.username}</strong><small>@{follower.username}</small></span>
+            </Link>
+            <FollowButton username={follower.username} ownerId={follower.id} initialFollowing={follower.following} compact />
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function formatTimeAgo(iso) {
   if (!iso) return "";
@@ -36,6 +63,7 @@ export default function InboxPage() {
   // Last copy from this tab (src/lib/inboxCache.js) renders immediately;
   // the effect below refreshes it.
   const [threads, setThreads] = useState(() => (user ? inboxCache(user.id).threads : null));
+  const [newFollowers, setNewFollowers] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -50,6 +78,20 @@ export default function InboxPage() {
 
     async function load() {
       const supabase = getSupabaseClient();
+
+      // Keep the fetched rows for this visit, then advance the cutoff and
+      // refresh the header badge immediately.
+      try {
+        const notificationResponse = await authedFetch("/api/inbox-notifications", { cache: "no-store" });
+        if (notificationResponse.ok) {
+          const notifications = await notificationResponse.json();
+          if (!cancelled) setNewFollowers(notifications.recentFollowers ?? []);
+          const seenResponse = await authedFetch("/api/inbox-notifications", { method: "POST" });
+          if (seenResponse.ok && !cancelled) window.dispatchEvent(new Event(UNREAD_CHANGED_EVENT));
+        }
+      } catch {
+        // Messages remain usable if the optional follower strip cannot load.
+      }
 
       // Pull recent messages where the user is on either side. Hard timeout
       // — if RLS/session resolution stalls we want to surface an error and
@@ -166,6 +208,7 @@ export default function InboxPage() {
     return (
       <section className="comic-panel">
         <h1 className="hero-title">Inbox</h1>
+        <NewFollowersStrip followers={newFollowers} />
         <EmptyState
           title="No messages yet"
           body="When another collector messages you, the conversation will show up here. You can also start one from any profile."
@@ -177,6 +220,7 @@ export default function InboxPage() {
   return (
     <section className="comic-panel">
       <h1 className="hero-title">Inbox</h1>
+      <NewFollowersStrip followers={newFollowers} />
       <ul className="inbox-thread-list">
         {threads.map((t) => {
           const username = t.profile?.username || "unknown";

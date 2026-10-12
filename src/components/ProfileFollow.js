@@ -1,10 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import FollowButton from "@/components/FollowButton";
 import { authedFetch } from "@/lib/apiClient";
+import { useAuth } from "@/context/AuthContext";
 
-export default function ProfileFollow({ username, ownerId }) {
+export default function ProfileFollow({ username, ownerId, children }) {
+  const { user } = useAuth();
   const [status, setStatus] = useState(null);
 
   useEffect(() => {
@@ -24,22 +27,34 @@ export default function ProfileFollow({ username, ownerId }) {
   return (
     <>
       <div className="profile-follow-counts" aria-label="Follow counts">
-        <span><strong>{status?.followers ?? "-"}</strong> followers</span>
-        <span><strong>{status?.following_count ?? "-"}</strong> following</span>
+        {user?.id === ownerId ? (
+          <>
+            <Link href="/people?tab=followers"><strong>{status?.followers ?? "-"}</strong> followers</Link>
+            <Link href="/people?tab=following"><strong>{status?.following_count ?? "-"}</strong> following</Link>
+          </>
+        ) : (
+          <>
+            <span><strong>{status?.followers ?? "-"}</strong> followers</span>
+            <span><strong>{status?.following_count ?? "-"}</strong> following</span>
+          </>
+        )}
       </div>
-      {status && (
-        <FollowButton
-          key={`${username}-${status.following}`}
-          username={username}
-          ownerId={ownerId}
-          initialFollowing={status.following}
-          onChange={(following) => setStatus((current) => ({
-            ...current,
-            following,
-            followers: Math.max(0, current.followers + (following ? 1 : -1)),
-          }))}
-        />
-      )}
+      <div className="profile-actions">
+        {status && (
+          <FollowButton
+            key={`${username}-${status.following}`}
+            username={username}
+            ownerId={ownerId}
+            initialFollowing={status.following}
+            onChange={(following) => setStatus((current) => ({
+              ...current,
+              following,
+              followers: Math.max(0, current.followers + (following ? 1 : -1)),
+            }))}
+          />
+        )}
+        {children}
+      </div>
     </>
   );
 }

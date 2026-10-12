@@ -6,7 +6,7 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
-import { getSupabaseClient } from "@/lib/supabase/client";
+import { authedFetch } from "@/lib/apiClient";
 
 // Fired on window by the thread page after it marks messages read, so the
 // badge updates immediately instead of on its next 60 s poll.
@@ -16,21 +16,26 @@ export function useUnreadMessageCount() {
   const { user } = useAuth();
   // Tagged with the user it was fetched for, so a different account never
   // sees the previous one's number, with no state reset in the effect.
-  const [unread, setUnread] = useState({ userId: null, count: 0 });
+  const [unread, setUnread] = useState({ userId: null, messages: 0, followers: 0 });
 
   useEffect(() => {
     if (!user) return;
 
-    const supabase = getSupabaseClient();
     let cancelled = false;
 
     async function refresh() {
-      const { count: c } = await supabase
-        .from("messages")
-        .select("id", { count: "exact", head: true })
-        .eq("recipient_id", user.id)
-        .is("read_at", null);
-      if (!cancelled) setUnread({ userId: user.id, count: c ?? 0 });
+      try {
+        const response = await authedFetch("/api/inbox-notifications", { cache: "no-store" });
+        if (!response.ok) return;
+        const body = await response.json();
+        if (!cancelled) setUnread({
+          userId: user.id,
+          messages: body.messages ?? 0,
+          followers: body.followers ?? 0,
+        });
+      } catch {
+        // Keep the last successful badge value through a transient failure.
+      }
     }
 
     refresh();
@@ -58,5 +63,7 @@ export function useUnreadMessageCount() {
     };
   }, [user]);
 
-  return user && unread.userId === user.id ? unread.count : 0;
+  return user && unread.userId === user.id
+    ? { messages: unread.messages, followers: unread.followers }
+    : { messages: 0, followers: 0 };
 }

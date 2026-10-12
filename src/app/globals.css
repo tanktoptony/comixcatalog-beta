@@ -2785,20 +2785,40 @@ input[type="file"] {
 .profile-follow-counts {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.75rem;
   margin-top: 0.65rem;
   color: var(--cc-muted, #aeb4c0);
   font-size: 0.9rem;
 }
 
-.profile-follow-counts strong { color: var(--cc-text, #fff); }
+.profile-follow-counts strong { color: var(--cc-text, #fff); font-weight: 800; }
+.profile-follow-counts a { color: inherit; text-decoration: none; }
+.profile-follow-counts a:hover { color: var(--x-gold); }
 .follow-button-wrap { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 4px; }
-.follow-button { min-width: 92px; }
+.follow-button { position: relative; justify-content: center; min-width: 112px; min-height: 34px; overflow: hidden; }
+.follow-button.is-primary {
+  background: linear-gradient(135deg, #f4d03f, #d8a63a);
+  border-color: #f4d03f;
+  color: #14100a;
+  font-weight: 800;
+  box-shadow: 0 4px 18px rgba(216,176,75,0.28);
+}
+.follow-button.is-primary:hover { background: linear-gradient(135deg, #ffe46b, #e0b347); border-color: #ffe46b; }
+.follow-button-content { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.follow-icon { width: 0.9rem; font-size: 1rem; font-weight: 900; line-height: 1; }
 .follow-button .unfollow-label { display: none; }
 .follow-button.is-following:hover .follow-label,
 .follow-button.is-following:focus-visible .follow-label { display: none; }
 .follow-button.is-following:hover .unfollow-label,
 .follow-button.is-following:focus-visible .unfollow-label { display: inline; }
+.follow-button.is-following:hover,
+.follow-button.is-following:focus-visible { color: #e98c8c; border-color: rgba(239, 112, 112, 0.55); }
+.follow-button:focus-visible { outline: 3px solid rgba(244, 208, 63, 0.55); outline-offset: 2px; }
+.follow-button:disabled { cursor: wait; opacity: 0.78; }
+.follow-button:disabled .follow-button-content { visibility: hidden; }
+.follow-spinner { position: absolute; width: 14px; height: 14px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: follow-spin 0.7s linear infinite; }
+.follow-button.is-compact { min-width: 88px; min-height: 30px; padding: 6px 10px; font-size: 0.78rem; }
+@keyframes follow-spin { to { transform: rotate(360deg); } }
 .follow-error { max-width: 220px; color: #ff9b9b; font-size: 0.75rem; }
 
 .people-page {
@@ -2851,7 +2871,7 @@ input[type="file"] {
 @media (max-width: 420px) {
   .people-page { padding-inline: 0.75rem; }
   .people-card { align-items: flex-start; }
-  .people-card .follow-button { min-width: 78px; padding-inline: 0.6rem; }
+  .people-card .follow-button { min-width: 84px; padding-inline: 0.55rem; }
   .people-avatar { width: 42px; height: 42px; }
 }
 
@@ -3035,19 +3055,23 @@ input[type="file"] {
   align-items: center;
   padding: 8px 16px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #f4d03f, #d8a63a);
-  color: #14100a;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
   font-weight: 700;
   font-size: 0.85rem;
   line-height: 1.2;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   cursor: pointer;
-  box-shadow: 0 4px 18px rgba(216,176,75,0.35);
+  box-shadow: none;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
+.profile-share-btn:focus-visible { outline: 3px solid rgba(244, 208, 63, 0.55); outline-offset: 2px; }
+
 .profile-share-btn:hover {
   transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
 
@@ -8538,6 +8562,22 @@ button.nav-link {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+.inbox-followers { margin: 0 0 18px; padding: 12px; border: 1px solid rgba(244, 208, 63, 0.25); border-radius: 12px; background: rgba(244, 208, 63, 0.035); }
+.inbox-followers-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.inbox-followers-heading h2 { margin: 0; font-size: 0.95rem; }
+.inbox-followers-heading a { color: var(--x-gold); font-size: 0.8rem; font-weight: 700; }
+.inbox-followers-list { display: grid; gap: 8px; }
+.inbox-follower { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; }
+.inbox-follower-person { display: flex; align-items: center; gap: 9px; min-width: 0; color: inherit; text-decoration: none; }
+.inbox-follower-person img { width: 34px; height: 34px; flex: none; border-radius: 50%; object-fit: cover; }
+.inbox-follower-person span { display: flex; min-width: 0; flex-direction: column; }
+.inbox-follower-person strong, .inbox-follower-person small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.inbox-follower-person small { color: rgba(255,255,255,0.55); }
+@media (max-width: 420px) {
+  .profile-actions { gap: 7px; }
+  .profile-action-btn, .profile-share-btn { padding-inline: 12px; }
+  .inbox-followers { padding: 10px; }
 }
 .inbox-thread {
   border-radius: 12px;

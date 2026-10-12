@@ -6,7 +6,7 @@ import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
 
-export default function FollowButton({ username, ownerId, initialFollowing = false, onChange }) {
+export default function FollowButton({ username, ownerId, initialFollowing = false, onChange, compact = false }) {
   const { user, loading } = useAuth();
   const pathname = usePathname();
   const router = useRouter();
@@ -54,13 +54,17 @@ export default function FollowButton({ username, ownerId, initialFollowing = fal
     <span className="follow-button-wrap">
       <button
         type="button"
-        className={`profile-action-btn follow-button${following ? " is-following" : ""}`}
+        className={`profile-action-btn follow-button${following ? " is-following" : " is-primary"}${compact ? " is-compact" : ""}`}
         onClick={toggle}
         disabled={busy || loading}
         aria-label={following ? `Unfollow @${username}` : `Follow @${username}`}
       >
-        <span className="follow-label">{following ? "Following" : "Follow"}</span>
-        {following && <span className="unfollow-label">Unfollow</span>}
+        <span className="follow-button-content" aria-hidden={busy ? "true" : undefined}>
+          <span className="follow-icon">{following ? "✓" : "+"}</span>
+          <span className="follow-label">{following ? "Following" : "Follow"}</span>
+          {following && <span className="unfollow-label">Unfollow</span>}
+        </span>
+        {busy && <span className="follow-spinner" aria-hidden="true" />}
       </button>
       {error && <span className="follow-error" role="alert">{error}</span>}
     </span>

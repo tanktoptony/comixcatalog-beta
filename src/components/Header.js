@@ -47,7 +47,7 @@ function formatYearRange(start, end) {
 }
 
 export default function Header() {
-  const { user, profile, loading, profileLoading, signOut, isPro } = useAuth();
+  const { user, profile, loading, profileLoading, signOut, isPro, isPlus, hasSupporterPerks } = useAuth();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   // The query lives in SearchQueryContext rather than local state so /search
@@ -636,6 +636,8 @@ export default function Header() {
               user={user}
               profile={profile}
               isPro={isPro}
+              isPlus={isPlus}
+              hasSupporterPerks={hasSupporterPerks}
               onLogout={handleLogout}
               onSwitchAccount={handleSwitchAccount}
               onNavigate={closeMenu}
@@ -749,7 +751,7 @@ function MarketplaceIcon() {
 }
 
 const UserMenu = forwardRef(function UserMenu(
-  { open, setOpen, user, profile, profileLoading, isPro, onLogout, onSwitchAccount, onNavigate },
+  { open, setOpen, user, profile, profileLoading, isPro, isPlus, hasSupporterPerks, onLogout, onSwitchAccount, onNavigate },
   ref
 ) {
   const username = profile?.username || null;
@@ -793,7 +795,7 @@ const UserMenu = forwardRef(function UserMenu(
         ) : (
           <span className="user-menu-avatar user-menu-avatar--pending" aria-hidden="true" />
         )}
-        {isPro && <span className="user-menu-pro-dot" aria-hidden="true" />}
+        {hasSupporterPerks && <span className="user-menu-pro-dot" aria-hidden="true" />}
       </button>
 
       {open && (
@@ -816,6 +818,7 @@ const UserMenu = forwardRef(function UserMenu(
               </div>
             )}
             {isPro && <span className="user-menu-pro-pill">PRO</span>}
+            {isPlus && <span className="user-menu-pro-pill">Collector+</span>}
           </div>
 
           <div className="user-menu-divider" />
@@ -872,11 +875,11 @@ const UserMenu = forwardRef(function UserMenu(
 
           <Link
             href="/upgrade"
-            className={`user-menu-item ${isPro ? "" : "user-menu-item-cta"}`}
+            className={`user-menu-item ${hasSupporterPerks ? "" : "user-menu-item-cta"}`}
             role="menuitem"
             onClick={handleItem()}
           >
-            {isPro ? "Manage Pro" : "Free Lifetime Pro"}
+            {hasSupporterPerks ? "Manage membership" : "Join Collector+"}
           </Link>
 
           <div className="user-menu-divider" />

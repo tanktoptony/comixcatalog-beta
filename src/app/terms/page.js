@@ -56,13 +56,13 @@ export default function TermsOfServicePage() {
 
         <h2>4. Subscriptions</h2>
         <p>
-          Some features of the Service require a paid Collector Pro subscription. Subscriptions are
-          billed in advance on a monthly basis through Stripe. Your
+          Collector+ is a paid supporter membership. Subscriptions are
+          billed in advance monthly or yearly through Stripe. Your
           subscription will renew automatically until you cancel.
         </p>
         <p>
           A limited number of Founding Collector passes provide the standard
-          Collector Pro feature set without a recurring charge. These passes
+          Collector Pro membership without a recurring charge. These passes
           are non-transferable and remain valid for the lifetime of the account
           and the ComixCatalog service, subject to these Terms.
         </p>

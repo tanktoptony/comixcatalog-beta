@@ -24,7 +24,7 @@ Every series, every issue, every printing, with the covers attached to the right
 
 ## Free Pro for life, still open
 
-Founding Collector spots are still available. A new account right now gets Collector Pro permanently, free, no card: market values, grades and cert numbers, and an insurance-ready PDF of the whole collection. When the spots are gone that is it. [Join here](https://www.comixcatalog.com/founding-collectors).
+Founding Collector spots are still available. A new account right now gets Collector Pro permanently, free, no card, plus a Founding Collector badge. When the spots are gone, supporting the site is Collector+ at $4 a month or $36 a year. [Join here](https://www.comixcatalog.com/founding-collectors).
 
 Reply to this if something is broken. I am one person and I fix things fast.
 

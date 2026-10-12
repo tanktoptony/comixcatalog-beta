@@ -46,7 +46,7 @@ That is the tour. Search, series, issue, library, profile. Everything else on th
 
 ## The free-for-life thing
 
-Right now, while there are Founding Collector spots left, a new account gets Collector Pro permanently, free, no card. That is the market values, the PDF export, and whatever Pro grows into. I would rather have a hundred people who were here early than a thousand who paid, so that is the deal until the spots run out.
+Right now, while there are Founding Collector spots left, a new account gets Collector Pro permanently, free, no card. It includes a profile badge and removes upgrade prompts from house promos. I would rather have a hundred people who were here early than a thousand who paid, so that is the deal until the spots run out. After that, supporting the site is Collector+ at $4 a month or $36 a year.
 
 ![The Founding Collectors page](https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/comic-covers/blog/how-to-use-comixcatalog/06-founding.jpg)
 

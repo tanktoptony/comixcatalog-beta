@@ -1,13 +1,15 @@
+import { hasSupporterPerks } from "@/lib/membership";
+
 // House-ad inventory for <AdSlot />. Every slot on the site renders one of
 // these today; nothing here is a paid ad and nothing here loads a third
 // party. The slot positions are the plumbing a sponsor or ad network would
 // drop into later without touching any page.
 //
 // Before anything paid goes into a slot, read src/app/upgrade/page.js:
-// Pro subscribers are told the $8 buys "no third-party ads". That copy is a positioning
-// decision the founder makes on purpose, not a side effect of this file.
+// Supporter memberships hide upgrade prompts. Informational house promos
+// remain eligible because they are not membership upsells.
 //
-// `show` decides eligibility per viewer. Upsells (Founding, Pro) are hidden
+// `show` decides eligibility per viewer. Upsells (Founding, Collector+) are hidden
 // from people who already have the thing; the informational ones
 // (contribute, reading guides) show to everyone.
 
@@ -26,16 +28,16 @@ export const HOUSE_ADS = [
     body: "Join while spots remain and Collector Pro is yours permanently, no card required.",
     cta: "See the offer",
     href: "/founding-collectors",
-    show: ({ isPro, isFounding }) => !isPro && !isFounding,
+    show: (viewer) => !hasSupporterPerks(viewer),
   },
   {
     id: "value",
-    kicker: "Collector Pro",
+    kicker: "Collector+",
     headline: "Everything here is free.",
-    body: "Grading, values, exports and the insurance PDF cost nothing. Collector Pro is how you support an independent, solo-built site.",
-    cta: "See Pro",
+    body: "Grading, values, exports and the insurance PDF cost nothing. Collector+ is how you support an independent, solo-built site.",
+    cta: "See Collector+",
     href: "/upgrade",
-    show: ({ isPro }) => !isPro,
+    show: (viewer) => !hasSupporterPerks(viewer),
   },
   {
     id: "contribute",

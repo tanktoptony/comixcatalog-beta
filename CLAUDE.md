@@ -156,10 +156,10 @@ At current ComicVine free-tier ingest pace (hourly cron, rate-limited), closing 
 
 #### `profiles`
 PK `id` (uuid, FK → `auth.users.id`).
-Columns: `username`, `is_public`, `created_at`, `avatar_key`, `avatar_url`, `is_founding_collector`, `is_pro`, `stripe_customer_id`.
+Columns: `username`, `is_public`, `created_at`, `avatar_key`, `avatar_url`, `is_founding_collector`, `is_pro`, `membership_tier`, `stripe_customer_id`.
 - `is_pro` is the Stripe-driven flag. Admin is treated as Pro via `ADMIN_ID` short-circuit, NOT this column.
 - `stripe_customer_id` is mode-sensitive — a live-mode `cus_…` will fail under a test-mode key (we hit this).
-- **`is_pro`, `is_founding_collector` and `stripe_customer_id` are server-only (migration 0032a/0032b, 2026-10-05).** A trigger rejects any change to them unless the caller is the service role or postgres, because the "Users can update own profile" policy has no column limit and owners could otherwise grant themselves Pro. Browsers can't read `stripe_customer_id` at all, so client code must select explicit columns from `profiles`, never `select("*")`. A new `profiles` column needs adding to 0032b's grant list or browsers can't read it.
+- **`is_pro`, `is_founding_collector`, `membership_tier` and `stripe_customer_id` are server-only (migrations 0032a/0032b/0049).** A trigger rejects client changes because owners could otherwise grant themselves a membership. Browsers can read `membership_tier` but not `stripe_customer_id`, so client code must select explicit columns from `profiles`, never `select("*")`.
 
 #### `user_collections`
 PK `id` (uuid). FKs: `user_id` → `auth.users`, `comic_id` → `comics.id`, plus a non-FK `gcd_issue_id` (int4) link.
@@ -300,7 +300,8 @@ Always use these terms correctly in code, comments, and UI copy:
 | **Supporter** (Patreon) | $3/mo | Badge, Discord access, behind-the-scenes updates |
 | **Collector Beta** (Patreon) | $8/mo | Early feature access, feature voting, beta previews |
 | **Founding Collector** (Patreon) | $20/mo | Limited tier. Permanent badge, name on founders page, roadmap access |
-| **Collector Pro** (in-app) | $8/mo | **Supporter tier since 2026-10-07:** profile badge, no upsell house ads. Grading, photos, PDF, exports, value history and bulk wantlist are free (decision: paywall only what competitors don't have, see docs/DECISIONS.md). Originally: grading tools, PDF export, unlimited import. *Priced to match Patreon Collector Beta — no cannibalization.* **Phase 2 launch.** |
+| **Collector+** (in-app) | $4/mo or $36/year | Supporter tier: Collector+ profile badge and no upgrade prompts in house promos. The complete collector toolkit remains free. |
+| **Collector Pro** (legacy) | Not sold | Founders, comped users, and admin keep their existing Pro membership and badge. |
 | **Vault** (in-app) | $18/mo | PDF reports, private sharing link, priority marketplace placement. **Phase 2.** |
 | **Verified Collector badge** | $10 one-time | Links CGC registry to profile. Marketplace credential. |
 

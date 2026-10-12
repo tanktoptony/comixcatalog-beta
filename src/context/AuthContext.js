@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useLayoutEffect, useState } from "react";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { ADMIN_ID } from "@/lib/admin";
+import { hasSupporterPerks, isCollectorPlus } from "@/lib/membership";
 
 const AuthContext = createContext(null);
 
@@ -138,7 +139,7 @@ export function AuthProvider({ children }) {
         // Explicit columns: browsers can't read stripe_customer_id
         // (migration 0032b), so a "*" here would fail the whole load.
         .select(
-          "id, username, is_public, created_at, avatar_key, avatar_url, is_founding_collector, is_pro, display_name, location, bio, website_url, show_collection, show_wantlist, show_for_sale, show_value"
+          "id, username, is_public, created_at, avatar_key, avatar_url, is_founding_collector, is_pro, membership_tier, display_name, location, bio, website_url, show_collection, show_wantlist, show_for_sale, show_value"
         )
         .eq("id", nextUser.id)
         .maybeSingle();
@@ -171,6 +172,7 @@ export function AuthProvider({ children }) {
         avatar_key: null,
         is_pro: false,
         is_founding_collector: false,
+        membership_tier: null,
         created_at: nextUser.created_at ?? null,
       };
       if (prof) writeCachedProfile(nextUser.id, prof);
@@ -243,6 +245,13 @@ export function AuthProvider({ children }) {
         isAdmin: user?.id === ADMIN_ID,
         isPro: Boolean(profile?.is_pro) || user?.id === ADMIN_ID,
         isFounding: Boolean(profile?.is_founding_collector),
+        membershipTier: profile?.membership_tier ?? null,
+        isPlus: isCollectorPlus(profile?.membership_tier),
+        hasSupporterPerks: hasSupporterPerks({
+          isPro: Boolean(profile?.is_pro) || user?.id === ADMIN_ID,
+          isFounding: Boolean(profile?.is_founding_collector),
+          membershipTier: profile?.membership_tier,
+        }),
       }}
     >
       {children}

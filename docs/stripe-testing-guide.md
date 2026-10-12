@@ -18,7 +18,9 @@ actually missing config, not broken code.
 - [ ] Stripe Dashboard → **Developers → API keys** shows your `pk_` and `sk_`
       starting with `pk_test_` / `sk_test_` (test mode) or `pk_live_` / `sk_live_`
       (live mode) — whichever you're testing.
-- [ ] `STRIPE_PRO_PRICE_ID` is the **monthly $8 recurring** price.
+- [ ] `STRIPE_PRO_PRICE_ID` is the legacy Collector Pro price. It remains configured for existing subscriptions but is not offered on the site.
+- [ ] `STRIPE_PLUS_MONTHLY_PRICE_ID` is the **monthly $4 recurring** Collector+ price.
+- [ ] `STRIPE_PLUS_ANNUAL_PRICE_ID` is the **yearly $36 recurring** Collector+ price.
 - [ ] `STRIPE_FOUNDING_PRICE_ID` is the $20 founding price (if relevant).
 - [ ] Webhook endpoint configured at:
       `https://www.comixcatalog.com/api/stripe/webhook`

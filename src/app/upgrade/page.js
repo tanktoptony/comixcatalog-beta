@@ -44,32 +44,34 @@ const TIERS = [
     tier: "free",
   },
   {
-    id: "pro",
-    name: "Collector Pro",
-    price: "$8",
+    id: "plus",
+    name: "Collector+",
+    price: "$4",
     period: "/ month",
     badge: "Recommended",
     via: "stripe",
     viaLabel: "via Stripe · cancel anytime",
     headline: "Support an independent collector site",
-    description: "Everything collectors need is free. Collector Pro is how you support an independent site built and run by one person.",
+    description: "Everything collectors need is free. Collector+ is how you support an independent site built and run by one person.",
     features: [
-      { label: "Collector Pro badge on your profile" },
+      { label: "Collector+ badge on your profile" },
       { label: "No upgrade prompts in house promos" },
     ],
-    cta: "Start Collector Pro, $8/month",
-    tier: "pro",
+    cta: "Join Collector+",
+    tier: "plus",
   },
 ];
 
 export default function UpgradePage() {
-  const { user, isPro, isFounding, loading } = useAuth();
+  const { user, isPro, isFounding, isPlus, loading } = useAuth();
   const [busy, setBusy] = useState(null); // stores tier id while loading
   const [err, setErr] = useState(null);
   const [mounted, setMounted] = useState(false);
   // null until /api/founding/status answers. A hardcoded guess here used to
   // flash a wrong count on every page load.
   const [foundingRemaining, setFoundingRemaining] = useState(null);
+  const [interval, setInterval] = useState("month");
+  const [hasStripeCustomer, setHasStripeCustomer] = useState(false);
   const foundingOpen = foundingRemaining == null || foundingRemaining > 0;
 
   useEffect(() => {
@@ -83,7 +85,13 @@ export default function UpgradePage() {
         if (Number.isFinite(data?.remaining)) setFoundingRemaining(data.remaining);
       })
       .catch(() => {});
-  }, []);
+    if (user) {
+      authedFetch("/api/stripe/portal", { cache: "no-store" })
+        .then((response) => response.ok ? response.json() : null)
+        .then((data) => setHasStripeCustomer(Boolean(data?.hasCustomer)))
+        .catch(() => {});
+    }
+  }, [user]);
 
   async function handleCheckout(tier) {
     if (!user) {
@@ -96,7 +104,7 @@ export default function UpgradePage() {
       const res = await authedFetch("/api/stripe/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tier }),
+        body: JSON.stringify({ tier, interval }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.url) {
@@ -134,7 +142,7 @@ export default function UpgradePage() {
     }
   }
 
-  const alreadyPro = mounted && (isPro || isFounding);
+  const alreadyMember = mounted && (isPro || isFounding || isPlus);
 
   return (
     <main className="upgrade-shell">
@@ -142,11 +150,11 @@ export default function UpgradePage() {
       <section className="upgrade-hero">
         <div className="upgrade-kicker">Simple pricing</div>
         <h1 className="upgrade-title">
-          {foundingOpen ? "Join now. Keep Pro for life." : "Free to collect. Pro to support it."}
+          {foundingOpen ? "Join now. Keep Pro for life." : "Free to collect. Collector+ to support it."}
         </h1>
         <p className="upgrade-sub">
-          The first 100 members receive Collector Pro for life at no charge.
-          After the founding memberships are gone, Collector Pro is $8/month.
+          The first 100 members get Collector Pro free, for life. After that,
+          supporting the site is Collector+, $4 a month or $36 a year.
         </p>
         {foundingOpen && (
           <p className="upgrade-founding-offer">
@@ -162,29 +170,31 @@ export default function UpgradePage() {
         )}
       </section>
 
-      {alreadyPro && (
+      {alreadyMember && (
         <section className="upgrade-already">
           <p>
             {isFounding
               ? "You're a Founding Collector. Thank you for being part of this from the start."
-              : "You're on Collector Pro."}
+              : isPlus
+                ? "You're on Collector+."
+                : "You're on Collector Pro."}
             {" "}
             <Link href="/library">Back to your library →</Link>
           </p>
-          <button
+          {hasStripeCustomer && <button
             type="button"
             className="upgrade-secondary"
             onClick={handleManageBilling}
             disabled={busy === "manage"}
           >
             {busy === "manage" ? "Opening…" : "Manage billing & cancel"}
-          </button>
+          </button>}
           {err && <div className="upgrade-error">{err}</div>}
         </section>
       )}
 
       <section className="upgrade-tiers">
-        {TIERS.filter((tier) => tier.id === "free" || tier.id === "pro").map((tier) => (
+        {TIERS.map((tier) => (
           <div
             key={tier.id}
             className={`upgrade-tier-card ${tier.badge ? "upgrade-tier-card--featured" : ""}`}
@@ -196,9 +206,18 @@ export default function UpgradePage() {
             <div className="upgrade-tier-header">
               <div className="upgrade-tier-name">{tier.name}</div>
               <div className="upgrade-tier-price">
-                <span className="upgrade-price-amount">{tier.price}</span>
+                <span className="upgrade-price-amount">{tier.id === "plus" && interval === "year" ? "$3" : tier.price}</span>
                 <span className="upgrade-price-period">{tier.period}</span>
               </div>
+              {tier.id === "plus" && (
+                <div className="upgrade-interval-toggle" role="group" aria-label="Billing interval">
+                  <button type="button" className={interval === "month" ? "is-active" : ""} onClick={() => setInterval("month")}>Monthly</button>
+                  <button type="button" className={interval === "year" ? "is-active" : ""} onClick={() => setInterval("year")}>Yearly</button>
+                </div>
+              )}
+              {tier.id === "plus" && interval === "year" && (
+                <div className="upgrade-tier-via">billed yearly at $36, save 25%</div>
+              )}
               <div className="upgrade-tier-via">{tier.viaLabel}</div>
             </div>
 
@@ -207,28 +226,9 @@ export default function UpgradePage() {
             <ul className="upgrade-tier-features">
               {tier.features.map((f, i) => {
                 const label = typeof f === "string" ? f : f.label;
-                const soon = typeof f === "object" && f.soon;
                 return (
-                  <li key={i} style={soon ? { opacity: 0.7 } : undefined}>
+                  <li key={i}>
                     {label}
-                    {soon && (
-                      <span
-                        style={{
-                          marginLeft: 6,
-                          fontSize: "0.7rem",
-                          fontWeight: 700,
-                          textTransform: "uppercase",
-                          letterSpacing: "0.04em",
-                          padding: "1px 6px",
-                          borderRadius: 999,
-                          border: "1px solid rgba(255,255,255,0.25)",
-                          opacity: 0.85,
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        Coming soon
-                      </span>
-                    )}
                   </li>
                 );
               })}
@@ -247,14 +247,10 @@ export default function UpgradePage() {
                 <button type="button" className="upgrade-cta" disabled suppressHydrationWarning>
                   {tier.cta}
                 </button>
-              ) : alreadyPro ? (
+              ) : alreadyMember ? (
                 <button type="button" className="upgrade-cta" disabled>
-                  {isFounding && tier.id === "founding" ? "Your current plan" : isPro && tier.id === "pro" ? "Your current plan" : "Already a member"}
+                  {tier.id === "plus" && isPlus ? "Your current plan" : "Already a member"}
                 </button>
-              ) : foundingOpen ? (
-                <Link href={user ? "/founding-collectors" : "/signup"} className="upgrade-cta">
-                  Get Pro free for life
-                </Link>
               ) : (
                 <button
                   type="button"
@@ -262,7 +258,7 @@ export default function UpgradePage() {
                   onClick={() => handleCheckout(tier.tier)}
                   disabled={busy === tier.tier || loading}
                 >
-                  {busy === tier.tier ? "Redirecting…" : user ? tier.cta : "Sign in to upgrade"}
+                  {busy === tier.tier ? "Redirecting…" : tier.cta}
                 </button>
               )}
             </div>
@@ -281,14 +277,14 @@ export default function UpgradePage() {
           <h3>Can I cancel?</h3>
           <p>
             Yes. Cancel anytime from the Stripe billing portal (button above if you&rsquo;re
-            already subscribed). No cancellation fees. Your Pro membership stays active until the
+            already subscribed). No cancellation fees. Your Collector+ membership stays active until the
             end of your billing period. Free lifetime Founding passes do not require billing.
           </p>
         </div>
         <div className="upgrade-faq-item">
           <h3>Why pay at all?</h3>
           <p>
-            ComixCatalog is built solo, without third-party ads or selling your data. Collector Pro
+            ComixCatalog is built solo, without third-party ads or selling your data. Collector+
             keeps the servers running and helps an independent site keep improving.
           </p>
         </div>

@@ -44,3 +44,20 @@ export async function POST(req) {
     );
   }
 }
+
+export async function GET(req) {
+  const authedUser = await getAuthedUser(req);
+  if (!authedUser) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  const supabase = getServiceClient();
+  const { data: profile, error } = await supabase
+    .from("profiles")
+    .select("stripe_customer_id")
+    .eq("id", authedUser.id)
+    .single();
+  if (error || !profile) {
+    return NextResponse.json({ error: "Profile not found" }, { status: 404 });
+  }
+  return NextResponse.json({ hasCustomer: Boolean(profile.stripe_customer_id) });
+}

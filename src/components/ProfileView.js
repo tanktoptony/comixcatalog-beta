@@ -2,6 +2,7 @@ import Link from "next/link";
 import ShareProfileButton from "@/components/ShareProfileButton";
 import ShareCardButton from "@/components/ShareCardButton";
 import Image from "next/image";
+import { avatarForProfile } from "@/lib/defaultAvatar";
 import EditProfileButton from "@/components/EditProfileButton";
 import MessageButton from "@/components/MessageButton";
 import ProfileTabs from "@/components/ProfileTabs";
@@ -98,9 +99,7 @@ export default function ProfileView({ data, isOwner = false }) {
   const recentlyAdded = ownedItems.filter((item) => item.display).slice(0, 10);
 
   const joinDate = formatJoinDate(profile.created_at);
-  const avatarSrc = profile.avatar_url
-    ? profile.avatar_url
-    : `/avatars/${profile?.avatar_key || "cc_badge"}.png`;
+  const avatarSrc = avatarForProfile(profile);
 
   return (
     <main className="profile-page">

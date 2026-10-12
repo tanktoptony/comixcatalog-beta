@@ -111,7 +111,7 @@ export default function AuthCallbackPage() {
 
       const user = session.user;
       const username = user.user_metadata?.username;
-      const avatarKey = user.user_metadata?.avatar_key || "hero_01";
+      const avatarKey = user.user_metadata?.avatar_key || null;
 
       if (!username) {
         // Google doesn't supply a username — /complete-profile collects

@@ -68,6 +68,7 @@ __pycache__/
 !/reports/perf-*.md
 !/reports/catalog-gap-*.md
 !/reports/cover-resolver-parity-*.md
+!/reports/default-avatars-sheet.png
 /reports/.cover-parity-cache-*.jsonl
 /reports/.cover-parity-sample-*.json
 /comicvine_api_output/ingest-loop-*.log

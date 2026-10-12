@@ -8,6 +8,36 @@
 
 export const SITE_NEWS = [
   {
+    date: "2026-10-12",
+    title: "Find your friends",
+    body: "Search for collectors by username or name, follow them, and see who follows you back. There's a Collectors to follow list on the People page if you want to follow a bunch at once, and the inbox icon now lights up when someone follows you.",
+    href: "/people",
+  },
+  {
+    date: "2026-10-12",
+    title: "Scan a whole stack",
+    body: "Shoot cover after cover without waiting, then check every match in one list, add grade, slab and price paid right there, and add them all at once. Single scans got the same optional details panel.",
+    href: "/scan",
+  },
+  {
+    date: "2026-10-12",
+    title: "Mark a book sold",
+    body: "Sold something? Mark it sold with what it went for. It comes off your shelf and into a private sold history only you can see. Listing a book now also nudges you to add a price and a photo of your copy.",
+    href: "/library",
+  },
+  {
+    date: "2026-10-12",
+    title: "Collector+ is here",
+    body: "The first 100 members still get Pro free for life, and most of those spots are still open. After that, supporting the site is Collector+, $4 a month or $36 a year. Everything you need to track a collection stays free either way.",
+    href: "/upgrade",
+  },
+  {
+    date: "2026-10-12",
+    title: "A fresh coat of paint",
+    body: "Account settings got rebuilt, everyone without a photo gets their own colorway of the CC badge, and big profiles load a lot faster.",
+    href: "/account",
+  },
+  {
     date: "2026-10-09",
     title: "Know when someone writes",
     body: "When someone messages you, you get an email with a link to the conversation, at most one per conversation every few hours. Turn it off any time in your account settings. The inbox badge also clears the moment you read a message now, instead of a minute later.",

@@ -6,7 +6,7 @@ Recorded by Tony on 2026-10-09 (OBS, 20:06), voice-over only. Cut, packaged and 
 
 | Step | What | Where |
 |---|---|---|
-| Audio | Raw OBS take had no gate dropouts or suppression holes. Level to -15 dBFS speech plus a plain look-ahead peak limiter at -1.5 dBFS. No EQ, compression, noise reduction or gate (Tony rejected the Ep 002 cleanup chain). | `voice.py level` -> `public/episode-003/audio/NARRATION_LEVELED.wav` |
+| Audio | Raw OBS take had no gate dropouts or suppression holes. Level to -13 dBFS speech plus a plain look-ahead peak limiter at -1.5 dBFS (Remotion drops a mono voice ~3 dB in stereo; mix: narration 1.0, bed 0.25, sting 1.0 = voice 12.6 dB over the bed). No EQ, compression, noise reduction or gate (Tony rejected the Ep 002 cleanup chain). | `voice.py level` -> `public/episode-003/audio/NARRATION_LEVELED.wav` |
 | Transcript | small.en for the whole take; medium.en on the shaky spots (names, retakes) | `narration.words.js`, `transcript/` |
 | Edit | Last clean take of each paragraph; paragraph numbers and directions read aloud cut ("P13, done over", "Scratch that last line"); joins snapped to silence and pinned by hand where Whisper drifted (P6, P9 retake, Scud and Cerebus false starts, "humbling") | `build-edit.mjs` -> `narration.edit.js`; `voice.py render` -> `NARRATION_EDITED.wav` (8:05) |
 | Fact check | Live site re-checked 2026-10-12. Milk & Cheese went live after recording, so both "still isn't on ComixCatalog" lines are cut (`MILK_CHEESE_LINES` in build-edit.mjs) and the "fixed now" montage shows its live page. Scud: only the 2008 Image run. Cerebus searchable since 10-05, Malibu since 09-17. Marketplace: beta, offers by message, no checkout. | |

@@ -24,18 +24,18 @@ function MemberCard({ member, showFollow, privateWithoutLink = false }) {
   return (
     <article className="people-card">
       {privateWithoutLink ? <div className="people-profile-link">{content}</div> : <Link href={`/u/${member.username}`} className="people-profile-link">{content}</Link>}
-      {showFollow && <FollowButton username={member.username} initialFollowing={member.following} />}
+      {showFollow && <FollowButton username={member.username} initialFollowing={member.following} compact />}
     </article>
   );
 }
 
-export default function PeopleClient() {
+export default function PeopleClient({ initialTab = "following" }) {
   const { user, loading } = useAuth();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [searching, setSearching] = useState(false);
   const [searched, setSearched] = useState(false);
-  const [tab, setTab] = useState("following");
+  const [tab, setTab] = useState(initialTab);
   const [lists, setLists] = useState({ following: null, followers: null });
   const [error, setError] = useState("");
 

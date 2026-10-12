@@ -203,8 +203,7 @@ export default async function PublicProfilePage({ params }) {
               )}
             </div>
             {profile.bio && <p className="profile-bio">{profile.bio}</p>}
-            <ProfileFollow username={username} ownerId={profile.id} />
-            <div className="profile-actions">
+            <ProfileFollow username={username} ownerId={profile.id}>
               <ShareProfileButton username={username} />
               {/* Self-gates to the signed-in owner with 1+ owned book. */}
               <ShareCardButton ownerId={profile.id} username={username} className="profile-action-btn" />
@@ -219,7 +218,7 @@ export default async function PublicProfilePage({ params }) {
                   Manage library
                 </Link>
               )}
-            </div>
+            </ProfileFollow>
           </div>
 
           {/* Collection value as a flex plaque INSIDE the hero row, not a

@@ -31,7 +31,7 @@ const chapters = CHAPTERS.map(([beat, label], i) => {
 
 // Whisper's spellings -> what Tony said.
 const FIXES = [
-  [/Asad Rivek/g, "Esad Ribić"], [/Pepe La Raza/g, "Pepe Larraz"], [/R \.B\./g, "R.B."], [/Nick Patara/g, "Nick Pitarra"],
+  [/Asad Rivek|Essad Ribic/g, "Esad Ribić"], [/Arby Silva/g, "R.B. Silva"], [/Patara/g, "Pitarra"], [/Geo Vdero/g, "Geof Darrow"], [/Quightly/g, "Quitely"], [/big mo(e)?bius\./gi, "big Moebius,"], [/garbage ?-?pale/gi, "Garbage Pail"], [/^kid.s quality/m, "Kids quality"], [/Pepe La Raza/g, "Pepe Larraz"], [/R \.B\./g, "R.B."], [/Nick Patara/g, "Nick Pitarra"],
   [/Ryan Brown\b/g, "Ryan Browne"], [/\bLeka\b/g, "Laika"], [/\bmobius\b/gi, "Moebius"], [/Jeff Darrow/g, "Geof Darrow"],
   [/Frank Quietly/g, "Frank Quitely"], [/Nick Dragata/g, "Nick Dragotta"], [/Russ Woodman/g, "Rus Wooton"],
   [/a common hits/g, "a comet hits"], [/Regatta's/g, "Dragotta's"], [/East -west|East West|East to West|east -west/g, "East of West"],

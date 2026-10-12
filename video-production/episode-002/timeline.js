@@ -84,7 +84,7 @@ const CUES = [
   ["introduced something called incursions", { type: "quote", text: "INCURSION: two universes collide. Earth is the point of impact." }],
   ["It does not go great", cover(C.na1, { treatment: "focus", focus: { x: 0.5, y: 0.45, zoom: 1.5 } })],
   ["building to Secret Wars in 2015", cover(C.sw1, { treatment: "panDown", title: "Secret Wars · 2015", transitionIn: "cut" })],
-  ["Doctor Doom", cover(C.sw9, { treatment: "slowPush" })],
+  ["held together by", cover(C.sw9, { treatment: "slowPush" })],
   ["I loved Secret Wars", { type: "fan", assets: [C.sw1, C.sw9, C.na1] }],
   ["came to the X-Men with House of X", { type: "pair", assets: [{ asset: C.hox1, label: "House of X" }, { asset: C.pox1, label: "Powers of X" }], transitionIn: "cut" }],
   ["one issue a week for twelve weeks", { type: "quote", text: "12 issues. 12 weeks. 2019." }],
@@ -113,7 +113,7 @@ const CUES = [
   ["Too many lines too many teeth", panel(P.feynman, { transitionIn: "cut" })],
   ["drawn like they came out of a wax pack", panel(P.fermi, { transitionIn: "cut" })],
   ["has said he's a big", { type: "quote", text: "Moebius · Geof Darrow\nFrank Quitely · Seth Fisher" }],
-  ["This is my copy", cover(C.mp(1), { treatment: "slowPull", transitionIn: "cut" })],
+  ["Full disclosure", cover(C.mp(1), { treatment: "slowPull", transitionIn: "cut" })],
   ["What stuck was the look of it", { type: "grid", assets: [1, 2, 3, 4, 5, 6, 10, 15].map(C.mp), columns: 4, push: 0.02 }],
   ["It ran 25 issues", { type: "fan", assets: [C.mp(1), C.mp(10), C.mp(15), C.mp(20), C.mp(25), C.mpSun] }],
 
@@ -155,7 +155,7 @@ const CUES = [
   ["Transhuman", cover(C.trans, { transitionIn: "cut", treatment: "still" })],
   ["A Red Mass for Mars", cover(C.redMass, { transitionIn: "cut", treatment: "still" })],
   ["The Red Wing", cover(C.redWing, { transitionIn: "cut", treatment: "still" })],
-  ["the quorum", cover(C.decorum, { transitionIn: "cut", treatment: "still" })],
+  ["Decorum", cover(C.decorum, { transitionIn: "cut", treatment: "still" })],
 
   // ── 07 The thread ──────────────────────────────────────────────────────
   ["what ties all this together", { type: "chapter", kicker: "The thread", title: "What ties it together", transitionIn: "cut" }],

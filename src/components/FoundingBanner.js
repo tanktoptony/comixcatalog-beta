@@ -31,7 +31,7 @@ export default function FoundingBanner({ initialRemaining = null }) {
     <div className="founding-banner" role="region" aria-label="Founding Collector offer">
       <div className="founding-banner-inner">
         <span className="founding-banner-count">{remaining}</span>
-        <p><strong>free lifetime Pro memberships remain.</strong> Join now and yours is automatic—no card required.</p>
+        <p><strong>free lifetime Pro memberships remain.</strong> Join now and yours is automatic, no card required.</p>
         <Link href="/signup" className="founding-banner-cta">Join free →</Link>
       </div>
     </div>

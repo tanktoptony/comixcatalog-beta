@@ -1,23 +1,31 @@
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
-import { getStripe, FOUNDING_PRICE_ID } from "@/lib/stripe";
+import {
+  getStripe,
+  FOUNDING_PRICE_ID,
+  PRO_PRICE_ID,
+  PLUS_MONTHLY_PRICE_ID,
+  PLUS_ANNUAL_PRICE_ID,
+} from "@/lib/stripe";
+import { subscriptionEventProfileUpdate } from "@/lib/stripeMembership";
 
 export const runtime = "nodejs";
 
-async function setProStatusByCustomer(supabase, customerId, isPro, isFounding = false) {
-  if (!customerId) return;
-  const update = { is_pro: isPro };
-  if (isFounding) update.is_founding_collector = true;
-  if (!isPro) update.is_founding_collector = false;
+async function updateProfileByCustomer(supabase, customerId, update) {
+  if (!customerId || !update) return;
   await supabase
     .from("profiles")
     .update(update)
     .eq("stripe_customer_id", customerId);
 }
 
-function isFoundingPrice(sub) {
-  if (!FOUNDING_PRICE_ID) return false;
-  return (sub.items?.data ?? []).some((item) => item.price?.id === FOUNDING_PRICE_ID);
+function profileUpdateForSubscription(eventType, sub) {
+  return subscriptionEventProfileUpdate(eventType, sub, {
+    plusMonthlyPriceId: PLUS_MONTHLY_PRICE_ID,
+    plusAnnualPriceId: PLUS_ANNUAL_PRICE_ID,
+    proPriceId: PRO_PRICE_ID,
+    foundingPriceId: FOUNDING_PRICE_ID,
+  });
 }
 
 export async function POST(req) {
@@ -51,13 +59,22 @@ export async function POST(req) {
         const session = event.data.object;
         const userId = session.metadata?.supabase_user_id;
         const customerId = session.customer;
-        const isFounding = session.metadata?.tier === "founding";
+        const tier = session.metadata?.tier;
         if (userId && customerId) {
-          const update = { stripe_customer_id: customerId, is_pro: true };
-          if (isFounding) update.is_founding_collector = true;
+          const update = { stripe_customer_id: customerId };
+          if (tier === "plus") update.membership_tier = "collector_plus";
+          if (tier === "pro" || tier === "founding") update.is_pro = true;
+          if (tier === "founding") update.is_founding_collector = true;
           await supabase.from("profiles").update(update).eq("id", userId);
         } else if (customerId) {
-          await setProStatusByCustomer(supabase, customerId, true, isFounding);
+          const update = tier === "plus"
+            ? { membership_tier: "collector_plus" }
+            : tier === "founding"
+              ? { is_pro: true, is_founding_collector: true }
+              : tier === "pro"
+                ? { is_pro: true }
+                : null;
+          await updateProfileByCustomer(supabase, customerId, update);
         }
         break;
       }
@@ -66,15 +83,13 @@ export async function POST(req) {
       case "customer.subscription.updated": {
         const sub = event.data.object;
         const customerId = sub.customer;
-        const active = ["active", "trialing"].includes(sub.status);
-        const isFounding = isFoundingPrice(sub);
-        await setProStatusByCustomer(supabase, customerId, active, isFounding);
+        await updateProfileByCustomer(supabase, customerId, profileUpdateForSubscription(event.type, sub));
         break;
       }
 
       case "customer.subscription.deleted": {
         const sub = event.data.object;
-        await setProStatusByCustomer(supabase, sub.customer, false);
+        await updateProfileByCustomer(supabase, sub.customer, profileUpdateForSubscription(event.type, sub));
         break;
       }
 

@@ -1113,7 +1113,7 @@ function LibraryPageContent() {
         <div className="library-upgrade-banner success" role="status">
           <span className="library-upgrade-banner-icon" aria-hidden="true">✓</span>
           <div className="library-upgrade-banner-body">
-            <strong>Welcome to Collector Pro.</strong> Thanks for supporting ComixCatalog.
+            <strong>Welcome to {searchParams.get("tier") === "plus" ? "Collector+" : "Collector Pro"}.</strong> Thanks for supporting ComixCatalog.
           </div>
           <button
             type="button"

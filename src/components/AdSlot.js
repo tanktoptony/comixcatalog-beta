@@ -18,10 +18,10 @@ import { pickHouseAd } from "@/lib/houseAds";
 // ratio is the CTR per creative per position, which is the number that
 // decides what stays in rotation.
 export default function AdSlot({ position, pageKey = "", className = "" }) {
-  const { user, isPro, isFounding, loading } = useAuth();
+  const { user, isPro, isFounding, membershipTier, loading } = useAuth();
   const ad = loading
     ? null
-    : pickHouseAd({ position, pageKey, viewer: { user, isPro, isFounding } });
+    : pickHouseAd({ position, pageKey, viewer: { user, isPro, isFounding, membershipTier } });
 
   useEffect(() => {
     if (!ad) return;

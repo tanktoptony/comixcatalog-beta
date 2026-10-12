@@ -1,8 +1,16 @@
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
-import { getStripe, PRO_PRICE_ID, FOUNDING_PRICE_ID, getSiteUrl } from "@/lib/stripe";
+import {
+  getStripe,
+  PRO_PRICE_ID,
+  FOUNDING_PRICE_ID,
+  PLUS_MONTHLY_PRICE_ID,
+  PLUS_ANNUAL_PRICE_ID,
+  getSiteUrl,
+} from "@/lib/stripe";
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
+import { validateCheckoutSelection, validateMembershipEligibility } from "@/lib/stripeMembership";
 
 export async function POST(req) {
   try {
@@ -13,9 +21,19 @@ export async function POST(req) {
     const user_id = authedUser.id;
 
     const body = await req.json().catch(() => ({}));
-    const { tier = "pro" } = body;
+    const { tier, interval } = body;
+    const selectionError = validateCheckoutSelection({ tier, interval });
+    if (selectionError) {
+      return NextResponse.json({ error: selectionError.error }, { status: selectionError.status });
+    }
 
-    const priceId = tier === "founding" ? FOUNDING_PRICE_ID : PRO_PRICE_ID;
+    const priceId = tier === "founding"
+      ? FOUNDING_PRICE_ID
+      : tier === "pro"
+        ? PRO_PRICE_ID
+        : interval === "year"
+          ? PLUS_ANNUAL_PRICE_ID
+          : PLUS_MONTHLY_PRICE_ID;
     if (!priceId) {
       return NextResponse.json(
         { error: `${tier} tier not configured` },
@@ -27,7 +45,7 @@ export async function POST(req) {
 
     const { data: profile, error: profErr } = await supabase
       .from("profiles")
-      .select("id, username, stripe_customer_id, is_pro")
+      .select("id, username, stripe_customer_id, is_pro, is_founding_collector, membership_tier")
       .eq("id", user_id)
       .single();
 
@@ -35,8 +53,14 @@ export async function POST(req) {
       return NextResponse.json({ error: "Profile not found" }, { status: 404 });
     }
 
-    if (profile.is_pro || user_id === ADMIN_ID) {
-      return NextResponse.json({ error: "Already Pro" }, { status: 400 });
+    const eligibilityError = validateMembershipEligibility({
+      isPro: profile.is_pro,
+      isFounding: profile.is_founding_collector,
+      membershipTier: profile.membership_tier,
+      isAdmin: user_id === ADMIN_ID,
+    });
+    if (eligibilityError) {
+      return NextResponse.json({ error: eligibilityError.error }, { status: eligibilityError.status });
     }
 
     const { data: authUser, error: authUserError } = await supabase.auth.admin.getUserById(user_id);
@@ -77,7 +101,7 @@ export async function POST(req) {
       mode: "subscription",
       customer: customerId,
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${site}/library?upgrade=success`,
+      success_url: `${site}/library?upgrade=success${tier === "plus" ? "&tier=plus" : ""}`,
       cancel_url: `${site}/upgrade?upgrade=cancelled`,
       allow_promotion_codes: true,
       subscription_data: {

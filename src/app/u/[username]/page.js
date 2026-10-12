@@ -175,6 +175,9 @@ export default async function PublicProfilePage({ params }) {
                 {profile?.is_pro && (
                   <span className="profile-badge pro">PRO</span>
                 )}
+                {profile?.membership_tier === "collector_plus" && (
+                  <span className="profile-badge pro">Collector+</span>
+                )}
               </div>
             </div>
             {profile.display_name && (

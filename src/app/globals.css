@@ -6047,6 +6047,27 @@ button.nav-link {
   margin-top: 0.1rem;
 }
 
+.upgrade-interval-toggle {
+  display: inline-flex;
+  align-self: flex-start;
+  gap: 4px;
+  margin-top: 10px;
+  padding: 3px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+}
+.upgrade-interval-toggle button {
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+.upgrade-interval-toggle button.is-active {
+  background: rgba(255,255,255,0.16);
+}
+
 .upgrade-tier-description {
   font-size: 0.88rem;
   color: rgba(255,255,255,0.65);

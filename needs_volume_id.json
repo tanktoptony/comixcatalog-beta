@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-12T20:08:57.746742+00:00",
-    "retry_after": "2026-10-13T20:08:57.746752+00:00"
+    "last_attempt_at": "2026-10-12T21:06:13.873257+00:00",
+    "retry_after": "2026-10-13T21:06:13.873273+00:00"
   },
   {
     "name": "Cerebus",
@@ -48963,9 +48963,9 @@
     "year": 1959,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:04:32.035121+00:00",
-    "retry_after": "2026-10-12T21:04:32.035139+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T21:06:14.314056+00:00",
+    "retry_after": "2026-10-15T21:06:14.314073+00:00"
   },
   {
     "name": "Il Dylan Dog di Tiziano Sclavi",
@@ -48973,9 +48973,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:04:32.443512+00:00",
-    "retry_after": "2026-10-12T21:04:32.443527+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T21:06:14.782824+00:00",
+    "retry_after": "2026-10-15T21:06:14.782841+00:00"
   },
   {
     "name": "Love Pic",
@@ -48983,9 +48983,9 @@
     "year": 1953,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:04:44.943227+00:00",
-    "retry_after": "2026-10-12T21:04:44.943242+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T21:06:15.850638+00:00",
+    "retry_after": "2026-10-15T21:06:15.850654+00:00"
   },
   {
     "name": "Boot & Van Dijk",
@@ -48993,9 +48993,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-11T21:04:46.048146+00:00",
-    "retry_after": "2026-10-12T21:04:46.048162+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-12T21:06:16.509032+00:00",
+    "retry_after": "2026-10-15T21:06:16.509049+00:00"
   },
   {
     "name": "Atoll",
@@ -50901,5 +50901,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-12T20:08:05.557978+00:00",
     "retry_after": "2026-10-13T20:08:05.557987+00:00"
+  },
+  {
+    "name": "O Melhor de Os Jetsons",
+    "publisher": "Avatar Press",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T21:01:09.871441+00:00",
+    "retry_after": "2026-10-13T21:01:09.871458+00:00"
+  },
+  {
+    "name": "Bo",
+    "publisher": "Charlton Comics",
+    "year": 1955,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 30620,
+        "name": "Bo",
+        "publisher": "Charlton",
+        "start_year": 1955
+      },
+      {
+        "id": 148813,
+        "name": "Bo",
+        "publisher": "Charlton",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T21:03:12.746674+00:00",
+    "retry_after": "2026-10-13T21:03:12.746692+00:00"
+  },
+  {
+    "name": "Doctor Who: The Twelfth Doctor: Time Trials",
+    "publisher": "Titan Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T21:04:17.780406+00:00",
+    "retry_after": "2026-10-13T21:04:17.780423+00:00"
+  },
+  {
+    "name": "Special Edition, Action Comics",
+    "publisher": "DC Comics",
+    "year": 1944,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-12T21:04:18.346337+00:00",
+    "retry_after": "2026-10-13T21:04:18.346353+00:00"
   }
 ]

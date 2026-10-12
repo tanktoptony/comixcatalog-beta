@@ -11,7 +11,19 @@ import { ChannelBanner } from "./Banner.jsx";
 import { ChannelIntro, ChannelSting } from "./ChannelIntro.jsx";
 import { FoundersStory } from "./FoundersStory.jsx";
 import { SHORTS, END_CARD, shortRange } from "../shorts.js";
-import { narrationWords } from "../episode-001/timeline.v3.js";
+import { narrationWords as narrationWords001 } from "../episode-001/timeline.v3.js";
+import { narrationWords as narrationWords002 } from "../episode-002/timeline.js";
+
+const shortDetails = {
+  "episode-001-v3": {
+    words: narrationWords001,
+    endCardTitle: "Where to Start Reading X-Men",
+  },
+  "episode-002": {
+    words: narrationWords002,
+    endCardTitle: "Jonathan Hickman's Comics You Might Have Missed",
+  },
+};
 
 // YouTube thumbnails (scripts/thumbs.mjs).
 export const THUMBNAILS = [
@@ -40,7 +52,10 @@ export function Root() {
         );
       })}
       {SHORTS.map((s) => {
-        const ep = EPISODES.find((e) => e.id === "episode-001-v3");
+        const ep = EPISODES.find((e) => e.id === s.episode);
+        if (!ep) throw new Error(`${s.id}: episode not found: ${s.episode}`);
+        const details = shortDetails[ep.id];
+        if (!details) throw new Error(`${s.id}: short details not found for ${ep.id}`);
         const timeline = normalizeTimeline(ep, VIDEO.fps);
         const { from, to } = shortRange(ep, s);
         return (
@@ -52,7 +67,7 @@ export function Root() {
             fps={VIDEO.fps}
             width={1080}
             height={1920}
-            defaultProps={{ episodeId: assetFolder(ep), timeline, from, to, hook: s.hook, words: narrationWords }}
+            defaultProps={{ episodeId: assetFolder(ep), timeline, from, to, hook: s.hook, words: details.words, endCardTitle: details.endCardTitle }}
           />
         );
       })}

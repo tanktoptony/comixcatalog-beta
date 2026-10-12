@@ -206,7 +206,7 @@ function Captions({ chunks, t }) {
   );
 }
 
-export function ShortClip({ episodeId, timeline, from, to, hook, words = [] }) {
+export function ShortClip({ episodeId, timeline, from, to, hook, endCardTitle, words = [] }) {
   useFonts();
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -259,7 +259,7 @@ export function ShortClip({ episodeId, timeline, from, to, hook, words = [] }) {
           <div style={{ padding: "0 70px", display: "grid", justifyItems: "center", gap: 40 }}>
             <Img src={staticFile("brand/badge-transparent.png")} style={{ width: 170, height: 170 }} />
             <Stroke size={118} color={brand.gold}>Full video on the channel</Stroke>
-            <div style={{ fontFamily: fonts.body, fontWeight: 700, fontSize: 46, color: brand.text, textAlign: "center" }}>Where to Start Reading X-Men</div>
+            <div style={{ fontFamily: fonts.body, fontWeight: 700, fontSize: 46, color: brand.text, textAlign: "center" }}>{endCardTitle}</div>
             <div style={{ fontFamily: fonts.body, fontWeight: 700, fontSize: 40, color: brand.gold, textAlign: "center" }}>comixcatalog.com</div>
           </div>
         </AbsoluteFill>

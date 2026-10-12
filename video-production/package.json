@@ -19,7 +19,8 @@
     "render:001:v3:preview": "npm run index && node scripts/render.mjs episode-001-v3 --preview",
     "transcribe:001": "node scripts/ep.mjs 001 transcribe",
     "thumbs:001": "npm run index && node scripts/thumbs.mjs",
-    "shorts:001": "npm run index && node scripts/render-shorts.mjs",
+    "shorts:001": "npm run index && node scripts/render-shorts.mjs Short001Colossus Short001NotNumberOne Short001ShopLikeAKid",
+    "shorts:002": "npm run index && node scripts/render-shorts.mjs Short002WhoWroteThis Short002ManhattanProjects Short002EastOfWest",
     "package:001": "node scripts/ep.mjs 001 package"
   },
   "dependencies": {

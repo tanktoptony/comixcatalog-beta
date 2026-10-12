@@ -1,5 +1,5 @@
-// Shorts / Reels cut from Episode 001 V3. Ranges are script phrases (the
-// `beat` of a V3 segment), so they follow the narration when it's re-timed.
+// Shorts and Reels cut from episode timelines. Ranges are script phrases.
+// They use each segment's `beat`, so they follow narration timing.
 // Keep each under 60 s. Render: node scripts/render-shorts.mjs
 
 export const END_CARD = 2.6;
@@ -7,26 +7,50 @@ export const END_CARD = 2.6;
 export const SHORTS = [
   {
     id: "Short001Colossus",
+    episode: "episode-001-v3",
     fromBeat: "My best friend is the one who got us all into it",
     toBeat: "The obvious move is to start at the beginning",
     hook: "I didn't pick my favorite X-Man",
   },
   {
     id: "Short001NotNumberOne",
+    episode: "episode-001-v3",
     fromBeat: "The obvious move is to start at the beginning",
     toBeat: "Number one The Dark Phoenix Saga",
     hook: "Don't start X-Men at #1",
   },
   {
     id: "Short001ShopLikeAKid",
+    episode: "episode-001-v3",
     fromBeat: "Here's my actual advice",
     toBeat: "Quick one I built ComixCatalog",
     hook: "How to actually get into comics",
   },
+  {
+    id: "Short002WhoWroteThis",
+    episode: "episode-002",
+    fromBeat: "I've been collecting comics for most of my life",
+    toBeat: "So that got me thinking",
+    hook: "Hickman wrote these?!",
+  },
+  {
+    id: "Short002ManhattanProjects",
+    episode: "episode-002",
+    fromBeat: "You know the real Manhattan Project",
+    toBeat: "And then there's the art",
+    hook: "The bomb was the boring part",
+  },
+  {
+    id: "Short002EastOfWest",
+    episode: "episode-002",
+    fromBeat: "science fiction western",
+    toBeat: "a prophecy called the Message",
+    hook: "A comet ended the Civil War",
+  },
 ];
 
-// Seconds of each clip, from the V3 segments. The clip stops just before
-// the next beat (so no next-section narration bleeds in); the composition
+// Seconds of each clip. The clip stops just before the next beat.
+// This keeps the next section's narration out. The composition
 // adds END_CARD seconds for the "full video" card.
 export function shortRange(ep, s) {
   const at = (beat) => ep.segments.find((x) => x.beat === beat)?.at;

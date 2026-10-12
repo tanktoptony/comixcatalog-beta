@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { listingCompleteness } from "./listingCompleteness.js";
+import { isUnlinkedForSale, listingCompleteness } from "./listingCompleteness.js";
 
 test("counts seller prices and copy photos, excluding rows without a marketplace listing", () => {
   const rows = [
@@ -13,4 +13,10 @@ test("counts seller prices and copy photos, excluding rows without a marketplace
   const result = listingCompleteness(rows, listings, new Set(["open"]));
   assert.deepEqual(result.needsPrice.map((x) => x.id), ["open"]);
   assert.deepEqual(result.needsPhoto.map((x) => x.id), ["priced"]);
+});
+
+test("only for-sale rows without a catalog issue need the marketplace notice", () => {
+  assert.equal(isUnlinkedForSale({ status: "for_sale", gcd_issue_id: null }), true);
+  assert.equal(isUnlinkedForSale({ status: "for_sale", gcd_issue_id: 42 }), false);
+  assert.equal(isUnlinkedForSale({ status: "owned", gcd_issue_id: null }), false);
 });

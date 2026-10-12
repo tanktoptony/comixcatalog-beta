@@ -7,6 +7,7 @@ test("missing listings or unresolved failures make the check fail", () => {
   assert.equal(listingSyncHasProblems(normalizeListingSyncReport({ missing_count: 1 })), true);
   assert.equal(listingSyncHasProblems(normalizeListingSyncReport({ unresolved_failure_count: 1 })), true);
   assert.equal(listingSyncHasProblems(normalizeListingSyncReport({ missing_count: 0, unresolved_failure_count: 0 })), false);
+  assert.equal(listingSyncHasProblems(normalizeListingSyncReport({ unlinked_for_sale_count: 9 })), false);
 });
 
 test("trigger exception path cannot abort the collection write", async () => {

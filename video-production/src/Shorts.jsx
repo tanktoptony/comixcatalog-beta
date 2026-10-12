@@ -196,9 +196,9 @@ function Captions({ chunks, t }) {
     if (w.s <= t) active = i;
   });
   return (
-    <div style={{ position: "absolute", top: 1130, left: 50, right: 50, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 26px", transform: `scale(${0.85 + 0.15 * pop})` }}>
+    <div style={{ position: "absolute", top: 1130, left: 50, right: 50, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 44px", transform: `scale(${0.85 + 0.15 * pop})` }}>
       {c.words.map((w, i) => (
-        <Stroke key={i} size={124} color={i === active ? brand.gold : "#fff"} style={{ transform: i === active ? "scale(1.08)" : "none" }}>
+        <Stroke key={i} size={124} color={i === active ? brand.gold : "#fff"} style={{ transform: i === active ? "scale(1.04)" : "none" }}>
           {w.w}
         </Stroke>
       ))}

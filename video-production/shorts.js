@@ -31,6 +31,8 @@ export const SHORTS = [
     episode: "episode-002",
     fromBeat: "I've been collecting comics for most of my life",
     toBeat: "So that got me thinking",
+    // "Hickman." ends at 55.0 s voice time and "So" starts at 55.42; end in that pause.
+    endNudge: 0.62,
     hook: "Hickman wrote these?!",
   },
   {
@@ -45,6 +47,9 @@ export const SHORTS = [
     episode: "episode-002",
     fromBeat: "science fiction western",
     toBeat: "a prophecy called the Message",
+    // The anchor is mid-sentence ("On top of that, there's a prophecy...").
+    // End after "...what that is." (351.74 s voice time), before "On" (352.36).
+    endNudge: -0.93,
     hook: "A comet ended the Civil War",
   },
 ];
@@ -57,5 +62,7 @@ export function shortRange(ep, s) {
   const from = at(s.fromBeat);
   const to = at(s.toBeat);
   if (from == null || to == null) throw new Error(`${s.id}: beat not found in ${ep.id}`);
-  return { from: Math.max(0, from - 0.3), to: to - 0.15 };
+  // endNudge (seconds) moves the end when the next beat's anchor sits too
+  // close to, or past, the last word this Short should keep.
+  return { from: Math.max(0, from - 0.3), to: to - 0.15 + (s.endNudge ?? 0) };
 }

@@ -73,6 +73,8 @@ export const SHORTS = [
     episode: "episode-003",
     fromBeat: "Scud the Disposable Assassin",
     toBeat: "And Malibu Malibu Comics",
+    // The default 0.3 s lead-in starts inside "...90s vibe." (audible to 310.98 s); "Scud" begins at 311.20, so start at 311.05 in the silence between them.
+    startNudge: 0.47,
     endNudge: 0.125,
     hook: "Your assassin comes from a vending machine",
   },
@@ -86,7 +88,8 @@ export function shortRange(ep, s) {
   const from = at(s.fromBeat);
   const to = at(s.toBeat);
   if (from == null || to == null) throw new Error(`${s.id}: beat not found in ${ep.id}`);
+  // startNudge (seconds) moves the start when the default lead-in includes unwanted audio.
   // endNudge (seconds) moves the end when the next beat's anchor sits too
   // close to, or past, the last word this Short should keep.
-  return { from: Math.max(0, from - 0.3), to: to - 0.15 + (s.endNudge ?? 0) };
+  return { from: Math.max(0, from - 0.3 + (s.startNudge ?? 0)), to: to - 0.15 + (s.endNudge ?? 0) };
 }

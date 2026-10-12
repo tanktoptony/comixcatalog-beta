@@ -220,6 +220,9 @@ export default async function StartPage() {
       <section className={styles.final} aria-labelledby="final-title">
         <h2 id="final-title" className={styles.finalTitle}>No spreadsheet required.</h2>
         <StartPrimaryCta location="final" className={styles.ctaPrimary} />
+        <Link href="/people#collectors-to-follow" className={styles.ctaSecondary} data-start-cta="follow_collectors" data-start-location="final">
+          Follow some collectors
+        </Link>
       </section>
     </div>
   );

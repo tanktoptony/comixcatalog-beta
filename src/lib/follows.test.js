@@ -5,7 +5,9 @@ import {
   escapeLike,
   followRateLimitDecision,
   isEitherDirectionBlocked,
+  rankSuggestedCollectors,
   selfFollowError,
+  splitFollowBatchByLimit,
 } from "./follows.js";
 
 test("follow target input is trimmed and rejects non-strings", () => {
@@ -37,4 +39,35 @@ test("a block in either direction refuses a follow", () => {
 test("self-follow is rejected", () => {
   assert.equal(selfFollowError("same", "same"), "You can't follow yourself.");
   assert.equal(selfFollowError("one", "two"), null);
+});
+
+test("suggestions exclude the viewer, followed, blocked, private, and small collections", () => {
+  const candidates = [
+    { id: "founder", username: "z", owned_count: 12, is_public: true, is_founding_collector: true },
+    { id: "large", username: "a", owned_count: 300, is_public: true },
+    { id: "blocked", username: "b", owned_count: 500, is_public: true, is_founding_collector: true },
+    { id: "followed", username: "c", owned_count: 400, is_public: true },
+    { id: "viewer", username: "d", owned_count: 300, is_public: true },
+    { id: "private", username: "e", owned_count: 300, is_public: false },
+    { id: "small", username: "f", owned_count: 9, is_public: true },
+  ];
+  assert.deepEqual(
+    rankSuggestedCollectors(candidates, {
+      viewerId: "viewer",
+      followedIds: ["followed"],
+      blockedIds: ["blocked"],
+    }).map(({ id }) => id),
+    ["founder", "large"]
+  );
+});
+
+test("a batch is split at the remaining daily follow allowance", () => {
+  const result = splitFollowBatchByLimit({
+    accountCreatedAt: "2026-10-10T00:00:00Z",
+    recentFollows: 198,
+    candidates: ["one", "two", "three"],
+    now: Date.parse("2026-10-12T12:00:00Z"),
+  });
+  assert.deepEqual(result.accepted, ["one", "two"]);
+  assert.deepEqual(result.rateLimited, ["three"]);
 });

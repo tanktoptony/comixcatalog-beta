@@ -12479,3 +12479,20 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
   background: var(--cc-gold-soft);
   color: #11161d;
 }
+
+/* Owned shelf on public profiles: marks a book that's also listed for sale. */
+.profile-forsale-tag {
+  position: absolute;
+  z-index: 2;
+  left: 8px;
+  bottom: 8px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(13, 12, 10, 0.85);
+  color: var(--gold, #f2c230);
+  border: 1px solid currentColor;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

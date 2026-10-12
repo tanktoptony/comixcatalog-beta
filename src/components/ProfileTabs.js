@@ -128,9 +128,11 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
     const wishlist = [];
     const forSale = [];
     for (const item of collection) {
+      // A book listed for sale is still a book you own, so it stays on the
+      // Owned shelf too (the Owned stat counts it); For Sale is the subset.
       if (item.status === "owned") owned.push(item);
       else if (item.status === "wishlist") wishlist.push(item);
-      else if (item.status === "for_sale") forSale.push(item);
+      else if (item.status === "for_sale") { owned.push(item); forSale.push(item); }
     }
     return { owned, wishlist, forSale };
   }, [collection]);
@@ -315,6 +317,9 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                 >
                   <div className="comic-card-cover" style={{ position: "relative" }}>
                     <img src={coverThumb(coverUrl)} alt={d.title} width="400" height="600" loading="lazy" decoding="async" />
+                    {!isForSale && item.status === "for_sale" && (
+                      <span className="profile-forsale-tag">For sale</span>
+                    )}
                     {item.slab_company && item.grade_numeric ? (
                       <span className="profile-grade-badge">
                         {item.slab_company} {Number(item.grade_numeric).toFixed(1)}

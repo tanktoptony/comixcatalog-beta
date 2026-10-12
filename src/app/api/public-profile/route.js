@@ -6,6 +6,7 @@ import { normTitle, titleVariants } from "@/lib/titleMatch";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import { fetchAllPages, fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
 import { bestYearFor, parseYear } from "@/lib/years";
+import { createServerTiming } from "@/lib/serverTiming";
 
 // publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
 // approximation) fills most of that gap. Without this fallback a collector's
@@ -16,6 +17,25 @@ function norm(value) {
 }
 
 export async function GET(req) {
+  const timing = createServerTiming();
+  for (const phase of [
+    "auth", "profile", "collection", "covers", "series_publishers",
+    "listings", "key_issues", "values", "serialization",
+  ]) timing.set(phase);
+
+  let hasVerifiedViewer = false;
+  const json = (body, init) => {
+    const response = timing.measureSync("serialization", () => NextResponse.json(body, init));
+    response.headers.set(
+      "Cache-Control",
+      hasVerifiedViewer
+        ? "private, no-store"
+        : "public, s-maxage=60, stale-while-revalidate=300"
+    );
+    response.headers.set("Vary", "Authorization");
+    response.headers.set("Server-Timing", timing.header());
+    return response;
+  };
   const supabase = getServiceClient();
   let degraded = false;
 
@@ -26,33 +46,34 @@ export async function GET(req) {
   // verified session; a spoofable query param would let anyone see a
   // non-public profile's private data by guessing its owner's id.
   if (!username) {
-    return NextResponse.json({ error: "Username required" }, { status: 400 });
+    return json({ error: "Username required" }, { status: 400 });
   }
 
   // Viewer auth and the public profile lookup are independent. Starting both
   // together removes one Supabase round trip from every request.
   const [authedViewer, profileResult] = await Promise.all([
-    getAuthedUser(req),
-    supabase
+    timing.measure("auth", () => getAuthedUser(req)),
+    timing.measure("profile", () => supabase
       .from("profiles")
       .select(
         "id, username, is_public, avatar_key, avatar_url, is_founding_collector, is_pro, membership_tier, created_at, display_name, location, bio, website_url, show_collection, show_wantlist, show_for_sale, show_value"
       )
       .eq("username", username)
-      .single(),
+      .single()),
   ]);
+  hasVerifiedViewer = Boolean(authedViewer?.id);
   const viewerId = authedViewer?.id ?? null;
   const { data: profile, error: profileError } = profileResult;
 
   if (profileError || !profile) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
+    return json({ error: "Not found" }, { status: 404 });
   }
 
   const isOwner = viewerId && viewerId === profile.id;
 
   // Non-owners are blocked from non-public profiles entirely.
   if (!isOwner && !profile.is_public) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
+    return json({ error: "Not found" }, { status: 404 });
   }
 
   // Per-section privacy. Owners see everything regardless.
@@ -65,7 +86,7 @@ export async function GET(req) {
 
   let collection;
   try {
-    collection = await fetchAllPages(() =>
+    collection = await timing.measure("collection", () => fetchAllPages(() =>
       supabase.from("user_collections").select(`
       id,
       status,
@@ -90,11 +111,21 @@ export async function GET(req) {
       )
     `).eq("user_id", profile.id),
       "id"
-    );
+    ));
     collection.sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+    // Do not resolve covers, metadata, key issues, listings, or values for a
+    // section that this viewer cannot see. The collection read stays whole so
+    // its simple indexed pagination remains reliable; expensive enrichment is
+    // limited to the rows that can reach the response.
+    collection = collection.filter((item) => {
+      if (item.status === "owned" && !visibility.collection) return false;
+      if (item.status === "wishlist" && !visibility.wantlist) return false;
+      if (item.status === "for_sale" && !visibility.for_sale) return false;
+      return true;
+    });
   } catch (collectionError) {
     console.error("public profile collection lookup failed:", collectionError?.code, collectionError?.message);
-    return NextResponse.json(
+    return json(
       { error: "Failed to load collection" },
       { status: 500 }
     );
@@ -104,7 +135,7 @@ export async function GET(req) {
   // listings up by seller (not an .in() of collection ids, which overflows
   // the URL for big for-sale shelves) and page past the 1000-row cap.
   const listingsPromise = (collection ?? []).some((item) => item.status === "for_sale")
-    ? fetchAllPages(
+    ? timing.measure("listings", () => fetchAllPages(
         () =>
           supabase
             .from("listings")
@@ -112,7 +143,7 @@ export async function GET(req) {
             .eq("seller_id", profile.id)
             .eq("status", "active"),
         "id"
-      ).catch((error) => ({ error }))
+      )).catch((error) => ({ error }))
     : Promise.resolve([]);
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -129,10 +160,10 @@ export async function GET(req) {
   // rather than caching; revisit if this profile route ever needs to shed
   // round-trips.
   const keyIssuesPromise = gcdIds.length > 0
-    ? supabase
+    ? timing.measure("key_issues", () => supabase
       .from("key_issues")
       .select("gcd_issue_id, character, reason, tier")
-      .in("gcd_issue_id", gcdIds)
+      .in("gcd_issue_id", gcdIds))
     : Promise.resolve({ data: [], error: null });
 
   const gcdDisplayLookup = {};
@@ -140,7 +171,7 @@ export async function GET(req) {
   if (gcdIds.length > 0) {
     // Paged and chunked: a plain .in() here stopped at PostgREST's 1,000-row
     // cap, so a collection past 1,000 GCD books silently lost the rest.
-    const issuesPromise = (async () => {
+    const issuesPromise = timing.measure("collection", async () => {
       const rows = [];
       for (let i = 0; i < gcdIds.length; i += 500) {
         const chunk = gcdIds.slice(i, i + 500);
@@ -156,13 +187,13 @@ export async function GET(req) {
         );
       }
       return rows;
-    })();
+    });
     let issues;
     try {
       issues = await issuesPromise;
     } catch (issuesError) {
       console.error("public profile issue lookup failed:", issuesError?.code, issuesError?.message);
-      return NextResponse.json({ error: "Failed to load profile collection" }, { status: 502 });
+      return json({ error: "Failed to load profile collection" }, { status: 502 });
     }
 
     const issueList = issues || [];
@@ -179,6 +210,7 @@ export async function GET(req) {
 
     // This cover path needs only issue metadata, so overlap it with the
     // series and publisher lookups below.
+    const finishCoverTiming = timing.start("covers");
     const idCoversPromise = seriesGcdIds.length > 0 && issueNumbers.length > 0
       ? fetchAllPagesParallel(() =>
           supabase
@@ -207,7 +239,7 @@ export async function GET(req) {
     let seriesRows;
     let publisherRows;
     try {
-      [seriesRows, publisherRows] = await Promise.all([
+      [seriesRows, publisherRows] = await timing.measure("series_publishers", () => Promise.all([
         readChunked(
           "series",
           "gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)",
@@ -215,10 +247,10 @@ export async function GET(req) {
           "id"
         ),
         readChunked("gcd_publishers", "gcd_id, name", publisherGcdIds, "gcd_id"),
-      ]);
+      ]));
     } catch (err) {
       console.error("public profile series/publisher lookup failed:", err?.code, err?.message);
-      return NextResponse.json({ error: "Failed to load profile collection" }, { status: 502 });
+      return json({ error: "Failed to load profile collection" }, { status: 502 });
     }
     const seriesResult = { data: seriesRows };
     const publisherResult = { data: publisherRows };
@@ -356,8 +388,9 @@ export async function GET(req) {
       return best?.storage_path ?? null;
     }
 
+    const issueById = new Map(issueList.map((issue) => [issue.gcd_id, issue]));
     for (const row of intermediate) {
-      const issueRow = issueList.find((i) => i.gcd_id === row.gcd_id);
+      const issueRow = issueById.get(row.gcd_id);
       const idKey = issueRow?.series_gcd_id
         ? `${issueRow.series_gcd_id}::${norm(row.issue_number)}`
         : null;
@@ -396,6 +429,7 @@ export async function GET(req) {
         href: `/issue/gcd-${row.gcd_id}`,
       };
     }
+    finishCoverTiming();
   }
 
   const listingByCollectionId = new Map();
@@ -428,12 +462,12 @@ export async function GET(req) {
   const localCanonicalByKey = new Map();
 
   if (localSeriesTitles.length > 0 && localIssueNumbers.length > 0) {
-    const { data: localCovers, error: localCoversError } = await supabase
+    const { data: localCovers, error: localCoversError } = await timing.measure("covers", () => supabase
       .from("canonical_covers")
       .select("series_title, issue_number, series_year, cover_date, storage_path")
       .in("series_title", localSeriesTitles)
       .in("issue_number", localIssueNumbers)
-      .not("storage_path", "is", null);
+      .not("storage_path", "is", null));
     if (localCoversError) {
       console.error("public profile local cover lookup failed:", localCoversError.code, localCoversError.message);
       degraded = true;
@@ -569,8 +603,10 @@ export async function GET(req) {
     }));
 
   let autoValueByCollectionId = new Map();
-  if (gradeSignals.length > 0) {
-    autoValueByCollectionId = await getMarketValuesBulk({ supabase, items: gradeSignals });
+  if (visibility.value && gradeSignals.length > 0) {
+    autoValueByCollectionId = await timing.measure("values", () =>
+      getMarketValuesBulk({ supabase, items: gradeSignals })
+    );
   }
 
   const pricedCollection = normalizedCollection.map((item) => {
@@ -612,7 +648,7 @@ export async function GET(req) {
   const dominantPublisher =
     Object.entries(publisherCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
 
-  return NextResponse.json({
+  return json({
     profile,
     visibility,
     collection: visibleCollection,

@@ -38,7 +38,9 @@ export default function PrivateProfileOwnerView({ username }) {
     if (loading || profileLoading || view !== "owner") return;
 
     const controller = new AbortController();
-    authedFetch(`/api/public-profile?username=${encodeURIComponent(username)}`, {
+    // Distinct URL so the owner's request never shares an edge-cache entry
+    // with the anonymous (cacheable) response for the same profile.
+    authedFetch(`/api/public-profile?username=${encodeURIComponent(username)}&view=owner`, {
       signal: controller.signal,
     })
       .then((res) => (res.ok ? res.json() : null))

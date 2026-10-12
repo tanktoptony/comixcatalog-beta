@@ -42,6 +42,8 @@ export default function PeopleClient() {
   useEffect(() => {
     const q = query.trim();
     if (q.length < 2) {
+      // Clearing a stale search when the box empties; nothing to fetch.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setResults([]);
       setSearched(false);
       setSearching(false);

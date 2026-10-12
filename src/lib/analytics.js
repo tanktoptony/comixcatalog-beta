@@ -29,6 +29,7 @@
 //
 // Post-signup (existing users):
 //   signup_completed, pro_upgrade, pdf_export, grade_set, collection_add
+//   scan_bulk_started, scan_bulk_added { count }, scan_details_set
 //   follow, unfollow, member_search { had_results }, follow_bulk { count }
 
 // Thin wrapper around gtag's event API. GA itself is loaded conditionally

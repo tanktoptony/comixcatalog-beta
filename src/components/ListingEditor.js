@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
 import { validateListingEdit, LIMITS } from "@/lib/listingEdit";
 import PhotoManager from "@/components/PhotoManager";
+import { trackEvent } from "@/lib/analytics";
 
 // Seller's listing editor (opened from the library): price, shipping,
 // offers, condition notes, restored/signed. Saves through
@@ -12,7 +13,7 @@ import PhotoManager from "@/components/PhotoManager";
 
 const dollars = (cents) => (cents == null ? "" : (cents / 100).toFixed(cents % 100 ? 2 : 0));
 
-export default function ListingEditor({ listing, title, estValue, onClose, onSaved }) {
+export default function ListingEditor({ listing, title, estValue, onClose, onSaved, onPhotoAdded }) {
   const [price, setPrice] = useState(dollars(listing.price_cents));
   const [shipping, setShipping] = useState(dollars(listing.shipping_cents));
   const [acceptsOffers, setAcceptsOffers] = useState(listing.accepts_offers !== false);
@@ -45,6 +46,7 @@ export default function ListingEditor({ listing, title, estValue, onClose, onSav
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || "Couldn't save your listing.");
+      if (listing.price_cents == null && data.listing?.price_cents != null) trackEvent("listing_priced");
       onSaved?.(data.listing);
       onClose();
     } catch (err) {
@@ -91,7 +93,7 @@ export default function ListingEditor({ listing, title, estValue, onClose, onSav
           <textarea rows={4} maxLength={LIMITS.maxNotes} value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Spine stress, color breaks, corner wear, Marvel value stamp intact…" />
         </label>
 
-        {listing.collection_id && <PhotoManager collectionId={listing.collection_id} />}
+        {listing.collection_id && <PhotoManager collectionId={listing.collection_id} onPhotoAdded={() => onPhotoAdded?.(listing.collection_id)} />}
 
         <div className="le-checks">
           <label className="le-check">

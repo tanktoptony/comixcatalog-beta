@@ -19,7 +19,7 @@ async function api(url, options) {
   return data;
 }
 
-export default function PhotoManager({ collectionId }) {
+export default function PhotoManager({ collectionId, onPhotoAdded }) {
   const [photos, setPhotos] = useState(null);
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
@@ -82,6 +82,7 @@ export default function PhotoManager({ collectionId }) {
           body: JSON.stringify({ path: slot.path, collectionId, kind }),
         });
         done += 1;
+        onPhotoAdded?.();
       } catch (err) {
         setError(`${file.name}: ${err.message}`);
         break;

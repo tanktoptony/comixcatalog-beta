@@ -81,7 +81,8 @@
     "test:json-ld": "node --test src/lib/jsonLd.test.js",
     "test:profile-access": "node --test src/lib/profileAccess.test.js",
     "test:amory-wars": "node --test scripts/lib/amoryWars.test.js",
-    "test:key-import": "node --test scripts/lib/keyIssuesFromCrawl.test.js"
+    "test:key-import": "node --test scripts/lib/keyIssuesFromCrawl.test.js",
+    "test:series-links": "node --test src/lib/seriesLinks.test.js scripts/importGcdSeriesBonds.test.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.131.0",

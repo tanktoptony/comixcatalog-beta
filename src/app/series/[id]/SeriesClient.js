@@ -278,6 +278,23 @@ export default function SeriesClient({ initialSeries = null }) {
               {buildSeriesIntro(series)}
             </p>
 
+            {series.links?.length > 0 && (
+              <div style={{ maxWidth: "760px", marginBottom: "12px" }}>
+                {series.links.map((line) => (
+                  <div key={`${line.label}:${line.href}`} style={{ marginBottom: line.note ? "6px" : "2px" }}>
+                    <div>
+                      {line.label}{" "}
+                      <strong><Link href={line.href}>{line.title}</Link></strong>
+                      {line.year ? ` (${line.year})` : ""}
+                    </div>
+                    {line.note && (
+                      <div className="muted" style={{ fontSize: "0.875rem" }}>{line.note}</div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
             {(series.top_creators?.writers?.length > 0 || series.top_creators?.artists?.length > 0) && (
               <p style={{ maxWidth: "760px", marginBottom: "12px" }}>
                 {series.top_creators.writers?.length > 0 && (

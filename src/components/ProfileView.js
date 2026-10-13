@@ -14,6 +14,7 @@ import { coverThumb } from "@/lib/coverThumb";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import ReportButton from "@/components/ReportButton";
 import ProfileFollow from "@/components/ProfileFollow";
+import InviteButton from "@/components/InviteButton";
 
 function formatJoinDate(iso) {
   if (!iso) return null;
@@ -162,6 +163,7 @@ export default function ProfileView({ data, isOwner = false }) {
             </div>
             {profile.bio && <p className="profile-bio">{profile.bio}</p>}
             <ProfileFollow username={username} ownerId={profile.id}>
+              <InviteButton username={username} ownerId={profile.id} />
               <ShareProfileButton username={username} />
               {/* Self-gates to the signed-in owner with 1+ owned book. */}
               <ShareCardButton ownerId={profile.id} username={username} className="profile-action-btn" />

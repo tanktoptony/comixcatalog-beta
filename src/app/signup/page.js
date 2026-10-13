@@ -270,6 +270,13 @@ export default function SignUpPage() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(attribution),
         }).catch(() => null);
+        if (attribution.ref) {
+          await authedFetch("/api/invites/accept", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ref: attribution.ref }),
+          }).catch(() => null);
+        }
       }
 
       // Grant the founding pass, if any of the 100 are left. Server-side, so
@@ -422,6 +429,9 @@ export default function SignUpPage() {
       {successMsg && (
         <div className="auth-success">
           <p>{successMsg}</p>
+          <p style={{ marginTop: 8 }}>
+            <Link href="/people?welcome=1" className="link">Find collectors to follow</Link>
+          </p>
 
           <button
             type="button"

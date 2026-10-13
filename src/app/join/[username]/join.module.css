@@ -1,0 +1,8 @@
+.page { min-height: calc(100vh - 150px); display: grid; place-items: center; padding: 3rem 1rem 5rem; }
+.card { width: min(580px, 100%); padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid rgba(244,208,63,.24); border-radius: 18px; background: radial-gradient(circle at top, rgba(29,78,216,.2), rgba(8,14,31,.96) 58%); box-shadow: 0 24px 70px rgba(0,0,0,.35); text-align: center; }
+.avatar { width: 104px; height: 104px; border: 3px solid rgba(244,208,63,.65); border-radius: 50%; object-fit: cover; }
+.eyebrow { margin: 1.2rem 0 .35rem; color: #f4d03f; font-size: .75rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.card h1 { margin: 0; font-family: var(--font-display); font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1; }
+.handle { margin: .55rem 0 0; color: rgba(255,255,255,.62); }
+.lede { max-width: 42ch; margin: 1.25rem auto 0; color: rgba(255,255,255,.78); font-size: 1.05rem; line-height: 1.6; }
+.founding { display: inline-block; margin: 1.25rem 0 0; padding: .4rem .75rem; border: 1px solid rgba(244,208,63,.35); border-radius: 999px; color: #f4d03f; font-size: .84rem; font-weight: 800; }

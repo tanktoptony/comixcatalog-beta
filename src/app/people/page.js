@@ -6,6 +6,6 @@ export const metadata = {
 };
 
 export default async function PeoplePage({ searchParams }) {
-  const { tab } = await searchParams;
-  return <PeopleClient initialTab={tab === "followers" ? "followers" : "following"} />;
+  const { tab, welcome } = await searchParams;
+  return <PeopleClient initialTab={tab === "followers" ? "followers" : "following"} welcome={welcome === "1"} />;
 }

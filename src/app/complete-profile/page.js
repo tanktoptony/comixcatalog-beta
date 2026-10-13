@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import { authedFetch } from "@/lib/apiClient";
+import { seedAttribution } from "@/lib/attribution";
+import { redirectAfterAuth, safeNextPath } from "@/lib/auth/postAuthRedirect";
 import { claimFoundingPass } from "@/lib/launchFlags";
 
 // Best-effort starting point for the username field — Google (and any
@@ -148,14 +151,30 @@ export default function CompleteProfilePage() {
       return;
     }
 
+    const attribution = user.user_metadata?.signup_attribution || {};
+    seedAttribution(attribution);
+    await authedFetch("/api/attribution", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(attribution),
+    }).catch(() => null);
+    if (attribution.ref) {
+      await authedFetch("/api/invites/accept", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ref: attribution.ref }),
+      }).catch(() => null);
+    }
     const founding = await claimFoundingPass();
+    setSaving(false);
+    const next = safeNextPath(user.user_metadata?.signup_next);
+    // A pending pass waits on the emailed confirm link; with nowhere else to
+    // go, land on the founding page, which says to check their email.
     if (founding.pending) {
-      setSaving(false);
-      router.replace("/founding-collectors?claim=sent");
+      redirectAfterAuth(next || "/founding-collectors?claim=sent");
       return;
     }
-    setSaving(false);
-    router.replace(`/u/${usernameNormalized}`);
+    redirectAfterAuth(next || `/u/${usernameNormalized}`);
   }
 
   return (

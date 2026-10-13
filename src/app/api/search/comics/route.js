@@ -8,6 +8,14 @@ import { parseYear } from "@/lib/years";
 import { resolveCovers } from "@/lib/catalog/covers";
 import { getAuthedUser } from "@/lib/authServer";
 import { ADMIN_ID } from "@/lib/admin";
+import { unstable_cache } from "next/cache";
+import { createServerTiming } from "@/lib/serverTiming";
+import {
+  DegradedSearchError,
+  normalizeSearchCacheTerm,
+  SEARCH_CACHE_REVALIDATE_SECONDS,
+  sliceSearchResults,
+} from "@/lib/searchCache";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -136,9 +144,16 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
   return fallbackRows ?? [];
 }
 
-export async function GET(req) {
+async function computeComicsResponse(req) {
+  const timing = createServerTiming();
+  for (const phase of ["auth", "candidates", "issues", "ranking", "covers", "serialization"]) timing.set(phase);
+  const json = (body, init) => {
+    const response = timing.measureSync("serialization", () => NextResponse.json(body, init));
+    response.headers.set("Server-Timing", timing.header());
+    return response;
+  };
   try {
-    const viewer = await getAuthedUser(req);
+    const viewer = await timing.measure("auth", () => getAuthedUser(req));
     const { searchParams } = new URL(req.url);
     const q = (searchParams.get("q") || "").trim();
     const queriedIssueNumber = extractIssueNumberFromQuery(q);
@@ -147,20 +162,22 @@ export async function GET(req) {
     const normalizedQ = normalizeSearch(titleQuery);
     const searchWords = normalizeSeriesSearchWords(titleQuery);
     const normalizedQForScoring = normalizeForScoring(titleQuery);
-    const limit = Math.max(1, Math.min(Number(searchParams.get("limit") || 36), 36));
+    const internalFull = searchParams.get("full") === "1";
+    const limit = Math.max(1, Math.min(Number(searchParams.get("limit") || 36), internalFull ? 120 : 36));
     const offset = Math.max(0, Number(searchParams.get("offset") || 0));
 
     if (!q || !normalizedQ) {
-      return NextResponse.json({ comics: [] });
+      return json({ comics: [] });
     }
 
     const supabase = getServiceClient();
+    let searchDegraded = false;
 
     // User-comics search and series-candidate search are independent —
     // run them concurrently instead of back-to-back (found while chasing
     // the "slow, staggered" search complaint 2026-08-28; this route did
     // up to 5 sequential round trips per request before this pass).
-    const [userComicsResult, seriesCandidates] = await Promise.all([
+    const [userComicsResult, seriesCandidates] = await timing.measure("candidates", () => Promise.all([
       offset === 0
         ? supabase
             .from("comics")
@@ -189,9 +206,12 @@ export async function GET(req) {
         : Promise.resolve({ data: [] }),
       fetchSeriesCandidates(supabase, searchWords, normalizedQ).catch((err) => {
         console.error("series search for comics failed:", err);
+        searchDegraded = true;
         return [];
       }),
-    ]);
+    ]));
+
+    if (userComicsResult.error) throw userComicsResult.error;
 
     const userRows = (userComicsResult.data ?? []).map((comic) => ({
       id: comic.id,
@@ -241,15 +261,16 @@ export async function GET(req) {
     let gcdRows = [];
     if (seriesGcdIds.length > 0) {
       const baseFetchLimit = Math.min(120, offset + limit + 40);
-      const { data: baseGcdIssues, error: gcdError } = await supabase
+      const { data: baseGcdIssues, error: gcdError } = await timing.measure("issues", () => supabase
         .from("gcd_issues")
         .select("gcd_id, series_gcd_id, issue_number, title, publication_date")
         .in("series_gcd_id", seriesGcdIds)
         .order("gcd_id", { ascending: true })
-        .limit(baseFetchLimit);
+        .limit(baseFetchLimit));
 
       if (gcdError) {
         console.error("gcd issue search failed:", gcdError);
+        searchDegraded = true;
       } else {
         let gcdIssues = baseGcdIssues ?? [];
 
@@ -267,6 +288,7 @@ export async function GET(req) {
               "gcd issue-number targeted fetch failed:",
               matchingIssueError
             );
+            searchDegraded = true;
           } else if (matchingIssueRows?.length) {
             const seen = new Set(gcdIssues.map((r) => r.gcd_id));
             for (const row of matchingIssueRows) {
@@ -300,6 +322,7 @@ export async function GET(req) {
       }
     }
 
+    const stopRanking = timing.start("ranking");
     const ranked = dedupeById([...userRows, ...gcdRows])
       .map((row) => ({
         ...row,
@@ -354,9 +377,12 @@ export async function GET(req) {
     }
 
     const pageSlice = collapsed.slice(offset, offset + limit);
+    stopRanking();
 
     const gcdSlice = pageSlice.filter((row) => row.__source === "gcd");
-    const resolvedCovers = await resolveCovers(supabase, gcdSlice.map((row) => ({
+    const resolvedCovers = internalFull
+      ? new Map()
+      : await timing.measure("covers", () => resolveCovers(supabase, gcdSlice.map((row) => ({
       gcd_issue_id: row.gcd_issue_id,
       series_gcd_id: row.series_gcd_id,
       series_title: row.series_title,
@@ -365,9 +391,10 @@ export async function GET(req) {
       series_year_start: row.series_year_start,
       series_year_end: row.series_year_end,
       publisher: row.publisher,
-    })));
+    }))));
 
     const comics = pageSlice.map(({ __score, ...row }) => {
+      if (internalFull) return row;
       // Keep __source on the response. Stripping it made the frontend default
       // every result to "user" (Header.js / SearchPageClient.js both do
       // `row.__source || "user"`), so canonical gcd issues were mislabeled
@@ -386,9 +413,118 @@ export async function GET(req) {
     // Signed-in results can include the viewer's own pending books, so they
     // must never land in the shared CDN cache (it keys on the URL, not the
     // viewer). Signed-out results are the same for everyone and stay cached.
-    return NextResponse.json({ comics }, { headers: viewer ? { "Cache-Control": "private, no-store" } : CDN_CACHE_SHORT });
+    if (searchDegraded) return json({ comics, degraded: true }, { headers: { "Cache-Control": "private, no-store" } });
+    return json({ comics }, { headers: viewer ? { "Cache-Control": "private, no-store" } : CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/search/comics crashed:", err);
-    return NextResponse.json({ comics: [] });
+    return json({ comics: [], degraded: true });
+  }
+}
+
+const cachedPublicComicsSearch = unstable_cache(
+  async (normalizedTerm) => {
+    const response = await computeComicsResponse(
+      new Request(`http://internal/api/search/comics?q=${encodeURIComponent(normalizedTerm)}&limit=120&offset=0&full=1`)
+    );
+    const serverTiming = response.headers.get("Server-Timing") || "";
+    const result = await response.json();
+    const measured = { ...result, _serverTiming: serverTiming };
+    if (result.degraded) throw new DegradedSearchError(measured);
+    return measured;
+  },
+  ["search-comics-v1"],
+  { revalidate: SEARCH_CACHE_REVALIDATE_SECONDS, tags: ["search"] }
+);
+
+export async function getCachedComicsSearch(q, { limit = 36, offset = 0 } = {}) {
+  const normalizedTerm = normalizeSearchCacheTerm(q);
+  try {
+    const result = await cachedPublicComicsSearch(normalizedTerm);
+    const selected = sliceSearchResults(result.comics, { limit, offset });
+    const gcdRows = selected.filter((row) => row.__source === "gcd");
+    const covers = await resolveCovers(getServiceClient(), gcdRows.map((row) => ({
+      gcd_issue_id: row.gcd_issue_id,
+      series_gcd_id: row.series_gcd_id,
+      series_title: row.series_title,
+      issue_number: row.issue_number,
+      year: row.release_year,
+      series_year_start: row.series_year_start,
+      series_year_end: row.series_year_end,
+      publisher: row.publisher,
+    })));
+    const comics = selected.map((row) => {
+      if (row.__source !== "gcd") return row;
+      const storagePath = covers.get(row.gcd_issue_id)?.storage_path ?? null;
+      const { gcd_issue_id, series_gcd_id, series_year_start, series_year_end, ...publicRow } = row;
+      return {
+        ...publicRow,
+        cover_path: storagePath
+          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
+          : null,
+      };
+    });
+    return { ...result, comics };
+  } catch (error) {
+    if (error instanceof DegradedSearchError) {
+      const selected = sliceSearchResults(error.result.comics, { limit, offset });
+      const gcdRows = selected.filter((row) => row.__source === "gcd");
+      const covers = await resolveCovers(getServiceClient(), gcdRows.map((row) => ({
+        gcd_issue_id: row.gcd_issue_id,
+        series_gcd_id: row.series_gcd_id,
+        series_title: row.series_title,
+        issue_number: row.issue_number,
+        year: row.release_year,
+        series_year_start: row.series_year_start,
+        series_year_end: row.series_year_end,
+        publisher: row.publisher,
+      })));
+      return {
+        ...error.result,
+        comics: selected.map((row) => {
+          if (row.__source !== "gcd") return row;
+          const storagePath = covers.get(row.gcd_issue_id)?.storage_path ?? null;
+          const { gcd_issue_id, series_gcd_id, series_year_start, series_year_end, ...publicRow } = row;
+          return {
+            ...publicRow,
+            cover_path: storagePath
+              ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
+              : null,
+          };
+        }),
+      };
+    }
+    throw error;
+  }
+}
+
+export async function GET(req) {
+  const timing = createServerTiming();
+  for (const phase of ["auth", "search_cache", "serialization"]) timing.set(phase);
+  try {
+    const viewer = await timing.measure("auth", () => getAuthedUser(req));
+    const { searchParams } = new URL(req.url);
+    const q = (searchParams.get("q") || "").trim();
+    const limit = Math.max(1, Math.min(Number(searchParams.get("limit") || 36), 36));
+    const offset = Math.max(0, Number(searchParams.get("offset") || 0));
+    if (!q) return NextResponse.json({ comics: [] }, { headers: { "Server-Timing": timing.header() } });
+
+    // Pending contributed comics are viewer-specific. Keep that legacy path
+    // private; the complete public catalog computation is shared by every
+    // anonymous API request and the server-rendered search page.
+    if (viewer) return computeComicsResponse(req);
+
+    const result = await timing.measure("search_cache", () => getCachedComicsSearch(q, { limit, offset }));
+    const { _serverTiming, ...body } = result;
+    const response = timing.measureSync("serialization", () => NextResponse.json(
+      body,
+      { headers: result.degraded ? { "Cache-Control": "private, no-store" } : CDN_CACHE_SHORT }
+    ));
+    response.headers.set("Server-Timing", [_serverTiming, timing.header()].filter(Boolean).join(", "));
+    return response;
+  } catch (err) {
+    console.error("GET /api/search/comics crashed:", err);
+    const response = NextResponse.json({ comics: [], degraded: true });
+    response.headers.set("Server-Timing", timing.header());
+    return response;
   }
 }

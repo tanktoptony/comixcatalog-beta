@@ -8,21 +8,24 @@ async function hydrateReports(supabase, reports) {
   const listingIds = reports.filter((report) => report.target_type === "listing").map((report) => report.target_id);
   const userIds = reports.filter((report) => report.target_type === "user").map((report) => report.target_id);
   const messageIds = reports.filter((report) => report.target_type === "message").map((report) => report.target_id);
-  const [reportersResult, listingsResult, usersResult, messagesResult] = await Promise.all([
+  const saleIds = reports.filter((report) => report.target_type === "sale").map((report) => report.target_id);
+  const [reportersResult, listingsResult, usersResult, messagesResult, salesResult] = await Promise.all([
     reporterIds.length ? supabase.from("profiles").select("id, username").in("id", reporterIds) : { data: [] },
     listingIds.length ? supabase.from("listings").select("id, series_title, issue_number, seller_id, status").in("id", listingIds) : { data: [] },
     userIds.length ? supabase.from("profiles").select("id, username").in("id", userIds) : { data: [] },
     messageIds.length ? supabase.from("messages").select("id, body, sender_id, recipient_id").in("id", messageIds) : { data: [] },
+    saleIds.length ? supabase.from("sold_items").select("id, series_title, issue_number, seller_id, buyer_id, status").in("id", saleIds) : { data: [] },
   ]);
-  const firstError = [reportersResult, listingsResult, usersResult, messagesResult].find((result) => result.error)?.error;
+  const firstError = [reportersResult, listingsResult, usersResult, messagesResult, salesResult].find((result) => result.error)?.error;
   if (firstError) throw firstError;
   const messages = messagesResult.data ?? [];
-  const relatedProfileIds = [...new Set([...(listingsResult.data ?? []).map((row) => row.seller_id), ...messages.flatMap((row) => [row.sender_id, row.recipient_id])])];
+  const relatedProfileIds = [...new Set([...(listingsResult.data ?? []).map((row) => row.seller_id), ...messages.flatMap((row) => [row.sender_id, row.recipient_id]), ...(salesResult.data ?? []).flatMap((row) => [row.seller_id, row.buyer_id])])];
   const relatedResult = relatedProfileIds.length ? await supabase.from("profiles").select("id, username").in("id", relatedProfileIds) : { data: [] };
   if (relatedResult.error) throw relatedResult.error;
   const names = new Map([...(reportersResult.data ?? []), ...(usersResult.data ?? []), ...(relatedResult.data ?? [])].map((row) => [row.id, row.username]));
   const listings = new Map((listingsResult.data ?? []).map((row) => [row.id, row]));
   const messageMap = new Map(messages.map((row) => [row.id, row]));
+  const sales = new Map((salesResult.data ?? []).map((row) => [row.id, row]));
   return reports.map((report) => {
     let summary = "Target is no longer available";
     if (report.target_type === "listing") {
@@ -33,6 +36,9 @@ async function hydrateReports(supabase, reports) {
     } else if (report.target_type === "message") {
       const message = messageMap.get(report.target_id);
       if (message) summary = `@${names.get(message.sender_id) || "unknown"} to @${names.get(message.recipient_id) || "unknown"}: ${message.body}`;
+    } else if (report.target_type === "sale") {
+      const sale = sales.get(report.target_id);
+      if (sale) summary = `${sale.series_title}${sale.issue_number ? ` #${sale.issue_number}` : ""}, @${names.get(sale.seller_id) || "unknown"} to @${names.get(sale.buyer_id) || "unknown"} (${sale.status})`;
     } else {
       summary = `Photo ${report.target_id}`;
     }

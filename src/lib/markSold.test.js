@@ -13,7 +13,7 @@ test("mark sold requires a positive price", () => {
 
 test("mark sold accepts supported sale sources", () => {
   assert.deepEqual(validateMarkSold({ collectionItemId: id, salePrice: "24.50", soldVia: "comixcatalog_message" }), {
-    value: { collectionItemId: id, salePrice: 24.5, soldVia: "comixcatalog_message" },
+    value: { collectionItemId: id, salePrice: 24.5, soldVia: "comixcatalog_message", buyerId: null },
   });
   assert.equal(validateMarkSold({ collectionItemId: id, salePrice: "10.01", soldVia: "offsite" }).value.salePrice, 10.01);
   assert.ok(validateMarkSold({ collectionItemId: id, salePrice: 10, soldVia: "checkout" }).error);

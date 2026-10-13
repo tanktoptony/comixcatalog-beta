@@ -2,9 +2,9 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { followerIsNew, inboxAriaLabel, inboxBadgeTotal } from "./inboxNotifications.js";
 
-test("badge total combines unread messages and new followers", () => {
-  assert.equal(inboxBadgeTotal({ messages: 2, followers: 3 }), 5);
-  assert.equal(inboxAriaLabel({ messages: 2, followers: 1 }), "Inbox (2 unread messages, 1 new follower)");
+test("badge total combines messages, followers, and pending purchases", () => {
+  assert.equal(inboxBadgeTotal({ messages: 2, followers: 3, purchases: 1 }), 6);
+  assert.equal(inboxAriaLabel({ messages: 2, followers: 1, purchases: 1 }), "Inbox (2 unread messages, 1 new follower, 1 pending purchase)");
 });
 
 test("followers at or before the seen cutoff are not new", () => {

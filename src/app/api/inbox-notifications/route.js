@@ -20,7 +20,7 @@ export async function GET(req) {
     if (profileError) throw new Error(`profile lookup failed: ${profileError.message}`);
     const cutoff = profile.followers_seen_at || profile.created_at;
 
-    const [messagesResult, followersResult, followerRowsResult] = await Promise.all([
+    const [messagesResult, followersResult, followerRowsResult, purchasesResult, purchaseRowsResult] = await Promise.all([
       supabase
         .from("messages")
         .select("id", { count: "exact", head: true })
@@ -38,8 +38,10 @@ export async function GET(req) {
         .gt("created_at", cutoff)
         .order("created_at", { ascending: false })
         .limit(10),
+      supabase.from("sold_items").select("id", { count: "exact", head: true }).eq("buyer_id", user.id).eq("status", "pending_buyer"),
+      supabase.from("sold_items").select("id, seller_id, series_title, issue_number, sale_price, currency, sold_at").eq("buyer_id", user.id).eq("status", "pending_buyer").order("sold_at", { ascending: false }).limit(10),
     ]);
-    const queryError = messagesResult.error || followersResult.error || followerRowsResult.error;
+    const queryError = messagesResult.error || followersResult.error || followerRowsResult.error || purchasesResult.error || purchaseRowsResult.error;
     if (queryError) throw new Error(`notification lookup failed: ${queryError.message}`);
 
     const followerRows = followerRowsResult.data ?? [];
@@ -69,11 +71,17 @@ export async function GET(req) {
       const follower = profilesById.get(row.follower_id);
       return follower ? [{ ...follower, followed_at: row.created_at, following: followingIds.has(row.follower_id) }] : [];
     });
+    const sellerIds = [...new Set((purchaseRowsResult.data ?? []).map((row) => row.seller_id))];
+    const { data: sellers, error: sellersError } = sellerIds.length ? await supabase.from("profiles").select("id, username").in("id", sellerIds) : { data: [] };
+    if (sellersError) throw sellersError;
+    const sellerNames = new Map((sellers ?? []).map((seller) => [seller.id, seller.username]));
 
     return NextResponse.json({
       messages: messagesResult.count ?? 0,
       followers: followersResult.count ?? 0,
       recentFollowers,
+      purchases: purchasesResult.count ?? 0,
+      pendingPurchases: (purchaseRowsResult.data ?? []).map((row) => ({ ...row, seller_username: sellerNames.get(row.seller_id) || "unknown" })),
     });
   } catch (error) {
     console.error("GET /api/inbox-notifications failed:", error);

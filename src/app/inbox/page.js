@@ -42,6 +42,11 @@ function NewFollowersStrip({ followers }) {
   );
 }
 
+function PendingPurchasesStrip({ purchases }) {
+  if (!purchases?.length) return null;
+  return <section className="inbox-followers"><div className="inbox-followers-heading"><h2>Pending purchases</h2></div><div className="inbox-followers-list">{purchases.map((purchase) => <article className="inbox-follower" key={purchase.id}><Link href={`/purchases/${purchase.id}`}><strong>{purchase.series_title}{purchase.issue_number ? ` #${purchase.issue_number}` : ""}</strong><small> from @{purchase.seller_username}</small></Link></article>)}</div></section>;
+}
+
 function formatTimeAgo(iso) {
   if (!iso) return "";
   const then = new Date(iso).getTime();
@@ -64,6 +69,7 @@ export default function InboxPage() {
   // the effect below refreshes it.
   const [threads, setThreads] = useState(() => (user ? inboxCache(user.id).threads : null));
   const [newFollowers, setNewFollowers] = useState([]);
+  const [pendingPurchases, setPendingPurchases] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -86,6 +92,7 @@ export default function InboxPage() {
         if (notificationResponse.ok) {
           const notifications = await notificationResponse.json();
           if (!cancelled) setNewFollowers(notifications.recentFollowers ?? []);
+          if (!cancelled) setPendingPurchases(notifications.pendingPurchases ?? []);
           const seenResponse = await authedFetch("/api/inbox-notifications", { method: "POST" });
           if (seenResponse.ok && !cancelled) window.dispatchEvent(new Event(UNREAD_CHANGED_EVENT));
         }
@@ -209,6 +216,7 @@ export default function InboxPage() {
       <section className="comic-panel">
         <h1 className="hero-title">Inbox</h1>
         <NewFollowersStrip followers={newFollowers} />
+        <PendingPurchasesStrip purchases={pendingPurchases} />
         <EmptyState
           title="No messages yet"
           body="When another collector messages you, the conversation will show up here. You can also start one from any profile."
@@ -221,6 +229,7 @@ export default function InboxPage() {
     <section className="comic-panel">
       <h1 className="hero-title">Inbox</h1>
       <NewFollowersStrip followers={newFollowers} />
+      <PendingPurchasesStrip purchases={pendingPurchases} />
       <ul className="inbox-thread-list">
         {threads.map((t) => {
           const username = t.profile?.username || "unknown";

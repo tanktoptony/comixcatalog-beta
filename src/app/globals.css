@@ -12256,6 +12256,13 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .mark-sold-actions button { padding: 10px 16px; border: 1px solid rgba(255,255,255,.16); border-radius: 8px; background: transparent; color: inherit; font-weight: 700; cursor: pointer; }
 .mark-sold-actions button.primary { border-color: #F4D03F; background: #F4D03F; color: #0B1E6B; }
 .mark-sold-actions button:disabled { opacity: .55; cursor: wait; }
+.mark-sold-buyers { display: grid; gap: 6px; max-height: 150px; overflow: auto; }
+.mark-sold-buyers button, .mark-sold-buyer button { border: 0; background: transparent; color: #F4D03F; text-align: left; cursor: pointer; }
+.mark-sold-buyer { display: flex; justify-content: space-between; padding: 10px; border: 1px solid rgba(255,255,255,.18); border-radius: 8px; }
+.purchase-page { max-width: 760px; margin: 0 auto; }
+.purchase-cover { width: min(240px, 100%); height: auto; }
+.purchase-photos { display: grid; grid-template-columns: repeat(auto-fill,minmax(140px,1fr)); gap: 12px; }
+.purchase-photos img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; }
 .sale-toast { position: fixed; z-index: 1000; right: 20px; bottom: 20px; max-width: calc(100vw - 40px); padding: 13px 17px; border: 1px solid rgba(244,208,63,.4); border-radius: 10px; background: #121722; color: #f3f4f6; box-shadow: 0 12px 36px rgba(0,0,0,.5); }
 .sold-history { max-width: 1100px; margin: 0 auto; padding: 32px 20px 64px; }
 .sold-history .library-tabs { margin: 22px 0; flex-wrap: wrap; }

@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T02:20:20.162353+00:00",
-    "retry_after": "2026-10-14T02:20:20.162366+00:00"
+    "last_attempt_at": "2026-10-13T03:03:37.720656+00:00",
+    "retry_after": "2026-10-14T03:03:37.720668+00:00"
   },
   {
     "name": "Cerebus",
@@ -51137,5 +51137,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T02:20:19.826017+00:00",
     "retry_after": "2026-10-14T02:20:19.826034+00:00"
+  },
+  {
+    "name": "Marvel Two-in-One Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T03:00:44.273709+00:00",
+    "retry_after": "2026-10-14T03:00:44.273722+00:00"
+  },
+  {
+    "name": "WildC.A.T.s Ashcan Edition",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T03:01:36.472004+00:00",
+    "retry_after": "2026-10-14T03:01:36.472021+00:00"
+  },
+  {
+    "name": "Gotham City Sirens",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 26891,
+        "name": "Gotham City Sirens",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 159171,
+        "name": "Gotham City Sirens",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      },
+      {
+        "id": 77687,
+        "name": "Gotham City Sirens",
+        "publisher": "DC Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T03:01:54.918162+00:00",
+    "retry_after": "2026-10-14T03:01:54.918177+00:00"
+  },
+  {
+    "name": "Spaghetti Bros.",
+    "publisher": "IDW Publishing",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T03:02:14.878119+00:00",
+    "retry_after": "2026-10-14T03:02:14.878136+00:00"
   }
 ]

@@ -28050,8 +28050,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T10:05:11.384513+00:00",
-    "retry_after": "2026-10-14T10:05:11.384524+00:00"
+    "last_attempt_at": "2026-10-13T11:03:34.370498+00:00",
+    "retry_after": "2026-10-14T11:03:34.370516+00:00"
   },
   {
     "name": "Cerebus",
@@ -51731,5 +51731,98 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T10:03:15.615831+00:00",
     "retry_after": "2026-10-14T10:03:15.615846+00:00"
+  },
+  {
+    "name": "Fear Effect Special",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T11:00:41.769214+00:00",
+    "retry_after": "2026-10-14T11:00:41.769232+00:00"
+  },
+  {
+    "name": "Wizard Hulk",
+    "publisher": "Marvel Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T11:00:42.211277+00:00",
+    "retry_after": "2026-10-14T11:00:42.211295+00:00"
+  },
+  {
+    "name": "Gigantor Pocket Manga",
+    "publisher": "Antarctic Press",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T11:00:43.014994+00:00",
+    "retry_after": "2026-10-14T11:00:43.015012+00:00"
+  },
+  {
+    "name": "Comics Collection",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 102170,
+        "name": "Comics Collection",
+        "publisher": "Bonnier Carlsen",
+        "start_year": 2000
+      },
+      {
+        "id": 72642,
+        "name": "Comics Collection",
+        "publisher": "TidalWave Productions",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T11:01:41.298829+00:00",
+    "retry_after": "2026-10-14T11:01:41.298847+00:00"
+  },
+  {
+    "name": "Billy the Kid",
+    "publisher": "Fawcett Comics",
+    "year": 1945,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1810,
+        "name": "Billy the Kid",
+        "publisher": "Charlton",
+        "start_year": 1957
+      },
+      {
+        "id": 91335,
+        "name": "Billy the Kid",
+        "publisher": "Horwitz",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T11:02:16.809365+00:00",
+    "retry_after": "2026-10-14T11:02:16.809379+00:00"
+  },
+  {
+    "name": "Darkchylde Remastered",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21339,
+        "name": "Darkchylde: Remastered",
+        "publisher": "Darkchylde Entertainment",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T11:02:26.336578+00:00",
+    "retry_after": "2026-10-14T11:02:26.336598+00:00"
   }
 ]

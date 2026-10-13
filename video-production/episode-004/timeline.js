@@ -372,7 +372,9 @@ export default {
   title: config.titleOptions[0], duration: +(VOICE_AT + words.duration + GAP_DUR + 5).toFixed(3), nudges: [], segments,
   audio: {
     narration: { asset: "audio/NARRATION_LEVELED.wav", at: VOICE_AT, volume: 1, clips: narrationClips.map((clip) => ({ at: +(VOICE_AT + clip.out).toFixed(3), from: clip.from, to: clip.to })) },
-    music: { asset: "audio/MUSIC_BED.mp3", volume: 0.25, fadeIn: 2, fadeOut: 4, loop: true, duck: [{ from: stingGap.at, to: stingGap.at + stingGap.dur }] },
+    // One continuous pre-built bed (MUSIC_BED_FULL.wav: the track minus its fade-out tail, 1 s crossfades between passes).
+    // Looping the mp3 left silent gaps at each pass end, and Remotion dropped the bed entirely at 180.0 s.
+    music: { asset: "audio/MUSIC_BED_FULL.wav", volume: 0.2, fadeIn: 2, fadeOut: 4, loop: false, duck: [{ from: stingGap.at, to: stingGap.at + stingGap.dur }] },
     // Funkorama's band enters at 7.13 s; start there so the hit lands with the logo.
     sting: { asset: "audio/MUSIC_STING.mp3", at: stingGap.at, from: 7.1, dur: stingGap.dur, volume: 1, fadeOut: 0.4 },
   },

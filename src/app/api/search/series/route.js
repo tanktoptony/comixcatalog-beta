@@ -161,6 +161,9 @@ async function computeSeriesResponse(req) {
     const limit = Number.isFinite(requested)
       ? Math.max(1, Math.min(Math.trunc(requested), 40))
       : 12;
+    // ranked=1 is set only by the internal cached computation below; GET
+    // never forwards it, so an outside caller can't ask for the uncapped list.
+    const returnFullRanking = searchParams.get("ranked") === "1";
 
     // A year in the query is a FILTER, not title text. It used to be left in,
     // so "rai 1994" normalized to "rai1994" and returned nothing at all while
@@ -523,7 +526,6 @@ export async function GET(req) {
     const { searchParams } = new URL(req.url);
     const q = (searchParams.get("q") || "").trim();
     const requested = Number(searchParams.get("limit"));
-    const returnFullRanking = searchParams.get("ranked") === "1";
     const limit = Number.isFinite(requested) ? Math.max(1, Math.min(Math.trunc(requested), 40)) : 12;
     if (!q) return NextResponse.json({ series: [] }, { headers: { "Server-Timing": timing.header() } });
     const result = await timing.measure("search_cache", () => getCachedSeriesSearch(q, { limit }));

@@ -28050,8 +28050,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T08:04:13.779658+00:00",
-    "retry_after": "2026-10-14T08:04:13.779671+00:00"
+    "last_attempt_at": "2026-10-13T09:04:03.959379+00:00",
+    "retry_after": "2026-10-14T09:04:03.959389+00:00"
   },
   {
     "name": "Cerebus",
@@ -49728,9 +49728,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T08:01:17.635112+00:00",
-    "retry_after": "2026-10-13T08:01:17.635127+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T08:59:57.292375+00:00",
+    "retry_after": "2026-10-16T08:59:57.292394+00:00"
   },
   {
     "name": "The Verdict",
@@ -49751,9 +49751,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T08:01:24.814351+00:00",
-    "retry_after": "2026-10-13T08:01:24.814366+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T08:59:57.924116+00:00",
+    "retry_after": "2026-10-16T08:59:57.924132+00:00"
   },
   {
     "name": "Titanium Rain Double-Sized Relaunch",
@@ -49761,9 +49761,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T08:40:46.495273+00:00",
-    "retry_after": "2026-10-13T08:40:46.495290+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T08:59:58.369871+00:00",
+    "retry_after": "2026-10-16T08:59:58.369906+00:00"
   },
   {
     "name": "Star Trek: The Wrath of Khan",
@@ -51638,5 +51638,68 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T08:02:50.164119+00:00",
     "retry_after": "2026-10-14T08:02:50.164134+00:00"
+  },
+  {
+    "name": "Valiant Masters Harbinger",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T08:59:49.034937+00:00",
+    "retry_after": "2026-10-14T08:59:49.034955+00:00"
+  },
+  {
+    "name": "The New Avengers",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 11497,
+        "name": "New Avengers",
+        "publisher": "Marvel",
+        "start_year": 2005
+      },
+      {
+        "id": 55330,
+        "name": "New Avengers",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 33777,
+        "name": "New Avengers",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 85301,
+        "name": "New Avengers",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 40895,
+        "name": "The New Avengers",
+        "publisher": "Marvel",
+        "start_year": 2007
+      },
+      {
+        "id": 165022,
+        "name": "New Avengers",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 170991,
+        "name": "New Avengers ",
+        "publisher": "Marvel",
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T08:59:59.123431+00:00",
+    "retry_after": "2026-10-14T08:59:59.123450+00:00"
   }
 ]

@@ -35,7 +35,10 @@ async function candidatesFor(supabase, printingRows) {
     .select("gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached").in("gcd_id", seriesIds);
   if (seriesError) throw seriesError;
   const seriesById = new Map((series ?? []).map((row) => [Number(row.gcd_id), row]));
-  const coverInputs = (issues ?? []).map((issue) => {
+  const newestFirst = [...(issues ?? [])].sort((a, b) =>
+    String(b.publication_date ?? b.key_date ?? "").localeCompare(String(a.publication_date ?? a.key_date ?? ""))
+  );
+  const coverInputs = newestFirst.map((issue) => {
     const itemSeries = seriesById.get(Number(issue.series_gcd_id));
     return {
       gcd_issue_id: Number(issue.gcd_id), series_gcd_id: Number(issue.series_gcd_id),
@@ -45,7 +48,7 @@ async function candidatesFor(supabase, printingRows) {
     };
   });
   const covers = await resolveCovers(supabase, coverInputs);
-  return coverInputs.map((issue) => ({
+  return coverInputs.slice(0, 60).map((issue) => ({
     id: `gcd-${issue.gcd_issue_id}`, gcd_issue_id: issue.gcd_issue_id,
     series_title: issue.series_title, issue_number: issue.issue_number, year: issue.year,
     publisher: seriesById.get(issue.series_gcd_id)?.resolved_publisher_cached ?? null,
@@ -63,17 +66,13 @@ export async function POST(req) {
   try {
     const supabase = getServiceClient();
     const parsed = parseUpc(upc);
-    let query = supabase.from("issue_printings")
-      .select("gcd_issue_id, upc").eq("status", "accepted").eq("upc", upc);
-    let { data: printings, error } = await query;
+    let lookup = supabase.from("issue_printings")
+      .select("gcd_issue_id, upc").eq("status", "accepted");
+    lookup = parsed.hasSupplement ? lookup.eq("upc", upc) : lookup.eq("upc_main", parsed.base);
+    const { data: printings, error } = await lookup;
     if (error) throw error;
-    // A base-only scan can still identify the issue. A full supplement never
-    // falls back, because that would silently discard the printing identity.
-    if (!printings?.length && !parsed.hasSupplement) {
-      ({ data: printings, error } = await supabase.from("issue_printings")
-        .select("gcd_issue_id, upc").eq("status", "accepted").like("upc", `${parsed.base}%`).limit(10));
-      if (error) throw error;
-    }
+    // A full add-on is exact. A main-only phone read intentionally returns
+    // every issue sharing that code so the collector can pick the right one.
     if (printings?.length) {
       return NextResponse.json({ matched: true, upc, candidates: await candidatesFor(supabase, printings) });
     }

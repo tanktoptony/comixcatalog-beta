@@ -83,6 +83,7 @@
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.86.0",
     "@zxing/browser": "^0.1.5",
+    "@zxing/library": "^0.21.3",
     "better-sqlite3": "^12.5.0",
     "cheerio": "^1.1.2",
     "cross-env": "^10.1.0",

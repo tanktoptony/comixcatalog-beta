@@ -52,6 +52,59 @@ export const SHORTS = [
     endNudge: -0.93,
     hook: "A comet ended the Civil War",
   },
+  {
+    id: "Short003DiscogsForComics",
+    episode: "episode-003",
+    fromBeat: "If you've never used discogs",
+    toBeat: "Hold on to that",
+    endNudge: -0.18,
+    hook: "Discogs started as one guy's record collection",
+  },
+  {
+    id: "Short003MilkAndCheese",
+    episode: "episode-003",
+    fromBeat: "Milk and Cheese by Evan Dorkin",
+    toBeat: "Scud the Disposable Assassin",
+    endNudge: 0.13,
+    hook: "The comic with two number ones",
+  },
+  {
+    id: "Short003ScudVendingMachine",
+    episode: "episode-003",
+    fromBeat: "Scud the Disposable Assassin",
+    toBeat: "And Malibu Malibu Comics",
+    // The default 0.3 s lead-in starts inside "...90s vibe." (audible to 310.98 s); "Scud" begins at 311.20, so start at 311.05 in the silence between them.
+    startNudge: 0.47,
+    endNudge: 0.125,
+    hook: "Your assassin comes from a vending machine",
+  },
+  {
+    id: "Short004BagOnLine",
+    episode: "episode-004",
+    fromBeat: "Now here's one of my favorite details",
+    toBeat: "Originally the characters",
+    startNudge: 0.12,
+    endNudge: -0.21,
+    hook: "Coheed's universe was named after a luggage shop",
+  },
+  {
+    id: "Short004TwoIssues",
+    episode: "episode-004",
+    fromBeat: "The early project was called",
+    toBeat: "Another unusual piece",
+    startNudge: 0.12,
+    endNudge: -0.45,
+    hook: "The original comic lasted two issues",
+  },
+  {
+    id: "Short004ThreeTimelines",
+    episode: "episode-004",
+    fromBeat: "Here's something I wish somebody",
+    toBeat: "And that's before we even get to",
+    startNudge: 0.12,
+    endNudge: 0.03,
+    hook: "Three timelines make The Amory Wars confusing",
+  },
 ];
 
 // Seconds of each clip. The clip stops just before the next beat.
@@ -62,7 +115,8 @@ export function shortRange(ep, s) {
   const from = at(s.fromBeat);
   const to = at(s.toBeat);
   if (from == null || to == null) throw new Error(`${s.id}: beat not found in ${ep.id}`);
+  // startNudge (seconds) moves the start when the default lead-in includes unwanted audio.
   // endNudge (seconds) moves the end when the next beat's anchor sits too
   // close to, or past, the last word this Short should keep.
-  return { from: Math.max(0, from - 0.3), to: to - 0.15 + (s.endNudge ?? 0) };
+  return { from: Math.max(0, from - 0.3 + (s.startNudge ?? 0)), to: to - 0.15 + (s.endNudge ?? 0) };
 }

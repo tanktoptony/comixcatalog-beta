@@ -162,24 +162,35 @@ export function PlaceholderCard({ asset, label }) {
 // push and drift. focus {x, y} (0..1) is where the push heads.
 // `crop` { left, top, right, bottom } in source pixels (source assumed
 // 1920x1080) trims a capture that includes someone's own browser UI.
-export function ScreenCapture({ asset, focus, zoom = 1.12, crop, kicker, title, sub }) {
+// `url` labels the address bar: a capture from another site must say so.
+// `centerFocus` drifts the focus point toward the middle as it zooms, clamped
+// so the capture always fills the frame (plain origin scaling pushes a focus
+// near an edge off that edge).
+export function ScreenCapture({ asset, treatment = "push", focus, zoom = 1.12, crop, kicker, title, sub, url = "comixcatalog.com", dots = true, centerFocus = false }) {
   const p = useProgress();
   const e = useEntrance(0, 0, 2);
   const f = { x: 0.5, y: 0.3, ...focus };
   const W = 1560;
   const H = 878;
-  const scale = 1 + (zoom - 1) * p;
+  const panDown = treatment === "panDown";
+  const scale = panDown ? 1 : 1 + (zoom - 1) * p;
+  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+  const tx = clamp(p * (W / 2 - f.x * W * scale), W - W * scale, 0);
+  const ty = clamp(p * (H / 2 - f.y * H * scale), H - H * scale, 0);
+  const zoomStyle = centerFocus && !panDown
+    ? { transformOrigin: "0 0", transform: `translate(${tx}px, ${ty}px) scale(${scale})` }
+    : { transformOrigin: `${f.x * 100}% ${f.y * 100}%`, transform: `scale(${scale})` };
   return (
     <AbsoluteFill>
       <Backdrop />
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", paddingBottom: title ? 120 : 0 }}>
         <div style={{ opacity: e, transform: `translateY(${(1 - e) * 24}px)`, borderRadius: 14, overflow: "hidden", border: `2px solid ${brand.line}`, boxShadow: "0 30px 80px rgba(0,0,0,0.6)", background: brand.surface }}>
           <div style={{ height: 38, background: brand.surface2, display: "flex", alignItems: "center", gap: 10, padding: "0 16px" }}>
-            {["#ff5f57", "#febc2e", "#28c840"].map((c) => <div key={c} style={{ width: 13, height: 13, borderRadius: 7, background: c }} />)}
-            <div style={{ marginLeft: 18, fontFamily: fonts.body, fontSize: 17, color: brand.textMuted }}>comixcatalog.com</div>
+            {dots && ["#ff5f57", "#febc2e", "#28c840"].map((c) => <div key={c} style={{ width: 13, height: 13, borderRadius: 7, background: c }} />)}
+            <div style={{ marginLeft: 18, fontFamily: fonts.body, fontSize: 17, color: brand.textMuted }}>{url}</div>
           </div>
           <div style={{ position: "relative", width: W, height: H, overflow: "hidden" }}>
-            <div style={{ position: "absolute", inset: 0, transformOrigin: `${f.x * 100}% ${f.y * 100}%`, transform: `scale(${scale})` }}>
+            <div style={{ position: "absolute", inset: 0, ...zoomStyle }}>
               {crop ? (
                 (() => {
                   const rw = 1920 - (crop.left ?? 0) - (crop.right ?? 0);
@@ -192,7 +203,7 @@ export function ScreenCapture({ asset, focus, zoom = 1.12, crop, kicker, title, 
                   );
                 })()
               ) : (
-                <Media asset={asset} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+                <Media asset={asset} style={{ width: "100%", height: panDown ? "auto" : "100%", minHeight: "100%", objectFit: "cover", objectPosition: "top", transform: panDown ? `translateY(calc(${-p} * max(0px, 100% - ${H}px)))` : undefined }} />
               )}
             </div>
           </div>

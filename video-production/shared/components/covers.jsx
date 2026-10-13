@@ -248,9 +248,10 @@ export function CoverGrid({ assets = [], columns, highlight, kicker, title, sub,
 function GridItem({ it, i, w, h, dim, stagger }) {
   const e = useEntrance(i, stagger);
   const thin = h < 300;
+  const panelH = it.aspect ? w / it.aspect : h;
   return (
-    <div style={{ opacity: e * (dim ? 0.3 : 1), transform: `translateY(${(1 - e) * 30}px) scale(${0.96 + 0.04 * e})`, filter: dim ? "grayscale(0.7)" : "none" }}>
-      <Panel asset={it.asset} width={w} height={h} fit="contain" style={{ borderWidth: thin ? 3 : 5, outlineWidth: thin ? 1 : 2 }} />
+    <div style={{ height: h, display: "flex", alignItems: "center", opacity: e * (dim ? 0.3 : 1), transform: `translateY(${(1 - e) * 30}px) scale(${0.96 + 0.04 * e})`, filter: dim ? "grayscale(0.7)" : "none" }}>
+      <Panel asset={it.asset} width={w} height={panelH} fit="contain" style={{ borderWidth: thin ? 3 : 5, outlineWidth: thin ? 1 : 2 }} />
     </div>
   );
 }

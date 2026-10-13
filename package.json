@@ -79,7 +79,8 @@
     "test:comp-match": "node --test src/lib/compMatch.test.js",
     "test:json-ld": "node --test src/lib/jsonLd.test.js",
     "test:profile-access": "node --test src/lib/profileAccess.test.js",
-    "test:amory-wars": "node --test scripts/lib/amoryWars.test.js"
+    "test:amory-wars": "node --test scripts/lib/amoryWars.test.js",
+    "test:key-import": "node --test scripts/lib/keyIssuesFromCrawl.test.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.131.0",

@@ -28050,8 +28050,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T11:03:34.370498+00:00",
-    "retry_after": "2026-10-14T11:03:34.370516+00:00"
+    "last_attempt_at": "2026-10-13T12:03:32.871367+00:00",
+    "retry_after": "2026-10-14T12:03:32.871381+00:00"
   },
   {
     "name": "Cerebus",
@@ -51824,5 +51824,85 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T11:02:26.336578+00:00",
     "retry_after": "2026-10-14T11:02:26.336598+00:00"
+  },
+  {
+    "name": "Spawn #1 Free Comic Book Day 2019",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T12:00:52.265605+00:00",
+    "retry_after": "2026-10-14T12:00:52.265621+00:00"
+  },
+  {
+    "name": "Sabrina's Halloween Spooktacular",
+    "publisher": "Archie Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T12:00:52.741765+00:00",
+    "retry_after": "2026-10-14T12:00:52.741781+00:00"
+  },
+  {
+    "name": "Zen Intergalactic Ninja",
+    "publisher": "Archie Comics",
+    "year": 1992,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 66974,
+        "name": "Zen Intergalactic Ninja",
+        "publisher": "Archie Comics",
+        "start_year": 1992
+      },
+      {
+        "id": 30522,
+        "name": "Zen Intergalactic Ninja",
+        "publisher": "Archie Comics",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T12:02:42.431683+00:00",
+    "retry_after": "2026-10-14T12:02:42.431699+00:00"
+  },
+  {
+    "name": "The Bathing Machine",
+    "publisher": "Malibu Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51201,
+        "name": "The Bathing Machine",
+        "publisher": "C&T Graphics",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T12:02:42.864053+00:00",
+    "retry_after": "2026-10-14T12:02:42.864067+00:00"
+  },
+  {
+    "name": "Dick Tracy His Greatest Cases",
+    "publisher": "Fawcett Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T12:02:43.309428+00:00",
+    "retry_after": "2026-10-14T12:02:43.309444+00:00"
+  },
+  {
+    "name": "Help Stamp Out Grapes [The Wizard of Id]",
+    "publisher": "Fawcett Comics",
+    "year": 1978,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T12:03:32.560728+00:00",
+    "retry_after": "2026-10-14T12:03:32.560743+00:00"
   }
 ]

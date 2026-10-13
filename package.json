@@ -25,6 +25,7 @@
     "test:format-sync": "node --test scripts/syncGcdSeriesFormat.test.js",
     "test:gcd-series-import": "node --test scripts/lib/gcdSeriesImport.test.js",
     "test:gcd-credits": "node --test scripts/lib/gcdCredits.test.js",
+    "test:gcd-dump-import": "node --test scripts/importGcdDump.test.js",
     "test:gcd-barcodes": "node --test scripts/lib/gcdBarcodes.test.js",
     "test:instagram": "node --test scripts/instagramBot.test.js",
     "test:health-check": "node --test scripts/checkCoverIngestHealth.test.js",

@@ -1,5 +1,6 @@
-import { collectionStats } from "./collectionStats.js";
+import { collectionStats, rankCollectionHighlights } from "./collectionStats.js";
 import { isOwnedStatus } from "@/lib/collectionStatus";
+import { getMarketValuesBulk } from "@/lib/marketValue";
 import { fetchAllPages } from "../supabase/fetchAllPages.js";
 import { parseYear } from "../years.js";
 
@@ -12,6 +13,7 @@ import { parseYear } from "../years.js";
 // then posts publicly. This codebase has shipped that bug three times.
 
 const IN_CHUNK = 300; // keep .in() lists well inside URL length limits
+const THUMB_BATCH = 4; // cover thumbnails fetched per round
 
 async function fetchIn(ids, buildQuery, orderCol) {
   const out = [];
@@ -43,7 +45,7 @@ export async function loadCollectionCard(supabase, userId) {
   const rows = await fetchAllPages(() =>
     supabase
       .from("user_collections")
-      .select("id, status, gcd_issue_id, created_at, comics!user_collections_comic_id_fkey ( series_title, publisher )")
+      .select("id, status, gcd_issue_id, created_at, condition, grade_numeric, slab_company, comics!user_collections_comic_id_fkey ( series_title, publisher )")
       .eq("user_id", userId)
       .order("id")
   );
@@ -90,13 +92,14 @@ export async function loadCollectionCard(supabase, userId) {
   });
 
   const stats = collectionStats(statRows);
-  const covers = await latestCovers(supabase, rows, issueById);
+  const coverResult = await collectionCovers(supabase, rows, issueById);
 
   return {
     username: profile.username,
     displayName: profile.display_name || profile.username,
     stats,
-    covers,
+    covers: coverResult.covers,
+    hasHighlights: coverResult.hasHighlights,
   };
 }
 
@@ -107,31 +110,81 @@ export async function loadCollectionCard(supabase, userId) {
 // than one fewer cover (the sitewide wrong-cover fallback was removed for the
 // same reason).
 //
-// The (at most 12) lookups run in parallel, then the three most recent that
-// resolved are kept. Returned as small data URIs, not storage URLs:
+// The bounded lookups run in parallel, then the first three that resolve are
+// kept. Returned as small data URIs, not storage URLs:
 // covers are stored at full scan size (up to ~1.7MB), and letting Satori
 // fetch and decode those was ~5s of a ~7s render. Downloading here also
 // doubles as the dead-link check; a path that fails would otherwise render
 // as an empty white frame.
-async function latestCovers(supabase, rows, issueById) {
-  const seen = new Set();
-  const candidates = [];
-  const recent = rows
-    .filter((r) => isOwnedStatus(r.status) && r.gcd_issue_id != null)
-    .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
-  for (const r of recent) {
-    if (candidates.length >= 12) break;
-    if (seen.has(r.gcd_issue_id)) continue;
-    seen.add(r.gcd_issue_id);
-    const issue = issueById.get(r.gcd_issue_id);
-    if (!issue?.series_gcd_id) continue;
-    const year = parseYear(issue.publication_date) ?? parseYear(issue.key_date);
-    if (year == null) continue;
-    candidates.push({ issue, year });
+async function collectionCovers(supabase, rows, issueById) {
+  const owned = rows.filter((r) => isOwnedStatus(r.status) && r.gcd_issue_id != null);
+  let highlights = [];
+  if (owned.length > 0) {
+    try {
+      const gcdIds = [...new Set(owned.map((r) => r.gcd_issue_id))];
+      const keyRows = await fetchIn(
+        gcdIds,
+        (chunk) =>
+          supabase
+            .from("key_issues")
+            .select("id, gcd_issue_id, tier, reason")
+            .in("gcd_issue_id", chunk),
+        "id"
+      );
+      const keyByIssue = new Map(keyRows.map((row) => [String(row.gcd_issue_id), row]));
+      const valueByCopy = await getMarketValuesBulk({
+        supabase,
+        throwOnReadError: true,
+        items: owned.map((row) => ({
+          collection_id: row.id,
+          gcd_issue_id: row.gcd_issue_id,
+          grade_numeric: row.grade_numeric,
+          slab_company: row.slab_company,
+          condition: row.condition,
+          release_year:
+            parseYear(issueById.get(row.gcd_issue_id)?.publication_date) ??
+            parseYear(issueById.get(row.gcd_issue_id)?.key_date),
+        })),
+      });
+      highlights = rankCollectionHighlights(
+        owned.map((row) => ({
+          ...row,
+          keyIssue: keyByIssue.get(String(row.gcd_issue_id)) ?? null,
+          valueResult: valueByCopy.get(row.id) ?? null,
+        }))
+      );
+    } catch (error) {
+      // Enrichment must never prevent the card from rendering. In this case
+      // the candidate order below remains exactly the old recent-first order.
+      console.error("share-card highlight lookup failed", error?.code, error?.message);
+      highlights = [];
+    }
   }
 
+  const seen = new Set();
+  const candidates = [];
+  const recent = owned
+    .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+  const addCandidates = (ordered, limit) => {
+    for (const r of ordered) {
+      if (candidates.length >= limit) break;
+      if (seen.has(r.gcd_issue_id)) continue;
+      seen.add(r.gcd_issue_id);
+      const issue = issueById.get(r.gcd_issue_id);
+      if (!issue?.series_gcd_id) continue;
+      const year = parseYear(issue.publication_date) ?? parseYear(issue.key_date);
+      if (year == null) continue;
+      candidates.push({ issue, year, remarkable: r.remarkable });
+    }
+  };
+  // Bounded even for very large collections. Reserve three of the eighteen
+  // attempts for recent fillers so missing highlight covers cannot starve the
+  // fallback path.
+  addCandidates(highlights.map((row) => ({ ...row, remarkable: true })), 15);
+  addCandidates(recent.map((row) => ({ ...row, remarkable: false })), 18);
+
   const resolved = await Promise.all(
-    candidates.map(async ({ issue, year }) => {
+    candidates.map(async ({ issue, year, remarkable }) => {
       const { data, error } = await supabase
         .from("canonical_covers")
         .select("storage_path, cover_date, series_year")
@@ -160,13 +213,30 @@ async function latestCovers(supabase, rows, issueById) {
           bestDiff = diff;
         }
       }
-      return best?.storage_path ?? null;
+      return best?.storage_path ? { path: best.storage_path, remarkable } : null;
     })
   );
 
-  const paths = [...new Set(resolved.filter(Boolean))].slice(0, 5);
-  const images = await Promise.all(paths.map((p) => coverThumb(p)));
-  return images.filter(Boolean).slice(0, 3);
+  const unique = [];
+  const seenPaths = new Set();
+  for (const item of resolved.filter(Boolean)) {
+    if (seenPaths.has(item.path)) continue;
+    seenPaths.add(item.path);
+    unique.push(item);
+  }
+  // Thumbnails are metered Supabase transforms and the slow part of a render,
+  // so fetch in small batches, in rank order, and stop once three succeed.
+  const covers = [];
+  for (let i = 0; i < unique.length && covers.length < 3; i += THUMB_BATCH) {
+    const batch = await Promise.all(
+      unique.slice(i, i + THUMB_BATCH).map(async (item) => ({ ...item, image: await coverThumb(item.path) }))
+    );
+    for (const item of batch) if (item.image && covers.length < 3) covers.push(item);
+  }
+  return {
+    covers: covers.map((item) => item.image),
+    hasHighlights: covers.some((item) => item.remarkable),
+  };
 }
 
 // Fetched through Supabase's image transform at 2x the 256×384 the card

@@ -85,3 +85,42 @@ export function possessive(name) {
   if (!n) return "MY";
   return n.endsWith("S") ? `${n}'` : `${n}'S`;
 }
+
+// Pick one copy per issue, then rank only the books worth highlighting.
+// Tier 1 keys always lead. After that, comp value is the base score, with a
+// modest $100-equivalent boost for tier 2 keys and $25 for slabs. This keeps
+// those signals useful without letting them outrank a substantially more
+// valuable book. Only values backed by at least three real market comps make
+// a copy remarkable; cover-price fallbacks never do.
+export function rankCollectionHighlights(copies) {
+  const scored = (Array.isArray(copies) ? copies : [])
+    .filter((copy) =>
+      (copy?.status === "owned" || copy?.status === "for_sale") && copy?.gcd_issue_id != null
+    )
+    .map((copy) => {
+      const tier = Number(copy.keyIssue?.tier);
+      const result = copy.valueResult;
+      const value = Number(result?.value);
+      const compBacked =
+        result?.source === "market-comp" && Number(result?.sample_size) >= 3 && Number.isFinite(value);
+      const valuable = compBacked && value >= 25;
+      const slabbed = copy.slab_company != null && String(copy.slab_company).trim() !== "";
+      const remarkable = tier === 1 || tier === 2 || valuable || slabbed;
+      const score = (compBacked ? value : 0) + (tier === 2 ? 100 : 0) + (slabbed ? 25 : 0);
+      return { ...copy, remarkable, highlightTier: tier === 1 || tier === 2 ? tier : null, highlightScore: score };
+    })
+    .filter((copy) => copy.remarkable)
+    .sort((a, b) =>
+      Number(b.highlightTier === 1) - Number(a.highlightTier === 1) ||
+      b.highlightScore - a.highlightScore ||
+      String(b.created_at ?? "").localeCompare(String(a.created_at ?? ""))
+    );
+
+  const seen = new Set();
+  return scored.filter((copy) => {
+    const key = String(copy.gcd_issue_id);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}

@@ -65,7 +65,7 @@ function cardName(displayName, username) {
   return d && d.length <= 16 ? d : username;
 }
 
-function CollectionCard({ username, displayName, stats, covers }) {
+function CollectionCard({ username, displayName, stats, covers, hasHighlights = false }) {
   const owner = possessive(cardName(displayName, username));
   const fan = covers.slice(0, 3);
   const rotations = fan.length === 3 ? [-8, 0, 8] : fan.length === 2 ? [-5, 5] : [0];
@@ -114,8 +114,13 @@ function CollectionCard({ username, displayName, stats, covers }) {
         </div>
       </div>
 
+      {fan.length > 0 && hasHighlights && (
+        <div style={{ display: "flex", marginTop: 44, fontSize: 24, fontWeight: 800, letterSpacing: 4, color: GOLD }}>
+          HIGHLIGHTS
+        </div>
+      )}
       {fan.length > 0 && (
-        <div style={{ display: "flex", position: "relative", height: 420, marginTop: 44 }}>
+        <div style={{ display: "flex", position: "relative", height: 420, marginTop: hasHighlights ? 20 : 44 }}>
           {/* covers are data URIs prepared by the loader (loadCollection.js) */}
           {fan.map((src, i) => (
             // eslint-disable-next-line @next/next/no-img-element

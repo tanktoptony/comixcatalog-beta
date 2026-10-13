@@ -48945,9 +48945,9 @@
     "year": 1988,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T16:00:51.606666+00:00",
-    "retry_after": "2026-10-13T16:00:51.606683+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T20:24:10.808122+00:00",
+    "retry_after": "2026-10-16T20:24:10.808137+00:00"
   },
   {
     "name": "Teenage Mutant Ninja Turtles Presents: April O'Neil",
@@ -48955,9 +48955,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T16:01:25.493665+00:00",
-    "retry_after": "2026-10-13T16:01:25.493680+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T20:24:11.344241+00:00",
+    "retry_after": "2026-10-16T20:24:11.344256+00:00"
   },
   {
     "name": "PF (Posture Foundation) Magic Shoe Adventure Book",
@@ -48965,9 +48965,9 @@
     "year": 1962,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T16:01:26.568741+00:00",
-    "retry_after": "2026-10-13T16:01:26.568759+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T20:24:12.110546+00:00",
+    "retry_after": "2026-10-16T20:24:12.110560+00:00"
   },
   {
     "name": "Top Cat",
@@ -48988,9 +48988,9 @@
         "start_year": 1961
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T20:08:00.238542+00:00",
-    "retry_after": "2026-10-13T20:08:00.238551+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T20:24:13.057708+00:00",
+    "retry_after": "2026-10-16T20:24:13.057723+00:00"
   },
   {
     "name": "Runaways by Rainbow Rowell",
@@ -48998,9 +48998,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T20:08:05.557978+00:00",
-    "retry_after": "2026-10-13T20:08:05.557987+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T20:24:13.413590+00:00",
+    "retry_after": "2026-10-16T20:24:13.413605+00:00"
   },
   {
     "name": "O Melhor de Os Jetsons",
@@ -51621,5 +51621,95 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T19:09:12.325465+00:00",
     "retry_after": "2026-10-14T19:09:12.325480+00:00"
+  },
+  {
+    "name": "You're Our Kind of Dog, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1981,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T20:24:10.163926+00:00",
+    "retry_after": "2026-10-14T20:24:10.163941+00:00"
+  },
+  {
+    "name": "Big Black Kiss",
+    "publisher": "Charlton Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71887,
+        "name": "Big Black Kiss",
+        "publisher": "Vortex Comics",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T20:24:13.733734+00:00",
+    "retry_after": "2026-10-14T20:24:13.733748+00:00"
+  },
+  {
+    "name": "Born to Kill",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37119,
+        "name": "Born to Kill",
+        "publisher": "Aircel Publishing",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T20:24:14.346466+00:00",
+    "retry_after": "2026-10-14T20:24:14.346480+00:00"
+  },
+  {
+    "name": "Sexecutioner",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 146645,
+        "name": "Sexecutioner",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      },
+      {
+        "id": 26838,
+        "name": "Sexecutioner",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T20:25:05.262335+00:00",
+    "retry_after": "2026-10-14T20:25:05.262350+00:00"
+  },
+  {
+    "name": "Come Again",
+    "publisher": "Fantagraphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26727,
+        "name": "Come Again",
+        "publisher": "Eros Comix",
+        "start_year": 1997
+      },
+      {
+        "id": 112148,
+        "name": "Come Again",
+        "publisher": "Top Shelf",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T20:25:12.569671+00:00",
+    "retry_after": "2026-10-14T20:25:12.569686+00:00"
   }
 ]

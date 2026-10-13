@@ -12059,9 +12059,9 @@
   },
   {
     "name": "Jim Henson's The Dark Crystal: Creation Myths",
-    "publisher": "Archaia",
+    "publisher": "BOOM! Studios",
     "year": 2015,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 54943,
@@ -12077,7 +12077,8 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556434+00:00"
+    "last_attempt_at": "2026-10-13T06:01:49.300508+00:00",
+    "retry_after": "2026-10-14T06:01:49.300524+00:00"
   },
   {
     "name": "Transformers Universe",
@@ -28049,8 +28050,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T05:04:25.457079+00:00",
-    "retry_after": "2026-10-14T05:04:25.457094+00:00"
+    "last_attempt_at": "2026-10-13T06:02:52.066527+00:00",
+    "retry_after": "2026-10-14T06:02:52.066544+00:00"
   },
   {
     "name": "Cerebus",
@@ -49584,9 +49585,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T05:01:29.493049+00:00",
-    "retry_after": "2026-10-13T05:01:29.493065+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T06:01:05.490665+00:00",
+    "retry_after": "2026-10-16T06:01:05.490681+00:00"
   },
   {
     "name": "Groo, o Inteligente",
@@ -49594,9 +49595,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T06:00:54.375028+00:00",
-    "retry_after": "2026-10-13T06:00:54.375048+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T06:01:06.391162+00:00",
+    "retry_after": "2026-10-16T06:01:06.391178+00:00"
   },
   {
     "name": "I Mage",
@@ -49617,9 +49618,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T06:01:04.433210+00:00",
-    "retry_after": "2026-10-13T06:01:04.433226+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T06:01:06.957307+00:00",
+    "retry_after": "2026-10-16T06:01:06.957341+00:00"
   },
   {
     "name": "Persepolis",
@@ -49658,9 +49659,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T06:01:05.146042+00:00",
-    "retry_after": "2026-10-13T06:01:05.146057+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T06:01:07.396935+00:00",
+    "retry_after": "2026-10-16T06:01:07.396950+00:00"
   },
   {
     "name": "O Homem-Aranha: Tormento",
@@ -51415,5 +51416,55 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T05:04:25.097944+00:00",
     "retry_after": "2026-10-14T05:04:25.097962+00:00"
+  },
+  {
+    "name": "Spider-Man \"Verbal Abuse\"",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T06:00:50.170673+00:00",
+    "retry_after": "2026-10-14T06:00:50.170688+00:00"
+  },
+  {
+    "name": "Gen 13 #1 3-D",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T06:00:50.874250+00:00",
+    "retry_after": "2026-10-14T06:00:50.874265+00:00"
+  },
+  {
+    "name": "The Sacrificers Giant-Sized Artists' Proof Edition",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T06:00:57.222285+00:00",
+    "retry_after": "2026-10-14T06:00:57.222300+00:00"
+  },
+  {
+    "name": "Airboy versus the Airmaidens",
+    "publisher": "Eclipse Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T06:00:57.872420+00:00",
+    "retry_after": "2026-10-14T06:00:57.872436+00:00"
+  },
+  {
+    "name": "Heavy Metal [hardcover editions]",
+    "publisher": "Heavy Metal",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T06:01:04.267570+00:00",
+    "retry_after": "2026-10-14T06:01:04.267586+00:00"
   }
 ]

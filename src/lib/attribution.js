@@ -74,6 +74,7 @@ export function sanitizeSavedAttribution(record) {
     ...(cleanRecord.source ? { source: cleanRecord.source } : {}),
     ...(cleanRecord.medium ? { medium: cleanRecord.medium } : {}),
     ...(cleanRecord.campaign ? { campaign: cleanRecord.campaign } : {}),
+    ...(clean(record.ref, REF_RE) ? { ref: clean(record.ref, REF_RE) } : {}),
     ...(cleanReferrerHost(record.referrer_host) ? { referrer_host: cleanReferrerHost(record.referrer_host) } : {}),
     ...(landingPath ? { landing_path: landingPath } : {}),
   };

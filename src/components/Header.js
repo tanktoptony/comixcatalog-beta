@@ -12,6 +12,7 @@ import { useSearchQuery } from "@/context/SearchQueryContext";
 import { useUnreadMessageCount } from "@/hooks/useUnreadMessageCount";
 import { inboxAriaLabel, inboxBadgeTotal } from "@/lib/inboxNotifications";
 import { coverThumb } from "@/lib/coverThumb";
+import InviteButton from "@/components/InviteButton";
 
 function resolveCoverUrl(rawCover) {
   if (!rawCover) return null;
@@ -557,6 +558,16 @@ export default function Header() {
             users the Sign-in / Create-account links shrink to icons on the
             narrowest widths via CSS. Always single-row, no wrapping. */}
         <nav className="main-nav" aria-label="Primary">
+          {user && (
+            <Link
+              href="/people"
+              className={`nav-link collectors-nav-link${pathname === "/people" ? " active" : ""}`}
+              aria-current={pathname === "/people" ? "page" : undefined}
+              onClick={closeMenu}
+            >
+              Collectors
+            </Link>
+          )}
           <Link
             href="/marketplace"
             className="nav-icon-btn"
@@ -840,6 +851,14 @@ const UserMenu = forwardRef(function UserMenu(
           >
             Find collectors
           </Link>
+          {username && (
+            <InviteButton
+              username={username}
+              ownerId={user?.id}
+              className="user-menu-item"
+              onShared={handleItem()}
+            />
+          )}
           {username && (
             <Link
               href={`/u/${username}`}

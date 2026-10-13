@@ -55,6 +55,7 @@
     "test:value-history": "node --test src/lib/valueHistory.test.js",
     "test:marketplace-facets": "node --test src/lib/marketplaceFacets.test.js",
     "test:follows": "node --test src/lib/follows.test.js",
+    "test:invites": "node --test src/lib/invites.test.js",
     "test:inbox-notifications": "node --test src/lib/inboxNotifications.test.js",
     "test:default-avatar": "node --test src/lib/defaultAvatar.test.js",
     "test:activation-nudges": "node --test src/lib/activationNudges.test.js",

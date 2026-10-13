@@ -73,10 +73,10 @@ test("no record means no params", () => {
   assert.deepEqual(attributionParams(null), {});
 });
 
-test("saved attribution sanitizes the referrer to a host and drops referral usernames", () => {
+test("saved attribution sanitizes the referrer and preserves valid referral usernames", () => {
   assert.deepEqual(sanitizeSavedAttribution({
     source: "Instagram", landing: "/start", referrer_host: "https://Reddit.com/u/collector?ref=tony_c", ref: "tony_c",
-  }), { source: "instagram", referrer_host: "reddit.com", landing_path: "/start" });
+  }), { source: "instagram", ref: "tony_c", referrer_host: "reddit.com", landing_path: "/start" });
 });
 
 // seedAttribution runs in the browser (/auth/callback). Stand in a minimal

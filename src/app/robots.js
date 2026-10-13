@@ -35,7 +35,7 @@ export default function robots() {
       { userAgent: BLOCKED_BOTS, disallow: "/" },
       {
         userAgent: "*",
-        allow: "/",
+        allow: ["/", "/join/"],
         // Block private routes and API endpoints from indexing.
         disallow: [
           "/api/",

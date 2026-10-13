@@ -163,6 +163,14 @@ export default function AuthCallbackPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user.user_metadata?.signup_attribution || {}),
       }).catch(() => null);
+      const inviteRef = user.user_metadata?.signup_attribution?.ref;
+      if (inviteRef) {
+        await authedFetch("/api/invites/accept", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ref: inviteRef }),
+        }).catch(() => null);
+      }
       const next = safeNextPath(user.user_metadata?.signup_next);
       redirectAfterAuth(next || `/u/${username}`);
     }

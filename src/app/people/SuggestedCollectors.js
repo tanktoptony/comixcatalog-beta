@@ -15,7 +15,7 @@ function badgeFor(member) {
   return null;
 }
 
-export default function SuggestedCollectors() {
+export default function SuggestedCollectors({ welcome = false }) {
   const { user, loading: authLoading } = useAuth();
   const pathname = usePathname();
   const router = useRouter();
@@ -28,7 +28,7 @@ export default function SuggestedCollectors() {
   useEffect(() => {
     if (authLoading) return undefined;
     let cancelled = false;
-    authedFetch("/api/follows/suggestions", { cache: "no-store" })
+    authedFetch(`/api/follows/suggestions${welcome ? "?welcome=1" : ""}`, { cache: "no-store" })
       .then(async (response) => {
         const body = await response.json();
         if (!response.ok) throw new Error(body.error || "Could not load collector suggestions.");
@@ -40,7 +40,7 @@ export default function SuggestedCollectors() {
       .catch((requestError) => { if (!cancelled) setError(requestError.message); })
       .finally(() => { if (!cancelled) setLoading(false); });
     return () => { cancelled = true; };
-  }, [authLoading, user?.id]);
+  }, [authLoading, user?.id, welcome]);
 
   const selectable = useMemo(() => members.filter((member) => !member.following), [members]);
   const selectedCount = selectable.filter((member) => selected.has(member.username)).length;
@@ -115,6 +115,7 @@ export default function SuggestedCollectors() {
                   <span className="people-member-copy"><strong>{member.display_name || member.username}</strong><span>@{member.username}</span></span>
                 </Link>
                 <div className="people-suggestion-stat">
+                  {welcome && member.invited_you && <span className="people-suggestion-badge">Invited you</span>}
                   <span>{member.owned_count} {Number(member.owned_count) === 1 ? "book" : "books"}</span>
                   {badge && <span className="people-suggestion-badge">{badge}</span>}
                 </div>

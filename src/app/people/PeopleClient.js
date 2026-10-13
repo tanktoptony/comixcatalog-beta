@@ -8,6 +8,7 @@ import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
 import SuggestedCollectors from "./SuggestedCollectors";
 import Avatar from "@/components/Avatar";
+import InviteButton from "@/components/InviteButton";
 
 function MemberAvatar({ member }) {
   return <Avatar profile={member} className="people-avatar" />;
@@ -31,8 +32,8 @@ function MemberCard({ member, showFollow, privateWithoutLink = false }) {
   );
 }
 
-export default function PeopleClient({ initialTab = "following" }) {
-  const { user, loading } = useAuth();
+export default function PeopleClient({ initialTab = "following", welcome = false }) {
+  const { user, profile, loading } = useAuth();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [searching, setSearching] = useState(false);
@@ -91,10 +92,14 @@ export default function PeopleClient({ initialTab = "following" }) {
     <main className="people-page">
       <header className="people-heading">
         <p className="eyebrow">Community</p>
-        <h1>Find collectors</h1>
+        <div className="people-title-row">
+          <h1>Find collectors</h1>
+          <InviteButton username={profile?.username} ownerId={user?.id} />
+        </div>
         <p>Search for friends and see what they collect.</p>
       </header>
-      <SuggestedCollectors />
+      {welcome && <p className="people-welcome">Follow a few collectors to see what they&rsquo;re adding.</p>}
+      <SuggestedCollectors welcome={welcome} />
       <label className="people-search-label" htmlFor="member-search">Find collectors by username or name</label>
       <input
         id="member-search"

@@ -6,6 +6,7 @@ import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { normalizeSeriesSearchWords, searchWordCoverage } from "@/lib/seriesSearchMatch";
 import { resolveSeriesCovers } from "@/lib/catalog/covers";
+import { aliasTermsFor } from "@/lib/searchAliases";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -161,10 +162,21 @@ export async function GET(req) {
     if (!normalizedQ) return NextResponse.json({ series: [] });
 
     const supabase = getServiceClient();
+    const aliasTerms = aliasTermsFor(normalizedQ);
 
     let rows;
     try {
-      rows = await fetchSeriesCandidates(supabase, searchWords, normalizedQ);
+      const aliasFetches = aliasTerms.map((term) =>
+        fetchSeriesCandidates(supabase, term, term).catch((aliasError) => {
+          console.error(`series search alias fetch failed for ${term}:`, aliasError);
+          return [];
+        })
+      );
+      const candidateSets = await Promise.all([
+        fetchSeriesCandidates(supabase, searchWords, normalizedQ),
+        ...aliasFetches,
+      ]);
+      rows = dedupeById(candidateSets.flat());
     } catch (fetchError) {
       console.error("GET /api/search/series failed:", fetchError);
       return NextResponse.json({ series: [] });

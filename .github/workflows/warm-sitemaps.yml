@@ -1,18 +1,28 @@
 name: Warm sitemaps
 
-# After each successful production deploy, request every sitemap file so
-# each one renders (and is cached for a day) before Google's next crawl.
-# The files render on demand rather than at build time, so a slow database
-# can't fail a deploy (see src/app/sitemaps/[name]/route.js). A failed
-# render is never cached, so retrying here is safe.
+# Once a day, off-peak, request every sitemap file so each one renders (and
+# is cached for a day) before Google's next crawl. The files render on
+# demand rather than at build time, so a slow database can't fail a deploy
+# (see src/app/sitemaps/[name]/route.js). A failed render is never cached,
+# so retrying here is safe.
+#
+# This used to run after every production deploy. On 2026-10-13 seven
+# merges meant seven warm-ups while the database was already timing out
+# (search returned empty for everyone). Sitemaps still render on demand
+# between warm-ups, so a daily run is enough.
 
 on:
-  deployment_status:
+  schedule:
+    # 09:15 UTC: overnight in the US, clear of the :00 cover-ingest runs.
+    - cron: '15 9 * * *'
   workflow_dispatch: {}
+
+concurrency:
+  group: warm-sitemaps
+  cancel-in-progress: false
 
 jobs:
   warm:
-    if: github.event_name == 'workflow_dispatch' || (github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

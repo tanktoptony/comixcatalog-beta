@@ -106,6 +106,7 @@ function BulkScan({ collections, refreshLibrary }) {
 
 function BarcodeScan({ collections, refreshLibrary, onPhoto }) {
   const video = useRef(null), stream = useRef(null), decoderControls = useRef(null), photoPicker = useRef(null), photoRow = useRef(null);
+  const readWindow = useRef({ values: [], timer: null });
   const duplicate = useRef(createDuplicateDebouncer(3000));
   const [stack, setStack] = useState(false), [rows, setRows] = useState([]), [cameraState, setCameraState] = useState("starting");
   const [message, setMessage] = useState(null), [adding, setAdding] = useState(false), [addedIds, setAddedIds] = useState([]);
@@ -142,6 +143,16 @@ function BarcodeScan({ collections, refreshLibrary, onPhoto }) {
     }
   }, [changeRow, collections, stack, stopCamera]);
 
+  const queueRead = useCallback((values) => {
+    readWindow.current.values.push(...values);
+    if (readWindow.current.timer) return;
+    readWindow.current.timer = setTimeout(() => {
+      const pending = readWindow.current.values;
+      readWindow.current = { values: [], timer: null };
+      handleRead(pending);
+    }, 1000);
+  }, [handleRead]);
+
   useEffect(() => {
     let cancelled = false, frame;
     async function start() {
@@ -159,16 +170,25 @@ function BarcodeScan({ collections, refreshLibrary, onPhoto }) {
             if (cancelled || !video.current) return;
             try {
               const found = await detector.detect(video.current);
-              if (found.length) handleRead(found.map((item) => item.rawValue));
+              if (found.length) queueRead(found.map((item) => item.rawValue));
             } catch (error) { if (error.name !== "InvalidStateError") console.warn("Barcode detection failed", error); }
             frame = requestAnimationFrame(detect);
           };
           detect();
         } else {
-          const { BrowserMultiFormatReader } = await import("@zxing/browser");
-          const reader = new BrowserMultiFormatReader();
+          const [{ BarcodeFormat, BrowserMultiFormatReader }, { DecodeHintType, ResultMetadataType }] = await Promise.all([
+            import("@zxing/browser"), import("@zxing/library"),
+          ]);
+          const hints = new Map([
+            [DecodeHintType.POSSIBLE_FORMATS, [BarcodeFormat.UPC_A, BarcodeFormat.EAN_13, BarcodeFormat.UPC_EAN_EXTENSION]],
+            [DecodeHintType.ALLOWED_EAN_EXTENSIONS, [2, 5]],
+          ]);
+          const reader = new BrowserMultiFormatReader(hints);
           decoderControls.current = await reader.decodeFromVideoElement(video.current, (result) => {
-            if (result) handleRead([result.getText()]);
+            if (result) {
+              const extension = result.getResultMetadata()?.get(ResultMetadataType.UPC_EAN_EXTENSION);
+              queueRead([result.getText(), extension].filter(Boolean));
+            }
           });
         }
       } catch (error) {
@@ -177,8 +197,11 @@ function BarcodeScan({ collections, refreshLibrary, onPhoto }) {
       }
     }
     start();
-    return () => { cancelled = true; cancelAnimationFrame(frame); stopCamera(); };
-  }, [handleRead, stopCamera]);
+    return () => {
+      cancelled = true; cancelAnimationFrame(frame); stopCamera();
+      clearTimeout(readWindow.current.timer); readWindow.current = { values: [], timer: null };
+    };
+  }, [queueRead, stopCamera]);
 
   async function scanUnknownCover(file) {
     const id = photoRow.current; photoRow.current = null;
@@ -220,4 +243,4 @@ function BarcodeScan({ collections, refreshLibrary, onPhoto }) {
 // Turn on with NEXT_PUBLIC_BARCODE_SCAN=on once the GCD barcode backfill lands.
 const BARCODE_SCAN_ENABLED = process.env.NEXT_PUBLIC_BARCODE_SCAN === "on";
 
-export default function CoverScanner() { const { user } = useAuth(); const { collections, refreshLibrary } = useLibrary(); const next = encodeURIComponent(usePathname() || "/scan"); const [mode, setMode] = useState("single"); return <div><div className="scan-mode-tabs" role="tablist"><button className={mode === "single" ? "is-active" : ""} onClick={() => setMode("single")}>Single scan</button><button className={mode === "bulk" ? "is-active" : ""} onClick={() => { setMode("bulk"); trackEvent("scan_bulk_started"); }}>Scan a stack</button>{BARCODE_SCAN_ENABLED && <button className={mode === "barcode" ? "is-active" : ""} onClick={() => setMode("barcode")}>Barcode</button>}</div>{mode === "single" ? <SingleScan user={user} collections={collections} refreshLibrary={refreshLibrary} next={next} /> : mode === "bulk" ? (user ? <BulkScan collections={collections} refreshLibrary={refreshLibrary} /> : <div className="scan-capture"><Link href={`/signup?next=${next}`} className="scan-btn scan-btn-primary">Sign up to scan a stack</Link></div>) : user ? <BarcodeScan collections={collections} refreshLibrary={refreshLibrary} onPhoto={setMode} /> : <div className="scan-capture"><Link href={`/signup?next=${next}`} className="scan-btn scan-btn-primary">Sign up to scan barcodes</Link></div>}</div>; }
+export default function CoverScanner() { const { user, isAdmin } = useAuth(); const { collections, refreshLibrary } = useLibrary(); const next = encodeURIComponent(usePathname() || "/scan"); const [mode, setMode] = useState("single"); const barcodeAvailable = BARCODE_SCAN_ENABLED || isAdmin; return <div><div className="scan-mode-tabs" role="tablist"><button className={mode === "single" ? "is-active" : ""} onClick={() => setMode("single")}>Single scan</button><button className={mode === "bulk" ? "is-active" : ""} onClick={() => { setMode("bulk"); trackEvent("scan_bulk_started"); }}>Scan a stack</button>{barcodeAvailable && <button className={mode === "barcode" ? "is-active" : ""} onClick={() => setMode("barcode")}>Barcode</button>}</div>{mode === "single" ? <SingleScan user={user} collections={collections} refreshLibrary={refreshLibrary} next={next} /> : mode === "bulk" ? (user ? <BulkScan collections={collections} refreshLibrary={refreshLibrary} /> : <div className="scan-capture"><Link href={`/signup?next=${next}`} className="scan-btn scan-btn-primary">Sign up to scan a stack</Link></div>) : user ? <BarcodeScan collections={collections} refreshLibrary={refreshLibrary} onPhoto={setMode} /> : <div className="scan-capture"><Link href={`/signup?next=${next}`} className="scan-btn scan-btn-primary">Sign up to scan barcodes</Link></div>}</div>; }

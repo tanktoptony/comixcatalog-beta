@@ -16,6 +16,10 @@ test("rejects a barcode whose base has an invalid check digit", () => {
   assert.equal(catalogBarcodeRow(123, "75960608312200111"), null);
 });
 
+test("keeps a valid two digit add-on from an older comic barcode", () => {
+  assert.equal(catalogBarcodeRow(123, "07148602458312")?.upc, "07148602458312");
+});
+
 test("rejects missing and invalid GCD issue ids", () => {
   assert.equal(catalogBarcodeRow(null, "759606083121"), null);
   assert.equal(catalogBarcodeRow(-1, "759606083121"), null);

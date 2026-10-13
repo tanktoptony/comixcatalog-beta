@@ -32,9 +32,11 @@ test("a UPC reported as EAN-13 normalizes to the catalog UPC", () => {
   assert.equal(normalizeUpc(`0${BASE}00111`), `${BASE}00111`);
 });
 
-test("the four lengths a comic actually carries are accepted", () => {
+test("main codes and both comic add-on lengths are accepted", () => {
   assert.ok(isValidUpc(BASE), "12, UPC-A");
   assert.ok(isValidUpc(EAN), "13, EAN-13");
+  assert.ok(isValidUpc("07148602458312"), "14, UPC-A plus EAN-2");
+  assert.ok(isValidUpc(EAN + "12"), "15, EAN-13 plus EAN-2");
   assert.ok(isValidUpc(BASE + "00111"), "17, UPC-A plus supplement");
   assert.ok(isValidUpc(EAN + "00111"), "18, EAN-13 plus supplement");
 });
@@ -49,13 +51,23 @@ test("a length no comic carries is refused rather than stored", () => {
 
 test("a bad UPC or EAN check digit is refused", () => {
   assert.equal(isValidUpc(BASE.slice(0, -1) + "2"), false);
-  assert.equal(isValidUpc(EAN.slice(0, -1) + "3"), false);
+  assert.equal(isValidUpc("8771234567898"), false);
   assert.equal(isValidUpc(BASE.slice(0, -1) + "2" + "00111"), false);
+  assert.equal(isValidUpc("07148602458412"), false);
 });
 
 test("a separately decoded five digit add-on joins the UPC", () => {
   assert.equal(combineBarcodeParts([BASE, "00111"]), `${BASE}00111`);
   assert.equal(combineBarcodeParts([`0${BASE}`]), BASE);
+});
+
+test("a separately decoded two digit add-on joins the UPC", () => {
+  assert.equal(combineBarcodeParts(["071486024583", "12"]), "07148602458312");
+});
+
+test("a partial one digit add-on is discarded", () => {
+  assert.equal(normalizeUpc("0714860245831"), "071486024583");
+  assert.equal(parseUpc("0714860245831").supplement, null);
 });
 
 test("the same barcode is debounced for three seconds", () => {

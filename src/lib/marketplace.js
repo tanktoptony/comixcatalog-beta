@@ -235,7 +235,7 @@ async function computeListing(id) {
       username: seller.username,
       since: seller.created_at,
       founder: Boolean(seller.is_founding_collector),
-      avatar: avatarForProfile({ ...seller, id: l.seller_id }),
+      avatar: avatarForProfile({ ...seller, id: l.seller_id }, { width: 88, height: 88 }),
       otherListings: otherCount ?? 0,
     },
   };

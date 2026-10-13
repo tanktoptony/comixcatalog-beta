@@ -15,8 +15,6 @@ const COLUMNS = [
       { label: "Marketplace (beta)", href: "/marketplace" },
       { label: "Reads", href: "/reads" },
       { label: "The Dispatch", href: "/blog" },
-      { label: "Crate Dig — Chicago", href: "/crate-dig", todo: true },
-      { label: "Forum", href: "/forum", todo: true },
     ],
   },
   {
@@ -88,7 +86,7 @@ export default function Footer() {
         <div className="footer-columns">
           {COLUMNS.map((col) => (
             <nav key={col.title} className="footer-col" aria-label={col.title}>
-              <h3 className="footer-col-title">{col.title}</h3>
+              <p className="footer-col-title">{col.title}</p>
               <ul className="footer-col-list">
                 {col.links.filter((link) => !link.todo).map((link) => (
                   <li key={link.label}>
@@ -105,14 +103,14 @@ export default function Footer() {
               2026-08 until sending existed; scripts/sendNewsletter.js and
               the unsubscribe route landed 2026-09-22, so it is back. */}
           <div className="footer-col footer-col-newsletter">
-            <h3 className="footer-col-title">Newsletter</h3>
+            <p className="footer-col-title">Newsletter</p>
             <p className="footer-newsletter-blurb">
               What got added, what got fixed, and which books to go find.
               Every few weeks, from the guy who builds this. No spam, one-click out.
             </p>
             <NewsletterSignup source="footer" compact />
 
-            <h3 className="footer-col-title" style={{ marginTop: "18px" }}>Follow</h3>
+            <p className="footer-col-title" style={{ marginTop: "18px" }}>Follow</p>
 
             <div className="footer-socials" aria-label="Follow ComixCatalog">
               {SOCIALS.map((s) => (
@@ -146,7 +144,7 @@ export default function Footer() {
           <Link href="/" className="footer-brand">
             <Image
               src="/img/logos/cc_badge.png"
-              alt="ComixCatalog"
+              alt=""
               width={36}
               height={36}
               className="footer-badge"

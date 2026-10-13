@@ -13,8 +13,29 @@ export function defaultAvatarFor(userIdOrUsername) {
   return `/avatars/default/cc_${number}.webp`;
 }
 
-export function avatarForProfile(profile) {
-  if (profile?.avatar_url) return profile.avatar_url;
+export function avatarImageUrl(url, { width = 128, height = width, quality = 80 } = {}) {
+  if (!url || url.startsWith("/avatars/default/") || url.startsWith("/avatars/")) return url;
+
+  let parsed;
+  try {
+    parsed = new URL(url);
+  } catch {
+    return url;
+  }
+
+  const marker = "/storage/v1/object/public/avatars/";
+  if (!parsed.pathname.includes(marker)) return url;
+
+  parsed.pathname = parsed.pathname.replace(marker, "/storage/v1/render/image/public/avatars/");
+  parsed.searchParams.set("width", String(width));
+  parsed.searchParams.set("height", String(height));
+  parsed.searchParams.set("resize", "cover");
+  parsed.searchParams.set("quality", String(quality));
+  return parsed.toString();
+}
+
+export function avatarForProfile(profile, options) {
+  if (profile?.avatar_url) return avatarImageUrl(profile.avatar_url, options);
   if (profile?.avatar_key && profile.avatar_key !== "cc_badge") {
     return `/avatars/${profile.avatar_key}.png`;
   }

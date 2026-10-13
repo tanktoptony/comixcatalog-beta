@@ -113,12 +113,10 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
           <p className="fc-kicker">Founding Collectors · The first {CAP}</p>
           <h1 className="fc-title">
             {remaining == null ? "-" : remaining}{" "}
-            <span>lifetime Pro passes left.</span>
+            <span>founding spots left.</span>
           </h1>
           <p className="fc-lede">
-            The first hundred collectors on ComixCatalog get Collector Pro for
-            life, free, with no card. And their name goes on the wall below,
-            for good.
+            The first hundred collectors get a lifetime membership, free, with no card: no upgrade prompts, and a numbered Founding Collector badge nobody after No. 100 can get. After that, membership is $4 a month. Your name goes on the wall below, for good.
           </p>
 
           {!claimStateKnown ? (
@@ -128,7 +126,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
               <span className="lp-cta-primary">Claim your pass, free</span>
             </div>
           ) : isFounder ? (
-            <div className="fc-done">You&rsquo;re Founding Collector No. {passNumber ? pad(passNumber) : "★"}. Your lifetime Pro is active, and your name is on the wall.</div>
+            <div className="fc-done">You&rsquo;re Founding Collector No. {passNumber ? pad(passNumber) : "★"}. Your lifetime membership is active, and your name is on the wall.</div>
           ) : soldOut ? (
             <div className="fc-done">All {CAP} passes are claimed. Thank you to every one of them.</div>
           ) : !user ? (
@@ -158,7 +156,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
               <span>ComixCatalog</span>
             </div>
             <div className="fc-pass-title">Founding<br />Collector</div>
-            <div className="fc-pass-sub">Collector Pro · for life</div>
+            <div className="fc-pass-sub">Founding member · for life</div>
             <div className="fc-pass-no">
               <span>No.</span> {!claimStateKnown ? "-" : isFounder ? (passNumber ? pad(passNumber) : "★") : nextNumber == null ? "-" : pad(nextNumber)}
               <em> / {CAP}</em>
@@ -211,7 +209,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
       <section className="fc-perks">
         <h2>What you keep, for life</h2>
         <div className="fc-perk-grid">
-          <div className="fc-perk"><b>Collector Pro</b><span>Your lifetime membership supports an independent, solo-built site.</span></div>
+          <div className="fc-perk"><b>Lifetime membership</b><span>Everyone after the first 100 pays $4 a month for it. Yours is free, for life.</span></div>
           <div className="fc-perk"><b>No upgrade prompts</b><span>House promos will not ask you to upgrade.</span></div>
           <div className="fc-perk"><b>The badge</b><span>A permanent Founding Collector badge on your profile.</span></div>
         </div>

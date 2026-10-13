@@ -150,10 +150,10 @@ export default function UpgradePage() {
       <section className="upgrade-hero">
         <div className="upgrade-kicker">Simple pricing</div>
         <h1 className="upgrade-title">
-          {foundingOpen ? "Join now. Keep Pro for life." : "Free to collect. Collector+ to support it."}
+          {foundingOpen ? "Join now. Free membership for life." : "Free to collect. Collector+ to support it."}
         </h1>
         <p className="upgrade-sub">
-          The first 100 members get Collector Pro free, for life. After that,
+          The first 100 members get a free membership for life. After that,
           supporting the site is Collector+, $4 a month or $36 a year.
         </p>
         {foundingOpen && (
@@ -161,10 +161,10 @@ export default function UpgradePage() {
             <Link href="/signup">
               <strong>
                 {foundingRemaining == null
-                  ? "Free lifetime Pro memberships are still available."
-                  : `${foundingRemaining} free lifetime Pro memberships remain.`}
+                  ? "Free lifetime memberships are still available."
+                  : `${foundingRemaining} free lifetime memberships remain.`}
               </strong>{" "}
-              Create your account and receive yours automatically →
+              Create your account and claim yours →
             </Link>
           </p>
         )}

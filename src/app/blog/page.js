@@ -34,8 +34,8 @@ export default function BlogIndexPage() {
           <div className="blog-eyebrow">Developer Updates</div>
           <h1 className="blog-title">Danger Room Dispatch</h1>
           <p className="blog-subtitle">
-            Behind-the-scenes notes from the ComixCatalog team — what we shipped,
-            what we&rsquo;re working on, and what&rsquo;s coming next.
+            Behind-the-scenes notes from Tony about what shipped, what changed,
+            and how ComixCatalog gets built.
           </p>
         </div>
         {isAdmin && (

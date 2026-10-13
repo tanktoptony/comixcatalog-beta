@@ -61,7 +61,6 @@ const STATIC_ROUTES = [
   // Content
   { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
   { path: "/reads", changeFrequency: "weekly", priority: 0.6 },
-  { path: "/forum", changeFrequency: "daily", priority: 0.6 },
   { path: "/community/guidelines", changeFrequency: "monthly", priority: 0.4 },
   // Help / trust
   { path: "/help", changeFrequency: "monthly", priority: 0.5 },

@@ -24,8 +24,8 @@ export const HOUSE_ADS = [
   {
     id: "founding",
     kicker: "Founding Collector",
-    headline: "Free Pro for life.",
-    body: "Join while spots remain and Collector Pro is yours permanently, no card required.",
+    headline: "Free membership for life.",
+    body: "Join while spots remain and your membership is free for life, no card required.",
     cta: "See the offer",
     href: "/founding-collectors",
     show: (viewer) => !hasSupporterPerks(viewer),

@@ -78,6 +78,33 @@ export const SHORTS = [
     endNudge: 0.125,
     hook: "Your assassin comes from a vending machine",
   },
+  {
+    id: "Short004BagOnLine",
+    episode: "episode-004",
+    fromBeat: "Now here's one of my favorite details",
+    toBeat: "Originally the characters",
+    startNudge: 0.12,
+    endNudge: -0.21,
+    hook: "Coheed's universe was named after a luggage shop",
+  },
+  {
+    id: "Short004TwoIssues",
+    episode: "episode-004",
+    fromBeat: "The early project was called",
+    toBeat: "Another unusual piece",
+    startNudge: 0.12,
+    endNudge: -0.45,
+    hook: "The original comic lasted two issues",
+  },
+  {
+    id: "Short004ThreeTimelines",
+    episode: "episode-004",
+    fromBeat: "Here's something I wish somebody",
+    toBeat: "And that's before we even get to",
+    startNudge: 0.12,
+    endNudge: 0.03,
+    hook: "Three timelines make The Amory Wars confusing",
+  },
 ];
 
 // Seconds of each clip. The clip stops just before the next beat.

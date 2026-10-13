@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import { avatarForProfile } from "@/lib/defaultAvatar";
+import { avatarForProfile, avatarImageUrl } from "@/lib/defaultAvatar";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
 const BIO_MAX = 500;
@@ -12,6 +12,25 @@ const LOCATION_MAX = 80;
 const URL_MAX = 200;
 
 const GOLD = "#f4d03f";
+
+async function encodeAvatar(file) {
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, 512 / Math.max(bitmap.width, bitmap.height));
+  const width = Math.max(1, Math.round(bitmap.width * scale));
+  const height = Math.max(1, Math.round(bitmap.height * scale));
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  const context = canvas.getContext("2d");
+  context.fillStyle = "#ffffff";
+  context.fillRect(0, 0, width, height);
+  context.drawImage(bitmap, 0, 0, width, height);
+  bitmap.close();
+  const blob = await new Promise((resolve, reject) => {
+    canvas.toBlob((result) => result ? resolve(result) : reject(new Error("Could not encode avatar")), "image/jpeg", 0.85);
+  });
+  return blob;
+}
 
 const S = {
   overlay: {
@@ -318,12 +337,12 @@ export default function EditProfileModal({ profile, onClose, onSaved }) {
     setAvatarUploading(true);
     setError(null);
     try {
-      const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
-      const path = `${profile.id}/avatar.${ext}`;
+      const encoded = await encodeAvatar(file);
+      const path = `${profile.id}/avatar.jpg`;
 
       const { error: upErr } = await supabase.storage
         .from("avatars")
-        .upload(path, file, { upsert: true, contentType: file.type });
+        .upload(path, encoded, { upsert: true, contentType: "image/jpeg" });
       if (upErr) throw upErr;
 
       const { data: pub } = supabase.storage.from("avatars").getPublicUrl(path);
@@ -422,7 +441,7 @@ export default function EditProfileModal({ profile, onClose, onSaved }) {
             <div style={S.avatarRow}>
               <div style={S.avatar}>
                 {avatarUrl ? (
-                  <img src={avatarUrl} alt="" style={S.avatarImg} />
+                  <img src={avatarImageUrl(avatarUrl, { width: 192, height: 192 })} alt="" style={S.avatarImg} />
                 ) : (
                   <Image
                     src={fallbackAvatar}

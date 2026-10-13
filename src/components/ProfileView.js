@@ -100,7 +100,7 @@ export default function ProfileView({ data, isOwner = false }) {
   const recentlyAdded = ownedItems.filter((item) => item.display).slice(0, 10);
 
   const joinDate = formatJoinDate(profile.created_at);
-  const avatarSrc = avatarForProfile(profile);
+  const avatarSrc = avatarForProfile(profile, { width: 264, height: 264 });
 
   return (
     <main className="profile-page">

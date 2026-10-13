@@ -125,6 +125,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`page-shell ${displayFont.variable}`}>
+        <a className="skip-link" href="#main-content">Skip to main content</a>
         {GA_ENABLED && (
           <>
             <Script
@@ -151,7 +152,7 @@ export default async function RootLayout({ children }) {
                   user's first page load actually lands (post-signup that's
                   /u/[username], not "/") — see OnboardingModal.js. */}
               <OnboardingModal />
-              <main className="page-wrapper">{children}</main>
+              <main id="main-content" tabIndex={-1} className="page-wrapper">{children}</main>
               <Footer />
             </SearchQueryProvider>
           </LibraryProvider>

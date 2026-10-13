@@ -50,6 +50,15 @@ const nextConfig = {
         destination: "/founding-collectors?utm_source=instagram&utm_medium=social&utm_campaign=founding-wall",
         permanent: false,
       },
+      // Short link for YouTube videos. Temporary (302) so the destination can
+      // follow the current campaign without changing published descriptions.
+      {
+        source: "/yt",
+        destination: "/founding-collectors?utm_source=youtube&utm_medium=video&utm_campaign=founding-wall",
+        permanent: false,
+      },
+      { source: "/forum", destination: "/", permanent: false },
+      { source: "/crate-dig", destination: "/", permanent: false },
     ];
   },
 

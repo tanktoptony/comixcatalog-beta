@@ -955,7 +955,7 @@ input[type="file"] {
 
 .footer-copyright {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: #8995c2; /* 5.06:1 on #0b1e6b */
   margin: 0;
 }
 
@@ -8268,7 +8268,7 @@ button.nav-link {
   text-align: center;
   font-size: 0.78rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.45);
+  color: #808186; /* 4.60:1 on #15171f */
 }
 .auth-legal-notice .link {
   color: var(--x-gold);
@@ -12061,6 +12061,8 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
   .skel { animation: none; }
 }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; padding: 10px 14px; color: #0b1e6b; background: #f4d03f; border-radius: 4px; font-weight: 800; transform: translateY(-150%); }
+.skip-link:focus { transform: translateY(0); }
 
 /* ── Marketplace toolbar + publisher/title grouping ────────────────────── */
 

@@ -62,7 +62,7 @@ export default function TermsOfServicePage() {
         </p>
         <p>
           A limited number of Founding Collector passes provide the standard
-          Collector Pro membership without a recurring charge. These passes
+          lifetime membership without a recurring charge. These passes
           are non-transferable and remain valid for the lifetime of the account
           and the ComixCatalog service, subject to these Terms.
         </p>

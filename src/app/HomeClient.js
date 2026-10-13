@@ -186,11 +186,11 @@ export default function HomeClient({ featured = null, heroWall = null, stats = n
       {/* ── FOUNDING COLLECTOR ───────────────────────────────── */}
       <section className="lp-founding">
         <div className="lp-founding-inner">
-          <p className="lp-founding-kicker">Limited · Lifetime passes are going fast</p>
+          <p className="lp-founding-kicker">Limited · The first 100 only</p>
           <h2 className="lp-founding-h2">Founding Collector</h2>
           <p className="lp-founding-body">
-            Join while spots remain and receive Collector Pro for life, free,
-            automatically, with no card required. You&rsquo;ll also receive a permanent Founding Collector badge.
+            Join while spots remain and confirm your email to get a lifetime
+            membership, free, with no card required. You&rsquo;ll also receive a permanent Founding Collector badge.
           </p>
           <Link
             href="/founding-collectors"

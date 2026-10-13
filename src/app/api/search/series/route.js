@@ -7,6 +7,14 @@ import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { normalizeSeriesSearchWords, searchWordCoverage } from "@/lib/seriesSearchMatch";
 import { resolveSeriesCovers } from "@/lib/catalog/covers";
 import { aliasTermsFor } from "@/lib/searchAliases";
+import { unstable_cache } from "next/cache";
+import { createServerTiming } from "@/lib/serverTiming";
+import {
+  DegradedSearchError,
+  normalizeSearchCacheTerm,
+  SEARCH_CACHE_REVALIDATE_SECONDS,
+  sliceSearchResults,
+} from "@/lib/searchCache";
 
 function normalizeSearch(value) {
   return String(value ?? "")
@@ -134,11 +142,18 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
 // measured; 200 leaves headroom for longer query strings.
 const VOLUME_LOOKUP_CHUNK = 200;
 
-export async function GET(req) {
+async function computeSeriesResponse(req) {
+  const timing = createServerTiming();
+  for (const phase of ["candidates", "volume_ids", "ranking", "covers", "serialization"]) timing.set(phase);
+  const json = (body, init) => {
+    const response = timing.measureSync("serialization", () => NextResponse.json(body, init));
+    response.headers.set("Server-Timing", timing.header());
+    return response;
+  };
   try {
     const { searchParams } = new URL(req.url);
     const q = (searchParams.get("q") || "").trim();
-    if (!q) return NextResponse.json({ series: [] });
+    if (!q) return json({ series: [] });
 
     // The header dropdown asks for more than the old fixed 12 now that it is
     // page-width. Capped so a scripted caller cannot ask for the catalog.
@@ -159,7 +174,7 @@ export async function GET(req) {
     const searchWords = normalizeSeriesSearchWords(titleQuery);
     const normalizedQForScoring = normalizeForScoring(titleQuery);
 
-    if (!normalizedQ) return NextResponse.json({ series: [] });
+    if (!normalizedQ) return json({ series: [] });
 
     const supabase = getServiceClient();
     const aliasTerms = aliasTermsFor(normalizedQ);
@@ -172,14 +187,14 @@ export async function GET(req) {
           return [];
         })
       );
-      const candidateSets = await Promise.all([
+      const candidateSets = await timing.measure("candidates", () => Promise.all([
         fetchSeriesCandidates(supabase, searchWords, normalizedQ),
         ...aliasFetches,
-      ]);
+      ]));
       rows = dedupeById(candidateSets.flat());
     } catch (fetchError) {
       console.error("GET /api/search/series failed:", fetchError);
-      return NextResponse.json({ series: [] });
+      return json({ series: [], degraded: true });
     }
 
     // Found live 2026-08-28 spot-checking "Amazing Spider-Man" results: GCD
@@ -205,7 +220,7 @@ export async function GET(req) {
       for (let i = 0; i < ids.length; i += VOLUME_LOOKUP_CHUNK) {
         chunks.push(ids.slice(i, i + VOLUME_LOOKUP_CHUNK));
       }
-      const results = await Promise.all(
+      const results = await timing.measure("volume_ids", () => Promise.all(
         chunks.map((chunk) =>
           supabase
             .from("series")
@@ -213,7 +228,7 @@ export async function GET(req) {
             .in("id", chunk)
             .not("comicvine_volume_id", "is", null)
         )
-      );
+      ));
       const volumeRowsError = results.find((r) => r.error)?.error ?? null;
       const volumeRows = results.flatMap((r) => r.data ?? []);
       // Volume ids only refine how same-titled rows group; without them the
@@ -280,6 +295,7 @@ export async function GET(req) {
       return (a.title ?? "").localeCompare(b.title ?? "");
     };
 
+    const stopRanking = timing.start("ranking");
     const grouped = new Map();
     for (const row of rows ?? []) {
       const key = normalizeTitleKey(row.title);
@@ -385,11 +401,18 @@ export async function GET(req) {
     // variety would fight them: "rai 1994" wants Rai (1994), not one of
     // each Rai-ish title.
     const deduped = dedupeById(ranked);
-    const top = askedYear != null ? deduped.slice(0, limit) : diversify(deduped, { limit, perTitle: 2 });
+    const top = returnFullRanking
+      ? deduped
+      : askedYear != null
+        ? deduped.slice(0, limit)
+        : diversify(deduped, { limit, perTitle: 2 });
 
     // The card is derived from this series' resolved issues, never from the
     // independently refreshed featured_cover_path_cached value.
-    const resolvedSeriesCovers = await resolveSeriesCovers(supabase, top);
+    stopRanking();
+    const resolvedSeriesCovers = returnFullRanking
+      ? new Map()
+      : await timing.measure("covers", () => resolveSeriesCovers(supabase, top));
     const series = top.map((row) => ({
       id: row.id,
       gcd_id: row.gcd_id ?? null,
@@ -411,10 +434,108 @@ export async function GET(req) {
     }));
 
     // A degraded result must not sit in the CDN for ten minutes.
-    if (searchDegraded) return NextResponse.json({ series, degraded: true });
-    return NextResponse.json({ series }, { headers: CDN_CACHE_SHORT });
+    if (searchDegraded) return json({ series, degraded: true });
+    return json({ series }, { headers: CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/search/series crashed:", err);
-    return NextResponse.json({ series: [] });
+    return json({ series: [], degraded: true });
+  }
+}
+
+const cachedSeriesSearch = unstable_cache(
+  async (normalizedTerm, askedYear) => {
+    const query = askedYear == null ? normalizedTerm : `${normalizedTerm} ${askedYear}`;
+    const response = await computeSeriesResponse(
+      new Request(`http://internal/api/search/series?q=${encodeURIComponent(query)}&ranked=1`)
+    );
+    const serverTiming = response.headers.get("Server-Timing") || "";
+    const result = await response.json();
+    const measured = { ...result, _serverTiming: serverTiming };
+    if (result.degraded) throw new DegradedSearchError(measured);
+    return measured;
+  },
+  ["search-series-v1"],
+  { revalidate: SEARCH_CACHE_REVALIDATE_SECONDS, tags: ["search"] }
+);
+
+export async function getCachedSeriesSearch(q, { limit = 12 } = {}) {
+  const parsed = parseSearchQuery(q);
+  const title = stripTrailingIssueNumber(parsed.title || q) || parsed.title || q;
+  const normalizedTerm = normalizeSearchCacheTerm(title);
+  try {
+    const result = await cachedSeriesSearch(normalizedTerm, parsed.year ?? null);
+    const selected = parsed.year != null
+      ? sliceSearchResults(result.series, { limit })
+      : diversify(result.series, { limit, perTitle: 2 });
+    const covers = await resolveSeriesCovers(getServiceClient(), selected.map((row) => ({
+      id: row.id,
+      gcd_id: row.gcd_id,
+      title: row.title,
+      year_start_cached: row.year_start,
+      year_end_cached: row.year_end,
+      resolved_publisher_cached: row.publisher?.name,
+    })));
+    const series = selected.map((row) => {
+      const path = covers.get(row.id)?.storage_path;
+      return {
+        ...row,
+        cover: path
+          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`
+          : null,
+      };
+    });
+    return { ...result, series };
+  } catch (error) {
+    if (error instanceof DegradedSearchError) {
+      const selected = parsed.year != null
+        ? sliceSearchResults(error.result.series, { limit })
+        : diversify(error.result.series, { limit, perTitle: 2 });
+      const covers = await resolveSeriesCovers(getServiceClient(), selected.map((row) => ({
+        id: row.id,
+        gcd_id: row.gcd_id,
+        title: row.title,
+        year_start_cached: row.year_start,
+        year_end_cached: row.year_end,
+        resolved_publisher_cached: row.publisher?.name,
+      })));
+      return {
+        ...error.result,
+        series: selected.map((row) => {
+          const path = covers.get(row.id)?.storage_path;
+          return {
+            ...row,
+            cover: path
+              ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`
+              : null,
+          };
+        }),
+      };
+    }
+    throw error;
+  }
+}
+
+export async function GET(req) {
+  const timing = createServerTiming();
+  timing.set("search_cache");
+  timing.set("serialization");
+  try {
+    const { searchParams } = new URL(req.url);
+    const q = (searchParams.get("q") || "").trim();
+    const requested = Number(searchParams.get("limit"));
+    const returnFullRanking = searchParams.get("ranked") === "1";
+    const limit = Number.isFinite(requested) ? Math.max(1, Math.min(Math.trunc(requested), 40)) : 12;
+    if (!q) return NextResponse.json({ series: [] }, { headers: { "Server-Timing": timing.header() } });
+    const result = await timing.measure("search_cache", () => getCachedSeriesSearch(q, { limit }));
+    const { _serverTiming, ...body } = result;
+    const headers = result.degraded ? undefined : CDN_CACHE_SHORT;
+    const response = timing.measureSync("serialization", () => NextResponse.json(body, { headers }));
+    response.headers.set("Server-Timing", [_serverTiming, timing.header()].filter(Boolean).join(", "));
+    return response;
+  } catch (err) {
+    console.error("GET /api/search/series crashed:", err);
+    const response = NextResponse.json({ series: [], degraded: true });
+    response.headers.set("Server-Timing", timing.header());
+    return response;
   }
 }

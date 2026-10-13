@@ -7,6 +7,7 @@ import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { baseIssueNumber } from "@/lib/coverMatch";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
+import { seriesLinkDisplayLines } from "@/lib/seriesLinks";
 
 // Strip variant/printing suffixes — same logic as the cache refresh.
 // "1 [Newsstand]" → "1", "5/1981" → "5", "Annual 1" → null.
@@ -42,6 +43,34 @@ function dedupeIssuesByBase(issues) {
 
 const KEY_ISSUE_ID_CHUNK = 400;
 const CREATOR_ROW_CAP = 5000;
+
+async function loadSeriesLinks(supabase, currentGcdId) {
+  if (currentGcdId == null) return [];
+  const { data: linkRows, error: linkError } = await supabase
+    .from("series_links")
+    .select("from_gcd_id,to_gcd_id,kind,source,gcd_bond_type,note")
+    .or(`from_gcd_id.eq.${Number(currentGcdId)},to_gcd_id.eq.${Number(currentGcdId)}`);
+  if (linkError) throw linkError;
+  if (!linkRows?.length) return [];
+
+  const relatedIds = [...new Set(linkRows.flatMap((row) => [
+    Number(row.from_gcd_id), Number(row.to_gcd_id),
+  ]).filter((gcdId) => gcdId !== Number(currentGcdId)))];
+  const { data: relatedRows, error: relatedError } = await supabase
+    .from("series")
+    .select("id,gcd_id,title,year_start_cached")
+    .in("gcd_id", relatedIds);
+  if (relatedError) throw relatedError;
+  const byGcdId = new Map((relatedRows ?? []).map((row) => [Number(row.gcd_id), row]));
+  const enriched = linkRows.map((row) => ({
+    ...row,
+    from_series: Number(row.from_gcd_id) === Number(currentGcdId)
+      ? null : byGcdId.get(Number(row.from_gcd_id)),
+    to_series: Number(row.to_gcd_id) === Number(currentGcdId)
+      ? null : byGcdId.get(Number(row.to_gcd_id)),
+  }));
+  return seriesLinkDisplayLines(enriched, currentGcdId);
+}
 
 async function loadTopCreators(supabase, issues) {
   const ids = issues.map((issue) => issue.gcd_id).filter((id) => id != null);
@@ -135,6 +164,16 @@ export async function GET(req, context) {
       return NextResponse.json({ error: "Series not found" }, { status: 404 });
     }
 
+    let seriesLinks = [];
+    if (series.gcd_id != null) {
+      try {
+        seriesLinks = await loadSeriesLinks(supabase, series.gcd_id);
+      } catch (error) {
+        console.error("GET /api/series/[id] series links lookup failed:", error);
+        degraded = true;
+      }
+    }
+
     // No GCD linkage at all — a brand-new or never-catalogued real series.
     // GCD's metadata mirror is a point-in-time dump plus a weekly top-up
     // scoped to ~79 curated titles (see gcd-issue-refresh.yml); anything
@@ -194,6 +233,7 @@ export async function GET(req, context) {
           year_start: years.length ? Math.min(...years) : null,
           year_end: years.length ? Math.max(...years) : null,
           featured_cover: mappedIssues.find((i) => i.cover)?.cover ?? null,
+          links: seriesLinks,
           issues: mappedIssues,
         },
       }, degraded ? undefined : { headers: CDN_CACHE_SHORT });
@@ -470,6 +510,7 @@ export async function GET(req, context) {
         key_issues: keyIssues,
         top_creators: topCreators,
         creator_credited_issues: creatorCreditedIssues,
+        links: seriesLinks,
         issues: mappedIssues,
       },
     // A degraded response must not be cached at the CDN for ten minutes.

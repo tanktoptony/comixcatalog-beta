@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T04:02:20.024249+00:00",
-    "retry_after": "2026-10-14T04:02:20.024266+00:00"
+    "last_attempt_at": "2026-10-13T05:04:25.457079+00:00",
+    "retry_after": "2026-10-14T05:04:25.457094+00:00"
   },
   {
     "name": "Cerebus",
@@ -51306,5 +51306,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T04:01:26.845328+00:00",
     "retry_after": "2026-10-14T04:01:26.845344+00:00"
+  },
+  {
+    "name": "Star Wars: Darth Vader Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T05:00:53.579778+00:00",
+    "retry_after": "2026-10-14T05:00:53.579796+00:00"
+  },
+  {
+    "name": "S.L.A.M. Force",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T05:00:54.186919+00:00",
+    "retry_after": "2026-10-14T05:00:54.186940+00:00"
+  },
+  {
+    "name": "Hey! B.C.",
+    "publisher": "Fawcett Comics",
+    "year": 1967,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T05:00:55.299001+00:00",
+    "retry_after": "2026-10-14T05:00:55.299019+00:00"
+  },
+  {
+    "name": "X-Men Annuals",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T05:03:05.481474+00:00",
+    "retry_after": "2026-10-14T05:03:05.481491+00:00"
+  },
+  {
+    "name": "Magenta",
+    "publisher": "Dynamite Entertainment",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35288,
+        "name": "Magenta",
+        "publisher": "SQP",
+        "start_year": 2008
+      },
+      {
+        "id": 152836,
+        "name": "Magenta",
+        "publisher": "Dynamite (France)",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T05:03:29.696655+00:00",
+    "retry_after": "2026-10-14T05:03:29.696672+00:00"
+  },
+  {
+    "name": "Justice",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 1144,
+        "name": "Justice",
+        "publisher": "Marvel",
+        "start_year": 1949
+      },
+      {
+        "id": 3640,
+        "name": "Justice",
+        "publisher": "Marvel",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T05:03:58.356477+00:00",
+    "retry_after": "2026-10-14T05:03:58.356493+00:00"
+  },
+  {
+    "name": "Doll Man",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19487,
+        "name": "Doll Man",
+        "publisher": "Quality Comics",
+        "start_year": 1941
+      },
+      {
+        "id": 2141,
+        "name": "Doll Man",
+        "publisher": "I.W. Publishing",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T05:04:25.097944+00:00",
+    "retry_after": "2026-10-14T05:04:25.097962+00:00"
   }
 ]

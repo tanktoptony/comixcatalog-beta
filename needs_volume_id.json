@@ -49008,9 +49008,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T21:01:09.871441+00:00",
-    "retry_after": "2026-10-13T21:01:09.871458+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T21:16:14.022151+00:00",
+    "retry_after": "2026-10-16T21:16:14.022169+00:00"
   },
   {
     "name": "Bo",
@@ -49031,9 +49031,9 @@
         "start_year": 1955
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T21:03:12.746674+00:00",
-    "retry_after": "2026-10-13T21:03:12.746692+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T21:16:14.469449+00:00",
+    "retry_after": "2026-10-16T21:16:14.469465+00:00"
   },
   {
     "name": "Doctor Who: The Twelfth Doctor: Time Trials",
@@ -49041,9 +49041,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T21:04:17.780406+00:00",
-    "retry_after": "2026-10-13T21:04:17.780423+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T21:16:14.884178+00:00",
+    "retry_after": "2026-10-16T21:16:14.884191+00:00"
   },
   {
     "name": "Special Edition, Action Comics",
@@ -49051,9 +49051,9 @@
     "year": 1944,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T21:04:18.346337+00:00",
-    "retry_after": "2026-10-13T21:04:18.346353+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T21:16:15.455809+00:00",
+    "retry_after": "2026-10-16T21:16:15.455824+00:00"
   },
   {
     "name": "WYND",
@@ -51711,5 +51711,22 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T20:25:12.569671+00:00",
     "retry_after": "2026-10-14T20:25:12.569686+00:00"
+  },
+  {
+    "name": "The Devil's Angel",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52146,
+        "name": "Devil's Angel",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T21:18:25.675426+00:00",
+    "retry_after": "2026-10-14T21:18:25.675440+00:00"
   }
 ]

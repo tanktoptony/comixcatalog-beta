@@ -13,6 +13,7 @@ import { SLOT } from "@/lib/houseAds";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
 import { countCopies } from "@/lib/libraryMutations";
+import { buildIssueDetailsRows, buildStoryCreditSummary, humanizeStoryType } from "@/lib/issueDetails";
 
 function money(value) {
   if (value == null || value === "") return "-";
@@ -64,6 +65,44 @@ function storyCharacters(value) {
   const all = (Array.isArray(value) ? value : splitCharacters(value))
     .map((name) => String(name).trim()).filter(Boolean);
   return { shown: all.slice(0, 12), remaining: Math.max(0, all.length - 12) };
+}
+
+function ExpandableSynopsis({ children }) {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = String(children ?? "").length > 320;
+  if (!isLong) return <p style={{ margin: 0 }}>{children}</p>;
+  return (
+    <div>
+      <p style={expanded ? { margin: 0 } : { margin: 0, display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{children}</p>
+      <button type="button" className="link" onClick={() => setExpanded((value) => !value)} style={{ background: "none", border: 0, padding: "6px 0 0", cursor: "pointer" }}>
+        {expanded ? "Show less" : "Show more"}
+      </button>
+    </div>
+  );
+}
+
+function ReprintList({ title, items }) {
+  const [showAll, setShowAll] = useState(false);
+  if (!items?.length) return null;
+  const shown = showAll ? items : items.slice(0, 10);
+  return (
+    <div>
+      <h3 style={{ fontSize: "0.9rem", margin: "0 0 8px" }}>{title}</h3>
+      <ol style={{ margin: 0, paddingLeft: "22px", display: "grid", gap: "6px" }}>
+        {shown.map((item) => (
+          <li key={`${item.gcd_issue_id}-${item.notes ?? ""}`}>
+            <Link href={item.href}>{item.series_title || "Untitled"}{item.issue_number != null ? ` #${item.issue_number}` : ""}{item.year ? ` (${item.year})` : ""}</Link>
+            {item.notes && <span className="muted"> · {item.notes}</span>}
+          </li>
+        ))}
+      </ol>
+      {items.length > 10 && (
+        <button type="button" className="link" onClick={() => setShowAll((value) => !value)} style={{ background: "none", border: 0, padding: "8px 0 0", cursor: "pointer" }}>
+          {showAll ? "Show fewer" : `Show all ${items.length}`}
+        </button>
+      )}
+    </div>
+  );
 }
 
 export default function IssueClient({ initialIssue = null }) {
@@ -140,6 +179,7 @@ export default function IssueClient({ initialIssue = null }) {
     if (!issue) return "";
     return `${issue.series_title}${issue.issue_number ? ` #${issue.issue_number}` : ""}`;
   }, [issue]);
+  const detailRows = useMemo(() => buildIssueDetailsRows(issue), [issue]);
 
   const issueRows = collections?.filter(
     (row) => issue?.source === "gcd" && Number(row.gcd_issue_id) === Number(String(issue.id || "").replace(/^gcd-/, ""))
@@ -540,23 +580,22 @@ export default function IssueClient({ initialIssue = null }) {
             <div
               style={{
                 display: "grid",
-                // Issue Info + Quick Actions - stack under ~520px.
+                // Details + Quick Actions - stack under ~520px.
                 gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))",
                 gap: "18px",
                 marginBottom: "22px",
               }}
             >
               <div className="metadata-section" style={{ margin: 0 }}>
-                <h3 className="issue-section-title">Issue Info</h3>
-
-                <p><strong>Series:</strong> {issue.series_title}</p>
-                <p><strong>Issue:</strong> {issue.issue_number ?? "TBD"}</p>
-                <p><strong>Publisher:</strong> {issue.publisher || "Unknown"}</p>
-                <p><strong>Year:</strong> {issue.release_year || "Unknown"}</p>
-                <p>
-                  <strong>Source:</strong>{" "}
-                  {issue.source === "gcd" ? "Canonical Database" : "User Added"}
-                </p>
+                <h3 className="issue-section-title">Details</h3>
+                <dl style={{ margin: 0 }}>
+                  {detailRows.map((row) => (
+                    <div key={row.label} style={{ display: "grid", gridTemplateColumns: "minmax(92px, 34%) 1fr", gap: "12px", padding: "7px 0", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                      <dt className="muted" style={{ margin: 0 }}>{row.label}</dt>
+                      <dd style={{ margin: 0, minWidth: 0, overflowWrap: "anywhere" }}>{row.href ? <Link href={row.href}>{row.value}</Link> : row.value}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
 
               <div className="metadata-section" style={{ margin: 0 }}>
@@ -599,19 +638,29 @@ export default function IssueClient({ initialIssue = null }) {
 
             {issue.stories?.length > 0 && (
               <div className="metadata-section" style={{ margin: "0 0 22px" }}>
-                <h2 className="issue-section-title">Stories</h2>
-                <div style={{ display: "grid", gap: "18px" }}>
+                <h2 className="issue-section-title">Contents</h2>
+                <div style={{ display: "grid" }}>
                   {issue.stories.map((story, index) => {
                     const characters = storyCharacters(story.characters);
+                    const creditSummary = buildStoryCreditSummary(story);
+                    const isCover = String(story.type ?? "").trim().toLowerCase() === "cover";
                     return (
-                      <article key={`${story.title ?? story.feature ?? "story"}-${index}`}>
-                        {(story.title || story.feature) && <h3 style={{ fontSize: "1rem", marginBottom: "6px" }}>{story.title || story.feature}</h3>}
-                        {characters.shown.length > 0 && (
+                      <article key={`${story.sequence_number ?? index}-${story.title ?? story.feature ?? "story"}`} style={{ display: "grid", gridTemplateColumns: "34px minmax(0, 1fr)", gap: "10px", padding: "14px 0", borderTop: "1px solid rgba(255,255,255,0.09)" }}>
+                        <div className="muted" style={{ fontVariantNumeric: "tabular-nums", paddingTop: "2px" }}>{story.sequence_number ?? index + 1}</div>
+                        <div style={{ minWidth: 0 }}>
+                          <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", flexWrap: "wrap" }}>
+                            <span className="pill" style={{ fontSize: "0.67rem", padding: "2px 7px" }}>{humanizeStoryType(story.type)}</span>
+                            <h3 style={{ fontSize: "1rem", margin: 0, flex: "1 1 160px" }}>{story.title || story.feature || humanizeStoryType(story.type)}</h3>
+                            {story.page_count != null && story.page_count !== "" && <span className="muted" style={{ marginLeft: "auto", whiteSpace: "nowrap" }}>{story.page_count} pp</span>}
+                          </div>
+                          {creditSummary && <p className="muted" style={{ margin: "7px 0 0", fontSize: "0.85rem" }}>{creditSummary}</p>}
+                          {!isCover && characters.shown.length > 0 && (
                           <p className="muted" style={{ marginBottom: story.synopsis ? "6px" : 0 }}>
                             <strong>Characters:</strong> {characters.shown.join(", ")}{characters.remaining ? `, and ${characters.remaining} more` : ""}
                           </p>
-                        )}
-                        {story.synopsis && <p style={{ margin: 0 }}>{story.synopsis}</p>}
+                          )}
+                          {!isCover && story.synopsis && <ExpandableSynopsis>{story.synopsis}</ExpandableSynopsis>}
+                        </div>
                       </article>
                     );
                   })}
@@ -619,9 +668,26 @@ export default function IssueClient({ initialIssue = null }) {
               </div>
             )}
 
-            {(issue.credits?.length > 0 || issue.stories?.length > 0) && (
+            {issue.details?.notes && (
+              <div className="metadata-section" style={{ margin: "0 0 22px" }}>
+                <h2 className="issue-section-title">Notes</h2>
+                <p style={{ margin: 0, whiteSpace: "pre-wrap" }}>{issue.details.notes}</p>
+              </div>
+            )}
+
+            {(issue.reprints?.reprintedFrom?.length > 0 || issue.reprints?.reprintedIn?.length > 0) && (
+              <div className="metadata-section" style={{ margin: "0 0 22px" }}>
+                <h2 className="issue-section-title">Reprints</h2>
+                <div style={{ display: "grid", gap: "16px" }}>
+                  <ReprintList title="Reprints material from" items={issue.reprints?.reprintedFrom} />
+                  <ReprintList title="Reprinted in" items={issue.reprints?.reprintedIn} />
+                </div>
+              </div>
+            )}
+
+            {issue.source === "gcd" && detailRows.length > 0 && (
               <p className="muted" style={{ fontSize: "0.75rem", margin: "-10px 0 22px" }}>
-                Credits and story details from the{" "}
+                Issue details from the{" "}
                 <a href={`https://www.comics.org/issue/${String(issue.id).replace(/^gcd-/, "")}/`} target="_blank" rel="noreferrer">Grand Comics Database (CC BY-SA 4.0)</a>
               </p>
             )}

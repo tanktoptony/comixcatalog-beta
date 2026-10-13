@@ -1,29 +1,37 @@
 {
   "id": "episode-002",
   "number": 2,
-  "slug": "hickman-x-men",
-  "titleOptions": ["TODO: Tony — title option 1", "TODO: Tony — title option 2", "TODO: Tony — title option 3"],
+  "slug": "hickman-creator-owned",
+  "titleOptions": ["Jonathan Hickman's Weirdest Comics (That Marvel Fans Missed)", "I Owned These Hickman Comics for Years and Didn't Know It", "Before House of X: The Hickman Comics Nobody Told You About"],
   "narrator": "tony-human",
   "utmCampaign": "ep002",
   "sections": [
-    { "id": "01-hook", "chapter": "TODO: Tony — opening chapter label" },
-    { "id": "02-setup", "chapter": "TODO: Tony — setup chapter label" },
-    { "id": "03-house-of-x", "chapter": "House of X" },
-    { "id": "04-moira", "chapter": "Moira" },
-    { "id": "05-machines", "chapter": "Machines" },
-    { "id": "06-what-worked", "chapter": "What worked" },
-    { "id": "07-ending", "chapter": "TODO: Tony — ending chapter label" }
+    { "id": "01-cold-open", "chapter": null },
+    { "id": "02-intro", "chapter": "The books I missed" },
+    { "id": "03-the-marvel-guy", "chapter": "The Marvel guy" },
+    { "id": "04-manhattan-projects", "chapter": "The Manhattan Projects" },
+    { "id": "05-east-of-west", "chapter": "East of West" },
+    { "id": "06-deep-cuts", "chapter": "The deep cuts" },
+    { "id": "07-the-thread", "chapter": "The thread" },
+    { "id": "08-where-to-start", "chapter": "Where to start" },
+    { "id": "09-ending", "chapter": "Already in the long box" }
   ],
   "books": [
-    { "label": "House of X #1-6 (2019)", "request": "House of X #1 (2019)", "searchQuery": "house of x" },
-    { "label": "Powers of X #1-6 (2019)", "request": "Powers of X #1 (2019)", "searchQuery": "powers of x" },
-    { "label": "X-Men #1 (2019)", "request": "X-Men #1 (2019)", "searchQuery": "x-men 1 2019" }
+    { "label": "East of West, Volume One: The Promise", "request": "East of West #1 (2013)", "searchQuery": "east of west" },
+    { "label": "The Manhattan Projects, Volume One: Science Bad", "request": "The Manhattan Projects #1 (2012)", "searchQuery": "manhattan projects" },
+    { "label": "The Nightly News", "request": "The Nightly News #1 (2006)", "searchQuery": "the nightly news" },
+    { "label": "Pax Romana", "request": "Pax Romana #1 (2007)", "searchQuery": "pax romana" },
+    { "label": "The Black Monday Murders", "request": "The Black Monday Murders #1 (2016)", "searchQuery": "black monday murders" },
+    { "label": "Secret Wars #1 (2015)", "request": "Secret Wars #1 (2015)", "searchQuery": "secret wars 2015" },
+    { "label": "House of X #1 (2019)", "request": "House of X #1 (2019)", "searchQuery": "house of x" }
   ],
-  "tags": ["x-men", "house of x", "powers of x", "jonathan hickman", "marvel comics"],
-  "descriptionIntro": "TODO: Tony — write the episode description introduction.",
-  "pinnedComment": "TODO: Tony — write the pinned comment.",
-  "credits": ["TODO: Tony — add music and media credits."],
+  "tags": ["jonathan hickman", "hickman comics", "creator owned comics", "east of west", "the manhattan projects", "the nightly news", "pax romana", "the black monday murders", "secret wars", "house of x", "image comics", "marvel comics", "comic books", "comics for beginners", "where to start reading hickman"],
+  "descriptionIntro": "I owned some of Jonathan Hickman's stranger comics for years before I noticed who wrote them. Here's the shelf I should have started with.",
+  "pinnedComment": "Which Hickman book should I read first? The starter shelf is on ComixCatalog: {{startUrl}}",
+  "credits": ["Cover art is the property of Image Comics, Marvel, and the respective creators, shown for commentary and review.", "Music: TBD before upload"],
   "shorts": [
-    { "id": "short-01", "title": "TODO: Tony — Short title", "hook": "TODO: Tony — standalone Short hook" }
+    { "id": "Short002WhoWroteThis", "title": "I owned these comics for years before I noticed the writer #comics #hickman", "hook": "I collected these comics for years before I noticed who wrote them." },
+    { "id": "Short002ManhattanProjects", "title": "The atomic bomb was the boring part #comics #imagecomics #hickman", "hook": "What if the atomic bomb was the boring part?" },
+    { "id": "Short002EastOfWest", "title": "The Civil War ended when a comet hit Kansas #comics #eastofwest", "hook": "The Civil War never ended. A comet ended it." }
   ]
 }

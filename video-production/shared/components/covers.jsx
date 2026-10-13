@@ -248,9 +248,10 @@ export function CoverGrid({ assets = [], columns, highlight, kicker, title, sub,
 function GridItem({ it, i, w, h, dim, stagger }) {
   const e = useEntrance(i, stagger);
   const thin = h < 300;
+  const panelH = it.aspect ? w / it.aspect : h;
   return (
-    <div style={{ opacity: e * (dim ? 0.3 : 1), transform: `translateY(${(1 - e) * 30}px) scale(${0.96 + 0.04 * e})`, filter: dim ? "grayscale(0.7)" : "none" }}>
-      <Panel asset={it.asset} width={w} height={h} fit="contain" style={{ borderWidth: thin ? 3 : 5, outlineWidth: thin ? 1 : 2 }} />
+    <div style={{ height: h, display: "flex", alignItems: "center", opacity: e * (dim ? 0.3 : 1), transform: `translateY(${(1 - e) * 30}px) scale(${0.96 + 0.04 * e})`, filter: dim ? "grayscale(0.7)" : "none" }}>
+      <Panel asset={it.asset} width={w} height={panelH} fit="contain" style={{ borderWidth: thin ? 3 : 5, outlineWidth: thin ? 1 : 2 }} />
     </div>
   );
 }
@@ -440,6 +441,28 @@ export function ShelfLater({ items = [], later = [], laterLabel = "Later", title
         <div style={{ width: 1500 * squeeze, height: 10, background: brand.gold, boxShadow: `0 6px 0 ${brand.ink}` }} />
       </AbsoluteFill>
       {title && <NarrationBox title={title} align="center" style={{ bottom: undefined, top: 60 }} />}
+    </AbsoluteFill>
+  );
+}
+
+// One interior panel or page, shown whole (never cropped) inside a comic
+// panel border, over its own art blurred. `size` is the image's pixel
+// [width, height]; it is scaled to fit the frame but never more than
+// `maxUpscale`, so small web panels stay sharp. Slow push like the covers.
+export function PanelCard({ asset, size = [1000, 1000], treatment = "slowPush", maxUpscale = 2, kicker, title, sub, captionAlign = "left" }) {
+  const p = useProgress();
+  const [w0, h0] = size;
+  const s = Math.min(1560 / w0, (title || kicker ? 820 : 900) / h0, maxUpscale);
+  const scale = treatment === "still" ? 1 : treatment === "slowPull" ? 1.05 - 0.05 * p : 1 + 0.05 * p;
+  return (
+    <AbsoluteFill>
+      <CoverBackdrop asset={asset} />
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", paddingBottom: title || kicker ? 120 : 0 }}>
+        <div style={{ transform: `scale(${scale})` }}>
+          <Panel asset={asset} width={Math.round(w0 * s) + 14} height={Math.round(h0 * s) + 14} fit="contain" />
+        </div>
+      </AbsoluteFill>
+      <NarrationBox kicker={kicker} title={title} sub={sub} align={captionAlign} />
     </AbsoluteFill>
   );
 }

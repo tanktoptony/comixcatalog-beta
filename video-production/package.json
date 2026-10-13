@@ -19,7 +19,12 @@
     "render:001:v3:preview": "npm run index && node scripts/render.mjs episode-001-v3 --preview",
     "transcribe:001": "node scripts/ep.mjs 001 transcribe",
     "thumbs:001": "npm run index && node scripts/thumbs.mjs",
-    "shorts:001": "npm run index && node scripts/render-shorts.mjs",
+    "shorts:001": "npm run index && node scripts/render-shorts.mjs Short001Colossus Short001NotNumberOne Short001ShopLikeAKid",
+    "shorts:002": "npm run index && node scripts/render-shorts.mjs Short002WhoWroteThis Short002ManhattanProjects Short002EastOfWest",
+    "shorts:003": "npm run index && node scripts/render-shorts.mjs Short003DiscogsForComics Short003MilkAndCheese Short003ScudVendingMachine",
+    "thumbs:003": "npm run index && node scripts/thumbs.mjs episode-003 Thumb003LongBoxes Thumb003CouldntFind",
+    "shorts:004": "npm run index && node scripts/render-shorts.mjs Short004BagOnLine Short004TwoIssues Short004ThreeTimelines",
+    "thumbs:004": "npm run index && node scripts/thumbs.mjs episode-004 Thumb004AmoryWars Thumb004TwoIssues",
     "package:001": "node scripts/ep.mjs 001 package"
   },
   "dependencies": {
@@ -33,5 +38,8 @@
     "react-dom": "^19.2.0",
     "remotion": "^4.0.530",
     "sharp": "^0.35.5"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
   }
 }

@@ -8,9 +8,12 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import { brand } from "./brand.js";
 import { EpisodeContext, SegmentContext, Backdrop, LogoBug, available } from "./components/primitives.jsx";
-import { CoverFull, KenBurnsCover, MediaFull, CoverPair, CoverGrid, CoverFan, CoverStack, Triptych, StarterShelf, ShelfLater } from "./components/covers.jsx";
+import { CoverFull, KenBurnsCover, MediaFull, CoverPair, CoverGrid, CoverFan, CoverStack, Triptych, StarterShelf, ShelfLater, PanelCard } from "./components/covers.jsx";
 import { ChapterCard, QuoteCard, TitleCard, ComixCatalogCard, EndCard, PlaceholderCard, ScreenCapture } from "./components/cards.jsx";
 import { withFallbacks, resolveAudio } from "./timeline.js";
+import { Logo } from "../src/ChannelIntro.jsx";
+
+const StingCard = () => <Logo />;
 
 // Timeline `type` -> component. Add a type here and it is usable from any
 // episode's timeline.
@@ -20,6 +23,7 @@ export const SEGMENT_TYPES = {
   cover: CoverFull,
   kenBurns: KenBurnsCover,
   media: MediaFull,
+  panel: PanelCard,
   pair: CoverPair,
   stack: CoverStack,
   triptych: Triptych,
@@ -28,6 +32,7 @@ export const SEGMENT_TYPES = {
   shelf: StarterShelf,
   shelfLater: ShelfLater,
   screen: ScreenCapture,
+  sting: StingCard,
   quote: QuoteCard,
   comixcatalog: ComixCatalogCard,
   end: EndCard,
@@ -77,6 +82,18 @@ export function EpisodeAudio({ audio, episodeId }) {
     if (fadeOut) v = Math.min(v, interpolate(f, [len - fadeOut * fps, len], [vol, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
     return v;
   };
+  const musicVolume = (f) => {
+    const base = clampFade(f, durationInFrames, audio.music.fadeIn, audio.music.fadeOut, audio.music.volume ?? 0.1);
+    const t = f / fps;
+    const ramp = 0.3;
+    let duck = 1;
+    for (const d of audio.music.duck ?? []) {
+      const down = interpolate(t, [d.from - ramp, d.from], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+      const up = interpolate(t, [d.to, d.to + ramp], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+      duck = Math.min(duck, Math.max(down, up));
+    }
+    return base * duck;
+  };
   const narration = src(audio.narration);
   const music = src(audio.music);
   const sting = src(audio.sting);
@@ -97,13 +114,14 @@ export function EpisodeAudio({ audio, episodeId }) {
         <Audio
           src={music}
           loop={audio.music.loop ?? true}
-          volume={(f) => clampFade(f, durationInFrames, audio.music.fadeIn, audio.music.fadeOut, audio.music.volume ?? 0.1)}
+          volume={musicVolume}
         />
       )}
       {sting && (
         <Sequence from={Math.round((audio.sting.at ?? 0) * fps)} durationInFrames={Math.round((audio.sting.dur ?? 8) * fps)} name="Sting">
           <Audio
             src={sting}
+            trimBefore={Math.round((audio.sting.from ?? 0) * fps)}
             volume={(f) => clampFade(f, Math.round((audio.sting.dur ?? 8) * fps), 0, audio.sting.fadeOut, audio.sting.volume ?? 0.35)}
           />
         </Sequence>

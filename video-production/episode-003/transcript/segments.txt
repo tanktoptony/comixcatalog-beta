@@ -1,0 +1,137 @@
+  27.09  0:27.1  Episode 3.
+  28.83  0:28.8  Two long boxes in the birth of comics catalog.
+  41.65  0:41.6  P1.
+  44.37  0:44.4  A friend of mine recently gave me two long boxes full of comic books.
+  48.23  0:48.2  Hundreds of comics he'd been collecting since he was a kid in the 90s.
+  52.51  0:52.5  And I was pretty excited because I was about to find out two things.
+  56.51  0:56.5  First, what the hell was in these boxes?
+  59.45  0:59.5  And second,
+  60.63  1:00.6  how well could the comic book website I'd been building actually handle a real collection?
+  67.40  1:07.4  P6.
+  79.31  1:19.3  But before I get into that, I should probably explain why I started building comics catalog in the first place.
+  85.29  1:25.3  A few years ago, during COVID,
+  87.57  1:27.6  I was living with a roommate who was constantly buying records from discogs.
+  91.35  1:31.3  I was familiar with the website, but once he actually showed me how he used it, I started getting a little obsessed with an idea.
+  98.27  1:38.3  He could catalog his records, find specific—he could catalog his records, find specific pressings, track approximate values, and buy from sellers all over the world.
+ 109.89  1:49.9  He could hunt for deals without having to guess what everything was worth.
+ 113.75  1:53.8  And I remember thinking about my own comic collection,
+ 116.91  1:56.9  specifically my co -hidden Cambria comics.
+ 120.09  2:00.1  And I had books I wanted to find, runs I wanted to finish, and gaps in my collection.
+ 125.71  2:05.7  Why couldn't I just open a website, find the exact comic I needed, compare listings, and buy it?
+ 131.49  2:11.5  I was just starting my master's degree in software engineering,
+ 135.03  2:15.0  and somewhere in there, in there,
+ 138.15  2:18.2  P13, done over.
+ 140.27  2:20.3  I was just starting my master's in software engineering, and somewhere in there, the idea started taking shape.
+ 146.71  2:26.7  What if somebody made discogs for comic books?
+ 149.51  2:29.5  And what if that somebody was me?
+ 151.97  2:32.0  Fast forward to my friend Cory handing me two enormous boxes of comics at the beginning of the summer.
+ 158.11  2:38.1  Suddenly, I had a pretty good way to find out whether the thing I'd been building actually worked.
+ 163.35  2:43.3  If you've never used discogs, here's the short version.
+ 166.47  2:46.5  Every record has its own page.
+ 168.63  2:48.6  And not just the album, the specific pressing. The country, the label, the year, the catalog number. If you own it, you click a button and it's in your collection.
+ 178.27  2:58.3  If you want it, there are sellers listed right there.
+ 181.43  3:01.4  And the whole thing is built by the people who use it. The collector is adding what they own.
+ 185.89  3:05.9  Here's something I didn't know until I was recording this video.
+ 189.75  3:09.8  Discogs started in 2000 as one programmer's...
+ 193.99  3:14.0  P20 over again?
+ 196.35  3:16.3  Here's something I didn't know until I started researching and building this idea.
+ 201.85  3:21.8  Discogs started in 2000 as one programmer's catalog of his own favorite music.
+ 207.11  3:27.1  Electronic music. That's it. No rock and roll, no pop, no R &B.
+ 212.13  3:32.1  It became the database for everything because other collectors showed up and added what they had.
+ 217.21  3:37.2  Hold on to that. It comes back.
+ 220.37  3:40.4  Comics have the exact same problem records do. Maybe worse.
+ 224.43  3:44.4  Variant covers, second printings, new stand -and -direct editions. The same title relaunched five times. Everyone starting over at number one.
+ 233.41  3:53.4  In my Coheed books for the perfect example,
+ 236.33  3:56.3  Claudio Sanchez, the band's singer, writes comics to tell you the story behind the albums. I wanted one place that knew exactly what existed, what I had, and what I was missing.
+ 248.15  4:08.2  That's a whole episode by itself, and I'm saving, so that's all you get for now.
+ 252.69  4:12.7  So,
+ 253.89  4:13.9  Corey.
+ 255.61  4:15.6  He'd been collecting since he was a kid in the 90s, just like me.
+ 259.87  4:19.9  Quick thing if you're not a collector. A long box is exactly what it sounds like. A long cardboard box that holds comics standing up front to back. A full one is heavy. Two of them is a workout.
+ 271.39  4:31.4  Most of these were bagged and bordered, which tells you Corey cared about them, or at least bought them from places they cared about them. But organized?
+ 278.53  4:38.5  Not so much.
+ 279.81  4:39.8  Not even a little. Marvel next to image, next to something I'd never heard of next to an aardvark.
+ 285.15  4:45.1  So step one was getting everything out and into piles.
+ 288.19  4:48.2  By publisher first, then by series.
+ 292.36  4:52.4  And somewhere in there, it hit me that this is a time capsule.
+ 296.16  4:56.2  And somewhere in there, it hit me that this is a time capsule.
+ 299.66  4:59.7  This isn't what a price guide says mattered in the 90s. It's what one kid actually picked up off the rack.
+ 306.22  5:06.2  Then I started putting them in the comics catalog.
+ 308.74  5:08.7  And I started with the easy stuff. The big Marvel, DC, and image runs.
+ 314.32  5:14.3  Iron Man, Silver Surfer, Avengers,
+ 317.54  5:17.5  you get it.
+ 319.06  5:19.1  Search the title, find the run, mark the issues I've got. Next stack.
+ 323.62  5:23.6  And I'll be honest. There was a moment where I just sat there looking at a run, filling in on the screen,
+ 328.80  5:28.8  covers lined up, issues checked off. And I thought, wow,
+ 332.42  5:32.4  I made this. It works. I built a thing. And it actually works.
+ 343.16  5:43.2  P32.
+ 344.82  5:44.8  If you've ever built anything, you know that feeling lasts about 10 minutes.
+ 351.69  5:51.7  Because then I got to the other pile.
+ 354.27  5:54.3  Cerebus.
+ 355.65  5:55.6  Dave Sims, Cerebus the aardvark, to be exact.
+ 359.07  5:59.1  Self -published through his own company,
+ 361.33  6:01.3  aardvark Vanneheim,
+ 362.80  6:02.8  for 300 issues from 1977 to 2004.
+ 368.27  6:08.3  It started as a parody of Conan the Barbarian, starring in aardvark. And over the next 26 years,
+ 373.57  6:13.6  it turned into something a lot bigger and a lot stranger.
+ 376.63  6:16.6  It's one of the most important self -published comics ever made.
+ 380.29  6:20.3  It also has a complicated reputation, especially the later issues.
+ 384.51  6:24.5  But that's a conversation for another day.
+ 388.49  6:28.5  P35.
+ 389.73  6:29.7  Milk and Cheese by Evan Dorkin. Dairy products gone bad.
+ 393.99  6:34.0  That's the tagline, and it's accurate.
+ 397.65  6:37.6  A carton of milk and a wedge of cheese who are angry at everything and deal with it through violence.
+ 402.59  6:42.6  Slave labor graphics put it out in the 90s. The first issue is number one.
+ 407.09  6:47.1  The second issue is other number one.
+ 409.73  6:49.7  The third is third number one.
+ 412.35  6:52.4  That typical slacker, smart ass, 90s vibe.
+ 416.05  6:56.1  It's very funny.
+ 420.78  7:00.8  Scratch that last line.
+ 422.74  7:02.7  It's very funny. Skip. It's very funny.
+ 426.10  7:06.1  Just to end on, that's the whole vibe.
+ 431.12  7:11.1  Scud the Disposable Assassin by Rob Strad.
+ 435.10  7:15.1  Best premise in comics, maybe.
+ 437.08  7:17.1  In the future, you buy a robot assassin out of a vending machine. It kills its target, then it blows itself up.
+ 444.26  7:24.3  Scud figures this out, so he doesn't finish the job.
+ 447.40  7:27.4  He puts his target in the hospital and spends the series taking freelance work to pay the medical bills. It started at Fireman Press in 1994.
+ 455.64  7:35.6  Stopped at issue 20 on a cliffhanger. And Shrab finally finished it at Image in 2008.
+ 463.26  7:43.3  Ugh, Malibu Comics.
+ 465.62  7:45.6  Malibu was a 90s publisher with its own superhero universe. The Ultraverse right up until Marvel bought the company in 1994.
+ 474.68  7:54.7  And Malibu. Malibu Comics was a 90s publisher with its own superhero universe. The Ultraverse. Right up until Marvel bought the company in 1994.
+ 488.68  8:08.7  And this is where it got humbling.
+ 499.20  8:19.2  Cerebus, the most famous self -published comic there is, didn't show up in search at all until this October.
+ 506.50  8:26.5  Malibu was basically invisible until September.
+ 509.32  8:29.3  And as I'm recording this, Milk and Cheese still isn't on comics catalog.
+ 513.12  8:33.1  Scud has the 2008 finale, but not the original 20 issues from the 90s.
+ 517.94  8:37.9  And the reason is kind of embarrassing. The data's out there. The problem's with me. When I set up which publishers the site would show, I built the list out of publishers I recognized.
+ 527.76  8:47.8  And I know a lot about of X -Men.
+ 530.56  8:50.6  And I know a lot about the X -Men.
+ 533.02  8:53.0  I know a lot less about slave labor graphics.
+ 538.66  8:58.7  It was hard to discern which of these publishers was important versus which was just a European imprint or something different.
+ 548.22  9:08.2  So, remember Discogs?
+ 550.64  9:10.6  One guy's electronic music collection that turned into the catalog for everything?
+ 555.66  9:15.7  I've walked right into the same trap.
+ 557.76  9:17.8  If I only built for the comics I love, I've built a really nice website for me. A real catalog has to handle what real collectors actually own.
+ 566.36  9:26.4  And real collectors are weird.
+ 568.16  9:28.2  They have an aardvark in them.
+ 570.86  9:30.9  And real collections are weird.
+ 573.12  9:33.1  Sometimes they have an aardvark in them.
+ 575.56  9:35.6  Some of what I found is fixed now. Malibu's searchable. Cerebus is searchable.
+ 580.68  9:40.7  Some of it isn't. Milk and Cheese is still on the list to get fixed this week and it's staying on the list until it's on the site.
+ 587.66  9:47.7  And honestly, that's the real test.
+ 590.34  9:50.3  Anybody can find Amazing Spider -Man. Spectacular Spider -Man.
+ 594.72  9:54.7  Et cetera. The test is whether you can find the strange little book that you and maybe four other people remember buying.
+ 601.02 10:01.0  So Corey, I gotta thank you for the comics and for accidentally running the best test this website has ever had.
+ 607.76 10:07.8  For me, collecting has always come down to three things.
+ 611.56 10:11.6  Finding stuff you didn't know existed,
+ 613.72 10:13.7  finishing the run, and talking to other people. For me, collecting has always come down to three things.
+ 620.34 10:20.3  Finding stuff you didn't know existed,
+ 622.60 10:22.6  finishing the run, and talking to other people who care about this as much as you do.
+ 627.64 10:27.6  This guy's nailed that for records. That's what I'm trying to build for comics.
+ 632.26 10:32.3  The catalog and the collection part, that works today. The buying and selling part is in beta.
+ 638.12 10:38.1  You can list a book and people can make you an offer, but there's no checkout yet.
+ 642.64 10:42.6  You work out the rest with the seller just like the old days.
+ 646.18 10:46.2  I'm not going to pretend it's further along than it is, but it's certainly better than Facebook Marketplace.
+ 653.04 10:53.0  So if you've got a long box of your own,
+ 655.40 10:55.4  so if you've got a long box of your own, tell me in the comments what's in it. Especially the weird stuff. If it's not on comics catalog, that's my problem and I want to know about it.
+ 665.26 11:05.3  Next time, the books that started all of this from my collection called Hidden Cambria.

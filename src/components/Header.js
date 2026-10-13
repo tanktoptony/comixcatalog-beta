@@ -271,16 +271,6 @@ export default function Header() {
     return seriesResults.length > 0 || comicResults.length > 0;
   }, [seriesResults, comicResults]);
 
-  // The dropdown requests populate the term-level server cache. Prefetch the
-  // matching RSC payload once results open so Enter/View all can reuse that
-  // computation and navigation does not add another visible wait.
-  useEffect(() => {
-    const q = query.trim();
-    if (!onSearchPage && searchOpen && hasResults && q) {
-      router.prefetch(`/search?q=${encodeURIComponent(q)}`);
-    }
-  }, [hasResults, onSearchPage, query, router, searchOpen]);
-
   // Grouped for display, and flattened in the SAME order for keyboard
   // navigation. highlightedIndex is positional, so deriving the two from
   // different orders would highlight a different row than the cursor is on.

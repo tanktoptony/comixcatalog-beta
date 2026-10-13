@@ -28050,8 +28050,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T09:05:59.874252+00:00",
-    "retry_after": "2026-10-14T09:05:59.874265+00:00"
+    "last_attempt_at": "2026-10-13T10:05:11.384513+00:00",
+    "retry_after": "2026-10-14T10:05:11.384524+00:00"
   },
   {
     "name": "Cerebus",
@@ -51701,5 +51701,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T09:05:20.586353+00:00",
     "retry_after": "2026-10-14T09:05:20.586365+00:00"
+  },
+  {
+    "name": "Star Wars: Dawn of the Jedi",
+    "publisher": "Dark Horse Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T10:01:00.659294+00:00",
+    "retry_after": "2026-10-14T10:01:00.659310+00:00"
+  },
+  {
+    "name": "Extremely Silly Comics",
+    "publisher": "Antarctic Press",
+    "year": 1986,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T10:01:15.912709+00:00",
+    "retry_after": "2026-10-14T10:01:15.912728+00:00"
+  },
+  {
+    "name": "Skywolf",
+    "publisher": "Eclipse Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T10:03:15.615831+00:00",
+    "retry_after": "2026-10-14T10:03:15.615846+00:00"
   }
 ]

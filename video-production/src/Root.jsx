@@ -7,6 +7,7 @@ import { VIDEO, CHANNEL_INTRO } from "../shared/brand.js";
 import { ThumbShelf, ThumbNotHere, ThumbFace } from "./Thumbnails.jsx";
 import { THUMBNAILS_002 } from "./Thumbnails002.jsx";
 import { THUMBNAILS_003 } from "./Thumbnails003.jsx";
+import { THUMBNAILS_004 } from "./Thumbnails004.jsx";
 import { ShortClip } from "./Shorts.jsx";
 import { ChannelBanner } from "./Banner.jsx";
 import { ChannelIntro, ChannelSting } from "./ChannelIntro.jsx";
@@ -15,6 +16,7 @@ import { SHORTS, END_CARD, shortRange } from "../shorts.js";
 import { narrationWords as narrationWords001 } from "../episode-001/timeline.v3.js";
 import { narrationWords as narrationWords002 } from "../episode-002/timeline.js";
 import { narrationWords as narrationWords003 } from "../episode-003/timeline.js";
+import { narrationWords as narrationWords004 } from "../episode-004/timeline.js";
 
 const shortDetails = {
   "episode-001-v3": {
@@ -29,6 +31,10 @@ const shortDetails = {
     words: narrationWords003,
     endCardTitle: "Two Long Boxes and the Birth of ComixCatalog",
   },
+  "episode-004": {
+    words: narrationWords004,
+    endCardTitle: "Coheed and Cambria: The Story Behind The Amory Wars",
+  },
 };
 
 // YouTube thumbnails (scripts/thumbs.mjs).
@@ -38,6 +44,7 @@ export const THUMBNAILS = [
   ["Thumb001Face", ThumbFace],
   ...THUMBNAILS_002,
   ...THUMBNAILS_003,
+  ...THUMBNAILS_004,
 ];
 
 export function Root() {

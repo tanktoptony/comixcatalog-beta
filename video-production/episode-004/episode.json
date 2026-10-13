@@ -1,0 +1,35 @@
+{
+  "id": "episode-004",
+  "number": 4,
+  "slug": "amory-wars-part-1",
+  "titleOptions": [
+    "Coheed and Cambria: The Story Behind The Amory Wars",
+    "The Amory Wars, Part 1: Where Coheed's Story Came From",
+    "The Comic Book Universe Hiding in Coheed and Cambria's Albums"
+  ],
+  "narrator": "tony-heygen-tts",
+  "utmCampaign": "amory01",
+  "sections": [
+    { "id": "01-02-opening-introduction", "chapter": "Where it started" },
+    { "id": "03-shabutie", "chapter": "The Shabütie era" },
+    { "id": "04-second-stage-turbine-blade", "chapter": "The Second Stage Turbine Blade" },
+    { "id": "05-music-and-comics", "chapter": "When the music wasn't enough" },
+    { "id": "06-comic-revisions", "chapter": "The comics and their revisions" },
+    { "id": "07-heavens-fence", "chapter": "The world of Heaven's Fence" },
+    { "id": "08-conclusion", "chapter": "Next time" }
+  ],
+  "tags": ["coheed and cambria", "the amory wars", "claudio sanchez", "second stage turbine blade", "in keeping secrets of silent earth", "good apollo", "year of the black rainbow", "heavens fence", "comic books", "evil ink comics", "boom studios", "prog rock", "concept album", "comixcatalog"],
+  "descriptionIntro": "I put on a burned copy of The Second Stage Turbine Blade in my dorm room in 2002. I'm still following the story. Part 1 of a series on Coheed and Cambria's Amory Wars: where it came from, and why it's so hard to know where to start.",
+  "pinnedComment": "Which Coheed record got you first? And did you ever find those first two Bag On Line comics?",
+  "credits": [
+    "Cover art is the property of Evil Ink Comics, Image Comics, 12-Gauge Comics, BOOM! Studios, Claudio Sanchez and the artists including Wes Abbott, Christopher Shy, Gus Vazquez, Gabriel Guzman, and Chondra Echert, shown for commentary and review.",
+    "Album art is the property of Coheed and Cambria and their labels, shown for commentary and review.",
+    "Archived pages via the Internet Archive's Wayback Machine.",
+    "Music: \"Rollin at 5\" and \"Funkorama\" by Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License. http://creativecommons.org/licenses/by/4.0/"
+  ],
+  "shorts": [
+    { "id": "Short004BagOnLine", "title": "Why Is It Called The Bag On Line Adventures?", "hook": "Coheed's universe was named after a luggage shop", "description": "The wonderfully ordinary origin of the first name for The Amory Wars.", "schedule": "TBD" },
+    { "id": "Short004TwoIssues", "title": "The First Amory Wars Comic Stopped After 2 Issues", "hook": "The original comic lasted two issues", "description": "The Bag On Line Adventures began in 2004, then stopped after only two issues.", "schedule": "TBD" },
+    { "id": "Short004ThreeTimelines", "title": "The Amory Wars Has 3 Different Timelines", "hook": "Three timelines make The Amory Wars confusing", "description": "Album order, story order, and comic publication order do not line up.", "schedule": "TBD" }
+  ]
+}

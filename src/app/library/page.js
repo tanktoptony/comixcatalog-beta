@@ -29,6 +29,7 @@ import { isOwnedStatus } from "@/lib/collectionStatus";
 import { chunk } from "@/lib/chunk";
 import { normalizePublisherDisplayName } from "@/lib/publisher";
 import { isUnlinkedForSale, listingCompleteness } from "@/lib/listingCompleteness";
+import { buildLibraryItems, groupLibraryRows } from "@/lib/libraryView";
 
 // Books per /api/library-hydrate request. The route caps a request at 2,000.
 const HYDRATE_CHUNK = 1000;
@@ -927,35 +928,13 @@ function LibraryPageContent() {
   }, [collections, comicIndex]);
 
   const libraryItems = useMemo(() => {
-    return collections
-      .filter((item) => inTab(item, tab))
-      .map((item) => {
-        const key = makeLibraryKey(item);
-        if (!key) return null;
-        const comic = comicIndex[key];
-        // Even without hydration data we surface the row as a stub. Previous
-        // behavior (return null) hid freshly-added wishlist/collection items
-        // until /api/library-hydrate completed, which made first-attempt adds
-        // appear to silently fail. Stub now, real data fills in on next
-        // render once hydration resolves.
-        const stub = {
-          id: key,
-          title: "…",
-          issueNumber: "",
-          year: null,
-          publisher: "Unknown Publisher",
-          rawPublisher: "Unknown Publisher",
-          cover: "/fallback-cover.png",
-        };
-        const resolved = comic ?? stub;
-        return {
-          ...item,
-          libraryKey: key,
-          hydrated: Boolean(comic),
-          comic: { ...resolved, href: getLibraryHref(item, comic) },
-        };
-      })
-      .filter(Boolean);
+    return buildLibraryItems(collections, comicIndex, tab).map((item) => ({
+      ...item,
+      comic: {
+        ...item.comic,
+        href: getLibraryHref(item, item.hydrated ? item.comic : null),
+      },
+    }));
   }, [collections, tab, comicIndex]);
 
   const availablePublishers = useMemo(() => {
@@ -2334,30 +2313,18 @@ function LibraryPageContent() {
               (with full GradeEditor for owned items). Best for collectors
               with dense runs across many series and for mobile density. */}
           {!loading && filteredItems.length > 0 && !(tab === "for_sale" && completionFilter === "price") && viewMode === "rows" && (() => {
-            const groups = new Map();
-            for (const item of filteredItems) {
-              const c = item.comic || {};
-              const title = c.title || "Untitled";
-              // Group by title only - all volumes of e.g. "Fantastic Four"
-              // collapse into one row regardless of launch year. Matches the
-              // profile Rows view behavior.
-              const key = title;
-              let g = groups.get(key);
-              if (!g) {
-                g = { key, title, years: new Set(), publisher: c.publisher, cover: null, items: [] };
-                groups.set(key, g);
-              }
-              if (c.year) g.years.add(Number(c.year));
-              g.items.push(item);
-              if (!g.cover) {
+            const groups = groupLibraryRows(filteredItems);
+            for (const g of groups) {
+              if (g.cover) continue;
+              for (const item of g.items) {
                 const liveGrade = gradeData[item.id];
                 const userCover = USER_COVER_UPLOAD_ENABLED
                   ? resolveUserCover(liveGrade?.user_cover_url ?? item.user_cover_url)
                   : null;
-                g.cover = c.cover || userCover || null;
+                if (userCover) { g.cover = userCover; break; }
               }
             }
-            const groupList = [...groups.values()].map((g) => {
+            const groupList = groups.map((g) => {
               const years = [...g.years].filter((y) => Number.isFinite(y)).sort((a, b) => a - b);
               g.year = years.length === 0 ? "" : years.length === 1 ? years[0] : `${years[0]}–${years[years.length - 1]}`;
               return g;
@@ -2595,7 +2562,7 @@ function LibraryPageContent() {
                     )}
 
                     {(tab === "owned" || tab === "for_sale") && !isPublicPreview && (
-                      <div className="comic-card-grade">
+                      <div className={`comic-card-grade ${item.status === "for_sale" ? "has-sale-action" : ""}`}>
                         <GradeEditor
                           collectionId={item.id}
                           initialData={liveGrade}

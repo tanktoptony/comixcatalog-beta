@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T03:03:37.720656+00:00",
-    "retry_after": "2026-10-14T03:03:37.720668+00:00"
+    "last_attempt_at": "2026-10-13T04:02:20.024249+00:00",
+    "retry_after": "2026-10-14T04:02:20.024266+00:00"
   },
   {
     "name": "Cerebus",
@@ -41633,9 +41633,9 @@
     "year": 1979,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T04:01:20.398330+00:00",
-    "retry_after": "2026-10-13T04:01:20.398355+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T04:02:04.703980+00:00",
+    "retry_after": "2026-10-16T04:02:04.703996+00:00"
   },
   {
     "name": "We Love You, Snoopy",
@@ -49531,9 +49531,9 @@
     "year": 1989,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T03:01:53.195829+00:00",
-    "retry_after": "2026-10-13T03:01:53.195847+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T04:02:00.398697+00:00",
+    "retry_after": "2026-10-16T04:02:00.398714+00:00"
   },
   {
     "name": "Street Fighter V",
@@ -49541,9 +49541,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T03:01:53.576469+00:00",
-    "retry_after": "2026-10-13T03:01:53.576487+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T04:02:00.843644+00:00",
+    "retry_after": "2026-10-16T04:02:00.843660+00:00"
   },
   {
     "name": "Scattering His Virgin Bloom",
@@ -49551,9 +49551,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T03:02:00.411625+00:00",
-    "retry_after": "2026-10-13T03:02:00.411642+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T04:02:01.991184+00:00",
+    "retry_after": "2026-10-16T04:02:01.991199+00:00"
   },
   {
     "name": "Patricia Briggs' Alpha and Omega: Cry Wolf",
@@ -49574,9 +49574,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T04:01:12.504451+00:00",
-    "retry_after": "2026-10-13T04:01:12.504466+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T04:02:03.521417+00:00",
+    "retry_after": "2026-10-16T04:02:03.521432+00:00"
   },
   {
     "name": "O Homem-Aranha & Wolverine",
@@ -51196,5 +51196,115 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T03:02:14.878119+00:00",
     "retry_after": "2026-10-14T03:02:14.878136+00:00"
+  },
+  {
+    "name": "Doctor Who Classic Comics Autumn Special",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T04:00:43.440874+00:00",
+    "retry_after": "2026-10-14T04:00:43.440908+00:00"
+  },
+  {
+    "name": "Exosquad",
+    "publisher": "Topps Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T04:00:44.681032+00:00",
+    "retry_after": "2026-10-14T04:00:44.681048+00:00"
+  },
+  {
+    "name": "The Uncanny X-Men and the New Teen Titans",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T04:01:20.929312+00:00",
+    "retry_after": "2026-10-14T04:01:20.929329+00:00"
+  },
+  {
+    "name": "Franklin Richards: It's Dark Reigning Cats & Dogs",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T04:01:21.715724+00:00",
+    "retry_after": "2026-10-14T04:01:21.715739+00:00"
+  },
+  {
+    "name": "Punisher Annual 2009",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T04:01:22.190510+00:00",
+    "retry_after": "2026-10-14T04:01:22.190526+00:00"
+  },
+  {
+    "name": "Tales from the Con: Year 1",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T04:01:22.624065+00:00",
+    "retry_after": "2026-10-14T04:01:22.624080+00:00"
+  },
+  {
+    "name": "Stan Lee Meets Dr. Strange",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T04:01:23.020390+00:00",
+    "retry_after": "2026-10-14T04:01:23.020407+00:00"
+  },
+  {
+    "name": "A Boy and His 'Bot",
+    "publisher": "Now Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T04:01:24.268284+00:00",
+    "retry_after": "2026-10-14T04:01:24.268299+00:00"
+  },
+  {
+    "name": "Mystic Arcana [Magik]",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T04:01:25.702905+00:00",
+    "retry_after": "2026-10-14T04:01:25.702922+00:00"
+  },
+  {
+    "name": "52 / World War III Part Three: Hell Is for Heroes",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T04:01:26.453211+00:00",
+    "retry_after": "2026-10-14T04:01:26.453227+00:00"
+  },
+  {
+    "name": "Batman Strikes! [Burger King Edition]",
+    "publisher": "DC Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T04:01:26.845328+00:00",
+    "retry_after": "2026-10-14T04:01:26.845344+00:00"
   }
 ]

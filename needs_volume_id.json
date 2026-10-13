@@ -28049,8 +28049,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T00:03:33.691209+00:00",
-    "retry_after": "2026-10-14T00:03:33.691225+00:00"
+    "last_attempt_at": "2026-10-13T01:07:39.166984+00:00",
+    "retry_after": "2026-10-14T01:07:39.166998+00:00"
   },
   {
     "name": "Cerebus",
@@ -49417,9 +49417,9 @@
     "year": 1975,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T01:03:39.658438+00:00",
-    "retry_after": "2026-10-13T01:03:39.658454+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T01:03:42.903644+00:00",
+    "retry_after": "2026-10-16T01:03:42.903660+00:00"
   },
   {
     "name": "As Novas Aventuras de Ciclope e F�nix",
@@ -51007,5 +51007,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T00:02:39.618988+00:00",
     "retry_after": "2026-10-14T00:02:39.619007+00:00"
+  },
+  {
+    "name": "Deadpool Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T01:02:12.717178+00:00",
+    "retry_after": "2026-10-14T01:02:12.717190+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles Amazing Adventures Robotanimals",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 101758,
+        "name": "Teenage Mutant Ninja Turtles Amazing Adventures: RobotAnimals",
+        "publisher": "IDW Publishing",
+        "start_year": 2017
+      },
+      {
+        "id": 106916,
+        "name": "Teenage Mutant Ninja Turtles Amazing Adventures: RobotAnimals",
+        "publisher": "IDW Publishing",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T01:04:03.999828+00:00",
+    "retry_after": "2026-10-14T01:04:03.999842+00:00"
+  },
+  {
+    "name": "PPV",
+    "publisher": "Antarctic Press",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T01:04:04.367164+00:00",
+    "retry_after": "2026-10-14T01:04:04.367179+00:00"
+  },
+  {
+    "name": "Surfside Girls",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T01:06:45.777860+00:00",
+    "retry_after": "2026-10-14T01:06:45.777875+00:00"
   }
 ]

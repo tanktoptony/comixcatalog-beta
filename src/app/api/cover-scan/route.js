@@ -12,6 +12,8 @@ import { isOwnedStatus } from "@/lib/collectionStatus";
 export const runtime = "nodejs";
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 const IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
+const configuredGlobalCap = Number.parseInt(process.env.COVER_SCAN_GLOBAL_DAILY_CAP || "1500", 10);
+const GLOBAL_DAILY_CAP = Number.isFinite(configuredGlobalCap) && configuredGlobalCap > 0 ? configuredGlobalCap : 1500;
 const publicCover = (path) => path ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}` : null;
 
 async function quota(supabase, userId) {
@@ -129,6 +131,17 @@ export async function POST(req) {
     if (cappedError) console.error("cover scan capped log failed", cappedError);
     const resetAt = new Date(); resetAt.setUTCDate(resetAt.getUTCDate() + 1); resetAt.setUTCHours(0, 0, 0, 0);
     return NextResponse.json({ error: "You have used today’s cover scans. Try again after the daily reset.", reset_at: resetAt.toISOString(), quota: current }, { status: 429 });
+  }
+  const globalStart = new Date(); globalStart.setUTCHours(0, 0, 0, 0);
+  const { count: globalCount, error: globalError } = await supabase.from("cover_scans")
+    .select("id", { count: "exact", head: true }).gte("created_at", globalStart.toISOString());
+  if (globalError) {
+    console.error("cover scan global quota failed", globalError);
+    return NextResponse.json({ error: "Could not check cover scanning capacity." }, { status: 503 });
+  }
+  if ((globalCount ?? 0) >= GLOBAL_DAILY_CAP) {
+    console.error("cover scan global daily cap reached", { count: globalCount, cap: GLOBAL_DAILY_CAP });
+    return NextResponse.json({ error: "Cover scanning is at capacity for today. Try again tomorrow." }, { status: 429 });
   }
   const unavailable = coverScanConfigStatus();
   if (unavailable) { console.error("POST /api/cover-scan: missing ANTHROPIC_API_KEY"); return NextResponse.json({ error: unavailable.error }, { status: unavailable.status }); }

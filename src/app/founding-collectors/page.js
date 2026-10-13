@@ -11,7 +11,17 @@ export const metadata = {
 // The count and the Roll of Honor are server-rendered (both cached a
 // minute) so the page is right on first paint; the client refreshes the
 // count and handles claiming.
-export default async function FoundingCollectorsPage() {
+export default async function FoundingCollectorsPage({ searchParams }) {
+  const query = await searchParams;
+  const initialMessage = query?.claimed === "1"
+    ? "You're in. Founding Collector pass claimed."
+    : query?.claim === "soldout"
+      ? "All 100 passes were claimed before you confirmed."
+      : query?.claim === "sent"
+        ? "Check your email to claim your founding pass. It's first come, first served, so confirm soon."
+      : query?.claim === "invalid" || query?.claim === "expired"
+        ? "That link has expired or was already used. Claim again below."
+        : "";
   const [initialRemaining, roster] = await Promise.all([
     getFoundingRemaining(),
     getFoundingRoster().catch((err) => {
@@ -19,5 +29,5 @@ export default async function FoundingCollectorsPage() {
       return [];
     }),
   ]);
-  return <FoundingCollectorsClient initialRemaining={initialRemaining} roster={roster} />;
+  return <FoundingCollectorsClient initialRemaining={initialRemaining} roster={roster} initialMessage={initialMessage} />;
 }

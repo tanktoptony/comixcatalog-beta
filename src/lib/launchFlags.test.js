@@ -14,31 +14,36 @@ const status = (code) => async () => ({ ok: false, status: code, json: async () 
 
 test("a granted pass reports itself claimed, with what is left", async () => {
   const r = await claimFoundingPass(ok({ ok: true, cap: 100, claimed: 28, remaining: 72 }));
-  assert.deepEqual(r, { claimed: true, remaining: 72 });
+  assert.deepEqual(r, { claimed: true, pending: false, remaining: 72 });
+});
+
+test("an emailed claim reports pending rather than claimed", async () => {
+  const r = await claimFoundingPass(ok({ ok: true, pending: true, remaining: 69 }));
+  assert.deepEqual(r, { claimed: false, pending: true, remaining: 69 });
 });
 
 test("all 100 gone is a normal outcome, not a thrown error", async () => {
   // This is the whole point of the change: signup 101 lands on free and
   // meets the upgrade page, rather than the signup blowing up.
   const r = await claimFoundingPass(status(409));
-  assert.deepEqual(r, { claimed: false, remaining: 0 });
+  assert.deepEqual(r, { claimed: false, pending: false, remaining: 0 });
 });
 
 test("an unauthenticated or failed call still lets the signup finish", async () => {
-  assert.deepEqual(await claimFoundingPass(status(401)), { claimed: false, remaining: 0 });
-  assert.deepEqual(await claimFoundingPass(status(500)), { claimed: false, remaining: 0 });
+  assert.deepEqual(await claimFoundingPass(status(401)), { claimed: false, pending: false, remaining: 0 });
+  assert.deepEqual(await claimFoundingPass(status(500)), { claimed: false, pending: false, remaining: 0 });
 });
 
 test("a network failure costs a promo, never an account", async () => {
   const boom = async () => {
     throw new Error("network down");
   };
-  assert.deepEqual(await claimFoundingPass(boom), { claimed: false, remaining: 0 });
+  assert.deepEqual(await claimFoundingPass(boom), { claimed: false, pending: false, remaining: 0 });
 });
 
 test("malformed success is treated as not claimed rather than trusted", async () => {
-  assert.deepEqual(await claimFoundingPass(ok({})), { claimed: false, remaining: 0 });
-  assert.deepEqual(await claimFoundingPass(ok(null)), { claimed: false, remaining: 0 });
+  assert.deepEqual(await claimFoundingPass(ok({})), { claimed: false, pending: false, remaining: 0 });
+  assert.deepEqual(await claimFoundingPass(ok(null)), { claimed: false, pending: false, remaining: 0 });
 });
 
 test("the client no longer hands itself any entitlements", async () => {

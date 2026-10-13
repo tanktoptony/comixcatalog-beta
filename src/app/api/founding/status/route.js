@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
+import { isDisposableEmail } from "@/lib/disposableEmail";
+import { buildFoundingClaimEmail, createFoundingToken, hashFoundingToken, mapFoundingClaim } from "@/lib/foundingClaim";
+import { resendBatch } from "@/lib/newsletter";
+import { SITE_URL } from "@/lib/siteUrl";
 
 const CAP = 100;
 
@@ -67,12 +71,64 @@ export async function POST(req) {
     const supabase = getServiceClient();
     const availability = await getAvailability(supabase);
     if (availability.remaining < 1) return NextResponse.json({ error: "All founding passes have been claimed" }, { status: 409 });
-    const { error } = await supabase.from("profiles").update({ is_pro: true, is_founding_collector: true }).eq("id", user.id);
-    if (error) {
-      return NextResponse.json({ error: error.message || "Could not claim founding pass" }, { status: 500 });
+
+    const providers = new Set([
+      user.app_metadata?.provider,
+      ...(user.identities ?? []).map((identity) => identity.provider),
+    ]);
+    if (providers.has("google")) {
+      const { data, error } = await supabase.rpc("claim_founding_pass", { p_user_id: user.id });
+      if (error) throw error;
+      const claim = mapFoundingClaim(data);
+      if (!claim.ok) return NextResponse.json({ error: "All founding passes have been claimed" }, { status: 409 });
+      return NextResponse.json(claim);
     }
-    const next = await getAvailability(supabase);
-    return NextResponse.json({ ok: true, ...next });
+
+    const email = String(user.email || "").trim().toLowerCase();
+    if (!email || isDisposableEmail(email)) {
+      return NextResponse.json({ error: "Founding passes need a real email address." }, { status: 422 });
+    }
+
+    const { data: existing, error: lookupError } = await supabase
+      .from("founding_claim_tokens")
+      .select("sent_count, last_sent_at")
+      .eq("user_id", user.id)
+      .maybeSingle();
+    if (lookupError) throw lookupError;
+    const lastSent = existing?.last_sent_at ? new Date(existing.last_sent_at).getTime() : 0;
+    if (lastSent && Date.now() - lastSent < 10 * 60 * 1000) {
+      return NextResponse.json({ error: "We just sent it. Check your inbox (and spam)." }, { status: 429 });
+    }
+    if ((existing?.sent_count ?? 0) >= 5) {
+      return NextResponse.json({ error: "You have reached the confirmation email limit." }, { status: 429 });
+    }
+
+    const token = createFoundingToken();
+    const now = new Date().toISOString();
+    const { error: tokenError } = await supabase.from("founding_claim_tokens").upsert({
+      user_id: user.id,
+      token_hash: hashFoundingToken(token),
+      email,
+      created_at: now,
+      sent_count: (existing?.sent_count ?? 0) + 1,
+      last_sent_at: now,
+      confirmed_at: null,
+    }, { onConflict: "user_id" });
+    if (tokenError) throw tokenError;
+
+    const confirmUrl = `${SITE_URL}/api/founding/confirm?token=${encodeURIComponent(token)}`;
+    try {
+      await resendBatch([buildFoundingClaimEmail(email, confirmUrl)]);
+    } catch (sendError) {
+      // Undo the send bookkeeping so a failed send doesn't lock them out of
+      // retrying for ten minutes or count toward the five-send limit.
+      const { error: rollbackError } = await supabase.from("founding_claim_tokens")
+        .update({ sent_count: existing?.sent_count ?? 0, last_sent_at: existing?.last_sent_at ?? null })
+        .eq("user_id", user.id);
+      if (rollbackError) console.error("founding claim send rollback failed:", rollbackError);
+      throw sendError;
+    }
+    return NextResponse.json({ ok: true, pending: true, remaining: availability.remaining });
   } catch (error) {
     console.error("founding claim failed:", error);
     return NextResponse.json({ error: "Could not claim founding pass" }, { status: 500 });

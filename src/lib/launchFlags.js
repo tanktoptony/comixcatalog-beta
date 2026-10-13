@@ -62,7 +62,7 @@ export function launchProfileFlags() {
 // free tier, which is the correct outcome when the passes have run out. A
 // network blip therefore costs someone a promo, never their signup.
 //
-// Returns { claimed, remaining } so a caller can say something useful.
+// Returns { claimed, pending, remaining } so a caller can say something useful.
 //
 // `fetcher` is injectable purely so this can be tested without a browser,
 // a session or a running server. Production passes nothing and gets
@@ -71,17 +71,17 @@ export function launchProfileFlags() {
 // imports this module, and those use extensionless specifiers that only
 // Next's resolver understands.
 export async function claimFoundingPass(fetcher) {
-  if (!AUTO_PRO_AND_FOUNDING_ON_SIGNUP) return { claimed: false, remaining: 0 };
+  if (!AUTO_PRO_AND_FOUNDING_ON_SIGNUP) return { claimed: false, pending: false, remaining: 0 };
   try {
     const call = fetcher ?? (await import("./apiClient.js")).authedFetch;
     const res = await call("/api/founding/status", { method: "POST" });
     if (!res.ok) {
       // 409 is the expected, non-exceptional "all passes claimed".
-      return { claimed: false, remaining: 0 };
+      return { claimed: false, pending: false, remaining: 0 };
     }
     const body = await res.json();
-    return { claimed: Boolean(body?.ok), remaining: Number(body?.remaining ?? 0) };
+    return { claimed: Boolean(body?.ok) && !body?.pending, pending: Boolean(body?.pending), remaining: Number(body?.remaining ?? 0) };
   } catch {
-    return { claimed: false, remaining: 0 };
+    return { claimed: false, pending: false, remaining: 0 };
   }
 }

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import { claimFoundingPass } from "@/lib/launchFlags";
 
 // Best-effort starting point for the username field — Google (and any
 // future OAuth provider) never supplies one directly, but usually gives us
@@ -28,6 +29,7 @@ export default function CompleteProfilePage() {
   const [username, setUsername] = useState("");
   const [saving, setSaving] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [successMsg, setSuccessMsg] = useState(null);
 
   useEffect(() => {
     async function checkIfAlreadyComplete() {
@@ -146,6 +148,12 @@ export default function CompleteProfilePage() {
       return;
     }
 
+    const founding = await claimFoundingPass();
+    if (founding.pending) {
+      setSaving(false);
+      router.replace("/founding-collectors?claim=sent");
+      return;
+    }
     setSaving(false);
     router.replace(`/u/${usernameNormalized}`);
   }
@@ -195,6 +203,7 @@ export default function CompleteProfilePage() {
           {errorMsg}
         </div>
       )}
+      {successMsg && <div className="auth-success"><p>{successMsg}</p></div>}
     </section>
   );
 }

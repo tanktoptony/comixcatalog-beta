@@ -37,7 +37,7 @@ function writeNumber(userId, n) {
   }
 }
 
-export default function FoundingCollectorsClient({ initialRemaining = null, roster = [] }) {
+export default function FoundingCollectorsClient({ initialRemaining = null, roster = [], initialMessage = "" }) {
   const { user, profile, loading } = useAuth();
   const userId = user?.id ?? null;
   const [status, setStatus] = useState({ remaining: initialRemaining, isFounding: false, canClaim: false });
@@ -47,7 +47,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
   // founder while it's still finding out who they are.
   const [statusFor, setStatusFor] = useState(null);
   const [busy, setBusy] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(initialMessage);
 
   async function fetchStatus() {
     const response = userId
@@ -78,7 +78,9 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
     const data = await response.json().catch(() => ({}));
     setBusy(false);
     if (!response.ok) return setMessage(data.error || "Could not activate your membership");
-    setMessage("Your Founding Collector pass is active. Welcome to Pro for life.");
+    setMessage(data.pending
+      ? "Check your email to claim your founding pass. It's first come, first served, so confirm soon."
+      : "Your Founding Collector pass is active.");
     const next = await fetchStatus();
     if (next) {
       setStatus(next);

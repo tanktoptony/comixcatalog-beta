@@ -49074,9 +49074,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T22:03:12.436295+00:00",
-    "retry_after": "2026-10-13T22:03:12.436310+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T22:18:25.232966+00:00",
+    "retry_after": "2026-10-16T22:18:25.232981+00:00"
   },
   {
     "name": "Radiant Black Massive Edition",
@@ -51730,43 +51730,53 @@
     "retry_after": "2026-10-14T21:18:25.675440+00:00"
   },
   {
+    "name": "Spider-Man Special: Black and Blue and Read All Over",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T22:18:21.919397+00:00",
+    "retry_after": "2026-10-14T22:18:21.919412+00:00"
+  },
+  {
+    "name": "Kabuki One Half",
+    "publisher": "Image Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T22:18:22.396965+00:00",
+    "retry_after": "2026-10-14T22:18:22.396981+00:00"
+  },
+  {
+    "name": "Stan Lee Meets Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T22:18:22.990885+00:00",
+    "retry_after": "2026-10-14T22:18:22.990900+00:00"
+  },
+  {
+    "name": "Doctor Strange Beards Through the Years",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T22:18:24.542808+00:00",
+    "retry_after": "2026-10-14T22:18:24.542822+00:00"
+  },
+  {
     "name": "Sunfire & Big Hero Six",
     "publisher": "Marvel Comics",
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T22:02:05.222577+00:00",
-    "retry_after": "2026-10-14T22:02:05.222594+00:00"
-  },
-  {
-    "name": "B.C. No Two Sexes Are Alike",
-    "publisher": "Fawcett Comics",
-    "year": 1981,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T22:02:11.653241+00:00",
-    "retry_after": "2026-10-14T22:02:11.653258+00:00"
-  },
-  {
-    "name": "Marvel Masterworks: Atlas Era Jungle Adventure",
-    "publisher": "Marvel Comics",
-    "year": 2009,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T22:02:20.900909+00:00",
-    "retry_after": "2026-10-14T22:02:20.900924+00:00"
-  },
-  {
-    "name": "Bad Habits",
-    "publisher": "Fantagraphics",
-    "year": 1992,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T22:02:21.891835+00:00",
-    "retry_after": "2026-10-14T22:02:21.891851+00:00"
+    "last_attempt_at": "2026-10-13T22:20:00.873941+00:00",
+    "retry_after": "2026-10-14T22:20:00.873956+00:00"
   }
 ]

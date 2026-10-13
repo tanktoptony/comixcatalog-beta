@@ -6,6 +6,19 @@ const SHARP_BINARIES = ["./node_modules/@img/sharp-linux-x64/**/*", "./node_modu
 const nextConfig = {
   reactCompiler: true,
 
+  async headers() {
+    return [{
+      source: "/(.*)",
+      headers: [
+        { key: "Content-Security-Policy", value: "frame-ancestors 'none'" },
+        { key: "X-Frame-Options", value: "DENY" },
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        { key: "Permissions-Policy", value: "camera=(self), microphone=(), geolocation=(), payment=(self)" },
+      ],
+    }];
+  },
+
   // The share card reads its bundled TTFs from disk at runtime; tracing
   // cannot see a readFile path, so name the folder explicitly or Vercel
   // ships the route without them.

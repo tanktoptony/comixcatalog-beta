@@ -273,7 +273,7 @@ export default function UpgradePage() {
       <section className="upgrade-faq">
         <div className="upgrade-faq-item">
           <h3>How does the Founding Collector offer work?</h3>
-          <p>Create an account while a spot remains. Lifetime Collector Pro and the Founding Collector badge are added automatically, with no card required.</p>
+          <p>Create an account while a spot remains, then click the link we email you. Confirming adds your lifetime membership and the Founding Collector badge, with no card required.</p>
         </div>
         <div className="upgrade-faq-item">
           <h3>Can I cancel?</h3>

@@ -276,7 +276,14 @@ export default function SignUpPage() {
       // the cap holds; non-fatal, so running out costs a promo rather than a
       // signup. Past 100 the account simply starts on free and meets the
       // normal upgrade path, which is the whole point of having a cap.
-      await claimFoundingPass();
+      const founding = await claimFoundingPass();
+      // A pending pass waits on the emailed confirm link. Don't strand the
+      // new account on this form: carry on to where they were headed, or to
+      // the founding page, which tells them to check their email.
+      if (founding.pending) {
+        redirectAfterAuth(nextPath || "/founding-collectors?claim=sent");
+        return;
+      }
 
       // A session here means Supabase auto-confirmed the account (no email
       // confirmation configured, or it's off) — the user is already logged

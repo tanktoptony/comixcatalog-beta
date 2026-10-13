@@ -56,7 +56,11 @@ export async function resendBatch(messages) {
     const chunk = messages.slice(i, i + 100).map((m) => ({ from, ...m }));
     const res = await fetch("https://api.resend.com/emails/batch", {
       method: "POST",
-      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+        "User-Agent": "ComixCatalog/1.0",
+      },
       body: JSON.stringify(chunk),
     });
     const json = await res.json().catch(() => ({}));

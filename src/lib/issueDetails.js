@@ -6,6 +6,34 @@ function sameLabel(a, b) {
   return String(a ?? "").trim().toLocaleLowerCase() === String(b ?? "").trim().toLocaleLowerCase();
 }
 
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// GCD dates are "YYYY-MM-DD" with 00 for an unknown month or day
+// ("1963-09-00" is a September 1963 cover). Anything else passes through.
+export function formatGcdDate(value) {
+  const match = String(value ?? "").trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return present(value) ? String(value).trim() : null;
+  const [, year, month, day] = match;
+  const monthName = MONTHS[Number(month) - 1];
+  if (!monthName) return year;
+  return Number(day) ? `${monthName} ${Number(day)}, ${year}` : `${monthName} ${year}`;
+}
+
+// "0.12 USD; 0.15 CAD" -> "$0.12 · 0.15 CAD". Only USD gets a symbol; other
+// currencies stay as GCD wrote them.
+export function formatGcdPrice(value) {
+  if (!present(value)) return null;
+  return String(value)
+    .split(";")
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => {
+      const usd = part.match(/^(\d+(?:\.\d+)?)\s*USD$/i);
+      return usd ? `$${usd[1]}` : part;
+    })
+    .join(" · ");
+}
+
 export function buildIssueDetailsRows(issue) {
   const details = issue?.details ?? {};
   const candidates = [
@@ -16,9 +44,9 @@ export function buildIssueDetailsRows(issue) {
     { label: "Series", value: issue?.series_title, href: issue?.series_id ? `/series/${issue.series_id}` : null },
     { label: "Issue", value: issue?.issue_number },
     { label: "Variant", value: details.variant_name },
-    { label: "Cover date", value: details.keydate || issue?.display_date || issue?.publication_date },
-    { label: "On sale", value: details.on_sale_date },
-    { label: "Cover price", value: details.price },
+    { label: "Cover date", value: formatGcdDate(details.keydate) || issue?.display_date || issue?.publication_date },
+    { label: "On sale", value: formatGcdDate(details.on_sale_date) },
+    { label: "Cover price", value: formatGcdPrice(details.price) },
     { label: "Pages", value: details.page_count },
     { label: "Frequency", value: details.indicia_frequency },
     { label: "Rating", value: details.rating },

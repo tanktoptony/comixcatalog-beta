@@ -649,7 +649,7 @@ export default function IssueClient({ initialIssue = null }) {
                         <div className="muted" style={{ fontVariantNumeric: "tabular-nums", paddingTop: "2px" }}>{story.sequence_number ?? index + 1}</div>
                         <div style={{ minWidth: 0 }}>
                           <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", flexWrap: "wrap" }}>
-                            <span className="pill" style={{ fontSize: "0.67rem", padding: "2px 7px" }}>{humanizeStoryType(story.type)}</span>
+                            {(story.title || story.feature) && <span className="pill" style={{ fontSize: "0.67rem", padding: "2px 7px" }}>{humanizeStoryType(story.type)}</span>}
                             <h3 style={{ fontSize: "1rem", margin: 0, flex: "1 1 160px" }}>{story.title || story.feature || humanizeStoryType(story.type)}</h3>
                             {story.page_count != null && story.page_count !== "" && <span className="muted" style={{ marginLeft: "auto", whiteSpace: "nowrap" }}>{story.page_count} pp</span>}
                           </div>

@@ -12,6 +12,7 @@ export default function SoldHistoryPage() {
   const [sales, setSales] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [buyerNames, setBuyerNames] = useState({});
 
   useEffect(() => {
     if (authLoading) return;
@@ -23,12 +24,18 @@ export default function SoldHistoryPage() {
       for (let from = 0; ; from += PAGE_SIZE) {
         const { data, error: readError } = await supabase
           .from("sold_items")
-          .select("id, gcd_issue_id, comic_id, series_title, issue_number, variant_label, condition, grade_numeric, slab_company, sale_price, currency, sold_at")
+          .select("id, buyer_id, status, gcd_issue_id, comic_id, series_title, issue_number, variant_label, condition, grade_numeric, slab_company, sale_price, currency, sold_at")
           .order("sold_at", { ascending: false })
           .range(from, from + PAGE_SIZE - 1);
         if (readError) throw readError;
         rows.push(...(data ?? []));
         if ((data?.length ?? 0) < PAGE_SIZE) break;
+      }
+      const buyerIds = [...new Set(rows.map((row) => row.buyer_id).filter(Boolean))];
+      if (buyerIds.length) {
+        const { data: buyers, error: buyersError } = await supabase.from("profiles").select("id, username").in("id", buyerIds);
+        if (buyersError) throw buyersError;
+        if (!cancelled) setBuyerNames(Object.fromEntries((buyers ?? []).map((buyer) => [buyer.id, buyer.username])));
       }
       if (!cancelled) setSales(rows);
     }
@@ -61,6 +68,7 @@ export default function SoldHistoryPage() {
             <time dateTime={sale.sold_at}>{new Date(sale.sold_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</time>
             <div><strong>{href ? <Link href={href}>{sale.series_title}{sale.issue_number ? ` #${sale.issue_number}` : ""}</Link> : <>{sale.series_title}{sale.issue_number ? ` #${sale.issue_number}` : ""}</>}</strong>{sale.variant_label && <small>{sale.variant_label}</small>}</div>
             <span>{grade}</span>
+            <span>{sale.buyer_id ? `@${buyerNames[sale.buyer_id] || "member"} · ${sale.status === "pending_buyer" ? "Pending" : sale.status[0].toUpperCase() + sale.status.slice(1)}` : "Recorded"}</span>
             <b>{new Intl.NumberFormat("en-US", { style: "currency", currency: sale.currency || "USD" }).format(Number(sale.sale_price))}</b>
           </article>;
         })}

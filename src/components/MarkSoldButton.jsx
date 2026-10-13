@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
 import { useAuth } from "@/context/AuthContext";
+import { trackEvent } from "@/lib/analytics";
 
 export default function MarkSoldButton({ collectionItemId, ownerId, className = "library-row-btn", onRecorded, redirectTo }) {
   const { user, loading } = useAuth();
@@ -12,6 +13,15 @@ export default function MarkSoldButton({ collectionItemId, ownerId, className = 
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [recorded, setRecorded] = useState(false);
+  const [buyer, setBuyer] = useState(null);
+  const [buyerQuery, setBuyerQuery] = useState("");
+  const [buyers, setBuyers] = useState([]);
+
+  async function loadBuyers(q = "") {
+    const url = q.trim().length >= 2 ? `/api/members/search?q=${encodeURIComponent(q.trim())}` : "/api/sales/buyer-candidates";
+    const response = await authedFetch(url);
+    if (response.ok) setBuyers(await response.json());
+  }
 
   if (loading || !user || user.id !== ownerId) return null;
 
@@ -23,10 +33,11 @@ export default function MarkSoldButton({ collectionItemId, ownerId, className = 
       const response = await authedFetch("/api/collection/mark-sold", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ collectionItemId, salePrice, soldVia }),
+        body: JSON.stringify({ collectionItemId, salePrice, soldVia, buyerId: buyer?.id || null }),
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "Couldn't record that sale.");
+      if (buyer) trackEvent("sale_transfer_requested");
       dialogRef.current?.close();
       await onRecorded?.(result);
       if (redirectTo) {
@@ -42,7 +53,7 @@ export default function MarkSoldButton({ collectionItemId, ownerId, className = 
 
   return (
     <>
-      <button type="button" className={className} onClick={() => dialogRef.current?.showModal()}>
+      <button type="button" className={className} onClick={() => { dialogRef.current?.showModal(); loadBuyers(); }}>
         Mark as sold
       </button>
       <dialog ref={dialogRef} className="mark-sold-dialog" onClose={() => setError("")}>
@@ -57,6 +68,10 @@ export default function MarkSoldButton({ collectionItemId, ownerId, className = 
             <legend>Where did it sell?</legend>
             <label><input type="radio" name="soldVia" value="comixcatalog_message" checked={soldVia === "comixcatalog_message"} onChange={(e) => setSoldVia(e.target.value)} /> Sold through a ComixCatalog message</label>
             <label><input type="radio" name="soldVia" value="offsite" checked={soldVia === "offsite"} onChange={(e) => setSoldVia(e.target.value)} /> Sold elsewhere</label>
+          </fieldset>
+          <fieldset>
+            <legend>Sold to a ComixCatalog member (optional)</legend>
+            {buyer ? <div className="mark-sold-buyer"><span>@{buyer.username}</span><button type="button" onClick={() => setBuyer(null)}>Change</button></div> : <><input aria-label="Search members" placeholder="Search username" value={buyerQuery} onChange={(e) => { setBuyerQuery(e.target.value); loadBuyers(e.target.value); }} /><div className="mark-sold-buyers">{buyers.slice(0, 8).map((member) => <button type="button" key={member.id} onClick={() => setBuyer(member)}>@{member.username}{member.display_name ? `, ${member.display_name}` : ""}</button>)}</div></>}
           </fieldset>
           {error && <p className="mark-sold-error" role="alert">{error}</p>}
           <div className="mark-sold-actions">

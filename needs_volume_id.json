@@ -51778,5 +51778,109 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T22:20:00.873941+00:00",
     "retry_after": "2026-10-14T22:20:00.873956+00:00"
+  },
+  {
+    "name": "There's No One Like You, Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T23:15:53.169765+00:00",
+    "retry_after": "2026-10-14T23:15:53.169786+00:00"
+  },
+  {
+    "name": "B.C. No Two Sexes Are Alike",
+    "publisher": "Fawcett Comics",
+    "year": 1981,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T23:15:58.419451+00:00",
+    "retry_after": "2026-10-14T23:15:58.419470+00:00"
+  },
+  {
+    "name": "Marvel Masterworks: Atlas Era Jungle Adventure",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T23:16:04.675202+00:00",
+    "retry_after": "2026-10-14T23:16:04.675235+00:00"
+  },
+  {
+    "name": "Bad Habits",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T23:16:05.219549+00:00",
+    "retry_after": "2026-10-14T23:16:05.219568+00:00"
+  },
+  {
+    "name": "Absalom",
+    "publisher": "Rebellion",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T23:16:52.211198+00:00",
+    "retry_after": "2026-10-14T23:16:52.211216+00:00"
+  },
+  {
+    "name": "Jane Bondage",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59041,
+        "name": "Jane Bondage",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T23:17:08.358484+00:00",
+    "retry_after": "2026-10-14T23:17:08.358503+00:00"
+  },
+  {
+    "name": "Ranx",
+    "publisher": "Heavy Metal",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 152479,
+        "name": "Ranx",
+        "publisher": "Ediciones La Cúpula S.L.",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T23:17:08.799218+00:00",
+    "retry_after": "2026-10-14T23:17:08.799237+00:00"
+  },
+  {
+    "name": "New Avengers: A.I.M.",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T23:17:44.630597+00:00",
+    "retry_after": "2026-10-14T23:17:44.630616+00:00"
+  },
+  {
+    "name": "Ara�a",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T23:17:54.365468+00:00",
+    "retry_after": "2026-10-14T23:17:54.365488+00:00"
   }
 ]

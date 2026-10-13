@@ -28050,8 +28050,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T06:02:52.066527+00:00",
-    "retry_after": "2026-10-14T06:02:52.066544+00:00"
+    "last_attempt_at": "2026-10-13T07:05:59.175668+00:00",
+    "retry_after": "2026-10-14T07:05:59.175683+00:00"
   },
   {
     "name": "Cerebus",
@@ -49669,9 +49669,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T06:02:13.901744+00:00",
-    "retry_after": "2026-10-13T06:02:13.901761+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T07:00:48.984627+00:00",
+    "retry_after": "2026-10-16T07:00:48.984649+00:00"
   },
   {
     "name": "Homem-Aranha: Carnificina Total",
@@ -49679,9 +49679,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T06:02:14.336781+00:00",
-    "retry_after": "2026-10-13T06:02:14.336798+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T07:00:49.449561+00:00",
+    "retry_after": "2026-10-16T07:00:49.449581+00:00"
   },
   {
     "name": "Asesino 55",
@@ -51466,5 +51466,74 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T06:01:04.267570+00:00",
     "retry_after": "2026-10-14T06:01:04.267586+00:00"
+  },
+  {
+    "name": "Silver Surfer: Lunacy in Latveria",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T07:00:46.670916+00:00",
+    "retry_after": "2026-10-14T07:00:46.670930+00:00"
+  },
+  {
+    "name": "The Ren & Stimpy Show Radio Daze",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T07:00:47.928456+00:00",
+    "retry_after": "2026-10-14T07:00:47.928474+00:00"
+  },
+  {
+    "name": "Lady Rawhide Mini Comic",
+    "publisher": "Topps Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T07:00:48.474247+00:00",
+    "retry_after": "2026-10-14T07:00:48.474265+00:00"
+  },
+  {
+    "name": "The Bloom County Library",
+    "publisher": "IDW Publishing",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T07:01:15.790402+00:00",
+    "retry_after": "2026-10-14T07:01:15.790419+00:00"
+  },
+  {
+    "name": "Sinister Dexter",
+    "publisher": "DC Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76547,
+        "name": "Sinister Dexter",
+        "publisher": "IDW Publishing",
+        "start_year": 2014
+      },
+      {
+        "id": 69906,
+        "name": "Sinister Dexter",
+        "publisher": "IDW Publishing",
+        "start_year": 2013
+      },
+      {
+        "id": 48279,
+        "name": "Sinister Dexter",
+        "publisher": "Rebellion",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T07:01:16.326308+00:00",
+    "retry_after": "2026-10-14T07:01:16.326327+00:00"
   }
 ]

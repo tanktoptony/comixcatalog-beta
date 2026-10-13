@@ -27963,13 +27963,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T18:09:29.184141+00:00",
-    "retry_after": "2026-10-14T18:09:29.184158+00:00"
+    "last_attempt_at": "2026-10-13T19:09:07.036369+00:00",
+    "retry_after": "2026-10-14T19:09:07.036384+00:00"
   },
   {
     "name": "Cerebus",
@@ -51166,5 +51166,460 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T18:20:36.643468+00:00",
     "retry_after": "2026-10-14T18:20:36.643484+00:00"
+  },
+  {
+    "name": "Industry of War",
+    "publisher": "Image Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:08:45.265234+00:00",
+    "retry_after": "2026-10-14T19:08:45.265250+00:00"
+  },
+  {
+    "name": "Walt Disney Presents King Louie and Mowgli",
+    "publisher": "Gold Key",
+    "year": 1968,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:08:56.313141+00:00",
+    "retry_after": "2026-10-14T19:08:56.313159+00:00"
+  },
+  {
+    "name": "Canadian Vark!",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115995,
+        "name": "Canadian Vark",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:08:56.928676+00:00",
+    "retry_after": "2026-10-14T19:08:56.928691+00:00"
+  },
+  {
+    "name": "Mary Roberts Rinehart's the Bat",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35807,
+        "name": "Mary Roberts Rinehart's The Bat",
+        "publisher": "Adventure",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:08:57.640520+00:00",
+    "retry_after": "2026-10-14T19:08:57.640536+00:00"
+  },
+  {
+    "name": "Bulls Eye Comics",
+    "publisher": "Harvey Comics",
+    "year": 1944,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30205,
+        "name": "Bulls Eye Comics",
+        "publisher": "Harry A. Chesler/Dynamic",
+        "start_year": 1944
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:08:58.103573+00:00",
+    "retry_after": "2026-10-14T19:08:58.103589+00:00"
+  },
+  {
+    "name": "Eliminator Full Color Special",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74450,
+        "name": "Eliminator Full Color Special",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:08:58.472620+00:00",
+    "retry_after": "2026-10-14T19:08:58.472635+00:00"
+  },
+  {
+    "name": "The Decorator",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26729,
+        "name": "Decorator",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:08:58.848572+00:00",
+    "retry_after": "2026-10-14T19:08:58.848588+00:00"
+  },
+  {
+    "name": "Watchvark",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 107525,
+        "name": "Watchvark",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:08:59.572722+00:00",
+    "retry_after": "2026-10-14T19:08:59.572741+00:00"
+  },
+  {
+    "name": "The Amazing Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 108983,
+        "name": "The Amazing Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:00.108522+00:00",
+    "retry_after": "2026-10-14T19:09:00.108539+00:00"
+  },
+  {
+    "name": "Blade of Shuriken",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29481,
+        "name": "Blade of Shuriken",
+        "publisher": "Eternity",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:00.554479+00:00",
+    "retry_after": "2026-10-14T19:09:00.554494+00:00"
+  },
+  {
+    "name": "Retief: The Giant Killer",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61603,
+        "name": "Retief: The Giant Killer",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:01.020520+00:00",
+    "retry_after": "2026-10-14T19:09:01.020536+00:00"
+  },
+  {
+    "name": "Top Cow Bible",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:02.030922+00:00",
+    "retry_after": "2026-10-14T19:09:02.030938+00:00"
+  },
+  {
+    "name": "The Marvel Comics Illustrated Version of Dune",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73710,
+        "name": "Marvel Comics Illustrated Version of Dune",
+        "publisher": "Berkley Books",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:02.942872+00:00",
+    "retry_after": "2026-10-14T19:09:02.942886+00:00"
+  },
+  {
+    "name": "Aardvark Comics",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 104678,
+        "name": "Aardvark Comics",
+        "publisher": "Aardvark",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:04.019848+00:00",
+    "retry_after": "2026-10-14T19:09:04.019866+00:00"
+  },
+  {
+    "name": "Deanna of the Dead",
+    "publisher": "Fantagraphics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79962,
+        "name": "Deanna of the Dead",
+        "publisher": "Eros Comix",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:04.600690+00:00",
+    "retry_after": "2026-10-14T19:09:04.600706+00:00"
+  },
+  {
+    "name": "Hot Lips",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56311,
+        "name": "Hot Lips",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:04.969249+00:00",
+    "retry_after": "2026-10-14T19:09:04.969264+00:00"
+  },
+  {
+    "name": "The Tale of Halima",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37424,
+        "name": "Tale Of Halima",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:05.324106+00:00",
+    "retry_after": "2026-10-14T19:09:05.324122+00:00"
+  },
+  {
+    "name": "Teena Comics",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84143,
+        "name": "Teena Comics",
+        "publisher": "Magazine Management",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:05.733804+00:00",
+    "retry_after": "2026-10-14T19:09:05.733818+00:00"
+  },
+  {
+    "name": "The Big Prize",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71886,
+        "name": "Big Prize",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:06.253965+00:00",
+    "retry_after": "2026-10-14T19:09:06.253982+00:00"
+  },
+  {
+    "name": "Graphic Novel",
+    "publisher": "Avatar Press",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109384,
+        "name": "Graphic Novel",
+        "publisher": "Abril",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:07.563237+00:00",
+    "retry_after": "2026-10-14T19:09:07.563254+00:00"
+  },
+  {
+    "name": "Invisible Avenger",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52650,
+        "name": "Invisible Avenger",
+        "publisher": "Magazine Management",
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:08.492617+00:00",
+    "retry_after": "2026-10-14T19:09:08.492633+00:00"
+  },
+  {
+    "name": "Donald Duck Junior",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 149545,
+        "name": "Donald Duck Junior",
+        "publisher": "Hjemmet",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:08.931806+00:00",
+    "retry_after": "2026-10-14T19:09:08.931822+00:00"
+  },
+  {
+    "name": "glamourpuss",
+    "publisher": "Aardvark-Vanaheim Inc.",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23362,
+        "name": "Glamourpuss",
+        "publisher": "Aardvark",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:09.603622+00:00",
+    "retry_after": "2026-10-14T19:09:09.603637+00:00"
+  },
+  {
+    "name": "Fantomet gullalderen",
+    "publisher": "Harvey Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 92995,
+        "name": "Fantomet gullalderen",
+        "publisher": "Hjemmet",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:10.063928+00:00",
+    "retry_after": "2026-10-14T19:09:10.063944+00:00"
+  },
+  {
+    "name": "Dragonero il ribelle",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129307,
+        "name": "Dragonero il ribelle",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:10.645353+00:00",
+    "retry_after": "2026-10-14T19:09:10.645369+00:00"
+  },
+  {
+    "name": "Comics Library",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52670,
+        "name": "Comics Library",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:11.263492+00:00",
+    "retry_after": "2026-10-14T19:09:11.263507+00:00"
+  },
+  {
+    "name": "Color Tex",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66110,
+        "name": "Color Tex",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:11.778091+00:00",
+    "retry_after": "2026-10-14T19:09:11.778106+00:00"
+  },
+  {
+    "name": "Storie da Altrove",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46013,
+        "name": "Storie da Altrove",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T19:09:12.325465+00:00",
+    "retry_after": "2026-10-14T19:09:12.325480+00:00"
   }
 ]

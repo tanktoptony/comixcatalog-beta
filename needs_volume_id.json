@@ -28050,8 +28050,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T12:03:32.871367+00:00",
-    "retry_after": "2026-10-14T12:03:32.871381+00:00"
+    "last_attempt_at": "2026-10-13T13:02:28.597573+00:00",
+    "retry_after": "2026-10-14T13:02:28.597587+00:00"
   },
   {
     "name": "Cerebus",
@@ -49863,9 +49863,9 @@
     "year": null,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T12:01:11.762549+00:00",
-    "retry_after": "2026-10-13T12:01:11.762563+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T13:00:48.995370+00:00",
+    "retry_after": "2026-10-16T13:00:48.995393+00:00"
   },
   {
     "name": "StarCraft",
@@ -49904,9 +49904,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T12:01:12.209027+00:00",
-    "retry_after": "2026-10-13T12:01:12.209043+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T13:00:49.725833+00:00",
+    "retry_after": "2026-10-16T13:00:49.725848+00:00"
   },
   {
     "name": "As Aventuras dos Trapalh�es - Revistinha Gr�tis",
@@ -49914,9 +49914,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T12:01:43.069312+00:00",
-    "retry_after": "2026-10-13T12:01:43.069327+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T13:00:49.997179+00:00",
+    "retry_after": "2026-10-16T13:00:49.997194+00:00"
   },
   {
     "name": "Punisher",
@@ -50009,9 +50009,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T12:01:44.504044+00:00",
-    "retry_after": "2026-10-13T12:01:44.504059+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T13:00:50.598847+00:00",
+    "retry_after": "2026-10-16T13:00:50.598863+00:00"
   },
   {
     "name": "Next Men Premiere Edition",
@@ -50019,9 +50019,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T12:01:44.922241+00:00",
-    "retry_after": "2026-10-13T12:01:44.922255+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T13:00:50.965297+00:00",
+    "retry_after": "2026-10-16T13:00:50.965312+00:00"
   },
   {
     "name": "Chronic Idiocy",
@@ -50029,9 +50029,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T12:03:17.824841+00:00",
-    "retry_after": "2026-10-13T12:03:17.824854+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T13:00:51.310591+00:00",
+    "retry_after": "2026-10-16T13:00:51.310606+00:00"
   },
   {
     "name": "Clive Barker's Hellbreed",
@@ -51904,5 +51904,67 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T12:03:32.560728+00:00",
     "retry_after": "2026-10-14T12:03:32.560743+00:00"
+  },
+  {
+    "name": "AAFES 14th Edition [Avengers]",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T13:00:48.623454+00:00",
+    "retry_after": "2026-10-14T13:00:48.623469+00:00"
+  },
+  {
+    "name": "Mayhem!",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22202,
+        "name": "Mayhem",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1989
+      },
+      {
+        "id": 109050,
+        "name": "Mayhem!",
+        "publisher": "Miss Mayhem Studios",
+        "start_year": 2017
+      },
+      {
+        "id": 122527,
+        "name": "Mayhem",
+        "publisher": "Kelva Communications",
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T13:02:04.187969+00:00",
+    "retry_after": "2026-10-14T13:02:04.187984+00:00"
+  },
+  {
+    "name": "Ripclaw",
+    "publisher": "Image Comics",
+    "year": 1995,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 25531,
+        "name": "Ripclaw",
+        "publisher": "Image",
+        "start_year": 1995
+      },
+      {
+        "id": 19450,
+        "name": "Ripclaw",
+        "publisher": "Image",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T13:02:18.779963+00:00",
+    "retry_after": "2026-10-14T13:02:18.779977+00:00"
   }
 ]

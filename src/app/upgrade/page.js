@@ -261,12 +261,14 @@ export default function UpgradePage() {
                   {busy === tier.tier ? "Redirecting…" : tier.cta}
                 </button>
               )}
+              {/* Shown under the button: at the bottom of the page a failed
+                  checkout looked like the click did nothing. */}
+              {tier.id !== "free" && err && <div className="upgrade-error" role="alert">{err}</div>}
             </div>
           </div>
         ))}
       </section>
 
-      {err && <div className="upgrade-error upgrade-error--global">{err}</div>}
 
       <section className="upgrade-faq">
         <div className="upgrade-faq-item">

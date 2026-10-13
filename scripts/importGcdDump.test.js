@@ -5,6 +5,8 @@ import {
   aggregateSeriesCredits,
   createSeriesCreditAggregator,
   dedupeRows,
+  fillStoryCreditText,
+  formatStoryCharacters,
   reserveSlug,
   rolesForCreditType,
   unambiguousLegacyAttachments,
@@ -38,6 +40,52 @@ test("only cover art becomes a cover credit", () => {
   // script (blurbs), colors, letters and editing on a cover are not cover art
   for (const id of [1, 4, 5, 6, 99])
     assert.deepEqual(rolesForCreditType(id, "cover"), []);
+});
+
+test("fills empty story credit text using expanded, deduped credit types", () => {
+  const story = {
+    script: "",
+    pencils: null,
+    inks: "GCD text",
+    colors: null,
+    letters: null,
+  };
+  assert.deepEqual(
+    fillStoryCreditText(story, [
+      { id: 1, credit_type_id: 10, name: "One" },
+      { id: 2, credit_type_id: 9, name: "Painter" },
+      { id: 3, credit_type_id: 1, name: "One" },
+      { id: 4, credit_type_id: 13, name: "Two" },
+    ]),
+    {
+      script: "One; Two",
+      pencils: "One; Painter; Two",
+      inks: "GCD text",
+      colors: "Two",
+      letters: "Two",
+    },
+  );
+});
+
+test("pairs story aliases, keeps hero order, and appends notes", () => {
+  const characters = [
+    { character_id: 2, name: "Civilian", notes: "" },
+    { character_id: 3, name: "Solo", notes: "death" },
+    { character_id: 1, name: "Hero", notes: "introduction" },
+    { character_id: 4, name: "Only Hero", notes: "" },
+    { character_id: 5, name: "Only Civilian", notes: "" },
+  ];
+  const relations = [
+    { from_character_id: 1, to_character_id: 2 },
+    { from_character_id: 4, to_character_id: 40 },
+    { from_character_id: 50, to_character_id: 5 },
+  ];
+  assert.deepEqual(formatStoryCharacters(characters, relations), [
+    "Solo (death)",
+    "Hero [Civilian] (introduction)",
+    "Only Hero",
+    "Only Civilian",
+  ]);
 });
 
 test("slug collision suffixing preserves every reserved slug", () => {
@@ -167,4 +215,10 @@ test("rollup refuses a limit without explicit series ids", () => {
   assert.doesNotThrow(() =>
     validateRollupLimit({ phase: "rollup", limit: 10, seriesIds: [1576] }),
   );
+});
+
+test("a bare ? credit is unknown, not a name", () => {
+  const filled = fillStoryCreditText({ colors: "?", inks: "?" }, [{ credit_type_id: 3, name: "Paul Reinman" }]);
+  assert.equal(filled.colors, null);
+  assert.equal(filled.inks, "Paul Reinman");
 });

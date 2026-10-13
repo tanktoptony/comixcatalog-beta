@@ -9,6 +9,8 @@ import {
   CREDIT_ROLES,
   createSeriesCreditAggregator,
   dedupeRows,
+  fillStoryCreditText,
+  formatStoryCharacters,
   reserveSlug,
   rolesForCreditType,
   unambiguousLegacyAttachments,
@@ -265,6 +267,7 @@ function storyRows(db, issueBatch, stats) {
     )
     .all(...accepted, ...ids);
   const characters = new Map();
+  const storyCredits = new Map();
   for (const storyBatch of chunks(
     raw.map((row) => row.id),
     500,
@@ -273,21 +276,62 @@ function storyRows(db, issueBatch, stats) {
     // Django field name is misleading), just like story_credit.creator_id.
     const characterRows = db
       .prepare(
-        `select sc.story_id,coalesce(c.name,cnd.name) name from gcd_story_character sc indexed by idx_gcd_story_character_gcd_story_character_story_id_13ce6388_fk_gcd_story_id left join gcd_character_name_detail cnd on cnd.id=sc.character_id and cnd.deleted=0 left join gcd_character c on c.id=cnd.character_id and c.deleted=0 where sc.deleted=0 and sc.story_id in (${placeholders(storyBatch.length)}) order by sc.story_id,sc.id`,
+        `select sc.story_id,sc.id,c.id character_id,c.name,sc.notes from gcd_story_character sc indexed by idx_gcd_story_character_gcd_story_character_story_id_13ce6388_fk_gcd_story_id left join gcd_character_name_detail cnd on cnd.id=sc.character_id and cnd.deleted=0 left join gcd_character c on c.id=cnd.character_id and c.deleted=0 where sc.deleted=0 and sc.story_id in (${placeholders(storyBatch.length)}) order by sc.story_id,sc.id`,
       )
       .all(...storyBatch);
+    const characterIds = [
+      ...new Set(
+        characterRows
+          .map((row) => Number(row.character_id))
+          .filter((id) => Number.isInteger(id)),
+      ),
+    ];
+    const relations = characterIds.length
+      ? db
+          .prepare(
+            `select id,from_character_id,to_character_id from gcd_character_relation indexed by idx_gcd_character_relation_gcd_character_relati_from_character_id_f632780f_fk_gcd_chara where relation_type_id=2 and from_character_id in (${placeholders(characterIds.length)}) union select id,from_character_id,to_character_id from gcd_character_relation indexed by idx_gcd_character_relation_gcd_character_relati_to_character_id_e08d735a_fk_gcd_chara where relation_type_id=2 and to_character_id in (${placeholders(characterIds.length)}) order by id`,
+          )
+          .all(...characterIds, ...characterIds)
+      : [];
     for (const row of characterRows) {
-      if (!clean(row.name)) {
+      if (!row.character_id || !clean(row.name)) {
         stats.invalid_character_name += 1;
         continue;
       }
       if (!characters.has(row.story_id)) characters.set(row.story_id, []);
-      const list = characters.get(row.story_id);
-      if (!list.includes(row.name)) list.push(row.name);
+      characters.get(row.story_id).push(row);
+    }
+    for (const storyId of storyBatch) {
+      if (characters.has(storyId)) {
+        const rows = characters.get(storyId);
+        const ids = new Set(rows.map((row) => Number(row.character_id)));
+        characters.set(
+          storyId,
+          formatStoryCharacters(
+            rows,
+            relations.filter(
+              (relation) =>
+                ids.has(Number(relation.from_character_id)) &&
+                ids.has(Number(relation.to_character_id)),
+            ),
+          ),
+        );
+      }
+    }
+    const creditRows = db
+      .prepare(
+        `select sc.id,sc.story_id,sc.credit_type_id,c.gcd_official_name name from gcd_story_credit sc indexed by idx_gcd_story_credit_gcd_story_credit_story_id_7b35c2b5_fk_gcd_story_id left join gcd_creator_name_detail cnd on cnd.id=sc.creator_id and cnd.deleted=0 left join gcd_creator c on c.id=cnd.creator_id and c.deleted=0 where sc.deleted=0 and sc.story_id in (${placeholders(storyBatch.length)}) order by sc.story_id,sc.id`,
+      )
+      .all(...storyBatch);
+    for (const credit of creditRows) {
+      if (!clean(credit.name)) continue;
+      if (!storyCredits.has(credit.story_id)) storyCredits.set(credit.story_id, []);
+      storyCredits.get(credit.story_id).push(credit);
     }
   }
   const used = new Map();
-  return raw.map((row) => {
+  return raw.map((original) => {
+    const row = fillStoryCreditText(original, storyCredits.get(original.id) ?? []);
     if (!used.has(row.issue_id)) used.set(row.issue_id, new Set());
     const issueUsed = used.get(row.issue_id);
     let sequence = numeric(row.sequence_number) ?? 0;
@@ -358,6 +402,42 @@ function creditRows(db, issueBatch, stats) {
   return deduped;
 }
 
+// GCD has several US creators sharing a name (three Roy Thomases; the one
+// with 17,830 credits is the famous one). A legacy name-only row came from
+// specific issues, so the right identity is whichever same-named GCD creator
+// is credited on those issues. Attach only when exactly one is.
+async function overlapLegacyAttachments(db, supabase, legacy, usMatches) {
+  const idsByName = new Map();
+  for (const row of usMatches) {
+    if (!idsByName.has(row.name)) idsByName.set(row.name, new Set());
+    idsByName.get(row.name).add(Number(row.gcd_creator_id));
+  }
+  const attachments = [];
+  for (const row of legacy) {
+    if ((idsByName.get(row.name)?.size ?? 0) < 2) continue;
+    const credits = await retry(`read credits for ${row.name}`, () =>
+      supabase
+        .from("issue_creators")
+        .select("gcd_issue_id")
+        .eq("creator_id", row.id)
+        .order("gcd_issue_id")
+        .limit(1000),
+    );
+    const issueIds = [...new Set(credits.map((credit) => Number(credit.gcd_issue_id)))];
+    const found = new Set();
+    for (const batch of chunks(issueIds, 500)) {
+      const matches = db
+        .prepare(
+          `select distinct c.id gcd_creator_id from gcd_story st indexed by idx_gcd_story_IssueID join gcd_story_credit sc indexed by idx_gcd_story_credit_gcd_story_credit_story_id_7b35c2b5_fk_gcd_story_id on sc.story_id=st.id and +sc.deleted=0 join gcd_creator_name_detail nd on nd.id=sc.creator_id join gcd_creator c on c.id=nd.creator_id and c.deleted=0 where st.issue_id in (${placeholders(batch.length)}) and +st.deleted=0 and c.gcd_official_name=?`,
+        )
+        .all(...batch, row.name);
+      for (const match of matches) found.add(Number(match.gcd_creator_id));
+    }
+    if (found.size === 1) attachments.push({ ...row, gcd_creator_id: [...found][0] });
+  }
+  return attachments;
+}
+
 async function existingCreators(supabase) {
   const rows = [];
   let after = 0;
@@ -426,15 +506,29 @@ async function creatorPhase(db, issues, supabase, stats) {
   // a limited test import, so a partial run can never attach the wrong person.
   const legacyNames = [...new Set(legacy.map((row) => row.name))];
   const usMatches = [];
+  // The unary + keeps SQLite off the low-selectivity deleted indexes. Without
+  // it the planner walks all 12M story credits instead of starting from the
+  // few hundred names (found on the first real run, 2026-10-13).
   for (const nameBatch of chunks(legacyNames, 500))
     usMatches.push(
       ...db
         .prepare(
-          `select distinct c.id gcd_creator_id,c.gcd_official_name name from gcd_creator c join gcd_creator_name_detail nd on nd.creator_id=c.id and nd.deleted=0 join gcd_story_credit sc on sc.creator_id=nd.id and sc.deleted=0 join gcd_story st on st.id=sc.story_id and st.deleted=0 join gcd_issue i on i.id=st.issue_id and i.deleted=0 join gcd_series s on s.id=i.series_id and s.deleted=0 join stddata_country country on country.id=s.country_id and country.code='us' where c.deleted=0 and c.gcd_official_name in (${placeholders(nameBatch.length)})`,
+          `select distinct c.id gcd_creator_id,c.gcd_official_name name from gcd_creator c join gcd_creator_name_detail nd on nd.creator_id=c.id and +nd.deleted=0 join gcd_story_credit sc on sc.creator_id=nd.id and +sc.deleted=0 join gcd_story st on st.id=sc.story_id and +st.deleted=0 join gcd_issue i on i.id=st.issue_id and +i.deleted=0 join gcd_series s on s.id=i.series_id and +s.deleted=0 join stddata_country country on country.id=s.country_id and country.code='us' where c.deleted=0 and c.gcd_official_name in (${placeholders(nameBatch.length)})`,
         )
         .all(...nameBatch),
     );
-  const attachments = unambiguousLegacyAttachments(legacy, usMatches);
+  const attachments = [
+    ...unambiguousLegacyAttachments(legacy, usMatches),
+    ...(await overlapLegacyAttachments(db, supabase, legacy, usMatches)),
+  ].filter((row) => {
+    // A row from an earlier run may already own this GCD id. Attaching would
+    // violate the unique key and abort the run, so report it for a merge.
+    if (!byGcd.has(row.gcd_creator_id)) return true;
+    console.log(
+      `legacy creator needs merge id=${row.id} name=${JSON.stringify(row.name)} gcd_creator_id=${row.gcd_creator_id} existing_id=${byGcd.get(row.gcd_creator_id).id}`,
+    );
+    return false;
+  });
   const attachedIds = new Set(attachments.map((row) => row.gcd_creator_id));
   for (const row of attachments) {
     await retry(`attach creator ${row.name}`, () =>
@@ -685,16 +779,25 @@ async function rollupPhase(
 async function reprintsPhase(db, issues, supabase, mirrorIds, stats) {
   let count = 0;
   let shown = false;
-  const seen = new Set();
   for (const issueBatch of chunks(issues)) {
     const ids = issueBatch.map((row) => row.id);
     const raw = db
       .prepare(
-        `select origin_issue_id,target_issue_id,notes from gcd_reprint where origin_issue_id in (${placeholders(ids.length)}) or target_issue_id in (${placeholders(ids.length)})`,
+        `select r.origin_issue_id,r.target_issue_id,r.notes,oc.code origin_country,tc.code target_country,os.deleted origin_series_deleted,ts.deleted target_series_deleted from gcd_reprint r join gcd_issue oi on oi.id=r.origin_issue_id join gcd_series os on os.id=oi.series_id join stddata_country oc on oc.id=os.country_id join gcd_issue ti on ti.id=r.target_issue_id join gcd_series ts on ts.id=ti.series_id join stddata_country tc on tc.id=ts.country_id where r.origin_issue_id in (${placeholders(ids.length)}) or r.target_issue_id in (${placeholders(ids.length)})`,
       )
       .all(...ids, ...ids);
     const rows = [];
+    const seen = new Set();
     for (const row of raw) {
+      if (
+        row.origin_country !== "us" ||
+        row.target_country !== "us" ||
+        Number(row.origin_series_deleted) !== 0 ||
+        Number(row.target_series_deleted) !== 0
+      ) {
+        stats.reprint_not_us += 1;
+        continue;
+      }
       if (
         mirrorIds &&
         (!mirrorIds.has(Number(row.origin_issue_id)) ||
@@ -721,6 +824,14 @@ async function reprintsPhase(db, issues, supabase, mirrorIds, stats) {
         shown = true;
       }
     } else {
+      await retry("delete origin reprints", () =>
+        supabase.from("issue_reprints").delete().in("origin_issue_id", ids),
+      );
+      await sleep(options.sleep);
+      await retry("delete target reprints", () =>
+        supabase.from("issue_reprints").delete().in("target_issue_id", ids),
+      );
+      await sleep(options.sleep);
       await writeBatches(
         supabase,
         "reprints",
@@ -781,6 +892,7 @@ async function run() {
     missing_creator_map: 0,
     missing_series_map: 0,
     reprint_missing_mirror: 0,
+    reprint_not_us: 0,
     duplicate_reprint: 0,
   };
   console.log(

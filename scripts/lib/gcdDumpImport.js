@@ -33,6 +33,70 @@ export function rolesForCreditType(typeId, storyType) {
   return CREDIT_ROLES.get(Number(typeId)) ?? [];
 }
 
+const CREDIT_TEXT_FIELDS = new Map([
+  ["writer", "script"],
+  ["penciller", "pencils"],
+  ["inker", "inks"],
+  ["colorist", "colors"],
+  ["letterer", "letters"],
+]);
+
+export function fillStoryCreditText(story, credits) {
+  const namesByField = new Map();
+  for (const credit of credits) {
+    for (const role of CREDIT_ROLES.get(Number(credit.credit_type_id)) ?? []) {
+      const field = CREDIT_TEXT_FIELDS.get(role);
+      const name = String(credit.name ?? "").trim();
+      if (!field || !name) continue;
+      if (!namesByField.has(field)) namesByField.set(field, []);
+      const names = namesByField.get(field);
+      if (!names.includes(name)) names.push(name);
+    }
+  }
+  const filled = { ...story };
+  // GCD writes "?" for an unknown credit. Treat it as empty so a structured
+  // credit can fill it, and never show a bare "?" on the page.
+  for (const field of CREDIT_TEXT_FIELDS.values())
+    if (String(filled[field] ?? "").trim() === "?") filled[field] = null;
+  for (const [field, names] of namesByField)
+    if (!String(filled[field] ?? "").trim()) filled[field] = names.join("; ");
+  return filled;
+}
+
+export function formatStoryCharacters(characterRows, relations) {
+  const present = new Set(characterRows.map((row) => Number(row.character_id)));
+  const civilianByHero = new Map();
+  const pairedCivilians = new Set();
+  for (const relation of relations) {
+    const hero = Number(relation.from_character_id);
+    const civilian = Number(relation.to_character_id);
+    if (!present.has(hero) || !present.has(civilian) || civilianByHero.has(hero))
+      continue;
+    civilianByHero.set(hero, civilian);
+    pairedCivilians.add(civilian);
+  }
+  const byId = new Map(
+    characterRows.map((row) => [Number(row.character_id), row]),
+  );
+  const emitted = new Set();
+  const output = [];
+  for (const row of characterRows) {
+    const id = Number(row.character_id);
+    if (emitted.has(id) || pairedCivilians.has(id)) continue;
+    emitted.add(id);
+    const civilian = byId.get(civilianByHero.get(id));
+    let name = String(row.name ?? "").trim();
+    if (civilian) {
+      emitted.add(Number(civilian.character_id));
+      name += ` [${String(civilian.name ?? "").trim()}]`;
+    }
+    const notes = String(row.notes ?? "").trim();
+    if (notes) name += ` (${notes})`;
+    if (name) output.push(name);
+  }
+  return output;
+}
+
 export function reserveSlug(name, usedSlugs) {
   const base = slugify(name) || "creator";
   let slug = base;

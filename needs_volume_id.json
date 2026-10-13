@@ -28050,8 +28050,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T13:02:28.597573+00:00",
-    "retry_after": "2026-10-14T13:02:28.597587+00:00"
+    "last_attempt_at": "2026-10-13T14:03:10.402098+00:00",
+    "retry_after": "2026-10-14T14:03:10.402109+00:00"
   },
   {
     "name": "Cerebus",
@@ -50039,9 +50039,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T13:00:57.716923+00:00",
-    "retry_after": "2026-10-13T13:00:57.716938+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T14:00:52.634964+00:00",
+    "retry_after": "2026-10-16T14:00:52.634982+00:00"
   },
   {
     "name": "Walt Disney's Picnic Party",
@@ -50049,9 +50049,9 @@
     "year": 1955,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T13:00:58.601027+00:00",
-    "retry_after": "2026-10-13T13:00:58.601043+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T14:00:53.054012+00:00",
+    "retry_after": "2026-10-16T14:00:53.054031+00:00"
   },
   {
     "name": "Star Wars - La bataille des Jedi",
@@ -50059,9 +50059,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T13:00:59.272301+00:00",
-    "retry_after": "2026-10-13T13:00:59.272316+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T14:00:54.276120+00:00",
+    "retry_after": "2026-10-16T14:00:54.276137+00:00"
   },
   {
     "name": "Teenage Mutant Ninja Turtles Compendium",
@@ -50069,9 +50069,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T13:01:56.016866+00:00",
-    "retry_after": "2026-10-13T13:01:56.016881+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T14:00:54.715366+00:00",
+    "retry_after": "2026-10-16T14:00:54.715383+00:00"
   },
   {
     "name": "Archie as Capt. Pureheart",
@@ -50079,9 +50079,9 @@
     "year": 1967,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T13:03:05.914032+00:00",
-    "retry_after": "2026-10-13T13:03:05.914047+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T14:00:55.131541+00:00",
+    "retry_after": "2026-10-16T14:00:55.131560+00:00"
   },
   {
     "name": "Nocterra",
@@ -51966,5 +51966,32 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T13:02:18.779963+00:00",
     "retry_after": "2026-10-14T13:02:18.779977+00:00"
+  },
+  {
+    "name": "Warrior Nun Areala and Glory",
+    "publisher": "Antarctic Press",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T14:00:51.443628+00:00",
+    "retry_after": "2026-10-14T14:00:51.443647+00:00"
+  },
+  {
+    "name": "Fight the Enemy",
+    "publisher": "Antarctic Press",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2317,
+        "name": "Fight The Enemy",
+        "publisher": "Tower",
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T14:01:43.458014+00:00",
+    "retry_after": "2026-10-14T14:01:43.458033+00:00"
   }
 ]

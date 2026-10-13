@@ -54,6 +54,7 @@ export async function getMarketValuesBulk({
   items,
   windowDays = DEFAULT_WINDOW_DAYS,
   minSamples = MIN_SAMPLES,
+  throwOnReadError = false,
 } = {}) {
   if (!supabase) throw new Error("getMarketValuesBulk: supabase required");
   const list = Array.isArray(items) ? items : [];
@@ -89,6 +90,7 @@ export async function getMarketValuesBulk({
     ]);
     if (comps.error) {
       console.error("getMarketValuesBulk comp fetch failed:", comps.error);
+      if (throwOnReadError) throw comps.error;
       return fillEmpty(list, out);
     }
     for (const row of comps.rows) {
@@ -98,6 +100,7 @@ export async function getMarketValuesBulk({
     }
     if (issues.error) {
       console.error("getMarketValuesBulk issue fetch failed:", issues.error);
+      if (throwOnReadError) throw issues.error;
       return fillEmpty(list, out);
     }
     for (const row of issues.rows) issueById.set(Number(row.gcd_id), row);
@@ -116,6 +119,7 @@ export async function getMarketValuesBulk({
     );
     if (series.error) {
       console.error("getMarketValuesBulk series fetch failed:", series.error);
+      if (throwOnReadError) throw series.error;
       return fillEmpty(list, out);
     }
     for (const row of series.rows) seriesById.set(Number(row.gcd_id), row);

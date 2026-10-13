@@ -5,7 +5,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { collectionStats, percentages, shortPublisher, possessive } from "./collectionStats.js";
+import { collectionStats, percentages, shortPublisher, possessive, rankCollectionHighlights } from "./collectionStats.js";
 
 const owned = (seriesKey, publisher) => ({ status: "owned", seriesKey, publisher });
 const wanted = (seriesKey, publisher) => ({ status: "wishlist", seriesKey, publisher });
@@ -74,4 +74,55 @@ test("books listed for sale still count as owned (whole collection listed)", () 
   const s = collectionStats([listed("a", "Marvel Comics"), listed("b", "Image Comics"), { status: "wishlist", seriesKey: "c" }]);
   assert.equal(s.owned, 2);
   assert.equal(s.series, 2);
+});
+
+let nextHighlightId = 1;
+const highlight = (overrides = {}) => ({
+  id: overrides.id ?? `copy-${nextHighlightId++}`,
+  status: "owned",
+  gcd_issue_id: overrides.gcd_issue_id ?? nextHighlightId,
+  created_at: "2026-01-01T00:00:00Z",
+  slab_company: null,
+  keyIssue: null,
+  valueResult: null,
+  ...overrides,
+});
+
+test("tier 1 key ranks ahead of a $40 comp-backed book", () => {
+  const ranked = rankCollectionHighlights([
+    highlight({ id: "value", gcd_issue_id: 1, valueResult: { value: 40, sample_size: 3, source: "market-comp" } }),
+    highlight({ id: "key", gcd_issue_id: 2, keyIssue: { tier: 1, reason: "First appearance" } }),
+  ]);
+  assert.deepEqual(ranked.map((copy) => copy.id), ["key", "value"]);
+});
+
+test("a $1,400 book ranks ahead of a tier 2 key", () => {
+  const ranked = rankCollectionHighlights([
+    highlight({ id: "key", gcd_issue_id: 1, keyIssue: { tier: 2 } }),
+    highlight({ id: "value", gcd_issue_id: 2, valueResult: { value: 1400, sample_size: 3, source: "market-comp" } }),
+  ]);
+  assert.deepEqual(ranked.map((copy) => copy.id), ["value", "key"]);
+});
+
+test("a slab without value data is remarkable", () => {
+  const [copy] = rankCollectionHighlights([highlight({ id: "slab", slab_company: "CGC" })]);
+  assert.equal(copy.id, "slab");
+  assert.equal(copy.remarkable, true);
+});
+
+test("cover-price fallback is not remarkable and equal scores use newest copy", () => {
+  const ranked = rankCollectionHighlights([
+    highlight({ id: "fallback", gcd_issue_id: 1, valueResult: { value: 50, sample_size: 0, source: "cover-price", fallback: true } }),
+    highlight({ id: "old", gcd_issue_id: 2, slab_company: "CGC", created_at: "2025-01-01" }),
+    highlight({ id: "new", gcd_issue_id: 3, slab_company: "CBCS", created_at: "2026-01-01" }),
+  ]);
+  assert.deepEqual(ranked.map((copy) => copy.id), ["new", "old"]);
+});
+
+test("duplicate issues use the strongest copy signals", () => {
+  const ranked = rankCollectionHighlights([
+    highlight({ id: "plain", gcd_issue_id: 7, created_at: "2026-03-01" }),
+    highlight({ id: "slab", gcd_issue_id: 7, slab_company: "CGC", created_at: "2025-01-01" }),
+  ]);
+  assert.deepEqual(ranked.map((copy) => copy.id), ["slab"]);
 });

@@ -28050,8 +28050,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-13T07:05:59.175668+00:00",
-    "retry_after": "2026-10-14T07:05:59.175683+00:00"
+    "last_attempt_at": "2026-10-13T08:04:13.779658+00:00",
+    "retry_after": "2026-10-14T08:04:13.779671+00:00"
   },
   {
     "name": "Cerebus",
@@ -49689,9 +49689,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T07:01:10.858648+00:00",
-    "retry_after": "2026-10-13T07:01:10.858663+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T08:01:00.803189+00:00",
+    "retry_after": "2026-10-16T08:01:00.803203+00:00"
   },
   {
     "name": "The yFu",
@@ -49699,9 +49699,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-12T07:01:33.677859+00:00",
-    "retry_after": "2026-10-13T07:01:33.677881+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-13T08:01:02.350477+00:00",
+    "retry_after": "2026-10-16T08:01:02.350491+00:00"
   },
   {
     "name": "Shinobi Ninja Princess",
@@ -51535,5 +51535,108 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T07:01:16.326308+00:00",
     "retry_after": "2026-10-14T07:01:16.326327+00:00"
+  },
+  {
+    "name": "Ella Cinders [A Famous 'Comics' Cartoon Book]",
+    "publisher": "Gold Key",
+    "year": 1934,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T08:00:48.386922+00:00",
+    "retry_after": "2026-10-14T08:00:48.386942+00:00"
+  },
+  {
+    "name": "Hulk Vol. 1 No. 1 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T08:00:49.023794+00:00",
+    "retry_after": "2026-10-14T08:00:49.023810+00:00"
+  },
+  {
+    "name": "Charlie Brown and Snoopy",
+    "publisher": "Fawcett Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T08:01:15.462775+00:00",
+    "retry_after": "2026-10-14T08:01:15.462789+00:00"
+  },
+  {
+    "name": "For the Love of Peanuts",
+    "publisher": "Fawcett Comics",
+    "year": 1963,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122613,
+        "name": "For the Love of Peanuts",
+        "publisher": "Black Dog & Leventhal Publishers",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T08:01:16.038767+00:00",
+    "retry_after": "2026-10-14T08:01:16.038782+00:00"
+  },
+  {
+    "name": "The Obscure Cities",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T08:01:34.496122+00:00",
+    "retry_after": "2026-10-14T08:01:34.496138+00:00"
+  },
+  {
+    "name": "Almanaque do Superpateta",
+    "publisher": "Avatar Press",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122717,
+        "name": "Almanaque do Superpateta",
+        "publisher": "Abril",
+        "start_year": 1981
+      },
+      {
+        "id": 122736,
+        "name": "Almanaque do Superpateta ",
+        "publisher": "Abril",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T08:01:58.117574+00:00",
+    "retry_after": "2026-10-14T08:01:58.117589+00:00"
+  },
+  {
+    "name": "Northlanders",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 20035,
+        "name": "Northlanders",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 91763,
+        "name": "Northlanders",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-13T08:02:50.164119+00:00",
+    "retry_after": "2026-10-14T08:02:50.164134+00:00"
   }
 ]

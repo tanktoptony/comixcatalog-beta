@@ -12316,6 +12316,62 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .sold-empty { padding: 32px; border: 1px dashed rgba(255,255,255,.16); border-radius: 12px; color: #a4aab6; text-align: center; }
 @media (max-width: 640px) { .sold-history { padding: 20px 12px 48px; } .sold-row { grid-template-columns: minmax(0,1fr) auto; gap: 7px 12px; } .sold-row time { grid-column: 1; font-size: .8rem; } .sold-row div { grid-column: 1; } .sold-row > span { grid-column: 1; } .sold-row b { grid-column: 2; grid-row: 1 / 4; } }
 
+/* Sale transfer surfaces */
+.mark-sold-dialog { width: min(520px, calc(100vw - 28px)); max-height: calc(100vh - 28px); overflow-y: auto; border-radius: 16px; background: linear-gradient(155deg,#151b28,#0b0f17 72%); }
+.mark-sold-dialog form { gap: 20px; padding: clamp(20px,5vw,30px); }
+.mark-sold-heading { display: flex; align-items: center; gap: 14px; }
+.mark-sold-heading > img { width: 58px; height: 82px; flex: none; border-radius: 5px; object-fit: cover; box-shadow: 0 8px 20px rgba(0,0,0,.45); }
+.mark-sold-heading > div { min-width: 0; }
+.mark-sold-heading span { color: #f4d03f; font-size: .66rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.mark-sold-heading h2 { font-family: var(--font-display), Impact, sans-serif; font-size: 2rem; line-height: 1; }
+.mark-sold-heading p { margin-top: 5px; overflow: hidden; color: #a4aab6; font-size: .85rem; text-overflow: ellipsis; white-space: nowrap; }
+.mark-sold-intro { color: #a4aab6; font-size: .9rem; }
+.mark-sold-price-label { font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; }
+.mark-sold-price { border-color: rgba(244,208,63,.3); background: #080c13; }
+.mark-sold-price > span { color: #f4d03f; font-size: 1.7rem; }
+.mark-sold-price input { padding-block: 13px; color: #fff; font-size: 1.75rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.mark-sold-dialog legend { margin-bottom: 9px; font-size: .82rem; }
+.mark-sold-dialog legend span { margin-left: 5px; color: #747b88; font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; }
+.mark-sold-dialog fieldset > small { color: #858c98; font-size: .78rem; line-height: 1.45; }
+.mark-sold-segments { display: grid; grid-template-columns: 1fr 1fr; padding: 3px; border: 1px solid rgba(255,255,255,.12); border-radius: 9px; background: #080c13; }
+.mark-sold-dialog .mark-sold-segments label { display: block; padding: 9px 8px; border-radius: 6px; color: #a4aab6; font-size: .84rem; font-weight: 700; text-align: center; cursor: pointer; }
+.mark-sold-dialog .mark-sold-segments label.selected { background: rgba(244,208,63,.13); color: #f4d03f; box-shadow: inset 0 0 0 1px rgba(244,208,63,.32); }
+.mark-sold-segments input { position: absolute; opacity: 0; pointer-events: none; }
+.mark-sold-search { width: 100%; padding: 11px 12px; border: 1px solid rgba(255,255,255,.16); border-radius: 8px; outline: 0; background: #080c13; color: #fff; font: inherit; }
+.mark-sold-search:focus { border-color: rgba(244,208,63,.6); box-shadow: 0 0 0 3px rgba(244,208,63,.08); }
+.mark-sold-buyers { gap: 3px; max-height: 175px; }
+.mark-sold-buyers button { display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 8px; color: #fff; }
+.mark-sold-buyers button:hover { background: rgba(255,255,255,.06); }
+.mark-sold-buyers img,.mark-sold-buyer img { border-radius: 50%; object-fit: cover; }
+.mark-sold-buyers button > span { display: grid; }
+.mark-sold-buyers small { color: #858c98; }
+.mark-sold-buyer { align-items: center; justify-content: flex-start; gap: 9px; border-color: rgba(244,208,63,.3); background: rgba(244,208,63,.06); }
+.mark-sold-buyer > span { display: grid; color: #9ca3af; font-size: .75rem; }
+.mark-sold-buyer b { color: #fff; font-size: .85rem; }
+.mark-sold-buyer button { margin-left: auto; }
+.mark-sold-actions { padding-top: 4px; }
+.mark-sold-actions button.primary { min-width: 150px; }
+
+.inbox-purchases { background: linear-gradient(135deg,rgba(244,208,63,.07),rgba(11,30,107,.08)); }
+.inbox-purchase { display: grid; grid-template-columns: 44px minmax(0,1fr) auto; align-items: center; gap: 11px; padding: 7px; border-radius: 9px; background: rgba(0,0,0,.18); }
+.inbox-purchase-cover { display: grid; width: 44px; height: 60px; place-items: center; overflow: hidden; border-radius: 4px; background: linear-gradient(145deg,#18275f,#080c15); box-shadow: 0 5px 12px rgba(0,0,0,.35); color: rgba(244,208,63,.6); font-size: .65rem; font-weight: 900; }
+.inbox-purchase-cover img { width: 100%; height: 100%; object-fit: cover; }
+.inbox-purchase-copy { display: grid; min-width: 0; gap: 3px; }
+.inbox-purchase-copy strong,.inbox-purchase-copy small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.inbox-purchase-copy small { color: #969daa; }
+.inbox-purchase-review { padding: 7px 13px; border: 1px solid #f4d03f; border-radius: 7px; background: #f4d03f; color: #0b1e6b; font-size: .78rem; font-weight: 800; text-decoration: none; }
+
+.sold-row { grid-template-columns: 120px minmax(0,1fr) 130px 150px 105px; background: rgba(255,255,255,.018); }
+.sold-buyer-status { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.sold-buyer-status > small { max-width: 90px; overflow: hidden; text-overflow: ellipsis; }
+.sold-status-chip { display: inline-flex; width: fit-content; padding: 3px 8px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; color: #a4aab6; font-size: .64rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+.sold-status-pending_buyer { border-color: rgba(244,208,63,.55); color: #f4d03f; background: rgba(244,208,63,.06); }
+.sold-status-confirmed { border-color: rgba(74,222,128,.4); color: #86efac; background: rgba(74,222,128,.08); }
+.sold-status-disputed { border-color: rgba(248,113,113,.4); color: #fca5a5; background: rgba(248,113,113,.08); }
+.sold-status-expired { border-color: rgba(156,163,175,.25); color: #8d93a1; background: rgba(156,163,175,.06); }
+@media (max-width: 760px) { .sold-row { grid-template-columns: minmax(0,1fr) auto; } .sold-buyer-status { grid-column: 1; } }
+@media (max-width: 420px) { .mark-sold-dialog { width: calc(100vw - 16px); } .mark-sold-actions { flex-direction: column-reverse; } .mark-sold-actions button { width: 100%; } .inbox-purchase { grid-template-columns: 38px minmax(0,1fr) auto; gap: 8px; } .inbox-purchase-cover { width: 38px; height: 52px; } .inbox-purchase-review { padding-inline: 10px; } }
+
 /* Seller photo manager inside the listing editor. */
 .pm { display: grid; gap: 10px; }
 .pm-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; font-size: 0.85rem; font-weight: 700; color: #e9ebf0; }

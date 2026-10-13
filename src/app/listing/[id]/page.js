@@ -118,6 +118,8 @@ export default async function ListingPage({ params }) {
                   ownerId={l.sellerInfo.id}
                   className="lp-mark-sold"
                   redirectTo="/library/sold?recorded=1"
+                  bookTitle={titleOf(l)}
+                  bookCover={l.photos?.[0]?.url || l.cover}
                 />
               </>
             )}

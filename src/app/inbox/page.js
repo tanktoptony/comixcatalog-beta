@@ -42,9 +42,10 @@ function NewFollowersStrip({ followers }) {
   );
 }
 
+/* Pending purchase covers can be seller-hosted URLs outside Next Image's configured hosts. */
 function PendingPurchasesStrip({ purchases }) {
   if (!purchases?.length) return null;
-  return <section className="inbox-followers"><div className="inbox-followers-heading"><h2>Pending purchases</h2></div><div className="inbox-followers-list">{purchases.map((purchase) => <article className="inbox-follower" key={purchase.id}><Link href={`/purchases/${purchase.id}`}><strong>{purchase.series_title}{purchase.issue_number ? ` #${purchase.issue_number}` : ""}</strong><small> from @{purchase.seller_username}</small></Link></article>)}</div></section>;
+  return <section className="inbox-followers inbox-purchases" aria-labelledby="pending-purchases-heading"><div className="inbox-followers-heading"><h2 id="pending-purchases-heading">Pending purchases</h2></div><div className="inbox-followers-list">{purchases.map((purchase) => { const title = `${purchase.series_title}${purchase.issue_number ? ` #${purchase.issue_number}` : ""}`; return <article className="inbox-purchase" key={purchase.id}><div className="inbox-purchase-cover">{purchase.user_cover_url ? /* eslint-disable-next-line @next/next/no-img-element */ <img src={purchase.user_cover_url} alt="" /> : <span aria-hidden="true">CC</span>}</div><div className="inbox-purchase-copy"><strong>{title}</strong><small>{new Intl.NumberFormat("en-US", { style: "currency", currency: purchase.currency || "USD" }).format(Number(purchase.sale_price))} · from @{purchase.seller_username}</small></div><Link className="inbox-purchase-review" href={`/purchases/${purchase.id}`} aria-label={`Review ${title}`}>Review</Link></article>; })}</div></section>;
 }
 
 function formatTimeAgo(iso) {

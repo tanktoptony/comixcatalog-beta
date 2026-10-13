@@ -1,6 +1,6 @@
 import { unstable_cache } from "next/cache";
-import { GET as searchComicsGET } from "@/app/api/search/comics/route";
-import { GET as searchSeriesGET } from "@/app/api/search/series/route";
+import { getCachedComicsSearch } from "@/app/api/search/comics/route";
+import { getCachedSeriesSearch } from "@/app/api/search/series/route";
 import { GET as seriesGET } from "@/app/api/series/[id]/route";
 import { GET as issueGET } from "@/app/api/issues/[id]/route";
 import { GET as publicProfileGET } from "@/app/api/public-profile/route";
@@ -38,23 +38,6 @@ async function callRoute(handler, url, key, context) {
 // Must match the first-page request SearchPageClient makes.
 export const SEARCH_PAGE_SIZE = 36;
 
-const cachedSearchComics = unstable_cache(
-  (q) =>
-    callRoute(
-      searchComicsGET,
-      `http://internal/api/search/comics?q=${encodeURIComponent(q)}&limit=${SEARCH_PAGE_SIZE}&offset=0`,
-      "comics"
-    ),
-  ["page-search-comics-v1"],
-  { revalidate: 600 }
-);
-
-const cachedSearchSeries = unstable_cache(
-  (q) => callRoute(searchSeriesGET, `http://internal/api/search/series?q=${encodeURIComponent(q)}&limit=4`, "series"),
-  ["page-search-series-v1"],
-  { revalidate: 600 }
-);
-
 const settle = (p) =>
   p.then(
     (value) => value,
@@ -66,8 +49,14 @@ const settle = (p) =>
 
 // { comics, series }; either may be null, meaning "let the client fetch it".
 export async function getInitialSearch(q) {
-  const [comics, series] = await Promise.all([settle(cachedSearchComics(q)), settle(cachedSearchSeries(q))]);
-  return { comics, series };
+  const [comicResult, seriesResult] = await Promise.all([
+    settle(getCachedComicsSearch(q, { limit: SEARCH_PAGE_SIZE, offset: 0 })),
+    settle(getCachedSeriesSearch(q, { limit: 4 })),
+  ]);
+  return {
+    comics: comicResult?.comics ?? null,
+    series: seriesResult?.series ?? null,
+  };
 }
 
 const cachedSeries = unstable_cache(

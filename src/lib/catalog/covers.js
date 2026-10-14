@@ -208,12 +208,29 @@ export function pickCovers(issues, candidateRows, seriesFormats) {
   return resolved;
 }
 
+// Independent lookups run a few at a time (Disk IO budget: never more than 4
+// in flight). Results keep input order, so callers see the same rows in the
+// same order as the old one-at-a-time loops.
+const FETCH_CONCURRENCY = 4;
+
+async function mapLimit(items, work, limit = FETCH_CONCURRENCY) {
+  const results = new Array(items.length);
+  let next = 0;
+  const workers = Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (next < items.length) {
+      const index = next;
+      next += 1;
+      results[index] = await work(items[index]);
+    }
+  });
+  await Promise.all(workers);
+  return results;
+}
+
+// Callers run two of these at once, so each keeps half the budget.
 async function fetchChunks(values, build) {
-  const rows = [];
-  for (const group of chunks(values)) {
-    rows.push(...await fetchAllByKeyset(() => build(group), "id"));
-  }
-  return rows;
+  const pages = await mapLimit(chunks(values), (group) => fetchAllByKeyset(() => build(group), "id"), FETCH_CONCURRENCY / 2);
+  return pages.flat();
 }
 
 async function fetchSeriesFormats(supabase, seriesGcdIds) {
@@ -262,32 +279,30 @@ export async function resolveCovers(supabase, issues) {
   const tier3Issues = unresolved.filter((issue) => issue.series_title);
   if (!tier3Issues.length) return early;
 
-  const tier3Rows = [];
-  for (const batch of tier3Batches(tier3Issues)) {
+  const normalizedTitles = [...new Set(tier3Issues.map((issue) => compactTitle(issue.series_title)).filter(Boolean))];
+  const [titleRowPages, siblingSeriesPages] = await Promise.all([
     // This prefilter only removes rows whose raw number equals neither the
     // issue's raw number nor its base key; the old pages matched exact raw numbers.
-    tier3Rows.push(...await fetchAllByKeyset(() => supabase.from("canonical_covers")
+    mapLimit(tier3Batches(tier3Issues), (batch) => fetchAllByKeyset(() => supabase.from("canonical_covers")
       .select(PICK_COLUMNS).in("series_title", batch.titles)
       .in("issue_number", batch.numbers)
-      .not("storage_path", "is", null), "id"));
-  }
-  const normalizedTitles = [...new Set(tier3Issues.map((issue) => compactTitle(issue.series_title)).filter(Boolean))];
-  const siblingSeriesIds = [];
-  for (const group of chunks(normalizedTitles)) {
-    siblingSeriesIds.push(...await fetchAllByKeyset(() => supabase.from("series")
-      .select("id, gcd_id").in("title_normalized", group).not("gcd_id", "is", null), "id"));
-  }
+      .not("storage_path", "is", null), "id"), FETCH_CONCURRENCY - 1),
+    mapLimit(chunks(normalizedTitles), (group) => fetchAllByKeyset(() => supabase.from("series")
+      .select("id, gcd_id").in("title_normalized", group).not("gcd_id", "is", null), "id"), 1),
+  ]);
+  const tier3Rows = titleRowPages.flat();
+  const siblingSeriesIds = siblingSeriesPages.flat();
   const siblingIds = [...new Set(siblingSeriesIds.map((row) => row.gcd_id).filter((id) => id != null))];
   const siblingNumbers = [...new Set(tier3Issues.flatMap((issue) =>
     [issue.issue_number, baseIssueNumber(issue.issue_number)]
   ).filter(Boolean))];
-  for (const idGroup of chunks(siblingIds)) {
-    for (const numberGroup of chunks(siblingNumbers)) {
-      tier3Rows.push(...await fetchAllByKeyset(() => supabase.from("canonical_covers")
-        .select(PICK_COLUMNS).in("series_gcd_id", idGroup).in("issue_number", numberGroup)
-        .not("storage_path", "is", null), "id"));
-    }
-  }
+  const siblingGroups = chunks(siblingIds).flatMap((idGroup) =>
+    chunks(siblingNumbers).map((numberGroup) => [idGroup, numberGroup]));
+  const siblingPages = await mapLimit(siblingGroups, ([idGroup, numberGroup]) => fetchAllByKeyset(() =>
+    supabase.from("canonical_covers")
+      .select(PICK_COLUMNS).in("series_gcd_id", idGroup).in("issue_number", numberGroup)
+      .not("storage_path", "is", null), "id"));
+  tier3Rows.push(...siblingPages.flat());
   const rows = [...tier1Rows, ...tier2Rows, ...tier3Rows];
   const provisional = pickCovers(usable, rows);
   const siblingRows = tier3Issues.flatMap((issue) => siblingCandidates(issue, rows));

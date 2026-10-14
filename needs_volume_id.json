@@ -52019,5 +52019,95 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-14T01:32:31.649271+00:00",
     "retry_after": "2026-10-15T01:32:31.649286+00:00"
+  },
+  {
+    "name": "Fear Itself: Captain America",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T02:15:48.366614+00:00",
+    "retry_after": "2026-10-15T02:15:48.366632+00:00"
+  },
+  {
+    "name": "Dennis the Menace - The Short Swinger",
+    "publisher": "Fawcett Comics",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T02:15:48.760088+00:00",
+    "retry_after": "2026-10-15T02:15:48.760106+00:00"
+  },
+  {
+    "name": "Brothers in Arms Special Edition",
+    "publisher": "Dynamite Entertainment",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T02:15:54.787893+00:00",
+    "retry_after": "2026-10-15T02:15:54.787911+00:00"
+  },
+  {
+    "name": "Vixxxen: The Adventures of Selen",
+    "publisher": "Fantagraphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37961,
+        "name": "Vixxxen - The Adventures Of Selen",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T02:15:55.239111+00:00",
+    "retry_after": "2026-10-15T02:15:55.239128+00:00"
+  },
+  {
+    "name": "Heroes of the West Jumbo Edition",
+    "publisher": "Marvel Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T02:15:55.545431+00:00",
+    "retry_after": "2026-10-15T02:15:55.545448+00:00"
+  },
+  {
+    "name": "Poison Ivy",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 143431,
+        "name": "Poison Ivy",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      },
+      {
+        "id": 151415,
+        "name": "Poison Ivy",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T02:15:55.871365+00:00",
+    "retry_after": "2026-10-15T02:15:55.871380+00:00"
+  },
+  {
+    "name": "Outrage!",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T02:18:23.306666+00:00",
+    "retry_after": "2026-10-15T02:18:23.306684+00:00"
   }
 ]

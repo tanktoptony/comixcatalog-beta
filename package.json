@@ -86,6 +86,7 @@
     "test:key-import": "node --test scripts/lib/keyIssuesFromCrawl.test.js",
     "test:series-links": "node --test src/lib/seriesLinks.test.js scripts/importGcdSeriesBonds.test.js",
     "test:search-rpc": "node --test src/lib/searchRpc.test.js",
+    "test:search-current-run": "node --test src/lib/searchCurrentRun.test.js",
     "test:orders": "node --test src/lib/orders.test.js",
     "test:db": "node --test --test-concurrency=1 tests/db/*.test.js",
     "test:marketplace-orders-ui": "node --test src/lib/tracking.test.js src/lib/orderEmails.test.js src/lib/orderEvents.test.js",

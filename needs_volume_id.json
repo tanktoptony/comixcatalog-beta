@@ -49803,9 +49803,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T11:00:41.769214+00:00",
-    "retry_after": "2026-10-14T11:00:41.769232+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T11:15:53.900164+00:00",
+    "retry_after": "2026-10-17T11:15:53.900178+00:00"
   },
   {
     "name": "Wizard Hulk",
@@ -49813,9 +49813,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T11:00:42.211277+00:00",
-    "retry_after": "2026-10-14T11:00:42.211295+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T11:15:54.606012+00:00",
+    "retry_after": "2026-10-17T11:15:54.606046+00:00"
   },
   {
     "name": "Gigantor Pocket Manga",
@@ -49823,9 +49823,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T11:00:43.014994+00:00",
-    "retry_after": "2026-10-14T11:00:43.015012+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T11:15:59.077118+00:00",
+    "retry_after": "2026-10-17T11:15:59.077134+00:00"
   },
   {
     "name": "Comics Collection",
@@ -49846,9 +49846,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T11:01:41.298829+00:00",
-    "retry_after": "2026-10-14T11:01:41.298847+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T11:15:59.705375+00:00",
+    "retry_after": "2026-10-17T11:15:59.705389+00:00"
   },
   {
     "name": "Billy the Kid",
@@ -49869,9 +49869,9 @@
         "start_year": null
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T11:02:16.809365+00:00",
-    "retry_after": "2026-10-14T11:02:16.809379+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T11:16:00.231658+00:00",
+    "retry_after": "2026-10-17T11:16:00.231670+00:00"
   },
   {
     "name": "Spawn #1 Free Comic Book Day 2019",
@@ -52586,5 +52586,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-14T10:18:30.314563+00:00",
     "retry_after": "2026-10-15T10:18:30.314580+00:00"
+  },
+  {
+    "name": "Fox Hole",
+    "publisher": "Charlton Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T11:17:16.350985+00:00",
+    "retry_after": "2026-10-15T11:17:16.350999+00:00"
+  },
+  {
+    "name": "Frozen: Breaking Boundaries",
+    "publisher": "Dark Horse Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T11:17:56.844812+00:00",
+    "retry_after": "2026-10-15T11:17:56.844826+00:00"
+  },
+  {
+    "name": "Batman versus Predator [Prestige]",
+    "publisher": "Dark Horse Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T11:18:07.426210+00:00",
+    "retry_after": "2026-10-15T11:18:07.426226+00:00"
   }
 ]

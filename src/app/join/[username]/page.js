@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
   const clean = normalizeInviteRef(username);
   if (!clean) return {};
   return {
-    title: `Join @${clean} on ComixCatalog`,
+    title: `Join @${clean}`,
     description: `Catalog your comics with @${clean} on ComixCatalog.`,
     openGraph: {
       title: `Join @${clean} on ComixCatalog`,

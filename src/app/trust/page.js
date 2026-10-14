@@ -1,5 +1,10 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Trust & Safety",
+  description: "How to trade safely in the ComixCatalog beta marketplace and report suspicious activity.",
+};
+
 export default function TrustPage() {
   return (
     <main className="page-shell">

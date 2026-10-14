@@ -29,3 +29,8 @@ test("a quoted creator name is safely escaped in JSON-LD", () => {
   assert.doesNotMatch(json, /<\/script>/);
   assert.equal(JSON.parse(json).name, 'Chris "Ace" Writer </script>');
 });
+
+test("summary uses 'an' before a vowel role", () => {
+  const summary = buildCreatorSummary({ name: "Karl Story", credit_count: 1, role_counts: { writer: 0, penciller: 0, inker: 1, colorist: 0, letterer: 0, cover: 0 }, year_start: 2013, year_end: 2013 });
+  assert.match(summary, /mostly as an inker/);
+});

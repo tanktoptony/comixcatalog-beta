@@ -63,7 +63,7 @@ export function buildCreatorSummary({ name, credit_count: count, role_counts: ro
   const safeName = name || "This creator";
   const total = Number(count) || 0;
   const topRole = topCreatorRole(roles);
-  const roleText = Number(roles?.[topRole]) > 0 ? `, mostly as a ${labelRole(topRole)}` : "";
+  const roleText = Number(roles?.[topRole]) > 0 ? `, mostly as ${/^[aeiou]/i.test(labelRole(topRole)) ? "an" : "a"} ${labelRole(topRole)}` : "";
   let years = "";
   if (start && end && start !== end) years = `, from ${start} to ${end}`;
   else if (start || end) years = `, in ${start || end}`;

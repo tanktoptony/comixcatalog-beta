@@ -2,7 +2,7 @@ import Link from "next/link";
 import ARTICLES from "./articles";
 
 export const metadata = {
-  title: "Reads · ComixCatalog",
+  title: "Reads",
   description:
     "Articles, guides, and collector deep-dives from the ComixCatalog editorial team.",
 };

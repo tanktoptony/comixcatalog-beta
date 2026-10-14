@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Help Center — ComixCatalog",
+  title: "Help Center",
 };
 
 export default function HelpPage() {
@@ -66,7 +66,7 @@ export default function HelpPage() {
             q="Why is a cover missing on a series page?"
             a={
               <>
-                Cover ingestion runs from ComicVine over time. If a run hasn't
+                Cover ingestion runs from ComicVine over time. If a run hasn&apos;t
                 been pulled yet, individual issues will show without art. The
                 rest of the data (issue numbers, dates, publishers) comes from
                 the Grand Comics Database.

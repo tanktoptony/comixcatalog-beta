@@ -1,6 +1,11 @@
 import SearchPageClient from "./SearchPageClient";
 import { getInitialSearch } from "@/lib/pageData";
 
+export const metadata = {
+  title: "Search comics",
+  description: "Search comic series and issues by title, publisher or character.",
+};
+
 // Server-renders the first page of query results into the HTML. This page used to be client-only
 // (dynamic(..., { ssr: false })): it shipped an empty shell, waited for the
 // JavaScript, then fetched results, so a phone on a slow connection stared

@@ -1,7 +1,7 @@
 import NewsletterSignup from "@/components/NewsletterSignup";
 
 export const metadata = {
-  title: "The ComixCatalog newsletter",
+  title: "Newsletter",
   description:
     "What got added, what got fixed, and which books to go find. Every few weeks, from the person who builds ComixCatalog. One-click unsubscribe.",
 };

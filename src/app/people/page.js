@@ -1,7 +1,7 @@
 import PeopleClient from "./PeopleClient";
 
 export const metadata = {
-  title: "Find collectors | ComixCatalog",
+  title: "Find collectors",
   robots: { index: false, follow: false },
 };
 

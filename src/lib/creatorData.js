@@ -61,12 +61,47 @@ async function loadCreatorPage(slug) {
     if (!issue || !owner) return null;
     return { ...key, issue_number: issue.issue_number, title: issue.title, series_title: owner.title, series_gcd_id: issue.series_gcd_id, year: yearOf(issue), publisher: owner.resolved_publisher_cached };
   }).filter(Boolean);
-  const coverInputs = keyIssues.map((issue) => ({ gcd_issue_id: issue.gcd_issue_id, series_gcd_id: issue.series_gcd_id, series_title: issue.series_title, issue_number: issue.issue_number, year: issue.year, publisher: issue.publisher }));
+  const runs = buildCreatorRuns(credits, issues, series);
+  const creditedIssueIds = new Set(credits.map((credit) => String(credit.gcd_issue_id)));
+  const earliestIssueBySeries = new Map();
+  for (const issue of issues) {
+    if (!creditedIssueIds.has(String(issue.gcd_id))) continue;
+    const key = String(issue.series_gcd_id);
+    const current = earliestIssueBySeries.get(key);
+    const issueDate = issue.publication_date || issue.key_date || "9999";
+    const currentDate = current?.publication_date || current?.key_date || "9999";
+    if (!current || issueDate < currentDate || (issueDate === currentDate && Number(issue.gcd_id) < Number(current.gcd_id))) {
+      earliestIssueBySeries.set(key, issue);
+    }
+  }
+  const runCoverInputs = runs.slice(0, 24).map((run) => {
+    const owner = series.find((row) => String(row.id) === String(run.id));
+    const issue = owner && earliestIssueBySeries.get(String(owner.gcd_id));
+    return issue ? {
+      gcd_issue_id: issue.gcd_id,
+      series_gcd_id: issue.series_gcd_id,
+      series_title: run.title,
+      issue_number: issue.issue_number,
+      year: yearOf(issue),
+      publisher: run.publisher,
+      run_id: run.id,
+    } : null;
+  }).filter(Boolean);
+  const coverInputs = [
+    ...keyIssues.map((issue) => ({ gcd_issue_id: issue.gcd_issue_id, series_gcd_id: issue.series_gcd_id, series_title: issue.series_title, issue_number: issue.issue_number, year: issue.year, publisher: issue.publisher })),
+    ...runCoverInputs,
+  ];
   const covers = await resolveCovers(supabase, coverInputs);
   const coverBase = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/`;
   for (const issue of keyIssues) {
     const path = covers.get(issue.gcd_issue_id)?.storage_path;
     issue.cover = path ? `${coverBase}${path}` : null;
+  }
+  const runInputById = new Map(runCoverInputs.map((input) => [String(input.run_id), input]));
+  for (const run of runs) {
+    const input = runInputById.get(String(run.id));
+    const path = input ? covers.get(input.gcd_issue_id)?.storage_path : null;
+    run.cover = path ? `${coverBase}${path}` : null;
   }
 
   const years = issues.map(yearOf).filter(Boolean).sort((a, b) => a - b);
@@ -80,9 +115,9 @@ async function loadCreatorPage(slug) {
     year_start: years[0] ?? null,
     year_end: years.at(-1) ?? null,
     key_issues: keyIssues.sort((a, b) => Number(a.tier ?? 999) - Number(b.tier ?? 999) || String(a.series_title).localeCompare(String(b.series_title))),
-    runs: buildCreatorRuns(credits, issues, series),
+    runs,
   };
 }
 
 // Rejected calls are not cached, so database failures never become a day-long empty page.
-export const getCreatorPage = unstable_cache(loadCreatorPage, ["page-creator-v1"], { revalidate: 86400 });
+export const getCreatorPage = unstable_cache(loadCreatorPage, ["page-creator-v2"], { revalidate: 86400 });

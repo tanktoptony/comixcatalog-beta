@@ -1,5 +1,10 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Sell from your collection",
+  description: "List books from your ComixCatalog library and receive offers through direct messages during the marketplace beta.",
+};
+
 // Must match what the marketplace actually does today (docs/MARKETPLACE.md):
 // listings from the library, offers by message, nothing paid through us.
 export default function SellPage() {
@@ -23,7 +28,7 @@ export default function SellPage() {
           If we add checkout later, listings you make now carry over. You won&rsquo;t
           have to list anything again.
         </p>
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+        <div className="content-panel-actions">
           <Link href="/library" className="primary-btn">
             Go to your library
           </Link>

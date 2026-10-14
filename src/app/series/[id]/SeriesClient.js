@@ -218,7 +218,11 @@ export default function SeriesClient({ initialSeries = null }) {
   if (loading) {
     return (
       <main className="page-wrapper">
-        <p>Loading…</p>
+        <section className="comic-panel series-state">
+          <h1 className="hero-title">Loading series</h1>
+          <p className="muted">The catalog is getting this run ready.</p>
+          <Link href="/search">Search the catalog</Link>
+        </section>
       </main>
     );
   }
@@ -226,7 +230,11 @@ export default function SeriesClient({ initialSeries = null }) {
   if (!series) {
     return (
       <main className="page-wrapper">
-        <p>Series not found.</p>
+        <section className="comic-panel series-state">
+          <h1 className="hero-title">Series not found</h1>
+          <p className="muted">This catalog run may have moved or is not available.</p>
+          <Link href="/search">Search the catalog</Link>
+        </section>
       </main>
     );
   }
@@ -241,103 +249,73 @@ export default function SeriesClient({ initialSeries = null }) {
   return (
     <main className="page-wrapper">
       <section className="comic-panel">
-        <div className="section-label badge-x">Series</div>
-
-        <div
-          style={{
-            display: "grid",
-            // Same auto-fit pattern as the issue page hero - collapses to
-            // a single column under ~520px so phones don't horizontal-scroll.
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
-            gap: "24px",
-            alignItems: "start",
-            marginBottom: "28px",
-          }}
-        >
-          <div className="issue-cover-frame" style={{ maxWidth: 220, aspectRatio: "2 / 3" }}>
+        <div className="series-hero">
+          <div className="series-hero-cover issue-cover-frame">
             {/* The page's largest paint: load it first, at a known size so
                 nothing shifts when it arrives. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={coverThumb(series.featured_cover || "/fallback-cover.png")}
               alt={series.title}
               className="issue-cover-img"
-              width={220}
-              height={330}
+              width={260}
+              height={390}
               fetchPriority="high"
               loading="eager"
-              style={{ height: "100%", objectFit: "cover" }}
             />
           </div>
+          <div className="series-hero-heading">
+            <div className="section-label badge-x">Series · {series.publisher}</div>
+            <h1 className="hero-title">{series.title}</h1>
+            <div className="series-stat-chips">
+              <span>{series.issue_count} issue{series.issue_count === 1 ? "" : "s"}</span>
+              <span>{yearLabel}</span>
+              {series.format_label && <span className="series-format-chip">{series.format_label}</span>}
+            </div>
+          </div>
 
-          <div>
-            <h1 className="hero-title" style={{ marginBottom: "10px" }}>
-              {series.title}
-            </h1>
-
-            <p style={{ maxWidth: "760px", marginBottom: "12px" }}>
+          <div className="series-hero-details">
+            <p className="series-intro">
               {buildSeriesIntro(series)}
             </p>
 
             {series.links?.length > 0 && (
-              <div style={{ maxWidth: "760px", marginBottom: "12px" }}>
+              <div className="series-links">
                 {series.links.map((line) => (
-                  <div key={`${line.label}:${line.href}`} style={{ marginBottom: line.note ? "6px" : "2px" }}>
+                  <div className="series-link-card" key={`${line.label}:${line.href}`}>
                     <div>
-                      {line.label}{" "}
-                      <strong><Link href={line.href}>{line.title}</Link></strong>
-                      {line.year ? ` (${line.year})` : ""}
+                      <span>{line.label}</span>
+                      <Link href={line.href}>{line.title}</Link>
+                      {line.year && <small>{line.year}</small>}
                     </div>
-                    {line.note && (
-                      <div className="muted" style={{ fontSize: "0.875rem" }}>{line.note}</div>
-                    )}
+                    {line.note && <p>{line.note}</p>}
                   </div>
                 ))}
               </div>
             )}
 
             {(series.top_creators?.writers?.length > 0 || series.top_creators?.artists?.length > 0) && (
-              <p style={{ maxWidth: "760px", marginBottom: "12px" }}>
+              <div className="series-creators">
                 {series.top_creators.writers?.length > 0 && (
-                  <>Written by {series.top_creators.writers.map((creator, index, list) => (
+                  <div><span>Writer</span> {series.top_creators.writers.map((creator, index, list) => (
                     <span key={creator.slug}>{index ? (index === list.length - 1 ? " and " : ", ") : ""}<Link href={`/creator/${creator.slug}`}>{creator.name}</Link></span>
-                  ))}.</>
+                  ))}</div>
                 )}{series.top_creators.artists?.length > 0 && (
-                  <>{series.top_creators.writers?.length > 0 ? " " : ""}Art by {series.top_creators.artists.map((creator, index, list) => (
+                  <div><span>Artist</span> {series.top_creators.artists.map((creator, index, list) => (
                     <span key={creator.slug}>{index ? (index === list.length - 1 ? " and " : ", ") : ""}<Link href={`/creator/${creator.slug}`}>{creator.name}</Link></span>
-                  ))}.</>
+                  ))}</div>
                 )}
-              </p>
+              </div>
             )}
 
-            <p className="muted" style={{ marginBottom: "16px" }}>
-              {series.publisher} · {series.issue_count} issue
-              {series.issue_count === 1 ? "" : "s"} · {yearLabel}
-            </p>
-
-            <div
-              style={{
-                display: "flex",
-                gap: "10px",
-                flexWrap: "wrap",
-                marginBottom: "16px",
-              }}
-            >
-              <span className="pill">Series Page</span>
-              {series.format_label ? (
-                <span className="pill pill-format">{series.format_label}</span>
-              ) : (
-                <span className="pill">Canonical Run</span>
-              )}
-            </div>
-
             {series.key_issues?.length > 0 && (
-              <div style={{ maxWidth: "760px", marginBottom: "16px" }}>
-                <h2 style={{ fontSize: "1rem", marginBottom: "6px" }}>Key issues</h2>
-                <ul style={{ margin: 0, paddingLeft: "20px" }}>
+              <div className="series-key-issues">
+                <h2 className="issue-section-title">Key issues</h2>
+                <ul>
                   {series.key_issues.map((keyIssue) => (
                     <li key={keyIssue.gcd_issue_id}>
                       <Link href={`/issue/gcd-${keyIssue.gcd_issue_id}`}>
-                        #{keyIssue.issue_number}: {keyIssue.reason}
+                        <span>#{keyIssue.issue_number}</span> {keyIssue.reason}
                       </Link>
                     </li>
                   ))}
@@ -350,8 +328,8 @@ export default function SeriesClient({ initialSeries = null }) {
               // series notes) instead of the generic run blurb. Covers for
               // these come from their own ComicVine volume or not at all;
               // they never borrow the monthly's art.
-              <div className="series-collects muted" style={{ maxWidth: "760px" }}>
-                <p style={{ marginBottom: "6px" }}>
+              <div className="series-collects muted">
+                <p>
                   This is a collected edition. Each volume collects issues of the
                   ongoing series:
                 </p>
@@ -361,11 +339,7 @@ export default function SeriesClient({ initialSeries = null }) {
                   ))}
                 </ul>
               </div>
-            ) : (
-              <p className="muted" style={{ maxWidth: "760px" }}>
-                Browse the run and jump into any issue.
-              </p>
-            )}
+            ) : null}
           </div>
         </div>
 
@@ -375,86 +349,38 @@ export default function SeriesClient({ initialSeries = null }) {
             owned/wishlisted issue from this run - otherwise it's noise on
             series the user has no relationship to. */}
         {user && sortedIssues.length > 0 && (runStats.owned > 0 || runStats.wishlisted > 0) && (
-          <div
-            style={{
-              marginBottom: 20,
-              padding: "14px 16px",
-              borderRadius: 10,
-              background: "rgba(255,215,0,0.06)",
-              border: "1px solid rgba(255,215,0,0.25)",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "baseline",
-                gap: 12,
-                flexWrap: "wrap",
-                marginBottom: 8,
-              }}
-            >
-              <div style={{ fontWeight: 700 }}>
+          <div className="series-progress">
+            <div className="series-progress-heading">
+              <div>
                 Run completion: you own {runStats.owned} of {runStats.total}
                 {runStats.wishlisted > 0 && (
-                  <span style={{ opacity: 0.7, fontWeight: 500 }}>
+                  <span className="series-progress-wanted">
                     {" "}· {runStats.wishlisted} on wantlist
                   </span>
                 )}
               </div>
-              <div style={{ fontWeight: 700, color: "var(--cc-gold, #FFD700)" }}>
+              <div className="series-progress-percent">
                 {runPct}%
               </div>
             </div>
-            <div
-              style={{
-                height: 6,
-                borderRadius: 999,
-                background: "rgba(255,255,255,0.08)",
-                overflow: "hidden",
-                marginBottom: runStats.missing.length > 0 ? 12 : 0,
-              }}
-            >
+            <div className={`series-progress-track ${runStats.missing.length > 0 ? "has-missing" : ""}`}>
               <div
+                className="series-progress-fill"
                 style={{
-                  height: "100%",
                   width: `${runPct}%`,
-                  background:
-                    runPct === 100
-                      ? "linear-gradient(90deg, #FFD700, #FFC400)"
-                      : "linear-gradient(90deg, #4CAF50, #2196F3)",
-                  transition: "width 0.4s ease",
                 }}
               />
             </div>
             {runStats.missing.length > 0 && (
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  gap: 12,
-                  flexWrap: "wrap",
-                }}
-              >
-                <div style={{ fontSize: "0.9rem", opacity: 0.85 }}>
+              <div className="series-progress-actions">
+                <div>
                   Missing {runStats.missing.length} issue{runStats.missing.length === 1 ? "" : "s"}.
                 </div>
                 <button
                     type="button"
                     onClick={handleAddAllMissingToWantlist}
                     disabled={bulkAdding}
-                    style={{
-                      padding: "8px 14px",
-                      borderRadius: 8,
-                      border: "1px solid rgba(76,175,80,0.4)",
-                      background: "linear-gradient(90deg, #4CAF50, #2196F3)",
-                      color: "#fff",
-                      fontWeight: 700,
-                      cursor: bulkAdding ? "not-allowed" : "pointer",
-                      opacity: bulkAdding ? 0.7 : 1,
-                      flexShrink: 0,
-                    }}
+                    className="series-wantlist-button"
                   >
                     {bulkAdding
                       ? `Adding… (${runStats.missing.length})`
@@ -463,7 +389,7 @@ export default function SeriesClient({ initialSeries = null }) {
               </div>
             )}
             {bulkResult && (
-              <div style={{ marginTop: 8, fontSize: "0.85rem", opacity: 0.85 }}>
+              <div className="series-progress-result">
                 Added {bulkResult.added} to your wantlist
                 {bulkResult.failed > 0 && `, ${bulkResult.failed} failed`}.
               </div>
@@ -477,55 +403,25 @@ export default function SeriesClient({ initialSeries = null }) {
             anonymous visitor (or a logged-in user new to this series) saw no
             prompt to start tracking at all. */}
         {!user && sortedIssues.length > 0 && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              gap: 12,
-              flexWrap: "wrap",
-              marginBottom: 20,
-              padding: "14px 16px",
-              borderRadius: 10,
-              background: "rgba(255,215,0,0.06)",
-              border: "1px solid rgba(255,215,0,0.25)",
-            }}
-          >
-            <div style={{ fontSize: "0.9rem", opacity: 0.9 }}>
+          <div className="series-tracking-nudge">
+            <div>
               Track your progress on this {sortedIssues.length}-issue run - see what you own and what you&rsquo;re missing.
             </div>
             <Link
               href={`/signup?next=${encodeURIComponent(`/series/${id}`)}`}
-              style={{
-                padding: "8px 14px",
-                borderRadius: 8,
-                border: "1px solid var(--cc-gold, #FFD700)",
-                color: "var(--cc-gold, #FFD700)",
-                fontWeight: 700,
-                textDecoration: "none",
-                flexShrink: 0,
-              }}
+              className="series-tracking-link"
             >
               Start tracking - free →
             </Link>
           </div>
         )}
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: "16px",
-            marginBottom: "20px",
-            flexWrap: "wrap",
-          }}
-        >
-          <div className="muted">
+        <div className="series-toolbar">
+          <div className="series-issue-count">
             {sortedIssues.length} issue{sortedIssues.length === 1 ? "" : "s"}
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <div className="series-sort">
             <label htmlFor="sortMode" className="muted">
               Sort
             </label>
@@ -537,7 +433,6 @@ export default function SeriesClient({ initialSeries = null }) {
                 setShown(ISSUE_BATCH);
               }}
               className="input"
-              style={{ width: 180 }}
             >
               <option value="issue-asc">Issue # ascending</option>
               <option value="issue-desc">Issue # descending</option>
@@ -565,6 +460,7 @@ export default function SeriesClient({ initialSeries = null }) {
               <article key={issue.id} className="comic-card">
                 <Link prefetch={false} href={`/issue/${issue.id}`} className="card-link">
                   <div className="comic-card-cover" style={{ position: "relative" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={coverThumb(issue.cover || "/fallback-cover.png")}
                       alt={`${series.title} #${issue.issue_number}${issue.release_year ? ` (${issue.release_year})` : ""} cover`}

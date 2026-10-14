@@ -1,6 +1,6 @@
 # ComixCatalog vision build spec (Discogs depth)
 
-**Status:** revised after adversarial review (Codex, 2026-10-14; 21 of 24 findings accepted, see §9). **Mockup:** "ComixCatalog: The Discogs Vision" canvas (5 boards: Your shelf, Issue page, Series run, Creator, Scan to shelf).
+**Status:** approved 2026-10-14 (Tony accepted D1 to D5 as written); revised after adversarial review (Codex, 2026-10-14; 21 of 24 findings accepted, see §9). **Mockup:** "ComixCatalog: The Discogs Vision" canvas (5 boards: Your shelf, Issue page, Series run, Creator, Scan to shelf).
 **Owner:** Tony. **Builders:** Codex in worktrees; Claude scopes, reviews, merges.
 
 ## 0. Goal, non-goals, and the rule
@@ -81,7 +81,7 @@ Every page ships branded (dark surfaces, gold accent, display font, cover art pr
 ### 4.5 Scan to shelf (Release 3)
 - A full UPC (with supplement) that maps to exactly one accepted printing on one edition auto-selects that edition. A main-code-only match, or more than one candidate, goes to Review with candidates listed. Never auto-label "newsstand".
 
-## 5. Decisions for Tony (recommended default first)
+## 5. Decisions for Tony (answered 2026-10-14: all recommended defaults)
 - D1 Values: label "Estimated from current asking prices", hide ranges and movers until sold data exists.
 - D2 Edition URLs: `/issue/<base>?edition=<id>`, variants 308 there, canonical = base.
 - D3 Counts: consent rules in §3.2, shown only at ≥ 3, updated daily.

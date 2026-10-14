@@ -11994,9 +11994,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T06:01:49.300508+00:00",
-    "retry_after": "2026-10-14T06:01:49.300524+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T06:06:50.335411+00:00",
+    "retry_after": "2026-10-17T06:06:50.335427+00:00"
   },
   {
     "name": "Transformers Universe",
@@ -49505,9 +49505,9 @@
     "year": 1987,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T06:00:50.170673+00:00",
-    "retry_after": "2026-10-14T06:00:50.170688+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T06:06:47.402493+00:00",
+    "retry_after": "2026-10-17T06:06:47.402508+00:00"
   },
   {
     "name": "Gen 13 #1 3-D",
@@ -49515,9 +49515,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T06:00:50.874250+00:00",
-    "retry_after": "2026-10-14T06:00:50.874265+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T06:06:47.854633+00:00",
+    "retry_after": "2026-10-17T06:06:47.854651+00:00"
   },
   {
     "name": "The Sacrificers Giant-Sized Artists' Proof Edition",
@@ -49525,9 +49525,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T06:00:57.222285+00:00",
-    "retry_after": "2026-10-14T06:00:57.222300+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T06:06:48.186489+00:00",
+    "retry_after": "2026-10-17T06:06:48.186505+00:00"
   },
   {
     "name": "Airboy versus the Airmaidens",
@@ -49535,9 +49535,9 @@
     "year": 1988,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T06:00:57.872420+00:00",
-    "retry_after": "2026-10-14T06:00:57.872436+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T06:06:48.721980+00:00",
+    "retry_after": "2026-10-17T06:06:48.721997+00:00"
   },
   {
     "name": "Heavy Metal [hardcover editions]",
@@ -49545,9 +49545,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T06:01:04.267570+00:00",
-    "retry_after": "2026-10-14T06:01:04.267586+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T06:06:49.188249+00:00",
+    "retry_after": "2026-10-17T06:06:49.188265+00:00"
   },
   {
     "name": "Silver Surfer: Lunacy in Latveria",
@@ -52382,5 +52382,59 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-14T05:19:42.100111+00:00",
     "retry_after": "2026-10-15T05:19:42.100125+00:00"
+  },
+  {
+    "name": "Marvel Super Hero Adventures: Spider-Man and the Stolen Vibranium",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T06:06:49.771819+00:00",
+    "retry_after": "2026-10-15T06:06:49.771835+00:00"
+  },
+  {
+    "name": "J.U.D.G.E.: Secret Rage",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T06:07:44.568197+00:00",
+    "retry_after": "2026-10-15T06:07:44.568213+00:00"
+  },
+  {
+    "name": "Lorsque nous vivions ensemble",
+    "publisher": "Dynamite Entertainment",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167174,
+        "name": "Lorsque Nous Vivions Ensemble",
+        "publisher": "Dargaud",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T06:08:11.222732+00:00",
+    "retry_after": "2026-10-15T06:08:11.222748+00:00"
+  },
+  {
+    "name": "Femmina",
+    "publisher": "Chaos! Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 146966,
+        "name": "Femmina",
+        "publisher": "BBD Presse",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T06:09:00.704242+00:00",
+    "retry_after": "2026-10-15T06:09:00.704257+00:00"
   }
 ]

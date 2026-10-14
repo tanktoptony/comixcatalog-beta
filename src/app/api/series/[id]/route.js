@@ -164,15 +164,16 @@ export async function GET(req, context) {
       return NextResponse.json({ error: "Series not found" }, { status: 404 });
     }
 
-    let seriesLinks = [];
-    if (series.gcd_id != null) {
-      try {
-        seriesLinks = await loadSeriesLinks(supabase, series.gcd_id);
-      } catch (error) {
+    // Every stage below needs only the series row (or its issues), so the
+    // lookups overlap instead of running one after another. Serially a
+    // 1,301-issue run took 8-12 s (measured 2026-10-14).
+    const seriesLinksPromise = series.gcd_id == null
+      ? Promise.resolve([])
+      : loadSeriesLinks(supabase, series.gcd_id).catch((error) => {
         console.error("GET /api/series/[id] series links lookup failed:", error);
         degraded = true;
-      }
-    }
+        return [];
+      });
 
     // No GCD linkage at all — a brand-new or never-catalogued real series.
     // GCD's metadata mirror is a point-in-time dump plus a weekly top-up
@@ -189,6 +190,7 @@ export async function GET(req, context) {
     // below relies on; that's the same trade-off the title-path already
     // makes there.
     if (!series.gcd_id) {
+      const seriesLinks = await seriesLinksPromise;
       let coverRows = [];
       try {
         coverRows = await fetchSeriesCoverRows(supabase, { seriesTitles: [series.title] });
@@ -290,18 +292,17 @@ export async function GET(req, context) {
     let keyIssues = [];
     let topCreators = { writers: [], artists: [] };
     let creatorCreditedIssues = { writers: 0, artists: 0 };
-    try {
-      const [loadedKeyIssues, creatorSummary] = await Promise.all([
-        loadKeyIssues(supabase, issueRows),
-        loadTopCreators(supabase, issueRows),
-      ]);
+    const enrichmentPromise = Promise.all([
+      loadKeyIssues(supabase, issueRows),
+      loadTopCreators(supabase, issueRows),
+    ]).then(([loadedKeyIssues, creatorSummary]) => {
       keyIssues = loadedKeyIssues;
       topCreators = creatorSummary.topCreators;
       creatorCreditedIssues = creatorSummary.creditedIssueCounts;
-    } catch (error) {
+    }).catch((error) => {
       console.error("GET /api/series/[id] enrichment lookup failed:", error);
       degraded = true;
-    }
+    });
 
     const publisherGcdIds = [
       ...new Set(
@@ -316,11 +317,74 @@ export async function GET(req, context) {
 
     let gcdPublisherNames = [];
     let seriesLevelPublisherName = null;
-    if (publisherGcdIds.length > 0) {
-      const { data: gcdPublisherRows, error: gcdPublisherRowsError } = await supabase
-        .from("gcd_publishers")
-        .select("gcd_id, name")
-        .in("gcd_id", publisherGcdIds);
+    const publisherRowsPromise = publisherGcdIds.length > 0
+      ? supabase.from("gcd_publishers").select("gcd_id, name").in("gcd_id", publisherGcdIds)
+      : Promise.resolve(null);
+
+    const issueNumbers = [
+      ...new Set(
+        issueRows
+          .map((row) => row.issue_number)
+          .filter((value) => value != null)
+      ),
+    ];
+
+    // Two-path canonical-cover lookup:
+    //   1. ID path — match canonical_covers.series_gcd_id == series.gcd_id.
+    //      Volume-exact; immune to title drift (mojibake, casing, comma vs
+    //      colon — the "G.I. Joe, a Real American Hero" Marvel run vs
+    //      "G.I. Joe: A Real American Hero" IDW form bit us until this).
+    //   2. Title path — for canonical_covers rows the backfill couldn't tag.
+    // Union the results; downstream dedupe (candidatesByIssue) handles
+    // duplicates from rows that match both paths.
+    const canonicalRowsPromise = issueNumbers.length > 0
+      ? fetchSeriesCoverRows(supabase, {
+        seriesGcdIds: [series.gcd_id],
+        seriesTitles: collectedEdition ? [] : [series.title],
+      }).catch((error) => {
+        console.error("GET /api/series/[id] canonical cover lookup failed:", error);
+        degraded = true;
+        return [];
+      })
+      : Promise.resolve([]);
+
+    // Series year span — used as the tolerance window for picking a canonical
+    // cover. Without this, a 2022 "Robin: The Lazarus Tournament" cover ends
+    // up assigned to the 1993 Robin #1 because canonical_covers only has the
+    // recent run ingested.
+    const seriesYears = issueRows
+      .map((row) => bestYearFor(row))
+      .filter((y) => y != null);
+    const seriesYearMin = seriesYears.length
+      ? Math.min(...seriesYears)
+      : parseYear(series.year_start_cached);
+    const seriesYearMax = seriesYears.length
+      ? Math.max(...seriesYears)
+      : parseYear(series.year_end_cached);
+    const resolvedCoversPromise = resolveCovers(supabase, issueRows.map((issue) => ({
+      gcd_issue_id: issue.gcd_id,
+      series_gcd_id: issue.series_gcd_id,
+      series_title: collectedEdition ? null : series.title,
+      issue_number: issue.issue_number,
+      year: bestYearFor(issue),
+      series_year_start: seriesYearMin,
+      series_year_end: seriesYearMax,
+    }))).catch((error) => {
+      console.error("GET /api/series/[id] cover resolution failed:", error);
+      degraded = true;
+      return new Map();
+    });
+
+    const [publisherRowsResult, canonicalRows, resolvedCovers, seriesLinks] = await Promise.all([
+      publisherRowsPromise,
+      canonicalRowsPromise,
+      resolvedCoversPromise,
+      seriesLinksPromise,
+      enrichmentPromise,
+    ]);
+
+    if (publisherRowsResult) {
+      const { data: gcdPublisherRows, error: gcdPublisherRowsError } = publisherRowsResult;
       if (gcdPublisherRowsError) {
         console.error("series publisher lookup failed:", gcdPublisherRowsError.code, gcdPublisherRowsError.message);
         degraded = true;
@@ -347,35 +411,6 @@ export async function GET(req, context) {
     const yearStart = years.length ? Math.min(...years) : null;
     const yearEnd = years.length ? Math.max(...years) : null;
 
-    const issueNumbers = [
-      ...new Set(
-        issueRows
-          .map((row) => row.issue_number)
-          .filter((value) => value != null)
-      ),
-    ];
-
-    // Two-path canonical-cover lookup:
-    //   1. ID path — match canonical_covers.series_gcd_id == series.gcd_id.
-    //      Volume-exact; immune to title drift (mojibake, casing, comma vs
-    //      colon — the "G.I. Joe, a Real American Hero" Marvel run vs
-    //      "G.I. Joe: A Real American Hero" IDW form bit us until this).
-    //   2. Title path — for canonical_covers rows the backfill couldn't tag.
-    // Union the results; downstream dedupe (candidatesByIssue) handles
-    // duplicates from rows that match both paths.
-    let canonicalRows = [];
-    if (issueNumbers.length > 0) {
-      try {
-        canonicalRows = await fetchSeriesCoverRows(supabase, {
-          seriesGcdIds: [series.gcd_id],
-          seriesTitles: collectedEdition ? [] : [series.title],
-        });
-      } catch (error) {
-        console.error("GET /api/series/[id] canonical cover lookup failed:", error);
-        degraded = true;
-      }
-    }
-
     const canonicalPublisherName =
       canonicalRows.find((row) => row.publisher)?.publisher ?? null;
 
@@ -396,36 +431,6 @@ export async function GET(req, context) {
         ],
         seriesTitle: series.title,
       });
-
-    let resolvedCovers = new Map();
-
-    // Series year span — used as the tolerance window for picking a canonical
-    // cover. Without this, a 2022 "Robin: The Lazarus Tournament" cover ends
-    // up assigned to the 1993 Robin #1 because canonical_covers only has the
-    // recent run ingested.
-    const seriesYears = issueRows
-      .map((row) => bestYearFor(row))
-      .filter((y) => y != null);
-    const seriesYearMin = seriesYears.length
-      ? Math.min(...seriesYears)
-      : parseYear(series.year_start_cached);
-    const seriesYearMax = seriesYears.length
-      ? Math.max(...seriesYears)
-      : parseYear(series.year_end_cached);
-    try {
-      resolvedCovers = await resolveCovers(supabase, issueRows.map((issue) => ({
-        gcd_issue_id: issue.gcd_id,
-        series_gcd_id: issue.series_gcd_id,
-        series_title: collectedEdition ? null : series.title,
-        issue_number: issue.issue_number,
-        year: bestYearFor(issue),
-        series_year_start: seriesYearMin,
-        series_year_end: seriesYearMax,
-      })));
-    } catch (error) {
-      console.error("GET /api/series/[id] cover resolution failed:", error);
-      degraded = true;
-    }
 
     const mappedIssuesRaw = issueRows.map((issue) => {
       const gcdYear = bestYearFor(issue);

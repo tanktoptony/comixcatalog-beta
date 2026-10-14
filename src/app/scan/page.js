@@ -1,7 +1,7 @@
 import CoverScanner from "@/components/CoverScanner";
 
 export const metadata = {
-  title: "Scan comics | ComixCatalog",
+  title: "Scan comics",
   description: "Scan a comic cover or barcode and find the issue in the catalog.",
 };
 

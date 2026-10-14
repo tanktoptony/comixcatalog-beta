@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { searchSeriesRpc } from "@/lib/searchRpc";
 import { parseSearchQuery, yearMatches, yearScore } from "@/lib/searchQuery";
 import { diversify } from "@/lib/searchVariety";
@@ -7,10 +7,11 @@ import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { normalizeSeriesSearchWords, searchWordCoverage } from "@/lib/seriesSearchMatch";
-import { resolveSeriesCovers } from "@/lib/catalog/covers";
+import { resolveSeriesCardCovers } from "@/lib/catalog/seriesCardCovers";
 import { aliasTermsFor } from "@/lib/searchAliases";
 import { unstable_cache } from "next/cache";
 import { createServerTiming } from "@/lib/serverTiming";
+import { cachedSearchTerm } from "@/lib/searchTermCache";
 import {
   DegradedSearchError,
   normalizeSearchCacheTerm,
@@ -101,7 +102,10 @@ const SERIES_SELECT = `
 // Falls back to the old ILIKE-and-hope query if the migration hasn't been
 // run yet (function not found) or any other RPC error — never worse than
 // the pre-fix behavior, just not yet fixed until the migration lands.
-async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
+// onFallback: the ILIKE path is a different (smaller, unranked) candidate set,
+// reached today mostly when the RPC times out under load. Callers mark the
+// result degraded so it is shown but never cached (search_term_cache, CDN).
+async function fetchSeriesCandidates(supabase, searchWords, normalizedQ, onFallback = () => {}) {
   let { data, error } = await searchSeriesRpc(supabase, {
     normalized_term: searchWords,
     allowed_publishers: US_PUBLISHER_ALLOWLIST,
@@ -126,6 +130,7 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
     "series search RPC (search_series_by_relevance_v2, migration 0064) failed, falling back to ILIKE search:",
     error.message
   );
+  onFallback();
   const { data: fallbackRows, error: fallbackError } = await supabase
     .from("series")
     .select(SERIES_SELECT)
@@ -185,15 +190,17 @@ async function computeSeriesResponse(req) {
     const aliasTerms = aliasTermsFor(normalizedQ);
 
     let rows;
+    let searchDegraded = false;
+    const markDegraded = () => { searchDegraded = true; };
     try {
       const aliasFetches = aliasTerms.map((term) =>
-        fetchSeriesCandidates(supabase, term, term).catch((aliasError) => {
+        fetchSeriesCandidates(supabase, term, term, markDegraded).catch((aliasError) => {
           console.error(`series search alias fetch failed for ${term}:`, aliasError);
           return [];
         })
       );
       const candidateSets = await timing.measure("candidates", () => Promise.all([
-        fetchSeriesCandidates(supabase, searchWords, normalizedQ),
+        fetchSeriesCandidates(supabase, searchWords, normalizedQ, markDegraded),
         ...aliasFetches,
       ]));
       rows = dedupeById(candidateSets.flat());
@@ -214,7 +221,6 @@ async function computeSeriesResponse(req) {
     // real book" signal than year overlap — fetch it here and let it
     // override the year-based fingerprint below.
     const volumeIdByRowId = new Map();
-    let searchDegraded = false;
     if (rows.length > 0) {
       // Chunked: a broad query ("batman") returns up to 1,000 rows, and 1,000
       // UUIDs in one .in() is a ~37 KB URL that the API rejects (400 above
@@ -422,12 +428,13 @@ async function computeSeriesResponse(req) {
         ? deduped.slice(0, limit)
         : diversify(deduped, { limit, perTitle: 2 });
 
-    // The card is derived from this series' resolved issues, never from the
-    // independently refreshed featured_cover_path_cached value.
+    // The card is derived from this series' resolved issues (stored per series
+    // by resolveSeriesCardCovers), never from the independently refreshed
+    // featured_cover_path_cached value.
     stopRanking();
     const resolvedSeriesCovers = returnFullRanking
       ? new Map()
-      : await timing.measure("covers", () => resolveSeriesCovers(supabase, top));
+      : await timing.measure("covers", () => resolveSeriesCardCovers(supabase, top));
     const series = top.map((row) => ({
       id: row.id,
       gcd_id: row.gcd_id ?? null,
@@ -440,12 +447,7 @@ async function computeSeriesResponse(req) {
       publisher: {
         name: row.resolved_publisher_cached ?? "Unknown Publisher",
       },
-      cover: (() => {
-        const path = resolvedSeriesCovers.get(row.id)?.storage_path;
-        return path
-          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`
-          : null;
-      })(),
+      cover: coverUrl(resolvedSeriesCovers.get(row.id)?.storage_path),
     }));
 
     // A degraded result must not sit in the CDN for ten minutes.
@@ -457,82 +459,78 @@ async function computeSeriesResponse(req) {
   }
 }
 
-const cachedSeriesSearch = unstable_cache(
+// The full ranked list for one term (no covers). Stored per term in
+// search_term_cache; a degraded result is returned but never stored.
+async function computeSeriesTerm(normalizedTerm, askedYear) {
+  const query = askedYear == null ? normalizedTerm : `${normalizedTerm} ${askedYear}`;
+  const response = await computeSeriesResponse(
+    new Request(`http://internal/api/search/series?q=${encodeURIComponent(query)}&ranked=1`)
+  );
+  const serverTiming = response.headers.get("Server-Timing") || "";
+  const result = await response.json();
+  return { ...result, _serverTiming: serverTiming };
+}
+
+// Only used when search_term_cache can't be read (migration 0068 missing).
+const legacyCachedSeriesSearch = unstable_cache(
   async (normalizedTerm, askedYear) => {
-    const query = askedYear == null ? normalizedTerm : `${normalizedTerm} ${askedYear}`;
-    const response = await computeSeriesResponse(
-      new Request(`http://internal/api/search/series?q=${encodeURIComponent(query)}&ranked=1`)
-    );
-    const serverTiming = response.headers.get("Server-Timing") || "";
-    const result = await response.json();
-    const measured = { ...result, _serverTiming: serverTiming };
-    if (result.degraded) throw new DegradedSearchError(measured);
+    const measured = await computeSeriesTerm(normalizedTerm, askedYear);
+    if (measured.degraded) throw new DegradedSearchError(measured);
     return measured;
   },
   ["search-series-v1"],
   { revalidate: SEARCH_CACHE_REVALIDATE_SECONDS, tags: ["search"] }
 );
 
-export async function getCachedSeriesSearch(q, { limit = 12 } = {}) {
+function coverUrl(path) {
+  return path
+    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`
+    : null;
+}
+
+// Covers are picked for the returned page only, outside the term cache, from
+// the per-series stored pick (see src/lib/catalog/seriesCardCovers.js).
+async function withCardCovers(result, parsed, limit, timing) {
+  const selected = parsed.year != null
+    ? sliceSearchResults(result.series, { limit })
+    : diversify(result.series, { limit, perTitle: 2 });
+  const resolve = () => resolveSeriesCardCovers(getServiceClient(), selected.map((row) => ({
+    id: row.id,
+    gcd_id: row.gcd_id,
+    title: row.title,
+    year_start_cached: row.year_start,
+    year_end_cached: row.year_end,
+    resolved_publisher_cached: row.publisher?.name,
+  })));
+  const covers = timing ? await timing.measure("card_covers", resolve) : await resolve();
+  return {
+    ...result,
+    series: selected.map((row) => ({ ...row, cover: coverUrl(covers.get(row.id)?.storage_path) })),
+  };
+}
+
+export async function getCachedSeriesSearch(q, { limit = 12, timing = null } = {}) {
   const parsed = parseSearchQuery(q);
   const title = stripTrailingIssueNumber(parsed.title || q) || parsed.title || q;
   const normalizedTerm = normalizeSearchCacheTerm(title);
-  try {
-    const result = await cachedSeriesSearch(normalizedTerm, parsed.year ?? null);
-    const selected = parsed.year != null
-      ? sliceSearchResults(result.series, { limit })
-      : diversify(result.series, { limit, perTitle: 2 });
-    const covers = await resolveSeriesCovers(getServiceClient(), selected.map((row) => ({
-      id: row.id,
-      gcd_id: row.gcd_id,
-      title: row.title,
-      year_start_cached: row.year_start,
-      year_end_cached: row.year_end,
-      resolved_publisher_cached: row.publisher?.name,
-    })));
-    const series = selected.map((row) => {
-      const path = covers.get(row.id)?.storage_path;
-      return {
-        ...row,
-        cover: path
-          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`
-          : null,
-      };
-    });
-    return { ...result, series };
-  } catch (error) {
-    if (error instanceof DegradedSearchError) {
-      const selected = parsed.year != null
-        ? sliceSearchResults(error.result.series, { limit })
-        : diversify(error.result.series, { limit, perTitle: 2 });
-      const covers = await resolveSeriesCovers(getServiceClient(), selected.map((row) => ({
-        id: row.id,
-        gcd_id: row.gcd_id,
-        title: row.title,
-        year_start_cached: row.year_start,
-        year_end_cached: row.year_end,
-        resolved_publisher_cached: row.publisher?.name,
-      })));
-      return {
-        ...error.result,
-        series: selected.map((row) => {
-          const path = covers.get(row.id)?.storage_path;
-          return {
-            ...row,
-            cover: path
-              ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`
-              : null,
-          };
-        }),
-      };
-    }
-    throw error;
-  }
+  const askedYear = parsed.year ?? null;
+  const { result, state } = await cachedSearchTerm(getServiceClient(), {
+    kind: "series",
+    key: askedYear == null ? normalizedTerm : `${normalizedTerm}|${askedYear}`,
+    compute: () => computeSeriesTerm(normalizedTerm, askedYear),
+    schedule: after,
+    fallback: () => legacyCachedSeriesSearch(normalizedTerm, askedYear).catch((error) => {
+      if (error instanceof DegradedSearchError) return error.result;
+      throw error;
+    }),
+  });
+  return { ...(await withCardCovers(result, parsed, limit, timing)), _cacheState: state };
 }
 
 export async function GET(req) {
   const timing = createServerTiming();
   timing.set("search_cache");
+  timing.set("card_covers");
   timing.set("serialization");
   try {
     const { searchParams } = new URL(req.url);
@@ -540,10 +538,11 @@ export async function GET(req) {
     const requested = Number(searchParams.get("limit"));
     const limit = Number.isFinite(requested) ? Math.max(1, Math.min(Math.trunc(requested), 40)) : 12;
     if (!q) return NextResponse.json({ series: [] }, { headers: { "Server-Timing": timing.header() } });
-    const result = await timing.measure("search_cache", () => getCachedSeriesSearch(q, { limit }));
-    const { _serverTiming, ...body } = result;
+    const result = await timing.measure("search_cache", () => getCachedSeriesSearch(q, { limit, timing }));
+    const { _serverTiming, _cacheState, ...body } = result;
     const headers = result.degraded ? undefined : CDN_CACHE_SHORT;
     const response = timing.measureSync("serialization", () => NextResponse.json(body, { headers }));
+    response.headers.set("X-Search-Cache", _cacheState);
     response.headers.set("Server-Timing", [_serverTiming, timing.header()].filter(Boolean).join(", "));
     return response;
   } catch (err) {

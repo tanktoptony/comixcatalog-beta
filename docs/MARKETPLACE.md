@@ -1,7 +1,7 @@
 # ComixCatalog: Marketplace
 
 **Status:** canonical, describes current state · **Verified against code:** `origin/main` at `4abf5dc`, 2026-10-09
-**Plan of record:** [marketplace-v2-build-brief.md](marketplace-v2-build-brief.md) (phases 0 to 6, open questions for the founder). [marketplace-launch-spec.md](marketplace-launch-spec.md) is older; its mechanics are superseded.
+**Plan of record:** [marketplace-v2-build-brief.md](marketplace-v2-build-brief.md) (phases 0 to 6, open questions for the founder). [marketplace-launch-spec.md](marketplace-launch-spec.md) is older; its mechanics are superseded. Transactions (orders, payments, feedback) are specified in [marketplace-transactions-spec.md](marketplace-transactions-spec.md), approved 2026-10-14, not built.
 
 **One line:** a public beta where collectors list copies from their library and buyers contact them by direct message. No money moves through ComixCatalog. Don't describe checkout, buyer protection, payouts, fees or seller ratings as available.
 
@@ -40,6 +40,8 @@
 
 ## Partially implemented
 
+**Transactions (in progress):** The orders schema and state machine are in migration 0066, seller accounts and eligibility are in 0068, and Stripe events and payouts are in 0070. Migration 0071 adds order threads and idempotent transactional-email claims. Migration 0072 adds double-blind two-way feedback, 12-month seller ratings, feedback-based standing, and feedback requests and reminders. Migration 0074 adds verified-email and new-account buying limits, database-owned checkout rate limits, off-platform payment warnings, and shared-card admin flags. Ratings appear on seller profiles, issue sale rows, and listing seller cards only after at least one counted rating. Allowlisted collectors have buying and selling lists at `/orders`, a full receipt at `/orders/[id]`, shipping and delivery confirmation, a 15-second polling order thread, and transactional lifecycle emails. Sellers can cancel and fully refund paid orders. `/api/stripe/marketplace-webhook` handles payment events, and `marketplace-sweep.yml` runs expiry, delivery/completion/address retention, feedback standing and reminders, and eligible transfers every 15 minutes.
+
 | Piece | What exists | What's missing |
 |---|---|---|
 | Reports | Report button on listings, profiles and threads → `POST /api/reports` (10/day per reporter, dedupes open reports, emails `REPORTS_NOTIFY_EMAIL`). `/admin/reports` (admin + two-factor): dismiss, mark handled, remove listing (also sets the copy back to `owned`) | A removed book can be re-listed by the seller as a fresh listing; no seller suspension |
@@ -68,6 +70,10 @@ From the v2 brief, not built:
 ## Schema
 
 `listings`, `listing_photos`, `user_blocks`, `reports` (0031); view `marketplace_listings` (active listings from visible sellers, plus `seller_username` and the copy's values); `messages` (0005). Writes to `listings` only via the trigger and the service role. No insert/update/delete policies for users.
+
+Migration 0073 adds buyer disputes, Stripe dashboard refund reconciliation, chargeback outcomes, seller standing enforcement, and aal2-protected admin order tools. Open disputes hold only the affected order's payout. Refund and dispute records are readable by the buyer and seller through restricted RLS policies.
+
+Migration 0074 makes buyer limits authoritative in `order_create`: verified email, two open unpaid orders, rolling daily caps, a 24-hour abandonment cooldown, and a $250 first-week order cap. Payment terms in messages produce a visible safety warning without blocking the send. Order admins see unresolved off-platform and shared-card flags and can mark each reviewed through an audited action.
 
 ## Required before real transactions
 

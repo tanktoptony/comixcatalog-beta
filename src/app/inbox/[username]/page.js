@@ -9,7 +9,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { inboxCache } from "@/lib/inboxCache";
 import { authedFetch } from "@/lib/apiClient";
-import { containsMessageUrl } from "@/lib/messageContent";
+import { containsMessageUrl, findOffPlatformPaymentTerms } from "@/lib/messageContent";
 import { UNREAD_CHANGED_EVENT } from "@/hooks/useUnreadMessageCount";
 import Link from "next/link";
 import Avatar from "@/components/Avatar";
@@ -19,6 +19,8 @@ import styles from "./thread.module.css";
 import ReportButton from "@/components/ReportButton";
 
 const MAX_BODY = 4000;
+// Shown to everyone, including people who can't use checkout yet, so it can't point at checkout.
+const PAYMENT_WARNING = "Heads up: Friends and Family, Zelle, wires and gift cards come with zero buyer protection, which is exactly why scammers ask for them. PayPal Goods and Services protects you.";
 
 function formatTimestamp(iso) {
   if (!iso) return "";
@@ -445,6 +447,9 @@ export default function ThreadPage() {
           return (
             <div key={m.id} className={classNames}>
               <div className={styles.bubble}>{m.body}</div>
+              {findOffPlatformPaymentTerms(m.body).length > 0 && (
+                <div className={styles.paymentWarning}>{PAYMENT_WARNING}</div>
+              )}
               {!mine && containsMessageUrl(m.body) && (
                 <div className={styles.linkWarning}>
                   Contains a link. Never pay through a link someone sends you.

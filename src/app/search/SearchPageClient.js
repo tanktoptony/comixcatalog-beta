@@ -15,6 +15,7 @@ import { coverThumb } from "@/lib/coverThumb";
 import ComicResultCard from "@/components/ComicResultCard";
 import CoverScanner from "@/components/CoverScanner";
 import { compareIssueNumbers, normalizeTitle } from "@/lib/coverMatch";
+import { SERIES_SHELF_SIZE } from "@/lib/searchCache";
 
 const PAGE_SIZE = 36;
 
@@ -248,7 +249,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     const timeout = setTimeout(async () => {
       try {
         const res = await fetch(
-          `/api/search/series?q=${encodeURIComponent(term)}&limit=4`,
+          `/api/search/series?q=${encodeURIComponent(term)}&limit=${SERIES_SHELF_SIZE}`,
           { cache: "no-store" }
         );
         if (!res.ok) throw new Error(`Series request failed: ${res.status}`);

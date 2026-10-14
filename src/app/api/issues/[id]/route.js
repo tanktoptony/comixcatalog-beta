@@ -78,6 +78,90 @@ function isReasonableIssueNumber(issueNumber) {
   return !!match;
 }
 
+const OLD_ISSUE_DETAILS_COLUMNS = "on_sale_date, price, page_count, editing";
+const ISSUE_DETAILS_COLUMNS = `${OLD_ISSUE_DETAILS_COLUMNS}, barcode, isbn, notes, indicia_frequency, indicia_publisher, variant_name, keydate, rating`;
+
+async function fetchIssueDetails(supabase, gcdId) {
+  let result = await supabase
+    .from("gcd_issue_details")
+    .select(ISSUE_DETAILS_COLUMNS)
+    .eq("gcd_issue_id", gcdId)
+    .maybeSingle();
+  if (result.error?.code === "42703") {
+    result = await supabase
+      .from("gcd_issue_details")
+      .select(OLD_ISSUE_DETAILS_COLUMNS)
+      .eq("gcd_issue_id", gcdId)
+      .maybeSingle();
+  }
+  return result;
+}
+
+async function fetchIssueStories(supabase, gcdId) {
+  const oldColumns = "type, title, feature, characters, synopsis, sequence_number, page_count, script, pencils, inks, colors, letters";
+  let result = await supabase
+    .from("gcd_stories")
+    .select(`${oldColumns}, job_number, genre`)
+    .eq("gcd_issue_id", gcdId)
+    .order("sequence_number", { ascending: true });
+  if (result.error?.code === "42703") {
+    result = await supabase
+      .from("gcd_stories")
+      .select(oldColumns)
+      .eq("gcd_issue_id", gcdId)
+      .order("sequence_number", { ascending: true });
+  }
+  return result;
+}
+
+async function fetchIssueReprints(supabase, gcdId) {
+  const [fromResult, inResult] = await Promise.all([
+    supabase.from("issue_reprints").select("origin_issue_id, target_issue_id, notes").eq("target_issue_id", gcdId).limit(50),
+    supabase.from("issue_reprints").select("origin_issue_id, target_issue_id, notes").eq("origin_issue_id", gcdId).limit(50),
+  ]);
+  // Migration 0060 may not have landed yet. Treat the absent relation as an
+  // empty enrichment so the rest of the issue page remains available.
+  const rowsFrom = fromResult.error ? [] : fromResult.data ?? [];
+  const rowsIn = inResult.error ? [] : inResult.data ?? [];
+  const linkedIds = [...new Set([
+    ...rowsFrom.map((row) => row.origin_issue_id),
+    ...rowsIn.map((row) => row.target_issue_id),
+  ].filter(Boolean))];
+  if (!linkedIds.length) return { reprintedFrom: [], reprintedIn: [] };
+
+  const { data: issueRows, error: issuesError } = await supabase
+    .from("gcd_issues")
+    .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
+    .in("gcd_id", linkedIds);
+  if (issuesError) return { reprintedFrom: [], reprintedIn: [] };
+  const seriesGcdIds = [...new Set((issueRows ?? []).map((row) => row.series_gcd_id).filter(Boolean))];
+  const { data: seriesRows } = seriesGcdIds.length
+    ? await supabase.from("series").select("id, gcd_id, title").in("gcd_id", seriesGcdIds)
+    : { data: [] };
+  const issueById = new Map((issueRows ?? []).map((row) => [row.gcd_id, row]));
+  const seriesByGcdId = new Map((seriesRows ?? []).map((row) => [row.gcd_id, row]));
+  const label = (linkedId, notes) => {
+    const linked = issueById.get(linkedId);
+    if (!linked) return null;
+    const series = seriesByGcdId.get(linked.series_gcd_id);
+    // GCD links foreign editions too; without a series row of ours there is
+    // no title to show and no series page behind the link.
+    if (!series) return null;
+    return {
+      gcd_issue_id: linked.gcd_id,
+      series_title: series?.title ?? null,
+      issue_number: linked.issue_number ?? null,
+      year: bestYearFor(linked),
+      notes: notes ?? null,
+      href: `/issue/gcd-${linked.gcd_id}`,
+    };
+  };
+  return {
+    reprintedFrom: rowsFrom.map((row) => label(row.origin_issue_id, row.notes)).filter(Boolean),
+    reprintedIn: rowsIn.map((row) => label(row.target_issue_id, row.notes)).filter(Boolean),
+  };
+}
+
 // Combines a series' real gcd_issues rows with any "orphan" canonical_covers
 // rows — covers that exist and are correctly linked via series_gcd_id but
 // have no matching gcd_issues row (GCD's mirror is a point-in-time snapshot
@@ -87,11 +171,18 @@ function isReasonableIssueNumber(issueNumber) {
 // this same combined list — a viewer can land on either a gcd- or cv- issue
 // and must be able to page through the whole run either way.
 function buildCombinedIssueList(seriesGcdId, gcdIssueRows, coverRows) {
+  const coverUrl = (path) => path
+    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`
+    : null;
+  const coversByGcdId = new Map((coverRows ?? [])
+    .filter((row) => row.gcd_issue_id && row.storage_path)
+    .map((row) => [Number(row.gcd_issue_id), coverUrl(row.storage_path)]));
   const realIssues = (gcdIssueRows ?? []).map((row) => ({
     id: `gcd-${row.gcd_id}`,
     issue_number: row.issue_number,
     title: row.title ?? null,
     release_year: bestYearFor(row),
+    cover: coversByGcdId.get(Number(row.gcd_id)) ?? null,
   }));
   const knownBases = new Set(
     realIssues.map((r) => baseIssueNumber(r.issue_number)).filter(Boolean)
@@ -110,6 +201,7 @@ function buildCombinedIssueList(seriesGcdId, gcdIssueRows, coverRows) {
     issue_number: row.issue_number,
     title: null,
     release_year: parseYear(row.cover_date) ?? Number(row.series_year ?? null) ?? null,
+    cover: coverUrl(row.storage_path),
   }));
   return dedupeSeriesIssueRows([...realIssues, ...orphanIssues]).sort(
     (a, b) => issueSortValue(a.issue_number) - issueSortValue(b.issue_number)
@@ -171,7 +263,7 @@ export async function GET(req, context) {
         return NextResponse.json({ error: "Issue not found" }, { status: 404 });
       }
 
-      const [seriesResult, gcdSeriesResult, gcdFormatResult, creditsResult, storiesResult, detailsResult] = await Promise.all([
+      const [seriesResult, gcdSeriesResult, gcdFormatResult, creditsResult, storiesResult, detailsResult, reprints] = await Promise.all([
         supabase
           .from("series")
           .select(`
@@ -210,16 +302,9 @@ export async function GET(req, context) {
           .from("issue_creators")
           .select("role, creators(name, slug)")
           .eq("gcd_issue_id", gcdId),
-        supabase
-          .from("gcd_stories")
-          .select("type, title, feature, characters, synopsis, sequence_number")
-          .eq("gcd_issue_id", gcdId)
-          .order("sequence_number", { ascending: true }),
-        supabase
-          .from("gcd_issue_details")
-          .select("on_sale_date, price, page_count")
-          .eq("gcd_issue_id", gcdId)
-          .maybeSingle(),
+        fetchIssueStories(supabase, gcdId),
+        fetchIssueDetails(supabase, gcdId),
+        fetchIssueReprints(supabase, gcdId),
       ]);
 
       for (const [label, result] of [["credits", creditsResult], ["stories", storiesResult], ["details", detailsResult]]) {
@@ -234,10 +319,11 @@ export async function GET(req, context) {
           ? [{ role: row.role, name: creator.name, slug: creator.slug }]
           : [];
       });
+      const adPagesCount = (storiesResult.data ?? []).filter((story) => /\b(ad|advertisement|filler|promo)\b/i.test(String(story.type ?? "").trim())).length;
       const stories = (storiesResult.data ?? [])
         .filter((story) => !/\b(ad|advertisement|filler)\b/i.test(String(story.type ?? "").trim()))
-        .map(({ type, title, feature, characters, synopsis }) => ({
-          type, title, feature, characters, synopsis,
+        .map(({ type, title, feature, characters, synopsis, sequence_number, page_count, job_number, genre, script, pencils, inks, colors, letters }) => ({
+          type, title, feature, characters, synopsis, sequence_number, page_count, job_number, genre, script, pencils, inks, colors, letters,
         }));
       const details = detailsResult.error ? null : detailsResult.data ?? null;
 
@@ -542,6 +628,7 @@ export async function GET(req, context) {
           source: "gcd",
           series_id: seriesId,
           series_title: seriesTitle,
+          series_year_start: parseYear(seriesRow?.year_start_cached),
           series_format: formatLabel(seriesFormat ?? {}),
           issue_number: issue.issue_number,
           title: issue.title ?? null,
@@ -559,7 +646,9 @@ export async function GET(req, context) {
           key_issue: keyIssue,
           credits,
           stories,
+          ad_pages_count: adPagesCount,
           details,
+          reprints,
           market: {
             listings_count: 0,
             low: null,
@@ -729,6 +818,7 @@ export async function GET(req, context) {
           source: "canonical",
           series_id: seriesId,
           series_title: seriesTitle,
+          series_year_start: parseYear(seriesRow?.year_start_cached),
           issue_number: canonicalMatch.issue_number,
           release_year: releaseYear,
           publication_date: null,
@@ -846,6 +936,9 @@ export async function GET(req, context) {
           base,
           id: `cvt-${encodeURIComponent(seriesTitle)}-${base}`,
           issue_number: row.issue_number,
+          cover: row.storage_path
+            ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${row.storage_path}`
+            : null,
         }))
         .sort((a, b) => issueSortValue(a.issue_number) - issueSortValue(b.issue_number));
 
@@ -865,7 +958,7 @@ export async function GET(req, context) {
       }
       // Strip the internal `base` comparison key before it goes out —
       // callers only need id/issue_number.
-      const stripBase = (row) => (row ? { id: row.id, issue_number: row.issue_number } : null);
+      const stripBase = (row) => (row ? { id: row.id, issue_number: row.issue_number, cover: row.cover ?? null } : null);
       prevIssue = stripBase(prevIssue);
       nextIssue = stripBase(nextIssue);
       relatedIssues = relatedIssues.map(stripBase);
@@ -879,6 +972,7 @@ export async function GET(req, context) {
           source: "canonical",
           series_id: seriesId,
           series_title: seriesTitle,
+          series_year_start: parseYear(seriesRow?.year_start_cached),
           issue_number: canonicalMatch.issue_number,
           release_year: releaseYear,
           publication_date: null,

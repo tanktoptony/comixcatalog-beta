@@ -1,9 +1,13 @@
 import { unstable_cache } from "next/cache";
 import { getCachedComicsSearch } from "@/app/api/search/comics/route";
 import { getCachedSeriesSearch } from "@/app/api/search/series/route";
+import { SERIES_SHELF_SIZE } from "@/lib/searchCache";
 import { GET as seriesGET } from "@/app/api/series/[id]/route";
 import { GET as issueGET } from "@/app/api/issues/[id]/route";
 import { GET as publicProfileGET } from "@/app/api/public-profile/route";
+import { getServiceClient } from "@/lib/supabase/service";
+import { buildVersionRows, resolveEditionRow } from "@/lib/issueEditions";
+import { toListing } from "@/lib/listingRow";
 
 // Server-side reads for pages that used to render empty and fetch their
 // data from the browser (/search, /series/[id]). The page renders with this
@@ -51,7 +55,7 @@ const settle = (p) =>
 export async function getInitialSearch(q) {
   const [comicResult, seriesResult] = await Promise.all([
     settle(getCachedComicsSearch(q, { limit: SEARCH_PAGE_SIZE, offset: 0 })),
-    settle(getCachedSeriesSearch(q, { limit: 4 })),
+    settle(getCachedSeriesSearch(q, { limit: SERIES_SHELF_SIZE })),
   ]);
   return {
     comics: comicResult?.comics ?? null,
@@ -95,6 +99,80 @@ export function getIssueData(id) {
 
 export function isIssueNotFoundError(error) {
   return error instanceof IssueNotFoundError;
+}
+
+export async function resolveIssueEdition(gcdId) {
+  const id = Number(gcdId);
+  if (!Number.isInteger(id) || id <= 0) return null;
+  return unstable_cache(async () => {
+    const supabase = getServiceClient();
+    const result = await supabase.from("gcd_issues").select("*").eq("gcd_id", id).maybeSingle();
+    if (result.data) result.data.hasEditionColumns = Object.hasOwn(result.data, "base_gcd_issue_id");
+    if (result.error || !result.data) return null;
+    return resolveEditionRow(result.data, id);
+  }, ["issue-edition-resolution-v1", String(id)], { revalidate: 3600, tags: [`issue:${id}`] })();
+}
+
+async function computeIssuePageData(baseGcdId, editionGcdId, hasEditionColumns) {
+  const supabase = getServiceClient();
+  const selected = await getIssueData(`gcd-${editionGcdId}`);
+  if (!selected) return null;
+
+  let editionRows = [{ gcd_id: baseGcdId, variant_name: null }];
+  if (hasEditionColumns) {
+    const { data, error } = await supabase
+      .from("gcd_issues")
+      .select("*")
+      .eq("base_gcd_issue_id", baseGcdId);
+    if (!error && data?.length) editionRows = data;
+  }
+  const editionIds = [...new Set(editionRows.map((row) => Number(row.gcd_id)).filter(Boolean))];
+  if (!editionIds.includes(baseGcdId)) editionIds.unshift(baseGcdId);
+
+  const [{ data: detailRows }, { data: listingRows }, { data: compRows }, baseIssueResult] = await Promise.all([
+    supabase.from("gcd_issue_details").select("gcd_issue_id, on_sale_date, price, barcode, variant_name").in("gcd_issue_id", editionIds),
+    supabase.from("marketplace_listings").select("id, collection_id, gcd_issue_id, series_title, issue_number, release_year, publisher, variant_label, cover_path, condition, grade_numeric, slab_company, price_cents, shipping_cents, accepts_offers, market_value, auto_market_value, seller_username, created_at").in("gcd_issue_id", editionIds).order("created_at", { ascending: false }).limit(200),
+    supabase.from("market_comps").select("sold_price, sold_date, source").in("gcd_issue_id", editionIds).eq("source", "ebay-listed").order("sold_date", { ascending: false }).limit(200),
+    baseGcdId === editionGcdId ? Promise.resolve(selected) : getIssueData(`gcd-${baseGcdId}`),
+  ]);
+  const detailsById = new Map((detailRows ?? []).map((row) => [Number(row.gcd_issue_id), row]));
+  const versions = buildVersionRows(editionRows.map((row) => ({
+    ...row,
+    details: detailsById.get(Number(row.gcd_id)),
+  })), baseGcdId);
+  const asking = (compRows ?? []).map((row) => Number(row.sold_price)).filter((value) => Number.isFinite(value) && value > 0).sort((a, b) => a - b);
+  const estimate = asking.length ? asking[Math.floor(asking.length / 2)] : null;
+  const listings = (listingRows ?? []).map((row) => toListing(row, process.env.NEXT_PUBLIC_SUPABASE_URL));
+  const baseIssue = baseIssueResult ?? selected;
+  const selectedHasOwnCover = Boolean(selected.cover && (editionGcdId === baseGcdId || selected.cover !== baseIssue?.cover));
+
+  return {
+    ...selected,
+    id: `gcd-${editionGcdId}`,
+    base_gcd_issue_id: baseGcdId,
+    edition_gcd_issue_id: editionGcdId,
+    edition_name: versions.find((row) => row.gcdId === editionGcdId)?.name ?? null,
+    cover: selectedHasOwnCover ? selected.cover : baseIssue?.cover ?? selected.cover,
+    edition_has_own_cover: selectedHasOwnCover,
+    key_issue: baseIssue?.key_issue ?? null,
+    credits: baseIssue?.credits ?? selected.credits,
+    stories: baseIssue?.stories ?? selected.stories,
+    ad_pages_count: baseIssue?.ad_pages_count ?? selected.ad_pages_count,
+    reprints: baseIssue?.reprints ?? selected.reprints,
+    versions,
+    listings,
+    market: { estimate, sample_size: asking.length, listings_count: listings.length },
+  };
+}
+
+export function getIssuePageData(baseGcdId, editionGcdId, hasEditionColumns = true) {
+  const base = Number(baseGcdId);
+  const edition = Number(editionGcdId || base);
+  return unstable_cache(
+    () => computeIssuePageData(base, edition, hasEditionColumns),
+    ["issue-discogs-v1", String(base), String(edition), hasEditionColumns ? "editions" : "legacy"],
+    { revalidate: 3600, tags: [`issue:${base}`] }
+  )();
 }
 
 // The public profile (/u/[username]) for anonymous viewers. The page used to

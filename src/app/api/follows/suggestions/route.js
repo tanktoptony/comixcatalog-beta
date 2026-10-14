@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
 import { getServiceClient } from "@/lib/supabase/service";
+import { excludeTestAccounts } from "@/lib/traction";
 
 export async function GET(req) {
   try {
@@ -11,7 +12,7 @@ export async function GET(req) {
       p_limit: 24,
     });
     if (error) throw new Error(`suggested collectors failed: ${error.message}`);
-    const suggestions = data ?? [];
+    const suggestions = excludeTestAccounts(data ?? []);
     const welcome = new URL(req.url).searchParams.get("welcome") === "1";
     if (!viewer || !welcome) return NextResponse.json(suggestions);
 
@@ -43,7 +44,7 @@ export async function GET(req) {
     if (inviterResult.error) throw new Error(`inviter profile lookup failed: ${inviterResult.error.message}`);
     if (followResult.error) throw new Error(`inviter follow lookup failed: ${followResult.error.message}`);
     if (ownedResult.error) throw new Error(`inviter collection count failed: ${ownedResult.error.message}`);
-    if (!inviterResult.data || inviterResult.data.is_public === false) return NextResponse.json(suggestions);
+    if (!inviterResult.data || inviterResult.data.is_public === false || excludeTestAccounts([inviterResult.data]).length === 0) return NextResponse.json(suggestions);
 
     const inviter = {
       ...inviterResult.data,

@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import { getMarketValuesBulk } from "@/lib/marketValue";
 import { normTitle, titleVariants } from "@/lib/titleMatch";
@@ -25,6 +25,62 @@ import { fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
 // matcher below requires a non-null year).
 function norm(value) {
   return String(value ?? "").trim().toLowerCase();
+}
+
+// The cover reads used to ask for every listed series (or title) crossed with
+// every issue number in the whole request: a 383-book library pulled
+// thousands of rows it could never use and took 13 s (measured 2026-10-14).
+// Each group below pairs one series (or one normalized title) with only the
+// issue numbers of its own books. A number is kept when it normalizes to one
+// of the group's numbers, so the rows each book can match are exactly the
+// rows the cross product returned for it. Rows come back sorted by id, the
+// order the per-book pickers below always saw.
+const COVER_FILTER_CHARS = 3500;
+
+function quoteFilterValue(value) {
+  return `"${String(value).replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
+}
+
+function numbersFor(allNumbers, rows, numberOf) {
+  const wanted = new Set(rows.map((row) => norm(numberOf(row))));
+  return allNumbers.filter((number) => wanted.has(norm(number)));
+}
+
+async function fetchCoverGroups(supabase, select, column, groups) {
+  const batches = [];
+  let current = [];
+  let length = 0;
+  for (const group of groups) {
+    if (!group.values.length || !group.numbers.length) continue;
+    const clause = `and(${column}.in.(${group.values.map(quoteFilterValue).join(",")}),issue_number.in.(${group.numbers.map(quoteFilterValue).join(",")}))`;
+    if (current.length && length + clause.length > COVER_FILTER_CHARS) {
+      batches.push(current);
+      current = [];
+      length = 0;
+    }
+    current.push(clause);
+    length += clause.length + 1;
+  }
+  if (current.length) batches.push(current);
+
+  const pages = new Array(batches.length);
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(4, batches.length) }, async () => {
+    while (next < batches.length) {
+      const index = next;
+      next += 1;
+      pages[index] = await fetchAllPagesParallel(() =>
+        supabase
+          .from("canonical_covers")
+          .select(`id, ${select}`)
+          .or(batches[index].join(","))
+          .not("storage_path", "is", null)
+      );
+    }
+  }));
+  const byId = new Map();
+  for (const row of pages.flat()) byId.set(String(row.id), row);
+  return [...byId.values()].sort((a, b) => Number(a.id) - Number(b.id));
 }
 
 const MAX_IDS = 2000;
@@ -63,384 +119,545 @@ export async function POST(req) {
     }
 
     const supabase = getServiceClient();
-
-    const items = {};
-
-    // A large collection's first hydration (empty cache) can send well over
-    // 1000 missing ids in one batch — paginate these too, not just the
-    // cover fan-out queries below, so a big library doesn't silently lose
-    // its tail past whichever id the 1000-row cap lands on.
-    const [localData, gcdIssuesData] = await Promise.all([
-      comicIds.length > 0
-        ? fetchAllPagesParallel(() =>
-            supabase
-              .from("comics")
-              .select("id, series_title, publisher, issue_number, release_year, comic_covers(image_path, is_primary)")
-              .in("id", comicIds)
-              .order("id")
-          )
-        : [],
-      gcdIds.length > 0
-        ? fetchAllPagesParallel(
-            () =>
-              supabase
-                .from("gcd_issues")
-                .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
-                .in("gcd_id", gcdIds)
-                .order("gcd_id"),
-            "gcd_id"
-          )
-        : [],
-    ]);
-    const localResult = { data: localData };
-    const gcdIssuesResult = { data: gcdIssuesData };
-
-    // ── Local comics — canonical cover lookup ──
-    const localComics = localResult.data ?? [];
-    if (localComics.length > 0) {
-      const localSeriesTitles = [...new Set(localComics.map((c) => c.series_title).filter(Boolean))];
-      const localIssueNumbers = [...new Set(localComics.map((c) => c.issue_number).filter((v) => v != null))];
-
-      const COVER_YEAR_TOLERANCE = 1;
-      const localCoversByKey = new Map();
-
-      if (localSeriesTitles.length > 0 && localIssueNumbers.length > 0) {
-        const localCovers = await fetchAllPagesParallel(() =>
-          supabase
-            .from("canonical_covers")
-            .select("series_title, issue_number, series_year, cover_date, storage_path")
-            .in("series_title", localSeriesTitles)
-            .in("issue_number", localIssueNumbers)
-            .not("storage_path", "is", null)
-            .order("id")
-        );
-
-        for (const c of localCovers) {
-          const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
-          if (!localCoversByKey.has(key)) localCoversByKey.set(key, []);
-          localCoversByKey.get(key).push(c);
-        }
-      }
-
-      for (const comic of localComics) {
-        const coverKey = `${norm(comic.series_title)}::${norm(comic.issue_number)}`;
-        const issueYear = comic.release_year ?? null;
-        const candidates = localCoversByKey.get(coverKey) ?? [];
-
-        let canonicalUrl = null;
-        if (candidates.length > 0) {
-          const yearOf = (c) => {
-            const cd = parseYear(c.cover_date);
-            if (cd != null) return cd;
-            return c.series_year != null ? Number(c.series_year) : null;
-          };
-          let best = null;
-          let bestDiff = Infinity;
-          for (const c of candidates) {
-            const cy = yearOf(c);
-            if (cy == null) { if (!best) best = c; continue; }
-            if (issueYear == null) { best = c; break; }
-            const diff = Math.abs(cy - issueYear);
-            if (diff > COVER_YEAR_TOLERANCE) continue;
-            if (diff < bestDiff) { best = c; bestDiff = diff; }
-          }
-          if (best) canonicalUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${best.storage_path}`;
-        }
-
-        // Community cover (comic_covers.image_path) — UGC contribution. Kept
-        // as a separate field so render sites can decide whether to use it
-        // (e.g. library = yes as last fallback; catalog views = no).
-        const userCoverPath =
-          comic.comic_covers?.find((c) => c.is_primary)?.image_path ??
-          comic.comic_covers?.[0]?.image_path ??
-          null;
-        const communityCover = userCoverPath
-          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${userCoverPath}`
-          : null;
-
-        items[String(comic.id)] = {
-          libraryKey: String(comic.id),
-          href: `/comic/${comic.id}`,
-          sourceType: "local",
-          id: String(comic.id),
-          title: comic.series_title ?? "Untitled",
-          issueNumber: comic.issue_number ?? "",
-          year: comic.release_year ?? null,
-          publisher: comic.publisher ?? null,
-          // Legacy single field — picks canonical, falls back to community so
-          // existing render code keeps working.
-          cover: canonicalUrl ?? communityCover,
-          canonicalCover: canonicalUrl,
-          communityCover,
-        };
-      }
-    }
-
-    // ── GCD issues ──
-    const issueList = gcdIssuesResult.data ?? [];
-    if (issueList.length > 0) {
-      const seriesGcdIds = [...new Set(issueList.map((i) => i.series_gcd_id).filter(Boolean))];
-      const publisherGcdIds = [...new Set(issueList.map((i) => i.publisher_gcd_id).filter(Boolean))];
-
-      const [seriesResult, publisherResult] = await Promise.all([
-        seriesGcdIds.length > 0
-          ? supabase
-              .from("series")
-              .select("gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)")
-              .in("gcd_id", seriesGcdIds)
-          : { data: [] },
-        publisherGcdIds.length > 0
-          ? supabase
-              .from("gcd_publishers")
-              .select("gcd_id, name")
-              .in("gcd_id", publisherGcdIds)
-          : { data: [] },
-      ]);
-
-      const seriesLookup = Object.fromEntries(
-        (seriesResult.data ?? []).map((r) => [String(r.gcd_id), r])
-      );
-      const publisherLookup = Object.fromEntries(
-        (publisherResult.data ?? []).map((r) => [String(r.gcd_id), r.name])
-      );
-
-      const intermediate = issueList.map((issue) => {
-        const seriesRow = seriesLookup[String(issue.series_gcd_id)];
-        return {
-          gcd_id: issue.gcd_id,
-          issue_number: issue.issue_number,
-          publication_date: issue.publication_date,
-          key_date: issue.key_date,
-          seriesGcdId: issue.series_gcd_id ?? null,
-          seriesTitle: seriesRow?.title ?? null,
-          seriesYearStart: seriesRow?.year_start_cached ?? null,
-          seriesYearEnd: seriesRow?.year_end_cached ?? null,
-          // resolved_publisher_cached is the year-aware, audited value — prefer
-          // it. The publisher_gcd_id fallback draws on GCD's scrambled publisher
-          // links (US Marvel books mislinked to foreign houses), so it's last
-          // resort only.
-          publisher:
-            seriesRow?.resolved_publisher_cached ??
-            seriesRow?.publisher?.name ??
-            publisherLookup[String(issue.publisher_gcd_id)] ??
-            null,
-        };
-      });
-
-      const seriesTitles = [...new Set(intermediate.map((r) => r.seriesTitle).filter(Boolean))];
-      const issueNumbers = [
-        ...new Set(intermediate.map((r) => r.issue_number).filter((v) => v != null)),
-      ];
-
-      // Year-aware cover lookup. Two-path strategy:
-      //
-      //   1. ID-based (preferred): join canonical_covers.series_gcd_id ==
-      //      gcd_issues.series_gcd_id. Survives mojibake, curly quotes,
-      //      slash-spacing, and any other title-string fragility. New covers
-      //      and backfilled ones use this path.
-      //
-      //   2. Title-based (fallback): the legacy join on series_title for
-      //      canonical_covers rows where series_gcd_id is still NULL — until
-      //      backfill is fully run. Capped to series_gcd_id IS NULL so we
-      //      don't double-fetch.
-      //
-      // Both maps key on the same `(seriesGcdId|normTitle)::issue_number`
-      // shape so the per-row resolver below treats them uniformly.
-      const COVER_YEAR_TOLERANCE = 1;
-      const coversById = new Map();
-      const coversByTitle = new Map();
-
-      const intermediateGcdIds = [
-        ...new Set(intermediate.map((r) => r.seriesGcdId).filter((v) => v != null)),
-      ];
-
-      // ID-first lookup. If migration 0009 hasn't been applied yet, this
-      // query errors with "column does not exist" — we swallow that quietly
-      // and let the title-based fallback do the work. Once the migration
-      // lands and backfill runs, this becomes the primary path for everyone.
-      // The ID pass and the title pass are independent, so they run together.
-      // The ID pass swallows its error (column missing pre-migration, or a
-      // transient PG hiccup) and the title fallback covers for it.
-      const [idCovers, titleCovers] = await Promise.all([
-        intermediateGcdIds.length > 0 && issueNumbers.length > 0
-          ? fetchAllPagesParallel(() =>
-              supabase
-                .from("canonical_covers")
-                .select("series_gcd_id, series_title, issue_number, series_year, cover_date, storage_path")
-                .in("series_gcd_id", intermediateGcdIds)
-                .in("issue_number", issueNumbers)
-                .not("storage_path", "is", null)
-                .order("id")
-            ).catch(() => [])
-          : [],
-        // Title-string lookup, the fallback. Not filtered to
-        // `series_gcd_id IS NULL`: the resolver below prefers coversById, so
-        // the title map only fills gaps. Every punctuation / leading-article
-        // variant of each GCD title, keyed with normTitle() so "The
-        // Transformers Universe" (GCD) finds "Transformers Universe"
-        // (ComicVine); found live 2026-09-21.
-        seriesTitles.length > 0 && issueNumbers.length > 0
-          ? fetchAllPagesParallel(() =>
-              supabase
-                .from("canonical_covers")
-                .select("series_title, issue_number, series_year, cover_date, storage_path")
-                .in("series_title", [...new Set(seriesTitles.flatMap(titleVariants))])
-                .in("issue_number", issueNumbers)
-                .not("storage_path", "is", null)
-                .order("id")
-            )
-          : [],
-      ]);
-      for (const c of idCovers) {
-        const key = `${c.series_gcd_id}::${norm(c.issue_number)}`;
-        if (!coversById.has(key)) coversById.set(key, []);
-        coversById.get(key).push(c);
-      }
-      for (const c of titleCovers) {
-        const key = `${normTitle(c.series_title)}::${norm(c.issue_number)}`;
-        if (!coversByTitle.has(key)) coversByTitle.set(key, []);
-        coversByTitle.get(key).push(c);
-      }
-
-      for (const row of intermediate) {
-        const issueYear = bestYearFor(row);
-        // Prefer ID-keyed lookup; fall back to title-keyed only when the
-        // ID path returns nothing (or the row has no series_gcd_id at all).
-        const idKey =
-          row.seriesGcdId != null
-            ? `${row.seriesGcdId}::${norm(row.issue_number)}`
-            : null;
-        const titleKey = `${normTitle(row.seriesTitle)}::${norm(row.issue_number)}`;
-        const candidates =
-          (idKey && coversById.get(idKey)) ||
-          coversByTitle.get(titleKey) ||
-          [];
-
-        let storagePath = null;
-        if (candidates.length > 0) {
-          // For a specific issue, cover_date is the authoritative year signal —
-          // it's THIS issue's publication date. series_year is when the
-          // *series* started, which for long-running annuals (X-Men Annual
-          // 1970, issue #3 published 1979) is many years off the actual issue.
-          // Only fall back to series_year when cover_date is missing.
-          const yearOf = (c) => {
-            const cd = parseYear(c.cover_date);
-            if (cd != null) return cd;
-            return c.series_year != null ? Number(c.series_year) : null;
-          };
-
-          if (issueYear != null) {
-            let best = null;
-            let bestDiff = Infinity;
-            for (const c of candidates) {
-              const cy = yearOf(c);
-              if (cy == null) continue;
-              const diff = Math.abs(cy - issueYear);
-              if (diff > COVER_YEAR_TOLERANCE) continue;
-              if (diff < bestDiff) {
-                best = c;
-                bestDiff = diff;
-              }
-            }
-            if (best) storagePath = best.storage_path;
-          } else if (row.seriesYearStart != null) {
-            // gcd_issues has no per-issue date but we know the SERIES's run.
-            // Use that as the year hint — stops cross-volume bleed where a
-            // 1985 Transformers issue (issue date missing) grabs a 2025
-            // reboot cover because "most recent dated" wins by default.
-            // Accept any cover whose year falls anywhere inside the series's
-            // active run (plus tolerance) and pick the earliest such match.
-            const lo = row.seriesYearStart - COVER_YEAR_TOLERANCE;
-            const hi = (row.seriesYearEnd ?? row.seriesYearStart + 30) + COVER_YEAR_TOLERANCE;
-            let best = null;
-            let bestYear = Infinity;
-            for (const c of candidates) {
-              const cy = yearOf(c);
-              if (cy == null) continue;
-              if (cy < lo || cy > hi) continue;
-              if (cy < bestYear) {
-                best = c;
-                bestYear = cy;
-              }
-            }
-            if (best) storagePath = best.storage_path;
-          } else {
-            // Last resort: no issue year, no series year. Take the earliest
-            // dated candidate (safer than newest — at least matches the
-            // first printing if anything).
-            let best = null;
-            let bestYear = Infinity;
-            for (const c of candidates) {
-              const cy = yearOf(c);
-              if (cy != null && cy < bestYear) {
-                best = c;
-                bestYear = cy;
-              } else if (!best) {
-                best = c;
-              }
-            }
-            if (best) storagePath = best.storage_path;
-          }
-        }
-
-        const libraryKey = `gcd-${row.gcd_id}`;
-        const canonicalCover = storagePath
-          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
-          : null;
-
-        items[libraryKey] = {
-          libraryKey,
-          href: `/issue/${libraryKey}`,
-          sourceType: "gcd",
-          id: libraryKey,
-          title: row.seriesTitle ?? "Untitled",
-          issueNumber: row.issue_number ?? "",
-          year: issueYear,
-          publisher: row.publisher ?? null,
-          cover: canonicalCover,
-          canonicalCover,
-          communityCover: null, // GCD-linked rows don't have community covers
-        };
-      }
-    }
-
-    // ── Phase 2 auto-valuation ──
-    // For each collection item the caller passed grade signal for, query
-    // market_comps and return median + sample size keyed by collection_id.
-    // With zero comps in the DB (initial state), every entry returns
-    // {value: null, sample_size: 0} — the UI then renders nothing extra.
-    const marketValues = {};
-    if (collectionGrades.length > 0) {
-      const valueMap = await getMarketValuesBulk({
-        supabase,
-        items: collectionGrades.map((g) => {
-          // Look up the issue's year from the resolved items map. Falls
-          // through to null for local comics (collection_grades doesn't
-          // carry comic_id, so we can't bridge — they'll just skip the
-          // cover-price fallback). The release_year goes to getMarketValue
-          // as a floor estimate when no comps clear minSamples.
-          const libraryKey = g.gcd_issue_id ? `gcd-${g.gcd_issue_id}` : null;
-          const release_year = libraryKey && items[libraryKey]?.year != null
-            ? Number(items[libraryKey].year)
-            : null;
-          return {
-            collection_id: g.collection_id,
-            gcd_issue_id: g.gcd_issue_id,
-            grade_numeric: g.grade_numeric,
-            slab_company: g.slab_company,
-            condition: g.condition,
-            release_year,
-          };
-        }),
-      });
-      for (const [collectionId, result] of valueMap) {
-        marketValues[collectionId] = result;
-      }
-    }
-
+    const { items, marketValues } = await cachedHydration(supabase, { comicIds, gcdIds, collectionGrades });
     return NextResponse.json({ items, market_values: marketValues });
   } catch (err) {
     console.error("POST /api/library-hydrate crashed:", err);
     return NextResponse.json({ items: {}, market_values: {} }, { status: 500 });
   }
+}
+
+// The titles, covers and years for a set of books, plus a value per grade
+// signal. Pure catalog data: nothing here depends on who is asking.
+async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }) {
+
+  const items = {};
+  // Year per gcd issue for the valuation's cover-price floor. It is the same
+  // bestYearFor() value the item gets below, computed from the issue dates.
+  const issueYears = new Map();
+  let valuesPromise = null;
+
+  // A large collection's first hydration (empty cache) can send well over
+  // 1000 missing ids in one batch — paginate these too, not just the
+  // cover fan-out queries below, so a big library doesn't silently lose
+  // its tail past whichever id the 1000-row cap lands on.
+  const [localData, gcdIssuesData] = await Promise.all([
+    comicIds.length > 0
+      ? fetchAllPagesParallel(() =>
+          supabase
+            .from("comics")
+            .select("id, series_title, publisher, issue_number, release_year, comic_covers(image_path, is_primary)")
+            .in("id", comicIds)
+            .order("id")
+        )
+      : [],
+    gcdIds.length > 0
+      ? fetchAllPagesParallel(
+          () =>
+            supabase
+              .from("gcd_issues")
+              .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
+              .in("gcd_id", gcdIds)
+              .order("gcd_id"),
+          "gcd_id"
+        )
+      : [],
+  ]);
+  const localResult = { data: localData };
+  const gcdIssuesResult = { data: gcdIssuesData };
+
+  // ── Local comics — canonical cover lookup ──
+  const localComics = localResult.data ?? [];
+  if (localComics.length > 0) {
+    const localSeriesTitles = [...new Set(localComics.map((c) => c.series_title).filter(Boolean))];
+    const localIssueNumbers = [...new Set(localComics.map((c) => c.issue_number).filter((v) => v != null))];
+
+    const COVER_YEAR_TOLERANCE = 1;
+    const localCoversByKey = new Map();
+
+    if (localSeriesTitles.length > 0 && localIssueNumbers.length > 0) {
+      const localGroups = new Map();
+      for (const comic of localComics) {
+        if (!comic.series_title) continue;
+        const key = norm(comic.series_title);
+        if (!localGroups.has(key)) localGroups.set(key, { titles: new Set(), comics: [] });
+        localGroups.get(key).titles.add(comic.series_title);
+        localGroups.get(key).comics.push(comic);
+      }
+      const localCovers = await fetchCoverGroups(
+        supabase,
+        "series_title, issue_number, series_year, cover_date, storage_path",
+        "series_title",
+        [...localGroups.values()].map((group) => ({
+          values: [...group.titles],
+          numbers: numbersFor(localIssueNumbers, group.comics, (comic) => comic.issue_number),
+        }))
+      );
+
+      for (const c of localCovers) {
+        const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
+        if (!localCoversByKey.has(key)) localCoversByKey.set(key, []);
+        localCoversByKey.get(key).push(c);
+      }
+    }
+
+    for (const comic of localComics) {
+      const coverKey = `${norm(comic.series_title)}::${norm(comic.issue_number)}`;
+      const issueYear = comic.release_year ?? null;
+      const candidates = localCoversByKey.get(coverKey) ?? [];
+
+      let canonicalUrl = null;
+      if (candidates.length > 0) {
+        const yearOf = (c) => {
+          const cd = parseYear(c.cover_date);
+          if (cd != null) return cd;
+          return c.series_year != null ? Number(c.series_year) : null;
+        };
+        let best = null;
+        let bestDiff = Infinity;
+        for (const c of candidates) {
+          const cy = yearOf(c);
+          if (cy == null) { if (!best) best = c; continue; }
+          if (issueYear == null) { best = c; break; }
+          const diff = Math.abs(cy - issueYear);
+          if (diff > COVER_YEAR_TOLERANCE) continue;
+          if (diff < bestDiff) { best = c; bestDiff = diff; }
+        }
+        if (best) canonicalUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${best.storage_path}`;
+      }
+
+      // Community cover (comic_covers.image_path) — UGC contribution. Kept
+      // as a separate field so render sites can decide whether to use it
+      // (e.g. library = yes as last fallback; catalog views = no).
+      const userCoverPath =
+        comic.comic_covers?.find((c) => c.is_primary)?.image_path ??
+        comic.comic_covers?.[0]?.image_path ??
+        null;
+      const communityCover = userCoverPath
+        ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${userCoverPath}`
+        : null;
+
+      items[String(comic.id)] = {
+        libraryKey: String(comic.id),
+        href: `/comic/${comic.id}`,
+        sourceType: "local",
+        id: String(comic.id),
+        title: comic.series_title ?? "Untitled",
+        issueNumber: comic.issue_number ?? "",
+        year: comic.release_year ?? null,
+        publisher: comic.publisher ?? null,
+        // Legacy single field — picks canonical, falls back to community so
+        // existing render code keeps working.
+        cover: canonicalUrl ?? communityCover,
+        canonicalCover: canonicalUrl,
+        communityCover,
+      };
+    }
+  }
+
+  // ── GCD issues ──
+  const issueList = gcdIssuesResult.data ?? [];
+  if (issueList.length > 0) {
+    const seriesGcdIds = [...new Set(issueList.map((i) => i.series_gcd_id).filter(Boolean))];
+    const publisherGcdIds = [...new Set(issueList.map((i) => i.publisher_gcd_id).filter(Boolean))];
+
+    const [seriesResult, publisherResult] = await Promise.all([
+      seriesGcdIds.length > 0
+        ? supabase
+            .from("series")
+            .select("gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)")
+            .in("gcd_id", seriesGcdIds)
+        : { data: [] },
+      publisherGcdIds.length > 0
+        ? supabase
+            .from("gcd_publishers")
+            .select("gcd_id, name")
+            .in("gcd_id", publisherGcdIds)
+        : { data: [] },
+    ]);
+
+    const seriesLookup = Object.fromEntries(
+      (seriesResult.data ?? []).map((r) => [String(r.gcd_id), r])
+    );
+    const publisherLookup = Object.fromEntries(
+      (publisherResult.data ?? []).map((r) => [String(r.gcd_id), r.name])
+    );
+
+    for (const issue of issueList) issueYears.set(`gcd-${issue.gcd_id}`, bestYearFor(issue));
+    const intermediate = issueList.map((issue) => {
+      const seriesRow = seriesLookup[String(issue.series_gcd_id)];
+      return {
+        gcd_id: issue.gcd_id,
+        issue_number: issue.issue_number,
+        publication_date: issue.publication_date,
+        key_date: issue.key_date,
+        seriesGcdId: issue.series_gcd_id ?? null,
+        seriesTitle: seriesRow?.title ?? null,
+        seriesYearStart: seriesRow?.year_start_cached ?? null,
+        seriesYearEnd: seriesRow?.year_end_cached ?? null,
+        // resolved_publisher_cached is the year-aware, audited value — prefer
+        // it. The publisher_gcd_id fallback draws on GCD's scrambled publisher
+        // links (US Marvel books mislinked to foreign houses), so it's last
+        // resort only.
+        publisher:
+          seriesRow?.resolved_publisher_cached ??
+          seriesRow?.publisher?.name ??
+          publisherLookup[String(issue.publisher_gcd_id)] ??
+          null,
+      };
+    });
+
+    const seriesTitles = [...new Set(intermediate.map((r) => r.seriesTitle).filter(Boolean))];
+    const issueNumbers = [
+      ...new Set(intermediate.map((r) => r.issue_number).filter((v) => v != null)),
+    ];
+
+    // Year-aware cover lookup. Two-path strategy:
+    //
+    //   1. ID-based (preferred): join canonical_covers.series_gcd_id ==
+    //      gcd_issues.series_gcd_id. Survives mojibake, curly quotes,
+    //      slash-spacing, and any other title-string fragility. New covers
+    //      and backfilled ones use this path.
+    //
+    //   2. Title-based (fallback): the legacy join on series_title for
+    //      canonical_covers rows where series_gcd_id is still NULL — until
+    //      backfill is fully run. Capped to series_gcd_id IS NULL so we
+    //      don't double-fetch.
+    //
+    // Both maps key on the same `(seriesGcdId|normTitle)::issue_number`
+    // shape so the per-row resolver below treats them uniformly.
+    const COVER_YEAR_TOLERANCE = 1;
+    const coversById = new Map();
+    const coversByTitle = new Map();
+
+    const intermediateGcdIds = [
+      ...new Set(intermediate.map((r) => r.seriesGcdId).filter((v) => v != null)),
+    ];
+
+    // ID-first lookup. If migration 0009 hasn't been applied yet, this
+    // query errors with "column does not exist" — we swallow that quietly
+    // and let the title-based fallback do the work. Once the migration
+    // lands and backfill runs, this becomes the primary path for everyone.
+    // The ID pass and the title pass are independent, so they run together.
+    // The ID pass swallows its error (column missing pre-migration, or a
+    // transient PG hiccup) and the title fallback covers for it.
+    const bySeries = new Map();
+    const byTitle = new Map();
+    for (const row of intermediate) {
+      if (row.seriesGcdId != null) {
+        if (!bySeries.has(row.seriesGcdId)) bySeries.set(row.seriesGcdId, []);
+        bySeries.get(row.seriesGcdId).push(row);
+      }
+      if (row.seriesTitle) {
+        const key = normTitle(row.seriesTitle);
+        if (!byTitle.has(key)) byTitle.set(key, { titles: new Set(), rows: [] });
+        for (const variant of titleVariants(row.seriesTitle)) byTitle.get(key).titles.add(variant);
+        byTitle.get(key).rows.push(row);
+      }
+    }
+    const issueNumberOf = (row) => row.issue_number;
+    // Values need only each issue's year, known already, so they are read
+    // alongside the covers instead of after them.
+    valuesPromise = loadMarketValues();
+    const [idCovers, titleCovers] = await Promise.all([
+      intermediateGcdIds.length > 0 && issueNumbers.length > 0
+        ? fetchCoverGroups(
+            supabase,
+            "series_gcd_id, series_title, issue_number, series_year, cover_date, storage_path",
+            "series_gcd_id",
+            [...bySeries.entries()].map(([seriesGcdId, rows]) => ({
+              values: [seriesGcdId],
+              numbers: numbersFor(issueNumbers, rows, issueNumberOf),
+            }))
+          ).catch(() => [])
+        : [],
+      // Title-string lookup, the fallback. Not filtered to
+      // `series_gcd_id IS NULL`: the resolver below prefers coversById, so
+      // the title map only fills gaps. Every punctuation / leading-article
+      // variant of each GCD title, keyed with normTitle() so "The
+      // Transformers Universe" (GCD) finds "Transformers Universe"
+      // (ComicVine); found live 2026-09-21.
+      seriesTitles.length > 0 && issueNumbers.length > 0
+        ? fetchCoverGroups(
+            supabase,
+            "series_title, issue_number, series_year, cover_date, storage_path",
+            "series_title",
+            [...byTitle.values()].map((group) => ({
+              values: [...group.titles],
+              numbers: numbersFor(issueNumbers, group.rows, issueNumberOf),
+            }))
+          )
+        : [],
+    ]);
+    for (const c of idCovers) {
+      const key = `${c.series_gcd_id}::${norm(c.issue_number)}`;
+      if (!coversById.has(key)) coversById.set(key, []);
+      coversById.get(key).push(c);
+    }
+    for (const c of titleCovers) {
+      const key = `${normTitle(c.series_title)}::${norm(c.issue_number)}`;
+      if (!coversByTitle.has(key)) coversByTitle.set(key, []);
+      coversByTitle.get(key).push(c);
+    }
+
+    for (const row of intermediate) {
+      const issueYear = bestYearFor(row);
+      // Prefer ID-keyed lookup; fall back to title-keyed only when the
+      // ID path returns nothing (or the row has no series_gcd_id at all).
+      const idKey =
+        row.seriesGcdId != null
+          ? `${row.seriesGcdId}::${norm(row.issue_number)}`
+          : null;
+      const titleKey = `${normTitle(row.seriesTitle)}::${norm(row.issue_number)}`;
+      const candidates =
+        (idKey && coversById.get(idKey)) ||
+        coversByTitle.get(titleKey) ||
+        [];
+
+      let storagePath = null;
+      if (candidates.length > 0) {
+        // For a specific issue, cover_date is the authoritative year signal —
+        // it's THIS issue's publication date. series_year is when the
+        // *series* started, which for long-running annuals (X-Men Annual
+        // 1970, issue #3 published 1979) is many years off the actual issue.
+        // Only fall back to series_year when cover_date is missing.
+        const yearOf = (c) => {
+          const cd = parseYear(c.cover_date);
+          if (cd != null) return cd;
+          return c.series_year != null ? Number(c.series_year) : null;
+        };
+
+        if (issueYear != null) {
+          let best = null;
+          let bestDiff = Infinity;
+          for (const c of candidates) {
+            const cy = yearOf(c);
+            if (cy == null) continue;
+            const diff = Math.abs(cy - issueYear);
+            if (diff > COVER_YEAR_TOLERANCE) continue;
+            if (diff < bestDiff) {
+              best = c;
+              bestDiff = diff;
+            }
+          }
+          if (best) storagePath = best.storage_path;
+        } else if (row.seriesYearStart != null) {
+          // gcd_issues has no per-issue date but we know the SERIES's run.
+          // Use that as the year hint — stops cross-volume bleed where a
+          // 1985 Transformers issue (issue date missing) grabs a 2025
+          // reboot cover because "most recent dated" wins by default.
+          // Accept any cover whose year falls anywhere inside the series's
+          // active run (plus tolerance) and pick the earliest such match.
+          const lo = row.seriesYearStart - COVER_YEAR_TOLERANCE;
+          const hi = (row.seriesYearEnd ?? row.seriesYearStart + 30) + COVER_YEAR_TOLERANCE;
+          let best = null;
+          let bestYear = Infinity;
+          for (const c of candidates) {
+            const cy = yearOf(c);
+            if (cy == null) continue;
+            if (cy < lo || cy > hi) continue;
+            if (cy < bestYear) {
+              best = c;
+              bestYear = cy;
+            }
+          }
+          if (best) storagePath = best.storage_path;
+        } else {
+          // Last resort: no issue year, no series year. Take the earliest
+          // dated candidate (safer than newest — at least matches the
+          // first printing if anything).
+          let best = null;
+          let bestYear = Infinity;
+          for (const c of candidates) {
+            const cy = yearOf(c);
+            if (cy != null && cy < bestYear) {
+              best = c;
+              bestYear = cy;
+            } else if (!best) {
+              best = c;
+            }
+          }
+          if (best) storagePath = best.storage_path;
+        }
+      }
+
+      const libraryKey = `gcd-${row.gcd_id}`;
+      const canonicalCover = storagePath
+        ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
+        : null;
+
+      items[libraryKey] = {
+        libraryKey,
+        href: `/issue/${libraryKey}`,
+        sourceType: "gcd",
+        id: libraryKey,
+        title: row.seriesTitle ?? "Untitled",
+        issueNumber: row.issue_number ?? "",
+        year: issueYear,
+        publisher: row.publisher ?? null,
+        cover: canonicalCover,
+        canonicalCover,
+        communityCover: null, // GCD-linked rows don't have community covers
+      };
+    }
+  }
+
+  // ── Phase 2 auto-valuation ──
+  // For each collection item the caller passed grade signal for, query
+  // market_comps and return median + sample size keyed by collection_id.
+  // With zero comps in the DB (initial state), every entry returns
+  // {value: null, sample_size: 0} — the UI then renders nothing extra.
+  valuesPromise ??= loadMarketValues();
+  const marketValues = await valuesPromise;
+
+  return { items, marketValues };
+
+  async function loadMarketValues() {
+  const marketValues = {};
+  if (collectionGrades.length > 0) {
+    const valueMap = await getMarketValuesBulk({
+      supabase,
+      items: collectionGrades.map((g) => {
+        // The issue's year (null for local comics: collection_grades
+        // doesn't carry comic_id, so they skip the cover-price fallback).
+        // The release_year goes to getMarketValue as a floor estimate when
+        // no comps clear minSamples.
+        const libraryKey = g.gcd_issue_id ? `gcd-${g.gcd_issue_id}` : null;
+        const year = libraryKey ? issueYears.get(libraryKey) : null;
+        const release_year = year != null ? Number(year) : null;
+        return {
+          collection_id: g.collection_id,
+          gcd_issue_id: g.gcd_issue_id,
+          grade_numeric: g.grade_numeric,
+          slab_company: g.slab_company,
+          condition: g.condition,
+          release_year,
+        };
+      }),
+    });
+    for (const [collectionId, result] of valueMap) {
+      marketValues[collectionId] = result;
+    }
+  }
+  return marketValues;
+  }
+}
+
+// Stored per item in library_item_cache (migration 0069) and shared by every
+// collector. Measured 2026-10-14: hydrating a library cost 1-5 s (13-20 s for
+// the largest under load) on every visit without a browser copy. Stored
+// entries are served; missing ones are computed in the request; entries older
+// than 10 minutes are served and recomputed in the background, the same
+// freshness the library page already applies to its browser copy. A book's
+// entry depends only on that book, so computing a subset gives the same
+// entries as computing the whole list. If the table is missing (before 0069)
+// everything is computed, as before.
+const ITEM_CACHE_TABLE = "library_item_cache";
+const ITEM_FRESH_MS = 10 * 60 * 1000;
+const CACHE_READ_CHUNK = 150;
+
+function valueKey(grade) {
+  return `mv:${Number(grade.gcd_issue_id)}:${grade.grade_numeric ?? ""}:${grade.slab_company ?? ""}:${grade.condition ?? ""}`;
+}
+
+function itemKeyForGcd(id) {
+  return `gcd-${id}`;
+}
+
+async function readItemCache(supabase, keys) {
+  const chunks = [];
+  for (let index = 0; index < keys.length; index += CACHE_READ_CHUNK) chunks.push(keys.slice(index, index + CACHE_READ_CHUNK));
+  const results = await Promise.all(chunks.map((chunk) =>
+    supabase.from(ITEM_CACHE_TABLE).select("cache_key, payload, computed_at").in("cache_key", chunk)
+  ));
+  const failed = results.find((result) => result.error);
+  if (failed) throw failed.error;
+  return new Map(results.flatMap((result) => result.data ?? []).map((row) => [row.cache_key, row]));
+}
+
+function cacheRowsFor(computed, grades) {
+  const rows = new Map();
+  for (const [key, item] of Object.entries(computed.items)) rows.set(key, { key, payload: item });
+  for (const grade of grades) {
+    if (grade.gcd_issue_id == null) continue;
+    const value = computed.marketValues[grade.collection_id];
+    if (value) rows.set(valueKey(grade), { key: valueKey(grade), payload: value });
+  }
+  return [...rows.values()];
+}
+
+async function saveItemCache(supabase, rows) {
+  if (!rows.length) return;
+  const { error } = await supabase.rpc("save_library_items", { p_rows: rows });
+  if (error) throw error;
+}
+
+function runAfter(work) {
+  const guarded = () => work().catch((error) => console.error("library item cache background work failed:", error));
+  try {
+    after(guarded);
+  } catch {
+    guarded();
+  }
+}
+
+function subsetFor(comicIds, gcdIds, grades) {
+  return {
+    comicIds,
+    gcdIds: [...new Set([...gcdIds, ...grades.map((grade) => Number(grade.gcd_issue_id))])],
+    collectionGrades: grades,
+  };
+}
+
+async function cachedHydration(supabase, { comicIds, gcdIds, collectionGrades }) {
+  const cacheableGrades = collectionGrades.filter((grade) => grade.gcd_issue_id != null);
+  const keys = [...new Set([
+    ...gcdIds.map(itemKeyForGcd),
+    ...comicIds,
+    ...cacheableGrades.map(valueKey),
+  ])];
+  let stored;
+  try {
+    stored = await readItemCache(supabase, keys);
+  } catch (error) {
+    console.error("library item cache unavailable, computing directly:", error?.code, error?.message);
+    return computeHydration(supabase, { comicIds, gcdIds, collectionGrades });
+  }
+
+  const now = Date.now();
+  const isStale = (row) => now - Date.parse(row.computed_at) > ITEM_FRESH_MS;
+  const missingGcd = gcdIds.filter((id) => !stored.has(itemKeyForGcd(id)));
+  const missingComic = comicIds.filter((id) => !stored.has(id));
+  const missingGrades = collectionGrades.filter((grade) => grade.gcd_issue_id == null || !stored.has(valueKey(grade)));
+
+  let computed = { items: {}, marketValues: {} };
+  if (missingGcd.length || missingComic.length || missingGrades.length) {
+    computed = await computeHydration(supabase, subsetFor(missingComic, missingGcd, missingGrades));
+    const rows = cacheRowsFor(computed, missingGrades);
+    runAfter(() => saveItemCache(supabase, rows));
+  }
+
+  const items = {};
+  for (const key of [...gcdIds.map(itemKeyForGcd), ...comicIds]) {
+    const item = computed.items[key] ?? stored.get(key)?.payload;
+    if (item) items[key] = item;
+  }
+  const marketValues = {};
+  for (const grade of collectionGrades) {
+    const value = computed.marketValues[grade.collection_id]
+      ?? (grade.gcd_issue_id != null ? stored.get(valueKey(grade))?.payload : undefined);
+    if (value) marketValues[grade.collection_id] = value;
+  }
+
+  const staleGcd = gcdIds.filter((id) => stored.has(itemKeyForGcd(id)) && isStale(stored.get(itemKeyForGcd(id))));
+  const staleComic = comicIds.filter((id) => stored.has(id) && isStale(stored.get(id)));
+  const staleGrades = cacheableGrades.filter((grade) => stored.has(valueKey(grade)) && isStale(stored.get(valueKey(grade))));
+  if (staleGcd.length || staleComic.length || staleGrades.length) {
+    runAfter(async () => {
+      const fresh = await computeHydration(supabase, subsetFor(staleComic, staleGcd, staleGrades));
+      await saveItemCache(supabase, cacheRowsFor(fresh, staleGrades));
+    });
+  }
+
+  return { items, marketValues };
 }

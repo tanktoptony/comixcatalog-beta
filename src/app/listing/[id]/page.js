@@ -7,6 +7,8 @@ import ListingGallery from "@/components/ListingGallery";
 import { safeJsonLd } from "@/lib/jsonLd";
 import ReportButton from "@/components/ReportButton";
 import MarkSoldButton from "@/components/MarkSoldButton";
+import BuyNowButton from "@/components/BuyNowButton";
+import { Suspense } from "react";
 
 // One copy for sale, Discogs item-page style: the copy, its condition, the
 // seller, the price, and the way to buy (an offer or a message while there's
@@ -105,6 +107,7 @@ export default async function ListingPage({ params }) {
                   )}
                 </div>
                 {shippingLabel(l) && <div className="lp-ship">{shippingLabel(l)}</div>}
+                {l.price != null && !reserved && <><Suspense fallback={null}><BuyNowButton listingId={l.id} totalCents={Math.round((l.price + (l.shipping || 0)) * 100)} /></Suspense></>}
                 {reserved ? (
                   <div className="lp-status">On hold</div>
                 ) : (
@@ -152,6 +155,7 @@ export default async function ListingPage({ params }) {
               <img src={l.sellerInfo.avatar} alt="" width={44} height={44} />
               <span>
                 <b>@{l.seller}</b>
+                {l.sellerInfo.rating && <small>{l.sellerInfo.rating}</small>}
                 <small>
                   Collecting on ComixCatalog since {since}
                   {l.sellerInfo.founder ? " · Founding Collector" : ""}

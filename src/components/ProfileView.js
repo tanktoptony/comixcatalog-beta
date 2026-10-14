@@ -49,7 +49,7 @@ function formatAddedAgo(iso) {
 }
 
 export default function ProfileView({ data, isOwner = false }) {
-  const { profile, collection, visibility = {} } = data;
+  const { profile, collection, visibility = {}, sellerFeedback } = data;
   const username = profile.username;
   // Stats + insights are computed inside CollectionStatsStrip and
   // CollectionInsightSidebar from the raw `collection` array. We used to
@@ -206,6 +206,20 @@ export default function ProfileView({ data, isOwner = false }) {
           )}
         </div>
       </section>
+
+      {Number(sellerFeedback?.rating?.count) > 0 && (
+        <section className="profile-top-shelf">
+          <h2 style={{ fontFamily: "var(--font-display)" }}>Seller feedback</h2>
+          <p><strong>{sellerFeedback.rating.percent_positive}% positive</strong> ({sellerFeedback.rating.count}) · Sold {sellerFeedback.sold}</p>
+          {sellerFeedback.comments.map((feedback) => (
+            <article key={`${feedback.author_id}-${feedback.created_at}`}>
+              <strong>{feedback.rating === 1 ? "★ Positive" : feedback.rating === 0 ? "● Neutral" : "▼ Negative"}</strong>
+              <p>{feedback.comment}</p>
+              <small>@{feedback.username} · {new Date(feedback.created_at).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</small>
+            </article>
+          ))}
+        </section>
+      )}
 
       {/* Top Shelf — highest-value owned pieces, pulled out front instead of
           waiting in the regular grid/rows tabs below. Empty when nothing has

@@ -1,0 +1,30 @@
+name: Marketplace sweep
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      STRIPE_MKT_SECRET_KEY: ${{ secrets.STRIPE_MKT_SECRET_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+      REPORTS_NOTIFY_EMAIL: ${{ secrets.REPORTS_NOTIFY_EMAIL }}
+    steps:
+      - name: Check configuration
+        run: if [ -z "$STRIPE_MKT_SECRET_KEY" ]; then echo "STRIPE_MKT_SECRET_KEY not set; marketplace sweep skipped"; fi
+      - uses: actions/checkout@v4
+        if: env.STRIPE_MKT_SECRET_KEY != ''
+      - uses: actions/setup-node@v4
+        if: env.STRIPE_MKT_SECRET_KEY != ''
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci --ignore-scripts
+        if: env.STRIPE_MKT_SECRET_KEY != ''
+      - run: node scripts/marketplaceSweep.js --apply
+        if: env.STRIPE_MKT_SECRET_KEY != ''

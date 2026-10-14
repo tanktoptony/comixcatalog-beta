@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import IssueForSale from "@/components/IssueForSale";
 import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
@@ -13,6 +12,8 @@ import { SLOT } from "@/lib/houseAds";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
 import { countCopies } from "@/lib/libraryMutations";
+import { buildIssueDetailsRows, formatGcdDate, formatGcdPrice, humanizeStoryType, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
+import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
 
 function money(value) {
   if (value == null || value === "") return "-";
@@ -24,15 +25,6 @@ function money(value) {
     maximumFractionDigits: 0,
   }).format(num);
 }
-
-const CREDIT_ROLES = [
-  ["writer", "Writer"],
-  ["penciller", "Penciller"],
-  ["inker", "Inker"],
-  ["colorist", "Colorist"],
-  ["letterer", "Letterer"],
-  ["cover", "Cover"],
-];
 
 // GCD lists characters as "Wolverine [Logan; James Howlett]; Lucy Mellace":
 // split on semicolons outside brackets only, and show aliases in parentheses.
@@ -66,6 +58,61 @@ function storyCharacters(value) {
   return { shown: all.slice(0, 12), remaining: Math.max(0, all.length - 12) };
 }
 
+function StoryCredits({ story, creators }) {
+  const roles = [["script", "Script"], ["pencils", "Pencils"], ["inks", "Inks"], ["colors", "Colors"], ["letters", "Letters"]];
+  const rows = roles.filter(([field]) => String(story?.[field] ?? "").trim());
+  if (!rows.length) return null;
+  return <div className="issue-story-credits">{rows.map(([field, label]) => <div key={field}><span>{label}</span><span>{parseGcdCreditList(story[field]).map(({ name, note }, index) => {
+    const creator = creators?.find((item) => item.name.toLocaleLowerCase() === name.toLocaleLowerCase());
+    return <span key={`${field}-${name}`} title={note || undefined}>{index ? ", " : ""}{creator ? <Link href={`/creator/${creator.slug}`}>{name}</Link> : name}{note && <sup className="issue-credit-note">*</sup>}</span>;
+  })}</span></div>)}</div>;
+}
+
+function EditingCredits({ value, creators }) {
+  return <span className="issue-editing-list">{parseGcdCreditList(value).map(({ name, note }) => {
+    const creator = creators?.find((item) => item.name.toLocaleLowerCase() === name.toLocaleLowerCase());
+    return <span key={name} title={note || undefined}>{creator ? <Link href={`/creator/${creator.slug}`}>{name}</Link> : name}<small>Editor{note ? ` · ${note}` : ""}</small></span>;
+  })}</span>;
+}
+
+function ExpandableSynopsis({ children }) {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = String(children ?? "").length > 320;
+  if (!isLong) return <p style={{ margin: 0 }}>{children}</p>;
+  return (
+    <div>
+      <p style={expanded ? { margin: 0 } : { margin: 0, display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{children}</p>
+      <button type="button" className="link" onClick={() => setExpanded((value) => !value)} style={{ background: "none", border: 0, padding: "6px 0 0", cursor: "pointer" }}>
+        {expanded ? "Show less" : "Show more"}
+      </button>
+    </div>
+  );
+}
+
+function ReprintList({ title, items }) {
+  const [showAll, setShowAll] = useState(false);
+  if (!items?.length) return null;
+  const shown = showAll ? items : items.slice(0, 7);
+  return (
+    <div>
+      <h3 style={{ fontSize: "0.9rem", margin: "0 0 8px" }}>{title}</h3>
+      <ol style={{ margin: 0, paddingLeft: "22px", display: "grid", gap: "6px" }}>
+        {shown.map((item) => (
+          <li key={`${item.gcd_issue_id}-${item.notes ?? ""}`}>
+            <Link href={item.href}>{item.series_title || "Untitled"}{item.issue_number != null ? ` #${item.issue_number}` : ""}{item.year ? ` (${item.year})` : ""}</Link>
+            {item.notes && <span className="muted"> · {item.notes}</span>}
+          </li>
+        ))}
+      </ol>
+      {items.length > 7 && (
+        <button type="button" className="link" onClick={() => setShowAll((value) => !value)} style={{ background: "none", border: 0, padding: "8px 0 0", cursor: "pointer" }}>
+          {showAll ? "Show fewer" : `See all ${items.length}`}
+        </button>
+      )}
+    </div>
+  );
+}
+
 export default function IssueClient({ initialIssue = null }) {
   const { id } = useParams();
   const { collections, collectionIds, wishlistIds, addToCollection, addAnotherCopy, removeFromCollection } =
@@ -83,6 +130,7 @@ export default function IssueClient({ initialIssue = null }) {
   const [variantSaveState, setVariantSaveState] = useState(null);
   const [gradeData, setGradeData] = useState(null);
   const [mutationError, setMutationError] = useState(null);
+  const [showAds, setShowAds] = useState(false);
 
   const { user, loading: authLoading } = useAuth();
   const libraryId = String(issue?.id || id || "");
@@ -93,8 +141,12 @@ export default function IssueClient({ initialIssue = null }) {
   useEffect(() => {
     if (!id) return;
 
+    if (initialIssue) {
+      return;
+    }
+
     async function loadIssue() {
-      if (!initialIssue) setLoading(true);
+      setLoading(true);
 
       try {
         // authedFetch sends the caller's session so the API can compute
@@ -140,6 +192,18 @@ export default function IssueClient({ initialIssue = null }) {
     if (!issue) return "";
     return `${issue.series_title}${issue.issue_number ? ` #${issue.issue_number}` : ""}`;
   }, [issue]);
+  const detailRows = useMemo(() => buildIssueDetailsRows(issue), [issue]);
+  const allCharacters = useMemo(() => {
+    const characters = (issue?.stories ?? []).flatMap((story) => storyCharacters(story.characters).shown).map(stripGcdCharacterNoise);
+    return [...new Map(characters.map((character) => [character.name, character])).values()];
+  }, [issue]);
+  const orderedStories = useMemo(() => {
+    const stories = [...(issue?.stories ?? [])];
+    const mainIndex = stories.findIndex((story) => String(story.type ?? "").toLocaleLowerCase() === "comic story");
+    if (mainIndex > 0) stories.unshift(...stories.splice(mainIndex, 1));
+    return stories;
+  }, [issue]);
+  const mainStoryTitle = orderedStories.find((story) => String(story.type ?? "").toLocaleLowerCase() !== "cover")?.title;
 
   const issueRows = collections?.filter(
     (row) => issue?.source === "gcd" && Number(row.gcd_issue_id) === Number(String(issue.id || "").replace(/^gcd-/, ""))
@@ -220,74 +284,17 @@ export default function IssueClient({ initialIssue = null }) {
   return (
     <main className="page-wrapper">
       <section className="comic-panel">
-        <div className="section-label badge-x">Issue</div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            gap: "16px",
-            alignItems: "center",
-            flexWrap: "wrap",
-            marginBottom: "18px",
-          }}
-        >
-          <div className="muted" style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
-            <Link href="/search" className="link">
-              ← Back to Search
-            </Link>
-
-            {issue.series_id && (
-              <Link href={`/series/${issue.series_id}`} className="link">
-                Back to Series
-              </Link>
-            )}
-          </div>
-
-          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-            <span className="pill">
-              {issue.source === "gcd" ? "Canonical Issue" : "User Added"}
-            </span>
-            {inCollection && (
-              <span className="pill pill-collection">In Collection</span>
-            )}
-            {inWishlist && (
-              <span className="pill pill-wishlist">On Wishlist</span>
-            )}
-          </div>
-        </div>
-
-        {(issue.prev_issue || issue.next_issue) && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              gap: "16px",
-              flexWrap: "wrap",
-              marginBottom: "20px",
-            }}
-          >
-            <div>
+        <nav className="issue-breadcrumb" aria-label="Issue navigation">
+          <div><Link href="/search">{issue.publisher || "Publisher"}</Link><span>/</span>{issue.series_id ? <Link href={`/series/${issue.series_id}`}>{issue.series_title}{issue.series_year_start ? ` (${issue.series_year_start})` : ""}</Link> : <span>{issue.series_title}</span>}<span>/</span><strong>#{issue.issue_number}</strong></div>
+          <div className="issue-prev-next">
               {issue.prev_issue ? (
-                <Link href={`/issue/${issue.prev_issue.id}`} className="link">
-                  ← {issue.series_title} #{issue.prev_issue.issue_number}
-                </Link>
-              ) : (
-                <span className="muted">← No previous issue</span>
-              )}
-            </div>
-
-            <div>
+                <Link href={`/issue/${issue.prev_issue.id}`} aria-label={`Previous issue, number ${issue.prev_issue.issue_number}`}>← #{issue.prev_issue.issue_number}</Link>
+              ) : <span>←</span>}
               {issue.next_issue ? (
-                <Link href={`/issue/${issue.next_issue.id}`} className="link">
-                  {issue.series_title} #{issue.next_issue.issue_number} →
-                </Link>
-              ) : (
-                <span className="muted">No next issue →</span>
-              )}
-            </div>
+                <Link href={`/issue/${issue.next_issue.id}`} aria-label={`Next issue, number ${issue.next_issue.issue_number}`}>#{issue.next_issue.issue_number} →</Link>
+              ) : <span>→</span>}
           </div>
-        )}
+        </nav>
 
         {/* ── Story-arc membership badges ──────────────────────────────
             For each arc this issue belongs to, show name + ownership
@@ -347,19 +354,8 @@ export default function IssueClient({ initialIssue = null }) {
           </div>
         )}
 
-        <div
-          style={{
-            display: "grid",
-            // auto-fit with minmax(280px, ...) gives us a 2-col layout on
-            // desktop and stacks to 1 col under ~600px (cover + info fit in
-            // a phone viewport instead of forcing horizontal scroll).
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))",
-            gap: "28px",
-            alignItems: "start",
-            marginBottom: "28px",
-          }}
-        >
-          <div>
+        <div className="issue-detail-hero">
+          <div className="issue-hero-cover">
             <div className="issue-cover-frame">
               <img
                 src={shownCover || "/fallback-cover.png"}
@@ -370,7 +366,7 @@ export default function IssueClient({ initialIssue = null }) {
             </div>
 
             {coverChoices.length > 1 && (
-              <div style={{ marginTop: 14 }}>
+              <div className="issue-cover-choices" style={{ marginTop: 14 }}>
                 <div className="muted" style={{ fontSize: "0.8rem", marginBottom: 8 }}>
                   {issue.variants?.length > 0 ? "Covers" : "Your copy and the catalog cover"}
                 </div>
@@ -402,7 +398,7 @@ export default function IssueClient({ initialIssue = null }) {
               </div>
             )}
 
-            <div
+            <div className="issue-collection-actions"
               style={{
                 display: "grid",
                 gap: "10px",
@@ -416,7 +412,7 @@ export default function IssueClient({ initialIssue = null }) {
                     className="add-comic-btn"
                     style={{ display: "inline-block", textAlign: "center", textDecoration: "none" }}
                   >
-                    Save to your library
+                    Add to collection
                   </Link>
                   <Link
                     href={`/signup?next=${encodeURIComponent(`/issue/${id}`)}`}
@@ -426,7 +422,7 @@ export default function IssueClient({ initialIssue = null }) {
                     Add to wantlist
                   </Link>
                   <div className="muted" style={{ fontSize: "0.85rem", marginTop: 4 }}>
-                    Free to start &mdash; sign up in 30 seconds.
+                    Free to start. Sign up in 30 seconds.
                   </div>
                 </>
               )}
@@ -437,14 +433,14 @@ export default function IssueClient({ initialIssue = null }) {
                     className="add-comic-btn"
                     onClick={() => runMutation(() => addToCollection(libraryId, "owned"))}
                   >
-                    Add to Collection
+                    Add to collection
                   </button>
 
                   <button
                     className="add-comic-btn"
                     onClick={() => runMutation(() => addToCollection(libraryId, "wishlist"))}
                   >
-                    Add to Wishlist
+                    Add to wantlist
                   </button>
                 </>
               )}
@@ -484,34 +480,57 @@ export default function IssueClient({ initialIssue = null }) {
             </div>
           </div>
 
-          <div>
+          <div className="issue-hero-info">
+            <p className="issue-hero-eyebrow">Issue{issue.edition_name ? ` · ${issue.edition_name}` : ""}{issue.release_year ? ` · ${issue.release_year < 1986 ? "Bronze Age" : issue.release_year < 1992 ? "Copper Age" : issue.release_year < 2000 ? "Modern Age" : "Contemporary"}` : ""}</p>
             <h1 className="hero-title" style={{ marginBottom: "10px" }}>
               {issueTitle}{issue.release_year ? ` (${issue.release_year})` : ""}
             </h1>
 
-            {issue.title && (
-              <p style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "10px" }}>
-                {issue.title}
-              </p>
-            )}
+            {(mainStoryTitle || issue.title) && <p className="issue-main-story-title">{mainStoryTitle || issue.title}</p>}
 
             {issue.key_issue?.reason && (
-              <p className="pill" style={{ display: "inline-block", marginBottom: "12px" }}>
-                Key issue: {issue.key_issue.reason}
+              <p className="issue-key-chip">
+                <span aria-hidden="true">★</span> {issue.key_issue.reason}
               </p>
             )}
 
-            <p className="muted" style={{ marginBottom: "18px" }}>
-              {issue.publisher || "Unknown Publisher"}
+            {issue.edition_name && issue.edition_gcd_issue_id !== issue.base_gcd_issue_id && (
+              <p className="issue-edition-note">Selected edition: {issue.edition_name}{!issue.edition_has_own_cover ? ". Showing the base edition cover." : ""}</p>
+            )}
+
+            <div className="issue-fact-chips">
+              <span>{issue.publisher || "Unknown Publisher"}</span>
               {/* display_date is the API's canonical English "Month YYYY"
                   rendering, derived from key_date. Replaces the redundant
                   release_year + raw publication_date pair that used to leak
                   foreign-language month names (e.g. "septembre 2008"). */}
-              {issue.display_date ? ` · ${issue.display_date}` : ""}
-            </p>
+              {issue.display_date && <span>{issue.display_date}</span>}
+              {issue.details?.page_count && <span>{issue.details.page_count} pages</span>}
+              {issue.versions?.length > 1 && <span>{issue.versions.length} versions</span>}
+            </div>
+
+            <aside className="issue-hero-rail">
+              {issue.market?.estimate != null && (
+                <div className="issue-value-card">
+                  <span className="issue-kicker">Estimated from current asking prices</span>
+                  <strong>{money(issue.market.estimate)}</strong>
+                  {issue.market.sample_size > 0 && <small>{issue.market.sample_size} listing{issue.market.sample_size === 1 ? "" : "s"} sampled</small>}
+                </div>
+              )}
+              <div className="issue-rail-collection">
+              {!user && <><Link href={`/signup?next=${encodeURIComponent(`/issue/${id}`)}`} className="add-comic-btn issue-primary-cta">Add to collection</Link><Link href={`/signup?next=${encodeURIComponent(`/issue/${id}`)}`} className="add-comic-btn">Add to wantlist</Link></>}
+              {user && !inCollection && !inWishlist && <><button className="add-comic-btn issue-primary-cta" onClick={() => runMutation(() => addToCollection(libraryId, "owned"))}>Add to collection</button><button className="add-comic-btn" onClick={() => runMutation(() => addToCollection(libraryId, "wishlist"))}>Add to wantlist</button></>}
+              {user && inCollection && <><span className="pill pill-collection">{copyCount > 1 ? `${copyCount} copies owned` : "In collection"}</span><button className="add-comic-btn" onClick={() => { setAddCopyLabel(""); setAddCopyOpen(true); }}>+ Add another copy</button><button className="add-comic-btn" onClick={() => runMutation(() => removeFromCollection(libraryId, { scope: "latest-copy" }))}>{copyCount > 1 ? "Remove 1 copy" : "Remove from collection"}</button></>}
+              {user && inWishlist && <><span className="pill pill-wishlist">On wantlist</span><button className="add-comic-btn" onClick={() => runMutation(() => removeFromCollection(libraryId, { scope: "wishlist" }))}>Remove from wantlist</button></>}
+              {issue.listings?.length > 0 && <a href="#forsale" className="add-comic-btn">Buy a copy</a>}
+              {issue.source === "gcd" && <Link href="/library?tab=collection" className="add-comic-btn">Sell a copy</Link>}
+              {mutationError && <div className="issue-action-error">{mutationError}</div>}
+              <button className="issue-copy-link" onClick={() => navigator.clipboard?.writeText(window.location.href)}>Copy Link</button>
+              </div>
+            </aside>
 
             {(issue.market?.median != null || issue.market?.low != null || issue.market?.high != null) && (
-            <div
+            <div className="issue-details-card"
               style={{
                 display: "grid",
                 // Listings/Median/Low-High stat cards - collapse to fewer
@@ -540,88 +559,83 @@ export default function IssueClient({ initialIssue = null }) {
             <div
               style={{
                 display: "grid",
-                // Issue Info + Quick Actions - stack under ~520px.
                 gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))",
                 gap: "18px",
                 marginBottom: "22px",
               }}
             >
               <div className="metadata-section" style={{ margin: 0 }}>
-                <h3 className="issue-section-title">Issue Info</h3>
-
-                <p><strong>Series:</strong> {issue.series_title}</p>
-                <p><strong>Issue:</strong> {issue.issue_number ?? "TBD"}</p>
-                <p><strong>Publisher:</strong> {issue.publisher || "Unknown"}</p>
-                <p><strong>Year:</strong> {issue.release_year || "Unknown"}</p>
-                <p>
-                  <strong>Source:</strong>{" "}
-                  {issue.source === "gcd" ? "Canonical Database" : "User Added"}
-                </p>
+                <h3 className="issue-section-title">Details</h3>
+                <dl style={{ margin: 0 }}>
+                  {detailRows.map((row) => (
+                    <div key={row.label} style={{ display: "grid", gridTemplateColumns: "minmax(92px, 34%) 1fr", gap: "12px", padding: "7px 0", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                      <dt className="muted" style={{ margin: 0 }}>{row.label}</dt>
+                      <dd style={{ margin: 0, minWidth: 0, overflowWrap: "anywhere" }}>{row.label === "Editing" ? <EditingCredits value={row.value} creators={issue.credits} /> : row.href ? <Link href={row.href}>{row.value}</Link> : row.value}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
 
-              <div className="metadata-section" style={{ margin: 0 }}>
-                <h3 className="issue-section-title">Quick Actions</h3>
-
-                <div style={{ display: "grid", gap: "10px" }}>
-                  <button
-                    className="add-comic-btn"
-                    onClick={() => {
-                      if (navigator.clipboard) navigator.clipboard.writeText(window.location.href);
-                    }}
-                  >
-                    Copy Link
-                  </button>
-                </div>
-              </div>
             </div>
 
-            {issue.credits?.length > 0 && (
-              <div className="metadata-section" style={{ margin: "0 0 22px" }}>
-                <h2 className="issue-section-title">Credits</h2>
-                <div style={{ display: "grid", gap: "8px" }}>
-                  {CREDIT_ROLES.map(([role, label]) => {
-                    const people = issue.credits.filter((credit) => credit.role === role);
-                    if (!people.length) return null;
-                    return (
-                      <div key={role}>
-                        <strong>{label}:</strong>{" "}
-                        {people.map((person, index) => (
-                          <span key={`${role}-${person.slug}`}>
-                            {index > 0 ? ", " : ""}<Link href={`/creator/${person.slug}`}>{person.name}</Link>
-                          </span>
-                        ))}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+          </div>
+        </div>
+
+        {issue.versions?.length > 1 && (
+          <section className="issue-discogs-section issue-versions-section">
+            <div className="issue-section-heading"><h2>Versions</h2><span>Base edition and known variants</span></div>
+            <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Version</th><th>On sale</th><th>Price</th><th>Barcode / ID</th></tr></thead><tbody>
+              {issue.versions.map((version) => <tr key={version.gcdId} className={version.gcdId === issue.edition_gcd_issue_id ? "is-selected" : ""}>
+                <td><Link href={`/issue/gcd-${issue.base_gcd_issue_id}?edition=${version.gcdId}`}>{version.name}</Link></td>
+                <td>{formatGcdDate(version.onSaleDate) || "Not indexed"}</td><td>{formatGcdPrice(version.price) || "Not indexed"}</td>
+                <td className="issue-mono">{version.barcode || `GCD ${version.gcdId}`}</td>
+              </tr>)}
+            </tbody></table></div>
+          </section>
+        )}
+
+        <div className="issue-below-grid">
+          <div>
 
             {issue.stories?.length > 0 && (
               <div className="metadata-section" style={{ margin: "0 0 22px" }}>
-                <h2 className="issue-section-title">Stories</h2>
-                <div style={{ display: "grid", gap: "18px" }}>
-                  {issue.stories.map((story, index) => {
-                    const characters = storyCharacters(story.characters);
+                <h2 className="issue-section-title">Contents</h2>
+                <div style={{ display: "grid" }}>
+                  {orderedStories.map((story, index) => {
+                    const isCover = String(story.type ?? "").trim().toLowerCase() === "cover";
                     return (
-                      <article key={`${story.title ?? story.feature ?? "story"}-${index}`}>
-                        {(story.title || story.feature) && <h3 style={{ fontSize: "1rem", marginBottom: "6px" }}>{story.title || story.feature}</h3>}
-                        {characters.shown.length > 0 && (
-                          <p className="muted" style={{ marginBottom: story.synopsis ? "6px" : 0 }}>
-                            <strong>Characters:</strong> {characters.shown.join(", ")}{characters.remaining ? `, and ${characters.remaining} more` : ""}
-                          </p>
-                        )}
-                        {story.synopsis && <p style={{ margin: 0 }}>{story.synopsis}</p>}
+                      <article key={`${story.sequence_number ?? index}-${story.title ?? story.feature ?? "story"}`} style={{ display: "grid", gridTemplateColumns: "34px minmax(0, 1fr)", gap: "10px", padding: "14px 0", borderTop: "1px solid rgba(255,255,255,0.09)" }}>
+                        <div className="muted" style={{ fontVariantNumeric: "tabular-nums", paddingTop: "2px" }}>{String(index + 1).padStart(2, "0")}</div>
+                        <div style={{ minWidth: 0 }}>
+                          <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", flexWrap: "wrap" }}>
+                            {(story.title || story.feature) && <span className="pill" style={{ fontSize: "0.67rem", padding: "2px 7px" }}>{humanizeStoryType(story.type)}</span>}
+                            <h3 style={{ fontSize: "1rem", margin: 0, flex: "1 1 160px" }}>{story.title || story.feature || humanizeStoryType(story.type)}</h3>
+                            {story.page_count != null && story.page_count !== "" && <span className="muted" style={{ marginLeft: "auto", whiteSpace: "nowrap" }}>{story.page_count} pp</span>}
+                          </div>
+                          <StoryCredits story={story} creators={issue.credits} />
+                          {!isCover && story.synopsis && <ExpandableSynopsis>{story.synopsis}</ExpandableSynopsis>}
+                        </div>
                       </article>
                     );
                   })}
                 </div>
+                {issue.ad_pages_count > 0 && <button type="button" className="issue-ads-toggle" onClick={() => setShowAds((value) => !value)}>{showAds ? "Hide ads and promo pages" : `+ ${issue.ad_pages_count} ads and promo pages`}</button>}
+                {showAds && <p className="muted issue-ads-note">Advertising and promotional pages are indexed but omitted from the reading-order list.</p>}
               </div>
             )}
 
-            {(issue.credits?.length > 0 || issue.stories?.length > 0) && (
+            {issue.source === "gcd" && !issue.credits?.length && !issue.stories?.length && <div className="metadata-section"><h2 className="issue-section-title">Contents</h2><p className="muted">Credits not indexed yet.</p></div>}
+
+            {issue.details?.notes && (
+              <div className="metadata-section" style={{ margin: "0 0 22px" }}>
+                <h2 className="issue-section-title">Notes</h2>
+                <p style={{ margin: 0, whiteSpace: "pre-wrap" }}>{issue.details.notes}</p>
+              </div>
+            )}
+
+            {issue.source === "gcd" && detailRows.length > 0 && (
               <p className="muted" style={{ fontSize: "0.75rem", margin: "-10px 0 22px" }}>
-                Credits and story details from the{" "}
+                Issue details from the{" "}
                 <a href={`https://www.comics.org/issue/${String(issue.id).replace(/^gcd-/, "")}/`} target="_blank" rel="noreferrer">Grand Comics Database (CC BY-SA 4.0)</a>
               </p>
             )}
@@ -650,51 +664,46 @@ export default function IssueClient({ initialIssue = null }) {
               </div>
             )}
 
-            {String(id).startsWith("gcd-") && (
-              <IssueForSale gcdIssueId={Number(String(id).slice(4))} />
-            )}
-
-            {issue.related_issues?.length > 0 && (
-              <div className="metadata-section" style={{ margin: 0 }}>
-                <h3 className="issue-section-title">Nearby Issues</h3>
-
-                <div
-                  style={{
-                    display: "grid",
-                    // Nearby Issues thumbnails - 4-up on desktop, 2-up on
-                    // mobile (covers stay legible at ~140px min).
-                    gridTemplateColumns: "repeat(auto-fit, minmax(min(140px, 100%), 1fr))",
-                    gap: "12px",
-                    marginTop: "12px",
-                  }}
-                >
-                  {issue.related_issues.map((related) => (
-                    <Link
-                      key={related.id}
-                      href={`/issue/${related.id}`}
-                      className="comic-card"
-                      style={{ textDecoration: "none" }}
-                    >
-                      <div className="comic-card-title">
-                        {issue.series_title} #{related.issue_number}
-                      </div>
-
-                      {related.title && (
-                        <div className="comic-card-meta" style={{ marginBottom: 4 }}>
-                          {related.title}
-                        </div>
-                      )}
-
-                      <div className="comic-card-meta">
-                        {related.release_year || "Unknown Year"}
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
+          <div className="issue-below-side">
+            {allCharacters.length > 0 && <section><div className="issue-section-heading"><h2>Characters</h2></div><div className="issue-character-list">{allCharacters.map(({ name, note }) => <span key={name}>{name}{note && <small>{note}</small>}</span>)}</div></section>}
+            {issue.reprints?.reprintedFrom?.length > 0 && <ReprintList title="Reprints material from" items={issue.reprints.reprintedFrom} />}
+            {issue.reprints?.reprintedIn?.length > 0 && <ReprintList title="Reprinted in" items={issue.reprints.reprintedIn} />}
+          </div>
+
         </div>
+
+        {issue.source === "gcd" && (
+          <section id="forsale" className="issue-discogs-section">
+            <div className="issue-section-heading"><h2>For sale</h2>{issue.listings?.length > 0 && <span>{issue.listings.length} available</span>}</div>
+            {!issue.listings?.length ? <div className="issue-empty-card">No copies for sale yet{user && inCollection && <> · <Link href="/library?tab=collection">Sell yours</Link></>}</div> : <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Grade</th><th>Edition</th><th>Seller</th><th>Price</th><th></th></tr></thead><tbody>
+              {issue.listings.map((listing) => <tr key={listing.id}><td>{conditionLabel(listing)}</td><td>{listing.variant || "Base edition"}</td><td><Link href={`/u/${encodeURIComponent(listing.seller)}`}>@{listing.seller}</Link><small>Listed {new Date(listing.listedAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</small></td><td>{listing.price != null ? formatValue(listing.price) : "Open to offers"}</td><td><Link className="issue-row-button" href={offerHref(listing)}>{contactLabel(listing)}</Link></td></tr>)}
+            </tbody></table></div>}
+          </section>
+        )}
+
+        {issue.related_issues?.length > 0 && (
+          <section className="metadata-section issue-nearby">
+            <h3 className="issue-section-title">Nearby Issues</h3>
+            <div className="issue-nearby-grid">
+              {issue.related_issues.map((related) => (
+                <Link key={related.id} href={`/issue/${related.id}`} className="comic-card" style={{ textDecoration: "none" }}>
+                  {related.cover && (
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={related.cover} alt="" className="issue-nearby-cover" />
+                    </>
+                  )}
+                  <div className="comic-card-title">{issue.series_title} #{related.issue_number}</div>
+                  {related.title && <div className="comic-card-meta" style={{ marginBottom: 4 }}>{related.title}</div>}
+                  <div className="comic-card-meta">{related.release_year || "Unknown Year"}</div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {issue.source === "gcd" && <footer className="issue-data-footer"><div><span>Indexed</span><span>{issue.credits?.length ? "Credits indexed" : "Credits not indexed yet"}</span><span>{issue.details?.barcode ? "Barcode indexed" : "Barcode not indexed"}</span></div><p>Data from the <a href={`https://www.comics.org/issue/${issue.edition_gcd_issue_id || String(issue.id).replace(/^gcd-/, "")}/`} target="_blank" rel="noreferrer">Grand Comics Database</a> (CC BY-SA 4.0)</p></footer>}
       </section>
 
       <AdSlot position={SLOT.ISSUE_INLINE_1} pageKey={String(id)} className="ad-slot--issue" />

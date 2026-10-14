@@ -147,6 +147,30 @@ jobs:
       - name: Marketplace listing sync tests
         run: npm run test:listing-sync
 
+      - name: Marketplace order tests
+        run: npm run test:orders
+
+      - name: Marketplace seller tests
+        run: npm run test:marketplace-sellers
+
+      - name: Marketplace checkout tests
+        run: npm run test:marketplace-checkout
+
+      - name: Marketplace order page tests
+        run: npm run test:marketplace-orders-ui
+
+      - name: Marketplace feedback tests
+        run: npm run test:marketplace-feedback
+
+      - name: Marketplace dispute and refund tests
+        run: npm run test:marketplace-disputes
+
+      - name: Marketplace fraud tests
+        run: npm run test:marketplace-fraud
+
+      - name: Marketplace database tests
+        run: npm run test:db
+
       - name: Listing photo tests (rules + EXIF stripping)
         run: npm run test:listing-photos
 

@@ -34,6 +34,8 @@ actually missing config, not broken code.
 - [ ] `STRIPE_WEBHOOK_SECRET` matches the **signing secret** for the webhook
       endpoint you're testing (test mode and live mode have separate secrets).
 
+The marketplace platform webhook also subscribes to `charge.refunded`, `charge.dispute.created`, `charge.dispute.updated`, and `charge.dispute.closed`. Use card `4000 0000 0000 0259` to exercise Stripe's disputed-payment test flow.
+
 > ⚠️ A live-mode `cus_xxx` saved on a profile will fail when the app is
 > running in test mode (key mismatch). If you switch modes during testing,
 > NULL the `stripe_customer_id` on your test account first.
@@ -191,6 +193,12 @@ Pro users should be able to cancel their own subscription from within the app.
 users emailing for cancellations is a worse problem than no signups.)
 
 ---
+
+## Marketplace checkout (test mode)
+
+Register `/api/stripe/marketplace-webhook` as a platform webhook for `checkout.session.completed`, `checkout.session.expired`, and `transfer.reversed`. Register the same route as a connected-accounts webhook for `account.updated`, `account.external_account.created`, `account.external_account.updated`, and `payout.failed`. Store the signing secrets in `STRIPE_MKT_WEBHOOK_SECRET` and `STRIPE_MKT_CONNECT_WEBHOOK_SECRET`.
+
+For local platform-event testing, run `stripe listen --forward-to localhost:3000/api/stripe/marketplace-webhook`. Use `4242 4242 4242 4242` for success, `4000 0000 0000 0002` for a decline, and `4000 0025 0000 3155` for 3D Secure. Marketplace checkout uses dedicated test keys and does not share the subscription webhook.
 
 ## Last word
 

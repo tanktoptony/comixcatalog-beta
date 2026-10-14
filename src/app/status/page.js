@@ -5,13 +5,13 @@ import Link from "next/link";
 // Supabase edge-function health check, replace the static block with a fetch
 // that reflects actual state.
 export const metadata = {
-  title: "Service Status — ComixCatalog",
+  title: "Service Status",
 };
 
 export default function StatusPage() {
   return (
     <main className="page">
-      <section className="cc-form-card" style={{ maxWidth: 560 }}>
+      <section className="cc-form-card status-panel">
         <h1 className="cc-form-title">Service status</h1>
         <p className="cc-form-sub">
           Live operational state of ComixCatalog and its upstream services.
@@ -21,10 +21,10 @@ export default function StatusPage() {
           <StatusRow label="Web app" state="operational" />
           <StatusRow label="Database (Supabase)" state="operational" />
           <StatusRow label="Cover storage" state="operational" />
-          <StatusRow label="Marketplace" state="planned" detail="Phase 2 — late May 2026" />
+          <StatusRow label="Marketplace" state="beta" detail="Listings and messages live, no checkout yet" />
         </ul>
 
-        <p className="cc-hint" style={{ marginTop: 24 }}>
+        <p className="cc-hint status-note">
           Upstream incidents are tracked at{" "}
           <a
             href="https://status.supabase.com"
@@ -42,7 +42,7 @@ export default function StatusPage() {
           and I&rsquo;ll take a look.
         </p>
 
-        <div style={{ marginTop: 24 }}>
+        <div className="status-home-link">
           <Link href="/" className="cc-submit">
             Back to home
           </Link>
@@ -57,17 +57,18 @@ function StatusRow({ label, state, detail }) {
     operational: { color: "#4ade80", text: "Operational" },
     degraded: { color: "#facc15", text: "Degraded" },
     down: { color: "#f87171", text: "Down" },
+    beta: { color: "var(--cc-gold)", text: "Beta" },
     planned: { color: "rgba(255,255,255,0.45)", text: "Planned" },
   }[state] ?? { color: "rgba(255,255,255,0.45)", text: state };
 
   return (
     <li className="status-row">
       <div className="status-row-main">
-        <span className="status-pip" style={{ background: config.color, boxShadow: `0 0 8px ${config.color}80` }} aria-hidden="true" />
+        <span className="status-pip" style={{ "--status-color": config.color }} aria-hidden="true" />
         <span className="status-label">{label}</span>
       </div>
       <div className="status-row-state">
-        <span style={{ color: config.color, fontWeight: 600 }}>{config.text}</span>
+        <span className="status-state-value" style={{ "--status-color": config.color }}>{config.text}</span>
         {detail && <span className="status-detail"> · {detail}</span>}
       </div>
     </li>

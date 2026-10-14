@@ -73,3 +73,14 @@ test("long story synopsis is truncated to 300 characters", () => {
   assert.match(jsonLd.abstract, /\.\.\.$/);
   assert.equal(jsonLd.description, jsonLd.abstract);
 });
+
+test("JSON-LD uses detailed publication fields when available", () => {
+  const jsonLd = buildIssueJsonLd({
+    ...baseIssue,
+    publication_date: "October 1999",
+    details: { on_sale_date: "1999-08-18", isbn: "978-1-234", page_count: 48 },
+  }, "gcd-1");
+  assert.equal(jsonLd.datePublished, "1999-08-18");
+  assert.equal(jsonLd.isbn, "978-1-234");
+  assert.equal(jsonLd.numberOfPages, 48);
+});

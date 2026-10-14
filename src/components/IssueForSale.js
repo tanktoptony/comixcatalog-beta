@@ -110,6 +110,7 @@ export default function IssueForSale({ gcdIssueId }) {
             <li key={l.id} className="issue-sale-row">
               <Link prefetch={false} href={`/u/${encodeURIComponent(l.seller)}`} className="issue-sale-seller">
                 @{l.seller}
+                {l.sellerRating && <small>{l.sellerRating}</small>}
               </Link>
               <Link prefetch={false} href={`/listing/${l.id}`} className="issue-sale-grade">{conditionLabel(l)}</Link>
               <span className="issue-sale-price">

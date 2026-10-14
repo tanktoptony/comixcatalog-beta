@@ -156,7 +156,10 @@ async function candidates(supabase) {
 }
 
 async function creatorId(supabase, name) {
-  const existing = await supabase.from("creators").select("id").eq("name", name).maybeSingle();
+  // Names are no longer unique: prefer the dump-backed identity while keeping
+  // legacy name-only rows usable until the bulk creator phase attaches them.
+  const existing = await supabase.from("creators").select("id,gcd_creator_id").eq("name", name)
+    .order("gcd_creator_id", { ascending: true, nullsFirst: false }).limit(1).maybeSingle();
   fail(`find creator ${name}`, existing.error); if (existing.data) return existing.data.id;
   const base = slugify(name) || "creator";
   for (let suffix = 1; ; suffix += 1) {
@@ -164,7 +167,8 @@ async function creatorId(supabase, name) {
     const inserted = await supabase.from("creators").insert({ name, slug }).select("id").single();
     if (!inserted.error) return inserted.data.id;
     if (inserted.error.code !== "23505") fail(`insert creator ${name}`, inserted.error);
-    const raced = await supabase.from("creators").select("id").eq("name", name).maybeSingle();
+    const raced = await supabase.from("creators").select("id,gcd_creator_id").eq("name", name)
+      .order("gcd_creator_id", { ascending: true, nullsFirst: false }).limit(1).maybeSingle();
     fail(`recheck creator ${name}`, raced.error); if (raced.data) return raced.data.id;
   }
 }

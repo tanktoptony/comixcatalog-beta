@@ -1,90 +1,90 @@
-# ComixCatalog — Project Status
+# ComixCatalog: Project Status
 
-**Last verified:** 2026-08-03 (data counts below were queried live against production Supabase this pass; everything else is dated at its source)
+**Last verified:** 2026-10-14
 **Owner:** founder (Anthony)
-**Authority:** canonical for "what exists right now." If this contradicts CLAUDE.md, `docs/north-star/`, or any spec under `docs/`, this file wins — see `docs/README.md` for the full authority order.
+**Authority:** canonical for "what exists right now." If this contradicts CLAUDE.md, `docs/north-star/`, or any spec under `docs/`, this file wins. See `docs/README.md` for the full authority order.
 
-This is not a roadmap and not a pitch. It's a snapshot. Update `Last verified` whenever you re-check a section; don't let stale numbers sit here uncorrected.
+This is not a roadmap or a pitch. It is a snapshot. Update `Last verified` whenever a section is checked. Do not leave stale numbers here.
 
 ---
 
 ## 1. What's live
 
-- Comic database: search, series pages, issue pages, GCD-backed metadata.
-- Collection manager: grading (raw/slabbed, CGC/CBCS/PGX, cert numbers), notes, purchase price, per-item user cover photos.
-- Public collector profiles (`/u/[username]`).
-- One-way collector follows and public member search (`/people`).
-- Stripe subscriptions: the free toolkit and Collector+ supporter tier ($4/month or $36/year) are wired. Legacy Collector Pro remains for founders, comped users, and admin but is not sold.
-- PDF export (`/api/export/pdf`), gated behind Pro.
-- Automated valuation (`auto_market_value`) — **partially live, see §3**.
-- Weekly GitHub Actions cron: cover-cache refresh + featured-gap regeneration (`.github/workflows/weekly-refresh.yml`).
-- Instagram auto-post bot (`.github/workflows/instagram-post.yml`).
+- Comic database with search, series pages, Discogs-style issue pages, and GCD-backed metadata.
+- Collection manager with raw and slabbed grading, cert numbers, notes, purchase price, and per-copy photos.
+- Public collector profiles at `/u/[username]`.
+- One-way follows, follower notifications, invite auto-follows, suggested collectors, and public member search at `/people`.
+- The free collector toolkit and Collector+ supporter tier. Collector+ costs $4/month or $36/year. Legacy Collector Pro remains for founders, comped users, and admins but is not sold.
+- PDF export at `/api/export/pdf`. It is free for all collectors.
+- Automated valuations based on active eBay asking prices. They are labeled as asking prices, not sold comps.
+- Weekly cover and catalog maintenance, recurring cover ingest, sitemap warming, and Instagram posting workflows.
 
-**Marketplace (beta, 2026-10-01):** `/marketplace` is live as a beta. Sellers list books from their library; buyers see est. value and "Make an offer" by message. No checkout, no Stripe Connect, no orders, no fees ("No fees during the beta" is public copy). v2 Phase 0 (migration 0031) moved listings into a `listings` table; the build plan is `docs/marketplace-v2-build-brief.md`. Don't describe checkout or buyer protection as available.
+**Marketplace:** Public listing and off-platform messaging remain available. Marketplace transactions PRs a through g are live in Stripe test mode for an allowlist of three accounts. This includes orders, Stripe Connect onboarding, checkout, shipping, order threads, email, feedback, disputes, refunds, chargebacks, admin tools, and fraud limits. PR h, which changes public copy, is held until go-live. Do not describe checkout or buyer protection as generally available.
 
 ---
 
-## 2. Data scale (live-queried 2026-08-03)
+## 2. Data scale
+
+The older August table counts have not been re-queried in this pass. Do not use them as current production totals.
+
+Current counts verified during the Oct 12 to Oct 14 work:
 
 | Table | Row count | Note |
-|---|---|---|
-| `series` | 217,766 | canonical, app-facing |
-| `gcd_issues` | 2,514,965 | raw GCD mirror |
-| `canonical_covers` | 106,983 | up from ~63k noted in CLAUDE.md's body text (Phase 2 body copy is stale — the header/strategy-plan number of "~90-96k" was closer) |
-| `market_comps` | 6,054 | **see §3 — CLAUDE.md says this table is empty; it isn't** |
-| `user_collections` | 681 | real usage, pre-launch beta scale |
-| `comics` (user/local-contributed) | 240 | legacy GCD-linked residue removed 2026-08-04; 209 rows have `created_by` |
-| `profiles` | 17 | all 17 currently show `is_pro = true` and `is_founding_collector = true` |
+|---|---:|---|
+| `issue_printings` | about 417,000 | GCD barcodes and printing records used by scan matching |
+| `key_issues` | 2,094 | Hand-curated and ComicVine-backed key issue records |
+| `series_links` | 5,625 | GCD continuations and collected-edition links |
 
-Coverage metrics (live):
-- Series with a year (`year_start_cached` set): 85.5% — matches CLAUDE.md's last recorded figure.
-- Series with a featured cover: 3.9% (CLAUDE.md's last recorded figure was 2.6% as of May 21 — improved, doc just hasn't been updated).
-- `canonical_covers` with `gcd_issue_id` set: 44,882 / 106,983 (42%).
-- `canonical_covers` with `series_gcd_id` set: 87,276 / 106,983 (82%).
+The GCD dump import adds creators, story credits, reprints, editions, and related issue detail. A full import with `--resume` is running on Oct 14. Final import counts are not available yet.
 
-**Resolved 2026-08-04 — the May dedupe was partial, and the “~140” figure was not the post-dedupe table count.** Investigation showed 755,161 surviving rows had direct `gcd_id` links and predated the May cleanup; the named cover-ingestion paths do not write `comics`. A full-table dry-run and repeated apply-time validation confirmed every one of those rows against `gcd_issues`, normalized issue number, and the independent `series.gcd_id` bridge. All 755,161 had `created_by = null`, with zero `user_collections` references and zero attached `comic_covers`; they were deleted in verified batches. Post-delete audit: 240 `comics` rows remain, 209 are attributed, no `gcd_id` rows remain, and all 228 collection rows that reference local comics are unchanged. See `docs/operations/comics-gcd-dedupe-plan.md`.
+The March GCD import's garbled accented text was repaired from the GCD dump on Oct 14 (`scripts/repairGarbledTextFromDump.js`). About 60 rows remain: GCD-deleted records and Greek-script names.
 
-## 3. Valuation pipeline — corrects CLAUDE.md
+## 3. Catalog, scanning, and search
 
-CLAUDE.md (both the Data Sources section and the Track B roadmap item) states `market_comps` is "currently empty," blocked on eBay Marketplace Insights API approval. **That's no longer accurate.**
+- Stack scanning has one review step and keeps issue details in the same flow.
+- Live barcode scanning accepts full UPCs and main-code-only phone reads. GCD barcode data is stored in `issue_printings`.
+- The barcode tab is hidden for members while barcode coverage and matching are still being completed.
+- Series search uses `search_series_by_relevance_v2`. The slower v1 RPC was removed.
+- Each search term's ranked result is stored in `search_term_cache`.
+- Series card cover choices are stored on each series. Missing choices are claimed and resolved without recalculating every visible card.
+- Equal title matches are ranked by GCD reprint count before issue count. The reprint-count backfill reads the GCD dump directly.
+- Series pages and header search load independent sections in parallel. The main search page shows eight compact series cards.
 
-Verified live:
-- `EBAY_API=browse` in `.env.local` — the pipeline is running against eBay's Browse API (active/asking listings), not Insights (completed sales).
-- `scripts/fetchEbayComps.js` already handles this correctly: when not in Insights mode it labels rows `source = "ebay-listed"` instead of `"ebay"` (`scripts/fetchEbayComps.js:198`).
-- All 6,054 `market_comps` rows currently in production have `source = "ebay-listed"` — i.e., these are **asking prices, not sold comps.**
-- The library UI (`src/app/library/page.js:1740-1766`) already discloses this honestly: it renders `"asking, N listings"` (not `"auto, N sales"`) when `comp_source === "ebay-listed"`, with a tooltip reading *"Asking prices, not sold — typically skew high. Sold-comp data unlocks when our Marketplace Insights access lands."*
+## 4. Issue and series detail
 
-**Net assessment:** the valuation pipeline is further along than CLAUDE.md suggests, and the asking-vs-sold labeling the formal launch plan requires ("Valuations with source labels: 100%") is already implemented in the one place checked. This is good news, not a regression — but CLAUDE.md needs a follow-up correction (not done in this pass — it has unrelated uncommitted edits in progress; don't touch it mid-edit). Still awaiting real Marketplace Insights (sold-comp) approval as of this writing.
+- Issue pages use a Discogs-style layout with identifiers, editions, contents, creator credits, notes, reprints, and copies for sale.
+- Issue URLs keep the selected edition while work-level sections join through the base issue.
+- Series pages show when a run continues in another series or is collected elsewhere. These relationships come from `series_links`.
+- The full GCD dump import is still in progress. Do not treat test-load counts in the vision spec as final production counts.
 
-## 4. Roadmap phase (per CLAUDE.md, not independently re-verified beyond §2/§3 above)
+## 5. Marketplace transactions
 
-Phase 2 — Revenue Engine is current. Three tracks:
-- **Track A (covers):** structural linking shipped; global structural-link repair + exception review still open (`reports/canonical-cover-link-repair-*.json` shows repeated repair runs 2026-08-01/02 — in progress).
-- **Track B (valuation):** see §3 — further along than documented, still blocked on Insights approval for true sold-comp data.
-- **Track C (revenue convergence):** Stripe wired, PDF export exists (free for everyone since 2026-10-07; Pro is now a supporter tier), grading UI shipped. Formal launch plan puts "PDF and subscription convergence" at 78% and "valuation pipeline" at 68% readiness as of 2026-08-01.
+The transaction build is implemented through PR g and restricted to three allowlisted accounts in Stripe test mode:
 
-## 5. Known blockers going into the Aug 31–Sep 11 launch window
+- PR a: order reservations, transitions, and audit history.
+- PR b: seller accounts, Stripe Connect onboarding, eligibility, and seller tiers.
+- PR c: checkout sessions, Stripe webhooks, payout sweeps, and transfers.
+- PR d: receipts, shipping, delivery, order threads, and lifecycle email.
+- PR e: double-blind feedback, seller ratings, and seller standing.
+- PR f: disputes, refunds, chargebacks, and two-factor-protected admin order tools.
+- PR g: buyer limits, checkout cooldowns, payment warnings, and shared-card flags.
 
-See `docs/LAUNCH_CHECKLIST.md` for the authoritative, evidence-tracked list. Headline items from the formal launch plan's own readiness scoring (2026-08-01): valuation pipeline (68%) and PDF/subscription convergence (78%) are the two tracks furthest from done.
+PR h is the public-copy switch. It is held until checkout goes live. The transaction flag remains allowlist-only, and Collector+ subscriptions remain separate from marketplace Stripe test mode.
 
 ## 6. External dependencies
 
-- **eBay Marketplace Insights API** — application submitted, approval not guaranteed (per formal launch plan, "Production approval is not guaranteed"). Browse API is the working fallback, already labeled correctly (§3).
-- **ComicVine API** — free tier only, ~200 req/hour ceiling. Constrains cover-ingestion throughput.
-- **Stripe** — test + live keys both present in `.env.local`; mode-sensitivity has caused bugs before (`stripe_customer_id` under the wrong mode).
-- **GCD data** — `gcd_issues`/`gcd_series` are a static mirror from an earlier bulk dump; no live incremental sync yet (see `docs/gcd-incremental-sync-plan.md`, status: planning).
+- **eBay:** The Browse API supplies active asking prices. Sold-comp data is still unavailable.
+- **ComicVine:** The free-tier request ceiling constrains cover ingest.
+- **Stripe:** Collector+ subscriptions and marketplace transactions use separate configuration. Marketplace transactions are in test mode for the allowlist.
+- **GCD:** Incremental syncs continue, and a full dump import with `--resume` is running on Oct 14.
 
-### Local cover-ingest policy (reviewed 2026-08-04)
+### Local cover-ingest policy
 
-`scripts/ingest-loop.ps1` is **manual/occasional supplementary throughput**, not a durable service. Do not rely on it to survive reboots or stalls, and do not install it as a Windows Scheduled Task. The durable channel is `.github/workflows/cover-ingest.yml`, which runs every six hours with a 60-minute timeout and a concurrency guard.
-
-- Investigation found no ingest-related Scheduled Task. The local live log ended mid-Python invocation with an empty error log, which is consistent with an external termination or hung child rather than a catchable PowerShell exception.
-- The wrapper does not make child-process outcomes authoritative: PowerShell's `ErrorActionPreference = "Stop"` does not throw for a native `python` nonzero exit in this invocation pattern, and the loop records `$LASTEXITCODE` without failing on it. Some expected ingester stops (including exhausted ComicVine rate-limit retries) return exit 0. Adding restart-on-failure around those semantics would create misleading health signals and another machine-specific automation surface.
-- Start it manually only when extra local throughput is useful. Treat a stopped or stale log as an invitation to inspect and restart manually; GitHub Actions continues independently.
+`scripts/ingest-loop.ps1` is manual extra throughput. It is not a durable service. Do not install it as a Windows Scheduled Task. GitHub Actions is the durable ingest path.
 
 ## 7. Operational state
 
-- Git: single contributor (occasionally multiple concurrent AI sessions under the same identity). Direct pushes to `main` are still allowed — see `docs/operations/engineering-workflow.md` — but a branch+PR convention now exists for non-trivial/risky changes, backed by `.github/workflows/pr-ci.yml` (lint/test/build/docs:check) and GitHub auto-merge on green. Not enforced via branch protection by design (2026-08-04).
-- GitHub Actions: `weekly-refresh.yml`, `cover-ingest.yml`, `gap-probe.yml`, `instagram-post.yml` — scheduled/cron-triggered. `pr-ci.yml` is the first PR-triggered workflow (2026-08-04).
-- On-demand engineering report: `npm run report:engineering` — git-native risk/collision report, see `docs/operations/engineering-workflow.md`.
-- Working tree as of this writing has unrelated in-progress edits (CLAUDE.md, several `src/app` layout/page files, two scripts) — not part of this cleanup, left untouched.
+- Non-trivial work uses branches, PRs, and separate worktrees for concurrent sessions. See `docs/operations/engineering-workflow.md`.
+- PR CI runs scoped lint, cover-match tests, build, and `docs:check`.
+- Applied migration files are records. Duplicate migration numbers and the rule for new numbers are documented in `docs/operations/engineering-workflow.md`.
+- `npm run report:engineering` produces the on-demand git-native engineering report.

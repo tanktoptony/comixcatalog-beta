@@ -35,3 +35,16 @@ It does two things, both from `git log` alone — no Supabase queries in this ve
 - **Flags concurrent-edit risk**: files touched by 2+ commits within 2 hours of each other. This is a safety net for the *next* incident, not a retroactive detector for 2026-08-03's — that one was a working-tree race resolved before anything was committed, so it left no trace in git log. `git status` before any pull/merge remains the actual mitigation for that class of problem.
 
 Output goes to stdout and to `reports/engineering-report-<date>.md` (gitignored, same as the PDF — a local artifact, not meant to be committed). Run it at the end of a session, or whenever you want a quick read on what just landed before starting something new.
+
+## Migration numbers
+
+Main has a few duplicate migration numbers. All of these migrations were applied in production. The files are records, so the duplicates are safe and must stay as they are.
+
+- 0037: `0037_after_publisher_sync_backfill.sql` and `0037_gcd_publishers_country_us_market.sql`.
+- 0060 and 0060b: `0060_sale_transfers.sql` and `0060b_gcd_dump_import.sql`.
+- 0067: `0067_gcd_issue_editions.sql` and `0067_series_card_cover.sql`.
+- 0068: `0068_search_term_cache.sql` and `0068_seller_accounts.sql`.
+
+The 0066 collision was resolved by renaming the search rank migration to 0075 in PR #332. Migration 0066 remains the marketplace orders migration.
+
+Before writing a migration, run `git ls-tree origin/main scripts/migrations/` and take the next free number. If two sessions run in parallel, the second session renumbers its migration before merging. Never edit the statements in an applied migration.

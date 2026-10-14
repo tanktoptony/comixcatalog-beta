@@ -116,6 +116,7 @@ Note: `target_volumes_seed.py` was referenced in older briefings but has been re
   - `src/lib/ebayTitleParser.js` — parses listing titles into structured grade/issue/bucket
   - `scripts/fetchEbayComps.js` — live daily job (Browse API, asking prices). Pre-2000 issues get a second search with the year appended, merged on listing id.
   - `/api/library-hydrate` + library UI already wired to display `auto_market_value` when comps exist. Renders nothing while table is empty.
+  - **Hydration is cached per book in `library_item_cache` (migration 0069, Oct 14, 2026)**: keys `gcd-<id>` / `<comic uuid>` for the card and `mv:<issue>:<grade>:<slab>:<condition>` for a value, shared by every collector. Stored entries are served, missing ones computed in the request, entries older than 10 min recomputed in the background (`after()`). An entry depends only on its own book, so if you change how a card or value is computed, the cache refreshes within 10 minutes of the next view; bump the key prefix if old entries must never be shown.
 - Future supplemental sources: CGC pop reports (slab values), Heritage Auctions API (auction comps for keys), MyComicShop buy-list (floor price).
 - **Facebook Marketplace was considered and ruled out** — no API since deprecation, scraping is hostile + TOS-violating, and FB doesn't expose sold prices (only asking prices). Bad signal-to-noise even if scrapable.
 

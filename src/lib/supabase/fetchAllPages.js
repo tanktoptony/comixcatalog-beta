@@ -93,12 +93,19 @@ export async function fetchAllByKeyset(build, keyCol = "id", { maxRows = KEYSET_
 
 // Same contract, but asks for `concurrency` pages at a time instead of one.
 // Every page is ~150-200ms of round trip regardless of size, so a 9-page read
-// drops from ~1.8s to ~0.5s. It may request up to concurrency-1 empty pages
-// past the end; those are cheap. Kept at 4 or fewer: wide parallel reads
-// against this database have taken the site down before (2026-10-01).
+// drops from ~1.8s to ~0.5s. Kept at 4 or fewer: wide parallel reads against
+// this database have taken the site down before (2026-10-01).
+//
+// The first page is read alone. Most reads fit in it, and a page past the end
+// is NOT cheap: Postgres still filters and sorts the whole result before
+// skipping the offset. Firing four at once made every small read cost four
+// full queries (measured 2026-10-14 on /api/library-hydrate).
 export async function fetchAllPagesParallel(build, orderCol = "id", concurrency = 4) {
-  const rows = [];
-  for (let start = 0; ; start += PAGE * concurrency) {
+  const first = await build().order(orderCol, { ascending: true }).range(0, PAGE - 1);
+  if (first.error) throw first.error;
+  const rows = [...(first.data ?? [])];
+  if (!first.data || first.data.length < PAGE) return rows;
+  for (let start = PAGE; ; start += PAGE * concurrency) {
     const pages = await Promise.all(
       Array.from({ length: concurrency }, (_, i) => {
         const from = start + i * PAGE;

@@ -48,11 +48,9 @@ begin
     return;
   end if;
 
-  v_compact_without_the := case
-    when v_compact like 'the%' and length(v_compact) > 3 then substr(v_compact, 4)
-    else v_compact
-  end;
-  v_spaced_without_the := regexp_replace(v_spaced, '^the\s+', '');
+  -- Only a whole leading word "the": "the x-men" -> "x-men", never "thessaly".
+  v_spaced_without_the := case when v_spaced like 'the %' then substr(v_spaced, 5) else v_spaced end;
+  v_compact_without_the := replace(v_spaced_without_the, ' ', '');
 
   select coalesce(array_agg(w), '{}'::text[]) into v_words
   from unnest(regexp_split_to_array(lower(normalized_term), '[^a-z0-9]+')) as w

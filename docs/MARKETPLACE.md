@@ -1,7 +1,7 @@
 # ComixCatalog: Marketplace
 
 **Status:** canonical, describes current state · **Verified against code:** `origin/main` at `4abf5dc`, 2026-10-09
-**Plan of record:** [marketplace-v2-build-brief.md](marketplace-v2-build-brief.md) (phases 0 to 6, open questions for the founder). [marketplace-launch-spec.md](marketplace-launch-spec.md) is older; its mechanics are superseded.
+**Plan of record:** [marketplace-v2-build-brief.md](marketplace-v2-build-brief.md) (phases 0 to 6, open questions for the founder). [marketplace-launch-spec.md](marketplace-launch-spec.md) is older; its mechanics are superseded. Transactions (orders, payments, feedback) are specified in [marketplace-transactions-spec.md](marketplace-transactions-spec.md), approved 2026-10-14, not built.
 
 **One line:** a public beta where collectors list copies from their library and buyers contact them by direct message. No money moves through ComixCatalog. Don't describe checkout, buyer protection, payouts, fees or seller ratings as available.
 

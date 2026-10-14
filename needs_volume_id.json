@@ -49942,9 +49942,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T13:00:48.623454+00:00",
-    "retry_after": "2026-10-14T13:00:48.623469+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T13:15:41.951771+00:00",
+    "retry_after": "2026-10-17T13:15:41.951793+00:00"
   },
   {
     "name": "Mayhem!",
@@ -49971,9 +49971,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T13:02:04.187969+00:00",
-    "retry_after": "2026-10-14T13:02:04.187984+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T13:15:42.555131+00:00",
+    "retry_after": "2026-10-17T13:15:42.555151+00:00"
   },
   {
     "name": "Ripclaw",
@@ -49994,9 +49994,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T13:02:18.779963+00:00",
-    "retry_after": "2026-10-14T13:02:18.779977+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T13:15:42.982241+00:00",
+    "retry_after": "2026-10-17T13:15:42.982258+00:00"
   },
   {
     "name": "Warrior Nun Areala and Glory",
@@ -52656,5 +52656,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-14T12:16:04.051468+00:00",
     "retry_after": "2026-10-15T12:16:04.051484+00:00"
+  },
+  {
+    "name": "Michaelangelo, Teenage Mutant Ninja Turtle",
+    "publisher": "Mirage Studios",
+    "year": 1985,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T13:15:41.455978+00:00",
+    "retry_after": "2026-10-15T13:15:41.455994+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles Presents: April O'Neil, (May East Saga)",
+    "publisher": "Archie Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T13:16:47.912737+00:00",
+    "retry_after": "2026-10-15T13:16:47.912751+00:00"
+  },
+  {
+    "name": "Firefly: Return to the Earth That Was",
+    "publisher": "BOOM! Studios",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T13:17:13.428718+00:00",
+    "retry_after": "2026-10-15T13:17:13.428735+00:00"
   }
 ]

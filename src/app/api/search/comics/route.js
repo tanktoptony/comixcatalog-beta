@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { searchSeriesRpc } from "@/lib/searchRpc";
 import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
@@ -110,14 +111,14 @@ function isPlaceholderIssueNumber(value) {
 // default response cap regardless of what's requested. Falls back to the
 // old ILIKE query if the migration hasn't been run yet.
 async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
-  let { data, error } = await supabase.rpc("search_series_by_relevance", {
+  let { data, error } = await searchSeriesRpc(supabase, {
     normalized_term: searchWords,
     allowed_publishers: US_PUBLISHER_ALLOWLIST,
     result_limit: 1000,
   });
   if (!error && (data?.length || searchWords === normalizedQ)) return data ?? [];
   if (searchWords !== normalizedQ) {
-    const legacy = await supabase.rpc("search_series_by_relevance", {
+    const legacy = await searchSeriesRpc(supabase, {
       normalized_term: normalizedQ,
       allowed_publishers: US_PUBLISHER_ALLOWLIST,
       result_limit: 1000,

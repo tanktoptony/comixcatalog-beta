@@ -51071,5 +51071,532 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-14T13:17:13.428718+00:00",
     "retry_after": "2026-10-15T13:17:13.428735+00:00"
+  },
+  {
+    "name": "In Rage",
+    "publisher": "Unknown Publisher",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:00:48.719031+00:00",
+    "retry_after": "2026-10-15T14:00:48.719048+00:00"
+  },
+  {
+    "name": "Wallace Wood's Horny Toads",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26836,
+        "name": "Wallace Wood's Horny Toads",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:43.488981+00:00",
+    "retry_after": "2026-10-15T14:08:43.488998+00:00"
+  },
+  {
+    "name": "Stimulator",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26834,
+        "name": "Stimulator",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:43.901766+00:00",
+    "retry_after": "2026-10-15T14:08:43.901784+00:00"
+  },
+  {
+    "name": "Jerntid",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 98987,
+        "name": "Jerntid",
+        "publisher": "Telemark Tegneserieverksted",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:44.251116+00:00",
+    "retry_after": "2026-10-15T14:08:44.251132+00:00"
+  },
+  {
+    "name": "Rom Summer Special",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52566,
+        "name": "Rom Summer Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:44.750597+00:00",
+    "retry_after": "2026-10-15T14:08:44.750614+00:00"
+  },
+  {
+    "name": "Confessions Illustrated",
+    "publisher": "Marvel Comics",
+    "year": 1974,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1803,
+        "name": "Confessions Illustrated",
+        "publisher": "EC",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:45.151130+00:00",
+    "retry_after": "2026-10-15T14:08:45.151148+00:00"
+  },
+  {
+    "name": "Melody On Stage",
+    "publisher": "Fantagraphics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26798,
+        "name": "Melody on Stage",
+        "publisher": "Eros Comix",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:45.625157+00:00",
+    "retry_after": "2026-10-15T14:08:45.625173+00:00"
+  },
+  {
+    "name": "Lewd Moana",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26769,
+        "name": "Lewd Moana",
+        "publisher": "Eros Comix",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:46.207698+00:00",
+    "retry_after": "2026-10-15T14:08:46.207735+00:00"
+  },
+  {
+    "name": "Savage Sewer Sluts",
+    "publisher": "Fantagraphics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67000,
+        "name": "Savage Sewer Sluts",
+        "publisher": "Eros Comix",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:46.557997+00:00",
+    "retry_after": "2026-10-15T14:08:46.558015+00:00"
+  },
+  {
+    "name": "Flesh Gordon Special Limited Edition",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74833,
+        "name": "Flesh Gordon Special Limited Edition",
+        "publisher": "Aircel Publishing",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:47.057108+00:00",
+    "retry_after": "2026-10-15T14:08:47.057125+00:00"
+  },
+  {
+    "name": "Skinheads in Love",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71651,
+        "name": "Skinheads in Love",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:47.894881+00:00",
+    "retry_after": "2026-10-15T14:08:47.894898+00:00"
+  },
+  {
+    "name": "Ninja Special",
+    "publisher": "Malibu Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72264,
+        "name": "Ninja Special",
+        "publisher": "Eternity",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:48.410250+00:00",
+    "retry_after": "2026-10-15T14:08:48.410268+00:00"
+  },
+  {
+    "name": "Casanova in Venice",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72624,
+        "name": "Casanova in Venice",
+        "publisher": "Aircel Publishing",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:48.787486+00:00",
+    "retry_after": "2026-10-15T14:08:48.787503+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe: The Tell-Tale Heart and Other Stories",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74384,
+        "name": "Edgar Allan Poe: The Tell-Tale Heart and Other Stories",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:49.579992+00:00",
+    "retry_after": "2026-10-15T14:08:49.580008+00:00"
+  },
+  {
+    "name": "The Walking Dead Zombie Special",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50845,
+        "name": "The Walking Dead Zombie Special",
+        "publisher": "Aircel Publishing",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:50.002962+00:00",
+    "retry_after": "2026-10-15T14:08:50.002980+00:00"
+  },
+  {
+    "name": "Orgasm Island",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37416,
+        "name": "Orgasm Island",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:50.471790+00:00",
+    "retry_after": "2026-10-15T14:08:50.471807+00:00"
+  },
+  {
+    "name": "Crime Mysteries",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10802,
+        "name": "Crime Mysteries",
+        "publisher": "Trojan Magazines",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:50.849418+00:00",
+    "retry_after": "2026-10-15T14:08:50.849435+00:00"
+  },
+  {
+    "name": "Unknown Worlds",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2025,
+        "name": "Unknown Worlds",
+        "publisher": "American Comics Group",
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:51.423155+00:00",
+    "retry_after": "2026-10-15T14:08:51.423173+00:00"
+  },
+  {
+    "name": "Time Wankers: First Hand Tales",
+    "publisher": "Fantagraphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73029,
+        "name": "Time Wankers: First Hand Tales",
+        "publisher": "Eros Comix",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:51.958335+00:00",
+    "retry_after": "2026-10-15T14:08:51.958349+00:00"
+  },
+  {
+    "name": "Space Station 6969",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36058,
+        "name": "Space Station 6969",
+        "publisher": "Eros Comix",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:52.490473+00:00",
+    "retry_after": "2026-10-15T14:08:52.490490+00:00"
+  },
+  {
+    "name": "Tales of the Vienna Sausage Woods",
+    "publisher": "Top Cow Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71419,
+        "name": "Tales of the Vienna Sausage Woods",
+        "publisher": "self published",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:53.034100+00:00",
+    "retry_after": "2026-10-15T14:08:53.034118+00:00"
+  },
+  {
+    "name": "Domingos Alegres",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53933,
+        "name": "Domingos Alegres",
+        "publisher": "Editorial Novaro",
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:53.777817+00:00",
+    "retry_after": "2026-10-15T14:08:53.777835+00:00"
+  },
+  {
+    "name": "Archi",
+    "publisher": "Harvey Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127973,
+        "name": "Archi",
+        "publisher": "Editorial Novaro",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:54.425384+00:00",
+    "retry_after": "2026-10-15T14:08:54.425402+00:00"
+  },
+  {
+    "name": "Susy",
+    "publisher": "Harvey Comics",
+    "year": 1961,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 162084,
+        "name": "Susy",
+        "publisher": "Editorial Novaro",
+        "start_year": 1961
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:54.958218+00:00",
+    "retry_after": "2026-10-15T14:08:54.958235+00:00"
+  },
+  {
+    "name": "Chiquilladas",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68422,
+        "name": "Chiquilladas",
+        "publisher": "Editorial Novaro",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:55.343284+00:00",
+    "retry_after": "2026-10-15T14:08:55.343301+00:00"
+  },
+  {
+    "name": "La Zorra y el Cuervo",
+    "publisher": "Harvey Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170628,
+        "name": "La Zorra y el Cuervo",
+        "publisher": "Editorial Novaro",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:56.065939+00:00",
+    "retry_after": "2026-10-15T14:08:56.065957+00:00"
+  },
+  {
+    "name": "Donald Pocket",
+    "publisher": "Harvey Comics",
+    "year": 1968,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166586,
+        "name": "Donald Pocket",
+        "publisher": "Hjemmet",
+        "start_year": 1968
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:56.573643+00:00",
+    "retry_after": "2026-10-15T14:08:56.573660+00:00"
+  },
+  {
+    "name": "Periquita",
+    "publisher": "Marvel Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 82528,
+        "name": "Periquita",
+        "publisher": "Editorial Novaro",
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:57.015401+00:00",
+    "retry_after": "2026-10-15T14:08:57.015419+00:00"
+  },
+  {
+    "name": "Gene Autry",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50262,
+        "name": "Gene Autry",
+        "publisher": "Western Publishing",
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:57.589259+00:00",
+    "retry_after": "2026-10-15T14:08:57.589278+00:00"
+  },
+  {
+    "name": "Daniel el travieso",
+    "publisher": "Harvey Comics",
+    "year": 1964,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 152415,
+        "name": "Daniel el Travieso",
+        "publisher": "Editorial Novaro",
+        "start_year": 1964
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:58.398021+00:00",
+    "retry_after": "2026-10-15T14:08:58.398038+00:00"
+  },
+  {
+    "name": "Aventuras de la Vida Real",
+    "publisher": "Harvey Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78302,
+        "name": "Aventuras de la Vida Real",
+        "publisher": "Editorial Novaro",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T14:08:59.222108+00:00",
+    "retry_after": "2026-10-15T14:08:59.222126+00:00"
   }
 ]

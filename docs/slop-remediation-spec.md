@@ -1,6 +1,6 @@
 # Slop remediation spec
 
-**Status:** In progress, updated 2026-10-05 evening. WS0 through WS3 done (11 PRs merged: #193, #197, #201, #203, #206, #209, #212, #215, #218, #219, #220). WS4 (cover resolver) next, waiting on Codex availability. See "Progress" below · **Written:** 2026-10-04 · **Input:** `docs/slop-remediation-plan.md` · **Verified against:** `origin/main` at `5b9647f` (the plan's references were from `f546a55`)
+**Status:** In progress, updated 2026-10-13. WS0 through WS3 done (11 PRs merged: #193, #197, #201, #203, #206, #209, #212, #215, #218, #219, #220). WS4a-1 (cover resolver) merged #224. WS7 search done 2026-10-13 (#313, #314, cleanup PR + 0065): index-friendly search RPC and staged series card covers; broad first searches 40-55 s -> 6-14 s, still over the 0.8 s target. WS4b, WS5, WS6, WS9 not started. See "Progress" below · **Written:** 2026-10-04 · **Input:** `docs/slop-remediation-plan.md` · **Verified against:** `origin/main` at `5b9647f` (the plan's references were from `f546a55`)
 
 This turns the plan into files, functions, SQL, tests and PRs. The plan's goal, out-of-scope list and ground rules still apply as written. This file only adds detail and records where the plan was wrong or out of date.
 
@@ -100,7 +100,7 @@ Everything that needs you, in the order it blocks work. Items 2 and 3 are done (
 
 **Speed baseline (2026-10-05):** `reports/perf-baseline-2026-10.md`, two warm 20-run passes against production. Meets target: issue, series, library load, marketplace, and the "batman" and "sandman" searches. Misses: **public profile** (p50 ~1.6s, p95 ~2.1s) and **short search queries** ("x-o" p95 1.2–2.8s against 0.8s). WS7 starts with those two and drops items that don't move a number. Cold starts aren't counted (a cold pass was 2–18s); `--cold` measures them.
 
-## Progress (updated 2026-10-05, evening)
+## Progress (updated 2026-10-13)
 
 **Latest handoff:** [2026-10-06-handoff.md](2026-10-06-handoff.md): open PRs (#227, #228, #230), the stale `gcd_publishers` finding, the catalog gap audit, and what's next.
 
@@ -125,9 +125,11 @@ Every merged item below was checked after deploy where it could be: SQL steps co
 | WS4 | PR 4a-1: cover resolver (`src/lib/catalog/covers.js`) for the issue and series pages; keyset paging (`fetchAllByKeyset`); parity script | #224 | **Merged** 2026-10-06 (#224) |
 | WS4 follow-up | issue/series pages computed the series year span from only the first 500 issues, so long runs (The Beano) failed the resolver's year check; complete read now | (this PR) | Open |
 | WS4 | PR 4a-2 note | none | Before library-hydrate/public-profile move onto the resolver, its tier-2 read must also filter by issue number: today it reads every cover of every series in the batch (5,470 mixed issues took 75s). The old library code filtered by number |
+| WS7 | Search: one cached computation per term (`unstable_cache`, limit/offset slice afterwards), covers only for returned rows, Server-Timing phases | #309 -> reverted #312 -> #313 | **Merged** 2026-10-13. #309 shipped an undeclared variable (every search returned empty "degraded" for ~25 min); #313 re-landed it and turned on `no-undef` for `src/` |
+| WS7 | Search RPC: EXPLAIN showed v1 seq-scanning all 208,923 series (7.1 s quiet, 40-55 s loaded). `search_series_by_relevance_v2` (0064) unions two trigram-index lookups; same rows/order modulo ties on 13 live terms. Series card covers resolved in prefixes of the pick order: 0 diffs on 144 series, batman 47.6 s -> 9.2 s | #314 | **Merged** 2026-10-13. Live first hit: batman 44 -> 14 s, spider-man 56 -> 7 s, x-men ~30 -> 6 s. v1 dropped in 0065 (cleanup PR). Remaining: card covers for series with no covered issue; next lever is caching card covers per series |
 | WS5, WS6, WS9 | | none | Not started. WS8 skipped (D-d) |
 
-**Audit scorecard** (21 findings in the 2026-10-02 audit): 8 fixed, 4 partly fixed, 9 not started (D6 and P5 deferred on purpose). Every security finding is closed. The cover findings (I1, I2) and variant parsing (I3) are untouched and are what WS4–WS5 fix.
+**Audit scorecard** (21 findings in the 2026-10-02 audit; last recounted 2026-10-05, search speed since partly addressed by WS7): 8 fixed, 4 partly fixed, 9 not started (D6 and P5 deferred on purpose). Every security finding is closed. The cover findings (I1, I2) and variant parsing (I3) are untouched and are what WS4–WS5 fix.
 
 **How the work is split now:** Codex CLI writes the implementation from a written prompt; Claude scopes it, reviews the diff, fixes what it finds, commits, runs the Codex review and opens the PR. Tony merges every PR.
 

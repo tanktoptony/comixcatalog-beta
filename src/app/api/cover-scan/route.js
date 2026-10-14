@@ -51,7 +51,7 @@ async function findCandidates(supabase, extracted) {
   } else if (gcdSeriesRows?.length) {
     // No FK from gcd_series to gcd_publishers exists (PostgREST can't embed
     // it), so publishers are read separately and held to the same US
-    // scope the main search uses: search_series_by_relevance accepts a series
+    // scope the main search uses: the series search RPC accepts a series
     // that is US-market OR has an allowlisted publisher. gcd_publishers holds
     // GCD's own names ("DC", not "DC Comics"), so country carries most of it.
     // US only: the us_market policy (migration 0037) excludes some Canadian

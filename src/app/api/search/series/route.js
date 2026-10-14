@@ -85,7 +85,8 @@ const SERIES_SELECT = `
 // substring-containing one-shots outranked them by issue count first.
 // See scripts/migrations/0023_series_search_relevance.sql and 0024's
 // follow-up fix for the full incident writeup and the
-// search_series_by_relevance() function this calls, which ranks by
+// series search RPC this calls (now search_series_by_relevance_v2, 0064,
+// via src/lib/searchRpc.js), which ranks by
 // (exact match, starts-with, contains — each capped-length-penalized, not
 // diluted by raw trigram similarity) before any limit is applied.
 //
@@ -121,8 +122,7 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
   }
 
   console.error(
-    "search_series_by_relevance RPC unavailable, falling back to ILIKE search — " +
-      "run scripts/migrations/0023_series_search_relevance.sql to fix this:",
+    "series search RPC (search_series_by_relevance_v2, migration 0064) failed, falling back to ILIKE search:",
     error.message
   );
   const { data: fallbackRows, error: fallbackError } = await supabase

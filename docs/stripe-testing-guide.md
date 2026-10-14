@@ -34,6 +34,8 @@ actually missing config, not broken code.
 - [ ] `STRIPE_WEBHOOK_SECRET` matches the **signing secret** for the webhook
       endpoint you're testing (test mode and live mode have separate secrets).
 
+The marketplace platform webhook also subscribes to `charge.refunded`, `charge.dispute.created`, `charge.dispute.updated`, and `charge.dispute.closed`. Use card `4000 0000 0000 0259` to exercise Stripe's disputed-payment test flow.
+
 > ⚠️ A live-mode `cus_xxx` saved on a profile will fail when the app is
 > running in test mode (key mismatch). If you switch modes during testing,
 > NULL the `stripe_customer_id` on your test account first.

@@ -50,6 +50,11 @@ export async function GET(req, { params }) {
     .select("id,username")
     .in("id", [data.buyer_id, data.seller_id]);
   if (profilesError) return NextResponse.json({ error: "Could not load order" }, { status: 500 });
+  const [{ data: disputes, error: disputesError }, { data: refunds, error: refundsError }] = await Promise.all([
+    db.from("order_disputes").select("kind,status,reason_text,resolution_note,opened_at,resolved_at").eq("order_id", id).order("opened_at", { ascending: false }),
+    db.from("order_refunds").select("amount_cents,reason,status,created_at").eq("order_id", id).order("created_at", { ascending: false }),
+  ]);
+  if (disputesError || refundsError) return NextResponse.json({ error: "Could not load order history" }, { status: 500 });
   const usernames = Object.fromEntries((profiles || []).map((profile) => [profile.id, profile.username]));
   const actions = {
     mark_shipped: canTransition(data.status, "shipped", role),
@@ -100,5 +105,7 @@ export async function GET(req, { params }) {
       can_leave: Boolean(canLeave),
       window_ends_at: windowEndsAt,
     },
+    disputes: disputes || [],
+    refunds: refunds || [],
   } });
 }

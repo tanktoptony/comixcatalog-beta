@@ -27,6 +27,9 @@ export default function OrderStatus({ id }) {
   const [feedbackRating, setFeedbackRating] = useState("");
   const [feedbackComment, setFeedbackComment] = useState("");
   const [feedbackBusy, setFeedbackBusy] = useState(false);
+  const [disputeOpen, setDisputeOpen] = useState(false);
+  const [disputeKind, setDisputeKind] = useState("not_received");
+  const [disputeReason, setDisputeReason] = useState("");
   const load = useCallback(async () => {
     try {
       const [orderResponse, messagesResponse] = await Promise.all([
@@ -158,12 +161,24 @@ export default function OrderStatus({ id }) {
             {order.actions.mark_shipped && <button onClick={() => setShipping(true)}>Mark shipped</button>}
             {order.actions.confirm_delivery && <button onClick={() => confirm("Got it and it's as described?") && action("confirm-delivery")}>Confirm delivery</button>}
             {order.actions.cancel_refund && <button className={styles.danger} onClick={() => confirm("Cancel this order and issue a full refund?") && action("cancel")}>Cancel and refund</button>}
-            {order.actions.open_dispute && <p>Something wrong? Dispute tools are coming next.</p>}
+            {order.actions.open_dispute && <button className={styles.quiet} type="button" onClick={() => setDisputeOpen(true)}>Problem with this order?</button>}
           </div>
+          {disputeOpen && <form className={styles.shipForm} onSubmit={(event) => { event.preventDefault(); action("dispute", { kind: disputeKind, reason: disputeReason }); }}>
+            <label>Problem<select value={disputeKind} onChange={(event) => setDisputeKind(event.target.value)}><option value="not_received">Never arrived</option><option value="not_as_described">Not as described</option></select></label>
+            <label>What happened?<textarea value={disputeReason} onChange={(event) => setDisputeReason(event.target.value)} minLength={10} maxLength={2000} required rows={5} /><small>{disputeReason.length}/2000</small></label>
+            <p>An admin reviews disputes within a few days. The order thread is the record, so describe supporting details in the thread.</p>
+            <button disabled={disputeReason.trim().length < 10}>Open dispute</button>
+            <button type="button" onClick={() => setDisputeOpen(false)}>Cancel</button>
+          </form>}
           {shipping && <form className={styles.shipForm} onSubmit={(event) => { event.preventDefault(); action("ship", { carrier, tracking_number: tracking }); }}><label>Carrier<select value={carrier} onChange={(event) => setCarrier(event.target.value)}><option value="usps">USPS</option><option value="ups">UPS</option><option value="fedex">FedEx</option><option value="dhl">DHL</option><option value="other">Other</option></select></label><label>Tracking number<input value={tracking} onChange={(event) => setTracking(event.target.value)} /></label><small>Tracking is required for orders of $50 or more.</small><button>Save shipment</button></form>}
           {state.actionError && <p className={styles.error}>{state.actionError}</p>}
         </aside>
       </section>
+      {(order.disputes?.length > 0 || order.refunds?.length > 0) && <section className={styles.feedbackCard}>
+        <h2>Disputes and refunds</h2>
+        {order.disputes?.map((dispute) => <article key={`${dispute.kind}-${dispute.opened_at}`}><p><strong>{dispute.status === "open" ? "Dispute under review" : "Dispute resolved"}</strong></p><p>{dispute.kind === "not_received" ? "Never arrived" : dispute.kind === "not_as_described" ? "Not as described" : "Chargeback"}</p>{dispute.resolution_note && <p>{dispute.resolution_note}</p>}</article>)}
+        {order.refunds?.map((refund) => <p key={refund.created_at}><strong>{money(refund.amount_cents)} refunded</strong> on {new Date(refund.created_at).toLocaleDateString()}</p>)}
+      </section>}
       {order.status === "completed" && (
         <section className={styles.feedbackCard}>
           <h2>Order feedback</h2>

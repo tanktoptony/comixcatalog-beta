@@ -68,7 +68,7 @@ test("seller account RLS and admin tier audit", async () => {
   assert.equal((await db.query("select count(*)::int n from public.marketplace_audit_log where entity_id=$1 and action='tier_set'",[b.sellerId])).rows[0].n,1); await db.end();
 });
 
-test("five completions promote unless a disputed refund is recorded", async () => {
+test("five completions promote unless a buyer-won dispute is recorded", async () => {
   const db=await dbClient();
   for (const disputed of [false,true]) {
     const s=await setup(db,{issue:disputed?501:500}); await asOwner(db);
@@ -77,7 +77,7 @@ test("five completions promote unless a disputed refund is recorded", async () =
       const row=await db.query(`insert into public.orders(listing_id,buyer_id,seller_id,series_title,item_cents,shipping_cents,tax_cents,total_cents,platform_fee_cents,processing_fee_cents,seller_net_cents,status)
         values(null,$1,$2,'Promotion',100,0,0,100,0,0,100,'created') returning id`,[s.buyerId,s.sellerId]); ids.push(row.rows[0].id);
     }
-    if(disputed) await db.query("insert into public.marketplace_audit_log(actor_role,entity,entity_id,action) values('system','order',$1,'transition:disputed->refunded')",[ids[0]]);
+    if(disputed) await db.query("insert into public.order_disputes(order_id,kind,opened_by,status,reason_text,resolution_note,resolved_at) values($1,'not_received',$2,'resolved_buyer','Package did not arrive','Refunded buyer',now())",[ids[0],s.buyerId]);
     for(const id of ids) await db.query("update public.orders set status='completed' where id=$1",[id]);
     const seller=(await db.query("select tier,completed_orders from public.seller_accounts where user_id=$1",[s.sellerId])).rows[0];
     assert.equal(seller.completed_orders,5); assert.equal(seller.tier,disputed?"new":"established");

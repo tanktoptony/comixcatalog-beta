@@ -1,6 +1,6 @@
 # Marketplace transactions spec (orders, payments, feedback)
 
-**Status:** approved 2026-10-14. Tony accepted every recommended default (D1 to D20). PR a is built in migration 0066; PR b is built in migration 0068; PR c is built in migration 0070; PR d is built in migration 0071; PR e is built in migration 0072; PRs f to h follow.
+**Status:** approved 2026-10-14. Tony accepted every recommended default (D1 to D20). PRs a to f are built in migrations 0066, 0068, 0070, 0071, 0072, and 0073; PRs g and h follow.
 **Builds on:** [MARKETPLACE.md](MARKETPLACE.md) (current state), [marketplace-v2-build-brief.md](marketplace-v2-build-brief.md) (plan of record; this doc replaces its Phase 4 and the ratings/limits half of Phase 5).
 **Model:** Discogs. Every sale is an order for one physical copy, with a strict lifecycle, managed payments, an order thread, two-way feedback and seller standards.
 

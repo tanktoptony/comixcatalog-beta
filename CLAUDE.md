@@ -431,6 +431,7 @@ Three bugs fixed:
 - **GoCollect is dead.** Do not write new code against any GoCollect endpoint. Valuation goes through eBay Browse API.
 - **No external API as a product.** Internal use only. Don't build endpoint surfaces designed for third-party developer consumption.
 - **Tailwind only** for styling. Config is in `tailwind.config.cjs`. No inline styles for layout.
+- **Marketplace disputes:** migration 0073 owns refund and dispute records, chargeback reconciliation, order-level payout holds, dispute standing, and the aal2 admin order surfaces. Stripe refund IDs are the reconciliation key.
 - **`.env.local`** holds all secrets (Supabase, ComicVine, Stripe, eBay). Marketplace checkout uses `STRIPE_MKT_SECRET_KEY`, `MARKETPLACE_CHECKOUT`, and `MARKETPLACE_CHECKOUT_ALLOWLIST`. Never commit it.
 - **GitHub Actions secrets** mirror `.env.local` for scheduled jobs. `weekly-refresh.yml` uses `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`; `gcd-issue-refresh.yml` also uses `COMICVINE_API_KEY` to identify recent-release series.
 - **Python scripts in root** are data pipeline tools (ingestion, seeding, diagnostics) — not part of the Next.js app runtime. New scripts go in `scripts/` (Node).

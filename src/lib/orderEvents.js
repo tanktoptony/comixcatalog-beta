@@ -29,6 +29,8 @@ export function orderSystemText(order, event) {
     completed: "Order completed.",
     refunded: "Order refunded.",
     cancelled: "Order cancelled.",
+    disputed: "A dispute was opened. Keep the details in this order thread.",
+    dispute_resolved: "The order dispute was resolved.",
   };
   return messages[event] || null;
 }

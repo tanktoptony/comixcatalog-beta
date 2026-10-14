@@ -35,6 +35,32 @@ export async function getMarketValue({ supabase, gcd_issue_id, grade_numeric, sl
 // 2026-09-24. Now it fetches every comp for the collection's distinct issues
 // in a couple of paginated reads and does the matching in memory.
 const ISSUE_CHUNK = 200;
+// Comps per issue run into the dozens, so 200 issues per read meant ~11
+// offset pages read one after another, each re-sorting the whole match set
+// (16 s for a 383-book library, measured 2026-10-14). 25 issues usually fit
+// one page; three such reads run at once. Each issue's comps still arrive in
+// id order, which is all valueFromComps sees.
+const COMP_ISSUE_CHUNK = 25;
+const COMP_CONCURRENCY = 3;
+
+async function mapLimit(items, limit, work) {
+  const results = new Array(items.length);
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (next < items.length) {
+      const index = next;
+      next += 1;
+      results[index] = await work(items[index]);
+    }
+  }));
+  return results;
+}
+
+function chunked(values, size) {
+  const out = [];
+  for (let index = 0; index < values.length; index += size) out.push(values.slice(index, index + size));
+  return out;
+}
 const PAGE = 1000;
 
 // PostgREST silently caps a read at 1000 rows (OPERATIONS_HANDOFF 2a); a
@@ -68,26 +94,25 @@ export async function getMarketValuesBulk({
 
   const compsByIssue = new Map();
   const issueById = new Map();
-  for (let c = 0; c < issueIds.length; c += ISSUE_CHUNK) {
-    const chunk = issueIds.slice(c, c + ISSUE_CHUNK);
-    // Comps and issue metadata are independent reads; run them together.
-    const [comps, issues] = await Promise.all([
-      readAll(() =>
-        supabase
-          .from("market_comps")
-          .select("gcd_issue_id, grade_bucket, grade_numeric, sold_price, sold_date, source, listing_title")
-          .in("gcd_issue_id", chunk)
-          .gte("sold_date", sinceIso)
-          .order("id", { ascending: true })
-      ),
-      readAll(() =>
-        supabase
-          .from("gcd_issues")
-          .select("gcd_id, series_gcd_id, key_date, publication_date")
-          .in("gcd_id", chunk)
-          .order("gcd_id", { ascending: true })
-      ),
-    ]);
+  // Comps and issue metadata are independent reads; run them together.
+  const [compReads, issueReads] = await Promise.all([
+    mapLimit(chunked(issueIds, COMP_ISSUE_CHUNK), COMP_CONCURRENCY, (chunk) => readAll(() =>
+      supabase
+        .from("market_comps")
+        .select("gcd_issue_id, grade_bucket, grade_numeric, sold_price, sold_date, source, listing_title")
+        .in("gcd_issue_id", chunk)
+        .gte("sold_date", sinceIso)
+        .order("id", { ascending: true })
+    )),
+    mapLimit(chunked(issueIds, ISSUE_CHUNK), 1, (chunk) => readAll(() =>
+      supabase
+        .from("gcd_issues")
+        .select("gcd_id, series_gcd_id, key_date, publication_date")
+        .in("gcd_id", chunk)
+        .order("gcd_id", { ascending: true })
+    )),
+  ]);
+  for (const comps of compReads) {
     if (comps.error) {
       console.error("getMarketValuesBulk comp fetch failed:", comps.error);
       if (throwOnReadError) throw comps.error;
@@ -98,6 +123,8 @@ export async function getMarketValuesBulk({
       if (!compsByIssue.has(key)) compsByIssue.set(key, []);
       compsByIssue.get(key).push(row);
     }
+  }
+  for (const issues of issueReads) {
     if (issues.error) {
       console.error("getMarketValuesBulk issue fetch failed:", issues.error);
       if (throwOnReadError) throw issues.error;

@@ -742,7 +742,7 @@ function OrdersNavButton() {
     // Ask once per browser session, not on every page load (each check is a function call).
     const KEY = "cc-orders-access";
     let cached = null;
-    try { cached = sessionStorage.getItem(KEY); } catch {}
+    try { cached = sessionStorage.getItem(KEY); } catch { /* storage blocked (private mode): ask the server instead */ }
     let active = true;
     if (cached !== null) {
       queueMicrotask(() => {
@@ -755,7 +755,7 @@ function OrdersNavButton() {
     authedFetch("/api/orders/access")
       .then((response) => {
         if (response.status === 401) return;
-        try { sessionStorage.setItem(KEY, response.ok ? "1" : "0"); } catch {}
+        try { sessionStorage.setItem(KEY, response.ok ? "1" : "0"); } catch { /* storage blocked: we just ask again next page load */ }
         if (active) setAllowed(response.ok);
       })
       .catch(() => {});

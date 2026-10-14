@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { searchSeriesRpc } from "@/lib/searchRpc";
 import { parseSearchQuery, yearMatches, yearScore } from "@/lib/searchQuery";
 import { diversify } from "@/lib/searchVariety";
@@ -10,6 +10,7 @@ import { resolveSeriesCardCovers } from "@/lib/catalog/seriesCardCovers";
 import { aliasTermsFor } from "@/lib/searchAliases";
 import { unstable_cache } from "next/cache";
 import { createServerTiming } from "@/lib/serverTiming";
+import { cachedSearchTerm } from "@/lib/searchTermCache";
 import {
   DegradedSearchError,
   normalizeSearchCacheTerm,
@@ -100,7 +101,10 @@ const SERIES_SELECT = `
 // Falls back to the old ILIKE-and-hope query if the migration hasn't been
 // run yet (function not found) or any other RPC error — never worse than
 // the pre-fix behavior, just not yet fixed until the migration lands.
-async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
+// onFallback: the ILIKE path is a different (smaller, unranked) candidate set,
+// reached today mostly when the RPC times out under load. Callers mark the
+// result degraded so it is shown but never cached (search_term_cache, CDN).
+async function fetchSeriesCandidates(supabase, searchWords, normalizedQ, onFallback = () => {}) {
   let { data, error } = await searchSeriesRpc(supabase, {
     normalized_term: searchWords,
     allowed_publishers: US_PUBLISHER_ALLOWLIST,
@@ -125,6 +129,7 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
     "series search RPC (search_series_by_relevance_v2, migration 0064) failed, falling back to ILIKE search:",
     error.message
   );
+  onFallback();
   const { data: fallbackRows, error: fallbackError } = await supabase
     .from("series")
     .select(SERIES_SELECT)
@@ -184,15 +189,17 @@ async function computeSeriesResponse(req) {
     const aliasTerms = aliasTermsFor(normalizedQ);
 
     let rows;
+    let searchDegraded = false;
+    const markDegraded = () => { searchDegraded = true; };
     try {
       const aliasFetches = aliasTerms.map((term) =>
-        fetchSeriesCandidates(supabase, term, term).catch((aliasError) => {
+        fetchSeriesCandidates(supabase, term, term, markDegraded).catch((aliasError) => {
           console.error(`series search alias fetch failed for ${term}:`, aliasError);
           return [];
         })
       );
       const candidateSets = await timing.measure("candidates", () => Promise.all([
-        fetchSeriesCandidates(supabase, searchWords, normalizedQ),
+        fetchSeriesCandidates(supabase, searchWords, normalizedQ, markDegraded),
         ...aliasFetches,
       ]));
       rows = dedupeById(candidateSets.flat());
@@ -213,7 +220,6 @@ async function computeSeriesResponse(req) {
     // real book" signal than year overlap — fetch it here and let it
     // override the year-based fingerprint below.
     const volumeIdByRowId = new Map();
-    let searchDegraded = false;
     if (rows.length > 0) {
       // Chunked: a broad query ("batman") returns up to 1,000 rows, and 1,000
       // UUIDs in one .in() is a ~37 KB URL that the API rejects (400 above
@@ -442,16 +448,23 @@ async function computeSeriesResponse(req) {
   }
 }
 
-const cachedSeriesSearch = unstable_cache(
+// The full ranked list for one term (no covers). Stored per term in
+// search_term_cache; a degraded result is returned but never stored.
+async function computeSeriesTerm(normalizedTerm, askedYear) {
+  const query = askedYear == null ? normalizedTerm : `${normalizedTerm} ${askedYear}`;
+  const response = await computeSeriesResponse(
+    new Request(`http://internal/api/search/series?q=${encodeURIComponent(query)}&ranked=1`)
+  );
+  const serverTiming = response.headers.get("Server-Timing") || "";
+  const result = await response.json();
+  return { ...result, _serverTiming: serverTiming };
+}
+
+// Only used when search_term_cache can't be read (migration 0068 missing).
+const legacyCachedSeriesSearch = unstable_cache(
   async (normalizedTerm, askedYear) => {
-    const query = askedYear == null ? normalizedTerm : `${normalizedTerm} ${askedYear}`;
-    const response = await computeSeriesResponse(
-      new Request(`http://internal/api/search/series?q=${encodeURIComponent(query)}&ranked=1`)
-    );
-    const serverTiming = response.headers.get("Server-Timing") || "";
-    const result = await response.json();
-    const measured = { ...result, _serverTiming: serverTiming };
-    if (result.degraded) throw new DegradedSearchError(measured);
+    const measured = await computeSeriesTerm(normalizedTerm, askedYear);
+    if (measured.degraded) throw new DegradedSearchError(measured);
     return measured;
   },
   ["search-series-v1"],
@@ -489,14 +502,18 @@ export async function getCachedSeriesSearch(q, { limit = 12, timing = null } = {
   const parsed = parseSearchQuery(q);
   const title = stripTrailingIssueNumber(parsed.title || q) || parsed.title || q;
   const normalizedTerm = normalizeSearchCacheTerm(title);
-  let result;
-  try {
-    result = await cachedSeriesSearch(normalizedTerm, parsed.year ?? null);
-  } catch (error) {
-    if (!(error instanceof DegradedSearchError)) throw error;
-    result = error.result;
-  }
-  return withCardCovers(result, parsed, limit, timing);
+  const askedYear = parsed.year ?? null;
+  const { result, state } = await cachedSearchTerm(getServiceClient(), {
+    kind: "series",
+    key: askedYear == null ? normalizedTerm : `${normalizedTerm}|${askedYear}`,
+    compute: () => computeSeriesTerm(normalizedTerm, askedYear),
+    schedule: after,
+    fallback: () => legacyCachedSeriesSearch(normalizedTerm, askedYear).catch((error) => {
+      if (error instanceof DegradedSearchError) return error.result;
+      throw error;
+    }),
+  });
+  return { ...(await withCardCovers(result, parsed, limit, timing)), _cacheState: state };
 }
 
 export async function GET(req) {
@@ -511,9 +528,10 @@ export async function GET(req) {
     const limit = Number.isFinite(requested) ? Math.max(1, Math.min(Math.trunc(requested), 40)) : 12;
     if (!q) return NextResponse.json({ series: [] }, { headers: { "Server-Timing": timing.header() } });
     const result = await timing.measure("search_cache", () => getCachedSeriesSearch(q, { limit, timing }));
-    const { _serverTiming, ...body } = result;
+    const { _serverTiming, _cacheState, ...body } = result;
     const headers = result.degraded ? undefined : CDN_CACHE_SHORT;
     const response = timing.measureSync("serialization", () => NextResponse.json(body, { headers }));
+    response.headers.set("X-Search-Cache", _cacheState);
     response.headers.set("Server-Timing", [_serverTiming, timing.header()].filter(Boolean).join(", "));
     return response;
   } catch (err) {

@@ -52553,5 +52553,52 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-14T19:16:18.847904+00:00",
     "retry_after": "2026-10-15T19:16:18.847920+00:00"
+  },
+  {
+    "name": "Lone Wolf and Cub Deluxe Edition",
+    "publisher": "First Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T20:15:57.950167+00:00",
+    "retry_after": "2026-10-15T20:15:57.950183+00:00"
+  },
+  {
+    "name": "Jericho Season 3: Civil War",
+    "publisher": "Devil's Due",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59777,
+        "name": "Jericho: Season 3: Civil War",
+        "publisher": "IDW Publishing",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T20:16:41.882212+00:00",
+    "retry_after": "2026-10-15T20:16:41.882228+00:00"
+  },
+  {
+    "name": "Trinity of Sin: The Phantom Stranger",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T20:16:42.287673+00:00",
+    "retry_after": "2026-10-15T20:16:42.287703+00:00"
+  },
+  {
+    "name": "You've Got a Friend, Charlie Brown",
+    "publisher": "Fawcett Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T20:19:32.257313+00:00",
+    "retry_after": "2026-10-15T20:19:32.257327+00:00"
   }
 ]

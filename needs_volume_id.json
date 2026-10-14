@@ -49773,9 +49773,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T10:01:00.659294+00:00",
-    "retry_after": "2026-10-14T10:01:00.659310+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T10:15:39.853199+00:00",
+    "retry_after": "2026-10-17T10:15:39.853214+00:00"
   },
   {
     "name": "Extremely Silly Comics",
@@ -49783,9 +49783,9 @@
     "year": 1986,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T10:01:15.912709+00:00",
-    "retry_after": "2026-10-14T10:01:15.912728+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T10:15:40.209598+00:00",
+    "retry_after": "2026-10-17T10:15:40.209615+00:00"
   },
   {
     "name": "Skywolf",
@@ -49793,9 +49793,9 @@
     "year": 1988,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T10:03:15.615831+00:00",
-    "retry_after": "2026-10-14T10:03:15.615846+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T10:15:40.638373+00:00",
+    "retry_after": "2026-10-17T10:15:40.638389+00:00"
   },
   {
     "name": "Fear Effect Special",
@@ -52536,5 +52536,55 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-14T09:19:23.709898+00:00",
     "retry_after": "2026-10-15T09:19:23.709915+00:00"
+  },
+  {
+    "name": "Charlaine Harris' Grave Sight",
+    "publisher": "Dynamite Entertainment",
+    "year": 2011,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 77881,
+        "name": "Charlaine Harris' Grave Sight",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2014
+      },
+      {
+        "id": 125706,
+        "name": "Charlaine Harris' Grave Sight",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T10:17:49.407899+00:00",
+    "retry_after": "2026-10-15T10:17:49.407913+00:00"
+  },
+  {
+    "name": "Judge Dredd: Mega-City Masters",
+    "publisher": "Rebellion",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52428,
+        "name": "Judge Dredd: Mega-City Masters",
+        "publisher": "Simon and Schuster",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T10:18:06.493760+00:00",
+    "retry_after": "2026-10-15T10:18:06.493777+00:00"
+  },
+  {
+    "name": "Superman in \"Luthor's Lost Land\" [A Book to Color]",
+    "publisher": "Gold Key",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T10:18:30.314563+00:00",
+    "retry_after": "2026-10-15T10:18:30.314580+00:00"
   }
 ]

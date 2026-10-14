@@ -50,8 +50,10 @@ export async function startDatabase() {
   await client.connect();
   const fixture = await readFile(new URL("./fixture.sql", import.meta.url), "utf8");
   const migration = await readFile(new URL("../../scripts/migrations/0066_marketplace_orders.sql", import.meta.url), "utf8");
+  const sellersMigration = await readFile(new URL("../../scripts/migrations/0068_seller_accounts.sql", import.meta.url), "utf8");
   await client.query(fixture);
   await client.query(migration);
+  await client.query(sellersMigration);
   await client.end();
 }
 
@@ -106,8 +108,10 @@ export async function seedUser(client, id, { visible = true, confirmed = true } 
   await client.query("insert into public.profiles(id,username,is_public,show_for_sale) values($1,$2,$3,$3)", [id, visible ? `u${id.replaceAll("-", "").slice(0, 8)}` : null, visible]);
 }
 
-export async function seedListing(client, { sellerId, priceCents = 5000, shippingCents = 0, issue = 1 }) {
+export async function seedListing(client, { sellerId, priceCents = 5000, shippingCents = 0, issue = 1, onboarded = true, tier = "new" }) {
   await asOwner(client);
+  if (onboarded) await client.query(`insert into public.seller_accounts(user_id,stripe_account_id,charges_enabled,payouts_enabled,details_submitted,tier)
+    values($1,$2,true,true,true,$3) on conflict(user_id) do nothing`, [sellerId, `acct_${sellerId}`, tier]);
   const collection = await client.query(`insert into public.user_collections
     (user_id,gcd_issue_id,status,variant_label,copy_number,condition,grade_numeric)
     values($1,$2,'for_sale','Cover A',1,'NM',9.4) returning id`, [sellerId, issue]);

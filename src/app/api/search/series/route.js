@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { searchSeriesRpc } from "@/lib/searchRpc";
 import { parseSearchQuery, yearMatches, yearScore } from "@/lib/searchQuery";
 import { diversify } from "@/lib/searchVariety";
+import { pinCurrentRun } from "@/lib/searchCurrentRun";
 import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
@@ -402,6 +403,8 @@ async function computeSeriesResponse(req) {
     if (askedYear != null) {
       const inYear = cleaned.filter((row) => yearMatches(row, askedYear));
       if (inYear.length > 0) ranked = inYear;
+    } else {
+      ranked = pinCurrentRun(ranked, (row) => normalizeForScoring(row.title) === normalizedQForScoring);
     }
 
     // Spread the page across distinct runs instead of letting one title

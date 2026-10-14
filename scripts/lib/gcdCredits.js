@@ -25,7 +25,7 @@ export function parseCreditNames(text) {
 // GCD calls most pin-ups "illustration"; "pin-up" is accepted too for old
 // or hand-entered records. These are authored content, unlike columns,
 // letters pages, ads, title/credits pages, recaps, and other book furniture.
-const STORY_TYPES = new Set([
+export const STORY_TYPES = new Set([
   "comic story", "text story", "photo story", "cartoon", "illustration",
   "pin-up", "biography (nonfictional)",
 ]);

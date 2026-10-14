@@ -12,7 +12,7 @@ const cases = [
   { series_title: "Street Fighter", issue_number: "2", cover_year: 1993, publisher: "Malibu", edition_clues: [] },
 ];
 for (const item of cases) {
-  const { data: series, error } = await supabase.rpc("search_series_by_relevance", { normalized_term: normalizeSeriesSearchWords(item.series_title), allowed_publishers: US_PUBLISHER_ALLOWLIST, result_limit: 1000 });
+  const { data: series, error } = await supabase.rpc("search_series_by_relevance_v2", { normalized_term: normalizeSeriesSearchWords(item.series_title), allowed_publishers: US_PUBLISHER_ALLOWLIST, result_limit: 1000 });
   if (error) throw error;
   const ids = (series ?? []).slice(0, 100).map((row) => row.gcd_id);
   const { data: issues, error: issueError } = await supabase.from("gcd_issues").select("gcd_id, series_gcd_id, issue_number, publication_date, key_date").in("series_gcd_id", ids).ilike("issue_number", `${baseIssueNumber(item.issue_number)}%`).order("gcd_id").limit(1000);

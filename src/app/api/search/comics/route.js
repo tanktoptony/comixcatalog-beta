@@ -128,8 +128,7 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
   }
 
   console.error(
-    "search_series_by_relevance RPC unavailable, falling back to ILIKE search — " +
-      "run scripts/migrations/0023_series_search_relevance.sql to fix this:",
+    "series search RPC (search_series_by_relevance_v2, migration 0064) failed, falling back to ILIKE search:",
     error.message
   );
   const { data: fallbackRows, error: fallbackError } = await supabase

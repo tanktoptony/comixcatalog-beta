@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { formatGcdDate, formatGcdPrice, buildIssueDetailsRows, buildStoryCreditSummary, humanizeStoryType } from "./issueDetails.js";
+import { formatGcdDate, formatGcdPrice, buildIssueDetailsRows, buildStoryCreditSummary, humanizeStoryType, parseGcdCreditList, stripGcdCharacterNoise, stripGcdCreditNoise } from "./issueDetails.js";
 
 test("details rows skip empty values and a duplicate indicia publisher", () => {
   const rows = buildIssueDetailsRows({
@@ -37,7 +37,20 @@ test("GCD dates and prices read like a collector would say them", () => {
   assert.equal(formatGcdDate("1963-00-00"), "1963");
   assert.equal(formatGcdDate("Fall 1963"), "Fall 1963");
   assert.equal(formatGcdDate(null), null);
-  assert.equal(formatGcdPrice("0.12 USD"), "$0.12");
-  assert.equal(formatGcdPrice("0.12 USD; 0.15 CAD"), "$0.12 · 0.15 CAD");
+  assert.equal(formatGcdPrice("0.12 USD"), "$0.12 USD");
+  assert.equal(formatGcdPrice("1.50 USD; 2.00 CAD; 0.50 GBP"), "$1.50 USD · $2.00 CAD · £0.50 GBP");
   assert.equal(formatGcdPrice(""), null);
+});
+
+test("credit annotations are removed from names and retained as notes", () => {
+  assert.deepEqual(stripGcdCreditNoise("John Romita (signed as J. Romita) (credited)"), { name: "John Romita", note: "signed as J. Romita; credited" });
+  assert.deepEqual(parseGcdCreditList("Jim Salicrup (credited); Glenn Herdling (uncredited)"), [
+    { name: "Jim Salicrup", note: "credited" },
+    { name: "Glenn Herdling", note: "uncredited" },
+  ]);
+});
+
+test("character appearance notes are separated from the chip label", () => {
+  assert.deepEqual(stripGcdCharacterNoise("Spider-Man (cameo)"), { name: "Spider-Man", note: "cameo" });
+  assert.deepEqual(stripGcdCharacterNoise("Wolverine (Logan)"), { name: "Wolverine (Logan)", note: "" });
 });

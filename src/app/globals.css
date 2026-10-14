@@ -12742,6 +12742,34 @@ select.input {
 }
 
 /* Issue page: Discogs-style release detail (Release 1) */
+.issue-breadcrumb { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--cc-line-soft); color: var(--cc-text-muted); font-size: .82rem; }
+.issue-breadcrumb > div { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.issue-breadcrumb a { color: var(--cc-text-muted); text-decoration: none; }
+.issue-breadcrumb a:hover { color: var(--cc-gold); }
+.issue-breadcrumb strong { color: var(--cc-text); }
+.issue-prev-next { flex: 0 0 auto; }
+.issue-detail-hero { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; margin-bottom: 28px; }
+.issue-versions-section { margin: 0 0 38px; }
+.issue-hero-cover { min-width: 0; }
+.issue-cover-frame { box-shadow: 14px 18px 42px color-mix(in srgb, var(--cc-gold) 24%, rgba(0,0,0,.62)); }
+.issue-cover-img { width: 100%; height: auto; }
+.issue-hero-info { position: relative; min-width: 0; padding-right: 320px; }
+.issue-hero-eyebrow { margin: 0 0 9px; color: var(--cc-text-muted); font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.issue-main-story-title { margin: -2px 0 14px; color: var(--cc-gold-soft); font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; }
+.issue-key-chip { display: inline-flex; align-items: center; gap: 6px; margin: 0 0 12px; padding: 6px 10px; border: 1px solid var(--cc-gold); border-radius: 999px; color: var(--cc-gold-soft); font-size: .78rem; font-weight: 700; }
+.issue-fact-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
+.issue-fact-chips span { padding: 6px 9px; border: 1px solid var(--cc-line-soft); border-radius: 999px; background: var(--cc-surface); color: var(--cc-text-muted); font-size: .76rem; }
+.issue-hero-info > .issue-value-card { position: absolute; top: 0; right: 0; width: 290px; box-sizing: border-box; }
+.issue-hero-info > .issue-market-actions { position: absolute; top: 112px; right: 0; width: 290px; }
+.issue-rail-collection { position: absolute; top: 174px; right: 0; display: grid; width: 290px; gap: 9px; }
+.issue-rail-collection .add-comic-btn { display: inline-flex; justify-content: center; align-items: center; min-height: 42px; text-align: center; text-decoration: none; }
+.issue-primary-cta { border-color: var(--cc-gold) !important; background: var(--cc-gold) !important; color: #11161d !important; }
+.issue-action-error { color: #ff8a80; font-size: .82rem; }
+.issue-collection-actions { display: none !important; }
+.issue-credit-note { margin-left: 2px; color: var(--cc-text-muted); font-size: .65em; }
+.issue-editing-list { display: grid; gap: 7px; }
+.issue-editing-list > span { display: grid; }
+.issue-editing-list small { color: var(--cc-text-muted); font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .issue-edition-note { margin: 0 0 14px; color: var(--cc-gold-soft); font-weight: 700; }
 .issue-value-card { display: grid; gap: 6px; margin: 0 0 14px; padding: 18px; border: 1px solid var(--cc-line); border-radius: 14px; background: var(--cc-surface); }
 .issue-value-card strong { color: var(--cc-gold); font-family: var(--font-display); font-size: 2.25rem; line-height: 1; }
@@ -12762,7 +12790,8 @@ select.input {
 .issue-mono { color: var(--cc-gold-soft); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
 .issue-row-button { display: inline-flex; min-height: 38px; align-items: center; justify-content: center; padding: 0 12px; border: 1px solid var(--cc-line); border-radius: 9px; color: var(--cc-text); font-weight: 800; text-decoration: none; white-space: nowrap; }
 .issue-character-list { display: flex; gap: 8px; flex-wrap: wrap; }
-.issue-character-list span { padding: 7px 12px; border: 1px solid var(--cc-line); border-radius: 999px; background: var(--cc-surface-2); color: var(--cc-text); font-weight: 700; }
+.issue-character-list > span { padding: 7px 12px; border: 1px solid var(--cc-line); border-radius: 999px; background: var(--cc-surface-2); color: var(--cc-text); font-weight: 700; }
+.issue-character-list small { margin-left: 5px; color: var(--cc-text-muted); font-size: .68rem; font-weight: 500; }
 .issue-story-credits { display: grid; gap: 4px; margin-top: 9px; font-size: .84rem; }
 .issue-story-credits > div { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 10px; }
 .issue-story-credits > div > span:first-child { color: var(--cc-text-muted); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
@@ -12779,4 +12808,20 @@ select.input {
   .issue-discogs-table th, .issue-discogs-table td { padding: 11px 13px; }
   .issue-data-footer { display: block; }
   .issue-data-footer p { margin-top: 12px; }
+}
+@media (max-width: 1100px) {
+  .issue-hero-info { padding-right: 0; }
+  .issue-hero-info > .issue-value-card,
+  .issue-hero-info > .issue-market-actions,
+  .issue-rail-collection { position: static; width: auto; }
+  .issue-rail-collection { margin-bottom: 22px; }
+}
+@media (max-width: 640px) {
+  .issue-breadcrumb { align-items: flex-start; }
+  .issue-breadcrumb > div:first-child { flex-wrap: wrap; }
+  .issue-detail-hero { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .issue-hero-cover { width: min(240px, 100%); margin-inline: auto; }
+  .issue-cover-choices { width: min(100vw - 32px, 340px); margin-left: 50%; transform: translateX(-50%); }
+  .issue-discogs-table { min-width: 620px; }
+  .comic-panel { overflow-x: clip; }
 }

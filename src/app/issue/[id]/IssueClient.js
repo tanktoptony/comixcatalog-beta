@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import IssueForSale from "@/components/IssueForSale";
 import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
@@ -13,7 +12,7 @@ import { SLOT } from "@/lib/houseAds";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
 import { countCopies } from "@/lib/libraryMutations";
-import { buildIssueDetailsRows, buildStoryCreditSummary, formatGcdDate, formatGcdPrice, humanizeStoryType } from "@/lib/issueDetails";
+import { buildIssueDetailsRows, formatGcdDate, formatGcdPrice, humanizeStoryType, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
 import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
 
 function money(value) {
@@ -26,15 +25,6 @@ function money(value) {
     maximumFractionDigits: 0,
   }).format(num);
 }
-
-const CREDIT_ROLES = [
-  ["writer", "Writer"],
-  ["penciller", "Penciller"],
-  ["inker", "Inker"],
-  ["colorist", "Colorist"],
-  ["letterer", "Letterer"],
-  ["cover", "Cover"],
-];
 
 // GCD lists characters as "Wolverine [Logan; James Howlett]; Lucy Mellace":
 // split on semicolons outside brackets only, and show aliases in parentheses.
@@ -72,10 +62,17 @@ function StoryCredits({ story, creators }) {
   const roles = [["script", "Script"], ["pencils", "Pencils"], ["inks", "Inks"], ["colors", "Colors"], ["letters", "Letters"]];
   const rows = roles.filter(([field]) => String(story?.[field] ?? "").trim());
   if (!rows.length) return null;
-  return <div className="issue-story-credits">{rows.map(([field, label]) => <div key={field}><span>{label}</span><span>{String(story[field]).split(/\s*;\s*/).map((name, index) => {
-    const creator = creators?.find((item) => item.name.toLocaleLowerCase() === name.trim().toLocaleLowerCase());
-    return <span key={`${field}-${name}`}>{index ? ", " : ""}{creator ? <Link href={`/creator/${creator.slug}`}>{name}</Link> : name}</span>;
+  return <div className="issue-story-credits">{rows.map(([field, label]) => <div key={field}><span>{label}</span><span>{parseGcdCreditList(story[field]).map(({ name, note }, index) => {
+    const creator = creators?.find((item) => item.name.toLocaleLowerCase() === name.toLocaleLowerCase());
+    return <span key={`${field}-${name}`} title={note || undefined}>{index ? ", " : ""}{creator ? <Link href={`/creator/${creator.slug}`}>{name}</Link> : name}{note && <sup className="issue-credit-note">*</sup>}</span>;
   })}</span></div>)}</div>;
+}
+
+function EditingCredits({ value, creators }) {
+  return <span className="issue-editing-list">{parseGcdCreditList(value).map(({ name, note }) => {
+    const creator = creators?.find((item) => item.name.toLocaleLowerCase() === name.toLocaleLowerCase());
+    return <span key={name} title={note || undefined}>{creator ? <Link href={`/creator/${creator.slug}`}>{name}</Link> : name}<small>Editor{note ? ` · ${note}` : ""}</small></span>;
+  })}</span>;
 }
 
 function ExpandableSynopsis({ children }) {
@@ -196,7 +193,17 @@ export default function IssueClient({ initialIssue = null }) {
     return `${issue.series_title}${issue.issue_number ? ` #${issue.issue_number}` : ""}`;
   }, [issue]);
   const detailRows = useMemo(() => buildIssueDetailsRows(issue), [issue]);
-  const allCharacters = useMemo(() => [...new Set((issue?.stories ?? []).flatMap((story) => storyCharacters(story.characters).shown))], [issue]);
+  const allCharacters = useMemo(() => {
+    const characters = (issue?.stories ?? []).flatMap((story) => storyCharacters(story.characters).shown).map(stripGcdCharacterNoise);
+    return [...new Map(characters.map((character) => [character.name, character])).values()];
+  }, [issue]);
+  const orderedStories = useMemo(() => {
+    const stories = [...(issue?.stories ?? [])];
+    const mainIndex = stories.findIndex((story) => String(story.type ?? "").toLocaleLowerCase() === "comic story");
+    if (mainIndex > 0) stories.unshift(...stories.splice(mainIndex, 1));
+    return stories;
+  }, [issue]);
+  const mainStoryTitle = orderedStories.find((story) => String(story.type ?? "").toLocaleLowerCase() !== "cover")?.title;
 
   const issueRows = collections?.filter(
     (row) => issue?.source === "gcd" && Number(row.gcd_issue_id) === Number(String(issue.id || "").replace(/^gcd-/, ""))
@@ -277,74 +284,17 @@ export default function IssueClient({ initialIssue = null }) {
   return (
     <main className="page-wrapper">
       <section className="comic-panel">
-        <div className="section-label badge-x">Issue</div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            gap: "16px",
-            alignItems: "center",
-            flexWrap: "wrap",
-            marginBottom: "18px",
-          }}
-        >
-          <div className="muted" style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
-            <Link href="/search" className="link">
-              ← Back to Search
-            </Link>
-
-            {issue.series_id && (
-              <Link href={`/series/${issue.series_id}`} className="link">
-                Back to Series
-              </Link>
-            )}
-          </div>
-
-          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-            <span className="pill">
-              {issue.source === "gcd" ? "Canonical Issue" : "User Added"}
-            </span>
-            {inCollection && (
-              <span className="pill pill-collection">In Collection</span>
-            )}
-            {inWishlist && (
-              <span className="pill pill-wishlist">On Wishlist</span>
-            )}
-          </div>
-        </div>
-
-        {(issue.prev_issue || issue.next_issue) && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              gap: "16px",
-              flexWrap: "wrap",
-              marginBottom: "20px",
-            }}
-          >
-            <div>
+        <nav className="issue-breadcrumb" aria-label="Issue navigation">
+          <div><Link href="/search">{issue.publisher || "Publisher"}</Link><span>/</span>{issue.series_id ? <Link href={`/series/${issue.series_id}`}>{issue.series_title}{issue.release_year ? ` (${issue.release_year})` : ""}</Link> : <span>{issue.series_title}</span>}<span>/</span><strong>#{issue.issue_number}</strong></div>
+          <div className="issue-prev-next">
               {issue.prev_issue ? (
-                <Link href={`/issue/${issue.prev_issue.id}`} className="link">
-                  ← {issue.series_title} #{issue.prev_issue.issue_number}
-                </Link>
-              ) : (
-                <span className="muted">← No previous issue</span>
-              )}
-            </div>
-
-            <div>
+                <Link href={`/issue/${issue.prev_issue.id}`} aria-label={`Previous issue, number ${issue.prev_issue.issue_number}`}>← #{issue.prev_issue.issue_number}</Link>
+              ) : <span>←</span>}
               {issue.next_issue ? (
-                <Link href={`/issue/${issue.next_issue.id}`} className="link">
-                  {issue.series_title} #{issue.next_issue.issue_number} →
-                </Link>
-              ) : (
-                <span className="muted">No next issue →</span>
-              )}
-            </div>
+                <Link href={`/issue/${issue.next_issue.id}`} aria-label={`Next issue, number ${issue.next_issue.issue_number}`}>#{issue.next_issue.issue_number} →</Link>
+              ) : <span>→</span>}
           </div>
-        )}
+        </nav>
 
         {/* ── Story-arc membership badges ──────────────────────────────
             For each arc this issue belongs to, show name + ownership
@@ -404,19 +354,8 @@ export default function IssueClient({ initialIssue = null }) {
           </div>
         )}
 
-        <div
-          style={{
-            display: "grid",
-            // auto-fit with minmax(280px, ...) gives us a 2-col layout on
-            // desktop and stacks to 1 col under ~600px (cover + info fit in
-            // a phone viewport instead of forcing horizontal scroll).
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))",
-            gap: "28px",
-            alignItems: "start",
-            marginBottom: "28px",
-          }}
-        >
-          <div>
+        <div className="issue-detail-hero">
+          <div className="issue-hero-cover">
             <div className="issue-cover-frame">
               <img
                 src={shownCover || "/fallback-cover.png"}
@@ -427,7 +366,7 @@ export default function IssueClient({ initialIssue = null }) {
             </div>
 
             {coverChoices.length > 1 && (
-              <div style={{ marginTop: 14 }}>
+              <div className="issue-cover-choices" style={{ marginTop: 14 }}>
                 <div className="muted" style={{ fontSize: "0.8rem", marginBottom: 8 }}>
                   {issue.variants?.length > 0 ? "Covers" : "Your copy and the catalog cover"}
                 </div>
@@ -459,7 +398,7 @@ export default function IssueClient({ initialIssue = null }) {
               </div>
             )}
 
-            <div
+            <div className="issue-collection-actions"
               style={{
                 display: "grid",
                 gap: "10px",
@@ -541,20 +480,17 @@ export default function IssueClient({ initialIssue = null }) {
             </div>
           </div>
 
-          <div>
+          <div className="issue-hero-info">
+            <p className="issue-hero-eyebrow">Issue{issue.edition_name ? ` · ${issue.edition_name}` : ""}{issue.release_year ? ` · ${issue.release_year < 1986 ? "Bronze Age" : issue.release_year < 1992 ? "Copper Age" : issue.release_year < 2000 ? "Modern Age" : "Contemporary"}` : ""}</p>
             <h1 className="hero-title" style={{ marginBottom: "10px" }}>
               {issueTitle}{issue.release_year ? ` (${issue.release_year})` : ""}
             </h1>
 
-            {issue.title && (
-              <p style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "10px" }}>
-                {issue.title}
-              </p>
-            )}
+            {(mainStoryTitle || issue.title) && <p className="issue-main-story-title">{mainStoryTitle || issue.title}</p>}
 
             {issue.key_issue?.reason && (
-              <p className="pill" style={{ display: "inline-block", marginBottom: "12px" }}>
-                Key issue: {issue.key_issue.reason}
+              <p className="issue-key-chip">
+                <span aria-hidden="true">★</span> {issue.key_issue.reason}
               </p>
             )}
 
@@ -562,14 +498,16 @@ export default function IssueClient({ initialIssue = null }) {
               <p className="issue-edition-note">Selected edition: {issue.edition_name}{!issue.edition_has_own_cover ? ". Showing the base edition cover." : ""}</p>
             )}
 
-            <p className="muted" style={{ marginBottom: "18px" }}>
-              {issue.publisher || "Unknown Publisher"}
+            <div className="issue-fact-chips">
+              <span>{issue.publisher || "Unknown Publisher"}</span>
               {/* display_date is the API's canonical English "Month YYYY"
                   rendering, derived from key_date. Replaces the redundant
                   release_year + raw publication_date pair that used to leak
                   foreign-language month names (e.g. "septembre 2008"). */}
-              {issue.display_date ? ` · ${issue.display_date}` : ""}
-            </p>
+              {issue.display_date && <span>{issue.display_date}</span>}
+              {issue.details?.page_count && <span>{issue.details.page_count} pages</span>}
+              {issue.versions?.length > 1 && <span>{issue.versions.length} versions</span>}
+            </div>
 
             {issue.market?.estimate != null && (
               <div className="issue-value-card">
@@ -584,6 +522,14 @@ export default function IssueClient({ initialIssue = null }) {
                 <Link href="/library?tab=collection" className="add-comic-btn">Sell a copy</Link>
               </div>
             )}
+
+            <div className="issue-rail-collection">
+              {!user && <><Link href={`/signup?next=${encodeURIComponent(`/issue/${id}`)}`} className="add-comic-btn issue-primary-cta">Add to collection</Link><Link href={`/signup?next=${encodeURIComponent(`/issue/${id}`)}`} className="add-comic-btn">Add to wantlist</Link></>}
+              {user && !inCollection && !inWishlist && <><button className="add-comic-btn issue-primary-cta" onClick={() => runMutation(() => addToCollection(libraryId, "owned"))}>Add to collection</button><button className="add-comic-btn" onClick={() => runMutation(() => addToCollection(libraryId, "wishlist"))}>Add to wantlist</button></>}
+              {user && inCollection && <><span className="pill pill-collection">{copyCount > 1 ? `${copyCount} copies owned` : "In collection"}</span><button className="add-comic-btn" onClick={() => { setAddCopyLabel(""); setAddCopyOpen(true); }}>+ Add another copy</button><button className="add-comic-btn" onClick={() => runMutation(() => removeFromCollection(libraryId, { scope: "latest-copy" }))}>{copyCount > 1 ? "Remove 1 copy" : "Remove from collection"}</button></>}
+              {user && inWishlist && <><span className="pill pill-wishlist">On wantlist</span><button className="add-comic-btn" onClick={() => runMutation(() => removeFromCollection(libraryId, { scope: "wishlist" }))}>Remove from wantlist</button></>}
+              {mutationError && <div className="issue-action-error">{mutationError}</div>}
+            </div>
 
             {(issue.market?.median != null || issue.market?.low != null || issue.market?.high != null) && (
             <div
@@ -627,7 +573,7 @@ export default function IssueClient({ initialIssue = null }) {
                   {detailRows.map((row) => (
                     <div key={row.label} style={{ display: "grid", gridTemplateColumns: "minmax(92px, 34%) 1fr", gap: "12px", padding: "7px 0", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
                       <dt className="muted" style={{ margin: 0 }}>{row.label}</dt>
-                      <dd style={{ margin: 0, minWidth: 0, overflowWrap: "anywhere" }}>{row.href ? <Link href={row.href}>{row.value}</Link> : row.value}</dd>
+                      <dd style={{ margin: 0, minWidth: 0, overflowWrap: "anywhere" }}>{row.label === "Editing" ? <EditingCredits value={row.value} creators={issue.credits} /> : row.href ? <Link href={row.href}>{row.value}</Link> : row.value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -649,35 +595,11 @@ export default function IssueClient({ initialIssue = null }) {
               </div>
             </div>
 
-            {issue.credits?.length > 0 && (
-              <div className="metadata-section" style={{ margin: "0 0 22px" }}>
-                <h2 className="issue-section-title">Credits</h2>
-                <div style={{ display: "grid", gap: "8px" }}>
-                  {CREDIT_ROLES.map(([role, label]) => {
-                    const people = issue.credits.filter((credit) => credit.role === role);
-                    if (!people.length) return null;
-                    return (
-                      <div key={role}>
-                        <strong>{label}:</strong>{" "}
-                        {people.map((person, index) => (
-                          <span key={`${role}-${person.slug}`}>
-                            {index > 0 ? ", " : ""}<Link href={`/creator/${person.slug}`}>{person.name}</Link>
-                          </span>
-                        ))}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
             {issue.stories?.length > 0 && (
               <div className="metadata-section" style={{ margin: "0 0 22px" }}>
                 <h2 className="issue-section-title">Contents</h2>
                 <div style={{ display: "grid" }}>
-                  {issue.stories.map((story, index) => {
-                    const characters = storyCharacters(story.characters);
-                    const creditSummary = buildStoryCreditSummary(story);
+                  {orderedStories.map((story, index) => {
                     const isCover = String(story.type ?? "").trim().toLowerCase() === "cover";
                     return (
                       <article key={`${story.sequence_number ?? index}-${story.title ?? story.feature ?? "story"}`} style={{ display: "grid", gridTemplateColumns: "34px minmax(0, 1fr)", gap: "10px", padding: "14px 0", borderTop: "1px solid rgba(255,255,255,0.09)" }}>
@@ -688,12 +610,7 @@ export default function IssueClient({ initialIssue = null }) {
                             <h3 style={{ fontSize: "1rem", margin: 0, flex: "1 1 160px" }}>{story.title || story.feature || humanizeStoryType(story.type)}</h3>
                             {story.page_count != null && story.page_count !== "" && <span className="muted" style={{ marginLeft: "auto", whiteSpace: "nowrap" }}>{story.page_count} pp</span>}
                           </div>
-                          {creditSummary && <StoryCredits story={story} creators={issue.credits} />}
-                          {!isCover && characters.shown.length > 0 && (
-                          <p className="muted" style={{ marginBottom: story.synopsis ? "6px" : 0 }}>
-                            <strong>Characters:</strong> {characters.shown.join(", ")}{characters.remaining ? `, and ${characters.remaining} more` : ""}
-                          </p>
-                          )}
+                          <StoryCredits story={story} creators={issue.credits} />
                           {!isCover && story.synopsis && <ExpandableSynopsis>{story.synopsis}</ExpandableSynopsis>}
                         </div>
                       </article>
@@ -755,10 +672,6 @@ export default function IssueClient({ initialIssue = null }) {
               </div>
             )}
 
-            {String(id).startsWith("gcd-") && (
-              <IssueForSale gcdIssueId={Number(String(id).slice(4))} />
-            )}
-
             {issue.related_issues?.length > 0 && (
               <div className="metadata-section" style={{ margin: 0 }}>
                 <h3 className="issue-section-title">Nearby Issues</h3>
@@ -802,7 +715,7 @@ export default function IssueClient({ initialIssue = null }) {
         </div>
 
         {issue.versions?.length > 1 && (
-          <section className="issue-discogs-section">
+          <section className="issue-discogs-section issue-versions-section">
             <div className="issue-section-heading"><h2>Versions</h2><span>Base edition and known variants</span></div>
             <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Version</th><th>On sale</th><th>Price</th><th>Barcode / ID</th></tr></thead><tbody>
               {issue.versions.map((version) => <tr key={version.gcdId} className={version.gcdId === issue.edition_gcd_issue_id ? "is-selected" : ""}>
@@ -814,12 +727,12 @@ export default function IssueClient({ initialIssue = null }) {
           </section>
         )}
 
-        {allCharacters.length > 0 && <section className="issue-discogs-section"><div className="issue-section-heading"><h2>Characters</h2></div><div className="issue-character-list">{allCharacters.map((name) => <span key={name}>{name}</span>)}</div></section>}
+        {allCharacters.length > 0 && <section className="issue-discogs-section"><div className="issue-section-heading"><h2>Characters</h2></div><div className="issue-character-list">{allCharacters.map(({ name, note }) => <span key={name}>{name}{note && <small>{note}</small>}</span>)}</div></section>}
 
         {issue.source === "gcd" && (
           <section id="forsale" className="issue-discogs-section">
             <div className="issue-section-heading"><h2>For sale</h2>{issue.listings?.length > 0 && <span>{issue.listings.length} available</span>}</div>
-            {!issue.listings?.length ? <div className="issue-empty-card">No copies for sale yet</div> : <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Grade</th><th>Edition</th><th>Seller</th><th>Price</th><th></th></tr></thead><tbody>
+            {!issue.listings?.length ? <div className="issue-empty-card">No copies for sale yet{user && inCollection && <> · <Link href="/library?tab=collection">Sell yours</Link></>}</div> : <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Grade</th><th>Edition</th><th>Seller</th><th>Price</th><th></th></tr></thead><tbody>
               {issue.listings.map((listing) => <tr key={listing.id}><td>{conditionLabel(listing)}</td><td>{listing.variant || "Base edition"}</td><td><Link href={`/u/${encodeURIComponent(listing.seller)}`}>@{listing.seller}</Link><small>Listed {new Date(listing.listedAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</small></td><td>{listing.price != null ? formatValue(listing.price) : "Open to offers"}</td><td><Link className="issue-row-button" href={offerHref(listing)}>{contactLabel(listing)}</Link></td></tr>)}
             </tbody></table></div>}
           </section>

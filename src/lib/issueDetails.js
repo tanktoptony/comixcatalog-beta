@@ -21,6 +21,8 @@ export function formatGcdDate(value) {
 
 // "0.12 USD; 0.15 CAD" -> "$0.12 · 0.15 CAD". Only USD gets a symbol; other
 // currencies stay as GCD wrote them.
+const CURRENCY_SYMBOLS = { USD: "$", CAD: "$", GBP: "£" };
+
 export function formatGcdPrice(value) {
   if (!present(value)) return null;
   return String(value)
@@ -28,10 +30,36 @@ export function formatGcdPrice(value) {
     .map((part) => part.trim())
     .filter(Boolean)
     .map((part) => {
-      const usd = part.match(/^(\d+(?:\.\d+)?)\s*USD$/i);
-      return usd ? `$${usd[1]}` : part;
+      const match = part.match(/^(\d+(?:\.\d+)?)\s*([A-Z]{3})$/i);
+      if (!match) return part;
+      const [, amount, rawCode] = match;
+      const code = rawCode.toUpperCase();
+      return `${CURRENCY_SYMBOLS[code] ?? ""}${amount} ${code}`;
     })
     .join(" · ");
+}
+
+const CREDIT_NOTE = /\s*\((?:credited|uncredited|signed\s+as\s+[^)]+)\)\s*/gi;
+const CHARACTER_NOTE = /\s*\((featured|cameo|flashback)\)\s*$/i;
+
+export function stripGcdCreditNoise(value) {
+  const notes = [];
+  const name = String(value ?? "").replace(CREDIT_NOTE, (note) => {
+    notes.push(note.trim().slice(1, -1));
+    return " ";
+  }).replace(/\s+/g, " ").trim();
+  return { name, note: notes.join("; ") };
+}
+
+export function stripGcdCharacterNoise(value) {
+  const raw = String(value ?? "").trim();
+  const match = raw.match(CHARACTER_NOTE);
+  if (!match) return { name: raw, note: "" };
+  return { name: raw.slice(0, match.index).trim(), note: match[1].toLocaleLowerCase() };
+}
+
+export function parseGcdCreditList(value) {
+  return String(value ?? "").split(/\s*;\s*/).map(stripGcdCreditNoise).filter((item) => item.name);
 }
 
 export function buildIssueDetailsRows(issue) {

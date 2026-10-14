@@ -1,6 +1,6 @@
 # Marketplace transactions spec (orders, payments, feedback)
 
-**Status:** proposed, 2026-10-14. No code yet. Build starts after Tony answers the Founder decisions below.
+**Status:** approved 2026-10-14. Tony accepted every recommended default (D1 to D20). No code yet; build PRs a to h follow.
 **Builds on:** [MARKETPLACE.md](MARKETPLACE.md) (current state), [marketplace-v2-build-brief.md](marketplace-v2-build-brief.md) (plan of record; this doc replaces its Phase 4 and the ratings/limits half of Phase 5).
 **Model:** Discogs. Every sale is an order for one physical copy, with a strict lifecycle, managed payments, an order thread, two-way feedback and seller standards.
 

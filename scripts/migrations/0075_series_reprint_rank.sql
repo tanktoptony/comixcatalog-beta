@@ -1,3 +1,4 @@
+-- Numbered 0075 (was 0066, which the marketplace orders migration also used). Already applied in prod 2026-10-14; kept as the record.
 -- Rank series by historical importance within each lexical match tier.
 -- GCD reprints identify the classic run collectors mean: The X-Men (1963)
 -- 5,296 vs X-Men (1991) 1,179 and X-Men (2001) 186; Amazing Spider-Man (1963)

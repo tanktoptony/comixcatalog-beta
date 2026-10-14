@@ -54,6 +54,15 @@ create or replace function public.listing_snapshot(p_gcd_issue_id int4)
 returns table (series_title text, issue_number text, release_year int4, publisher text)
 language sql stable as $$ select 'Fixture Series'::text, p_gcd_issue_id::text, 2026, 'Fixture Publisher'::text $$;
 
+create table public.messages (
+  id uuid primary key default gen_random_uuid(),
+  sender_id uuid not null references auth.users(id) on delete cascade,
+  recipient_id uuid not null references auth.users(id) on delete cascade,
+  body text not null,
+  read_at timestamptz,
+  created_at timestamptz not null default now()
+);
+
 create table public.listings (
   id uuid primary key default gen_random_uuid(),
   seller_id uuid not null references auth.users(id) on delete cascade,

@@ -1,4 +1,5 @@
 import { verifyPaidSession } from "./checkoutSession.js";
+import { afterOrderTransition } from "./orderEvents.js";
 
 async function rpc(db, name, args) {
   const result = await db.rpc(name, args);
@@ -13,7 +14,7 @@ async function orderById(db, id) {
 }
 
 export async function transition(db, order, to, role, payload = {}, eventId = null) {
-  return rpc(db, "order_transition", {
+  const updated = await rpc(db, "order_transition", {
     p_order: order.id,
     p_to: to,
     p_actor_id: null,
@@ -22,6 +23,7 @@ export async function transition(db, order, to, role, payload = {}, eventId = nu
     p_request_id: null,
     p_stripe_event_id: eventId,
   });
+  return updated || { ...order, ...payload, status: to };
 }
 
 export async function handlePaidSession(session, eventId, { db, stripe, notifyAdmin }) {
@@ -37,8 +39,10 @@ export async function handlePaidSession(session, eventId, { db, stripe, notifyAd
       );
     }
     if (order.status === "created" || order.status === "awaiting_payment") {
-      await transition(db, order, "cancelled", "system", {}, eventId);
-      await transition(db, order, "refunded", "stripe", {}, eventId);
+      const cancelled = await transition(db, order, "cancelled", "system", {}, eventId);
+      await afterOrderTransition(db, cancelled, "cancelled");
+      const refunded = await transition(db, order, "refunded", "stripe", {}, eventId);
+      await afterOrderTransition(db, refunded, "refunded");
     }
     await notifyAdmin(`Marketplace payment mismatch for order ${order.id}: ${verified.reason}`);
     return;
@@ -49,7 +53,8 @@ export async function handlePaidSession(session, eventId, { db, stripe, notifyAd
       { payment_intent: session.payment_intent },
       { idempotencyKey: `refund-late-${order.id}` },
     );
-    await transition(db, order, "refunded", "stripe", {}, eventId);
+    const refunded = await transition(db, order, "refunded", "stripe", {}, eventId);
+    await afterOrderTransition(db, refunded, "refunded");
     return;
   }
   if (order.status !== "awaiting_payment") return;
@@ -58,7 +63,7 @@ export async function handlePaidSession(session, eventId, { db, stripe, notifyAd
     expand: ["latest_charge"],
   });
   try {
-    await transition(db, order, "paid", "stripe", {
+    const paid = await transition(db, order, "paid", "stripe", {
       stripe_checkout_session_id: session.id,
       amount_total: session.amount_total,
       currency: session.currency,
@@ -69,6 +74,7 @@ export async function handlePaidSession(session, eventId, { db, stripe, notifyAd
         : intent.latest_charge?.id,
       ship_to: session.collected_information?.shipping_details ?? session.shipping_details ?? null,
     }, eventId);
+    await afterOrderTransition(db, paid, "paid");
   } catch (error) {
     await notifyAdmin(`Marketplace paid transition failed for order ${order.id}: ${error?.message || error}`);
     throw error;
@@ -84,7 +90,8 @@ export async function handleMarketplaceEvent(event, deps) {
   if (event.type === "checkout.session.expired") {
     const order = await orderById(deps.db, object.metadata?.order_id);
     if (order?.status === "awaiting_payment") {
-      await transition(deps.db, order, "cancelled", "system", {}, event.id);
+      const cancelled = await transition(deps.db, order, "cancelled", "system", {}, event.id);
+      await afterOrderTransition(deps.db, cancelled, "cancelled");
     }
     return;
   }

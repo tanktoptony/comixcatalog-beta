@@ -13,6 +13,7 @@ import { useUnreadMessageCount } from "@/hooks/useUnreadMessageCount";
 import { inboxAriaLabel, inboxBadgeTotal } from "@/lib/inboxNotifications";
 import { coverThumb } from "@/lib/coverThumb";
 import InviteButton from "@/components/InviteButton";
+import { authedFetch } from "@/lib/apiClient";
 
 function resolveCoverUrl(rawCover) {
   if (!rawCover) return null;
@@ -642,6 +643,7 @@ export default function Header() {
 
 
             <InboxNavButton />
+            <OrdersNavButton />
 
             <Link
               href="/library"
@@ -732,6 +734,37 @@ function InboxNavButton() {
       )}
     </Link>
   );
+}
+
+function OrdersNavButton() {
+  const [allowed, setAllowed] = useState(false);
+  useEffect(() => {
+    // Ask once per browser session, not on every page load (each check is a function call).
+    const KEY = "cc-orders-access";
+    let cached = null;
+    try { cached = sessionStorage.getItem(KEY); } catch { /* storage blocked (private mode): ask the server instead */ }
+    let active = true;
+    if (cached !== null) {
+      queueMicrotask(() => {
+        if (active) setAllowed(cached === "1");
+      });
+      return () => {
+        active = false;
+      };
+    }
+    authedFetch("/api/orders/access")
+      .then((response) => {
+        if (response.status === 401) return;
+        try { sessionStorage.setItem(KEY, response.ok ? "1" : "0"); } catch { /* storage blocked: we just ask again next page load */ }
+        if (active) setAllowed(response.ok);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, []);
+  if (!allowed) return null;
+  return <Link href="/orders" className="nav-icon-btn" title="Orders" aria-label="Orders">Orders</Link>;
 }
 
 function InboxIcon() {

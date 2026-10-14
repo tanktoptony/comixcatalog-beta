@@ -2,28 +2,9 @@ import { NextResponse } from "next/server";
 import { getMarketplaceStripe, MARKETPLACE_LIVEMODE } from "@/lib/marketplaceStripe";
 import { getServiceClient } from "@/lib/supabase/service";
 import { handleMarketplaceEvent } from "@/lib/marketplaceWebhook";
-import { resendBatch } from "@/lib/newsletter";
+import { notifyAdmin } from "@/lib/marketplaceNotify";
 
 export const runtime = "nodejs";
-
-async function notifyAdmin(message) {
-  const to = process.env.REPORTS_NOTIFY_EMAIL;
-  if (!to) {
-    console.warn(message);
-    return;
-  }
-  const html = String(message).replace(/[&<>]/g, (character) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-  })[character]);
-  await resendBatch([{
-    to,
-    subject: "Marketplace Stripe alert",
-    text: message,
-    html: `<p>${html}</p>`,
-  }]);
-}
 
 export async function POST(req) {
   const platform = process.env.STRIPE_MKT_WEBHOOK_SECRET;

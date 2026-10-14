@@ -294,7 +294,7 @@ async function computeSeriesResponse(req) {
       // Among equally good title matches, the run GCD reprints most is the
       // one collectors mean: "x-men" finds the 1963 run (5,296 reprints)
       // before the 2001 one (186), though 2001 has more issues. 0 until the
-      // 0066 backfill runs, which leaves today's order unchanged.
+      // 0075 backfill runs, which leaves today's order unchanged.
       const aReprints = Number(a.reprint_count) || 0;
       const bReprints = Number(b.reprint_count) || 0;
       if (bReprints !== aReprints) return bReprints - aReprints;

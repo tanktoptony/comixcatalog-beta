@@ -284,6 +284,14 @@ async function computeSeriesResponse(req) {
       // would suppress legit runs like the 2024 Dynamite ThunderCats, since
       // only ~2.5% of series carry a cached cover.) For marquee titles where
       // every volume is covered, this is a no-op and issue-count ordering wins.
+      // Among equally good title matches, the run GCD reprints most is the
+      // one collectors mean: "x-men" finds the 1963 run (5,296 reprints)
+      // before the 2001 one (186), though 2001 has more issues. 0 until the
+      // 0066 backfill runs, which leaves today's order unchanged.
+      const aReprints = Number(a.reprint_count) || 0;
+      const bReprints = Number(b.reprint_count) || 0;
+      if (bReprints !== aReprints) return bReprints - aReprints;
+
       const aTier = significanceTier(a.issue_count_cached ?? 0);
       const bTier = significanceTier(b.issue_count_cached ?? 0);
       if (bTier !== aTier) return bTier - aTier;

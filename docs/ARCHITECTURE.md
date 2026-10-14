@@ -68,7 +68,7 @@ Key routes:
 
 | Route | Job |
 |---|---|
-| `GET /api/search/series` | Series search: RPC `search_series_by_relevance`, then rank, dedupe by ComicVine volume, diversify |
+| `GET /api/search/series` | Series search: RPC `search_series_by_relevance_v2`, then rank (reprint count breaks ties), dedupe by ComicVine volume, diversify |
 | `GET /api/search/comics` | Issue-level search |
 | `GET /api/series/[id]` | Series + issue list + covers, including "orphan" covers with no GCD issue row |
 | `GET /api/issues/[id]` | Issue detail: metadata, cover (tiered match), variants, printings, arcs, market data, prev/next. 968 lines |
@@ -132,7 +132,7 @@ Rules: grids use `coverThumb(url)` (`src/lib/coverThumb.js`); `CoverThumbFallbac
 
 ## Search
 
-- Series search is server-side: Postgres function `search_series_by_relevance` (migrations 0023/0024/0029) over trigram and btree indexes on `series.title_normalized`, filtered to `US_PUBLISHER_ALLOWLIST`. The route then parses a trailing year or issue number (`src/lib/searchQuery.js`), ranks, collapses GCD fragments that share a `comicvine_volume_id`, and spreads results across titles (`src/lib/searchVariety.js`).
+- Series search is server-side: Postgres function `search_series_by_relevance_v2` (migrations 0064/0066) uses trigram indexes on `series.title_normalized` and `series.title_search_text`, filtered to `US_PUBLISHER_ALLOWLIST`. It ignores one leading "The" for exact, whole-word, and prefix matching, then ranks by match tier, GCD reprint count, and cached issue count. The route re-ranks (exact title ignoring "The", searched words, asked year, then reprint count, then issue count), collapses GCD fragments that share a `comicvine_volume_id` and spreading results across titles (`src/lib/searchVariety.js`). After loading a new GCD dump, preview the refreshed signal with `node --env-file=.env.local scripts/backfillSeriesReprintCount.js --dump=<path>`, then apply it with the same command plus `--apply`.
 - The header dropdown and `/search` share the query through `SearchQueryContext`. `/search` server-renders its first page.
 - Library catalog-link search and the marketplace filter on their own logic (marketplace facets are client-side over all listings).
 - **Dead:** `src/lib/search/*` (imports a file that doesn't exist), `src/lib/db.js`, `public/sqlite.worker.js`, `public/sqljs/`, `public/wa-sqlite.wasm`, and deps `sql.js`, `wa-sqlite`, `better-sqlite3`. An old in-browser SQLite search experiment; nothing imports it.

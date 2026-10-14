@@ -53,7 +53,7 @@ export default function BuyNowButton({ listingId, totalCents }) {
               ? <span className="buy-spinner" aria-label="Starting checkout" />
               : `Buy now · $${(totalCents / 100).toFixed(2)}`}
           </button>
-          <small>Secure checkout with Stripe</small>
+          <small>Secure checkout with Stripe. Pay through ComixCatalog to be covered.</small>
           {error && <p role="alert">{error}</p>}
         </div>
       )}

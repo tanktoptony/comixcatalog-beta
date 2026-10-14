@@ -107,7 +107,7 @@ export default async function ListingPage({ params }) {
                   )}
                 </div>
                 {shippingLabel(l) && <div className="lp-ship">{shippingLabel(l)}</div>}
-                {l.price != null && !reserved && <><Suspense fallback={null}><BuyNowButton listingId={l.id} totalCents={Math.round((l.price + (l.shipping || 0)) * 100)} /></Suspense><p className="lp-fine">Pay through ComixCatalog to be covered.</p></>}
+                {l.price != null && !reserved && <><Suspense fallback={null}><BuyNowButton listingId={l.id} totalCents={Math.round((l.price + (l.shipping || 0)) * 100)} /></Suspense></>}
                 {reserved ? (
                   <div className="lp-status">On hold</div>
                 ) : (

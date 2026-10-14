@@ -159,6 +159,9 @@ jobs:
       - name: Marketplace order page tests
         run: npm run test:marketplace-orders-ui
 
+      - name: Marketplace feedback tests
+        run: npm run test:marketplace-feedback
+
       - name: Marketplace database tests
         run: npm run test:db
 

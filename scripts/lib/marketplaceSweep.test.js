@@ -11,8 +11,11 @@ function dbFor({ expired = [], due = [], dbSweep = {} }) {
         in: () => ({ lt: () => ({ gt: () => ({ order: () => ({ limit: async () => ({ data: expired, error: null }) }) }) }) }),
         eq: (field, value) => ({
           maybeSingle: async () => ({ data: expired.find((order) => order.id === value), error: null }),
+          gte: () => ({ lte: () => ({ limit: async () => ({ data: [], error: null }) }) }),
         }),
       }),
+    } : table === "order_feedback" ? {
+      select: () => ({ eq: async () => ({ data: [], error: null }) }),
     } : {
       select: () => ({
         eq: () => ({ single: async () => ({ data: { stripe_account_id: "acct" }, error: null }) }),
@@ -21,7 +24,7 @@ function dbFor({ expired = [], due = [], dbSweep = {} }) {
     rpc: async (name, args) => {
       calls.push([name, args]);
       return {
-        data: name === "mkt_payout_due" ? due : name === "order_sweep_db" ? dbSweep : null,
+        data: name === "mkt_payout_due" ? due : name === "order_sweep_db" ? dbSweep : name === "mkt_feedback_sweep" ? 0 : null,
         error: null,
       };
     },

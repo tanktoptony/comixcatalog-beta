@@ -34,6 +34,10 @@ export function orderEmailTemplate(order, event, recipientRole) {
     "shipped:buyer": ["Your comic shipped", `<strong>${book}</strong> is on the move.${tracking ? ` Tracking: ${tracking}.` : ""}`],
     "delivered:seller": ["Order delivered", `<strong>${book}</strong> was marked delivered. Nice and tidy.`],
     "completed:seller": ["Payout scheduled", `The order for <strong>${book}</strong> is complete. Established sellers are paid after completion; new sellers are paid after completion or 14 days from payment, whichever is later.`],
+    "feedback_request:buyer": ["Leave feedback for your order", `Your order for <strong>${book}</strong> is complete. Share feedback about the seller.`],
+    "feedback_request:seller": ["Leave feedback for your order", `Your order for <strong>${book}</strong> is complete. Share feedback about the buyer.`],
+    "feedback_reminder:buyer": ["Reminder: leave order feedback", `It has been a week since <strong>${book}</strong> was completed. You can still leave feedback.`],
+    "feedback_reminder:seller": ["Reminder: leave order feedback", `It has been a week since <strong>${book}</strong> was completed. You can still leave feedback.`],
     "refunded:buyer": ["Order refunded", `The order for <strong>${book}</strong> was refunded.`],
     "refunded:seller": ["Order refunded", `The order for <strong>${book}</strong> was refunded.`],
     "cancelled:buyer": ["Order cancelled", `The order for <strong>${book}</strong> was cancelled.`],
@@ -48,14 +52,15 @@ export function orderEmailTemplate(order, event, recipientRole) {
   };
 }
 
-export async function sendOrderEmails(db, order, event, { send = resendBatch } = {}) {
-  const roles = event === "paid" || event === "refunded"
+export async function sendOrderEmails(db, order, event, { send = resendBatch, recipientRoles = null } = {}) {
+  const defaultRoles = event === "paid" || event === "refunded" || event === "feedback_request" || event === "feedback_reminder"
     ? ["buyer", "seller"]
     : event === "shipped" || event === "cancelled"
       ? ["buyer"]
       : event === "delivered" || event === "completed"
         ? ["seller"]
         : [];
+  const roles = recipientRoles || defaultRoles;
   for (const role of roles) {
     if (event === "cancelled" && !order.checkout_expires_at) continue;
     const recipientId = order[`${role}_id`];
@@ -73,4 +78,8 @@ export async function sendOrderEmails(db, order, event, { send = resendBatch } =
     if (!data?.user?.email) continue;
     await send([{ to: data.user.email, ...template }]);
   }
+}
+
+export async function sendFeedbackRequestEmails(db, order, dependencies = {}) {
+  return sendOrderEmails(db, order, "feedback_request", dependencies);
 }

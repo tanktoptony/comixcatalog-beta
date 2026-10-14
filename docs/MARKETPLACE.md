@@ -40,7 +40,7 @@
 
 ## Partially implemented
 
-**Transactions (in progress):** The orders schema and state machine are in migration 0066, seller accounts and eligibility are in 0068, and Stripe events and payouts are in 0070. Migration 0071 adds order threads and idempotent transactional-email claims. Allowlisted collectors have buying and selling lists at `/orders`, a full receipt at `/orders/[id]`, shipping and delivery confirmation, a 15-second polling order thread, and transactional lifecycle emails. Sellers can cancel and fully refund paid orders. `/api/stripe/marketplace-webhook` handles payment events, and `marketplace-sweep.yml` runs expiry, delivery/completion/address retention, and eligible transfers every 15 minutes.
+**Transactions (in progress):** The orders schema and state machine are in migration 0066, seller accounts and eligibility are in 0068, and Stripe events and payouts are in 0070. Migration 0071 adds order threads and idempotent transactional-email claims. Migration 0072 adds double-blind two-way feedback, 12-month seller ratings, feedback-based standing, and feedback requests and reminders. Ratings appear on seller profiles, issue sale rows, and listing seller cards only after at least one counted rating. Allowlisted collectors have buying and selling lists at `/orders`, a full receipt at `/orders/[id]`, shipping and delivery confirmation, a 15-second polling order thread, and transactional lifecycle emails. Sellers can cancel and fully refund paid orders. `/api/stripe/marketplace-webhook` handles payment events, and `marketplace-sweep.yml` runs expiry, delivery/completion/address retention, feedback standing and reminders, and eligible transfers every 15 minutes.
 
 | Piece | What exists | What's missing |
 |---|---|---|

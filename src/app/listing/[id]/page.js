@@ -155,6 +155,7 @@ export default async function ListingPage({ params }) {
               <img src={l.sellerInfo.avatar} alt="" width={44} height={44} />
               <span>
                 <b>@{l.seller}</b>
+                {l.sellerInfo.rating && <small>{l.sellerInfo.rating}</small>}
                 <small>
                   Collecting on ComixCatalog since {since}
                   {l.sellerInfo.founder ? " · Founding Collector" : ""}

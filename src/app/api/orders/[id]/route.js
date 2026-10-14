@@ -29,6 +29,22 @@ export async function GET(req, { params }) {
   if (error) return NextResponse.json({ error: "Could not load order" }, { status: 500 });
   if (!data) return NextResponse.json({ error: "Not found" }, { status: 404 });
   const role = data.buyer_id === user.id ? "buyer" : "seller";
+  const { data: feedbackRows, error: feedbackError } = await db
+    .from("order_feedback")
+    .select("author_id,rating,comment,visible_at")
+    .eq("order_id", id)
+    .is("removed_at", null);
+  if (feedbackError) return NextResponse.json({ error: "Could not load feedback" }, { status: 500 });
+  const mineRow = (feedbackRows || []).find((row) => row.author_id === user.id) || null;
+  const theirsRow = (feedbackRows || []).find((row) => row.author_id !== user.id
+    && new Date(row.visible_at).getTime() <= Date.now()) || null;
+  const windowEndsAt = data.completed_at
+    ? new Date(new Date(data.completed_at).getTime() + 60 * 86400000).toISOString()
+    : null;
+  const canLeave = data.status === "completed"
+    && !mineRow
+    && windowEndsAt
+    && new Date(windowEndsAt).getTime() >= Date.now();
   const { data: profiles, error: profilesError } = await db
     .from("profiles")
     .select("id,username")
@@ -71,5 +87,18 @@ export async function GET(req, { params }) {
     buyer_username: usernames[data.buyer_id] || "collector",
     seller_username: usernames[data.seller_id] || "collector",
     cover_url: coverUrl || null,
+    feedback: {
+      mine: mineRow ? {
+        rating: mineRow.rating,
+        comment: mineRow.comment,
+        visible_at: mineRow.visible_at,
+      } : null,
+      theirs: theirsRow ? {
+        rating: theirsRow.rating,
+        comment: theirsRow.comment,
+      } : null,
+      can_leave: Boolean(canLeave),
+      window_ends_at: windowEndsAt,
+    },
   } });
 }

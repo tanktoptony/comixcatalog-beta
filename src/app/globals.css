@@ -12740,3 +12740,43 @@ select.input {
   .creator-stats { gap: 8px; }
   .creator-stats > div { padding: 12px; }
 }
+
+/* Issue page: Discogs-style release detail (Release 1) */
+.issue-edition-note { margin: 0 0 14px; color: var(--cc-gold-soft); font-weight: 700; }
+.issue-value-card { display: grid; gap: 6px; margin: 0 0 14px; padding: 18px; border: 1px solid var(--cc-line); border-radius: 14px; background: var(--cc-surface); }
+.issue-value-card strong { color: var(--cc-gold); font-family: var(--font-display); font-size: 2.25rem; line-height: 1; }
+.issue-value-card small { color: var(--cc-text-muted); }
+.issue-kicker { color: var(--cc-text-muted); font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.issue-market-actions { display: flex; gap: 10px; margin: 0 0 20px; flex-wrap: wrap; }
+.issue-market-actions .add-comic-btn { flex: 1 1 150px; text-align: center; text-decoration: none; }
+.issue-discogs-section { margin-top: 48px; }
+.issue-section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+.issue-section-heading h2 { margin: 0; color: var(--cc-text); font-family: var(--font-display); font-size: 2rem; line-height: 1; }
+.issue-section-heading span { color: var(--cc-text-muted); font-size: .84rem; }
+.issue-table-box { max-width: 100%; overflow-x: auto; border: 1px solid var(--cc-line); border-radius: 14px; background: var(--cc-surface); }
+.issue-discogs-table { width: 100%; min-width: 680px; border-collapse: collapse; color: var(--cc-text); }
+.issue-discogs-table th, .issue-discogs-table td { padding: 13px 18px; border-top: 1px solid var(--cc-line); text-align: left; vertical-align: middle; }
+.issue-discogs-table thead th { border-top: 0; color: var(--cc-text-muted); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+.issue-discogs-table tr.is-selected { background: color-mix(in srgb, var(--cc-gold) 10%, transparent); }
+.issue-discogs-table td small { display: block; margin-top: 3px; color: var(--cc-text-muted); }
+.issue-mono { color: var(--cc-gold-soft); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.issue-row-button { display: inline-flex; min-height: 38px; align-items: center; justify-content: center; padding: 0 12px; border: 1px solid var(--cc-line); border-radius: 9px; color: var(--cc-text); font-weight: 800; text-decoration: none; white-space: nowrap; }
+.issue-character-list { display: flex; gap: 8px; flex-wrap: wrap; }
+.issue-character-list span { padding: 7px 12px; border: 1px solid var(--cc-line); border-radius: 999px; background: var(--cc-surface-2); color: var(--cc-text); font-weight: 700; }
+.issue-story-credits { display: grid; gap: 4px; margin-top: 9px; font-size: .84rem; }
+.issue-story-credits > div { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 10px; }
+.issue-story-credits > div > span:first-child { color: var(--cc-text-muted); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.issue-empty-card { padding: 22px; border: 1px solid var(--cc-line); border-radius: 14px; background: var(--cc-surface); color: var(--cc-text-muted); }
+.issue-ads-toggle { width: 100%; padding: 13px 0; border: 0; border-top: 1px solid var(--cc-line); background: transparent; color: var(--cc-text-muted); text-align: left; cursor: pointer; }
+.issue-ads-note { margin: 8px 0 0; }
+.issue-data-footer { display: flex; justify-content: space-between; gap: 18px; margin-top: 40px; padding: 18px; border: 1px solid var(--cc-line); border-radius: 14px; background: var(--cc-surface); color: var(--cc-text-muted); font-size: .8rem; flex-wrap: wrap; }
+.issue-data-footer div { display: flex; gap: 14px; flex-wrap: wrap; }
+.issue-data-footer div span:first-child { color: #7bd88f; }
+.issue-data-footer p { margin: 0; }
+@media (max-width: 600px) {
+  .issue-discogs-section { margin-top: 34px; }
+  .issue-table-box { margin-inline: -4px; }
+  .issue-discogs-table th, .issue-discogs-table td { padding: 11px 13px; }
+  .issue-data-footer { display: block; }
+  .issue-data-footer p { margin-top: 12px; }
+}

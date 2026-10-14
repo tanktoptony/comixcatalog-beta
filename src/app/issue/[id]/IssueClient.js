@@ -13,7 +13,8 @@ import { SLOT } from "@/lib/houseAds";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
 import { countCopies } from "@/lib/libraryMutations";
-import { buildIssueDetailsRows, buildStoryCreditSummary, humanizeStoryType } from "@/lib/issueDetails";
+import { buildIssueDetailsRows, buildStoryCreditSummary, formatGcdDate, formatGcdPrice, humanizeStoryType } from "@/lib/issueDetails";
+import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
 
 function money(value) {
   if (value == null || value === "") return "-";
@@ -67,6 +68,16 @@ function storyCharacters(value) {
   return { shown: all.slice(0, 12), remaining: Math.max(0, all.length - 12) };
 }
 
+function StoryCredits({ story, creators }) {
+  const roles = [["script", "Script"], ["pencils", "Pencils"], ["inks", "Inks"], ["colors", "Colors"], ["letters", "Letters"]];
+  const rows = roles.filter(([field]) => String(story?.[field] ?? "").trim());
+  if (!rows.length) return null;
+  return <div className="issue-story-credits">{rows.map(([field, label]) => <div key={field}><span>{label}</span><span>{String(story[field]).split(/\s*;\s*/).map((name, index) => {
+    const creator = creators?.find((item) => item.name.toLocaleLowerCase() === name.trim().toLocaleLowerCase());
+    return <span key={`${field}-${name}`}>{index ? ", " : ""}{creator ? <Link href={`/creator/${creator.slug}`}>{name}</Link> : name}</span>;
+  })}</span></div>)}</div>;
+}
+
 function ExpandableSynopsis({ children }) {
   const [expanded, setExpanded] = useState(false);
   const isLong = String(children ?? "").length > 320;
@@ -84,7 +95,7 @@ function ExpandableSynopsis({ children }) {
 function ReprintList({ title, items }) {
   const [showAll, setShowAll] = useState(false);
   if (!items?.length) return null;
-  const shown = showAll ? items : items.slice(0, 10);
+  const shown = showAll ? items : items.slice(0, 7);
   return (
     <div>
       <h3 style={{ fontSize: "0.9rem", margin: "0 0 8px" }}>{title}</h3>
@@ -96,9 +107,9 @@ function ReprintList({ title, items }) {
           </li>
         ))}
       </ol>
-      {items.length > 10 && (
+      {items.length > 7 && (
         <button type="button" className="link" onClick={() => setShowAll((value) => !value)} style={{ background: "none", border: 0, padding: "8px 0 0", cursor: "pointer" }}>
-          {showAll ? "Show fewer" : `Show all ${items.length}`}
+          {showAll ? "Show fewer" : `See all ${items.length}`}
         </button>
       )}
     </div>
@@ -122,6 +133,7 @@ export default function IssueClient({ initialIssue = null }) {
   const [variantSaveState, setVariantSaveState] = useState(null);
   const [gradeData, setGradeData] = useState(null);
   const [mutationError, setMutationError] = useState(null);
+  const [showAds, setShowAds] = useState(false);
 
   const { user, loading: authLoading } = useAuth();
   const libraryId = String(issue?.id || id || "");
@@ -132,8 +144,12 @@ export default function IssueClient({ initialIssue = null }) {
   useEffect(() => {
     if (!id) return;
 
+    if (initialIssue) {
+      return;
+    }
+
     async function loadIssue() {
-      if (!initialIssue) setLoading(true);
+      setLoading(true);
 
       try {
         // authedFetch sends the caller's session so the API can compute
@@ -180,6 +196,7 @@ export default function IssueClient({ initialIssue = null }) {
     return `${issue.series_title}${issue.issue_number ? ` #${issue.issue_number}` : ""}`;
   }, [issue]);
   const detailRows = useMemo(() => buildIssueDetailsRows(issue), [issue]);
+  const allCharacters = useMemo(() => [...new Set((issue?.stories ?? []).flatMap((story) => storyCharacters(story.characters).shown))], [issue]);
 
   const issueRows = collections?.filter(
     (row) => issue?.source === "gcd" && Number(row.gcd_issue_id) === Number(String(issue.id || "").replace(/^gcd-/, ""))
@@ -456,7 +473,7 @@ export default function IssueClient({ initialIssue = null }) {
                     className="add-comic-btn"
                     style={{ display: "inline-block", textAlign: "center", textDecoration: "none" }}
                   >
-                    Save to your library
+                    Add to collection
                   </Link>
                   <Link
                     href={`/signup?next=${encodeURIComponent(`/issue/${id}`)}`}
@@ -466,7 +483,7 @@ export default function IssueClient({ initialIssue = null }) {
                     Add to wantlist
                   </Link>
                   <div className="muted" style={{ fontSize: "0.85rem", marginTop: 4 }}>
-                    Free to start &mdash; sign up in 30 seconds.
+                    Free to start. Sign up in 30 seconds.
                   </div>
                 </>
               )}
@@ -477,14 +494,14 @@ export default function IssueClient({ initialIssue = null }) {
                     className="add-comic-btn"
                     onClick={() => runMutation(() => addToCollection(libraryId, "owned"))}
                   >
-                    Add to Collection
+                    Add to collection
                   </button>
 
                   <button
                     className="add-comic-btn"
                     onClick={() => runMutation(() => addToCollection(libraryId, "wishlist"))}
                   >
-                    Add to Wishlist
+                    Add to wantlist
                   </button>
                 </>
               )}
@@ -541,6 +558,10 @@ export default function IssueClient({ initialIssue = null }) {
               </p>
             )}
 
+            {issue.edition_name && issue.edition_gcd_issue_id !== issue.base_gcd_issue_id && (
+              <p className="issue-edition-note">Selected edition: {issue.edition_name}{!issue.edition_has_own_cover ? ". Showing the base edition cover." : ""}</p>
+            )}
+
             <p className="muted" style={{ marginBottom: "18px" }}>
               {issue.publisher || "Unknown Publisher"}
               {/* display_date is the API's canonical English "Month YYYY"
@@ -549,6 +570,20 @@ export default function IssueClient({ initialIssue = null }) {
                   foreign-language month names (e.g. "septembre 2008"). */}
               {issue.display_date ? ` · ${issue.display_date}` : ""}
             </p>
+
+            {issue.market?.estimate != null && (
+              <div className="issue-value-card">
+                <span className="issue-kicker">Estimated from current asking prices</span>
+                <strong>{money(issue.market.estimate)}</strong>
+                {issue.market.sample_size > 0 && <small>{issue.market.sample_size} listing{issue.market.sample_size === 1 ? "" : "s"} sampled</small>}
+              </div>
+            )}
+            {issue.source === "gcd" && (
+              <div className="issue-market-actions">
+                {issue.listings?.length > 0 && <a href="#forsale" className="add-comic-btn">Buy a copy</a>}
+                <Link href="/library?tab=collection" className="add-comic-btn">Sell a copy</Link>
+              </div>
+            )}
 
             {(issue.market?.median != null || issue.market?.low != null || issue.market?.high != null) && (
             <div
@@ -653,7 +688,7 @@ export default function IssueClient({ initialIssue = null }) {
                             <h3 style={{ fontSize: "1rem", margin: 0, flex: "1 1 160px" }}>{story.title || story.feature || humanizeStoryType(story.type)}</h3>
                             {story.page_count != null && story.page_count !== "" && <span className="muted" style={{ marginLeft: "auto", whiteSpace: "nowrap" }}>{story.page_count} pp</span>}
                           </div>
-                          {creditSummary && <p className="muted" style={{ margin: "7px 0 0", fontSize: "0.85rem" }}>{creditSummary}</p>}
+                          {creditSummary && <StoryCredits story={story} creators={issue.credits} />}
                           {!isCover && characters.shown.length > 0 && (
                           <p className="muted" style={{ marginBottom: story.synopsis ? "6px" : 0 }}>
                             <strong>Characters:</strong> {characters.shown.join(", ")}{characters.remaining ? `, and ${characters.remaining} more` : ""}
@@ -665,8 +700,12 @@ export default function IssueClient({ initialIssue = null }) {
                     );
                   })}
                 </div>
+                {issue.ad_pages_count > 0 && <button type="button" className="issue-ads-toggle" onClick={() => setShowAds((value) => !value)}>{showAds ? "Hide ads and promo pages" : `+ ${issue.ad_pages_count} ads and promo pages`}</button>}
+                {showAds && <p className="muted issue-ads-note">Advertising and promotional pages are indexed but omitted from the reading-order list.</p>}
               </div>
             )}
+
+            {issue.source === "gcd" && !issue.credits?.length && !issue.stories?.length && <div className="metadata-section"><h2 className="issue-section-title">Contents</h2><p className="muted">Credits not indexed yet.</p></div>}
 
             {issue.details?.notes && (
               <div className="metadata-section" style={{ margin: "0 0 22px" }}>
@@ -761,6 +800,32 @@ export default function IssueClient({ initialIssue = null }) {
             )}
           </div>
         </div>
+
+        {issue.versions?.length > 1 && (
+          <section className="issue-discogs-section">
+            <div className="issue-section-heading"><h2>Versions</h2><span>Base edition and known variants</span></div>
+            <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Version</th><th>On sale</th><th>Price</th><th>Barcode / ID</th></tr></thead><tbody>
+              {issue.versions.map((version) => <tr key={version.gcdId} className={version.gcdId === issue.edition_gcd_issue_id ? "is-selected" : ""}>
+                <td><Link href={`/issue/gcd-${issue.base_gcd_issue_id}?edition=${version.gcdId}`}>{version.name}</Link></td>
+                <td>{formatGcdDate(version.onSaleDate) || "Not indexed"}</td><td>{formatGcdPrice(version.price) || "Not indexed"}</td>
+                <td className="issue-mono">{version.barcode || `GCD ${version.gcdId}`}</td>
+              </tr>)}
+            </tbody></table></div>
+          </section>
+        )}
+
+        {allCharacters.length > 0 && <section className="issue-discogs-section"><div className="issue-section-heading"><h2>Characters</h2></div><div className="issue-character-list">{allCharacters.map((name) => <span key={name}>{name}</span>)}</div></section>}
+
+        {issue.source === "gcd" && (
+          <section id="forsale" className="issue-discogs-section">
+            <div className="issue-section-heading"><h2>For sale</h2>{issue.listings?.length > 0 && <span>{issue.listings.length} available</span>}</div>
+            {!issue.listings?.length ? <div className="issue-empty-card">No copies for sale yet</div> : <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Grade</th><th>Edition</th><th>Seller</th><th>Price</th><th></th></tr></thead><tbody>
+              {issue.listings.map((listing) => <tr key={listing.id}><td>{conditionLabel(listing)}</td><td>{listing.variant || "Base edition"}</td><td><Link href={`/u/${encodeURIComponent(listing.seller)}`}>@{listing.seller}</Link><small>Listed {new Date(listing.listedAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</small></td><td>{listing.price != null ? formatValue(listing.price) : "Open to offers"}</td><td><Link className="issue-row-button" href={offerHref(listing)}>{contactLabel(listing)}</Link></td></tr>)}
+            </tbody></table></div>}
+          </section>
+        )}
+
+        {issue.source === "gcd" && <footer className="issue-data-footer"><div><span>Indexed</span><span>{issue.credits?.length ? "Credits indexed" : "Credits not indexed yet"}</span><span>{issue.details?.barcode ? "Barcode indexed" : "Barcode not indexed"}</span></div><p>Data from the <a href={`https://www.comics.org/issue/${issue.edition_gcd_issue_id || String(issue.id).replace(/^gcd-/, "")}/`} target="_blank" rel="noreferrer">Grand Comics Database</a> (CC BY-SA 4.0)</p></footer>}
       </section>
 
       <AdSlot position={SLOT.ISSUE_INLINE_1} pageKey={String(id)} className="ad-slot--issue" />

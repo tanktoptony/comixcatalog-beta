@@ -311,6 +311,7 @@ export async function GET(req, context) {
           ? [{ role: row.role, name: creator.name, slug: creator.slug }]
           : [];
       });
+      const adPagesCount = (storiesResult.data ?? []).filter((story) => /\b(ad|advertisement|filler|promo)\b/i.test(String(story.type ?? "").trim())).length;
       const stories = (storiesResult.data ?? [])
         .filter((story) => !/\b(ad|advertisement|filler)\b/i.test(String(story.type ?? "").trim()))
         .map(({ type, title, feature, characters, synopsis, sequence_number, page_count, job_number, genre, script, pencils, inks, colors, letters }) => ({
@@ -636,6 +637,7 @@ export async function GET(req, context) {
           key_issue: keyIssue,
           credits,
           stories,
+          ad_pages_count: adPagesCount,
           details,
           reprints,
           market: {

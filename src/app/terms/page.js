@@ -4,7 +4,7 @@
 // user-contributed content, and intellectual property in the right shape.
 
 export const metadata = {
-  title: "Terms of Service · ComixCatalog",
+  title: "Terms of Service",
   description: "The rules and agreements that govern your use of ComixCatalog.",
 };
 

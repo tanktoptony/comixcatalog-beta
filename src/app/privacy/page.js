@@ -5,7 +5,7 @@
 // language is placeholder.
 
 export const metadata = {
-  title: "Privacy Policy · ComixCatalog",
+  title: "Privacy Policy",
   description: "How ComixCatalog collects, uses, and protects your data.",
 };
 

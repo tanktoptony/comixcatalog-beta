@@ -9,9 +9,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const article = getArticle(slug);
-  if (!article) return { title: "Reads · ComixCatalog" };
+  if (!article) return { title: "Reads" };
   return {
-    title: `${article.title} · Reads · ComixCatalog`,
+    title: `${article.title} · Reads`,
     description: article.dek,
   };
 }

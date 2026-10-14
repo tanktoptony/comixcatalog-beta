@@ -1,3 +1,4 @@
+-- APPLIED IN PROD 2026-10-13. Never re-run. Kept as the record of the schema change.
 -- Bulk GCD dump support. Reference data is service-role written and public-read.
 begin;
 

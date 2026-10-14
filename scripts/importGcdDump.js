@@ -11,8 +11,10 @@ import {
   dedupeRows,
   fillStoryCreditText,
   formatStoryCharacters,
+  resolveBases,
   reserveSlug,
   rolesForCreditType,
+  staleKeys,
   unambiguousLegacyAttachments,
 } from "./lib/gcdDumpImport.js";
 
@@ -25,6 +27,7 @@ const PHASES = [
   "credits",
   "rollup",
   "reprints",
+  "editions",
 ];
 const args = Object.fromEntries(
   process.argv
@@ -46,6 +49,7 @@ const options = {
     ? String(args["series-gcd-ids"]).split(",").map(Number)
     : [],
   resume: Boolean(args.resume),
+  dumpDate: args["dump-date"] == null ? null : String(args["dump-date"]),
 };
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
 const clean = (value) =>
@@ -72,6 +76,8 @@ function validateOptions() {
     throw new Error("--limit must be a positive integer");
   if (options.seriesIds.some((id) => !Number.isInteger(id) || id < 1))
     throw new Error("--series-gcd-ids must contain positive integers");
+  if (options.dumpDate != null && !/^\d{4}-\d{2}-\d{2}$/.test(options.dumpDate))
+    throw new Error("--dump-date must be YYYY-MM-DD");
   validateRollupLimit(options);
 }
 
@@ -474,6 +480,47 @@ async function writeBatches(supabase, phase, table, rows, conflict) {
   return written;
 }
 
+async function insertBatches(supabase, phase, table, rows) {
+  let written = 0;
+  for (const batch of chunks(rows)) {
+    await retry(`insert ${table}`, () => supabase.from(table).insert(batch));
+    written += batch.length;
+    await sleep(options.sleep);
+  }
+  return written;
+}
+
+async function replaceIssueRows(supabase, phase, table, rows, issueIds, fields, issueFields) {
+  if (rows.length)
+    await writeBatches(supabase, phase, table, rows, fields.join(","));
+  // Page through every existing key: one read is capped at 1,000 rows, and a
+  // 500-issue batch of credits easily has more. A truncated read would leave
+  // stale rows behind.
+  const existing = [];
+  for (let from = 0; ; from += 1000) {
+    const page = await retry(`read ${table} keys`, () => {
+      let query = supabase.from(table).select(fields.join(","));
+      query = issueFields.length === 1
+        ? query.in(issueFields[0], issueIds)
+        : query.or(issueFields.map((field) => `${field}.in.(${issueIds.join(",")})`).join(","));
+      // Order by the whole key so pages never overlap or skip rows.
+      for (const field of fields) query = query.order(field);
+      return query.range(from, from + 999);
+    });
+    existing.push(...page);
+    if (page.length < 1000) break;
+  }
+  const stale = staleKeys(existing, rows, fields);
+  for (const row of stale) {
+    await retry(`delete stale ${table}`, () => {
+      let deletion = supabase.from(table).delete();
+      for (const field of fields) deletion = deletion.eq(field, row[field]);
+      return deletion;
+    });
+  }
+  return stale.length;
+}
+
 async function creatorPhase(db, issues, supabase, stats) {
   const found = new Map();
   for (const batch of chunks(issues))
@@ -636,17 +683,9 @@ async function storiesPhase(db, issues, supabase, stats) {
       }
     } else {
       const ids = batch.map((i) => i.id);
-      await retry("delete stories", () =>
-        supabase.from("gcd_stories").delete().in("gcd_issue_id", ids),
-      );
+      await replaceIssueRows(supabase, "stories", "gcd_stories", rows, ids,
+        ["gcd_issue_id", "sequence_number"], ["gcd_issue_id"]);
       await sleep(options.sleep);
-      await writeBatches(
-        supabase,
-        "stories",
-        "gcd_stories",
-        rows,
-        "gcd_issue_id,sequence_number",
-      );
       saveCursor("stories", ids.at(-1));
     }
     count += rows.length;
@@ -670,23 +709,10 @@ async function creditsPhase(db, issues, supabase, creatorMap, stats) {
           ? [{ ...row, creator_id: creatorMap.get(gcd_creator_id) }]
           : ((stats.missing_creator_map += 1), []),
       );
-      await retry("delete issue credits", () =>
-        supabase
-          .from("issue_creators")
-          .delete()
-          .in(
-            "gcd_issue_id",
-            batch.map((issue) => issue.id),
-          ),
-      );
+      await replaceIssueRows(supabase, "credits", "issue_creators", rows,
+        batch.map((issue) => issue.id), ["gcd_issue_id", "creator_id", "role"],
+        ["gcd_issue_id"]);
       await sleep(options.sleep);
-      await writeBatches(
-        supabase,
-        "credits",
-        "issue_creators",
-        rows,
-        "gcd_issue_id,creator_id,role",
-      );
       saveCursor("credits", batch.at(-1).id);
     }
     count += rows.length;
@@ -824,26 +850,105 @@ async function reprintsPhase(db, issues, supabase, mirrorIds, stats) {
         shown = true;
       }
     } else {
-      await retry("delete origin reprints", () =>
-        supabase.from("issue_reprints").delete().in("origin_issue_id", ids),
-      );
+      await replaceIssueRows(supabase, "reprints", "issue_reprints", rows, ids,
+        ["origin_issue_id", "target_issue_id"], ["origin_issue_id", "target_issue_id"]);
       await sleep(options.sleep);
-      await retry("delete target reprints", () =>
-        supabase.from("issue_reprints").delete().in("target_issue_id", ids),
-      );
-      await sleep(options.sleep);
-      await writeBatches(
-        supabase,
-        "reprints",
-        "issue_reprints",
-        rows,
-        "origin_issue_id,target_issue_id",
-      );
       saveCursor("reprints", issueBatch.at(-1).id);
     }
     count += rows.length;
   }
   return count;
+}
+
+async function editionsPhase(db, issues, supabase, mirrorIds) {
+  const ids = (mirrorIds ? [...mirrorIds] : issues.map((issue) => issue.id)).sort(
+    (a, b) => a - b,
+  );
+  const rows = [];
+  for (const batch of chunks(ids, 500))
+    rows.push(...db.prepare(
+      `select id gcd_id,variant_of_id,variant_name from gcd_issue where id in (${placeholders(batch.length)})`,
+    ).all(...batch));
+  const after = options.resume ? loadCursor("editions") : 0;
+  const selectedIds = new Set(
+    ids
+      .filter((id) => id > after)
+      .slice(0, options.limit ?? ids.length),
+  );
+  const resolved = resolveBases(rows.map((row) => ({
+    gcd_id: Number(row.gcd_id),
+    variant_of_id: numeric(row.variant_of_id),
+    variant_name: clean(row.variant_name),
+  }))).filter((row) => selectedIds.has(row.gcd_id));
+  const counts = { bases: 0, variants: 0, chains: 0, cycles: 0, orphans: 0, rows_changed: 0 };
+  for (const row of resolved) {
+    if (row.reason === "cycle") counts.cycles += 1;
+    if (row.reason === "parent_not_mirrored" || row.reason === "too_deep") counts.orphans += 1;
+    if (row.variant_of_id == null) counts.bases += 1;
+    else counts.variants += 1;
+    if (!row.reason && row.hops > 1) counts.chains += 1;
+  }
+  if (options.dryRun) {
+    printSamples("editions", resolved);
+  } else {
+    for (const batch of chunks(resolved, 1000)) {
+      const batchIds = batch.map((row) => row.gcd_id);
+      const current = await retry("read edition values", () => supabase
+        .from("gcd_issues")
+        .select("gcd_id,variant_of_gcd_id,variant_name,base_gcd_issue_id")
+        .in("gcd_id", batchIds).order("gcd_id").limit(1000));
+      const currentById = new Map(current.map((row) => [Number(row.gcd_id), row]));
+      const changed = batch.filter((row) => {
+        const old = currentById.get(row.gcd_id);
+        return !old || numeric(old.variant_of_gcd_id) !== row.variant_of_id ||
+          clean(old.variant_name) !== row.variant_name ||
+          numeric(old.base_gcd_issue_id) !== row.base_gcd_issue_id;
+      }).map((row) => ({
+        gcd_id: row.gcd_id,
+        variant_of_gcd_id: row.variant_of_id,
+        variant_name: row.variant_name,
+        base_gcd_issue_id: row.base_gcd_issue_id,
+      }));
+      if (changed.length)
+        await writeBatches(supabase, "editions", "gcd_issues", changed, "gcd_id");
+      counts.rows_changed += changed.length;
+      const problems = batch.filter((row) => row.reason).map((row) => ({
+        source: "gcd_dump", gcd_issue_id: row.gcd_id, reason: row.reason,
+        detail: `variant_of_id=${row.variant_of_id ?? "null"}`,
+      }));
+      if (problems.length)
+        await insertBatches(supabase, "editions", "catalog_import_issues", problems);
+      saveCursor("editions", batch.at(-1).gcd_id);
+      await sleep(options.sleep);
+    }
+  }
+  console.log(`editions ${JSON.stringify(counts)}`);
+  return counts;
+}
+
+function dumpDate() {
+  if (options.dumpDate) return options.dumpDate;
+  const match = options.db.match(/(\d{4}-\d{2}-\d{2})/);
+  if (!match) throw new Error("dump date is not in the file path; pass --dump-date=YYYY-MM-DD");
+  return match[1];
+}
+
+async function startImport(supabase, phase) {
+  if (!supabase) return null;
+  const rows = await retry(`record ${phase} start`, () => supabase
+    .from("catalog_imports")
+    .insert({ source: "gcd_dump", dump_date: dumpDate(), phase, started_at: new Date().toISOString() })
+    .select("id").limit(1));
+  if (rows.length !== 1) throw new Error(`record ${phase} start returned ${rows.length} rows`);
+  return Number(rows[0].id);
+}
+
+async function finishImport(supabase, id, counts) {
+  if (!supabase || id == null) return;
+  await retry(`record import ${id} finish`, () => supabase
+    .from("catalog_imports")
+    .update({ finished_at: new Date().toISOString(), counts })
+    .eq("id", id));
 }
 
 async function run() {
@@ -926,6 +1031,7 @@ async function run() {
       console.log(
         `${phase} resume selected=${phaseIssues.length} skipped=${selection.issues.length - phaseIssues.length}`,
       );
+    const importId = options.dryRun ? null : await startImport(supabase, phase);
     if (phase === "creators") {
       const result = await creatorPhase(db, phaseIssues, supabase, stats);
       counts.creators = result.rows;
@@ -960,6 +1066,10 @@ async function run() {
         mirrorIds,
         stats,
       );
+    if (phase === "editions")
+      counts.editions = await editionsPhase(db, phaseIssues, supabase, mirrorIds);
+    await finishImport(supabase, importId,
+      typeof counts[phase] === "object" ? counts[phase] : { rows: counts[phase] ?? 0 });
   }
   console.log(
     `summary counts=${JSON.stringify(counts)} skipped_invalid=${JSON.stringify(stats)}`,

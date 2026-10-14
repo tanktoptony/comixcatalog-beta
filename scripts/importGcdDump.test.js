@@ -8,7 +8,9 @@ import {
   fillStoryCreditText,
   formatStoryCharacters,
   reserveSlug,
+  resolveBases,
   rolesForCreditType,
+  staleKeys,
   unambiguousLegacyAttachments,
 } from "./lib/gcdDumpImport.js";
 import { validateRollupLimit } from "./importGcdDump.js";
@@ -122,6 +124,48 @@ test("dedupes batches on the requested compound key", () => {
     rows[0],
     rows[2],
   ]);
+});
+
+test("computes stale compound keys without removing replacement rows", () => {
+  const existing = [
+    { issue: 1, sequence: 0 },
+    { issue: 1, sequence: 1 },
+    { issue: 2, sequence: 0 },
+  ];
+  assert.deepEqual(staleKeys(existing, [existing[0], existing[2]], ["issue", "sequence"]), [existing[1]]);
+});
+
+test("resolves edition bases and reports broken parent graphs", () => {
+  const resolved = resolveBases([
+    { gcd_id: 1, variant_of_id: null },
+    { gcd_id: 2, variant_of_id: 1 },
+    { gcd_id: 3, variant_of_id: 2 },
+    { gcd_id: 4, variant_of_id: 5 },
+    { gcd_id: 5, variant_of_id: 4 },
+    { gcd_id: 6, variant_of_id: 99 },
+  ]);
+  assert.deepEqual(resolved.map(({ gcd_id, base_gcd_issue_id, reason }) => ({ gcd_id, base_gcd_issue_id, reason })), [
+    { gcd_id: 1, base_gcd_issue_id: 1, reason: null },
+    { gcd_id: 2, base_gcd_issue_id: 1, reason: null },
+    { gcd_id: 3, base_gcd_issue_id: 1, reason: null },
+    { gcd_id: 4, base_gcd_issue_id: 4, reason: "cycle" },
+    { gcd_id: 5, base_gcd_issue_id: 5, reason: "cycle" },
+    { gcd_id: 6, base_gcd_issue_id: 6, reason: "parent_not_mirrored" },
+  ]);
+});
+
+test("caps edition parent traversal at five hops", () => {
+  const resolved = resolveBases([
+    { gcd_id: 1, variant_of_id: 2 },
+    { gcd_id: 2, variant_of_id: 3 },
+    { gcd_id: 3, variant_of_id: 4 },
+    { gcd_id: 4, variant_of_id: 5 },
+    { gcd_id: 5, variant_of_id: 6 },
+    { gcd_id: 6, variant_of_id: 7 },
+    { gcd_id: 7, variant_of_id: null },
+  ]);
+  assert.equal(resolved[0].reason, "too_deep");
+  assert.equal(resolved[1].base_gcd_issue_id, 7);
 });
 
 test("aggregates distinct issues and year bounds for a series creator role", () => {

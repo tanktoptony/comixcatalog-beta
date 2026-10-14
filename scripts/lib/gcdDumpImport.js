@@ -129,6 +129,46 @@ export function dedupeRows(rows, fields) {
   });
 }
 
+export function staleKeys(existingRows, replacementRows, fields) {
+  const replacementKeys = new Set(
+    replacementRows.map((row) => fields.map((field) => row[field]).join("\0")),
+  );
+  return existingRows.filter(
+    (row) =>
+      !replacementKeys.has(fields.map((field) => row[field]).join("\0")),
+  );
+}
+
+export function resolveBases(rows, maxHops = 5) {
+  const byId = new Map(rows.map((row) => [Number(row.gcd_id), row]));
+  return rows.map((row) => {
+    const gcdId = Number(row.gcd_id);
+    let current = row;
+    let hops = 0;
+    const seen = new Set([gcdId]);
+    for (;;) {
+      const parentId = Number(current.variant_of_id);
+      if (!Number.isInteger(parentId) || parentId < 1)
+        return { ...row, base_gcd_issue_id: Number(current.gcd_id), reason: null, hops };
+      if (seen.has(parentId))
+        return { ...row, base_gcd_issue_id: gcdId, reason: "cycle", hops };
+      if (hops >= maxHops)
+        return { ...row, base_gcd_issue_id: gcdId, reason: "too_deep", hops };
+      const parent = byId.get(parentId);
+      if (!parent)
+        return {
+          ...row,
+          base_gcd_issue_id: gcdId,
+          reason: "parent_not_mirrored",
+          hops,
+        };
+      seen.add(parentId);
+      current = parent;
+      hops += 1;
+    }
+  });
+}
+
 export function aggregateSeriesCredits(rows) {
   const aggregator = createSeriesCreditAggregator();
   aggregator.add(rows);

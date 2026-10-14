@@ -35,10 +35,11 @@ export const FEE_CONFIG = Object.freeze({
   platform_fee_bps: 0,
   processing_fee_bps: 290,
   processing_fee_fixed_cents: 30,
-  reservation_minutes: 30,
+  reservation_minutes: 35,
   auto_deliver_days: 14,
   complete_after_delivery_days: 3,
   tracking_required_cents: 5000,
+  ship_to_retention_days: 120,
 });
 
 export function canTransition(from, to, role) {

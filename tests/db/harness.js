@@ -51,9 +51,11 @@ export async function startDatabase() {
   const fixture = await readFile(new URL("./fixture.sql", import.meta.url), "utf8");
   const migration = await readFile(new URL("../../scripts/migrations/0066_marketplace_orders.sql", import.meta.url), "utf8");
   const sellersMigration = await readFile(new URL("../../scripts/migrations/0068_seller_accounts.sql", import.meta.url), "utf8");
+  const payoutsMigration = await readFile(new URL("../../scripts/migrations/0070_stripe_events_payouts.sql", import.meta.url), "utf8");
   await client.query(fixture);
   await client.query(migration);
   await client.query(sellersMigration);
+  await client.query(payoutsMigration);
   await client.end();
 }
 

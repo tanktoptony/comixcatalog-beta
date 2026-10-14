@@ -192,6 +192,12 @@ users emailing for cancellations is a worse problem than no signups.)
 
 ---
 
+## Marketplace checkout (test mode)
+
+Register `/api/stripe/marketplace-webhook` as a platform webhook for `checkout.session.completed`, `checkout.session.expired`, and `transfer.reversed`. Register the same route as a connected-accounts webhook for `account.updated`, `account.external_account.created`, `account.external_account.updated`, and `payout.failed`. Store the signing secrets in `STRIPE_MKT_WEBHOOK_SECRET` and `STRIPE_MKT_CONNECT_WEBHOOK_SECRET`.
+
+For local platform-event testing, run `stripe listen --forward-to localhost:3000/api/stripe/marketplace-webhook`. Use `4242 4242 4242 4242` for success, `4000 0000 0000 0002` for a decline, and `4000 0025 0000 3155` for 3D Secure. Marketplace checkout uses dedicated test keys and does not share the subscription webhook.
+
 ## Last word
 
 The single most common cause of "Stripe broke" is **mode mismatch**: a live

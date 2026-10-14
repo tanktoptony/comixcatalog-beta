@@ -1,5 +1,9 @@
 export const SEARCH_CACHE_REVALIDATE_SECONDS = 600;
 
+// Series cards shown above the issue results on /search (server render and
+// client refetch must ask for the same number).
+export const SERIES_SHELF_SIZE = 8;
+
 export function normalizeSearchCacheTerm(value) {
   return String(value ?? "")
     .trim()

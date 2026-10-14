@@ -49114,9 +49114,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T01:09:42.390899+00:00",
-    "retry_after": "2026-10-14T01:09:42.390913+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T01:29:55.069368+00:00",
+    "retry_after": "2026-10-17T01:29:55.069385+00:00"
   },
   {
     "name": "Teenage Mutant Ninja Turtles Amazing Adventures Robotanimals",
@@ -49137,9 +49137,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T01:11:05.149508+00:00",
-    "retry_after": "2026-10-14T01:11:05.149521+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T01:29:59.262853+00:00",
+    "retry_after": "2026-10-17T01:29:59.262868+00:00"
   },
   {
     "name": "PPV",
@@ -49147,9 +49147,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T01:11:05.455571+00:00",
-    "retry_after": "2026-10-14T01:11:05.455586+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T01:29:59.500951+00:00",
+    "retry_after": "2026-10-17T01:29:59.500966+00:00"
   },
   {
     "name": "Surfside Girls",
@@ -49157,9 +49157,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T01:12:55.014780+00:00",
-    "retry_after": "2026-10-14T01:12:55.014795+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T01:29:59.947689+00:00",
+    "retry_after": "2026-10-17T01:29:59.947704+00:00"
   },
   {
     "name": "Wormwood: Gentleman Corpse Taster",
@@ -51973,8 +51973,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-14T01:09:12.334907+00:00",
-    "retry_after": "2026-10-15T01:09:12.334920+00:00"
+    "last_attempt_at": "2026-10-14T01:29:55.423450+00:00",
+    "retry_after": "2026-10-15T01:29:55.423466+00:00"
   },
   {
     "name": "Batonne",
@@ -51983,8 +51983,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-14T01:11:45.521514+00:00",
-    "retry_after": "2026-10-15T01:11:45.521531+00:00"
+    "last_attempt_at": "2026-10-14T01:31:30.461135+00:00",
+    "retry_after": "2026-10-15T01:31:30.461150+00:00"
   },
   {
     "name": "Karate Girl",
@@ -52000,8 +52000,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-14T01:13:30.596660+00:00",
-    "retry_after": "2026-10-15T01:13:30.596674+00:00"
+    "last_attempt_at": "2026-10-14T01:32:26.698021+00:00",
+    "retry_after": "2026-10-15T01:32:26.698035+00:00"
   },
   {
     "name": "Footlicker",
@@ -52017,57 +52017,7 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-14T01:13:39.045636+00:00",
-    "retry_after": "2026-10-15T01:13:39.045647+00:00"
-  },
-  {
-    "name": "Vixxxen: The Adventures of Selen",
-    "publisher": "Fantagraphics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37961,
-        "name": "Vixxxen - The Adventures Of Selen",
-        "publisher": "Eros Comix",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-14T01:13:39.648159+00:00",
-    "retry_after": "2026-10-15T01:13:39.648168+00:00"
-  },
-  {
-    "name": "Heroes of the West Jumbo Edition",
-    "publisher": "Marvel Comics",
-    "year": 1973,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-14T01:13:40.058332+00:00",
-    "retry_after": "2026-10-15T01:13:40.058348+00:00"
-  },
-  {
-    "name": "Poison Ivy",
-    "publisher": "DC Comics",
-    "year": 2007,
-    "reason": "multiple_candidates",
-    "candidates": [
-      {
-        "id": 143431,
-        "name": "Poison Ivy",
-        "publisher": "DC Comics",
-        "start_year": 2022
-      },
-      {
-        "id": 151415,
-        "name": "Poison Ivy",
-        "publisher": "DC Comics",
-        "start_year": 2023
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-14T01:13:40.470315+00:00",
-    "retry_after": "2026-10-15T01:13:40.470330+00:00"
+    "last_attempt_at": "2026-10-14T01:32:31.649271+00:00",
+    "retry_after": "2026-10-15T01:32:31.649286+00:00"
   }
 ]

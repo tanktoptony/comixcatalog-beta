@@ -51965,5 +51965,109 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-14T00:17:50.870445+00:00",
     "retry_after": "2026-10-15T00:17:50.870463+00:00"
+  },
+  {
+    "name": "Outsiders Double Feature",
+    "publisher": "DC Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T01:09:12.334907+00:00",
+    "retry_after": "2026-10-15T01:09:12.334920+00:00"
+  },
+  {
+    "name": "Batonne",
+    "publisher": "Heavy Metal",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T01:11:45.521514+00:00",
+    "retry_after": "2026-10-15T01:11:45.521531+00:00"
+  },
+  {
+    "name": "Karate Girl",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32006,
+        "name": "Karate Girl",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T01:13:30.596660+00:00",
+    "retry_after": "2026-10-15T01:13:30.596674+00:00"
+  },
+  {
+    "name": "Footlicker",
+    "publisher": "Fantagraphics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28845,
+        "name": "Footlicker",
+        "publisher": "Eros Comix",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T01:13:39.045636+00:00",
+    "retry_after": "2026-10-15T01:13:39.045647+00:00"
+  },
+  {
+    "name": "Vixxxen: The Adventures of Selen",
+    "publisher": "Fantagraphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37961,
+        "name": "Vixxxen - The Adventures Of Selen",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T01:13:39.648159+00:00",
+    "retry_after": "2026-10-15T01:13:39.648168+00:00"
+  },
+  {
+    "name": "Heroes of the West Jumbo Edition",
+    "publisher": "Marvel Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T01:13:40.058332+00:00",
+    "retry_after": "2026-10-15T01:13:40.058348+00:00"
+  },
+  {
+    "name": "Poison Ivy",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 143431,
+        "name": "Poison Ivy",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      },
+      {
+        "id": 151415,
+        "name": "Poison Ivy",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T01:13:40.470315+00:00",
+    "retry_after": "2026-10-15T01:13:40.470330+00:00"
   }
 ]

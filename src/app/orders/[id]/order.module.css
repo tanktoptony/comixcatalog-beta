@@ -32,6 +32,7 @@
 .messages article.system { max-width: 100%; background: transparent; color: #b8af91; text-align: center; }
 .messages p { margin: 0; white-space: pre-wrap; }
 .messages time { color: #89919e; font-size: .72rem; }
+.paymentWarning { margin-bottom: 8px; padding: 9px; border: 1px solid #e4b94f66; border-radius: 7px; background: #5e4c2244; color: #f4d77d; font-size: .82rem; }
 .thread form { display: grid; grid-template-columns: 1fr auto; gap: 10px; margin-top: 16px; }
 .thread textarea { min-height: 76px; resize: vertical; }
 .feedbackCard { margin-top: 22px; padding: 22px; border: 1px solid var(--cc-gold-soft, #5e4c22); border-radius: 16px; background: var(--cc-surface, #101620); }

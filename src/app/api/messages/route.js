@@ -3,6 +3,7 @@ import { getAuthedUser } from "@/lib/authServer";
 import { notifyRecipient } from "@/lib/messageEmail";
 import { checkLimits, MESSAGE_LIMITS } from "@/lib/messageLimits";
 import { getServiceClient } from "@/lib/supabase/service";
+import { findOffPlatformPaymentTerms } from "@/lib/messageContent";
 
 const MESSAGE_COLUMNS = "id, sender_id, recipient_id, order_id, is_system, body, read_at, created_at";
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -168,6 +169,30 @@ export async function POST(req) {
       .select(MESSAGE_COLUMNS)
       .single();
     if (insertError) throw new Error(`message insert failed: ${insertError.message}`);
+    const terms = findOffPlatformPaymentTerms(body);
+    if (terms.length > 0) {
+      const { error: flagError } = await supabase.from("message_flags").insert({
+        message_id: message.id,
+        kind: "offplatform_payment",
+        terms,
+      });
+      if (flagError) {
+        console.error("message payment warning flag failed:", flagError);
+      }
+      if (order) {
+        const { error: orderFlagError } = await supabase.from("order_flags").upsert({
+          order_id: order.id,
+          kind: "offplatform_terms",
+          detail: { message_id: message.id, terms },
+        }, {
+          onConflict: "order_id,kind",
+          ignoreDuplicates: true,
+        });
+        if (orderFlagError) {
+          console.error("order payment warning flag failed:", orderFlagError);
+        }
+      }
+    }
     after(() => notifyRecipient({
       supabase,
       senderId: user.id,
@@ -175,7 +200,10 @@ export async function POST(req) {
       recipientId: recipient.id,
       recipientUsername: recipient.username,
     }));
-    return NextResponse.json(message, { status: 201 });
+    return NextResponse.json({
+      ...message,
+      warning: terms.length > 0,
+    }, { status: 201 });
   } catch (error) {
     console.error("POST /api/messages failed:", error);
     return jsonError("Could not send message.", 500);

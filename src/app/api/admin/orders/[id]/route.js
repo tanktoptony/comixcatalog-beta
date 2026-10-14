@@ -17,6 +17,7 @@ export async function GET(req, { params }) {
     db.from("marketplace_audit_log").select("*").eq("entity_id", id).order("at"),
     db.from("profiles").select("id,username").in("id", [order.buyer_id, order.seller_id]),
     db.from("seller_accounts").select("user_id,tier,payouts_frozen,tier_reason").eq("user_id", order.seller_id).maybeSingle(),
+    db.from("order_flags").select("*").eq("order_id", id).order("created_at"),
   ]);
   const failed = results.find((result) => result.error);
   if (failed) return NextResponse.json({ error: "Could not load complete order history." }, { status: 500 });
@@ -28,6 +29,6 @@ export async function GET(req, { params }) {
       charge: order.stripe_charge_id ? `https://dashboard.stripe.com/${mode}payments/${order.stripe_charge_id}` : null,
       transfer: order.stripe_transfer_id ? `https://dashboard.stripe.com/${mode}connect/transfers/${order.stripe_transfer_id}` : null,
     },
-    disputes: results[0].data || [], refunds: results[1].data || [], messages: results[2].data || [], audit: results[3].data || [], profiles: results[4].data || [], seller_account: results[5].data,
+    disputes: results[0].data || [], refunds: results[1].data || [], messages: results[2].data || [], audit: results[3].data || [], profiles: results[4].data || [], seller_account: results[5].data, flags: results[6].data || [],
   } });
 }

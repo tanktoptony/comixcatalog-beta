@@ -8,6 +8,7 @@ import { authedFetch } from "@/lib/apiClient";
 import { statusLabel } from "@/lib/orders";
 import { trackingUrl } from "@/lib/tracking";
 import { feedbackRatingLabel } from "@/lib/feedback";
+import { findOffPlatformPaymentTerms } from "@/lib/messageContent";
 import ReportButton from "@/components/ReportButton";
 import styles from "@/app/orders/[id]/order.module.css";
 
@@ -15,6 +16,8 @@ const money = (value) => new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
 }).format((value || 0) / 100);
+
+const PAYMENT_WARNING = "Heads up: payments outside ComixCatalog checkout aren't covered. If someone asks for Friends and Family, Zelle, a wire or gift cards, that's the classic scam.";
 
 export default function OrderStatus({ id }) {
   const success = useSearchParams().get("checkout") === "success";
@@ -219,7 +222,7 @@ export default function OrderStatus({ id }) {
       )}
       <section className={styles.thread}>
         <h2>Order thread</h2>
-        <div className={styles.messages}>{messages.length === 0 && <p>No messages yet.</p>}{messages.map((message) => <article className={message.is_system ? styles.system : ""} key={message.id}><p>{message.body}</p><time>{new Date(message.created_at).toLocaleString()}</time></article>)}</div>
+        <div className={styles.messages}>{messages.length === 0 && <p>No messages yet.</p>}{messages.map((message) => <article className={message.is_system ? styles.system : ""} key={message.id}>{findOffPlatformPaymentTerms(message.body).length > 0 && <div className={styles.paymentWarning}>{PAYMENT_WARNING}</div>}<p>{message.body}</p><time>{new Date(message.created_at).toLocaleString()}</time></article>)}</div>
         <form onSubmit={sendMessage}><textarea value={body} onChange={(event) => setBody(event.target.value)} maxLength={4000} placeholder="Write a message about this order" required /><button>Send</button></form>
       </section>
     </main>

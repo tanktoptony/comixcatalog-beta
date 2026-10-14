@@ -10,6 +10,12 @@ function fake(initialOrder, { transitionError } = {}) {
     order,
     db: {
       from: (table) => ({
+        update: (values) => ({
+          eq: async (...args) => {
+            calls.push(["update", table, values, ...args]);
+            return { error: null };
+          },
+        }),
         select: () => ({
           eq: () => ({
             maybeSingle: async () => ({
@@ -80,6 +86,32 @@ test("mismatch refunds, settles, alerts once, and replay is a no-op", async () =
   const count = deps.calls.length;
   await handleMarketplaceEvent(event, deps);
   assert.equal(deps.calls.length, count);
+});
+
+test("paid session stores card fingerprint and checks shared-card fraud", async () => {
+  const deps = fake(base);
+  deps.stripe.paymentIntents.retrieve = async () => ({
+    id: "pi",
+    latest_charge: {
+      id: "ch",
+      payment_method_details: {
+        card: { fingerprint: "fp_same" },
+      },
+    },
+  });
+  deps.db.rpc = async (name, args) => {
+    deps.calls.push([name, args]);
+    if (name === "order_transition") deps.order.status = args.p_to;
+    return { data: name === "mkt_flag_shared_card", error: null };
+  };
+  await handleMarketplaceEvent({
+    id: "evt_paid",
+    type: "checkout.session.completed",
+    data: { object: session },
+  }, deps);
+  assert.ok(deps.calls.some((call) => call[0] === "update" && call[2].card_fingerprint === "fp_same"));
+  assert.ok(deps.calls.some((call) => call[0] === "mkt_flag_shared_card"));
+  assert.ok(deps.calls.some((call) => call[0] === "notify" && call[1].includes("Shared card fingerprint")));
 });
 
 test("late paid session refunds then records refunded", async () => {

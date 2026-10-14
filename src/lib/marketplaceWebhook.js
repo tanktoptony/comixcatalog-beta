@@ -72,8 +72,12 @@ export async function handlePaidSession(session, eventId, { db, stripe, notifyAd
   const intent = await stripe.paymentIntents.retrieve(session.payment_intent, {
     expand: ["latest_charge"],
   });
+  const fingerprint = typeof intent.latest_charge === "string"
+    ? null
+    : intent.latest_charge?.payment_method_details?.card?.fingerprint || null;
+  let paid;
   try {
-    const paid = await transition(db, order, "paid", "stripe", {
+    paid = await transition(db, order, "paid", "stripe", {
       stripe_checkout_session_id: session.id,
       amount_total: session.amount_total,
       currency: session.currency,
@@ -84,11 +88,30 @@ export async function handlePaidSession(session, eventId, { db, stripe, notifyAd
         : intent.latest_charge?.id,
       ship_to: session.collected_information?.shipping_details ?? session.shipping_details ?? null,
     }, eventId);
-    await afterOrderTransition(db, paid, "paid");
   } catch (error) {
     await notifyAdmin(`Marketplace paid transition failed for order ${order.id}: ${error?.message || error}`);
     throw error;
   }
+  // The order is paid from here on. Nothing below may throw: a Stripe retry skips paid
+  // orders, so a failure here would silently drop the paid emails.
+  if (fingerprint) {
+    try {
+      const { error: fingerprintError } = await db
+        .from("orders")
+        .update({ card_fingerprint: fingerprint })
+        .eq("id", order.id);
+      if (fingerprintError) throw fingerprintError;
+      const flag = await rpc(db, "mkt_flag_shared_card", {
+        p_order: order.id,
+      });
+      if (flag) {
+        await notifyAdmin(`Shared card fingerprint flagged for order ${order.id}: /admin/orders/${order.id}`);
+      }
+    } catch (error) {
+      console.error(`Shared card check failed for order ${order.id}:`, error);
+    }
+  }
+  await afterOrderTransition(db, paid, "paid");
 }
 
 export async function handleMarketplaceEvent(event, deps) {

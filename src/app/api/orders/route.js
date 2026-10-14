@@ -7,6 +7,7 @@ import { getMarketplaceStripe } from "@/lib/marketplaceStripe";
 import { getSiteUrl } from "@/lib/stripe";
 import { buildCheckoutSessionParams } from "@/lib/checkoutSession";
 import { afterOrderTransition } from "@/lib/orderEvents";
+import { buyerLimitMessage } from "@/lib/buyerLimits";
 
 export const runtime = "nodejs";
 
@@ -16,6 +17,8 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-
 
 function mapped(error) {
   const code = error?.code;
+  const limitMessage = buyerLimitMessage(error);
+  if (limitMessage) return [429, limitMessage];
   if (code === "55006") {
     return [
       409,
@@ -73,16 +76,6 @@ export async function POST(req) {
     return NextResponse.json({ error: "Invalid listing" }, { status: 400 });
   }
   const db = getServiceClient();
-  const { count, error: countError } = await db
-    .from("orders")
-    .select("id", { count: "exact", head: true })
-    .eq("buyer_id", user.id)
-    .in("status", ["created", "awaiting_payment"]);
-  if (countError) return NextResponse.json({ error: "Could not start checkout" }, { status: 500 });
-  if ((count || 0) >= 2) {
-    return NextResponse.json({ error: "Finish or cancel an open checkout first" }, { status: 429 });
-  }
-
   const { data: order, error } = await db.rpc("order_create", {
     p_buyer: user.id,
     p_listing: listing,

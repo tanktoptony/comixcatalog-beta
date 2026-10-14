@@ -179,6 +179,18 @@
   line-height: 1.35;
 }
 
+.paymentWarning {
+  max-width: 420px;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border: 1px solid rgba(244, 208, 63, 0.35);
+  border-radius: 8px;
+  background: rgba(94, 76, 34, 0.35);
+  color: #f4d77d;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
 .errorBanner {
   margin: 0 18px;
   padding: 10px 14px;

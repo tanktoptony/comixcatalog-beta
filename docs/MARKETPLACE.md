@@ -40,7 +40,7 @@
 
 ## Partially implemented
 
-**Transactions (in progress):** The orders schema, `order_create`, `order_transition`, and immutable audit log exist in migration 0066. Migration 0068 adds seller accounts, test-mode eligibility rules, seller standards, and automatic tier promotion. Stripe Connect onboarding routes and `/sell/payouts` are available only behind the marketplace checkout allowlist. Buyer checkout remains off until the later transaction PRs land.
+**Transactions (in progress):** The orders schema and state machine are in migration 0066, and seller accounts and eligibility are in 0068. Migration 0070 adds durable Stripe events, payout holds, transfer recording, bank-change holds, and the database sweep. Allowlisted buyers can use test-mode Buy now on eligible priced listings through `POST /api/orders`; `/api/stripe/marketplace-webhook` handles platform and connected-account events, and `/orders/[id]` shows payment status. The cached listing page checks availability after hydration. `marketplace-sweep.yml` runs expiry, delivery/completion/address retention, and eligible transfers every 15 minutes.
 
 | Piece | What exists | What's missing |
 |---|---|---|

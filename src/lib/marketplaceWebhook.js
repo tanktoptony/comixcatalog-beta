@@ -1,0 +1,128 @@
+import { verifyPaidSession } from "./checkoutSession.js";
+
+async function rpc(db, name, args) {
+  const result = await db.rpc(name, args);
+  if (result?.error) throw result.error;
+  return result?.data;
+}
+
+async function orderById(db, id) {
+  const { data, error } = await db.from("orders").select("*").eq("id", id).maybeSingle();
+  if (error) throw error;
+  return data;
+}
+
+export async function transition(db, order, to, role, payload = {}, eventId = null) {
+  return rpc(db, "order_transition", {
+    p_order: order.id,
+    p_to: to,
+    p_actor_id: null,
+    p_actor_role: role,
+    p_payload: payload,
+    p_request_id: null,
+    p_stripe_event_id: eventId,
+  });
+}
+
+export async function handlePaidSession(session, eventId, { db, stripe, notifyAdmin }) {
+  const order = await orderById(db, session.metadata?.order_id);
+  if (!order || order.status === "refunded") return;
+
+  const verified = verifyPaidSession(session, order);
+  if (!verified.ok) {
+    if (session.payment_intent) {
+      await stripe.refunds.create(
+        { payment_intent: session.payment_intent },
+        { idempotencyKey: `refund-mismatch-${order.id}` },
+      );
+    }
+    if (order.status === "created" || order.status === "awaiting_payment") {
+      await transition(db, order, "cancelled", "system", {}, eventId);
+      await transition(db, order, "refunded", "stripe", {}, eventId);
+    }
+    await notifyAdmin(`Marketplace payment mismatch for order ${order.id}: ${verified.reason}`);
+    return;
+  }
+
+  if (order.status === "cancelled") {
+    await stripe.refunds.create(
+      { payment_intent: session.payment_intent },
+      { idempotencyKey: `refund-late-${order.id}` },
+    );
+    await transition(db, order, "refunded", "stripe", {}, eventId);
+    return;
+  }
+  if (order.status !== "awaiting_payment") return;
+
+  const intent = await stripe.paymentIntents.retrieve(session.payment_intent, {
+    expand: ["latest_charge"],
+  });
+  try {
+    await transition(db, order, "paid", "stripe", {
+      stripe_checkout_session_id: session.id,
+      amount_total: session.amount_total,
+      currency: session.currency,
+      livemode: session.livemode,
+      stripe_payment_intent_id: intent.id,
+      stripe_charge_id: typeof intent.latest_charge === "string"
+        ? intent.latest_charge
+        : intent.latest_charge?.id,
+      ship_to: session.collected_information?.shipping_details ?? session.shipping_details ?? null,
+    }, eventId);
+  } catch (error) {
+    await notifyAdmin(`Marketplace paid transition failed for order ${order.id}: ${error?.message || error}`);
+    throw error;
+  }
+}
+
+export async function handleMarketplaceEvent(event, deps) {
+  const object = event.data?.object || {};
+  if (event.type.startsWith("checkout.session.") && object.metadata?.kind !== "marketplace_order") return;
+  if (event.type === "checkout.session.completed") {
+    return handlePaidSession(object, event.id, deps);
+  }
+  if (event.type === "checkout.session.expired") {
+    const order = await orderById(deps.db, object.metadata?.order_id);
+    if (order?.status === "awaiting_payment") {
+      await transition(deps.db, order, "cancelled", "system", {}, event.id);
+    }
+    return;
+  }
+  if (event.type === "account.updated") {
+    const account = await deps.stripe.accounts.retrieve(event.account || object.id);
+    const { data: seller, error } = await deps.db
+      .from("seller_accounts")
+      .select("user_id")
+      .eq("stripe_account_id", account.id)
+      .maybeSingle();
+    if (error) throw error;
+    if (!seller) return;
+    await rpc(deps.db, "mkt_upsert_seller_account", {
+      p_user: seller.user_id,
+      p_stripe_account_id: account.id,
+      p_livemode: account.livemode,
+      p_charges: account.charges_enabled,
+      p_payouts: account.payouts_enabled,
+      p_details: account.details_submitted,
+      p_requirements: account.requirements?.currently_due || [],
+    });
+    return;
+  }
+  if (event.type === "account.external_account.created" || event.type === "account.external_account.updated") {
+    await rpc(deps.db, "mkt_mark_bank_changed", { p_stripe_account_id: event.account });
+    await deps.notifyAdmin(`Marketplace payout bank changed for ${event.account}`);
+    return;
+  }
+  if (event.type === "transfer.reversed" || event.type === "payout.failed") {
+    const candidate = object.transfer_group || object.metadata?.order_id;
+    const orderId = /^[0-9a-f-]{36}$/i.test(candidate || "") ? candidate : null;
+    if (orderId) {
+      await rpc(deps.db, "mkt_audit_stripe", {
+        p_entity_id: orderId,
+        p_action: event.type,
+        p_event_id: event.id,
+      });
+    }
+    await deps.notifyAdmin(`Marketplace Stripe event: ${event.type}`);
+  }
+}

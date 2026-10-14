@@ -47,8 +47,9 @@ test("fee math uses integer cents", () => {
 });
 
 test("SQL transition and fee constants stay in parity with JS", () => {
-  const sql = readFileSync(new URL("../../scripts/migrations/0066_marketplace_orders.sql", import.meta.url), "utf8");
-  const block = sql.match(/-- TRANSITION_VALUES_BEGIN([\s\S]*?)-- TRANSITION_VALUES_END/)[1];
+  const ordersSql = readFileSync(new URL("../../scripts/migrations/0066_marketplace_orders.sql", import.meta.url), "utf8");
+  const feeSql = readFileSync(new URL("../../scripts/migrations/0070_stripe_events_payouts.sql", import.meta.url), "utf8");
+  const block = ordersSql.match(/-- TRANSITION_VALUES_BEGIN([\s\S]*?)-- TRANSITION_VALUES_END/)[1];
   const grouped = new Map();
   for (const match of block.matchAll(/\('([^']+)','([^']+)','([^']+)'\)/g)) {
     const key = `${match[1]}|${match[2]}`;
@@ -57,6 +58,6 @@ test("SQL transition and fee constants stay in parity with JS", () => {
   }
   const sqlTransitions = [...grouped.values()];
   assert.deepEqual(sqlTransitions, TRANSITIONS);
-  const config = sql.match(/select '(\{"platform_fee_bps"[^']+\})'::jsonb/)[1];
+  const config = feeSql.match(/select '(\{"platform_fee_bps"[^']+\})'::jsonb/)[1];
   assert.deepEqual(JSON.parse(config), FEE_CONFIG);
 });

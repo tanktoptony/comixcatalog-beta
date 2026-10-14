@@ -12264,6 +12264,13 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .lp-price em { font-style: normal; color: #8d93a1; font-size: 0.9rem; }
 .lp-ship { color: #a4aab6; font-size: 0.9rem; }
 .lp-cta { justify-self: start; margin-top: 4px; padding: 10px 22px; border-radius: 6px; background: #F4D03F; color: #0B1E6B !important; font-weight: 800; text-decoration: none; }
+.buy-now { display:grid; gap:5px; justify-items:start; margin-top:6px; }
+.buy-now button { border:0; border-radius:6px; background:#F4D03F; color:#0B1E6B; padding:11px 22px; font:inherit; font-weight:900; cursor:pointer; }
+.buy-now button:disabled { opacity:.7; cursor:wait; } .buy-now small { color:#aab2c2; } .buy-now p,.checkout-note { color:#f4c7c7; margin:2px 0; font-size:.9rem; }
+.buy-spinner { display:block; width:18px; height:18px; border:2px solid rgba(11,30,107,.3); border-top-color:#0B1E6B; border-radius:50%; animation:buy-spin .7s linear infinite; }
+@keyframes buy-spin { to { transform:rotate(360deg); } }
+.order-page { max-width:760px; margin:0 auto; padding:80px 20px; display:grid; grid-template-columns:minmax(100px,180px) 1fr; gap:28px; align-items:start; } .order-page img { width:100%; border-radius:8px; } .order-page h1 { margin:8px 0; } .order-page strong { font-size:1.5rem; } .order-page div>p:last-child { text-transform:capitalize; }
+@media(max-width:480px){.order-page{padding:48px 16px;grid-template-columns:92px 1fr;gap:16px}.order-page h1{font-size:1.3rem}}
 .lp-status { font-weight: 800; color: #e9ebf0; }
 .lp-fine { margin: 4px 0 0; color: #8d93a1; font-size: 0.8rem; }
 .lp-block h2 { margin: 0 0 10px; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #8d93a1; }

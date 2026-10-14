@@ -36,11 +36,12 @@ The app is **stable and content-rich** (217k series, 2.5M issues, year-aware pub
 | Frontend | Next.js (App Router) |
 | Backend / API routes | Python scripts + Next.js API routes |
 | Database | Supabase (Postgres) |
-| Payments | Stripe + Stripe Connect (marketplace seller payouts) — **not yet wired** |
+| Payments | Stripe Checkout + Connect marketplace test flow. Durable delivery records live in `stripe_events`; migration 0070 adds payout holds and transfers. |
 | Comic metadata | Grand Comics Database (GCD) |
 | Cover images | ComicVine API (free tier only — no paid tier appears available; supplemented by GCD covers and future user uploads) |
 | Valuation data | **eBay Marketplace Insights API** (sold-comps) — replacing stalled GoCollect integration. Awaiting account approval as of May 21, 2026. CGC pop reports and Heritage Auctions are future supplemental sources. |
 | Automation | **`cover-ingest.yml` runs hourly** (real ComicVine ingest). **`weekly-refresh.yml` + `gap-probe.yml` run Mon+Thu 08:00/09:00 UTC** (changed from Monday-only 2026-09-12 — once-a-week gap-list regen was getting fully consumed by the hourly ingest in ~4 days, causing a recurring multi-day stall). `cron-watchdog.yml` force-triggers either if its last success exceeds a 5-day grace window. Requires `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` as repo secrets. |
+| Marketplace sweep | `marketplace-sweep.yml` runs every 15 minutes with `STRIPE_MKT_SECRET_KEY`; webhooks use `STRIPE_MKT_WEBHOOK_SECRET` and `STRIPE_MKT_CONNECT_WEBHOOK_SECRET`. |
 | Styling | Tailwind CSS |
 | Config | `next.config.mjs`, `tailwind.config.cjs`, `postcss.config.cjs` |
 

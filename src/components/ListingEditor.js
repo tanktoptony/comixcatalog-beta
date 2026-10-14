@@ -5,6 +5,7 @@ import { authedFetch } from "@/lib/apiClient";
 import { validateListingEdit, LIMITS } from "@/lib/listingEdit";
 import PhotoManager from "@/components/PhotoManager";
 import { trackEvent } from "@/lib/analytics";
+import Link from "next/link";
 
 // Seller's listing editor (opened from the library): price, shipping,
 // offers, condition notes, restored/signed. Saves through
@@ -22,6 +23,7 @@ export default function ListingEditor({ listing, title, estValue, onClose, onSav
   const [signed, setSigned] = useState(Boolean(listing.signed));
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [checkout, setCheckout] = useState(null);
   const firstField = useRef(null);
 
   useEffect(() => {
@@ -30,6 +32,17 @@ export default function ListingEditor({ listing, title, estValue, onClose, onSav
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  useEffect(() => {
+    if (listing.price_cents == null) return;
+    let active = true;
+    authedFetch(`/api/listings/${listing.id}/checkout-eligibility`).then(async (response) => {
+      if (response.status === 404) return;
+      const body = await response.json().catch(() => ({}));
+      if (active && response.ok) setCheckout(body);
+    }).catch(() => {});
+    return () => { active = false; };
+  }, [listing.id, listing.price_cents]);
 
   async function save(e) {
     e.preventDefault();
@@ -72,6 +85,7 @@ export default function ListingEditor({ listing, title, estValue, onClose, onSav
               <input ref={firstField} inputMode="decimal" value={price} onChange={(e) => setPrice(e.target.value)} placeholder={estValue ? String(Math.round(estValue)) : "Offers only"} />
             </div>
             <small>{estValue ? `Est. value $${Math.round(estValue).toLocaleString("en-US")}. Leave blank to take offers only.` : "Leave blank to take offers only."}</small>
+            {checkout && <small>{checkout.message}{checkout.block === "seller_not_onboarded" && <> <Link href="/sell/payouts">Set up payouts</Link>.</>}</small>}
           </label>
           <label className="le-field">
             <span>Shipping</span>

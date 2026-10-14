@@ -40,7 +40,7 @@
 
 ## Partially implemented
 
-**Transactions (in progress):** The orders schema, `order_create`, `order_transition`, and immutable audit log exist in migration 0066. No route, UI, or payment flow uses them yet, and checkout remains off.
+**Transactions (in progress):** The orders schema, `order_create`, `order_transition`, and immutable audit log exist in migration 0066. Migration 0068 adds seller accounts, test-mode eligibility rules, seller standards, and automatic tier promotion. Stripe Connect onboarding routes and `/sell/payouts` are available only behind the marketplace checkout allowlist. Buyer checkout remains off until the later transaction PRs land.
 
 | Piece | What exists | What's missing |
 |---|---|---|

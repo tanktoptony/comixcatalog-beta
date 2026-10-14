@@ -150,6 +150,9 @@ jobs:
       - name: Marketplace order tests
         run: npm run test:orders
 
+      - name: Marketplace seller tests
+        run: npm run test:marketplace-sellers
+
       - name: Marketplace database tests
         run: npm run test:db
 

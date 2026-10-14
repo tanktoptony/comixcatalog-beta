@@ -161,6 +161,9 @@ Columns: `username`, `is_public`, `created_at`, `avatar_key`, `avatar_url`, `is_
 - `stripe_customer_id` is mode-sensitive — a live-mode `cus_…` will fail under a test-mode key (we hit this).
 - **`is_pro`, `is_founding_collector`, `membership_tier` and `stripe_customer_id` are server-only (migrations 0032a/0032b/0049).** A trigger rejects client changes because owners could otherwise grant themselves a membership. Browsers can read `membership_tier` but not `stripe_customer_id`, so client code must select explicit columns from `profiles`, never `select("*")`.
 
+#### `seller_accounts` (migration 0068)
+Private Stripe Connect onboarding and seller-standing state keyed by `user_id`. Owners can read their own row; all writes use service-role functions. Includes the Stripe account ID, mode and capability flags, tier, payout freeze, requirements, and completed-order count.
+
 #### `follows` (migration 0048)
 One-way member relationships keyed by `(follower_id, followee_id)`. Participants can read rows; all writes use the rate-limited `/api/follows` service route, which also enforces privacy and blocks. Public member search lives at `/people`.
 
@@ -426,7 +429,7 @@ Three bugs fixed:
 - **GoCollect is dead.** Do not write new code against any GoCollect endpoint. Valuation goes through eBay Browse API.
 - **No external API as a product.** Internal use only. Don't build endpoint surfaces designed for third-party developer consumption.
 - **Tailwind only** for styling. Config is in `tailwind.config.cjs`. No inline styles for layout.
-- **`.env.local`** holds all secrets (Supabase, ComicVine, Stripe, eBay). Never commit it.
+- **`.env.local`** holds all secrets (Supabase, ComicVine, Stripe, eBay). Marketplace checkout uses `STRIPE_MKT_SECRET_KEY`, `MARKETPLACE_CHECKOUT`, and `MARKETPLACE_CHECKOUT_ALLOWLIST`. Never commit it.
 - **GitHub Actions secrets** mirror `.env.local` for scheduled jobs. `weekly-refresh.yml` uses `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`; `gcd-issue-refresh.yml` also uses `COMICVINE_API_KEY` to identify recent-release series.
 - **Python scripts in root** are data pipeline tools (ingestion, seeding, diagnostics) — not part of the Next.js app runtime. New scripts go in `scripts/` (Node).
 - **`codebase.txt`** is a snapshot that may be stale — don't treat it as ground truth.

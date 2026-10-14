@@ -7,6 +7,7 @@ import os from "node:os";
 import { syncBuiltinESMExports } from "node:module";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
+import { randomBytes } from "node:crypto";
 
 const execFileAsync = promisify(execFile);
 
@@ -39,7 +40,7 @@ export async function startDatabase() {
   databaseDir = await mkdtemp(join(tmpdir(), "cc-orders-"));
   port = await freePort();
   postgres = new EmbeddedPostgres({
-    databaseDir, user: "postgres", password: "postgres", port, persistent: false,
+    databaseDir, user: "postgres", password: randomBytes(16).toString("hex"), port, persistent: false,
     onLog: () => {}, onError: () => {}, initdbFlags: ["--encoding=UTF8", "--locale=C"],
   });
   await postgres.initialise();

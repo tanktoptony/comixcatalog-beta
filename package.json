@@ -90,7 +90,8 @@
     "test:db": "node --test --test-concurrency=1 tests/db/*.test.js",
     "test:marketplace-orders-ui": "node --test src/lib/tracking.test.js src/lib/orderEmails.test.js src/lib/orderEvents.test.js",
     "test:marketplace-feedback": "node --test src/lib/feedback.test.js",
-    "test:marketplace-disputes": "node --test src/lib/orderRefunds.test.js"
+    "test:marketplace-disputes": "node --test src/lib/orderRefunds.test.js",
+    "test:marketplace-fraud": "node --test src/lib/buyerLimits.test.js src/lib/messageContent.test.js src/lib/marketplaceWebhook.test.js"
     ,"test:marketplace-sellers": "node --test src/lib/marketplaceFlags.test.js src/lib/sellerStanding.test.js",
     "test:marketplace-checkout": "node --test src/lib/checkoutSession.test.js src/lib/marketplaceWebhook.test.js scripts/lib/marketplaceSweep.test.js"
   },

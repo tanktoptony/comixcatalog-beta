@@ -165,6 +165,9 @@ jobs:
       - name: Marketplace dispute and refund tests
         run: npm run test:marketplace-disputes
 
+      - name: Marketplace fraud tests
+        run: npm run test:marketplace-fraud
+
       - name: Marketplace database tests
         run: npm run test:db
 

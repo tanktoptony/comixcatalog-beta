@@ -49396,9 +49396,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T05:00:53.579778+00:00",
-    "retry_after": "2026-10-14T05:00:53.579796+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T05:15:53.911150+00:00",
+    "retry_after": "2026-10-17T05:15:53.911166+00:00"
   },
   {
     "name": "S.L.A.M. Force",
@@ -49406,9 +49406,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T05:00:54.186919+00:00",
-    "retry_after": "2026-10-14T05:00:54.186940+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T05:15:55.773987+00:00",
+    "retry_after": "2026-10-17T05:15:55.774007+00:00"
   },
   {
     "name": "Hey! B.C.",
@@ -49416,9 +49416,9 @@
     "year": 1967,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T05:00:55.299001+00:00",
-    "retry_after": "2026-10-14T05:00:55.299019+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T05:15:56.300787+00:00",
+    "retry_after": "2026-10-17T05:15:56.300803+00:00"
   },
   {
     "name": "X-Men Annuals",
@@ -49426,9 +49426,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T05:03:05.481474+00:00",
-    "retry_after": "2026-10-14T05:03:05.481491+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T05:15:57.403746+00:00",
+    "retry_after": "2026-10-17T05:15:57.403760+00:00"
   },
   {
     "name": "Magenta",
@@ -49449,9 +49449,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T05:03:29.696655+00:00",
-    "retry_after": "2026-10-14T05:03:29.696672+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T05:15:57.813343+00:00",
+    "retry_after": "2026-10-17T05:15:57.813358+00:00"
   },
   {
     "name": "Justice",
@@ -49472,9 +49472,9 @@
         "start_year": 1986
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T05:03:58.356477+00:00",
-    "retry_after": "2026-10-14T05:03:58.356493+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T05:15:58.346065+00:00",
+    "retry_after": "2026-10-17T05:15:58.346081+00:00"
   },
   {
     "name": "Doll Man",
@@ -49495,9 +49495,9 @@
         "start_year": 1963
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T05:04:25.097944+00:00",
-    "retry_after": "2026-10-14T05:04:25.097962+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T05:15:58.860116+00:00",
+    "retry_after": "2026-10-17T05:15:58.860131+00:00"
   },
   {
     "name": "Spider-Man \"Verbal Abuse\"",
@@ -52316,5 +52316,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-14T04:16:38.142635+00:00",
     "retry_after": "2026-10-15T04:16:38.142653+00:00"
+  },
+  {
+    "name": "You Are Too Much, Charlie Brown",
+    "publisher": "Fawcett Comics",
+    "year": 1966,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T05:15:56.741361+00:00",
+    "retry_after": "2026-10-15T05:15:56.741378+00:00"
+  },
+  {
+    "name": "Sl�ine: Books of Invasions",
+    "publisher": "Rebellion",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T05:18:05.846371+00:00",
+    "retry_after": "2026-10-15T05:18:05.846386+00:00"
+  },
+  {
+    "name": "Transformers Robots in Disguise",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 83472,
+        "name": "Transformers Robots In Disguise",
+        "publisher": "IDW Publishing",
+        "start_year": 2015
+      },
+      {
+        "id": 55244,
+        "name": "The Transformers: Robots in Disguise",
+        "publisher": "IDW Publishing",
+        "start_year": 2012
+      },
+      {
+        "id": 45397,
+        "name": "The Transformers: Robots in Disguise",
+        "publisher": "IDW Publishing",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T05:19:41.614441+00:00",
+    "retry_after": "2026-10-15T05:19:41.614456+00:00"
+  },
+  {
+    "name": "Western Roundup",
+    "publisher": "Marvel Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33718,
+        "name": "Western Roundup",
+        "publisher": "Dell",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T05:19:42.100111+00:00",
+    "retry_after": "2026-10-15T05:19:42.100125+00:00"
   }
 ]

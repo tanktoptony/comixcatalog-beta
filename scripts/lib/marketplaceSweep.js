@@ -1,5 +1,6 @@
 import { handlePaidSession } from "../../src/lib/marketplaceWebhook.js";
 import { afterOrderTransition } from "../../src/lib/orderEvents.js";
+import { sendOrderEmails } from "../../src/lib/orderEmails.js";
 
 function dataOrThrow(result) {
   if (result?.error) throw result.error;
@@ -39,6 +40,8 @@ export async function runMarketplaceSweep({
     expired: 0,
     db: {},
     transferred: 0,
+    feedbackChecked: 0,
+    feedbackReminders: 0,
     skippedRefunded: 0,
     errors: 0,
   };
@@ -104,6 +107,40 @@ export async function runMarketplaceSweep({
     }
   }
 
+  if (apply) {
+    try {
+      summary.feedbackChecked = await dataOrThrow(await db.rpc("mkt_feedback_sweep", {})) || 0;
+    } catch (error) {
+      summary.errors++;
+      log(`Feedback standing sweep failed: ${error.message}`);
+    }
+
+    try {
+      const reminderBefore = new Date(now.getTime() - 7 * 86400000).toISOString();
+      const reminderAfter = new Date(now.getTime() - 8 * 86400000).toISOString();
+      const { data: reminderOrders, error } = await db
+        .from("orders")
+        .select("*")
+        .eq("status", "completed")
+        .gte("completed_at", reminderAfter)
+        .lte("completed_at", reminderBefore)
+        .limit(500);
+      if (error) throw error;
+      for (const order of reminderOrders || []) {
+        const feedback = await dataOrThrow(await db.from("order_feedback").select("author_id").eq("order_id", order.id)) || [];
+        const rated = new Set(feedback.map((row) => row.author_id));
+        for (const role of ["buyer", "seller"]) {
+          if (rated.has(order[`${role}_id`])) continue;
+          await sendOrderEmails(db, order, "feedback_reminder", { recipientRoles: [role] });
+          summary.feedbackReminders++;
+        }
+      }
+    } catch (error) {
+      summary.errors++;
+      log(`Feedback reminder sweep failed: ${error.message}`);
+    }
+  }
+
   let due = [];
   try {
     due = await dataOrThrow(await db.rpc("mkt_payout_due", { p_limit: 50 })) || [];
@@ -152,7 +189,8 @@ export async function runMarketplaceSweep({
   const mode = apply ? "applied" : "dry run";
   log(
     `Marketplace sweep: ${mode}; expired ${summary.expired}; transferred ${summary.transferred}; `
-    + `refunded skipped ${summary.skippedRefunded}; errors ${summary.errors}.`,
+    + `refunded skipped ${summary.skippedRefunded}; feedback checked ${summary.feedbackChecked}; `
+    + `feedback reminders ${summary.feedbackReminders}; errors ${summary.errors}.`,
   );
   return summary;
 }

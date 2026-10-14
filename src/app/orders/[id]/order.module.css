@@ -34,5 +34,13 @@
 .messages time { color: #89919e; font-size: .72rem; }
 .thread form { display: grid; grid-template-columns: 1fr auto; gap: 10px; margin-top: 16px; }
 .thread textarea { min-height: 76px; resize: vertical; }
+.feedbackCard { margin-top: 22px; padding: 22px; border: 1px solid var(--cc-gold-soft, #5e4c22); border-radius: 16px; background: var(--cc-surface, #101620); }
+.ratingChoices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+.ratingChoices button { display: grid; gap: 4px; padding: 16px 8px; }
+.ratingChoices button:first-child,.ratingSelected { border-color: var(--cc-gold, #e4b94f); color: var(--cc-gold, #e4b94f); }
+.feedbackCard label,.feedbackCard textarea { display: block; width: 100%; }
+.feedbackCard textarea { padding: 9px; border: 1px solid #ffffff22; border-radius: 6px; background: #090d14; color: white; }
+.feedbackCard small { display: block; text-align: right; }
+.receivedFeedback { margin-top: 18px; padding-top: 18px; border-top: 1px solid #ffffff22; }
 @media (max-width: 800px) { .receipt { grid-template-columns: minmax(110px, 180px) 1fr; } .receipt aside { grid-column: 1 / -1; } }
 @media (max-width: 480px) { .page { padding: 18px 10px; } .receipt { grid-template-columns: 90px 1fr; gap: 14px; padding: 14px; } .details h1 { font-size: 1.55rem; } .thread { padding: 14px; } .thread form { grid-template-columns: 1fr; } .messages article { max-width: 92%; } }

@@ -1,4 +1,4 @@
-import { sendOrderEmails } from "./orderEmails.js";
+import { sendFeedbackRequestEmails, sendOrderEmails } from "./orderEmails.js";
 
 function addBusinessDays(value, days) {
   const date = new Date(value);
@@ -54,6 +54,7 @@ export async function afterOrderTransition(db, order, event, dependencies = {}) 
   }
   try {
     await sendOrderEmails(db, order, event, dependencies);
+    if (event === "completed") await sendFeedbackRequestEmails(db, order, dependencies);
   } catch (error) {
     console.error(`Order ${order.id} email failed:`, error);
   }

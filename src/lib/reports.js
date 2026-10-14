@@ -1,4 +1,4 @@
-export const REPORT_TARGET_TYPES = new Set(["listing", "message", "user", "photo"]);
+export const REPORT_TARGET_TYPES = new Set(["listing", "message", "user", "photo", "feedback"]);
 export const REPORT_REASONS = new Set([
   "spam",
   "scam",

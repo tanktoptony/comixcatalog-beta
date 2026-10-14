@@ -7,6 +7,8 @@ import { useSearchParams } from "next/navigation";
 import { authedFetch } from "@/lib/apiClient";
 import { statusLabel } from "@/lib/orders";
 import { trackingUrl } from "@/lib/tracking";
+import { feedbackRatingLabel } from "@/lib/feedback";
+import ReportButton from "@/components/ReportButton";
 import styles from "@/app/orders/[id]/order.module.css";
 
 const money = (value) => new Intl.NumberFormat("en-US", {
@@ -22,6 +24,9 @@ export default function OrderStatus({ id }) {
   const [shipping, setShipping] = useState(false);
   const [carrier, setCarrier] = useState("usps");
   const [tracking, setTracking] = useState("");
+  const [feedbackRating, setFeedbackRating] = useState("");
+  const [feedbackComment, setFeedbackComment] = useState("");
+  const [feedbackBusy, setFeedbackBusy] = useState(false);
   const load = useCallback(async () => {
     try {
       const [orderResponse, messagesResponse] = await Promise.all([
@@ -89,6 +94,28 @@ export default function OrderStatus({ id }) {
     await load();
   }
 
+  async function leaveFeedback(event) {
+    event.preventDefault();
+    setFeedbackBusy(true);
+    try {
+      const response = await authedFetch(`/api/orders/${id}/feedback`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ rating: feedbackRating, comment: feedbackComment }),
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        setState((current) => ({ ...current, actionError: result.error }));
+        return;
+      }
+      await load();
+    } catch (error) {
+      setState((current) => ({ ...current, actionError: error.message }));
+    } finally {
+      setFeedbackBusy(false);
+    }
+  }
+
   if (state.loading) return <main className={styles.page}><p>Loading order...</p></main>;
   if (state.notFound) return <main className={styles.page}><h1>Order not found</h1></main>;
   if (state.error) return <main className={styles.page}><h1>Could not load order</h1><p>{state.error}</p></main>;
@@ -137,6 +164,44 @@ export default function OrderStatus({ id }) {
           {state.actionError && <p className={styles.error}>{state.actionError}</p>}
         </aside>
       </section>
+      {order.status === "completed" && (
+        <section className={styles.feedbackCard}>
+          <h2>Order feedback</h2>
+          {order.feedback.can_leave ? (
+            <form onSubmit={leaveFeedback}>
+              <p>Your feedback stays hidden until both of you rate or 14 days pass.</p>
+              <div className={styles.ratingChoices}>
+                {["positive", "neutral", "negative"].map((rating) => (
+                  <button type="button" className={feedbackRating === rating ? styles.ratingSelected : ""} onClick={() => setFeedbackRating(rating)} key={rating}>
+                    <span aria-hidden="true">{rating === "positive" ? "★" : rating === "neutral" ? "●" : "▼"}</span>
+                    {rating[0].toUpperCase() + rating.slice(1)}
+                  </button>
+                ))}
+              </div>
+              <label>
+                <span>Comment</span>
+                <textarea value={feedbackComment} onChange={(event) => setFeedbackComment(event.target.value)} maxLength={500} rows={4} />
+                <small>{feedbackComment.length}/500</small>
+              </label>
+              <button disabled={!feedbackRating || feedbackBusy}>{feedbackBusy ? "Saving..." : "Leave feedback"}</button>
+            </form>
+          ) : order.feedback.mine ? (
+            <div>
+              <p>You left: <strong>{feedbackRatingLabel(order.feedback.mine.rating)}</strong></p>
+              {order.feedback.mine.comment && <p>{order.feedback.mine.comment}</p>}
+              {!order.feedback.theirs && new Date(order.feedback.mine.visible_at).getTime() > Date.now() && <p>Visible on {new Date(order.feedback.mine.visible_at).toLocaleDateString()}</p>}
+            </div>
+          ) : <p>The feedback window closed.</p>}
+          {order.feedback.theirs && (
+            <article className={styles.receivedFeedback}>
+              <h3>Feedback from @{person}</h3>
+              <p><strong>{feedbackRatingLabel(order.feedback.theirs.rating)}</strong></p>
+              {order.feedback.theirs.comment && <p>{order.feedback.theirs.comment}</p>}
+              <ReportButton targetType="feedback" targetId={order.id} ownerId={order.role === "buyer" ? order.seller_id : order.buyer_id} />
+            </article>
+          )}
+        </section>
+      )}
       <section className={styles.thread}>
         <h2>Order thread</h2>
         <div className={styles.messages}>{messages.length === 0 && <p>No messages yet.</p>}{messages.map((message) => <article className={message.is_system ? styles.system : ""} key={message.id}><p>{message.body}</p><time>{new Date(message.created_at).toLocaleString()}</time></article>)}</div>

@@ -8,6 +8,17 @@ const SITE_URL = "https://www.comixcatalog.com";
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 
 async function loadTarget(supabase, report, reporterId) {
+  if (report.target_type === "feedback") {
+    const { data, error } = await supabase
+      .from("order_feedback")
+      .select("order_id,author_id,subject_id,comment")
+      .eq("order_id", report.target_id)
+      .neq("author_id", reporterId)
+      .maybeSingle();
+    if (error) throw error;
+    if (!data || data.subject_id !== reporterId) return null;
+    return { text: `Order feedback: ${data.comment || "No comment."}`, url: `${SITE_URL}/orders/${data.order_id}`, authorId: data.author_id };
+  }
   if (report.target_type === "listing") {
     const { data, error } = await supabase.from("listings").select("id, seller_id, series_title, issue_number").eq("id", report.target_id).maybeSingle();
     if (error) throw error;
@@ -73,7 +84,10 @@ export async function POST(req) {
     const decision = reportSubmissionDecision({ openDuplicate: duplicateResult.data, reportsInLast24Hours: countResult.count ?? 0 });
     if (decision.kind === "duplicate") return NextResponse.json({ ok: true, report: decision.report });
     if (decision.kind === "limited") return NextResponse.json({ error: decision.error }, { status: 429 });
-    const { data: inserted, error } = await supabase.from("reports").insert({ reporter_id: user.id, ...report }).select("id, reporter_id, target_type, target_id, reason, details, status, created_at").single();
+    const details = target.authorId
+      ? [report.details, `Feedback author: ${target.authorId}`].filter(Boolean).join("\n")
+      : report.details;
+    const { data: inserted, error } = await supabase.from("reports").insert({ reporter_id: user.id, ...report, details }).select("id, reporter_id, target_type, target_id, reason, details, status, created_at").single();
     if (error) throw error;
     const { data: profile, error: profileError } = await supabase.from("profiles").select("username").eq("id", user.id).maybeSingle();
     if (profileError) console.error("Report email: reporter lookup failed:", profileError.message);

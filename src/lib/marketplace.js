@@ -6,6 +6,7 @@ import { POST as libraryHydratePOST } from "@/app/api/library-hydrate/route";
 import { normalizePublisherLabel } from "@/lib/publisher";
 import { coverPathFromUrl, toListing } from "@/lib/listingRow";
 import { KIND_LABELS, photoUrl } from "@/lib/listingPhotos";
+import { formatSellerRating } from "@/lib/feedback";
 
 // Marketplace v2 read model (migration 0031). Each listed copy is a row in
 // `listings` that snapshots the title, issue, publisher, cover and grade, so
@@ -146,7 +147,30 @@ async function computeListingsForIssue(gcdIssueId) {
     .order("created_at", { ascending: false })
     .limit(200);
   if (error) throw error;
-  return (data ?? []).map((r) => toListing(r, process.env.NEXT_PUBLIC_SUPABASE_URL));
+  const listings = (data ?? []).map((r) => toListing(r, process.env.NEXT_PUBLIC_SUPABASE_URL));
+  const usernames = [...new Set(listings.map((listing) => listing.seller).filter(Boolean))];
+  if (usernames.length === 0) return listings;
+  // Ratings are a nice-to-have: a failure shows the table without them instead of erroring it.
+  const { data: profiles, error: profileError } = await sb
+    .from("profiles")
+    .select("id,username")
+    .in("username", usernames);
+  if (profileError) {
+    console.error("seller rating profile lookup failed:", profileError);
+    return listings;
+  }
+  const ids = (profiles || []).map((profile) => profile.id);
+  const { data: ratings, error: ratingError } = await sb.rpc("mkt_seller_ratings", { p_sellers: ids });
+  if (ratingError) {
+    console.error("seller ratings lookup failed:", ratingError);
+    return listings;
+  }
+  const byId = new Map((ratings || []).map((rating) => [rating.seller_id, rating]));
+  const profileByName = new Map((profiles || []).map((profile) => [profile.username, profile.id]));
+  return listings.map((listing) => ({
+    ...listing,
+    sellerRating: formatSellerRating(byId.get(profileByName.get(listing.seller))),
+  }));
 }
 
 // Every visible listing, newest first, for /marketplace and its API. Cached
@@ -210,6 +234,9 @@ async function computeListing(id) {
     .order("sort_order", { ascending: true })
     .limit(20);
   if (pErr) throw pErr;
+  const { data: rating, error: ratingError } = await sb.rpc("mkt_seller_rating", { p_seller: l.seller_id });
+  // Show the listing without a rating rather than failing the page.
+  if (ratingError) console.error("seller rating lookup failed:", ratingError);
   const supa = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const photos = (photoRows ?? []).map((p) => ({
     id: p.id,
@@ -237,6 +264,7 @@ async function computeListing(id) {
       founder: Boolean(seller.is_founding_collector),
       avatar: avatarForProfile({ ...seller, id: l.seller_id }, { width: 88, height: 88 }),
       otherListings: otherCount ?? 0,
+      rating: formatSellerRating(rating),
     },
   };
 }

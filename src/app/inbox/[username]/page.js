@@ -19,7 +19,8 @@ import styles from "./thread.module.css";
 import ReportButton from "@/components/ReportButton";
 
 const MAX_BODY = 4000;
-const PAYMENT_WARNING = "Heads up: payments outside ComixCatalog checkout aren't covered. If someone asks for Friends and Family, Zelle, a wire or gift cards, that's the classic scam.";
+// Shown to everyone, including people who can't use checkout yet, so it can't point at checkout.
+const PAYMENT_WARNING = "Heads up: Friends and Family, Zelle, wires and gift cards come with zero buyer protection, which is exactly why scammers ask for them. PayPal Goods and Services protects you.";
 
 function formatTimestamp(iso) {
   if (!iso) return "";

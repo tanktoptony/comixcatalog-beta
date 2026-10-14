@@ -136,3 +136,77 @@ test("account update retrieves fresh and external update marks bank change", asy
   }, deps);
   assert.ok(deps.calls.some((call) => call[0] === "mkt_mark_bank_changed"));
 });
+
+function disputeDeps({ knownOrder = true, knownRefund = false } = {}) {
+  const calls = [];
+  const order = knownOrder ? { id: "00000000-0000-4000-8000-000000000001" } : null;
+  return {
+    calls,
+    db: {
+      from: (table) => ({
+        select: () => ({
+          eq: () => ({
+            maybeSingle: async () => ({
+              data: table === "orders" ? order : knownRefund ? { id: "saved" } : null,
+              error: null,
+            }),
+          }),
+        }),
+      }),
+      rpc: async (name, args) => {
+        calls.push([name, args]);
+        return { data: null, error: null };
+      },
+    },
+    stripe: {
+      charges: {
+        retrieve: async () => ({ transfer_group: order?.id }),
+      },
+      paymentIntents: {
+        retrieve: async () => ({ metadata: { order_id: order?.id } }),
+      },
+    },
+    notifyAdmin: async (message) => calls.push(["notify", message]),
+  };
+}
+
+test("charge.refunded records dashboard refunds and skips our recorded refund", async () => {
+  const dashboard = disputeDeps();
+  await handleMarketplaceEvent({
+    id: "evt_refund",
+    type: "charge.refunded",
+    data: { object: { transfer_group: dashboard.db ? "00000000-0000-4000-8000-000000000001" : "", refunds: { data: [{ id: "re_1", amount: 250 }] } } },
+  }, dashboard);
+  assert.equal(dashboard.calls.filter(([name]) => name === "order_record_refund").length, 1);
+  const own = disputeDeps({ knownRefund: true });
+  await handleMarketplaceEvent({
+    id: "evt_echo",
+    type: "charge.refunded",
+    data: { object: { transfer_group: "00000000-0000-4000-8000-000000000001", refunds: { data: [{ id: "re_1", amount: 250 }] } } },
+  }, own);
+  assert.equal(own.calls.length, 0);
+});
+
+test("chargeback create, won, lost, and duplicate events use idempotent RPCs", async () => {
+  for (const [status, won] of [["won", true], ["lost", false]]) {
+    const deps = disputeDeps();
+    await handleMarketplaceEvent({ id: `evt_${status}`, type: "charge.dispute.closed", data: { object: { id: `dp_${status}`, charge: "ch_1", status } } }, deps);
+    const close = deps.calls.find(([name]) => name === "order_close_chargeback");
+    assert.equal(close[1].p_won, won);
+    await handleMarketplaceEvent({ id: `evt_${status}`, type: "charge.dispute.closed", data: { object: { id: `dp_${status}`, charge: "ch_1", status } } }, deps);
+    assert.equal(deps.calls.filter(([name]) => name === "order_close_chargeback").length, 2);
+  }
+  const created = disputeDeps();
+  await handleMarketplaceEvent({ id: "evt_created", type: "charge.dispute.created", data: { object: { id: "dp_1", charge: "ch_1" } } }, created);
+  assert.ok(created.calls.some(([name]) => name === "order_record_chargeback"));
+  assert.ok(created.calls.some(([name]) => name === "notify"));
+});
+
+test("closed before created is accepted and unknown chargeback orders are ignored", async () => {
+  const reverse = disputeDeps();
+  await handleMarketplaceEvent({ id: "evt_closed", type: "charge.dispute.closed", data: { object: { id: "dp_reverse", charge: "ch_1", status: "lost" } } }, reverse);
+  assert.ok(reverse.calls.some(([name]) => name === "order_close_chargeback"));
+  const unknown = disputeDeps({ knownOrder: false });
+  await handleMarketplaceEvent({ id: "evt_unknown", type: "charge.dispute.created", data: { object: { id: "dp_unknown", charge: "ch_1" } } }, unknown);
+  assert.equal(unknown.calls.length, 0);
+});

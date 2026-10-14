@@ -8,9 +8,19 @@ async function rpc(db, name, args) {
 }
 
 async function orderById(db, id) {
+  if (!id) return null;
   const { data, error } = await db.from("orders").select("*").eq("id", id).maybeSingle();
   if (error) throw error;
   return data;
+}
+
+async function orderForCharge(db, stripe, charge) {
+  const direct = charge.transfer_group || charge.metadata?.order_id;
+  let order = await orderById(db, direct);
+  if (order || !charge.payment_intent) return order;
+  const intent = await stripe.paymentIntents.retrieve(charge.payment_intent);
+  order = await orderById(db, intent.metadata?.order_id);
+  return order;
 }
 
 export async function transition(db, order, to, role, payload = {}, eventId = null) {
@@ -92,6 +102,52 @@ export async function handleMarketplaceEvent(event, deps) {
     if (order?.status === "awaiting_payment") {
       const cancelled = await transition(deps.db, order, "cancelled", "system", {}, event.id);
       await afterOrderTransition(deps.db, cancelled, "cancelled");
+    }
+    return;
+  }
+  if (event.type === "charge.refunded") {
+    const order = await orderForCharge(deps.db, deps.stripe, object);
+    if (!order) return;
+    for (const refund of object.refunds?.data || []) {
+      const { data: existing, error: lookupError } = await deps.db.from("order_refunds").select("id").eq("stripe_refund_id", refund.id).maybeSingle();
+      if (lookupError) throw lookupError;
+      if (existing) continue;
+      await rpc(deps.db, "order_record_refund", {
+        p_order: order.id,
+        p_amount: refund.amount,
+        p_reason: "stripe_dashboard",
+        p_actor: null,
+        p_actor_role: "stripe",
+        p_stripe_refund_id: refund.id,
+        p_transfer_reversal_id: null,
+      });
+    }
+    return;
+  }
+  if (event.type.startsWith("charge.dispute.")) {
+    const charge = typeof object.charge === "string" ? await deps.stripe.charges.retrieve(object.charge) : object.charge;
+    const order = charge ? await orderForCharge(deps.db, deps.stripe, charge) : null;
+    if (event.type === "charge.dispute.created") {
+      if (!order) return;
+      await rpc(deps.db, "order_record_chargeback", { p_order: order.id, p_stripe_dispute_id: object.id, p_event_id: event.id });
+      await deps.notifyAdmin(`Chargeback opened for order ${order.id}: /admin/orders/${order.id}`);
+      return;
+    }
+    if (event.type === "charge.dispute.updated") {
+      if (order) await rpc(deps.db, "mkt_audit_stripe", { p_entity_id: order.id, p_action: event.type, p_event_id: event.id });
+      return;
+    }
+    if (!order) return;
+    try {
+      await rpc(deps.db, "order_close_chargeback", { p_stripe_dispute_id: object.id, p_won: object.status === "won", p_event_id: event.id });
+    } catch (error) {
+      if (error?.code !== "P0002") throw error;
+      await rpc(deps.db, "order_record_chargeback", { p_order: order.id, p_stripe_dispute_id: object.id, p_event_id: `${event.id}:created` });
+      await rpc(deps.db, "order_close_chargeback", { p_stripe_dispute_id: object.id, p_won: object.status === "won", p_event_id: event.id });
+    }
+    // A lost chargeback after the seller was paid leaves the platform short until someone reverses the transfer.
+    if (object.status !== "won" && order.stripe_transfer_id) {
+      await deps.notifyAdmin(`Chargeback lost on order ${order.id} after payout ${order.stripe_transfer_id}. Reverse the transfer: /admin/orders/${order.id}`);
     }
     return;
   }

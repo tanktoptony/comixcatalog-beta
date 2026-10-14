@@ -71,6 +71,8 @@ From the v2 brief, not built:
 
 `listings`, `listing_photos`, `user_blocks`, `reports` (0031); view `marketplace_listings` (active listings from visible sellers, plus `seller_username` and the copy's values); `messages` (0005). Writes to `listings` only via the trigger and the service role. No insert/update/delete policies for users.
 
+Migration 0073 adds buyer disputes, Stripe dashboard refund reconciliation, chargeback outcomes, seller standing enforcement, and aal2-protected admin order tools. Open disputes hold only the affected order's payout. Refund and dispute records are readable by the buyer and seller through restricted RLS policies.
+
 ## Required before real transactions
 
 1. Server-side messaging with rate limits, blocks and reports (Phase 2).

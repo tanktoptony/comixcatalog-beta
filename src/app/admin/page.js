@@ -97,6 +97,7 @@ export default function AdminPage() {
         <Link className="admin-btn" href="/admin/review">Open review queue</Link>
         <Link className="admin-btn" href="/admin/reports">Open reports</Link>
         <Link className="admin-btn" href="/admin/traction">Open traction</Link>
+        <Link className="admin-btn" href="/admin/orders">Orders</Link>
       </div>
 
       <section className="admin-card">

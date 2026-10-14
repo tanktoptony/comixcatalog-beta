@@ -41,6 +41,10 @@ export function orderEmailTemplate(order, event, recipientRole) {
     "refunded:buyer": ["Order refunded", `The order for <strong>${book}</strong> was refunded.`],
     "refunded:seller": ["Order refunded", `The order for <strong>${book}</strong> was refunded.`],
     "cancelled:buyer": ["Order cancelled", `The order for <strong>${book}</strong> was cancelled.`],
+    "disputed:buyer": ["Dispute opened", `We received your dispute for <strong>${book}</strong>. An admin will review the order thread.`],
+    "disputed:seller": ["Order dispute opened", `A dispute was opened for <strong>${book}</strong>. Please keep the order thread complete and factual.`],
+    "dispute_resolved:buyer": ["Order dispute resolved", `The dispute for <strong>${book}</strong> was resolved. View the receipt for details.`],
+    "dispute_resolved:seller": ["Order dispute resolved", `The dispute for <strong>${book}</strong> was resolved. View the receipt for details.`],
   };
   const selected = templates[`${event}:${recipientRole}`];
   if (!selected) return null;
@@ -53,7 +57,7 @@ export function orderEmailTemplate(order, event, recipientRole) {
 }
 
 export async function sendOrderEmails(db, order, event, { send = resendBatch, recipientRoles = null } = {}) {
-  const defaultRoles = event === "paid" || event === "refunded" || event === "feedback_request" || event === "feedback_reminder"
+  const defaultRoles = event === "paid" || event === "refunded" || event === "feedback_request" || event === "feedback_reminder" || event === "disputed" || event === "dispute_resolved"
     ? ["buyer", "seller"]
     : event === "shipped" || event === "cancelled"
       ? ["buyer"]

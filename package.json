@@ -12,7 +12,7 @@
     "test:cover-match": "node --test src/lib/coverMatch.test.js",
     "test:cover-scan": "node --test src/lib/coverScan.test.js",
     "test:review": "node --test src/lib/review.test.js",
-    "test:covers": "node --test src/lib/catalog/covers.test.js src/lib/catalog/seriesCoverStages.test.js",
+    "test:covers": "node --test src/lib/catalog/covers.test.js src/lib/catalog/seriesCoverStages.test.js src/lib/catalog/seriesCardCovers.test.js",
     "test:fetch-all": "node --test src/lib/supabase/fetchAllPages.test.js",
     "test:creator-page": "node --test src/lib/creatorPage.test.js",
     "test:years": "node --test src/lib/years.test.js",

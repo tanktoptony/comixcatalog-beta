@@ -328,17 +328,65 @@ export async function resolveSeriesCovers(supabase, seriesRows) {
       publisher: owner.resolved_publisher_cached,
     };
   });
-  const covers = await resolveCovers(supabase, issues);
+  return pickSeriesCoversStaged(series, issues, (batch) => resolveCovers(supabase, batch));
+}
+
+// Each series card shows issue #1's cover, or failing that the lowest-numbered
+// issue that has one. Resolving covers for EVERY issue of every series to make
+// that choice took 35-40 s for a "batman" results page (a few dozen series,
+// thousands of issues). The issues are already sorted in pick order, so
+// resolve them in growing prefixes: the #1s, then the first dozen, then the
+// rest, and stop for each series at its first covered issue. Because every
+// stage is a prefix of the same order, the first covered issue found is the
+// same one the full pass would pick. resolveCovers decides each issue from
+// rows fetched for that issue (its series, its title + number), so batching
+// doesn't change any single answer.
+export const SERIES_COVER_STAGE_SIZE = 12;
+
+export function seriesCoverPickOrder(left, right) {
+  const leftOne = baseIssueNumber(left.issue_number) === "1" ? 0 : 1;
+  const rightOne = baseIssueNumber(right.issue_number) === "1" ? 0 : 1;
+  return leftOne - rightOne || compareIssueNumbers(left.issue_number, right.issue_number);
+}
+
+export async function pickSeriesCoversStaged(series, issues, resolveBatch, { stageSize = SERIES_COVER_STAGE_SIZE } = {}) {
+  const ordered = new Map(series.map((owner) => [String(owner.gcd_id), []]));
+  for (const issue of issues) ordered.get(String(issue.series_gcd_id))?.push(issue);
+  for (const list of ordered.values()) list.sort(seriesCoverPickOrder); // stable, same order as before
+
+  const prefixLength = [
+    (list) => { let n = 0; while (n < list.length && baseIssueNumber(list[n].issue_number) === "1") n += 1; return n; },
+    (list) => Math.min(list.length, stageSize),
+    (list) => list.length,
+  ];
+
+  const covers = new Map();
+  const tried = new Set();
   const picked = new Map();
-  for (const owner of series) {
-    const covered = issues.filter((issue) =>
-      String(issue.series_gcd_id) === String(owner.gcd_id) && covers.has(issue.gcd_issue_id)
-    ).sort((left, right) => {
-      const leftOne = baseIssueNumber(left.issue_number) === "1" ? 0 : 1;
-      const rightOne = baseIssueNumber(right.issue_number) === "1" ? 0 : 1;
-      return leftOne - rightOne || compareIssueNumbers(left.issue_number, right.issue_number);
-    });
-    if (covered.length) picked.set(owner.id, covers.get(covered[0].gcd_issue_id));
+  let pending = [...series];
+  for (const lengthOf of prefixLength) {
+    if (!pending.length) break;
+    const batch = [];
+    for (const owner of pending) {
+      const list = ordered.get(String(owner.gcd_id));
+      for (const issue of list.slice(0, lengthOf(list))) {
+        if (tried.has(issue.gcd_issue_id)) continue;
+        tried.add(issue.gcd_issue_id);
+        batch.push(issue);
+      }
+    }
+    if (batch.length) {
+      for (const [issueId, cover] of await resolveBatch(batch)) covers.set(issueId, cover);
+    }
+    const stillPending = [];
+    for (const owner of pending) {
+      const list = ordered.get(String(owner.gcd_id));
+      const prefix = list.slice(0, lengthOf(list));
+      const first = prefix.find((issue) => covers.has(issue.gcd_issue_id));
+      if (first) picked.set(owner.id, covers.get(first.gcd_issue_id));
+      else if (prefix.length < list.length) stillPending.push(owner);
+    }
+    pending = stillPending;
   }
   return picked;
 }

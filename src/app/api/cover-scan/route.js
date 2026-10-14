@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { searchSeriesRpc } from "@/lib/searchRpc";
 import { getAuthedUser } from "@/lib/authServer";
 import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
@@ -38,7 +39,7 @@ async function findCandidates(supabase, extracted) {
     .limit(50);
   for (const token of directTokens) directQuery = directQuery.ilike("name", `%${token}%`);
   const [{ data: seriesRows, error: seriesError }, { data: gcdSeriesRows, error: gcdSeriesError }] = await Promise.all([
-    supabase.rpc("search_series_by_relevance", { normalized_term: term, allowed_publishers: US_PUBLISHER_ALLOWLIST, result_limit: 1000 }),
+    searchSeriesRpc(supabase, { normalized_term: term, allowed_publishers: US_PUBLISHER_ALLOWLIST, result_limit: 1000 }),
     directTokens.length ? directQuery : Promise.resolve({ data: [], error: null }),
   ]);
   if (seriesError) throw seriesError;

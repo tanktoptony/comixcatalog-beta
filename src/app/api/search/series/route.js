@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { searchSeriesRpc } from "@/lib/searchRpc";
 import { parseSearchQuery, yearMatches, yearScore } from "@/lib/searchQuery";
 import { diversify } from "@/lib/searchVariety";
 import { getServiceClient } from "@/lib/supabase/service";
@@ -99,7 +100,7 @@ const SERIES_SELECT = `
 // run yet (function not found) or any other RPC error — never worse than
 // the pre-fix behavior, just not yet fixed until the migration lands.
 async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
-  let { data, error } = await supabase.rpc("search_series_by_relevance", {
+  let { data, error } = await searchSeriesRpc(supabase, {
     normalized_term: searchWords,
     allowed_publishers: US_PUBLISHER_ALLOWLIST,
     result_limit: 1000,
@@ -110,7 +111,7 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
   // keeps existing searches working during the deploy window. The spaced
   // first call is what unlocks word-order matching after 0038 is applied.
   if (searchWords !== normalizedQ) {
-    const legacy = await supabase.rpc("search_series_by_relevance", {
+    const legacy = await searchSeriesRpc(supabase, {
       normalized_term: normalizedQ,
       allowed_publishers: US_PUBLISHER_ALLOWLIST,
       result_limit: 1000,

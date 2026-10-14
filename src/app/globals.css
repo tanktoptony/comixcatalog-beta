@@ -12439,9 +12439,24 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .search-prompt { margin: 0 0 14px; }
 .search-empty .cover-scanner { max-width: 420px; }
 .search-issues-heading { margin-top: 24px; }
-.search-series-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-@media (min-width: 640px) {
-  .search-series-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+/* Series shelf above the issues: eight compact covers (two rows of four on
+ * narrow screens, one row on desktop) so a broad name like "batman" shows
+ * more of its runs before the issue list starts. */
+.search-series-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.search-series-grid .comic-card { border-radius: 10px; color: inherit; text-decoration: none; }
+.search-series-grid .comic-card-cover::after { font-size: 0.45rem; bottom: 8px; }
+.search-series-grid .comic-card-title,
+.search-series-grid .comic-card-meta {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding: 0 8px;
+}
+.search-series-grid .comic-card-title { font-size: 0.74rem; margin-top: 6px; }
+.search-series-grid .comic-card-meta { font-size: 0.64rem; color: #94a3b8; }
+@media (min-width: 900px) {
+  .search-series-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 14px; }
 }
 .cover-scan-error { color: #ff8a80; }
 

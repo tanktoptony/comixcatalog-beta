@@ -49,6 +49,9 @@ function formatYearRange(start, end) {
   return `${s}–${e}`;
 }
 
+const NO_ROWS = [];
+const NO_RESULTS = { q: null, rows: NO_ROWS };
+
 export default function Header() {
   const { user, profile, loading, profileLoading, signOut, isPro, isPlus, hasSupporterPerks } = useAuth();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -59,8 +62,16 @@ export default function Header() {
   // replaced. See src/context/SearchQueryContext.js for why it isn't
   // useSearchParams().
   const { query, setQuery } = useSearchQuery();
-  const [seriesResults, setSeriesResults] = useState([]);
-  const [comicResults, setComicResults] = useState([]);
+  // Each result set remembers the query it answers, so a section renders as
+  // soon as its own request returns and never shows the previous query's rows.
+  const [seriesFound, setSeriesFound] = useState(NO_RESULTS);
+  const [comicsFound, setComicsFound] = useState(NO_RESULTS);
+  const currentQuery = query.trim();
+  const seriesResults = seriesFound.q === currentQuery ? seriesFound.rows : NO_ROWS;
+  const comicResults = comicsFound.q === currentQuery ? comicsFound.rows : NO_ROWS;
+  // Covers the debounce gap too, so "No results" never flashes between a
+  // keystroke and its request.
+  const awaitingResults = Boolean(currentQuery) && (seriesFound.q !== currentQuery || comicsFound.q !== currentQuery);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
@@ -109,10 +120,9 @@ export default function Header() {
     }
   }
 
-  // Everything except the query itself.
+  // Closes the panel. Results stay keyed to their query, so refocusing the
+  // same query reopens them without another request.
   function dismissSuggestions() {
-    setSeriesResults([]);
-    setComicResults([]);
     setSearchOpen(false);
     setHighlightedIndex(-1);
   }
@@ -191,8 +201,6 @@ export default function Header() {
     // top of the page's own search running against the same query.
     if (onSearchPage) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
-      setSeriesResults([]);
-      setComicResults([]);
       setSearchLoading(false);
       return;
     }
@@ -206,59 +214,52 @@ export default function Header() {
       // state from an async callback, which is the sanctioned pattern.
       // (The rule is disabled once for this effect, on the /search guard
       // above; a second directive here would be flagged as unused.)
-      setSeriesResults([]);
-      setComicResults([]);
       setSearchLoading(false);
       return;
     }
 
     let cancelled = false;
 
-    const timeout = setTimeout(async () => {
-      try {
-        setSearchLoading(true);
-
-        const [seriesRes, comicsRes] = await Promise.all([
-          // 36, up from the old fixed 12. The panel spans the page and
-          // scrolls, so it has room to show the shape of a character's shelf
-          // rather than twelve volumes of one title. The API diversifies
-          // across distinct runs before truncating, so a bigger number buys
-          // more DIFFERENT runs rather than more of the same one.
-          fetch(`/api/search/series?q=${encodeURIComponent(q)}&limit=36`, {
-            cache: "no-store",
-          }),
-          fetch(`/api/search/comics?q=${encodeURIComponent(q)}&limit=8&offset=0`, {
-            cache: "no-store",
-          }),
-        ]);
-
-        const [seriesData, comicsData] = await Promise.all([
-          seriesRes.ok ? seriesRes.json() : { series: [] },
-          comicsRes.ok ? comicsRes.json() : { comics: [] },
-        ]);
-
-        if (cancelled) return;
-
-        const series = Array.isArray(seriesData?.series) ? seriesData.series : [];
-        const comics = Array.isArray(comicsData?.comics)
-          ? comicsData.comics.map(mapComicResult).filter(Boolean)
-          : [];
-
-        setSeriesResults(series.slice(0, 5));
-        setComicResults(comics.slice(0, 8));
-        setSearchOpen(true);
-      } catch (err) {
-        console.error("Header search failed:", err);
-        if (!cancelled) {
-          setSeriesResults([]);
-          setComicResults([]);
+    // Series and issues load independently: the dropdown used to wait for
+    // the slower of the two before showing anything.
+    const timeout = setTimeout(() => {
+      setSearchLoading(true);
+      let pending = 2;
+      const settle = () => {
+        pending -= 1;
+        if (pending === 0 && !cancelled) setSearchLoading(false);
+      };
+      const load = (url, pick, store) => fetch(url, { cache: "no-store" })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+          if (cancelled) return;
+          store({ q, rows: pick(data) });
           setSearchOpen(true);
-        }
-      } finally {
-        if (!cancelled) {
-          setSearchLoading(false);
-        }
-      }
+        })
+        .catch((err) => {
+          console.error("Header search failed:", err);
+          if (!cancelled) {
+            store({ q, rows: NO_ROWS });
+            setSearchOpen(true);
+          }
+        })
+        .finally(settle);
+
+      // 36, up from the old fixed 12. The API diversifies across distinct
+      // runs before truncating, so a bigger number buys more DIFFERENT runs
+      // rather than more of the same one; the dropdown shows the first five.
+      load(
+        `/api/search/series?q=${encodeURIComponent(q)}&limit=36`,
+        (data) => (Array.isArray(data?.series) ? data.series.slice(0, 5) : NO_ROWS),
+        setSeriesFound,
+      );
+      load(
+        `/api/search/comics?q=${encodeURIComponent(q)}&limit=8&offset=0`,
+        (data) => (Array.isArray(data?.comics)
+          ? data.comics.map(mapComicResult).filter(Boolean).slice(0, 8)
+          : NO_ROWS),
+        setComicsFound,
+      );
     }, 250);
 
     return () => {
@@ -393,17 +394,17 @@ export default function Header() {
               className="header-search-dropdown"
               style={dropdownTop != null ? { top: `${dropdownTop}px` } : undefined}
             >
-              {searchLoading && (
+              {(searchLoading || awaitingResults) && !hasResults && (
                 <div className="header-search-state">Searching…</div>
               )}
 
-              {!searchLoading && !hasResults && query.trim() && (
+              {!searchLoading && !awaitingResults && !hasResults && query.trim() && (
                 <div className="header-search-state">
                   No results for “{query}”.
                 </div>
               )}
 
-              {!searchLoading && seriesGroups.length > 0 && (
+              {seriesGroups.length > 0 && (
                 <div className="header-search-group">
                   <div className="header-search-group-title">Series</div>
                   {/* One cell per RUN, with its volumes inside. A collector
@@ -492,7 +493,7 @@ export default function Header() {
                 </div>
               )}
 
-              {!searchLoading && comicResults.length > 0 && (
+              {comicResults.length > 0 && (
                 <div className="header-search-group">
                   <div className="header-search-group-title">Issues</div>
                   {comicResults.map((comic, i) => {

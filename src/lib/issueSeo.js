@@ -73,13 +73,16 @@ export function buildIssueJsonLd(issue, id) {
     ...(credit.slug ? { url: `${SITE_URL}/creator/${encodeURIComponent(credit.slug)}` } : {}),
   }));
   const firstSynopsis = issue?.stories?.find((story) => String(story.synopsis ?? "").trim())?.synopsis;
+  const datePublished = issue?.details?.on_sale_date || issue?.details?.keydate || issue?.publication_date || (issue?.release_year != null ? String(issue.release_year) : undefined);
   const characters = characterNames(issue).map((name) => ({ "@type": "Thing", name }));
   const data = {
     "@context": "https://schema.org",
     "@type": "ComicIssue",
     name: issueName(issue),
     issueNumber: issue.issue_number != null ? String(issue.issue_number) : undefined,
-    datePublished: issue.release_year != null ? String(issue.release_year) : undefined,
+    datePublished,
+    isbn: issue?.details?.isbn || undefined,
+    numberOfPages: issue?.details?.page_count != null ? Number(issue.details.page_count) : undefined,
     publisher: issue.publisher
       ? { "@type": "Organization", name: issue.publisher }
       : undefined,

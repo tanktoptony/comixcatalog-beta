@@ -1,12 +1,16 @@
 import { SITE_URL } from "@/lib/siteUrl";
-import { getIssueData } from "@/lib/pageData";
+import { getIssueData, resolveIssueEdition } from "@/lib/pageData";
 import { buildIssueDescription, issueName } from "@/lib/issueSeo";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
 
   try {
-    const issue = await getIssueData(id);
+    // Canonical is always the base edition's /issue/gcd-<n> URL.
+    const gcdNumber = String(id).match(/^(?:gcd-)?(\d+)$/)?.[1] ?? null;
+    const resolution = gcdNumber ? await resolveIssueEdition(gcdNumber) : null;
+    const canonicalId = resolution?.baseGcdId ? `gcd-${resolution.baseGcdId}` : gcdNumber ? `gcd-${gcdNumber}` : id;
+    const issue = await getIssueData(gcdNumber ? `gcd-${gcdNumber}` : id);
     if (!issue) throw new Error("no issue");
 
     const cover = issue.cover || null;
@@ -19,7 +23,7 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: `${title} | ComixCatalog`,
         description,
-        url: `${SITE_URL}/issue/${id}`,
+        url: `${SITE_URL}/issue/${canonicalId}`,
         type: "article",
         images: cover ? [{ url: cover, alt: `${title} cover` }] : undefined,
       },
@@ -29,7 +33,7 @@ export async function generateMetadata({ params }) {
         description,
         images: cover ? [cover] : undefined,
       },
-      alternates: { canonical: `${SITE_URL}/issue/${id}` },
+      alternates: { canonical: `${SITE_URL}/issue/${canonicalId}` },
     };
   } catch {
     return {};

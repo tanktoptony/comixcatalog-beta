@@ -40,6 +40,8 @@
 
 ## Partially implemented
 
+**Transactions (in progress):** The orders schema, `order_create`, `order_transition`, and immutable audit log exist in migration 0066. No route, UI, or payment flow uses them yet, and checkout remains off.
+
 | Piece | What exists | What's missing |
 |---|---|---|
 | Reports | Report button on listings, profiles and threads → `POST /api/reports` (10/day per reporter, dedupes open reports, emails `REPORTS_NOTIFY_EMAIL`). `/admin/reports` (admin + two-factor): dismiss, mark handled, remove listing (also sets the copy back to `owned`) | A removed book can be re-listed by the seller as a fresh listing; no seller suspension |

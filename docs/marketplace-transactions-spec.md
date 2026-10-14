@@ -1,6 +1,6 @@
 # Marketplace transactions spec (orders, payments, feedback)
 
-**Status:** approved 2026-10-14. Tony accepted every recommended default (D1 to D20). No code yet; build PRs a to h follow.
+**Status:** approved 2026-10-14. Tony accepted every recommended default (D1 to D20). PR a is built in migration 0066; PRs b to h follow.
 **Builds on:** [MARKETPLACE.md](MARKETPLACE.md) (current state), [marketplace-v2-build-brief.md](marketplace-v2-build-brief.md) (plan of record; this doc replaces its Phase 4 and the ratings/limits half of Phase 5).
 **Model:** Discogs. Every sale is an order for one physical copy, with a strict lifecycle, managed payments, an order thread, two-way feedback and seller standards.
 
@@ -106,7 +106,7 @@ A seller can never move an order to `delivered` or `completed`. A buyer can neve
 - Parties: `id` uuid pk, `listing_id` → listings `on delete set null`, `buyer_id`, `seller_id` → auth.users `on delete restrict`, `sold_item_id` → sold_items.
 - Snapshot at creation (the listing can vanish later): `series_title`, `issue_number`, `release_year`, `publisher`, `variant_label`, `printing_name`, `gcd_issue_id`, `cover_path`, `condition`, `grade_numeric`, `slab_company`, `slab_cert_number`, `restored`, `signed`, `condition_notes`, `photo_keys` jsonb.
 - Money, all int cents, all set by the database: `item_cents`, `shipping_cents`, `tax_cents`, `total_cents`, `platform_fee_cents`, `processing_fee_cents`, `seller_net_cents`, `refunded_cents` (check `<= total_cents`), `currency` check = 'usd', `livemode` bool.
-- `status` check in the 10 states above.
+- `status` check in the 9 states above.
 - Stripe: `stripe_checkout_session_id` unique, `stripe_payment_intent_id` unique, `stripe_charge_id` unique, `stripe_transfer_id` unique, `checkout_expires_at`.
 - Shipping: `ship_to` jsonb (from Stripe, never the client), `ship_to_redacted_at`, `tracking_carrier` check in (`usps`,`ups`,`fedex`,`dhl`,`other`), `tracking_number`.
 - Timeline: `created_at`, `paid_at`, `shipped_at`, `delivered_at`, `delivered_by` (`buyer`|`system`), `completed_at`, `cancelled_at`, `refunded_at`, `payout_eligible_at`, `transferred_at`.

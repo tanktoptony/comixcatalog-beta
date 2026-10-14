@@ -68,7 +68,7 @@ export default function SoldHistoryPage() {
             <time dateTime={sale.sold_at}>{new Date(sale.sold_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</time>
             <div><strong>{href ? <Link href={href}>{sale.series_title}{sale.issue_number ? ` #${sale.issue_number}` : ""}</Link> : <>{sale.series_title}{sale.issue_number ? ` #${sale.issue_number}` : ""}</>}</strong>{sale.variant_label && <small>{sale.variant_label}</small>}</div>
             <span>{grade}</span>
-            <span className="sold-buyer-status">{sale.buyer_id && <small>@{buyerNames[sale.buyer_id] || "member"}</small>}<span className={`sold-status-chip sold-status-${sale.status}`}>{sale.buyer_id ? sale.status === "pending_buyer" ? "Pending" : sale.status[0].toUpperCase() + sale.status.slice(1) : "Recorded"}</span></span>
+            <span className="sold-buyer-status">{sale.buyer_id && <small>@{buyerNames[sale.buyer_id] || "member"}</small>}<span className={`sold-status-chip sold-status-${sale.status}`}>{sale.buyer_id ? sale.status === "pending_buyer" ? "Pending" : sale.status === "order_pending" ? "In order" : sale.status[0].toUpperCase() + sale.status.slice(1) : "Recorded"}</span></span>
             <b>{new Intl.NumberFormat("en-US", { style: "currency", currency: sale.currency || "USD" }).format(Number(sale.sale_price))}</b>
           </article>;
         })}

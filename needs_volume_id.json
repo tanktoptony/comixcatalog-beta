@@ -49710,9 +49710,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T09:05:07.264592+00:00",
-    "retry_after": "2026-10-14T09:05:07.264606+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T09:15:49.929103+00:00",
+    "retry_after": "2026-10-17T09:15:49.929121+00:00"
   },
   {
     "name": "The New Avengers",
@@ -49745,16 +49745,16 @@
         "start_year": 2015
       },
       {
-        "id": 40895,
-        "name": "The New Avengers",
-        "publisher": "Marvel",
-        "start_year": 2007
-      },
-      {
         "id": 165022,
         "name": "New Avengers",
         "publisher": "Marvel",
         "start_year": 2025
+      },
+      {
+        "id": 40895,
+        "name": "The New Avengers",
+        "publisher": "Marvel",
+        "start_year": 2007
       },
       {
         "id": 170991,
@@ -49763,9 +49763,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T09:05:20.586353+00:00",
-    "retry_after": "2026-10-14T09:05:20.586365+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T09:15:52.111087+00:00",
+    "retry_after": "2026-10-17T09:15:52.111105+00:00"
   },
   {
     "name": "Star Wars: Dawn of the Jedi",
@@ -52486,5 +52486,55 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-14T08:05:56.412053+00:00",
     "retry_after": "2026-10-15T08:05:56.412069+00:00"
+  },
+  {
+    "name": "Hawkeye Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T09:17:56.440088+00:00",
+    "retry_after": "2026-10-15T09:17:56.440107+00:00"
+  },
+  {
+    "name": "Judge Dredd: Day of Chaos",
+    "publisher": "Rebellion",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T09:17:56.794918+00:00",
+    "retry_after": "2026-10-15T09:17:56.794936+00:00"
+  },
+  {
+    "name": "Ms. Tree's Thrilling Detective Adventures",
+    "publisher": "Eclipse Comics",
+    "year": 1983,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T09:18:04.377779+00:00",
+    "retry_after": "2026-10-15T09:18:04.377797+00:00"
+  },
+  {
+    "name": "Namor, the Sub-Mariner Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T09:19:23.380549+00:00",
+    "retry_after": "2026-10-15T09:19:23.380566+00:00"
+  },
+  {
+    "name": "Uncanny X-Men by Matt Fraction: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T09:19:23.709898+00:00",
+    "retry_after": "2026-10-15T09:19:23.709915+00:00"
   }
 ]

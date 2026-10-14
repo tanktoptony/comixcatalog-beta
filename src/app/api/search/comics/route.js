@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { searchSeriesRpc } from "@/lib/searchRpc";
 import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
@@ -11,6 +11,7 @@ import { getAuthedUser } from "@/lib/authServer";
 import { ADMIN_ID } from "@/lib/admin";
 import { unstable_cache } from "next/cache";
 import { createServerTiming } from "@/lib/serverTiming";
+import { cachedSearchTerm } from "@/lib/searchTermCache";
 import {
   DegradedSearchError,
   normalizeSearchCacheTerm,
@@ -110,7 +111,10 @@ function isPlaceholderIssueNumber(value) {
 // worst-case real totals top out around 687, and 1000 is PostgREST's own
 // default response cap regardless of what's requested. Falls back to the
 // old ILIKE query if the migration hasn't been run yet.
-async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
+// onFallback: the ILIKE path is a different (smaller, unranked) candidate set,
+// reached today mostly when the RPC times out under load. Callers mark the
+// result degraded so it is shown but never cached (search_term_cache, CDN).
+async function fetchSeriesCandidates(supabase, searchWords, normalizedQ, onFallback = () => {}) {
   let { data, error } = await searchSeriesRpc(supabase, {
     normalized_term: searchWords,
     allowed_publishers: US_PUBLISHER_ALLOWLIST,
@@ -131,6 +135,7 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ) {
     "series search RPC (search_series_by_relevance_v2, migration 0064) failed, falling back to ILIKE search:",
     error.message
   );
+  onFallback();
   const { data: fallbackRows, error: fallbackError } = await supabase
     .from("series")
     .select("gcd_id, title, resolved_publisher_cached, issue_count_cached, us_market")
@@ -204,7 +209,7 @@ async function computeComicsResponse(req) {
             .order("created_at", { ascending: false })
             .limit(20)
         : Promise.resolve({ data: [] }),
-      fetchSeriesCandidates(supabase, searchWords, normalizedQ).catch((err) => {
+      fetchSeriesCandidates(supabase, searchWords, normalizedQ, () => { searchDegraded = true; }).catch((err) => {
         console.error("series search for comics failed:", err);
         searchDegraded = true;
         return [];
@@ -421,80 +426,134 @@ async function computeComicsResponse(req) {
   }
 }
 
-const cachedPublicComicsSearch = unstable_cache(
+// The full public result for one term (approved contributions + catalog
+// issues, ranked, no covers). Stored per term in search_term_cache; a
+// degraded result is returned but never stored.
+async function computeComicsTerm(normalizedTerm) {
+  const response = await computeComicsResponse(
+    new Request(`http://internal/api/search/comics?q=${encodeURIComponent(normalizedTerm)}&limit=120&offset=0&full=1`)
+  );
+  const serverTiming = response.headers.get("Server-Timing") || "";
+  const result = await response.json();
+  return { ...result, _serverTiming: serverTiming };
+}
+
+// Only used when search_term_cache can't be read (migration 0068 missing).
+const legacyCachedComicsSearch = unstable_cache(
   async (normalizedTerm) => {
-    const response = await computeComicsResponse(
-      new Request(`http://internal/api/search/comics?q=${encodeURIComponent(normalizedTerm)}&limit=120&offset=0&full=1`)
-    );
-    const serverTiming = response.headers.get("Server-Timing") || "";
-    const result = await response.json();
-    const measured = { ...result, _serverTiming: serverTiming };
-    if (result.degraded) throw new DegradedSearchError(measured);
+    const measured = await computeComicsTerm(normalizedTerm);
+    if (measured.degraded) throw new DegradedSearchError(measured);
     return measured;
   },
   ["search-comics-v1"],
   { revalidate: SEARCH_CACHE_REVALIDATE_SECONDS, tags: ["search"] }
 );
 
-export async function getCachedComicsSearch(q, { limit = 36, offset = 0 } = {}) {
+// A signed-in viewer also sees their own unapproved contributions (the admin
+// sees everyone's). Only that part is per viewer, so it is one small query
+// merged into the shared result, ranked with the same score the full
+// computation uses. Before this, any signed-in search skipped the cache.
+async function viewerPendingRows(supabase, viewer, titleQuery) {
+  let query = supabase
+    .from("comics")
+    .select(`
+      id,
+      series_title,
+      publisher,
+      issue_number,
+      release_year,
+      variant_name,
+      created_by,
+      review_status,
+      comic_covers (
+        image_path,
+        is_primary
+      )
+    `)
+    .ilike("series_title", `%${titleQuery}%`)
+    .is("gcd_id", null)
+    .neq("review_status", "approved");
+  if (viewer.id !== ADMIN_ID) query = query.eq("created_by", viewer.id);
+  const { data, error } = await query.order("created_at", { ascending: false }).limit(20);
+  if (error) throw error;
+  return (data ?? []).map((comic) => ({
+    id: comic.id,
+    series_title: comic.series_title ?? null,
+    publisher: comic.publisher ?? null,
+    issue_number: comic.issue_number,
+    release_year: comic.release_year,
+    variant_name: comic.variant_name,
+    created_by: comic.created_by ?? null,
+    cover_path: comic.comic_covers?.find((c) => c.is_primary)?.image_path ?? null,
+    __source: "user",
+  }));
+}
+
+function mergeViewerRows(rows, extra, q) {
+  if (!extra.length) return rows;
+  const queriedIssueNumber = extractIssueNumberFromQuery(q);
+  const strippedQuery = stripTrailingIssueNumber(q);
+  const titleQuery = queriedIssueNumber && strippedQuery ? strippedQuery : q;
+  const normalizedQForScoring = normalizeForScoring(titleQuery);
+  const score = (row) =>
+    scoreSeriesTitle(row.series_title, normalizedQForScoring) +
+    scoreIssueNumberMatch(row.issue_number, queriedIssueNumber) +
+    (row.__source === "user" ? 50 : 0);
+  // Cached rows are already in score order; a stable sort keeps them that
+  // way and puts the viewer's own books ahead of equal-scoring rows.
+  return dedupeById([...extra, ...rows])
+    .map((row) => ({ row, score: score(row) }))
+    .sort((a, b) => b.score - a.score)
+    .map(({ row }) => row);
+}
+
+export async function getCachedComicsSearch(q, { limit = 36, offset = 0, viewer = null } = {}) {
   const normalizedTerm = normalizeSearchCacheTerm(q);
-  try {
-    const result = await cachedPublicComicsSearch(normalizedTerm);
-    const selected = sliceSearchResults(result.comics, { limit, offset });
-    const gcdRows = selected.filter((row) => row.__source === "gcd");
-    const covers = await resolveCovers(getServiceClient(), gcdRows.map((row) => ({
-      gcd_issue_id: row.gcd_issue_id,
-      series_gcd_id: row.series_gcd_id,
-      series_title: row.series_title,
-      issue_number: row.issue_number,
-      year: row.release_year,
-      series_year_start: row.series_year_start,
-      series_year_end: row.series_year_end,
-      publisher: row.publisher,
-    })));
-    const comics = selected.map((row) => {
-      if (row.__source !== "gcd") return row;
-      const storagePath = covers.get(row.gcd_issue_id)?.storage_path ?? null;
-      const { gcd_issue_id, series_gcd_id, series_year_start, series_year_end, ...publicRow } = row;
-      return {
-        ...publicRow,
-        cover_path: storagePath
-          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
-          : null,
-      };
-    });
-    return { ...result, comics };
-  } catch (error) {
-    if (error instanceof DegradedSearchError) {
-      const selected = sliceSearchResults(error.result.comics, { limit, offset });
-      const gcdRows = selected.filter((row) => row.__source === "gcd");
-      const covers = await resolveCovers(getServiceClient(), gcdRows.map((row) => ({
-        gcd_issue_id: row.gcd_issue_id,
-        series_gcd_id: row.series_gcd_id,
-        series_title: row.series_title,
-        issue_number: row.issue_number,
-        year: row.release_year,
-        series_year_start: row.series_year_start,
-        series_year_end: row.series_year_end,
-        publisher: row.publisher,
-      })));
-      return {
-        ...error.result,
-        comics: selected.map((row) => {
-          if (row.__source !== "gcd") return row;
-          const storagePath = covers.get(row.gcd_issue_id)?.storage_path ?? null;
-          const { gcd_issue_id, series_gcd_id, series_year_start, series_year_end, ...publicRow } = row;
-          return {
-            ...publicRow,
-            cover_path: storagePath
-              ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
-              : null,
-          };
-        }),
-      };
-    }
-    throw error;
-  }
+  const supabase = getServiceClient();
+  const [{ result, state }, pending] = await Promise.all([
+    cachedSearchTerm(supabase, {
+      kind: "comics",
+      key: normalizedTerm,
+      compute: () => computeComicsTerm(normalizedTerm),
+      schedule: after,
+      fallback: () => legacyCachedComicsSearch(normalizedTerm).catch((error) => {
+        if (error instanceof DegradedSearchError) return error.result;
+        throw error;
+      }),
+    }),
+    viewer && offset === 0
+      ? viewerPendingRows(supabase, viewer, (() => {
+        const issue = extractIssueNumberFromQuery(q);
+        const stripped = stripTrailingIssueNumber(q);
+        return issue && stripped ? stripped : q;
+      })())
+      : Promise.resolve([]),
+  ]);
+  const ranked = mergeViewerRows(result.comics ?? [], pending, q);
+  const selected = sliceSearchResults(ranked, { limit, offset });
+  const gcdRows = selected.filter((row) => row.__source === "gcd");
+  const covers = await resolveCovers(supabase, gcdRows.map((row) => ({
+    gcd_issue_id: row.gcd_issue_id,
+    series_gcd_id: row.series_gcd_id,
+    series_title: row.series_title,
+    issue_number: row.issue_number,
+    year: row.release_year,
+    series_year_start: row.series_year_start,
+    series_year_end: row.series_year_end,
+    publisher: row.publisher,
+  })));
+  const comics = selected.map((row) => {
+    if (row.__source !== "gcd") return row;
+    const storagePath = covers.get(row.gcd_issue_id)?.storage_path ?? null;
+    const { gcd_issue_id, series_gcd_id, series_year_start, series_year_end, ...publicRow } = row;
+    return {
+      ...publicRow,
+      cover_path: storagePath
+        ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
+        : null,
+    };
+  });
+  return { ...result, comics, _cacheState: state };
 }
 
 export async function GET(req) {
@@ -508,18 +567,17 @@ export async function GET(req) {
     const offset = Math.max(0, Number(searchParams.get("offset") || 0));
     if (!q) return NextResponse.json({ comics: [] }, { headers: { "Server-Timing": timing.header() } });
 
-    // Pending contributed comics are viewer-specific. Keep that legacy path
-    // private; the complete public catalog computation is shared by every
-    // anonymous API request and the server-rendered search page.
-    if (viewer) return computeComicsResponse(req);
-
-    const result = await timing.measure("search_cache", () => getCachedComicsSearch(q, { limit, offset }));
-    const { _serverTiming, ...body } = result;
+    // The public result is shared; a signed-in viewer's own pending books are
+    // merged in per request, so their responses stay out of the shared CDN.
+    const result = await timing.measure("search_cache", () => getCachedComicsSearch(q, { limit, offset, viewer }));
+    const { _serverTiming, _cacheState, ...body } = result;
+    const privateResponse = result.degraded || viewer;
     const response = timing.measureSync("serialization", () => NextResponse.json(
       body,
-      { headers: result.degraded ? { "Cache-Control": "private, no-store" } : CDN_CACHE_SHORT }
+      { headers: privateResponse ? { "Cache-Control": "private, no-store" } : CDN_CACHE_SHORT }
     ));
     response.headers.set("Server-Timing", [_serverTiming, timing.header()].filter(Boolean).join(", "));
+    response.headers.set("X-Search-Cache", _cacheState);
     return response;
   } catch (err) {
     console.error("GET /api/search/comics crashed:", err);

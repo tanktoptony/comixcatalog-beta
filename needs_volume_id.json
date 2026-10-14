@@ -49084,9 +49084,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T00:02:34.165028+00:00",
-    "retry_after": "2026-10-14T00:02:34.165047+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T00:15:41.367436+00:00",
+    "retry_after": "2026-10-17T00:15:41.367453+00:00"
   },
   {
     "name": "Gold Key Select: Boris Karloff Thriller",
@@ -49094,9 +49094,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T00:02:34.686131+00:00",
-    "retry_after": "2026-10-14T00:02:34.686148+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T00:15:41.937818+00:00",
+    "retry_after": "2026-10-17T00:15:41.937838+00:00"
   },
   {
     "name": "Tomorrow Man Special",
@@ -49104,9 +49104,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-13T00:02:39.618988+00:00",
-    "retry_after": "2026-10-14T00:02:39.619007+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-14T00:15:42.462607+00:00",
+    "retry_after": "2026-10-17T00:15:42.462625+00:00"
   },
   {
     "name": "Deadpool Modern Era Epic Collection",
@@ -51882,5 +51882,88 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-13T23:17:54.365468+00:00",
     "retry_after": "2026-10-14T23:17:54.365488+00:00"
+  },
+  {
+    "name": "The Complete Buddy Bradley Stories from \"Hate\" Comics",
+    "publisher": "Fantagraphics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T00:15:43.070144+00:00",
+    "retry_after": "2026-10-15T00:15:43.070163+00:00"
+  },
+  {
+    "name": "Super Fist Ayumi",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T00:15:52.034073+00:00",
+    "retry_after": "2026-10-15T00:15:52.034089+00:00"
+  },
+  {
+    "name": "Family Tree",
+    "publisher": "Image Comics",
+    "year": null,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 122795,
+        "name": "Family Tree",
+        "publisher": "Image",
+        "start_year": 2019
+      },
+      {
+        "id": 127400,
+        "name": "Family Tree",
+        "publisher": "Image",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T00:15:53.465343+00:00",
+    "retry_after": "2026-10-15T00:15:53.465362+00:00"
+  },
+  {
+    "name": "Marvel Firsts: The 1970s",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T00:16:15.060760+00:00",
+    "retry_after": "2026-10-15T00:16:15.060777+00:00"
+  },
+  {
+    "name": "Der Feind",
+    "publisher": "Fawcett Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T00:17:38.010794+00:00",
+    "retry_after": "2026-10-15T00:17:38.010813+00:00"
+  },
+  {
+    "name": "X-Men: The End",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T00:17:50.346476+00:00",
+    "retry_after": "2026-10-15T00:17:50.346493+00:00"
+  },
+  {
+    "name": "Marcus Nispel's Chosen",
+    "publisher": "Dynamite Entertainment",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-14T00:17:50.870445+00:00",
+    "retry_after": "2026-10-15T00:17:50.870463+00:00"
   }
 ]

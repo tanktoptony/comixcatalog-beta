@@ -171,11 +171,18 @@ async function fetchIssueReprints(supabase, gcdId) {
 // this same combined list — a viewer can land on either a gcd- or cv- issue
 // and must be able to page through the whole run either way.
 function buildCombinedIssueList(seriesGcdId, gcdIssueRows, coverRows) {
+  const coverUrl = (path) => path
+    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`
+    : null;
+  const coversByGcdId = new Map((coverRows ?? [])
+    .filter((row) => row.gcd_issue_id && row.storage_path)
+    .map((row) => [Number(row.gcd_issue_id), coverUrl(row.storage_path)]));
   const realIssues = (gcdIssueRows ?? []).map((row) => ({
     id: `gcd-${row.gcd_id}`,
     issue_number: row.issue_number,
     title: row.title ?? null,
     release_year: bestYearFor(row),
+    cover: coversByGcdId.get(Number(row.gcd_id)) ?? null,
   }));
   const knownBases = new Set(
     realIssues.map((r) => baseIssueNumber(r.issue_number)).filter(Boolean)
@@ -194,6 +201,7 @@ function buildCombinedIssueList(seriesGcdId, gcdIssueRows, coverRows) {
     issue_number: row.issue_number,
     title: null,
     release_year: parseYear(row.cover_date) ?? Number(row.series_year ?? null) ?? null,
+    cover: coverUrl(row.storage_path),
   }));
   return dedupeSeriesIssueRows([...realIssues, ...orphanIssues]).sort(
     (a, b) => issueSortValue(a.issue_number) - issueSortValue(b.issue_number)
@@ -620,6 +628,7 @@ export async function GET(req, context) {
           source: "gcd",
           series_id: seriesId,
           series_title: seriesTitle,
+          series_year_start: parseYear(seriesRow?.year_start_cached),
           series_format: formatLabel(seriesFormat ?? {}),
           issue_number: issue.issue_number,
           title: issue.title ?? null,
@@ -809,6 +818,7 @@ export async function GET(req, context) {
           source: "canonical",
           series_id: seriesId,
           series_title: seriesTitle,
+          series_year_start: parseYear(seriesRow?.year_start_cached),
           issue_number: canonicalMatch.issue_number,
           release_year: releaseYear,
           publication_date: null,
@@ -926,6 +936,9 @@ export async function GET(req, context) {
           base,
           id: `cvt-${encodeURIComponent(seriesTitle)}-${base}`,
           issue_number: row.issue_number,
+          cover: row.storage_path
+            ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${row.storage_path}`
+            : null,
         }))
         .sort((a, b) => issueSortValue(a.issue_number) - issueSortValue(b.issue_number));
 
@@ -945,7 +958,7 @@ export async function GET(req, context) {
       }
       // Strip the internal `base` comparison key before it goes out —
       // callers only need id/issue_number.
-      const stripBase = (row) => (row ? { id: row.id, issue_number: row.issue_number } : null);
+      const stripBase = (row) => (row ? { id: row.id, issue_number: row.issue_number, cover: row.cover ?? null } : null);
       prevIssue = stripBase(prevIssue);
       nextIssue = stripBase(nextIssue);
       relatedIssues = relatedIssues.map(stripBase);
@@ -959,6 +972,7 @@ export async function GET(req, context) {
           source: "canonical",
           series_id: seriesId,
           series_title: seriesTitle,
+          series_year_start: parseYear(seriesRow?.year_start_cached),
           issue_number: canonicalMatch.issue_number,
           release_year: releaseYear,
           publication_date: null,

@@ -1,6 +1,6 @@
 # Production hardening plan
 
-**Status:** ready to run, 2026-10-15. Nothing below is built yet.
+**Status:** H1 to H5 done 2026-10-15 (#339 to #342). Open: H6 restore drill, H7 library undo, D1 PITR decision.
 **Owner:** Tony. **Builders:** Codex (jobs marked Codex), Claude (scoping, review, migrations, config, merges).
 **Source:** a "before your vibe-coded app touches a paying customer" checklist, checked against prod on 2026-10-15. ComixCatalog takes real payments soon (marketplace checkout is live in test mode for an allowlist), so this is the bar for go-live.
 
@@ -26,11 +26,11 @@ Out of scope on purpose: SSO, SAML, SCIM, tenant isolation, deeper roles, "log i
 
 | ID | Job | Who | Size | Order |
 |---|---|---|---|---|
-| H1 | Down alert: `/api/health` + 10-minute check that emails Tony | Codex | S | 1 |
+| H1 | Down alert: `/api/health` + 10-minute check that emails Tony | Codex | S | **Done 2026-10-15 (#339)** |
 | H2 | Auth settings: server password min 10, HIBP, password-changed emails, session inactivity timeout | Claude | XS | **Done 2026-10-15** |
-| H3 | One founding pass per inbox (normalize `+tags` and Gmail dots), plus "Sign out of all devices" on /account | Codex + migration | S | 2 |
-| H4 | Migration safety check in CI | Codex | S | 3 |
-| H5 | Admin-key route audit, then fixes | Codex (audit) → Codex (fixes) | M | 4 |
+| H3 | One founding pass per inbox (normalize `+tags` and Gmail dots), plus "Sign out of all devices" on /account | Codex + migration | S | **Done 2026-10-15 (#342, 0076 applied)** |
+| H4 | Migration safety check in CI | Codex | S | **Done 2026-10-15 (#340)** |
+| H5 | Admin-key route audit, then fixes | Codex (audit) → Codex (fixes) | M | **Done 2026-10-15 (#341): no findings, no Phase B** |
 | H6 | Restore drill + runbook | Claude + Tony | S | 5 |
 | H7 | Undo for library removals (soft delete) | Codex + migration | M | Later |
 | D1 | Decide on PITR (paid add-on) | Tony | n/a | At marketplace go-live |

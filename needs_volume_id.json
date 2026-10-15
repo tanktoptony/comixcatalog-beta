@@ -47620,9 +47620,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T20:07:57.197755+00:00",
-    "retry_after": "2026-10-15T20:07:57.197768+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-15T21:15:47.489006+00:00",
+    "retry_after": "2026-10-22T21:15:47.489022+00:00"
   },
   {
     "name": "Frank",
@@ -47643,9 +47643,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T20:07:57.754353+00:00",
-    "retry_after": "2026-10-15T20:07:57.754360+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-15T21:15:48.297489+00:00",
+    "retry_after": "2026-10-22T21:15:48.297504+00:00"
   },
   {
     "name": "Donald Duck De spannendste avonturen",
@@ -47783,9 +47783,9 @@
     "year": 1959,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T21:06:14.314056+00:00",
-    "retry_after": "2026-10-15T21:06:14.314073+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-15T21:15:53.034263+00:00",
+    "retry_after": "2026-10-22T21:15:53.034280+00:00"
   },
   {
     "name": "Il Dylan Dog di Tiziano Sclavi",
@@ -47793,9 +47793,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T21:06:14.782824+00:00",
-    "retry_after": "2026-10-15T21:06:14.782841+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-15T21:15:53.410635+00:00",
+    "retry_after": "2026-10-22T21:15:53.410651+00:00"
   },
   {
     "name": "Love Pic",
@@ -47803,9 +47803,9 @@
     "year": 1953,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T21:06:15.850638+00:00",
-    "retry_after": "2026-10-15T21:06:15.850654+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-15T21:15:53.864626+00:00",
+    "retry_after": "2026-10-22T21:15:53.864641+00:00"
   },
   {
     "name": "Boot & Van Dijk",
@@ -47813,9 +47813,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T21:06:16.509032+00:00",
-    "retry_after": "2026-10-15T21:06:16.509049+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-15T21:15:54.581208+00:00",
+    "retry_after": "2026-10-22T21:15:54.581223+00:00"
   },
   {
     "name": "Atoll",
@@ -51274,9 +51274,9 @@
     "year": 1988,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-14T20:15:57.950167+00:00",
-    "retry_after": "2026-10-15T20:15:57.950183+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-15T21:15:46.770178+00:00",
+    "retry_after": "2026-10-18T21:15:46.770193+00:00"
   },
   {
     "name": "Trinity of Sin: The Phantom Stranger",
@@ -51284,9 +51284,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-14T20:16:42.287673+00:00",
-    "retry_after": "2026-10-15T20:16:42.287703+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-15T21:15:48.851013+00:00",
+    "retry_after": "2026-10-18T21:15:48.851028+00:00"
   },
   {
     "name": "You've Got a Friend, Charlie Brown",
@@ -51294,9 +51294,9 @@
     "year": 1972,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-14T20:19:32.257313+00:00",
-    "retry_after": "2026-10-15T20:19:32.257327+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-15T21:15:52.396207+00:00",
+    "retry_after": "2026-10-18T21:15:52.396223+00:00"
   },
   {
     "name": "Indestructible: Stingray",
@@ -52736,5 +52736,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-15T20:15:54.304534+00:00",
     "retry_after": "2026-10-16T20:15:54.304551+00:00"
+  },
+  {
+    "name": "Hasbro / Cable & Deadpool",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T21:15:47.147077+00:00",
+    "retry_after": "2026-10-16T21:15:47.147093+00:00"
   }
 ]

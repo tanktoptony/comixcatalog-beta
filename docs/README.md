@@ -44,6 +44,7 @@ A document must never claim something is shipped just because an earlier session
 
 These describe work that's still in progress or planned, each with its own status line — check the doc's own header for current status before trusting anything in the body.
 
+- [production-hardening-plan.md](production-hardening-plan.md): **ready to run (2026-10-15).** Pre-go-live hardening as Codex-runnable jobs H1 to H7: down alert, auth settings, one founding pass per inbox, migration safety check, admin-key route audit, restore drill, library undo.
 - [data-hardening-and-growth-spec.md](data-hardening-and-growth-spec.md) — cover/publisher matching architecture fix, in progress.
 - [variant-architecture-context.md](variant-architecture-context.md) — research/context doc from 2026-08-05, superseded by variant-and-collected-editions-spec.md below. Keep for background only.
 - [variant-and-collected-editions-spec.md](variant-and-collected-editions-spec.md) — **shipped.** The variant-covers half is live: `cover_variants` table (migration `0020_cover_variants.sql`, 2026-08-05), populated via ComicVine's `associated_images` field, read by `src/app/api/issues/[id]/route.js`. CLAUDE.md's roadmap doesn't reflect this yet — see the 2026-09-12 audit note there. Collected-editions-as-pseudo-series half not independently verified this pass.

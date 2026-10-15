@@ -69,6 +69,8 @@
     "audit:errors": "node scripts/auditErrorHandling.js",
     "perf:baseline": "node scripts/perfBaseline.js",
     "docs:check": "node scripts/checkDocLinks.js",
+    "migrations:check": "node scripts/checkMigrations.js",
+    "test:migrations": "node --test scripts/checkMigrations.test.js",
     "data:plan-comics-gcd-dedupe": "node --max-old-space-size=2048 scripts/planComicsGcdDedupe.js",
     "covers:gap-priority": "node scripts/generatePriorityCoverTargets.js",
     "report:engineering": "node scripts/generateEngineeringReport.js",

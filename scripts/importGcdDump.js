@@ -138,13 +138,20 @@ function fail(label, error) {
       `${label}: ${error.code ? `${error.code} | ` : ""}${error.message}`,
     );
 }
-async function retry(label, operation, attempts = 5) {
+async function retry(label, operation, attempts = 8) {
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    const result = await operation();
+    let result;
+    try {
+      result = await operation();
+    } catch (error) {
+      result = { error: { message: String(error?.message ?? error) } };
+    }
     if (!result.error) return result.data ?? [];
     const status = Number(result.error.status ?? result.error.code);
-    if (attempt === attempts || !(status >= 500 || status === 429))
-      fail(label, result.error);
+    // Network errors ("fetch failed") carry no HTTP status; retry them too.
+    const transient =
+      status >= 500 || status === 429 || !status || /fetch failed/i.test(result.error.message ?? "");
+    if (attempt === attempts || !transient) fail(label, result.error);
     await sleep(1000 * 2 ** (attempt - 1));
   }
 }

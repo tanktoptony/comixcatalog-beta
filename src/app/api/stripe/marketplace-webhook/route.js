@@ -57,10 +57,16 @@ export async function POST(req) {
     return NextResponse.json({ received: true });
   } catch (error) {
     console.error("marketplace webhook failed:", error);
-    await db.rpc("mkt_finish_stripe_event", {
-      p_id: event.id,
-      p_error: error?.message || String(error),
-    }).catch(() => {});
+    // Supabase builders are thenables without .catch; await them inside try instead.
+    try {
+      const { error: recordError } = await db.rpc("mkt_finish_stripe_event", {
+        p_id: event.id,
+        p_error: error?.message || String(error),
+      });
+      if (recordError) console.error("marketplace webhook error not recorded:", recordError);
+    } catch (recordError) {
+      console.error("marketplace webhook error not recorded:", recordError);
+    }
     return NextResponse.json({ error: "Handler failed" }, { status: 500 });
   }
 }

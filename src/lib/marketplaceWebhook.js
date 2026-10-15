@@ -186,7 +186,8 @@ export async function handleMarketplaceEvent(event, deps) {
     await rpc(deps.db, "mkt_upsert_seller_account", {
       p_user: seller.user_id,
       p_stripe_account_id: account.id,
-      p_livemode: account.livemode,
+      // Account objects carry no livemode; the event does.
+      p_livemode: event.livemode === true,
       p_charges: account.charges_enabled,
       p_payouts: account.payouts_enabled,
       p_details: account.details_submitted,

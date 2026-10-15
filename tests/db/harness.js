@@ -56,6 +56,7 @@ export async function startDatabase() {
   const feedbackMigration = await readFile(new URL("../../scripts/migrations/0072_order_feedback.sql", import.meta.url), "utf8");
   const disputesMigration = await readFile(new URL("../../scripts/migrations/0073_disputes_refunds.sql", import.meta.url), "utf8");
   const fraudMigration = await readFile(new URL("../../scripts/migrations/0074_marketplace_fraud_limits.sql", import.meta.url), "utf8");
+  const foundingMigration = await readFile(new URL("../../scripts/migrations/0076_founding_inbox_normalization.sql", import.meta.url), "utf8");
   await client.query(fixture);
   await client.query(migration);
   await client.query(sellersMigration);
@@ -64,6 +65,7 @@ export async function startDatabase() {
   await client.query(feedbackMigration);
   await client.query(disputesMigration);
   await client.query(fraudMigration);
+  await client.query(foundingMigration);
   await client.end();
 }
 

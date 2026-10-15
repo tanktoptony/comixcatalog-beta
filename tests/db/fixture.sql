@@ -23,7 +23,10 @@ create table public.profiles (
   id uuid primary key references auth.users(id),
   username text,
   is_public boolean default true,
-  show_for_sale boolean default true
+  show_for_sale boolean default true,
+  is_pro boolean default false,
+  is_founding_collector boolean default false,
+  created_at timestamptz not null default now()
 );
 create table public.comics (
   id uuid primary key default gen_random_uuid(),

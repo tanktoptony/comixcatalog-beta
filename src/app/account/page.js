@@ -246,6 +246,14 @@ export default function AccountSettingsPage() {
           <ChangeEmail supabase={supabase} currentEmail={user.email} />
         </section>
 
+        <section className={`${styles.card} ${styles.wide}`}>
+          <div className={styles.cardHeading}><h2>Sessions</h2></div>
+          <p className={styles.description}>
+            Sign out this account on every browser and device, including this one.
+          </p>
+          <SignOutEverywhere supabase={supabase} />
+        </section>
+
         <section className={`${styles.card} ${styles.danger} ${styles.wide}`}>
           <div className={styles.cardHeading}><h2>Danger zone</h2></div>
           <h3 className={styles.dangerTitle}>Delete account</h3>
@@ -263,6 +271,45 @@ export default function AccountSettingsPage() {
         </section>
       </div>
     </main>
+  );
+}
+
+function SignOutEverywhere({ supabase }) {
+  const [confirming, setConfirming] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState(null);
+
+  async function handleSignOut() {
+    if (busy) return;
+    setBusy(true);
+    setMsg(null);
+    try {
+      const { error } = await supabase.auth.signOut({ scope: "global" });
+      if (error) {
+        setMsg({ kind: "error", text: error.message || "Could not sign out all devices." });
+        return;
+      }
+      if (typeof window !== "undefined") window.location.href = "/login";
+    } catch (error) {
+      setMsg({ kind: "error", text: "Something went wrong. Try again." });
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  if (!confirming) {
+    return <button type="button" className="secondary-btn" onClick={() => setConfirming(true)}>Sign out of all devices</button>;
+  }
+  return (
+    <div className={styles.deleteActions}>
+      <button type="button" className="danger-btn" onClick={handleSignOut} disabled={busy}>
+        {busy ? "Signing out..." : "Yes, sign out everywhere"}
+      </button>
+      <button type="button" className="secondary-btn" onClick={() => { setConfirming(false); setMsg(null); }} disabled={busy}>
+        Cancel
+      </button>
+      {msg && <div className={styles.formError} role="status">{msg.text}</div>}
+    </div>
   );
 }
 

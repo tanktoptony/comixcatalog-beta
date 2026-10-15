@@ -12974,11 +12974,17 @@
         "name": "Spider-Man",
         "publisher": "Marvel",
         "start_year": 1987
+      },
+      {
+        "id": 145364,
+        "name": "Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-01T14:14:43.506549+00:00",
-    "retry_after": "2026-10-15T14:14:43.506566+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-15T15:00:52.034829+00:00",
+    "retry_after": "2026-11-14T15:00:52.034845+00:00"
   },
   {
     "name": "Dragonfly & Dragonflyman [Free Comic Book Day]",
@@ -46959,9 +46965,9 @@
     "year": 1979,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T15:00:48.908766+00:00",
-    "retry_after": "2026-10-15T15:00:48.908781+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-15T15:11:09.719070+00:00",
+    "retry_after": "2026-10-22T15:11:09.719086+00:00"
   },
   {
     "name": "Lisa Cheese and Ghost Guitar",
@@ -47052,9 +47058,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T14:06:53.714544+00:00",
-    "retry_after": "2026-10-15T14:06:53.714562+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-15T15:11:14.779948+00:00",
+    "retry_after": "2026-10-22T15:11:14.779964+00:00"
   },
   {
     "name": "Is This Another Complaint, Beetle Bailey?",
@@ -47157,9 +47163,9 @@
         "start_year": null
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-12T14:06:54.434520+00:00",
-    "retry_after": "2026-10-15T14:06:54.434536+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-15T15:11:15.333482+00:00",
+    "retry_after": "2026-10-22T15:11:15.333496+00:00"
   },
   {
     "name": "Army Combat Picture Stories",
@@ -52170,5 +52176,447 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-15T14:16:25.007120+00:00",
     "retry_after": "2026-10-16T14:16:25.007138+00:00"
+  },
+  {
+    "name": "Time Wankers: First Hand Tales",
+    "publisher": "Fantagraphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73029,
+        "name": "Time Wankers: First Hand Tales",
+        "publisher": "Eros Comix",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:00.303085+00:00",
+    "retry_after": "2026-10-16T15:11:00.303098+00:00"
+  },
+  {
+    "name": "Space Station 6969",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36058,
+        "name": "Space Station 6969",
+        "publisher": "Eros Comix",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:00.772021+00:00",
+    "retry_after": "2026-10-16T15:11:00.772041+00:00"
+  },
+  {
+    "name": "Tales of the Vienna Sausage Woods",
+    "publisher": "Top Cow Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71419,
+        "name": "Tales of the Vienna Sausage Woods",
+        "publisher": "self published",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:01.339326+00:00",
+    "retry_after": "2026-10-16T15:11:01.339341+00:00"
+  },
+  {
+    "name": "Rex Allen",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37005,
+        "name": "Rex Allen",
+        "publisher": "Dell",
+        "start_year": 1951
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:01.961252+00:00",
+    "retry_after": "2026-10-16T15:11:01.961267+00:00"
+  },
+  {
+    "name": "Amazing Mysteries",
+    "publisher": "Fantagraphics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21608,
+        "name": "Amazing Mysteries",
+        "publisher": "Marvel",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:02.465389+00:00",
+    "retry_after": "2026-10-16T15:11:02.465404+00:00"
+  },
+  {
+    "name": "Incredible Science Fiction",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1732,
+        "name": "Incredible Science Fiction",
+        "publisher": "EC",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:03.023482+00:00",
+    "retry_after": "2026-10-16T15:11:03.023497+00:00"
+  },
+  {
+    "name": "Slug 'N' Ginger",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71822,
+        "name": "Slug 'N' Ginger",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:03.601983+00:00",
+    "retry_after": "2026-10-16T15:11:03.601999+00:00"
+  },
+  {
+    "name": "Yank Adventure Comics",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81877,
+        "name": "Yank Adventure Comics",
+        "publisher": "Ayers & James",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:04.315477+00:00",
+    "retry_after": "2026-10-16T15:11:04.315488+00:00"
+  },
+  {
+    "name": "Peach and the Isle of Monsters",
+    "publisher": "Action Lab Entertainment",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78644,
+        "name": "Peach and the Isle of Monsters",
+        "publisher": "Aw Yeah Comics!",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:04.880432+00:00",
+    "retry_after": "2026-10-16T15:11:04.880447+00:00"
+  },
+  {
+    "name": "Amora",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29174,
+        "name": "Amora",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:05.307561+00:00",
+    "retry_after": "2026-10-16T15:11:05.307577+00:00"
+  },
+  {
+    "name": "Up from Bondage",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73618,
+        "name": "Up from Bondage",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:05.719458+00:00",
+    "retry_after": "2026-10-16T15:11:05.719473+00:00"
+  },
+  {
+    "name": "Nick Calm, Agent of C.O.D.P.I.E.C.E.",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113097,
+        "name": "Nick Calm: Agent of C.O.D.P.I.E.C.E.",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:06.098429+00:00",
+    "retry_after": "2026-10-16T15:11:06.098445+00:00"
+  },
+  {
+    "name": "Final Street",
+    "publisher": "First Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111746,
+        "name": "Final Street",
+        "publisher": "Devil's Due",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:06.596435+00:00",
+    "retry_after": "2026-10-16T15:11:06.596451+00:00"
+  },
+  {
+    "name": "The Undateable Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111216,
+        "name": "Undateable Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:07.056934+00:00",
+    "retry_after": "2026-10-16T15:11:07.056950+00:00"
+  },
+  {
+    "name": "Teenage Revels",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84398,
+        "name": "Teenage Revels",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:07.533703+00:00",
+    "retry_after": "2026-10-16T15:11:07.533715+00:00"
+  },
+  {
+    "name": "2021",
+    "publisher": "Titan Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 107553,
+        "name": "2021",
+        "publisher": "Soleil",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:08.080753+00:00",
+    "retry_after": "2026-10-16T15:11:08.080768+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe: The Murders in the Rue Morgue and Other Stories",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62562,
+        "name": "Edgar Allan Poe: The Murders in the Rue Morgue and Other Stories",
+        "publisher": "Eternity",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:08.700341+00:00",
+    "retry_after": "2026-10-16T15:11:08.700357+00:00"
+  },
+  {
+    "name": "Retief: Grime and Punishment",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61605,
+        "name": "Retief: Grime and Punishment",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:09.146009+00:00",
+    "retry_after": "2026-10-16T15:11:09.146024+00:00"
+  },
+  {
+    "name": "Rat-man Collection",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27840,
+        "name": "Rat-Man Collection",
+        "publisher": "Panini Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:10.419610+00:00",
+    "retry_after": "2026-10-16T15:11:10.419626+00:00"
+  },
+  {
+    "name": "Illustrated Romance Library",
+    "publisher": "Marvel Comics",
+    "year": 1958,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126200,
+        "name": "Illustrated Romance Library",
+        "publisher": "Magazine Management",
+        "start_year": 1957
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:11.043172+00:00",
+    "retry_after": "2026-10-16T15:11:11.043187+00:00"
+  },
+  {
+    "name": "Devil & Hulk",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27428,
+        "name": "Devil & Hulk",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:11.393829+00:00",
+    "retry_after": "2026-10-16T15:11:11.393844+00:00"
+  },
+  {
+    "name": "Eureka Pocket",
+    "publisher": "Dark Horse Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27400,
+        "name": "Eureka Pocket",
+        "publisher": "Editoriale Corno",
+        "start_year": 1968
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:11.837811+00:00",
+    "retry_after": "2026-10-16T15:11:11.837826+00:00"
+  },
+  {
+    "name": "Storia del West",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 146339,
+        "name": "Storia del West",
+        "publisher": "Il Sole 24 Ore",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:12.586637+00:00",
+    "retry_after": "2026-10-16T15:11:12.586652+00:00"
+  },
+  {
+    "name": "Dylan Dog Super Book",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72089,
+        "name": "Dylan Dog Super Book",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:13.041050+00:00",
+    "retry_after": "2026-10-16T15:11:13.041066+00:00"
+  },
+  {
+    "name": "Eros Graphic Albums",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25078,
+        "name": "Eros Graphic Albums",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:13.658334+00:00",
+    "retry_after": "2026-10-16T15:11:13.658349+00:00"
+  },
+  {
+    "name": "Graphic Novel",
+    "publisher": "Avatar Press",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109384,
+        "name": "Graphic Novel",
+        "publisher": "Abril",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-15T15:11:14.202291+00:00",
+    "retry_after": "2026-10-16T15:11:14.202306+00:00"
   }
 ]

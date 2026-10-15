@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
 import { statusLabel } from "@/lib/orders";
 import styles from "@/app/orders/orders.module.css";
+import PayoutsPrompt from "@/components/PayoutsPrompt";
 
 function money(cents) {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(cents / 100);
@@ -50,6 +51,7 @@ export default function OrdersList() {
           <button key={value} role="tab" aria-selected={role === value} onClick={() => setRole(value)}>{value === "buying" ? "Buying" : "Selling"}</button>
         ))}
       </div>
+      {role === "selling" && <PayoutsPrompt />}
       {state.loading && <p className={styles.state}>Loading the receipts...</p>}
       {state.error && <p className={styles.state}>Could not load orders. {state.error}</p>}
       {!state.loading && !state.error && state.orders.length === 0 && (

@@ -20,6 +20,7 @@ import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import styles from "./account.module.css";
+import PayoutsPrompt from "@/components/PayoutsPrompt";
 
 export default function AccountSettingsPage() {
   const { user, profile, loading, signOut } = useAuth();
@@ -205,6 +206,11 @@ export default function AccountSettingsPage() {
             )}
           </ToggleSetting>
         </section>
+
+        <PayoutsPrompt
+          showWhenReady
+          card={{ className: `${styles.card} ${styles.wide}`, headingClassName: styles.cardHeading }}
+        />
 
         <section className={styles.card} id="notifications">
           <div className={styles.cardHeading}><h2>Notifications</h2></div>

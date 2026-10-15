@@ -27,7 +27,7 @@ Out of scope on purpose: SSO, SAML, SCIM, tenant isolation, deeper roles, "log i
 | ID | Job | Who | Size | Order |
 |---|---|---|---|---|
 | H1 | Down alert: `/api/health` + 10-minute check that emails Tony | Codex | S | 1 |
-| H2 | Auth settings: server password min 10, HIBP, password-changed emails, session inactivity timeout | Claude | XS | 1 (parallel) |
+| H2 | Auth settings: server password min 10, HIBP, password-changed emails, session inactivity timeout | Claude | XS | **Done 2026-10-15** |
 | H3 | One founding pass per inbox (normalize `+tags` and Gmail dots), plus "Sign out of all devices" on /account | Codex + migration | S | 2 |
 | H4 | Migration safety check in CI | Codex | S | 3 |
 | H5 | Admin-key route audit, then fixes | Codex (audit) → Codex (fixes) | M | 4 |
@@ -97,6 +97,8 @@ Claude applies these with `PATCH /v1/projects/{ref}/config/auth`, records before
 | `sessions_inactivity_timeout` | 0 | 30 days | Abandoned sessions die. Paid-plan feature; skip if refused |
 
 Existing users are unaffected until they next change their password.
+
+**Done 2026-10-15.** All five applied. `sessions_inactivity_timeout` is in hours, so 720 = 30 days (2592000 was refused, max 8760). Verified on prod: a signup with an 8-character password returns `weak_password` ("at least 10 characters"), and a 12-character leaked password returns `weak_password` with reason `pwned`. Neither created an account.
 
 ## H3. One founding pass per inbox + sign out everywhere (Codex, migration)
 

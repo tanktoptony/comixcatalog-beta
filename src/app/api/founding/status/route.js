@@ -5,6 +5,7 @@ import { isDisposableEmail } from "@/lib/disposableEmail";
 import { buildFoundingClaimEmail, createFoundingToken, hashFoundingToken, mapFoundingClaim } from "@/lib/foundingClaim";
 import { resendBatch } from "@/lib/newsletter";
 import { SITE_URL } from "@/lib/siteUrl";
+import { foundingInboxIsClaimed } from "@/lib/foundingInbox";
 
 const CAP = 100;
 
@@ -71,6 +72,9 @@ export async function POST(req) {
     const supabase = getServiceClient();
     const availability = await getAvailability(supabase);
     if (availability.remaining < 1) return NextResponse.json({ error: "All founding passes have been claimed" }, { status: 409 });
+    if (await foundingInboxIsClaimed(supabase, user.id)) {
+      return NextResponse.json({ error: "This inbox already holds a founding pass" }, { status: 409 });
+    }
 
     const providers = new Set([
       user.app_metadata?.provider,

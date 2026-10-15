@@ -38,9 +38,9 @@ function fake(initialOrder, { transitionError } = {}) {
       refunds: { create: async (...args) => calls.push(["refund", ...args]) },
       paymentIntents: { retrieve: async () => ({ id: "pi", latest_charge: { id: "ch" } }) },
       accounts: {
+        // Real Stripe Account objects have no livemode field (the old fake did, which hid a bug).
         retrieve: async () => ({
           id: "acct",
-          livemode: false,
           charges_enabled: true,
           payouts_enabled: true,
           details_submitted: true,
@@ -157,9 +157,14 @@ test("account update retrieves fresh and external update marks bank change", asy
     id: "e",
     type: "account.updated",
     account: "acct",
+    livemode: false,
     data: { object: { id: "stale" } },
   }, deps);
-  assert.ok(deps.calls.some((call) => call[0] === "mkt_upsert_seller_account"));
+  const upsert = deps.calls.find((call) => call[0] === "mkt_upsert_seller_account");
+  assert.ok(upsert);
+  // Every argument must be present or PostgREST can't match the function (PGRST202).
+  assert.equal(upsert[1].p_livemode, false);
+  for (const [key, value] of Object.entries(upsert[1])) assert.notEqual(value, undefined, key);
   await handleMarketplaceEvent({
     id: "e2",
     type: "account.external_account.updated",

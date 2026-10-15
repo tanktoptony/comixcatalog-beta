@@ -20,7 +20,8 @@ export default function PayoutsClient() {
       try {
         if (search.get("return") === "1") {
           const refresh = await authedFetch("/api/sell/stripe/refresh", { method: "POST" });
-          if (!refresh.ok && refresh.status !== 404) throw new Error("We could not refresh your Stripe status.");
+          // A failed refresh shouldn't hide setup: show a note and still load the saved status.
+          if (!refresh.ok && refresh.status !== 404 && active) setError("We could not refresh your Stripe status just now. If you finished with Stripe, reload in a minute.");
         }
         const response = await authedFetch("/api/sell/stripe/status");
         const body = await response.json().catch(() => ({}));

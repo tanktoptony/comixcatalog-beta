@@ -64,6 +64,7 @@
     "test:activation-nudges": "node --test src/lib/activationNudges.test.js",
     "test:disposable-email": "node --test src/lib/disposableEmail.test.js",
     "test:founding-claim": "node --test src/lib/foundingClaim.test.js",
+    "test:uptime-check": "node --test scripts/uptimeCheck.test.js",
     "avatars:generate-defaults": "node scripts/generateDefaultAvatars.mjs",
     "audit:errors": "node scripts/auditErrorHandling.js",
     "perf:baseline": "node scripts/perfBaseline.js",

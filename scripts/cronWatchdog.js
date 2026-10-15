@@ -19,6 +19,8 @@
 // automatically inside GitHub Actions).
 
 const WATCHED = [
+  // Every 10 minutes, with 30 minutes of grace before the watchdog re-fires it.
+  { file: "uptime-check.yml", maxAgeHours: 2 / 3 },
   // Mon+Thu cron (09:00 UTC), changed from Monday-only 2026-09-12 because
   // a once-a-week regen was getting fully consumed by hourly cover-ingest
   // runs in ~4 days. Grace window tightened to match: 5-day max age =

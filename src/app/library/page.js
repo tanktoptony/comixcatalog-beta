@@ -30,6 +30,7 @@ import { chunk } from "@/lib/chunk";
 import { normalizePublisherDisplayName } from "@/lib/publisher";
 import { isUnlinkedForSale, listingCompleteness } from "@/lib/listingCompleteness";
 import { buildLibraryItems, groupLibraryRows } from "@/lib/libraryView";
+import PayoutsPrompt from "@/components/PayoutsPrompt";
 
 // Books per /api/library-hydrate request. The route caps a request at 2,000.
 const HYDRATE_CHUNK = 1000;
@@ -1993,6 +1994,8 @@ function LibraryPageContent() {
               </div>
             </div>
           </div>
+
+          {tab === "for_sale" && !isPublicPreview && <PayoutsPrompt />}
 
           {tab === "for_sale" && !isPublicPreview && (
             <div className="listing-completeness-head">

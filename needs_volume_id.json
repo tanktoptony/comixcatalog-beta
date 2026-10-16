@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-16T18:00:47.246967+00:00",
-    "retry_after": "2026-10-17T18:00:47.246978+00:00"
+    "last_attempt_at": "2026-10-16T19:00:39.043065+00:00",
+    "retry_after": "2026-10-17T19:00:39.043076+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-16T18:00:47.323251+00:00",
-    "retry_after": "2026-10-17T18:00:47.323260+00:00"
+    "last_attempt_at": "2026-10-16T19:00:39.115193+00:00",
+    "retry_after": "2026-10-17T19:00:39.115205+00:00"
   },
   {
     "name": "Justice League Special",
@@ -54021,5 +54021,262 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-16T18:24:34.899628+00:00",
     "retry_after": "2026-10-17T18:24:34.899637+00:00"
+  },
+  {
+    "name": "Grimm Tales of Terror (Halloween Comic Fest) 2015",
+    "publisher": "Zenescope Entertainment",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:23:45.675400+00:00",
+    "retry_after": "2026-10-17T19:23:45.675414+00:00"
+  },
+  {
+    "name": "Bloodshot Preview",
+    "publisher": "Valiant Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:23:52.109985+00:00",
+    "retry_after": "2026-10-17T19:23:52.110003+00:00"
+  },
+  {
+    "name": "Black Moon Ritual One-Shot",
+    "publisher": "AWA Studios",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:23:52.506434+00:00",
+    "retry_after": "2026-10-17T19:23:52.506447+00:00"
+  },
+  {
+    "name": "Power Rangers",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50927,
+        "name": "Power Rangers",
+        "publisher": "NBM",
+        "start_year": 2012
+      },
+      {
+        "id": 131836,
+        "name": "Power Rangers",
+        "publisher": "Boom! Studios",
+        "start_year": 2020
+      },
+      {
+        "id": 136133,
+        "name": "Power Rangers",
+        "publisher": "Boom! Studios",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:23:52.939339+00:00",
+    "retry_after": "2026-10-17T19:23:52.939355+00:00"
+  },
+  {
+    "name": "Rusty and Her Family Comics",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:23:54.632604+00:00",
+    "retry_after": "2026-10-17T19:23:54.632621+00:00"
+  },
+  {
+    "name": "The Fifth Force",
+    "publisher": "Heavy Metal",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:24:00.167351+00:00",
+    "retry_after": "2026-10-17T19:24:00.167368+00:00"
+  },
+  {
+    "name": "Sonic: Tangle & Whisper",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:24:00.652946+00:00",
+    "retry_after": "2026-10-17T19:24:00.652963+00:00"
+  },
+  {
+    "name": "Star Heroes Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52565,
+        "name": "Star Heroes Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:24:16.550109+00:00",
+    "retry_after": "2026-10-17T19:24:16.550126+00:00"
+  },
+  {
+    "name": "Spider-Man & Friends",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48020,
+        "name": "Spider-Man and Friends",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:24:36.893264+00:00",
+    "retry_after": "2026-10-17T19:24:36.893279+00:00"
+  },
+  {
+    "name": "Millie the Model Comics",
+    "publisher": "Marvel Comics",
+    "year": 1945,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:25:14.242257+00:00",
+    "retry_after": "2026-10-17T19:25:14.242274+00:00"
+  },
+  {
+    "name": "TuttoMark",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:25:14.834141+00:00",
+    "retry_after": "2026-10-17T19:25:14.834159+00:00"
+  },
+  {
+    "name": "Gli Incredibili X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41460,
+        "name": "Gli Incredibili X-Men",
+        "publisher": "Panini Comics",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:25:15.245679+00:00",
+    "retry_after": "2026-10-17T19:25:15.245695+00:00"
+  },
+  {
+    "name": "Supermán - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:25:15.785708+00:00",
+    "retry_after": "2026-10-17T19:25:15.785725+00:00"
+  },
+  {
+    "name": "Mad Special [Mad Super Special]",
+    "publisher": "EC Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:25:16.344025+00:00",
+    "retry_after": "2026-10-17T19:25:16.344042+00:00"
+  },
+  {
+    "name": "L'Uomo Ragno",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47785,
+        "name": "L'Uomo Ragno",
+        "publisher": "Editoriale Corno",
+        "start_year": 1970
+      },
+      {
+        "id": 143798,
+        "name": "L'Uomo Ragno",
+        "publisher": "Panini Comics",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:25:17.018985+00:00",
+    "retry_after": "2026-10-17T19:25:17.019003+00:00"
+  },
+  {
+    "name": "Magico Vento",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46101,
+        "name": "Magico Vento",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:25:17.539117+00:00",
+    "retry_after": "2026-10-17T19:25:17.539134+00:00"
+  },
+  {
+    "name": "Collana Almanacchi",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28037,
+        "name": "Collana Almanacchi",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:25:18.389014+00:00",
+    "retry_after": "2026-10-17T19:25:18.389031+00:00"
+  },
+  {
+    "name": "Tutto Martin Mystère",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:25:18.880535+00:00",
+    "retry_after": "2026-10-17T19:25:18.880551+00:00"
+  },
+  {
+    "name": "Os Novos Titãs",
+    "publisher": "Avatar Press",
+    "year": 1986,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T19:25:19.494800+00:00",
+    "retry_after": "2026-10-17T19:25:19.494834+00:00"
   }
 ]

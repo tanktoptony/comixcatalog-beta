@@ -323,8 +323,8 @@ export default function SeriesClient({ initialSeries = null }) {
               }}
             >
               <span className="pill">Series Page</span>
-              {series.format_label ? (
-                <span className="pill pill-format">{series.format_label}</span>
+              {series.format_tag ? (
+                <span className="pill pill-format" title={series.format_label || series.format_tag_title || undefined}>{series.format_tag}</span>
               ) : (
                 <span className="pill">Canonical Run</span>
               )}

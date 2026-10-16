@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import { fetchSeriesCoverRows, resolveCovers } from "@/lib/catalog/covers";
 import { resolvePublisher } from "@/lib/publisher";
-import { collectsLines, formatLabel, formatNoun, isCollectedEdition } from "@/lib/seriesFormat";
+import { collectsLines, formatLabel, formatNoun, formatTag, formatTagTitle, isCollectedEdition } from "@/lib/seriesFormat";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { baseIssueNumber } from "@/lib/coverMatch";
 import { bestYearFor, parseYear } from "@/lib/years";
@@ -267,7 +267,7 @@ export async function GET(req, context) {
       // column degrades to "unknown format" rather than losing the publisher.
       supabase
         .from("gcd_series")
-        .select("publishing_format, binding, format_notes")
+        .select("publishing_format, binding, format_notes, publication_type")
         .eq("gcd_id", series.gcd_id)
         .maybeSingle(),
     ]);
@@ -510,6 +510,8 @@ export async function GET(req, context) {
         year_end: fullYearEnd,
         featured_cover: featuredCover,
         format_label: formatLabel(seriesFormat ?? {}),
+        format_tag: formatTag({ name: series.title, ...seriesFormat }),
+        format_tag_title: formatTagTitle({ name: series.title, ...seriesFormat }),
         format_noun: formatNoun(seriesFormat ?? {}),
         collects: collectedEdition ? collectsLines(seriesFormat?.format_notes) : [],
         key_issues: keyIssues,

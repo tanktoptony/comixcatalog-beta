@@ -17509,13 +17509,13 @@
   },
   {
     "name": "Street Fighter V: Wrestling Special - Free Comic Book Day 2017 Special",
-    "publisher": "Udon Entertainment Corp.",
+    "publisher": "Eclipse Comics",
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T05:32:27.379958+00:00",
-    "retry_after": "2026-09-26T05:32:27.379973+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:17.820099+00:00",
+    "retry_after": "2026-10-17T18:24:17.820108+00:00"
   },
   {
     "name": "One for One: ElfQuest: The Original Quest",
@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-16T16:00:51.211379+00:00",
-    "retry_after": "2026-10-17T16:00:51.211394+00:00"
+    "last_attempt_at": "2026-10-16T18:00:47.246967+00:00",
+    "retry_after": "2026-10-17T18:00:47.246978+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-16T16:00:51.302099+00:00",
-    "retry_after": "2026-10-17T16:00:51.302114+00:00"
+    "last_attempt_at": "2026-10-16T18:00:47.323251+00:00",
+    "retry_after": "2026-10-17T18:00:47.323260+00:00"
   },
   {
     "name": "Justice League Special",
@@ -53742,5 +53742,284 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-16T16:25:09.979183+00:00",
     "retry_after": "2026-10-17T16:25:09.979199+00:00"
+  },
+  {
+    "name": "Überlebende",
+    "publisher": "Fawcett Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 102716,
+        "name": "Überlebende",
+        "publisher": "Splitter",
+        "start_year": 2017
+      },
+      {
+        "id": 116156,
+        "name": "Überlebende",
+        "publisher": "Epsilon",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:04.936065+00:00",
+    "retry_after": "2026-10-17T18:24:04.936078+00:00"
+  },
+  {
+    "name": "Rick and Morty Finals Week: BrawlHer",
+    "publisher": "Oni Press",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:08.673686+00:00",
+    "retry_after": "2026-10-17T18:24:08.673704+00:00"
+  },
+  {
+    "name": "The Invincible Iron Man in Forging the Future",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:14.559926+00:00",
+    "retry_after": "2026-10-17T18:24:14.559937+00:00"
+  },
+  {
+    "name": "Miss Fury Special Limited Edition",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 135997,
+        "name": "Miss Fury Special Limited Edition",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:14.879609+00:00",
+    "retry_after": "2026-10-17T18:24:14.879624+00:00"
+  },
+  {
+    "name": "Popular Funnies Annual",
+    "publisher": "Marvel Comics",
+    "year": 1977,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170610,
+        "name": "Popular Funnies Annual ",
+        "publisher": "Magazine Management",
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:15.369709+00:00",
+    "retry_after": "2026-10-17T18:24:15.369720+00:00"
+  },
+  {
+    "name": "Marvel Legacy: The 1960s Handbook",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:15.628099+00:00",
+    "retry_after": "2026-10-17T18:24:15.628107+00:00"
+  },
+  {
+    "name": "Casanova Compendium",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:15.978610+00:00",
+    "retry_after": "2026-10-17T18:24:15.978618+00:00"
+  },
+  {
+    "name": "Star Wars: Age of Republic - Padmé Amidala",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:16.325471+00:00",
+    "retry_after": "2026-10-17T18:24:16.325481+00:00"
+  },
+  {
+    "name": "Agente Cãofidencial",
+    "publisher": "Avatar Press",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:16.668985+00:00",
+    "retry_after": "2026-10-17T18:24:16.668994+00:00"
+  },
+  {
+    "name": "Custom Edition Captain America",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:17.024666+00:00",
+    "retry_after": "2026-10-17T18:24:17.024679+00:00"
+  },
+  {
+    "name": "Alien Sex / Monster Lust",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29098,
+        "name": "Alien Sex/Monster Lust",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:17.499916+00:00",
+    "retry_after": "2026-10-17T18:24:17.499929+00:00"
+  },
+  {
+    "name": "Herman Hedning Spesialutgave Raptus 1999",
+    "publisher": "Harvey Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141782,
+        "name": "Herman Hedning Spesialutgave Raptus 1999",
+        "publisher": "Hjemmet",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:21.895939+00:00",
+    "retry_after": "2026-10-17T18:24:21.895954+00:00"
+  },
+  {
+    "name": "Tex Classic",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:22.639432+00:00",
+    "retry_after": "2026-10-17T18:24:22.639447+00:00"
+  },
+  {
+    "name": "Tarzán - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:22.885752+00:00",
+    "retry_after": "2026-10-17T18:24:22.885765+00:00"
+  },
+  {
+    "name": "Dylan Dog seconda ristampa",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:23.624028+00:00",
+    "retry_after": "2026-10-17T18:24:23.624043+00:00"
+  },
+  {
+    "name": "Relatos Fabulosos",
+    "publisher": "Harvey Comics",
+    "year": 1959,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:23.883929+00:00",
+    "retry_after": "2026-10-17T18:24:23.883938+00:00"
+  },
+  {
+    "name": "Superaventuras Marvel",
+    "publisher": "Avatar Press",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159876,
+        "name": "Superaventuras Marvel",
+        "publisher": "Abril",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:24.149877+00:00",
+    "retry_after": "2026-10-17T18:24:24.149892+00:00"
+  },
+  {
+    "name": "O Incrível Hulk",
+    "publisher": "Avatar Press",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159873,
+        "name": "O Incrível Hulk",
+        "publisher": "Abril",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:33.771896+00:00",
+    "retry_after": "2026-10-17T18:24:33.771908+00:00"
+  },
+  {
+    "name": "Mujeres Célebres",
+    "publisher": "Harvey Comics",
+    "year": 1961,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:34.076578+00:00",
+    "retry_after": "2026-10-17T18:24:34.076590+00:00"
+  },
+  {
+    "name": "Capitão América",
+    "publisher": "Avatar Press",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159872,
+        "name": "Capitão América",
+        "publisher": "Abril",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:34.650297+00:00",
+    "retry_after": "2026-10-17T18:24:34.650312+00:00"
+  },
+  {
+    "name": "Le Storie",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85062,
+        "name": "Le Storie",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T18:24:34.899628+00:00",
+    "retry_after": "2026-10-17T18:24:34.899637+00:00"
   }
 ]

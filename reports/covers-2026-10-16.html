@@ -1,0 +1,1903 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Cover Ingest Report — 2026-10-16</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --cc-bg: #090c11;
+    --cc-surface: #11161d;
+    --cc-surface-2: #171d26;
+    --cc-line: #2b3444;
+    --cc-text: #eef2f7;
+    --cc-text-muted: #a4aebb;
+    --cc-gold: #d8b04b;
+    --cc-blue: #1f4ea8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cc-bg);
+    color: var(--cc-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    padding: 32px 24px 64px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  header { margin-bottom: 28px; }
+  .kicker {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--cc-gold); margin: 0 0 8px;
+  }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  .subtitle { color: var(--cc-text-muted); font-size: 0.9rem; margin: 0; }
+
+  .stat-row { display: flex; gap: 14px; margin: 24px 0 36px; flex-wrap: wrap; }
+  .stat-tile {
+    flex: 1 1 160px; background: var(--cc-surface); border: 1px solid var(--cc-line);
+    border-radius: 12px; padding: 16px 18px;
+  }
+  .stat-num { font-size: 1.7rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .stat-label { font-size: 0.78rem; color: var(--cc-text-muted); margin-top: 2px; }
+
+  .series-group { margin-bottom: 32px; }
+  .series-group h2 {
+    font-size: 1.05rem; margin: 0 0 12px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  }
+  .publisher-tag, .count-tag {
+    font-size: 0.72rem; font-weight: 600; color: var(--cc-text-muted);
+    background: var(--cc-surface-2); border: 1px solid var(--cc-line);
+    padding: 2px 8px; border-radius: 999px;
+  }
+  .count-tag { color: var(--cc-gold); border-color: rgba(216,176,75,0.35); }
+
+  .cover-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+  .cover-card {
+    margin: 0; background: var(--cc-surface); border: 1px solid var(--cc-line);
+    border-radius: 8px; overflow: hidden;
+  }
+  .cover-card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; background: var(--cc-surface-2); }
+  .cover-card figcaption {
+    display: flex; justify-content: space-between; padding: 6px 8px;
+    font-size: 0.72rem; color: var(--cc-text-muted);
+  }
+  .issue-num { color: var(--cc-text); font-weight: 700; }
+  .more-tile {
+    display: flex; align-items: center; justify-content: center;
+    aspect-ratio: 2/3; border: 1px dashed var(--cc-line); border-radius: 8px;
+    color: var(--cc-text-muted); font-size: 0.82rem; font-weight: 600;
+  }
+
+  .empty-state {
+    background: var(--cc-surface); border: 1px dashed var(--cc-line);
+    border-radius: 12px; padding: 32px 24px; text-align: center;
+  }
+  .empty-headline { font-size: 1.1rem; font-weight: 700; margin: 0 0 8px; }
+  .empty-body { color: var(--cc-text-muted); font-size: 0.88rem; max-width: 520px; margin: 0 auto; line-height: 1.5; }
+
+  .progress-section {
+    background: var(--cc-surface); border: 1px solid var(--cc-line);
+    border-radius: 12px; padding: 20px 22px; margin-bottom: 32px;
+  }
+  .progress-section h2 { font-size: 1rem; margin: 0 0 4px; }
+  .progress-note { color: var(--cc-text-muted); font-size: 0.82rem; margin: 0 0 16px; }
+  .progress-bar-track {
+    height: 10px; border-radius: 999px; background: var(--cc-surface-2);
+    border: 1px solid var(--cc-line); overflow: hidden; margin-bottom: 16px;
+  }
+  .progress-bar-fill { height: 100%; background: var(--cc-gold); }
+  .progress-trend { color: var(--cc-gold); font-weight: 700; }
+  .progress-trend.flat { color: var(--cc-text-muted); font-weight: 600; }
+
+  footer { margin-top: 40px; color: var(--cc-text-muted); font-size: 0.78rem; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">Cover ingest · nightly report</p>
+      <h1>2026-10-16</h1>
+      <p class="subtitle">Covers attached to the database in the last 24 hours, grouped by series.</p>
+    </header>
+
+    <div class="stat-row">
+      <div class="stat-tile">
+        <div class="stat-num">479</div>
+        <div class="stat-label">New covers (24h)</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-num">46</div>
+        <div class="stat-label">Series touched (24h)</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-num">144,964</div>
+        <div class="stat-label">All-time total covers</div>
+      </div>
+    </div>
+
+    
+    <section class="progress-section">
+      <h2>Allowlisted-corpus coverage — the real target</h2>
+      <p class="progress-note">Every issue from a real, commercially-released US-market series (~45 publishers, variant-deduped). Excludes foreign reprints, licensed editions, and GCD ephemera — see scripts/lib/coverageMetrics.js for why this is the number that matters.</p>
+      <div class="progress-bar-track"><div class="progress-bar-fill" style="width:38.64%"></div></div>
+      <div class="stat-row" style="margin:0;">
+        <div class="stat-tile">
+          <div class="stat-num">38.6%</div>
+          <div class="stat-label">Covered <span class="progress-trend">+0.92pt/day</span></div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-num">112,035</div>
+          <div class="stat-label">Covered issues</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-num">177,918</div>
+          <div class="stat-label">Remaining issues</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-num">11,403 / 54,182</div>
+          <div class="stat-label">Series with &ge;1 cover</div>
+        </div>
+      </div>
+    </section>
+
+    
+      <section class="series-group">
+        <h2>Grandes Viajes <span class="publisher-tag">Editorial Novaro</span> <span class="count-tag">153 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/858651-los-genios-de-las-cavernas.jpg" alt="Grandes Viajes #99" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#99</span>
+            <span class="cover-date">1971-04</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/858584-paises-desconocidos-en-donde-reinon-los-mujeres.jpg" alt="Grandes Viajes #98" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#98</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/871410-bleriot-sobre-el-canal-de-la-mancha.jpg" alt="Grandes Viajes #97" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#97</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/858259-los-navegantes-solitarios.jpg" alt="Grandes Viajes #96" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#96</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/856223-a-traves-del-pacifico.jpg" alt="Grandes Viajes #95" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#95</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/857524-por-el-sahara-en-automovil.jpg" alt="Grandes Viajes #94" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#94</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/856629-la-caza-del-monstruo.jpg" alt="Grandes Viajes #93" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#93</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/856391-en-el-pais-de-los-hombres-desnudos.jpg" alt="Grandes Viajes #92" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#92</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/304933-el-hallazgo-del-arca-de-norte.jpg" alt="Grandes Viajes #91" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#91</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/304932-al-polo-norte-en-globo.jpg" alt="Grandes Viajes #90" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#90</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/219057-el-final-de-livingstone.jpg" alt="Grandes Viajes #9" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#9</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/304940-de-shangai-a-beirut.jpg" alt="Grandes Viajes #89" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#89</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/871120-tesoros-baja-las-aguas.jpg" alt="Grandes Viajes #88" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#88</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/870387-los-caminos-de-la-fortuna-y-la-muerte.jpg" alt="Grandes Viajes #87" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#87</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/869702-los-grandes-safaris.jpg" alt="Grandes Viajes #86" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#86</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/864319-hombre-de-las-nieves.jpg" alt="Grandes Viajes #85" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#85</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/856138-del-cabo-al-cairo-a-pie.jpg" alt="Grandes Viajes #84" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#84</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/868853-por-las-selvas-y-rios-del-amazonas.jpg" alt="Grandes Viajes #83" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#83</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/856327-extranos-regresos.jpg" alt="Grandes Viajes #82" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#82</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/855998-la-isla-de-la-focas.jpg" alt="Grandes Viajes #81" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#81</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/863672-las-mil-escaramuzas-de-verrazano.jpg" alt="Grandes Viajes #80" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#80</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/304931-livingstone-en-africa.jpg" alt="Grandes Viajes #8" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#8</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/847583-el-misterio-de-la-isla-de-pascua.jpg" alt="Grandes Viajes #79" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#79</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/grandes-viajes/vol-33711/868508-una-mujer-a-traves-de-asia.jpg" alt="Grandes Viajes #78" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#78</span>
+            
+          </figcaption>
+        </figure><div class="more-tile">+129 more</div></div>
+      </section>
+      <section class="series-group">
+        <h2>Donald Duck Junior <span class="publisher-tag">Hjemmet</span> <span class="count-tag">115 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130538-gisp-skjermtid.jpg" alt="Donald Duck Junior #202518" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202518</span>
+            <span class="cover-date">2025-08</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130537-p-vei-til-skolen.jpg" alt="Donald Duck Junior #202517" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202517</span>
+            <span class="cover-date">2025-08</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130535-flyyyyyyyyyyyyyy.jpg" alt="Donald Duck Junior #202516" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202516</span>
+            <span class="cover-date">2025-08</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130536-konkurranser-i-andeby.jpg" alt="Donald Duck Junior #202515" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202515</span>
+            <span class="cover-date">2025-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130534-god-sommer-fra-andeby.jpg" alt="Donald Duck Junior #202514" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202514</span>
+            <span class="cover-date">2025-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130533-skurker-i-andeby.jpg" alt="Donald Duck Junior #202513" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202513</span>
+            <span class="cover-date">2025-06</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130532-fugler.jpg" alt="Donald Duck Junior #202512" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202512</span>
+            <span class="cover-date">2025-06</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130531-mal-til-du-blir-gal.jpg" alt="Donald Duck Junior #202511" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202511</span>
+            <span class="cover-date">2025-05</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130530-bli-med-ut-i-verdensrommet.jpg" alt="Donald Duck Junior #202510" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202510</span>
+            <span class="cover-date">2025-05</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130529-hunder-i-andeby.jpg" alt="Donald Duck Junior #202509" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202509</span>
+            <span class="cover-date">2025-04</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130528-tema-langbein.jpg" alt="Donald Duck Junior #202508" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202508</span>
+            <span class="cover-date">2025-04</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130527-tema-fetter-anton.jpg" alt="Donald Duck Junior #202507" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202507</span>
+            <span class="cover-date">2025-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130526-tema-mikke-mus.jpg" alt="Donald Duck Junior #202506" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202506</span>
+            <span class="cover-date">2025-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130525-spl-sj.jpg" alt="Donald Duck Junior #202505" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202505</span>
+            <span class="cover-date">2025-02</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130524-tema-guffen.jpg" alt="Donald Duck Junior #202504" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202504</span>
+            <span class="cover-date">2025-02</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130523-urk-gisp-svusj.jpg" alt="Donald Duck Junior #202503" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202503</span>
+            <span class="cover-date">2025-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130522-tema-b-gjengen.jpg" alt="Donald Duck Junior #202502" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202502</span>
+            <span class="cover-date">2025-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130521-urk-iiiik-gisp-gulp-knaaaak.jpg" alt="Donald Duck Junior #202501" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202501</span>
+            <span class="cover-date">2025-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130520-god-jul-fra-andeby.jpg" alt="Donald Duck Junior #202426" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202426</span>
+            <span class="cover-date">2024-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130519-jipppiiii.jpg" alt="Donald Duck Junior #202425" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202425</span>
+            <span class="cover-date">2024-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130518-tema-virus-og-bakterier.jpg" alt="Donald Duck Junior #202424" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202424</span>
+            <span class="cover-date">2024-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130517-juhuuu.jpg" alt="Donald Duck Junior #202423" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202423</span>
+            <span class="cover-date">2024-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130516-tema-magica-fra-tryll.jpg" alt="Donald Duck Junior #202422" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202422</span>
+            <span class="cover-date">2024-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/donald-duck-junior/vol-149545/1130515-hahahaha-hallo-ween.jpg" alt="Donald Duck Junior #202421" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#202421</span>
+            <span class="cover-date">2024-10</span>
+          </figcaption>
+        </figure><div class="more-tile">+91 more</div></div>
+      </section>
+      <section class="series-group">
+        <h2>Gasparin el Fantasma Amistoso <span class="publisher-tag">Editorial Novaro</span> <span class="count-tag">54 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/620318-issue-98.jpg" alt="Gasparin el Fantasma Amistoso #98" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#98</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/620317-issue-97.jpg" alt="Gasparin el Fantasma Amistoso #97" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#97</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/620315-issue-96.jpg" alt="Gasparin el Fantasma Amistoso #96" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#96</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/620304-issue-94.jpg" alt="Gasparin el Fantasma Amistoso #94" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#94</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/620107-issue-92.jpg" alt="Gasparin el Fantasma Amistoso #92" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#92</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/620106-issue-91.jpg" alt="Gasparin el Fantasma Amistoso #91" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#91</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/620105-issue-90.jpg" alt="Gasparin el Fantasma Amistoso #90" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#90</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/616998-issue-9.jpg" alt="Gasparin el Fantasma Amistoso #9" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#9</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/620104-issue-88.jpg" alt="Gasparin el Fantasma Amistoso #88" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#88</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/620103-issue-87.jpg" alt="Gasparin el Fantasma Amistoso #87" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#87</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619852-issue-85.jpg" alt="Gasparin el Fantasma Amistoso #85" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#85</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619851-issue-84.jpg" alt="Gasparin el Fantasma Amistoso #84" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#84</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619850-issue-83.jpg" alt="Gasparin el Fantasma Amistoso #83" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#83</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619849-issue-80.jpg" alt="Gasparin el Fantasma Amistoso #80" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#80</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619848-issue-79.jpg" alt="Gasparin el Fantasma Amistoso #79" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#79</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619152-issue-73.jpg" alt="Gasparin el Fantasma Amistoso #73" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#73</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619151-issue-72.jpg" alt="Gasparin el Fantasma Amistoso #72" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#72</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619150-issue-70.jpg" alt="Gasparin el Fantasma Amistoso #70" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#70</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619149-issue-68.jpg" alt="Gasparin el Fantasma Amistoso #68" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#68</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619148-issue-67.jpg" alt="Gasparin el Fantasma Amistoso #67" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#67</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619080-issue-65.jpg" alt="Gasparin el Fantasma Amistoso #65" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#65</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619079-issue-64.jpg" alt="Gasparin el Fantasma Amistoso #64" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#64</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619078-issue-63.jpg" alt="Gasparin el Fantasma Amistoso #63" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#63</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/gasparin-el-fantasma-amistoso/vol-103725/619077-issue-61.jpg" alt="Gasparin el Fantasma Amistoso #61" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#61</span>
+            
+          </figcaption>
+        </figure><div class="more-tile">+30 more</div></div>
+      </section>
+      <section class="series-group">
+        <h2>Dragonero il ribelle <span class="publisher-tag">Sergio Bonelli Editore</span> <span class="count-tag">27 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/788949-scacco-alla-torre.png" alt="Dragonero il ribelle #9" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#9</span>
+            <span class="cover-date">2020-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/788957-il-segreto-degli-ubiqui.jpg" alt="Dragonero il ribelle #8" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#8</span>
+            <span class="cover-date">2020-06</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/788956-il-destino-di-keyra.png" alt="Dragonero il ribelle #7" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#7</span>
+            <span class="cover-date">2020-05</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/788955-la-voce-della-foresta-profonda.png" alt="Dragonero il ribelle #6" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#6</span>
+            <span class="cover-date">2020-04</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/788954-gli-dei-dell-arena.jpg" alt="Dragonero il ribelle #5" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#5</span>
+            <span class="cover-date">2020-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/788953-l-urlo-della-carne.jpg" alt="Dragonero il ribelle #4" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#4</span>
+            <span class="cover-date">2020-02</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/788952-i-guardiani-di-pietra.png" alt="Dragonero il ribelle #3" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#3</span>
+            <span class="cover-date">2020-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/1036040-raccontato-alla-notte.jpg" alt="Dragonero il ribelle #27" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#27</span>
+            <span class="cover-date">2022-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/1035017-in-cammino-verso-il-nulla.jpg" alt="Dragonero il ribelle #25" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#25</span>
+            <span class="cover-date">2021-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/1034829-una-ferita-nella-terra.jpg" alt="Dragonero il ribelle #24" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#24</span>
+            <span class="cover-date">2021-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/1034828-l-assalto-degli-sparvieri.jpg" alt="Dragonero il ribelle #23" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#23</span>
+            <span class="cover-date">2021-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/1034827-la-ritornante.jpg" alt="Dragonero il ribelle #22" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#22</span>
+            <span class="cover-date">2021-08</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/1034826-sulla-pista-dei-ricordi.jpg" alt="Dragonero il ribelle #21 bis" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#21 bis</span>
+            <span class="cover-date">2021-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/1034460-le-gazze-ladre.jpg" alt="Dragonero il ribelle #21" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#21</span>
+            <span class="cover-date">2021-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/1028086-quando-cantano-le-onde.jpg" alt="Dragonero il ribelle #20" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#20</span>
+            <span class="cover-date">2021-06</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/788951-ritorno-a-solian.png" alt="Dragonero il ribelle #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">2019-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/1028085-il-demone-fuggiasco.jpg" alt="Dragonero il ribelle #19" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#19</span>
+            <span class="cover-date">2021-05</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/1028072-attacco-a-v-hlend-rt.jpg" alt="Dragonero il ribelle #18" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#18</span>
+            <span class="cover-date">2021-04</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/894131-il-sacrificio-di-yannah.jpg" alt="Dragonero il ribelle #17" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#17</span>
+            <span class="cover-date">2021-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/832897-il-volo-delle-viverne.jpg" alt="Dragonero il ribelle #16" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#16</span>
+            <span class="cover-date">2021-02</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/824191-l-inaccessibile-fortezza.png" alt="Dragonero il ribelle #15" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#15</span>
+            <span class="cover-date">2021-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/820669-ricercati.png" alt="Dragonero il ribelle #14" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#14</span>
+            <span class="cover-date">2020-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/819218-le-figlie-di-karnon.jpg" alt="Dragonero il ribelle #13" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#13</span>
+            <span class="cover-date">2020-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/dragonero-il-ribelle/vol-129307/805063-dove-muore-la-luce.jpg" alt="Dragonero il ribelle #12" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#12</span>
+            <span class="cover-date">2020-10</span>
+          </figcaption>
+        </figure><div class="more-tile">+3 more</div></div>
+      </section>
+      <section class="series-group">
+        <h2>Glamourpuss <span class="publisher-tag">Aardvark</span> <span class="count-tag">26 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/173680-issue-9.jpg" alt="Glamourpuss #9" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#9</span>
+            <span class="cover-date">2009-09</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/165431-issue-8.jpg" alt="Glamourpuss #8" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#8</span>
+            <span class="cover-date">2009-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/158619-issue-7.jpg" alt="Glamourpuss #7" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#7</span>
+            <span class="cover-date">2009-05</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/154441-issue-6.jpg" alt="Glamourpuss #6" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#6</span>
+            <span class="cover-date">2009-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/151410-issue-5.jpg" alt="Glamourpuss #5" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#5</span>
+            <span class="cover-date">2009-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/144064-issue-4.jpg" alt="Glamourpuss #4" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#4</span>
+            <span class="cover-date">2008-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/140196-issue-3.jpg" alt="Glamourpuss #3" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#3</span>
+            <span class="cover-date">2008-09</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/352585-issue-26.jpg" alt="Glamourpuss #26" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#26</span>
+            <span class="cover-date">2012-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/337724-issue-25.jpg" alt="Glamourpuss #25" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#25</span>
+            <span class="cover-date">2012-05</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/327559-issue-24.jpg" alt="Glamourpuss #24" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#24</span>
+            <span class="cover-date">2012-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/315889-issue-23.jpg" alt="Glamourpuss #23" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#23</span>
+            <span class="cover-date">2012-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/306584-issue-22.jpg" alt="Glamourpuss #22" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#22</span>
+            <span class="cover-date">2011-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/299815-issue-21.jpg" alt="Glamourpuss #21" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#21</span>
+            <span class="cover-date">2011-09</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/282579-issue-20.png" alt="Glamourpuss #20" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#20</span>
+            <span class="cover-date">2011-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/173681-issue-2.jpg" alt="Glamourpuss #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">2008-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/274477-issue-19.jpg" alt="Glamourpuss #19" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#19</span>
+            <span class="cover-date">2011-05</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/268823-issue-18.jpg" alt="Glamourpuss #18" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#18</span>
+            <span class="cover-date">2011-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/261644-issue-17.jpg" alt="Glamourpuss #17" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#17</span>
+            <span class="cover-date">2011-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/243640-issue-16.jpg" alt="Glamourpuss #16" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#16</span>
+            <span class="cover-date">2010-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/234081-glamourpuss-reinvents-the-universe-part-two.jpg" alt="Glamourpuss #15" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#15</span>
+            <span class="cover-date">2010-09</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/227356-issue-14.jpg" alt="Glamourpuss #14" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#14</span>
+            <span class="cover-date">2010-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/212996-issue-13.jpg" alt="Glamourpuss #13" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#13</span>
+            <span class="cover-date">2010-05</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/202205-issue-12.jpg" alt="Glamourpuss #12" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#12</span>
+            <span class="cover-date">2010-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/glamourpuss/vol-23362/194384-issue-11.jpg" alt="Glamourpuss #11" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#11</span>
+            <span class="cover-date">2010-01</span>
+          </figcaption>
+        </figure><div class="more-tile">+2 more</div></div>
+      </section>
+      <section class="series-group">
+        <h2>Fantomet gullalderen <span class="publisher-tag">Hjemmet</span> <span class="count-tag">24 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/545373-sir-thomas-hevn.jpg" alt="Fantomet gullalderen #9" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#9</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/545142-trof-ranet.jpg" alt="Fantomet gullalderen #8" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#8</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/545064-en-saga-om-ulv.jpg" alt="Fantomet gullalderen #7" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#7</span>
+            <span class="cover-date">2012-06</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/544731-pestfare.jpg" alt="Fantomet gullalderen #6" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#6</span>
+            <span class="cover-date">2012-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/544395-llongos-amulett.jpg" alt="Fantomet gullalderen #5" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#5</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/544321-d-dens-skip.jpg" alt="Fantomet gullalderen #4" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#4</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/544092-prinsesse-sin.jpg" alt="Fantomet gullalderen #3" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#3</span>
+            <span class="cover-date">2011-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/547942-sp-kelseskometen.jpg" alt="Fantomet gullalderen #24" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#24</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/547827-svart-elfenben.jpg" alt="Fantomet gullalderen #23" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#23</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/547570-orm-yas-g-te.jpg" alt="Fantomet gullalderen #22" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#22</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/547434-den-glemte-koloni.jpg" alt="Fantomet gullalderen #21" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#21</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/547150-den-g-tefulle-grotten.jpg" alt="Fantomet gullalderen #20" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#20</span>
+            <span class="cover-date">2015-06</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/543915-stormen.jpg" alt="Fantomet gullalderen #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">2011-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/546964-giftdr-mmer.jpg" alt="Fantomet gullalderen #19" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#19</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/546802-den-hodeskallemerkede.jpg" alt="Fantomet gullalderen #18" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#18</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/546724-steinhoggerfolket.jpg" alt="Fantomet gullalderen #17" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#17</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/546555-heksesabbat.jpg" alt="Fantomet gullalderen #16" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#16</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/546208-sammensvergelsen.jpg" alt="Fantomet gullalderen #15" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#15</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/546139-d-delig-fristad.jpg" alt="Fantomet gullalderen #14" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#14</span>
+            <span class="cover-date">2013-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/545913-jungelens-budb-rere.jpg" alt="Fantomet gullalderen #13" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#13</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/545728-snikskytterligaen.jpg" alt="Fantomet gullalderen #12" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#12</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/545601-orientekspressen.jpg" alt="Fantomet gullalderen #11" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#11</span>
+            <span class="cover-date">2013-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/545502-den-ukjente-kommandanten.jpg" alt="Fantomet gullalderen #10" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#10</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/fantomet-gullalderen/vol-92995/543837-ku-klux-klan.jpg" alt="Fantomet gullalderen #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2011-04</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Critter <span class="publisher-tag">Antarctic Press</span> <span class="count-tag">14 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1148714-issue-9.jpg" alt="Critter #9" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#9</span>
+            <span class="cover-date">2025-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1149275-issue-8.jpg" alt="Critter #8" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#8</span>
+            <span class="cover-date">2025-04</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1117156-issue-7.jpg" alt="Critter #7" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#7</span>
+            <span class="cover-date">2025-02</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1097554-issue-6.jpg" alt="Critter #6" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#6</span>
+            <span class="cover-date">2024-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1080513-issue-5.jpg" alt="Critter #5" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#5</span>
+            <span class="cover-date">2024-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1068579-issue-4.jpg" alt="Critter #4" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#4</span>
+            <span class="cover-date">2024-08</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1064946-issue-3.jpg" alt="Critter #3" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#3</span>
+            <span class="cover-date">2024-06</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1064945-issue-2.jpg" alt="Critter #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">2024-04</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1196612-issue-14.jpg" alt="Critter #14" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#14</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1177775-issue-13.jpg" alt="Critter #13" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#13</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1167139-issue-12.jpg" alt="Critter #12" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#12</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1162464-issue-11.jpg" alt="Critter #11" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#11</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1152772-issue-10.jpg" alt="Critter #10" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#10</span>
+            <span class="cover-date">2026-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/critter/vol-157707/1051732-issue-1.jpg" alt="Critter #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2024-02</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Rat-Man Collection <span class="publisher-tag">Panini Comics</span> <span class="count-tag">8 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/rat-man-collection/vol-27840/485182-issue-105.jpg" alt="Rat-Man Collection #105" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#105</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/rat-man-collection/vol-27840/485194-issue-104.jpg" alt="Rat-Man Collection #104" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#104</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/rat-man-collection/vol-27840/485197-issue-103.jpg" alt="Rat-Man Collection #103" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#103</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/rat-man-collection/vol-27840/485205-issue-102.jpg" alt="Rat-Man Collection #102" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#102</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/rat-man-collection/vol-27840/486301-issue-101.jpg" alt="Rat-Man Collection #101" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#101</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/rat-man-collection/vol-27840/608917-issue-100.jpg" alt="Rat-Man Collection #100" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#100</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/rat-man-collection/vol-27840/607040-dimenticati-dal-tempo.jpg" alt="Rat-Man Collection #10" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#10</span>
+            <span class="cover-date">1999-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/rat-man-collection/vol-27840/170625-legami-di-sangue.jpg" alt="Rat-Man Collection #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">1997-04</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Blade of Shuriken <span class="publisher-tag">Eternity</span> <span class="count-tag">5 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/blade-of-shuriken/vol-29481/181872-last-resort.jpeg" alt="Blade of Shuriken #5" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#5</span>
+            <span class="cover-date">1988-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/blade-of-shuriken/vol-29481/181871-guai-guwari-in-bad-condition.jpeg" alt="Blade of Shuriken #4" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#4</span>
+            <span class="cover-date">1987-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/blade-of-shuriken/vol-29481/701012-hard-work-at-a-new-job.jpg" alt="Blade of Shuriken #3" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#3</span>
+            <span class="cover-date">1987-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/blade-of-shuriken/vol-29481/181870-saifa-karukeraba-genki-nashi.jpeg" alt="Blade of Shuriken #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">1987-06</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/blade-of-shuriken/vol-29481/181869-the-blade-of-shuriken.jpeg" alt="Blade of Shuriken #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">1987-05</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Hour of the Wolf <span class="publisher-tag">Mad Cave Studios</span> <span class="count-tag">5 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/hour-of-the-wolf/vol-160570/1196626-issue-5.jpg" alt="Hour of the Wolf #5" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#5</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/hour-of-the-wolf/vol-160570/1096402-issue-4.jpg" alt="Hour of the Wolf #4" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#4</span>
+            <span class="cover-date">2025-02</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/hour-of-the-wolf/vol-160570/1091262-issue-3.jpg" alt="Hour of the Wolf #3" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#3</span>
+            <span class="cover-date">2025-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/hour-of-the-wolf/vol-160570/1080265-issue-2.jpg" alt="Hour of the Wolf #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">2024-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/hour-of-the-wolf/vol-160570/1075085-issue-1.jpg" alt="Hour of the Wolf #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2024-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Born to Kill <span class="publisher-tag">Aircel Publishing</span> <span class="count-tag">3 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/born-to-kill/vol-37119/247444-issue-3.jpg" alt="Born to Kill #3" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#3</span>
+            <span class="cover-date">1991-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/born-to-kill/vol-37119/430405-issue-2.jpg" alt="Born to Kill #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">1991-06</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/born-to-kill/vol-37119/247443-issue-1.jpg" alt="Born to Kill #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">1991-05</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Big Black Kiss <span class="publisher-tag">Vortex Comics</span> <span class="count-tag">3 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/big-black-kiss/vol-71887/446344-issue-3.jpg" alt="Big Black Kiss #3" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#3</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/big-black-kiss/vol-71887/446170-issue-2.jpg" alt="Big Black Kiss #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">1989-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/big-black-kiss/vol-71887/446127-issue-1.jpg" alt="Big Black Kiss #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">1989-09</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Club Nephilim <span class="publisher-tag">Devil's Due</span> <span class="count-tag">3 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/club-nephilim/vol-159710/1196611-issue-2.jpg" alt="Club Nephilim #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/club-nephilim/vol-159710/1168228-issue-1.jpg" alt="Club Nephilim #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-05</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/club-nephilim/vol-159710/1069454-issue-0.jpg" alt="Club Nephilim #0" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#0</span>
+            <span class="cover-date">2024-06</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>The Nice House by the Sea <span class="publisher-tag">DC Comics</span> <span class="count-tag">3 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/the-nice-house-by-the-sea/vol-159011/1196638-issue-12.jpg" alt="The Nice House by the Sea #12" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#12</span>
+            <span class="cover-date">2026-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/the-nice-house-by-the-sea/vol-159011/1186137-issue-11.jpg" alt="The Nice House by the Sea #11" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#11</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/the-nice-house-by-the-sea/vol-159011/1170901-issue-10.jpg" alt="The Nice House by the Sea #10" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#10</span>
+            <span class="cover-date">2026-08</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Big Prize <span class="publisher-tag">Eternity</span> <span class="count-tag">2 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/big-prize/vol-71886/446169-issue-2.jpg" alt="Big Prize #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/big-prize/vol-71886/446126-issue-1.jpg" alt="Big Prize #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">1988-01</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Teena Comics <span class="publisher-tag">Magazine Management</span> <span class="count-tag">2 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/teena-comics/vol-84143/498523-issue-2.jpg" alt="Teena Comics #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">1955-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/teena-comics/vol-84143/498329-issue-1.jpg" alt="Teena Comics #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">1955-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Tale Of Halima <span class="publisher-tag">Eros Comix</span> <span class="count-tag">2 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/tale-of-halima/vol-37424/248889-issue-2.jpg" alt="Tale Of Halima #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">1992-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/tale-of-halima/vol-37424/248890-issue-1.jpg" alt="Tale Of Halima #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">1992-06</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Hot Lips <span class="publisher-tag">Eros Comix</span> <span class="count-tag">2 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/hot-lips/vol-56311/1100641-elisa-book-two.jpg" alt="Hot Lips #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">1993-06</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/hot-lips/vol-56311/382350-elisa-book-one.jpg" alt="Hot Lips #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">1993-05</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Revolution 9 <span class="publisher-tag">Mad Cave Studios</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/revolution-9/vol-160106/1196700-issue-7.jpg" alt="Revolution 9 #7" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#7</span>
+            <span class="cover-date">2026-08</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Jericho: Season 3: Civil War <span class="publisher-tag">IDW Publishing</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/jericho-season-3-civil-war/vol-59777/396647-tpb.jpg" alt="Jericho: Season 3: Civil War #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2011-07</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Deanna of the Dead <span class="publisher-tag">Eros Comix</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/deanna-of-the-dead/vol-79962/479145-the-tale-of-deanna-and-her-passage-into-the-carnigor.jpg" alt="Deanna of the Dead #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2004-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Aardvark Comics <span class="publisher-tag">Aardvark</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/aardvark-comics/vol-104678/625202-issue-1.jpg" alt="Aardvark Comics #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2017-09</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Marvel Comics Illustrated Version of Dune <span class="publisher-tag">Berkley Books</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/marvel-comics-illustrated-version-of-dune/vol-73710/855655-issue-1.jpg" alt="Marvel Comics Illustrated Version of Dune #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">1984-12</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Retief: The Giant Killer <span class="publisher-tag">Adventure</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/retief-the-giant-killer/vol-61603/403852-issue-1.jpg" alt="Retief: The Giant Killer #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">1991-09</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>The Amazing Cerebus <span class="publisher-tag">Aardvark</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/the-amazing-cerebus/vol-108983/661064-issue-1.jpg" alt="The Amazing Cerebus #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2018-02</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Watchvark <span class="publisher-tag">Aardvark</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/watchvark/vol-107525/650999-issue-1.jpg" alt="Watchvark #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2018-01</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Star Trek: Holo-Ween II <span class="publisher-tag">IDW Publishing</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/star-trek-holo-ween-ii/vol-177374/1196658-issue-2.jpg" alt="Star Trek: Holo-Ween II #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Captain Britain 50th Anniversary Special <span class="publisher-tag">Marvel</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/captain-britain-50th-anniversary-special/vol-177465/1196606-issue-1.jpg" alt="Captain Britain 50th Anniversary Special #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-12</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Cassie <span class="publisher-tag">Boom! Studios</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/cassie/vol-177466/1196607-issue-1.jpg" alt="Cassie #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Clayface 1 Special Edition <span class="publisher-tag">DC Comics</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/clayface-1-special-edition/vol-177467/1196610-issue-1.jpg" alt="Clayface 1 Special Edition #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-12</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Doom All-On-One <span class="publisher-tag">Marvel</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/doom-all-on-one/vol-177469/1196616-issue-1.jpg" alt="Doom All-On-One #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-12</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Hammer Head <span class="publisher-tag">Mad Cave Studios</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/hammer-head/vol-177470/1196624-issue-1.jpg" alt="Hammer Head #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Horror Comics: Dead Man's Party <span class="publisher-tag">Antarctic Press</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/horror-comics-dead-man-s-party/vol-177471/1196625-issue-1.jpg" alt="Horror Comics: Dead Man's Party #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Infernal Hulk vs. Fantastic Four <span class="publisher-tag">Marvel</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/infernal-hulk-vs-fantastic-four/vol-177472/1196627-issue-1.jpg" alt="Infernal Hulk vs. Fantastic Four #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-12</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Jynx &amp; Stitches: The Great Revenge <span class="publisher-tag">Zenescope Entertainment</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/jynx-stitches-the-great-revenge/vol-177473/1196629-issue-1.jpg" alt="Jynx &amp; Stitches: The Great Revenge #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Lilith: Blood &amp; Burlesque <span class="publisher-tag">Vault Comics</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/lilith-blood-burlesque/vol-177474/1196632-issue-1.jpg" alt="Lilith: Blood &amp; Burlesque #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Magic: The Gathering: Untold Stories―Liliana <span class="publisher-tag">Dark Horse Comics</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/magic-the-gathering-untold-stories-liliana/vol-177475/1196635-issue-1.jpg" alt="Magic: The Gathering: Untold Stories―Liliana #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Meals to Astonish: Avengers <span class="publisher-tag">Marvel</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/meals-to-astonish-avengers/vol-177476/1196637-issue-1.jpg" alt="Meals to Astonish: Avengers #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-12</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Nova: Return of the Rings <span class="publisher-tag">Marvel</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/nova-return-of-the-rings/vol-177477/1196640-issue-1.jpg" alt="Nova: Return of the Rings #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-12</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Poison Ivy: Deluxe Edition <span class="publisher-tag">DC Comics</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/poison-ivy-deluxe-edition/vol-177478/1196644-vol-1.jpg" alt="Poison Ivy: Deluxe Edition #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Spawn: Dead Zones <span class="publisher-tag">Image</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spawn-dead-zones/vol-177479/1196655-tpb.jpg" alt="Spawn: Dead Zones #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Speed Racer: Tales from the Road - Frankenstein's Dragster <span class="publisher-tag">Mad Cave Studios</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/speed-racer-tales-from-the-road-frankenstein-s-dragster/vol-177480/1196656-issue-1.jpg" alt="Speed Racer: Tales from the Road - Frankenstein's Dragster #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Steven Spielberg <span class="publisher-tag">Titan Comics</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/steven-spielberg/vol-177481/1196657-tpb.jpg" alt="Steven Spielberg #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-09</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Star Trek: Zero Point <span class="publisher-tag">IDW Publishing</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/star-trek-zero-point/vol-177482/1196660-issue-1.jpg" alt="Star Trek: Zero Point #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Star Wars: Rogue One - Chirrut &amp; Baze <span class="publisher-tag">Marvel</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/star-wars-rogue-one-chirrut-baze/vol-177483/1196661-issue-1.jpg" alt="Star Wars: Rogue One - Chirrut &amp; Baze #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-12</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Starship Godzilla: Invasion X <span class="publisher-tag">IDW Publishing</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/starship-godzilla-invasion-x/vol-177484/1196664-issue-1.jpg" alt="Starship Godzilla: Invasion X #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2026-10</span>
+          </figcaption>
+        </figure></div>
+      </section>
+
+    <footer>Generated 2026-10-16T10:16:45.862Z by scripts/generateNightlyCoverReport.js</footer>
+  </div>
+</body>
+</html>

@@ -19403,13 +19403,13 @@
   },
   {
     "name": "Mega Man Timelines",
-    "publisher": "Udon Entertainment Corp.",
+    "publisher": "Eclipse Comics",
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T19:00:50.505574+00:00",
-    "retry_after": "2026-09-26T19:00:50.505590+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:24:41.052179+00:00",
+    "retry_after": "2026-10-17T21:24:41.052194+00:00"
   },
   {
     "name": "The Walking Dead",
@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-16T20:00:47.281283+00:00",
-    "retry_after": "2026-10-17T20:00:47.281311+00:00"
+    "last_attempt_at": "2026-10-16T21:00:48.212583+00:00",
+    "retry_after": "2026-10-17T21:00:48.212598+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-16T20:00:47.347118+00:00",
-    "retry_after": "2026-10-17T20:00:47.347136+00:00"
+    "last_attempt_at": "2026-10-16T21:00:48.282551+00:00",
+    "retry_after": "2026-10-17T21:00:48.282567+00:00"
   },
   {
     "name": "Justice League Special",
@@ -54426,5 +54426,189 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-16T20:24:39.993621+00:00",
     "retry_after": "2026-10-17T20:24:39.993636+00:00"
+  },
+  {
+    "name": "Between the Sheets",
+    "publisher": "Dell Comics",
+    "year": 1969,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:24:13.160025+00:00",
+    "retry_after": "2026-10-17T21:24:13.160040+00:00"
+  },
+  {
+    "name": "Tom and Jerry's Laugh Time",
+    "publisher": "Marvel Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 93268,
+        "name": "Tom and Jerry's Laugh Time",
+        "publisher": "Magazine Management",
+        "start_year": 1961
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:24:13.498915+00:00",
+    "retry_after": "2026-10-17T21:24:13.498930+00:00"
+  },
+  {
+    "name": "Batman: The Bronze Age Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:25:23.557813+00:00",
+    "retry_after": "2026-10-17T21:25:23.557827+00:00"
+  },
+  {
+    "name": "Shaun the Sheep Comic",
+    "publisher": "Titan Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:25:56.208205+00:00",
+    "retry_after": "2026-10-17T21:25:56.208219+00:00"
+  },
+  {
+    "name": "Fantomas - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:25:56.892000+00:00",
+    "retry_after": "2026-10-17T21:25:56.892015+00:00"
+  },
+  {
+    "name": "Legs Weaver",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28040,
+        "name": "Legs Weaver",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:25:57.373032+00:00",
+    "retry_after": "2026-10-17T21:25:57.373048+00:00"
+  },
+  {
+    "name": "Tom and Jerry Comics",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1247,
+        "name": "Tom & Jerry Comics",
+        "publisher": "Dell",
+        "start_year": 1949
+      },
+      {
+        "id": 64205,
+        "name": "Tom and Jerry Comics",
+        "publisher": "Magazine Management",
+        "start_year": null
+      },
+      {
+        "id": 68898,
+        "name": "Tom & Jerry Comics",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:25:57.725261+00:00",
+    "retry_after": "2026-10-17T21:25:57.725273+00:00"
+  },
+  {
+    "name": "El Conejo de la Suerte - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142292,
+        "name": "El Conejo de la Suerte Serie Avestruz",
+        "publisher": "Editorial Novaro",
+        "start_year": 1975
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:25:58.329121+00:00",
+    "retry_after": "2026-10-17T21:25:58.329135+00:00"
+  },
+  {
+    "name": "Cuentos de Walt Disney - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:25:59.150073+00:00",
+    "retry_after": "2026-10-17T21:25:59.150088+00:00"
+  },
+  {
+    "name": "Variedades de Walt Disney - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:25:59.486059+00:00",
+    "retry_after": "2026-10-17T21:25:59.486072+00:00"
+  },
+  {
+    "name": "Historietas de Walt Disney - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:25:59.806622+00:00",
+    "retry_after": "2026-10-17T21:25:59.806637+00:00"
+  },
+  {
+    "name": "Sweethearts Library",
+    "publisher": "Marvel Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126205,
+        "name": "Sweethearts Library",
+        "publisher": "World Distributors",
+        "start_year": 1957
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:26:00.185088+00:00",
+    "retry_after": "2026-10-17T21:26:00.185104+00:00"
+  },
+  {
+    "name": "L'Incredibile Devil",
+    "publisher": "Dark Horse Comics",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 131765,
+        "name": "L'Incredibile Devil",
+        "publisher": "Editoriale Corno",
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T21:28:26.965996+00:00",
+    "retry_after": "2026-10-17T21:28:26.966011+00:00"
   }
 ]

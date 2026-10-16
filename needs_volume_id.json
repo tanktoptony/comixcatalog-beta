@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-16T15:27:15.621443+00:00",
-    "retry_after": "2026-10-17T15:27:15.621457+00:00"
+    "last_attempt_at": "2026-10-16T16:00:51.211379+00:00",
+    "retry_after": "2026-10-17T16:00:51.211394+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-16T15:27:15.690408+00:00",
-    "retry_after": "2026-10-17T15:27:15.690424+00:00"
+    "last_attempt_at": "2026-10-16T16:00:51.302099+00:00",
+    "retry_after": "2026-10-17T16:00:51.302114+00:00"
   },
   {
     "name": "Justice League Special",
@@ -53436,5 +53436,311 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-16T15:52:07.942489+00:00",
     "retry_after": "2026-10-17T15:52:07.942506+00:00"
+  },
+  {
+    "name": "Captain Marvel Adventures [Wheaties Miniature Edition]",
+    "publisher": "Fawcett Comics",
+    "year": 1947,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:24:00.815209+00:00",
+    "retry_after": "2026-10-17T16:24:00.815230+00:00"
+  },
+  {
+    "name": "The Lone Ranger's Famous Horse Hi-Yo Silver",
+    "publisher": "Marvel Comics",
+    "year": 1959,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159690,
+        "name": "The Lone Ranger's Famous Horse Hi-Yo Silver ",
+        "publisher": "Magazine Management",
+        "start_year": 1959
+      },
+      {
+        "id": 33768,
+        "name": "Lone Ranger's Famous Horse Hi-Yo Silver",
+        "publisher": "Dell",
+        "start_year": 1952
+      },
+      {
+        "id": 159289,
+        "name": "The Lone Ranger's Famous Horse Hi-Yo Silver ",
+        "publisher": "Cleland",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:24:01.256615+00:00",
+    "retry_after": "2026-10-17T16:24:01.256635+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles Color Classics: Micro-Series",
+    "publisher": "IDW Publishing",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:24:10.923473+00:00",
+    "retry_after": "2026-10-17T16:24:10.923492+00:00"
+  },
+  {
+    "name": "Chester 5000 XYV",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53285,
+        "name": "Chester 5000 XYV",
+        "publisher": "Top Shelf",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:24:11.432617+00:00",
+    "retry_after": "2026-10-17T16:24:11.432635+00:00"
+  },
+  {
+    "name": "X-Men: From the Ashes – Demons and Death",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:24:11.862492+00:00",
+    "retry_after": "2026-10-17T16:24:11.862509+00:00"
+  },
+  {
+    "name": "Teens at Play",
+    "publisher": "Dynamite Entertainment",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30220,
+        "name": "Teens At Play",
+        "publisher": "Eros Comix",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:24:12.451239+00:00",
+    "retry_after": "2026-10-17T16:24:12.451255+00:00"
+  },
+  {
+    "name": "Canadian Ninja",
+    "publisher": "EC Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37686,
+        "name": "Canadian Ninja",
+        "publisher": "Unknown Publisher",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:24:17.971713+00:00",
+    "retry_after": "2026-10-17T16:24:17.971729+00:00"
+  },
+  {
+    "name": "Lurid Tales",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26768,
+        "name": "Lurid Tales",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:24:22.443908+00:00",
+    "retry_after": "2026-10-17T16:24:22.443926+00:00"
+  },
+  {
+    "name": "The League of Extraordinary Gentlemen: The Tempest",
+    "publisher": "IDW Publishing",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112151,
+        "name": "The League of Extraordinary Gentlemen: The Tempest",
+        "publisher": "Top Shelf",
+        "start_year": 2018
+      },
+      {
+        "id": 124082,
+        "name": "The League of Extraordinary Gentlemen: The Tempest",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:24:46.684653+00:00",
+    "retry_after": "2026-10-17T16:24:46.684670+00:00"
+  },
+  {
+    "name": "The Family Circus' Colorful Life",
+    "publisher": "Fawcett Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:25:01.074734+00:00",
+    "retry_after": "2026-10-17T16:25:01.074751+00:00"
+  },
+  {
+    "name": "Clásicos del Cine",
+    "publisher": "Marvel Comics",
+    "year": 1959,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:25:01.995528+00:00",
+    "retry_after": "2026-10-17T16:25:01.995545+00:00"
+  },
+  {
+    "name": "Travesuras",
+    "publisher": "Harvey Comics",
+    "year": 1963,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:25:02.403695+00:00",
+    "retry_after": "2026-10-17T16:25:02.403714+00:00"
+  },
+  {
+    "name": "Il Comandante Mark [Nuova Collana Araldo]",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:25:02.751675+00:00",
+    "retry_after": "2026-10-17T16:25:02.751692+00:00"
+  },
+  {
+    "name": "TV Mundial",
+    "publisher": "Marvel Comics",
+    "year": 1962,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:25:06.746587+00:00",
+    "retry_after": "2026-10-17T16:25:06.746605+00:00"
+  },
+  {
+    "name": "Riqui Ricón el pobre niño rico",
+    "publisher": "Harvey Comics",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 82529,
+        "name": "Riqui Ricón el Pobre Niño Rico",
+        "publisher": "Editorial Novaro",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:25:07.233995+00:00",
+    "retry_after": "2026-10-17T16:25:07.234012+00:00"
+  },
+  {
+    "name": "Fix y Foxi",
+    "publisher": "Harvey Comics",
+    "year": 1967,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113785,
+        "name": "Fix y Foxi ",
+        "publisher": "Editorial Novaro",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:25:07.746786+00:00",
+    "retry_after": "2026-10-17T16:25:07.746803+00:00"
+  },
+  {
+    "name": "TuttoZagor",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:25:08.255150+00:00",
+    "retry_after": "2026-10-17T16:25:08.255169+00:00"
+  },
+  {
+    "name": "Archi - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:25:08.774458+00:00",
+    "retry_after": "2026-10-17T16:25:08.774478+00:00"
+  },
+  {
+    "name": "A Espada Selvagem de Conan",
+    "publisher": "Avatar Press",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54179,
+        "name": "A Espada Selvagem de Conan",
+        "publisher": "Abril",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:25:09.131568+00:00",
+    "retry_after": "2026-10-17T16:25:09.131584+00:00"
+  },
+  {
+    "name": "Nick Raider",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30885,
+        "name": "Nick Raider",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1988
+      },
+      {
+        "id": 46222,
+        "name": "Nick Raider",
+        "publisher": "If Edizioni",
+        "start_year": 2006
+      },
+      {
+        "id": 164717,
+        "name": "Nick Raider",
+        "publisher": "Maverick (Serbian)",
+        "start_year": 1998
+      },
+      {
+        "id": 150973,
+        "name": "Nick Raider",
+        "publisher": "Mythos Editora",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T16:25:09.979183+00:00",
+    "retry_after": "2026-10-17T16:25:09.979199+00:00"
   }
 ]

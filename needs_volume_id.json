@@ -48227,9 +48227,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-13T00:02:48.832009+00:00",
-    "retry_after": "2026-10-16T00:02:48.832027+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-16T01:15:52.486673+00:00",
+    "retry_after": "2026-10-23T01:15:52.486692+00:00"
   },
   {
     "name": "Tombstone Territory",
@@ -48237,9 +48237,9 @@
     "year": 1975,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-13T01:10:53.844629+00:00",
-    "retry_after": "2026-10-16T01:10:53.844646+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-16T01:15:52.952880+00:00",
+    "retry_after": "2026-10-23T01:15:52.952898+00:00"
   },
   {
     "name": "As Novas Aventuras de Ciclope e F�nix",
@@ -51424,9 +51424,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-15T01:15:48.400962+00:00",
-    "retry_after": "2026-10-16T01:15:48.400976+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-16T01:15:49.417254+00:00",
+    "retry_after": "2026-10-19T01:15:49.417278+00:00"
   },
   {
     "name": "Marvel Mix-Tape: NYCC 2010",
@@ -51434,9 +51434,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-15T01:15:48.848163+00:00",
-    "retry_after": "2026-10-16T01:15:48.848180+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-16T01:15:49.917967+00:00",
+    "retry_after": "2026-10-19T01:15:49.917985+00:00"
   },
   {
     "name": "Fear Itself: Monkey King (MDCU)",
@@ -52756,5 +52756,25 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-16T00:35:39.836378+00:00",
     "retry_after": "2026-10-17T00:35:39.836388+00:00"
+  },
+  {
+    "name": "Free Comic Book Day 2007 (Marvel Adventures)",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T01:15:51.478414+00:00",
+    "retry_after": "2026-10-17T01:15:51.478432+00:00"
+  },
+  {
+    "name": "DC Comics Presents: Robin War 100-Page Super Spectacular",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T01:15:51.909443+00:00",
+    "retry_after": "2026-10-17T01:15:51.909462+00:00"
   }
 ]

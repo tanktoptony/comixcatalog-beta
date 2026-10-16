@@ -12,6 +12,7 @@ import { aliasTermsFor } from "@/lib/searchAliases";
 import { unstable_cache } from "next/cache";
 import { createServerTiming } from "@/lib/serverTiming";
 import { cachedSearchTerm } from "@/lib/searchTermCache";
+import { formatTag, formatTagTitle, isCollectedEdition } from "@/lib/seriesFormat";
 import {
   DegradedSearchError,
   normalizeSearchCacheTerm,
@@ -148,6 +149,32 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ, onFallb
 // UUIDs per .in() in the volume lookup. 300 worked and 500 failed when
 // measured; 200 leaves headroom for longer query strings.
 const VOLUME_LOOKUP_CHUNK = 200;
+
+async function loadSeriesFormats(supabase, rows) {
+  const gcdIds = [...new Set(rows.map((row) => Number(row.gcd_id)).filter(Number.isFinite))];
+  if (!gcdIds.length) return new Map();
+  const { data, error } = await supabase.from("gcd_series")
+    .select("gcd_id, publishing_format, binding, publication_type")
+    .in("gcd_id", gcdIds);
+  if (error) {
+    console.error("series search format lookup failed:", error.code, error.message);
+    return new Map();
+  }
+  return new Map((data ?? []).map((row) => [Number(row.gcd_id), row]));
+}
+
+function addFormatTags(rows, formats) {
+  return rows.map((row) => {
+    const format = formats.get(Number(row.gcd_id));
+    const input = { name: row.title, ...format };
+    return {
+      ...row,
+      format_tag: formatTag(input),
+      format_tag_title: formatTagTitle(input),
+      format_collected: isCollectedEdition(input) || /graphic novel/i.test(String(input.publishing_format ?? "")),
+    };
+  });
+}
 
 async function computeSeriesResponse(req) {
   const timing = createServerTiming();
@@ -432,10 +459,13 @@ async function computeSeriesResponse(req) {
     // by resolveSeriesCardCovers), never from the independently refreshed
     // featured_cover_path_cached value.
     stopRanking();
-    const resolvedSeriesCovers = returnFullRanking
-      ? new Map()
-      : await timing.measure("covers", () => resolveSeriesCardCovers(supabase, top));
-    const series = top.map((row) => ({
+    const [resolvedSeriesCovers, seriesFormats] = returnFullRanking
+      ? [new Map(), new Map()]
+      : await Promise.all([
+        timing.measure("covers", () => resolveSeriesCardCovers(supabase, top)),
+        loadSeriesFormats(supabase, top),
+      ]);
+    const series = addFormatTags(top.map((row) => ({
       id: row.id,
       gcd_id: row.gcd_id ?? null,
       title: row.title ?? "Untitled Series",
@@ -448,7 +478,7 @@ async function computeSeriesResponse(req) {
         name: row.resolved_publisher_cached ?? "Unknown Publisher",
       },
       cover: coverUrl(resolvedSeriesCovers.get(row.id)?.storage_path),
-    }));
+    })), seriesFormats);
 
     // A degraded result must not sit in the CDN for ten minutes.
     if (searchDegraded) return json({ series, degraded: true });
@@ -502,10 +532,14 @@ async function withCardCovers(result, parsed, limit, timing) {
     year_end_cached: row.year_end,
     resolved_publisher_cached: row.publisher?.name,
   })));
-  const covers = timing ? await timing.measure("card_covers", resolve) : await resolve();
+  const supabase = getServiceClient();
+  const [covers, formats] = await Promise.all([
+    timing ? timing.measure("card_covers", resolve) : resolve(),
+    loadSeriesFormats(supabase, selected),
+  ]);
   return {
     ...result,
-    series: selected.map((row) => ({ ...row, cover: coverUrl(covers.get(row.id)?.storage_path) })),
+    series: addFormatTags(selected.map((row) => ({ ...row, cover: coverUrl(covers.get(row.id)?.storage_path) })), formats),
   };
 }
 

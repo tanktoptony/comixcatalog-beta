@@ -500,6 +500,7 @@ export default function IssueClient({ initialIssue = null }) {
 
             <div className="issue-fact-chips">
               <span>{issue.publisher || "Unknown Publisher"}</span>
+              {issue.series_format_tag && <span className="pill pill-format" title={issue.series_format_tag_title || issue.series_format || undefined}>{issue.series_format_tag}</span>}
               {/* display_date is the API's canonical English "Month YYYY"
                   rendering, derived from key_date. Replaces the redundant
                   release_year + raw publication_date pair that used to leak

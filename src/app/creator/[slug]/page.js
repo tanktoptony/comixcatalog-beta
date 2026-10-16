@@ -73,7 +73,7 @@ export default async function CreatorPage({ params }) {
                   <Link href={`/series/${run.id}`} className="creator-run-card">
                     <Image src={run.cover || "/fallback-cover.png"} alt="" width={72} height={108} loading="lazy" unoptimized />
                     <div>
-                    <strong>{run.title}</strong>
+                    <div className="creator-run-title"><strong>{run.title}</strong>{run.format_tag && <span className="pill pill-format" title={run.format_tag_title || undefined}>{run.format_tag}</span>}</div>
                     <div className="muted">{[run.publisher, yearLabel(run)].filter(Boolean).join(" · ")}</div>
                     <div>{run.roles.map(roleLabel).join(", ")} · {run.issue_range}</div>
                     </div>

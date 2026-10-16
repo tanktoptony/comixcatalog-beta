@@ -392,6 +392,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                         <div className="comic-card-title">
                           {s.title || "Untitled Series"}
                         </div>
+                        {s.format_tag && <span className={`pill ${s.format_collected ? "pill-format" : "pill-format-muted"}`} title={s.format_tag_title || undefined}>{s.format_tag}</span>}
                         <div className="comic-card-meta">
                           {[
                             s.publisher?.name || "Unknown Publisher",

@@ -8,7 +8,7 @@ import { resolvePublisher } from "@/lib/publisher";
 import { getAuthedUser } from "@/lib/authServer";
 import { ADMIN_ID } from "@/lib/admin";
 import { canSeeComic } from "@/lib/review";
-import { formatLabel, isCollectedEdition } from "@/lib/seriesFormat";
+import { formatLabel, formatTag, formatTagTitle, isCollectedEdition } from "@/lib/seriesFormat";
 import { OWNED_STATUSES } from "@/lib/collectionStatus";
 
 // publication_date is null on ~65% of gcd_issues. key_date is GCD's sortable
@@ -295,7 +295,7 @@ export async function GET(req, context) {
         // yet) degrades to "unknown format", not to a lost publisher.
         supabase
           .from("gcd_series")
-          .select("publishing_format, binding")
+          .select("publishing_format, binding, publication_type")
           .eq("gcd_id", issue.series_gcd_id)
           .maybeSingle(),
         supabase
@@ -630,6 +630,8 @@ export async function GET(req, context) {
           series_title: seriesTitle,
           series_year_start: parseYear(seriesRow?.year_start_cached),
           series_format: formatLabel(seriesFormat ?? {}),
+          series_format_tag: formatTag({ name: seriesTitle, ...seriesFormat }),
+          series_format_tag_title: formatTagTitle({ name: seriesTitle, ...seriesFormat }),
           issue_number: issue.issue_number,
           title: issue.title ?? null,
           release_year: bestYearFor(issue),

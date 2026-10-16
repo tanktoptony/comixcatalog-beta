@@ -3,6 +3,7 @@ import { resolveCovers } from "./catalog/covers.js";
 import { buildCreatorRuns, buildRoleCounts } from "./creatorPage.js";
 import { fetchAllPages } from "./supabase/fetchAllPages.js";
 import { getServiceClient } from "./supabase/service.js";
+import { formatTag, formatTagTitle } from "./seriesFormat.js";
 
 const CREDIT_CAP = 3000;
 const IN_CHUNK = 400;
@@ -52,6 +53,8 @@ async function loadCreatorPage(slug) {
   const issues = await selectInChunks(supabase, "gcd_issues", "gcd_id, series_gcd_id, issue_number, title, publication_date, key_date", "gcd_id", issueIds);
   const seriesGcdIds = [...new Set(issues.map((issue) => issue.series_gcd_id).filter((id) => id != null))];
   const series = await selectInChunks(supabase, "series", "id, gcd_id, title, year_start_cached, year_end_cached, resolved_publisher_cached", "gcd_id", seriesGcdIds);
+  const formatRows = await selectInChunks(supabase, "gcd_series", "gcd_id, publishing_format, binding, publication_type", "gcd_id", seriesGcdIds);
+  const formatByGcdId = new Map(formatRows.map((row) => [String(row.gcd_id), row]));
   const keyRows = await selectInChunks(supabase, "key_issues", "gcd_issue_id, reason, tier", "gcd_issue_id", issueIds);
   const issueById = new Map(issues.map((issue) => [String(issue.gcd_id), issue]));
   const seriesByGcdId = new Map(series.map((row) => [String(row.gcd_id), row]));
@@ -62,6 +65,12 @@ async function loadCreatorPage(slug) {
     return { ...key, issue_number: issue.issue_number, title: issue.title, series_title: owner.title, series_gcd_id: issue.series_gcd_id, year: yearOf(issue), publisher: owner.resolved_publisher_cached };
   }).filter(Boolean);
   const runs = buildCreatorRuns(credits, issues, series);
+  for (const run of runs) {
+    const owner = series.find((row) => String(row.id) === String(run.id));
+    const format = owner ? formatByGcdId.get(String(owner.gcd_id)) : null;
+    run.format_tag = formatTag({ name: run.title, ...format });
+    run.format_tag_title = formatTagTitle({ name: run.title, ...format });
+  }
   const creditedIssueIds = new Set(credits.map((credit) => String(credit.gcd_issue_id)));
   const earliestIssueBySeries = new Map();
   for (const issue of issues) {
@@ -120,4 +129,4 @@ async function loadCreatorPage(slug) {
 }
 
 // Rejected calls are not cached, so database failures never become a day-long empty page.
-export const getCreatorPage = unstable_cache(loadCreatorPage, ["page-creator-v2"], { revalidate: 86400 });
+export const getCreatorPage = unstable_cache(loadCreatorPage, ["page-creator-v3"], { revalidate: 86400 });

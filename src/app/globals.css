@@ -11091,9 +11091,15 @@ button.nav-link {
 
 /* ── Series format badge + collected-edition notes ─────────────────────── */
 .pill-format {
+  border: 1px solid rgba(244, 208, 63, 0.45);
   border-color: rgba(244, 208, 63, 0.45);
   color: var(--x-gold, #f4d03f);
 }
+.pill-format-muted {
+  border: 1px solid var(--cc-border, rgba(255, 255, 255, 0.14));
+  color: var(--cc-text-muted, #a4aebb);
+}
+.creator-run-title { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .series-collects-list {
   margin: 0 0 12px 1.1rem;
   padding: 0;

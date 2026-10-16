@@ -470,6 +470,7 @@ export default function Header() {
                                       Vol. {series.volume_index}
                                     </span>
                                   ) : null}
+                                  {series.format_tag && <span className={`pill ${series.format_collected ? "pill-format" : "pill-format-muted"}`} title={series.format_tag_title || undefined}>{series.format_tag}</span>}
                                 </span>
                                 <span className="header-search-item-meta">
                                   {[

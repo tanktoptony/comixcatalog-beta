@@ -48508,9 +48508,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-13T08:01:00.803189+00:00",
-    "retry_after": "2026-10-16T08:01:00.803203+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-16T08:15:50.049220+00:00",
+    "retry_after": "2026-10-23T08:15:50.049236+00:00"
   },
   {
     "name": "The yFu",
@@ -48518,9 +48518,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-13T08:01:02.350477+00:00",
-    "retry_after": "2026-10-16T08:01:02.350491+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-16T08:15:50.411183+00:00",
+    "retry_after": "2026-10-23T08:15:50.411205+00:00"
   },
   {
     "name": "Shinobi Ninja Princess",
@@ -51534,9 +51534,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-15T08:15:42.911577+00:00",
-    "retry_after": "2026-10-16T08:15:42.911592+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-16T08:15:49.114441+00:00",
+    "retry_after": "2026-10-19T08:15:49.114457+00:00"
   },
   {
     "name": "Burn the Orphanage",
@@ -52786,5 +52786,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-16T03:15:46.520215+00:00",
     "retry_after": "2026-10-17T03:15:46.520233+00:00"
+  },
+  {
+    "name": "Oni Press Starter Pack",
+    "publisher": "Oni Press",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T08:15:49.625094+00:00",
+    "retry_after": "2026-10-17T08:15:49.625111+00:00"
   }
 ]

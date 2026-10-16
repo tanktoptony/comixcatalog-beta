@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-16T14:00:53.564623+00:00",
-    "retry_after": "2026-10-17T14:00:53.564645+00:00"
+    "last_attempt_at": "2026-10-16T15:00:50.401166+00:00",
+    "retry_after": "2026-10-17T15:00:50.401181+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-16T14:00:53.646486+00:00",
-    "retry_after": "2026-10-17T14:00:53.646503+00:00"
+    "last_attempt_at": "2026-10-16T15:00:50.487981+00:00",
+    "retry_after": "2026-10-17T15:00:50.487997+00:00"
   },
   {
     "name": "Justice League Special",
@@ -53124,5 +53124,317 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-16T14:30:11.865236+00:00",
     "retry_after": "2026-10-17T14:30:11.865250+00:00"
+  },
+  {
+    "name": "Heart of the Family Circus",
+    "publisher": "Fawcett Comics",
+    "year": 1986,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:23:51.794497+00:00",
+    "retry_after": "2026-10-17T15:23:51.794511+00:00"
+  },
+  {
+    "name": "Rick and Morty the Manga",
+    "publisher": "Oni Press",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:23:55.806229+00:00",
+    "retry_after": "2026-10-17T15:23:55.806241+00:00"
+  },
+  {
+    "name": "Extreme Previews '96",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19862,
+        "name": "Extreme Previews '96",
+        "publisher": "Image",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:23:56.457303+00:00",
+    "retry_after": "2026-10-17T15:23:56.457317+00:00"
+  },
+  {
+    "name": "Peepin' Tom's Cowgirl Blues",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23027,
+        "name": "Peepin' Tom's Cowgirl Blues",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:23:57.075483+00:00",
+    "retry_after": "2026-10-17T15:23:57.075497+00:00"
+  },
+  {
+    "name": "Ultraverse Future Shock",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20864,
+        "name": "Ultraverse: Future Shock",
+        "publisher": "Malibu",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:24:03.177999+00:00",
+    "retry_after": "2026-10-17T15:24:03.178013+00:00"
+  },
+  {
+    "name": "Invader Zim Quarterly: Holiday Special",
+    "publisher": "Oni Press",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:24:33.970574+00:00",
+    "retry_after": "2026-10-17T15:24:33.970590+00:00"
+  },
+  {
+    "name": "Voracia",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72977,
+        "name": "Voracia",
+        "publisher": "Eros Comix",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:24:34.348267+00:00",
+    "retry_after": "2026-10-17T15:24:34.348279+00:00"
+  },
+  {
+    "name": "Seduction",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 80864,
+        "name": "Seduction",
+        "publisher": "Eternity",
+        "start_year": 1991
+      },
+      {
+        "id": 114998,
+        "name": "Seduction",
+        "publisher": "Harlequin Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:25:47.654648+00:00",
+    "retry_after": "2026-10-17T15:25:47.654664+00:00"
+  },
+  {
+    "name": "Variedades de Walt Disney",
+    "publisher": "Harvey Comics",
+    "year": 1967,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:25:54.004468+00:00",
+    "retry_after": "2026-10-17T15:25:54.004482+00:00"
+  },
+  {
+    "name": "TuttoTex",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:25:54.866568+00:00",
+    "retry_after": "2026-10-17T15:25:54.866585+00:00"
+  },
+  {
+    "name": "Joyas de la Mitología",
+    "publisher": "Harvey Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44319,
+        "name": "Joyas de la Mitología",
+        "publisher": "Editorial Novaro",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:25:55.302012+00:00",
+    "retry_after": "2026-10-17T15:25:55.302025+00:00"
+  },
+  {
+    "name": "El Llanero Solitario",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170570,
+        "name": "El Llanero Solitario ",
+        "publisher": "Editorial Novaro",
+        "start_year": 1953
+      },
+      {
+        "id": 149900,
+        "name": "El Llanero Solitario",
+        "publisher": "Planeta DeAgostini",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:25:55.950736+00:00",
+    "retry_after": "2026-10-17T15:25:55.950750+00:00"
+  },
+  {
+    "name": "Tex Nuova Ristampa",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 93849,
+        "name": "Tex Nuova Ristampa",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:25:56.569949+00:00",
+    "retry_after": "2026-10-17T15:25:56.569963+00:00"
+  },
+  {
+    "name": "Kriminal",
+    "publisher": "Dark Horse Comics",
+    "year": 1957,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2216,
+        "name": "Kriminal",
+        "publisher": "Editoriale Corno",
+        "start_year": 1964
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:25:57.130576+00:00",
+    "retry_after": "2026-10-17T15:25:57.130591+00:00"
+  },
+  {
+    "name": "Martin Mystère",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3158,
+        "name": "Martin Mystère",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1982
+      },
+      {
+        "id": 162923,
+        "name": "Martin Mystère",
+        "publisher": "Aleta Ediciones",
+        "start_year": 2014
+      },
+      {
+        "id": 136371,
+        "name": "Martin Mystère",
+        "publisher": "Strip-Agent",
+        "start_year": 1994
+      },
+      {
+        "id": 143592,
+        "name": "Martin Mystère",
+        "publisher": "Aleta Ediciones",
+        "start_year": 2004
+      },
+      {
+        "id": 67512,
+        "name": "Martin Mystère",
+        "publisher": "Agarthi Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 152259,
+        "name": "Martin Mystère",
+        "publisher": "Veseli Četvrtak",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:25:57.623952+00:00",
+    "retry_after": "2026-10-17T15:25:57.623963+00:00"
+  },
+  {
+    "name": "Leyendas de América",
+    "publisher": "Harvey Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88984,
+        "name": "Leyendas de América",
+        "publisher": "Editorial Novaro",
+        "start_year": null
+      },
+      {
+        "id": 152886,
+        "name": "Leyendas de América",
+        "publisher": "Editorial Novaro",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:25:58.060578+00:00",
+    "retry_after": "2026-10-17T15:25:58.060590+00:00"
+  },
+  {
+    "name": "Vidas Ilustres",
+    "publisher": "Harvey Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44314,
+        "name": "Vidas Ilustres",
+        "publisher": "Editorial Novaro",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:25:58.484749+00:00",
+    "retry_after": "2026-10-17T15:25:58.484761+00:00"
+  },
+  {
+    "name": "Dylan Dog ristampa",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T15:25:58.965041+00:00",
+    "retry_after": "2026-10-17T15:25:58.965056+00:00"
   }
 ]

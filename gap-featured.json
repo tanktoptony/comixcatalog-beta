@@ -1,20 +1,5 @@
 [
   {
-    "name": "Absolute Batman",
-    "publisher": "DC Comics",
-    "year": 2025
-  },
-  {
-    "name": "Absolute Wonder Woman",
-    "publisher": "DC Comics",
-    "year": 2025
-  },
-  {
-    "name": "Absolute Superman",
-    "publisher": "DC Comics",
-    "year": 2025
-  },
-  {
     "name": "Absolute Martian Manhunter",
     "publisher": "DC Comics",
     "year": 2025
@@ -25,19 +10,24 @@
     "year": 2025
   },
   {
-    "name": "Absolute Flash",
-    "publisher": "DC Comics",
-    "year": 2025
-  },
-  {
-    "name": "Ultimate Spider-Man",
+    "name": "Spider-Boy",
     "publisher": "Marvel Comics",
     "year": 2024
   },
   {
-    "name": "Ultimate Invasion",
+    "name": "One World Under Doom",
     "publisher": "Marvel Comics",
-    "year": 2023
+    "year": 2025
+  },
+  {
+    "name": "Powers of X",
+    "publisher": "Marvel Comics",
+    "year": 2019
+  },
+  {
+    "name": "Immortal X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2022
   },
   {
     "name": "Immortal Hulk",
@@ -50,9 +40,19 @@
     "year": 2021
   },
   {
+    "name": "Black Panther",
+    "publisher": "Marvel Comics",
+    "year": 2022
+  },
+  {
+    "name": "Star Wars",
+    "publisher": "Marvel Comics",
+    "year": 2020
+  },
+  {
     "name": "Star Wars: Darth Vader",
     "publisher": "Marvel Comics",
-    "year": 2016
+    "year": 2020
   },
   {
     "name": "Batman",
@@ -60,19 +60,9 @@
     "year": 2016
   },
   {
-    "name": "The Nice House on the Lake",
-    "publisher": "DC Comics",
-    "year": 2024
-  },
-  {
     "name": "Nightwing",
     "publisher": "DC Comics",
-    "year": 2013
-  },
-  {
-    "name": "Wonder Woman",
-    "publisher": "DC Comics",
-    "year": 2022
+    "year": 2016
   },
   {
     "name": "Spider-Man",
@@ -85,24 +75,24 @@
     "year": 2023
   },
   {
+    "name": "Fantastic Four",
+    "publisher": "Marvel Comics",
+    "year": 2022
+  },
+  {
     "name": "Captain America",
     "publisher": "Marvel Comics",
     "year": 2023
   },
   {
-    "name": "Thor",
+    "name": "Iron Man",
     "publisher": "Marvel Comics",
-    "year": 2021
+    "year": 2020
   },
   {
     "name": "Deadpool",
     "publisher": "Marvel Comics",
-    "year": 2021
-  },
-  {
-    "name": "Punisher",
-    "publisher": "Marvel Comics",
-    "year": 2024
+    "year": 2023
   },
   {
     "name": "Superman",
@@ -110,34 +100,24 @@
     "year": 2021
   },
   {
-    "name": "The Flash",
-    "publisher": "DC Comics",
-    "year": 2012
-  },
-  {
     "name": "Green Lantern",
     "publisher": "DC Comics",
-    "year": 2024
+    "year": 2023
   },
   {
     "name": "Justice League",
     "publisher": "DC Comics",
-    "year": 2019
-  },
-  {
-    "name": "Aquaman",
-    "publisher": "DC Comics",
-    "year": 2025
+    "year": 2022
   },
   {
     "name": "Catwoman",
     "publisher": "DC Comics",
-    "year": 2019
+    "year": 2018
   },
   {
     "name": "Robin",
     "publisher": "DC Comics",
-    "year": 2022
+    "year": 2021
   },
   {
     "name": "Harley Quinn",
@@ -147,22 +127,17 @@
   {
     "name": "Birds of Prey",
     "publisher": "DC Comics",
-    "year": 2020
+    "year": 2023
   },
   {
     "name": "Poison Ivy",
     "publisher": "DC Comics",
-    "year": 2023
+    "year": 2022
   },
   {
-    "name": "The Walking Dead",
+    "name": "Invincible",
     "publisher": "Image Comics",
-    "year": 2006
-  },
-  {
-    "name": "Spawn",
-    "publisher": "Image Comics",
-    "year": 1996
+    "year": 2003
   },
   {
     "name": "Something Is Killing the Children",
@@ -170,7 +145,12 @@
     "year": 2020
   },
   {
-    "name": "Geiger",
+    "name": "House of Slaughter",
+    "publisher": "BOOM! Studios",
+    "year": 2021
+  },
+  {
+    "name": "Radiant Black",
     "publisher": "Image Comics",
     "year": 2021
   },
@@ -180,24 +160,14 @@
     "year": 2019
   },
   {
-    "name": "Stray Dogs",
-    "publisher": "Image Comics",
-    "year": 2021
-  },
-  {
-    "name": "Vanish",
-    "publisher": "Image Comics",
-    "year": 2023
-  },
-  {
     "name": "Ice Cream Man",
     "publisher": "Image Comics",
-    "year": 2023
+    "year": 2018
   },
   {
     "name": "Once & Future",
     "publisher": "BOOM! Studios",
-    "year": 2020
+    "year": 2019
   },
   {
     "name": "Power Rangers",
@@ -207,21 +177,11 @@
   {
     "name": "Mighty Morphin Power Rangers",
     "publisher": "BOOM! Studios",
-    "year": 2014
+    "year": 2016
   },
   {
-    "name": "Watchmen",
-    "publisher": "DC Comics",
-    "year": 1987
-  },
-  {
-    "name": "Y: The Last Man",
-    "publisher": "DC Comics",
-    "year": 2009
-  },
-  {
-    "name": "Preacher",
-    "publisher": "DC Comics",
-    "year": 2007
+    "name": "Stranger Things",
+    "publisher": "Dark Horse Comics",
+    "year": 2018
   }
 ]

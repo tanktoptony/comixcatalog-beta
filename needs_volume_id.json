@@ -3177,28 +3177,6 @@
     "retry_after": "2026-09-21T14:00:38.554482+00:00"
   },
   {
-    "name": "Star Wars: Darth Vader",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "reason": "multiple_same_start_year",
-    "candidates": [
-      {
-        "id": 124821,
-        "name": "Star Wars: Darth Vader",
-        "publisher": "Marvel",
-        "start_year": 2020
-      },
-      {
-        "id": 132327,
-        "name": "Star Wars: Darth Vader",
-        "publisher": "Marvel",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554485+00:00"
-  },
-  {
     "name": "Scooby-Doo Team-Up",
     "publisher": "DC Comics",
     "year": 2014,
@@ -9608,28 +9586,6 @@
     "retry_after": "2026-09-21T14:00:38.556006+00:00"
   },
   {
-    "name": "Spider-Boy",
-    "publisher": "Marvel Comics",
-    "year": 2024,
-    "reason": "multiple_same_start_year",
-    "candidates": [
-      {
-        "id": 157980,
-        "name": "Spider-Boy",
-        "publisher": "Marvel",
-        "start_year": 2024
-      },
-      {
-        "id": 154415,
-        "name": "Spider-Boy",
-        "publisher": "Marvel",
-        "start_year": 2024
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556009+00:00"
-  },
-  {
     "name": "Geiger",
     "publisher": "Image Comics",
     "year": 2021,
@@ -9981,16 +9937,16 @@
         "start_year": 2012
       },
       {
-        "id": 92373,
-        "name": "Justice League",
-        "publisher": "DC Comics",
-        "start_year": 2016
-      },
-      {
         "id": 111428,
         "name": "Justice League",
         "publisher": "DC Comics",
         "start_year": 2018
+      },
+      {
+        "id": 92373,
+        "name": "Justice League",
+        "publisher": "DC Comics",
+        "start_year": 2016
       },
       {
         "id": 3796,
@@ -9999,8 +9955,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556103+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-16T13:14:52.865863+00:00",
+    "retry_after": "2026-10-19T13:14:52.865877+00:00"
   },
   {
     "name": "Space Ghost",
@@ -27979,7 +27936,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27996,9 +27953,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:00:50.269442+00:00",
-    "retry_after": "2026-10-23T22:00:50.269458+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T13:14:42.730431+00:00",
+    "retry_after": "2026-10-17T13:14:42.730446+00:00"
   },
   {
     "name": "Cerebus",
@@ -43943,7 +43900,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43960,9 +43917,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-12T18:08:48.656055+00:00",
-    "retry_after": "2026-10-19T18:08:48.656070+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T13:14:51.495935+00:00",
+    "retry_after": "2026-10-17T13:14:51.495949+00:00"
   },
   {
     "name": "Justice League Special",
@@ -52806,5 +52763,32 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-16T09:15:56.969834+00:00",
     "retry_after": "2026-10-17T09:15:56.969850+00:00"
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T13:14:52.050045+00:00",
+    "retry_after": "2026-10-17T13:14:52.050059+00:00"
+  },
+  {
+    "name": "Scud: The Disposable Assassin",
+    "publisher": "Fireman Press",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-16T13:14:52.495732+00:00",
+    "retry_after": "2026-10-17T13:14:52.495777+00:00"
   }
 ]

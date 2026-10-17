@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T12:12:57.674386+00:00",
-    "retry_after": "2026-10-18T12:12:57.674398+00:00"
+    "last_attempt_at": "2026-10-17T13:00:42.265462+00:00",
+    "retry_after": "2026-10-18T13:00:42.265478+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T12:12:57.722601+00:00",
-    "retry_after": "2026-10-18T12:12:57.722620+00:00"
+    "last_attempt_at": "2026-10-17T13:00:42.324624+00:00",
+    "retry_after": "2026-10-18T13:00:42.324637+00:00"
   },
   {
     "name": "Justice League Special",
@@ -56492,5 +56492,280 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T12:39:26.103970+00:00",
     "retry_after": "2026-10-18T12:39:26.103986+00:00"
+  },
+  {
+    "name": "Weird Burlesque",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46445,
+        "name": "Weird Burlesque",
+        "publisher": "Eros Comix",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:23:43.779331+00:00",
+    "retry_after": "2026-10-18T13:23:43.779350+00:00"
+  },
+  {
+    "name": "Project Sex",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35937,
+        "name": "Project Sex",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:23:50.833568+00:00",
+    "retry_after": "2026-10-18T13:23:50.833589+00:00"
+  },
+  {
+    "name": "Jones Touch",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59701,
+        "name": "Jones Touch",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:23:56.731627+00:00",
+    "retry_after": "2026-10-18T13:23:56.731647+00:00"
+  },
+  {
+    "name": "Mad About Super Heroes",
+    "publisher": "EC Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72231,
+        "name": "Mad About Super Heroes",
+        "publisher": "Sterling Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 25075,
+        "name": "Mad About Super Heroes",
+        "publisher": "DC Comics",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:24:02.345301+00:00",
+    "retry_after": "2026-10-18T13:24:02.345323+00:00"
+  },
+  {
+    "name": "Black Cat The War Years",
+    "publisher": "Harvey Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:24:07.085037+00:00",
+    "retry_after": "2026-10-18T13:24:07.085058+00:00"
+  },
+  {
+    "name": "Iron Man-Child Life",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:24:29.058298+00:00",
+    "retry_after": "2026-10-18T13:24:29.058320+00:00"
+  },
+  {
+    "name": "Kitchen Table Magazine",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:24:46.543549+00:00",
+    "retry_after": "2026-10-18T13:24:46.543568+00:00"
+  },
+  {
+    "name": "A Year of Marvels Amazing",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:24:47.146483+00:00",
+    "retry_after": "2026-10-18T13:24:47.146503+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles Funko Universe",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:24:47.715743+00:00",
+    "retry_after": "2026-10-18T13:24:47.715762+00:00"
+  },
+  {
+    "name": "Donald Duck Pocket",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:24:48.386043+00:00",
+    "retry_after": "2026-10-18T13:24:48.386061+00:00"
+  },
+  {
+    "name": "Corriere dei Ragazzi",
+    "publisher": "Dell Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32469,
+        "name": "Corriere dei Ragazzi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:24:48.854659+00:00",
+    "retry_after": "2026-10-18T13:24:48.854679+00:00"
+  },
+  {
+    "name": "Libelle",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:26:18.536739+00:00",
+    "retry_after": "2026-10-18T13:26:18.536755+00:00"
+  },
+  {
+    "name": "Barbie",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166269,
+        "name": "Barbie",
+        "publisher": "TM-Semic",
+        "start_year": 1993
+      },
+      {
+        "id": 58918,
+        "name": "Barbie",
+        "publisher": "Gevion",
+        "start_year": 1986
+      },
+      {
+        "id": 59179,
+        "name": "Barbie",
+        "publisher": "Egmont Ehapa Verlag",
+        "start_year": 1995
+      },
+      {
+        "id": 33723,
+        "name": "Barbie",
+        "publisher": "Marvel",
+        "start_year": 1991
+      },
+      {
+        "id": 59051,
+        "name": "Barbie",
+        "publisher": "Semic Press AB",
+        "start_year": 1993
+      },
+      {
+        "id": 94994,
+        "name": "Barbie",
+        "publisher": "NBM",
+        "start_year": 2016
+      },
+      {
+        "id": 58950,
+        "name": "Barbie",
+        "publisher": "Bladkompaniet A.S.",
+        "start_year": 1988
+      },
+      {
+        "id": 176841,
+        "name": "Barbie",
+        "publisher": "Egmont Publishing A/S",
+        "start_year": 1989
+      },
+      {
+        "id": 58866,
+        "name": "Barbie",
+        "publisher": "Pandora Press",
+        "start_year": 1986
+      },
+      {
+        "id": 117355,
+        "name": "Barbie",
+        "publisher": "NBM",
+        "start_year": 2019
+      },
+      {
+        "id": 116002,
+        "name": "Barbie",
+        "publisher": "NBM",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:26:18.890365+00:00",
+    "retry_after": "2026-10-18T13:26:18.890379+00:00"
+  },
+  {
+    "name": "Magasinet for Alle",
+    "publisher": "Now Comics",
+    "year": 1967,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:26:19.365434+00:00",
+    "retry_after": "2026-10-18T13:26:19.365446+00:00"
+  },
+  {
+    "name": "Collana Almanacchi Magazine",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:27:46.343780+00:00",
+    "retry_after": "2026-10-18T13:27:46.343797+00:00"
+  },
+  {
+    "name": "Gli Albi di Orient Express",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47514,
+        "name": "Gli Albi di Orient Express",
+        "publisher": "L'Isola Trovata",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T13:29:11.442020+00:00",
+    "retry_after": "2026-10-18T13:29:11.442038+00:00"
   }
 ]

@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T13:00:42.265462+00:00",
-    "retry_after": "2026-10-18T13:00:42.265478+00:00"
+    "last_attempt_at": "2026-10-17T14:00:43.593527+00:00",
+    "retry_after": "2026-10-18T14:00:43.593541+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T13:00:42.324624+00:00",
-    "retry_after": "2026-10-18T13:00:42.324637+00:00"
+    "last_attempt_at": "2026-10-17T14:00:43.656570+00:00",
+    "retry_after": "2026-10-18T14:00:43.656581+00:00"
   },
   {
     "name": "Justice League Special",
@@ -52755,9 +52755,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T13:14:52.050045+00:00",
-    "retry_after": "2026-10-17T13:14:52.050059+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T14:00:44.033801+00:00",
+    "retry_after": "2026-10-20T14:00:44.033816+00:00"
   },
   {
     "name": "Scud: The Disposable Assassin",
@@ -52765,9 +52765,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T13:14:52.495732+00:00",
-    "retry_after": "2026-10-17T13:14:52.495777+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T14:00:44.635375+00:00",
+    "retry_after": "2026-10-20T14:00:44.635390+00:00"
   },
   {
     "name": "Tears of the Leather-bound Saints (Tad Martin)",
@@ -56767,5 +56767,85 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T13:29:11.442020+00:00",
     "retry_after": "2026-10-18T13:29:11.442038+00:00"
+  },
+  {
+    "name": "Unquestionably the Family Circus",
+    "publisher": "Fawcett Comics",
+    "year": 1985,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T14:27:01.293617+00:00",
+    "retry_after": "2026-10-18T14:27:01.293634+00:00"
+  },
+  {
+    "name": "Spider-Man El Hombre Araña",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T14:27:25.669008+00:00",
+    "retry_after": "2026-10-18T14:27:25.669022+00:00"
+  },
+  {
+    "name": "Cuentos de Walt Disney - Serie Colibrí",
+    "publisher": "Harvey Comics",
+    "year": 1977,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T14:27:26.176861+00:00",
+    "retry_after": "2026-10-18T14:27:26.176878+00:00"
+  },
+  {
+    "name": "Archi - Serie Colibrí",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T14:27:26.940855+00:00",
+    "retry_after": "2026-10-18T14:27:26.940870+00:00"
+  },
+  {
+    "name": "Romanzi a fumetti Bonelli",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T14:27:27.434330+00:00",
+    "retry_after": "2026-10-18T14:27:27.434345+00:00"
+  },
+  {
+    "name": "Adamo POP",
+    "publisher": "Dark Horse Comics",
+    "year": 1981,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T14:29:05.104039+00:00",
+    "retry_after": "2026-10-18T14:29:05.104054+00:00"
+  },
+  {
+    "name": "Collana Giallo - Ric Roland",
+    "publisher": "Dell Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T14:29:05.520881+00:00",
+    "retry_after": "2026-10-18T14:29:05.520896+00:00"
+  },
+  {
+    "name": "Supercomic - Serie Colibrí",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T14:29:06.033999+00:00",
+    "retry_after": "2026-10-18T14:29:06.034014+00:00"
   }
 ]

@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T07:07:32.716967+00:00",
-    "retry_after": "2026-10-18T07:07:32.716982+00:00"
+    "last_attempt_at": "2026-10-17T08:00:52.593229+00:00",
+    "retry_after": "2026-10-18T08:00:52.593244+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T07:07:32.761916+00:00",
-    "retry_after": "2026-10-18T07:07:32.761933+00:00"
+    "last_attempt_at": "2026-10-17T08:00:52.686772+00:00",
+    "retry_after": "2026-10-18T08:00:52.686793+00:00"
   },
   {
     "name": "Justice League Special",
@@ -55284,5 +55284,260 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T07:31:25.129996+00:00",
     "retry_after": "2026-10-18T07:31:25.130012+00:00"
+  },
+  {
+    "name": "Action Comics [Nestlé Quik 10¢ Cover]",
+    "publisher": "DC Comics",
+    "year": 1983,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:24:23.472257+00:00",
+    "retry_after": "2026-10-18T08:24:23.472273+00:00"
+  },
+  {
+    "name": "Rick and Morty Finals Week: Contested Convention",
+    "publisher": "Oni Press",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:24:33.345253+00:00",
+    "retry_after": "2026-10-18T08:24:33.345270+00:00"
+  },
+  {
+    "name": "Young Lady Alicia and the Beast of the Woods",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:24:33.822639+00:00",
+    "retry_after": "2026-10-18T08:24:33.822654+00:00"
+  },
+  {
+    "name": "The Forty Winks / Buzzboy Super Special",
+    "publisher": "Devil's Due",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79438,
+        "name": "Forty Winks / Buzzboy Super Special",
+        "publisher": "Peregrine Entertainment",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:24:34.668852+00:00",
+    "retry_after": "2026-10-18T08:24:34.668866+00:00"
+  },
+  {
+    "name": "For Men Only",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:24:35.088900+00:00",
+    "retry_after": "2026-10-18T08:24:35.088915+00:00"
+  },
+  {
+    "name": "Wizard X-Men Masterpiece Edition",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:24:40.145724+00:00",
+    "retry_after": "2026-10-18T08:24:40.145740+00:00"
+  },
+  {
+    "name": "Batman by Neal Adams: Absolute Edition",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:24:52.470820+00:00",
+    "retry_after": "2026-10-18T08:24:52.470835+00:00"
+  },
+  {
+    "name": "Batman: Urban Legends Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:25:04.749224+00:00",
+    "retry_after": "2026-10-18T08:25:04.749238+00:00"
+  },
+  {
+    "name": "Sei: Death & Legend",
+    "publisher": "Image Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:25:05.126831+00:00",
+    "retry_after": "2026-10-18T08:25:05.126845+00:00"
+  },
+  {
+    "name": "Lynx: An Elflord Tale",
+    "publisher": "Devil's Due",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22550,
+        "name": "Lynx, An Elflord Tale",
+        "publisher": "Peregrine Entertainment",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:25:05.564463+00:00",
+    "retry_after": "2026-10-18T08:25:05.564478+00:00"
+  },
+  {
+    "name": "Dynamo, Man of High Camp",
+    "publisher": "Antarctic Press",
+    "year": 1967,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49345,
+        "name": "Dynamo, Man of High Camp",
+        "publisher": "Tower",
+        "start_year": 1967
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:25:15.803148+00:00",
+    "retry_after": "2026-10-18T08:25:15.803163+00:00"
+  },
+  {
+    "name": "Dylan Dog - Viaggio nell'incubo",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147544,
+        "name": "Dylan Dog - Viaggio nell'Incubo",
+        "publisher": "La Gazzetta dello Sport",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:25:16.648743+00:00",
+    "retry_after": "2026-10-18T08:25:16.648758+00:00"
+  },
+  {
+    "name": "Collana Avventura",
+    "publisher": "Dell Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:25:17.102718+00:00",
+    "retry_after": "2026-10-18T08:25:17.102734+00:00"
+  },
+  {
+    "name": "Korak",
+    "publisher": "Harvey Comics",
+    "year": 1972,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 177194,
+        "name": "Korak",
+        "publisher": "Williams Forlag A/S",
+        "start_year": 1966
+      },
+      {
+        "id": 114166,
+        "name": "Korak",
+        "publisher": "Illustrerte Klassikere",
+        "start_year": 1966
+      },
+      {
+        "id": 98933,
+        "name": "Korak",
+        "publisher": "BSV - Williams",
+        "start_year": 1967
+      },
+      {
+        "id": 102317,
+        "name": "Korak",
+        "publisher": "Editorial Novaro",
+        "start_year": 1972
+      },
+      {
+        "id": 112269,
+        "name": "Korak",
+        "publisher": "Williams Förlag AB",
+        "start_year": 1966
+      },
+      {
+        "id": 9425,
+        "name": "Korak",
+        "publisher": "Atlantic Förlags AB",
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:25:17.564492+00:00",
+    "retry_after": "2026-10-18T08:25:17.564539+00:00"
+  },
+  {
+    "name": "Dylan Dog Granderistampa",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:25:18.094166+00:00",
+    "retry_after": "2026-10-18T08:25:18.094181+00:00"
+  },
+  {
+    "name": "Tutto Mister No",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:25:18.533047+00:00",
+    "retry_after": "2026-10-18T08:25:18.533063+00:00"
+  },
+  {
+    "name": "Sergeant Pat of the Radio-Patrol",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:25:18.990172+00:00",
+    "retry_after": "2026-10-18T08:25:18.990187+00:00"
+  },
+  {
+    "name": "[Marvel Hostess Ads]",
+    "publisher": "Marvel Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:27:30.155447+00:00",
+    "retry_after": "2026-10-18T08:27:30.155462+00:00"
+  },
+  {
+    "name": "La Pequeña Lulú - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T08:27:30.614373+00:00",
+    "retry_after": "2026-10-18T08:27:30.614388+00:00"
   }
 ]

@@ -18143,9 +18143,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T20:24:39.361563+00:00",
-    "retry_after": "2026-10-17T20:24:39.361580+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T21:23:40.719234+00:00",
+    "retry_after": "2026-10-20T21:23:40.719268+00:00"
   },
   {
     "name": "DC Justice League Essentials: Flash Rebirth",
@@ -52445,9 +52445,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T20:23:53.123498+00:00",
-    "retry_after": "2026-10-17T20:23:53.123516+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T21:23:37.752040+00:00",
+    "retry_after": "2026-10-20T21:23:37.752058+00:00"
   },
   {
     "name": "Chester 5000",
@@ -52455,9 +52455,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T20:23:53.641432+00:00",
-    "retry_after": "2026-10-17T20:23:53.641450+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T21:23:38.294365+00:00",
+    "retry_after": "2026-10-20T21:23:38.294382+00:00"
   },
   {
     "name": "Rick and Morty Finals Week: Old Man Morty",
@@ -52465,9 +52465,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T20:23:54.120757+00:00",
-    "retry_after": "2026-10-17T20:23:54.120772+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T21:23:38.628212+00:00",
+    "retry_after": "2026-10-20T21:23:38.628230+00:00"
   },
   {
     "name": "Strange Story",
@@ -52475,9 +52475,9 @@
     "year": 1946,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T20:24:21.122580+00:00",
-    "retry_after": "2026-10-17T20:24:21.122596+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T21:23:39.147995+00:00",
+    "retry_after": "2026-10-20T21:23:39.148011+00:00"
   },
   {
     "name": "Woody Woodpecker Big Book Summer Special",
@@ -52485,9 +52485,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T20:24:37.289787+00:00",
-    "retry_after": "2026-10-17T20:24:37.289802+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T21:23:39.756119+00:00",
+    "retry_after": "2026-10-20T21:23:39.756135+00:00"
   },
   {
     "name": "Catwoman: The New 52 Omnibus",
@@ -52495,9 +52495,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T20:24:37.752726+00:00",
-    "retry_after": "2026-10-17T20:24:37.752741+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T21:23:40.096275+00:00",
+    "retry_after": "2026-10-20T21:23:40.096294+00:00"
   },
   {
     "name": "Mandragor",
@@ -52505,9 +52505,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T20:24:38.318442+00:00",
-    "retry_after": "2026-10-17T20:24:38.318459+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T21:23:40.336702+00:00",
+    "retry_after": "2026-10-20T21:23:40.336719+00:00"
   },
   {
     "name": "War of Kings: Savage World of Skaar One-Shot",
@@ -52515,9 +52515,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T20:24:39.993621+00:00",
-    "retry_after": "2026-10-17T20:24:39.993636+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T21:23:41.775580+00:00",
+    "retry_after": "2026-10-20T21:23:41.775597+00:00"
   },
   {
     "name": "Between the Sheets",
@@ -55831,5 +55831,262 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T20:24:38.107513+00:00",
     "retry_after": "2026-10-18T20:24:38.107528+00:00"
+  },
+  {
+    "name": "Star Wars: The Screaming Citadel",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 104977,
+        "name": "Star Wars: Screaming Citadel",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 101415,
+        "name": "Star Wars: Screaming Citadel",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:23:42.349785+00:00",
+    "retry_after": "2026-10-18T21:23:42.349802+00:00"
+  },
+  {
+    "name": "Claire",
+    "publisher": "Fawcett Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70987,
+        "name": "Claire",
+        "publisher": "Divo",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:24:26.764579+00:00",
+    "retry_after": "2026-10-18T21:24:26.764594+00:00"
+  },
+  {
+    "name": "Sally Forth",
+    "publisher": "Fawcett Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26810,
+        "name": "Sally Forth",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:24:46.043918+00:00",
+    "retry_after": "2026-10-18T21:24:46.043934+00:00"
+  },
+  {
+    "name": "Vault of Whores",
+    "publisher": "Fantagraphics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73772,
+        "name": "Vault of Whores",
+        "publisher": "Eros Comix",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:24:57.890615+00:00",
+    "retry_after": "2026-10-18T21:24:57.890631+00:00"
+  },
+  {
+    "name": "Lust",
+    "publisher": "Fantagraphics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30812,
+        "name": "Lust",
+        "publisher": "Eros Comix",
+        "start_year": 1997
+      },
+      {
+        "id": 75725,
+        "name": "Lust",
+        "publisher": "IDW Publishing",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:24:58.498120+00:00",
+    "retry_after": "2026-10-18T21:24:58.498136+00:00"
+  },
+  {
+    "name": "The Lone Wolf",
+    "publisher": "Atlas Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 91940,
+        "name": "The Lone Wolf",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:24:59.421829+00:00",
+    "retry_after": "2026-10-18T21:24:59.421842+00:00"
+  },
+  {
+    "name": "Wiz",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56166,
+        "name": "Wiz",
+        "publisher": "Panini Comics",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:24:59.727531+00:00",
+    "retry_after": "2026-10-18T21:24:59.727546+00:00"
+  },
+  {
+    "name": "A Espada Selvagem de Conan Reedição",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129670,
+        "name": "A Espada Selvagem de Conan Reedição",
+        "publisher": "Abril",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:25:00.205606+00:00",
+    "retry_after": "2026-10-18T21:25:00.205622+00:00"
+  },
+  {
+    "name": "Corriere dei Piccoli",
+    "publisher": "Dell Comics",
+    "year": 1908,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27801,
+        "name": "Corriere dei Piccoli",
+        "publisher": "RCS MediaGroup",
+        "start_year": 1908
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:25:00.822443+00:00",
+    "retry_after": "2026-10-18T21:25:00.822458+00:00"
+  },
+  {
+    "name": "Anders And & Co.",
+    "publisher": "Valiant Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126425,
+        "name": "Anders And & Co.",
+        "publisher": "Egmont Publishing A/S",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:25:01.323429+00:00",
+    "retry_after": "2026-10-18T21:25:01.323443+00:00"
+  },
+  {
+    "name": "Corriere dei Ragazzi",
+    "publisher": "Dell Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32469,
+        "name": "Corriere dei Ragazzi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:25:01.814034+00:00",
+    "retry_after": "2026-10-18T21:25:01.814052+00:00"
+  },
+  {
+    "name": "Gli Albi di Orient Express",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47514,
+        "name": "Gli Albi di Orient Express",
+        "publisher": "L'Isola Trovata",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:25:02.390119+00:00",
+    "retry_after": "2026-10-18T21:25:02.390137+00:00"
+  },
+  {
+    "name": "Akim",
+    "publisher": "Marvel Comics",
+    "year": 1976,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81044,
+        "name": "Akim",
+        "publisher": "Mon Journal",
+        "start_year": 1958
+      },
+      {
+        "id": 140071,
+        "name": "Akim",
+        "publisher": "Mon Journal",
+        "start_year": 2013
+      },
+      {
+        "id": 30817,
+        "name": "Akim",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1976
+      },
+      {
+        "id": 79834,
+        "name": "Akim",
+        "publisher": "Bozzesi Verlag",
+        "start_year": 1960
+      },
+      {
+        "id": 30328,
+        "name": "Akim",
+        "publisher": "If Edizioni",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T21:27:32.765387+00:00",
+    "retry_after": "2026-10-18T21:27:32.765404+00:00"
   }
 ]

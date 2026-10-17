@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T05:00:46.051926+00:00",
-    "retry_after": "2026-10-18T05:00:46.051940+00:00"
+    "last_attempt_at": "2026-10-17T06:00:38.498426+00:00",
+    "retry_after": "2026-10-18T06:00:38.498437+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T05:00:46.107277+00:00",
-    "retry_after": "2026-10-18T05:00:46.107290+00:00"
+    "last_attempt_at": "2026-10-17T06:00:38.567064+00:00",
+    "retry_after": "2026-10-18T06:00:38.567081+00:00"
   },
   {
     "name": "Justice League Special",
@@ -55049,5 +55049,72 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T05:31:06.783356+00:00",
     "retry_after": "2026-10-18T05:31:06.783370+00:00"
+  },
+  {
+    "name": "Bums vs. Billionaires",
+    "publisher": "Dell Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T06:23:46.142231+00:00",
+    "retry_after": "2026-10-18T06:23:46.142248+00:00"
+  },
+  {
+    "name": "Marvel Masterworks: Daredevil - Barnes & Noble Edition",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T06:23:46.666683+00:00",
+    "retry_after": "2026-10-18T06:23:46.666702+00:00"
+  },
+  {
+    "name": "Barbaric Free Comic Book Day Edition",
+    "publisher": "Vault Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T06:23:59.703445+00:00",
+    "retry_after": "2026-10-18T06:23:59.703461+00:00"
+  },
+  {
+    "name": "Top Cat Funtime Special",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T06:24:05.076989+00:00",
+    "retry_after": "2026-10-18T06:24:05.077005+00:00"
+  },
+  {
+    "name": "Aspen Splash: 2007 Swimsuit Spectacular",
+    "publisher": "Aspen Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T06:25:40.132120+00:00",
+    "retry_after": "2026-10-18T06:25:40.132136+00:00"
+  },
+  {
+    "name": "The Four Norsemen of the Apocalypse",
+    "publisher": "First Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 89360,
+        "name": "The Four Norsemen of the Apocalypse",
+        "publisher": "1First Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T06:25:40.663821+00:00",
+    "retry_after": "2026-10-18T06:25:40.663839+00:00"
   }
 ]

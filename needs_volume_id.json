@@ -24143,13 +24143,13 @@
   },
   {
     "name": "WildC.A.T.s / X-Men: The Silver Age 3D",
-    "publisher": "Image Comics",
+    "publisher": "Marvel Comics",
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-28T18:06:31.900435+00:00",
-    "retry_after": "2026-10-05T18:06:31.900443+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:09.386541+00:00",
+    "retry_after": "2026-10-18T18:24:09.386556+00:00"
   },
   {
     "name": "Bloodshoot Reborn One Dollar Debut",
@@ -52223,9 +52223,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T18:24:22.639432+00:00",
-    "retry_after": "2026-10-17T18:24:22.639447+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T18:24:31.872722+00:00",
+    "retry_after": "2026-10-20T18:24:31.872736+00:00"
   },
   {
     "name": "Tarzán - Serie Avestruz",
@@ -52233,9 +52233,9 @@
     "year": 1975,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T18:24:22.885752+00:00",
-    "retry_after": "2026-10-17T18:24:22.885765+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T18:24:32.370650+00:00",
+    "retry_after": "2026-10-20T18:24:32.370664+00:00"
   },
   {
     "name": "Dylan Dog seconda ristampa",
@@ -52243,9 +52243,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T18:24:23.624028+00:00",
-    "retry_after": "2026-10-17T18:24:23.624043+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T18:24:33.177664+00:00",
+    "retry_after": "2026-10-20T18:24:33.177678+00:00"
   },
   {
     "name": "Relatos Fabulosos",
@@ -52253,9 +52253,9 @@
     "year": 1959,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T18:24:23.883929+00:00",
-    "retry_after": "2026-10-17T18:24:23.883938+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T18:24:33.628197+00:00",
+    "retry_after": "2026-10-20T18:24:33.628212+00:00"
   },
   {
     "name": "Mujeres Célebres",
@@ -52263,9 +52263,9 @@
     "year": 1961,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T18:24:34.076578+00:00",
-    "retry_after": "2026-10-17T18:24:34.076590+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-17T18:24:35.216914+00:00",
+    "retry_after": "2026-10-20T18:24:35.216930+00:00"
   },
   {
     "name": "Grimm Tales of Terror (Halloween Comic Fest) 2015",
@@ -55112,5 +55112,282 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T17:24:02.817862+00:00",
     "retry_after": "2026-10-18T17:24:02.817868+00:00"
+  },
+  {
+    "name": "Wanna Be Smiled At? [Family Circus]",
+    "publisher": "Fawcett Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:04.566595+00:00",
+    "retry_after": "2026-10-18T18:24:04.566611+00:00"
+  },
+  {
+    "name": "Sweeter Gwen",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58029,
+        "name": "Sweeter Gwen",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:05.018948+00:00",
+    "retry_after": "2026-10-18T18:24:05.018964+00:00"
+  },
+  {
+    "name": "Blood Road",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49168,
+        "name": "Blood Road",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:05.544134+00:00",
+    "retry_after": "2026-10-18T18:24:05.544150+00:00"
+  },
+  {
+    "name": "Medieval Spawn Figure",
+    "publisher": "Image Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69271,
+        "name": "Medieval Spawn Figure",
+        "publisher": "McFarlane Toys",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:05.947772+00:00",
+    "retry_after": "2026-10-18T18:24:05.947787+00:00"
+  },
+  {
+    "name": "Weird Burlesque",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46445,
+        "name": "Weird Burlesque",
+        "publisher": "Eros Comix",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:06.266871+00:00",
+    "retry_after": "2026-10-18T18:24:06.266886+00:00"
+  },
+  {
+    "name": "Project Sex",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35937,
+        "name": "Project Sex",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:06.979601+00:00",
+    "retry_after": "2026-10-18T18:24:06.979615+00:00"
+  },
+  {
+    "name": "AAFES 10th Edition [New Avengers: X Exchange]",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:07.411745+00:00",
+    "retry_after": "2026-10-18T18:24:07.411760+00:00"
+  },
+  {
+    "name": "Jones Touch",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59701,
+        "name": "Jones Touch",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:07.683361+00:00",
+    "retry_after": "2026-10-18T18:24:07.683376+00:00"
+  },
+  {
+    "name": "Witchblade / Darkness: Family Ties",
+    "publisher": "Image Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:08.065953+00:00",
+    "retry_after": "2026-10-18T18:24:08.065968+00:00"
+  },
+  {
+    "name": "Books of Lore Preview",
+    "publisher": "Devil's Due",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:08.967851+00:00",
+    "retry_after": "2026-10-18T18:24:08.967866+00:00"
+  },
+  {
+    "name": "Sally Forth: A Woman's Work Is Never Done",
+    "publisher": "Fawcett Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:09.846827+00:00",
+    "retry_after": "2026-10-18T18:24:09.846842+00:00"
+  },
+  {
+    "name": "Top Cow 2006 Preview",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:14.193917+00:00",
+    "retry_after": "2026-10-18T18:24:14.193931+00:00"
+  },
+  {
+    "name": "Iron Man Habit Heroes",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:14.711632+00:00",
+    "retry_after": "2026-10-18T18:24:14.711646+00:00"
+  },
+  {
+    "name": "På folkemunne",
+    "publisher": "Now Comics",
+    "year": 1969,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:14.992581+00:00",
+    "retry_after": "2026-10-18T18:24:14.992595+00:00"
+  },
+  {
+    "name": "Limonade",
+    "publisher": "BOOM! Studios",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:31.179656+00:00",
+    "retry_after": "2026-10-18T18:24:31.179671+00:00"
+  },
+  {
+    "name": "Superaventuras Marvel",
+    "publisher": "Avatar Press",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159876,
+        "name": "Superaventuras Marvel",
+        "publisher": "Abril",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:34.046411+00:00",
+    "retry_after": "2026-10-18T18:24:34.046425+00:00"
+  },
+  {
+    "name": "O Incrível Hulk",
+    "publisher": "Avatar Press",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159873,
+        "name": "O Incrível Hulk",
+        "publisher": "Abril",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:34.836329+00:00",
+    "retry_after": "2026-10-18T18:24:34.836344+00:00"
+  },
+  {
+    "name": "Capitão América",
+    "publisher": "Avatar Press",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159872,
+        "name": "Capitão América",
+        "publisher": "Abril",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:35.564331+00:00",
+    "retry_after": "2026-10-18T18:24:35.564346+00:00"
+  },
+  {
+    "name": "Le Storie",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85062,
+        "name": "Le Storie",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:35.823984+00:00",
+    "retry_after": "2026-10-18T18:24:35.823998+00:00"
+  },
+  {
+    "name": "Gli Incredibili X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41460,
+        "name": "Gli Incredibili X-Men",
+        "publisher": "Panini Comics",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T18:24:36.183376+00:00",
+    "retry_after": "2026-10-18T18:24:36.183390+00:00"
   }
 ]

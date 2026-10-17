@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T04:00:55.828871+00:00",
-    "retry_after": "2026-10-18T04:00:55.828886+00:00"
+    "last_attempt_at": "2026-10-17T05:00:46.051926+00:00",
+    "retry_after": "2026-10-18T05:00:46.051940+00:00"
   },
   {
     "name": "Cerebus",
@@ -32794,13 +32794,13 @@
   },
   {
     "name": "2022 Street Fighter Swimsuit Special",
-    "publisher": "Udon Entertainment Corp.",
+    "publisher": "Eclipse Comics",
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T05:08:22.285052+00:00",
-    "retry_after": "2026-10-10T05:08:22.285061+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:24:58.844345+00:00",
+    "retry_after": "2026-10-18T05:24:58.844366+00:00"
   },
   {
     "name": "Final Destination Spring Break",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T04:00:55.898715+00:00",
-    "retry_after": "2026-10-18T04:00:55.898729+00:00"
+    "last_attempt_at": "2026-10-17T05:00:46.107277+00:00",
+    "retry_after": "2026-10-18T05:00:46.107290+00:00"
   },
   {
     "name": "Justice League Special",
@@ -54819,5 +54819,235 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T04:27:36.550300+00:00",
     "retry_after": "2026-10-18T04:27:36.550314+00:00"
+  },
+  {
+    "name": "Be Good or I’ll Belt Ya! [The Berenstains]",
+    "publisher": "Dell Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:25:45.028417+00:00",
+    "retry_after": "2026-10-18T05:25:45.028433+00:00"
+  },
+  {
+    "name": "Batman by Chip Zdarsky Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:25:57.729372+00:00",
+    "retry_after": "2026-10-18T05:25:57.729388+00:00"
+  },
+  {
+    "name": "Bedside Lover Boy",
+    "publisher": "Dell Comics",
+    "year": 1960,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:25:58.323446+00:00",
+    "retry_after": "2026-10-18T05:25:58.323461+00:00"
+  },
+  {
+    "name": "Ben 10 Creator Files",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:26:02.439944+00:00",
+    "retry_after": "2026-10-18T05:26:02.439960+00:00"
+  },
+  {
+    "name": "The Family Circus Is Us",
+    "publisher": "Fawcett Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:26:29.898626+00:00",
+    "retry_after": "2026-10-18T05:26:29.898642+00:00"
+  },
+  {
+    "name": "Spacebat and the Fugitives",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:26:32.442214+00:00",
+    "retry_after": "2026-10-18T05:26:32.442252+00:00"
+  },
+  {
+    "name": "Screw Comics",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70421,
+        "name": "Screw Comics",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:26:33.025089+00:00",
+    "retry_after": "2026-10-18T05:26:33.025104+00:00"
+  },
+  {
+    "name": "Marvel Crossover",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45795,
+        "name": "Marvel Crossover",
+        "publisher": "Panini Comics",
+        "start_year": 1995
+      },
+      {
+        "id": 54700,
+        "name": "Marvel Crossover",
+        "publisher": "Panini Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:26:52.173854+00:00",
+    "retry_after": "2026-10-18T05:26:52.173869+00:00"
+  },
+  {
+    "name": "National Lampoon Magazine",
+    "publisher": "Heavy Metal",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 116329,
+        "name": "National Lampoon Magazine",
+        "publisher": "National Lampoon, Inc.",
+        "start_year": 1970
+      },
+      {
+        "id": 171110,
+        "name": "National Lampoon Magazine",
+        "publisher": "National Lampoon, Inc.",
+        "start_year": 1978
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:26:52.868415+00:00",
+    "retry_after": "2026-10-18T05:26:52.868430+00:00"
+  },
+  {
+    "name": "Brendon",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40738,
+        "name": "Brendon",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:26:53.225043+00:00",
+    "retry_after": "2026-10-18T05:26:53.225058+00:00"
+  },
+  {
+    "name": "Hulk el Hombre Increíble",
+    "publisher": "Harvey Comics",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:26:53.521374+00:00",
+    "retry_after": "2026-10-18T05:26:53.521389+00:00"
+  },
+  {
+    "name": "Wedding Ring Library",
+    "publisher": "Marvel Comics",
+    "year": 1958,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127860,
+        "name": "Wedding Ring Library",
+        "publisher": "World Distributors",
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:26:54.102579+00:00",
+    "retry_after": "2026-10-18T05:26:54.102593+00:00"
+  },
+  {
+    "name": "Collana Western",
+    "publisher": "Dell Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158195,
+        "name": "Collana Western",
+        "publisher": "La Gazzetta dello Sport",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:26:56.622700+00:00",
+    "retry_after": "2026-10-18T05:26:56.622714+00:00"
+  },
+  {
+    "name": "Tex Willer",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44774,
+        "name": "Tex Willer",
+        "publisher": "Hjemmet",
+        "start_year": 1971
+      },
+      {
+        "id": 152705,
+        "name": "Tex Willer",
+        "publisher": "Mythos Editora",
+        "start_year": 2019
+      },
+      {
+        "id": 129207,
+        "name": "Tex Willer",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:31:06.304773+00:00",
+    "retry_after": "2026-10-18T05:31:06.304788+00:00"
+  },
+  {
+    "name": "Nintendo Power",
+    "publisher": "Fantagraphics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28947,
+        "name": "Nintendo Power",
+        "publisher": "Nintendo",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T05:31:06.783356+00:00",
+    "retry_after": "2026-10-18T05:31:06.783370+00:00"
   }
 ]

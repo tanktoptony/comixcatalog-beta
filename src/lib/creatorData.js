@@ -14,14 +14,24 @@ function chunks(values, size = IN_CHUNK) {
   return result;
 }
 
+// Chunks run CHUNK_CONCURRENCY at a time: a cold page for a prolific creator
+// was ~8s of back-to-back round trips, not slow queries.
+const CHUNK_CONCURRENCY = 4;
+
 async function selectInChunks(supabase, table, columns, key, values) {
-  const rows = [];
-  for (const group of chunks(values)) {
-    const { data, error } = await supabase.from(table).select(columns).in(key, group);
-    if (error) throw error;
-    rows.push(...(data ?? []));
+  const groups = chunks(values);
+  const results = new Array(groups.length);
+  let next = 0;
+  async function worker() {
+    while (next < groups.length) {
+      const index = next++;
+      const { data, error } = await supabase.from(table).select(columns).in(key, groups[index]);
+      if (error) throw error;
+      results[index] = data ?? [];
+    }
   }
-  return rows;
+  await Promise.all(Array.from({ length: Math.min(CHUNK_CONCURRENCY, groups.length) }, worker));
+  return results.flat();
 }
 
 function yearOf(issue) {
@@ -50,12 +60,16 @@ async function loadCreatorPage(slug) {
   if (countError) throw countError;
 
   const issueIds = [...new Set(credits.map((row) => row.gcd_issue_id).filter((id) => id != null))];
-  const issues = await selectInChunks(supabase, "gcd_issues", "gcd_id, series_gcd_id, issue_number, title, publication_date, key_date", "gcd_id", issueIds);
+  const [issues, keyRows] = await Promise.all([
+    selectInChunks(supabase, "gcd_issues", "gcd_id, series_gcd_id, issue_number, title, publication_date, key_date", "gcd_id", issueIds),
+    selectInChunks(supabase, "key_issues", "gcd_issue_id, reason, tier", "gcd_issue_id", issueIds),
+  ]);
   const seriesGcdIds = [...new Set(issues.map((issue) => issue.series_gcd_id).filter((id) => id != null))];
-  const series = await selectInChunks(supabase, "series", "id, gcd_id, title, year_start_cached, year_end_cached, resolved_publisher_cached", "gcd_id", seriesGcdIds);
-  const formatRows = await selectInChunks(supabase, "gcd_series", "gcd_id, publishing_format, binding, publication_type", "gcd_id", seriesGcdIds);
+  const [series, formatRows] = await Promise.all([
+    selectInChunks(supabase, "series", "id, gcd_id, title, year_start_cached, year_end_cached, resolved_publisher_cached", "gcd_id", seriesGcdIds),
+    selectInChunks(supabase, "gcd_series", "gcd_id, publishing_format, binding, publication_type", "gcd_id", seriesGcdIds),
+  ]);
   const formatByGcdId = new Map(formatRows.map((row) => [String(row.gcd_id), row]));
-  const keyRows = await selectInChunks(supabase, "key_issues", "gcd_issue_id, reason, tier", "gcd_issue_id", issueIds);
   const issueById = new Map(issues.map((issue) => [String(issue.gcd_id), issue]));
   const seriesByGcdId = new Map(series.map((row) => [String(row.gcd_id), row]));
   const keyIssues = keyRows.map((key) => {

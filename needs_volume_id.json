@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T03:00:45.222397+00:00",
-    "retry_after": "2026-10-18T03:00:45.222412+00:00"
+    "last_attempt_at": "2026-10-17T04:00:55.828871+00:00",
+    "retry_after": "2026-10-18T04:00:55.828886+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T03:00:45.277082+00:00",
-    "retry_after": "2026-10-18T03:00:45.277095+00:00"
+    "last_attempt_at": "2026-10-17T04:00:55.898715+00:00",
+    "retry_after": "2026-10-18T04:00:55.898729+00:00"
   },
   {
     "name": "Justice League Special",
@@ -54610,5 +54610,214 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-16T21:28:26.965996+00:00",
     "retry_after": "2026-10-17T21:28:26.966011+00:00"
+  },
+  {
+    "name": "Annihilation Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:23:57.105466+00:00",
+    "retry_after": "2026-10-18T04:23:57.105482+00:00"
+  },
+  {
+    "name": "Invader Zim Quarterly Collection",
+    "publisher": "Oni Press",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:23:57.560143+00:00",
+    "retry_after": "2026-10-18T04:23:57.560162+00:00"
+  },
+  {
+    "name": "Barbaric",
+    "publisher": "Vault Comics",
+    "year": 2021,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 148007,
+        "name": "Barbaric",
+        "publisher": "Vault Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 137217,
+        "name": "Barbaric",
+        "publisher": "Vault Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:23:57.881377+00:00",
+    "retry_after": "2026-10-18T04:23:57.881394+00:00"
+  },
+  {
+    "name": "Boys Dig Girls",
+    "publisher": "Dell Comics",
+    "year": 1969,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:23:58.261210+00:00",
+    "retry_after": "2026-10-18T04:23:58.261225+00:00"
+  },
+  {
+    "name": "Weird Sex!",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72621,
+        "name": "Weird Sex!",
+        "publisher": "Eros Comix",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:23:58.567301+00:00",
+    "retry_after": "2026-10-18T04:23:58.567316+00:00"
+  },
+  {
+    "name": "Red Prophet: The Tales of Alvin Maker Collected Edition",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:23:58.843302+00:00",
+    "retry_after": "2026-10-18T04:23:58.843318+00:00"
+  },
+  {
+    "name": "Brigade",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 11269,
+        "name": "Brigade",
+        "publisher": "Image",
+        "start_year": 1993
+      },
+      {
+        "id": 11268,
+        "name": "Brigade",
+        "publisher": "Image",
+        "start_year": 1992
+      },
+      {
+        "id": 34232,
+        "name": "Brigade",
+        "publisher": "Image",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:25:47.828140+00:00",
+    "retry_after": "2026-10-18T04:25:47.828155+00:00"
+  },
+  {
+    "name": "Hägar the Horrible: Hägar's Knight Out",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:25:48.321316+00:00",
+    "retry_after": "2026-10-18T04:25:48.321331+00:00"
+  },
+  {
+    "name": "Wolverine Halloween Special Edition",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:25:48.875183+00:00",
+    "retry_after": "2026-10-18T04:25:48.875202+00:00"
+  },
+  {
+    "name": "Rick and Morty Finals Week: Wrath of Beth",
+    "publisher": "Oni Press",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:27:08.288548+00:00",
+    "retry_after": "2026-10-18T04:27:08.288564+00:00"
+  },
+  {
+    "name": "Castle Waiting",
+    "publisher": "Fantagraphics",
+    "year": 2000,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18792,
+        "name": "Castle Waiting",
+        "publisher": "Fantagraphics",
+        "start_year": 2006
+      },
+      {
+        "id": 55371,
+        "name": "Castle Waiting",
+        "publisher": "Fantagraphics",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:27:08.643562+00:00",
+    "retry_after": "2026-10-18T04:27:08.643577+00:00"
+  },
+  {
+    "name": "Capitão América: As Primeiras Histórias",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:27:22.610820+00:00",
+    "retry_after": "2026-10-18T04:27:22.610835+00:00"
+  },
+  {
+    "name": "The Family Circus Memories",
+    "publisher": "Fawcett Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:27:35.511219+00:00",
+    "retry_after": "2026-10-18T04:27:35.511237+00:00"
+  },
+  {
+    "name": "Sergio Aragonés Massacres Marvel",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:27:36.181369+00:00",
+    "retry_after": "2026-10-18T04:27:36.181384+00:00"
+  },
+  {
+    "name": "Jazan Wild's Carnival of Souls San Diego Comicon Edition",
+    "publisher": "Malibu Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68112,
+        "name": "Jazan Wild's Carnival of Souls San Diego Comicon Edition",
+        "publisher": "AAM/Markosia",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T04:27:36.550300+00:00",
+    "retry_after": "2026-10-18T04:27:36.550314+00:00"
   }
 ]

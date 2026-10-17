@@ -15709,13 +15709,13 @@
   },
   {
     "name": "Savage Dragon vs. Savage Megaton Man",
-    "publisher": "Malibu Comics",
+    "publisher": "Image Comics",
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-06T11:00:51.582070+00:00",
-    "retry_after": "2026-10-20T11:00:51.582086+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:17.716524+00:00",
+    "retry_after": "2026-10-18T07:00:17.716542+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T06:00:38.498426+00:00",
-    "retry_after": "2026-10-18T06:00:38.498437+00:00"
+    "last_attempt_at": "2026-10-17T06:36:42.386914+00:00",
+    "retry_after": "2026-10-18T06:36:42.386931+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T06:00:38.567064+00:00",
-    "retry_after": "2026-10-18T06:00:38.567081+00:00"
+    "last_attempt_at": "2026-10-17T06:36:42.455659+00:00",
+    "retry_after": "2026-10-18T06:36:42.455689+00:00"
   },
   {
     "name": "Justice League Special",
@@ -55116,5 +55116,173 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T06:25:40.663821+00:00",
     "retry_after": "2026-10-18T06:25:40.663839+00:00"
+  },
+  {
+    "name": "Campus Humor",
+    "publisher": "Dell Comics",
+    "year": 1963,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66863,
+        "name": "Campus Humor",
+        "publisher": "Charlton",
+        "start_year": 1957
+      },
+      {
+        "id": 113198,
+        "name": "Campus Humor ",
+        "publisher": "Campus Publications, Inc.",
+        "start_year": 1960
+      },
+      {
+        "id": 84508,
+        "name": "Campus Humor",
+        "publisher": "Marvel",
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:10.013024+00:00",
+    "retry_after": "2026-10-18T07:00:10.013044+00:00"
+  },
+  {
+    "name": "Me and Her Summer Special",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26797,
+        "name": "Me and Her Summer Special",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:17.256170+00:00",
+    "retry_after": "2026-10-18T07:00:17.256190+00:00"
+  },
+  {
+    "name": "Batman: H2SH",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:18.307629+00:00",
+    "retry_after": "2026-10-18T07:00:18.307647+00:00"
+  },
+  {
+    "name": "Silver Coin",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 135293,
+        "name": "The Silver Coin",
+        "publisher": "Image",
+        "start_year": 2021
+      },
+      {
+        "id": 139445,
+        "name": "The Silver Coin",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:18.859413+00:00",
+    "retry_after": "2026-10-18T07:00:18.859432+00:00"
+  },
+  {
+    "name": "Batman: Gotham Sampler [Second Printing]",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:53.933234+00:00",
+    "retry_after": "2026-10-18T07:00:53.933251+00:00"
+  },
+  {
+    "name": "The Family Circus Is Very Keane",
+    "publisher": "Fawcett Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:54.485146+00:00",
+    "retry_after": "2026-10-18T07:00:54.485164+00:00"
+  },
+  {
+    "name": "Call Me Mrs. [The Berenstains]",
+    "publisher": "Dell Comics",
+    "year": 1961,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:54.914030+00:00",
+    "retry_after": "2026-10-18T07:00:54.914048+00:00"
+  },
+  {
+    "name": "Battle of the Planets",
+    "publisher": "Top Cow Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19565,
+        "name": "Battle of the Planets",
+        "publisher": "Western Publishing",
+        "start_year": 1979
+      },
+      {
+        "id": 29765,
+        "name": "Battle Of The Planets",
+        "publisher": "Dynamic Forces",
+        "start_year": 2003
+      },
+      {
+        "id": 9729,
+        "name": "Battle of the Planets",
+        "publisher": "Image",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:55.388793+00:00",
+    "retry_after": "2026-10-18T07:00:55.388810+00:00"
+  },
+  {
+    "name": "Joss Whedon's Serenity",
+    "publisher": "Dark Horse Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:55.995243+00:00",
+    "retry_after": "2026-10-18T07:00:55.995261+00:00"
+  },
+  {
+    "name": "Love Secrets Album",
+    "publisher": "Marvel Comics",
+    "year": 1965,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:56.493481+00:00",
+    "retry_after": "2026-10-18T07:00:56.493498+00:00"
+  },
+  {
+    "name": "Can I Help It If I Like Sex?",
+    "publisher": "Dell Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T07:00:56.945232+00:00",
+    "retry_after": "2026-10-18T07:00:56.945250+00:00"
   }
 ]

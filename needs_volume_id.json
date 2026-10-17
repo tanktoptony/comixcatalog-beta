@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T09:00:46.409937+00:00",
-    "retry_after": "2026-10-18T09:00:46.409952+00:00"
+    "last_attempt_at": "2026-10-17T10:00:53.285348+00:00",
+    "retry_after": "2026-10-18T10:00:53.285365+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T09:00:46.455336+00:00",
-    "retry_after": "2026-10-18T09:00:46.455352+00:00"
+    "last_attempt_at": "2026-10-17T10:00:53.346776+00:00",
+    "retry_after": "2026-10-18T10:00:53.346792+00:00"
   },
   {
     "name": "Justice League Special",
@@ -55706,5 +55706,103 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T09:25:15.544865+00:00",
     "retry_after": "2026-10-18T09:25:15.544880+00:00"
+  },
+  {
+    "name": "Hanna Barbera's Scooby-Doo and His T.V. Friends",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T10:29:54.729469+00:00",
+    "retry_after": "2026-10-18T10:29:54.729483+00:00"
+  },
+  {
+    "name": "Liga da Justiça",
+    "publisher": "Avatar Press",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42512,
+        "name": "Liga da Justiça",
+        "publisher": "Panini Brasil",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T10:29:55.237193+00:00",
+    "retry_after": "2026-10-18T10:29:55.237209+00:00"
+  },
+  {
+    "name": "Morgan Lost",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 121174,
+        "name": "Morgan Lost",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T10:29:57.588281+00:00",
+    "retry_after": "2026-10-18T10:29:57.588296+00:00"
+  },
+  {
+    "name": "Gli albi del West",
+    "publisher": "Dell Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T10:29:58.096699+00:00",
+    "retry_after": "2026-10-18T10:29:58.096715+00:00"
+  },
+  {
+    "name": "Flynn of the FBI",
+    "publisher": "Atlas Comics",
+    "year": 1954,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T10:29:58.749529+00:00",
+    "retry_after": "2026-10-18T10:29:58.749544+00:00"
+  },
+  {
+    "name": "The Lone Wolf",
+    "publisher": "Atlas Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 91940,
+        "name": "The Lone Wolf",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T10:34:45.248137+00:00",
+    "retry_after": "2026-10-18T10:34:45.248152+00:00"
+  },
+  {
+    "name": "Wiz",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56166,
+        "name": "Wiz",
+        "publisher": "Panini Comics",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T10:34:45.674791+00:00",
+    "retry_after": "2026-10-18T10:34:45.674806+00:00"
   }
 ]

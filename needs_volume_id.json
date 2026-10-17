@@ -56131,5 +56131,158 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T22:24:30.733662+00:00",
     "retry_after": "2026-10-18T22:24:30.733676+00:00"
+  },
+  {
+    "name": "One Dollar Debut: X-O Manowar",
+    "publisher": "Valiant Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:23:49.468372+00:00",
+    "retry_after": "2026-10-18T23:23:49.468389+00:00"
+  },
+  {
+    "name": "Jupiter's Legacy Giant Sized Edition",
+    "publisher": "Image Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:24:09.863068+00:00",
+    "retry_after": "2026-10-18T23:24:09.863086+00:00"
+  },
+  {
+    "name": "Wolverine: Origins (Director's Cut)",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:24:14.186442+00:00",
+    "retry_after": "2026-10-18T23:24:14.186459+00:00"
+  },
+  {
+    "name": "Bad Machinery: Free Comic Book Day 2017",
+    "publisher": "Oni Press",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:24:14.484258+00:00",
+    "retry_after": "2026-10-18T23:24:14.484275+00:00"
+  },
+  {
+    "name": "Dennis the Menace in Hawaii",
+    "publisher": "Fawcett Comics",
+    "year": 1960,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:24:14.860070+00:00",
+    "retry_after": "2026-10-18T23:24:14.860087+00:00"
+  },
+  {
+    "name": "Communion",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26725,
+        "name": "Communion",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      },
+      {
+        "id": 137307,
+        "name": "Communion",
+        "publisher": "TidalWave Productions",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:24:15.295043+00:00",
+    "retry_after": "2026-10-18T23:24:15.295060+00:00"
+  },
+  {
+    "name": "Jérôme K. Jérôme Bloche",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140677,
+        "name": "Jérôme K. Jérôme Bloche",
+        "publisher": "Anaya",
+        "start_year": 1990
+      },
+      {
+        "id": 116447,
+        "name": "Jérôme K. Jérôme Bloche",
+        "publisher": "Dupuis",
+        "start_year": 1985
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:24:15.894354+00:00",
+    "retry_after": "2026-10-18T23:24:15.894372+00:00"
+  },
+  {
+    "name": "Marvel Holiday Special 2006",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:24:16.242542+00:00",
+    "retry_after": "2026-10-18T23:24:16.242560+00:00"
+  },
+  {
+    "name": "Tekken",
+    "publisher": "Titan Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:24:16.640320+00:00",
+    "retry_after": "2026-10-18T23:24:16.640337+00:00"
+  },
+  {
+    "name": "TMNT: Best of Krang",
+    "publisher": "IDW Publishing",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:24:24.863894+00:00",
+    "retry_after": "2026-10-18T23:24:24.863911+00:00"
+  },
+  {
+    "name": "The Kinky Hook",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24194,
+        "name": "The Kinky Hook",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:24:28.920897+00:00",
+    "retry_after": "2026-10-18T23:24:28.920914+00:00"
+  },
+  {
+    "name": "Jim Henson's Muppet Babies",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T23:24:29.348658+00:00",
+    "retry_after": "2026-10-18T23:24:29.348675+00:00"
   }
 ]

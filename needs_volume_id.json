@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T10:00:53.285348+00:00",
-    "retry_after": "2026-10-18T10:00:53.285365+00:00"
+    "last_attempt_at": "2026-10-17T11:00:47.974206+00:00",
+    "retry_after": "2026-10-18T11:00:47.974220+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T10:00:53.346776+00:00",
-    "retry_after": "2026-10-18T10:00:53.346792+00:00"
+    "last_attempt_at": "2026-10-17T11:00:48.028577+00:00",
+    "retry_after": "2026-10-18T11:00:48.028593+00:00"
   },
   {
     "name": "Justice League Special",
@@ -55804,5 +55804,342 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T10:34:45.674791+00:00",
     "retry_after": "2026-10-18T10:34:45.674806+00:00"
+  },
+  {
+    "name": "True Believers: Wolverine Old Man Logan",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:23:49.039877+00:00",
+    "retry_after": "2026-10-18T11:23:49.039892+00:00"
+  },
+  {
+    "name": "Epic Graphic Novel: Marshal Blueberry 1 – The Lost Dutchman’s Mine",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:23:49.463823+00:00",
+    "retry_after": "2026-10-18T11:23:49.463838+00:00"
+  },
+  {
+    "name": "March [Oversized Deluxe Edition]",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:23:49.846442+00:00",
+    "retry_after": "2026-10-18T11:23:49.846458+00:00"
+  },
+  {
+    "name": "X-Men Featuring Gambit",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:23:50.212039+00:00",
+    "retry_after": "2026-10-18T11:23:50.212054+00:00"
+  },
+  {
+    "name": "Solo: The Survivors of Chaos",
+    "publisher": "Titan Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:23:50.748295+00:00",
+    "retry_after": "2026-10-18T11:23:50.748309+00:00"
+  },
+  {
+    "name": "TMNT: The Last Ronin Director’s Cut",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:23:51.297335+00:00",
+    "retry_after": "2026-10-18T11:23:51.297350+00:00"
+  },
+  {
+    "name": "Sir Alfred",
+    "publisher": "Fantagraphics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:23:51.609695+00:00",
+    "retry_after": "2026-10-18T11:23:51.609708+00:00"
+  },
+  {
+    "name": "Miranda",
+    "publisher": "Action Lab Entertainment",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46367,
+        "name": "Miranda",
+        "publisher": "Comeuppance Comics",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:23:52.082104+00:00",
+    "retry_after": "2026-10-18T11:23:52.082121+00:00"
+  },
+  {
+    "name": "The Grot",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 128668,
+        "name": "The Grot",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:23:52.437853+00:00",
+    "retry_after": "2026-10-18T11:23:52.437864+00:00"
+  },
+  {
+    "name": "Fantasy Comics Gallery",
+    "publisher": "Antarctic Press",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:28:09.677229+00:00",
+    "retry_after": "2026-10-18T11:28:09.677245+00:00"
+  },
+  {
+    "name": "AAFES 9th Edition [New Avengers: Hero Exchange]",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:28:40.970078+00:00",
+    "retry_after": "2026-10-18T11:28:40.970092+00:00"
+  },
+  {
+    "name": "James O’Barr: Savages",
+    "publisher": "Devil's Due",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:28:41.563397+00:00",
+    "retry_after": "2026-10-18T11:28:41.563413+00:00"
+  },
+  {
+    "name": "Raccolta Legs Weaver",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:28:42.212609+00:00",
+    "retry_after": "2026-10-18T11:28:42.212622+00:00"
+  },
+  {
+    "name": "L'Uomo Ragno",
+    "publisher": "Dark Horse Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47785,
+        "name": "L'Uomo Ragno",
+        "publisher": "Editoriale Corno",
+        "start_year": 1970
+      },
+      {
+        "id": 143798,
+        "name": "L'Uomo Ragno",
+        "publisher": "Panini Comics",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:28:42.687697+00:00",
+    "retry_after": "2026-10-18T11:28:42.687713+00:00"
+  },
+  {
+    "name": "Conan, o Bárbaro",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115515,
+        "name": "Conan o Bárbaro",
+        "publisher": "Abril",
+        "start_year": 1992
+      },
+      {
+        "id": 139286,
+        "name": "Conan - O Bárbaro",
+        "publisher": "Futura",
+        "start_year": 1982
+      },
+      {
+        "id": 115323,
+        "name": "Conan o Bárbaro",
+        "publisher": "Bloch Editores",
+        "start_year": 1976
+      },
+      {
+        "id": 115309,
+        "name": "Conan o Bárbaro",
+        "publisher": "Minami & Cunha Editores",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:30:26.980853+00:00",
+    "retry_after": "2026-10-18T11:30:26.980868+00:00"
+  },
+  {
+    "name": "A Espada Selvagem de Conan Reedição",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129670,
+        "name": "A Espada Selvagem de Conan Reedição",
+        "publisher": "Abril",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:30:27.892867+00:00",
+    "retry_after": "2026-10-18T11:30:27.892881+00:00"
+  },
+  {
+    "name": "Ghost Rider",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2636,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 1973
+      },
+      {
+        "id": 141707,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 18217,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2005
+      },
+      {
+        "id": 166276,
+        "name": "Ghost Rider",
+        "publisher": "Mandragora",
+        "start_year": 2006
+      },
+      {
+        "id": 96138,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 11183,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 4397,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 1990
+      },
+      {
+        "id": 18138,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 40536,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 2352,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 1967
+      },
+      {
+        "id": 121736,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 42393,
+        "name": "Ghost Rider",
+        "publisher": "Panini Verlag",
+        "start_year": 2007
+      },
+      {
+        "id": 147556,
+        "name": "Ghost Rider",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 105882,
+        "name": "Ghost Rider",
+        "publisher": "Panini Verlag",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:30:28.255389+00:00",
+    "retry_after": "2026-10-18T11:30:28.255404+00:00"
+  },
+  {
+    "name": "Napoleone",
+    "publisher": "Marvel Comics",
+    "year": 1977,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46291,
+        "name": "Napoleone",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1997
+      },
+      {
+        "id": 164719,
+        "name": "Napoleone",
+        "publisher": "Maverick (Serbian)",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T11:33:14.480389+00:00",
+    "retry_after": "2026-10-18T11:33:14.480406+00:00"
   }
 ]

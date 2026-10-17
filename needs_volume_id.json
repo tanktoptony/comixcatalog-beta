@@ -50773,13 +50773,13 @@
   },
   {
     "name": "WildC.A.T.s / X-Men: The Modern Age 3D",
-    "publisher": "Image Comics",
+    "publisher": "Marvel Comics",
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-15T17:16:58.543670+00:00",
-    "retry_after": "2026-10-18T17:16:58.543688+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:24:24.753379+00:00",
+    "retry_after": "2026-10-18T22:24:24.753395+00:00"
   },
   {
     "name": "Doctor Who: The Ninth Special",
@@ -55956,5 +55956,180 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-17T21:54:13.424739+00:00",
     "retry_after": "2026-10-18T21:54:13.424756+00:00"
+  },
+  {
+    "name": "Sally Forth",
+    "publisher": "Fawcett Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26810,
+        "name": "Sally Forth",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:23:51.809450+00:00",
+    "retry_after": "2026-10-18T22:23:51.809464+00:00"
+  },
+  {
+    "name": "Vault of Whores",
+    "publisher": "Fantagraphics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73772,
+        "name": "Vault of Whores",
+        "publisher": "Eros Comix",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:23:59.105325+00:00",
+    "retry_after": "2026-10-18T22:23:59.105341+00:00"
+  },
+  {
+    "name": "Lust",
+    "publisher": "Fantagraphics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30812,
+        "name": "Lust",
+        "publisher": "Eros Comix",
+        "start_year": 1997
+      },
+      {
+        "id": 75725,
+        "name": "Lust",
+        "publisher": "IDW Publishing",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:23:59.432239+00:00",
+    "retry_after": "2026-10-18T22:23:59.432252+00:00"
+  },
+  {
+    "name": "Scuz About Town",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66147,
+        "name": "Scuz About Town",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:24:16.611181+00:00",
+    "retry_after": "2026-10-18T22:24:16.611196+00:00"
+  },
+  {
+    "name": "Popular Action Annual",
+    "publisher": "Marvel Comics",
+    "year": 1977,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:24:17.018712+00:00",
+    "retry_after": "2026-10-18T22:24:17.018727+00:00"
+  },
+  {
+    "name": "Smoke & Mirror",
+    "publisher": "Malibu Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55890,
+        "name": "Smoke & Mirror",
+        "publisher": "AAM/Markosia",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:24:17.513682+00:00",
+    "retry_after": "2026-10-18T22:24:17.513699+00:00"
+  },
+  {
+    "name": "Spawn Alley Playset",
+    "publisher": "Image Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76574,
+        "name": "Spawn Alley Playset",
+        "publisher": "McFarlane Toys",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:24:17.980482+00:00",
+    "retry_after": "2026-10-18T22:24:17.980497+00:00"
+  },
+  {
+    "name": "America Jr.",
+    "publisher": "Image Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:24:23.223086+00:00",
+    "retry_after": "2026-10-18T22:24:23.223101+00:00"
+  },
+  {
+    "name": "Atomic Age Truckstop Waitress",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26715,
+        "name": "Atomic Age Truckstop Waitress",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:24:24.238446+00:00",
+    "retry_after": "2026-10-18T22:24:24.238462+00:00"
+  },
+  {
+    "name": "Richie Rich and Timmy Time",
+    "publisher": "Harvey Comics",
+    "year": 1977,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:24:29.890727+00:00",
+    "retry_after": "2026-10-18T22:24:29.890742+00:00"
+  },
+  {
+    "name": "Mad Super Spectacular: Superman Man of Steel",
+    "publisher": "EC Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:24:30.355018+00:00",
+    "retry_after": "2026-10-18T22:24:30.355034+00:00"
+  },
+  {
+    "name": "Huckleberry Hound / Quick Draw McGraw Giant Size Flip Book",
+    "publisher": "Harvey Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T22:24:30.733662+00:00",
+    "retry_after": "2026-10-18T22:24:30.733676+00:00"
   }
 ]

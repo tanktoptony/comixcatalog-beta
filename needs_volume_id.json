@@ -27932,8 +27932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T11:34:32.220688+00:00",
-    "retry_after": "2026-10-18T11:34:32.220699+00:00"
+    "last_attempt_at": "2026-10-17T12:12:57.674386+00:00",
+    "retry_after": "2026-10-18T12:12:57.674398+00:00"
   },
   {
     "name": "Cerebus",
@@ -43896,8 +43896,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T11:34:32.280611+00:00",
-    "retry_after": "2026-10-18T11:34:32.280620+00:00"
+    "last_attempt_at": "2026-10-17T12:12:57.722601+00:00",
+    "retry_after": "2026-10-18T12:12:57.722620+00:00"
   },
   {
     "name": "Justice League Special",
@@ -56139,7 +56139,358 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T12:06:08.857101+00:00",
-    "retry_after": "2026-10-18T12:06:08.857117+00:00"
+    "last_attempt_at": "2026-10-17T11:33:14.480389+00:00",
+    "retry_after": "2026-10-18T11:33:14.480406+00:00"
+  },
+  {
+    "name": "Mystic Arcana: Sister Grimm",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:07.675743+00:00",
+    "retry_after": "2026-10-18T12:36:07.675761+00:00"
+  },
+  {
+    "name": "Die Schöne und das Huhn",
+    "publisher": "Fawcett Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:08.150228+00:00",
+    "retry_after": "2026-10-18T12:36:08.150250+00:00"
+  },
+  {
+    "name": "Tales from the Crypt",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 38203,
+        "name": "Tales from the Crypt",
+        "publisher": "Gemstone",
+        "start_year": 1992
+      },
+      {
+        "id": 18612,
+        "name": "Tales from the Crypt",
+        "publisher": "EC",
+        "start_year": 1950
+      },
+      {
+        "id": 30124,
+        "name": "Tales from the Crypt",
+        "publisher": "NBM",
+        "start_year": 2007
+      },
+      {
+        "id": 30341,
+        "name": "Tales from the Crypt",
+        "publisher": "Russ Cochran",
+        "start_year": 1991
+      },
+      {
+        "id": 169182,
+        "name": "Tales from the Crypt",
+        "publisher": "Akileos",
+        "start_year": 2012
+      },
+      {
+        "id": 48705,
+        "name": "Tales from the Crypt",
+        "publisher": "Arnold Book Company (ABC)",
+        "start_year": 1952
+      },
+      {
+        "id": 30088,
+        "name": "Tales from the Crypt",
+        "publisher": "Gladstone",
+        "start_year": 1990
+      },
+      {
+        "id": 48611,
+        "name": "Tales from the Crypt",
+        "publisher": "Eerie Publications",
+        "start_year": 1968
+      },
+      {
+        "id": 48646,
+        "name": "Tales from the Crypt",
+        "publisher": "Ballantine Books",
+        "start_year": 1964
+      },
+      {
+        "id": 48674,
+        "name": "Tales from the Crypt",
+        "publisher": "Superior Publishers Limited",
+        "start_year": 1950
+      },
+      {
+        "id": 96166,
+        "name": "Tales From the Crypt",
+        "publisher": "Super Genius Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 149708,
+        "name": "Tales from the Crypt",
+        "publisher": "Diábolo Ediciones",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:15.971252+00:00",
+    "retry_after": "2026-10-18T12:36:15.971266+00:00"
+  },
+  {
+    "name": "seaQuest",
+    "publisher": "Harvey Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:16.327163+00:00",
+    "retry_after": "2026-10-18T12:36:16.327178+00:00"
+  },
+  {
+    "name": "Song and Dance",
+    "publisher": "Valiant Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:16.986228+00:00",
+    "retry_after": "2026-10-18T12:36:16.986244+00:00"
+  },
+  {
+    "name": "Sienna",
+    "publisher": "Fawcett Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142525,
+        "name": "Sienna",
+        "publisher": "Epsilon",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:17.366419+00:00",
+    "retry_after": "2026-10-18T12:36:17.366434+00:00"
+  },
+  {
+    "name": "Venom Especial",
+    "publisher": "Avatar Press",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112653,
+        "name": "Venom Especial",
+        "publisher": "Abril",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:21.871773+00:00",
+    "retry_after": "2026-10-18T12:36:21.871788+00:00"
+  },
+  {
+    "name": "Heralds of Canada",
+    "publisher": "EC Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:22.230899+00:00",
+    "retry_after": "2026-10-18T12:36:22.230914+00:00"
+  },
+  {
+    "name": "Guardians of the Galaxy Digest",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:26.542093+00:00",
+    "retry_after": "2026-10-18T12:36:26.542110+00:00"
+  },
+  {
+    "name": "Star Trek The Next Generation Annual",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:27.136553+00:00",
+    "retry_after": "2026-10-18T12:36:27.136583+00:00"
+  },
+  {
+    "name": "Sweeter Gwen",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58029,
+        "name": "Sweeter Gwen",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:27.557636+00:00",
+    "retry_after": "2026-10-18T12:36:27.557651+00:00"
+  },
+  {
+    "name": "Blood Road",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49168,
+        "name": "Blood Road",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:28.088346+00:00",
+    "retry_after": "2026-10-18T12:36:28.088361+00:00"
+  },
+  {
+    "name": "Medieval Spawn Figure",
+    "publisher": "Image Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69271,
+        "name": "Medieval Spawn Figure",
+        "publisher": "McFarlane Toys",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:36:28.543050+00:00",
+    "retry_after": "2026-10-18T12:36:28.543065+00:00"
+  },
+  {
+    "name": "Margriet",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:37:55.893902+00:00",
+    "retry_after": "2026-10-18T12:37:55.893917+00:00"
+  },
+  {
+    "name": "Corriere dei Piccoli",
+    "publisher": "Dell Comics",
+    "year": 1908,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27801,
+        "name": "Corriere dei Piccoli",
+        "publisher": "RCS MediaGroup",
+        "start_year": 1908
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:37:56.400291+00:00",
+    "retry_after": "2026-10-18T12:37:56.400308+00:00"
+  },
+  {
+    "name": "Tina",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127133,
+        "name": "Tina",
+        "publisher": "Sanoma Uitgevers",
+        "start_year": 1967
+      },
+      {
+        "id": 142794,
+        "name": "Tina",
+        "publisher": "Arédit - Artima",
+        "start_year": 1968
+      },
+      {
+        "id": 127134,
+        "name": "Tina",
+        "publisher": "Casa Editrice Dardo",
+        "start_year": 1967
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:37:56.980527+00:00",
+    "retry_after": "2026-10-18T12:37:56.980541+00:00"
+  },
+  {
+    "name": "Anders And & Co.",
+    "publisher": "Valiant Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126425,
+        "name": "Anders And & Co.",
+        "publisher": "Egmont Publishing A/S",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:37:57.241624+00:00",
+    "retry_after": "2026-10-18T12:37:57.241643+00:00"
+  },
+  {
+    "name": "Dylan Dog - I colori della paura",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:37:57.755847+00:00",
+    "retry_after": "2026-10-18T12:37:57.755862+00:00"
+  },
+  {
+    "name": "Fantomas - Serie Colibrí",
+    "publisher": "Harvey Comics",
+    "year": 1978,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:37:58.371700+00:00",
+    "retry_after": "2026-10-18T12:37:58.371717+00:00"
+  },
+  {
+    "name": "Historietas de Walt Disney Serie Colibri",
+    "publisher": "Harvey Comics",
+    "year": 1977,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:39:25.781728+00:00",
+    "retry_after": "2026-10-18T12:39:25.781744+00:00"
+  },
+  {
+    "name": "Variedades de Walt Disney - Serie Colibrí",
+    "publisher": "Harvey Comics",
+    "year": 1977,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-17T12:39:26.103970+00:00",
+    "retry_after": "2026-10-18T12:39:26.103986+00:00"
   }
 ]

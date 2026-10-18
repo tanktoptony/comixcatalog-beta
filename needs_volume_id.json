@@ -27638,7 +27638,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27656,8 +27656,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-18T22:02:47.862381+00:00",
-    "retry_after": "2026-10-19T22:02:47.862397+00:00"
+    "last_attempt_at": "2026-10-18T22:14:19.131590+00:00",
+    "retry_after": "2026-10-19T22:14:19.131604+00:00"
   },
   {
     "name": "Cerebus",
@@ -43602,7 +43602,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43620,8 +43620,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-18T22:00:44.774366+00:00",
-    "retry_after": "2026-10-19T22:00:44.774384+00:00"
+    "last_attempt_at": "2026-10-18T22:14:19.211080+00:00",
+    "retry_after": "2026-10-19T22:14:19.211091+00:00"
   },
   {
     "name": "Justice League Special",
@@ -50743,9 +50743,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:24:24.753379+00:00",
-    "retry_after": "2026-10-18T22:24:24.753395+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:23.542171+00:00",
+    "retry_after": "2026-10-21T22:37:23.542185+00:00"
   },
   {
     "name": "Doctor Who: The Ninth Special",
@@ -55936,9 +55936,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:23:51.809450+00:00",
-    "retry_after": "2026-10-18T22:23:51.809464+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:20.310057+00:00",
+    "retry_after": "2026-10-21T22:37:20.310071+00:00"
   },
   {
     "name": "Vault of Whores",
@@ -55953,9 +55953,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:23:59.105325+00:00",
-    "retry_after": "2026-10-18T22:23:59.105341+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:20.658255+00:00",
+    "retry_after": "2026-10-21T22:37:20.658271+00:00"
   },
   {
     "name": "Lust",
@@ -55976,9 +55976,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:23:59.432239+00:00",
-    "retry_after": "2026-10-18T22:23:59.432252+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:20.993239+00:00",
+    "retry_after": "2026-10-21T22:37:20.993251+00:00"
   },
   {
     "name": "Scuz About Town",
@@ -55993,9 +55993,9 @@
         "start_year": 1992
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:24:16.611181+00:00",
-    "retry_after": "2026-10-18T22:24:16.611196+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:21.360796+00:00",
+    "retry_after": "2026-10-21T22:37:21.360810+00:00"
   },
   {
     "name": "Popular Action Annual",
@@ -56003,9 +56003,9 @@
     "year": 1977,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:24:17.018712+00:00",
-    "retry_after": "2026-10-18T22:24:17.018727+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:21.648898+00:00",
+    "retry_after": "2026-10-21T22:37:21.648913+00:00"
   },
   {
     "name": "Smoke & Mirror",
@@ -56020,9 +56020,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:24:17.513682+00:00",
-    "retry_after": "2026-10-18T22:24:17.513699+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:22.027755+00:00",
+    "retry_after": "2026-10-21T22:37:22.027770+00:00"
   },
   {
     "name": "Spawn Alley Playset",
@@ -56037,9 +56037,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:24:17.980482+00:00",
-    "retry_after": "2026-10-18T22:24:17.980497+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:22.404461+00:00",
+    "retry_after": "2026-10-21T22:37:22.404476+00:00"
   },
   {
     "name": "America Jr.",
@@ -56047,9 +56047,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:24:23.223086+00:00",
-    "retry_after": "2026-10-18T22:24:23.223101+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:22.887566+00:00",
+    "retry_after": "2026-10-21T22:37:22.887580+00:00"
   },
   {
     "name": "Atomic Age Truckstop Waitress",
@@ -56064,9 +56064,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:24:24.238446+00:00",
-    "retry_after": "2026-10-18T22:24:24.238462+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:23.234685+00:00",
+    "retry_after": "2026-10-21T22:37:23.234699+00:00"
   },
   {
     "name": "Richie Rich and Timmy Time",
@@ -56074,9 +56074,9 @@
     "year": 1977,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:24:29.890727+00:00",
-    "retry_after": "2026-10-18T22:24:29.890742+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:23.794533+00:00",
+    "retry_after": "2026-10-21T22:37:23.794547+00:00"
   },
   {
     "name": "Mad Super Spectacular: Superman Man of Steel",
@@ -56084,9 +56084,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:24:30.355018+00:00",
-    "retry_after": "2026-10-18T22:24:30.355034+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:24.056611+00:00",
+    "retry_after": "2026-10-21T22:37:24.056627+00:00"
   },
   {
     "name": "Huckleberry Hound / Quick Draw McGraw Giant Size Flip Book",
@@ -56094,9 +56094,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T22:24:30.733662+00:00",
-    "retry_after": "2026-10-18T22:24:30.733676+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T22:37:24.485889+00:00",
+    "retry_after": "2026-10-21T22:37:24.485904+00:00"
   },
   {
     "name": "One Dollar Debut: X-O Manowar",
@@ -57163,5 +57163,95 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-18T05:27:28.591274+00:00",
     "retry_after": "2026-10-19T05:27:28.591289+00:00"
+  },
+  {
+    "name": "Directory to a Non-Existent Universe",
+    "publisher": "Eclipse Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48002,
+        "name": "Directory to a Non-Existent Universe",
+        "publisher": "ICG",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T22:37:24.800430+00:00",
+    "retry_after": "2026-10-19T22:37:24.800445+00:00"
+  },
+  {
+    "name": "Wallace Wood's Malice in Wonderland",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26837,
+        "name": "Wallace Wood's Malice in Wonderland",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T22:37:29.919774+00:00",
+    "retry_after": "2026-10-19T22:37:29.919789+00:00"
+  },
+  {
+    "name": "Kiddie Kapers",
+    "publisher": "IDW Publishing",
+    "year": 1945,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52501,
+        "name": "Kiddie Kapers",
+        "publisher": "Ajax-Farrell",
+        "start_year": 1945
+      },
+      {
+        "id": 1928,
+        "name": "Kiddie Kapers",
+        "publisher": "I.W. Publishing",
+        "start_year": 1958
+      },
+      {
+        "id": 156957,
+        "name": "Kiddie Kapers",
+        "publisher": "Decker",
+        "start_year": 1957
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T22:37:30.499898+00:00",
+    "retry_after": "2026-10-19T22:37:30.499915+00:00"
+  },
+  {
+    "name": "X-Men: Return of Magik Must Have",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T22:37:34.847497+00:00",
+    "retry_after": "2026-10-19T22:37:34.847509+00:00"
+  },
+  {
+    "name": "The Clown Figure",
+    "publisher": "Image Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75259,
+        "name": "The Clown Figure",
+        "publisher": "McFarlane Toys",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T22:37:35.234165+00:00",
+    "retry_after": "2026-10-19T22:37:35.234179+00:00"
   }
 ]

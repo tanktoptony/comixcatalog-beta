@@ -10,6 +10,7 @@ import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
 import { coverThumb } from "@/lib/coverThumb";
 import { buildSeriesIntro } from "@/lib/seriesSeo";
+import KeyTimeline from "@/components/KeyTimeline";
 
 const ISSUE_BATCH = 60;
 
@@ -330,21 +331,6 @@ export default function SeriesClient({ initialSeries = null }) {
               )}
             </div>
 
-            {series.key_issues?.length > 0 && (
-              <div style={{ maxWidth: "760px", marginBottom: "16px" }}>
-                <h2 style={{ fontSize: "1rem", marginBottom: "6px" }}>Key issues</h2>
-                <ul style={{ margin: 0, paddingLeft: "20px" }}>
-                  {series.key_issues.map((keyIssue) => (
-                    <li key={keyIssue.gcd_issue_id}>
-                      <Link href={`/issue/gcd-${keyIssue.gcd_issue_id}`}>
-                        #{keyIssue.issue_number}: {keyIssue.reason}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
             {series.collects?.length > 0 ? (
               // Collected edition: say what each volume collects (from GCD's
               // series notes) instead of the generic run blurb. Covers for
@@ -369,6 +355,9 @@ export default function SeriesClient({ initialSeries = null }) {
           </div>
         </div>
 
+        {/* Full width under the hero: the timeline needs room, the hero's
+            text column is too narrow for 70 years of keys. */}
+        {series.key_issues?.length > 0 && <KeyTimeline issues={series.key_issues} />}
 
         {/* ── Run completion ────────────────────────────────────────────
             Only render when the viewer is signed in and there's at least one

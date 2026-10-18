@@ -4,7 +4,7 @@ import { fetchSeriesCoverRows, resolveCovers } from "@/lib/catalog/covers";
 import { resolvePublisher } from "@/lib/publisher";
 import { collectsLines, formatLabel, formatNoun, formatTag, formatTagTitle, isCollectedEdition } from "@/lib/seriesFormat";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
-import { baseIssueNumber } from "@/lib/coverMatch";
+import { baseIssueNumber, compareIssueNumbers } from "@/lib/coverMatch";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { seriesLinkDisplayLines } from "@/lib/seriesLinks";
@@ -115,7 +115,7 @@ async function loadTopCreators(supabase, issues) {
   };
 }
 
-async function loadKeyIssues(supabase, issues) {
+async function loadKeyIssues(supabase, issues, { seriesTitle, collectedEdition }) {
   const ids = issues.map((issue) => issue.gcd_id).filter((id) => id != null);
   if (ids.length === 0) return [];
   const chunks = [];
@@ -128,9 +128,40 @@ async function loadKeyIssues(supabase, issues) {
     .in("gcd_issue_id", idChunk)));
   const failed = results.find((result) => result.error);
   if (failed) throw failed.error;
-  return results
-    .flatMap((result) => result.data ?? [])
-    .sort((a, b) => a.tier - b.tier || String(a.issue_number).localeCompare(String(b.issue_number), undefined, { numeric: true }));
+  const issueById = new Map(issues.map((issue) => [Number(issue.gcd_id), issue]));
+  const keys = results.flatMap((result) => result.data ?? []).map((keyIssue) => {
+    const issue = issueById.get(Number(keyIssue.gcd_issue_id));
+    return { ...keyIssue, year: issue ? bestYearFor(issue) : null };
+  });
+  const datedYears = issues.map((issue) => bestYearFor(issue)).filter((year) => year != null);
+  const seriesYearStart = datedYears.length ? Math.min(...datedYears) : null;
+  const seriesYearEnd = datedYears.length ? Math.max(...datedYears) : null;
+  let covers = new Map();
+  try {
+    covers = await resolveCovers(supabase, keys.map((keyIssue) => {
+      const issue = issueById.get(Number(keyIssue.gcd_issue_id));
+      return {
+        gcd_issue_id: Number(keyIssue.gcd_issue_id),
+        series_gcd_id: issue?.series_gcd_id ?? null,
+        series_title: collectedEdition ? null : seriesTitle,
+        issue_number: keyIssue.issue_number,
+        year: keyIssue.year,
+        series_year_start: seriesYearStart,
+        series_year_end: seriesYearEnd,
+      };
+    }));
+  } catch (error) {
+    console.error("GET /api/series/[id] key cover resolution failed:", error);
+  }
+  return keys.map((keyIssue) => {
+    const storagePath = covers.get(Number(keyIssue.gcd_issue_id))?.storage_path ?? null;
+    return {
+      ...keyIssue,
+      cover: storagePath
+        ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
+        : null,
+    };
+  }).sort((left, right) => compareIssueNumbers(left.issue_number, right.issue_number));
 }
 
 export async function GET(req, context) {
@@ -293,7 +324,7 @@ export async function GET(req, context) {
     let topCreators = { writers: [], artists: [] };
     let creatorCreditedIssues = { writers: 0, artists: 0 };
     const enrichmentPromise = Promise.all([
-      loadKeyIssues(supabase, issueRows),
+      loadKeyIssues(supabase, issueRows, { seriesTitle: series.title, collectedEdition }),
       loadTopCreators(supabase, issueRows),
     ]).then(([loadedKeyIssues, creatorSummary]) => {
       keyIssues = loadedKeyIssues;

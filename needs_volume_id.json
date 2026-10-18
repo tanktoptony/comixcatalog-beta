@@ -10969,41 +10969,6 @@
     "retry_after": "2026-09-21T14:00:38.556259+00:00"
   },
   {
-    "name": "Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2022,
-    "reason": "multiple_candidates",
-    "candidates": [
-      {
-        "id": 4421,
-        "name": "Spider-Man",
-        "publisher": "Marvel",
-        "start_year": 1990
-      },
-      {
-        "id": 87820,
-        "name": "Spider-Man",
-        "publisher": "Marvel",
-        "start_year": 2016
-      },
-      {
-        "id": 121420,
-        "name": "Spider-Man",
-        "publisher": "Marvel",
-        "start_year": 2019
-      },
-      {
-        "id": 34457,
-        "name": "Spider-Man",
-        "publisher": "Marvel",
-        "start_year": 1987
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-11T17:00:39.844046+00:00",
-    "retry_after": "2026-10-18T17:00:39.844062+00:00"
-  },
-  {
     "name": "Detective Comics",
     "publisher": "DC Comics",
     "year": 2019,

@@ -14,6 +14,13 @@ import { inboxAriaLabel, inboxBadgeTotal } from "@/lib/inboxNotifications";
 import { coverThumb } from "@/lib/coverThumb";
 import InviteButton from "@/components/InviteButton";
 import { authedFetch } from "@/lib/apiClient";
+import { CircleHelp, Inbox, LibraryBig, Package, Store } from "lucide-react";
+
+const NAV_ICON_PROPS = { size: 20, strokeWidth: 1.75, "aria-hidden": true };
+
+function routeIsCurrent(pathname, href) {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 function resolveCoverUrl(rawCover) {
   if (!rawCover) return null;
@@ -585,10 +592,11 @@ export default function Header() {
             href="/marketplace"
             className="nav-icon-btn"
             onClick={closeMenu}
-            title="Marketplace (beta)"
             aria-label="Marketplace (beta)"
+            data-label="Marketplace"
+            aria-current={routeIsCurrent(pathname, "/marketplace") ? "page" : undefined}
           >
-            <MarketplaceIcon />
+            <Store {...NAV_ICON_PROPS} />
           </Link>
 
           {!user && !loading && (
@@ -614,47 +622,24 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Library icon + avatar dropdown live OUTSIDE .main-nav so they stay
-            visible on mobile while text links collapse behind the hamburger.
-            The inbox came back with the marketplace (2026-10-01): "Make an
-            offer" opens a thread with the seller. */}
+        {/* Signed-in shortcuts remain visible at every header width. */}
         {/* While auth resolves (first paint of a full page load, before the
             stored session is read) hold the space the signed-in icons take,
             instead of flashing Sign in / Create account and then swapping. */}
         {!user && loading && <div className="header-user-actions header-auth-pending" aria-hidden="true" />}
         {user && (
           <div className="header-user-actions">
-            {/* Persistent, always-available re-entry point into the
-                onboarding guidance — the one thing a returning user who
-                dismissed it once (or never understood the site to begin
-                with) can always find, regardless of what page they're on.
-                See OnboardingModal.js's "cc:open-onboarding" listener. */}
-            <button
-              type="button"
-              className="nav-icon-btn"
-              title="How this works"
-              aria-label="How this works"
-              onClick={() => {
-                closeMenu();
-                window.dispatchEvent(new Event("cc:open-onboarding"));
-              }}
-            >
-              <HelpIcon />
-            </button>
-
-
-            <InboxNavButton />
-            <OrdersNavButton />
-
             <Link
               href="/library"
               className="nav-icon-btn"
               onClick={closeMenu}
-              title="Manage Collection"
               aria-label="Manage Collection"
+              data-label="Library"
+              aria-current={routeIsCurrent(pathname, "/library") ? "page" : undefined}
             >
-              <LibraryIcon />
+              <LibraryBig {...NAV_ICON_PROPS} />
             </Link>
+            <InboxNavButton current={routeIsCurrent(pathname, "/inbox")} />
             <UserMenu
               ref={userMenuRef}
               profileLoading={loading || profileLoading}
@@ -676,58 +661,18 @@ export default function Header() {
   );
 }
 
-function LibraryIcon() {
-  // Stack-of-books icon, currentColor for theming.
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M4 4h4v16H4z" />
-      <path d="M9 4h4v16H9z" />
-      <path d="M15 5l3.5-1 3 14-3.5 1z" />
-    </svg>
-  );
-}
-
-function HelpIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="12" r="9" />
-      <path d="M9.5 9a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 1.7-2.4 3.3" />
-      <line x1="12" y1="17" x2="12.01" y2="17" />
-    </svg>
-  );
-}
-
-function InboxNavButton() {
+function InboxNavButton({ current }) {
   const unread = useUnreadMessageCount();
   const total = inboxBadgeTotal(unread);
   return (
     <Link
       href="/inbox"
       className="nav-icon-btn nav-icon-btn-inbox"
-      title="Inbox"
       aria-label={inboxAriaLabel(unread)}
+      data-label="Inbox"
+      aria-current={current ? "page" : undefined}
     >
-      <InboxIcon />
+      <Inbox {...NAV_ICON_PROPS} />
       {total > 0 && (
         <span className="nav-icon-badge" aria-hidden="true">
           {total > 99 ? "99+" : total}
@@ -737,7 +682,7 @@ function InboxNavButton() {
   );
 }
 
-function OrdersNavButton() {
+function OrdersMenuItem({ onClick }) {
   const [allowed, setAllowed] = useState(false);
   useEffect(() => {
     // Ask once per browser session, not on every page load (each check is a function call).
@@ -765,47 +710,11 @@ function OrdersNavButton() {
     };
   }, []);
   if (!allowed) return null;
-  return <Link href="/orders" className="nav-icon-btn" title="Orders" aria-label="Orders">Orders</Link>;
-}
-
-function InboxIcon() {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M3 13h4l2 3h6l2-3h4" />
-      <path d="M5 5h14l2 8v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6z" />
-    </svg>
-  );
-}
-
-function MarketplaceIcon() {
-  // Storefront / shop icon.
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M3 9l1.5-5h15L21 9" />
-      <path d="M4 9v11h16V9" />
-      <path d="M3 9c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3" />
-      <path d="M9 20v-6h6v6" />
-    </svg>
+    <Link href="/orders" className="user-menu-item user-menu-item-with-icon" role="menuitem" onClick={onClick}>
+      <Package {...NAV_ICON_PROPS} />
+      <span>Orders</span>
+    </Link>
   );
 }
 
@@ -877,6 +786,19 @@ const UserMenu = forwardRef(function UserMenu(
             {isPro && <span className="user-menu-pro-pill">PRO</span>}
             {isPlus && <span className="user-menu-pro-pill">Collector+</span>}
           </div>
+
+          <div className="user-menu-divider" />
+
+          <OrdersMenuItem onClick={handleItem()} />
+          <button
+            type="button"
+            className="user-menu-item user-menu-item-with-icon"
+            role="menuitem"
+            onClick={handleItem(() => window.dispatchEvent(new Event("cc:open-onboarding")))}
+          >
+            <CircleHelp {...NAV_ICON_PROPS} />
+            <span>How this works</span>
+          </button>
 
           <div className="user-menu-divider" />
 

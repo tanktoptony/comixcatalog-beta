@@ -51053,13 +51053,13 @@
   },
   {
     "name": "Danger Girl 3-D",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-16T00:35:39.444428+00:00",
-    "retry_after": "2026-10-19T00:35:39.444440+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:23:57.419756+00:00",
+    "retry_after": "2026-10-19T01:23:57.419775+00:00"
   },
   {
     "name": "Batman: Hush Double Feature",
@@ -56717,5 +56717,223 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-18T00:51:16.034255+00:00",
     "retry_after": "2026-10-19T00:51:16.034270+00:00"
+  },
+  {
+    "name": "Witchblade / Darkminds",
+    "publisher": "Image Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:23:41.410677+00:00",
+    "retry_after": "2026-10-19T01:23:41.410693+00:00"
+  },
+  {
+    "name": "Verdens mest spennende historier",
+    "publisher": "Topps Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:23:50.849617+00:00",
+    "retry_after": "2026-10-19T01:23:50.849637+00:00"
+  },
+  {
+    "name": "All Winners [All-Winners Comics]",
+    "publisher": "Marvel Comics",
+    "year": 1948,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:24:06.449970+00:00",
+    "retry_after": "2026-10-19T01:24:06.449988+00:00"
+  },
+  {
+    "name": "Liberty Meadows: Eden",
+    "publisher": "Image Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:24:10.883128+00:00",
+    "retry_after": "2026-10-19T01:24:10.883148+00:00"
+  },
+  {
+    "name": "Candide",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115307,
+        "name": "Candide",
+        "publisher": "BB Art",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:24:11.199794+00:00",
+    "retry_after": "2026-10-19T01:24:11.199811+00:00"
+  },
+  {
+    "name": "X-Men / WildC.A.T.s: The Dark Age",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:24:11.600947+00:00",
+    "retry_after": "2026-10-19T01:24:11.600964+00:00"
+  },
+  {
+    "name": "Young Avengers Director's Cut",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:24:11.932963+00:00",
+    "retry_after": "2026-10-19T01:24:11.932979+00:00"
+  },
+  {
+    "name": "Cheapskin",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26720,
+        "name": "Cheapskin",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:25:42.688048+00:00",
+    "retry_after": "2026-10-19T01:25:42.688065+00:00"
+  },
+  {
+    "name": "Savage Dragon / Teenage Mutant Ninja Turtle Crossover",
+    "publisher": "Mirage Studios",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:25:43.024241+00:00",
+    "retry_after": "2026-10-19T01:25:43.024252+00:00"
+  },
+  {
+    "name": "Saturday Morning: The Comic",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:25:43.461770+00:00",
+    "retry_after": "2026-10-19T01:25:43.461781+00:00"
+  },
+  {
+    "name": "L'il Georgie",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:25:43.905043+00:00",
+    "retry_after": "2026-10-19T01:25:43.905057+00:00"
+  },
+  {
+    "name": "Daredevil: Father [Director's Cut]",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:25:44.589837+00:00",
+    "retry_after": "2026-10-19T01:25:44.589848+00:00"
+  },
+  {
+    "name": "Mr. Lizard Annual",
+    "publisher": "Now Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:25:45.096257+00:00",
+    "retry_after": "2026-10-19T01:25:45.096270+00:00"
+  },
+  {
+    "name": "Disney Aventura",
+    "publisher": "Avatar Press",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:26:58.562127+00:00",
+    "retry_after": "2026-10-19T01:26:58.562140+00:00"
+  },
+  {
+    "name": "Il Settimanale de L'Uomo Ragno",
+    "publisher": "Dark Horse Comics",
+    "year": 1981,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:26:58.945638+00:00",
+    "retry_after": "2026-10-19T01:26:58.945646+00:00"
+  },
+  {
+    "name": "Agenzia Alfa",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28045,
+        "name": "Agenzia Alfa",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:28:00.327056+00:00",
+    "retry_after": "2026-10-19T01:28:00.327067+00:00"
+  },
+  {
+    "name": "True Love Problems and Advice Illustrated",
+    "publisher": "Harvey Comics",
+    "year": 1949,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:30:26.443539+00:00",
+    "retry_after": "2026-10-19T01:30:26.443550+00:00"
+  },
+  {
+    "name": "Tex - Albo Speciale",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:30:26.955928+00:00",
+    "retry_after": "2026-10-19T01:30:26.955938+00:00"
+  },
+  {
+    "name": "Maxi Zagor",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45725,
+        "name": "Maxi Zagor",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T01:30:27.417993+00:00",
+    "retry_after": "2026-10-19T01:30:27.418000+00:00"
   }
 ]

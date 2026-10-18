@@ -12520,8 +12520,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556778+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-18T03:09:19.866304+00:00",
+    "retry_after": "2026-10-21T03:09:19.866321+00:00"
   },
   {
     "name": "Mortal Kombat Special Edition",
@@ -12529,9 +12530,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-01T15:00:57.613093+00:00",
-    "retry_after": "2026-10-15T15:00:57.613111+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-18T03:03:57.629677+00:00",
+    "retry_after": "2026-11-17T03:03:57.629695+00:00"
   },
   {
     "name": "Street Fighter Special",
@@ -12539,9 +12540,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-01T15:00:58.542327+00:00",
-    "retry_after": "2026-10-15T15:00:58.542346+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-18T03:03:57.363076+00:00",
+    "retry_after": "2026-11-17T03:03:57.363094+00:00"
   },
   {
     "name": "Street Fighter",
@@ -12580,9 +12581,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-01T15:00:59.132076+00:00",
-    "retry_after": "2026-10-15T15:00:59.132094+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-18T03:03:56.968842+00:00",
+    "retry_after": "2026-11-17T03:03:56.968859+00:00"
   },
   {
     "name": "Transformers / Ghostbusters [ashcan]",
@@ -15467,13 +15468,13 @@
   },
   {
     "name": "Savage Dragon vs. Savage Megaton Man",
-    "publisher": "Image Comics",
+    "publisher": "Malibu Comics",
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T07:30:54.578562+00:00",
-    "retry_after": "2026-10-18T07:30:54.578578+00:00"
+    "last_attempt_at": "2026-10-18T03:03:56.151943+00:00",
+    "retry_after": "2026-10-19T03:03:56.151963+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -27662,17 +27663,17 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-15T08:18:20.378715+00:00",
-    "retry_after": "2026-10-18T08:18:20.378731+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T03:03:56.715807+00:00",
+    "retry_after": "2026-10-19T03:03:56.715826+00:00"
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27690,8 +27691,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T14:00:43.593527+00:00",
-    "retry_after": "2026-10-18T14:00:43.593541+00:00"
+    "last_attempt_at": "2026-10-18T03:03:56.196845+00:00",
+    "retry_after": "2026-10-19T03:03:56.196861+00:00"
   },
   {
     "name": "Cerebus",
@@ -42086,16 +42087,16 @@
         "start_year": 1992
       },
       {
-        "id": 57741,
-        "name": "X-Men",
-        "publisher": "Abril",
-        "start_year": 1989
-      },
-      {
         "id": 74075,
         "name": "X-Men",
         "publisher": "Panini Brasil",
         "start_year": 2014
+      },
+      {
+        "id": 57741,
+        "name": "X-Men",
+        "publisher": "Abril",
+        "start_year": 1989
       },
       {
         "id": 104729,
@@ -42152,15 +42153,15 @@
         "start_year": 2019
       },
       {
-        "id": 46289,
+        "id": 43575,
         "name": "X-Men",
-        "publisher": "Panini France",
+        "publisher": "Panini España",
         "start_year": 2011
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-10T17:00:49.789543+00:00",
-    "retry_after": "2026-10-17T17:00:49.789559+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-18T03:00:42.004518+00:00",
+    "retry_after": "2026-11-01T03:00:42.004535+00:00"
   },
   {
     "name": "Wolverine & Black Cat: Claws 2",
@@ -43636,7 +43637,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43654,8 +43655,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-17T14:00:43.656570+00:00",
-    "retry_after": "2026-10-18T14:00:43.656581+00:00"
+    "last_attempt_at": "2026-10-18T03:00:41.753975+00:00",
+    "retry_after": "2026-10-19T03:00:41.753992+00:00"
   },
   {
     "name": "Justice League Special",
@@ -57157,5 +57158,15 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-18T02:33:29.773126+00:00",
     "retry_after": "2026-10-19T02:33:29.773142+00:00"
+  },
+  {
+    "name": "Spawn the Impaler",
+    "publisher": "Image Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T03:03:57.909414+00:00",
+    "retry_after": "2026-10-19T03:03:57.909432+00:00"
   }
 ]

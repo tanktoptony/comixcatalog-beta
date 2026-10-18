@@ -95,8 +95,8 @@
     "test:marketplace-orders-ui": "node --test src/lib/tracking.test.js src/lib/orderEmails.test.js src/lib/orderEvents.test.js",
     "test:marketplace-feedback": "node --test src/lib/feedback.test.js",
     "test:marketplace-disputes": "node --test src/lib/orderRefunds.test.js",
-    "test:marketplace-fraud": "node --test src/lib/buyerLimits.test.js src/lib/messageContent.test.js src/lib/marketplaceWebhook.test.js"
-    ,"test:marketplace-sellers": "node --test src/lib/marketplaceFlags.test.js src/lib/sellerStanding.test.js",
+    "test:marketplace-fraud": "node --test src/lib/buyerLimits.test.js src/lib/messageContent.test.js src/lib/marketplaceWebhook.test.js",
+    "test:marketplace-sellers": "node --test src/lib/marketplaceFlags.test.js src/lib/sellerStanding.test.js",
     "test:marketplace-checkout": "node --test src/lib/checkoutSession.test.js src/lib/marketplaceWebhook.test.js scripts/lib/marketplaceSweep.test.js"
   },
   "dependencies": {
@@ -112,6 +112,7 @@
     "cross-env": "^10.1.0",
     "dotenv": "^17.3.1",
     "fflate": "^0.8.3",
+    "lucide-react": "0.468.0",
     "next": "^16.2.4",
     "node-fetch": "^3.3.2",
     "papaparse": "^5.5.3",

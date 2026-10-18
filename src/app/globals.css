@@ -20,7 +20,7 @@
    =========================================================== */
 
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 * {
@@ -30,12 +30,13 @@ html, body {
 html, body {
   margin: 0;
   padding: 0;
-  /* Global horizontal-overflow guard. Any rogue fixed-width child (carryover
+  /* Global horizontal-overflow guard. clip prevents sideways scrolling without
+     creating a non-scrolling container that disables the sticky header. Any rogue fixed-width child (carryover
      from a desktop-only layout, a wide table, an over-large inline image)
      would otherwise force the entire page to side-scroll on mobile. Phones
      are then stuck with both the page-zoom-out AND a horizontal scrollbar,
      which is the bug users reported on /issue/* pages. */
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -2929,7 +2930,7 @@ input[type="file"] {
      1280px (which is most desktops). The header and founding-banner
      already do the "full-width outer strip, max-width inner content"
      split; this panel was missing that split entirely. html/body's
-     global overflow-x:hidden (top of this file) makes the 100vw trick
+     global overflow-x:clip (top of this file) makes the 100vw trick
      safe against the scrollbar-width edge case. */
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -7395,8 +7396,7 @@ button.nav-link {
     gap: 8px;
   }
 
-  /* Shrink icon buttons on phones */
-  .nav-icon-btn,
+  /* Keep the avatar compact while icon controls retain a 40px hit area. */
   .user-menu-trigger {
     width: 32px;
     height: 32px;
@@ -8431,26 +8431,83 @@ button.nav-link {
 /* Let the search bar dominate the row. */
 .header-search-wrap {
   flex: 1 1 auto;
+  min-width: 0;
   max-width: 640px;
 }
 
-/* Icon-only nav button (used for the Library shortcut). */
+/* One row at every width: the search box shrinks instead of the nav wrapping
+   under itself (signed-out phones stacked the marketplace icon over the CTA). */
+.main-nav {
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+}
+
+/* Icon-only header navigation. */
 .nav-icon-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  color: var(--cc-text-muted);
+  background: transparent;
   text-decoration: none;
   transition: 0.15s;
 }
-.nav-icon-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+.nav-icon-btn:hover,
+.nav-icon-btn:focus-visible {
+  background: var(--cc-surface-2);
+  color: var(--cc-text);
+}
+.nav-icon-btn:focus-visible {
+  outline: 2px solid var(--cc-gold);
+  outline-offset: 2px;
+}
+.nav-icon-btn[aria-current="page"] {
+  color: var(--cc-gold);
+}
+.nav-icon-btn[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  bottom: 2px;
+  left: 8px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--cc-gold);
+}
+@media (hover: hover) {
+  .nav-icon-btn[data-label]::before {
+    content: attr(data-label);
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 8px);
+    left: 50%;
+    padding: 5px 8px;
+    border: 1px solid var(--cc-line);
+    border-radius: 6px;
+    background: var(--cc-surface-2);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    color: var(--cc-text);
+    font-size: 0.72rem;
+    font-weight: 650;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -3px);
+    transition: opacity 0.12s, transform 0.12s;
+    white-space: nowrap;
+  }
+  .nav-icon-btn[data-label]:hover::before,
+  .nav-icon-btn[data-label]:focus-visible::before {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
 /* Primary CTA pill (used by Sign Up when logged out). */
@@ -8595,6 +8652,15 @@ button.nav-link {
 .user-menu-item:hover {
   background: rgba(255, 255, 255, 0.06);
 }
+.user-menu-item-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.user-menu-item-with-icon svg {
+  flex: none;
+  color: var(--cc-text-muted);
+}
 .user-menu-item-cta {
   color: var(--x-gold);
   font-weight: 600;
@@ -8649,12 +8715,8 @@ button.nav-link {
   /* Inbox icon is decorative right now — hide on small screens to save room. */
   .header-user-actions .nav-icon-btn-disabled { display: none; }
 
-  /* Make the icon trigger and avatar pill a touch smaller on phones. */
-  .nav-icon-btn,
-  .user-menu-trigger {
-    width: 34px;
-    height: 34px;
-  }
+  /* Keep the avatar compact while icon controls retain a 40px hit area. */
+  .user-menu-trigger { width: 34px; height: 34px; }
   .user-menu-avatar { width: 28px; height: 28px; }
 
   .user-menu-panel { min-width: 220px; right: -4px; }
@@ -8674,15 +8736,15 @@ button.nav-link {
   height: 18px;
   padding: 0 5px;
   border-radius: 999px;
-  background: #ef4444;
-  color: #fff;
+  background: var(--cc-gold);
+  color: var(--cc-bg);
   font-size: 0.66rem;
   font-weight: 800;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
-  border: 2px solid var(--cc-bg, #0c0e16);
+  border: 2px solid #090c11;
 }
 
 /* Message button on profile — uses the existing profile-action-btn shape,

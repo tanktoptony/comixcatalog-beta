@@ -57253,5 +57253,283 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-18T22:37:35.234165+00:00",
     "retry_after": "2026-10-19T22:37:35.234179+00:00"
+  },
+  {
+    "name": "Aunts in Your Pants",
+    "publisher": "Fantagraphics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:23:38.411598+00:00",
+    "retry_after": "2026-10-19T23:23:38.411614+00:00"
+  },
+  {
+    "name": "The Banana Splits",
+    "publisher": "Marvel Comics",
+    "year": 1972,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58646,
+        "name": "Banana Splits",
+        "publisher": "New Century Press",
+        "start_year": 1972
+      },
+      {
+        "id": 22897,
+        "name": "Banana Splits",
+        "publisher": "Western Publishing",
+        "start_year": 1969
+      },
+      {
+        "id": 155920,
+        "name": "The Banana Splits",
+        "publisher": "Murray Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:23:38.804979+00:00",
+    "retry_after": "2026-10-19T23:23:38.804991+00:00"
+  },
+  {
+    "name": "Steve Roper",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81191,
+        "name": "Steve Roper",
+        "publisher": "Associated Newspapers",
+        "start_year": 1955
+      },
+      {
+        "id": 82408,
+        "name": "Steve Roper",
+        "publisher": "Trans-Tasman Magazines",
+        "start_year": null
+      },
+      {
+        "id": 81570,
+        "name": "Steve Roper",
+        "publisher": "Magazine Management",
+        "start_year": null
+      },
+      {
+        "id": 30834,
+        "name": "Steve Roper",
+        "publisher": "Eastern Color",
+        "start_year": 1947
+      },
+      {
+        "id": 82413,
+        "name": "Steve Roper",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:23:42.035984+00:00",
+    "retry_after": "2026-10-19T23:23:42.035997+00:00"
+  },
+  {
+    "name": "Tumbling Boxes",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72963,
+        "name": "Tumbling Boxes",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:23:42.606970+00:00",
+    "retry_after": "2026-10-19T23:23:42.606986+00:00"
+  },
+  {
+    "name": "Okko",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 121189,
+        "name": "Okko",
+        "publisher": "Delcourt",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:23:42.852879+00:00",
+    "retry_after": "2026-10-19T23:23:42.852892+00:00"
+  },
+  {
+    "name": "L'Étonnant Spider-Man: Embûches",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:23:54.608406+00:00",
+    "retry_after": "2026-10-19T23:23:54.608423+00:00"
+  },
+  {
+    "name": "Les DIY de Maélie",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:23:55.134233+00:00",
+    "retry_after": "2026-10-19T23:23:55.134250+00:00"
+  },
+  {
+    "name": "Nipplez 'n' Tum Tum",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67191,
+        "name": "Nipplez 'n' Tum Tum",
+        "publisher": "Eros Comix",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:23:55.609914+00:00",
+    "retry_after": "2026-10-19T23:23:55.609930+00:00"
+  },
+  {
+    "name": "Hump Crazy",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57052,
+        "name": "Hump Crazy",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:24:05.004252+00:00",
+    "retry_after": "2026-10-19T23:24:05.004274+00:00"
+  },
+  {
+    "name": "Fleshpot",
+    "publisher": "Fantagraphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31989,
+        "name": "Fleshpot",
+        "publisher": "Eros Comix",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:24:05.397970+00:00",
+    "retry_after": "2026-10-19T23:24:05.397988+00:00"
+  },
+  {
+    "name": "Captain Wonder",
+    "publisher": "Image Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:24:05.874928+00:00",
+    "retry_after": "2026-10-19T23:24:05.874947+00:00"
+  },
+  {
+    "name": "Action Comics [Lootcrate Exclusive]",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:24:06.325825+00:00",
+    "retry_after": "2026-10-19T23:24:06.325844+00:00"
+  },
+  {
+    "name": "Karate Girl Special",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60181,
+        "name": "Karate Girl Special",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:24:06.809883+00:00",
+    "retry_after": "2026-10-19T23:24:06.809902+00:00"
+  },
+  {
+    "name": "Sergio Aragonés on Parade",
+    "publisher": "EC Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:24:07.280283+00:00",
+    "retry_after": "2026-10-19T23:24:07.280301+00:00"
+  },
+  {
+    "name": "Desperadoes",
+    "publisher": "Heavy Metal",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10862,
+        "name": "Desperadoes",
+        "publisher": "Tundra",
+        "start_year": 1992
+      },
+      {
+        "id": 19211,
+        "name": "Desperadoes",
+        "publisher": "Image",
+        "start_year": 1997
+      },
+      {
+        "id": 29373,
+        "name": "Desperadoes",
+        "publisher": "DC Comics",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:24:07.750901+00:00",
+    "retry_after": "2026-10-19T23:24:07.750918+00:00"
+  },
+  {
+    "name": "Confidential TV",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51446,
+        "name": "Confidential TV",
+        "publisher": "Eros Comix",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T23:24:08.185573+00:00",
+    "retry_after": "2026-10-19T23:24:08.185591+00:00"
   }
 ]

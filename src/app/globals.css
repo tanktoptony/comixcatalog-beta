@@ -12999,3 +12999,13 @@ select.input {
   .key-timeline-cover-missing,
   .key-timeline-tooltip { transition: none; }
 }
+
+/* Hover / focus preview card: a large cover with the key's details. */
+.key-timeline-preview { position: fixed; z-index: 1200; width: 196px; padding: 10px; border: 1px solid color-mix(in srgb, var(--cc-gold) 45%, var(--cc-line)); border-radius: 10px; background: var(--cc-surface-2); color: var(--cc-text); box-shadow: 0 18px 40px rgba(0,0,0,.6); pointer-events: none; display: flex; flex-direction: column; gap: 6px; animation: key-preview-in .14s ease-out; }
+.key-timeline-preview img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 6px; display: block; background: var(--cc-surface); }
+.key-timeline-preview .key-timeline-cover-missing { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 2 / 3; border-radius: 6px; background: var(--cc-surface); color: var(--cc-text-muted); font-size: .8rem; }
+.key-timeline-preview-num { display: flex; align-items: baseline; gap: 8px; color: var(--cc-gold); font-family: var(--font-display); font-size: 1.35rem; line-height: 1; }
+.key-timeline-preview-num time { color: var(--cc-text-muted); font-family: inherit; font-size: .8rem; letter-spacing: .04em; }
+.key-timeline-preview-reason { font-size: .8rem; line-height: 1.35; }
+@keyframes key-preview-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .key-timeline-preview { animation: none; } }

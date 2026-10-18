@@ -45,6 +45,26 @@ export default function KeyTimeline({ issues = [] }) {
   const canShowTimeline = sortedIssues.length >= 4 && datedIssues.length === sortedIssues.length;
   const [view, setView] = useState(canShowTimeline ? "timeline" : "list");
   const [scrollState, setScrollState] = useState({ left: false, right: canShowTimeline });
+  const [preview, setPreview] = useState(null);
+
+  // A big cover pops up next to whichever key is hovered or focused. Placed
+  // above the cover when there's room in the window, otherwise below it.
+  function showPreview(issue, node) {
+    const rect = node.getBoundingClientRect();
+    const cardWidth = 196;
+    const cardHeight = 330;
+    const below = rect.top < cardHeight + 16;
+    const left = Math.min(Math.max(8, rect.left + rect.width / 2 - cardWidth / 2), window.innerWidth - cardWidth - 8);
+    setPreview({ issue, left, top: below ? rect.bottom + 10 : rect.top - cardHeight - 10, below });
+  }
+  function hidePreview() {
+    setPreview(null);
+  }
+  useEffect(() => {
+    if (!preview) return undefined;
+    window.addEventListener("scroll", hidePreview, { passive: true });
+    return () => window.removeEventListener("scroll", hidePreview);
+  }, [preview]);
   const scrollerRef = useRef(null);
 
   const layout = useMemo(() => {
@@ -126,7 +146,7 @@ export default function KeyTimeline({ issues = [] }) {
       ) : (
         <>
           <div className={`key-timeline-frame${scrollState.left ? " has-left-overflow" : ""}${scrollState.right ? " has-right-overflow" : ""}`}>
-            <div ref={scrollerRef} className="key-timeline-scroll" onScroll={updateScrollFade}>
+            <div ref={scrollerRef} className="key-timeline-scroll" onScroll={() => { updateScrollFade(); hidePreview(); }}>
               <div
                 className="key-timeline-track"
                 style={{ "--timeline-width": `${layout.width}px`, "--timeline-height": `${layout.height}px` }}
@@ -143,6 +163,10 @@ export default function KeyTimeline({ issues = [] }) {
                         className={`key-timeline-item tier-${Number(issue.tier) === 1 ? "1" : "2"}`}
                         style={{ bottom: itemBottom, width: issue.width }}
                         aria-label={tooltip}
+                        onMouseEnter={(event) => showPreview(issue, event.currentTarget)}
+                        onMouseLeave={hidePreview}
+                        onFocus={(event) => showPreview(issue, event.currentTarget)}
+                        onBlur={hidePreview}
                       >
                         {issue.cover ? (
                           // The shared thumbnail helper provides the sized CDN asset.
@@ -152,7 +176,6 @@ export default function KeyTimeline({ issues = [] }) {
                           <span className="key-timeline-cover-missing">No cover</span>
                         )}
                         {Number(issue.tier) === 1 && <strong>#{issue.issue_number}</strong>}
-                        <span className="key-timeline-tooltip">{tooltip}</span>
                       </Link>
                       <span className="key-timeline-tick" />
                     </div>
@@ -172,6 +195,23 @@ export default function KeyTimeline({ issues = [] }) {
             </div>
           </div>
           <KeyIssueList issues={sortedIssues} className="sr-only" />
+          {preview && (
+            // Fixed-position so it can't be clipped by the scrolling track.
+            <div
+              className={`key-timeline-preview${preview.below ? " is-below" : ""}`}
+              style={{ left: preview.left, top: preview.top }}
+              aria-hidden="true"
+            >
+              {preview.issue.cover ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={coverThumb(preview.issue.cover)} alt="" />
+              ) : (
+                <span className="key-timeline-cover-missing">No cover yet</span>
+              )}
+              <span className="key-timeline-preview-num">#{preview.issue.issue_number}<time>{preview.issue.year}</time></span>
+              <span className="key-timeline-preview-reason">{preview.issue.reason}</span>
+            </div>
+          )}
         </>
       )}
     </section>

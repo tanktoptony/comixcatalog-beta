@@ -56935,5 +56935,227 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-18T01:30:27.417993+00:00",
     "retry_after": "2026-10-19T01:30:27.418000+00:00"
+  },
+  {
+    "name": "Dennis Cobb, Agente SS018",
+    "publisher": "Dark Horse Comics",
+    "year": 1965,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T02:29:48.350385+00:00",
+    "retry_after": "2026-10-19T02:29:48.350401+00:00"
+  },
+  {
+    "name": "Tutto Pratt",
+    "publisher": "Dell Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T02:29:48.780527+00:00",
+    "retry_after": "2026-10-19T02:29:48.780545+00:00"
+  },
+  {
+    "name": "Speciale Martin Mystère",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40671,
+        "name": "Speciale Martin Mystère",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T02:29:49.293384+00:00",
+    "retry_after": "2026-10-19T02:29:49.293401+00:00"
+  },
+  {
+    "name": "Bugs Bunny",
+    "publisher": "Marvel Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20918,
+        "name": "Bugs Bunny",
+        "publisher": "DC Comics",
+        "start_year": 1993
+      },
+      {
+        "id": 31736,
+        "name": "Bugs Bunny",
+        "publisher": "Western Publishing",
+        "start_year": 1962
+      },
+      {
+        "id": 59727,
+        "name": "Bugs Bunny",
+        "publisher": "Magazine Management",
+        "start_year": 1956
+      },
+      {
+        "id": 144040,
+        "name": "Bugs Bunny",
+        "publisher": "Semic Press",
+        "start_year": 1982
+      },
+      {
+        "id": 88103,
+        "name": "Bugs Bunny",
+        "publisher": "Pendulum Press",
+        "start_year": 1971
+      },
+      {
+        "id": 31358,
+        "name": "Bugs Bunny",
+        "publisher": "Willms Verlag",
+        "start_year": 1972
+      },
+      {
+        "id": 6500,
+        "name": "Bugs Bunny",
+        "publisher": "Dell",
+        "start_year": 1952
+      },
+      {
+        "id": 129080,
+        "name": "Bugs Bunny",
+        "publisher": "Sage - Sagédition",
+        "start_year": 1962
+      },
+      {
+        "id": 140326,
+        "name": "Bugs Bunny ",
+        "publisher": "Magazine Management",
+        "start_year": 1969
+      },
+      {
+        "id": 56179,
+        "name": "Bugs Bunny",
+        "publisher": "Editions Héritage",
+        "start_year": 1976
+      },
+      {
+        "id": 138936,
+        "name": "Bugs Bunny",
+        "publisher": "Sage - Sagédition",
+        "start_year": 1969
+      },
+      {
+        "id": 141921,
+        "name": "Bugs Bunny",
+        "publisher": "Condor Verlag",
+        "start_year": 1983
+      },
+      {
+        "id": 142243,
+        "name": "Bugs Bunny",
+        "publisher": "Agência Portuguesa de Revistas",
+        "start_year": 1985
+      },
+      {
+        "id": 140747,
+        "name": "Bugs Bunny ",
+        "publisher": "Xerox Education Publications",
+        "start_year": 1971
+      },
+      {
+        "id": 59749,
+        "name": "Bugs Bunny",
+        "publisher": "Young's Merchandising",
+        "start_year": null
+      },
+      {
+        "id": 141904,
+        "name": "Bugs Bunny",
+        "publisher": "Condor Verlag",
+        "start_year": 1983
+      },
+      {
+        "id": 166400,
+        "name": "Bugs Bunny",
+        "publisher": "JuniorPress BV",
+        "start_year": 1984
+      },
+      {
+        "id": 72261,
+        "name": "Bugs Bunny",
+        "publisher": "Thorpe & Porter",
+        "start_year": 1953
+      },
+      {
+        "id": 4356,
+        "name": "Bugs Bunny",
+        "publisher": "DC Comics",
+        "start_year": 1990
+      },
+      {
+        "id": 142293,
+        "name": "Bugs Bunny",
+        "publisher": "Ediciones Zinco",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T02:31:39.675384+00:00",
+    "retry_after": "2026-10-19T02:31:39.675399+00:00"
+  },
+  {
+    "name": "Speciale Zagor",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41438,
+        "name": "Speciale Zagor",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T02:31:40.211204+00:00",
+    "retry_after": "2026-10-19T02:31:40.211220+00:00"
+  },
+  {
+    "name": "Tom & Jerry Comics Presents Tom and His Adventures",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T02:33:28.934576+00:00",
+    "retry_after": "2026-10-19T02:33:28.934593+00:00"
+  },
+  {
+    "name": "Polly Pigtails",
+    "publisher": "IDW Publishing",
+    "year": 1946,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58559,
+        "name": "Polly Pigtails",
+        "publisher": "Parents Magazine Press",
+        "start_year": 1946
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T02:33:29.388072+00:00",
+    "retry_after": "2026-10-19T02:33:29.388088+00:00"
+  },
+  {
+    "name": "Romance Library",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-18T02:33:29.773126+00:00",
+    "retry_after": "2026-10-19T02:33:29.773142+00:00"
   }
 ]

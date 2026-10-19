@@ -13026,6 +13026,8 @@ select.input {
 @media (max-width: 380px) {
   .collection-reconcile-card { grid-template-columns: 70px minmax(0, 1fr); }
   .collection-reconcile-card img { width: 70px; }
+}
+
 /* Key timeline on phones: one bar per decade, tap to open its keys. */
 .key-decades { display: none; list-style: none; margin: 0; padding: 0; border: 1px solid var(--cc-line); border-radius: 10px; background: var(--cc-surface); overflow: hidden; }
 .key-decades > li + li { border-top: 1px solid var(--cc-line); }

@@ -50,11 +50,6 @@
     "year": 1986
   },
   {
-    "name": "Nexus",
-    "publisher": "Capital Comics",
-    "year": 1983
-  },
-  {
     "name": "TUG & buster",
     "publisher": "Art & Soul",
     "year": 1995
@@ -93,6 +88,11 @@
     "name": "Hot Stuff, the Little Devil",
     "publisher": "Harvey Comics",
     "year": 1957
+  },
+  {
+    "name": "Nexus",
+    "publisher": "Capital Comics",
+    "year": 1983
   },
   {
     "name": "Shi: The Way of the Warrior",
@@ -135,14 +135,14 @@
     "year": 2021
   },
   {
-    "name": "In Rage",
-    "publisher": "CFD Productions",
-    "year": 1994
-  },
-  {
     "name": "Lobo",
     "publisher": "DC Comics",
     "year": 1993
+  },
+  {
+    "name": "Raphael, Teenage Mutant Ninja Turtle",
+    "publisher": "Mirage Studios",
+    "year": 1985
   },
   {
     "name": "Scud: The Disposable Assassin",
@@ -220,6 +220,16 @@
     "year": 2023
   },
   {
+    "name": "The Flash",
+    "publisher": "DC Comics",
+    "year": 2023
+  },
+  {
+    "name": "Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2023
+  },
+  {
     "name": "Iron Man",
     "publisher": "Marvel Comics",
     "year": 2020
@@ -235,7 +245,7 @@
     "year": 2020
   },
   {
-    "name": "Wonder Woman",
+    "name": "Green Lantern",
     "publisher": "DC Comics",
     "year": 2023
   },
@@ -243,16 +253,6 @@
     "name": "Batman",
     "publisher": "DC Comics",
     "year": 2016
-  },
-  {
-    "name": "The Flash",
-    "publisher": "DC Comics",
-    "year": 2023
-  },
-  {
-    "name": "Green Lantern",
-    "publisher": "DC Comics",
-    "year": 2023
   },
   {
     "name": "Captain America",

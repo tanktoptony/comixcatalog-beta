@@ -58252,5 +58252,157 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T07:24:52.356852+00:00",
     "retry_after": "2026-10-20T07:24:52.356867+00:00"
+  },
+  {
+    "name": "Action Comics [Safeguard Deodorant Giveaway]",
+    "publisher": "DC Comics",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T08:23:43.956695+00:00",
+    "retry_after": "2026-10-20T08:23:43.956709+00:00"
+  },
+  {
+    "name": "Backfield in Motion",
+    "publisher": "Dell Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T08:24:00.958115+00:00",
+    "retry_after": "2026-10-20T08:24:00.958133+00:00"
+  },
+  {
+    "name": "Glory / Angela: Angels in Hell",
+    "publisher": "Image Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T08:24:01.471325+00:00",
+    "retry_after": "2026-10-20T08:24:01.471341+00:00"
+  },
+  {
+    "name": "Sesame Street",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159495,
+        "name": "Sesame Street",
+        "publisher": "Oni Press",
+        "start_year": 2024
+      },
+      {
+        "id": 107606,
+        "name": "Sesame Street",
+        "publisher": "Shueisha",
+        "start_year": 1990
+      },
+      {
+        "id": 60570,
+        "name": "Sesame Street",
+        "publisher": "Ape Entertainment",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T08:24:02.344920+00:00",
+    "retry_after": "2026-10-20T08:24:02.344934+00:00"
+  },
+  {
+    "name": "Witch",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72534,
+        "name": "Witch",
+        "publisher": "Eternity",
+        "start_year": 1989
+      },
+      {
+        "id": 69821,
+        "name": "Witch",
+        "publisher": "SLG Publishing",
+        "start_year": 2001
+      },
+      {
+        "id": 41241,
+        "name": "Witch",
+        "publisher": "Kickstart Comics",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T08:24:06.690960+00:00",
+    "retry_after": "2026-10-20T08:24:06.690976+00:00"
+  },
+  {
+    "name": "Mister Nobody",
+    "publisher": "Atlas Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 91017,
+        "name": "Mister Nobody",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T08:24:53.640973+00:00",
+    "retry_after": "2026-10-20T08:24:53.640989+00:00"
+  },
+  {
+    "name": "Midare Mandara",
+    "publisher": "Dynamite Entertainment",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T08:24:54.043912+00:00",
+    "retry_after": "2026-10-20T08:24:54.043928+00:00"
+  },
+  {
+    "name": "The Facts of Life for Grown-ups",
+    "publisher": "Dell Comics",
+    "year": 1963,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T08:24:59.527843+00:00",
+    "retry_after": "2026-10-20T08:24:59.527859+00:00"
+  },
+  {
+    "name": "Invader Zim Quarterly: Dib's Dilema",
+    "publisher": "Oni Press",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T08:24:59.911495+00:00",
+    "retry_after": "2026-10-20T08:24:59.911508+00:00"
+  },
+  {
+    "name": "The Motorcycle Samurai",
+    "publisher": "IDW Publishing",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65452,
+        "name": "Motorcycle Samurai",
+        "publisher": "Top Shelf",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T08:25:00.358208+00:00",
+    "retry_after": "2026-10-20T08:25:00.358224+00:00"
   }
 ]

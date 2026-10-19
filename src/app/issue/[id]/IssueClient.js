@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { eraForYear } from "@/lib/keyTimeline";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
@@ -481,7 +482,7 @@ export default function IssueClient({ initialIssue = null }) {
           </div>
 
           <div className="issue-hero-info">
-            <p className="issue-hero-eyebrow">Issue{issue.edition_name ? ` · ${issue.edition_name}` : ""}{issue.release_year ? ` · ${issue.release_year < 1986 ? "Bronze Age" : issue.release_year < 1992 ? "Copper Age" : issue.release_year < 2000 ? "Modern Age" : "Contemporary"}` : ""}</p>
+            <p className="issue-hero-eyebrow">Issue{issue.edition_name ? ` · ${issue.edition_name}` : ""}{issue.release_year && eraForYear(issue.release_year) ? ` · ${eraForYear(issue.release_year).label.replace(/ Age$/, "")} Age` : ""}</p>
             <h1 className="hero-title" style={{ marginBottom: "10px" }}>
               {issueTitle}{issue.release_year ? ` (${issue.release_year})` : ""}
             </h1>
@@ -489,8 +490,17 @@ export default function IssueClient({ initialIssue = null }) {
             {(mainStoryTitle || issue.title) && <p className="issue-main-story-title">{mainStoryTitle || issue.title}</p>}
 
             {issue.key_issue?.reason && (
-              <p className="issue-key-chip">
-                <span aria-hidden="true">★</span> {issue.key_issue.reason}
+              <p className={`issue-key-chip${Number(issue.key_issue.tier) === 1 ? " is-major" : ""}`}>
+                <span aria-hidden="true">★</span> {Number(issue.key_issue.tier) === 1 ? "Major key · " : "Key · "}{issue.key_issue.reason}
+              </p>
+            )}
+
+            {issue.key_ruling?.note && (
+              <p className={`issue-key-ruling verdict-${issue.key_ruling.verdict || "note"}`}>
+                <span className="issue-key-ruling-label">
+                  {issue.key_ruling.verdict === "not_key" ? "Not a key, our ruling" : "Our ruling"}
+                </span>
+                {issue.key_ruling.note}
               </p>
             )}
 

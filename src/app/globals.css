@@ -13010,6 +13010,24 @@ select.input {
 @keyframes key-preview-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .key-timeline-preview { animation: none; } }
 
+/* Member review for legacy collection rows that may match the catalog. */
+.collection-reconcile { display: grid; gap: 16px; margin: 0 0 18px; padding: clamp(16px, 3vw, 24px); border: 1px solid var(--cc-line); border-radius: 14px; background: var(--cc-surface); }
+.collection-reconcile h2 { margin: 2px 0 6px; color: var(--cc-text); font-family: var(--font-display); font-size: 1.65rem; }
+.collection-reconcile p { margin: 0; color: var(--cc-text-muted); }
+.collection-reconcile-candidates { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 12px; }
+.collection-reconcile-card { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 13px; padding: 12px; border: 1px solid var(--cc-line-soft); border-radius: 10px; background: var(--cc-surface-2); }
+.collection-reconcile-card img { width: 84px; aspect-ratio: 2 / 3; border-radius: 6px; object-fit: cover; }
+.collection-reconcile-card > div { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; gap: 7px; }
+.collection-reconcile-card strong { color: var(--cc-text); line-height: 1.25; }
+.collection-reconcile-card span { color: var(--cc-text-muted); font-size: .85rem; }
+.collection-reconcile-card .add-comic-btn { width: 100%; margin-top: auto; padding: 8px 10px; }
+.collection-reconcile > .library-secondary-btn { justify-self: start; }
+.collection-reconcile-error { color: #ff8a80 !important; }
+@media (max-width: 380px) {
+  .collection-reconcile-card { grid-template-columns: 70px minmax(0, 1fr); }
+  .collection-reconcile-card img { width: 70px; }
+}
+
 /* Key timeline on phones: one bar per decade, tap to open its keys. */
 .key-decades { display: none; list-style: none; margin: 0; padding: 0; border: 1px solid var(--cc-line); border-radius: 10px; background: var(--cc-surface); overflow: hidden; }
 .key-decades > li + li { border-top: 1px solid var(--cc-line); }

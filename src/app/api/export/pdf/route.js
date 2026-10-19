@@ -309,7 +309,7 @@ export async function POST(req) {
     // mirror the library page's collection-value stat.
     const items = collRows
       .map((row) => {
-        const key = row.comic_id ? `comic:${row.comic_id}` : `gcd:${row.gcd_issue_id}`;
+        const key = row.gcd_issue_id != null ? `gcd:${row.gcd_issue_id}` : `comic:${row.comic_id}`;
         const meta = comicMeta[key] ?? {};
         const userOverride = row.market_value != null && !Number.isNaN(Number(row.market_value))
           ? Number(row.market_value)

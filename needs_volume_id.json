@@ -23696,13 +23696,13 @@
   },
   {
     "name": "Street Fighter #0 Free Comic Book Day 2014",
-    "publisher": "Udon Entertainment Corp.",
+    "publisher": "Eclipse Comics",
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-28T16:04:22.448522+00:00",
-    "retry_after": "2026-10-05T16:04:22.448537+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T09:24:04.501229+00:00",
+    "retry_after": "2026-10-20T09:24:04.501245+00:00"
   },
   {
     "name": "FCBD 2016 - DC Super Hero Girls 1 Special Edition",
@@ -58404,5 +58404,125 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T08:25:00.358208+00:00",
     "retry_after": "2026-10-20T08:25:00.358224+00:00"
+  },
+  {
+    "name": "Interactive Comics: Dudley Serious Saves the World",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75764,
+        "name": "Interactive Comics - Dudley Serious Saves the World",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T09:23:44.484047+00:00",
+    "retry_after": "2026-10-20T09:23:44.484062+00:00"
+  },
+  {
+    "name": "Weird Science-Fantasy",
+    "publisher": "Fantagraphics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19268,
+        "name": "Weird Science-Fantasy",
+        "publisher": "EC",
+        "start_year": 1952
+      },
+      {
+        "id": 1652,
+        "name": "Weird Science-Fantasy",
+        "publisher": "EC",
+        "start_year": 1954
+      },
+      {
+        "id": 38889,
+        "name": "Weird Science-Fantasy",
+        "publisher": "Russ Cochran",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T09:23:49.640127+00:00",
+    "retry_after": "2026-10-20T09:23:49.640143+00:00"
+  },
+  {
+    "name": "Mansion of Evil",
+    "publisher": "Fawcett Comics",
+    "year": 1950,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T09:24:03.695608+00:00",
+    "retry_after": "2026-10-20T09:24:03.695623+00:00"
+  },
+  {
+    "name": "Lost and Found (An Amy Devlin Mystery)",
+    "publisher": "Oni Press",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T09:24:04.063126+00:00",
+    "retry_after": "2026-10-20T09:24:04.063141+00:00"
+  },
+  {
+    "name": "Libretto",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T09:24:10.345465+00:00",
+    "retry_after": "2026-10-20T09:24:10.345479+00:00"
+  },
+  {
+    "name": "The Mighty World of Marvel Special",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129014,
+        "name": "The Mighty World of Marvel Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T09:24:32.194046+00:00",
+    "retry_after": "2026-10-20T09:24:32.194060+00:00"
+  },
+  {
+    "name": "Wizard Ace Edition #21:  The Darkness #1",
+    "publisher": "Top Cow Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T09:24:32.600116+00:00",
+    "retry_after": "2026-10-20T09:24:32.600131+00:00"
+  },
+  {
+    "name": "Love and Aardvarks",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 110732,
+        "name": "Love and Aardvarks",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T09:24:59.193980+00:00",
+    "retry_after": "2026-10-20T09:24:59.193995+00:00"
   }
 ]

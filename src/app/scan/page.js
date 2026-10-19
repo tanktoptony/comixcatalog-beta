@@ -1,4 +1,5 @@
 import CoverScanner from "@/components/CoverScanner";
+import Link from "next/link";
 
 export const metadata = {
   title: "Scan comics",
@@ -15,7 +16,13 @@ export default function ScanPage() {
         <h1 className="scan-title">Scan it. We&apos;ll find the issue.</h1>
         <p className="scan-lede">Use the cover or the barcode to find a comic in the catalog, then add it to your collection or wantlist.</p>
       </header>
+      <aside className="scan-callout scan-request-callout">
+        Can&apos;t find your book? <Link href="/request?from=scan">Request it and it goes to the front of the queue.</Link>
+      </aside>
       <CoverScanner />
+      <p className="scan-request-footer">
+        Still no match? <Link href="/request?from=scan">Request this book.</Link>
+      </p>
       <ul className="scan-tips" aria-label="Tips for a good scan">
         <li><strong>Whole cover in frame.</strong> Corners in, title readable.</li>
         <li><strong>Good light, no glare.</strong> Slide it out of the bag if the plastic shines.</li>

@@ -12638,6 +12638,33 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .scan-frame { position: absolute; top: 50%; left: 50%; width: min(82%,500px); height: 35%; border: 2px solid var(--cc-gold); border-radius: 12px; box-shadow: 0 0 0 999px rgba(0,0,0,.32); transform: translate(-50%,-58%); }
 .scan-barcode-note { margin: 10px 2px 0; color: var(--cc-text-muted); font-size: .82rem; line-height: 1.4; }
 .scan-photo-fallback { width: 100%; margin-top: 10px; }
+.scan-request-callout { margin-bottom: 18px; text-align: center; }
+.scan-request-callout a,.scan-request-footer a,.search-request-link a { color: var(--cc-gold); font-weight: 800; }
+.scan-request-footer { margin: 18px 0 0; color: var(--cc-text-muted); text-align: center; }
+.scan-request-link { width: 100%; margin-top: 12px; text-decoration: none; }
+.request-card { padding: clamp(18px,4vw,30px); border: 1px solid var(--cc-line); border-radius: 16px; background: var(--cc-surface); }
+.request-form fieldset { display: grid; gap: 16px; margin: 0 0 18px; padding: 0; border: 0; }
+.request-form label { display: grid; gap: 6px; color: var(--cc-text); font-weight: 800; }
+.request-form label span { color: var(--cc-text-muted); font-size: .8rem; font-weight: 500; }
+.request-form input,.request-form textarea { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid var(--cc-line); border-radius: 9px; background: var(--cc-bg); color: var(--cc-text); font: inherit; }
+.request-form input[type="file"] { padding: 7px 8px; color: var(--cc-text-muted); }
+.request-form input[type="file"]::file-selector-button { margin-right: 12px; padding: 7px 14px; border: 1px solid var(--cc-gold); border-radius: 999px; background: transparent; color: var(--cc-gold); font: inherit; font-weight: 700; cursor: pointer; }
+.request-form input[type="file"]::file-selector-button:hover { background: var(--cc-gold); color: var(--cc-bg); }
+.request-form textarea { resize: vertical; }
+.request-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.request-photo-note { margin: 0; padding: 12px; border-radius: 9px; background: rgba(216,176,75,.12); color: var(--cc-gold-soft); }
+.request-form > .scan-btn { width: 100%; }
+.request-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.request-success h2 { margin-top: 0; }
+.request-history { margin-top: 28px; }
+.request-history ul { display: grid; gap: 8px; padding: 0; list-style: none; }
+.request-history li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px; border: 1px solid var(--cc-line-soft); border-radius: 10px; background: var(--cc-surface); }
+.request-history small { display: block; margin-top: 3px; color: var(--cc-text-muted); }
+.request-status { flex: 0 0 auto; padding: 5px 9px; border-radius: 999px; background: rgba(216,176,75,.13); color: var(--cc-gold-soft); font-size: .72rem; font-weight: 800; text-decoration: none; }
+.request-status.is-added { background: rgba(77,180,110,.15); color: #78cf96; }
+.request-status.is-declined { background: rgba(255,100,100,.12); color: #ff9a90; }
+.search-request-link { margin: 14px 0 0; text-align: center; }
+@media (max-width: 520px) { .request-form-row { grid-template-columns: 1fr; } }
 .scan-barcode-tile { overflow-wrap: anywhere; color: var(--cc-gold); font-weight: 800; letter-spacing: .08em; }
 .scan-barcode-card { overflow-wrap: anywhere; color: var(--cc-gold); font-size: .7rem; letter-spacing: .04em; }
 @media (max-width: 380px) { .scan-mode-tabs { gap: 3px; padding: 4px; }.scan-mode-tabs button { padding: 0 5px; font-size: .78rem; } }

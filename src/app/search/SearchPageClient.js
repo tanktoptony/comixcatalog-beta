@@ -487,12 +487,17 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
 
       {/* Empty state */}
       {!isLoading && !loadError && !isFirstLoad && results.length === 0 && (
-        <EmptyState
+        <div>
+          <EmptyState
             icon="🔍"
             title={`No results for "${shownQuery}"`}
             body="Try a broader search, fewer words, or check the spelling. Series titles are the most reliable way to find an issue."
             secondary={{ href: "/search", label: "Clear search" }}
           />
+          <p className="search-request-link">
+            Not here? <Link href={`/request?from=no_results&q=${encodeURIComponent(shownQuery)}&title=${encodeURIComponent(shownQuery)}`}>Request it</Link>
+          </p>
+        </div>
       )}
 
       {/* Comic grid */}
@@ -705,6 +710,9 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
           ) : (
             <p className="search-runs-end-lead">That&apos;s every issue match for this search.</p>
           )}
+          <p className="search-request-link">
+            Not here? <Link href={`/request?from=search&q=${encodeURIComponent(shownQuery)}&title=${encodeURIComponent(shownQuery)}`}>Request it</Link>
+          </p>
         </div>
       )}
     </section>

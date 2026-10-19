@@ -58856,5 +58856,99 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T20:23:53.938066+00:00",
     "retry_after": "2026-10-20T20:23:53.938080+00:00"
+  },
+  {
+    "name": "Atomic Age Truckstop Waitress",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26715,
+        "name": "Atomic Age Truckstop Waitress",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T21:23:57.200383+00:00",
+    "retry_after": "2026-10-20T21:23:57.200407+00:00"
+  },
+  {
+    "name": "Wizard Wolverine Masterpiece Edition",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T21:24:05.678909+00:00",
+    "retry_after": "2026-10-20T21:24:05.678928+00:00"
+  },
+  {
+    "name": "Wallace Wood's Pipsqueak Papers",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T21:24:09.573653+00:00",
+    "retry_after": "2026-10-20T21:24:09.573669+00:00"
+  },
+  {
+    "name": "Deadly Class Media Tie-In Edition",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T21:24:10.086759+00:00",
+    "retry_after": "2026-10-20T21:24:10.086776+00:00"
+  },
+  {
+    "name": "Dracula's Daughter",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26873,
+        "name": "Dracula's Daughter",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T21:24:28.000650+00:00",
+    "retry_after": "2026-10-20T21:24:28.000666+00:00"
+  },
+  {
+    "name": "DC Finest Presents Superman: Time and Time Again Superman Day Special Edition",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T21:24:36.621920+00:00",
+    "retry_after": "2026-10-20T21:24:36.621936+00:00"
+  },
+  {
+    "name": "DC x Sonic the Hedgehog 1 Special Edition FCBD 2026",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T21:24:41.263780+00:00",
+    "retry_after": "2026-10-20T21:24:41.263794+00:00"
+  },
+  {
+    "name": "DC K.O.: Red Hood vs. Joker",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T21:24:42.061178+00:00",
+    "retry_after": "2026-10-20T21:24:42.061193+00:00"
   }
 ]

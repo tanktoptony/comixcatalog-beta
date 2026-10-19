@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-05",
+  "updated": "2026-10-19",
   "counts": {
     "supabase-query-ignores-error": 55,
     "invented-error-text": 7,
     "empty-catch": 6,
-    "blanket-continue-on-error": 11
+    "blanket-continue-on-error": 12
   },
   "hits": {
     "supabase-query-ignores-error": [
@@ -53,10 +53,10 @@
       "scripts/purgeOldPhotoUploads_cb_ccadmin_2026-08-26.js:35",
       "scripts/purgeOldPhotoUploads_cb_ccadmin_2026-08-26.js:42",
       "scripts/purgeOldPhotoUploads_cb_ccadmin_2026-08-26.js:46",
-      "scripts/refreshSeriesSearchCache.js:1226",
-      "scripts/refreshSeriesSearchCache.js:1244",
-      "scripts/refreshSeriesSearchCache.js:1260",
-      "scripts/refreshSeriesSearchCache.js:1275",
+      "scripts/refreshSeriesSearchCache.js:1240",
+      "scripts/refreshSeriesSearchCache.js:1258",
+      "scripts/refreshSeriesSearchCache.js:1274",
+      "scripts/refreshSeriesSearchCache.js:1289",
       "scripts/repairSeriesPublishersWithCv.js:90",
       "scripts/repairSeriesPublishersWithCv.js:115",
       "scripts/resolveAmbiguousPins.js:145",
@@ -75,21 +75,22 @@
     ],
     "empty-catch": [
       "scripts/generateUserCollectedGap.js:263",
-      "src/app/library/page.js:300",
-      "src/app/library/page.js:304",
+      "src/app/library/page.js:359",
+      "src/app/library/page.js:363",
       "src/components/OnboardingModal.js:91",
-      "src/components/ProfileTabs.js:114",
-      "src/components/ProfileTabs.js:121"
+      "src/components/ProfileTabs.js:116",
+      "src/components/ProfileTabs.js:123"
     ],
     "blanket-continue-on-error": [
-      ".github/workflows/cover-ingest.yml:237",
-      ".github/workflows/cover-ingest.yml:243",
-      ".github/workflows/cover-ingest.yml:249",
-      ".github/workflows/cover-ingest.yml:255",
-      ".github/workflows/cover-ingest.yml:264",
-      ".github/workflows/cover-ingest.yml:270",
-      ".github/workflows/cover-ingest.yml:276",
-      ".github/workflows/cover-ingest.yml:289",
+      ".github/workflows/cover-ingest.yml:248",
+      ".github/workflows/cover-ingest.yml:254",
+      ".github/workflows/cover-ingest.yml:260",
+      ".github/workflows/cover-ingest.yml:266",
+      ".github/workflows/cover-ingest.yml:277",
+      ".github/workflows/cover-ingest.yml:294",
+      ".github/workflows/cover-ingest.yml:308",
+      ".github/workflows/cover-ingest.yml:322",
+      ".github/workflows/cover-ingest.yml:348",
       ".github/workflows/gap-probe.yml:92",
       ".github/workflows/gap-probe.yml:103",
       ".github/workflows/gap-probe.yml:107"

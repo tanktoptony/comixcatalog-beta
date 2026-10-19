@@ -197,9 +197,15 @@ jobs:
       - name: Install Node deps
         run: npm ci
 
+      # Member book requests (catalog_requests, /request). A failure here must
+      # never block the ingest, but it must be visible: warn, write an empty
+      # target file so the lane below skips cleanly, and carry on.
       - name: Generate requested-book targets
-        continue-on-error: true
-        run: node scripts/generateRequestedGap.js --apply
+        run: |
+          if ! node scripts/generateRequestedGap.js --apply; then
+            echo "::warning::Requested-book generator failed; this run ingests without the requested lane."
+            echo '[]' > gap-requested.json
+          fi
 
       - name: Show current ledger size
         run: |

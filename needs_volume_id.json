@@ -57101,9 +57101,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T05:25:41.087245+00:00",
-    "retry_after": "2026-10-19T05:25:41.087261+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T06:09:04.162610+00:00",
+    "retry_after": "2026-10-22T06:09:04.162635+00:00"
   },
   {
     "name": "Future Tense and Forces in Combat",
@@ -57111,9 +57111,9 @@
     "year": 1981,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T05:27:28.374287+00:00",
-    "retry_after": "2026-10-19T05:27:28.374302+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T06:09:04.487409+00:00",
+    "retry_after": "2026-10-22T06:09:04.487418+00:00"
   },
   {
     "name": "Fear Itself: Iron Man",
@@ -57121,9 +57121,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T05:27:28.591274+00:00",
-    "retry_after": "2026-10-19T05:27:28.591289+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T06:09:05.132123+00:00",
+    "retry_after": "2026-10-22T06:09:05.132134+00:00"
   },
   {
     "name": "Directory to a Non-Existent Universe",
@@ -58029,5 +58029,79 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T05:25:39.330585+00:00",
     "retry_after": "2026-10-20T05:25:39.330620+00:00"
+  },
+  {
+    "name": "Comic Book [Spümco Comic Book]",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T06:09:32.659342+00:00",
+    "retry_after": "2026-10-20T06:09:32.659361+00:00"
+  },
+  {
+    "name": "Astronauts in Trouble: Cool Ed's",
+    "publisher": "VIZ Media",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 80029,
+        "name": "Astronauts in Trouble: Cool Ed's",
+        "publisher": "AiT/Planet Lar",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T06:09:51.931762+00:00",
+    "retry_after": "2026-10-20T06:09:51.931778+00:00"
+  },
+  {
+    "name": "You Asked for It, Charlie Brown",
+    "publisher": "Fawcett Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T06:09:52.347743+00:00",
+    "retry_after": "2026-10-20T06:09:52.347755+00:00"
+  },
+  {
+    "name": "The Diary of Emily K.",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51678,
+        "name": "Diary of Emily K.",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T06:09:52.763736+00:00",
+    "retry_after": "2026-10-20T06:09:52.763744+00:00"
+  },
+  {
+    "name": "The Darkness Raw",
+    "publisher": "Image Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T06:09:53.155281+00:00",
+    "retry_after": "2026-10-20T06:09:53.155288+00:00"
+  },
+  {
+    "name": "DC Comics Essentials - JLA Special Edition",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T06:09:53.666314+00:00",
+    "retry_after": "2026-10-20T06:09:53.666321+00:00"
   }
 ]

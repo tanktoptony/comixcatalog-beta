@@ -53,3 +53,17 @@ export function packTimelineRows(items, gap = 8) {
     return { ...item, width, start, end, row };
   });
 }
+
+// Keys grouped by decade, oldest first, each decade in issue order.
+export function groupByDecade(issues) {
+  const byDecade = new Map();
+  for (const issue of sortKeyIssues(issues)) {
+    if (issue.year == null || issue.year === "") continue;
+    const year = Number(issue.year);
+    if (!Number.isFinite(year)) continue;
+    const decade = Math.floor(year / 10) * 10;
+    if (!byDecade.has(decade)) byDecade.set(decade, []);
+    byDecade.get(decade).push(issue);
+  }
+  return [...byDecade.entries()].sort((a, b) => a[0] - b[0]).map(([decade, list]) => ({ decade, issues: list }));
+}

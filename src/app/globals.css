@@ -13009,3 +13009,27 @@ select.input {
 .key-timeline-preview-reason { font-size: .8rem; line-height: 1.35; }
 @keyframes key-preview-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .key-timeline-preview { animation: none; } }
+
+/* Key timeline on phones: one bar per decade, tap to open its keys. */
+.key-decades { display: none; list-style: none; margin: 0; padding: 0; border: 1px solid var(--cc-line); border-radius: 10px; background: var(--cc-surface); overflow: hidden; }
+.key-decades > li + li { border-top: 1px solid var(--cc-line); }
+.key-decade-row { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border: 0; background: none; color: var(--cc-text); font: inherit; text-align: left; cursor: pointer; }
+.key-decade-row:focus-visible { outline: 2px solid var(--cc-gold); outline-offset: -2px; }
+.key-decade-label { font-family: var(--font-display); font-size: 1.1rem; letter-spacing: .03em; }
+.key-decade-bar { height: 8px; border-radius: 4px; background: var(--cc-surface-2); overflow: hidden; }
+.key-decade-bar span { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--cc-gold), var(--cc-gold-soft)); }
+.key-decade-count { display: flex; flex-direction: column; align-items: flex-end; font-variant-numeric: tabular-nums; font-weight: 600; line-height: 1.1; }
+.key-decade-count em { color: var(--cc-gold); font-style: normal; font-size: .7rem; font-weight: 500; }
+.key-decades > li.is-open .key-decade-row { background: var(--cc-surface-2); }
+.key-decade-list { list-style: none; margin: 0; padding: 4px 10px 10px; background: var(--cc-surface-2); }
+.key-decade-list a { display: grid; grid-template-columns: 40px 52px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 8px 4px; color: var(--cc-text); text-decoration: none; border-top: 1px solid color-mix(in srgb, var(--cc-line) 60%, transparent); }
+.key-decade-list li:first-child a { border-top: 0; }
+.key-decade-list img, .key-decade-nocover { width: 40px; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 3px; background: var(--cc-surface); display: block; }
+.key-decade-list strong { font-family: var(--font-display); font-size: 1.05rem; }
+.key-decade-list strong.is-major { color: var(--cc-gold); }
+.key-decade-list span { font-size: .82rem; line-height: 1.3; min-width: 0; }
+.key-decade-list time { color: var(--cc-text-muted); font-size: .75rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .key-timeline-frame { display: none; }
+  .key-decades { display: block; }
+}

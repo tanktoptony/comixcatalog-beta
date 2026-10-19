@@ -116,7 +116,7 @@ async function computeHomeData() {
   return result;
 }
 
-const cachedHomeData = unstable_cache(computeHomeData, ["home-dispatch-v3"], { revalidate: 3600 });
+const cachedHomeData = unstable_cache(computeHomeData, ["home-dispatch-v4"], { revalidate: 3600 });
 
 // { stats: {series, issues, covers} | null, newCovers: {added, strip} | null, feed: [...] }
 export async function getHomeData() {

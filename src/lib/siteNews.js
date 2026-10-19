@@ -8,6 +8,41 @@
 
 export const SITE_NEWS = [
   {
+    date: "2026-10-18",
+    title: "Series pages, rebuilt",
+    body: "Every series page now opens with the run at a glance: how many issues, how many keys, the years it ran, and how many times it's been reprinted. Below that is who wrote and drew it most, plus every other run of the same title.",
+    href: "/series/51ee909e-99c3-49a0-871a-be0b79a8dcb5",
+  },
+  {
+    date: "2026-10-18",
+    title: "Every key issue on a timeline",
+    body: "A series' key issues now sit on a timeline from the Golden Age to today, with the big ones shown larger. Hover a cover to see why it matters. On a phone, tap a decade to open its keys.",
+    href: "/series/51ee909e-99c3-49a0-871a-be0b79a8dcb5",
+  },
+  {
+    date: "2026-10-18",
+    title: "Keys, double-checked",
+    body: "I went through the keys in the 25 biggest series by hand: 33 promoted to major keys, 10 famous ones that were missing added (first Phoenix, Hobgoblin, Miles Morales and Negan among them), and a few junk entries ruled out. Issue pages now say what we decided and why.",
+    href: "/issue/gcd-19911",
+  },
+  {
+    date: "2026-10-18",
+    title: "Cleaner search",
+    body: "Search sticks to US editions now. Thousands of German, Brazilian, Italian and other local reprint editions of Marvel and DC books were crowding the results. They're out.",
+    href: "/search",
+  },
+  {
+    date: "2026-10-18",
+    title: "The menu stays put",
+    body: "The menu bar now stays at the top of the screen while you scroll, with cleaner icons, and it no longer wraps onto two lines on phones.",
+  },
+  {
+    date: "2026-10-16",
+    title: "Full issue pages",
+    body: "Issue pages list every story inside with who wrote and drew it, the characters, the cover price and on-sale date, and any copies for sale.",
+    href: "/issue/gcd-19911",
+  },
+  {
     date: "2026-10-12",
     title: "Find your friends",
     body: "Search for collectors by username or name, follow them, and see who follows you back. There's a Collectors to follow list on the People page if you want to follow a bunch at once, and the inbox icon now lights up when someone follows you.",

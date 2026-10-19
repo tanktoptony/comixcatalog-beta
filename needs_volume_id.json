@@ -11618,9 +11618,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-01T14:14:42.979169+00:00",
-    "retry_after": "2026-10-15T14:14:42.979185+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-19T19:14:49.817217+00:00",
+    "retry_after": "2026-11-18T19:14:49.817232+00:00"
   },
   {
     "name": "American Splendor",
@@ -19890,9 +19890,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-04T23:00:49.131227+00:00",
-    "retry_after": "2026-10-18T23:00:49.131243+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-19T19:14:49.459131+00:00",
+    "retry_after": "2026-11-18T19:14:49.459146+00:00"
   },
   {
     "name": "Starmasters",
@@ -19900,9 +19900,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-04T23:00:49.617233+00:00",
-    "retry_after": "2026-10-18T23:00:49.617246+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-19T19:14:48.891777+00:00",
+    "retry_after": "2026-11-18T19:14:48.891792+00:00"
   },
   {
     "name": "Justice League of America [So Much Fun]",
@@ -23987,9 +23987,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-05T19:07:32.603043+00:00",
-    "retry_after": "2026-10-19T19:07:32.603061+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-19T19:14:37.890144+00:00",
+    "retry_after": "2026-11-18T19:14:37.890160+00:00"
   },
   {
     "name": "Chilling Adventures of Sabrina - Halloween Comicfest Edition #1",
@@ -27559,7 +27559,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27577,8 +27577,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-19T18:00:35.215893+00:00",
-    "retry_after": "2026-10-20T18:00:35.215910+00:00"
+    "last_attempt_at": "2026-10-19T19:14:37.950286+00:00",
+    "retry_after": "2026-10-20T19:14:37.950300+00:00"
   },
   {
     "name": "Cerebus",
@@ -43529,7 +43529,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43547,8 +43547,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-19T18:00:35.374882+00:00",
-    "retry_after": "2026-10-20T18:00:35.374889+00:00"
+    "last_attempt_at": "2026-10-19T19:00:48.706415+00:00",
+    "retry_after": "2026-10-20T19:00:48.706430+00:00"
   },
   {
     "name": "Justice League Special",
@@ -58105,5 +58105,434 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T18:26:27.850069+00:00",
     "retry_after": "2026-10-20T18:26:27.850082+00:00"
+  },
+  {
+    "name": "Casanova in Venice",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72624,
+        "name": "Casanova in Venice",
+        "publisher": "Aircel Publishing",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:44.107191+00:00",
+    "retry_after": "2026-10-20T19:23:44.107210+00:00"
+  },
+  {
+    "name": "The Four Norsemen of the Apocalypse",
+    "publisher": "First Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 89360,
+        "name": "The Four Norsemen of the Apocalypse",
+        "publisher": "1First Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:44.536267+00:00",
+    "retry_after": "2026-10-20T19:23:44.536283+00:00"
+  },
+  {
+    "name": "Interactive Comics: Dudley Serious Saves the World",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75764,
+        "name": "Interactive Comics - Dudley Serious Saves the World",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:45.164939+00:00",
+    "retry_after": "2026-10-20T19:23:45.164954+00:00"
+  },
+  {
+    "name": "Critial Role: Vox Machina Origins Omnibus",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:45.661444+00:00",
+    "retry_after": "2026-10-20T19:23:45.661459+00:00"
+  },
+  {
+    "name": "The Siren's Call",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37440,
+        "name": "The Siren's Call",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:45.982328+00:00",
+    "retry_after": "2026-10-20T19:23:45.982345+00:00"
+  },
+  {
+    "name": "Lynx: An Elflord Tale",
+    "publisher": "Devil's Due",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22550,
+        "name": "Lynx, An Elflord Tale",
+        "publisher": "Peregrine Entertainment",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:46.419917+00:00",
+    "retry_after": "2026-10-20T19:23:46.419931+00:00"
+  },
+  {
+    "name": "Dark One Special Edition",
+    "publisher": "Vault Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:47.000925+00:00",
+    "retry_after": "2026-10-20T19:23:47.000940+00:00"
+  },
+  {
+    "name": "Dynamo, Man of High Camp",
+    "publisher": "Antarctic Press",
+    "year": 1967,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49345,
+        "name": "Dynamo, Man of High Camp",
+        "publisher": "Tower",
+        "start_year": 1967
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:47.380525+00:00",
+    "retry_after": "2026-10-20T19:23:47.380539+00:00"
+  },
+  {
+    "name": "Weird Sex!",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72621,
+        "name": "Weird Sex!",
+        "publisher": "Eros Comix",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:47.741899+00:00",
+    "retry_after": "2026-10-20T19:23:47.741913+00:00"
+  },
+  {
+    "name": "Submit",
+    "publisher": "Fantagraphics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72226,
+        "name": "Submit",
+        "publisher": "Eros Comix",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:48.096363+00:00",
+    "retry_after": "2026-10-20T19:23:48.096378+00:00"
+  },
+  {
+    "name": "Unknown Worlds",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2025,
+        "name": "Unknown Worlds",
+        "publisher": "American Comics Group",
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:48.967552+00:00",
+    "retry_after": "2026-10-20T19:23:48.967567+00:00"
+  },
+  {
+    "name": "Bitch in Heat",
+    "publisher": "Fantagraphics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30741,
+        "name": "Bitch In Heat",
+        "publisher": "Eros Comix",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:49.377606+00:00",
+    "retry_after": "2026-10-20T19:23:49.377620+00:00"
+  },
+  {
+    "name": "Aria Preview",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58663,
+        "name": "Aria Preview",
+        "publisher": "Avalon Studios",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:23:55.000510+00:00",
+    "retry_after": "2026-10-20T19:23:55.000525+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles",
+    "publisher": "Mirage Studios",
+    "year": 1988,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 20281,
+        "name": "Teenage Mutant Ninja Turtles",
+        "publisher": "Mirage",
+        "start_year": 1984
+      },
+      {
+        "id": 26391,
+        "name": "Teenage Mutant Ninja Turtles",
+        "publisher": "Mirage",
+        "start_year": 2009
+      },
+      {
+        "id": 20295,
+        "name": "Teenage Mutant Ninja Turtles",
+        "publisher": "Mirage",
+        "start_year": 1993
+      },
+      {
+        "id": 44236,
+        "name": "Teenage Mutant Ninja Turtles",
+        "publisher": "Mirage",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:12.586651+00:00",
+    "retry_after": "2026-10-20T19:24:12.586670+00:00"
+  },
+  {
+    "name": "The Kinky Hook",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24194,
+        "name": "The Kinky Hook",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:12.975425+00:00",
+    "retry_after": "2026-10-20T19:24:12.975439+00:00"
+  },
+  {
+    "name": "Collana Western",
+    "publisher": "Dell Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158195,
+        "name": "Collana Western",
+        "publisher": "La Gazzetta dello Sport",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:22.966612+00:00",
+    "retry_after": "2026-10-20T19:24:22.966626+00:00"
+  },
+  {
+    "name": "Eureka Pocket",
+    "publisher": "Dark Horse Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27400,
+        "name": "Eureka Pocket",
+        "publisher": "Editoriale Corno",
+        "start_year": 1968
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:23.540137+00:00",
+    "retry_after": "2026-10-20T19:24:23.540160+00:00"
+  },
+  {
+    "name": "Dylan Dog - Viaggio nell'incubo",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147544,
+        "name": "Dylan Dog - Viaggio nell'Incubo",
+        "publisher": "La Gazzetta dello Sport",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:24.000341+00:00",
+    "retry_after": "2026-10-20T19:24:24.000357+00:00"
+  },
+  {
+    "name": "Nintendo Power",
+    "publisher": "Fantagraphics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28947,
+        "name": "Nintendo Power",
+        "publisher": "Nintendo",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:24.361131+00:00",
+    "retry_after": "2026-10-20T19:24:24.361146+00:00"
+  },
+  {
+    "name": "Storia del West",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 146339,
+        "name": "Storia del West",
+        "publisher": "Il Sole 24 Ore",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:25.040223+00:00",
+    "retry_after": "2026-10-20T19:24:25.040239+00:00"
+  },
+  {
+    "name": "Dylan Dog Super Book",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72089,
+        "name": "Dylan Dog Super Book",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:25.675128+00:00",
+    "retry_after": "2026-10-20T19:24:25.675143+00:00"
+  },
+  {
+    "name": "Liga da Justiça",
+    "publisher": "Avatar Press",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42512,
+        "name": "Liga da Justiça",
+        "publisher": "Panini Brasil",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:26.483715+00:00",
+    "retry_after": "2026-10-20T19:24:26.483730+00:00"
+  },
+  {
+    "name": "Morgan Lost",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 121174,
+        "name": "Morgan Lost",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:27.002865+00:00",
+    "retry_after": "2026-10-20T19:24:27.002881+00:00"
+  },
+  {
+    "name": "The Lone Wolf",
+    "publisher": "Atlas Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 91940,
+        "name": "The Lone Wolf",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:27.658959+00:00",
+    "retry_after": "2026-10-20T19:24:27.658973+00:00"
+  },
+  {
+    "name": "Wiz",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56166,
+        "name": "Wiz",
+        "publisher": "Panini Comics",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T19:24:28.153055+00:00",
+    "retry_after": "2026-10-20T19:24:28.153070+00:00"
   }
 ]

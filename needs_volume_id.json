@@ -58752,5 +58752,99 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T11:24:44.394351+00:00",
     "retry_after": "2026-10-20T11:24:44.394366+00:00"
+  },
+  {
+    "name": "DC Comics Presents: Batman – Dark Knight, Dark City",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T12:23:39.637402+00:00",
+    "retry_after": "2026-10-20T12:23:39.637413+00:00"
+  },
+  {
+    "name": "Grendel, Kentucky",
+    "publisher": "AWA Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 150822,
+        "name": "Grendel, Kentucky",
+        "publisher": "Panini España",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T12:24:02.524321+00:00",
+    "retry_after": "2026-10-20T12:24:02.524333+00:00"
+  },
+  {
+    "name": "G.I. Zombie",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T12:24:05.102305+00:00",
+    "retry_after": "2026-10-20T12:24:05.102312+00:00"
+  },
+  {
+    "name": "Turok: Adon's Curse Official Comic Book Magazine",
+    "publisher": "Valiant Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T12:24:16.020229+00:00",
+    "retry_after": "2026-10-20T12:24:16.020239+00:00"
+  },
+  {
+    "name": "The Batman Adventures [Special Replica Edition]",
+    "publisher": "DC Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T12:24:29.636741+00:00",
+    "retry_after": "2026-10-20T12:24:29.636749+00:00"
+  },
+  {
+    "name": "One for One: Star Wars - Legacy",
+    "publisher": "Dark Horse Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T12:24:30.260325+00:00",
+    "retry_after": "2026-10-20T12:24:30.260331+00:00"
+  },
+  {
+    "name": "Dragon Ball Z (Collector's Edition)",
+    "publisher": "VIZ Media",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T12:24:45.290969+00:00",
+    "retry_after": "2026-10-20T12:24:45.290977+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe: The Black Cat and Other Stories",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74289,
+        "name": "Edgar Allan Poe: The Black Cat and Other Stories",
+        "publisher": "Eternity",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T12:24:51.269403+00:00",
+    "retry_after": "2026-10-20T12:24:51.269412+00:00"
   }
 ]

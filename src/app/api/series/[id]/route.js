@@ -8,6 +8,7 @@ import { baseIssueNumber, compareIssueNumbers } from "@/lib/coverMatch";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { seriesLinkDisplayLines } from "@/lib/seriesLinks";
+import { filterSeriesVolumes } from "@/lib/seriesPage";
 
 // Strip variant/printing suffixes — same logic as the cache refresh.
 // "1 [Newsstand]" → "1", "5/1981" → "5", "Annual 1" → null.
@@ -43,6 +44,34 @@ function dedupeIssuesByBase(issues) {
 
 const KEY_ISSUE_ID_CHUNK = 400;
 const CREATOR_ROW_CAP = 5000;
+// Creators credited mostly on one-page gag fillers, which outnumber any real
+// run in a series' credit counts (Henry Boltinoff: 165 Batman issues). Stopgap
+// until "who made it" counts main stories only (series page part D).
+const FILLER_CREATOR_SLUGS = new Set(["henry-boltinoff"]);
+
+async function loadMemberStats(supabase, seriesGcdId) {
+  if (seriesGcdId == null) return { owners: 0, copies: 0 };
+  const { data, error } = await supabase.rpc("series_public_member_stats", {
+    p_series_gcd_id: seriesGcdId,
+  });
+  if (error) throw error;
+  const row = data?.[0] ?? {};
+  return {
+    owners: Number(row.owners) || 0,
+    copies: Number(row.copies) || 0,
+  };
+}
+
+async function loadSiblingVolumes(supabase, series, resolvedPublisher) {
+  const { data, error } = await supabase.rpc("series_sibling_runs", {
+    p_title: series.title,
+    p_publisher: resolvedPublisher,
+    p_current: series.id,
+  });
+  if (error) throw error;
+  const volumes = filterSeriesVolumes(data, { id: series.id, title: series.title, publisher: resolvedPublisher });
+  return { volumes, count: Number(data?.[0]?.total_count) || volumes.length };
+}
 
 async function loadSeriesLinks(supabase, currentGcdId) {
   if (currentGcdId == null) return [];
@@ -84,16 +113,18 @@ async function loadTopCreators(supabase, issues) {
       .from("issue_creators")
       .select("gcd_issue_id, role, creators(name, slug)")
       .in("gcd_issue_id", idChunk)
-      .in("role", ["writer", "penciller"]), "gcd_issue_id", { maxRows: remaining });
+      .in("role", ["writer", "penciller", "inker"]), "gcd_issue_id", { maxRows: remaining });
     rows.push(...page);
   }
 
-  const rank = (role) => {
+  const rank = (roles) => {
+    const acceptedRoles = new Set(Array.isArray(roles) ? roles : [roles]);
     const byCreator = new Map();
     for (const row of rows) {
-      if (row.role !== role) continue;
+      if (!acceptedRoles.has(row.role)) continue;
       const creator = Array.isArray(row.creators) ? row.creators[0] : row.creators;
       if (!creator?.name || !creator?.slug) continue;
+      if (FILLER_CREATOR_SLUGS.has(creator.slug)) continue;
       const entry = byCreator.get(creator.slug) ?? { name: creator.name, slug: creator.slug, issueIds: new Set() };
       entry.issueIds.add(row.gcd_issue_id);
       byCreator.set(creator.slug, entry);
@@ -103,14 +134,17 @@ async function loadTopCreators(supabase, issues) {
       .sort((a, b) => b.issues - a.issues || a.name.localeCompare(b.name))
       .slice(0, 5);
   };
-  const creditedIssueCount = (role) => new Set(
-    rows.filter((row) => row.role === role).map((row) => row.gcd_issue_id)
-  ).size;
+  const creditedIssueCount = (roles) => {
+    const acceptedRoles = new Set(Array.isArray(roles) ? roles : [roles]);
+    return new Set(
+      rows.filter((row) => acceptedRoles.has(row.role)).map((row) => row.gcd_issue_id)
+    ).size;
+  };
   return {
-    topCreators: { writers: rank("writer"), artists: rank("penciller") },
+    topCreators: { writers: rank("writer"), artists: rank(["penciller", "inker"]) },
     creditedIssueCounts: {
       writers: creditedIssueCount("writer"),
-      artists: creditedIssueCount("penciller"),
+      artists: creditedIssueCount(["penciller", "inker"]),
     },
   };
 }
@@ -182,6 +216,7 @@ export async function GET(req, context) {
         resolved_publisher_cached,
         year_start_cached,
         year_end_cached,
+        reprint_count,
         publisher:publisher_id (
           id,
           name,
@@ -266,6 +301,10 @@ export async function GET(req, context) {
           year_start: years.length ? Math.min(...years) : null,
           year_end: years.length ? Math.max(...years) : null,
           featured_cover: mappedIssues.find((i) => i.cover)?.cover ?? null,
+          reprint_count: Number(series.reprint_count) || 0,
+          member_stats: { owners: 0, copies: 0 },
+          sibling_volumes: [],
+          sibling_volume_count: 0,
           links: seriesLinks,
           issues: mappedIssues,
         },
@@ -463,6 +502,15 @@ export async function GET(req, context) {
         seriesTitle: series.title,
       });
 
+    const publicStatsPromise = Promise.all([
+      loadMemberStats(supabase, series.gcd_id),
+      loadSiblingVolumes(supabase, series, resolvedPublisher),
+    ]).catch((error) => {
+      console.error("GET /api/series/[id] public stats lookup failed:", error);
+      degraded = true;
+      return [{ owners: 0, copies: 0 }, { volumes: [], count: 0 }];
+    });
+
     const mappedIssuesRaw = issueRows.map((issue) => {
       const gcdYear = bestYearFor(issue);
       const best = resolvedCovers.get(issue.gcd_id) ?? null;
@@ -529,6 +577,7 @@ export async function GET(req, context) {
       .filter((year) => year != null);
     const fullYearStart = allYears.length ? Math.min(yearStart ?? Infinity, ...allYears) : yearStart;
     const fullYearEnd = allYears.length ? Math.max(yearEnd ?? -Infinity, ...allYears) : yearEnd;
+    const [memberStats, siblingRuns] = await publicStatsPromise;
 
     return NextResponse.json({
       degraded,
@@ -540,6 +589,7 @@ export async function GET(req, context) {
         year_start: fullYearStart,
         year_end: fullYearEnd,
         featured_cover: featuredCover,
+        reprint_count: Number(series.reprint_count) || 0,
         format_label: formatLabel(seriesFormat ?? {}),
         format_tag: formatTag({ name: series.title, ...seriesFormat }),
         format_tag_title: formatTagTitle({ name: series.title, ...seriesFormat }),
@@ -548,6 +598,9 @@ export async function GET(req, context) {
         key_issues: keyIssues,
         top_creators: topCreators,
         creator_credited_issues: creatorCreditedIssues,
+        member_stats: memberStats,
+        sibling_volumes: siblingRuns.volumes,
+        sibling_volume_count: siblingRuns.count,
         links: seriesLinks,
         issues: mappedIssues,
       },

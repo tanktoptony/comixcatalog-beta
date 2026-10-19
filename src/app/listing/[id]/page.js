@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
     title,
     description,
     alternates: { canonical: `${SITE_URL}/listing/${id}` },
-    openGraph: { title, description, url: `${SITE_URL}/listing/${id}`, images: l.cover ? [{ url: l.cover }] : [] },
+    openGraph: { title, description, url: `${SITE_URL}/listing/${id}` },
   };
 }
 

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import PrivateProfileOwnerView from "@/components/PrivateProfileOwnerView";
 import ProfileView from "@/components/ProfileView";
+import { isOwnedStatus } from "@/lib/collectionStatus";
 import { getPublicProfile } from "@/lib/pageData";
 import { getServiceClient } from "@/lib/supabase/service";
 
@@ -45,7 +46,17 @@ export async function generateMetadata({ params }) {
   if (!username) return {};
 
   const data = await getPublicProfile(username);
-  if (!data?.notFound) return {};
+  if (!data?.notFound) {
+    const p = data?.profile;
+    if (!p) return {};
+    const name = p.display_name || `@${p.username}`;
+    const books = (data.collection ?? []).filter((item) => isOwnedStatus(item.status)).length;
+    const title = `${name}'s comic collection`;
+    const description = books
+      ? `@${p.username} has ${books.toLocaleString("en-US")} book${books === 1 ? "" : "s"} on ComixCatalog. See the shelf.`
+      : `@${p.username} collects comics on ComixCatalog.`;
+    return { title, description, openGraph: { title, description }, twitter: { card: "summary_large_image", title, description } };
+  }
 
   const profile = await getProfileVisibility(username);
   return profile && profile.is_public === false

@@ -28,7 +28,6 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `Join @${clean} on ComixCatalog`,
       description: `Catalog your comics with @${clean} on ComixCatalog.`,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }

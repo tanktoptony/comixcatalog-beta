@@ -27,7 +27,7 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 // Production only — keeps localhost/dev traffic out of real GA data.
 const GA_ENABLED = Boolean(GA_MEASUREMENT_ID) && process.env.NODE_ENV === "production";
 const SITE_NAME = "ComixCatalog";
-const DEFAULT_TITLE = "ComixCatalog — Catalog. Collect. Connect.";
+const DEFAULT_TITLE = "ComixCatalog: Catalog. Collect. Connect.";
 const DEFAULT_DESCRIPTION =
   "The database, collection manager, and marketplace for comic books. " +
   "Search any issue, catalog what you own, track its value, and trade with " +
@@ -38,7 +38,7 @@ export const metadata = {
   title: {
     default: DEFAULT_TITLE,
     // %s is replaced per-page when child pages set their own title.
-    template: "%s — ComixCatalog",
+    template: "%s | ComixCatalog",
   },
   description: DEFAULT_DESCRIPTION,
   applicationName: SITE_NAME,
@@ -78,8 +78,6 @@ export const metadata = {
   // when twitter:image is absent.
   twitter: {
     card: "summary_large_image",
-    title: DEFAULT_TITLE,
-    description: DEFAULT_DESCRIPTION,
     creator: "@comixcatalog",
     site: "@comixcatalog",
   },

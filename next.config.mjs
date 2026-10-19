@@ -30,6 +30,9 @@ const nextConfig = {
   // sharp. The PDF export imports it too.
   outputFileTracingIncludes: {
     "/api/share-card": ["./src/app/api/share-card/fonts/**"],
+    "/opengraph-image": ["./src/assets/og-fonts/**"],
+    "/*/opengraph-image": ["./src/assets/og-fonts/**"],
+    "/*/*/opengraph-image": ["./src/assets/og-fonts/**"],
     "/api/listings/photos/process": SHARP_BINARIES,
     "/api/export/pdf": SHARP_BINARIES,
   },

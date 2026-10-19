@@ -59072,5 +59072,126 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T22:21:12.723825+00:00",
     "retry_after": "2026-10-20T22:21:12.723841+00:00"
+  },
+  {
+    "name": "Belzebubs",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 117696,
+        "name": "Belzebubs",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T23:23:58.617415+00:00",
+    "retry_after": "2026-10-20T23:23:58.617434+00:00"
+  },
+  {
+    "name": "Aspen Seasons: Fall",
+    "publisher": "Aspen Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T23:23:59.149870+00:00",
+    "retry_after": "2026-10-20T23:23:59.149890+00:00"
+  },
+  {
+    "name": "Batvark",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 103850,
+        "name": "Batvark",
+        "publisher": "Aardvark",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T23:24:15.341237+00:00",
+    "retry_after": "2026-10-20T23:24:15.341254+00:00"
+  },
+  {
+    "name": "Action Comics [50th Anniversary Edition]",
+    "publisher": "DC Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T23:24:35.667681+00:00",
+    "retry_after": "2026-10-20T23:24:35.667699+00:00"
+  },
+  {
+    "name": "Into the Badlands Special",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T23:24:36.208397+00:00",
+    "retry_after": "2026-10-20T23:24:36.208414+00:00"
+  },
+  {
+    "name": "Robotech: Firewalkers",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39269,
+        "name": "Robotech - Firewalkers",
+        "publisher": "Eternity",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T23:24:48.894611+00:00",
+    "retry_after": "2026-10-20T23:24:48.894628+00:00"
+  },
+  {
+    "name": "Herc & Thor Pocket Manga",
+    "publisher": "Antarctic Press",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T23:24:49.596112+00:00",
+    "retry_after": "2026-10-20T23:24:49.596129+00:00"
+  },
+  {
+    "name": "One for One: Action Philosophers",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T23:24:50.213986+00:00",
+    "retry_after": "2026-10-20T23:24:50.214003+00:00"
+  },
+  {
+    "name": "Galaxy Man & Cosmic Girl",
+    "publisher": "Action Lab Entertainment",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T23:24:50.703688+00:00",
+    "retry_after": "2026-10-20T23:24:50.703706+00:00"
+  },
+  {
+    "name": "All Star Superman Special Edition",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T23:24:56.774174+00:00",
+    "retry_after": "2026-10-20T23:24:56.774191+00:00"
   }
 ]

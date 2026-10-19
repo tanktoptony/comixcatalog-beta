@@ -35936,13 +35936,13 @@
   },
   {
     "name": "Jim Henson's Labyrinth 30th Anniversary Special",
-    "publisher": "Archaia",
+    "publisher": "BOOM! Studios",
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T02:01:05.741694+00:00",
-    "retry_after": "2026-10-06T02:01:05.741712+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:24:18.003004+00:00",
+    "retry_after": "2026-10-20T15:24:18.003019+00:00"
   },
   {
     "name": "Spider-Girl Modern Era Epic Collection",
@@ -42889,13 +42889,13 @@
   },
   {
     "name": "Gen 13: September Song",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-08T20:00:54.702060+00:00",
-    "retry_after": "2026-10-11T20:00:54.702075+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:24:24.373808+00:00",
+    "retry_after": "2026-10-20T15:24:24.373823+00:00"
   },
   {
     "name": "Pok�mon Black and White",
@@ -59113,5 +59113,119 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T14:26:01.418524+00:00",
     "retry_after": "2026-10-20T14:26:01.418536+00:00"
+  },
+  {
+    "name": "Ex-Mutants Pin-Up Book",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35050,
+        "name": "Ex-Mutants: Pin-Up Book",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:23:51.792672+00:00",
+    "retry_after": "2026-10-20T15:23:51.792688+00:00"
+  },
+  {
+    "name": "The Flash 1 Special Edition",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:23:57.562662+00:00",
+    "retry_after": "2026-10-20T15:23:57.562678+00:00"
+  },
+  {
+    "name": "Supergirl [Mattel Edition]",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:24:02.953529+00:00",
+    "retry_after": "2026-10-20T15:24:02.953545+00:00"
+  },
+  {
+    "name": "Marvel Masterworks: The Fantastic Four - Barnes & Noble Edition",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:24:03.515694+00:00",
+    "retry_after": "2026-10-20T15:24:03.515709+00:00"
+  },
+  {
+    "name": "Cerebus Jam",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20365,
+        "name": "Cerebus Jam",
+        "publisher": "Aardvark",
+        "start_year": 1985
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:24:04.059457+00:00",
+    "retry_after": "2026-10-20T15:24:04.059473+00:00"
+  },
+  {
+    "name": "Superman [Mattel Edition]",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:24:04.426508+00:00",
+    "retry_after": "2026-10-20T15:24:04.426523+00:00"
+  },
+  {
+    "name": "Ceres Celestial Legend Part Five",
+    "publisher": "VIZ Media",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:24:04.885422+00:00",
+    "retry_after": "2026-10-20T15:24:04.885438+00:00"
+  },
+  {
+    "name": "Sin City #1/2: Just Another Saturday Night",
+    "publisher": "Dark Horse Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:24:09.070246+00:00",
+    "retry_after": "2026-10-20T15:24:09.070261+00:00"
+  },
+  {
+    "name": "DC Justice League Essentials: Batman Rebirth",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:24:23.792928+00:00",
+    "retry_after": "2026-10-20T15:24:23.792944+00:00"
+  },
+  {
+    "name": "The League of Rats",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T15:24:24.879426+00:00",
+    "retry_after": "2026-10-20T15:24:24.879441+00:00"
   }
 ]

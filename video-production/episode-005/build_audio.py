@@ -26,21 +26,21 @@ voice_dir, album_dir, tx_dir = sys.argv[1], sys.argv[2], sys.argv[3]
 
 # Section order, the words that start part B (after the song intro), and extra
 # music moments. Times in seconds.
-INTRO = 9.0          # album intro at full level before part B
+INTRO = 5.0          # album clip at full level before part B (clips stay at or under 5 s)
 GAP = 0.7            # breath between sections
 TAIL = 1.5           # song keeps going after the last word, fading
 SECTIONS = [
     ("01", None), ("02", None), ("03", None),
-    ("04", {"track": 1, "split": "So let's use that minute", "intro": 7.0}),
+    ("04", {"track": 1, "split": "So let's use that minute", "intro": 5.0}),
     ("05", {"track": 2, "split": "This is where it starts"}),
     ("06", {"track": 3, "split": "That's Claudio yelling"}),
-    ("07", {"track": 4, "split": "The lyrics name the", "outro": ("ee_piano", 7.0)}),
+    ("07", {"track": 4, "split": "The lyrics name the", "outro": ("ee_piano", 4.5)}),
     ("08", {"track": 5, "split": "This song sounds like"}),
     ("09", {"track": 6, "split": "This one's got Mayo"}),
     ("10", {"track": 7, "split": "This is Patrick"}),
     ("11", {"track": 8, "split": "This one reads like"}),
     ("12", {"track": 9, "split": "Another letter"}),
-    ("13", {"track": 10, "split": "dear Mariah", "breaks": [("And then after a long", "gsc_piano", 9.0)], "outro": ("irobot", 8.0)}),
+    ("13", {"track": 10, "split": "dear Mariah", "breaks": [("And then after a long", "gsc_piano", 4.5)], "outro": ("irobot", 4.5)}),
     ("14", None), ("15", None),
 ]
 STING = 2.5
@@ -140,14 +140,11 @@ for sid, cfg in SECTIONS:
                 music.append({"kind": "swell", "key": key, "track": cfg["track"], "at": round(t, 3), "dur": dur})
             t += dur + 0.2
     if cfg:
-        music.append({"kind": "bed", "track": cfg["track"], "at": round(song_at, 3), "until": round(t + TAIL, 3)})
         if "outro" in cfg:
             key, dur = cfg["outro"]
             t += 0.4
             music.append({"kind": "swell", "key": key, "track": cfg["track"], "at": round(t, 3), "dur": dur})
             t += dur
-    elif sid != "01":
-        music.append({"kind": "rollin", "section": sid, "at": round(sec_start, 3), "until": round(t + 0.5, 3)})
     if sid == "01":
         sting_at = t + 0.35
         music.append({"kind": "cold", "track": 2, "at": round(max(0.6, t - 2.2), 3), "until": round(sting_at, 3)})
@@ -156,7 +153,9 @@ for sid, cfg in SECTIONS:
         t += GAP
 end_at = t
 duration = end_at + END_CARD
-music.append({"kind": "endcard", "track": 10, "at": round(end_at - 1.0, 3), "until": round(duration, 3)})
+# One continuous Rollin at 5 bed from section 02 to the end card; it dips under the album clips.
+rollin_from = next(p["at"] for p in plan if p["section"] == "02")
+music.append({"kind": "rollin", "at": round(rollin_from, 3), "until": round(duration, 3)})
 
 voice = np.zeros(int(duration * SR) + SR)
 for at, seg in voice_parts:

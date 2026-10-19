@@ -9,11 +9,15 @@ The Amory Wars, Part 2: The Second Stage Turbine Blade, track by track. Channel 
 - `episode.json`: titles, chapters by track, books with ComixCatalog series ids, tags, description intro, pinned comment, credits, Shorts copy and schedule.
 - Analytics brief applied: no logo or channel intro before the story; the hook and the "what's different" promise land inside 30 s; one subscribe ask (section 15) naming the Sunday plus Tue/Thu/Sat schedule; one ComixCatalog ask (section 14) naming only live features (series and issue pages, collection, wantlist, free signup).
 
+## Built (2026-10-19, after the voice landed)
+
+- Voice: 18 files from `Desktop/YouTube/episode-005-assets/audio` (15 sections + 3 Shorts). Transcribed with faster-whisper small.en; every section matches the script (Tony reworded part of 13).
+- `build_audio.py` -> VOICE_PROGRAM.wav + narration.words.js + audio-plan.json (17:56, song-intro and swell slots). `build_music.py [album dir]` -> MUSIC_PROGRAM.wav. `final_mix.py` sums the stems onto a rendered mp4 with `-c:v copy` (no re-render when only music changes).
+- `timeline.js`: 268 shots; new `tracklist` segment type (TrackListCard). `shorts-timeline.js` + `build_shorts_audio.py`: standalone Shorts on one clock. `fixWords.js` fixes Whisper spellings for captions. `package.mjs` writes the Desktop package.
+
 ## Waiting on Tony
 
-- Voice: `01-cold-open.wav` to `15-ending.wav`, plus `short-01-cast-list.wav`, `short-02-the-couple.wav`, `short-03-jesse.wav`, in `Downloads/episode-005-voice/`.
-- Album audio: Tony's own copy of the 10 SSTB tracks (WAV, FLAC or MP3), same folder. Original 2002 track 10 with the hidden IRO-Bot, or the 2005 reissue plus its "Everything Evil (Demo)".
-- Optional page photos for the `[SCAN optional]` cues. Every shot has a cover fallback.
+- Album audio: his own copy of the 10 SSTB tracks (any format) in `Desktop/YouTube/episode-005-assets/audio/album/`. Original 2002 track 10 (with the hidden IRO-Bot), or the 2005 reissue plus its "Everything Evil (Demo)". Then: `build_music.py <album dir>`, listen-check the swells, `final_mix.py`, `package.mjs`.
 
 ## Music plan
 

@@ -44,7 +44,7 @@ const CUES = [
   ["Cambria can see things", cover(C.s4, { treatment: "focus", focus: { x: 0.62, y: 0.4, zoom: 1.6 } })],
   ["Before the kids and the house", cover(C.s2)],
   ["they were on a team called", title("K.B.I.")],
-  ["Knowledge Beast and Inferno", title("Knowledge\nBeast\nInferno")],
+  ["Knowledge Beast and Inferno", title("The Knowledge\nThe Beast\nThe Inferno")],
   ["Then somebody wiped their memories", cover(C.s3)],
   ["That's the setup for the band's first album", album()],
   ["and the comics Claudio Sanchez wrote", cover(C.sult)],

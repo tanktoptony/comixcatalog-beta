@@ -81,35 +81,24 @@ def place(src, src_from, at, length, gain_fn):
 def fades(length, fi=0.05, fo=0.6):
     return lambda t: np.clip(np.minimum(t / max(fi, 1e-3), (length - t) / max(fo, 1e-3)), 0, 1)
 
-# Rollin at 5: one continuous source clock across all its windows.
-rollin = decode(os.path.join(AUD, "MUSIC_BED_FULL.wav"))
-rg = 10 ** ((ROLLIN_DB - rms_db(rollin)) / 20)
-for m in plan["music"]:
-    if m["kind"] == "rollin":
-        L = m["until"] - m["at"]
-        f = fades(L, 1.0, 1.5)
-        place(rollin, m["at"] % (len(rollin) / SR - L - 1), m["at"], L, lambda t, f=f: f(t) * rg)
-
 songs, report = {}, []
 for n in range(1, 11):
     p = find_album(n)
     if p:
         x = decode(p)
-        songs[n] = (x, 10 ** (-rms_db(x) / 20))  # gain to 0 dBFS-RMS reference
+        songs[n] = (x, 10 ** (-rms_db(x) / 20))  # gain to a 0 dBFS-RMS reference
         report.append(f"track {n}: {os.path.basename(p)} ({len(x)/SR:.0f}s)")
     else:
-        report.append(f"track {n}: MISSING")
+        report.append(f"track {n}: MISSING (slot keeps the Rollin bed)")
 
 def detect(key):
     if SWELL_SRC.get(key) is not None: return SWELL_SRC[key]
     if key == "ee_piano" and 4 in songs:
-        x = songs[4][0]; return max(0, len(x) / SR - 30)
+        x = songs[4][0]; return max(0, len(x) / SR - 25)
     if key in ("gsc_piano", "irobot") and 10 in songs:
         x = songs[10][0]; e = env_db(x)
-        quiet = e < -55
-        # longest quiet run = the gap before the hidden track
         best, run, start = (0, 0), 0, 0
-        for i, q in enumerate(quiet):
+        for i, q in enumerate(e < -55):  # longest quiet run = the gap before the hidden track
             if q:
                 if run == 0: start = i
                 run += 1
@@ -117,47 +106,49 @@ def detect(key):
             else: run = 0
         gap_start, gap_len = best[0] * 0.5, best[1] * 0.5
         if key == "irobot": return gap_start + gap_len + 0.2 if gap_len > 10 else len(x) / SR - 60
-        return max(0, gap_start - 40) if gap_len > 10 else 380.0
+        return max(0, gap_start - 30) if gap_len > 10 else 380.0
     return 0.0
 
 def onset(x, thr=-35):
     e = env_db(x, 0.05)
-    i = int(np.argmax(e > thr))
-    return i * 0.05
+    return int(np.argmax(e > thr)) * 0.05
 
+# Album clips: each one 5 s or less, full level, short fades. Nothing from the
+# album plays under the voice.
+clips = []
 for m in plan["music"]:
     k = m["kind"]
-    if k in ("intro", "bed") and m["track"] in songs:
-        x, g0 = songs[m["track"]]
-        start = onset(x)
-        intro = next(i for i in plan["music"] if i["kind"] == "intro" and i["track"] == m["track"])
-        if k == "bed":
-            # one clock from the intro start; full for the intro, then down to the bed
-            L = m["until"] - m["at"]
-            swells = [s for s in plan["music"] if s["kind"] == "swell" and s["track"] == m["track"]]
-            stop = min([s["at"] for s in swells] + [m["until"]]) - m["at"]
-            hi, lo = 10 ** (INTRO_DB / 20) * g0, 10 ** (BED_DB / 20) * g0
-            d = intro["dur"]
-            def gain(t, d=d, hi=hi, lo=lo, stop=stop):
-                g = np.where(t < d, hi, np.where(t < d + RAMP, hi + (lo - hi) * (t - d) / RAMP, lo))
-                g = g * np.clip(t / 0.05, 0, 1)
-                return g * np.clip((stop - t) / 1.2, 0, 1)
-            place(x, start, m["at"], stop, gain)
+    if k == "intro" and m["track"] in songs:
+        clips.append((m["track"], onset(songs[m["track"]][0]), m["at"], m["dur"], INTRO_DB))
     elif k == "swell" and m["track"] in songs:
-        x, g0 = songs[m["track"]]
-        src = detect(m["key"])
-        L = m["dur"] + 1.5
-        hi, lo = 10 ** ((INTRO_DB - 1) / 20) * g0, 10 ** (BED_DB / 20) * g0
-        place(x, src, m["at"] - 0.3, L + 0.3, lambda t, hi=hi, lo=lo, L=L: np.clip(t / 0.4, 0, 1) * np.where(t < L - 1.6, hi, hi * np.clip((L - t) / 1.6, 0, 1)))
-        report.append(f"swell {m['key']}: source {src:.1f}s")
+        src = detect(m["key"]); report.append(f"swell {m['key']}: source {src:.1f}s")
+        clips.append((m["track"], src, m["at"], m["dur"], INTRO_DB - 1))
     elif k == "cold" and 2 in songs:
-        x, g0 = songs[2]
-        L = m["until"] - m["at"]
-        place(x, onset(x), m["at"], L, lambda t, L=L: np.clip(t / 0.3, 0, 1) * 10 ** ((BED_DB + 4) / 20) * g0 * (t < L - 0.02))
-    elif k == "endcard" and 10 in songs:
-        x, g0 = songs[10]
-        L = m["until"] - m["at"]
-        place(x, detect("gsc_piano"), m["at"], L, lambda t, L=L: np.clip(t / 1.0, 0, 1) * np.clip((L - t) / 3, 0, 1) * 10 ** ((INTRO_DB - 2) / 20) * g0)
+        clips.append((2, onset(songs[2][0]), m["at"], m["until"] - m["at"], BED_DB + 6))
+for track, src, at, L, db in clips:
+    x, g0 = songs[track]
+    g = 10 ** (db / 20) * g0
+    place(x, src, at, L, lambda t, L=L, g=g: g * np.clip(np.minimum(t / 0.08, (L - t) / 0.6), 0, 1))
+
+# Rollin at 5: one continuous bed, dipping under each album clip.
+rollin = decode(os.path.join(AUD, "MUSIC_BED_FULL.wav"))
+rg = 10 ** ((ROLLIN_DB - rms_db(rollin)) / 20)
+r = next(m for m in plan["music"] if m["kind"] == "rollin")
+L = r["until"] - r["at"]
+dips = [(at - r["at"], at - r["at"] + Ld) for _, _, at, Ld, _ in clips]
+def rollin_gain(t):
+    g = np.clip(np.minimum(t / 1.5, (L - t) / 4.0), 0, 1) * rg
+    for a, b in dips:
+        g = g * (1 - 0.85 * np.clip(np.minimum((t - a + 0.4) / 0.4, (b + 0.6 - t) / 0.6), 0, 1))
+    return g
+def loop_xfade(x, need, xf=SR):
+    out_ = x.copy()
+    ramp = np.linspace(0, 1, xf, dtype=np.float32)[:, None]
+    while len(out_) < need:
+        out_[-xf:] = out_[-xf:] * (1 - ramp) + x[:xf] * ramp
+        out_ = np.concatenate([out_, x[xf:]])
+    return out_
+place(loop_xfade(rollin, int((L + 1) * SR)), 0, r["at"], L, rollin_gain)
 
 write(os.path.join(AUD, "MUSIC_PROGRAM.wav"), out)
 v = decode(os.path.join(AUD, "VOICE_PROGRAM.wav"))

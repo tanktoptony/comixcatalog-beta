@@ -111,13 +111,13 @@ And Mayo tells Coheed the nightmares are real.
 
 > SHOW: [SCAN optional: Mayo stops Coheed after work, Amory Wars #1.] Fallback: #1 cover crop on Mayo.
 
-Turns out Coheed and Cambria had a whole other life they don't remember. They were a team called the K.B.I. Knowledge, Beast and Inferno.
+Turns out Coheed and Cambria had a whole other life they don't remember. They were a team called the K.B.I. The Knowledge, the Beast and the Inferno.
 
-Cambria was Knowledge. She can see things before they happen. Coheed was Beast. He can fight his way out of almost anything. And Inferno is Jesse, Coheed's brother.
+Cambria was the Knowledge. She can see things before they happen. Coheed was the Beast. He can fight his way out of almost anything. And the Inferno is Jesse, Coheed's brother.
 
 Their memories were wiped. And Coheed has a virus hidden inside him. It's called the Monstar, and it can wreck the Keywork.
 
-> SHOW: K.B.I. card: K · KNOWLEDGE · CAMBRIA / B · BEAST · COHEED / I · INFERNO · JESSE, over the #2 cover.
+> SHOW: K.B.I. card: THE KNOWLEDGE · CAMBRIA / THE BEAST · COHEED / THE INFERNO · JESSE, over the #2 cover.
 
 So far, that's a bad day. Then Mayo makes it worse.
 
@@ -507,7 +507,7 @@ Coheed has blades built into his left arm. His right arm turns into a gun.
 
 Cambria can see things before they happen.
 
-Before the kids and the house in the suburbs, they were on a team called the K.B.I. Knowledge, Beast and Inferno. Cambria, Coheed, and Coheed's brother Jesse.
+Before the kids and the house in the suburbs, they were on a team called the K.B.I. The Knowledge, the Beast and the Inferno. Cambria, Coheed, and Coheed's brother Jesse.
 
 Then somebody wiped their memories.
 

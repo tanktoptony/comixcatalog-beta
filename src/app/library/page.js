@@ -31,6 +31,7 @@ import { normalizePublisherDisplayName } from "@/lib/publisher";
 import { isUnlinkedForSale, listingCompleteness } from "@/lib/listingCompleteness";
 import { buildLibraryItems, groupLibraryRows } from "@/lib/libraryView";
 import PayoutsPrompt from "@/components/PayoutsPrompt";
+import CollectionReconcileReview from "@/components/CollectionReconcileReview";
 
 // Books per /api/library-hydrate request. The route caps a request at 2,000.
 const HYDRATE_CHUNK = 1000;
@@ -1529,6 +1530,11 @@ function LibraryPageContent() {
         />
       )}
       {saleToast && <div className="sale-toast" role="status">{saleToast}</div>}
+
+      <CollectionReconcileReview
+        enabled={!isPublicPreview && Boolean(user?.id)}
+        onChanged={() => refreshLibrary({ background: true })}
+      />
 
       {/* ── Catalog linking ─────────────────────────────────────────
           Local-only books (added by CSV import or the manual /library/add

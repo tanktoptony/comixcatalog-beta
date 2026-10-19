@@ -329,7 +329,9 @@ async function refreshOne(seriesGcdId) {
 
   console.log(`  Inserted ${inserted} / ${missing.length} new issue rows.`);
   if (rateLimitedErr) throw rateLimitedErr;
-  return { series: seriesJson.name, missing: missing.length, inserted };
+  // Complete only when every missing issue was fetched; a series cut short by
+  // the per-invocation issue cap is resumed next run, not skipped.
+  return { series: seriesJson.name, missing: missing.length, inserted, complete: issuesToFetch.length === missing.length };
 }
 
 async function run() {
@@ -359,12 +361,22 @@ async function run() {
   console.log(`Refreshing ${ids.length} series from GCD's live API${DRY_RUN ? " (dry-run)" : ""}...`);
 
   const results = [];
-  let lastAttempted = null;
+  // The cursor only moves past a series once all of its missing issues are
+  // in. It used to record the last series attempted, so a run that hit GCD's
+  // ~29-request budget partway through a series skipped the rest of it until
+  // the rotation came all the way back around (Absolute Batman stuck at #14
+  // while #15 to #24 existed, found 2026-10-18).
+  let lastCompleted = null;
   let rateLimited = false;
   for (const id of ids) {
-    lastAttempted = id;
     try {
-      results.push(await refreshOne(id));
+      const result = await refreshOne(id);
+      results.push(result);
+      if (result?.complete === false) {
+        console.log(`  Series ${id} not finished this run; the next run resumes it.`);
+        break;
+      }
+      lastCompleted = id;
     } catch (err) {
       if (err instanceof RateLimited) {
         rateLimited = true;
@@ -372,16 +384,20 @@ async function run() {
         console.error("Stopping the whole run here - re-run later, already-inserted rows are safe (upsert is idempotent).");
         break;
       }
+      // Any other failure (deleted series, bad payload) must not pin the
+      // rotation to this series forever: log it and move on.
       console.error(`  ERROR on gcd_id ${id}: ${describeError(err)}`);
+      lastCompleted = id;
     }
   }
 
-  // Record where to resume even when the run ended on a 429 - that is the
-  // case the cursor exists for. A dry run changes nothing, so it must not
-  // move the cursor either.
-  if (rotating && !DRY_RUN && lastAttempted != null) {
-    writeCursor(CURSOR_FILE, fs, lastAttempted);
-    console.log(`\nCursor written: next run starts after gcd_id ${lastAttempted}.`);
+  // Resume after the last finished series, so a series cut short by a 429 or
+  // --max-issues is picked up first next run. A dry run must not move it.
+  if (rotating && !DRY_RUN && lastCompleted != null) {
+    writeCursor(CURSOR_FILE, fs, lastCompleted);
+    console.log(`\nCursor written: next run starts after gcd_id ${lastCompleted}.`);
+  } else if (rotating && !DRY_RUN) {
+    console.log("\nCursor unchanged: this run's first series isn't finished yet.");
   }
 
   const totalMissing = results.reduce((s, r) => s + r.missing, 0);

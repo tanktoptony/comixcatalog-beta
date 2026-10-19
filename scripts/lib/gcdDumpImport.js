@@ -169,6 +169,47 @@ export function resolveBases(rows, maxHops = 5) {
   });
 }
 
+export function missingIssueIds(dumpRows, mirrorIds) {
+  return new Set(
+    dumpRows
+      .map((row) => Number(row.id ?? row.gcd_id))
+      .filter((id) => Number.isInteger(id) && !mirrorIds.has(id)),
+  );
+}
+
+export function mapDumpIssueRows(dumpRows, mirrorIds) {
+  const sourceById = new Map(
+    dumpRows.map((row) => [Number(row.id ?? row.gcd_id), row]),
+  );
+  const missing = missingIssueIds(dumpRows, mirrorIds);
+  return resolveBases(dumpRows.map((row) => ({
+    gcd_id: Number(row.id ?? row.gcd_id),
+    variant_of_id: row.variant_of_id == null ? null : Number(row.variant_of_id),
+    variant_name: row.variant_name == null || !String(row.variant_name).trim()
+      ? null
+      : String(row.variant_name).trim(),
+  })))
+    .filter((row) => missing.has(row.gcd_id))
+    .map((resolved) => {
+      const source = sourceById.get(resolved.gcd_id);
+      const cleaned = (value) => value == null || !String(value).trim()
+        ? null
+        : String(value).trim();
+      return {
+        gcd_id: resolved.gcd_id,
+        series_gcd_id: Number(source.series_id),
+        issue_number: source.number == null ? null : String(source.number),
+        title: cleaned(source.title),
+        publication_date: cleaned(source.publication_date),
+        key_date: cleaned(source.key_date),
+        publisher_gcd_id: source.publisher_id == null ? null : Number(source.publisher_id),
+        variant_of_gcd_id: resolved.variant_of_id,
+        variant_name: resolved.variant_name,
+        base_gcd_issue_id: resolved.base_gcd_issue_id,
+      };
+    });
+}
+
 export function aggregateSeriesCredits(rows) {
   const aggregator = createSeriesCreditAggregator();
   aggregator.add(rows);

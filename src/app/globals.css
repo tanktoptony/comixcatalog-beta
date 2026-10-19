@@ -13119,3 +13119,47 @@ select.input {
   .series-stats-strip > div:nth-child(n+3) { border-top: 1px solid var(--cc-line); }
   .series-creator-columns { grid-template-columns: 1fr; gap: 16px; }
 }
+
+/* Key issues in the series run grid (2026-10-19): a key icon on the cover's
+   top-right corner, a gold edge for major keys, and the key reason under the
+   issue number so a 700-issue run can be scanned for the books that matter. */
+.series-key-badge {
+  position: absolute;
+  z-index: 2; /* .comic-card-cover img is z-index:1 */
+  top: 6px;
+  right: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 6px;
+  border-radius: 999px;
+  background: rgba(9, 12, 17, 0.82);
+  border: 1px solid var(--cc-gold, #d8b04b);
+  color: var(--cc-gold, #d8b04b);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.comic-card--major-key .series-key-badge {
+  background: var(--cc-gold, #d8b04b);
+  color: #090c11;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.comic-card--major-key {
+  border-color: rgba(216, 176, 75, 0.75);
+  box-shadow: 0 0 0 1px rgba(216, 176, 75, 0.35), 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.series-key-reason {
+  margin-top: 2px;
+  color: var(--cc-gold-soft, #ecd48c);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

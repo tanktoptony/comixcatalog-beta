@@ -155,6 +155,7 @@ async function computeIssuePageData(baseGcdId, editionGcdId, hasEditionColumns) 
     cover: selectedHasOwnCover ? selected.cover : baseIssue?.cover ?? selected.cover,
     edition_has_own_cover: selectedHasOwnCover,
     key_issue: baseIssue?.key_issue ?? null,
+    key_ruling: baseIssue?.key_ruling ?? null,
     credits: baseIssue?.credits ?? selected.credits,
     stories: baseIssue?.stories ?? selected.stories,
     ad_pages_count: baseIssue?.ad_pages_count ?? selected.ad_pages_count,

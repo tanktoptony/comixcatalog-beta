@@ -621,6 +621,22 @@ export async function GET(req, context) {
         keyIssue = keyIssueRow;
       }
 
+      // Our latest editorial call on this issue (key_rulings, 0079): shown as
+      // "Our ruling" so a book collectors ask about explains itself, including
+      // ones we decided are not keys. Optional: a failure only hides the note.
+      let keyRuling = null;
+      const { data: rulingRow, error: rulingError } = await supabase
+        .from("key_rulings")
+        .select("action, verdict, note, ruled_at")
+        .eq("gcd_issue_id", gcdId)
+        .is("reverted_at", null)
+        .neq("action", "fix_reason")
+        .order("ruled_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      if (rulingError) console.error("issue key ruling lookup failed:", rulingError.code, rulingError.message);
+      else if (rulingRow) keyRuling = rulingRow;
+
       return NextResponse.json({
         degraded: degradation.value,
         issue: {
@@ -646,6 +662,7 @@ export async function GET(req, context) {
           related_issues: relatedIssues,
           arcs,
           key_issue: keyIssue,
+          key_ruling: keyRuling,
           credits,
           stories,
           ad_pages_count: adPagesCount,

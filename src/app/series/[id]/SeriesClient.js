@@ -11,6 +11,7 @@ import { SLOT } from "@/lib/houseAds";
 import { coverThumb } from "@/lib/coverThumb";
 import { buildSeriesIntro } from "@/lib/seriesSeo";
 import KeyTimeline from "@/components/KeyTimeline";
+import { KeyRound } from "lucide-react";
 import { ageSpanLabel, heroKeyCovers } from "@/lib/seriesPage";
 
 const ISSUE_BATCH = 60;
@@ -251,6 +252,8 @@ export default function SeriesClient({ initialSeries = null }) {
   const ageLabel = ageSpanLabel(series.year_start, series.year_end);
   const backCovers = heroKeyCovers(series.key_issues, series.featured_cover);
   const majorKeyCount = (series.key_issues ?? []).filter((issue) => Number(issue.tier) === 1).length;
+  // Key issues by grid id ("gcd-<id>"), so the run grid can flag them.
+  const keyByIssueId = new Map((series.key_issues ?? []).map((k) => [`gcd-${k.gcd_issue_id}`, k]));
   const yearCount = series.year_start && series.year_end
     ? Math.max(1, Number(series.year_end) - Number(series.year_start) + 1)
     : null;
@@ -634,8 +637,13 @@ export default function SeriesClient({ initialSeries = null }) {
               const key = String(issue?.id ?? "");
               const isOwned = collectionIds?.has(key);
               const isWanted = !isOwned && wishlistIds?.has(key);
+              const keyIssue = keyByIssueId.get(key);
+              const majorKey = Number(keyIssue?.tier) === 1;
               return (
-              <article key={issue.id} className="comic-card">
+              <article
+                key={issue.id}
+                className={`comic-card${keyIssue ? ` comic-card--key${majorKey ? " comic-card--major-key" : ""}` : ""}`}
+              >
                 <Link prefetch={false} href={`/issue/${issue.id}`} className="card-link">
                   <div className="comic-card-cover" style={{ position: "relative" }}>
                     <img
@@ -686,6 +694,15 @@ export default function SeriesClient({ initialSeries = null }) {
                         WANTLIST
                       </span>
                     )}
+                    {keyIssue && (
+                      <span
+                        className="series-key-badge"
+                        title={`${majorKey ? "Major key" : "Key"}: ${keyIssue.reason}`}
+                      >
+                        <KeyRound size={13} strokeWidth={2.6} aria-hidden="true" />
+                        {majorKey ? "KEY" : null}
+                      </span>
+                    )}
                   </div>
 
                   <div className="comic-card-title">{series.title}</div>
@@ -695,6 +712,11 @@ export default function SeriesClient({ initialSeries = null }) {
                     {issue.title && issue.title !== series.title ? ` ${issue.title}` : ""}
                     {issue.release_year ? ` (${issue.release_year})` : ""}
                   </div>
+                  {keyIssue?.reason && (
+                    <div className="series-key-reason" title={keyIssue.reason}>
+                      {keyIssue.reason}
+                    </div>
+                  )}
                 </Link>
                 <div className="comic-card-actions series-issue-actions">
                   {!isOwned && !isWanted && (

@@ -41030,13 +41030,13 @@
   },
   {
     "name": "They're Playing Your Song, Charlie Brown",
-    "publisher": "Fawcett Comics",
+    "publisher": "Heavy Metal",
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-09T21:00:48.652965+00:00",
-    "retry_after": "2026-10-16T21:00:48.652981+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T02:23:55.543737+00:00",
+    "retry_after": "2026-10-20T02:23:55.543753+00:00"
   },
   {
     "name": "Bloodstrike Remastered",
@@ -56734,9 +56734,9 @@
         "start_year": 1992
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T01:25:42.688048+00:00",
-    "retry_after": "2026-10-19T01:25:42.688065+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T02:23:41.639129+00:00",
+    "retry_after": "2026-10-22T02:23:41.639144+00:00"
   },
   {
     "name": "Savage Dragon / Teenage Mutant Ninja Turtle Crossover",
@@ -56744,9 +56744,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T01:25:43.024241+00:00",
-    "retry_after": "2026-10-19T01:25:43.024252+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T02:23:42.116629+00:00",
+    "retry_after": "2026-10-22T02:23:42.116647+00:00"
   },
   {
     "name": "Saturday Morning: The Comic",
@@ -56754,9 +56754,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T01:25:43.461770+00:00",
-    "retry_after": "2026-10-19T01:25:43.461781+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T02:23:42.705526+00:00",
+    "retry_after": "2026-10-22T02:23:42.705543+00:00"
   },
   {
     "name": "L'il Georgie",
@@ -56764,9 +56764,9 @@
     "year": 1949,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T01:25:43.905043+00:00",
-    "retry_after": "2026-10-19T01:25:43.905057+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T02:23:43.366323+00:00",
+    "retry_after": "2026-10-22T02:23:43.366339+00:00"
   },
   {
     "name": "Daredevil: Father [Director's Cut]",
@@ -56774,9 +56774,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T01:25:44.589837+00:00",
-    "retry_after": "2026-10-19T01:25:44.589848+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T02:23:43.968280+00:00",
+    "retry_after": "2026-10-22T02:23:43.968297+00:00"
   },
   {
     "name": "Mr. Lizard Annual",
@@ -56784,9 +56784,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T01:25:45.096257+00:00",
-    "retry_after": "2026-10-19T01:25:45.096270+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T02:23:44.517249+00:00",
+    "retry_after": "2026-10-22T02:23:44.517265+00:00"
   },
   {
     "name": "Disney Aventura",
@@ -57599,5 +57599,99 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T01:13:56.626122+00:00",
     "retry_after": "2026-10-20T01:13:56.626142+00:00"
+  },
+  {
+    "name": "B.C. On the Rocks",
+    "publisher": "Fawcett Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T02:23:48.781411+00:00",
+    "retry_after": "2026-10-20T02:23:48.781427+00:00"
+  },
+  {
+    "name": "Dan Turner, Hollywood Detective: The Dark Star of Death",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27619,
+        "name": "Dan Turner, Hollywood Detective: The Dark Star of Death",
+        "publisher": "Eternity",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T02:23:54.417967+00:00",
+    "retry_after": "2026-10-20T02:23:54.417983+00:00"
+  },
+  {
+    "name": "Ex-Mutants Annual",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35049,
+        "name": "Ex-Mutants Annual",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T02:23:54.974515+00:00",
+    "retry_after": "2026-10-20T02:23:54.974531+00:00"
+  },
+  {
+    "name": "Pulp Dreams",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40043,
+        "name": "Pulp Dreams",
+        "publisher": "Hamtramck Idea-Men",
+        "start_year": 2008
+      },
+      {
+        "id": 35939,
+        "name": "Pulp Dreams",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T02:23:56.183797+00:00",
+    "retry_after": "2026-10-20T02:23:56.183811+00:00"
+  },
+  {
+    "name": "Violator Figure",
+    "publisher": "Image Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69272,
+        "name": "Violator Figure",
+        "publisher": "McFarlane Toys",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T02:24:14.546551+00:00",
+    "retry_after": "2026-10-20T02:24:14.546567+00:00"
+  },
+  {
+    "name": "Turok The Empty Souls Preview",
+    "publisher": "Valiant Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T02:24:34.797562+00:00",
+    "retry_after": "2026-10-20T02:24:34.797578+00:00"
   }
 ]

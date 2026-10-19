@@ -18455,13 +18455,13 @@
   },
   {
     "name": "Is This Your First Purge, Miss? (A Doonesbury Book)",
-    "publisher": "Fawcett Comics",
+    "publisher": "Heavy Metal",
     "year": 1982,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T16:00:43.211894+00:00",
-    "retry_after": "2026-09-26T16:00:43.211909+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T11:24:28.542829+00:00",
+    "retry_after": "2026-10-20T11:24:28.542843+00:00"
   },
   {
     "name": "The Avengers",
@@ -31202,13 +31202,13 @@
   },
   {
     "name": "Astro City: Samaritan",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-09-28T07:03:09.785329+00:00",
-    "retry_after": "2026-09-29T07:03:09.785338+00:00"
+    "last_attempt_at": "2026-10-19T11:24:29.606983+00:00",
+    "retry_after": "2026-10-20T11:24:29.606998+00:00"
   },
   {
     "name": "Andy Capp Strikes Back",
@@ -58648,5 +58648,109 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T10:24:26.555253+00:00",
     "retry_after": "2026-10-20T10:24:26.555261+00:00"
+  },
+  {
+    "name": "Famous Comics",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72379,
+        "name": "Famous Comics",
+        "publisher": "Zain-Eppy",
+        "start_year": 1933
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T11:23:50.637370+00:00",
+    "retry_after": "2026-10-20T11:23:50.637384+00:00"
+  },
+  {
+    "name": "Harpy Pin-Up Special",
+    "publisher": "Devil's Due",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24161,
+        "name": "Harpy Pin-Up Special",
+        "publisher": "Peregrine Entertainment",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T11:24:18.966212+00:00",
+    "retry_after": "2026-10-20T11:24:18.966236+00:00"
+  },
+  {
+    "name": "Shadowman Preview",
+    "publisher": "Valiant Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T11:24:23.684444+00:00",
+    "retry_after": "2026-10-20T11:24:23.684459+00:00"
+  },
+  {
+    "name": "Smiley Wacky Wrestling",
+    "publisher": "Chaos! Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T11:24:28.117351+00:00",
+    "retry_after": "2026-10-20T11:24:28.117367+00:00"
+  },
+  {
+    "name": "Boys Love Girls...More or Less",
+    "publisher": "Dell Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T11:24:29.099378+00:00",
+    "retry_after": "2026-10-20T11:24:29.099391+00:00"
+  },
+  {
+    "name": "Man of the Atom Preview",
+    "publisher": "Valiant Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T11:24:34.222121+00:00",
+    "retry_after": "2026-10-20T11:24:34.222138+00:00"
+  },
+  {
+    "name": "Quantum & Woody Preview",
+    "publisher": "Valiant Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T11:24:34.750778+00:00",
+    "retry_after": "2026-10-20T11:24:34.750794+00:00"
+  },
+  {
+    "name": "Steve Ditko's Weird Comics",
+    "publisher": "Charlton Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T11:24:39.453275+00:00",
+    "retry_after": "2026-10-20T11:24:39.453290+00:00"
+  },
+  {
+    "name": "Itty Bitty Bunnies in Rainbow Pixie Candie Land: Tales from the Crib",
+    "publisher": "Action Lab Entertainment",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T11:24:44.394351+00:00",
+    "retry_after": "2026-10-20T11:24:44.394366+00:00"
   }
 ]

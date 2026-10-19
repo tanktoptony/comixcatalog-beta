@@ -21,9 +21,16 @@ function normalized(value) {
 const allowlisted = new Set(US_PUBLISHER_ALLOWLIST.map(normalized));
 const excludedCanadian = new Set(NON_US_MARKET_CANADIAN_PUBLISHERS.map(normalized));
 
+// GCD publisher countries whose series can be US market. Anything else is a
+// local edition even when its resolved publisher is a US brand: Panini
+// Deutschland's Batman resolves to "DC Comics" (9,632 such rows found
+// 2026-10-18). Canada and the UK keep their existing rules on purpose.
+const MARKET_COUNTRIES = new Set(["us", "ca", "gb"]);
+
 export function isUsMarketSeries({ publisherCountry, gcdPublisherName, resolvedPublisher }) {
-  if (allowlisted.has(normalized(resolvedPublisher))) return true;
   const country = normalized(publisherCountry);
+  if (country && !MARKET_COUNTRIES.has(country)) return false;
+  if (allowlisted.has(normalized(resolvedPublisher))) return true;
   if (country === "us") return true;
   if (country !== "ca") return false;
   return !excludedCanadian.has(normalized(gcdPublisherName));

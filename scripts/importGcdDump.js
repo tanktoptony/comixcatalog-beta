@@ -6,6 +6,13 @@ import { dirname, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { STORY_TYPES } from "./lib/gcdCredits.js";
 import {
+  mapAppSeriesRow,
+  mapGcdSeriesRow,
+  matchPlaceholder,
+  placeholderUpdate,
+  selectMissingSeries,
+} from "./lib/gcdSeriesPhase.js";
+import {
   CREDIT_ROLES,
   createSeriesCreditAggregator,
   dedupeRows,
@@ -22,6 +29,7 @@ import {
 const DEFAULT_DB =
   "C:/Users/antho/Desktop/comixcatalog-frontend/gcd-dump/2026-10-10.db";
 const PHASES = [
+  "series",
   "issues",
   "creators",
   "details",
@@ -51,6 +59,10 @@ const options = {
     ? String(args["series-gcd-ids"]).split(",").map(Number)
     : [],
   resume: Boolean(args.resume),
+  // Limit issue-based phases to the ids in this JSON file (e.g. the issues the
+  // "issues" phase just added) and keep their resume cursors separate.
+  issueIdsFile: args["issue-ids-file"] ? String(args["issue-ids-file"]) : null,
+  cursorTag: args["cursor-tag"] ? String(args["cursor-tag"]).replace(/[^a-z0-9-]/gi, "") : null,
   dumpDate: args["dump-date"] == null ? null : String(args["dump-date"]),
 };
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
@@ -96,8 +108,15 @@ function validateRollupLimit(candidate) {
 }
 
 function cursorPath(phase) {
-  return resolve("tmp", `gcd-dump-${phase}-cursor.json`);
+  const tag = options.cursorTag ? `${options.cursorTag}-` : "";
+  return resolve("tmp", `gcd-dump-${tag}${phase}-cursor.json`);
 }
+function newIssueIdsPath() {
+  return resolve("tmp", "gcd-dump-new-issue-ids.json");
+}
+const onlyIssueIds = options.issueIdsFile
+  ? new Set(JSON.parse(readFileSync(options.issueIdsFile, "utf8")).map(Number))
+  : null;
 function cachePath() {
   return resolve("tmp", "gcd-dump-issue-ids.json");
 }
@@ -182,6 +201,15 @@ async function loadMirrorIds(supabase, { refresh = false } = {}) {
   writeFileSync(cachePath(), JSON.stringify(ids));
   return new Set(ids);
 }
+function loadSeriesCursor() {
+  if (!options.resume || !existsSync(cursorPath("series"))) return 0;
+  return Number(JSON.parse(readFileSync(cursorPath("series"), "utf8")).gcd_series_id) || 0;
+}
+function saveSeriesCursor(gcdSeriesId) {
+  const path = cursorPath("series");
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(path, `${JSON.stringify({ gcd_series_id: gcdSeriesId, updated_at: new Date().toISOString() })}\n`);
+}
 
 function saveMirrorIds(ids) {
   mkdirSync("tmp", { recursive: true });
@@ -212,6 +240,10 @@ async function loadMirrorSeriesIds(supabase, { refresh = false } = {}) {
   writeFileSync(seriesCachePath(), JSON.stringify(ids));
   return new Set(ids);
 }
+function saveMirrorSeriesIds(ids) {
+  mkdirSync("tmp", { recursive: true });
+  writeFileSync(seriesCachePath(), JSON.stringify([...ids].sort((a, b) => a - b)));
+}
 
 function selectIssues(db, mirrorIds, selectionOptions = options) {
   const params = [];
@@ -241,6 +273,7 @@ function selectIssues(db, mirrorIds, selectionOptions = options) {
       skippedNotMirrored += 1;
       continue;
     }
+    if (onlyIssueIds && !onlyIssueIds.has(Number(row.id))) continue;
     eligible.push({
       id: Number(row.id),
       series_id: Number(row.series_id),
@@ -254,6 +287,125 @@ function selectIssues(db, mirrorIds, selectionOptions = options) {
       break;
   }
   return { issues: eligible, skippedNotMirrored, skippedResume };
+}
+
+async function readAllByKeyset(supabase, table, columns, key) {
+  const rows = [];
+  let after = null;
+  for (;;) {
+    let query = supabase.from(table).select(columns).order(key).limit(1000);
+    if (after != null) query = query.gt(key, after);
+    const page = await retry(`read ${table}`, () => query);
+    if (!page.length) break;
+    rows.push(...page);
+    after = page.at(-1)[key];
+    if (page.length < 1000) break;
+  }
+  return rows;
+}
+
+function dumpUsSeries(db) {
+  return db.prepare(
+    `select s.id gcd_id,s.name,s.sort_name,s.year_began,s.year_ended,
+      s.publisher_id publisher_gcd_id,s.publishing_format,s.binding,s.notes,
+      pt.name publication_type,p.name publisher_name,pc.code publisher_country
+     from gcd_series s
+     join stddata_country c on c.id=s.country_id
+     join gcd_publisher p on p.id=s.publisher_id
+     join stddata_country pc on pc.id=p.country_id
+     left join gcd_series_publication_type pt on pt.id=s.publication_type_id
+     where s.deleted=0 and c.code='us' order by s.id`,
+  ).all();
+}
+
+function dumpPublishers(db, ids) {
+  if (!ids.length) return [];
+  return db.prepare(
+    `select p.id gcd_id,p.name,c.code country,p.year_began,p.year_ended
+     from gcd_publisher p join stddata_country c on c.id=p.country_id
+     where p.id in (${placeholders(ids.length)}) order by p.id`,
+  ).all(...ids).map((row) => ({
+    gcd_id: Number(row.gcd_id), name: clean(row.name), country: clean(row.country),
+    year_began: numeric(row.year_began), year_ended: numeric(row.year_ended),
+  }));
+}
+
+async function seriesPhase(db, supabase, mirrorSeriesIds) {
+  const source = dumpUsSeries(db);
+  const appSeries = await readAllByKeyset(
+    supabase, "series",
+    "id,gcd_id,title,year_start_cached,year_end_cached,resolved_publisher_cached", "id",
+  );
+  const appGcdIds = new Set(appSeries.map((row) => numeric(row.gcd_id)).filter((id) => id != null));
+  const appByGcdId = new Map(appSeries.filter((row) => row.gcd_id != null).map((row) => [Number(row.gcd_id), row]));
+  const completeMirrorIds = new Set([...mirrorSeriesIds].filter((id) => appGcdIds.has(id)));
+  const rows = selectMissingSeries(source, completeMirrorIds, {
+    after: loadSeriesCursor(), limit: options.limit,
+  });
+  const publisherIds = [...new Set(rows.map((row) => Number(row.publisher_gcd_id)))];
+  const mirroredPublishers = await readAllByKeyset(supabase, "gcd_publishers", "gcd_id,name,country,year_began,year_ended", "gcd_id");
+  const publisherById = new Map(mirroredPublishers.map((row) => [Number(row.gcd_id), row]));
+  const missingPublishers = dumpPublishers(db, publisherIds.filter((id) => !publisherById.has(id)));
+  for (const row of missingPublishers) publisherById.set(row.gcd_id, row);
+  const candidates = appSeries.filter((row) => row.gcd_id == null);
+  const availableCandidates = [...candidates];
+  const plans = rows.map((row) => {
+    const publisher = publisherById.get(Number(row.publisher_gcd_id));
+    if (!publisher) throw new Error(`missing publisher ${row.publisher_gcd_id} for series ${row.gcd_id}`);
+    const app = mapAppSeriesRow(row, publisher);
+    const existing = appByGcdId.get(Number(row.gcd_id));
+    const match = existing
+      ? { kind: "existing", row: existing }
+      : matchPlaceholder({ ...row, resolved_publisher: app.resolved_publisher_cached }, availableCandidates);
+    if (match.kind === "exact") {
+      const index = availableCandidates.findIndex((candidate) => candidate.id === match.row.id);
+      availableCandidates.splice(index, 1);
+    }
+    return { source: row, gcd: mapGcdSeriesRow(row), app, match };
+  });
+  const placeholderLinks = plans
+    .filter((plan) => plan.match.kind === "exact")
+    .map((plan) => ({ series_id: plan.match.row.id, gcd_id: plan.gcd.gcd_id }));
+  const counts = {
+    publishers: missingPublishers.length,
+    gcd_series: plans.filter((plan) => !mirrorSeriesIds.has(plan.gcd.gcd_id)).length,
+    linked_placeholders: placeholderLinks.length,
+    new_series: plans.filter((plan) => ["none", "ambiguous"].includes(plan.match.kind)).length,
+    ambiguous_placeholders: plans.filter((plan) => plan.match.kind === "ambiguous").length,
+    placeholder_links: placeholderLinks,
+  };
+  console.log(`series ${JSON.stringify(counts)}`);
+  const links = plans.filter((plan) => plan.match.kind === "exact");
+  for (const link of placeholderLinks)
+    console.log(`series placeholder_link ${JSON.stringify(link)}`);
+  const remainingSamples = Math.max(0, 20 - links.length);
+  printSamples("series", plans.filter((plan) => plan.match.kind !== "exact").map((plan) => ({ gcd_id: plan.gcd.gcd_id, title: plan.app.title, action: plan.match.kind === "none" ? "insert" : plan.match.kind === "ambiguous" ? "insert_ambiguous_placeholder" : "repair_gcd_series" })), remainingSamples);
+  if (options.dryRun) return counts;
+  for (const batch of chunks(missingPublishers, 250)) {
+    await retry("insert gcd_publishers", () => supabase.from("gcd_publishers").upsert(batch, { onConflict: "gcd_id", ignoreDuplicates: true }));
+    await sleep(options.sleep);
+  }
+  const started = Date.now();
+  const batches = chunks(plans, 250);
+  for (let index = 0; index < batches.length; index += 1) {
+    const batch = batches[index];
+    await retry("insert gcd_series", () => supabase.from("gcd_series").upsert(batch.map((plan) => plan.gcd), { onConflict: "gcd_id", ignoreDuplicates: true }));
+    for (const plan of batch) {
+      if (plan.match.kind === "exact") {
+        const linked = await retry(`link placeholder ${plan.match.row.id}`, () => supabase.from("series").update(placeholderUpdate(plan.match.row, plan.app)).eq("id", plan.match.row.id).is("gcd_id", null).select("id"));
+        if (linked.length !== 1)
+          throw new Error(`link placeholder ${plan.match.row.id} updated ${linked.length} rows`);
+      } else if (plan.match.kind !== "existing") {
+        await retry(`insert series ${plan.gcd.gcd_id}`, () => supabase.from("series").insert(plan.app));
+      }
+      mirrorSeriesIds.add(plan.gcd.gcd_id);
+    }
+    saveSeriesCursor(batch.at(-1).gcd.gcd_id);
+    progress("series", index + 1, Math.min((index + 1) * 250, plans.length), batches.length, started);
+    await sleep(options.sleep);
+  }
+  saveMirrorSeriesIds(mirrorSeriesIds);
+  return counts;
 }
 
 function dumpIssuesForSeries(db, mirrorIds, mirrorSeriesIds) {
@@ -312,6 +464,10 @@ async function issuesPhase(db, supabase, mirrorIds, mirrorSeriesIds) {
     printSamples("issues", rows, 20);
     return counts;
   }
+  // Record what this run adds before writing anything, so follow-up phases can
+  // run on exactly these issues (--issue-ids-file) even after an interruption.
+  const previous = existsSync(newIssueIdsPath()) ? JSON.parse(readFileSync(newIssueIdsPath(), "utf8")) : [];
+  writeFileSync(newIssueIdsPath(), JSON.stringify([...new Set([...previous, ...rows.map((row) => row.gcd_id)])]));
   const started = Date.now();
   const batches = chunks(rows, 250);
   for (let index = 0; index < batches.length; index += 1) {
@@ -1042,19 +1198,16 @@ async function run() {
   validateOptions();
   const db = new DatabaseSync(options.db, { readOnly: true });
   db.exec("pragma query_only=on");
-  let supabase = null;
-  if (!options.dryRun) {
-    const [{ default: dotenv }, { createClient }] = await Promise.all([
-      import("dotenv"),
-      import("@supabase/supabase-js"),
-    ]);
-    dotenv.config({ path: ".env.local", quiet: true });
-    supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY,
-      { auth: { persistSession: false } },
-    );
-  }
+  const [{ default: dotenv }, { createClient }] = await Promise.all([
+    import("dotenv"),
+    import("@supabase/supabase-js"),
+  ]);
+  dotenv.config({ path: ".env.local", quiet: true });
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY,
+    { auth: { persistSession: false } },
+  );
   const phases = options.phase === "all" ? PHASES : [options.phase];
   const mirrorIds = await loadMirrorIds(supabase, {
     refresh: phases.includes("issues") && !options.dryRun,
@@ -1064,9 +1217,9 @@ async function run() {
       "dry-run: no local gcd_issues cache; mirror membership cannot be checked (run one non-dry phase to create it)",
     );
   const mirrorSeriesIds = phases.some((phase) =>
-    ["issues", "rollup"].includes(phase))
-    ? await loadMirrorSeriesIds(supabase, {
-        refresh: phases.includes("issues") && !options.dryRun,
+    ["series", "issues", "rollup"].includes(phase))
+      ? await loadMirrorSeriesIds(supabase, {
+        refresh: phases.includes("series") || (phases.includes("issues") && !options.dryRun),
       })
     : null;
   if (
@@ -1115,6 +1268,12 @@ async function run() {
         .map((r) => [Number(r.gcd_creator_id), Number(r.id)]),
     );
   for (const phase of phases) {
+    if (phase === "series") {
+      const importId = options.dryRun ? null : await startImport(supabase, phase);
+      counts.series = await seriesPhase(db, supabase, mirrorSeriesIds);
+      await finishImport(supabase, importId, counts.series);
+      continue;
+    }
     if (phase === "issues") {
       const importId = options.dryRun ? null : await startImport(supabase, phase);
       counts.issues = await issuesPhase(

@@ -24,19 +24,15 @@ export async function generateMetadata({ params }) {
       title,
       description,
       openGraph: {
-        title: `${title} — ComixCatalog`,
+        title: `${title} | ComixCatalog`,
         description,
         url: `${SITE_URL}/series/${id}`,
         type: "website",
-        images: series.featured_cover
-          ? [{ url: series.featured_cover, alt: title }]
-          : undefined,
       },
       twitter: {
         card: "summary_large_image",
-        title: `${title} — ComixCatalog`,
+        title: `${title} | ComixCatalog`,
         description,
-        images: series.featured_cover ? [series.featured_cover] : undefined,
       },
       alternates: { canonical: `${SITE_URL}/series/${id}` },
     };

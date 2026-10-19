@@ -8,7 +8,7 @@ import { getServiceClient } from "./supabase/service.js";
 //
 // Every entry here was checked to have a cover in canonical_covers
 // (2026-10-01). Titles are ComicVine's series names.
-const CLASSICS = [
+export const CLASSICS = [
   ["Action Comics", "1", 1938], ["Detective Comics", "27", 1939], ["Batman", "1", 1940],
   ["Showcase", "4", 1956], ["Fantastic Four", "1", 1961], ["Amazing Fantasy", "15", 1962],
   ["Journey into Mystery", "83", 1962], ["Tales of Suspense", "39", 1963],
@@ -36,7 +36,7 @@ function seededShuffle(arr, seed) {
   return a;
 }
 
-async function loadClassicCovers() {
+export async function loadClassicCovers() {
   const sb = getServiceClient();
   const titles = [...new Set(CLASSICS.map(([t]) => t))];
   const issues = [...new Set(CLASSICS.map(([, i]) => i))];

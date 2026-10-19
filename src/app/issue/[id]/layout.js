@@ -13,7 +13,6 @@ export async function generateMetadata({ params }) {
     const issue = await getIssueData(gcdNumber ? `gcd-${gcdNumber}` : id);
     if (!issue) throw new Error("no issue");
 
-    const cover = issue.cover || null;
     const title = issueName(issue);
     const description = buildIssueDescription(issue);
 
@@ -25,13 +24,11 @@ export async function generateMetadata({ params }) {
         description,
         url: `${SITE_URL}/issue/${canonicalId}`,
         type: "article",
-        images: cover ? [{ url: cover, alt: `${title} cover` }] : undefined,
       },
       twitter: {
         card: "summary_large_image",
         title: `${title} | ComixCatalog`,
         description,
-        images: cover ? [cover] : undefined,
       },
       alternates: { canonical: `${SITE_URL}/issue/${canonicalId}` },
     };

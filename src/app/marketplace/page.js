@@ -1,10 +1,18 @@
 import MarketplaceBrowser from "@/components/MarketplaceBrowser";
 import { getListings } from "@/lib/marketplace";
 
+const MARKETPLACE_DESCRIPTION =
+  "Comics for sale from real collections on ComixCatalog. Search or browse by publisher and series, with condition and grade up front. Make an offer directly to the collector.";
+
 export const metadata = {
   title: "Marketplace",
-  description:
-    "Comics for sale from real collections on ComixCatalog. Search or browse by publisher and series, with condition and grade up front. Make an offer directly to the collector.",
+  description: MARKETPLACE_DESCRIPTION,
+  openGraph: {
+    title: "Marketplace | ComixCatalog",
+    description: MARKETPLACE_DESCRIPTION,
+    url: "/marketplace",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
 };
 
 // Rebuilt at most every 2 minutes from the cached listings (sooner when a

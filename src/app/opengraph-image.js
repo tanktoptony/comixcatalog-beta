@@ -1,92 +1,36 @@
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "next/og";
-
-// Dynamic Open Graph image — what Facebook, Discord, iMessage, X,
-// LinkedIn, Slack, and every other link-unfurler renders when our site
-// is shared. 1200×630 is the spec all of them target.
-//
-// Note: keep this on the Node runtime (default). Edge runtime + Satori
-// has trouble resolving system fonts, which causes the route to throw
-// with "missing font" before even attempting to render. Node has all
-// the fonts the OS has, so the same JSX renders without ceremony.
-//
-// LAYOUT, and why it is a fan rather than a grid (rebuilt 2026-09-24):
-//
-// The previous version laid six covers out as 3 rows × 2 columns at
-// 262px tall with 14px gaps, positioned 40px from the top. That needs
-// 3×262 + 2×14 + 40 = 854px of a canvas that is 630px tall, so the
-// bottom row was sliced through the middle on every share, everywhere.
-// Nobody notices this locally because the route renders fine — you only
-// see it in the unfurl.
-//
-// So: three covers, sized and placed to fit with room to spare, with
-// every number below checked against the 1200×630 frame.
-export const alt = "ComixCatalog — your collection, and its value, in one place";
-export const size = { width: 1200, height: 630 };
+import { getServiceClient } from "@/lib/supabase/service";
+import { loadClassicCovers } from "@/lib/heroWall";
+import { ogCover } from "@/lib/og/cover";
+import { ogFonts } from "@/lib/og/fonts";
+import { formatCountDown } from "@/lib/og/helpers";
+import { StatTile } from "@/lib/og/components";
+import { theme } from "@/lib/og/theme";
+import { OG_SIZE } from "@/lib/og/card";
+export const alt = "ComixCatalog: Catalog. Collect. Connect.";
+export const size = OG_SIZE;
 export const contentType = "image/png";
-
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-
-// Three covers chosen to read at a glance against a navy field: one dark
-// and iconic, one bright, one light. A six-cover grid was mostly texture
-// at this size; three at nearly twice the size are actually legible, which
-// is the entire job of this image.
-//
-// If a path goes stale or storage errors, that slot renders as an empty
-// card rather than breaking the image (see coverDataUrl below).
-const COVERS = [
-  { path: "comicvine/absolute-batman/1136229-vol-1-the-zoo.jpg", rotate: -7 },
-  { path: "comicvine/ultimate-spider-man/vol-48343/333461-cake-ultimate-peter-parker.jpg", rotate: 1 },
-  { path: "comicvine/saga/vol-46568/321297-chapter-one.jpg", rotate: 9 },
-];
-
-// Geometry, stated rather than discovered:
-//   card 212 × 318 (the 2:3 a comic cover actually is)
-//   step 162 between card left edges, so they overlap by 50
-//   width used: 212 + 2×162 = 536, from x=640 → 1176, leaving a 24px margin
-//   vertical: centred on 315, so 156 → 474; ±9° rotation adds ~26px of
-//   corner, which still lands well inside 0–630
-//
-// The fan starts at 640 rather than tighter, because the text column needs
-// 520px of usable width to set "Your collection," on ONE line. Crowding the
-// fan leftwards broke the headline to four lines, which reads worse than
-// slightly smaller covers.
-//
-// The overlap is 52 rather than the 86 a first pass used. A comic cover
-// carries its logo down the LEFT edge, so an aggressive fan reads as
-// "BATMA" and "FROM YO" — recognisable to nobody. 52 is the most overlap
-// that still leaves each masthead whole.
-const CARD_W = 212;
-const CARD_H = 318;
-const STEP = 162;
-const FAN_LEFT = 640;
-const FAN_TOP = 156;
-
-// Satori throws "Unsupported image type" when an <img src> answers with
-// anything but an image, and that throw fails the whole Vercel build because
-// this route prerenders. On 2026-10-06 storage returned HTTP 544 (JSON) while
-// the database was out of disk I/O budget, and the production deploy of two
-// merged PRs failed on exactly this. So fetch each cover first, keep it only
-// if it really is an image, and render an empty card otherwise.
-async function coverDataUrl(path) {
-  try {
-    const res = await fetch(`${SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}`, {
-      signal: AbortSignal.timeout(8000),
-    });
-    const type = res.headers.get("content-type") ?? "";
-    if (!res.ok || !type.startsWith("image/")) {
-      console.warn(`opengraph-image: cover ${path} unavailable (${res.status} ${type})`);
-      return null;
-    }
-    const bytes = Buffer.from(await res.arrayBuffer()).toString("base64");
-    return `data:${type};base64,${bytes}`;
-  } catch (err) {
-    console.warn(`opengraph-image: cover ${path} failed:`, err);
-    return null;
-  }
+export const revalidate = 86400;
+async function counts() {
+  const db = getServiceClient();
+  const r = await Promise.all([
+    db.from("gcd_issues").select("gcd_id", { count: "estimated", head: true }),
+    db.from("creators").select("id", { count: "estimated", head: true }),
+    db.from("key_issues").select("gcd_issue_id", { count: "exact", head: true }),
+  ]);
+  return r.some((x) => x.error) ? null : r.map((x) => x.count);
 }
-
-export default async function OpengraphImage() {
-  const coverSrcs = await Promise.all(COVERS.map((cover) => coverDataUrl(cover.path)));
+export async function homeImage() {
+  let covers = [],
+    live = null;
+  try {
+    [covers, live] = await Promise.all([loadClassicCovers(), counts()]);
+  } catch (e) {
+    console.warn("home OG data failed:", e);
+  }
+  const loaded = (await Promise.all(covers.slice(0, 12).map((c) => ogCover(c.cover)))).filter(Boolean),
+    wall = loaded.length >= 8;
   return new ImageResponse(
     (
       <div
@@ -94,124 +38,128 @@ export default async function OpengraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "#0B1E6B",
           position: "relative",
-          fontFamily: "system-ui, -apple-system, sans-serif",
+          overflow: "hidden",
+          background: theme.bg,
+          color: theme.text,
+          fontFamily: "Inter",
         }}
       >
-        {/* Warm lift behind the fan so the cards sit in light rather than
-            floating on flat navy. Larger and closer to the covers than the
-            old top-left spotlight, which was too faint to register. */}
         <div
           style={{
             position: "absolute",
-            top: -120,
-            left: 560,
-            width: 760,
-            height: 760,
-            background: "radial-gradient(circle, rgba(244, 208, 63, 0.22), transparent 62%)",
+            right: -80,
+            top: -100,
+            width: 820,
+            height: 820,
+            background: "radial-gradient(circle,rgba(216,176,75,.20),transparent 65%)",
           }}
         />
-
-        {/* LEFT COLUMN — text */}
+        {wall && (
+          <div
+            style={{
+              position: "absolute",
+              right: -90,
+              top: -80,
+              width: 680,
+              height: 810,
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 14,
+              transform: "rotate(-8deg)",
+            }}
+          >
+            {loaded.map((src, i) => (
+              <img
+                alt=""
+                key={i}
+                src={src}
+                width="150"
+                height="225"
+                style={{
+                  width: 150,
+                  height: 225,
+                  objectFit: "cover",
+                  border: "2px solid rgba(255,255,255,.75)",
+                  borderRadius: 6,
+                }}
+              />
+            ))}
+          </div>
+        )}
+        {wall && (
+          <div
+            style={{
+              position: "absolute",
+              left: 450,
+              top: 0,
+              width: 330,
+              height: "100%",
+              background: `linear-gradient(90deg,${theme.bg},transparent)`,
+            }}
+          />
+        )}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            padding: "60px 40px 60px 70px",
-            width: 630,
-            zIndex: 2,
+            width: wall ? 640 : "100%",
+            alignItems: wall ? "flex-start" : "center",
+            padding: wall ? "52px 0 52px 62px" : "52px 120px",
           }}
         >
           <div
             style={{
-              color: "#F4D03F",
-              fontSize: 30,
+              color: theme.gold,
+              fontFamily: "Big Shoulders",
               fontWeight: 800,
-              letterSpacing: 4,
-              marginBottom: 28,
+              letterSpacing: 2,
+              fontSize: 42,
             }}
           >
             COMIXCATALOG
           </div>
-
           <div
             style={{
-              color: "#fff",
-              fontSize: 62,
-              fontWeight: 900,
-              lineHeight: 1.02,
-              letterSpacing: -2,
               display: "flex",
               flexDirection: "column",
+              fontFamily: "Big Shoulders",
+              fontWeight: 800,
+              fontSize: wall ? 72 : 88,
+              lineHeight: 0.9,
+              textTransform: "uppercase",
+              marginTop: 16,
             }}
           >
-            <span>Your collection,</span>
-            <span>and its value,</span>
-            <span>in one place.</span>
+            <span>Catalog.</span>
+            <span>Collect.</span>
+            <span>Connect.</span>
           </div>
-
           <div
             style={{
-              width: 72,
-              height: 4,
-              background: "#F4D03F",
-              borderRadius: 999,
-              marginTop: 36,
-              marginBottom: 22,
-            }}
-          />
-
-          <div
-            style={{
-              color: "rgba(255,255,255,0.72)",
-              fontSize: 24,
-              fontWeight: 500,
+              color: theme.muted,
+              fontWeight: 600,
+              fontSize: wall ? 21 : 26,
+              lineHeight: 1.25,
+              marginTop: 21,
+              maxWidth: 560,
             }}
           >
-            comixcatalog.com
+            The comic book database and collection tracker, built by collectors.
           </div>
+          {live && (
+            <div style={{ display: "flex", gap: 10, marginTop: 22 }}>
+              {["issues", "creators", "key issues"].map((label, i) => (
+                <StatTile key={label} value={formatCountDown(live[i])} label={label} />
+              ))}
+            </div>
+          )}
+          <div style={{ color: theme.muted, fontSize: 20, fontWeight: 600, marginTop: 24 }}>comixcatalog.com</div>
         </div>
-
-        {/* RIGHT — the fan. Absolutely positioned per card so the overlap
-            and rotation are explicit numbers rather than flex side effects,
-            which is what let the old version silently overflow. */}
-        {COVERS.map((cover, i) => (
-          <div
-            key={cover.path}
-            style={{
-              position: "absolute",
-              left: FAN_LEFT + i * STEP,
-              top: FAN_TOP,
-              width: CARD_W,
-              height: CARD_H,
-              display: "flex",
-              borderRadius: 10,
-              overflow: "hidden",
-              background: "#111a38",
-              // A pale edge reads as a slab case, which is the right
-              // association for a site about what a collection is worth,
-              // and it keeps a dark cover from dissolving into the navy.
-              border: "3px solid rgba(255,255,255,0.88)",
-              boxShadow: "0 22px 44px rgba(0,0,0,0.55)",
-              transform: `rotate(${cover.rotate}deg)`,
-              zIndex: 3 + i,
-            }}
-          >
-            {coverSrcs[i] && (
-              <img
-                src={coverSrcs[i]}
-                alt=""
-                width={CARD_W}
-                height={CARD_H}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            )}
-          </div>
-        ))}
       </div>
     ),
-    { ...size }
+    { ...OG_SIZE, fonts: await ogFonts() },
   );
 }
+export default homeImage;

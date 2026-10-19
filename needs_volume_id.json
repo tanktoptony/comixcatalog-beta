@@ -27598,7 +27598,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27616,8 +27616,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-19T00:01:30.423682+00:00",
-    "retry_after": "2026-10-20T00:01:30.423695+00:00"
+    "last_attempt_at": "2026-10-19T00:50:39.864313+00:00",
+    "retry_after": "2026-10-20T00:50:39.864333+00:00"
   },
   {
     "name": "Cerebus",
@@ -43562,7 +43562,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43580,8 +43580,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-19T00:00:46.308296+00:00",
-    "retry_after": "2026-10-20T00:00:46.308311+00:00"
+    "last_attempt_at": "2026-10-19T00:50:39.946454+00:00",
+    "retry_after": "2026-10-20T00:50:39.946469+00:00"
   },
   {
     "name": "Justice League Special",
@@ -55845,9 +55845,9 @@
         "start_year": 1990
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T21:54:12.827228+00:00",
-    "retry_after": "2026-10-18T21:54:12.827244+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:14:14.373714+00:00",
+    "retry_after": "2026-10-22T01:14:14.373733+00:00"
   },
   {
     "name": "Corriere dei Piccoli",
@@ -55862,9 +55862,9 @@
         "start_year": 1908
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T21:54:13.101931+00:00",
-    "retry_after": "2026-10-18T21:54:13.101948+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:14:15.327355+00:00",
+    "retry_after": "2026-10-22T01:14:15.327374+00:00"
   },
   {
     "name": "Anders And & Co.",
@@ -55879,9 +55879,9 @@
         "start_year": 1949
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T21:54:13.424739+00:00",
-    "retry_after": "2026-10-18T21:54:13.424756+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:14:15.646769+00:00",
+    "retry_after": "2026-10-22T01:14:15.646789+00:00"
   },
   {
     "name": "Sally Forth",
@@ -56217,9 +56217,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:47:19.867842+00:00",
-    "retry_after": "2026-10-19T00:47:19.867863+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:41.123257+00:00",
+    "retry_after": "2026-10-22T01:13:41.123274+00:00"
   },
   {
     "name": "Valiant Comics FCBD 2013 Special",
@@ -56227,9 +56227,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:47:20.491377+00:00",
-    "retry_after": "2026-10-19T00:47:20.491396+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:41.760911+00:00",
+    "retry_after": "2026-10-22T01:13:41.760930+00:00"
   },
   {
     "name": "Kabuki The Ghost Play",
@@ -56237,9 +56237,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:47:20.888202+00:00",
-    "retry_after": "2026-10-19T00:47:20.888221+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:42.061229+00:00",
+    "retry_after": "2026-10-22T01:13:42.061247+00:00"
   },
   {
     "name": "The Banana Splits",
@@ -56266,9 +56266,9 @@
         "start_year": null
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:47:43.309891+00:00",
-    "retry_after": "2026-10-19T00:47:43.309905+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:42.526306+00:00",
+    "retry_after": "2026-10-22T01:13:42.526318+00:00"
   },
   {
     "name": "The Puma Blues",
@@ -56283,9 +56283,9 @@
         "start_year": 1986
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:47:47.456702+00:00",
-    "retry_after": "2026-10-19T00:47:47.456719+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:43.018259+00:00",
+    "retry_after": "2026-10-22T01:13:43.018277+00:00"
   },
   {
     "name": "Dracula's Daughter",
@@ -56300,9 +56300,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:47:47.910781+00:00",
-    "retry_after": "2026-10-19T00:47:47.910819+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:43.343057+00:00",
+    "retry_after": "2026-10-22T01:13:43.343079+00:00"
   },
   {
     "name": "Ghost Rider Hot Pursuit",
@@ -56310,9 +56310,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:47:48.259144+00:00",
-    "retry_after": "2026-10-19T00:47:48.259161+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:43.705464+00:00",
+    "retry_after": "2026-10-22T01:13:43.705485+00:00"
   },
   {
     "name": "Pondus [bilag til Pondus]",
@@ -56320,9 +56320,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:49:58.859789+00:00",
-    "retry_after": "2026-10-19T00:49:58.859829+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:43.971691+00:00",
+    "retry_after": "2026-10-22T01:13:43.971710+00:00"
   },
   {
     "name": "Spidey Halloween Comic Fest",
@@ -56330,9 +56330,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:49:59.404313+00:00",
-    "retry_after": "2026-10-19T00:49:59.404330+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:44.424341+00:00",
+    "retry_after": "2026-10-22T01:13:44.424361+00:00"
   },
   {
     "name": "Punisher: Franken-Castle – The Birth of the Monster",
@@ -56340,9 +56340,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:49:59.807188+00:00",
-    "retry_after": "2026-10-19T00:49:59.807204+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:45.368478+00:00",
+    "retry_after": "2026-10-22T01:13:45.368497+00:00"
   },
   {
     "name": "Almanaque Conan, O Bárbaro",
@@ -56363,9 +56363,9 @@
         "start_year": 1992
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:50:00.274528+00:00",
-    "retry_after": "2026-10-19T00:50:00.274543+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:45.667386+00:00",
+    "retry_after": "2026-10-22T01:13:45.667405+00:00"
   },
   {
     "name": "The Aquanauts",
@@ -56373,9 +56373,9 @@
     "year": 1961,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:50:01.102995+00:00",
-    "retry_after": "2026-10-19T00:50:01.103012+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:13:45.922412+00:00",
+    "retry_after": "2026-10-22T01:13:45.922432+00:00"
   },
   {
     "name": "Corriere dei Ragazzi",
@@ -56390,9 +56390,9 @@
         "start_year": 1972
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:50:01.927476+00:00",
-    "retry_after": "2026-10-19T00:50:01.927491+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:14:16.214777+00:00",
+    "retry_after": "2026-10-22T01:14:16.214795+00:00"
   },
   {
     "name": "Gli Albi di Orient Express",
@@ -56407,9 +56407,9 @@
         "start_year": 1983
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:50:02.234499+00:00",
-    "retry_after": "2026-10-19T00:50:02.234517+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:14:16.858560+00:00",
+    "retry_after": "2026-10-22T01:14:16.858597+00:00"
   },
   {
     "name": "Akim",
@@ -56448,9 +56448,9 @@
         "start_year": null
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:50:02.555395+00:00",
-    "retry_after": "2026-10-19T00:50:02.555410+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:14:17.199387+00:00",
+    "retry_after": "2026-10-22T01:14:17.199406+00:00"
   },
   {
     "name": "La Grande Dinastia dei Paperi",
@@ -56465,9 +56465,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:50:02.844922+00:00",
-    "retry_after": "2026-10-19T00:50:02.844938+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:14:18.069191+00:00",
+    "retry_after": "2026-10-22T01:14:18.069210+00:00"
   },
   {
     "name": "Hatha Yoga",
@@ -56475,9 +56475,9 @@
     "year": 1972,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:50:03.105126+00:00",
-    "retry_after": "2026-10-19T00:50:03.105144+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:14:18.882883+00:00",
+    "retry_after": "2026-10-22T01:14:18.882903+00:00"
   },
   {
     "name": "Nathan Never Gigante",
@@ -56492,9 +56492,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:51:15.163027+00:00",
-    "retry_after": "2026-10-19T00:51:15.163042+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:14:19.329372+00:00",
+    "retry_after": "2026-10-22T01:14:19.329392+00:00"
   },
   {
     "name": "Lucky Luke",
@@ -56623,9 +56623,9 @@
         "start_year": 1971
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T00:51:15.603158+00:00",
-    "retry_after": "2026-10-19T00:51:15.603175+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T01:14:19.624166+00:00",
+    "retry_after": "2026-10-22T01:14:19.624185+00:00"
   },
   {
     "name": "Sindy",
@@ -57562,5 +57562,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T00:12:25.439731+00:00",
     "retry_after": "2026-10-20T00:12:25.439747+00:00"
+  },
+  {
+    "name": "Revelry in Hell",
+    "publisher": "Fantagraphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35941,
+        "name": "Revelry in Hell",
+        "publisher": "Eros Comix",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T01:13:46.365889+00:00",
+    "retry_after": "2026-10-20T01:13:46.365908+00:00"
+  },
+  {
+    "name": "Courageous Princess: The Quest",
+    "publisher": "Antarctic Press",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T01:13:47.691080+00:00",
+    "retry_after": "2026-10-20T01:13:47.691099+00:00"
+  },
+  {
+    "name": "Stupid Comics, Phoenix Edition",
+    "publisher": "Image Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T01:13:56.626122+00:00",
+    "retry_after": "2026-10-20T01:13:56.626142+00:00"
   }
 ]

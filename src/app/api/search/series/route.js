@@ -520,10 +520,22 @@ function coverUrl(path) {
 
 // Covers are picked for the returned page only, outside the term cache, from
 // the per-series stored pick (see src/lib/catalog/seriesCardCovers.js).
-async function withCardCovers(result, parsed, limit, timing) {
+// runs: every run titled exactly what was searched, then the usual variety.
+// The results page uses it for its end-of-list "full runs" links, where
+// Superman (1987) matters even though the shelf keeps two Supermans.
+function exactRunsFirst(rows, title, limit) {
+  const wanted = normalizeForScoring(title);
+  const exact = rows.filter((row) => normalizeForScoring(row.title) === wanted).slice(0, limit);
+  const rest = rows.filter((row) => !exact.includes(row));
+  return [...exact, ...diversify(rest, { limit: limit - exact.length, perTitle: 2 })].slice(0, limit);
+}
+
+async function withCardCovers(result, parsed, limit, timing, runsTitle = null) {
   const selected = parsed.year != null
     ? sliceSearchResults(result.series, { limit })
-    : diversify(result.series, { limit, perTitle: 2 });
+    : runsTitle
+      ? exactRunsFirst(result.series ?? [], runsTitle, limit)
+      : diversify(result.series, { limit, perTitle: 2 });
   const resolve = () => resolveSeriesCardCovers(getServiceClient(), selected.map((row) => ({
     id: row.id,
     gcd_id: row.gcd_id,
@@ -543,7 +555,7 @@ async function withCardCovers(result, parsed, limit, timing) {
   };
 }
 
-export async function getCachedSeriesSearch(q, { limit = 12, timing = null } = {}) {
+export async function getCachedSeriesSearch(q, { limit = 12, timing = null, runs = false } = {}) {
   const parsed = parseSearchQuery(q);
   const title = stripTrailingIssueNumber(parsed.title || q) || parsed.title || q;
   const normalizedTerm = normalizeSearchCacheTerm(title);
@@ -558,7 +570,7 @@ export async function getCachedSeriesSearch(q, { limit = 12, timing = null } = {
       throw error;
     }),
   });
-  return { ...(await withCardCovers(result, parsed, limit, timing)), _cacheState: state };
+  return { ...(await withCardCovers(result, parsed, limit, timing, runs ? title : null)), _cacheState: state };
 }
 
 export async function GET(req) {
@@ -572,7 +584,8 @@ export async function GET(req) {
     const requested = Number(searchParams.get("limit"));
     const limit = Number.isFinite(requested) ? Math.max(1, Math.min(Math.trunc(requested), 40)) : 12;
     if (!q) return NextResponse.json({ series: [] }, { headers: { "Server-Timing": timing.header() } });
-    const result = await timing.measure("search_cache", () => getCachedSeriesSearch(q, { limit, timing }));
+    const runs = searchParams.get("runs") === "1";
+    const result = await timing.measure("search_cache", () => getCachedSeriesSearch(q, { limit, timing, runs }));
     const { _serverTiming, _cacheState, ...body } = result;
     const headers = result.degraded ? undefined : CDN_CACHE_SHORT;
     const response = timing.measureSync("serialization", () => NextResponse.json(body, { headers }));

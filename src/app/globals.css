@@ -13163,3 +13163,61 @@ select.input {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* End of /search issue results (2026-10-19): search keeps a term's top 120
+   issue matches, so the list ends with links to each matching series' full run. */
+.search-runs-end {
+  margin-top: 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--cc-line, #2b3444);
+  border-radius: 12px;
+  background: var(--cc-surface, #11161d);
+}
+.search-runs-end-lead {
+  margin: 0 0 12px;
+  color: var(--cc-text-muted, #a4aebb);
+  font-size: 0.92rem;
+}
+.search-runs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 8px;
+}
+.search-runs-list a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--cc-line, #2b3444);
+  border-radius: 9px;
+  background: var(--cc-surface-2, #171d26);
+  color: var(--cc-text, #eef2f7);
+  text-decoration: none;
+}
+.search-runs-list a:hover,
+.search-runs-list a:focus-visible {
+  border-color: var(--cc-gold, #d8b04b);
+}
+.search-runs-title {
+  font-weight: 700;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.search-runs-meta {
+  grid-column: 1;
+  color: var(--cc-text-muted, #a4aebb);
+  font-size: 0.8rem;
+}
+.search-runs-go {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: var(--cc-gold, #d8b04b);
+  font-size: 0.82rem;
+  font-weight: 700;
+}

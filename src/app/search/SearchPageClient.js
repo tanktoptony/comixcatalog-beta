@@ -269,6 +269,31 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     };
   }, [term]);
 
+  // ── Full runs, for the end of the issue list ────────────────────────────────
+  // The shelf above keeps two runs per title for variety; the end-of-list
+  // links ask for every run with the searched title (runs=1), so "superman"
+  // ends with Superman (1987) too. Fetched once the issue list is exhausted.
+  const [fullRuns, setFullRuns] = useState({ term: null, series: [] });
+  const issuesExhausted = !hasMore && !isLoading && !isFirstLoad && supabaseComics.length > 0;
+  useEffect(() => {
+    if (!term || !issuesExhausted || fullRuns.term === term) return;
+    let cancelled = false;
+    fetch(`/api/search/series?q=${encodeURIComponent(term)}&limit=12&runs=1`)
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`Runs request failed: ${res.status}`))))
+      .then((data) => {
+        if (!cancelled) setFullRuns({ term, series: Array.isArray(data?.series) ? data.series.filter(Boolean) : [] });
+      })
+      .catch((err) => {
+        console.error("Full-runs fetch failed:", err);
+        if (!cancelled) setFullRuns({ term, series: [] });
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [term, issuesExhausted, fullRuns.term]);
+  const endRuns = (fullRuns.term === term && fullRuns.series.length ? fullRuns.series : seriesResults).filter((s) => s?.id);
+
+
   // ── Map + dedupe comics ──────────────────────────────────────────────────────
   const mappedComics = useMemo(() => {
     const mapped = supabaseComics.filter(Boolean).map(mapSupabaseComic).filter((item) => item && item.id);
@@ -633,6 +658,53 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
           <button className="comic-btn" onClick={() => setPage((p) => p + 1)}>
             Load More
           </button>
+        </div>
+      )}
+
+      {/* End of the issue matches. Search keeps a term's top matches (120
+          issues), so a big run like Superman stops partway; the series page
+          has every issue. End with somewhere to go instead of a dead end. */}
+      {!hasMore && !isLoading && !isFirstLoad && results.length > 0 && (
+        <div className="search-runs-end">
+          {endRuns.length > 0 ? (
+            <>
+              <p className="search-runs-end-lead">
+                That&apos;s the end of the issue matches. Every issue of a run lives on its series page:
+              </p>
+              <ul className="search-runs-list">
+                {endRuns.map((s) => (
+                  <li key={s.id}>
+                    <Link
+                      prefetch={false}
+                      href={`/series/${s.id}`}
+                      onClick={() =>
+                        trackEvent("search_result_click", {
+                          result_type: "series_full_run",
+                          result_id: s.id,
+                          search_term: term,
+                        })
+                      }
+                    >
+                      <span className="search-runs-title">
+                        {s.title || "Untitled Series"}
+                        {s.year_start ? ` (${s.year_start})` : ""}
+                      </span>
+                      <span className="search-runs-meta">
+                        {[s.publisher?.name, s.issue_count != null ? `${Number(s.issue_count).toLocaleString("en-US")} issues` : null]
+                          .filter(Boolean)
+                          .join(" · ")}
+                      </span>
+                      <span className="search-runs-go" aria-hidden="true">
+                        Full run →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <p className="search-runs-end-lead">That&apos;s every issue match for this search.</p>
+          )}
         </div>
       )}
     </section>

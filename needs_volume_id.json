@@ -31988,9 +31988,9 @@
   },
   {
     "name": "Super Street Fighter",
-    "publisher": "Udon Entertainment Corp.",
+    "publisher": "Eclipse Comics",
     "year": 2018,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 56422,
@@ -32003,11 +32003,17 @@
         "name": "Super Street Fighter",
         "publisher": "UDON",
         "start_year": 2015
+      },
+      {
+        "id": 162590,
+        "name": "Super Street Fighter",
+        "publisher": "Moztros Producciones",
+        "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-02T23:01:03.642912+00:00",
-    "retry_after": "2026-10-09T23:01:03.642928+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:24:57.421268+00:00",
+    "retry_after": "2026-10-20T07:24:57.421286+00:00"
   },
   {
     "name": "Doctor Strange / Ghost Rider Special",
@@ -58103,5 +58109,148 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T06:41:57.701156+00:00",
     "retry_after": "2026-10-20T06:41:57.701167+00:00"
+  },
+  {
+    "name": "Iono-sama Fanatics",
+    "publisher": "Dark Horse Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 104335,
+        "name": "Iono-Sama Fanatics",
+        "publisher": "Infinity Studios",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:23:51.244197+00:00",
+    "retry_after": "2026-10-20T07:23:51.244212+00:00"
+  },
+  {
+    "name": "Showgirls",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30483,
+        "name": "Showgirls",
+        "publisher": "Marvel",
+        "start_year": 1957
+      },
+      {
+        "id": 1855,
+        "name": "Showgirls",
+        "publisher": "Marvel",
+        "start_year": 1957
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:23:51.610683+00:00",
+    "retry_after": "2026-10-20T07:23:51.610698+00:00"
+  },
+  {
+    "name": "Sgt. Fury #13 [JC Penney Marvel Vintage Pack]",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:23:52.353160+00:00",
+    "retry_after": "2026-10-20T07:23:52.353176+00:00"
+  },
+  {
+    "name": "Kyouhaku Dog's -Another Secret- [?????Dog's -Another Secret-]",
+    "publisher": "Dark Horse Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:23:52.778529+00:00",
+    "retry_after": "2026-10-20T07:23:52.778541+00:00"
+  },
+  {
+    "name": "Wolverine vs The Brood Queen",
+    "publisher": "Marvel Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:23:53.245830+00:00",
+    "retry_after": "2026-10-20T07:23:53.245845+00:00"
+  },
+  {
+    "name": "Star Trek Greatest Hits",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:23:53.749082+00:00",
+    "retry_after": "2026-10-20T07:23:53.749095+00:00"
+  },
+  {
+    "name": "True Spy Stories",
+    "publisher": "Caliber Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:23:54.160543+00:00",
+    "retry_after": "2026-10-20T07:23:54.160558+00:00"
+  },
+  {
+    "name": "Santa Claws",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70298,
+        "name": "Santa Claws",
+        "publisher": "Eternity",
+        "start_year": 1991
+      },
+      {
+        "id": 78617,
+        "name": "Santa Claws",
+        "publisher": "Thorby Enterprises",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:24:08.549467+00:00",
+    "retry_after": "2026-10-20T07:24:08.549480+00:00"
+  },
+  {
+    "name": "The Gear Station Prelude",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:24:33.857112+00:00",
+    "retry_after": "2026-10-20T07:24:33.857126+00:00"
+  },
+  {
+    "name": "Popular Action Album",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:24:38.636719+00:00",
+    "retry_after": "2026-10-20T07:24:38.636734+00:00"
+  },
+  {
+    "name": "Captain Power and the Soldiers of the Future Annual",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T07:24:52.356852+00:00",
+    "retry_after": "2026-10-20T07:24:52.356867+00:00"
   }
 ]

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { eraForYear, packTimelineRows, sortKeyIssues, xForYear } from "./keyTimeline.js";
+import { eraForYear, packTimelineRows, sortKeyIssues, xForYear, groupByDecade } from "./keyTimeline.js";
 
 test("eraForYear uses the catalog age boundaries", () => {
   assert.equal(eraForYear(1955)?.id, "golden");
@@ -38,4 +38,15 @@ test("packTimelineRows places tier 1 first and prevents overlaps", () => {
 test("sortKeyIssues sorts numeric issues before named issues", () => {
   const sorted = sortKeyIssues(["100", "Annual 1", "24", "1", "16"].map((issue_number, index) => ({ issue_number, gcd_issue_id: index })));
   assert.deepEqual(sorted.map((issue) => issue.issue_number), ["1", "16", "24", "100", "Annual 1"]);
+});
+
+test("groupByDecade buckets by decade in issue order and skips undated keys", () => {
+  const groups = groupByDecade([
+    { gcd_issue_id: 3, issue_number: "59", year: 1950 },
+    { gcd_issue_id: 1, issue_number: "1", year: 1940 },
+    { gcd_issue_id: 2, issue_number: "16", year: 1943 },
+    { gcd_issue_id: 4, issue_number: "121", year: 1959 },
+    { gcd_issue_id: 5, issue_number: "?", year: null },
+  ]);
+  assert.deepEqual(groups.map((g) => [g.decade, g.issues.map((i) => i.issue_number)]), [[1940, ["1", "16"]], [1950, ["59", "121"]]]);
 });

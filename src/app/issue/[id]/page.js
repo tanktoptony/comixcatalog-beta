@@ -4,6 +4,26 @@ import { getIssueData, getIssuePageData, isIssueNotFoundError, resolveIssueEditi
 import { redirectForEdition } from "@/lib/issueEditions";
 import { buildIssueJsonLd } from "@/lib/issueSeo";
 import { safeJsonLd } from "@/lib/jsonLd";
+import { getServiceClient } from "@/lib/supabase/service";
+
+async function resolveComicVineIssue(id) {
+  const match = String(id).match(/^cv-(\d+)-(.+)$/);
+  if (!match) return null;
+  const { data, error } = await getServiceClient()
+    .from("gcd_issues")
+    .select("gcd_id")
+    .eq("series_gcd_id", Number(match[1]))
+    .eq("issue_number", match[2])
+    .is("variant_of_gcd_id", null)
+    .order("gcd_id", { ascending: true })
+    .limit(1)
+    .maybeSingle();
+  if (error) {
+    console.error("ComicVine issue redirect lookup failed:", error);
+    return null;
+  }
+  return data?.gcd_id == null ? null : Number(data.gcd_id);
+}
 
 export default async function IssuePage({ params, searchParams }) {
   const { id } = await params;
@@ -17,6 +37,9 @@ export default async function IssuePage({ params, searchParams }) {
       const edition = /^\d+$/.test(String(query?.edition ?? "")) ? `?edition=${query.edition}` : "";
       permanentRedirect(`/issue/gcd-${id}${edition}`);
     }
+    const comicVineGcdId = await resolveComicVineIssue(id);
+    if (comicVineGcdId != null)
+      permanentRedirect(`/issue/gcd-${comicVineGcdId}`);
     const gcdMatch = String(id).match(/^gcd-(\d+)$/);
     // Not in the mirror (or the lookup failed): the old loader, as before.
     const routeEdition = gcdMatch ? await resolveIssueEdition(gcdMatch[1]) : null;

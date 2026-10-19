@@ -7,6 +7,8 @@ import {
   dedupeRows,
   fillStoryCreditText,
   formatStoryCharacters,
+  mapDumpIssueRows,
+  missingIssueIds,
   reserveSlug,
   resolveBases,
   rolesForCreditType,
@@ -259,6 +261,30 @@ test("rollup refuses a limit without explicit series ids", () => {
   assert.doesNotThrow(() =>
     validateRollupLimit({ phase: "rollup", limit: 10, seriesIds: [1576] }),
   );
+});
+
+test("computes missing dump issues from mirror membership", () => {
+  const rows = [{ id: 1 }, { id: 2 }, { id: 3 }];
+  assert.deepEqual([...missingIssueIds(rows, new Set([1, 3]))], [2]);
+});
+
+test("maps missing dump issues and resolves their edition bases", () => {
+  const rows = [
+    { id: 10, series_id: 7, number: "1", title: " Base ", publication_date: "2026", key_date: "2026-01-00", publisher_id: 4, variant_of_id: null, variant_name: null },
+    { id: 11, series_id: 7, number: "1", title: "Variant", publication_date: "2026", key_date: "2026-01-00", publisher_id: 4, variant_of_id: 10, variant_name: " Foil " },
+  ];
+  assert.deepEqual(mapDumpIssueRows(rows, new Set([10])), [{
+    gcd_id: 11,
+    series_gcd_id: 7,
+    issue_number: "1",
+    title: "Variant",
+    publication_date: "2026",
+    key_date: "2026-01-00",
+    publisher_gcd_id: 4,
+    variant_of_gcd_id: 10,
+    variant_name: "Foil",
+    base_gcd_issue_id: 10,
+  }]);
 });
 
 test("a bare ? credit is unknown, not a name", () => {

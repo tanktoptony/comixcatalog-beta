@@ -11,6 +11,7 @@ import {
   dedupeRows,
   fillStoryCreditText,
   formatStoryCharacters,
+  mapDumpIssueRows,
   resolveBases,
   reserveSlug,
   rolesForCreditType,
@@ -21,6 +22,7 @@ import {
 const DEFAULT_DB =
   "C:/Users/antho/Desktop/comixcatalog-frontend/gcd-dump/2026-10-10.db";
 const PHASES = [
+  "issues",
   "creators",
   "details",
   "stories",
@@ -156,8 +158,8 @@ async function retry(label, operation, attempts = 8) {
   }
 }
 
-async function loadMirrorIds(supabase) {
-  if (existsSync(cachePath()))
+async function loadMirrorIds(supabase, { refresh = false } = {}) {
+  if (!refresh && existsSync(cachePath()))
     return new Set(JSON.parse(readFileSync(cachePath(), "utf8")));
   if (!supabase) return null;
   const ids = [];
@@ -181,8 +183,13 @@ async function loadMirrorIds(supabase) {
   return new Set(ids);
 }
 
-async function loadMirrorSeriesIds(supabase) {
-  if (existsSync(seriesCachePath()))
+function saveMirrorIds(ids) {
+  mkdirSync("tmp", { recursive: true });
+  writeFileSync(cachePath(), JSON.stringify([...ids].sort((a, b) => a - b)));
+}
+
+async function loadMirrorSeriesIds(supabase, { refresh = false } = {}) {
+  if (!refresh && existsSync(seriesCachePath()))
     return new Set(JSON.parse(readFileSync(seriesCachePath(), "utf8")));
   if (!supabase) return null;
   const ids = [];
@@ -247,6 +254,79 @@ function selectIssues(db, mirrorIds, selectionOptions = options) {
       break;
   }
   return { issues: eligible, skippedNotMirrored, skippedResume };
+}
+
+function dumpIssuesForSeries(db, mirrorIds, mirrorSeriesIds) {
+  const selected = [];
+  const selectedIds = new Set();
+  const query = db.prepare(
+    `select i.id,i.series_id,i.number,i.title,i.publication_date,i.key_date,
+      s.publisher_id,i.variant_of_id,i.variant_name
+     from gcd_issue i join gcd_series s on s.id=i.series_id
+     where i.deleted=0 and s.deleted=0 order by i.id`,
+  );
+  for (const row of query.iterate()) {
+    const id = Number(row.id);
+    if (!mirrorSeriesIds.has(Number(row.series_id)) || mirrorIds.has(id)) continue;
+    selected.push(row);
+    selectedIds.add(id);
+  }
+  let parentIds = [...new Set(selected
+    .map((row) => Number(row.variant_of_id))
+    .filter((id) => id && !selectedIds.has(id)))];
+  for (let hop = 0; hop < 5 && parentIds.length; hop += 1) {
+    const parents = [];
+    for (const batch of chunks(parentIds, 500))
+      parents.push(...db.prepare(
+        `select i.id,i.series_id,i.number,i.title,i.publication_date,i.key_date,
+          s.publisher_id,i.variant_of_id,i.variant_name
+         from gcd_issue i join gcd_series s on s.id=i.series_id
+         where i.id in (${placeholders(batch.length)})`,
+      ).all(...batch));
+    parentIds = [];
+    for (const row of parents) {
+      const id = Number(row.id);
+      if (selectedIds.has(id) || !mirrorIds.has(id)) continue;
+      selected.push(row);
+      selectedIds.add(id);
+      const parentId = Number(row.variant_of_id);
+      if (parentId && !selectedIds.has(parentId)) parentIds.push(parentId);
+    }
+  }
+  return selected;
+}
+
+async function issuesPhase(db, supabase, mirrorIds, mirrorSeriesIds) {
+  const dumpRows = dumpIssuesForSeries(db, mirrorIds, mirrorSeriesIds);
+  const missingRows = mapDumpIssueRows(dumpRows, mirrorIds);
+  const after = loadCursor("issues");
+  let rows = missingRows
+    .filter((row) => row.gcd_id > after)
+    .sort((a, b) => a.gcd_id - b.gcd_id);
+  if (options.limit != null) rows = rows.slice(0, options.limit);
+  const counts = { missing: rows.length, inserted: 0 };
+  console.log(
+    `issues missing=${rows.length} skipped_resume=${missingRows.length - rows.length}`,
+  );
+  if (options.dryRun) {
+    printSamples("issues", rows, 20);
+    return counts;
+  }
+  const started = Date.now();
+  const batches = chunks(rows, 250);
+  for (let index = 0; index < batches.length; index += 1) {
+    const batch = batches[index];
+    await retry("insert gcd_issues", () => supabase
+      .from("gcd_issues")
+      .upsert(batch, { onConflict: "gcd_id", ignoreDuplicates: true }));
+    for (const row of batch) mirrorIds.add(row.gcd_id);
+    counts.inserted += batch.length;
+    saveCursor("issues", batch.at(-1).gcd_id);
+    progress("issues", index + 1, counts.inserted, batches.length, started);
+    await sleep(options.sleep);
+  }
+  saveMirrorIds(mirrorIds);
+  return counts;
 }
 
 function chunks(rows, size = options.batch) {
@@ -975,20 +1055,32 @@ async function run() {
       { auth: { persistSession: false } },
     );
   }
-  const mirrorIds = await loadMirrorIds(supabase);
+  const phases = options.phase === "all" ? PHASES : [options.phase];
+  const mirrorIds = await loadMirrorIds(supabase, {
+    refresh: phases.includes("issues") && !options.dryRun,
+  });
   if (!mirrorIds)
     console.warn(
       "dry-run: no local gcd_issues cache; mirror membership cannot be checked (run one non-dry phase to create it)",
     );
-  const phases = options.phase === "all" ? PHASES : [options.phase];
-  const mirrorSeriesIds = phases.includes("rollup")
-    ? await loadMirrorSeriesIds(supabase)
+  const mirrorSeriesIds = phases.some((phase) =>
+    ["issues", "rollup"].includes(phase))
+    ? await loadMirrorSeriesIds(supabase, {
+        refresh: phases.includes("issues") && !options.dryRun,
+      })
     : null;
-  if (phases.includes("rollup") && !mirrorSeriesIds)
+  if (
+    phases.some((phase) => ["issues", "rollup"].includes(phase)) &&
+    !mirrorSeriesIds
+  )
     console.warn(
       "dry-run: no local gcd_series cache; series membership cannot be checked (run one non-dry rollup to create it)",
     );
-  const selection = selectIssues(
+  if (phases.includes("issues") && (!mirrorIds || !mirrorSeriesIds))
+    throw new Error(
+      "issues phase requires local mirror issue and series caches during dry-run",
+    );
+  let selection = selectIssues(
     db,
     mirrorIds,
     phases.length === 1 && phases[0] === "rollup"
@@ -1023,6 +1115,18 @@ async function run() {
         .map((r) => [Number(r.gcd_creator_id), Number(r.id)]),
     );
   for (const phase of phases) {
+    if (phase === "issues") {
+      const importId = options.dryRun ? null : await startImport(supabase, phase);
+      counts.issues = await issuesPhase(
+        db,
+        supabase,
+        mirrorIds,
+        mirrorSeriesIds,
+      );
+      await finishImport(supabase, importId, counts.issues);
+      selection = selectIssues(db, mirrorIds, options);
+      continue;
+    }
     const phaseIssues =
       phase === "rollup"
         ? selectIssues(db, mirrorIds, {

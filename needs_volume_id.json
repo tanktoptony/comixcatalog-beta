@@ -16983,13 +16983,13 @@
   },
   {
     "name": "Moro Rogers' City in the Desert",
-    "publisher": "Archaia",
+    "publisher": "BOOM! Studios",
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T04:00:45.414618+00:00",
-    "retry_after": "2026-09-26T04:00:45.414634+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T13:27:09.475408+00:00",
+    "retry_after": "2026-10-20T13:27:09.475444+00:00"
   },
   {
     "name": "Free Comic Book Day 2014 (Rocket Raccoon)",
@@ -58844,7 +58844,153 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-19T12:57:51.787034+00:00",
-    "retry_after": "2026-10-20T12:57:51.787049+00:00"
+    "last_attempt_at": "2026-10-19T12:24:51.269403+00:00",
+    "retry_after": "2026-10-20T12:24:51.269412+00:00"
+  },
+  {
+    "name": "The Marvel Comics Covers of Jack Kirby",
+    "publisher": "Dark Horse Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T13:27:08.067245+00:00",
+    "retry_after": "2026-10-20T13:27:08.067253+00:00"
+  },
+  {
+    "name": "Vamplets: Beware the Bitmares",
+    "publisher": "Action Lab Entertainment",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T13:27:08.550954+00:00",
+    "retry_after": "2026-10-20T13:27:08.550962+00:00"
+  },
+  {
+    "name": "Robotech II: The Sentinels Swimsuit Spectacular",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34661,
+        "name": "Robotech II: The Sentinels - Swimsuit Spectacular",
+        "publisher": "Eternity",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T13:27:09.030531+00:00",
+    "retry_after": "2026-10-20T13:27:09.030547+00:00"
+  },
+  {
+    "name": "Planet of the Apes Annual",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31643,
+        "name": "Planet of the Apes Annual",
+        "publisher": "Adventure",
+        "start_year": 1991
+      },
+      {
+        "id": 46769,
+        "name": "Planet of the Apes Annual",
+        "publisher": "Brown Watson",
+        "start_year": 1975
+      },
+      {
+        "id": 51200,
+        "name": "Planet of the Apes Annual",
+        "publisher": "Boom! Studios",
+        "start_year": 2012
+      },
+      {
+        "id": 115141,
+        "name": "Planet of the Apes Annual",
+        "publisher": "Newton Comics",
+        "start_year": 1976
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T13:27:10.272448+00:00",
+    "retry_after": "2026-10-20T13:27:10.272464+00:00"
+  },
+  {
+    "name": "All-Star Superman [Free Comic Book Day Edition]",
+    "publisher": "DC Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T13:27:15.421124+00:00",
+    "retry_after": "2026-10-20T13:27:15.421139+00:00"
+  },
+  {
+    "name": "Koolau the Leper",
+    "publisher": "Caliber Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T13:27:16.240835+00:00",
+    "retry_after": "2026-10-20T13:27:16.240844+00:00"
+  },
+  {
+    "name": "Black Adam - The Justice Society Files: Cyclone",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T13:27:16.680249+00:00",
+    "retry_after": "2026-10-20T13:27:16.680258+00:00"
+  },
+  {
+    "name": "Troublemakers Preview",
+    "publisher": "Valiant Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T13:27:17.772727+00:00",
+    "retry_after": "2026-10-20T13:27:17.772743+00:00"
+  },
+  {
+    "name": "World's Finite Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109470,
+        "name": "World's Finite Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T13:27:27.226601+00:00",
+    "retry_after": "2026-10-20T13:27:27.226611+00:00"
+  },
+  {
+    "name": "Lady Mechanika: The Collected Edition",
+    "publisher": "Aspen Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79865,
+        "name": "Lady Mechanika Collected Edition",
+        "publisher": "Benitez Productions",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T13:27:32.350106+00:00",
+    "retry_after": "2026-10-20T13:27:32.350122+00:00"
   }
 ]

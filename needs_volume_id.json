@@ -270,12 +270,13 @@
   },
   {
     "name": "Coup D'etat: StormWatch",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2004,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.553939+00:00"
+    "last_attempt_at": "2026-10-19T05:25:26.180553+00:00",
+    "retry_after": "2026-10-20T05:25:26.180573+00:00"
   },
   {
     "name": "Outsiders: Five of a Kind - Martian Manhunter / Thunder",
@@ -57958,5 +57959,75 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T04:24:22.055975+00:00",
     "retry_after": "2026-10-20T04:24:22.055990+00:00"
+  },
+  {
+    "name": "The Best of Sad Sack",
+    "publisher": "Marvel Comics",
+    "year": 1961,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T05:25:06.230567+00:00",
+    "retry_after": "2026-10-20T05:25:06.230587+00:00"
+  },
+  {
+    "name": "The Superman Movie Special",
+    "publisher": "DC Comics",
+    "year": 1983,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T05:25:11.235784+00:00",
+    "retry_after": "2026-10-20T05:25:11.235808+00:00"
+  },
+  {
+    "name": "True Believers: Avengers Forever",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T05:25:26.733769+00:00",
+    "retry_after": "2026-10-20T05:25:26.733789+00:00"
+  },
+  {
+    "name": "Black Jack Special: Operation Down Under",
+    "publisher": "VIZ Media",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T05:25:27.139157+00:00",
+    "retry_after": "2026-10-20T05:25:27.139180+00:00"
+  },
+  {
+    "name": "Beck & Caul Investigations: A Single Step",
+    "publisher": "Caliber Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T05:25:27.595359+00:00",
+    "retry_after": "2026-10-20T05:25:27.595379+00:00"
+  },
+  {
+    "name": "Marvel's Greatest Creators: What If? - Spider-Girl",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T05:25:38.900216+00:00",
+    "retry_after": "2026-10-20T05:25:38.900232+00:00"
+  },
+  {
+    "name": "World Wrestling Federation Out-of-the-Ring Challenges",
+    "publisher": "Valiant Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T05:25:39.330585+00:00",
+    "retry_after": "2026-10-20T05:25:39.330620+00:00"
   }
 ]

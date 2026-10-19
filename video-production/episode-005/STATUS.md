@@ -15,9 +15,11 @@ The Amory Wars, Part 2: The Second Stage Turbine Blade, track by track. Channel 
 - `build_audio.py` -> VOICE_PROGRAM.wav + narration.words.js + audio-plan.json (17:56, song-intro and swell slots). `build_music.py [album dir]` -> MUSIC_PROGRAM.wav. `final_mix.py` sums the stems onto a rendered mp4 with `-c:v copy` (no re-render when only music changes).
 - `timeline.js`: 268 shots; new `tracklist` segment type (TrackListCard). `shorts-timeline.js` + `build_shorts_audio.py`: standalone Shorts on one clock. `fixWords.js` fixes Whisper spellings for captions. `package.mjs` writes the Desktop package.
 
-## Waiting on Tony
+## Shipped to Desktop (2026-10-19)
 
-- Album audio: his own copy of the 10 SSTB tracks (any format) in `Desktop/YouTube/episode-005-assets/audio/album/`. Original 2002 track 10 (with the hidden IRO-Bot), or the 2005 reissue plus its "Everything Evil (Demo)". Then: `build_music.py <album dir>`, listen-check the swells, `final_mix.py`, `package.mjs`.
+- `Desktop/YouTube/episode-005-youtube`: episode-005.mp4 (17:08, render + final_mix with Track 1 clip), captions.srt, PACKAGE.md, 2 thumbnails, 3 Shorts. Upload page: https://claude.ai/artifact/QTSaiNJLyRVQA2KZ83SUAJ
+- Album: Tony had no copy; he screen-captured Track 1 (`audio/album/`). Clips are 5 s max, one per song; Rollin at 5 runs under the voice. More captures: drop the audio in `audio/album/`, `MUSIC_OUT=MUSIC_ALBUM.wav build_music.py <album dir>`, then `final_mix.py` (no re-render).
+- Narration says "Knowledge, Beast and Inferno"; on-screen cards say "The Knowledge, the Beast, the Inferno" (Tony's fix). He kept the recorded line.
 
 ## Music plan
 

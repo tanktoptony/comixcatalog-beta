@@ -26,7 +26,7 @@ def decode(path, start=0.0, dur=None):
     return a[: len(a) // 2 * 2].reshape(-1, 2)
 
 voice = decode(os.path.join(AUD, "VOICE_PROGRAM.wav"))
-music = decode(os.path.join(AUD, "MUSIC_PROGRAM.wav"))
+music = decode(os.path.join(AUD, os.environ.get("MUSIC_OUT", "MUSIC_PROGRAM.wav")))
 n = int(plan["duration"] * SR)
 mix = np.zeros((n, 2), dtype=np.float32)
 mix[: min(n, len(voice))] += voice[:n]

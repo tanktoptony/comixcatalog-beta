@@ -19,12 +19,15 @@ ROOT = os.path.dirname(HERE)
 FF = os.path.join(ROOT, "node_modules", "@remotion", "compositor-win32-x64-msvc", "ffmpeg.exe")
 AUD = os.path.join(ROOT, "public", "episode-005", "audio")
 SR = 48000
-INTRO_DB, BED_DB, ROLLIN_DB = -16.0, -26.0, -27.0
+INTRO_DB, BED_DB, ROLLIN_DB = -17.0, -26.0, -27.0
 RAMP = 0.8
 TITLES = ["second stage turbine blade", "time consumer", "devil in jersey city", "everything evil", "delirium trigger",
           "hearshot kid disaster", "33", "junesong provision", "neverender", "god send conspirator"]
 # Where swells start in the source song (seconds). None = detect (see below).
 SWELL_SRC = {"ee_piano": None, "gsc_piano": None, "irobot": None}
+# Where each track's chapter clip starts in the source file (seconds). None = first onset.
+# Track 1: Tony's capture is quiet until the build at about 0:23.
+CLIP_SRC = {1: 23.0}
 
 plan = json.load(open(os.path.join(HERE, "audio-plan.json")))
 album_dir = sys.argv[1] if len(sys.argv) > 1 else None
@@ -119,7 +122,7 @@ clips = []
 for m in plan["music"]:
     k = m["kind"]
     if k == "intro" and m["track"] in songs:
-        clips.append((m["track"], onset(songs[m["track"]][0]), m["at"], m["dur"], INTRO_DB))
+        clips.append((m["track"], CLIP_SRC.get(m["track"]) if CLIP_SRC.get(m["track"]) is not None else onset(songs[m["track"]][0]), m["at"], m["dur"], INTRO_DB))
     elif k == "swell" and m["track"] in songs:
         src = detect(m["key"]); report.append(f"swell {m['key']}: source {src:.1f}s")
         clips.append((m["track"], src, m["at"], m["dur"], INTRO_DB - 1))
@@ -128,6 +131,8 @@ for m in plan["music"]:
 for track, src, at, L, db in clips:
     x, g0 = songs[track]
     g = 10 ** (db / 20) * g0
+    pk = np.abs(x[int(src * SR): int((src + L) * SR)]).max() * g
+    if pk > 10 ** (-3 / 20): g *= 10 ** (-3 / 20) / pk  # clips peak at -3 dBFS at most
     place(x, src, at, L, lambda t, L=L, g=g: g * np.clip(np.minimum(t / 0.08, (L - t) / 0.6), 0, 1))
 
 # Rollin at 5: one continuous bed, dipping under each album clip.
@@ -150,9 +155,10 @@ def loop_xfade(x, need, xf=SR):
     return out_
 place(loop_xfade(rollin, int((L + 1) * SR)), 0, r["at"], L, rollin_gain)
 
-write(os.path.join(AUD, "MUSIC_PROGRAM.wav"), out)
-v = decode(os.path.join(AUD, "VOICE_PROGRAM.wav"))
-write(os.path.join(AUD, "VOICE_PROGRAM.wav"), v)
+write(os.path.join(AUD, os.environ.get("MUSIC_OUT", "MUSIC_PROGRAM.wav")), out)
+if not os.environ.get("MUSIC_OUT"):
+    v = decode(os.path.join(AUD, "VOICE_PROGRAM.wav"))
+    write(os.path.join(AUD, "VOICE_PROGRAM.wav"), v)
 peak = 20 * np.log10(np.abs(out).max() + 1e-9)
 print("\n".join(report))
 print(f"MUSIC_PROGRAM.wav {len(out)/SR:.1f}s, peak {peak:.1f} dBFS; voice stereo rewritten")

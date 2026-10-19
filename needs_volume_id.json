@@ -9652,9 +9652,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-16T13:14:52.865863+00:00",
-    "retry_after": "2026-10-19T13:14:52.865877+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-19T14:00:43.219543+00:00",
+    "retry_after": "2026-10-26T14:00:43.219557+00:00"
   },
   {
     "name": "Space Ghost",
@@ -14797,13 +14797,13 @@
   },
   {
     "name": "You've Got to Be Kidding, Snoopy!",
-    "publisher": "Fawcett Comics",
+    "publisher": "Heavy Metal",
     "year": 1978,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-09-21T12:02:38.042245+00:00",
-    "retry_after": "2026-09-22T12:02:38.042261+00:00"
+    "last_attempt_at": "2026-10-19T14:25:02.227201+00:00",
+    "retry_after": "2026-10-20T14:25:02.227219+00:00"
   },
   {
     "name": "Dark Web",
@@ -15748,13 +15748,13 @@
   },
   {
     "name": "Victorian Undead: Sherlock Holmes vs Jekyll and Hyde",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-22T21:00:48.190598+00:00",
-    "retry_after": "2026-09-25T21:00:48.190613+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T14:25:02.754121+00:00",
+    "retry_after": "2026-10-20T14:25:02.754138+00:00"
   },
   {
     "name": "Dan Curtis Giveaways The Occult Files of Dr. Spektor",
@@ -58992,5 +58992,126 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T13:27:32.350106+00:00",
     "retry_after": "2026-10-20T13:27:32.350122+00:00"
+  },
+  {
+    "name": "Archie Comics 85th Anniversary Presents: Betty and Veronica Pin-Up Special",
+    "publisher": "Archie Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T14:25:03.153890+00:00",
+    "retry_after": "2026-10-20T14:25:03.153907+00:00"
+  },
+  {
+    "name": "Arachnophobia",
+    "publisher": "Rebellion",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29207,
+        "name": "Arachnophobia",
+        "publisher": "Disney",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T14:25:07.480315+00:00",
+    "retry_after": "2026-10-20T14:25:07.480330+00:00"
+  },
+  {
+    "name": "Electric Girl",
+    "publisher": "VIZ Media",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31512,
+        "name": "Electric Girl",
+        "publisher": "Unknown Publisher",
+        "start_year": 2000
+      },
+      {
+        "id": 50453,
+        "name": "Electric Girl",
+        "publisher": "AiT/Planet Lar",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T14:25:08.106492+00:00",
+    "retry_after": "2026-10-20T14:25:08.106508+00:00"
+  },
+  {
+    "name": "Aspen Splash 2009 Swimsuit Spectacular",
+    "publisher": "Aspen Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T14:25:17.968140+00:00",
+    "retry_after": "2026-10-20T14:25:17.968155+00:00"
+  },
+  {
+    "name": "Robotech II: The Sentinels, Book Three: The Untold Story",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T14:25:19.144828+00:00",
+    "retry_after": "2026-10-20T14:25:19.144843+00:00"
+  },
+  {
+    "name": "Shadow Man Special Edition",
+    "publisher": "Valiant Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T14:25:19.710488+00:00",
+    "retry_after": "2026-10-20T14:25:19.710503+00:00"
+  },
+  {
+    "name": "Steve Roper",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81191,
+        "name": "Steve Roper",
+        "publisher": "Associated Newspapers",
+        "start_year": 1955
+      },
+      {
+        "id": 82408,
+        "name": "Steve Roper",
+        "publisher": "Trans-Tasman Magazines",
+        "start_year": null
+      },
+      {
+        "id": 81570,
+        "name": "Steve Roper",
+        "publisher": "Magazine Management",
+        "start_year": null
+      },
+      {
+        "id": 30834,
+        "name": "Steve Roper",
+        "publisher": "Eastern Color",
+        "start_year": 1947
+      },
+      {
+        "id": 82413,
+        "name": "Steve Roper",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T14:26:01.418524+00:00",
+    "retry_after": "2026-10-20T14:26:01.418536+00:00"
   }
 ]

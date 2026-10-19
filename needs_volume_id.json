@@ -12671,13 +12671,13 @@
   },
   {
     "name": "Street Fighter: Sakura vs Karin",
-    "publisher": "Udon Entertainment Corp.",
+    "publisher": "Eclipse Comics",
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T14:02:38.908970+00:00",
-    "retry_after": "2026-09-24T14:02:38.908985+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:45.194934+00:00",
+    "retry_after": "2026-10-20T20:21:45.194947+00:00"
   },
   {
     "name": "Wolfskin",
@@ -27559,7 +27559,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27577,8 +27577,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-19T19:14:37.950286+00:00",
-    "retry_after": "2026-10-20T19:14:37.950300+00:00"
+    "last_attempt_at": "2026-10-19T20:00:43.573568+00:00",
+    "retry_after": "2026-10-20T20:00:43.573584+00:00"
   },
   {
     "name": "Cerebus",
@@ -43529,7 +43529,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43547,8 +43547,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-19T19:00:48.706415+00:00",
-    "retry_after": "2026-10-20T19:00:48.706430+00:00"
+    "last_attempt_at": "2026-10-19T20:00:43.662941+00:00",
+    "retry_after": "2026-10-20T20:00:43.662951+00:00"
   },
   {
     "name": "Justice League Special",
@@ -58500,5 +58500,361 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T19:51:29.022448+00:00",
     "retry_after": "2026-10-20T19:51:29.022464+00:00"
+  },
+  {
+    "name": "Close Encounters of the Third Kind (Fotonovel)",
+    "publisher": "Dell Comics",
+    "year": 1978,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:29.609205+00:00",
+    "retry_after": "2026-10-20T20:21:29.609220+00:00"
+  },
+  {
+    "name": "Directory to a Non-Existent Universe",
+    "publisher": "Eclipse Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48002,
+        "name": "Directory to a Non-Existent Universe",
+        "publisher": "ICG",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:30.904757+00:00",
+    "retry_after": "2026-10-20T20:21:30.904773+00:00"
+  },
+  {
+    "name": "Creepshow Volume 5",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:41.774530+00:00",
+    "retry_after": "2026-10-20T20:21:41.774546+00:00"
+  },
+  {
+    "name": "Cowboy Western Comics",
+    "publisher": "Charlton Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 128627,
+        "name": "Cowboy Western Comics",
+        "publisher": "L. Miller & Son, Ltd",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:42.227428+00:00",
+    "retry_after": "2026-10-20T20:21:42.227443+00:00"
+  },
+  {
+    "name": "Sweeter Gwen",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58029,
+        "name": "Sweeter Gwen",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:42.721616+00:00",
+    "retry_after": "2026-10-20T20:21:42.721632+00:00"
+  },
+  {
+    "name": "Blood Road",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49168,
+        "name": "Blood Road",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:43.364129+00:00",
+    "retry_after": "2026-10-20T20:21:43.364143+00:00"
+  },
+  {
+    "name": "Weird Burlesque",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46445,
+        "name": "Weird Burlesque",
+        "publisher": "Eros Comix",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:43.822421+00:00",
+    "retry_after": "2026-10-20T20:21:43.822435+00:00"
+  },
+  {
+    "name": "Candide",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115307,
+        "name": "Candide",
+        "publisher": "BB Art",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:44.172677+00:00",
+    "retry_after": "2026-10-20T20:21:44.172692+00:00"
+  },
+  {
+    "name": "Anna Malle's Dirty Deeds",
+    "publisher": "Fantagraphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84181,
+        "name": "Anna Malle's Dirty Deeds",
+        "publisher": "Eros Comix",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:44.639941+00:00",
+    "retry_after": "2026-10-20T20:21:44.639955+00:00"
+  },
+  {
+    "name": "Fighting!! Guidance",
+    "publisher": "Dark Horse Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:45.777439+00:00",
+    "retry_after": "2026-10-20T20:21:45.777454+00:00"
+  },
+  {
+    "name": "Strand",
+    "publisher": "Dark Horse Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 162054,
+        "name": "Strand",
+        "publisher": "Shogakukan",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:46.225637+00:00",
+    "retry_after": "2026-10-20T20:21:46.225652+00:00"
+  },
+  {
+    "name": "True Believers: Hulk - Gray Hulk Returns",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:46.692772+00:00",
+    "retry_after": "2026-10-20T20:21:46.692785+00:00"
+  },
+  {
+    "name": "Karate Girl Special",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60181,
+        "name": "Karate Girl Special",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:47.042210+00:00",
+    "retry_after": "2026-10-20T20:21:47.042225+00:00"
+  },
+  {
+    "name": "Lust Stories",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37417,
+        "name": "Lust Stories",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:51.454834+00:00",
+    "retry_after": "2026-10-20T20:21:51.454858+00:00"
+  },
+  {
+    "name": "Gundero",
+    "publisher": "Fawcett Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:51.992657+00:00",
+    "retry_after": "2026-10-20T20:21:51.992672+00:00"
+  },
+  {
+    "name": "Corriere dei Piccoli",
+    "publisher": "Dell Comics",
+    "year": 1908,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27801,
+        "name": "Corriere dei Piccoli",
+        "publisher": "RCS MediaGroup",
+        "start_year": 1908
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:56.915558+00:00",
+    "retry_after": "2026-10-20T20:21:56.915574+00:00"
+  },
+  {
+    "name": "Anders And & Co.",
+    "publisher": "Valiant Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126425,
+        "name": "Anders And & Co.",
+        "publisher": "Egmont Publishing A/S",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:58.156671+00:00",
+    "retry_after": "2026-10-20T20:21:58.156687+00:00"
+  },
+  {
+    "name": "Corriere dei Ragazzi",
+    "publisher": "Dell Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32469,
+        "name": "Corriere dei Ragazzi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:58.717637+00:00",
+    "retry_after": "2026-10-20T20:21:58.717651+00:00"
+  },
+  {
+    "name": "Gli Albi di Orient Express",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47514,
+        "name": "Gli Albi di Orient Express",
+        "publisher": "L'Isola Trovata",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:59.133050+00:00",
+    "retry_after": "2026-10-20T20:21:59.133063+00:00"
+  },
+  {
+    "name": "La Grande Dinastia dei Paperi",
+    "publisher": "Dell Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157394,
+        "name": "La Grande Dinastia dei Paperi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:21:59.561896+00:00",
+    "retry_after": "2026-10-20T20:21:59.561911+00:00"
+  },
+  {
+    "name": "Nathan Never Gigante",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40997,
+        "name": "Nathan Never Gigante",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:22:37.545712+00:00",
+    "retry_after": "2026-10-20T20:22:37.545727+00:00"
+  },
+  {
+    "name": "Sindy",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142305,
+        "name": "Sindy",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:22:37.847515+00:00",
+    "retry_after": "2026-10-20T20:22:37.847529+00:00"
+  },
+  {
+    "name": "Agenzia Alfa",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28045,
+        "name": "Agenzia Alfa",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T20:23:53.938066+00:00",
+    "retry_after": "2026-10-20T20:23:53.938080+00:00"
   }
 ]

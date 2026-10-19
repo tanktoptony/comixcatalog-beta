@@ -5367,46 +5367,6 @@
     "retry_after": "2026-09-21T14:00:38.554903+00:00"
   },
   {
-    "name": "Ninjak",
-    "publisher": "Valiant Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 80599,
-        "name": "Ninjak",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2015
-      },
-      {
-        "id": 5348,
-        "name": "Ninjak",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1994
-      },
-      {
-        "id": 6030,
-        "name": "Ninjak",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1997
-      },
-      {
-        "id": 137582,
-        "name": "Ninjak",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2021
-      },
-      {
-        "id": 143832,
-        "name": "Ninjak",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2022
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554908+00:00"
-  },
-  {
     "name": "Fly Me to the Moon",
     "publisher": "VIZ Media",
     "year": 2020,
@@ -19959,9 +19919,9 @@
     "year": 1986,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-04T23:00:48.450774+00:00",
-    "retry_after": "2026-10-18T23:00:48.450790+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-19T00:00:45.179415+00:00",
+    "retry_after": "2026-11-18T00:00:45.179430+00:00"
   },
   {
     "name": "Robin II",
@@ -27638,7 +27598,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27656,8 +27616,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-18T22:14:19.131590+00:00",
-    "retry_after": "2026-10-19T22:14:19.131604+00:00"
+    "last_attempt_at": "2026-10-19T00:01:30.423682+00:00",
+    "retry_after": "2026-10-20T00:01:30.423695+00:00"
   },
   {
     "name": "Cerebus",
@@ -32184,13 +32144,13 @@
   },
   {
     "name": "Coup D'Etat: The Authority",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T02:00:50.782582+00:00",
-    "retry_after": "2026-10-10T02:00:50.782600+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T00:12:06.683782+00:00",
+    "retry_after": "2026-10-20T00:12:06.683799+00:00"
   },
   {
     "name": "Queen Sonja",
@@ -43602,7 +43562,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43620,8 +43580,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-18T22:14:19.211080+00:00",
-    "retry_after": "2026-10-19T22:14:19.211091+00:00"
+    "last_attempt_at": "2026-10-19T00:00:46.308296+00:00",
+    "retry_after": "2026-10-20T00:00:46.308311+00:00"
   },
   {
     "name": "Justice League Special",
@@ -56104,9 +56064,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:23:49.468372+00:00",
-    "retry_after": "2026-10-18T23:23:49.468389+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:11:59.680800+00:00",
+    "retry_after": "2026-10-22T00:11:59.680815+00:00"
   },
   {
     "name": "Jupiter's Legacy Giant Sized Edition",
@@ -56114,9 +56074,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:24:09.863068+00:00",
-    "retry_after": "2026-10-18T23:24:09.863086+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:12:00.371997+00:00",
+    "retry_after": "2026-10-22T00:12:00.372013+00:00"
   },
   {
     "name": "Wolverine: Origins (Director's Cut)",
@@ -56124,9 +56084,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:24:14.186442+00:00",
-    "retry_after": "2026-10-18T23:24:14.186459+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:12:00.757563+00:00",
+    "retry_after": "2026-10-22T00:12:00.757579+00:00"
   },
   {
     "name": "Bad Machinery: Free Comic Book Day 2017",
@@ -56134,9 +56094,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:24:14.484258+00:00",
-    "retry_after": "2026-10-18T23:24:14.484275+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:12:01.191896+00:00",
+    "retry_after": "2026-10-22T00:12:01.191912+00:00"
   },
   {
     "name": "Dennis the Menace in Hawaii",
@@ -56144,9 +56104,9 @@
     "year": 1960,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:24:14.860070+00:00",
-    "retry_after": "2026-10-18T23:24:14.860087+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:12:01.761124+00:00",
+    "retry_after": "2026-10-22T00:12:01.761140+00:00"
   },
   {
     "name": "Communion",
@@ -56167,9 +56127,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:24:15.295043+00:00",
-    "retry_after": "2026-10-18T23:24:15.295060+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:12:02.358031+00:00",
+    "retry_after": "2026-10-22T00:12:02.358047+00:00"
   },
   {
     "name": "Jérôme K. Jérôme Bloche",
@@ -56190,9 +56150,9 @@
         "start_year": 1985
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:24:15.894354+00:00",
-    "retry_after": "2026-10-18T23:24:15.894372+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:12:03.815789+00:00",
+    "retry_after": "2026-10-22T00:12:03.815804+00:00"
   },
   {
     "name": "Marvel Holiday Special 2006",
@@ -56200,9 +56160,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:24:16.242542+00:00",
-    "retry_after": "2026-10-18T23:24:16.242560+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:12:04.217457+00:00",
+    "retry_after": "2026-10-22T00:12:04.217473+00:00"
   },
   {
     "name": "Tekken",
@@ -56210,9 +56170,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:24:16.640320+00:00",
-    "retry_after": "2026-10-18T23:24:16.640337+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:12:04.817509+00:00",
+    "retry_after": "2026-10-22T00:12:04.817525+00:00"
   },
   {
     "name": "TMNT: Best of Krang",
@@ -56220,9 +56180,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:24:24.863894+00:00",
-    "retry_after": "2026-10-18T23:24:24.863911+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:12:05.206968+00:00",
+    "retry_after": "2026-10-22T00:12:05.206984+00:00"
   },
   {
     "name": "The Kinky Hook",
@@ -56237,9 +56197,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:24:28.920897+00:00",
-    "retry_after": "2026-10-18T23:24:28.920914+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:12:05.686048+00:00",
+    "retry_after": "2026-10-22T00:12:05.686064+00:00"
   },
   {
     "name": "Jim Henson's Muppet Babies",
@@ -56247,9 +56207,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-17T23:24:29.348658+00:00",
-    "retry_after": "2026-10-18T23:24:29.348675+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T00:12:06.126261+00:00",
+    "retry_after": "2026-10-22T00:12:06.126278+00:00"
   },
   {
     "name": "One for One: Itty Bitty Hellboy",
@@ -57531,5 +57491,76 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-18T23:24:08.185573+00:00",
     "retry_after": "2026-10-19T23:24:08.185591+00:00"
+  },
+  {
+    "name": "Annie Oakley and Tagg",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1688,
+        "name": "Annie Oakley & Tagg",
+        "publisher": "Dell",
+        "start_year": 1955
+      },
+      {
+        "id": 49006,
+        "name": "Annie Oakley And Tagg",
+        "publisher": "Western Publishing",
+        "start_year": 1965
+      },
+      {
+        "id": 147050,
+        "name": "Annie Oakley and Tagg",
+        "publisher": "World Distributors",
+        "start_year": 1955
+      },
+      {
+        "id": 147175,
+        "name": "Annie Oakley and Tagg",
+        "publisher": "Magazine Management",
+        "start_year": null
+      },
+      {
+        "id": 146992,
+        "name": "Annie Oakley and Tagg",
+        "publisher": "Invincible Press",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T00:12:13.795745+00:00",
+    "retry_after": "2026-10-20T00:12:13.795757+00:00"
+  },
+  {
+    "name": "The Official Xena: Warrior Princess Magazine",
+    "publisher": "Topps Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T00:12:15.051440+00:00",
+    "retry_after": "2026-10-20T00:12:15.051456+00:00"
+  },
+  {
+    "name": "Sad Sack U.S.A. Vacation",
+    "publisher": "Harvey Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T00:12:16.112611+00:00",
+    "retry_after": "2026-10-20T00:12:16.112627+00:00"
+  },
+  {
+    "name": "5 Cent Comics [ashcan]",
+    "publisher": "Fawcett Comics",
+    "year": 1940,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T00:12:25.439731+00:00",
+    "retry_after": "2026-10-20T00:12:25.439747+00:00"
   }
 ]

@@ -1,0 +1,371 @@
+{
+ "duration": 1076.23,
+ "sting": {
+  "at": 7.62,
+  "dur": 2.5
+ },
+ "endCard": 1068.23,
+ "voice": [
+  {
+   "section": "01",
+   "clip": 0,
+   "at": 0.6,
+   "from": 0.0,
+   "to": 6.67
+  },
+  {
+   "section": "02",
+   "clip": 0,
+   "at": 10.47,
+   "from": 0.0,
+   "to": 42.15
+  },
+  {
+   "section": "03",
+   "clip": 0,
+   "at": 53.32,
+   "from": 0.0,
+   "to": 68.87
+  },
+  {
+   "section": "04",
+   "clip": 0,
+   "at": 122.89,
+   "from": 0.0,
+   "to": 4.33
+  },
+  {
+   "section": "04",
+   "clip": 1,
+   "at": 134.72,
+   "from": 4.33,
+   "to": 36.97
+  },
+  {
+   "section": "05",
+   "clip": 0,
+   "at": 168.06,
+   "from": 0.0,
+   "to": 4.47
+  },
+  {
+   "section": "05",
+   "clip": 1,
+   "at": 182.03,
+   "from": 4.47,
+   "to": 89.85
+  },
+  {
+   "section": "06",
+   "clip": 0,
+   "at": 268.11,
+   "from": 0.0,
+   "to": 5.02
+  },
+  {
+   "section": "06",
+   "clip": 1,
+   "at": 282.63,
+   "from": 5.02,
+   "to": 63.67
+  },
+  {
+   "section": "07",
+   "clip": 0,
+   "at": 341.98,
+   "from": 0.0,
+   "to": 6.68
+  },
+  {
+   "section": "07",
+   "clip": 1,
+   "at": 358.16,
+   "from": 6.68,
+   "to": 93.91
+  },
+  {
+   "section": "08",
+   "clip": 0,
+   "at": 453.49,
+   "from": 0.0,
+   "to": 6.14
+  },
+  {
+   "section": "08",
+   "clip": 1,
+   "at": 469.13,
+   "from": 6.14,
+   "to": 59.05
+  },
+  {
+   "section": "09",
+   "clip": 0,
+   "at": 522.74,
+   "from": 0.0,
+   "to": 2.66
+  },
+  {
+   "section": "09",
+   "clip": 1,
+   "at": 534.9,
+   "from": 2.66,
+   "to": 63.65
+  },
+  {
+   "section": "10",
+   "clip": 0,
+   "at": 596.59,
+   "from": 0.0,
+   "to": 4.77
+  },
+  {
+   "section": "10",
+   "clip": 1,
+   "at": 610.86,
+   "from": 4.77,
+   "to": 58.31
+  },
+  {
+   "section": "11",
+   "clip": 0,
+   "at": 665.1,
+   "from": 0.0,
+   "to": 6.12
+  },
+  {
+   "section": "11",
+   "clip": 1,
+   "at": 680.72,
+   "from": 6.12,
+   "to": 67.81
+  },
+  {
+   "section": "12",
+   "clip": 0,
+   "at": 743.11,
+   "from": 0.0,
+   "to": 1.68
+  },
+  {
+   "section": "12",
+   "clip": 1,
+   "at": 754.29,
+   "from": 1.68,
+   "to": 44.31
+  },
+  {
+   "section": "13",
+   "clip": 0,
+   "at": 797.62,
+   "from": 0.0,
+   "to": 8.78
+  },
+  {
+   "section": "13",
+   "clip": 1,
+   "at": 815.9,
+   "from": 8.78,
+   "to": 96.36
+  },
+  {
+   "section": "13",
+   "clip": 2,
+   "at": 912.98,
+   "from": 96.36,
+   "to": 113.81
+  },
+  {
+   "section": "14",
+   "clip": 0,
+   "at": 939.53,
+   "from": 0.0,
+   "to": 78.29
+  },
+  {
+   "section": "15",
+   "clip": 0,
+   "at": 1018.52,
+   "from": 0.0,
+   "to": 49.01
+  }
+ ],
+ "music": [
+  {
+   "kind": "cold",
+   "track": 2,
+   "at": 5.07,
+   "until": 7.62
+  },
+  {
+   "kind": "rollin",
+   "section": "02",
+   "at": 10.47,
+   "until": 53.12
+  },
+  {
+   "kind": "rollin",
+   "section": "03",
+   "at": 53.32,
+   "until": 122.69
+  },
+  {
+   "kind": "intro",
+   "track": 1,
+   "at": 127.52,
+   "dur": 7.0
+  },
+  {
+   "kind": "bed",
+   "track": 1,
+   "at": 127.52,
+   "until": 168.86
+  },
+  {
+   "kind": "intro",
+   "track": 2,
+   "at": 172.83,
+   "dur": 9.0
+  },
+  {
+   "kind": "bed",
+   "track": 2,
+   "at": 172.83,
+   "until": 268.91
+  },
+  {
+   "kind": "intro",
+   "track": 3,
+   "at": 273.43,
+   "dur": 9.0
+  },
+  {
+   "kind": "bed",
+   "track": 3,
+   "at": 273.43,
+   "until": 342.78
+  },
+  {
+   "kind": "intro",
+   "track": 4,
+   "at": 348.96,
+   "dur": 9.0
+  },
+  {
+   "kind": "bed",
+   "track": 4,
+   "at": 348.96,
+   "until": 446.89
+  },
+  {
+   "kind": "swell",
+   "key": "ee_piano",
+   "track": 4,
+   "at": 445.79,
+   "dur": 7.0
+  },
+  {
+   "kind": "intro",
+   "track": 5,
+   "at": 459.93,
+   "dur": 9.0
+  },
+  {
+   "kind": "bed",
+   "track": 5,
+   "at": 459.93,
+   "until": 523.54
+  },
+  {
+   "kind": "intro",
+   "track": 6,
+   "at": 525.7,
+   "dur": 9.0
+  },
+  {
+   "kind": "bed",
+   "track": 6,
+   "at": 525.7,
+   "until": 597.39
+  },
+  {
+   "kind": "intro",
+   "track": 7,
+   "at": 601.66,
+   "dur": 9.0
+  },
+  {
+   "kind": "bed",
+   "track": 7,
+   "at": 601.66,
+   "until": 665.9
+  },
+  {
+   "kind": "intro",
+   "track": 8,
+   "at": 671.52,
+   "dur": 9.0
+  },
+  {
+   "kind": "bed",
+   "track": 8,
+   "at": 671.52,
+   "until": 743.91
+  },
+  {
+   "kind": "intro",
+   "track": 9,
+   "at": 745.09,
+   "dur": 9.0
+  },
+  {
+   "kind": "bed",
+   "track": 9,
+   "at": 745.09,
+   "until": 798.42
+  },
+  {
+   "kind": "intro",
+   "track": 10,
+   "at": 806.7,
+   "dur": 9.0
+  },
+  {
+   "kind": "swell",
+   "key": "gsc_piano",
+   "track": 10,
+   "at": 903.78,
+   "dur": 9.0
+  },
+  {
+   "kind": "bed",
+   "track": 10,
+   "at": 806.7,
+   "until": 931.93
+  },
+  {
+   "kind": "swell",
+   "key": "irobot",
+   "track": 10,
+   "at": 930.83,
+   "dur": 8.0
+  },
+  {
+   "kind": "rollin",
+   "section": "14",
+   "at": 939.53,
+   "until": 1018.32
+  },
+  {
+   "kind": "rollin",
+   "section": "15",
+   "at": 1018.52,
+   "until": 1068.03
+  },
+  {
+   "kind": "endcard",
+   "track": 10,
+   "at": 1067.23,
+   "until": 1076.23
+  }
+ ]
+}

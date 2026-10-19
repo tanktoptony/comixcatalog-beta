@@ -9,7 +9,7 @@ import "@fontsource/inter/700.css";
 import { brand } from "./brand.js";
 import { EpisodeContext, SegmentContext, Backdrop, LogoBug, available } from "./components/primitives.jsx";
 import { CoverFull, KenBurnsCover, MediaFull, CoverPair, CoverGrid, CoverFan, CoverStack, Triptych, StarterShelf, ShelfLater, PanelCard } from "./components/covers.jsx";
-import { ChapterCard, QuoteCard, TitleCard, ComixCatalogCard, EndCard, PlaceholderCard, ScreenCapture } from "./components/cards.jsx";
+import { ChapterCard, QuoteCard, TitleCard, ComixCatalogCard, EndCard, PlaceholderCard, ScreenCapture, TrackListCard } from "./components/cards.jsx";
 import { withFallbacks, resolveAudio } from "./timeline.js";
 import { Logo } from "../src/ChannelIntro.jsx";
 
@@ -37,6 +37,7 @@ export const SEGMENT_TYPES = {
   comixcatalog: ComixCatalogCard,
   end: EndCard,
   placeholder: PlaceholderCard,
+  tracklist: TrackListCard,
 };
 
 // Short crossfade at each edge unless the segment asks for a cut.

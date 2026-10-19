@@ -23,3 +23,10 @@ test("TUG & buster and Cerebus become searchable from corrected publisher rows",
   assert.equal(isSeriesSearchVisible({ usMarket: cerebusMarket, resolvedPublisher: "Unknown Publisher" }), true);
   assert.equal(isSeriesSearchVisible({ usMarket: null, resolvedPublisher: "Unknown Publisher" }), false);
 });
+
+test("foreign editions of US brands are not US market", () => {
+  assert.equal(isUsMarketSeries({ publisherCountry: "de", gcdPublisherName: "Panini Deutschland", resolvedPublisher: "DC Comics" }), false);
+  assert.equal(isUsMarketSeries({ publisherCountry: "br", gcdPublisherName: "Editora Abril", resolvedPublisher: "DC Comics" }), false);
+  assert.equal(isUsMarketSeries({ publisherCountry: "au", gcdPublisherName: "K. G. Murray", resolvedPublisher: "Marvel Comics" }), false);
+  assert.equal(isUsMarketSeries({ publisherCountry: null, resolvedPublisher: "DC Comics" }), true);
+});

@@ -142,7 +142,7 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ, onFallb
     .ilike("title_normalized", `%${normalizedQ}%`)
     .not("gcd_id", "is", null)
     .gt("issue_count_cached", 0)
-    .or(`us_market.eq.true,resolved_publisher_cached.in.(${US_PUBLISHER_ALLOWLIST.map((value) => `"${value.replaceAll('"', '\\"')}"`).join(",")})`)
+    .or(`us_market.eq.true,and(us_market.is.null,resolved_publisher_cached.in.(${US_PUBLISHER_ALLOWLIST.map((value) => `"${value.replaceAll('"', '\\"')}"`).join(",")}))`)
     .order("issue_count_cached", { ascending: false })
     .limit(30);
   if (fallbackError) throw fallbackError;

@@ -3558,46 +3558,6 @@
     "retry_after": "2026-09-21T14:00:38.554618+00:00"
   },
   {
-    "name": "Harbinger",
-    "publisher": "Valiant Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 49539,
-        "name": "Harbinger",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2012
-      },
-      {
-        "id": 139862,
-        "name": "The Harbinger",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2021
-      },
-      {
-        "id": 24884,
-        "name": "Harbinger",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1993
-      },
-      {
-        "id": 4827,
-        "name": "Harbinger",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1992
-      },
-      {
-        "id": 24895,
-        "name": "Harbinger",
-        "publisher": "DMG/Valiant Entertainment",
-        "start_year": 2007
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554623+00:00"
-  },
-  {
     "name": "Grimm Fairy Tales Presents Wonderland",
     "publisher": "Zenescope Entertainment",
     "year": 2012,
@@ -15394,13 +15354,13 @@
   },
   {
     "name": "Savage Dragon vs. Savage Megaton Man",
-    "publisher": "Image Comics",
+    "publisher": "Malibu Comics",
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-18T22:11:28.241597+00:00",
-    "retry_after": "2026-10-19T22:11:28.241614+00:00"
+    "last_attempt_at": "2026-10-19T17:17:38.571254+00:00",
+    "retry_after": "2026-10-20T17:17:38.571267+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -27593,13 +27553,13 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T03:34:24.809411+00:00",
-    "retry_after": "2026-10-19T03:34:24.809429+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T17:17:39.341370+00:00",
+    "retry_after": "2026-10-22T17:17:39.341385+00:00"
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27617,8 +27577,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-19T01:15:30.528301+00:00",
-    "retry_after": "2026-10-20T01:15:30.528316+00:00"
+    "last_attempt_at": "2026-10-19T17:17:38.666442+00:00",
+    "retry_after": "2026-10-20T17:17:38.666450+00:00"
   },
   {
     "name": "Cerebus",
@@ -43569,7 +43529,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43587,8 +43547,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-19T01:15:30.601247+00:00",
-    "retry_after": "2026-10-20T01:15:30.601258+00:00"
+    "last_attempt_at": "2026-10-19T17:17:35.658033+00:00",
+    "retry_after": "2026-10-20T17:17:35.658046+00:00"
   },
   {
     "name": "Justice League Special",
@@ -55278,9 +55238,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-18T03:34:26.248169+00:00",
-    "retry_after": "2026-10-19T03:34:26.248185+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-19T17:17:39.875679+00:00",
+    "retry_after": "2026-10-22T17:17:39.875692+00:00"
   },
   {
     "name": "Garfield's Pet Force 2014 Special",
@@ -57289,5 +57249,300 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T16:23:50.871524+00:00",
     "retry_after": "2026-10-20T16:23:50.871538+00:00"
+  },
+  {
+    "name": "Harpy Pin-Up Special",
+    "publisher": "Devil's Due",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24161,
+        "name": "Harpy Pin-Up Special",
+        "publisher": "Peregrine Entertainment",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:27:53.764475+00:00",
+    "retry_after": "2026-10-20T17:27:53.764491+00:00"
+  },
+  {
+    "name": "Rex Allen",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37005,
+        "name": "Rex Allen",
+        "publisher": "Dell",
+        "start_year": 1951
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:27:54.422423+00:00",
+    "retry_after": "2026-10-20T17:27:54.422439+00:00"
+  },
+  {
+    "name": "Confessions Illustrated",
+    "publisher": "Marvel Comics",
+    "year": 1974,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1803,
+        "name": "Confessions Illustrated",
+        "publisher": "EC",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:28:04.474721+00:00",
+    "retry_after": "2026-10-20T17:28:04.474736+00:00"
+  },
+  {
+    "name": "Tales of the Vienna Sausage Woods",
+    "publisher": "Top Cow Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71419,
+        "name": "Tales of the Vienna Sausage Woods",
+        "publisher": "self published",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:28:05.091988+00:00",
+    "retry_after": "2026-10-20T17:28:05.092003+00:00"
+  },
+  {
+    "name": "Crude Ashcan",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:28:05.640199+00:00",
+    "retry_after": "2026-10-20T17:28:05.640214+00:00"
+  },
+  {
+    "name": "Action Comics nº1 (Fac-Símile)",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:28:12.128191+00:00",
+    "retry_after": "2026-10-20T17:28:12.128207+00:00"
+  },
+  {
+    "name": "The Fantagraphics Milo Manara Signature Edition Library",
+    "publisher": "Fantagraphics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:28:35.066630+00:00",
+    "retry_after": "2026-10-20T17:28:35.066645+00:00"
+  },
+  {
+    "name": "Iron Man Heroes Unite",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:28:46.117634+00:00",
+    "retry_after": "2026-10-20T17:28:46.117650+00:00"
+  },
+  {
+    "name": "Slave Girl",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81795,
+        "name": "Slave Girl",
+        "publisher": "Eternity",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:29:12.221060+00:00",
+    "retry_after": "2026-10-20T17:29:12.221075+00:00"
+  },
+  {
+    "name": "Domingos Alegres",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53933,
+        "name": "Domingos Alegres",
+        "publisher": "Editorial Novaro",
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:29:13.060395+00:00",
+    "retry_after": "2026-10-20T17:29:13.060417+00:00"
+  },
+  {
+    "name": "Chiquilladas",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68422,
+        "name": "Chiquilladas",
+        "publisher": "Editorial Novaro",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:29:13.584950+00:00",
+    "retry_after": "2026-10-20T17:29:13.584966+00:00"
+  },
+  {
+    "name": "Periquita",
+    "publisher": "Marvel Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 82528,
+        "name": "Periquita",
+        "publisher": "Editorial Novaro",
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:29:14.049067+00:00",
+    "retry_after": "2026-10-20T17:29:14.049081+00:00"
+  },
+  {
+    "name": "Gene Autry",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50262,
+        "name": "Gene Autry",
+        "publisher": "Western Publishing",
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:29:14.588501+00:00",
+    "retry_after": "2026-10-20T17:29:14.588516+00:00"
+  },
+  {
+    "name": "Superaventuras Marvel",
+    "publisher": "Avatar Press",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159876,
+        "name": "Superaventuras Marvel",
+        "publisher": "Abril",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:29:15.251807+00:00",
+    "retry_after": "2026-10-20T17:29:15.251822+00:00"
+  },
+  {
+    "name": "O Incrível Hulk",
+    "publisher": "Avatar Press",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159873,
+        "name": "O Incrível Hulk",
+        "publisher": "Abril",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:29:15.952916+00:00",
+    "retry_after": "2026-10-20T17:29:15.952932+00:00"
+  },
+  {
+    "name": "Capitão América",
+    "publisher": "Avatar Press",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159872,
+        "name": "Capitão América",
+        "publisher": "Abril",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:29:16.466887+00:00",
+    "retry_after": "2026-10-20T17:29:16.466903+00:00"
+  },
+  {
+    "name": "Le Storie",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85062,
+        "name": "Le Storie",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:29:16.825078+00:00",
+    "retry_after": "2026-10-20T17:29:16.825094+00:00"
+  },
+  {
+    "name": "Gli Incredibili X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41460,
+        "name": "Gli Incredibili X-Men",
+        "publisher": "Panini Comics",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:29:17.351424+00:00",
+    "retry_after": "2026-10-20T17:29:17.351439+00:00"
+  },
+  {
+    "name": "Magico Vento",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46101,
+        "name": "Magico Vento",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T17:29:17.747092+00:00",
+    "retry_after": "2026-10-20T17:29:17.747108+00:00"
   }
 ]

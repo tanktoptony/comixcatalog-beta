@@ -11,8 +11,18 @@ import { SLOT } from "@/lib/houseAds";
 import { coverThumb } from "@/lib/coverThumb";
 import { buildSeriesIntro } from "@/lib/seriesSeo";
 import KeyTimeline from "@/components/KeyTimeline";
+import { ageSpanLabel, heroKeyCovers } from "@/lib/seriesPage";
 
 const ISSUE_BATCH = 60;
+
+function CreatorLinks({ creators }) {
+  return (creators ?? []).map((creator, index, list) => (
+    <span key={creator.slug}>
+      {index ? (index === list.length - 1 ? " and " : ", ") : ""}
+      <Link href={`/creator/${creator.slug}`}>{creator.name}</Link>
+    </span>
+  ));
+}
 
 function issueSortValue(issueNumber) {
   // Comics often store dual-numbered issues like "30 (471)" (Vol 2 / Vol 1
@@ -238,11 +248,55 @@ export default function SeriesClient({ initialSeries = null }) {
         ? `${series.year_start}`
         : `${series.year_start}–${series.year_end}`
       : "Year unknown";
+  const ageLabel = ageSpanLabel(series.year_start, series.year_end);
+  const backCovers = heroKeyCovers(series.key_issues, series.featured_cover);
+  const majorKeyCount = (series.key_issues ?? []).filter((issue) => Number(issue.tier) === 1).length;
+  const yearCount = series.year_start && series.year_end
+    ? Math.max(1, Number(series.year_end) - Number(series.year_start) + 1)
+    : null;
+  const formatText = series.format_tag || series.format_label || (series.format_noun === "one-shot" ? "One-shot" : "Ongoing series");
 
   return (
     <main className="page-wrapper">
-      <section className="comic-panel">
-        <div className="section-label badge-x">Series</div>
+      <section className="comic-panel series-public-page">
+        <nav className="series-breadcrumb" aria-label="Breadcrumb">
+          <span>{series.publisher}</span><span aria-hidden="true">/</span><span>{series.title}</span><span aria-hidden="true">/</span><span>{series.year_start || "Unknown year"} series</span>
+        </nav>
+
+        <div className="series-public-hero">
+          <div className={`series-cover-stack cover-count-${backCovers.length + 1}`}>
+            {backCovers.map((cover, index) => (
+              <img key={cover} src={coverThumb(cover)} alt="" className={`series-cover-back series-cover-back-${index + 1}`} width={220} height={330} loading="lazy" />
+            ))}
+            <img src={coverThumb(series.featured_cover || "/fallback-cover.png")} alt={series.title} className="series-cover-front" width={220} height={330} fetchPriority="high" loading="eager" />
+          </div>
+          <div className="series-hero-copy">
+            <div className="series-eyebrow">{series.publisher} <span>·</span> {formatText} <span>·</span> {yearLabel}</div>
+            <h1 className="series-public-title">{series.title} {series.year_start && <small>({series.year_start})</small>}</h1>
+            <div className="series-chip-row">
+              {ageLabel && <span className="series-chip">{ageLabel}</span>}
+              {(series.links ?? []).map((line) => <span className="series-chip" key={`${line.label}:${line.href}`}>{line.label} <Link href={line.href}>{line.title}{line.year ? ` (${line.year})` : ""}</Link></span>)}
+              {Number(series.reprint_count) > 0 && <span className="series-chip">{Number(series.reprint_count).toLocaleString("en-US")} reprints worldwide</span>}
+            </div>
+            <div className="series-hero-blurb">
+              <p>{buildSeriesIntro({ ...series, top_creators: null, creator_credited_issues: null })}</p>
+              {(series.top_creators?.writers?.length > 0 || series.top_creators?.artists?.length > 0) && <p>
+                {series.top_creators?.writers?.length > 0 && <>Written most by <CreatorLinks creators={series.top_creators.writers.slice(0, 2)} /></>}
+                {series.top_creators?.writers?.length > 0 && series.top_creators?.artists?.length > 0 ? ", " : ""}
+                {series.top_creators?.artists?.length > 0 && <>drawn most by <CreatorLinks creators={series.top_creators.artists.slice(0, 2)} /></>}.
+              </p>}
+            </div>
+            <div className="series-stats-strip">
+              <div><strong>{series.issue_count}</strong><span>issues</span></div>
+              {series.key_issues?.length > 0 && <div><strong>{series.key_issues.length}</strong><span>key issues, {majorKeyCount} major</span></div>}
+              <div><strong>{yearCount ?? "?"}</strong><span>{yearCount === 1 ? "year" : "years"}, {series.year_start && series.year_end ? `${series.year_start} to ${series.year_end}` : yearLabel}</span></div>
+              {Number(series.member_stats?.owners) >= 3 ? <div><strong>{series.member_stats.owners}</strong><span>members own {series.member_stats.copies} copies</span></div> : Number(series.reprint_count) > 0 ? <div><strong>{Number(series.reprint_count).toLocaleString("en-US")}</strong><span>reprints worldwide</span></div> : null}
+            </div>
+            <div className="series-hero-actions"><Link href="#issues" className="series-primary-action">Add issues I own</Link></div>
+          </div>
+        </div>
+
+        <div className="series-legacy-hero" aria-hidden="true">
 
         <div
           style={{
@@ -323,11 +377,10 @@ export default function SeriesClient({ initialSeries = null }) {
                 marginBottom: "16px",
               }}
             >
-              <span className="pill">Series Page</span>
               {series.format_tag ? (
                 <span className="pill pill-format" title={series.format_label || series.format_tag_title || undefined}>{series.format_tag}</span>
               ) : (
-                <span className="pill">Canonical Run</span>
+                null
               )}
             </div>
 
@@ -355,9 +408,39 @@ export default function SeriesClient({ initialSeries = null }) {
           </div>
         </div>
 
+        </div>
+
         {/* Full width under the hero: the timeline needs room, the hero's
             text column is too narrow for 70 years of keys. */}
         {series.key_issues?.length > 0 && <KeyTimeline issues={series.key_issues} />}
+
+        <div className="series-public-details">
+          <section className="series-public-panel">
+            <h2>Who made it</h2>
+            <div className="series-creator-columns">
+              {[{ label: "Writers", rows: series.top_creators?.writers }, { label: "Artists", rows: series.top_creators?.artists }].map(({ label, rows }) => (
+                <div key={label}>
+                  <h3>{label}</h3>
+                  <ol>{(rows ?? []).slice(0, 3).map((creator) => <li key={creator.slug}><Link href={`/creator/${creator.slug}`}>{creator.name}</Link><span>{creator.issues} issues</span></li>)}</ol>
+                </div>
+              ))}
+            </div>
+          </section>
+          {(series.sibling_volumes?.length ?? 0) > 1 && <section className="series-public-panel">
+            <h2>Every {series.title} run</h2>
+            <div className="series-volume-list">
+              {(series.sibling_volumes ?? []).map((volume) => (
+                <Link href={`/series/${volume.id}`} key={volume.id} className="series-volume-item">
+                  <span><strong>{volume.title} ({volume.year_start_cached || "year unknown"})</strong><small>{volume.issue_count_cached} issues · {volume.year_start_cached || "?"}–{volume.year_end_cached || volume.year_start_cached || "?"}</small></span>
+                  <span>{volume.id === series.id ? <em>You&apos;re here</em> : Number(volume.reprint_count) > 0 ? `${Number(volume.reprint_count).toLocaleString("en-US")} reprints` : ""}</span>
+                </Link>
+              ))}
+            </div>
+            {Number(series.sibling_volume_count) > (series.sibling_volumes?.length ?? 0) && (
+              <Link className="series-all-runs" href={`/search?q=${encodeURIComponent(series.title)}`}>All {series.sibling_volume_count} {series.title} series</Link>
+            )}
+          </section>}
+        </div>
 
         {/* ── Run completion ────────────────────────────────────────────
             Only render when the viewer is signed in and there's at least one
@@ -501,6 +584,7 @@ export default function SeriesClient({ initialSeries = null }) {
         )}
 
         <div
+          id="issues"
           style={{
             display: "flex",
             justifyContent: "space-between",

@@ -68,7 +68,7 @@ const cachedSeries = unstable_cache(
     callRoute(seriesGET, `http://internal/api/series/${encodeURIComponent(id)}`, "series", {
       params: Promise.resolve({ id }),
     }),
-  ["page-series-v2"],
+  ["page-series-v3"],
   { revalidate: 600 }
 );
 

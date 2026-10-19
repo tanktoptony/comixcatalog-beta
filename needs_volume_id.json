@@ -11116,21 +11116,15 @@
   },
   {
     "name": "Jupiter's Legacy",
-    "publisher": "Dark Horse Comics",
+    "publisher": "Image Comics",
     "year": 2025,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
         "id": 60294,
         "name": "Jupiter's Legacy",
         "publisher": "Image",
         "start_year": 2013
-      },
-      {
-        "id": 147335,
-        "name": "Jupiter's Legacy",
-        "publisher": "Panini Verlag",
-        "start_year": 2016
       },
       {
         "id": 81245,
@@ -11146,7 +11140,8 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556373+00:00"
+    "last_attempt_at": "2026-10-19T22:20:28.764285+00:00",
+    "retry_after": "2026-10-20T22:20:28.764299+00:00"
   },
   {
     "name": "Inferno",
@@ -58950,5 +58945,132 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T21:24:42.061178+00:00",
     "retry_after": "2026-10-20T21:24:42.061193+00:00"
+  },
+  {
+    "name": "Rick and Morty Oni 25th Anniversary Edition",
+    "publisher": "Oni Press",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T22:19:56.423730+00:00",
+    "retry_after": "2026-10-20T22:19:56.423745+00:00"
+  },
+  {
+    "name": "Dark Matter",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 45131,
+        "name": "Dark Matter",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 52706,
+        "name": "Dark Matter",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T22:19:56.833415+00:00",
+    "retry_after": "2026-10-20T22:19:56.833429+00:00"
+  },
+  {
+    "name": "Mongrel",
+    "publisher": "Devil's Due",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132754,
+        "name": "Mongrel",
+        "publisher": "Knockabout",
+        "start_year": 2020
+      },
+      {
+        "id": 102849,
+        "name": "Mongrel",
+        "publisher": "Shueisha",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T22:19:57.278601+00:00",
+    "retry_after": "2026-10-20T22:19:57.278615+00:00"
+  },
+  {
+    "name": "Warrior Nun Areala: Anime - Special Edition Comic",
+    "publisher": "Antarctic Press",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T22:20:06.827870+00:00",
+    "retry_after": "2026-10-20T22:20:06.827885+00:00"
+  },
+  {
+    "name": "Mara of the Celts",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26773,
+        "name": "Mara of the Celts",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T22:20:12.039472+00:00",
+    "retry_after": "2026-10-20T22:20:12.039486+00:00"
+  },
+  {
+    "name": "Okko",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 121189,
+        "name": "Okko",
+        "publisher": "Delcourt",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T22:21:07.601379+00:00",
+    "retry_after": "2026-10-20T22:21:07.601392+00:00"
+  },
+  {
+    "name": "Dinosaurs for Hire 3-D",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81806,
+        "name": "Dinosaurs For Hire 3-D",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T22:21:11.990358+00:00",
+    "retry_after": "2026-10-20T22:21:11.990372+00:00"
+  },
+  {
+    "name": "Man of Steel [Special Replica Edition]",
+    "publisher": "DC Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-19T22:21:12.723825+00:00",
+    "retry_after": "2026-10-20T22:21:12.723841+00:00"
   }
 ]

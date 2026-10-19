@@ -5,6 +5,7 @@ import Link from "next/link";
 import { coverThumb } from "@/lib/coverThumb";
 import {
   KEY_TIMELINE_ERAS,
+  groupByDecade,
   keyCoverWidth,
   packTimelineRows,
   sortKeyIssues,
@@ -35,6 +36,64 @@ function KeyIssueList({ issues, className = "" }) {
           </Link>
         </li>
       ))}
+    </ol>
+  );
+}
+
+// Phones: hover doesn't exist and a 70-year track is mostly sideways
+// scrolling, so the timeline becomes one bar per decade (length = number of
+// keys). Tapping a decade opens its keys with covers. CSS shows this only on
+// narrow screens; desktop keeps the timeline.
+function KeyDecades({ issues }) {
+  const decades = useMemo(() => groupByDecade(issues), [issues]);
+  const [open, setOpen] = useState(null);
+  const most = Math.max(1, ...decades.map((decade) => decade.issues.length));
+  return (
+    <ol className="key-decades">
+      {decades.map((decade) => {
+        const isOpen = open === decade.decade;
+        const majors = decade.issues.filter((issue) => Number(issue.tier) === 1).length;
+        const panelId = `key-decade-${decade.decade}`;
+        return (
+          <li key={decade.decade} className={isOpen ? "is-open" : ""}>
+            <button
+              type="button"
+              className="key-decade-row"
+              aria-expanded={isOpen}
+              aria-controls={panelId}
+              onClick={() => setOpen(isOpen ? null : decade.decade)}
+            >
+              <span className="key-decade-label">{decade.decade}s</span>
+              <span className="key-decade-bar" aria-hidden="true">
+                <span style={{ width: `${(decade.issues.length / most) * 100}%` }} />
+              </span>
+              <span className="key-decade-count">
+                {decade.issues.length}
+                {majors > 0 && <em>{majors} major</em>}
+              </span>
+            </button>
+            {isOpen && (
+              <ul id={panelId} className="key-decade-list">
+                {decade.issues.map((issue) => (
+                  <li key={issue.gcd_issue_id}>
+                    <Link href={`/issue/gcd-${issue.gcd_issue_id}`}>
+                      {issue.cover ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={coverThumb(issue.cover)} alt="" loading="lazy" />
+                      ) : (
+                        <span className="key-decade-nocover" />
+                      )}
+                      <strong className={Number(issue.tier) === 1 ? "is-major" : ""}>#{issue.issue_number}</strong>
+                      <span>{issue.reason}</span>
+                      <time>{issue.year}</time>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        );
+      })}
     </ol>
   );
 }
@@ -195,6 +254,7 @@ export default function KeyTimeline({ issues = [] }) {
             </div>
           </div>
           <KeyIssueList issues={sortedIssues} className="sr-only" />
+          <KeyDecades issues={sortedIssues} />
           {preview && (
             // Fixed-position so it can't be clipped by the scrolling track.
             <div

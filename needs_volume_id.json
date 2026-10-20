@@ -59389,5 +59389,447 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T15:30:32.256097+00:00",
     "retry_after": "2026-10-21T15:30:32.256112+00:00"
+  },
+  {
+    "name": "Candide",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115307,
+        "name": "Candide",
+        "publisher": "BB Art",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:05.026560+00:00",
+    "retry_after": "2026-10-21T16:24:05.026578+00:00"
+  },
+  {
+    "name": "Anna Malle's Dirty Deeds",
+    "publisher": "Fantagraphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84181,
+        "name": "Anna Malle's Dirty Deeds",
+        "publisher": "Eros Comix",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:05.799796+00:00",
+    "retry_after": "2026-10-21T16:24:05.799813+00:00"
+  },
+  {
+    "name": "Strand",
+    "publisher": "Dark Horse Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 162054,
+        "name": "Strand",
+        "publisher": "Shogakukan",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:06.203684+00:00",
+    "retry_after": "2026-10-21T16:24:06.203700+00:00"
+  },
+  {
+    "name": "Karate Girl Special",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60181,
+        "name": "Karate Girl Special",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:36.618600+00:00",
+    "retry_after": "2026-10-21T16:24:36.618621+00:00"
+  },
+  {
+    "name": "Lust Stories",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37417,
+        "name": "Lust Stories",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:37.016359+00:00",
+    "retry_after": "2026-10-21T16:24:37.016375+00:00"
+  },
+  {
+    "name": "Atomic Age Truckstop Waitress",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26715,
+        "name": "Atomic Age Truckstop Waitress",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:37.540884+00:00",
+    "retry_after": "2026-10-21T16:24:37.540898+00:00"
+  },
+  {
+    "name": "Dracula's Daughter",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26873,
+        "name": "Dracula's Daughter",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:41.789148+00:00",
+    "retry_after": "2026-10-21T16:24:41.789162+00:00"
+  },
+  {
+    "name": "Mara of the Celts",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26773,
+        "name": "Mara of the Celts",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:42.194011+00:00",
+    "retry_after": "2026-10-21T16:24:42.194025+00:00"
+  },
+  {
+    "name": "Okko",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 121189,
+        "name": "Okko",
+        "publisher": "Delcourt",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:43.639618+00:00",
+    "retry_after": "2026-10-21T16:24:43.639631+00:00"
+  },
+  {
+    "name": "Dinosaurs for Hire 3-D",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81806,
+        "name": "Dinosaurs For Hire 3-D",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:44.041720+00:00",
+    "retry_after": "2026-10-21T16:24:44.041734+00:00"
+  },
+  {
+    "name": "Belzebubs",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 117696,
+        "name": "Belzebubs",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:44.936001+00:00",
+    "retry_after": "2026-10-21T16:24:44.936015+00:00"
+  },
+  {
+    "name": "Batvark",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 103850,
+        "name": "Batvark",
+        "publisher": "Aardvark",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:45.335379+00:00",
+    "retry_after": "2026-10-21T16:24:45.335393+00:00"
+  },
+  {
+    "name": "Robotech: Firewalkers",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39269,
+        "name": "Robotech - Firewalkers",
+        "publisher": "Eternity",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:45.791377+00:00",
+    "retry_after": "2026-10-21T16:24:45.791392+00:00"
+  },
+  {
+    "name": "I Love Lucy in Full Color",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63062,
+        "name": "I Love Lucy in Full Color",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:46.174627+00:00",
+    "retry_after": "2026-10-21T16:24:46.174641+00:00"
+  },
+  {
+    "name": "Halloween Terror",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53090,
+        "name": "Halloween Terror",
+        "publisher": "Eternity",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:50.935057+00:00",
+    "retry_after": "2026-10-21T16:24:50.935072+00:00"
+  },
+  {
+    "name": "A-V in 3-D",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58352,
+        "name": "A-V in 3-D",
+        "publisher": "Aardvark",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:51.302948+00:00",
+    "retry_after": "2026-10-21T16:24:51.302961+00:00"
+  },
+  {
+    "name": "Legs Weaver",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28040,
+        "name": "Legs Weaver",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:52.038390+00:00",
+    "retry_after": "2026-10-21T16:24:52.038404+00:00"
+  },
+  {
+    "name": "El Conejo de la Suerte - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142292,
+        "name": "El Conejo de la Suerte Serie Avestruz",
+        "publisher": "Editorial Novaro",
+        "start_year": 1975
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:52.487476+00:00",
+    "retry_after": "2026-10-21T16:24:52.487491+00:00"
+  },
+  {
+    "name": "Sweethearts Library",
+    "publisher": "Marvel Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126205,
+        "name": "Sweethearts Library",
+        "publisher": "World Distributors",
+        "start_year": 1957
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:53.014920+00:00",
+    "retry_after": "2026-10-21T16:24:53.014934+00:00"
+  },
+  {
+    "name": "L'Incredibile Devil",
+    "publisher": "Dark Horse Comics",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 131765,
+        "name": "L'Incredibile Devil",
+        "publisher": "Editoriale Corno",
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:54.494895+00:00",
+    "retry_after": "2026-10-21T16:24:54.494909+00:00"
+  },
+  {
+    "name": "Brendon",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40738,
+        "name": "Brendon",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:54.762567+00:00",
+    "retry_after": "2026-10-21T16:24:54.762585+00:00"
+  },
+  {
+    "name": "Wedding Ring Library",
+    "publisher": "Marvel Comics",
+    "year": 1958,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127860,
+        "name": "Wedding Ring Library",
+        "publisher": "World Distributors",
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:55.328023+00:00",
+    "retry_after": "2026-10-21T16:24:55.328037+00:00"
+  },
+  {
+    "name": "Collana Western",
+    "publisher": "Dell Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158195,
+        "name": "Collana Western",
+        "publisher": "La Gazzetta dello Sport",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:55.937642+00:00",
+    "retry_after": "2026-10-21T16:24:55.937656+00:00"
+  },
+  {
+    "name": "Dylan Dog - Viaggio nell'incubo",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147544,
+        "name": "Dylan Dog - Viaggio nell'Incubo",
+        "publisher": "La Gazzetta dello Sport",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:56.440635+00:00",
+    "retry_after": "2026-10-21T16:24:56.440649+00:00"
+  },
+  {
+    "name": "Nintendo Power",
+    "publisher": "Fantagraphics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28947,
+        "name": "Nintendo Power",
+        "publisher": "Nintendo",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:56.892319+00:00",
+    "retry_after": "2026-10-21T16:24:56.892333+00:00"
+  },
+  {
+    "name": "Liga da Justiça",
+    "publisher": "Avatar Press",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42512,
+        "name": "Liga da Justiça",
+        "publisher": "Panini Brasil",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T16:24:57.377758+00:00",
+    "retry_after": "2026-10-21T16:24:57.377772+00:00"
   }
 ]

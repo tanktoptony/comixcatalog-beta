@@ -60700,5 +60700,135 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T10:17:32.772631+00:00",
     "retry_after": "2026-10-21T10:17:32.772645+00:00"
+  },
+  {
+    "name": "Paradise X: Ragnarok",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T11:16:05.656851+00:00",
+    "retry_after": "2026-10-21T11:16:05.656869+00:00"
+  },
+  {
+    "name": "Picture Stories from the Bible New Testament",
+    "publisher": "EC Comics",
+    "year": 1946,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 988,
+        "name": "Picture Stories from the Bible (New Testament)",
+        "publisher": "DC Comics",
+        "start_year": 1944
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T11:16:06.128114+00:00",
+    "retry_after": "2026-10-21T11:16:06.128153+00:00"
+  },
+  {
+    "name": "Colonia",
+    "publisher": "VIZ Media",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25501,
+        "name": "Colonia",
+        "publisher": "Colonia Press",
+        "start_year": 1998
+      },
+      {
+        "id": 50442,
+        "name": "Colonia",
+        "publisher": "AiT/Planet Lar",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T11:16:26.488464+00:00",
+    "retry_after": "2026-10-21T11:16:26.488479+00:00"
+  },
+  {
+    "name": "Unlovable: The Complete Collection Box Set",
+    "publisher": "Fantagraphics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T11:16:37.436823+00:00",
+    "retry_after": "2026-10-21T11:16:37.436838+00:00"
+  },
+  {
+    "name": "Carnage Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T11:16:37.756796+00:00",
+    "retry_after": "2026-10-21T11:16:37.756812+00:00"
+  },
+  {
+    "name": "The Amazing Spider-Man [Chicago Comic Con C2E2 Exclusive]",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T11:16:38.189930+00:00",
+    "retry_after": "2026-10-21T11:16:38.189946+00:00"
+  },
+  {
+    "name": "Marvel Manga",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 144355,
+        "name": "Marvel Manga",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      },
+      {
+        "id": 42726,
+        "name": "Marvel Manga",
+        "publisher": "Panini France",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T11:19:12.702247+00:00",
+    "retry_after": "2026-10-21T11:19:12.702262+00:00"
+  },
+  {
+    "name": "George Pérez's Crimson Plague",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T11:19:13.734091+00:00",
+    "retry_after": "2026-10-21T11:19:13.734107+00:00"
+  },
+  {
+    "name": "Don't Look",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52617,
+        "name": "Don't Look",
+        "publisher": "Eros Comix",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T11:19:14.276023+00:00",
+    "retry_after": "2026-10-21T11:19:14.276047+00:00"
   }
 ]

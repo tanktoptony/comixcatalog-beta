@@ -60155,5 +60155,210 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T07:17:18.765128+00:00",
     "retry_after": "2026-10-21T07:17:18.765143+00:00"
+  },
+  {
+    "name": "Blade den udødelige",
+    "publisher": "Dynamite Entertainment",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 43338,
+        "name": "Blade den Udødelige",
+        "publisher": "Schibsted",
+        "start_year": 2007
+      },
+      {
+        "id": 43339,
+        "name": "Blade den Udødelige",
+        "publisher": "Schibsted",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:16:00.152721+00:00",
+    "retry_after": "2026-10-21T08:16:00.152739+00:00"
+  },
+  {
+    "name": "Gen 13 Annual",
+    "publisher": "DC Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23131,
+        "name": "Gen 13 Annual",
+        "publisher": "Image",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:16:01.438621+00:00",
+    "retry_after": "2026-10-21T08:16:01.438638+00:00"
+  },
+  {
+    "name": "My Brother's Husband",
+    "publisher": "EC Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 101151,
+        "name": "My Brother’s Husband",
+        "publisher": "Pantheon Books",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:35.932421+00:00",
+    "retry_after": "2026-10-21T08:18:35.932436+00:00"
+  },
+  {
+    "name": "Almanaque do Bolinha",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:36.448706+00:00",
+    "retry_after": "2026-10-21T08:18:36.448721+00:00"
+  },
+  {
+    "name": "Critical Role: The Mighty Nein Origins Omnibus",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:43.107145+00:00",
+    "retry_after": "2026-10-21T08:18:43.107161+00:00"
+  },
+  {
+    "name": "Ninjak",
+    "publisher": "Valiant Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 80599,
+        "name": "Ninjak",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2015
+      },
+      {
+        "id": 5348,
+        "name": "Ninjak",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1994
+      },
+      {
+        "id": 6030,
+        "name": "Ninjak",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1997
+      },
+      {
+        "id": 137582,
+        "name": "Ninjak",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2021
+      },
+      {
+        "id": 143832,
+        "name": "Ninjak",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:43.422446+00:00",
+    "retry_after": "2026-10-21T08:18:43.422462+00:00"
+  },
+  {
+    "name": "Mandrake - Tavole domenicali",
+    "publisher": "Atlas Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:43.946394+00:00",
+    "retry_after": "2026-10-21T08:18:43.946409+00:00"
+  },
+  {
+    "name": "Walt Disney's Donald Duck Annual",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:44.934192+00:00",
+    "retry_after": "2026-10-21T08:18:44.934208+00:00"
+  },
+  {
+    "name": "Dentes-de-Sabre: Caçada Mortal",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:46.802220+00:00",
+    "retry_after": "2026-10-21T08:18:46.802236+00:00"
+  },
+  {
+    "name": "O Melhor dos X-Men",
+    "publisher": "Avatar Press",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74250,
+        "name": "O Melhor dos X-Men",
+        "publisher": "Abril",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:47.145017+00:00",
+    "retry_after": "2026-10-21T08:18:47.145032+00:00"
+  },
+  {
+    "name": "No Coração da Tempestade",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:47.558619+00:00",
+    "retry_after": "2026-10-21T08:18:47.558634+00:00"
+  },
+  {
+    "name": "As Novas Aventuras de Ciclope e Fênix",
+    "publisher": "Avatar Press",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:47.941083+00:00",
+    "retry_after": "2026-10-21T08:18:47.941100+00:00"
+  },
+  {
+    "name": "Streets of Paris, Streets of Murder: The Complete Graphic Noir of Manchette & Tardi",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:48.628808+00:00",
+    "retry_after": "2026-10-21T08:18:48.628825+00:00"
+  },
+  {
+    "name": "L'Ère des reptiles",
+    "publisher": "Dark Horse Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T08:18:55.624930+00:00",
+    "retry_after": "2026-10-21T08:18:55.624946+00:00"
   }
 ]

@@ -11,14 +11,38 @@ export async function GET(req) {
   const { admin: user, response } = await requireAdmin(req);
   if (response) return response;
   const kind = new URL(req.url).searchParams.get("kind");
-  if (!new Set(["printings", "books"]).has(kind)) return NextResponse.json({ error: "Invalid kind" }, { status: 400 });
+  if (!new Set(["printings", "books", "requests"]).has(kind)) return NextResponse.json({ error: "Invalid kind" }, { status: 400 });
   const supabase = getServiceClient();
-  const [printingCount, bookCount] = await Promise.all([
+  const [printingCount, bookCount, requestCount] = await Promise.all([
     supabase.from("issue_printings").select("id", { count: "exact", head: true }).eq("status", "pending"),
     supabase.from("comics").select("id", { count: "exact", head: true }).eq("review_status", "pending"),
+    supabase.from("catalog_requests").select("id", { count: "exact", head: true }).eq("status", "open"),
   ]);
   let items = [];
-  if (kind === "printings") {
+  if (kind === "requests") {
+    const { data, error } = await supabase
+      .from("catalog_requests")
+      .select("id, user_id, title, issue_number, publisher, year, source, search_term, barcode, notes, photo_path, created_at")
+      .eq("status", "open")
+      .order("created_at", { ascending: true })
+      .limit(50);
+    if (error) return NextResponse.json({ error: "Could not load reviews." }, { status: 500 });
+    const userIds = [...new Set((data ?? []).map((row) => row.user_id))];
+    const { data: profiles } = userIds.length
+      ? await supabase.from("profiles").select("id, username").in("id", userIds)
+      : { data: [] };
+    const names = new Map((profiles ?? []).map((row) => [row.id, row.username]));
+    items = await Promise.all((data ?? []).map(async (row) => {
+      const signed = row.photo_path
+        ? await supabase.storage.from("cover-scans").createSignedUrl(row.photo_path, 600)
+        : { data: null };
+      return {
+        ...row,
+        submitter: names.get(row.user_id) ?? "Unknown",
+        photo_url: signed.data?.signedUrl ?? null,
+      };
+    }));
+  } else if (kind === "printings") {
     const { data, error } = await supabase.from("issue_printings")
       .select("id, gcd_issue_id, kind, printing_name, upc, submitted_by, created_at, photo_path")
       .eq("status", "pending").order("created_at", { ascending: true }).limit(50);
@@ -52,13 +76,51 @@ export async function GET(req) {
     const candidates = matchesResult.data ?? [];
     items = (data ?? []).map((row) => ({ ...row, submitter: names.get(row.created_by) ?? "Unknown", possible_match: candidates.find((match) => normalize(match.title) === normalize(row.series_title)) ? `${candidates.find((match) => normalize(match.title) === normalize(row.series_title)).title} #${row.issue_number}` : null }));
   }
-  return NextResponse.json({ items, counts: { printings: printingCount.count ?? 0, books: bookCount.count ?? 0 } });
+  return NextResponse.json({
+    items,
+    counts: {
+      printings: printingCount.count ?? 0,
+      books: bookCount.count ?? 0,
+      requests: requestCount.count ?? 0,
+    },
+  });
 }
 
 export async function POST(req) {
   const { admin: user, response } = await requireAdmin(req);
   if (response) return response;
   const body = await req.json().catch(() => null);
+  if (body?.kind === "requests") {
+    const statuses = {
+      added: "added",
+      already_there: "already_there",
+      decline: "declined",
+    };
+    const status = statuses[body.action];
+    const issueId = String(body.resolved_gcd_issue_id ?? "").trim();
+    if (!body.id || !status || (issueId && !/^\d+$/.test(issueId))) {
+      return NextResponse.json({ error: "Invalid review action" }, { status: 400 });
+    }
+    const supabase = getServiceClient();
+    const update = {
+      status,
+      resolved_note: String(body.note ?? "").trim() || null,
+      resolved_at: new Date().toISOString(),
+      resolved_gcd_issue_id: issueId ? Number(issueId) : null,
+    };
+    const { data: saved, error } = await supabase
+      .from("catalog_requests")
+      .update(update)
+      .eq("id", body.id)
+      .eq("status", "open")
+      .select("id");
+    if (error) {
+      console.error("admin catalog request review failed", error);
+      return NextResponse.json({ error: "Could not save review." }, { status: 500 });
+    }
+    if (!saved?.length) return NextResponse.json({ error: "That request is no longer open." }, { status: 404 });
+    return NextResponse.json({ ok: true });
+  }
   const update = reviewActionToUpdate(body?.kind, body?.action, body?.note, user.id);
   if (!body?.id || !update) return NextResponse.json({ error: "Invalid review action" }, { status: 400 });
   const supabase = getServiceClient();

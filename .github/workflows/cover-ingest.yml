@@ -197,6 +197,16 @@ jobs:
       - name: Install Node deps
         run: npm ci
 
+      # Member book requests (catalog_requests, /request). A failure here must
+      # never block the ingest, but it must be visible: warn, write an empty
+      # target file so the lane below skips cleanly, and carry on.
+      - name: Generate requested-book targets
+        run: |
+          if ! node scripts/generateRequestedGap.js --apply; then
+            echo "::warning::Requested-book generator failed; this run ingests without the requested lane."
+            echo '[]' > gap-requested.json
+          fi
+
       - name: Show current ledger size
         run: |
           if [ -f .ingest-done.json ]; then
@@ -208,14 +218,14 @@ jobs:
             python -c "import json; d=json.load(open('needs_volume_id.json'));print(f'needs_volume_id.json entries (from git): {len(d)}')"
           fi
 
-      # Cycle: user-collected → launch priority → featured → manual →
-      # pinned → width → depth.
+      # Cycle: requested books → user-collected → launch priority → featured →
+      # manual → pinned → width → depth.
       # --skip-existing so already-covered targets cost ~0 requests.
       # continue-on-error lets a failing step (rate-limit, transient 5xx)
       # not block the next file.
       #
-      # Per-lane --max-search-calls sums to 105 (user-collected 15 +
-      # priority 15 + featured 10 + manual 15 + pinned 20 + width 20 +
+      # Per-lane --max-search-calls sums to 120 (requested books 15 +
+      # user-collected 15 + priority 15 + featured 10 + manual 15 + pinned 20 + width 20 +
       # depth 10). At the ~3x-per-match
       # real-call multiplier that's ~200-300 real calls in the worst case
       # (every attempt succeeds) — priority/featured/manual will rarely use
@@ -224,13 +234,20 @@ jobs:
       # Biased toward width since that's what moves "series with any cover
       # at all" (7.5% as of 2026-08-26) — the number that actually makes the
       # catalog feel Discogs-complete instead of hollow.
-      # First on purpose. gap-user-collected.json is the only target file
+      # Requested books are first because members explicitly asked for them.
+      # gap-user-collected.json is the other target file
       # whose entries correspond to issues a real person actually owns, so
       # it gets the budget before the catalog-completeness lanes do. 15
       # calls comfortably covers the current file (19 targets) in a cycle or
       # two; the done-ledger sweeps whatever is left on the next run.
       # Regenerated twice weekly by gap-probe.yml so this lane can't go
       # stale the way it did between Aug 25 and Sep 20.
+      - name: Ingest requested-book targets
+        id: lane_requested
+        if: hashFiles('gap-requested.json') != ''
+        continue-on-error: true
+        run: python comicvine_api_to_supabase.py --targets gap-requested.json --skip-existing --max-search-calls 15 --vol-sleep 1.0
+
       - name: Ingest user-collected gap targets
         id: lane_user_collected
         if: hashFiles('gap-user-collected.json') != ''
@@ -366,6 +383,7 @@ jobs:
             fi
           }
           echo "Ingest lane outcomes:"
+          check "requested-books" "${{ steps.lane_requested.outcome }}"
           check "user-collected" "${{ steps.lane_user_collected.outcome }}"
           check "launch-priority" "${{ steps.lane_priority.outcome }}"
           check "featured"       "${{ steps.lane_featured.outcome }}"

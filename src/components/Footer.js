@@ -23,6 +23,7 @@ const COLUMNS = [
       { label: "Collection", href: "/library" },
       { label: "Wantlist", href: "/library?tab=wishlist" },
       { label: "Scan a cover", href: "/scan" },
+      { label: "Request a book", href: "/request" },
       { label: "Submission Guidelines", href: "/contribute/guidelines", todo: true },
     ],
   },

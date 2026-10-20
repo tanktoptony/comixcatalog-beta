@@ -32685,13 +32685,13 @@
   },
   {
     "name": "Astro City: The Dark Age",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T07:00:48.109553+00:00",
-    "retry_after": "2026-10-10T07:00:48.109569+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T18:18:19.203543+00:00",
+    "retry_after": "2026-10-21T18:18:19.203558+00:00"
   },
   {
     "name": "Pirouette",
@@ -56724,9 +56724,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T17:28:05.640199+00:00",
-    "retry_after": "2026-10-20T17:28:05.640214+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T18:18:01.777164+00:00",
+    "retry_after": "2026-10-23T18:18:01.777179+00:00"
   },
   {
     "name": "Action Comics nº1 (Fac-Símile)",
@@ -56734,9 +56734,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T17:28:12.128191+00:00",
-    "retry_after": "2026-10-20T17:28:12.128207+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T18:18:02.200323+00:00",
+    "retry_after": "2026-10-23T18:18:02.200339+00:00"
   },
   {
     "name": "The Fantagraphics Milo Manara Signature Edition Library",
@@ -56744,9 +56744,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T17:28:35.066630+00:00",
-    "retry_after": "2026-10-20T17:28:35.066645+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T18:18:02.684475+00:00",
+    "retry_after": "2026-10-23T18:18:02.684492+00:00"
   },
   {
     "name": "Iron Man Heroes Unite",
@@ -56754,9 +56754,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T17:28:46.117634+00:00",
-    "retry_after": "2026-10-20T17:28:46.117650+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T18:18:03.176739+00:00",
+    "retry_after": "2026-10-23T18:18:03.176754+00:00"
   },
   {
     "name": "Fantastic Four",
@@ -56831,9 +56831,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T18:00:36.319131+00:00",
-    "retry_after": "2026-10-20T18:00:36.319148+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T18:00:54.705659+00:00",
+    "retry_after": "2026-10-23T18:00:54.705675+00:00"
   },
   {
     "name": "Watchmen",
@@ -60276,5 +60276,123 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T17:24:41.898978+00:00",
     "retry_after": "2026-10-21T17:24:41.898993+00:00"
+  },
+  {
+    "name": "Super Sexxx",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72374,
+        "name": "Super Sexxx",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T18:18:06.908754+00:00",
+    "retry_after": "2026-10-21T18:18:06.908770+00:00"
+  },
+  {
+    "name": "The Many Lives of Ms. Alexandria Pumps as: The Trapdoor Spiderwoman",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64362,
+        "name": "Many Lives of Ms. Alexandria Pumps as: The Trapdoor Spiderwoman",
+        "publisher": "Eros Comix",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T18:18:07.426295+00:00",
+    "retry_after": "2026-10-21T18:18:07.426308+00:00"
+  },
+  {
+    "name": "As Aventuras de Ciclope e Fênix",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74067,
+        "name": "As Aventuras de Ciclope e Fênix",
+        "publisher": "Abril",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T18:18:18.617847+00:00",
+    "retry_after": "2026-10-21T18:18:18.617862+00:00"
+  },
+  {
+    "name": "Split Check",
+    "publisher": "Dynamite Entertainment",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T18:18:19.641300+00:00",
+    "retry_after": "2026-10-21T18:18:19.641316+00:00"
+  },
+  {
+    "name": "The Rock Cocks",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T18:18:20.182097+00:00",
+    "retry_after": "2026-10-21T18:18:20.182112+00:00"
+  },
+  {
+    "name": "The Exhibitionist",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53093,
+        "name": "The Exhibitionist",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T18:18:31.976716+00:00",
+    "retry_after": "2026-10-21T18:18:31.976731+00:00"
+  },
+  {
+    "name": "Shaundra: Slave to Pleasure",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T18:18:32.428141+00:00",
+    "retry_after": "2026-10-21T18:18:32.428158+00:00"
+  },
+  {
+    "name": "Don't Be Cruel 2-in-1 Edition",
+    "publisher": "VIZ Media",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T18:18:32.880735+00:00",
+    "retry_after": "2026-10-21T18:18:32.880751+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles Deluxe Edition",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T18:18:46.014140+00:00",
+    "retry_after": "2026-10-21T18:18:46.014158+00:00"
   }
 ]

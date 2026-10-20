@@ -24,10 +24,11 @@ RAMP = 0.8
 TITLES = ["second stage turbine blade", "time consumer", "devil in jersey city", "everything evil", "delirium trigger",
           "hearshot kid disaster", "33", "junesong provision", "neverender", "god send conspirator"]
 # Where swells start in the source song (seconds). None = detect (see below).
-SWELL_SRC = {"ee_piano": None, "gsc_piano": None, "irobot": None}
+# "skip" = Tony's capture doesn't include that part (the songs' endings, the hidden track): keep the bed there.
+SWELL_SRC = {"ee_piano": "skip", "gsc_piano": "skip", "irobot": "skip"}
 # Where each track's chapter clip starts in the source file (seconds). None = first onset.
 # Track 1: Tony's capture is quiet until the build at about 0:23.
-CLIP_SRC = {1: 23.0}
+CLIP_SRC = {1: 23.0, 10: 5.0}
 
 plan = json.load(open(os.path.join(HERE, "audio-plan.json")))
 album_dir = sys.argv[1] if len(sys.argv) > 1 else None
@@ -124,16 +125,31 @@ for m in plan["music"]:
     if k == "intro" and m["track"] in songs:
         clips.append((m["track"], CLIP_SRC.get(m["track"]) if CLIP_SRC.get(m["track"]) is not None else onset(songs[m["track"]][0]), m["at"], m["dur"], INTRO_DB))
     elif k == "swell" and m["track"] in songs:
+        if SWELL_SRC.get(m["key"]) == "skip": report.append(f"swell {m['key']}: not captured, bed only"); continue
         src = detect(m["key"]); report.append(f"swell {m['key']}: source {src:.1f}s")
         clips.append((m["track"], src, m["at"], m["dur"], INTRO_DB - 1))
     elif k == "cold" and 2 in songs:
         clips.append((2, onset(songs[2][0]), m["at"], m["until"] - m["at"], BED_DB + 6))
+def limit(seg, ceiling_db=-1.5):
+    # Block look-ahead peak limiter (2.5 ms blocks, 80 ms release); nothing below the ceiling is touched.
+    c = 10 ** (ceiling_db / 20); blk = int(0.0025 * SR)
+    m = np.abs(seg).max(1); nb = int(np.ceil(len(m) / blk))
+    pk = np.pad(m, (0, nb * blk - len(m))).reshape(nb, blk).max(1)
+    need = np.minimum(1.0, c / (pk + 1e-9)); need = np.minimum(need, np.concatenate([need[1:], [1.0]]))
+    rel = np.exp(-1 / 32); g = need.copy()
+    for i in range(1, nb): g[i] = need[i] if need[i] < g[i - 1] else min(need[i], rel * g[i - 1] + (1 - rel) * need[i])
+    return seg * np.interp(np.arange(len(m)), np.arange(nb) * blk + blk / 2, g)[:, None]
+
+CLIP_RMS_DB = -17.0
 for track, src, at, L, db in clips:
-    x, g0 = songs[track]
-    g = 10 ** (db / 20) * g0
-    pk = np.abs(x[int(src * SR): int((src + L) * SR)]).max() * g
-    if pk > 10 ** (-3 / 20): g *= 10 ** (-3 / 20) / pk  # clips peak at -3 dBFS at most
-    place(x, src, at, L, lambda t, L=L, g=g: g * np.clip(np.minimum(t / 0.08, (L - t) / 0.6), 0, 1))
+    x, _ = songs[track]
+    seg = x[int(src * SR): int((src + L) * SR)].copy()
+    if not len(seg): continue
+    seg *= 10 ** ((min(db, CLIP_RMS_DB) - 20 * np.log10(np.sqrt((seg ** 2).mean()) + 1e-9)) / 20)
+    seg = limit(seg)
+    tt = np.arange(len(seg)) / SR
+    seg *= np.clip(np.minimum(tt / 0.08, (len(seg) / SR - tt) / 0.6), 0, 1)[:, None]
+    a0 = int(at * SR); out[a0:a0 + len(seg)] += seg
 
 # Rollin at 5: one continuous bed, dipping under each album clip.
 rollin = decode(os.path.join(AUD, "MUSIC_BED_FULL.wav"))

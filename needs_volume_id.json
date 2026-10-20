@@ -56854,9 +56854,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T18:02:44.962390+00:00",
-    "retry_after": "2026-10-20T18:02:44.962406+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T18:56:18.172660+00:00",
+    "retry_after": "2026-10-23T18:56:18.172674+00:00"
   },
   {
     "name": "The Walking Dead #1 Wizard World Ohio Comicon Exclusive",
@@ -56864,9 +56864,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T18:25:47.656542+00:00",
-    "retry_after": "2026-10-20T18:25:47.656549+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T19:11:19.424497+00:00",
+    "retry_after": "2026-10-23T19:11:19.424513+00:00"
   },
   {
     "name": "Daredevil Action Comic",
@@ -56874,9 +56874,9 @@
     "year": 1964,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T18:25:48.079601+00:00",
-    "retry_after": "2026-10-20T18:25:48.079609+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T19:11:20.382488+00:00",
+    "retry_after": "2026-10-23T19:11:20.382505+00:00"
   },
   {
     "name": "Snowman",
@@ -56897,9 +56897,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T18:25:48.514841+00:00",
-    "retry_after": "2026-10-20T18:25:48.514853+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T19:11:21.580095+00:00",
+    "retry_after": "2026-10-23T19:11:21.580109+00:00"
   },
   {
     "name": "The Complete Megaton Man Universe",
@@ -56907,9 +56907,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T18:26:12.200641+00:00",
-    "retry_after": "2026-10-20T18:26:12.200651+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T19:11:22.453238+00:00",
+    "retry_after": "2026-10-23T19:11:22.453253+00:00"
   },
   {
     "name": "Critial Role: Vox Machina Origins Omnibus",
@@ -60394,5 +60394,142 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T18:18:46.014140+00:00",
     "retry_after": "2026-10-21T18:18:46.014158+00:00"
+  },
+  {
+    "name": "Pussycats: Sex, Drugs and the Impossible",
+    "publisher": "BOOM! Studios",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 99451,
+        "name": "Pussycats: Sex, Drugs & the Impossible",
+        "publisher": "E-Comix",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T19:11:27.272309+00:00",
+    "retry_after": "2026-10-21T19:11:27.272325+00:00"
+  },
+  {
+    "name": "Hunter x Hunter (3-in-1 Edition)",
+    "publisher": "VIZ Media",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T19:11:27.850291+00:00",
+    "retry_after": "2026-10-21T19:11:27.850307+00:00"
+  },
+  {
+    "name": "Chopper: Song of the Surfer",
+    "publisher": "Rebellion",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T19:11:28.553816+00:00",
+    "retry_after": "2026-10-21T19:11:28.553831+00:00"
+  },
+  {
+    "name": "Alkandoor",
+    "publisher": "Fawcett Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T19:11:38.827054+00:00",
+    "retry_after": "2026-10-21T19:11:38.827075+00:00"
+  },
+  {
+    "name": "Ridderne av Dor, Trollmannskeiseren",
+    "publisher": "Aspen Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T19:11:39.397422+00:00",
+    "retry_after": "2026-10-21T19:11:39.397437+00:00"
+  },
+  {
+    "name": "BJ Betty",
+    "publisher": "Fantagraphics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 145601,
+        "name": "BJ Betty",
+        "publisher": "Eros Comix",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T19:11:57.208263+00:00",
+    "retry_after": "2026-10-21T19:11:57.208278+00:00"
+  },
+  {
+    "name": "Komikwerks",
+    "publisher": "Zenescope Entertainment",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 89692,
+        "name": "Komikwerks",
+        "publisher": "Komikwerks",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T19:12:14.164735+00:00",
+    "retry_after": "2026-10-21T19:12:14.164755+00:00"
+  },
+  {
+    "name": "Phantasmagoria",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159825,
+        "name": "Phantasmagoria",
+        "publisher": "Comic Unknown",
+        "start_year": 2024
+      },
+      {
+        "id": 114258,
+        "name": "Phantasmagoria",
+        "publisher": "Amigo Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 171741,
+        "name": "Phantasmagoria",
+        "publisher": "Karras Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T19:12:14.531842+00:00",
+    "retry_after": "2026-10-21T19:12:14.531857+00:00"
+  },
+  {
+    "name": "Rival Schools",
+    "publisher": "Eclipse Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19008,
+        "name": "Rival Schools",
+        "publisher": "UDON",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T19:12:20.563444+00:00",
+    "retry_after": "2026-10-21T19:12:20.563459+00:00"
   }
 ]

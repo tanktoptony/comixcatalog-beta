@@ -60360,5 +60360,187 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T08:18:55.624930+00:00",
     "retry_after": "2026-10-21T08:18:55.624946+00:00"
+  },
+  {
+    "name": "You Wish",
+    "publisher": "IDW Publishing",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:15:53.860955+00:00",
+    "retry_after": "2026-10-21T09:15:53.860993+00:00"
+  },
+  {
+    "name": "Cruel Kingdom 2",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:15:55.191169+00:00",
+    "retry_after": "2026-10-21T09:15:55.191187+00:00"
+  },
+  {
+    "name": "Sinnin'",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26839,
+        "name": "Sinnin'",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:15:55.655673+00:00",
+    "retry_after": "2026-10-21T09:15:55.655689+00:00"
+  },
+  {
+    "name": "Batman & Juiz Dredd: Julgamento em Gotham",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72045,
+        "name": "Batman & Juiz Dredd - Julgamento em Gotham",
+        "publisher": "Abril",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:16:15.044635+00:00",
+    "retry_after": "2026-10-21T09:16:15.044651+00:00"
+  },
+  {
+    "name": "Jest Comics",
+    "publisher": "Harvey Comics",
+    "year": 1944,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63187,
+        "name": "Jest Comics",
+        "publisher": "Harry A. Chesler/Dynamic",
+        "start_year": 1944
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:16:15.509644+00:00",
+    "retry_after": "2026-10-21T09:16:15.509666+00:00"
+  },
+  {
+    "name": "Loucademia de Polícia",
+    "publisher": "Avatar Press",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:16:15.992230+00:00",
+    "retry_after": "2026-10-21T09:16:15.992248+00:00"
+  },
+  {
+    "name": "Michael Turner's Soulfire Core",
+    "publisher": "Aspen Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:16:16.377740+00:00",
+    "retry_after": "2026-10-21T09:16:16.377757+00:00"
+  },
+  {
+    "name": "Fantastici Quattro Speciale Estate",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:16:16.684269+00:00",
+    "retry_after": "2026-10-21T09:16:16.684287+00:00"
+  },
+  {
+    "name": "Follow That Man!",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:16:23.522175+00:00",
+    "retry_after": "2026-10-21T09:16:23.522193+00:00"
+  },
+  {
+    "name": "The New Bondage Fairies",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28142,
+        "name": "The New Bondage Fairies",
+        "publisher": "Eros Comix",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:16:23.858629+00:00",
+    "retry_after": "2026-10-21T09:16:23.858646+00:00"
+  },
+  {
+    "name": "Bacchus [Omnibus Edition]",
+    "publisher": "IDW Publishing",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 83189,
+        "name": "Bacchus (Omnibus Edition)",
+        "publisher": "Top Shelf",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:16:24.457806+00:00",
+    "retry_after": "2026-10-21T09:16:24.457823+00:00"
+  },
+  {
+    "name": "Sweet Romances",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 87768,
+        "name": "Sweet Romances",
+        "publisher": "Magazine Management",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:16:24.927764+00:00",
+    "retry_after": "2026-10-21T09:16:24.927781+00:00"
+  },
+  {
+    "name": "Batman: Duas-Caras Ataca Duas Vezes!",
+    "publisher": "Avatar Press",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:16:25.798508+00:00",
+    "retry_after": "2026-10-21T09:16:25.798524+00:00"
+  },
+  {
+    "name": "Beast of Borikén",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T09:16:32.915147+00:00",
+    "retry_after": "2026-10-21T09:16:32.915164+00:00"
   }
 ]

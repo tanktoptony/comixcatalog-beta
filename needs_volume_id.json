@@ -59589,5 +59589,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T03:16:48.023701+00:00",
     "retry_after": "2026-10-21T03:16:48.023717+00:00"
+  },
+  {
+    "name": "Hard At Work, Andy Capp?",
+    "publisher": "Fawcett Comics",
+    "year": 1977,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:50:09.853261+00:00",
+    "retry_after": "2026-10-21T03:50:09.853273+00:00"
+  },
+  {
+    "name": "It's Showtime, Snoopy",
+    "publisher": "Heavy Metal",
+    "year": 1985,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:50:10.196771+00:00",
+    "retry_after": "2026-10-21T03:50:10.196781+00:00"
+  },
+  {
+    "name": "Quantum & Woody KYAG (Kiss Your Ass Goodbye)",
+    "publisher": "Valiant Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:50:10.741612+00:00",
+    "retry_after": "2026-10-21T03:50:10.741621+00:00"
+  },
+  {
+    "name": "StarGods: Visions",
+    "publisher": "Antarctic Press",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:50:24.234517+00:00",
+    "retry_after": "2026-10-21T03:50:24.234529+00:00"
+  },
+  {
+    "name": "The Vault of Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 131441,
+        "name": "Vault of Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:50:39.786283+00:00",
+    "retry_after": "2026-10-21T03:50:39.786298+00:00"
+  },
+  {
+    "name": "Captain Harlock Christmas Special",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69903,
+        "name": "Captain Harlock Christmas Special",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:50:57.838815+00:00",
+    "retry_after": "2026-10-21T03:50:57.838830+00:00"
+  },
+  {
+    "name": "Trancers: The Adventures of Jack Deth",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24589,
+        "name": "Trancers: Adventures Of Jack Deth",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:51:05.722192+00:00",
+    "retry_after": "2026-10-21T03:51:05.722206+00:00"
   }
 ]

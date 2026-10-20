@@ -27554,7 +27554,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27572,8 +27572,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-20T21:01:40.020839+00:00",
-    "retry_after": "2026-10-21T21:01:40.020847+00:00"
+    "last_attempt_at": "2026-10-20T22:00:51.124312+00:00",
+    "retry_after": "2026-10-21T22:00:51.124328+00:00"
   },
   {
     "name": "Cerebus",
@@ -41332,13 +41332,13 @@
   },
   {
     "name": "The Battle of Genryu",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-10T00:01:08.283691+00:00",
-    "retry_after": "2026-10-17T00:01:08.283710+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T22:17:09.429336+00:00",
+    "retry_after": "2026-10-21T22:17:09.429352+00:00"
   },
   {
     "name": "Big Ethel Energy",
@@ -43524,7 +43524,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43542,8 +43542,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-20T21:00:51.198762+00:00",
-    "retry_after": "2026-10-21T21:00:51.198777+00:00"
+    "last_attempt_at": "2026-10-20T22:00:51.217774+00:00",
+    "retry_after": "2026-10-21T22:00:51.217791+00:00"
   },
   {
     "name": "Justice League Special",
@@ -57056,9 +57056,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T21:24:05.678909+00:00",
-    "retry_after": "2026-10-20T21:24:05.678928+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T22:15:52.945596+00:00",
+    "retry_after": "2026-10-23T22:15:52.945611+00:00"
   },
   {
     "name": "Wallace Wood's Pipsqueak Papers",
@@ -57066,9 +57066,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T21:24:09.573653+00:00",
-    "retry_after": "2026-10-20T21:24:09.573669+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T22:15:53.387788+00:00",
+    "retry_after": "2026-10-23T22:15:53.387802+00:00"
   },
   {
     "name": "Deadly Class Media Tie-In Edition",
@@ -57076,9 +57076,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T21:24:10.086759+00:00",
-    "retry_after": "2026-10-20T21:24:10.086776+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T22:15:53.872570+00:00",
+    "retry_after": "2026-10-23T22:15:53.872585+00:00"
   },
   {
     "name": "DC Finest Presents Superman: Time and Time Again Superman Day Special Edition",
@@ -57086,9 +57086,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T21:24:36.621920+00:00",
-    "retry_after": "2026-10-20T21:24:36.621936+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T22:15:54.351729+00:00",
+    "retry_after": "2026-10-23T22:15:54.351745+00:00"
   },
   {
     "name": "DC x Sonic the Hedgehog 1 Special Edition FCBD 2026",
@@ -57096,9 +57096,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T21:24:41.263780+00:00",
-    "retry_after": "2026-10-20T21:24:41.263794+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T22:15:57.533731+00:00",
+    "retry_after": "2026-10-23T22:15:57.533746+00:00"
   },
   {
     "name": "DC K.O.: Red Hood vs. Joker",
@@ -57106,9 +57106,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T21:24:42.061178+00:00",
-    "retry_after": "2026-10-20T21:24:42.061193+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T22:15:58.282618+00:00",
+    "retry_after": "2026-10-23T22:15:58.282633+00:00"
   },
   {
     "name": "Rick and Morty Oni 25th Anniversary Edition",
@@ -60843,5 +60843,39 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T21:02:32.703577+00:00",
     "retry_after": "2026-10-21T21:02:32.703586+00:00"
+  },
+  {
+    "name": "The Face-Skull",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66996,
+        "name": "Face-Skull",
+        "publisher": "Doom & Gloom Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T22:17:08.376679+00:00",
+    "retry_after": "2026-10-21T22:17:08.376697+00:00"
+  },
+  {
+    "name": "X-Men Gigante",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57596,
+        "name": "X-Men Gigante",
+        "publisher": "Abril",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T22:17:08.858786+00:00",
+    "retry_after": "2026-10-21T22:17:08.858801+00:00"
   }
 ]

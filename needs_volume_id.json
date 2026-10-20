@@ -60542,5 +60542,163 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T09:38:30.950849+00:00",
     "retry_after": "2026-10-21T09:38:30.950867+00:00"
+  },
+  {
+    "name": "Retief: Diplomatic Immunity",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52289,
+        "name": "Retief: Diplomatic Immunity",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T10:16:05.502335+00:00",
+    "retry_after": "2026-10-21T10:16:05.502349+00:00"
+  },
+  {
+    "name": "Rex Strong of the Space Patrol",
+    "publisher": "Marvel Comics",
+    "year": 1957,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T10:16:05.859138+00:00",
+    "retry_after": "2026-10-21T10:16:05.859154+00:00"
+  },
+  {
+    "name": "Vengeance of the Vapor",
+    "publisher": "Malibu Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72516,
+        "name": "Vengeance of the Vapor",
+        "publisher": "AAM/Markosia",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T10:16:06.364696+00:00",
+    "retry_after": "2026-10-21T10:16:06.364710+00:00"
+  },
+  {
+    "name": "Magic: The Gathering -- Elder Dragons",
+    "publisher": "Valiant Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T10:16:34.130553+00:00",
+    "retry_after": "2026-10-21T10:16:34.130567+00:00"
+  },
+  {
+    "name": "Kingsman",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127857,
+        "name": "Kingsman",
+        "publisher": "Panini Verlag",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T10:16:34.442633+00:00",
+    "retry_after": "2026-10-21T10:16:34.442647+00:00"
+  },
+  {
+    "name": "Witch Class",
+    "publisher": "Dark Horse Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T10:16:41.432613+00:00",
+    "retry_after": "2026-10-21T10:16:41.432627+00:00"
+  },
+  {
+    "name": "Almanaque da Barbie",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T10:16:57.030832+00:00",
+    "retry_after": "2026-10-21T10:16:57.030848+00:00"
+  },
+  {
+    "name": "Return to Voodoo Island",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26803,
+        "name": "Return to Voodoo Island",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T10:16:57.436227+00:00",
+    "retry_after": "2026-10-21T10:16:57.436239+00:00"
+  },
+  {
+    "name": "Indiana Jones and the Kingdom of the Crystal Skull",
+    "publisher": "Dark Horse Comics",
+    "year": 2008,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 21668,
+        "name": "Indiana Jones and the Kingdom of the Crystal Skull",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 40830,
+        "name": "Indiana Jones and the Kingdom of the Crystal Skull",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T10:17:12.071526+00:00",
+    "retry_after": "2026-10-21T10:17:12.071542+00:00"
+  },
+  {
+    "name": "Wonder Woman by George Pérez Omnibus",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T10:17:19.291124+00:00",
+    "retry_after": "2026-10-21T10:17:19.291139+00:00"
+  },
+  {
+    "name": "Love Bites",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63263,
+        "name": "Love Bites",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T10:17:32.772631+00:00",
+    "retry_after": "2026-10-21T10:17:32.772645+00:00"
   }
 ]

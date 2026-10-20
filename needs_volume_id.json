@@ -59680,5 +59680,99 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T03:51:05.722192+00:00",
     "retry_after": "2026-10-21T03:51:05.722206+00:00"
+  },
+  {
+    "name": "Boy Commandos Comics [ashcan]",
+    "publisher": "DC Comics",
+    "year": 1942,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T04:16:19.119583+00:00",
+    "retry_after": "2026-10-21T04:16:19.119598+00:00"
+  },
+  {
+    "name": "The Files of Ms. Tree",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76620,
+        "name": "The Files of Ms. Tree",
+        "publisher": "Aardvark",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T04:16:26.133396+00:00",
+    "retry_after": "2026-10-21T04:16:26.133413+00:00"
+  },
+  {
+    "name": "Peebomanga",
+    "publisher": "Antarctic Press",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T04:16:31.435594+00:00",
+    "retry_after": "2026-10-21T04:16:31.435609+00:00"
+  },
+  {
+    "name": "Godzilla vs. Hero Zero",
+    "publisher": "Dark Horse Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T04:16:47.797916+00:00",
+    "retry_after": "2026-10-21T04:16:47.797931+00:00"
+  },
+  {
+    "name": "The Trouble with Girls Christmas Special",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64606,
+        "name": "The Trouble With Girls: Christmas Special",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T04:16:48.493703+00:00",
+    "retry_after": "2026-10-21T04:16:48.493719+00:00"
+  },
+  {
+    "name": "Dan Turner, Hollywood Detective: Homicide Hunch",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T04:16:52.881425+00:00",
+    "retry_after": "2026-10-21T04:16:52.881440+00:00"
+  },
+  {
+    "name": "Steel Angel",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T04:17:14.992695+00:00",
+    "retry_after": "2026-10-21T04:17:14.992711+00:00"
+  },
+  {
+    "name": "Cerebus in Hell? Presents #79: WildP.I.G.S.",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T04:17:15.561545+00:00",
+    "retry_after": "2026-10-21T04:17:15.561557+00:00"
   }
 ]

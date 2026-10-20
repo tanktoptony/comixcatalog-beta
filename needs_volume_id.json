@@ -58879,5 +58879,515 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T14:24:47.596422+00:00",
     "retry_after": "2026-10-21T14:24:47.596440+00:00"
+  },
+  {
+    "name": "Barney Bear's Bumper Book Of Comics",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57906,
+        "name": "Barney Bear's Bumper Book of Comics",
+        "publisher": "Magazine Management",
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:27.057118+00:00",
+    "retry_after": "2026-10-21T15:05:27.057134+00:00"
+  },
+  {
+    "name": "Time Wankers: First Hand Tales",
+    "publisher": "Fantagraphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73029,
+        "name": "Time Wankers: First Hand Tales",
+        "publisher": "Eros Comix",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:27.580472+00:00",
+    "retry_after": "2026-10-21T15:05:27.580489+00:00"
+  },
+  {
+    "name": "Jazan Wild's Carnival of Souls San Diego Comicon Edition",
+    "publisher": "Malibu Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68112,
+        "name": "Jazan Wild's Carnival of Souls San Diego Comicon Edition",
+        "publisher": "AAM/Markosia",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:29.036658+00:00",
+    "retry_after": "2026-10-21T15:05:29.036676+00:00"
+  },
+  {
+    "name": "Crime Mysteries",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10802,
+        "name": "Crime Mysteries",
+        "publisher": "Trojan Magazines",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:29.423167+00:00",
+    "retry_after": "2026-10-21T15:05:29.423185+00:00"
+  },
+  {
+    "name": "Star Heroes Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52565,
+        "name": "Star Heroes Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:29.940892+00:00",
+    "retry_after": "2026-10-21T15:05:29.940909+00:00"
+  },
+  {
+    "name": "The Four Norsemen of the Apocalypse",
+    "publisher": "First Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 89360,
+        "name": "The Four Norsemen of the Apocalypse",
+        "publisher": "1First Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:30.337385+00:00",
+    "retry_after": "2026-10-21T15:05:30.337403+00:00"
+  },
+  {
+    "name": "Interactive Comics: Dudley Serious Saves the World",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75764,
+        "name": "Interactive Comics - Dudley Serious Saves the World",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:30.861222+00:00",
+    "retry_after": "2026-10-21T15:05:30.861238+00:00"
+  },
+  {
+    "name": "The Siren's Call",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37440,
+        "name": "The Siren's Call",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:31.373851+00:00",
+    "retry_after": "2026-10-21T15:05:31.373869+00:00"
+  },
+  {
+    "name": "Lynx: An Elflord Tale",
+    "publisher": "Devil's Due",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22550,
+        "name": "Lynx, An Elflord Tale",
+        "publisher": "Peregrine Entertainment",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:31.846556+00:00",
+    "retry_after": "2026-10-21T15:05:31.846575+00:00"
+  },
+  {
+    "name": "Dynamo, Man of High Camp",
+    "publisher": "Antarctic Press",
+    "year": 1967,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49345,
+        "name": "Dynamo, Man of High Camp",
+        "publisher": "Tower",
+        "start_year": 1967
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:32.396370+00:00",
+    "retry_after": "2026-10-21T15:05:32.396388+00:00"
+  },
+  {
+    "name": "Weird Sex!",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72621,
+        "name": "Weird Sex!",
+        "publisher": "Eros Comix",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:32.879758+00:00",
+    "retry_after": "2026-10-21T15:05:32.879776+00:00"
+  },
+  {
+    "name": "Popular Funnies Annual",
+    "publisher": "Marvel Comics",
+    "year": 1977,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170610,
+        "name": "Popular Funnies Annual ",
+        "publisher": "Magazine Management",
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:33.287194+00:00",
+    "retry_after": "2026-10-21T15:05:33.287211+00:00"
+  },
+  {
+    "name": "Submit",
+    "publisher": "Fantagraphics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72226,
+        "name": "Submit",
+        "publisher": "Eros Comix",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:33.664897+00:00",
+    "retry_after": "2026-10-21T15:05:33.664915+00:00"
+  },
+  {
+    "name": "Unknown Worlds",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2025,
+        "name": "Unknown Worlds",
+        "publisher": "American Comics Group",
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:36.336564+00:00",
+    "retry_after": "2026-10-21T15:05:36.336581+00:00"
+  },
+  {
+    "name": "Aria Preview",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58663,
+        "name": "Aria Preview",
+        "publisher": "Avalon Studios",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:36.947334+00:00",
+    "retry_after": "2026-10-21T15:05:36.947352+00:00"
+  },
+  {
+    "name": "The Kinky Hook",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24194,
+        "name": "The Kinky Hook",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:38.479280+00:00",
+    "retry_after": "2026-10-21T15:05:38.479298+00:00"
+  },
+  {
+    "name": "Directory to a Non-Existent Universe",
+    "publisher": "Eclipse Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48002,
+        "name": "Directory to a Non-Existent Universe",
+        "publisher": "ICG",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:39.062916+00:00",
+    "retry_after": "2026-10-21T15:05:39.062934+00:00"
+  },
+  {
+    "name": "Sweeter Gwen",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58029,
+        "name": "Sweeter Gwen",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:39.598852+00:00",
+    "retry_after": "2026-10-21T15:05:39.598869+00:00"
+  },
+  {
+    "name": "Blood Road",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49168,
+        "name": "Blood Road",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:40.097452+00:00",
+    "retry_after": "2026-10-21T15:05:40.097470+00:00"
+  },
+  {
+    "name": "Weird Burlesque",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46445,
+        "name": "Weird Burlesque",
+        "publisher": "Eros Comix",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:40.533513+00:00",
+    "retry_after": "2026-10-21T15:05:40.533531+00:00"
+  },
+  {
+    "name": "Vidas Ilustres",
+    "publisher": "Harvey Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44314,
+        "name": "Vidas Ilustres",
+        "publisher": "Editorial Novaro",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:41.469142+00:00",
+    "retry_after": "2026-10-21T15:05:41.469158+00:00"
+  },
+  {
+    "name": "Riqui Ricón el pobre niño rico",
+    "publisher": "Harvey Comics",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 82529,
+        "name": "Riqui Ricón el Pobre Niño Rico",
+        "publisher": "Editorial Novaro",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:42.004224+00:00",
+    "retry_after": "2026-10-21T15:05:42.004243+00:00"
+  },
+  {
+    "name": "Fix y Foxi",
+    "publisher": "Harvey Comics",
+    "year": 1967,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113785,
+        "name": "Fix y Foxi ",
+        "publisher": "Editorial Novaro",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:42.403987+00:00",
+    "retry_after": "2026-10-21T15:05:42.404006+00:00"
+  },
+  {
+    "name": "A Espada Selvagem de Conan",
+    "publisher": "Avatar Press",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54179,
+        "name": "A Espada Selvagem de Conan",
+        "publisher": "Abril",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:42.776612+00:00",
+    "retry_after": "2026-10-21T15:05:42.776629+00:00"
+  },
+  {
+    "name": "Superaventuras Marvel",
+    "publisher": "Avatar Press",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159876,
+        "name": "Superaventuras Marvel",
+        "publisher": "Abril",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:43.421020+00:00",
+    "retry_after": "2026-10-21T15:05:43.421037+00:00"
+  },
+  {
+    "name": "O Incrível Hulk",
+    "publisher": "Avatar Press",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159873,
+        "name": "O Incrível Hulk",
+        "publisher": "Abril",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:44.268787+00:00",
+    "retry_after": "2026-10-21T15:05:44.268804+00:00"
+  },
+  {
+    "name": "Capitão América",
+    "publisher": "Avatar Press",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159872,
+        "name": "Capitão América",
+        "publisher": "Abril",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:44.689815+00:00",
+    "retry_after": "2026-10-21T15:05:44.689832+00:00"
+  },
+  {
+    "name": "Le Storie",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85062,
+        "name": "Le Storie",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:45.104981+00:00",
+    "retry_after": "2026-10-21T15:05:45.104998+00:00"
+  },
+  {
+    "name": "Gli Incredibili X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41460,
+        "name": "Gli Incredibili X-Men",
+        "publisher": "Panini Comics",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:45.543589+00:00",
+    "retry_after": "2026-10-21T15:05:45.543606+00:00"
+  },
+  {
+    "name": "Magico Vento",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46101,
+        "name": "Magico Vento",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T15:05:46.100617+00:00",
+    "retry_after": "2026-10-21T15:05:46.100635+00:00"
   }
 ]

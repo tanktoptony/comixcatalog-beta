@@ -59879,5 +59879,95 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T05:19:22.774815+00:00",
     "retry_after": "2026-10-21T05:19:22.774829+00:00"
+  },
+  {
+    "name": "Through the Year with the Family Circus",
+    "publisher": "Fawcett Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 138920,
+        "name": "Through the Year With the Family Circus",
+        "publisher": "Ballantine Books",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T06:15:56.077515+00:00",
+    "retry_after": "2026-10-21T06:15:56.077532+00:00"
+  },
+  {
+    "name": "Hero Cats",
+    "publisher": "Action Lab Entertainment",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 76646,
+        "name": "Hero Cats",
+        "publisher": "Action Lab",
+        "start_year": 2014
+      },
+      {
+        "id": 79895,
+        "name": "Hero Cats",
+        "publisher": "Action Lab",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T06:16:09.527097+00:00",
+    "retry_after": "2026-10-21T06:16:09.527114+00:00"
+  },
+  {
+    "name": "DC x AEW #1 NYCC Edition",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T06:16:59.649824+00:00",
+    "retry_after": "2026-10-21T06:16:59.649840+00:00"
+  },
+  {
+    "name": "Too Funny for Words",
+    "publisher": "Dell Comics",
+    "year": 1954,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T06:17:00.006294+00:00",
+    "retry_after": "2026-10-21T06:17:00.006310+00:00"
+  },
+  {
+    "name": "Marvel Universe Magazine Fall",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T06:17:17.117041+00:00",
+    "retry_after": "2026-10-21T06:17:17.117056+00:00"
+  },
+  {
+    "name": "DC Comics Presents: Supergirl / Superman",
+    "publisher": "DC Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T06:17:22.640427+00:00",
+    "retry_after": "2026-10-21T06:17:22.640443+00:00"
+  },
+  {
+    "name": "Hawkman Omnibus",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T06:17:29.524783+00:00",
+    "retry_after": "2026-10-21T06:17:29.524799+00:00"
   }
 ]

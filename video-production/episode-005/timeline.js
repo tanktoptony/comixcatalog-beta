@@ -355,7 +355,9 @@ const CUES = [
 
 const resolved = resolveAnchors(narrationWords, CUES.map(([phrase]) => phrase));
 export const anchorMisses = resolved.misses;
-if (anchorMisses.length) throw new Error(`episode-005: unresolved anchors:\n${anchorMisses.map((m) => `#${m.index} ${m.phrase}`).join("\n")}`);
+// The four cold-open cues wait on the re-recorded 01 file; until then they sit between neighbours.
+const COLD_OPEN_CUES = 4;
+if (anchorMisses.some((m) => m.index >= COLD_OPEN_CUES)) throw new Error(`episode-005: unresolved anchors:\n${anchorMisses.map((m) => `#${m.index} ${m.phrase}`).join("\n")}`);
 const segments = CUES.map(([phrase, seg], i) => ({ ...seg, at: +Math.max(0, resolved.times[i] - LEAD).toFixed(3), beat: phrase }));
 // The open fades up from black at 0 s, under the first words.
 segments[0].at = 0;

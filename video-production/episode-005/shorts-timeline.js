@@ -17,7 +17,7 @@ const SSTB = "albums/2002-the-second-stage-turbine-blade.jpg";
 const cover = (asset, extra = {}) => ({ type: "cover", asset, treatment: "slowPush", transitionIn: "cut", ...extra });
 const album = (extra = {}) => ({ type: "panel", asset: SSTB, size: [900, 900], treatment: "slowPush", transitionIn: "cut", ...extra });
 const title = (t) => ({ type: "chapter", title: t, transitionIn: "cut" });
-const art = (k) => ({ type: "cover", asset: `characters/${k}.png`, treatment: "slowPush", transitionIn: "cut" });
+const art = (k) => ({ type: "cover", asset: `characters/v-${k}.png`, treatment: "slowPush", transitionIn: "cut" });
 
 const CUES = [
   // Short 1 · the cast list

@@ -27571,9 +27571,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T20:00:43.573568+00:00",
-    "retry_after": "2026-10-20T20:00:43.573584+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T20:01:06.479176+00:00",
+    "retry_after": "2026-10-23T20:01:06.479192+00:00"
   },
   {
     "name": "Cerebus",
@@ -43541,9 +43541,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T20:00:43.662941+00:00",
-    "retry_after": "2026-10-20T20:00:43.662951+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T20:01:06.556790+00:00",
+    "retry_after": "2026-10-23T20:01:06.556806+00:00"
   },
   {
     "name": "Justice League Special",
@@ -56917,9 +56917,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T19:48:47.130354+00:00",
-    "retry_after": "2026-10-20T19:48:47.130369+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T20:16:08.255635+00:00",
+    "retry_after": "2026-10-23T20:16:08.255651+00:00"
   },
   {
     "name": "Dark One Special Edition",
@@ -56927,9 +56927,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T19:48:48.512106+00:00",
-    "retry_after": "2026-10-20T19:48:48.512121+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T20:16:09.084721+00:00",
+    "retry_after": "2026-10-23T20:16:09.084738+00:00"
   },
   {
     "name": "Bitch in Heat",
@@ -56944,9 +56944,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T19:48:50.696021+00:00",
-    "retry_after": "2026-10-20T19:48:50.696036+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T20:16:09.510921+00:00",
+    "retry_after": "2026-10-23T20:16:09.510953+00:00"
   },
   {
     "name": "Teenage Mutant Ninja Turtles",
@@ -56979,9 +56979,9 @@
         "start_year": 1990
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T19:49:10.085732+00:00",
-    "retry_after": "2026-10-20T19:49:10.085747+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-20T20:16:10.015314+00:00",
+    "retry_after": "2026-10-23T20:16:10.015329+00:00"
   },
   {
     "name": "Close Encounters of the Third Kind (Fotonovel)",
@@ -60531,5 +60531,240 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T19:34:23.673323+00:00",
     "retry_after": "2026-10-21T19:34:23.673343+00:00"
+  },
+  {
+    "name": "Ma tante adorée",
+    "publisher": "Dynamite Entertainment",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:17:01.487495+00:00",
+    "retry_after": "2026-10-21T20:17:01.487512+00:00"
+  },
+  {
+    "name": "Pondus Julehefte [Seriesamlerklubben]",
+    "publisher": "Harvey Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:17:02.008283+00:00",
+    "retry_after": "2026-10-21T20:17:02.008300+00:00"
+  },
+  {
+    "name": "Heroes of the West Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1965,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88104,
+        "name": "Heroes of the West Giant Edition",
+        "publisher": "Magazine Management",
+        "start_year": 1968
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:17:02.423827+00:00",
+    "retry_after": "2026-10-21T20:17:02.423843+00:00"
+  },
+  {
+    "name": "Boneheads",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:17:02.934621+00:00",
+    "retry_after": "2026-10-21T20:17:02.934636+00:00"
+  },
+  {
+    "name": "Maxi Mister No",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32766,
+        "name": "Maxi Mister No",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:17:03.389838+00:00",
+    "retry_after": "2026-10-21T20:17:03.389853+00:00"
+  },
+  {
+    "name": "Panic",
+    "publisher": "Fantagraphics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 82862,
+        "name": "Panic",
+        "publisher": "Condor Verlag",
+        "start_year": 1983
+      },
+      {
+        "id": 19325,
+        "name": "Panic",
+        "publisher": "EC",
+        "start_year": 1954
+      },
+      {
+        "id": 61037,
+        "name": "Panic",
+        "publisher": "Gemstone",
+        "start_year": 1997
+      },
+      {
+        "id": 144498,
+        "name": "The Panic",
+        "publisher": "Migdal Comics",
+        "start_year": 2022
+      },
+      {
+        "id": 155753,
+        "name": "Panic ",
+        "publisher": "Russ Cochran",
+        "start_year": 1984
+      },
+      {
+        "id": 82815,
+        "name": "Panic",
+        "publisher": "Semic Press AB",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:17:11.289725+00:00",
+    "retry_after": "2026-10-21T20:17:11.289741+00:00"
+  },
+  {
+    "name": "Engage",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 107214,
+        "name": "Engage",
+        "publisher": "Shueisha",
+        "start_year": 1985
+      },
+      {
+        "id": 162310,
+        "name": "Engage",
+        "publisher": "Flashbook",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:17:11.558613+00:00",
+    "retry_after": "2026-10-21T20:17:11.558629+00:00"
+  },
+  {
+    "name": "The Incredible Hulk Summer Special",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:18:23.386622+00:00",
+    "retry_after": "2026-10-21T20:18:23.386638+00:00"
+  },
+  {
+    "name": "Special Edition, Superman",
+    "publisher": "DC Comics",
+    "year": 1944,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:18:23.779453+00:00",
+    "retry_after": "2026-10-21T20:18:23.779468+00:00"
+  },
+  {
+    "name": "Star Wars Comic UK",
+    "publisher": "Titan Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:19:05.646927+00:00",
+    "retry_after": "2026-10-21T20:19:05.646960+00:00"
+  },
+  {
+    "name": "M-G-M's Tom",
+    "publisher": "Marvel Comics",
+    "year": 1957,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:19:06.093289+00:00",
+    "retry_after": "2026-10-21T20:19:06.093307+00:00"
+  },
+  {
+    "name": "FBI•Mini",
+    "publisher": "Fantagraphics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:19:06.469053+00:00",
+    "retry_after": "2026-10-21T20:19:06.469070+00:00"
+  },
+  {
+    "name": "Maxi Dylan Dog",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46298,
+        "name": "Maxi Dylan Dog",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:19:06.904203+00:00",
+    "retry_after": "2026-10-21T20:19:06.904220+00:00"
+  },
+  {
+    "name": "Speciale Dylan Dog",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40654,
+        "name": "Speciale Dylan Dog",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:19:07.580337+00:00",
+    "retry_after": "2026-10-21T20:19:07.580353+00:00"
+  },
+  {
+    "name": "Justice Traps the Guilty",
+    "publisher": "Atlas Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1151,
+        "name": "Justice Traps the Guilty",
+        "publisher": "Prize",
+        "start_year": 1947
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T20:19:07.900598+00:00",
+    "retry_after": "2026-10-21T20:19:07.900614+00:00"
   }
 ]

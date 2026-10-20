@@ -60877,5 +60877,156 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T22:40:16.410491+00:00",
     "retry_after": "2026-10-21T22:40:16.410507+00:00"
+  },
+  {
+    "name": "Thanos: Em Busca de Poder",
+    "publisher": "Avatar Press",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T23:17:11.900047+00:00",
+    "retry_after": "2026-10-21T23:17:11.900063+00:00"
+  },
+  {
+    "name": "Film Classics",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T23:17:12.456186+00:00",
+    "retry_after": "2026-10-21T23:17:12.456203+00:00"
+  },
+  {
+    "name": "Mäx",
+    "publisher": "Fawcett Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T23:17:13.241932+00:00",
+    "retry_after": "2026-10-21T23:17:13.241947+00:00"
+  },
+  {
+    "name": "A Big Someplace",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T23:17:13.854073+00:00",
+    "retry_after": "2026-10-21T23:17:13.854088+00:00"
+  },
+  {
+    "name": "O Melhor de Batman",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119458,
+        "name": "O Melhor de Batman ",
+        "publisher": "Abril",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T23:17:20.025981+00:00",
+    "retry_after": "2026-10-21T23:17:20.026003+00:00"
+  },
+  {
+    "name": "Der letzte Kobold",
+    "publisher": "Fawcett Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 100497,
+        "name": "Der letzte Kobold",
+        "publisher": "Epsilon",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T23:17:20.414649+00:00",
+    "retry_after": "2026-10-21T23:17:20.414663+00:00"
+  },
+  {
+    "name": "The Beauty",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 83799,
+        "name": "The Beauty",
+        "publisher": "Image",
+        "start_year": 2015
+      },
+      {
+        "id": 88915,
+        "name": "The Beauty",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T23:17:20.829343+00:00",
+    "retry_after": "2026-10-21T23:17:20.829357+00:00"
+  },
+  {
+    "name": "Damian & Alexander",
+    "publisher": "Fawcett Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T23:17:22.045282+00:00",
+    "retry_after": "2026-10-21T23:17:22.045298+00:00"
+  },
+  {
+    "name": "Spooky the Tuff Little Ghost Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85482,
+        "name": "Spooky the Tuff Little Ghost Giant Edition",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T23:17:22.469129+00:00",
+    "retry_after": "2026-10-21T23:17:22.469141+00:00"
+  },
+  {
+    "name": "Carotte Comix",
+    "publisher": "Heavy Metal",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T23:17:22.875359+00:00",
+    "retry_after": "2026-10-21T23:17:22.875393+00:00"
+  },
+  {
+    "name": "Clássicos DC",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119422,
+        "name": "Clássicos DC ",
+        "publisher": "Abril",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T23:17:23.506163+00:00",
+    "retry_after": "2026-10-21T23:17:23.506177+00:00"
   }
 ]

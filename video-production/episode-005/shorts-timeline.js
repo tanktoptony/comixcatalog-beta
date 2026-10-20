@@ -17,6 +17,7 @@ const SSTB = "albums/2002-the-second-stage-turbine-blade.jpg";
 const cover = (asset, extra = {}) => ({ type: "cover", asset, treatment: "slowPush", transitionIn: "cut", ...extra });
 const album = (extra = {}) => ({ type: "panel", asset: SSTB, size: [900, 900], treatment: "slowPush", transitionIn: "cut", ...extra });
 const title = (t) => ({ type: "chapter", title: t, transitionIn: "cut" });
+const art = (k) => ({ type: "cover", asset: `characters/${k}.png`, treatment: "slowPush", transitionIn: "cut" });
 
 const CUES = [
   // Short 1 · the cast list
@@ -28,7 +29,7 @@ const CUES = [
   ["They're the youngest kids", cover(C.s2)],
   ["33 names Patrick", title("Patrick")],
   ["He's engaged to their oldest", cover(C.s3)],
-  ["Provision writes to", title("Newo\nApollo")],
+  ["Provision writes to", art("newo")],
   ["is Claudio's girlfriend", cover(C.ii1)],
   ["The same song names Norris and Larry", title("Norris\nLarry")],
   ["They're the two guys flying", cover(C.s4)],
@@ -39,9 +40,9 @@ const CUES = [
   ["The band Coheed and Cambria is named after", album()],
   ["in a comic book", cover(C.s1)],
   ["they're not a normal couple", cover(C.s4)],
-  ["Coheed has blades built into", cover(C.s1, { treatment: "focus", focus: { x: 0.35, y: 0.5, zoom: 1.4 } })],
+  ["Coheed has blades built into", art("coheed")],
   ["his right arm turns into a gun", cover(C.s4, { treatment: "focus", focus: { x: 0.3, y: 0.4, zoom: 1.4 } })],
-  ["Cambria can see things", cover(C.s4, { treatment: "focus", focus: { x: 0.62, y: 0.4, zoom: 1.6 } })],
+  ["Cambria can see things", art("cambria")],
   ["Before the kids and the house", cover(C.s2)],
   ["they were on a team called", title("K.B.I.")],
   ["Knowledge Beast and Inferno", title("The Knowledge\nThe Beast\nThe Inferno")],
@@ -51,9 +52,9 @@ const CUES = [
   ["Every issue has a story", album({ treatment: "slowPull" })],
   // Short 3 · Jesse
   ["My favorite character in", cover(C.s5)],
-  ["His name is Jesse", title("Jesse\n\"Inferno\"")],
+  ["His name is Jesse", art("inferno")],
   ["He fights the tyrant", cover(C.s5, { treatment: "focus", focus: { x: 0.5, y: 0.75, zoom: 1.3 } })],
-  ["next to his wife Mariah", cover(C.s5, { treatment: "focus", focus: { x: 0.48, y: 0.3, zoom: 1.6 } })],
+  ["next to his wife Mariah", art("mariah")],
   ["When Jesse finds out", cover(C.s2)],
   ["he doesn't wait around", cover(C.s4)],
   ["He chases down the ship", cover(C.ii2)],

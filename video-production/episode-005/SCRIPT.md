@@ -16,12 +16,10 @@ Length: about 3,000 words of narration plus about 2.5 minutes of music, so rough
 
 ## 01-cold-open.wav
 
-Coheed and Cambria's first album is about a dad who's told to kill his own kids.
+This is a comic book channel, so why are we talking about a rock album? Because Coheed and Cambria's first record is a comic book story. And the lyrics name the cast.
 
-I listened to it in my dorm with no idea.
-
-> SHOW: Hard cut, no logo. SSTB album art, slow push. On "kill his own kids": Amory Wars (2007) #1 cover. On "dorm": the band's 2002 site (Wayback). Cut to black.
-> MUSIC: First hit of "Time Consumer" under the last line, cut dead at the sting.
+> SHOW: Fade up from black on a fan of the ten 2007 and 2008 covers. "Rock album": SSTB album art. "Comic book story": album and Amory Wars (2007) #1 side by side. "Name the cast": the K.B.I. character lineup.
+> MUSIC: The Rollin at 5 bed fades in under the line and steps aside for the sting. (Replaced the darker "a dad who's told to kill his own kids" opener, 2026-10-20.)
 
 [CHANNEL STING, 2.5 s]
 

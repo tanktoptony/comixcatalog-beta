@@ -156,9 +156,9 @@ rollin = decode(os.path.join(AUD, "MUSIC_BED_FULL.wav"))
 rg = 10 ** ((ROLLIN_DB - rms_db(rollin)) / 20)
 r = next(m for m in plan["music"] if m["kind"] == "rollin")
 L = r["until"] - r["at"]
-dips = [(at - r["at"], at - r["at"] + Ld) for _, _, at, Ld, _ in clips]
+dips = [(at - r["at"], at - r["at"] + Ld) for _, _, at, Ld, _ in clips] + [(plan["sting"]["at"] - r["at"], plan["sting"]["at"] - r["at"] + plan["sting"]["dur"])]
 def rollin_gain(t):
-    g = np.clip(np.minimum(t / 1.5, (L - t) / 4.0), 0, 1) * rg
+    g = np.clip(np.minimum(t / 2.0, (L - t) / 4.0), 0, 1) * rg
     for a, b in dips:
         g = g * (1 - 0.85 * np.clip(np.minimum((t - a + 0.4) / 0.4, (b + 0.6 - t) / 0.6), 0, 1))
     return g

@@ -100,7 +100,7 @@ files = {f[:2]: f for f in os.listdir(voice_dir) if re.match(r"\d\d ", f)}
 os.makedirs(OUT, exist_ok=True)
 
 voice_parts, words_out, plan, music = [], [], [], []
-t = 0.6
+t = 1.0
 for sid, cfg in SECTIONS:
     f = files[sid]
     base = os.path.splitext(f)[0] if f.lower().endswith(".mp3") else f
@@ -147,14 +147,13 @@ for sid, cfg in SECTIONS:
             t += dur
     if sid == "01":
         sting_at = t + 0.35
-        music.append({"kind": "cold", "track": 2, "at": round(max(0.6, t - 2.2), 3), "until": round(sting_at, 3)})
         t = sting_at + STING + 0.35
     else:
         t += GAP
 end_at = t
 duration = end_at + END_CARD
 # One continuous Rollin at 5 bed from section 02 to the end card; it dips under the album clips.
-rollin_from = next(p["at"] for p in plan if p["section"] == "02")
+rollin_from = 0.0  # fades in under the cold open; dips for the sting
 music.append({"kind": "rollin", "at": round(rollin_from, 3), "until": round(duration, 3)})
 
 voice = np.zeros(int(duration * SR) + SR)

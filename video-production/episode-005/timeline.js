@@ -45,6 +45,14 @@ const pair = (assets, extra = {}) => ({ type: "pair", assets, ...extra });
 const card = (title, kicker, sub, extra = {}) => ({ type: "chapter", title, ...(kicker ? { kicker } : {}), ...(sub ? { sub } : {}), ...extra });
 const lyric = (text, song) => ({ type: "quote", text, attribution: `Lyric · "${song}" · 2002` });
 const cut = { transitionIn: "cut" };
+// Character sheets and lore art: the comic's own character designs (via the
+// Coheed and Cambria Wiki) and Tony's reference images. size = real pixels.
+const CH = {
+  coheed: [320, 720], cambria: [320, 720], inferno: [320, 720], claudio: [320, 720], mariah: [320, 720], newo: [320, 720], ryan: [320, 720], mayo: [206, 488],
+  "crom-panel": [227, 295], "apollo-panel": [255, 246], "heavens-fence-map": [1000, 770], "keywork-diagram": [500, 391], "ryan-throne": [480, 234], "kbi-lineup": [1008, 720], space: [1360, 765],
+};
+const art = (k, title, sub, extra = {}) => ({ type: "panel", asset: `characters/${k}.png`, size: CH[k], treatment: "slowPush", maxUpscale: 2.2, ...(title ? { title } : {}), ...(sub ? { sub } : {}), transitionIn: "cut", ...extra });
+const duo = (a, la, b, lb, extra = {}) => pair([{ asset: `characters/${a}.png`, aspect: CH[a][0] / CH[a][1], label: la }, { asset: `characters/${b}.png`, aspect: CH[b][0] / CH[b][1], label: lb }], { transitionIn: "cut", ...extra });
 const TRACKS = ["Second Stage Turbine Blade", "Time Consumer", "Devil in Jersey City", "Everything Evil", "Delirium Trigger", "Hearshot Kid Disaster", "33", "Junesong Provision", "Neverender", "God Send Conspirator"];
 const LENGTHS = ["0:54", "5:43", "4:48", "5:52", "4:47", "5:42", "3:31", "5:22", "5:23", "13:45"];
 // n = 0: the band's own 2002 discography page (Wayback). n > 0: the track
@@ -60,10 +68,11 @@ const TEN = [...SSTB07, ...II];
 const FAN10 = [C.ii5, C.ii4, C.ii3, C.ii2, C.ii1, C.s5, C.s4, C.s3, C.s2, C.s1];
 
 const CUES = [
-  // ── 01 Cold open ────────────────────────────────────────────────────────
-  ["first album is about a dad", album("sstb", cut)],
-  ["told to kill his own kids", focus(C.s2, 0.62, 0.26, 1.5, cut)],
-  ["I listen to it in my dorm", screen("wb-coheed-av-2002", "push", undefined, { focus: { x: 0.38, y: 0.32 }, zoom: 1.6, ...cut })],
+  // ── 01 Cold open (fades up from black; the bed fades in under it) ─────────
+  ["This is a comic book channel", { ...fan(FAN10), transitionIn: "fade", fadeIn: 36 }],
+  ["so why are we talking about a rock album", album("sstb", cut)],
+  ["Because Coheed and Cambria's first record", pair([{ asset: `albums/${ALB.sstb[0]}.jpg`, aspect: 1, label: "The album · 2002" }, { asset: C.s1, label: "The comic · 2007" }], cut)],
+  ["And the lyrics name the cast", art("kbi-lineup")],
 
   // ── 02 The plan ─────────────────────────────────────────────────────────
   ["This is the Second Stage Turbine Blade", album("sstb", cut)],
@@ -71,7 +80,7 @@ const CUES = [
   ["these songs name names", card("Named in\nthe lyrics", "The Second Stage Turbine Blade · 2002", undefined, cut)],
   ["The twins", card("Matthew · Maria", "Named in the lyrics", undefined, cut)],
   ["Josephine's fiance", card("Patrick", "Named in the lyrics", undefined, cut)],
-  ["Claudio's girlfriend", card("Newo · Apollo", "Named in the lyrics", "Claudio's girlfriend, and her dog", cut)],
+  ["Claudio's girlfriend", duo("newo", "Newo", "apollo-panel", "Apollo")],
   ["the two guys flying the spaceship", card("Norris · Larry", "Named in the lyrics", "The two guys flying the spaceship", cut)],
   ["So that's today", tracklist(0)],
   ["A little of the song", album("sstb", { treatment: "slowPull", ...cut })],
@@ -106,12 +115,12 @@ const CUES = [
   // ── 04 Track 1 ──────────────────────────────────────────────────────────
   ["Track one is the title track", tracklist(1)],
   ["So let's use that minute", album("sstb", cut)],
-  ["Heaven's Fence", focus(C.s1, 0.5, 0.2, 1.3, cut)],
-  ["78 planets and seven stars", card("78 planets\n7 stars", "Heaven's Fence", "Held together by the Keywork", cut)],
-  ["Running the whole thing is Wilhelm Ryan", card("Wilhelm Ryan", "The Supreme Tri-Mage", undefined, cut)],
-  ["Which is a great title", focus(C.s2, 0.55, 0.35, 1.2, cut)],
+  ["Heaven's Fence", art("space", "Heaven's Fence")],
+  ["78 planets and seven stars", art("keywork-diagram", "78 planets, 7 stars", "Held together by the Keywork")],
+  ["Running the whole thing is Wilhelm Ryan", art("ryan", "Wilhelm Ryan", "The Supreme Tri-Mage")],
+  ["Which is a great title", art("ryan-throne")],
   ["And on one of those planets", cover(C.s1, cut)],
-  ["Coheed and Cambria Kilgannon", focus(C.s1, 0.45, 0.35, 1.5, cut)],
+  ["Coheed and Cambria Kilgannon", duo("coheed", "Coheed", "cambria", "Cambria")],
   ["House in the suburbs", focus(C.s4, 0.5, 0.45, 1.3, cut)],
   ["Josephine is the oldest", card("Josephine · Claudio\nMatthew · Maria", "The Kilgannon kids", undefined, cut)],
   ["Remember those names", album("sstb", { treatment: "slowPull", ...cut })],
@@ -122,15 +131,15 @@ const CUES = [
   ["Coheed's been having nightmares", focus(C.s1, 0.42, 0.35, 1.7, cut)],
   ["Cambria tells him it's just a dream", focus(C.s4, 0.62, 0.38, 1.8, cut)],
   ["Then one day after work", cover(C.s2, cut)],
-  ["General Mayo Deftinwolf", focus(C.s2, 0.62, 0.26, 1.8, cut)],
+  ["General Mayo Deftinwolf", art("mayo", "General Mayo Deftinwolf", "Wilhelm Ryan's army")],
   ["And Mayo tells Coheed the nightmares are real", focus(C.s2, 0.62, 0.26, 2.2)],
   ["Turns out Coheed and Cambria had a whole other life", focus(C.s4, 0.48, 0.45, 1.3, cut)],
-  ["Knowledge Beast and Inferno", card("The Knowledge · Cambria\nThe Beast · Coheed\nThe Inferno · Jesse", "The K.B.I.", undefined, cut)],
-  ["Cambria was knowledge", focus(C.s4, 0.62, 0.38, 1.8, cut)],
-  ["Coheed was beast", focus(C.s1, 0.42, 0.35, 1.6, cut)],
-  ["And Inferno is Jesse", card("Jesse", "Inferno", "Coheed's brother", cut)],
+  ["Knowledge Beast and Inferno", art("kbi-lineup", "The K.B.I.", "The Knowledge, Cambria · The Beast, Coheed · The Inferno, Jesse")],
+  ["Cambria was knowledge", art("cambria", "The Knowledge", "Cambria sees things before they happen")],
+  ["Coheed was beast", art("coheed", "The Beast", "Coheed fights his way out of almost anything")],
+  ["And Inferno is Jesse", art("inferno", "The Inferno", "Jesse, Coheed's brother")],
   ["Their memories were wiped", focus(C.s1, 0.42, 0.35, 1.4, cut)],
-  ["It's called the Monstar", card("The Monstar", "A virus hidden inside Coheed", "It can wreck the Keywork", cut)],
+  ["It's called the Monstar", art("heavens-fence-map", "The Monstar", "A virus hidden inside Coheed. It can wreck the Keywork.")],
   ["So far that's a bad day", focus(C.s2, 0.62, 0.26, 1.6, cut)],
   ["He says the virus got passed on to the kids", album("sstb", { treatment: "slowPush", ...cut })],
   ["Then he drives off", focus(C.s2, 0.25, 0.45, 1.6, cut)],
@@ -163,13 +172,13 @@ const CUES = [
   ["So the house", album("sstb", { treatment: "slowPush", ...cut })],
   ["Then the soldiers show up", cover(C.s2, cut)],
   ["Mayo tells him to ask his wife", focus(C.s2, 0.62, 0.26, 1.8, cut)],
-  ["So Cambria looks into Mayo's head", focus(C.s4, 0.62, 0.38, 2.0, cut)],
+  ["So Cambria looks into Mayo's head", art("cambria")],
   ["The kids never had the virus", card("It was a lie", "The kids never had the virus", undefined, cut)],
   ["Coheed loses it", focus(C.s1, 0.4, 0.4, 1.4, cut)],
   ["Blades come out of his arm", focus(C.s1, 0.3, 0.55, 1.6, cut)],
   ["They finally knock him out", focus(C.s2, 0.3, 0.45, 1.5, cut)],
-  ["So where's Claudio", card("Where's Claudio?", undefined, undefined, cut)],
-  ["Stuck in traffic", card("Stuck in traffic", "With his girlfriend · After curfew", undefined, cut)],
+  ["So where's Claudio", art("claudio", "Where's Claudio?")],
+  ["Stuck in traffic", duo("claudio", "Claudio", "newo", "Newo", { title: "Stuck in traffic", sub: "After curfew" })],
   ["The one time in history", album("sstb", { treatment: "slowPull", ...cut })],
   ["When he finally gets home", cover(C.s3, cut)],
   ["He holds her", focus(C.s3, 0.45, 0.62, 1.4, cut)],
@@ -196,7 +205,7 @@ const CUES = [
   ["Cambria shatters hers", focus(C.s4, 0.62, 0.4, 1.7, cut)],
   ["Then the two of them fight", cover(C.s4, { treatment: "slowPull", ...cut })],
   ["And this is where we get the other arm", focus(C.s4, 0.3, 0.35, 1.8, cut)],
-  ["So that's blades on the left", card("Blades on the left\nA cannon on the right", "Coheed Kilgannon", "On a suburban dad", cut)],
+  ["So that's blades on the left", art("coheed", "Blades on the left, a cannon on the right", "On a suburban dad")],
   ["They take the control room", focus(C.s4, 0.5, 0.75, 1.4, cut)],
   ["The ship's on autopilot", card("Autopilot", "Steered from the Red Army's space port", undefined, cut)],
   ["They hijacked a ship", cover(C.s4, cut)],
@@ -210,8 +219,8 @@ const CUES = [
   ["Coheed and Cambria took the ship", focus(C.s4, 0.48, 0.45, 1.3, cut)],
   ["Patrick got away", focus(C.s2, 0.45, 0.75, 1.3, cut)],
   ["Claudio got away", focus(C.s3, 0.42, 0.45, 1.4, cut)],
-  ["And Wilhelm Ryan is not the forgiving type", card("Wilhelm Ryan", "The Supreme Tri-Mage", "Not the forgiving type", cut)],
-  ["So in walks Admiral", focus(C.ii2, 0.3, 0.45, 1.5, cut)],
+  ["And Wilhelm Ryan is not the forgiving type", art("ryan-throne", "Wilhelm Ryan", "Not the forgiving type")],
+  ["So in walks Admiral", art("crom-panel", "Admiral Vielar Crom")],
   ["The comics call him", { type: "quote", text: "...who may be the most dangerous man on Heaven's Fence.", attribution: "Amory Wars #4 solicitation, 2007", asset: C.s4, ...cut }],
   ["Metal mask", focus(C.ii2, 0.3, 0.45, 2.0, cut)],
   ["And he tells Mayo he's been demoted", focus(C.s2, 0.62, 0.26, 2.0, cut)],
@@ -246,8 +255,8 @@ const CUES = [
   ["Track eight", tracklist(8)],
   ["This one reads like letters", album("sstb", cut)],
   ["how's Apollo been treating you", lyric("Dear Newo Ikkin,\nhow's Apollo been\ntreating you?", "Junesong Provision")],
-  ["Newo is Claudio's girlfriend", card("Newo Ikkin", "Claudio's girlfriend", undefined, cut)],
-  ["Apollo is her dog", card("Apollo", "Her dog", undefined, cut)],
+  ["Newo is Claudio's girlfriend", art("newo", "Newo Ikkin", "Claudio's girlfriend")],
+  ["Apollo is her dog", art("apollo-panel", "Apollo", "Her dog")],
   ["After the Priest Claudio goes to her house", focus(C.ii1, 0.45, 0.4, 1.4, cut)],
   ["He wants to tell her", focus(C.s3, 0.42, 0.45, 1.6, cut)],
   ["He takes a picture of her", focus(C.ii1, 0.42, 0.35, 1.9, cut)],
@@ -275,18 +284,18 @@ const CUES = [
   ["four-night run of shows", photo("live2009", cut)],
   ["Meanwhile on the Gloria", cover(C.s4, cut)],
   ["From a ship that's shooting at them", focus(C.s5, 0.5, 0.75, 1.4, cut)],
-  ["It's Jesse", card("Jesse", "The Inferno", undefined, cut)],
+  ["It's Jesse", art("inferno", "Jesse", "The Inferno")],
 
   // ── 13 God Send Conspirator / IRO-Bot ───────────────────────────────────
   ["Track 10", tracklist(10)],
   ["On the original CD this track runs", card("13:45", "God Send Conspirator · original CD", "With a hidden track at the end", cut)],
   ["dear Mariah", lyric("Dear Mariah", "God Send Conspirator")],
-  ["Jesse is inferno", card("The Inferno", "The I in K.B.I.", "Jesse · Coheed's brother · IRO-bot", cut)],
+  ["Jesse is inferno", art("inferno", "The Inferno", "The I in K.B.I. · Coheed's brother · IRO-bot")],
   ["leads a rebellion against Wilhelm Ryan", focus(C.s5, 0.48, 0.3, 1.6, cut)],
-  ["She was the Messiah", card("Mariah Antillarea", "Rebel leader", "Once believed to be the Messiah", cut)],
+  ["She was the Messiah", art("mariah", "Mariah Antillarea", "Rebel leader, once believed to be the Messiah")],
   ["He's done waiting", cover(C.s5, cut)],
   ["He wants to take the war", focus(C.s5, 0.5, 0.75, 1.3, cut)],
-  ["Jesse's my favorite", card("Jesse", "My favorite", "He gets things done", cut)],
+  ["Jesse's my favorite", art("inferno", "My favorite", "He gets things done")],
   ["He's driven by revenge", focus(C.s1, 0.5, 0.65, 1.4, cut)],
   ["Case in point", focus(C.s4, 0.48, 0.45, 1.3, cut)],
   ["So he jumps in his ship", cover(C.s5, cut)],
@@ -297,7 +306,7 @@ const CUES = [
   ["Then Ryan's forces seize the ship", cover(C.s4, cut)],
   ["That's where the first five chapters end", grid(SSTB07, { columns: 5, ...cut })],
   ["The second half picks up", fan([C.ii5, C.ii4, C.ii3, C.ii2, C.ii1])],
-  ["Admiral Krom earns his reputation", focus(C.ii2, 0.3, 0.45, 1.6, cut)],
+  ["Admiral Krom earns his reputation", art("crom-panel")],
   ["I'm saving for part three", album("iks", cut)],
   ["One thing I can tell you", tracklist(10)],
   ["There's a background line", lyric("Your dreams can't\nlast forever", "God Send Conspirator")],
@@ -348,6 +357,8 @@ const resolved = resolveAnchors(narrationWords, CUES.map(([phrase]) => phrase));
 export const anchorMisses = resolved.misses;
 if (anchorMisses.length) throw new Error(`episode-005: unresolved anchors:\n${anchorMisses.map((m) => `#${m.index} ${m.phrase}`).join("\n")}`);
 const segments = CUES.map(([phrase, seg], i) => ({ ...seg, at: +Math.max(0, resolved.times[i] - LEAD).toFixed(3), beat: phrase }));
+// The open fades up from black at 0 s, under the first words.
+segments[0].at = 0;
 
 // Album intros and swells: the voice is silent, so these are placed from the
 // audio plan instead of a phrase.

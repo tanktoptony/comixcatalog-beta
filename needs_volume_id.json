@@ -59969,5 +59969,191 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T06:17:29.524783+00:00",
     "retry_after": "2026-10-21T06:17:29.524799+00:00"
+  },
+  {
+    "name": "The Complete Buddy Bradley Stories from Hate",
+    "publisher": "Fantagraphics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:15:48.538734+00:00",
+    "retry_after": "2026-10-21T07:15:48.538748+00:00"
+  },
+  {
+    "name": "Incredible Science Fiction",
+    "publisher": "Fantagraphics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1732,
+        "name": "Incredible Science Fiction",
+        "publisher": "EC",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:16:38.730482+00:00",
+    "retry_after": "2026-10-21T07:16:38.730499+00:00"
+  },
+  {
+    "name": "Mad Presents Batman",
+    "publisher": "EC Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59025,
+        "name": "Mad Presents Batman",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:16:57.786720+00:00",
+    "retry_after": "2026-10-21T07:16:57.786735+00:00"
+  },
+  {
+    "name": "Great Consummations",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:16:58.203202+00:00",
+    "retry_after": "2026-10-21T07:16:58.203217+00:00"
+  },
+  {
+    "name": "Bustline Combat",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66738,
+        "name": "Bustline Combat",
+        "publisher": "Eros Comix",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:16:58.564987+00:00",
+    "retry_after": "2026-10-21T07:16:58.565008+00:00"
+  },
+  {
+    "name": "Temple Duncan",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72619,
+        "name": "Temple Duncan",
+        "publisher": "Eros Comix",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:17:02.583458+00:00",
+    "retry_after": "2026-10-21T07:17:02.583472+00:00"
+  },
+  {
+    "name": "Action Comics [Superman Peanut Butter]",
+    "publisher": "DC Comics",
+    "year": 1983,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:17:03.137665+00:00",
+    "retry_after": "2026-10-21T07:17:03.137679+00:00"
+  },
+  {
+    "name": "Sybiana",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72495,
+        "name": "Sybiana",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:17:06.052593+00:00",
+    "retry_after": "2026-10-21T07:17:06.052607+00:00"
+  },
+  {
+    "name": "Boob Toob",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26857,
+        "name": "Boob Toob",
+        "publisher": "Eros Comix",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:17:13.970667+00:00",
+    "retry_after": "2026-10-21T07:17:13.970682+00:00"
+  },
+  {
+    "name": "Crack Whore",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35809,
+        "name": "Crack Whore",
+        "publisher": "Eros Comix",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:17:14.627012+00:00",
+    "retry_after": "2026-10-21T07:17:14.627028+00:00"
+  },
+  {
+    "name": "Marvel Milestone Edition: The Avengers #4",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:17:15.152340+00:00",
+    "retry_after": "2026-10-21T07:17:15.152355+00:00"
+  },
+  {
+    "name": "Walt Disney's Lady and the Tramp",
+    "publisher": "Dell Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:17:18.233528+00:00",
+    "retry_after": "2026-10-21T07:17:18.233543+00:00"
+  },
+  {
+    "name": "Santos Sisters",
+    "publisher": "Fantagraphics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 165902,
+        "name": "Santos Sisters",
+        "publisher": "Floating World Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T07:17:18.765128+00:00",
+    "retry_after": "2026-10-21T07:17:18.765143+00:00"
   }
 ]

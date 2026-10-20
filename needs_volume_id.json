@@ -60894,5 +60894,115 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T12:17:37.440286+00:00",
     "retry_after": "2026-10-21T12:17:37.440300+00:00"
+  },
+  {
+    "name": "Peace Hame",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 150291,
+        "name": "Peace Hame",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      },
+      {
+        "id": 169594,
+        "name": "Peace Hame!",
+        "publisher": "Ishi Publishing",
+        "start_year": 2023
+      },
+      {
+        "id": 51032,
+        "name": "Peace-Hame!",
+        "publisher": "Hit Publishing",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T13:16:16.197348+00:00",
+    "retry_after": "2026-10-21T13:16:16.197363+00:00"
+  },
+  {
+    "name": "Super Sexxx",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72374,
+        "name": "Super Sexxx",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T13:16:16.612809+00:00",
+    "retry_after": "2026-10-21T13:16:16.612824+00:00"
+  },
+  {
+    "name": "The Art of Fullmetal Alchemist",
+    "publisher": "VIZ Media",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T13:16:27.254824+00:00",
+    "retry_after": "2026-10-21T13:16:27.254839+00:00"
+  },
+  {
+    "name": "Heroes of the West Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1971,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88104,
+        "name": "Heroes of the West Giant Edition",
+        "publisher": "Magazine Management",
+        "start_year": 1968
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T13:16:42.173553+00:00",
+    "retry_after": "2026-10-21T13:16:42.173567+00:00"
+  },
+  {
+    "name": "The Many Lives of Ms. Alexandria Pumps as: The Trapdoor Spiderwoman",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64362,
+        "name": "Many Lives of Ms. Alexandria Pumps as: The Trapdoor Spiderwoman",
+        "publisher": "Eros Comix",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T13:16:42.719911+00:00",
+    "retry_after": "2026-10-21T13:16:42.719923+00:00"
+  },
+  {
+    "name": "National Lampoon Tenth Anniversary Anthology 1970-1980",
+    "publisher": "Heavy Metal",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T13:17:15.715889+00:00",
+    "retry_after": "2026-10-21T13:17:15.715903+00:00"
+  },
+  {
+    "name": "Hero Illustrated Holiday Special",
+    "publisher": "Dark Horse Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T13:17:30.175794+00:00",
+    "retry_after": "2026-10-21T13:17:30.175806+00:00"
   }
 ]

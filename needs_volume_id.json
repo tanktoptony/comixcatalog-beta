@@ -37023,13 +37023,13 @@
   },
   {
     "name": "Wildstorm Fine Arts: Spotlight on Gen 13",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-02T22:01:29.777089+00:00",
-    "retry_after": "2026-10-05T22:01:29.777104+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T01:17:01.634846+00:00",
+    "retry_after": "2026-10-21T01:17:01.634861+00:00"
   },
   {
     "name": "Devil's Due Free Comic Book Day 2005/Darkstalkers",
@@ -59327,5 +59327,92 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T00:18:23.662091+00:00",
     "retry_after": "2026-10-21T00:18:23.662108+00:00"
+  },
+  {
+    "name": "Aquaman Special Edition",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T01:15:53.827431+00:00",
+    "retry_after": "2026-10-21T01:15:53.827447+00:00"
+  },
+  {
+    "name": "Action Comics [Nestlé Quik 50¢ Cover]",
+    "publisher": "DC Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T01:16:12.304488+00:00",
+    "retry_after": "2026-10-21T01:16:12.304506+00:00"
+  },
+  {
+    "name": "2025 Street Fighter & Friends Swimsuit Special",
+    "publisher": "Udon Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T01:16:38.034256+00:00",
+    "retry_after": "2026-10-21T01:16:38.034300+00:00"
+  },
+  {
+    "name": "The Final Man",
+    "publisher": "Malibu Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T01:16:38.535717+00:00",
+    "retry_after": "2026-10-21T01:16:38.535732+00:00"
+  },
+  {
+    "name": "Trinity Angels Preview",
+    "publisher": "Valiant Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T01:16:51.833027+00:00",
+    "retry_after": "2026-10-21T01:16:51.833042+00:00"
+  },
+  {
+    "name": "Ali Baba: Aladdin Rules",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T01:16:52.263544+00:00",
+    "retry_after": "2026-10-21T01:16:52.263559+00:00"
+  },
+  {
+    "name": "Dinosaurs for Hire Fall Classic",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55685,
+        "name": "Dinosaurs for Hire Fall Classic",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T01:17:02.330014+00:00",
+    "retry_after": "2026-10-21T01:17:02.330029+00:00"
+  },
+  {
+    "name": "DC Super Hero Girls Batman Day Special Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T01:17:02.893836+00:00",
+    "retry_after": "2026-10-21T01:17:02.893851+00:00"
   }
 ]

@@ -37326,13 +37326,13 @@
   },
   {
     "name": "Albion: Ashcan Edition",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-04T01:00:41.991487+00:00",
-    "retry_after": "2026-10-07T01:00:41.991503+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T05:18:56.560689+00:00",
+    "retry_after": "2026-10-21T05:18:56.560704+00:00"
   },
   {
     "name": "Cyberpunk 2077 Omnibus",
@@ -59774,5 +59774,110 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T04:17:15.561545+00:00",
     "retry_after": "2026-10-21T04:17:15.561557+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Cerebi",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112610,
+        "name": "Teenage Mutant Ninja Cerebi",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T05:15:55.129089+00:00",
+    "retry_after": "2026-10-21T05:15:55.129105+00:00"
+  },
+  {
+    "name": "Star Wars: Dark Forces - Soldier for the Empire",
+    "publisher": "Dark Horse Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T05:17:06.044740+00:00",
+    "retry_after": "2026-10-21T05:17:06.044757+00:00"
+  },
+  {
+    "name": "A Foulness in the Walls",
+    "publisher": "AfterShock Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T05:18:43.917107+00:00",
+    "retry_after": "2026-10-21T05:18:43.917124+00:00"
+  },
+  {
+    "name": "Necessary Monsters",
+    "publisher": "First Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85581,
+        "name": "Necessary Monsters",
+        "publisher": "1First Comics",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T05:18:55.947691+00:00",
+    "retry_after": "2026-10-21T05:18:55.947706+00:00"
+  },
+  {
+    "name": "Ninjak",
+    "publisher": "Valiant Comics",
+    "year": 2024,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 80599,
+        "name": "Ninjak",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2015
+      },
+      {
+        "id": 5348,
+        "name": "Ninjak",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1994
+      },
+      {
+        "id": 6030,
+        "name": "Ninjak",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1997
+      },
+      {
+        "id": 137582,
+        "name": "Ninjak",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2021
+      },
+      {
+        "id": 143832,
+        "name": "Ninjak",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T05:18:57.057190+00:00",
+    "retry_after": "2026-10-21T05:18:57.057205+00:00"
+  },
+  {
+    "name": "The Legend of Vox Machina: The Whitestone Chronicles",
+    "publisher": "Dark Horse Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T05:19:22.774815+00:00",
+    "retry_after": "2026-10-21T05:19:22.774829+00:00"
   }
 ]

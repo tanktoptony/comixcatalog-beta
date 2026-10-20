@@ -5,7 +5,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { parseAttribution, isFresh, attributionParams, seedAttribution, sanitizeSavedAttribution } from "./attribution.js";
+import { parseAttribution, isFresh, attributionParams, seedAttribution, sanitizeSavedAttribution, chooseAttribution } from "./attribution.js";
 
 const qs = (s) => new URLSearchParams(s);
 const NOW = 1_800_000_000_000;
@@ -123,4 +123,23 @@ test("seedAttribution re-validates tampered metadata", () => {
     seedAttribution({ source: "instagram", ts: Date.now() - 40 * 864e5 });
     assert.equal(store.has("cc:attribution"), false);
   });
+});
+
+test("a direct visit is recorded but gives way to the first real campaign", () => {
+  const now = Date.now();
+  const direct = { landing: "/series/1", ts: now - 1000, direct: true };
+  const instagram = { source: "instagram", landing: "/founding-collectors", ts: now };
+  assert.equal(chooseAttribution(null, direct, now), direct);
+  assert.equal(chooseAttribution(direct, instagram, now), instagram);
+  assert.equal(chooseAttribution(direct, { landing: "/", ts: now, direct: true }, now), direct);
+});
+
+test("a campaign record is never replaced while fresh, and an expired one is", () => {
+  const now = Date.now();
+  const instagram = { source: "instagram", landing: "/", ts: now - 1000 };
+  const newsletter = { source: "newsletter", landing: "/", ts: now };
+  assert.equal(chooseAttribution(instagram, newsletter, now), instagram);
+  assert.equal(chooseAttribution(instagram, { landing: "/", ts: now, direct: true }, now), instagram);
+  const stale = { ...instagram, ts: now - 31 * 24 * 60 * 60 * 1000 };
+  assert.equal(chooseAttribution(stale, newsletter, now), newsletter);
 });

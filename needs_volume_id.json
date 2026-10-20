@@ -24015,13 +24015,13 @@
   },
   {
     "name": "Your Choice, Snoopy",
-    "publisher": "Fawcett Comics",
+    "publisher": "Heavy Metal",
     "year": 1973,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-09-28T18:06:31.674390+00:00",
-    "retry_after": "2026-10-05T18:06:31.674398+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T00:17:35.828271+00:00",
+    "retry_after": "2026-10-21T00:17:35.828289+00:00"
   },
   {
     "name": "WildC.A.T.s / X-Men: The Silver Age 3D",
@@ -59193,5 +59193,139 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-19T23:50:34.970484+00:00",
     "retry_after": "2026-10-20T23:50:34.970502+00:00"
+  },
+  {
+    "name": "I Love Lucy in Full Color",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63062,
+        "name": "I Love Lucy in Full Color",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T00:17:24.446248+00:00",
+    "retry_after": "2026-10-21T00:17:24.446263+00:00"
+  },
+  {
+    "name": "Moro Rogers' City in the Desert",
+    "publisher": "Archaia",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T00:17:43.056941+00:00",
+    "retry_after": "2026-10-21T00:17:43.056973+00:00"
+  },
+  {
+    "name": "The Secret Origin of Aquaman [Leaf Comic Book Candy]",
+    "publisher": "DC Comics",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T00:17:48.693308+00:00",
+    "retry_after": "2026-10-21T00:17:48.693324+00:00"
+  },
+  {
+    "name": "Shorts",
+    "publisher": "Antarctic Press",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53399,
+        "name": "Shorts",
+        "publisher": "NBM",
+        "start_year": 1995
+      },
+      {
+        "id": 59867,
+        "name": "Shorts",
+        "publisher": "Catalan Communications",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T00:17:49.148605+00:00",
+    "retry_after": "2026-10-21T00:17:49.148621+00:00"
+  },
+  {
+    "name": "Batman [So Much Fun]",
+    "publisher": "DC Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T00:17:49.614749+00:00",
+    "retry_after": "2026-10-21T00:17:49.614764+00:00"
+  },
+  {
+    "name": "DinoWars",
+    "publisher": "Antarctic Press",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T00:17:50.194645+00:00",
+    "retry_after": "2026-10-21T00:17:50.194660+00:00"
+  },
+  {
+    "name": "Halloween Terror",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53090,
+        "name": "Halloween Terror",
+        "publisher": "Eternity",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T00:17:50.730563+00:00",
+    "retry_after": "2026-10-21T00:17:50.730577+00:00"
+  },
+  {
+    "name": "A-V in 3-D",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58352,
+        "name": "A-V in 3-D",
+        "publisher": "Aardvark",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T00:17:55.489706+00:00",
+    "retry_after": "2026-10-21T00:17:55.489722+00:00"
+  },
+  {
+    "name": "One Missed Call",
+    "publisher": "Dark Horse Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T00:17:55.817652+00:00",
+    "retry_after": "2026-10-21T00:17:55.817667+00:00"
+  },
+  {
+    "name": "Battle Girlz Pocket Manga",
+    "publisher": "Antarctic Press",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T00:18:23.662091+00:00",
+    "retry_after": "2026-10-21T00:18:23.662108+00:00"
   }
 ]

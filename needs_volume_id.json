@@ -13538,13 +13538,13 @@
   },
   {
     "name": "Think About It Tomorrow, Snoopy",
-    "publisher": "Fawcett Comics",
+    "publisher": "Heavy Metal",
     "year": 1980,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-09-20T21:01:02.686620+00:00",
-    "retry_after": "2026-09-21T21:01:02.686635+00:00"
+    "last_attempt_at": "2026-10-20T03:16:00.583544+00:00",
+    "retry_after": "2026-10-21T03:16:00.583561+00:00"
   },
   {
     "name": "Our Army at War (War One-Shot)",
@@ -50811,13 +50811,13 @@
   },
   {
     "name": "Coup D'Etat: Wildcats Version 3.0",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-15T20:15:59.293461+00:00",
-    "retry_after": "2026-10-18T20:15:59.293479+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:16:24.078289+00:00",
+    "retry_after": "2026-10-21T03:16:24.078305+00:00"
   },
   {
     "name": "The Secret Origin of Batman [Leaf Comic Book Candy]",
@@ -59488,5 +59488,106 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T02:18:05.995135+00:00",
     "retry_after": "2026-10-21T02:18:05.995153+00:00"
+  },
+  {
+    "name": "Rust Special Limited Edition",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58499,
+        "name": "Rust Special Limited Edition",
+        "publisher": "Adventure",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:16:00.030424+00:00",
+    "retry_after": "2026-10-21T03:16:00.030441+00:00"
+  },
+  {
+    "name": "Action Comics [Superman Sleeping Bag]",
+    "publisher": "DC Comics",
+    "year": 1976,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:16:00.995274+00:00",
+    "retry_after": "2026-10-21T03:16:00.995290+00:00"
+  },
+  {
+    "name": "Dark Horse Classics: Godzilla",
+    "publisher": "Dark Horse Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:16:40.638187+00:00",
+    "retry_after": "2026-10-21T03:16:40.638203+00:00"
+  },
+  {
+    "name": "The Complete Adventures of Carl",
+    "publisher": "BOOM! Studios",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46083,
+        "name": "Complete Adventures of Carl",
+        "publisher": "Boomtown Press",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:16:41.104091+00:00",
+    "retry_after": "2026-10-21T03:16:41.104107+00:00"
+  },
+  {
+    "name": "The Diggers",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51292,
+        "name": "Diggers",
+        "publisher": "C&T Graphics",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:16:41.560429+00:00",
+    "retry_after": "2026-10-21T03:16:41.560444+00:00"
+  },
+  {
+    "name": "Aspen Seasons: Winter",
+    "publisher": "Aspen Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:16:42.608420+00:00",
+    "retry_after": "2026-10-21T03:16:42.608436+00:00"
+  },
+  {
+    "name": "Aspen Seasons: Summer",
+    "publisher": "Aspen Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:16:43.233758+00:00",
+    "retry_after": "2026-10-21T03:16:43.233774+00:00"
+  },
+  {
+    "name": "Superman: The Man of Steel [Mattel Edition]",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T03:16:48.023701+00:00",
+    "retry_after": "2026-10-21T03:16:48.023717+00:00"
   }
 ]

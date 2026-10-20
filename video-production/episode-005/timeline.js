@@ -43,8 +43,12 @@ const grid = (assets, extra = {}) => ({ type: "grid", assets, columns: Math.min(
 const fan = (assets, extra = {}) => ({ type: "fan", assets, ...extra });
 const pair = (assets, extra = {}) => ({ type: "pair", assets, ...extra });
 const card = (title, kicker, sub, extra = {}) => ({ type: "chapter", title, ...(kicker ? { kicker } : {}), ...(sub ? { sub } : {}), ...extra });
-const lyric = (text, song) => ({ type: "quote", text, attribution: `Lyric · "${song}" · 2002` });
+const LYRIC_ART = { "Time Consumer": "s1", "Everything Evil": "s3", "Delirium Trigger": "s4", "Hearshot Kid Disaster": "s2", "33": "s3", "Junesong Provision": "s4", "Neverender": "ii1", "God Send Conspirator": "s5", "IRO-Bot": "s4" };
+const lyric = (text, song) => ({ type: "quote", text, attribution: `Lyric · "${song}" · 2002`, asset: C[LYRIC_ART[song]] });
 const cut = { transitionIn: "cut" };
+// A cover or the album with the line as a caption, instead of a text-only card.
+const capCover = (asset, title, sub, kicker, f) => ({ type: "cover", asset, treatment: f ? "focus" : "slowPush", ...(f ? { focus: { x: f[0], y: f[1], zoom: f[2] } } : {}), title, ...(sub ? { sub } : {}), ...(kicker ? { kicker } : {}), transitionIn: "cut" });
+const capAlbum = (title, sub, kicker, k = "sstb") => album(k, { title, ...(sub ? { sub } : {}), ...(kicker ? { kicker } : {}), transitionIn: "cut" });
 // Character sheets and lore art: the comic's own character designs (via the
 // Coheed and Cambria Wiki) and Tony's reference images. size = real pixels.
 const CH = {
@@ -78,28 +82,28 @@ const CUES = [
   ["This is the Second Stage Turbine Blade", album("sstb", cut)],
   ["Ten tracks", tracklist(0)],
   ["these songs name names", card("Named in\nthe lyrics", "The Second Stage Turbine Blade · 2002", undefined, cut)],
-  ["The twins", card("Matthew · Maria", "Named in the lyrics", undefined, cut)],
-  ["Josephine's fiance", card("Patrick", "Named in the lyrics", undefined, cut)],
+  ["The twins", capCover(C.s1, "Matthew and Maria", undefined, "Named in the lyrics")],
+  ["Josephine's fiance", capCover(C.s3, "Patrick", undefined, "Named in the lyrics")],
   ["Claudio's girlfriend", duo("newo", "Newo", "apollo-panel", "Apollo")],
-  ["the two guys flying the spaceship", card("Norris · Larry", "Named in the lyrics", "The two guys flying the spaceship", cut)],
+  ["the two guys flying the spaceship", capCover(C.s4, "Norris and Larry", "The two guys flying the spaceship", "Named in the lyrics")],
   ["So that's today", tracklist(0)],
   ["A little of the song", album("sstb", { treatment: "slowPull", ...cut })],
   ["the part of the comic it lines up with", grid(SSTB07, { columns: 5, ...cut })],
   ["and the books themselves", fan(FAN10)],
   ["one of these song titles is a character", focus(C.ii2, 0.5, 0.45, 1.25, cut)],
-  ["I'm Tony", card("The Second Stage\nTurbine Blade", "ComixCatalog Originals · The Amory Wars · Part 2", undefined, cut)],
+  ["I'm Tony", capAlbum("The Second Stage Turbine Blade", undefined, "ComixCatalog Originals · The Amory Wars · Part 2")],
   ["Two quick notes", card("No spoilers\npast this album", "Two quick notes", undefined, cut)],
   ["this one gets dark", focus(C.s3, 0.5, 0.25, 1.4, cut)],
   ["It was always going to get dark", album("sstb", { treatment: "slowPull", ...cut })],
 
   // ── 03 The record ───────────────────────────────────────────────────────
-  ["Quick set up since we covered", card("The record", "March 5, 2002 · Equal Vision Records", undefined, cut)],
+  ["Quick set up since we covered", capAlbum("The record", "March 5, 2002 · Equal Vision Records")],
   ["came out March 5", screen("wb-coheed-av-2002", "push", undefined, { focus: { x: 0.38, y: 0.38 }, zoom: 2.2, ...cut })],
-  ["They recorded it in the fall of 2001", card("Recorded fall 2001", "Paramus, New Jersey", undefined, cut)],
+  ["They recorded it in the fall of 2001", screen("wb-coheed-2002", "push", "Recorded fall 2001 · Paramus, New Jersey")],
   ["Claudio Sanchez on vocals", photo("bogota", cut)],
   ["Travis Stever on lead guitar", photo("travis", cut)],
-  ["Michael Todd on bass", card("Claudio Sanchez · Travis Stever\nMichael Todd · Josh Eppard", "The lineup on the record", undefined, cut)],
-  ["a drummer named Nate", card("Nate Kelley", "Drums on two tracks", "\"Delirium Trigger\" and \"33\"", cut)],
+  ["Michael Todd on bass", photo("live2009", { treatment: "slowPull", ...cut })],
+  ["a drummer named Nate", screen("wb-coheed-av-2002", "push", "Nate Kelley drums on \"Delirium Trigger\" and \"33\"", { focus: { x: 0.36, y: 0.5 }, zoom: 2.0 })],
   ["I heard this album on a burned CD", screen("wb-coheed-2002", "push", "The band's site, 2002", cut)],
   ["I was there for the music", photo("live2009", cut)],
   ["The proggy guitars", photo("travis", { treatment: "slowPull", ...cut })],
@@ -122,7 +126,7 @@ const CUES = [
   ["And on one of those planets", cover(C.s1, cut)],
   ["Coheed and Cambria Kilgannon", duo("coheed", "Coheed", "cambria", "Cambria")],
   ["House in the suburbs", focus(C.s4, 0.5, 0.45, 1.3, cut)],
-  ["Josephine is the oldest", card("Josephine · Claudio\nMatthew · Maria", "The Kilgannon kids", undefined, cut)],
+  ["Josephine is the oldest", art("claudio", "The Kilgannon kids", "Josephine · Claudio · Matthew · Maria")],
   ["Remember those names", album("sstb", { treatment: "slowPull", ...cut })],
 
   // ── 05 Time Consumer ────────────────────────────────────────────────────
@@ -151,16 +155,16 @@ const CUES = [
 
   // ── 06 Devil in Jersey City ─────────────────────────────────────────────
   ["Track three Devil in Jersey City", tracklist(3)],
-  ["That's Claudio yelling", card("Shabütie", "The band's name before Coheed and Cambria", undefined, cut)],
-  ["If you watched part one", photo("nyackDown", cut)],
+  ["That's Claudio yelling", photo("nyackDown", { title: "Shabütie", ...cut })],
+  ["If you watched part one", capAlbum("Coheed and Cambria's first single", "\"Devil in Jersey City\"")],
   ["This was the band's first single", screen("wb-coheed-av-2002", "push", undefined, { focus: { x: 0.33, y: 0.16 }, zoom: 2.4, ...cut })],
-  ["The Jersey City Devils are a gang", card("The Jersey City Devils", "A gang in The Amory Wars", undefined, cut)],
+  ["The Jersey City Devils are a gang", capCover(C.s2, "The Jersey City Devils", "A gang in The Amory Wars")],
   ["That same night", cover(C.s2, cut)],
   ["The Devils attack them", album("sstb", { treatment: "slowPush", ...cut })],
   ["She asks Patrick to take her home", focus(C.s2, 0.45, 0.75, 1.2, cut)],
   ["And this is the part that makes it worse", cover(C.s3, cut)],
-  ["She's an IRO bot", card("Josephine Kilgannon", "IRO-bot", "Built by Dr. Leonard Hohenberger", cut)],
-  ["She was built to be the antidote", card("The antidote", "Josephine", "The cure for the Monstar virus", cut)],
+  ["She's an IRO bot", capCover(C.s3, "Josephine Kilgannon", "An IRO-bot, built by Dr. Leonard Hohenberger")],
+  ["She was built to be the antidote", art("coheed", "The antidote", "Josephine is the cure for the Monstar inside Coheed")],
   ["She's also telepathically linked", focus(C.s4, 0.62, 0.38, 1.6, cut)],
   ["So the one person who could actually fix", album("sstb", { treatment: "slowPull", ...cut })],
 
@@ -173,7 +177,7 @@ const CUES = [
   ["Then the soldiers show up", cover(C.s2, cut)],
   ["Mayo tells him to ask his wife", focus(C.s2, 0.62, 0.26, 1.8, cut)],
   ["So Cambria looks into Mayo's head", art("cambria")],
-  ["The kids never had the virus", card("It was a lie", "The kids never had the virus", undefined, cut)],
+  ["The kids never had the virus", art("mayo", "It was a lie", "The kids never had the virus")],
   ["Coheed loses it", focus(C.s1, 0.4, 0.4, 1.4, cut)],
   ["Blades come out of his arm", focus(C.s1, 0.3, 0.55, 1.6, cut)],
   ["They finally knock him out", focus(C.s2, 0.3, 0.45, 1.5, cut)],
@@ -197,9 +201,9 @@ const CUES = [
   ["Systems malfunction", lyric("Systems malfunction", "Delirium Trigger")],
   ["There's a photograph of Earth", lyric("A photograph of Earth", "Delirium Trigger")],
   ["And that's exactly where Coheed and Cambria wake up", cover(C.s4, cut)],
-  ["on a ship called the Gloria", card("The Gloria Vel Vessa", "Bound for Paris: Earth", undefined, cut)],
+  ["on a ship called the Gloria", capCover(C.s4, "The Gloria Vel Vessa", "Bound for Paris: Earth")],
   ["Coheed opens his eyes", focus(C.s1, 0.42, 0.33, 2.0, cut)],
-  ["I remember", card("\"I remember.\"", "Coheed", undefined, cut)],
+  ["I remember", art("coheed", "\"I remember.\"")],
   ["The memory wipe is gone", focus(C.s4, 0.48, 0.45, 1.3, cut)],
   ["Coheed breaks out of his tank", focus(C.s4, 0.4, 0.5, 1.6, cut)],
   ["Cambria shatters hers", focus(C.s4, 0.62, 0.4, 1.7, cut)],
@@ -207,7 +211,7 @@ const CUES = [
   ["And this is where we get the other arm", focus(C.s4, 0.3, 0.35, 1.8, cut)],
   ["So that's blades on the left", art("coheed", "Blades on the left, a cannon on the right", "On a suburban dad")],
   ["They take the control room", focus(C.s4, 0.5, 0.75, 1.4, cut)],
-  ["The ship's on autopilot", card("Autopilot", "Steered from the Red Army's space port", undefined, cut)],
+  ["The ship's on autopilot", capCover(C.s4, "Autopilot", "Steered from the Red Army's space port", undefined, [0.5, 0.75, 1.4])],
   ["They hijacked a ship", cover(C.s4, cut)],
 
   // ── 09 Hearshot Kid Disaster ────────────────────────────────────────────
@@ -224,28 +228,28 @@ const CUES = [
   ["The comics call him", { type: "quote", text: "...who may be the most dangerous man on Heaven's Fence.", attribution: "Amory Wars #4 solicitation, 2007", asset: C.s4, ...cut }],
   ["Metal mask", focus(C.ii2, 0.3, 0.45, 2.0, cut)],
   ["And he tells Mayo he's been demoted", focus(C.s2, 0.62, 0.26, 2.0, cut)],
-  ["Mayo gets reassigned", card("\"The flies.\"", "Mayo's new job", undefined, cut)],
+  ["Mayo gets reassigned", art("mayo", "\"The flies.\"", "Mayo's new job")],
   ["Yeah the flies", cover(C.s5, cut)],
   ["Now the title", tracklist(6)],
   ["He doesn't show up until the second half", grid(II, { columns: 5, highlight: 1, ...cut })],
   ["Claudio ends up on a garbage planet", focus(C.ii1, 0.45, 0.45, 1.3, cut)],
   ["And the prisoners all talk about one of them", cover(C.ii2, cut)],
-  ["They call him the Hearshot Kid", card("The Hearshot Kid", "Amory Wars II #2 · 2008", undefined, cut)],
+  ["They call him the Hearshot Kid", capCover(C.ii2, "The Hearshot Kid", "Amory Wars II #2 · 2008")],
   ["One song title", tracklist(6)],
 
   // ── 10 33 ───────────────────────────────────────────────────────────────
   ["Track seven", tracklist(7)],
   ["This is Patrick", lyric("Patrick", "33")],
-  ["Patrick McCormick", card("Patrick McCormick", "Josephine's fiancé", undefined, cut)],
+  ["Patrick McCormick", capCover(C.s3, "Patrick McCormick", "Josephine's fiancé")],
   ["Which makes him a loose end", cover(C.s3, cut)],
   ["And Ryan sends Priests", focus(C.s3, 0.5, 0.2, 1.7, cut)],
   ["Patrick goes to a dive bar", cover(C.s3, { treatment: "slowPull", ...cut })],
   ["A Priest finds them both", focus(C.s3, 0.5, 0.18, 2.1, cut)],
   ["Then down by the Jersey City docks", cover(C.s4, cut)],
-  ["A guy on a megaphone", card("\"FBI.\"", "Drop the gun. Hands up.", undefined, cut)],
+  ["A guy on a megaphone", capCover(C.s3, "\"FBI.\"", "Drop the gun. Hands up.", undefined, [0.5, 0.75, 1.3])],
   ["And then the cars disappear", focus(C.s3, 0.5, 0.2, 1.5, cut)],
   ["into a winged dragon thing", focus(C.s3, 0.5, 0.15, 2.4)],
-  ["The FBI was a costume", card("The FBI was a costume", undefined, undefined, cut)],
+  ["The FBI was a costume", capCover(C.s3, "The FBI was a costume", undefined, undefined, [0.5, 0.18, 2.0])],
   ["The song ends up in an emergency room", lyric("Flat line", "33")],
   ["Patrick doesn't get away", cover(C.s5, { treatment: "still", ...cut })],
   ["Side note", card("Patrick Ewing · #33", "A fan theory", "Never confirmed", cut)],
@@ -263,8 +267,8 @@ const CUES = [
   ["Keeping her out of it", album("sstb", { treatment: "slowPull", ...cut })],
   ["the song jumps to the ship", cover(C.s4, cut)],
   ["Norris and Larry Gloria to nowhere", lyric("Norris and Larry,\nGloria to nowhere", "Junesong Provision")],
-  ["Norris and Larry are Captain", card("Capt. Norris Henderson\nLt. Larry Goswell", "The Gloria Vel Vessa", undefined, cut)],
-  ["I said the songs name the guys", card("Norris · Larry", "Named in the lyrics", undefined, cut)],
+  ["Norris and Larry are Captain", capCover(C.s4, "Capt. Norris Henderson · Lt. Larry Goswell", "The Gloria Vel Vessa")],
+  ["I said the songs name the guys", capCover(C.s4, "Norris and Larry", "Named in the lyrics", undefined, [0.45, 0.45, 1.4])],
   ["And there's another line", lyric("Captain! We've lost\nall systems control", "Junesong Provision")],
   ["In the comics Coheed tries to rewire", focus(C.s4, 0.4, 0.5, 1.5, cut)],
   ["Cambria gets angry", focus(C.s4, 0.62, 0.38, 2.0, cut)],
@@ -276,19 +280,19 @@ const CUES = [
   ["A son telling his parents", lyric("Forget your son when\nhe's out on his own", "Neverender")],
   ["That's Claudio leaving", focus(C.s3, 0.42, 0.45, 1.5, cut)],
   ["He's hiding from the police", cover(C.ii1, cut)],
-  ["Then he sneaks onto a garbage hauler", card("The Guile Griever", "An interplanetary garbage hauler", undefined, cut)],
+  ["Then he sneaks onto a garbage hauler", capCover(C.ii1, "The Guile Griever", "An interplanetary garbage hauler")],
   ["and watches his home planet", focus(C.ii1, 0.45, 0.45, 1.5)],
   ["No family", focus(C.ii1, 0.42, 0.35, 2.0, cut)],
   ["That's our hero", cover(C.ii1, { treatment: "slowPull", ...cut })],
-  ["Fun fact", card("Neverender", "2008 · Four nights", "One album per night, start to finish", cut)],
-  ["four-night run of shows", photo("live2009", cut)],
+  ["Fun fact", photo("live2009", { title: "Neverender, 2008", kicker: "Four nights · one album per night", ...cut })],
+  ["four-night run of shows", photo("live2009", { treatment: "slowPull", ...cut })],
   ["Meanwhile on the Gloria", cover(C.s4, cut)],
   ["From a ship that's shooting at them", focus(C.s5, 0.5, 0.75, 1.4, cut)],
   ["It's Jesse", art("inferno", "Jesse", "The Inferno")],
 
   // ── 13 God Send Conspirator / IRO-Bot ───────────────────────────────────
   ["Track 10", tracklist(10)],
-  ["On the original CD this track runs", card("13:45", "God Send Conspirator · original CD", "With a hidden track at the end", cut)],
+  ["On the original CD this track runs", capAlbum("13:45", "\"God Send Conspirator\" on the original CD, hidden track included")],
   ["dear Mariah", lyric("Dear Mariah", "God Send Conspirator")],
   ["Jesse is inferno", art("inferno", "The Inferno", "The I in K.B.I. · Coheed's brother · IRO-bot")],
   ["leads a rebellion against Wilhelm Ryan", focus(C.s5, 0.48, 0.3, 1.6, cut)],
@@ -301,7 +305,7 @@ const CUES = [
   ["So he jumps in his ship", cover(C.s5, cut)],
   ["with his brother on it", focus(C.s4, 0.4, 0.45, 1.6, cut)],
   ["He attacks the ship", focus(C.s5, 0.5, 0.75, 1.6, cut)],
-  ["He gives them an hour", card("One hour", "Turn the ship around", undefined, cut)],
+  ["He gives them an hour", capCover(C.s5, "One hour", "Turn the ship around")],
   ["That's Jesse", focus(C.s5, 0.48, 0.3, 1.9, cut)],
   ["Then Ryan's forces seize the ship", cover(C.s4, cut)],
   ["That's where the first five chapters end", grid(SSTB07, { columns: 5, ...cut })],
@@ -312,13 +316,13 @@ const CUES = [
   ["There's a background line", lyric("Your dreams can't\nlast forever", "God Send Conspirator")],
   ["That's also the last line", grid(II, { columns: 5, ...cut })],
   ["then the piano comes in", album("sstb", { treatment: "slowPull", ...cut })],
-  ["the hidden track", card("IRO-Bot", "The hidden track", undefined, cut)],
+  ["the hidden track", art("kbi-lineup", "IRO-Bot", "The hidden track")],
   ["it's sung from a robot's point of view", lyric("My gun I've left behind\nIRO-Bot will never die", "IRO-Bot")],
-  ["coheed's an", card("Coheed · Jesse · Josephine", "IRO-bots", undefined, cut)],
+  ["coheed's an", duo("coheed", "Coheed", "inferno", "Jesse", { title: "IRO-bots", sub: "Coheed, Jesse, and Josephine" })],
   ["Not a bad way to end a record", album("sstb", { treatment: "slowPull", ...cut })],
 
   // ── 14 Three versions ───────────────────────────────────────────────────
-  ["Quick word on the comics", card("Three versions", "One story", undefined, cut)],
+  ["Quick word on the comics", grid([C.bag1, C.s1, C.sult], { columns: 3, title: "Three versions, one story", ...cut })],
   ["The first try was the Bag", pair([{ asset: C.bag1, label: "#1 · 2004" }, { asset: C.bag2, label: "#2 · 2004" }], { title: "The Bag On Line Adventures", sub: "Evil Ink · Art: Wes Abbott", ...cut })],
   ["I bought both at a Hot Topic", screen("cc-bag-on-line", "push", "The Bag On Line Adventures on ComixCatalog")],
   ["I wanted anything Coheed", cover(C.bag1, cut)],
@@ -328,7 +332,7 @@ const CUES = [
   ["Mike S Miller the next three", { type: "grid", assets: [C.s3, C.s4, C.s5], columns: 3, title: "Mike S. Miller", ...cut }],
   ["Gabriel Guzman the last five", grid(II, { columns: 5, title: "Gabriel Guzman", ...cut })],
   ["Tony Moore from the Walking Dead", fan(FAN10)],
-  ["a variant cover sold only at Hot Topic", card("Hot Topic exclusive", "Variant cover · 2007", undefined, cut)],
+  ["a variant cover sold only at Hot Topic", screen("cc-issue-amory-wars-1", "push", "Amory Wars #1 had a variant cover", { focus: { x: 0.23, y: 0.63 }, zoom: 2.2 })],
   ["Of course there was", cover(C.s1, cut)],
   ["The 2007 art was kind of meh", focus(C.s4, 0.5, 0.5, 1.2, cut)],
   ["But I wanted the rest of the story", grid(TEN, { columns: 5, ...cut })],
@@ -365,10 +369,10 @@ segments[0].at = 0;
 // Album intros and swells: the voice is silent, so these are placed from the
 // audio plan instead of a phrase.
 for (const m of plan.music) {
-  if (m.kind === "intro") segments.push(card(TRACKS[m.track - 1], `Track ${m.track} · ${LENGTHS[m.track - 1]}`, "The Second Stage Turbine Blade · 2002", { at: m.at, beat: `Intro: ${TRACKS[m.track - 1]}`, transitionIn: "cut" }));
+  if (m.kind === "intro") segments.push({ ...capAlbum(TRACKS[m.track - 1], "The Second Stage Turbine Blade · 2002", `Track ${m.track} · ${LENGTHS[m.track - 1]}`), at: m.at, beat: `Intro: ${TRACKS[m.track - 1]}` });
   if (m.kind === "swell" && m.key === "ee_piano") segments.push({ ...album("sstb", { treatment: "slowPull" }), at: m.at, beat: "Everything Evil piano" });
-  if (m.kind === "swell" && m.key === "gsc_piano") segments.push({ ...card("The piano", "End of \"God Send Conspirator\"", "Same piece as the end of \"Everything Evil\""), at: m.at, beat: "God Send Conspirator piano" });
-  if (m.kind === "swell" && m.key === "irobot") segments.push({ ...card("IRO-Bot", "Hidden track", undefined, { transitionIn: "cut" }), at: m.at, beat: "IRO-Bot excerpt" });
+  if (m.kind === "swell" && m.key === "gsc_piano") segments.push({ ...capAlbum("The piano", "Same piece as the end of \"Everything Evil\""), at: m.at, beat: "God Send Conspirator piano" });
+  if (m.kind === "swell" && m.key === "irobot") segments.push({ ...art("kbi-lineup", "IRO-Bot", "The hidden track"), at: m.at, beat: "IRO-Bot excerpt" });
 }
 segments.push({ type: "sting", at: stingGap.at, beat: "Channel sting", transition: "cut" });
 segments.push({ type: "end", at: plan.endCard, dur: plan.duration - plan.endCard, beat: "End card", title: "Next: In Keeping Secrets of Silent Earth: 3", sub: "What's your favorite track on this album?", transitionIn: "cut" });

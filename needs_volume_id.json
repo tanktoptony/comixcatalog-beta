@@ -60830,5 +60830,69 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T11:19:14.276023+00:00",
     "retry_after": "2026-10-21T11:19:14.276047+00:00"
+  },
+  {
+    "name": "Cowboy Stories",
+    "publisher": "Marvel Comics",
+    "year": 1965,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140320,
+        "name": "Cowboy Stories",
+        "publisher": "Magazine Management",
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T12:16:26.353321+00:00",
+    "retry_after": "2026-10-21T12:16:26.353337+00:00"
+  },
+  {
+    "name": "[Penrod the All American Boy's Wear Presents] Boys' Ranch",
+    "publisher": "Harvey Comics",
+    "year": 1951,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T12:17:12.076142+00:00",
+    "retry_after": "2026-10-21T12:17:12.076160+00:00"
+  },
+  {
+    "name": "Hip Hop Heaven",
+    "publisher": "BOOM! Studios",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T12:17:36.445037+00:00",
+    "retry_after": "2026-10-21T12:17:36.445051+00:00"
+  },
+  {
+    "name": "Fightin' War Heroes",
+    "publisher": "Charlton Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T12:17:36.861471+00:00",
+    "retry_after": "2026-10-21T12:17:36.861485+00:00"
+  },
+  {
+    "name": "The Sexual Positions of the Kama Sutra",
+    "publisher": "Fantagraphics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37392,
+        "name": "The Sexual Positions of the Kama Sutra",
+        "publisher": "Eros Comix",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T12:17:37.440286+00:00",
+    "retry_after": "2026-10-21T12:17:37.440300+00:00"
   }
 ]

@@ -59831,5 +59831,450 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T16:24:57.377758+00:00",
     "retry_after": "2026-10-21T16:24:57.377772+00:00"
+  },
+  {
+    "name": "Dinosaurs for Hire Fall Classic",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55685,
+        "name": "Dinosaurs for Hire Fall Classic",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:00.100744+00:00",
+    "retry_after": "2026-10-21T17:24:00.100761+00:00"
+  },
+  {
+    "name": "Walking Wounded",
+    "publisher": "Fantagraphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71751,
+        "name": "Walking Wounded",
+        "publisher": "Fox Comics (AU)",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:00.859614+00:00",
+    "retry_after": "2026-10-21T17:24:00.859629+00:00"
+  },
+  {
+    "name": "Crypt of Cum",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26737,
+        "name": "Crypt of Cum",
+        "publisher": "Eros Comix",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:01.532546+00:00",
+    "retry_after": "2026-10-21T17:24:01.532563+00:00"
+  },
+  {
+    "name": "Rust Special Limited Edition",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58499,
+        "name": "Rust Special Limited Edition",
+        "publisher": "Adventure",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:02.067695+00:00",
+    "retry_after": "2026-10-21T17:24:02.067711+00:00"
+  },
+  {
+    "name": "The Complete Adventures of Carl",
+    "publisher": "BOOM! Studios",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46083,
+        "name": "Complete Adventures of Carl",
+        "publisher": "Boomtown Press",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:02.665707+00:00",
+    "retry_after": "2026-10-21T17:24:02.665723+00:00"
+  },
+  {
+    "name": "The Diggers",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51292,
+        "name": "Diggers",
+        "publisher": "C&T Graphics",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:03.186869+00:00",
+    "retry_after": "2026-10-21T17:24:03.186884+00:00"
+  },
+  {
+    "name": "The Vault of Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 131441,
+        "name": "Vault of Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:03.785922+00:00",
+    "retry_after": "2026-10-21T17:24:03.785937+00:00"
+  },
+  {
+    "name": "Captain Harlock Christmas Special",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69903,
+        "name": "Captain Harlock Christmas Special",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:04.356417+00:00",
+    "retry_after": "2026-10-21T17:24:04.356432+00:00"
+  },
+  {
+    "name": "Trancers: The Adventures of Jack Deth",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24589,
+        "name": "Trancers: Adventures Of Jack Deth",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:05.253106+00:00",
+    "retry_after": "2026-10-21T17:24:05.253121+00:00"
+  },
+  {
+    "name": "The Files of Ms. Tree",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76620,
+        "name": "The Files of Ms. Tree",
+        "publisher": "Aardvark",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:06.255329+00:00",
+    "retry_after": "2026-10-21T17:24:06.255347+00:00"
+  },
+  {
+    "name": "The Trouble with Girls Christmas Special",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64606,
+        "name": "The Trouble With Girls: Christmas Special",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:06.938534+00:00",
+    "retry_after": "2026-10-21T17:24:06.938549+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Cerebi",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112610,
+        "name": "Teenage Mutant Ninja Cerebi",
+        "publisher": "Aardvark",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:07.344589+00:00",
+    "retry_after": "2026-10-21T17:24:07.344604+00:00"
+  },
+  {
+    "name": "Necessary Monsters",
+    "publisher": "First Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85581,
+        "name": "Necessary Monsters",
+        "publisher": "1First Comics",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:11.785466+00:00",
+    "retry_after": "2026-10-21T17:24:11.785479+00:00"
+  },
+  {
+    "name": "Through the Year with the Family Circus",
+    "publisher": "Fawcett Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 138920,
+        "name": "Through the Year With the Family Circus",
+        "publisher": "Ballantine Books",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:12.216539+00:00",
+    "retry_after": "2026-10-21T17:24:12.216554+00:00"
+  },
+  {
+    "name": "Mad Presents Batman",
+    "publisher": "EC Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59025,
+        "name": "Mad Presents Batman",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:12.767768+00:00",
+    "retry_after": "2026-10-21T17:24:12.767782+00:00"
+  },
+  {
+    "name": "Bustline Combat",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66738,
+        "name": "Bustline Combat",
+        "publisher": "Eros Comix",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:35.215335+00:00",
+    "retry_after": "2026-10-21T17:24:35.215350+00:00"
+  },
+  {
+    "name": "Temple Duncan",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72619,
+        "name": "Temple Duncan",
+        "publisher": "Eros Comix",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:35.694890+00:00",
+    "retry_after": "2026-10-21T17:24:35.694905+00:00"
+  },
+  {
+    "name": "Corriere dei Piccoli",
+    "publisher": "Dell Comics",
+    "year": 1908,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27801,
+        "name": "Corriere dei Piccoli",
+        "publisher": "RCS MediaGroup",
+        "start_year": 1908
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:36.625797+00:00",
+    "retry_after": "2026-10-21T17:24:36.625812+00:00"
+  },
+  {
+    "name": "Anders And & Co.",
+    "publisher": "Valiant Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126425,
+        "name": "Anders And & Co.",
+        "publisher": "Egmont Publishing A/S",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:37.016566+00:00",
+    "retry_after": "2026-10-21T17:24:37.016584+00:00"
+  },
+  {
+    "name": "Corriere dei Ragazzi",
+    "publisher": "Dell Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32469,
+        "name": "Corriere dei Ragazzi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:37.974099+00:00",
+    "retry_after": "2026-10-21T17:24:37.974114+00:00"
+  },
+  {
+    "name": "Gli Albi di Orient Express",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47514,
+        "name": "Gli Albi di Orient Express",
+        "publisher": "L'Isola Trovata",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:38.513889+00:00",
+    "retry_after": "2026-10-21T17:24:38.513905+00:00"
+  },
+  {
+    "name": "La Grande Dinastia dei Paperi",
+    "publisher": "Dell Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157394,
+        "name": "La Grande Dinastia dei Paperi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:38.978214+00:00",
+    "retry_after": "2026-10-21T17:24:38.978228+00:00"
+  },
+  {
+    "name": "Nathan Never Gigante",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40997,
+        "name": "Nathan Never Gigante",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:39.529497+00:00",
+    "retry_after": "2026-10-21T17:24:39.529513+00:00"
+  },
+  {
+    "name": "Sindy",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142305,
+        "name": "Sindy",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:40.014532+00:00",
+    "retry_after": "2026-10-21T17:24:40.014548+00:00"
+  },
+  {
+    "name": "Agenzia Alfa",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28045,
+        "name": "Agenzia Alfa",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:40.970832+00:00",
+    "retry_after": "2026-10-21T17:24:40.970847+00:00"
+  },
+  {
+    "name": "Walt Disney's Donald Duck Adventures",
+    "publisher": "Rebellion",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:41.476714+00:00",
+    "retry_after": "2026-10-21T17:24:41.476729+00:00"
+  },
+  {
+    "name": "L'Incredibile Hulk",
+    "publisher": "Dark Horse Comics",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-20T17:24:41.898978+00:00",
+    "retry_after": "2026-10-21T17:24:41.898993+00:00"
   }
 ]

@@ -24019,9 +24019,9 @@
     "year": 1973,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T00:17:35.828271+00:00",
-    "retry_after": "2026-10-21T00:17:35.828289+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T01:15:44.011859+00:00",
+    "retry_after": "2026-10-24T01:15:44.011878+00:00"
   },
   {
     "name": "WildC.A.T.s / X-Men: The Silver Age 3D",
@@ -57262,9 +57262,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T00:17:43.056941+00:00",
-    "retry_after": "2026-10-21T00:17:43.056973+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T01:15:44.526067+00:00",
+    "retry_after": "2026-10-24T01:15:44.526086+00:00"
   },
   {
     "name": "The Secret Origin of Aquaman [Leaf Comic Book Candy]",
@@ -57272,9 +57272,9 @@
     "year": 1980,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T00:17:48.693308+00:00",
-    "retry_after": "2026-10-21T00:17:48.693324+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T01:15:45.152092+00:00",
+    "retry_after": "2026-10-24T01:15:45.152110+00:00"
   },
   {
     "name": "Shorts",
@@ -57295,9 +57295,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T00:17:49.148605+00:00",
-    "retry_after": "2026-10-21T00:17:49.148621+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T01:15:45.737777+00:00",
+    "retry_after": "2026-10-24T01:15:45.737795+00:00"
   },
   {
     "name": "Batman [So Much Fun]",
@@ -57305,9 +57305,9 @@
     "year": 1987,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T00:17:49.614749+00:00",
-    "retry_after": "2026-10-21T00:17:49.614764+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T01:15:46.340263+00:00",
+    "retry_after": "2026-10-24T01:15:46.340284+00:00"
   },
   {
     "name": "DinoWars",
@@ -57315,9 +57315,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T00:17:50.194645+00:00",
-    "retry_after": "2026-10-21T00:17:50.194660+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T01:15:46.933936+00:00",
+    "retry_after": "2026-10-24T01:15:46.933957+00:00"
   },
   {
     "name": "One Missed Call",
@@ -57325,9 +57325,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T00:17:55.817652+00:00",
-    "retry_after": "2026-10-21T00:17:55.817667+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T01:15:47.611954+00:00",
+    "retry_after": "2026-10-24T01:15:47.611971+00:00"
   },
   {
     "name": "Battle Girlz Pocket Manga",
@@ -57335,9 +57335,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T00:18:23.662091+00:00",
-    "retry_after": "2026-10-21T00:18:23.662108+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T01:15:48.118514+00:00",
+    "retry_after": "2026-10-24T01:15:48.118534+00:00"
   },
   {
     "name": "Aquaman Special Edition",
@@ -61142,5 +61142,120 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T00:18:46.153683+00:00",
     "retry_after": "2026-10-22T00:18:46.153700+00:00"
+  },
+  {
+    "name": "I Live Here",
+    "publisher": "EC Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T01:15:48.637112+00:00",
+    "retry_after": "2026-10-22T01:15:48.637130+00:00"
+  },
+  {
+    "name": "Someday I’ll Fall for You",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T01:15:49.189089+00:00",
+    "retry_after": "2026-10-22T01:15:49.189111+00:00"
+  },
+  {
+    "name": "Casper the Friendly Ghost Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86176,
+        "name": "Casper the Friendly Ghost Giant Edition",
+        "publisher": "Magazine Management",
+        "start_year": 1969
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T01:15:56.365540+00:00",
+    "retry_after": "2026-10-22T01:15:56.365558+00:00"
+  },
+  {
+    "name": "Cowboy Stories",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140320,
+        "name": "Cowboy Stories",
+        "publisher": "Magazine Management",
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T01:15:56.833360+00:00",
+    "retry_after": "2026-10-22T01:15:56.833378+00:00"
+  },
+  {
+    "name": "Book of Spells",
+    "publisher": "Chaos! Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55849,
+        "name": "Book of Spells",
+        "publisher": "Double Edge Publications",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T01:15:57.233816+00:00",
+    "retry_after": "2026-10-22T01:15:57.233834+00:00"
+  },
+  {
+    "name": "Richie Rich the Poor Little Rich Boy",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62051,
+        "name": "Richie Rich the Poor Little Rich Boy",
+        "publisher": "Magazine Management",
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T01:15:57.623001+00:00",
+    "retry_after": "2026-10-22T01:15:57.623019+00:00"
+  },
+  {
+    "name": "Terry Toons Big Book of Comics Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1971,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155424,
+        "name": "Terry Toons Big Book of Comics Giant Edition ",
+        "publisher": "Magazine Management",
+        "start_year": 1971
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T01:15:58.170952+00:00",
+    "retry_after": "2026-10-22T01:15:58.170970+00:00"
+  },
+  {
+    "name": "Ju-On",
+    "publisher": "Dark Horse Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T01:16:44.402074+00:00",
+    "retry_after": "2026-10-22T01:16:44.402090+00:00"
   }
 ]

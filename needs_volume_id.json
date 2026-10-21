@@ -57192,9 +57192,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T23:49:59.954563+00:00",
-    "retry_after": "2026-10-20T23:49:59.954582+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T00:15:45.846115+00:00",
+    "retry_after": "2026-10-24T00:15:45.846132+00:00"
   },
   {
     "name": "Action Comics [50th Anniversary Edition]",
@@ -57202,9 +57202,9 @@
     "year": 1988,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T23:50:22.193136+00:00",
-    "retry_after": "2026-10-20T23:50:22.193152+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T00:15:47.526931+00:00",
+    "retry_after": "2026-10-24T00:15:47.526948+00:00"
   },
   {
     "name": "Into the Badlands Special",
@@ -57212,9 +57212,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T23:50:22.528296+00:00",
-    "retry_after": "2026-10-20T23:50:22.528311+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T00:15:47.954396+00:00",
+    "retry_after": "2026-10-24T00:15:47.954412+00:00"
   },
   {
     "name": "Herc & Thor Pocket Manga",
@@ -57222,9 +57222,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T23:50:30.624917+00:00",
-    "retry_after": "2026-10-20T23:50:30.624933+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T00:15:48.586020+00:00",
+    "retry_after": "2026-10-24T00:15:48.586037+00:00"
   },
   {
     "name": "One for One: Action Philosophers",
@@ -57232,9 +57232,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T23:50:31.120877+00:00",
-    "retry_after": "2026-10-20T23:50:31.120893+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T00:15:49.139250+00:00",
+    "retry_after": "2026-10-24T00:15:49.139267+00:00"
   },
   {
     "name": "Galaxy Man & Cosmic Girl",
@@ -57242,9 +57242,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T23:50:31.436259+00:00",
-    "retry_after": "2026-10-20T23:50:31.436275+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T00:15:49.549791+00:00",
+    "retry_after": "2026-10-24T00:15:49.549807+00:00"
   },
   {
     "name": "All Star Superman Special Edition",
@@ -57252,9 +57252,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T23:50:34.970484+00:00",
-    "retry_after": "2026-10-20T23:50:34.970502+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T00:15:50.116684+00:00",
+    "retry_after": "2026-10-24T00:15:50.116700+00:00"
   },
   {
     "name": "Moro Rogers' City in the Desert",
@@ -61028,5 +61028,119 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-20T23:17:23.506163+00:00",
     "retry_after": "2026-10-21T23:17:23.506177+00:00"
+  },
+  {
+    "name": "Prince Valiant Jumbo/Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T00:15:50.699347+00:00",
+    "retry_after": "2026-10-22T00:15:50.699362+00:00"
+  },
+  {
+    "name": "Young Lover's Pictorial",
+    "publisher": "Marvel Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T00:18:18.822555+00:00",
+    "retry_after": "2026-10-22T00:18:18.822572+00:00"
+  },
+  {
+    "name": "Les Québecois",
+    "publisher": "BOOM! Studios",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T00:18:19.337094+00:00",
+    "retry_after": "2026-10-22T00:18:19.337110+00:00"
+  },
+  {
+    "name": "Retrograde",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 120274,
+        "name": "RETROGRADE",
+        "publisher": "Awesome Reads",
+        "start_year": 2019
+      },
+      {
+        "id": 59059,
+        "name": "Retrograde",
+        "publisher": "Eternity",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T00:18:19.802561+00:00",
+    "retry_after": "2026-10-22T00:18:19.802576+00:00"
+  },
+  {
+    "name": "Screen Story Comics",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T00:18:38.188953+00:00",
+    "retry_after": "2026-10-22T00:18:38.188970+00:00"
+  },
+  {
+    "name": "Giant Junior Funnies",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63199,
+        "name": "Giant Junior Funnies",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T00:18:38.605614+00:00",
+    "retry_after": "2026-10-22T00:18:38.605626+00:00"
+  },
+  {
+    "name": "Peter Pan: Return to Never-Never Land",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36502,
+        "name": "Peter Pan: The Return to Never-Never Land",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T00:18:39.069989+00:00",
+    "retry_after": "2026-10-22T00:18:39.070005+00:00"
+  },
+  {
+    "name": "Jeremiah: A Fistful of Sand",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6657,
+        "name": "Jeremiah: A Fistful of Sand",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T00:18:46.153683+00:00",
+    "retry_after": "2026-10-22T00:18:46.153700+00:00"
   }
 ]

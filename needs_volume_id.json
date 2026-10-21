@@ -32690,8 +32690,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-21T18:23:56.935507+00:00",
-    "retry_after": "2026-10-24T18:23:56.935524+00:00"
+    "last_attempt_at": "2026-10-21T18:46:55.043209+00:00",
+    "retry_after": "2026-10-24T18:46:55.043226+00:00"
   },
   {
     "name": "Pirouette",
@@ -58360,8 +58360,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-21T18:24:07.785130+00:00",
-    "retry_after": "2026-10-24T18:24:07.785145+00:00"
+    "last_attempt_at": "2026-10-21T18:47:03.217579+00:00",
+    "retry_after": "2026-10-24T18:47:03.217596+00:00"
   },
   {
     "name": "L'Incredibile Hulk",
@@ -58370,8 +58370,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-21T18:24:08.282991+00:00",
-    "retry_after": "2026-10-24T18:24:08.283009+00:00"
+    "last_attempt_at": "2026-10-21T18:47:03.667557+00:00",
+    "retry_after": "2026-10-24T18:47:03.667575+00:00"
   },
   {
     "name": "Split Check",
@@ -58380,8 +58380,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-21T18:23:57.355850+00:00",
-    "retry_after": "2026-10-24T18:23:57.355864+00:00"
+    "last_attempt_at": "2026-10-21T18:46:55.331148+00:00",
+    "retry_after": "2026-10-24T18:46:55.331164+00:00"
   },
   {
     "name": "The Rock Cocks",
@@ -58390,8 +58390,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-21T18:23:57.909714+00:00",
-    "retry_after": "2026-10-24T18:23:57.909730+00:00"
+    "last_attempt_at": "2026-10-21T18:46:56.201429+00:00",
+    "retry_after": "2026-10-24T18:46:56.201444+00:00"
   },
   {
     "name": "Shaundra: Slave to Pleasure",
@@ -58400,8 +58400,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-21T18:23:58.560245+00:00",
-    "retry_after": "2026-10-24T18:23:58.560261+00:00"
+    "last_attempt_at": "2026-10-21T18:46:56.543150+00:00",
+    "retry_after": "2026-10-24T18:46:56.543166+00:00"
   },
   {
     "name": "Don't Be Cruel 2-in-1 Edition",
@@ -58410,8 +58410,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-21T18:23:59.001484+00:00",
-    "retry_after": "2026-10-24T18:23:59.001499+00:00"
+    "last_attempt_at": "2026-10-21T18:46:56.869537+00:00",
+    "retry_after": "2026-10-24T18:46:56.869553+00:00"
   },
   {
     "name": "Teenage Mutant Ninja Turtles Deluxe Edition",
@@ -58420,8 +58420,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-21T18:23:59.493114+00:00",
-    "retry_after": "2026-10-24T18:23:59.493129+00:00"
+    "last_attempt_at": "2026-10-21T18:46:57.189452+00:00",
+    "retry_after": "2026-10-24T18:46:57.189468+00:00"
   },
   {
     "name": "Hunter x Hunter (3-in-1 Edition)",
@@ -61393,6 +61393,268 @@
     "retry_after": "2026-10-22T17:23:41.844915+00:00"
   },
   {
+    "name": "Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69993,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 4250,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 43496,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 43493,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 35263,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 65024,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 43497,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 160055,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 69175,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 58822,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 160058,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 76418,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 29930,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 43515,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 10809,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2003
+      },
+      {
+        "id": 127236,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 125121,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 43518,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 159705,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 50046,
+        "name": "Wolverine",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:27:24.762161+00:00",
+    "retry_after": "2026-10-22T18:27:24.762177+00:00"
+  },
+  {
+    "name": "Green Lantern",
+    "publisher": "DC Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2839,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 1960
+      },
+      {
+        "id": 25944,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 1941
+      },
+      {
+        "id": 79179,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 142798,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 90758,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 28230,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 4363,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 18216,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 42808,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 55261,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 115055,
+        "name": "The Green Lantern",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 79177,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 94425,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 42399,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 159672,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 78611,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 150172,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 135228,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 51131,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 60430,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:27:29.339187+00:00",
+    "retry_after": "2026-10-22T18:27:29.339202+00:00"
+  },
+  {
     "name": "Star Wars: The High Republic Adventures (Phase III) - Crash Landing",
     "publisher": "Dark Horse Comics",
     "year": 2024,
@@ -61406,93 +61668,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:23:56.365749+00:00",
-    "retry_after": "2026-10-22T18:23:56.365762+00:00"
-  },
-  {
-    "name": "Buttfuque U.",
-    "publisher": "Fantagraphics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37418,
-        "name": "Buttfuque U.",
-        "publisher": null,
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:23:59.923240+00:00",
-    "retry_after": "2026-10-22T18:23:59.923256+00:00"
-  },
-  {
-    "name": "Spawn: Feudo de Sangue",
-    "publisher": "Avatar Press",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 171320,
-        "name": "Spawn: Feudo de Sangue",
-        "publisher": null,
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:00.327677+00:00",
-    "retry_after": "2026-10-22T18:24:00.327693+00:00"
-  },
-  {
-    "name": "Picture Stories from the Bible [Old Testament]",
-    "publisher": "EC Comics",
-    "year": 1943,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 923,
-        "name": "Picture Stories from the Bible (Old Testament)",
-        "publisher": null,
-        "start_year": 1942
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:01.825530+00:00",
-    "retry_after": "2026-10-22T18:24:01.825544+00:00"
-  },
-  {
-    "name": "Incubus",
-    "publisher": "Antarctic Press",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 41369,
-        "name": "Incubus",
-        "publisher": null,
-        "start_year": 2008
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:02.271514+00:00",
-    "retry_after": "2026-10-22T18:24:02.271529+00:00"
-  },
-  {
-    "name": "Sexy Tales to Give You the Creeps",
-    "publisher": "Fantagraphics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 70760,
-        "name": "Sexy Tales to Give You the Creeps",
-        "publisher": null,
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:02.579406+00:00",
-    "retry_after": "2026-10-22T18:24:02.579429+00:00"
+    "last_attempt_at": "2026-10-21T18:46:54.693946+00:00",
+    "retry_after": "2026-10-22T18:46:54.693964+00:00"
   },
   {
     "name": "Casper Jumbo Edition",
@@ -61508,8 +61685,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:03.094898+00:00",
-    "retry_after": "2026-10-22T18:24:03.094910+00:00"
+    "last_attempt_at": "2026-10-21T18:46:57.457807+00:00",
+    "retry_after": "2026-10-22T18:46:57.457819+00:00"
   },
   {
     "name": "The Uncensored Mouse",
@@ -61525,8 +61702,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:03.915549+00:00",
-    "retry_after": "2026-10-22T18:24:03.915565+00:00"
+    "last_attempt_at": "2026-10-21T18:46:57.777793+00:00",
+    "retry_after": "2026-10-22T18:46:57.777809+00:00"
   },
   {
     "name": "Ultimate Annuals",
@@ -61542,8 +61719,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:04.591462+00:00",
-    "retry_after": "2026-10-22T18:24:04.591477+00:00"
+    "last_attempt_at": "2026-10-21T18:46:58.121881+00:00",
+    "retry_after": "2026-10-22T18:46:58.121896+00:00"
   },
   {
     "name": "True Life Tales",
@@ -61559,8 +61736,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:05.101050+00:00",
-    "retry_after": "2026-10-22T18:24:05.101066+00:00"
+    "last_attempt_at": "2026-10-21T18:46:58.390865+00:00",
+    "retry_after": "2026-10-22T18:46:58.390880+00:00"
   },
   {
     "name": "Frogmen",
@@ -61576,8 +61753,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:05.556435+00:00",
-    "retry_after": "2026-10-22T18:24:05.556450+00:00"
+    "last_attempt_at": "2026-10-21T18:46:58.686852+00:00",
+    "retry_after": "2026-10-22T18:46:58.686867+00:00"
   },
   {
     "name": "Cine Quadrinhos",
@@ -61586,8 +61763,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:05.944266+00:00",
-    "retry_after": "2026-10-22T18:24:05.944282+00:00"
+    "last_attempt_at": "2026-10-21T18:46:58.970586+00:00",
+    "retry_after": "2026-10-22T18:46:58.970603+00:00"
   },
   {
     "name": "Filth",
@@ -61615,8 +61792,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:06.498373+00:00",
-    "retry_after": "2026-10-22T18:24:06.498393+00:00"
+    "last_attempt_at": "2026-10-21T18:46:59.437513+00:00",
+    "retry_after": "2026-10-22T18:46:59.437530+00:00"
   },
   {
     "name": "Casanova: Acedia",
@@ -61638,8 +61815,123 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:06.998954+00:00",
-    "retry_after": "2026-10-22T18:24:06.998971+00:00"
+    "last_attempt_at": "2026-10-21T18:46:59.751236+00:00",
+    "retry_after": "2026-10-22T18:46:59.751252+00:00"
+  },
+  {
+    "name": "The Cat",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72774,
+        "name": "Cat",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 161148,
+        "name": "The Cat",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 2565,
+        "name": "The Cat",
+        "publisher": null,
+        "start_year": 1972
+      },
+      {
+        "id": 37628,
+        "name": "The Cat",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:47:00.225121+00:00",
+    "retry_after": "2026-10-22T18:47:00.225137+00:00"
+  },
+  {
+    "name": "Black Cloud",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 100562,
+        "name": "Black Cloud",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:47:00.692945+00:00",
+    "retry_after": "2026-10-22T18:47:00.692962+00:00"
+  },
+  {
+    "name": "Hentai Demon Huntress",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167390,
+        "name": "Hentai Demon Huntress",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:47:01.313955+00:00",
+    "retry_after": "2026-10-22T18:47:01.313971+00:00"
+  },
+  {
+    "name": "Undead",
+    "publisher": "Chaos! Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 134504,
+        "name": "The Undead",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 19370,
+        "name": "Undead",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:47:01.954040+00:00",
+    "retry_after": "2026-10-22T18:47:01.954058+00:00"
+  },
+  {
+    "name": "The Liberator",
+    "publisher": "Black Mask Studios",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63737,
+        "name": "Liberator",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 35701,
+        "name": "Liberator",
+        "publisher": null,
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:47:02.541712+00:00",
+    "retry_after": "2026-10-22T18:47:02.541728+00:00"
   },
   {
     "name": "Spawn",
@@ -61721,8 +62013,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:08.552153+00:00",
-    "retry_after": "2026-10-22T18:24:08.552168+00:00"
+    "last_attempt_at": "2026-10-21T18:47:04.014147+00:00",
+    "retry_after": "2026-10-22T18:47:04.014163+00:00"
   },
   {
     "name": "Nellie the Nurse Comics",
@@ -61731,8 +62023,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:08.998233+00:00",
-    "retry_after": "2026-10-22T18:24:08.998249+00:00"
+    "last_attempt_at": "2026-10-21T18:47:04.358800+00:00",
+    "retry_after": "2026-10-22T18:47:04.358816+00:00"
   },
   {
     "name": "Spøk og Spenning",
@@ -61754,8 +62046,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:09.513165+00:00",
-    "retry_after": "2026-10-22T18:24:09.513179+00:00"
+    "last_attempt_at": "2026-10-21T18:47:04.672420+00:00",
+    "retry_after": "2026-10-22T18:47:04.672436+00:00"
   },
   {
     "name": "Georgie Comics",
@@ -61777,8 +62069,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:09.970811+00:00",
-    "retry_after": "2026-10-22T18:24:09.970825+00:00"
+    "last_attempt_at": "2026-10-21T18:47:04.998356+00:00",
+    "retry_after": "2026-10-22T18:47:04.998371+00:00"
   },
   {
     "name": "Naruto - Édition Hokage",
@@ -61787,8 +62079,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:10.524758+00:00",
-    "retry_after": "2026-10-22T18:24:10.524773+00:00"
+    "last_attempt_at": "2026-10-21T18:47:05.264288+00:00",
+    "retry_after": "2026-10-22T18:47:05.264304+00:00"
   },
   {
     "name": "Headline Comics",
@@ -61804,8 +62096,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:10.924312+00:00",
-    "retry_after": "2026-10-22T18:24:10.924344+00:00"
+    "last_attempt_at": "2026-10-21T18:47:07.527013+00:00",
+    "retry_after": "2026-10-22T18:47:07.527030+00:00"
   },
   {
     "name": "Zona X",
@@ -61821,8 +62113,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:11.475260+00:00",
-    "retry_after": "2026-10-22T18:24:11.475275+00:00"
+    "last_attempt_at": "2026-10-21T18:47:07.773297+00:00",
+    "retry_after": "2026-10-22T18:47:07.773314+00:00"
   },
   {
     "name": "Food Wars!: Shokugeki No Soma",
@@ -61850,7 +62142,7 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:24:14.395583+00:00",
-    "retry_after": "2026-10-22T18:24:14.395597+00:00"
+    "last_attempt_at": "2026-10-21T18:47:08.067297+00:00",
+    "retry_after": "2026-10-22T18:47:08.067314+00:00"
   }
 ]

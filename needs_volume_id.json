@@ -61162,5 +61162,194 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T01:38:00.453892+00:00",
     "retry_after": "2026-10-22T01:38:00.453909+00:00"
+  },
+  {
+    "name": "Casper the Friendly Ghost Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86176,
+        "name": "Casper the Friendly Ghost Giant Edition",
+        "publisher": "Magazine Management",
+        "start_year": 1969
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:15:54.677326+00:00",
+    "retry_after": "2026-10-22T02:15:54.677343+00:00"
+  },
+  {
+    "name": "Cowboy Stories",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140320,
+        "name": "Cowboy Stories",
+        "publisher": "Magazine Management",
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:15:55.190071+00:00",
+    "retry_after": "2026-10-22T02:15:55.190088+00:00"
+  },
+  {
+    "name": "Book of Spells",
+    "publisher": "Chaos! Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55849,
+        "name": "Book of Spells",
+        "publisher": "Double Edge Publications",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:15:55.966210+00:00",
+    "retry_after": "2026-10-22T02:15:55.966224+00:00"
+  },
+  {
+    "name": "Richie Rich the Poor Little Rich Boy",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62051,
+        "name": "Richie Rich the Poor Little Rich Boy",
+        "publisher": "Magazine Management",
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:15:57.075570+00:00",
+    "retry_after": "2026-10-22T02:15:57.075586+00:00"
+  },
+  {
+    "name": "Terry Toons Big Book of Comics Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1971,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155424,
+        "name": "Terry Toons Big Book of Comics Giant Edition ",
+        "publisher": "Magazine Management",
+        "start_year": 1971
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:15:57.348702+00:00",
+    "retry_after": "2026-10-22T02:15:57.348716+00:00"
+  },
+  {
+    "name": "Ju-On",
+    "publisher": "Dark Horse Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:16:34.639865+00:00",
+    "retry_after": "2026-10-22T02:16:34.639881+00:00"
+  },
+  {
+    "name": "Astonishing X-Men: Gambit",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:16:41.281925+00:00",
+    "retry_after": "2026-10-22T02:16:41.281937+00:00"
+  },
+  {
+    "name": "Ground Zero",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29004,
+        "name": "Ground Zero",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:17:10.310302+00:00",
+    "retry_after": "2026-10-22T02:17:10.310318+00:00"
+  },
+  {
+    "name": "Jeremiah: Birds of Prey",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39172,
+        "name": "Jeremiah: Birds of Prey",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:17:11.980284+00:00",
+    "retry_after": "2026-10-22T02:17:11.980299+00:00"
+  },
+  {
+    "name": "Books of Lore: Shape of Evil",
+    "publisher": "Devil's Due",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 105454,
+        "name": "Books of Lore: Shape of Evil",
+        "publisher": "Peregrine Entertainment",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:17:14.164548+00:00",
+    "retry_after": "2026-10-22T02:17:14.164564+00:00"
+  },
+  {
+    "name": "Full Throttle",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130875,
+        "name": "Full Throttle",
+        "publisher": "Subterranean Press",
+        "start_year": 2020
+      },
+      {
+        "id": 24151,
+        "name": "Full Throttle",
+        "publisher": "Aircel Publishing",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:17:15.755656+00:00",
+    "retry_after": "2026-10-22T02:17:15.755671+00:00"
+  },
+  {
+    "name": "Cupid's Revenge",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T02:17:16.950320+00:00",
+    "retry_after": "2026-10-22T02:17:16.950336+00:00"
   }
 ]

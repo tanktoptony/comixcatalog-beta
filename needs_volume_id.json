@@ -37330,9 +37330,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T05:18:56.560689+00:00",
-    "retry_after": "2026-10-21T05:18:56.560704+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T06:15:50.416055+00:00",
+    "retry_after": "2026-10-24T06:15:50.416071+00:00"
   },
   {
     "name": "Cyberpunk 2077 Omnibus",
@@ -57605,9 +57605,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T05:17:06.044740+00:00",
-    "retry_after": "2026-10-21T05:17:06.044757+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T06:15:49.264556+00:00",
+    "retry_after": "2026-10-24T06:15:49.264572+00:00"
   },
   {
     "name": "A Foulness in the Walls",
@@ -57615,9 +57615,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T05:18:43.917107+00:00",
-    "retry_after": "2026-10-21T05:18:43.917124+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T06:15:49.834673+00:00",
+    "retry_after": "2026-10-24T06:15:49.834690+00:00"
   },
   {
     "name": "Ninjak",
@@ -57656,9 +57656,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T05:18:57.057190+00:00",
-    "retry_after": "2026-10-21T05:18:57.057205+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T06:15:50.885819+00:00",
+    "retry_after": "2026-10-24T06:15:50.885832+00:00"
   },
   {
     "name": "The Legend of Vox Machina: The Whitestone Chronicles",
@@ -57666,9 +57666,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T05:19:22.774815+00:00",
-    "retry_after": "2026-10-21T05:19:22.774829+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T06:15:51.469297+00:00",
+    "retry_after": "2026-10-24T06:15:51.469312+00:00"
   },
   {
     "name": "Hero Cats",
@@ -61569,5 +61569,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T05:17:03.854115+00:00",
     "retry_after": "2026-10-22T05:17:03.854130+00:00"
+  },
+  {
+    "name": "More Fun",
+    "publisher": "DC Comics",
+    "year": 1936,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T06:16:18.777620+00:00",
+    "retry_after": "2026-10-22T06:16:18.777635+00:00"
+  },
+  {
+    "name": "Dragon Ball: Em Busca do Poder",
+    "publisher": "Avatar Press",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T06:16:19.442152+00:00",
+    "retry_after": "2026-10-22T06:16:19.442167+00:00"
+  },
+  {
+    "name": "Web of Evil",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32413,
+        "name": "Web of Evil",
+        "publisher": "Quality Comics",
+        "start_year": 1952
+      },
+      {
+        "id": 26841,
+        "name": "Web of Evil",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T06:16:33.907625+00:00",
+    "retry_after": "2026-10-22T06:16:33.907640+00:00"
+  },
+  {
+    "name": "The NYC Mech Sketchbook Work + Progress",
+    "publisher": "Image Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T06:17:41.675800+00:00",
+    "retry_after": "2026-10-22T06:17:41.675816+00:00"
   }
 ]

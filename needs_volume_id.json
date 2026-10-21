@@ -13542,9 +13542,9 @@
     "year": 1980,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T03:16:00.583544+00:00",
-    "retry_after": "2026-10-21T03:16:00.583561+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T03:16:03.377169+00:00",
+    "retry_after": "2026-10-24T03:16:03.377187+00:00"
   },
   {
     "name": "Our Army at War (War One-Shot)",
@@ -57415,9 +57415,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T02:16:21.399815+00:00",
-    "retry_after": "2026-10-21T02:16:21.399833+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T03:15:53.784952+00:00",
+    "retry_after": "2026-10-24T03:15:53.784971+00:00"
   },
   {
     "name": "Kurt Busiek's Astro City 3D Special",
@@ -57425,9 +57425,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T02:16:37.491807+00:00",
-    "retry_after": "2026-10-21T02:16:37.491827+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T03:15:54.440291+00:00",
+    "retry_after": "2026-10-24T03:15:54.440309+00:00"
   },
   {
     "name": "New Humans Annual the Shattered Earth Chronicles",
@@ -57435,9 +57435,9 @@
     "year": 1989,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T02:16:58.876273+00:00",
-    "retry_after": "2026-10-21T02:16:58.876290+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T03:15:54.794763+00:00",
+    "retry_after": "2026-10-24T03:15:54.794781+00:00"
   },
   {
     "name": "Thrill Comics [ashcan]",
@@ -57445,9 +57445,9 @@
     "year": 1940,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T02:18:05.492422+00:00",
-    "retry_after": "2026-10-21T02:18:05.492441+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T03:15:55.263443+00:00",
+    "retry_after": "2026-10-24T03:15:55.263460+00:00"
   },
   {
     "name": "Action Comics [Superman Sleeping Bag]",
@@ -57455,9 +57455,9 @@
     "year": 1976,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T03:16:00.995274+00:00",
-    "retry_after": "2026-10-21T03:16:00.995290+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T03:16:03.841210+00:00",
+    "retry_after": "2026-10-24T03:16:03.841228+00:00"
   },
   {
     "name": "Dark Horse Classics: Godzilla",
@@ -61351,5 +61351,122 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T02:17:16.950320+00:00",
     "retry_after": "2026-10-22T02:17:16.950336+00:00"
+  },
+  {
+    "name": "Julien Boisvert",
+    "publisher": "Heavy Metal",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T03:17:18.018624+00:00",
+    "retry_after": "2026-10-22T03:17:18.018643+00:00"
+  },
+  {
+    "name": "Peter Pan",
+    "publisher": "Heavy Metal",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 90132,
+        "name": "Peter Pan",
+        "publisher": "Egmont Ehapa Verlag",
+        "start_year": 1991
+      },
+      {
+        "id": 83971,
+        "name": "Peter Pan",
+        "publisher": "Capstone Press",
+        "start_year": 2015
+      },
+      {
+        "id": 104071,
+        "name": "Peter Pan",
+        "publisher": "Seven Seas Entertainment",
+        "start_year": 2017
+      },
+      {
+        "id": 140818,
+        "name": "Peter Pan",
+        "publisher": "Glénat Spain",
+        "start_year": 2009
+      },
+      {
+        "id": 27100,
+        "name": "Peter Pan",
+        "publisher": "Vents d'Ouest",
+        "start_year": 1990
+      },
+      {
+        "id": 55880,
+        "name": "Peter Pan",
+        "publisher": "Disney",
+        "start_year": 2013
+      },
+      {
+        "id": 67018,
+        "name": "Peter Pan",
+        "publisher": "Soaring Penguin Press",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T03:17:25.126651+00:00",
+    "retry_after": "2026-10-22T03:17:25.126669+00:00"
+  },
+  {
+    "name": "Bad Meat",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46125,
+        "name": "Bad Meat",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T03:17:26.073528+00:00",
+    "retry_after": "2026-10-22T03:17:26.073546+00:00"
+  },
+  {
+    "name": "Valiant Efforts",
+    "publisher": "Valiant Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48950,
+        "name": "Valiant Efforts",
+        "publisher": "Valiant Comics (California)",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T03:17:26.513985+00:00",
+    "retry_after": "2026-10-22T03:17:26.514003+00:00"
+  },
+  {
+    "name": "Classic Star Wars Box Set",
+    "publisher": "Dark Horse Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T03:17:43.461247+00:00",
+    "retry_after": "2026-10-22T03:17:43.461263+00:00"
+  },
+  {
+    "name": "Pete Von Sholly's Morbid",
+    "publisher": "Dark Horse Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T03:17:43.895584+00:00",
+    "retry_after": "2026-10-22T03:17:43.895602+00:00"
   }
 ]

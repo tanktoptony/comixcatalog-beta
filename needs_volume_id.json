@@ -60575,5 +60575,515 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T15:24:02.591170+00:00",
     "retry_after": "2026-10-22T15:24:02.591186+00:00"
+  },
+  {
+    "name": "Karate Girl Special",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60181,
+        "name": "Karate Girl Special",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:23:52.918181+00:00",
+    "retry_after": "2026-10-22T16:23:52.918197+00:00"
+  },
+  {
+    "name": "Lust Stories",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37417,
+        "name": "Lust Stories",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:23:53.434240+00:00",
+    "retry_after": "2026-10-22T16:23:53.434257+00:00"
+  },
+  {
+    "name": "Atomic Age Truckstop Waitress",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26715,
+        "name": "Atomic Age Truckstop Waitress",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:23:53.995152+00:00",
+    "retry_after": "2026-10-22T16:23:53.995167+00:00"
+  },
+  {
+    "name": "Dracula's Daughter",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26873,
+        "name": "Dracula's Daughter",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:23:54.542011+00:00",
+    "retry_after": "2026-10-22T16:23:54.542027+00:00"
+  },
+  {
+    "name": "Mara of the Celts",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26773,
+        "name": "Mara of the Celts",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:23:56.688071+00:00",
+    "retry_after": "2026-10-22T16:23:56.688089+00:00"
+  },
+  {
+    "name": "Okko",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 121189,
+        "name": "Okko",
+        "publisher": "Delcourt",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:23:57.199363+00:00",
+    "retry_after": "2026-10-22T16:23:57.199379+00:00"
+  },
+  {
+    "name": "Dinosaurs for Hire 3-D",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81806,
+        "name": "Dinosaurs For Hire 3-D",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:23:57.700771+00:00",
+    "retry_after": "2026-10-22T16:23:57.700787+00:00"
+  },
+  {
+    "name": "Belzebubs",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 117696,
+        "name": "Belzebubs",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:23:58.091764+00:00",
+    "retry_after": "2026-10-22T16:23:58.091781+00:00"
+  },
+  {
+    "name": "Batvark",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 103850,
+        "name": "Batvark",
+        "publisher": "Aardvark",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:23:58.602889+00:00",
+    "retry_after": "2026-10-22T16:23:58.602906+00:00"
+  },
+  {
+    "name": "Robotech: Firewalkers",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39269,
+        "name": "Robotech - Firewalkers",
+        "publisher": "Eternity",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:23:59.147145+00:00",
+    "retry_after": "2026-10-22T16:23:59.147161+00:00"
+  },
+  {
+    "name": "I Love Lucy in Full Color",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63062,
+        "name": "I Love Lucy in Full Color",
+        "publisher": "Eternity",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:23:59.729236+00:00",
+    "retry_after": "2026-10-22T16:23:59.729253+00:00"
+  },
+  {
+    "name": "Halloween Terror",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53090,
+        "name": "Halloween Terror",
+        "publisher": "Eternity",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:01.982183+00:00",
+    "retry_after": "2026-10-22T16:24:01.982199+00:00"
+  },
+  {
+    "name": "A-V in 3-D",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58352,
+        "name": "A-V in 3-D",
+        "publisher": "Aardvark",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:02.503716+00:00",
+    "retry_after": "2026-10-22T16:24:02.503734+00:00"
+  },
+  {
+    "name": "Dinosaurs for Hire Fall Classic",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55685,
+        "name": "Dinosaurs for Hire Fall Classic",
+        "publisher": "Eternity",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:03.011315+00:00",
+    "retry_after": "2026-10-22T16:24:03.011333+00:00"
+  },
+  {
+    "name": "Walking Wounded",
+    "publisher": "Fantagraphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71751,
+        "name": "Walking Wounded",
+        "publisher": "Fox Comics (AU)",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:03.620002+00:00",
+    "retry_after": "2026-10-22T16:24:03.620019+00:00"
+  },
+  {
+    "name": "Crypt of Cum",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26737,
+        "name": "Crypt of Cum",
+        "publisher": "Eros Comix",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:05.864664+00:00",
+    "retry_after": "2026-10-22T16:24:05.864681+00:00"
+  },
+  {
+    "name": "Rust Special Limited Edition",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58499,
+        "name": "Rust Special Limited Edition",
+        "publisher": "Adventure",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:06.377424+00:00",
+    "retry_after": "2026-10-22T16:24:06.377441+00:00"
+  },
+  {
+    "name": "The Complete Adventures of Carl",
+    "publisher": "BOOM! Studios",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46083,
+        "name": "Complete Adventures of Carl",
+        "publisher": "Boomtown Press",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:06.960992+00:00",
+    "retry_after": "2026-10-22T16:24:06.961009+00:00"
+  },
+  {
+    "name": "The Diggers",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51292,
+        "name": "Diggers",
+        "publisher": "C&T Graphics",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:07.562461+00:00",
+    "retry_after": "2026-10-22T16:24:07.562479+00:00"
+  },
+  {
+    "name": "The Vault of Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 131441,
+        "name": "Vault of Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:10.274752+00:00",
+    "retry_after": "2026-10-22T16:24:10.274768+00:00"
+  },
+  {
+    "name": "Brendon",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40738,
+        "name": "Brendon",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:11.015433+00:00",
+    "retry_after": "2026-10-22T16:24:11.015450+00:00"
+  },
+  {
+    "name": "Wedding Ring Library",
+    "publisher": "Marvel Comics",
+    "year": 1958,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127860,
+        "name": "Wedding Ring Library",
+        "publisher": "World Distributors",
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:11.641763+00:00",
+    "retry_after": "2026-10-22T16:24:11.641779+00:00"
+  },
+  {
+    "name": "Collana Western",
+    "publisher": "Dell Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158195,
+        "name": "Collana Western",
+        "publisher": "La Gazzetta dello Sport",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:12.383030+00:00",
+    "retry_after": "2026-10-22T16:24:12.383046+00:00"
+  },
+  {
+    "name": "Dylan Dog - Viaggio nell'incubo",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147544,
+        "name": "Dylan Dog - Viaggio nell'Incubo",
+        "publisher": "La Gazzetta dello Sport",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:14.675852+00:00",
+    "retry_after": "2026-10-22T16:24:14.675867+00:00"
+  },
+  {
+    "name": "Nintendo Power",
+    "publisher": "Fantagraphics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28947,
+        "name": "Nintendo Power",
+        "publisher": "Nintendo",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:15.171211+00:00",
+    "retry_after": "2026-10-22T16:24:15.171229+00:00"
+  },
+  {
+    "name": "Liga da Justiça",
+    "publisher": "Avatar Press",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42512,
+        "name": "Liga da Justiça",
+        "publisher": "Panini Brasil",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:16.508047+00:00",
+    "retry_after": "2026-10-22T16:24:16.508063+00:00"
+  },
+  {
+    "name": "Corriere dei Piccoli",
+    "publisher": "Dell Comics",
+    "year": 1908,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27801,
+        "name": "Corriere dei Piccoli",
+        "publisher": "RCS MediaGroup",
+        "start_year": 1908
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:17.216587+00:00",
+    "retry_after": "2026-10-22T16:24:17.216627+00:00"
+  },
+  {
+    "name": "Anders And & Co.",
+    "publisher": "Valiant Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126425,
+        "name": "Anders And & Co.",
+        "publisher": "Egmont Publishing A/S",
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:17.975653+00:00",
+    "retry_after": "2026-10-22T16:24:17.975668+00:00"
+  },
+  {
+    "name": "Corriere dei Ragazzi",
+    "publisher": "Dell Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32469,
+        "name": "Corriere dei Ragazzi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:18.678195+00:00",
+    "retry_after": "2026-10-22T16:24:18.678211+00:00"
+  },
+  {
+    "name": "Gli Albi di Orient Express",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47514,
+        "name": "Gli Albi di Orient Express",
+        "publisher": "L'Isola Trovata",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T16:24:19.268442+00:00",
+    "retry_after": "2026-10-22T16:24:19.268459+00:00"
   }
 ]

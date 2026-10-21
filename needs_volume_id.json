@@ -58243,9 +58243,9 @@
         "start_year": 1965
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T12:16:26.353321+00:00",
-    "retry_after": "2026-10-21T12:16:26.353337+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T13:17:04.186663+00:00",
+    "retry_after": "2026-10-24T13:17:04.186682+00:00"
   },
   {
     "name": "[Penrod the All American Boy's Wear Presents] Boys' Ranch",
@@ -58253,9 +58253,9 @@
     "year": 1951,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T12:17:12.076142+00:00",
-    "retry_after": "2026-10-21T12:17:12.076160+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T13:17:04.743126+00:00",
+    "retry_after": "2026-10-24T13:17:04.743146+00:00"
   },
   {
     "name": "Hip Hop Heaven",
@@ -58263,9 +58263,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T12:17:36.445037+00:00",
-    "retry_after": "2026-10-21T12:17:36.445051+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T13:17:05.329029+00:00",
+    "retry_after": "2026-10-24T13:17:05.329045+00:00"
   },
   {
     "name": "Fightin' War Heroes",
@@ -58273,9 +58273,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T12:17:36.861471+00:00",
-    "retry_after": "2026-10-21T12:17:36.861485+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T13:17:06.007169+00:00",
+    "retry_after": "2026-10-24T13:17:06.007187+00:00"
   },
   {
     "name": "Peace Hame",
@@ -58302,9 +58302,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T13:16:16.197348+00:00",
-    "retry_after": "2026-10-21T13:16:16.197363+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T13:17:07.562474+00:00",
+    "retry_after": "2026-10-24T13:17:07.562491+00:00"
   },
   {
     "name": "The Art of Fullmetal Alchemist",
@@ -58312,9 +58312,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T13:16:27.254824+00:00",
-    "retry_after": "2026-10-21T13:16:27.254839+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T13:17:08.174319+00:00",
+    "retry_after": "2026-10-24T13:17:08.174337+00:00"
   },
   {
     "name": "Heroes of the West Giant Edition",
@@ -58329,9 +58329,9 @@
         "start_year": 1968
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T13:16:42.173553+00:00",
-    "retry_after": "2026-10-21T13:16:42.173567+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T13:17:08.834441+00:00",
+    "retry_after": "2026-10-24T13:17:08.834471+00:00"
   },
   {
     "name": "National Lampoon Tenth Anniversary Anthology 1970-1980",
@@ -62103,5 +62103,62 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T12:16:25.230879+00:00",
     "retry_after": "2026-10-22T12:16:25.230913+00:00"
+  },
+  {
+    "name": "Atlas Artist Edition",
+    "publisher": "Fantagraphics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T13:17:19.094372+00:00",
+    "retry_after": "2026-10-22T13:17:19.094387+00:00"
+  },
+  {
+    "name": "Sparkle",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T13:17:19.749071+00:00",
+    "retry_after": "2026-10-22T13:17:19.749088+00:00"
+  },
+  {
+    "name": "Heckle and Jeckle Jumbo Edition",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T13:17:50.310860+00:00",
+    "retry_after": "2026-10-22T13:17:50.310882+00:00"
+  },
+  {
+    "name": "Sexy Tales to Give You the Creeps",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70760,
+        "name": "Sexy Tales to Give You the Creeps",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T13:17:50.808395+00:00",
+    "retry_after": "2026-10-22T13:17:50.808412+00:00"
+  },
+  {
+    "name": "InuYasha the Movie: Affections Touching Across Time (Ani-Manga)",
+    "publisher": "VIZ Media",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T13:17:51.583858+00:00",
+    "retry_after": "2026-10-22T13:17:51.583876+00:00"
   }
 ]

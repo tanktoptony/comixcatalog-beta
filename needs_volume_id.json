@@ -58140,9 +58140,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T11:16:05.656851+00:00",
-    "retry_after": "2026-10-21T11:16:05.656869+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T12:15:54.342156+00:00",
+    "retry_after": "2026-10-24T12:15:54.342171+00:00"
   },
   {
     "name": "Colonia",
@@ -58163,9 +58163,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T11:16:26.488464+00:00",
-    "retry_after": "2026-10-21T11:16:26.488479+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T12:15:54.714828+00:00",
+    "retry_after": "2026-10-24T12:15:54.714844+00:00"
   },
   {
     "name": "Unlovable: The Complete Collection Box Set",
@@ -58173,9 +58173,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T11:16:37.436823+00:00",
-    "retry_after": "2026-10-21T11:16:37.436838+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T12:15:55.072163+00:00",
+    "retry_after": "2026-10-24T12:15:55.072179+00:00"
   },
   {
     "name": "Carnage Modern Era Epic Collection",
@@ -58183,9 +58183,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T11:16:37.756796+00:00",
-    "retry_after": "2026-10-21T11:16:37.756812+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T12:15:55.394844+00:00",
+    "retry_after": "2026-10-24T12:15:55.394860+00:00"
   },
   {
     "name": "The Amazing Spider-Man [Chicago Comic Con C2E2 Exclusive]",
@@ -58193,9 +58193,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T11:16:38.189930+00:00",
-    "retry_after": "2026-10-21T11:16:38.189946+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T12:15:55.731144+00:00",
+    "retry_after": "2026-10-24T12:15:55.731158+00:00"
   },
   {
     "name": "Marvel Manga",
@@ -58216,9 +58216,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T11:19:12.702247+00:00",
-    "retry_after": "2026-10-21T11:19:12.702262+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T12:15:56.109066+00:00",
+    "retry_after": "2026-10-24T12:15:56.109080+00:00"
   },
   {
     "name": "George Pérez's Crimson Plague",
@@ -58226,9 +58226,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T11:19:13.734091+00:00",
-    "retry_after": "2026-10-21T11:19:13.734107+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T12:15:56.479551+00:00",
+    "retry_after": "2026-10-24T12:15:56.479566+00:00"
   },
   {
     "name": "Cowboy Stories",
@@ -62039,5 +62039,69 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T11:17:28.352158+00:00",
     "retry_after": "2026-10-22T11:17:28.352175+00:00"
+  },
+  {
+    "name": "Almanaque da Margarida",
+    "publisher": "Avatar Press",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T12:15:56.856412+00:00",
+    "retry_after": "2026-10-22T12:15:56.856428+00:00"
+  },
+  {
+    "name": "Almanaque de Tom & Jerry",
+    "publisher": "Avatar Press",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T12:16:06.821230+00:00",
+    "retry_after": "2026-10-22T12:16:06.821246+00:00"
+  },
+  {
+    "name": "Picture Stories from the Bible [Old Testament]",
+    "publisher": "EC Comics",
+    "year": 1943,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 923,
+        "name": "Picture Stories from the Bible (Old Testament)",
+        "publisher": "DC Comics",
+        "start_year": 1942
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T12:16:07.819205+00:00",
+    "retry_after": "2026-10-22T12:16:07.819220+00:00"
+  },
+  {
+    "name": "Incubus",
+    "publisher": "Antarctic Press",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41369,
+        "name": "Incubus",
+        "publisher": "Kitty Publications",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T12:16:24.556410+00:00",
+    "retry_after": "2026-10-22T12:16:24.556423+00:00"
+  },
+  {
+    "name": "Rick and Morty The Space Shake Saga",
+    "publisher": "Oni Press",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T12:16:25.230879+00:00",
+    "retry_after": "2026-10-22T12:16:25.230913+00:00"
   }
 ]

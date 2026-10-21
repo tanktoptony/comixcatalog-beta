@@ -8,6 +8,7 @@ import { ThumbShelf, ThumbNotHere, ThumbFace } from "./Thumbnails.jsx";
 import { THUMBNAILS_002 } from "./Thumbnails002.jsx";
 import { THUMBNAILS_003 } from "./Thumbnails003.jsx";
 import { THUMBNAILS_004 } from "./Thumbnails004.jsx";
+import { THUMBNAILS_005 } from "./Thumbnails005.jsx";
 import { ShortClip } from "./Shorts.jsx";
 import { ChannelBanner } from "./Banner.jsx";
 import { ChannelIntro, ChannelSting } from "./ChannelIntro.jsx";
@@ -17,6 +18,8 @@ import { narrationWords as narrationWords001 } from "../episode-001/timeline.v3.
 import { narrationWords as narrationWords002 } from "../episode-002/timeline.js";
 import { narrationWords as narrationWords003 } from "../episode-003/timeline.js";
 import { narrationWords as narrationWords004 } from "../episode-004/timeline.js";
+import { shortsWords as shortsWords005 } from "../episode-005/shorts-timeline.js";
+import { fixWords as fixWords005 } from "../episode-005/fixWords.js";
 
 const shortDetails = {
   "episode-001-v3": {
@@ -35,6 +38,10 @@ const shortDetails = {
     words: narrationWords004,
     endCardTitle: "Coheed and Cambria: The Story Behind The Amory Wars",
   },
+  "episode-005-shorts": {
+    words: fixWords005(shortsWords005),
+    endCardTitle: "The Amory Wars, Part 2: The Second Stage Turbine Blade",
+  },
 };
 
 // YouTube thumbnails (scripts/thumbs.mjs).
@@ -45,6 +52,7 @@ export const THUMBNAILS = [
   ...THUMBNAILS_002,
   ...THUMBNAILS_003,
   ...THUMBNAILS_004,
+  ...THUMBNAILS_005,
 ];
 
 export function Root() {

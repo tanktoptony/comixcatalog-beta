@@ -61673,5 +61673,139 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T07:38:41.035960+00:00",
     "retry_after": "2026-10-22T07:38:41.035976+00:00"
+  },
+  {
+    "name": "A Mão Invisível",
+    "publisher": "Avatar Press",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T08:15:42.992859+00:00",
+    "retry_after": "2026-10-22T08:15:42.992876+00:00"
+  },
+  {
+    "name": "Brian Pulido's Lady Death: Swimsuit",
+    "publisher": "Avatar Press",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T08:15:55.048662+00:00",
+    "retry_after": "2026-10-22T08:15:55.048675+00:00"
+  },
+  {
+    "name": "Skin Graft",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T08:16:19.272239+00:00",
+    "retry_after": "2026-10-22T08:16:19.272260+00:00"
+  },
+  {
+    "name": "Young Witches VI: The Wrath of Agatha",
+    "publisher": "Fantagraphics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26872,
+        "name": "The Young Witches VI: Wrath of Agatha",
+        "publisher": "Eros Comix",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T08:16:26.113489+00:00",
+    "retry_after": "2026-10-22T08:16:26.113508+00:00"
+  },
+  {
+    "name": "Archer Coe",
+    "publisher": "Oni Press",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T08:16:26.588765+00:00",
+    "retry_after": "2026-10-22T08:16:26.588785+00:00"
+  },
+  {
+    "name": "The Walled City",
+    "publisher": "IDW Publishing",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T08:16:27.037817+00:00",
+    "retry_after": "2026-10-22T08:16:27.037837+00:00"
+  },
+  {
+    "name": "Batman / Aliens",
+    "publisher": "Dark Horse Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49204,
+        "name": "Batman / Aliens",
+        "publisher": "Norma Editorial",
+        "start_year": 2001
+      },
+      {
+        "id": 6820,
+        "name": "Batman/Aliens",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T08:16:32.330890+00:00",
+    "retry_after": "2026-10-22T08:16:32.330908+00:00"
+  },
+  {
+    "name": "The Two Mouseketeers Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158600,
+        "name": "The Two Mouseketeers Giant Edition",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T08:16:32.885000+00:00",
+    "retry_after": "2026-10-22T08:16:32.885014+00:00"
+  },
+  {
+    "name": "Wendy Whitebread",
+    "publisher": "Fantagraphics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T08:16:33.464088+00:00",
+    "retry_after": "2026-10-22T08:16:33.464107+00:00"
+  },
+  {
+    "name": "Ump!",
+    "publisher": "Heavy Metal",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112864,
+        "name": "Ump!",
+        "publisher": "Les Requins Marteaux",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T08:16:39.367011+00:00",
+    "retry_after": "2026-10-22T08:16:39.367032+00:00"
   }
 ]

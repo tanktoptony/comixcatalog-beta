@@ -58077,9 +58077,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T10:16:34.130553+00:00",
-    "retry_after": "2026-10-21T10:16:34.130567+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T11:15:51.967944+00:00",
+    "retry_after": "2026-10-24T11:15:51.967963+00:00"
   },
   {
     "name": "Witch Class",
@@ -58087,9 +58087,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T10:16:41.432613+00:00",
-    "retry_after": "2026-10-21T10:16:41.432627+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T11:15:52.408017+00:00",
+    "retry_after": "2026-10-24T11:15:52.408035+00:00"
   },
   {
     "name": "Almanaque da Barbie",
@@ -58097,9 +58097,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T10:16:57.030832+00:00",
-    "retry_after": "2026-10-21T10:16:57.030848+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T11:15:52.854608+00:00",
+    "retry_after": "2026-10-24T11:15:52.854624+00:00"
   },
   {
     "name": "Indiana Jones and the Kingdom of the Crystal Skull",
@@ -58120,9 +58120,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T10:17:12.071526+00:00",
-    "retry_after": "2026-10-21T10:17:12.071542+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T11:15:53.386828+00:00",
+    "retry_after": "2026-10-24T11:15:53.386842+00:00"
   },
   {
     "name": "Wonder Woman by George Pérez Omnibus",
@@ -58130,9 +58130,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T10:17:19.291124+00:00",
-    "retry_after": "2026-10-21T10:17:19.291139+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T11:15:53.781124+00:00",
+    "retry_after": "2026-10-24T11:15:53.781140+00:00"
   },
   {
     "name": "Paradise X: Ragnarok",
@@ -61920,5 +61920,124 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T10:16:51.329671+00:00",
     "retry_after": "2026-10-22T10:16:51.329686+00:00"
+  },
+  {
+    "name": "Nexus: Scourge",
+    "publisher": "Charlton Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161708,
+        "name": "Nexus: Scourge",
+        "publisher": "Alien Books",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T11:16:18.939481+00:00",
+    "retry_after": "2026-10-22T11:16:18.939497+00:00"
+  },
+  {
+    "name": "Bible Tales for Young People",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T11:16:19.578657+00:00",
+    "retry_after": "2026-10-22T11:16:19.578673+00:00"
+  },
+  {
+    "name": "Buttfuque U.",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37418,
+        "name": "Buttfuque U.",
+        "publisher": "Eros Comix",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T11:17:00.854002+00:00",
+    "retry_after": "2026-10-22T11:17:00.854020+00:00"
+  },
+  {
+    "name": "Lenore",
+    "publisher": "Titan Comics",
+    "year": 2006,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 41875,
+        "name": "Lenore",
+        "publisher": "Titan Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 39319,
+        "name": "Lenore",
+        "publisher": "Titan Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 120560,
+        "name": "Lenore",
+        "publisher": "Titan Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T11:17:09.074312+00:00",
+    "retry_after": "2026-10-22T11:17:09.074328+00:00"
+  },
+  {
+    "name": "Spawn: Feudo de Sangue",
+    "publisher": "Avatar Press",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171320,
+        "name": "Spawn: Feudo de Sangue",
+        "publisher": "Abril",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T11:17:27.832133+00:00",
+    "retry_after": "2026-10-22T11:17:27.832149+00:00"
+  },
+  {
+    "name": "Brigada",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67871,
+        "name": "Brigada",
+        "publisher": "self published",
+        "start_year": 2013
+      },
+      {
+        "id": 94092,
+        "name": "Brigada",
+        "publisher": "Magnetic Press",
+        "start_year": 2016
+      },
+      {
+        "id": 97409,
+        "name": "Brigada",
+        "publisher": "Magnetic Press",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T11:17:28.352158+00:00",
+    "retry_after": "2026-10-22T11:17:28.352175+00:00"
   }
 ]

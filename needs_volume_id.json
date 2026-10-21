@@ -27561,19 +27561,19 @@
       {
         "id": 116293,
         "name": "Cerebus",
-        "publisher": "Aardvark",
+        "publisher": null,
         "start_year": 2019
       },
       {
         "id": 2930,
         "name": "Cerebus",
-        "publisher": "Aardvark",
+        "publisher": null,
         "start_year": 1977
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T22:24:06.872226+00:00",
-    "retry_after": "2026-10-21T22:24:06.872245+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T23:00:47.637975+00:00",
+    "retry_after": "2026-10-24T23:00:47.637991+00:00"
   },
   {
     "name": "Cerebus",
@@ -43537,19 +43537,19 @@
       {
         "id": 116293,
         "name": "Cerebus",
-        "publisher": "Aardvark",
+        "publisher": null,
         "start_year": 2019
       },
       {
         "id": 2930,
         "name": "Cerebus",
-        "publisher": "Aardvark",
+        "publisher": null,
         "start_year": 1977
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T22:24:06.944794+00:00",
-    "retry_after": "2026-10-21T22:24:06.944810+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T23:00:47.722059+00:00",
+    "retry_after": "2026-10-24T23:00:47.722076+00:00"
   },
   {
     "name": "Justice League Special",
@@ -64350,5 +64350,759 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T22:32:42.255506+00:00",
     "retry_after": "2026-10-22T22:32:42.255519+00:00"
+  },
+  {
+    "name": "The Amazing Spider-Man: Chaos in Calgary",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57422,
+        "name": "The Amazing Spider-Man: Chaos in Calgary",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:49.123820+00:00",
+    "retry_after": "2026-10-22T23:15:49.123834+00:00"
+  },
+  {
+    "name": "Strange Tales II",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36170,
+        "name": "Strange Tales II",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 40133,
+        "name": "Strange Tales II",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:50.462774+00:00",
+    "retry_after": "2026-10-22T23:15:50.462790+00:00"
+  },
+  {
+    "name": "Clive Barker's Hellraiser: The Dark Watch",
+    "publisher": "BOOM! Studios",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57557,
+        "name": "Clive Barker's Hellraiser: The Dark Watch",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 67228,
+        "name": "Clive Barker's Hellraiser: The Dark Watch",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:51.001173+00:00",
+    "retry_after": "2026-10-22T23:15:51.001188+00:00"
+  },
+  {
+    "name": "Clive Barker's Next Testament",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74122,
+        "name": "Clive Barker's Next Testament",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 62390,
+        "name": "Clive Barker's Next Testament",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:51.596628+00:00",
+    "retry_after": "2026-10-22T23:15:51.596643+00:00"
+  },
+  {
+    "name": "Cloak or Dagger",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 168019,
+        "name": "Cloak or Dagger",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:52.087333+00:00",
+    "retry_after": "2026-10-22T23:15:52.087350+00:00"
+  },
+  {
+    "name": "Iron Fist",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2766,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 100082,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 23561,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 141631,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 114112,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 6214,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 22401,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:52.624589+00:00",
+    "retry_after": "2026-10-22T23:15:52.624604+00:00"
+  },
+  {
+    "name": "Young Justice",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 101007,
+        "name": "Young Justice",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 9420,
+        "name": "Young Justice",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 38466,
+        "name": "Young Justice",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 131938,
+        "name": "Young Justice",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 116397,
+        "name": "Young Justice",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 86465,
+        "name": "Young Justice",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 57292,
+        "name": "Young Justice",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:53.064378+00:00",
+    "retry_after": "2026-10-22T23:15:53.064394+00:00"
+  },
+  {
+    "name": "Altered Image",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22096,
+        "name": "Altered Image",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:53.500176+00:00",
+    "retry_after": "2026-10-22T23:15:53.500192+00:00"
+  },
+  {
+    "name": "Grenuord",
+    "publisher": "Fantagraphics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54888,
+        "name": "Grenuord",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:54.103686+00:00",
+    "retry_after": "2026-10-22T23:15:54.103702+00:00"
+  },
+  {
+    "name": "X-Men / Avengers: Onslaught",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 125823,
+        "name": "X-Men/Avengers: Onslaught",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:54.533777+00:00",
+    "retry_after": "2026-10-22T23:15:54.533792+00:00"
+  },
+  {
+    "name": "The Warriors: The Official Movie Adaptation",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25810,
+        "name": "The Warriors: Official Movie Adaptation",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 64871,
+        "name": "The Warriors: Official Movie Adaptation",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:54.884391+00:00",
+    "retry_after": "2026-10-22T23:15:54.884406+00:00"
+  },
+  {
+    "name": "Bone Parish",
+    "publisher": "BOOM! Studios",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 116162,
+        "name": "Bone Parish",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 112437,
+        "name": "Bone Parish",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 154511,
+        "name": "Bone Parish",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 127092,
+        "name": "Bone Parish",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:55.370320+00:00",
+    "retry_after": "2026-10-22T23:15:55.370336+00:00"
+  },
+  {
+    "name": "IT! The Terror from Beyond Space",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62652,
+        "name": "IT! The Terror From Beyond Space",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:55.905002+00:00",
+    "retry_after": "2026-10-22T23:15:55.905017+00:00"
+  },
+  {
+    "name": "EC Fan-Addict Fanzine",
+    "publisher": "Fantagraphics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:56.385859+00:00",
+    "retry_after": "2026-10-22T23:15:56.385875+00:00"
+  },
+  {
+    "name": "Bang-Up Comics",
+    "publisher": "Marvel Comics",
+    "year": 1941,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29404,
+        "name": "Bang-Up Comics",
+        "publisher": null,
+        "start_year": 1941
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:56.883076+00:00",
+    "retry_after": "2026-10-22T23:15:56.883091+00:00"
+  },
+  {
+    "name": "King in Black: Thunderbolts",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133197,
+        "name": "King In Black: Thunderbolts",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 137990,
+        "name": "King In Black: Thunderbolts",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:57.355220+00:00",
+    "retry_after": "2026-10-22T23:15:57.355236+00:00"
+  },
+  {
+    "name": "Motel Hell",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36154,
+        "name": "Motel Hell",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:57.822478+00:00",
+    "retry_after": "2026-10-22T23:15:57.822494+00:00"
+  },
+  {
+    "name": "The Bat-Man: Second Knight",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167082,
+        "name": "The Bat-Man: Second Knight",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 171785,
+        "name": "The Bat-Man: Second Knight",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:58.213599+00:00",
+    "retry_after": "2026-10-22T23:15:58.213614+00:00"
+  },
+  {
+    "name": "Rune: Hearts of Darkness",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20866,
+        "name": "Rune: Hearts of Darkness",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:58.662335+00:00",
+    "retry_after": "2026-10-22T23:15:58.662350+00:00"
+  },
+  {
+    "name": "Aggretsuko: Meet Her Friends",
+    "publisher": "Oni Press",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132080,
+        "name": "Aggretsuko: Meet Her Friends",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 134758,
+        "name": "Aggretsuko Meet Her Friends",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:59.104292+00:00",
+    "retry_after": "2026-10-22T23:15:59.104307+00:00"
+  },
+  {
+    "name": "Spawn",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4937,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 127843,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 43255,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 125306,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 53869,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 48314,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 53868,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 127267,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 53870,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 91700,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 145228,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 164079,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:15:59.750030+00:00",
+    "retry_after": "2026-10-22T23:15:59.750045+00:00"
+  },
+  {
+    "name": "Dylan Dog Oldboy",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129208,
+        "name": "Dylan Dog Oldboy",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:16:00.173320+00:00",
+    "retry_after": "2026-10-22T23:16:00.173336+00:00"
+  },
+  {
+    "name": "Patsy and Her Pals",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30576,
+        "name": "Patsy and Her Pals",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:16:00.673787+00:00",
+    "retry_after": "2026-10-22T23:16:00.673803+00:00"
+  },
+  {
+    "name": "Combat Casey",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1573,
+        "name": "Combat Casey",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:16:01.273746+00:00",
+    "retry_after": "2026-10-22T23:16:01.273761+00:00"
+  },
+  {
+    "name": "The Captain and the Kids",
+    "publisher": "Atlas Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70236,
+        "name": "The Captain and the Kids",
+        "publisher": null,
+        "start_year": 1947
+      },
+      {
+        "id": 71582,
+        "name": "The Captain and the Kids",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 70979,
+        "name": "The Captain and the Kids",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:16:02.094513+00:00",
+    "retry_after": "2026-10-22T23:16:02.094526+00:00"
+  },
+  {
+    "name": "O Melhor de Tom & Jerry",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:16:02.596093+00:00",
+    "retry_after": "2026-10-22T23:16:02.596109+00:00"
+  },
+  {
+    "name": "X-Men 2099",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18073,
+        "name": "X-Men 2099",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 27084,
+        "name": "X-Men 2099",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:16:03.116389+00:00",
+    "retry_after": "2026-10-22T23:16:03.116404+00:00"
+  },
+  {
+    "name": "Suspense",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20790,
+        "name": "Suspense",
+        "publisher": null,
+        "start_year": 1949
+      },
+      {
+        "id": 47394,
+        "name": "Suspense",
+        "publisher": null,
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:16:03.628845+00:00",
+    "retry_after": "2026-10-22T23:16:03.628861+00:00"
+  },
+  {
+    "name": "Usagi Yojimbo",
+    "publisher": "Dark Horse Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119731,
+        "name": "Usagi Yojimbo",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 170197,
+        "name": "Usagi Yojimbo",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 5183,
+        "name": "Usagi Yojimbo",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 5845,
+        "name": "Usagi Yojimbo",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 43045,
+        "name": "Usagi Yojimbo",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 3897,
+        "name": "Usagi Yojimbo",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 124091,
+        "name": "Usagi Yojimbo",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:16:04.066870+00:00",
+    "retry_after": "2026-10-22T23:16:04.066886+00:00"
+  },
+  {
+    "name": "Donald Ducks julehistorier",
+    "publisher": "Harvey Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166713,
+        "name": "Donald Ducks Julehistorier",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T23:16:04.553323+00:00",
+    "retry_after": "2026-10-22T23:16:04.553337+00:00"
   }
 ]

@@ -32689,9 +32689,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T18:18:19.203543+00:00",
-    "retry_after": "2026-10-21T18:18:19.203558+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T18:23:56.935507+00:00",
+    "retry_after": "2026-10-24T18:23:56.935524+00:00"
   },
   {
     "name": "Pirouette",
@@ -58359,9 +58359,9 @@
     "year": 1990,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T17:24:41.476714+00:00",
-    "retry_after": "2026-10-21T17:24:41.476729+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T18:24:07.785130+00:00",
+    "retry_after": "2026-10-24T18:24:07.785145+00:00"
   },
   {
     "name": "L'Incredibile Hulk",
@@ -58369,9 +58369,9 @@
     "year": 1980,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T17:24:41.898978+00:00",
-    "retry_after": "2026-10-21T17:24:41.898993+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T18:24:08.282991+00:00",
+    "retry_after": "2026-10-24T18:24:08.283009+00:00"
   },
   {
     "name": "Split Check",
@@ -58379,9 +58379,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T18:18:19.641300+00:00",
-    "retry_after": "2026-10-21T18:18:19.641316+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T18:23:57.355850+00:00",
+    "retry_after": "2026-10-24T18:23:57.355864+00:00"
   },
   {
     "name": "The Rock Cocks",
@@ -58389,9 +58389,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T18:18:20.182097+00:00",
-    "retry_after": "2026-10-21T18:18:20.182112+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T18:23:57.909714+00:00",
+    "retry_after": "2026-10-24T18:23:57.909730+00:00"
   },
   {
     "name": "Shaundra: Slave to Pleasure",
@@ -58399,9 +58399,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T18:18:32.428141+00:00",
-    "retry_after": "2026-10-21T18:18:32.428158+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T18:23:58.560245+00:00",
+    "retry_after": "2026-10-24T18:23:58.560261+00:00"
   },
   {
     "name": "Don't Be Cruel 2-in-1 Edition",
@@ -58409,9 +58409,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T18:18:32.880735+00:00",
-    "retry_after": "2026-10-21T18:18:32.880751+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T18:23:59.001484+00:00",
+    "retry_after": "2026-10-24T18:23:59.001499+00:00"
   },
   {
     "name": "Teenage Mutant Ninja Turtles Deluxe Edition",
@@ -58419,9 +58419,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T18:18:46.014140+00:00",
-    "retry_after": "2026-10-21T18:18:46.014158+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T18:23:59.493114+00:00",
+    "retry_after": "2026-10-24T18:23:59.493129+00:00"
   },
   {
     "name": "Hunter x Hunter (3-in-1 Edition)",
@@ -61391,5 +61391,466 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T17:23:41.844901+00:00",
     "retry_after": "2026-10-22T17:23:41.844915+00:00"
+  },
+  {
+    "name": "Star Wars: The High Republic Adventures (Phase III) - Crash Landing",
+    "publisher": "Dark Horse Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157447,
+        "name": "Star Wars: The High Republic Adventures (Phase III)―Crash Landing",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:23:56.365749+00:00",
+    "retry_after": "2026-10-22T18:23:56.365762+00:00"
+  },
+  {
+    "name": "Buttfuque U.",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37418,
+        "name": "Buttfuque U.",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:23:59.923240+00:00",
+    "retry_after": "2026-10-22T18:23:59.923256+00:00"
+  },
+  {
+    "name": "Spawn: Feudo de Sangue",
+    "publisher": "Avatar Press",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171320,
+        "name": "Spawn: Feudo de Sangue",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:00.327677+00:00",
+    "retry_after": "2026-10-22T18:24:00.327693+00:00"
+  },
+  {
+    "name": "Picture Stories from the Bible [Old Testament]",
+    "publisher": "EC Comics",
+    "year": 1943,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 923,
+        "name": "Picture Stories from the Bible (Old Testament)",
+        "publisher": null,
+        "start_year": 1942
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:01.825530+00:00",
+    "retry_after": "2026-10-22T18:24:01.825544+00:00"
+  },
+  {
+    "name": "Incubus",
+    "publisher": "Antarctic Press",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41369,
+        "name": "Incubus",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:02.271514+00:00",
+    "retry_after": "2026-10-22T18:24:02.271529+00:00"
+  },
+  {
+    "name": "Sexy Tales to Give You the Creeps",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70760,
+        "name": "Sexy Tales to Give You the Creeps",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:02.579406+00:00",
+    "retry_after": "2026-10-22T18:24:02.579429+00:00"
+  },
+  {
+    "name": "Casper Jumbo Edition",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64322,
+        "name": "Casper Jumbo Edition",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:03.094898+00:00",
+    "retry_after": "2026-10-22T18:24:03.094910+00:00"
+  },
+  {
+    "name": "The Uncensored Mouse",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4304,
+        "name": "The Uncensored Mouse",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:03.915549+00:00",
+    "retry_after": "2026-10-22T18:24:03.915565+00:00"
+  },
+  {
+    "name": "Ultimate Annuals",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34142,
+        "name": "Ultimate Annuals",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:04.591462+00:00",
+    "retry_after": "2026-10-22T18:24:04.591477+00:00"
+  },
+  {
+    "name": "True Life Tales",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1298,
+        "name": "True Life Tales",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:05.101050+00:00",
+    "retry_after": "2026-10-22T18:24:05.101066+00:00"
+  },
+  {
+    "name": "Frogmen",
+    "publisher": "Marvel Comics",
+    "year": 1961,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2060,
+        "name": "The Frogmen",
+        "publisher": null,
+        "start_year": 1962
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:05.556435+00:00",
+    "retry_after": "2026-10-22T18:24:05.556450+00:00"
+  },
+  {
+    "name": "Cine Quadrinhos",
+    "publisher": "Avatar Press",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:05.944266+00:00",
+    "retry_after": "2026-10-22T18:24:05.944282+00:00"
+  },
+  {
+    "name": "Filth",
+    "publisher": "Fantagraphics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32993,
+        "name": "The Filth",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 9400,
+        "name": "The Filth",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 26733,
+        "name": "Filth",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:06.498373+00:00",
+    "retry_after": "2026-10-22T18:24:06.498393+00:00"
+  },
+  {
+    "name": "Casanova: Acedia",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79742,
+        "name": "Casanova: Acedia",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 85560,
+        "name": "Casanova: Acedia",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:06.998954+00:00",
+    "retry_after": "2026-10-22T18:24:06.998971+00:00"
+  },
+  {
+    "name": "Spawn",
+    "publisher": "Image Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4937,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 127843,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 43255,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 125306,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 53869,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 48314,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 53868,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 127267,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 53870,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 91700,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 145228,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 164079,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:08.552153+00:00",
+    "retry_after": "2026-10-22T18:24:08.552168+00:00"
+  },
+  {
+    "name": "Nellie the Nurse Comics",
+    "publisher": "Marvel Comics",
+    "year": 1945,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:08.998233+00:00",
+    "retry_after": "2026-10-22T18:24:08.998249+00:00"
+  },
+  {
+    "name": "Spøk og Spenning",
+    "publisher": "Caliber Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50956,
+        "name": "Spøk og Spenning",
+        "publisher": null,
+        "start_year": 1950
+      },
+      {
+        "id": 50933,
+        "name": "Spøk og Spenning",
+        "publisher": null,
+        "start_year": 1941
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:09.513165+00:00",
+    "retry_after": "2026-10-22T18:24:09.513179+00:00"
+  },
+  {
+    "name": "Georgie Comics",
+    "publisher": "Marvel Comics",
+    "year": 1945,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1057,
+        "name": "Georgie Comics",
+        "publisher": null,
+        "start_year": 1945
+      },
+      {
+        "id": 1267,
+        "name": "Georgie Comics",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:09.970811+00:00",
+    "retry_after": "2026-10-22T18:24:09.970825+00:00"
+  },
+  {
+    "name": "Naruto - Édition Hokage",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:10.524758+00:00",
+    "retry_after": "2026-10-22T18:24:10.524773+00:00"
+  },
+  {
+    "name": "Headline Comics",
+    "publisher": "Atlas Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19581,
+        "name": "Headline Comics",
+        "publisher": null,
+        "start_year": 1943
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:10.924312+00:00",
+    "retry_after": "2026-10-22T18:24:10.924344+00:00"
+  },
+  {
+    "name": "Zona X",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28041,
+        "name": "Zona X",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:11.475260+00:00",
+    "retry_after": "2026-10-22T18:24:11.475275+00:00"
+  },
+  {
+    "name": "Food Wars!: Shokugeki No Soma",
+    "publisher": "VIZ Media",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72430,
+        "name": "Food Wars! Shokugeki no Soma",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 96425,
+        "name": "Food Wars - Shokugeki No Soma",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 104676,
+        "name": "Food Wars: Shokugeki no Soma",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T18:24:14.395583+00:00",
+    "retry_after": "2026-10-22T18:24:14.395597+00:00"
   }
 ]

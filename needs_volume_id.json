@@ -57545,9 +57545,9 @@
     "year": 1942,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T04:16:19.119583+00:00",
-    "retry_after": "2026-10-21T04:16:19.119598+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T05:16:05.027245+00:00",
+    "retry_after": "2026-10-24T05:16:05.027261+00:00"
   },
   {
     "name": "Peebomanga",
@@ -57555,9 +57555,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T04:16:31.435594+00:00",
-    "retry_after": "2026-10-21T04:16:31.435609+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T05:16:05.731578+00:00",
+    "retry_after": "2026-10-24T05:16:05.731596+00:00"
   },
   {
     "name": "Godzilla vs. Hero Zero",
@@ -57565,9 +57565,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T04:16:47.797916+00:00",
-    "retry_after": "2026-10-21T04:16:47.797931+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T05:16:06.462878+00:00",
+    "retry_after": "2026-10-24T05:16:06.462894+00:00"
   },
   {
     "name": "Dan Turner, Hollywood Detective: Homicide Hunch",
@@ -57575,9 +57575,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T04:16:52.881425+00:00",
-    "retry_after": "2026-10-21T04:16:52.881440+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T05:16:06.922424+00:00",
+    "retry_after": "2026-10-24T05:16:06.922440+00:00"
   },
   {
     "name": "Steel Angel",
@@ -57585,9 +57585,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T04:17:14.992695+00:00",
-    "retry_after": "2026-10-21T04:17:14.992711+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T05:16:07.561738+00:00",
+    "retry_after": "2026-10-24T05:16:07.561753+00:00"
   },
   {
     "name": "Cerebus in Hell? Presents #79: WildP.I.G.S.",
@@ -57595,9 +57595,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T04:17:15.561545+00:00",
-    "retry_after": "2026-10-21T04:17:15.561557+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T05:16:08.142505+00:00",
+    "retry_after": "2026-10-24T05:16:08.142520+00:00"
   },
   {
     "name": "Star Wars: Dark Forces - Soldier for the Empire",
@@ -61512,5 +61512,62 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T04:16:09.623367+00:00",
     "retry_after": "2026-10-22T04:16:09.623388+00:00"
+  },
+  {
+    "name": "Tough Guys & Wild Women",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T05:16:23.301106+00:00",
+    "retry_after": "2026-10-22T05:16:23.301120+00:00"
+  },
+  {
+    "name": "Ultimate Spider-Man Platinum Series",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T05:16:37.387387+00:00",
+    "retry_after": "2026-10-22T05:16:37.387401+00:00"
+  },
+  {
+    "name": "Robotech II: The Sentinels: Wedding Special",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34655,
+        "name": "Robotech II: The Sentinels - Wedding Special",
+        "publisher": "Eternity",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T05:16:51.434832+00:00",
+    "retry_after": "2026-10-22T05:16:51.434846+00:00"
+  },
+  {
+    "name": "Snowpiercer: The Prequel",
+    "publisher": "Titan Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T05:16:51.919287+00:00",
+    "retry_after": "2026-10-22T05:16:51.919302+00:00"
+  },
+  {
+    "name": "Bondage Gallery",
+    "publisher": "Fantagraphics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T05:17:03.854115+00:00",
+    "retry_after": "2026-10-22T05:17:03.854130+00:00"
   }
 ]

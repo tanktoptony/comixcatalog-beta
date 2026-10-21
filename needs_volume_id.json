@@ -50815,9 +50815,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T03:16:24.078289+00:00",
-    "retry_after": "2026-10-21T03:16:24.078305+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T04:15:42.456174+00:00",
+    "retry_after": "2026-10-24T04:15:42.456191+00:00"
   },
   {
     "name": "The Secret Origin of Batman [Leaf Comic Book Candy]",
@@ -57465,9 +57465,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T03:16:40.638187+00:00",
-    "retry_after": "2026-10-21T03:16:40.638203+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T04:15:42.905931+00:00",
+    "retry_after": "2026-10-24T04:15:42.905949+00:00"
   },
   {
     "name": "Aspen Seasons: Winter",
@@ -57475,9 +57475,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T03:16:42.608420+00:00",
-    "retry_after": "2026-10-21T03:16:42.608436+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T04:15:43.284133+00:00",
+    "retry_after": "2026-10-24T04:15:43.284151+00:00"
   },
   {
     "name": "Aspen Seasons: Summer",
@@ -57485,9 +57485,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T03:16:43.233758+00:00",
-    "retry_after": "2026-10-21T03:16:43.233774+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T04:15:43.647034+00:00",
+    "retry_after": "2026-10-24T04:15:43.647051+00:00"
   },
   {
     "name": "Superman: The Man of Steel [Mattel Edition]",
@@ -57495,9 +57495,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T03:16:48.023701+00:00",
-    "retry_after": "2026-10-21T03:16:48.023717+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T04:15:44.082447+00:00",
+    "retry_after": "2026-10-24T04:15:44.082466+00:00"
   },
   {
     "name": "Hard At Work, Andy Capp?",
@@ -57505,9 +57505,9 @@
     "year": 1977,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T03:50:09.853261+00:00",
-    "retry_after": "2026-10-21T03:50:09.853273+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T04:15:44.536741+00:00",
+    "retry_after": "2026-10-24T04:15:44.536758+00:00"
   },
   {
     "name": "It's Showtime, Snoopy",
@@ -57515,9 +57515,9 @@
     "year": 1985,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T03:50:10.196771+00:00",
-    "retry_after": "2026-10-21T03:50:10.196781+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T04:15:44.919117+00:00",
+    "retry_after": "2026-10-24T04:15:44.919134+00:00"
   },
   {
     "name": "Quantum & Woody KYAG (Kiss Your Ass Goodbye)",
@@ -57525,9 +57525,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T03:50:10.741612+00:00",
-    "retry_after": "2026-10-21T03:50:10.741621+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T04:15:45.393736+00:00",
+    "retry_after": "2026-10-24T04:15:45.393753+00:00"
   },
   {
     "name": "StarGods: Visions",
@@ -57535,9 +57535,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T03:50:24.234517+00:00",
-    "retry_after": "2026-10-21T03:50:24.234529+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T04:15:45.885782+00:00",
+    "retry_after": "2026-10-24T04:15:45.885801+00:00"
   },
   {
     "name": "Boy Commandos Comics [ashcan]",
@@ -61468,5 +61468,49 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T03:17:43.895584+00:00",
     "retry_after": "2026-10-22T03:17:43.895602+00:00"
+  },
+  {
+    "name": "Terry-Toons Heckle and Jeckle",
+    "publisher": "Marvel Comics",
+    "year": 1959,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68171,
+        "name": "Terry-Toons Heckle and Jeckle",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T04:15:58.251927+00:00",
+    "retry_after": "2026-10-22T04:15:58.251937+00:00"
+  },
+  {
+    "name": "Batman: Retorno ao Asilo Arkham",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T04:15:58.669278+00:00",
+    "retry_after": "2026-10-22T04:15:58.669286+00:00"
+  },
+  {
+    "name": "Battle to the Death",
+    "publisher": "Malibu Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25208,
+        "name": "Battle to the Death",
+        "publisher": "Eternity",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T04:16:09.623367+00:00",
+    "retry_after": "2026-10-22T04:16:09.623388+00:00"
   }
 ]

@@ -58435,9 +58435,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T19:33:47.936409+00:00",
-    "retry_after": "2026-10-21T19:33:47.936431+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T20:15:50.869186+00:00",
+    "retry_after": "2026-10-24T20:15:50.869205+00:00"
   },
   {
     "name": "Chopper: Song of the Surfer",
@@ -58445,9 +58445,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T19:33:48.279859+00:00",
-    "retry_after": "2026-10-21T19:33:48.279878+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T20:15:51.232602+00:00",
+    "retry_after": "2026-10-24T20:15:51.232621+00:00"
   },
   {
     "name": "Alkandoor",
@@ -58455,9 +58455,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T19:33:55.122902+00:00",
-    "retry_after": "2026-10-21T19:33:55.122921+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T20:15:51.546825+00:00",
+    "retry_after": "2026-10-24T20:15:51.546843+00:00"
   },
   {
     "name": "Ridderne av Dor, Trollmannskeiseren",
@@ -58465,9 +58465,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T19:33:55.465426+00:00",
-    "retry_after": "2026-10-21T19:33:55.465443+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T20:15:52.078705+00:00",
+    "retry_after": "2026-10-24T20:15:52.078723+00:00"
   },
   {
     "name": "Phantasmagoria",
@@ -58478,25 +58478,25 @@
       {
         "id": 159825,
         "name": "Phantasmagoria",
-        "publisher": "Comic Unknown",
+        "publisher": null,
         "start_year": 2024
       },
       {
         "id": 114258,
         "name": "Phantasmagoria",
-        "publisher": "Amigo Comics",
+        "publisher": null,
         "start_year": 2018
       },
       {
         "id": 171741,
         "name": "Phantasmagoria",
-        "publisher": "Karras Comics",
+        "publisher": null,
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T19:34:19.553280+00:00",
-    "retry_after": "2026-10-21T19:34:19.553299+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-21T20:15:52.525873+00:00",
+    "retry_after": "2026-10-24T20:15:52.525891+00:00"
   },
   {
     "name": "Ma tante adorée",
@@ -62731,5 +62731,594 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T19:16:32.737898+00:00",
     "retry_after": "2026-10-22T19:16:32.737913+00:00"
+  },
+  {
+    "name": "Marvel Family",
+    "publisher": "Fawcett Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1066,
+        "name": "The Marvel Family",
+        "publisher": null,
+        "start_year": 1945
+      },
+      {
+        "id": 63619,
+        "name": "The Marvel Family",
+        "publisher": null,
+        "start_year": 1950
+      },
+      {
+        "id": 113123,
+        "name": "Marvel Family",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:50.312721+00:00",
+    "retry_after": "2026-10-22T20:15:50.312744+00:00"
+  },
+  {
+    "name": "Colt Western",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:53.878528+00:00",
+    "retry_after": "2026-10-22T20:15:53.878546+00:00"
+  },
+  {
+    "name": "Sharknife: Champion Edition",
+    "publisher": "Oni Press",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:54.551439+00:00",
+    "retry_after": "2026-10-22T20:15:54.551457+00:00"
+  },
+  {
+    "name": "Wahoo Morris",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 77765,
+        "name": "Wahoo Morris",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 47013,
+        "name": "Wahoo Morris",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 87360,
+        "name": "Wahoo Morris",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 87303,
+        "name": "Wahoo Morris",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:54.952496+00:00",
+    "retry_after": "2026-10-22T20:15:54.952514+00:00"
+  },
+  {
+    "name": "Wildguard: Fool's Gold",
+    "publisher": "Image Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26819,
+        "name": "Wildguard: Fool's Gold",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:55.456323+00:00",
+    "retry_after": "2026-10-22T20:15:55.456341+00:00"
+  },
+  {
+    "name": "Conan",
+    "publisher": "Dark Horse Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44076,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 42049,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 5539,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 42048,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 7825,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1978
+      },
+      {
+        "id": 135188,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 154587,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 42047,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 55069,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 131699,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1980
+      },
+      {
+        "id": 69799,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1978
+      },
+      {
+        "id": 140268,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1977
+      },
+      {
+        "id": 91330,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 10612,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 139733,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1972
+      },
+      {
+        "id": 44090,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 140058,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1973
+      },
+      {
+        "id": 136314,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 140208,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 1977
+      },
+      {
+        "id": 111091,
+        "name": "Conan",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:55.898864+00:00",
+    "retry_after": "2026-10-22T20:15:55.898882+00:00"
+  },
+  {
+    "name": "Adventure Annual",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:56.509710+00:00",
+    "retry_after": "2026-10-22T20:15:56.509729+00:00"
+  },
+  {
+    "name": "Rocketo: Journey to the Hidden Sea",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45188,
+        "name": "Rocketo: Journey to the Hidden Sea",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:57.112960+00:00",
+    "retry_after": "2026-10-22T20:15:57.112978+00:00"
+  },
+  {
+    "name": "Bloodseed",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22556,
+        "name": "Bloodseed",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:57.517022+00:00",
+    "retry_after": "2026-10-22T20:15:57.517041+00:00"
+  },
+  {
+    "name": "Robotech: Covert-Ops",
+    "publisher": "Antarctic Press",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39961,
+        "name": "Robotech Covert Ops",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:58.899373+00:00",
+    "retry_after": "2026-10-22T20:15:58.899390+00:00"
+  },
+  {
+    "name": "Best Western",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30502,
+        "name": "Best Western",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:59.261667+00:00",
+    "retry_after": "2026-10-22T20:15:59.261686+00:00"
+  },
+  {
+    "name": "Eros Tattoo",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53016,
+        "name": "Eros Tattoo",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:15:59.744982+00:00",
+    "retry_after": "2026-10-22T20:15:59.745001+00:00"
+  },
+  {
+    "name": "Essential Werewolf by Night",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29953,
+        "name": "Essential Werewolf by Night",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:00.379189+00:00",
+    "retry_after": "2026-10-22T20:16:00.379208+00:00"
+  },
+  {
+    "name": "Roger Lincoln",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 99988,
+        "name": "Roger Lincoln",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:00.888991+00:00",
+    "retry_after": "2026-10-22T20:16:00.889011+00:00"
+  },
+  {
+    "name": "Magic: the Gathering - The Shadow Mage",
+    "publisher": "Valiant Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:01.199047+00:00",
+    "retry_after": "2026-10-22T20:16:01.199067+00:00"
+  },
+  {
+    "name": "Little Archie",
+    "publisher": "Archie Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11010,
+        "name": "Little Archie",
+        "publisher": null,
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:01.972961+00:00",
+    "retry_after": "2026-10-22T20:16:01.972979+00:00"
+  },
+  {
+    "name": "Sub-Mariner Comics",
+    "publisher": "Marvel Comics",
+    "year": 1941,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18548,
+        "name": "Sub-Mariner Comics",
+        "publisher": null,
+        "start_year": 1941
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:02.322766+00:00",
+    "retry_after": "2026-10-22T20:16:02.322785+00:00"
+  },
+  {
+    "name": "The Durango Kid",
+    "publisher": "Atlas Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50567,
+        "name": "Durango Kid",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:02.816581+00:00",
+    "retry_after": "2026-10-22T20:16:02.816599+00:00"
+  },
+  {
+    "name": "Jane, Famous Oomph Girl",
+    "publisher": "Atlas Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68101,
+        "name": "Jane, Famous Oomph Girl",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:03.224709+00:00",
+    "retry_after": "2026-10-22T20:16:03.224727+00:00"
+  },
+  {
+    "name": "Spooky the \"Tuff\" Little Ghost",
+    "publisher": "Marvel Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49336,
+        "name": "Spooky the \"Tuff\" Little Ghost",
+        "publisher": null,
+        "start_year": 1956
+      },
+      {
+        "id": 156470,
+        "name": "Spooky the Tuff Little Ghost",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:03.562445+00:00",
+    "retry_after": "2026-10-22T20:16:03.562459+00:00"
+  },
+  {
+    "name": "All-Flash",
+    "publisher": "DC Comics",
+    "year": 1941,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18925,
+        "name": "All Flash",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:04.005140+00:00",
+    "retry_after": "2026-10-22T20:16:04.005158+00:00"
+  },
+  {
+    "name": "Golden Kamuy",
+    "publisher": "VIZ Media",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 96290,
+        "name": "Golden Kamuy",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 91228,
+        "name": "Golden Kamuy",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 95197,
+        "name": "Golden Kamuy",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 102221,
+        "name": "Golden Kamuy",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 106033,
+        "name": "Golden Kamuy",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 148035,
+        "name": "Golden Kamuy",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 161389,
+        "name": "Golden Kamuy",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 161390,
+        "name": "Golden Kamuy",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:04.483311+00:00",
+    "retry_after": "2026-10-22T20:16:04.483329+00:00"
+  },
+  {
+    "name": "The Masked G-Man",
+    "publisher": "Atlas Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75837,
+        "name": "The Masked G-Man",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:05.053215+00:00",
+    "retry_after": "2026-10-22T20:16:05.053233+00:00"
+  },
+  {
+    "name": "Peter Panda",
+    "publisher": "DC Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24869,
+        "name": "Peter Panda",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:05.411506+00:00",
+    "retry_after": "2026-10-22T20:16:05.411524+00:00"
+  },
+  {
+    "name": "Bilag til Donald Duck & Co",
+    "publisher": "Harvey Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141922,
+        "name": "Bilag til Donald Duck & Co",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T20:16:05.813351+00:00",
+    "retry_after": "2026-10-22T20:16:05.813373+00:00"
   }
 ]

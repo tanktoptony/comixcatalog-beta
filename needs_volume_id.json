@@ -39623,26 +39623,32 @@
   },
   {
     "name": "The Stardust Kid",
-    "publisher": "BOOM! Studios",
+    "publisher": "Image Comics",
     "year": 2006,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 107161,
         "name": "The Stardust Kid",
-        "publisher": "Boom! Studios",
+        "publisher": null,
         "start_year": 2017
+      },
+      {
+        "id": 32173,
+        "name": "The Stardust Kid",
+        "publisher": null,
+        "start_year": 2005
       },
       {
         "id": 32172,
         "name": "The Stardust Kid",
-        "publisher": "Boom! Studios",
+        "publisher": null,
         "start_year": 2008
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-04T18:02:27.719148+00:00",
-    "retry_after": "2026-10-05T18:02:27.719164+00:00"
+    "last_attempt_at": "2026-10-21T19:16:10.087512+00:00",
+    "retry_after": "2026-10-22T19:16:10.087528+00:00"
   },
   {
     "name": "Detective Comics Special Reprint [Toys 'R' Us Special Replica Edition]",
@@ -62144,5 +62150,586 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T18:47:08.067297+00:00",
     "retry_after": "2026-10-22T18:47:08.067314+00:00"
+  },
+  {
+    "name": "Dark Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50701,
+        "name": "Dark Avengers",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 42198,
+        "name": "Dark Avengers",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 25512,
+        "name": "Dark Avengers",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 42932,
+        "name": "Dark Avengers",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:15:54.733536+00:00",
+    "retry_after": "2026-10-22T19:15:54.733550+00:00"
+  },
+  {
+    "name": "Ava's Demon",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158856,
+        "name": "Ava's Demon",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:15:55.173911+00:00",
+    "retry_after": "2026-10-22T19:15:55.173928+00:00"
+  },
+  {
+    "name": "Maus: A Survivor's Tale",
+    "publisher": "EC Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18487,
+        "name": "Maus: A Survivor's Tale",
+        "publisher": null,
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:15:55.680989+00:00",
+    "retry_after": "2026-10-22T19:15:55.681004+00:00"
+  },
+  {
+    "name": "Dixie, Gustave et Zap!",
+    "publisher": "BOOM! Studios",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:15:59.611218+00:00",
+    "retry_after": "2026-10-22T19:15:59.611233+00:00"
+  },
+  {
+    "name": "World's Finest Comics [Special Replica Edition]",
+    "publisher": "DC Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:00.096976+00:00",
+    "retry_after": "2026-10-22T19:16:00.096992+00:00"
+  },
+  {
+    "name": "Valhall - den stora boken",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:00.513641+00:00",
+    "retry_after": "2026-10-22T19:16:00.513656+00:00"
+  },
+  {
+    "name": "Pokémon Adventures: Omega Ruby and Alpha Sapphire",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156102,
+        "name": "Pokémon Adventures: Omega Ruby and Alpha Sapphire",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:00.931238+00:00",
+    "retry_after": "2026-10-22T19:16:00.931254+00:00"
+  },
+  {
+    "name": "The Credits Roll into the Sea",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:01.264804+00:00",
+    "retry_after": "2026-10-22T19:16:01.264819+00:00"
+  },
+  {
+    "name": "Firefly Wedding",
+    "publisher": "VIZ Media",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 176647,
+        "name": "Firefly Wedding",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 163383,
+        "name": "Firefly Wedding",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:01.678442+00:00",
+    "retry_after": "2026-10-22T19:16:01.678466+00:00"
+  },
+  {
+    "name": "X-Men: The Manga: Remastered",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161119,
+        "name": "X-Men: The Manga: Remastered",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:02.635227+00:00",
+    "retry_after": "2026-10-22T19:16:02.635242+00:00"
+  },
+  {
+    "name": "Star Trek: The Next Generation / Doctor Who: Assimilation²",
+    "publisher": "IDW Publishing",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52409,
+        "name": "Star Trek: The Next Generation / Doctor Who: Assimilation²",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 49365,
+        "name": "Star Trek: The Next Generation - Doctor Who: Assimilation²",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:05.222685+00:00",
+    "retry_after": "2026-10-22T19:16:05.222701+00:00"
+  },
+  {
+    "name": "Ninjak Superkillers",
+    "publisher": "Charlton Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155734,
+        "name": "Ninjak: Superkillers",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 160438,
+        "name": "Ninjak: Superkillers",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:09.195056+00:00",
+    "retry_after": "2026-10-22T19:16:09.195072+00:00"
+  },
+  {
+    "name": "Alack Sinner",
+    "publisher": "IDW Publishing",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 125075,
+        "name": "Alack Sinner",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 102424,
+        "name": "Alack Sinner",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 91963,
+        "name": "Alack Sinner",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:09.660685+00:00",
+    "retry_after": "2026-10-22T19:16:09.660700+00:00"
+  },
+  {
+    "name": "The Sunday Funnies",
+    "publisher": "Fantagraphics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:10.429140+00:00",
+    "retry_after": "2026-10-22T19:16:10.429155+00:00"
+  },
+  {
+    "name": "Clown Comics",
+    "publisher": "Harvey Comics",
+    "year": 1946,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34340,
+        "name": "Clown Comics",
+        "publisher": null,
+        "start_year": 1946
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:13.764342+00:00",
+    "retry_after": "2026-10-22T19:16:13.764357+00:00"
+  },
+  {
+    "name": "Three Stooges",
+    "publisher": "Gold Key",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2100,
+        "name": "The Three Stooges",
+        "publisher": null,
+        "start_year": 1961
+      },
+      {
+        "id": 30216,
+        "name": "Three Stooges",
+        "publisher": null,
+        "start_year": 1953
+      },
+      {
+        "id": 100386,
+        "name": "The Three Stooges",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 30206,
+        "name": "Three Stooges",
+        "publisher": null,
+        "start_year": 1948
+      },
+      {
+        "id": 49892,
+        "name": "Three Stooges",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 89392,
+        "name": "The Three Stooges",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:15.682650+00:00",
+    "retry_after": "2026-10-22T19:16:15.682664+00:00"
+  },
+  {
+    "name": "Jimmy's Little Bastards",
+    "publisher": "AfterShock Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 144624,
+        "name": "Jimmy’s Little Bastards",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:16.057222+00:00",
+    "retry_after": "2026-10-22T19:16:16.057237+00:00"
+  },
+  {
+    "name": "Millennium Snow (2-in-1 Edition)",
+    "publisher": "VIZ Media",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:18.033520+00:00",
+    "retry_after": "2026-10-22T19:16:18.033535+00:00"
+  },
+  {
+    "name": "Meteor Prince",
+    "publisher": "VIZ Media",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79258,
+        "name": "Meteor Prince",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:18.420409+00:00",
+    "retry_after": "2026-10-22T19:16:18.420424+00:00"
+  },
+  {
+    "name": "Essential X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36821,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 79512,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 37974,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 110868,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 21196,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 94886,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:19.285942+00:00",
+    "retry_after": "2026-10-22T19:16:19.285957+00:00"
+  },
+  {
+    "name": "Comics Box",
+    "publisher": "Dark Horse Comics",
+    "year": 1969,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:19.665187+00:00",
+    "retry_after": "2026-10-22T19:16:19.665203+00:00"
+  },
+  {
+    "name": "Black Clover",
+    "publisher": "VIZ Media",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 90843,
+        "name": "Black Clover",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 96062,
+        "name": "Black Clover",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 87078,
+        "name": "Black Clover",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 88373,
+        "name": "Black Clover",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 137382,
+        "name": "Black Clover",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:21.871667+00:00",
+    "retry_after": "2026-10-22T19:16:21.871681+00:00"
+  },
+  {
+    "name": "Maxi Tex",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 134016,
+        "name": "Maxi Tex",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 29117,
+        "name": "Maxi Tex",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:22.156555+00:00",
+    "retry_after": "2026-10-22T19:16:22.156570+00:00"
+  },
+  {
+    "name": "Modeling with Millie",
+    "publisher": "Marvel Comics",
+    "year": 1963,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19440,
+        "name": "Modeling With Millie",
+        "publisher": null,
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:22.482049+00:00",
+    "retry_after": "2026-10-22T19:16:22.482064+00:00"
+  },
+  {
+    "name": "Edição Extra",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140232,
+        "name": "Edição Extra",
+        "publisher": null,
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:25.251480+00:00",
+    "retry_after": "2026-10-22T19:16:25.251496+00:00"
+  },
+  {
+    "name": "Mad XL",
+    "publisher": "EC Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21634,
+        "name": "MAD XL",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:27.261942+00:00",
+    "retry_after": "2026-10-22T19:16:27.261956+00:00"
+  },
+  {
+    "name": "Buster Book",
+    "publisher": "Malibu Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41229,
+        "name": "Buster Book",
+        "publisher": null,
+        "start_year": 1962
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:31.679132+00:00",
+    "retry_after": "2026-10-22T19:16:31.679146+00:00"
+  },
+  {
+    "name": "Top Cat's TV Comic Show",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:32.353953+00:00",
+    "retry_after": "2026-10-22T19:16:32.353968+00:00"
+  },
+  {
+    "name": "Flame of Recca",
+    "publisher": "VIZ Media",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171370,
+        "name": "Flame of Recca",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 31978,
+        "name": "Flame of Recca",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-21T19:16:32.737898+00:00",
+    "retry_after": "2026-10-22T19:16:32.737913+00:00"
   }
 ]

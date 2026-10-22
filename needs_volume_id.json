@@ -71686,5 +71686,590 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T17:24:04.449674+00:00",
     "retry_after": "2026-10-23T17:24:04.449689+00:00"
+  },
+  {
+    "name": "Hero Squared",
+    "publisher": "BOOM! Studios",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75922,
+        "name": "Hero Squared",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 23467,
+        "name": "Hero Squared",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 18658,
+        "name": "Hero Squared",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:23:55.954454+00:00",
+    "retry_after": "2026-10-23T18:23:55.954468+00:00"
+  },
+  {
+    "name": "Amazing Spider-Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78715,
+        "name": "Amazing Spider-Man Annual",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 95808,
+        "name": "Amazing Spider-Man Annual",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 170303,
+        "name": "Amazing Spider-Man Annual",
+        "publisher": null,
+        "start_year": 2026
+      },
+      {
+        "id": 2189,
+        "name": "The Amazing Spider-Man Annual",
+        "publisher": null,
+        "start_year": 1964
+      },
+      {
+        "id": 113685,
+        "name": "Amazing Spider-Man Annual",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 152648,
+        "name": "The Amazing Spider-Man Annual",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 158693,
+        "name": "The Amazing Spider-Man Annual",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:23:56.320726+00:00",
+    "retry_after": "2026-10-23T18:23:56.320741+00:00"
+  },
+  {
+    "name": "Supercrooks",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46996,
+        "name": "Supercrooks",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:23:56.640405+00:00",
+    "retry_after": "2026-10-23T18:23:56.640418+00:00"
+  },
+  {
+    "name": "Marvel Holiday Special",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18442,
+        "name": "Marvel Holiday Special",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:23:57.093185+00:00",
+    "retry_after": "2026-10-23T18:23:57.093200+00:00"
+  },
+  {
+    "name": "Watch Dogs",
+    "publisher": "Titan Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 120116,
+        "name": "Watch_Dogs",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:23:57.626165+00:00",
+    "retry_after": "2026-10-23T18:23:57.626179+00:00"
+  },
+  {
+    "name": "DC's Quoth the Raven… \"Whatever\"",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 177362,
+        "name": "DC's Quoth the Raven… Whatever",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:23:58.373987+00:00",
+    "retry_after": "2026-10-23T18:23:58.374001+00:00"
+  },
+  {
+    "name": "Marvel Super Heroes",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4404,
+        "name": "Marvel Super-Heroes",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 2353,
+        "name": "Marvel Super-Heroes",
+        "publisher": null,
+        "start_year": 1967
+      },
+      {
+        "id": 155428,
+        "name": "Marvel Super-Heroes",
+        "publisher": null,
+        "start_year": 1980
+      },
+      {
+        "id": 3088,
+        "name": "Marvel Super-Heroes",
+        "publisher": null,
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:23:58.821912+00:00",
+    "retry_after": "2026-10-23T18:23:58.821927+00:00"
+  },
+  {
+    "name": "DC's Zatannic Panic!",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167317,
+        "name": "DC's Zatannic Panic!",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:04.430512+00:00",
+    "retry_after": "2026-10-23T18:24:04.430528+00:00"
+  },
+  {
+    "name": "Rick and Morty Presents: Morty's Run",
+    "publisher": "Oni Press",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141974,
+        "name": "Rick and Morty Presents: Morty's Run",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:04.798484+00:00",
+    "retry_after": "2026-10-23T18:24:04.798499+00:00"
+  },
+  {
+    "name": "Dead Kings",
+    "publisher": "AfterShock Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 114706,
+        "name": "Dead Kings",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:05.146814+00:00",
+    "retry_after": "2026-10-23T18:24:05.146828+00:00"
+  },
+  {
+    "name": "Dwellings: All Hallows' Eve Special",
+    "publisher": "Oni Press",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 160698,
+        "name": "Dwellings: All Hallows' Eve Special",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:05.623454+00:00",
+    "retry_after": "2026-10-23T18:24:05.623469+00:00"
+  },
+  {
+    "name": "DuckTales Valentine's Day Special 2026",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170542,
+        "name": "DuckTales: Valentine's Day Special 2026",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:05.945657+00:00",
+    "retry_after": "2026-10-23T18:24:05.945671+00:00"
+  },
+  {
+    "name": "Dungeon Crawler Carl, #0, FCBD Edition",
+    "publisher": "Vault Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:06.454098+00:00",
+    "retry_after": "2026-10-23T18:24:06.454112+00:00"
+  },
+  {
+    "name": "Edge of Venomverse",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 102455,
+        "name": "Edge of Venomverse",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 105962,
+        "name": "Edge of Venomverse",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 166828,
+        "name": "Edge of Venomverse",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:07.109225+00:00",
+    "retry_after": "2026-10-23T18:24:07.109239+00:00"
+  },
+  {
+    "name": "Earth 2: The New 52 Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:07.482501+00:00",
+    "retry_after": "2026-10-23T18:24:07.482517+00:00"
+  },
+  {
+    "name": "Tales from the Clit",
+    "publisher": "Fantagraphics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36060,
+        "name": "Tales From The Clit",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:07.961408+00:00",
+    "retry_after": "2026-10-23T18:24:07.961423+00:00"
+  },
+  {
+    "name": "Entanglement",
+    "publisher": "AWA Studios",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166446,
+        "name": "Entanglement",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:08.372625+00:00",
+    "retry_after": "2026-10-23T18:24:08.372639+00:00"
+  },
+  {
+    "name": "Zombies!: Hunters",
+    "publisher": "IDW Publishing",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 43995,
+        "name": "Zombies! Hunters",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:08.773934+00:00",
+    "retry_after": "2026-10-23T18:24:08.773949+00:00"
+  },
+  {
+    "name": "Fairlady",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 118244,
+        "name": "Fairlady",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 121387,
+        "name": "Fairlady",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:09.111323+00:00",
+    "retry_after": "2026-10-23T18:24:09.111337+00:00"
+  },
+  {
+    "name": "Spawnmobile Vehicle",
+    "publisher": "Image Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:09.489268+00:00",
+    "retry_after": "2026-10-23T18:24:09.489283+00:00"
+  },
+  {
+    "name": "Harrow County",
+    "publisher": "Dark Horse Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81991,
+        "name": "Harrow County",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 96434,
+        "name": "Harrow County",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 158798,
+        "name": "Harrow County",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:10.303328+00:00",
+    "retry_after": "2026-10-23T18:24:10.303342+00:00"
+  },
+  {
+    "name": "All-Flash",
+    "publisher": "DC Comics",
+    "year": 1941,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18925,
+        "name": "All Flash",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:10.851125+00:00",
+    "retry_after": "2026-10-23T18:24:10.851140+00:00"
+  },
+  {
+    "name": "Snappy",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 136630,
+        "name": "Snappy",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:11.321732+00:00",
+    "retry_after": "2026-10-23T18:24:11.321745+00:00"
+  },
+  {
+    "name": "The Masked G-Man",
+    "publisher": "Atlas Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75837,
+        "name": "The Masked G-Man",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:11.793847+00:00",
+    "retry_after": "2026-10-23T18:24:11.793861+00:00"
+  },
+  {
+    "name": "Peter Panda",
+    "publisher": "DC Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24869,
+        "name": "Peter Panda",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:12.089799+00:00",
+    "retry_after": "2026-10-23T18:24:12.089814+00:00"
+  },
+  {
+    "name": "Bilag til Donald Duck & Co",
+    "publisher": "Harvey Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141922,
+        "name": "Bilag til Donald Duck & Co",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:12.556010+00:00",
+    "retry_after": "2026-10-23T18:24:12.556025+00:00"
+  },
+  {
+    "name": "Korak - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 106802,
+        "name": "Korak Serie Avestruz",
+        "publisher": null,
+        "start_year": 1975
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:12.962278+00:00",
+    "retry_after": "2026-10-23T18:24:12.962292+00:00"
+  },
+  {
+    "name": "Adventures into Weird Worlds",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1492,
+        "name": "Adventures into Weird Worlds",
+        "publisher": null,
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:13.534999+00:00",
+    "retry_after": "2026-10-23T18:24:13.535013+00:00"
+  },
+  {
+    "name": "Laugh Riot",
+    "publisher": "Marvel Comics",
+    "year": 1961,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 92445,
+        "name": "Laugh Riot",
+        "publisher": null,
+        "start_year": 1961
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:13.989359+00:00",
+    "retry_after": "2026-10-23T18:24:13.989373+00:00"
+  },
+  {
+    "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
+    "publisher": "Harvey Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148472,
+        "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:24:14.917340+00:00",
+    "retry_after": "2026-10-23T18:24:14.917354+00:00"
   }
 ]

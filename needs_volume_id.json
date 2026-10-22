@@ -70936,5 +70936,755 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T16:10:18.490917+00:00",
     "retry_after": "2026-10-23T16:10:18.490931+00:00"
+  },
+  {
+    "name": "Avengers: The Initiative Annual",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19935,
+        "name": "Avengers: The Initiative Annual",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:51.370489+00:00",
+    "retry_after": "2026-10-23T17:23:51.370521+00:00"
+  },
+  {
+    "name": "The Fall of Ultraman",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170544,
+        "name": "The Fall of Ultraman",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:51.792124+00:00",
+    "retry_after": "2026-10-23T17:23:51.792139+00:00"
+  },
+  {
+    "name": "Fantastic Four / Gargoyles",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167693,
+        "name": "Fantastic Four/Gargoyles",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:52.148084+00:00",
+    "retry_after": "2026-10-23T17:23:52.148105+00:00"
+  },
+  {
+    "name": "Obergeist: The Empty Locket",
+    "publisher": "Image Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42740,
+        "name": "Obergeist: The Empty Locket",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:52.595584+00:00",
+    "retry_after": "2026-10-23T17:23:52.595596+00:00"
+  },
+  {
+    "name": "True Believers: X-Men - Empath",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130191,
+        "name": "True Believers: X-Men: Empath",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:52.965829+00:00",
+    "retry_after": "2026-10-23T17:23:52.965844+00:00"
+  },
+  {
+    "name": "True Believers: Fantastic Four vs. Doctor Doom",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112226,
+        "name": "True Believers: Fantastic Four vs. Doctor Doom!",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:53.444094+00:00",
+    "retry_after": "2026-10-23T17:23:53.444106+00:00"
+  },
+  {
+    "name": "Jim Butcher's The Dresden Files: Wild Card",
+    "publisher": "Dynamite Entertainment",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 89786,
+        "name": "Jim Butcher's The Dresden Files: Wild Card",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 94805,
+        "name": "Jim Butcher's The Dresden Files: Wild Card",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:53.957894+00:00",
+    "retry_after": "2026-10-23T17:23:53.957908+00:00"
+  },
+  {
+    "name": "Giant-Size Thor",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26580,
+        "name": "Giant-Size Thor",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 159322,
+        "name": "Giant-Size Thor",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:54.412866+00:00",
+    "retry_after": "2026-10-23T17:23:54.412880+00:00"
+  },
+  {
+    "name": "Flash Gordon",
+    "publisher": "Mad Cave Studios",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140611,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1974
+      },
+      {
+        "id": 154690,
+        "name": "Flash Gordon ",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 37396,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 154684,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1979
+      },
+      {
+        "id": 159823,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1979
+      },
+      {
+        "id": 29866,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1965
+      },
+      {
+        "id": 57853,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1967
+      },
+      {
+        "id": 158146,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 23142,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 57900,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1974
+      },
+      {
+        "id": 79165,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1972
+      },
+      {
+        "id": 49627,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1980
+      },
+      {
+        "id": 62363,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 2964,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1966
+      },
+      {
+        "id": 3999,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 61477,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1956
+      },
+      {
+        "id": 72935,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 86271,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1980
+      },
+      {
+        "id": 50659,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 118574,
+        "name": "Flash Gordon",
+        "publisher": null,
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:54.772813+00:00",
+    "retry_after": "2026-10-23T17:23:54.772826+00:00"
+  },
+  {
+    "name": "Starseeds",
+    "publisher": "Fantagraphics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 98915,
+        "name": "Starseeds",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:55.189414+00:00",
+    "retry_after": "2026-10-23T17:23:55.189428+00:00"
+  },
+  {
+    "name": "Interactive Comics: Dudley Serious Saves the World",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75764,
+        "name": "Interactive Comics - Dudley Serious Saves the World",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:55.608255+00:00",
+    "retry_after": "2026-10-23T17:23:55.608269+00:00"
+  },
+  {
+    "name": "Marvelous Adventures of Gus Beezer: Gus Beezer & Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27176,
+        "name": "Marvelous Adventures of Gus Beezer: Gus Beezer & Spider-Man",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:56.018169+00:00",
+    "retry_after": "2026-10-23T17:23:56.018184+00:00"
+  },
+  {
+    "name": "Hundred Penny Press: Angel: After the Fall",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54358,
+        "name": "Hundred Penny Press: Angel After the Fall",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:56.410752+00:00",
+    "retry_after": "2026-10-23T17:23:56.410766+00:00"
+  },
+  {
+    "name": "Disney Hercules",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157639,
+        "name": "Disney Hercules",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:56.833815+00:00",
+    "retry_after": "2026-10-23T17:23:56.833828+00:00"
+  },
+  {
+    "name": "Evil Ernie",
+    "publisher": "Chaos! Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140292,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 21169,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 19385,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 52863,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 52543,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 77430,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 18112,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:57.152811+00:00",
+    "retry_after": "2026-10-23T17:23:57.152825+00:00"
+  },
+  {
+    "name": "Fearscape",
+    "publisher": "Vault Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113871,
+        "name": "Fearscape",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 119851,
+        "name": "Fearscape",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:57.718035+00:00",
+    "retry_after": "2026-10-23T17:23:57.718049+00:00"
+  },
+  {
+    "name": "Green Hornet: Parallel Lives",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34030,
+        "name": "The Green Hornet: Parallel Lives",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 39081,
+        "name": "Green Hornet: Parallel Lives",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:58.153819+00:00",
+    "retry_after": "2026-10-23T17:23:58.153833+00:00"
+  },
+  {
+    "name": "Vampirella vs. Dracula",
+    "publisher": "Dynamite Entertainment",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40547,
+        "name": "Vampirella vs. Dracula",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 59013,
+        "name": "Vampirella vs. Dracula",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:58.605919+00:00",
+    "retry_after": "2026-10-23T17:23:58.605934+00:00"
+  },
+  {
+    "name": "Seduction of the Innocent",
+    "publisher": "Dynamite Entertainment",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3542,
+        "name": "Seduction of the Innocent",
+        "publisher": null,
+        "start_year": 1985
+      },
+      {
+        "id": 86392,
+        "name": "Seduction of the Innocent",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 94226,
+        "name": "Seduction of the Innocent",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:59.009404+00:00",
+    "retry_after": "2026-10-23T17:23:59.009420+00:00"
+  },
+  {
+    "name": "Essential Iron Fist",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26174,
+        "name": "Essential Iron Fist",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:23:59.504409+00:00",
+    "retry_after": "2026-10-23T17:23:59.504423+00:00"
+  },
+  {
+    "name": "Gen 13",
+    "publisher": "Image Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5667,
+        "name": "Gen 13",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 18921,
+        "name": "Gen 13",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 18560,
+        "name": "Gen 13",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 95045,
+        "name": "Gen 13",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 127382,
+        "name": "Gen 13",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 26374,
+        "name": "Gen 13",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:24:00.342083+00:00",
+    "retry_after": "2026-10-23T17:24:00.342099+00:00"
+  },
+  {
+    "name": "Avengers: The Initiative",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18419,
+        "name": "Avengers: The Initiative",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:24:00.909054+00:00",
+    "retry_after": "2026-10-23T17:24:00.909070+00:00"
+  },
+  {
+    "name": "Edição Extra",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140232,
+        "name": "Edição Extra",
+        "publisher": null,
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:24:01.278119+00:00",
+    "retry_after": "2026-10-23T17:24:01.278134+00:00"
+  },
+  {
+    "name": "Spider-Gwen",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85311,
+        "name": "Spider-Gwen",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 80298,
+        "name": "Spider-Gwen",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 98567,
+        "name": "Spider-Gwen",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 119235,
+        "name": "Spider-Gwen",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:24:01.851523+00:00",
+    "retry_after": "2026-10-23T17:24:01.851538+00:00"
+  },
+  {
+    "name": "Modeling with Millie",
+    "publisher": "Marvel Comics",
+    "year": 1963,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19440,
+        "name": "Modeling With Millie",
+        "publisher": null,
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:24:02.259682+00:00",
+    "retry_after": "2026-10-23T17:24:02.259696+00:00"
+  },
+  {
+    "name": "Mad XL",
+    "publisher": "EC Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21634,
+        "name": "MAD XL",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:24:02.600826+00:00",
+    "retry_after": "2026-10-23T17:24:02.600841+00:00"
+  },
+  {
+    "name": "Buster Book",
+    "publisher": "Malibu Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41229,
+        "name": "Buster Book",
+        "publisher": null,
+        "start_year": 1962
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:24:03.124433+00:00",
+    "retry_after": "2026-10-23T17:24:03.124448+00:00"
+  },
+  {
+    "name": "Sub-Mariner Comics",
+    "publisher": "Marvel Comics",
+    "year": 1941,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18548,
+        "name": "Sub-Mariner Comics",
+        "publisher": null,
+        "start_year": 1941
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:24:03.460832+00:00",
+    "retry_after": "2026-10-23T17:24:03.460847+00:00"
+  },
+  {
+    "name": "The Durango Kid",
+    "publisher": "Atlas Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50567,
+        "name": "Durango Kid",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:24:03.885055+00:00",
+    "retry_after": "2026-10-23T17:24:03.885065+00:00"
+  },
+  {
+    "name": "Jane, Famous Oomph Girl",
+    "publisher": "Atlas Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68101,
+        "name": "Jane, Famous Oomph Girl",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T17:24:04.449674+00:00",
+    "retry_after": "2026-10-23T17:24:04.449689+00:00"
   }
 ]

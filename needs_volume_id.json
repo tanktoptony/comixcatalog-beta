@@ -58971,9 +58971,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T01:38:00.170197+00:00",
-    "retry_after": "2026-10-22T01:38:00.170215+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T02:15:49.725744+00:00",
+    "retry_after": "2026-10-25T02:15:49.725760+00:00"
   },
   {
     "name": "Someday I’ll Fall for You",
@@ -58981,9 +58981,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T01:38:00.453892+00:00",
-    "retry_after": "2026-10-22T01:38:00.453909+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T02:15:50.251877+00:00",
+    "retry_after": "2026-10-25T02:15:50.251891+00:00"
   },
   {
     "name": "Cowboy Stories",
@@ -66443,5 +66443,668 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T01:16:08.732985+00:00",
     "retry_after": "2026-10-23T01:16:08.732999+00:00"
+  },
+  {
+    "name": "Cable by Gerry Duggan",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132133,
+        "name": "Cable by Gerry Duggan",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 144819,
+        "name": "Cable by Gerry Duggan",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:49.261413+00:00",
+    "retry_after": "2026-10-23T02:15:49.261427+00:00"
+  },
+  {
+    "name": "Dick Tracy's Casebook",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:50.675960+00:00",
+    "retry_after": "2026-10-23T02:15:50.675975+00:00"
+  },
+  {
+    "name": "Batman: The Jiro Kuwata Batmanga",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75410,
+        "name": "Batman: The Jiro Kuwata Batmanga",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 78540,
+        "name": "Batman: The Jiro Kuwata Batmanga",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:51.112940+00:00",
+    "retry_after": "2026-10-23T02:15:51.112957+00:00"
+  },
+  {
+    "name": "Ever After High Magazine",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:51.552875+00:00",
+    "retry_after": "2026-10-23T02:15:51.552890+00:00"
+  },
+  {
+    "name": "Cartoon Cuties",
+    "publisher": "Dell Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:51.978860+00:00",
+    "retry_after": "2026-10-23T02:15:51.978875+00:00"
+  },
+  {
+    "name": "Rising Sun",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 108156,
+        "name": "Rising Sun",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 124264,
+        "name": "Rising Sun",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 99184,
+        "name": "Rising Sun",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:52.448256+00:00",
+    "retry_after": "2026-10-23T02:15:52.448271+00:00"
+  },
+  {
+    "name": "La Panthere Rose et l’Inspecteur",
+    "publisher": "Gold Key",
+    "year": 1970,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:52.984173+00:00",
+    "retry_after": "2026-10-23T02:15:52.984188+00:00"
+  },
+  {
+    "name": "Sherlock Holmes",
+    "publisher": "Dynamite Entertainment",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44304,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 1955
+      },
+      {
+        "id": 81071,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 137675,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 27040,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 137300,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 1972
+      },
+      {
+        "id": 137693,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 137486,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 1973
+      },
+      {
+        "id": 26425,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 137891,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 113377,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 32506,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 68837,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 137688,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 154125,
+        "name": "Sherlock Holmes",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:53.439465+00:00",
+    "retry_after": "2026-10-23T02:15:53.439477+00:00"
+  },
+  {
+    "name": "Roche Limit",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 77118,
+        "name": "Roche Limit",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 80909,
+        "name": "Roche Limit",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:54.039425+00:00",
+    "retry_after": "2026-10-23T02:15:54.039440+00:00"
+  },
+  {
+    "name": "Essential Official Handbook of the Marvel Universe - Master Edition",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78776,
+        "name": "Essential Official Handbook of the Marvel Universe Master Edition",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:54.571483+00:00",
+    "retry_after": "2026-10-23T02:15:54.571498+00:00"
+  },
+  {
+    "name": "The Spider's Syndicate of Crime",
+    "publisher": "Rebellion",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 135238,
+        "name": "The Spider's Syndicate of Crime",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:55.152674+00:00",
+    "retry_after": "2026-10-23T02:15:55.152692+00:00"
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles: Jennika",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132280,
+        "name": "Teenage Mutant Ninja Turtles: Jennika",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:55.676713+00:00",
+    "retry_after": "2026-10-23T02:15:55.676728+00:00"
+  },
+  {
+    "name": "Boffy the Vampire Layer",
+    "publisher": "Fantagraphics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6362,
+        "name": "Boffy the Vampire Layer",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:56.286493+00:00",
+    "retry_after": "2026-10-23T02:15:56.286509+00:00"
+  },
+  {
+    "name": "Black & White",
+    "publisher": "VIZ Media",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 91199,
+        "name": "Black & White",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 91200,
+        "name": "Black & White",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 23188,
+        "name": "Black & White",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 65009,
+        "name": "Black & White",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:57.063926+00:00",
+    "retry_after": "2026-10-23T02:15:57.063941+00:00"
+  },
+  {
+    "name": "Criminal Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 168685,
+        "name": "Criminal Deluxe Edition",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 52029,
+        "name": "Criminal: The Deluxe Edition",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:57.477956+00:00",
+    "retry_after": "2026-10-23T02:15:57.477971+00:00"
+  },
+  {
+    "name": "Chastity: Crazytown",
+    "publisher": "Chaos! Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19428,
+        "name": "Chastity: Crazytown",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:57.980361+00:00",
+    "retry_after": "2026-10-23T02:15:57.980376+00:00"
+  },
+  {
+    "name": "Hellboy: The Crooked Man",
+    "publisher": "Dark Horse Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21935,
+        "name": "Hellboy: The Crooked Man",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:58.674240+00:00",
+    "retry_after": "2026-10-23T02:15:58.674255+00:00"
+  },
+  {
+    "name": "Herbert West",
+    "publisher": "Zenescope Entertainment",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:15:59.353111+00:00",
+    "retry_after": "2026-10-23T02:15:59.353126+00:00"
+  },
+  {
+    "name": "Comedy Comics",
+    "publisher": "Marvel Comics",
+    "year": 1942,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27168,
+        "name": "Comedy Comics",
+        "publisher": null,
+        "start_year": 1948
+      },
+      {
+        "id": 944,
+        "name": "Comedy Comics",
+        "publisher": null,
+        "start_year": 1942
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:16:00.090757+00:00",
+    "retry_after": "2026-10-23T02:16:00.090773+00:00"
+  },
+  {
+    "name": "Liga da Justiça e Batman",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119234,
+        "name": "Liga da Justiça e Batman",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:16:00.559348+00:00",
+    "retry_after": "2026-10-23T02:16:00.559364+00:00"
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:16:01.180601+00:00",
+    "retry_after": "2026-10-23T02:16:01.180616+00:00"
+  },
+  {
+    "name": "Adventures of the Fly",
+    "publisher": "Archie Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2003,
+        "name": "Adventures of the Fly",
+        "publisher": null,
+        "start_year": 1960
+      },
+      {
+        "id": 38309,
+        "name": "The Adventures of the Fly",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:16:01.641652+00:00",
+    "retry_after": "2026-10-23T02:16:01.641667+00:00"
+  },
+  {
+    "name": "Clive Barker's Night Breed",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23595,
+        "name": "Clive Barker's Night Breed",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:16:02.002646+00:00",
+    "retry_after": "2026-10-23T02:16:02.002661+00:00"
+  },
+  {
+    "name": "Thundercats",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156702,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 3515,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 1985
+      },
+      {
+        "id": 40080,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 9532,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 47304,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 160482,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 23374,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 177682,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:16:02.619115+00:00",
+    "retry_after": "2026-10-23T02:16:02.619130+00:00"
+  },
+  {
+    "name": "Charmed",
+    "publisher": "Zenescope Entertainment",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32132,
+        "name": "Charmed",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 99284,
+        "name": "Charmed",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:16:03.583785+00:00",
+    "retry_after": "2026-10-23T02:16:03.583800+00:00"
+  },
+  {
+    "name": "Tippy Teen",
+    "publisher": "Antarctic Press",
+    "year": 1965,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11474,
+        "name": "Tippy Teen",
+        "publisher": null,
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:16:04.068177+00:00",
+    "retry_after": "2026-10-23T02:16:04.068193+00:00"
+  },
+  {
+    "name": "Zatch Bell!",
+    "publisher": "VIZ Media",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44342,
+        "name": "Zatch Bell!",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 160969,
+        "name": "Zatch Bell!",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 162539,
+        "name": "Zatch Bell!",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 140565,
+        "name": "Zatch Bell!",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:16:04.657414+00:00",
+    "retry_after": "2026-10-23T02:16:04.657429+00:00"
+  },
+  {
+    "name": "Jane Arden",
+    "publisher": "Atlas Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44568,
+        "name": "Jane Arden",
+        "publisher": null,
+        "start_year": 1955
+      },
+      {
+        "id": 100511,
+        "name": "Jane Arden",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 25266,
+        "name": "Jane Arden",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T02:16:05.152524+00:00",
+    "retry_after": "2026-10-23T02:16:05.152536+00:00"
   }
 ]

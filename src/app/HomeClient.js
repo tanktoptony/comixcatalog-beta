@@ -5,6 +5,7 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
+import ExcitedStrip from "@/components/ExcitedStrip";
 import { coverThumb } from "@/lib/coverThumb";
 import HomeDispatch from "@/components/HomeDispatch";
 import { trackEvent } from "@/lib/analytics";
@@ -16,7 +17,13 @@ function proofNumber(n, fallback) {
   return `${(Math.floor(n / 1000) * 1000).toLocaleString("en-US")}+`;
 }
 
-export default function HomeClient({ featured = null, heroWall = null, stats = null, dispatch = null }) {
+export default function HomeClient({
+  featured = null,
+  heroWall = null,
+  stats = null,
+  dispatch = null,
+  excited = [],
+}) {
   const { user } = useAuth();
   const router = useRouter();
   const [heroQuery, setHeroQuery] = useState("");
@@ -140,6 +147,8 @@ export default function HomeClient({ featured = null, heroWall = null, stats = n
           <span className="lp-proof-label">covers archived</span>
         </div>
       </section>
+
+      <ExcitedStrip picks={excited} />
 
       {/* ── FEATURED SERIES ──────────────────────────────────── */}
       <FeaturedCarousel initialSeries={featured} />

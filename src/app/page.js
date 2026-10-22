@@ -1,4 +1,5 @@
 import HomeClient from "./HomeClient";
+import { getExcitedPicks } from "@/lib/excitedPicksData";
 import { getFeaturedSeries } from "@/lib/featuredSeriesData";
 import { getHomeData } from "@/lib/homeDispatch";
 import { getHeroWall } from "@/lib/heroWall";
@@ -11,14 +12,23 @@ import { getHeroWall } from "@/lib/heroWall";
 export const revalidate = 3600;
 
 export default async function HomePage() {
-  const [featuredResult, home] = await Promise.all([
+  const [featuredResult, home, excited] = await Promise.all([
     getFeaturedSeries().catch((err) => {
       // Empty falls back to the carousel's own client fetch.
       console.error("homepage featured series failed:", err);
       return [];
     }),
     getHomeData(),
+    getExcitedPicks(),
   ]);
   const heroWall = await getHeroWall(featuredResult);
-  return <HomeClient featured={featuredResult.slice(0, 12)} heroWall={heroWall} stats={home.stats} dispatch={home} />;
+  return (
+    <HomeClient
+      featured={featuredResult.slice(0, 12)}
+      heroWall={heroWall}
+      stats={home.stats}
+      dispatch={home}
+      excited={excited}
+    />
+  );
 }

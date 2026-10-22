@@ -59225,9 +59225,9 @@
     "year": 1936,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T06:16:18.777620+00:00",
-    "retry_after": "2026-10-22T06:16:18.777635+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T07:15:56.778071+00:00",
+    "retry_after": "2026-10-25T07:15:56.778086+00:00"
   },
   {
     "name": "Dragon Ball: Em Busca do Poder",
@@ -59235,9 +59235,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T06:16:19.442152+00:00",
-    "retry_after": "2026-10-22T06:16:19.442167+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T07:15:57.182216+00:00",
+    "retry_after": "2026-10-25T07:15:57.182263+00:00"
   },
   {
     "name": "Web of Evil",
@@ -59248,19 +59248,19 @@
       {
         "id": 32413,
         "name": "Web of Evil",
-        "publisher": "Quality Comics",
+        "publisher": null,
         "start_year": 1952
       },
       {
         "id": 26841,
         "name": "Web of Evil",
-        "publisher": "Eros Comix",
+        "publisher": null,
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T06:16:33.907625+00:00",
-    "retry_after": "2026-10-22T06:16:33.907640+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T07:15:57.692083+00:00",
+    "retry_after": "2026-10-25T07:15:57.692098+00:00"
   },
   {
     "name": "The NYC Mech Sketchbook Work + Progress",
@@ -59268,9 +59268,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T06:17:41.675800+00:00",
-    "retry_after": "2026-10-22T06:17:41.675816+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T07:15:58.154198+00:00",
+    "retry_after": "2026-10-25T07:15:58.154213+00:00"
   },
   {
     "name": "A Mão Invisível",
@@ -70214,5 +70214,586 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T06:16:06.944821+00:00",
     "retry_after": "2026-10-23T06:16:06.944837+00:00"
+  },
+  {
+    "name": "Beasts of Burden",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27947,
+        "name": "Beasts of Burden",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:15:58.608669+00:00",
+    "retry_after": "2026-10-23T07:15:58.608684+00:00"
+  },
+  {
+    "name": "Hulkverines",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 117215,
+        "name": "Hulkverines!",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 119647,
+        "name": "Hulkverines!",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:15:58.964806+00:00",
+    "retry_after": "2026-10-23T07:15:58.964822+00:00"
+  },
+  {
+    "name": "Fairy Cube",
+    "publisher": "VIZ Media",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 38993,
+        "name": "Fairy Cube",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:15:59.485036+00:00",
+    "retry_after": "2026-10-23T07:15:59.485052+00:00"
+  },
+  {
+    "name": "Gutsville",
+    "publisher": "Image Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19165,
+        "name": "Gutsville",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:15:59.919613+00:00",
+    "retry_after": "2026-10-23T07:15:59.919628+00:00"
+  },
+  {
+    "name": "Miles Morales: Ultimate Spider-Man Ultimate Collection",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 83586,
+        "name": "Miles Morales: The Ultimate Spider-Man Ultimate Collection",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:00.243314+00:00",
+    "retry_after": "2026-10-23T07:16:00.243330+00:00"
+  },
+  {
+    "name": "Blüdwire",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:00.573385+00:00",
+    "retry_after": "2026-10-23T07:16:00.573400+00:00"
+  },
+  {
+    "name": "Cheryl Blossom",
+    "publisher": "Archie Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11039,
+        "name": "Cheryl Blossom",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 115617,
+        "name": "Cheryl Blossom",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 22932,
+        "name": "Cheryl Blossom",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 46730,
+        "name": "Cheryl Blossom",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:01.016543+00:00",
+    "retry_after": "2026-10-23T07:16:01.016558+00:00"
+  },
+  {
+    "name": "Troubleman",
+    "publisher": "Image Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22888,
+        "name": "Troubleman",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:01.449203+00:00",
+    "retry_after": "2026-10-23T07:16:01.449219+00:00"
+  },
+  {
+    "name": "Diary of a Dominatrix",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26738,
+        "name": "Diary of a Dominatrix",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:01.904153+00:00",
+    "retry_after": "2026-10-23T07:16:01.904168+00:00"
+  },
+  {
+    "name": "Comic As",
+    "publisher": "Fawcett Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:02.493565+00:00",
+    "retry_after": "2026-10-23T07:16:02.493581+00:00"
+  },
+  {
+    "name": "Sailor Sweeney",
+    "publisher": "Marvel Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1791,
+        "name": "Sailor Sweeney",
+        "publisher": null,
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:02.796907+00:00",
+    "retry_after": "2026-10-23T07:16:02.796923+00:00"
+  },
+  {
+    "name": "Sirianus",
+    "publisher": "Fantagraphics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71697,
+        "name": "Sirianus",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:03.260484+00:00",
+    "retry_after": "2026-10-23T07:16:03.260499+00:00"
+  },
+  {
+    "name": "Tom Strong",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36473,
+        "name": "Tom Strong",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 162577,
+        "name": "Tom Strong",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 6566,
+        "name": "Tom Strong",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:03.716207+00:00",
+    "retry_after": "2026-10-23T07:16:03.716220+00:00"
+  },
+  {
+    "name": "Dinosaur Rex",
+    "publisher": "Fantagraphics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24759,
+        "name": "Dinosaur Rex",
+        "publisher": null,
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:04.042147+00:00",
+    "retry_after": "2026-10-23T07:16:04.042159+00:00"
+  },
+  {
+    "name": "Gavião Negro",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:04.602583+00:00",
+    "retry_after": "2026-10-23T07:16:04.602597+00:00"
+  },
+  {
+    "name": "Mistress of Bondage",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37400,
+        "name": "Mistress of Bondage",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:05.192053+00:00",
+    "retry_after": "2026-10-23T07:16:05.192067+00:00"
+  },
+  {
+    "name": "Thief of Thieves",
+    "publisher": "Image Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45727,
+        "name": "Thief of Thieves",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:05.834830+00:00",
+    "retry_after": "2026-10-23T07:16:05.834846+00:00"
+  },
+  {
+    "name": "Berserk",
+    "publisher": "Dark Horse Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50270,
+        "name": "Berserk",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 18867,
+        "name": "Berserk",
+        "publisher": null,
+        "start_year": 2003
+      },
+      {
+        "id": 41910,
+        "name": "Berserk",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 95884,
+        "name": "Berserk",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 156879,
+        "name": "Berserk",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 163140,
+        "name": "Berserk",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 148415,
+        "name": "Berserk",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:06.174326+00:00",
+    "retry_after": "2026-10-23T07:16:06.174342+00:00"
+  },
+  {
+    "name": "Classics Illustrated",
+    "publisher": "First Comics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21542,
+        "name": "Classics Illustrated",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 914,
+        "name": "Classics Illustrated",
+        "publisher": null,
+        "start_year": 1941
+      },
+      {
+        "id": 4461,
+        "name": "Classics Illustrated",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 62235,
+        "name": "Classics Illustrated",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 44079,
+        "name": "Classics Illustrated",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 38089,
+        "name": "Classics Illustrated",
+        "publisher": null,
+        "start_year": 1951
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:06.668877+00:00",
+    "retry_after": "2026-10-23T07:16:06.668889+00:00"
+  },
+  {
+    "name": "Hikaru no Go",
+    "publisher": "VIZ Media",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60263,
+        "name": "Hikaru No Go",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 29313,
+        "name": "Hikaru no Go",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 43192,
+        "name": "Hikaru no Go",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 163926,
+        "name": "Hikaru No Go",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:07.125669+00:00",
+    "retry_after": "2026-10-23T07:16:07.125684+00:00"
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:07.486678+00:00",
+    "retry_after": "2026-10-23T07:16:07.486692+00:00"
+  },
+  {
+    "name": "Brenda",
+    "publisher": "Atlas Comics",
+    "year": 1953,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:07.963043+00:00",
+    "retry_after": "2026-10-23T07:16:07.963059+00:00"
+  },
+  {
+    "name": "Dexter's Laboratory",
+    "publisher": "DC Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22910,
+        "name": "Dexter's Laboratory",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 73426,
+        "name": "Dexter's Laboratory",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:08.375729+00:00",
+    "retry_after": "2026-10-23T07:16:08.375744+00:00"
+  },
+  {
+    "name": "Crack Western",
+    "publisher": "Marvel Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1248,
+        "name": "Crack Western",
+        "publisher": null,
+        "start_year": 1949
+      },
+      {
+        "id": 52709,
+        "name": "Crack Western",
+        "publisher": null,
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:08.732882+00:00",
+    "retry_after": "2026-10-23T07:16:08.732898+00:00"
+  },
+  {
+    "name": "Donald Duck Dubbelpocket",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:09.027397+00:00",
+    "retry_after": "2026-10-23T07:16:09.027410+00:00"
+  },
+  {
+    "name": "Donald Duck",
+    "publisher": "BOOM! Studios",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 139267,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 31262,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 1952
+      },
+      {
+        "id": 2090,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 1952
+      },
+      {
+        "id": 82112,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 49727,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 169345,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 61059,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 48886,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T07:16:09.365497+00:00",
+    "retry_after": "2026-10-23T07:16:09.365512+00:00"
   }
 ]

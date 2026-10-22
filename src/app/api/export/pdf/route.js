@@ -7,6 +7,8 @@ import { coverPriceForYear } from "@/lib/valuation";
 import { getMarketValuesBulk } from "@/lib/marketValue";
 import { getAuthedUser } from "@/lib/authServer";
 import { OWNED_STATUSES } from "@/lib/collectionStatus";
+import { resolveCovers } from "@/lib/catalog/covers";
+import { pdfGradeLabel } from "@/lib/pdfGrade";
 
 export const maxDuration = 60;
 
@@ -23,12 +25,6 @@ const DGRAY  = rgb(0.18, 0.18, 0.18);
 const MGRAY  = rgb(0.55, 0.55, 0.55);
 const LGRAY  = rgb(0.88, 0.88, 0.90);
 const PGRAY  = rgb(0.92, 0.92, 0.94);
-
-function condAbbrev(cond) {
-  if (!cond) return null;
-  const m = String(cond).match(/\((\w+)\)/);
-  return m ? m[1] : cond.split(" ")[0];
-}
 
 // pdf-lib's StandardFonts (Helvetica family) use WinAnsi encoding, which is
 // roughly Latin-1 - anything outside it (smart quotes, em-dashes, ellipsis
@@ -183,7 +179,7 @@ export async function POST(req) {
         comicMeta[`comic:${c.id}`] = {
           title: c.series_title ?? "Untitled",
           issueNumber: c.issue_number ?? "",
-          publisher: c.publisher ?? "Unknown",
+          publisher: c.publisher || "Unknown",
           year: c.release_year ?? null,
           coverUrl: path
             ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${path}`
@@ -206,12 +202,15 @@ export async function POST(req) {
       }
 
       const seriesGcdIds = [...new Set((issues || []).map((i) => i.series_gcd_id).filter(Boolean))];
-      const { data: seriesRows } = seriesGcdIds.length
-        ? await supabase
-            .from("series")
-            .select("gcd_id, title, publisher:publisher_id(id, name)")
-            .in("gcd_id", seriesGcdIds)
-        : { data: [] };
+      const seriesRows = [];
+      for (let index = 0; index < seriesGcdIds.length; index += 180) {
+        const { data, error } = await supabase
+          .from("series")
+          .select("gcd_id, title, year_start_cached, year_end_cached, resolved_publisher_cached, publisher:publisher_id(id, name)")
+          .in("gcd_id", seriesGcdIds.slice(index, index + 180));
+        if (error) throw error;
+        seriesRows.push(...(data ?? []));
+      }
 
       const seriesMap = {};
       for (const s of seriesRows || []) seriesMap[s.gcd_id] = s;
@@ -223,61 +222,35 @@ export async function POST(req) {
           series_gcd_id: issue.series_gcd_id ?? null,
           issueNumber: issue.issue_number ?? "",
           seriesTitle: series?.title ?? issue.title ?? "Untitled",
-          publisher: series?.publisher?.name ?? null,
+          publisher: series?.resolved_publisher_cached || series?.publisher?.name || null,
           year: parseYear(issue.publication_date),
+          seriesYearStart: series?.year_start_cached ?? null,
+          seriesYearEnd: series?.year_end_cached ?? null,
         };
       });
 
-      // ── Two-path canonical cover lookup ──
-      // Path A (ID-based): match canonical_covers.series_gcd_id to gcd_issues.series_gcd_id.
-      //   This is the reliable path that resolves around CV vs GCD title drift
-      //   ("The Maxx" vs "The Maxx Trade Paperback", etc.). Same pattern as
-      //   the issues API (commit 674ca66).
-      // Path B (title-based): legacy fallback for cc rows not yet tagged with
-      //   series_gcd_id (still ~2% of rows).
-      const seriesGcdIdsForCovers = [...new Set(
-        gcdWithMeta.map((i) => i.series_gcd_id).filter(Boolean)
-      )];
-      const uniqueTitles = [...new Set(gcdWithMeta.map((i) => i.seriesTitle).filter(Boolean))];
-
-      const [idResult, titleResult] = await Promise.all([
-        seriesGcdIdsForCovers.length
-          ? supabase
-              .from("canonical_covers")
-              .select("series_gcd_id, issue_number, storage_path")
-              .in("series_gcd_id", seriesGcdIdsForCovers)
-              .not("storage_path", "is", null)
-          : Promise.resolve({ data: [] }),
-        uniqueTitles.length
-          ? supabase
-              .from("canonical_covers")
-              .select("series_title, issue_number, storage_path")
-              .in("series_title", uniqueTitles)
-              .not("storage_path", "is", null)
-          : Promise.resolve({ data: [] }),
-      ]);
-
-      const canonByIdKey = {};
-      for (const row of idResult.data || []) {
-        canonByIdKey[`${row.series_gcd_id}::${row.issue_number}`] = row.storage_path;
-      }
-      const canonByTitleKey = {};
-      for (const row of titleResult.data || []) {
-        canonByTitleKey[`${row.series_title}::${row.issue_number}`] = row.storage_path;
-      }
+      // Resolve canonical covers.
+      // The shared resolver applies the catalog's matching tiers and volume safeguards.
+      const resolvedCovers = await resolveCovers(supabase, gcdWithMeta.map((item) => ({
+        gcd_issue_id: item.gcd_id,
+        series_gcd_id: item.series_gcd_id,
+        series_title: item.seriesTitle,
+        issue_number: item.issueNumber,
+        year: item.year,
+        series_year_start: item.seriesYearStart,
+        series_year_end: item.seriesYearEnd,
+        publisher: item.publisher,
+      })));
+      const canonicalCoverBase = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/`;
 
       for (const item of gcdWithMeta) {
-        const idKey = item.series_gcd_id ? `${item.series_gcd_id}::${item.issueNumber}` : null;
-        const titleKey = `${item.seriesTitle}::${item.issueNumber}`;
-        const sp = (idKey && canonByIdKey[idKey]) || canonByTitleKey[titleKey] || null;
+        const storagePath = resolvedCovers.get(item.gcd_id)?.storage_path ?? null;
         comicMeta[`gcd:${item.gcd_id}`] = {
           title: item.seriesTitle,
           issueNumber: item.issueNumber,
           publisher: item.publisher ?? "Unknown",
           year: item.year,
-          coverUrl: sp
-            ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${sp}`
-            : null,
+          coverUrl: storagePath ? `${canonicalCoverBase}${storagePath}` : null,
         };
       }
     }
@@ -388,8 +361,7 @@ export async function POST(req) {
     }
 
     // Market-value field uses effective_market_value (user override → cover-
-    // price floor). Caption discloses the mix so the report stays honest:
-    // a $0 collection becomes "$N - X user-entered, Y from cover-price floor."
+    // price floor). The displayed note makes clear that the result is an estimate.
     function buildMarketValueField() {
       const userCount = items.filter((i) => i.value_source === "user").length;
       const coverCount = items.filter((i) => i.value_source === "cover-price").length;
@@ -398,18 +370,11 @@ export async function POST(req) {
       const total = items.reduce((sum, i) => sum + (Number(i.effective_market_value) || 0), 0);
       const anyValued = userCount + coverCount + ebayAskingCount + ebaySoldCount > 0;
       const value = anyValued ? money(total) : "Not recorded";
-      // Every value_source that contributes to the total gets named here -
-      // this caption is the one place a reader sees the full mix, so a
-      // silently-omitted category (ebay-listed asking prices, in particular)
-      // would misrepresent how solid "total market value" actually is.
-      const parts = [];
-      if (userCount > 0) parts.push(`${userCount} user-entered`);
-      if (ebaySoldCount > 0) parts.push(`${ebaySoldCount} eBay sold comp${ebaySoldCount === 1 ? "" : "s"}`);
-      if (ebayAskingCount > 0) parts.push(`${ebayAskingCount} eBay asking price${ebayAskingCount === 1 ? "" : "s"} (not sold)`);
-      if (coverCount > 0) parts.push(`${coverCount} cover-price floor`);
-      const allUserEntered = userCount > 0 && userCount === items.length;
-      const caption = allUserEntered ? null : (parts.length > 0 ? parts.join(" + ") : null);
-      return ["TOTAL MARKET VALUE", value, caption];
+      return [
+        "Estimated value",
+        value,
+        "Estimated from recent comparable listings and cover prices. Not a professional appraisal.",
+      ];
     }
 
     const reportDate = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
@@ -507,7 +472,7 @@ export async function POST(req) {
         ["SLAB", CX.slab],
         ["CERT #", CX.cert],
         ["PAID", CX.paid],
-        ["VALUE", CX.value],
+        ["Est. value", CX.value],
       ];
       for (const [txt, x] of headers) {
         if (txt) {
@@ -597,22 +562,22 @@ export async function POST(req) {
       });
 
       // Grade badge
-      let gradeLabel = "-";
+      const gradeLabel = pdfGradeLabel(item);
+      const gradeSize = bold.widthOfTextAtSize(gradeLabel, ts) + 10 > CW.grade - 2
+        ? 6
+        : ts;
       let gc = MGRAY;
       if (item.grade_numeric != null) {
-        gradeLabel = String(item.grade_numeric);
         gc = gradeColor(item.grade_numeric);
-      } else if (item.condition) {
-        gradeLabel = pdfSafe(condAbbrev(item.condition)) || "-";
       }
-      const glW = Math.max(bold.widthOfTextAtSize(gradeLabel, ts) + 10, 20);
+      const glW = Math.max(bold.widthOfTextAtSize(gradeLabel, gradeSize) + 10, 20);
       page.drawRectangle({
         x: CX.grade, y: ty, width: glW, height: 13,
         color: gc, opacity: 0.12,
         borderColor: gc, borderWidth: 0.8, borderOpacity: 0.7,
       });
       page.drawText(gradeLabel, {
-        x: CX.grade + 5, y: ty + 3, size: ts, font: bold, color: gc,
+        x: CX.grade + 5, y: ty + 3, size: gradeSize, font: bold, color: gc,
       });
 
       // Slab

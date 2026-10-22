@@ -71688,6 +71688,23 @@
     "retry_after": "2026-10-23T17:24:04.449689+00:00"
   },
   {
+    "name": "Dungeons & Dragons: Ravenloft",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 176993,
+        "name": "Dungeons & Dragons: Ravenloft",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:49:34.266627+00:00",
+    "retry_after": "2026-10-23T18:49:34.266644+00:00"
+  },
+  {
     "name": "Hero Squared",
     "publisher": "BOOM! Studios",
     "year": 2006,
@@ -71713,8 +71730,25 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:23:55.954454+00:00",
-    "retry_after": "2026-10-23T18:23:55.954468+00:00"
+    "last_attempt_at": "2026-10-22T18:49:34.753931+00:00",
+    "retry_after": "2026-10-23T18:49:34.753949+00:00"
+  },
+  {
+    "name": "The Big Shakedown",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 177012,
+        "name": "The Big Shakedown",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:49:35.230780+00:00",
+    "retry_after": "2026-10-23T18:49:35.230798+00:00"
   },
   {
     "name": "Amazing Spider-Man Annual",
@@ -71766,8 +71800,43 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:23:56.320726+00:00",
-    "retry_after": "2026-10-23T18:23:56.320741+00:00"
+    "last_attempt_at": "2026-10-22T18:49:35.520747+00:00",
+    "retry_after": "2026-10-23T18:49:35.520765+00:00"
+  },
+  {
+    "name": "Southern Bastards",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73392,
+        "name": "Southern Bastards",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 84995,
+        "name": "Southern Bastards",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 150781,
+        "name": "Southern Bastards",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 110391,
+        "name": "Southern Bastards",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:49:35.927549+00:00",
+    "retry_after": "2026-10-23T18:49:35.927567+00:00"
   },
   {
     "name": "Supercrooks",
@@ -71783,8 +71852,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:23:56.640405+00:00",
-    "retry_after": "2026-10-23T18:23:56.640418+00:00"
+    "last_attempt_at": "2026-10-22T18:49:36.219850+00:00",
+    "retry_after": "2026-10-23T18:49:36.219869+00:00"
   },
   {
     "name": "Marvel Holiday Special",
@@ -71800,8 +71869,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:23:57.093185+00:00",
-    "retry_after": "2026-10-23T18:23:57.093200+00:00"
+    "last_attempt_at": "2026-10-22T18:49:36.514467+00:00",
+    "retry_after": "2026-10-23T18:49:36.514486+00:00"
   },
   {
     "name": "Watch Dogs",
@@ -71817,8 +71886,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:23:57.626165+00:00",
-    "retry_after": "2026-10-23T18:23:57.626179+00:00"
+    "last_attempt_at": "2026-10-22T18:49:36.857329+00:00",
+    "retry_after": "2026-10-23T18:49:36.857346+00:00"
   },
   {
     "name": "DC's Quoth the Raven… \"Whatever\"",
@@ -71834,8 +71903,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:23:58.373987+00:00",
-    "retry_after": "2026-10-23T18:23:58.374001+00:00"
+    "last_attempt_at": "2026-10-22T18:49:37.221821+00:00",
+    "retry_after": "2026-10-23T18:49:37.221840+00:00"
   },
   {
     "name": "Marvel Super Heroes",
@@ -71869,8 +71938,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:23:58.821912+00:00",
-    "retry_after": "2026-10-23T18:23:58.821927+00:00"
+    "last_attempt_at": "2026-10-22T18:49:37.505301+00:00",
+    "retry_after": "2026-10-23T18:49:37.505320+00:00"
   },
   {
     "name": "DC's Zatannic Panic!",
@@ -71886,8 +71955,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:04.430512+00:00",
-    "retry_after": "2026-10-23T18:24:04.430528+00:00"
+    "last_attempt_at": "2026-10-22T18:49:37.907500+00:00",
+    "retry_after": "2026-10-23T18:49:37.907518+00:00"
   },
   {
     "name": "Rick and Morty Presents: Morty's Run",
@@ -71903,8 +71972,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:04.798484+00:00",
-    "retry_after": "2026-10-23T18:24:04.798499+00:00"
+    "last_attempt_at": "2026-10-22T18:49:38.192870+00:00",
+    "retry_after": "2026-10-23T18:49:38.192888+00:00"
   },
   {
     "name": "Dead Kings",
@@ -71920,8 +71989,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:05.146814+00:00",
-    "retry_after": "2026-10-23T18:24:05.146828+00:00"
+    "last_attempt_at": "2026-10-22T18:49:38.460146+00:00",
+    "retry_after": "2026-10-23T18:49:38.460161+00:00"
   },
   {
     "name": "Dwellings: All Hallows' Eve Special",
@@ -71937,8 +72006,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:05.623454+00:00",
-    "retry_after": "2026-10-23T18:24:05.623469+00:00"
+    "last_attempt_at": "2026-10-22T18:49:38.734914+00:00",
+    "retry_after": "2026-10-23T18:49:38.734932+00:00"
   },
   {
     "name": "DuckTales Valentine's Day Special 2026",
@@ -71954,8 +72023,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:05.945657+00:00",
-    "retry_after": "2026-10-23T18:24:05.945671+00:00"
+    "last_attempt_at": "2026-10-22T18:49:39.146455+00:00",
+    "retry_after": "2026-10-23T18:49:39.146473+00:00"
   },
   {
     "name": "Dungeon Crawler Carl, #0, FCBD Edition",
@@ -71964,8 +72033,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:06.454098+00:00",
-    "retry_after": "2026-10-23T18:24:06.454112+00:00"
+    "last_attempt_at": "2026-10-22T18:49:39.499152+00:00",
+    "retry_after": "2026-10-23T18:49:39.499170+00:00"
   },
   {
     "name": "Edge of Venomverse",
@@ -71993,8 +72062,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:07.109225+00:00",
-    "retry_after": "2026-10-23T18:24:07.109239+00:00"
+    "last_attempt_at": "2026-10-22T18:49:39.781290+00:00",
+    "retry_after": "2026-10-23T18:49:39.781306+00:00"
   },
   {
     "name": "Earth 2: The New 52 Omnibus",
@@ -72003,8 +72072,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:07.482501+00:00",
-    "retry_after": "2026-10-23T18:24:07.482517+00:00"
+    "last_attempt_at": "2026-10-22T18:49:40.106435+00:00",
+    "retry_after": "2026-10-23T18:49:40.106452+00:00"
   },
   {
     "name": "Tales from the Clit",
@@ -72020,8 +72089,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:07.961408+00:00",
-    "retry_after": "2026-10-23T18:24:07.961423+00:00"
+    "last_attempt_at": "2026-10-22T18:49:40.377982+00:00",
+    "retry_after": "2026-10-23T18:49:40.378000+00:00"
   },
   {
     "name": "Entanglement",
@@ -72037,58 +72106,49 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:08.372625+00:00",
-    "retry_after": "2026-10-23T18:24:08.372639+00:00"
+    "last_attempt_at": "2026-10-22T18:49:40.660318+00:00",
+    "retry_after": "2026-10-23T18:49:40.660337+00:00"
   },
   {
-    "name": "Zombies!: Hunters",
-    "publisher": "IDW Publishing",
-    "year": 2008,
+    "name": "Ultimate Fantastic Four",
+    "publisher": "Marvel Comics",
+    "year": 2004,
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 43995,
-        "name": "Zombies! Hunters",
+        "id": 10379,
+        "name": "Ultimate Fantastic Four",
         "publisher": null,
-        "start_year": 2008
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:08.773934+00:00",
-    "retry_after": "2026-10-23T18:24:08.773949+00:00"
-  },
-  {
-    "name": "Fairlady",
-    "publisher": "Image Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 118244,
-        "name": "Fairlady",
-        "publisher": null,
-        "start_year": 2019
+        "start_year": 2004
       },
       {
-        "id": 121387,
-        "name": "Fairlady",
+        "id": 43424,
+        "name": "Ultimate Fantastic Four",
         "publisher": null,
-        "start_year": 2019
+        "start_year": 2005
+      },
+      {
+        "id": 43423,
+        "name": "Ultimate Fantastic Four",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 43425,
+        "name": "Ultimate Fantastic Four",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 70993,
+        "name": "Ultimate Fantastic Four",
+        "publisher": null,
+        "start_year": 2007
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:09.111323+00:00",
-    "retry_after": "2026-10-23T18:24:09.111337+00:00"
-  },
-  {
-    "name": "Spawnmobile Vehicle",
-    "publisher": "Image Comics",
-    "year": 1994,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:09.489268+00:00",
-    "retry_after": "2026-10-23T18:24:09.489283+00:00"
+    "last_attempt_at": "2026-10-22T18:49:41.479226+00:00",
+    "retry_after": "2026-10-23T18:49:41.479244+00:00"
   },
   {
     "name": "Harrow County",
@@ -72116,8 +72176,60 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:10.303328+00:00",
-    "retry_after": "2026-10-23T18:24:10.303342+00:00"
+    "last_attempt_at": "2026-10-22T18:49:41.789762+00:00",
+    "retry_after": "2026-10-23T18:49:41.789779+00:00"
+  },
+  {
+    "name": "Descender",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 80426,
+        "name": "Descender",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 105168,
+        "name": "Descender",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:49:42.240900+00:00",
+    "retry_after": "2026-10-23T18:49:42.240918+00:00"
+  },
+  {
+    "name": "Redneck",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 100835,
+        "name": "Redneck",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 150422,
+        "name": "Redneck",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 109838,
+        "name": "Redneck",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T18:49:42.616271+00:00",
+    "retry_after": "2026-10-23T18:49:42.616288+00:00"
   },
   {
     "name": "All-Flash",
@@ -72133,8 +72245,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:10.851125+00:00",
-    "retry_after": "2026-10-23T18:24:10.851140+00:00"
+    "last_attempt_at": "2026-10-22T18:49:43.029948+00:00",
+    "retry_after": "2026-10-23T18:49:43.029966+00:00"
   },
   {
     "name": "Snappy",
@@ -72150,8 +72262,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:11.321732+00:00",
-    "retry_after": "2026-10-23T18:24:11.321745+00:00"
+    "last_attempt_at": "2026-10-22T18:49:43.289876+00:00",
+    "retry_after": "2026-10-23T18:49:43.289893+00:00"
   },
   {
     "name": "The Masked G-Man",
@@ -72167,8 +72279,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:11.793847+00:00",
-    "retry_after": "2026-10-23T18:24:11.793861+00:00"
+    "last_attempt_at": "2026-10-22T18:49:43.576943+00:00",
+    "retry_after": "2026-10-23T18:49:43.576957+00:00"
   },
   {
     "name": "Peter Panda",
@@ -72184,8 +72296,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:12.089799+00:00",
-    "retry_after": "2026-10-23T18:24:12.089814+00:00"
+    "last_attempt_at": "2026-10-22T18:49:43.855934+00:00",
+    "retry_after": "2026-10-23T18:49:43.855951+00:00"
   },
   {
     "name": "Bilag til Donald Duck & Co",
@@ -72201,8 +72313,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:12.556010+00:00",
-    "retry_after": "2026-10-23T18:24:12.556025+00:00"
+    "last_attempt_at": "2026-10-22T18:49:44.129792+00:00",
+    "retry_after": "2026-10-23T18:49:44.129810+00:00"
   },
   {
     "name": "Korak - Serie Avestruz",
@@ -72218,58 +72330,7 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:12.962278+00:00",
-    "retry_after": "2026-10-23T18:24:12.962292+00:00"
-  },
-  {
-    "name": "Adventures into Weird Worlds",
-    "publisher": "Marvel Comics",
-    "year": 1952,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 1492,
-        "name": "Adventures into Weird Worlds",
-        "publisher": null,
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:13.534999+00:00",
-    "retry_after": "2026-10-23T18:24:13.535013+00:00"
-  },
-  {
-    "name": "Laugh Riot",
-    "publisher": "Marvel Comics",
-    "year": 1961,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 92445,
-        "name": "Laugh Riot",
-        "publisher": null,
-        "start_year": 1961
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:13.989359+00:00",
-    "retry_after": "2026-10-23T18:24:13.989373+00:00"
-  },
-  {
-    "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
-    "publisher": "Harvey Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 148472,
-        "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
-        "publisher": null,
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:24:14.917340+00:00",
-    "retry_after": "2026-10-23T18:24:14.917354+00:00"
+    "last_attempt_at": "2026-10-22T18:49:44.442694+00:00",
+    "retry_after": "2026-10-23T18:49:44.442712+00:00"
   }
 ]

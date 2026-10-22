@@ -43970,114 +43970,150 @@
       {
         "id": 116293,
         "name": "Cerebus",
-        "publisher": "Aardvark",
+        "publisher": null,
         "start_year": 2019
       },
       {
         "id": 2930,
         "name": "Cerebus",
-        "publisher": "Aardvark",
+        "publisher": null,
         "start_year": 1977
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T01:00:44.775207+00:00",
-    "retry_after": "2026-10-22T01:00:44.775222+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-22T01:00:52.767824+00:00",
+    "retry_after": "2026-11-05T01:00:52.767836+00:00"
   },
   {
     "name": "Punisher",
     "publisher": "Marvel Comics",
     "year": 2024,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 11164,
         "name": "The Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2004
       },
       {
         "id": 41758,
         "name": "The Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2011
       },
       {
         "id": 112965,
         "name": "The Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2018
       },
       {
         "id": 6586,
         "name": "The Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2000
+      },
+      {
+        "id": 42863,
+        "name": "Punisher",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 124897,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 1990
       },
       {
         "id": 90118,
         "name": "The Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2016
       },
       {
         "id": 71435,
         "name": "The Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2014
       },
       {
         "id": 18328,
         "name": "Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1995
       },
       {
         "id": 25370,
         "name": "Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2009
       },
       {
         "id": 141843,
         "name": "Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2022
+      },
+      {
+        "id": 42864,
+        "name": "Punisher",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 87642,
+        "name": "Punisher",
+        "publisher": null,
+        "start_year": 2014
       },
       {
         "id": 3855,
         "name": "The Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1987
       },
       {
         "id": 9133,
         "name": "The Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2001
+      },
+      {
+        "id": 35398,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 1989
       },
       {
         "id": 170671,
         "name": "The Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2026
       },
       {
         "id": 3649,
         "name": "The Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1986
       },
       {
         "id": 21768,
         "name": "The Punisher",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1998
+      },
+      {
+        "id": 61380,
+        "name": "Punisher",
+        "publisher": null,
+        "start_year": 2012
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T01:00:46.846085+00:00",
-    "retry_after": "2026-10-22T01:00:46.846099+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-22T01:00:53.486287+00:00",
+    "retry_after": "2026-11-05T01:00:53.486302+00:00"
   },
   {
     "name": "Superman",
@@ -58865,9 +58901,9 @@
     "year": 1974,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T00:18:18.822555+00:00",
-    "retry_after": "2026-10-22T00:18:18.822572+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T01:15:54.988757+00:00",
+    "retry_after": "2026-10-25T01:15:54.988774+00:00"
   },
   {
     "name": "Les Québecois",
@@ -58875,9 +58911,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T00:18:19.337094+00:00",
-    "retry_after": "2026-10-22T00:18:19.337110+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T01:15:55.401792+00:00",
+    "retry_after": "2026-10-25T01:15:55.401804+00:00"
   },
   {
     "name": "Retrograde",
@@ -58888,19 +58924,19 @@
       {
         "id": 120274,
         "name": "RETROGRADE",
-        "publisher": "Awesome Reads",
+        "publisher": null,
         "start_year": 2019
       },
       {
         "id": 59059,
         "name": "Retrograde",
-        "publisher": "Eternity",
+        "publisher": null,
         "start_year": 1987
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T00:18:19.802561+00:00",
-    "retry_after": "2026-10-22T00:18:19.802576+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T01:15:55.785554+00:00",
+    "retry_after": "2026-10-25T01:15:55.785570+00:00"
   },
   {
     "name": "Screen Story Comics",
@@ -58908,9 +58944,9 @@
     "year": 1950,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T00:18:38.188953+00:00",
-    "retry_after": "2026-10-22T00:18:38.188970+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T01:15:56.158301+00:00",
+    "retry_after": "2026-10-25T01:15:56.158317+00:00"
   },
   {
     "name": "Peter Pan: Return to Never-Never Land",
@@ -58921,13 +58957,13 @@
       {
         "id": 36502,
         "name": "Peter Pan: The Return to Never-Never Land",
-        "publisher": "Adventure",
+        "publisher": null,
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T00:18:39.069989+00:00",
-    "retry_after": "2026-10-22T00:18:39.070005+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T01:15:56.702788+00:00",
+    "retry_after": "2026-10-25T01:15:56.702802+00:00"
   },
   {
     "name": "I Live Here",
@@ -65812,5 +65848,600 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T00:16:07.684787+00:00",
     "retry_after": "2026-10-23T00:16:07.684834+00:00"
+  },
+  {
+    "name": "Nancy",
+    "publisher": "Dell Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 145440,
+        "name": "Nancy",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 145453,
+        "name": "Nancy ",
+        "publisher": null,
+        "start_year": 1961
+      },
+      {
+        "id": 145494,
+        "name": "Nancy",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 56089,
+        "name": "Nancy",
+        "publisher": null,
+        "start_year": 1954
+      },
+      {
+        "id": 31429,
+        "name": "Nancy",
+        "publisher": null,
+        "start_year": 1957
+      },
+      {
+        "id": 55620,
+        "name": "Nancy",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:15:54.590028+00:00",
+    "retry_after": "2026-10-23T01:15:54.590043+00:00"
+  },
+  {
+    "name": "Dreadstar, Omnibus",
+    "publisher": "Dynamite Entertainment",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50221,
+        "name": "Dreadstar Omnibus",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:15:57.075659+00:00",
+    "retry_after": "2026-10-23T01:15:57.075669+00:00"
+  },
+  {
+    "name": "The Silver Scream",
+    "publisher": "Harvey Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:15:57.439052+00:00",
+    "retry_after": "2026-10-23T01:15:57.439067+00:00"
+  },
+  {
+    "name": "Spider-Man: Death and Destiny",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31431,
+        "name": "Spider-Man: Death and Destiny",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:15:57.910513+00:00",
+    "retry_after": "2026-10-23T01:15:57.910526+00:00"
+  },
+  {
+    "name": "All Western Winners",
+    "publisher": "Marvel Comics",
+    "year": 1948,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21548,
+        "name": "All Western Winners",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:15:58.434765+00:00",
+    "retry_after": "2026-10-23T01:15:58.434779+00:00"
+  },
+  {
+    "name": "Mitzi's Romances",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30596,
+        "name": "Mitzi's Romances",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:15:58.879092+00:00",
+    "retry_after": "2026-10-23T01:15:58.879107+00:00"
+  },
+  {
+    "name": "Stuntman",
+    "publisher": "Harvey Comics",
+    "year": 1946,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48763,
+        "name": "Stuntman",
+        "publisher": null,
+        "start_year": 1946
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:15:59.296546+00:00",
+    "retry_after": "2026-10-23T01:15:59.296561+00:00"
+  },
+  {
+    "name": "Weaveworld",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34025,
+        "name": "Weaveworld",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:01.972982+00:00",
+    "retry_after": "2026-10-23T01:16:01.972999+00:00"
+  },
+  {
+    "name": "Memorial: Imaginary Fiends",
+    "publisher": "IDW Publishing",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53192,
+        "name": "Memorial: Imaginary Fiends",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 59193,
+        "name": "Memorial: Imaginary Fiends",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:02.402333+00:00",
+    "retry_after": "2026-10-23T01:16:02.402347+00:00"
+  },
+  {
+    "name": "The Mighty Thor by Matt Fraction",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59412,
+        "name": "The Mighty Thor By Matt Fraction",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:02.734299+00:00",
+    "retry_after": "2026-10-23T01:16:02.734311+00:00"
+  },
+  {
+    "name": "Zorro",
+    "publisher": "Topps Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171461,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1954
+      },
+      {
+        "id": 21119,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 176893,
+        "name": "Zorro ",
+        "publisher": null,
+        "start_year": 1980
+      },
+      {
+        "id": 176136,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1981
+      },
+      {
+        "id": 175303,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1978
+      },
+      {
+        "id": 171962,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1955
+      },
+      {
+        "id": 176821,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1982
+      },
+      {
+        "id": 157314,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1979
+      },
+      {
+        "id": 4429,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 177169,
+        "name": "Zorro ",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 177324,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 2021,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1960
+      },
+      {
+        "id": 127545,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 172016,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 2026
+      },
+      {
+        "id": 172044,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1956
+      },
+      {
+        "id": 65906,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1952
+      },
+      {
+        "id": 136891,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1980
+      },
+      {
+        "id": 5190,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 2315,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 1966
+      },
+      {
+        "id": 27634,
+        "name": "Zorro",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:03.087022+00:00",
+    "retry_after": "2026-10-23T01:16:03.087038+00:00"
+  },
+  {
+    "name": "Erika Telekinetika",
+    "publisher": "Fantagraphics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:03.398850+00:00",
+    "retry_after": "2026-10-23T01:16:03.398861+00:00"
+  },
+  {
+    "name": "Thunderbolts Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:03.804917+00:00",
+    "retry_after": "2026-10-23T01:16:03.804929+00:00"
+  },
+  {
+    "name": "Marvel Masterworks: The Invincible Iron Man",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35196,
+        "name": "Marvel Masterworks: The Invincible Iron Man",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:04.174975+00:00",
+    "retry_after": "2026-10-23T01:16:04.174987+00:00"
+  },
+  {
+    "name": "B.C. - Big Wheel",
+    "publisher": "Fawcett Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59173,
+        "name": "B.C. - Big Wheel!",
+        "publisher": null,
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:04.493838+00:00",
+    "retry_after": "2026-10-23T01:16:04.493852+00:00"
+  },
+  {
+    "name": "Scalped",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18247,
+        "name": "Scalped",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 153982,
+        "name": "Scalped",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:05.217072+00:00",
+    "retry_after": "2026-10-23T01:16:05.217086+00:00"
+  },
+  {
+    "name": "Chew",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26611,
+        "name": "Chew",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 105905,
+        "name": "Chew",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:05.682178+00:00",
+    "retry_after": "2026-10-23T01:16:05.682193+00:00"
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": null,
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:05.998527+00:00",
+    "retry_after": "2026-10-23T01:16:05.998541+00:00"
+  },
+  {
+    "name": "Kathy",
+    "publisher": "Marvel Comics",
+    "year": 1959,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2006,
+        "name": "Kathy",
+        "publisher": null,
+        "start_year": 1959
+      },
+      {
+        "id": 10949,
+        "name": "Kathy",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:06.314411+00:00",
+    "retry_after": "2026-10-23T01:16:06.314425+00:00"
+  },
+  {
+    "name": "Basara",
+    "publisher": "VIZ Media",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50235,
+        "name": "Basara",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 155785,
+        "name": "Basara",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 52604,
+        "name": "Basara",
+        "publisher": null,
+        "start_year": 2003
+      },
+      {
+        "id": 25175,
+        "name": "Basara",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:06.630717+00:00",
+    "retry_after": "2026-10-23T01:16:06.630727+00:00"
+  },
+  {
+    "name": "Spindelmannen",
+    "publisher": "Dark Horse Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 7133,
+        "name": "Spindelmannen",
+        "publisher": null,
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:06.987698+00:00",
+    "retry_after": "2026-10-23T01:16:06.987710+00:00"
+  },
+  {
+    "name": "Krazy Komics",
+    "publisher": "Marvel Comics",
+    "year": 1942,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 946,
+        "name": "Krazy Komics",
+        "publisher": null,
+        "start_year": 1942
+      },
+      {
+        "id": 30509,
+        "name": "Krazy Komics",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:07.744043+00:00",
+    "retry_after": "2026-10-23T01:16:07.744057+00:00"
+  },
+  {
+    "name": "Nathan Never GrandeRistampa",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:08.118746+00:00",
+    "retry_after": "2026-10-23T01:16:08.118762+00:00"
+  },
+  {
+    "name": "The Many Loves of Dobie Gillis",
+    "publisher": "DC Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2015,
+        "name": "Many Loves of Dobie Gillis",
+        "publisher": null,
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:08.383997+00:00",
+    "retry_after": "2026-10-23T01:16:08.384007+00:00"
+  },
+  {
+    "name": "Funny Folks",
+    "publisher": "DC Comics",
+    "year": 1946,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 136038,
+        "name": "Funny Folks",
+        "publisher": null,
+        "start_year": 1874
+      },
+      {
+        "id": 7511,
+        "name": "Funny Folks",
+        "publisher": null,
+        "start_year": 1946
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T01:16:08.732985+00:00",
+    "retry_after": "2026-10-23T01:16:08.732999+00:00"
   }
 ]

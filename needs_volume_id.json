@@ -27555,7 +27555,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27573,8 +27573,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T05:09:54.572460+00:00",
-    "retry_after": "2026-10-23T05:09:54.572473+00:00"
+    "last_attempt_at": "2026-10-22T06:00:52.202978+00:00",
+    "retry_after": "2026-10-23T06:00:52.202996+00:00"
   },
   {
     "name": "Cerebus",
@@ -43531,7 +43531,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43549,8 +43549,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T05:01:02.485045+00:00",
-    "retry_after": "2026-10-23T05:01:02.485062+00:00"
+    "last_attempt_at": "2026-10-22T06:00:52.250276+00:00",
+    "retry_after": "2026-10-23T06:00:52.250289+00:00"
   },
   {
     "name": "Justice League Special",
@@ -59185,9 +59185,9 @@
     "year": 1989,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T05:16:23.301106+00:00",
-    "retry_after": "2026-10-22T05:16:23.301120+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T06:15:54.013683+00:00",
+    "retry_after": "2026-10-25T06:15:54.013700+00:00"
   },
   {
     "name": "Ultimate Spider-Man Platinum Series",
@@ -59195,9 +59195,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T05:16:37.387387+00:00",
-    "retry_after": "2026-10-22T05:16:37.387401+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T06:15:54.501707+00:00",
+    "retry_after": "2026-10-25T06:15:54.501724+00:00"
   },
   {
     "name": "Snowpiercer: The Prequel",
@@ -59205,9 +59205,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T05:16:51.919287+00:00",
-    "retry_after": "2026-10-22T05:16:51.919302+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T06:15:55.073909+00:00",
+    "retry_after": "2026-10-25T06:15:55.073925+00:00"
   },
   {
     "name": "Bondage Gallery",
@@ -59215,9 +59215,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T05:17:03.854115+00:00",
-    "retry_after": "2026-10-22T05:17:03.854130+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T06:15:55.407906+00:00",
+    "retry_after": "2026-10-25T06:15:55.407919+00:00"
   },
   {
     "name": "More Fun",
@@ -69517,5 +69517,702 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T05:10:33.848536+00:00",
     "retry_after": "2026-10-23T05:10:33.848552+00:00"
+  },
+  {
+    "name": "Club 9",
+    "publisher": "Dark Horse Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29641,
+        "name": "Club 9",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:15:55.934513+00:00",
+    "retry_after": "2026-10-23T06:15:55.934536+00:00"
+  },
+  {
+    "name": "Danger Girl: Danger-Sized Treasury Edition",
+    "publisher": "IDW Publishing",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21080,
+        "name": "Danger Girl: Danger-Sized Treasury Edition",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:15:56.275507+00:00",
+    "retry_after": "2026-10-23T06:15:56.275524+00:00"
+  },
+  {
+    "name": "Invisible Scarlet O'Neil",
+    "publisher": "Harvey Comics",
+    "year": 1950,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:15:56.578815+00:00",
+    "retry_after": "2026-10-23T06:15:56.578830+00:00"
+  },
+  {
+    "name": "Hotspur",
+    "publisher": "Eclipse Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37429,
+        "name": "Hotspur",
+        "publisher": null,
+        "start_year": 1959
+      },
+      {
+        "id": 3883,
+        "name": "Hotspur",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 27926,
+        "name": "The Hotspur",
+        "publisher": null,
+        "start_year": 1933
+      },
+      {
+        "id": 78489,
+        "name": "Hotspur",
+        "publisher": null,
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:15:56.948072+00:00",
+    "retry_after": "2026-10-23T06:15:56.948087+00:00"
+  },
+  {
+    "name": "The Tomb of Dracula Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46074,
+        "name": "Tomb of Dracula Omnibus",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:15:57.370397+00:00",
+    "retry_after": "2026-10-23T06:15:57.370412+00:00"
+  },
+  {
+    "name": "Battlefields: Dear Billy",
+    "publisher": "Dynamite Entertainment",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60854,
+        "name": "Battlefields: Dear Billy",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 25546,
+        "name": "Battlefields: Dear Billy",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:15:57.727343+00:00",
+    "retry_after": "2026-10-23T06:15:57.727359+00:00"
+  },
+  {
+    "name": "Krazy Krow",
+    "publisher": "Marvel Comics",
+    "year": 1945,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1059,
+        "name": "Krazy Krow",
+        "publisher": null,
+        "start_year": 1945
+      },
+      {
+        "id": 54608,
+        "name": "Krazy Krow",
+        "publisher": null,
+        "start_year": 1958
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:15:58.264830+00:00",
+    "retry_after": "2026-10-23T06:15:58.264845+00:00"
+  },
+  {
+    "name": "Sam Noir: Ronin Holiday",
+    "publisher": "Image Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27498,
+        "name": "Sam Noir: Ronin Holiday",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:15:58.682606+00:00",
+    "retry_after": "2026-10-23T06:15:58.682622+00:00"
+  },
+  {
+    "name": "Hell's Mistress",
+    "publisher": "Fantagraphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37486,
+        "name": "Hell's Mistress",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:15:59.171658+00:00",
+    "retry_after": "2026-10-23T06:15:59.171673+00:00"
+  },
+  {
+    "name": "Coda",
+    "publisher": "BOOM! Studios",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113697,
+        "name": "Coda",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 153596,
+        "name": "Coda",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 110501,
+        "name": "Coda",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 142907,
+        "name": "Coda",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:15:59.425612+00:00",
+    "retry_after": "2026-10-23T06:15:59.425628+00:00"
+  },
+  {
+    "name": "Venom War: Carnage",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159325,
+        "name": "Venom War: Carnage",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:15:59.790782+00:00",
+    "retry_after": "2026-10-23T06:15:59.790796+00:00"
+  },
+  {
+    "name": "Naked Angels",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36333,
+        "name": "Naked Angels",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:00.116411+00:00",
+    "retry_after": "2026-10-23T06:16:00.116427+00:00"
+  },
+  {
+    "name": "Pandora: Devil's Advocate",
+    "publisher": "Avatar Press",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19916,
+        "name": "Pandora: The Devil's Advocate",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:00.468874+00:00",
+    "retry_after": "2026-10-23T06:16:00.468889+00:00"
+  },
+  {
+    "name": "Ultimate Marvel Team-Up",
+    "publisher": "Marvel Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 7515,
+        "name": "Ultimate Marvel Team-Up",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:00.818865+00:00",
+    "retry_after": "2026-10-23T06:16:00.818883+00:00"
+  },
+  {
+    "name": "Smoke",
+    "publisher": "IDW Publishing",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19293,
+        "name": "Smoke",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 84994,
+        "name": "Smoke",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:01.315187+00:00",
+    "retry_after": "2026-10-23T06:16:01.315204+00:00"
+  },
+  {
+    "name": "World of Darkness: Crimson Thaw",
+    "publisher": "Vault Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 139596,
+        "name": "World of Darkness: Crimson Thaw",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:01.737663+00:00",
+    "retry_after": "2026-10-23T06:16:01.737678+00:00"
+  },
+  {
+    "name": "Revival",
+    "publisher": "Image Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50379,
+        "name": "Revival",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 108455,
+        "name": "Revival",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 150464,
+        "name": "Revival",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 66561,
+        "name": "The Revival",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 43991,
+        "name": "The Revival",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 116180,
+        "name": "Revival",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:02.611474+00:00",
+    "retry_after": "2026-10-23T06:16:02.611492+00:00"
+  },
+  {
+    "name": "Popeye",
+    "publisher": "Charlton Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47699,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 1174,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1948
+      },
+      {
+        "id": 144834,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 48325,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1953
+      },
+      {
+        "id": 144185,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1983
+      },
+      {
+        "id": 143936,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1941
+      },
+      {
+        "id": 48375,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 127489,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1978
+      },
+      {
+        "id": 144136,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1949
+      },
+      {
+        "id": 134587,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 68458,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 36678,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 57702,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1969
+      },
+      {
+        "id": 144472,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 144630,
+        "name": "Popeye ",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 144772,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 68437,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1967
+      },
+      {
+        "id": 142516,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1935
+      },
+      {
+        "id": 144166,
+        "name": "Popeye",
+        "publisher": null,
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:02.966874+00:00",
+    "retry_after": "2026-10-23T06:16:02.966886+00:00"
+  },
+  {
+    "name": "Batman and Robin",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61509,
+        "name": "Batman & Robin",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 26584,
+        "name": "Batman and Robin",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 86736,
+        "name": "Batman and Robin",
+        "publisher": null,
+        "start_year": 1976
+      },
+      {
+        "id": 156195,
+        "name": "Batman & Robin ",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 134497,
+        "name": "Batman & Robin",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 153462,
+        "name": "Batman and Robin",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 50161,
+        "name": "Batman and Robin",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 42692,
+        "name": "Batman and Robin",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 159620,
+        "name": "Batman and Robin",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 72202,
+        "name": "Batman & Robin",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 104436,
+        "name": "Batman & Robin",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 167102,
+        "name": "Batman and Robin",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:03.259070+00:00",
+    "retry_after": "2026-10-23T06:16:03.259085+00:00"
+  },
+  {
+    "name": "Disneylândia",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:03.636139+00:00",
+    "retry_after": "2026-10-23T06:16:03.636155+00:00"
+  },
+  {
+    "name": "Dept. H",
+    "publisher": "Dark Horse Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 89777,
+        "name": "Dept. H",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:04.968889+00:00",
+    "retry_after": "2026-10-23T06:16:04.968905+00:00"
+  },
+  {
+    "name": "Dale Evans Comics",
+    "publisher": "DC Comics",
+    "year": 1948,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31710,
+        "name": "Dale Evans Comics",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:05.389177+00:00",
+    "retry_after": "2026-10-23T06:16:05.389192+00:00"
+  },
+  {
+    "name": "Star Trek: The Next Generation",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4214,
+        "name": "Star Trek: The Next Generation",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 4027,
+        "name": "Star Trek: The Next Generation",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 127590,
+        "name": "Star Trek: The Next Generation",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 38539,
+        "name": "Star Trek: The Next Generation",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:05.815585+00:00",
+    "retry_after": "2026-10-23T06:16:05.815600+00:00"
+  },
+  {
+    "name": "Blowjob",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28184,
+        "name": "Blowjob",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:06.199599+00:00",
+    "retry_after": "2026-10-23T06:16:06.199614+00:00"
+  },
+  {
+    "name": "Gesebel",
+    "publisher": "Dark Horse Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27826,
+        "name": "Gesebel",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:06.563188+00:00",
+    "retry_after": "2026-10-23T06:16:06.563203+00:00"
+  },
+  {
+    "name": "Tessie the Typist Comics",
+    "publisher": "Marvel Comics",
+    "year": 1944,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T06:16:06.944821+00:00",
+    "retry_after": "2026-10-23T06:16:06.944837+00:00"
   }
 ]

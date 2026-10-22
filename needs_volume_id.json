@@ -59376,24 +59376,24 @@
     "name": "2021 Lost Children",
     "publisher": "Titan Comics",
     "year": 2018,
-    "reason": "multiple_same_start_year_tied",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 111124,
         "name": "2021: Lost Children",
-        "publisher": "Titan Comics",
+        "publisher": null,
         "start_year": 2018
       },
       {
         "id": 113051,
         "name": "2021: Lost Children",
-        "publisher": "Titan Comics",
+        "publisher": null,
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T09:17:12.555290+00:00",
-    "retry_after": "2026-10-22T09:17:12.555305+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T10:15:51.291521+00:00",
+    "retry_after": "2026-10-25T10:15:51.291538+00:00"
   },
   {
     "name": "Arabian Nights on the World of Magic: The Gathering",
@@ -59401,9 +59401,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T09:17:13.025724+00:00",
-    "retry_after": "2026-10-22T09:17:13.025740+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T10:15:51.738069+00:00",
+    "retry_after": "2026-10-25T10:15:51.738084+00:00"
   },
   {
     "name": "Crackajack Comics",
@@ -59411,9 +59411,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T09:17:20.635479+00:00",
-    "retry_after": "2026-10-22T09:17:20.635495+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T10:15:52.302101+00:00",
+    "retry_after": "2026-10-25T10:15:52.302115+00:00"
   },
   {
     "name": "Crime Patrol",
@@ -72020,5 +72020,524 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T09:16:10.904399+00:00",
     "retry_after": "2026-10-23T09:16:10.904410+00:00"
+  },
+  {
+    "name": "Inferno: Hellbound",
+    "publisher": "Image Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19909,
+        "name": "Inferno: Hellbound",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:50.841058+00:00",
+    "retry_after": "2026-10-23T10:15:50.841072+00:00"
+  },
+  {
+    "name": "Providence",
+    "publisher": "Avatar Press",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64988,
+        "name": "Providence",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 99873,
+        "name": "Providence",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 105050,
+        "name": "Providence",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 146086,
+        "name": "Providence",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:53.311686+00:00",
+    "retry_after": "2026-10-23T10:15:53.311703+00:00"
+  },
+  {
+    "name": "X-Men: Phoenix",
+    "publisher": "Marvel Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 9200,
+        "name": "X-Men: Phoenix",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 58732,
+        "name": "X-Men: Phoenix",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:53.978437+00:00",
+    "retry_after": "2026-10-23T10:15:53.978451+00:00"
+  },
+  {
+    "name": "Captain America: Dead Men Running",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 9458,
+        "name": "Captain America: Dead Men Running",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:54.472563+00:00",
+    "retry_after": "2026-10-23T10:15:54.472577+00:00"
+  },
+  {
+    "name": "X-Men Forever 2",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33670,
+        "name": "X-Men Forever 2",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:54.966057+00:00",
+    "retry_after": "2026-10-23T10:15:54.966071+00:00"
+  },
+  {
+    "name": "Army of One",
+    "publisher": "Oni Press",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:55.289602+00:00",
+    "retry_after": "2026-10-23T10:15:55.289616+00:00"
+  },
+  {
+    "name": "Leatherboy",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:55.674430+00:00",
+    "retry_after": "2026-10-23T10:15:55.674444+00:00"
+  },
+  {
+    "name": "Daredevil by Brian Michael Bendis & Alex Maleev Ultimate Collection",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:55.980796+00:00",
+    "retry_after": "2026-10-23T10:15:55.980811+00:00"
+  },
+  {
+    "name": "Marvel Firsts: The 1980s",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:56.358034+00:00",
+    "retry_after": "2026-10-23T10:15:56.358049+00:00"
+  },
+  {
+    "name": "Concrete",
+    "publisher": "Dark Horse Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3919,
+        "name": "Concrete",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 19457,
+        "name": "Concrete",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:56.708203+00:00",
+    "retry_after": "2026-10-23T10:15:56.708218+00:00"
+  },
+  {
+    "name": "Marvel Action: Spider-Man",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 124930,
+        "name": "Marvel Action: Spider-Man",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 115545,
+        "name": "Marvel Action: Spider-Man",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 134991,
+        "name": "Marvel Action: Spider-Man",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:57.012925+00:00",
+    "retry_after": "2026-10-23T10:15:57.012940+00:00"
+  },
+  {
+    "name": "Sigma",
+    "publisher": "Image Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26471,
+        "name": "Sigma",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:57.372840+00:00",
+    "retry_after": "2026-10-23T10:15:57.372855+00:00"
+  },
+  {
+    "name": "Superalmanaque DC",
+    "publisher": "Avatar Press",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132672,
+        "name": "Superalmanaque DC",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:57.659922+00:00",
+    "retry_after": "2026-10-23T10:15:57.659936+00:00"
+  },
+  {
+    "name": "The Return of Alison Dare: Little Miss Adventures",
+    "publisher": "Oni Press",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58577,
+        "name": "Return of Alison Dare: Little Miss Adventures",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:57.975784+00:00",
+    "retry_after": "2026-10-23T10:15:57.975799+00:00"
+  },
+  {
+    "name": "Tales of the Thing",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21698,
+        "name": "Tales of the Thing",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:58.299287+00:00",
+    "retry_after": "2026-10-23T10:15:58.299302+00:00"
+  },
+  {
+    "name": "Alien 3 Movie Special",
+    "publisher": "Dark Horse Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:58.626953+00:00",
+    "retry_after": "2026-10-23T10:15:58.626968+00:00"
+  },
+  {
+    "name": "Popular Funnies Jumbo Edition",
+    "publisher": "Marvel Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155449,
+        "name": "Popular Funnies Jumbo Edition",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 155564,
+        "name": "Popular Funnies Jumbo Edition",
+        "publisher": null,
+        "start_year": 1985
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:58.971126+00:00",
+    "retry_after": "2026-10-23T10:15:58.971141+00:00"
+  },
+  {
+    "name": "Moon Knight",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 137698,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 89613,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 174240,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 18105,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 39957,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 87355,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 3052,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 1980
+      },
+      {
+        "id": 72112,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 28617,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 146282,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:15:59.568784+00:00",
+    "retry_after": "2026-10-23T10:15:59.568799+00:00"
+  },
+  {
+    "name": "Warlord of Mars: Dejah Thoris",
+    "publisher": "Dynamite Entertainment",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 38625,
+        "name": "Warlord of Mars: Dejah Thoris",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:16:00.162136+00:00",
+    "retry_after": "2026-10-23T10:16:00.162153+00:00"
+  },
+  {
+    "name": "Richie Rich's Funtime Comics",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45891,
+        "name": "Richie Rich's Funtime Comics",
+        "publisher": null,
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:16:00.624336+00:00",
+    "retry_after": "2026-10-23T10:16:00.624351+00:00"
+  },
+  {
+    "name": "Fantastic Four Flip Book",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:16:00.935744+00:00",
+    "retry_after": "2026-10-23T10:16:00.935759+00:00"
+  },
+  {
+    "name": "Secret Story Romances",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1581,
+        "name": "Secret Story Romances",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:16:01.338764+00:00",
+    "retry_after": "2026-10-23T10:16:01.338779+00:00"
+  },
+  {
+    "name": "Disney Especial Reedição",
+    "publisher": "Avatar Press",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79152,
+        "name": "Disney Especial Reedição",
+        "publisher": null,
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:16:01.874955+00:00",
+    "retry_after": "2026-10-23T10:16:01.874970+00:00"
+  },
+  {
+    "name": "Fun House Comedy",
+    "publisher": "Marvel Comics",
+    "year": 1964,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 125513,
+        "name": "Fun House Comedy",
+        "publisher": null,
+        "start_year": 1964
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:16:02.193285+00:00",
+    "retry_after": "2026-10-23T10:16:02.193301+00:00"
+  },
+  {
+    "name": "Heróis da TV",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158264,
+        "name": "Heróis da TV",
+        "publisher": null,
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:16:02.521229+00:00",
+    "retry_after": "2026-10-23T10:16:02.521244+00:00"
+  },
+  {
+    "name": "Please Save My Earth",
+    "publisher": "VIZ Media",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57087,
+        "name": "Please Save My Earth",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:16:02.845887+00:00",
+    "retry_after": "2026-10-23T10:16:02.845902+00:00"
+  },
+  {
+    "name": "Robotech II: The Sentinels Book II",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34622,
+        "name": "Robotech II: The Sentinels - Book II",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T10:16:03.177810+00:00",
+    "retry_after": "2026-10-23T10:16:03.177825+00:00"
   }
 ]

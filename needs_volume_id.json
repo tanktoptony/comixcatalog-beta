@@ -2888,31 +2888,32 @@
   },
   {
     "name": "Ex Machina",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2004,
     "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 42339,
         "name": "Ex Machina",
-        "publisher": "Panini Verlag",
+        "publisher": null,
         "start_year": 2007
       },
       {
         "id": 11050,
         "name": "Ex Machina",
-        "publisher": "DC Comics",
+        "publisher": null,
         "start_year": 2004
       },
       {
         "id": 155171,
         "name": "Ex Machina",
-        "publisher": "ECC Ediciones",
+        "publisher": null,
         "start_year": 2014
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554469+00:00"
+    "last_attempt_at": "2026-10-22T04:16:03.235909+00:00",
+    "retry_after": "2026-10-23T04:16:03.235926+00:00"
   },
   {
     "name": "Skip Beat!",
@@ -59091,9 +59092,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T03:17:18.018624+00:00",
-    "retry_after": "2026-10-22T03:17:18.018643+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T04:15:53.742027+00:00",
+    "retry_after": "2026-10-25T04:15:53.742044+00:00"
   },
   {
     "name": "Peter Pan",
@@ -59104,49 +59105,49 @@
       {
         "id": 90132,
         "name": "Peter Pan",
-        "publisher": "Egmont Ehapa Verlag",
+        "publisher": null,
         "start_year": 1991
       },
       {
         "id": 83971,
         "name": "Peter Pan",
-        "publisher": "Capstone Press",
+        "publisher": null,
         "start_year": 2015
       },
       {
         "id": 104071,
         "name": "Peter Pan",
-        "publisher": "Seven Seas Entertainment",
+        "publisher": null,
         "start_year": 2017
       },
       {
         "id": 140818,
         "name": "Peter Pan",
-        "publisher": "Glénat Spain",
+        "publisher": null,
         "start_year": 2009
       },
       {
         "id": 27100,
         "name": "Peter Pan",
-        "publisher": "Vents d'Ouest",
+        "publisher": null,
         "start_year": 1990
       },
       {
         "id": 55880,
         "name": "Peter Pan",
-        "publisher": "Disney",
+        "publisher": null,
         "start_year": 2013
       },
       {
         "id": 67018,
         "name": "Peter Pan",
-        "publisher": "Soaring Penguin Press",
+        "publisher": null,
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T03:17:25.126651+00:00",
-    "retry_after": "2026-10-22T03:17:25.126669+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T04:15:54.139494+00:00",
+    "retry_after": "2026-10-25T04:15:54.139510+00:00"
   },
   {
     "name": "Classic Star Wars Box Set",
@@ -59154,9 +59155,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T03:17:43.461247+00:00",
-    "retry_after": "2026-10-22T03:17:43.461263+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T04:15:54.559096+00:00",
+    "retry_after": "2026-10-25T04:15:54.559111+00:00"
   },
   {
     "name": "Pete Von Sholly's Morbid",
@@ -59164,9 +59165,9 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T03:17:43.895584+00:00",
-    "retry_after": "2026-10-22T03:17:43.895602+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T04:15:54.877451+00:00",
+    "retry_after": "2026-10-25T04:15:54.877466+00:00"
   },
   {
     "name": "Batman: Retorno ao Asilo Arkham",
@@ -67650,5 +67651,1031 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T03:16:31.267440+00:00",
     "retry_after": "2026-10-23T03:16:31.267453+00:00"
+  },
+  {
+    "name": "Justice League International Special",
+    "publisher": "DC Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23478,
+        "name": "Justice League International Special",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:00:50.615978+00:00",
+    "retry_after": "2026-10-23T04:00:50.615993+00:00"
+  },
+  {
+    "name": "Unknown Worlds of Science Fiction",
+    "publisher": "Marvel Comics",
+    "year": 1976,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2784,
+        "name": "Unknown Worlds of Science Fiction",
+        "publisher": null,
+        "start_year": 1975
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:52.501925+00:00",
+    "retry_after": "2026-10-23T04:15:52.501939+00:00"
+  },
+  {
+    "name": "Nova",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44349,
+        "name": "Nova",
+        "publisher": null,
+        "start_year": 1978
+      },
+      {
+        "id": 57535,
+        "name": "Nova",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 129466,
+        "name": "Nova",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 20997,
+        "name": "Nova",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 18462,
+        "name": "Nova",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 2867,
+        "name": "Nova",
+        "publisher": null,
+        "start_year": 1976
+      },
+      {
+        "id": 2957,
+        "name": "Nova",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 85778,
+        "name": "Nova",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 96300,
+        "name": "Nova",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 42823,
+        "name": "Nova",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 87356,
+        "name": "Nova",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:53.017560+00:00",
+    "retry_after": "2026-10-23T04:15:53.017577+00:00"
+  },
+  {
+    "name": "Harley Quinn",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 134718,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 69322,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 109850,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 86934,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 9494,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 96070,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 160586,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 92750,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 151187,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 147797,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 89443,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 166504,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:53.308716+00:00",
+    "retry_after": "2026-10-23T04:15:53.308732+00:00"
+  },
+  {
+    "name": "Prey",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61124,
+        "name": "Prey",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 61123,
+        "name": "Prey",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:55.284514+00:00",
+    "retry_after": "2026-10-23T04:15:55.284530+00:00"
+  },
+  {
+    "name": "As Aventuras dos Trapalhões - Revistinha Grátis",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:55.584243+00:00",
+    "retry_after": "2026-10-23T04:15:55.584259+00:00"
+  },
+  {
+    "name": "New Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11497,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 55330,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 119940,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 33777,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 85301,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 40895,
+        "name": "The New Avengers",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 165022,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 87105,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 55695,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 170991,
+        "name": "New Avengers ",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:55.787441+00:00",
+    "retry_after": "2026-10-23T04:15:55.787456+00:00"
+  },
+  {
+    "name": "Any Children?",
+    "publisher": "Fawcett Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:56.162115+00:00",
+    "retry_after": "2026-10-23T04:15:56.162131+00:00"
+  },
+  {
+    "name": "Star Trek: Picard - Stargazer",
+    "publisher": "IDW Publishing",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 165677,
+        "name": "Star Trek: Picard - Stargazer",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 144894,
+        "name": "Star Trek: Picard - Stargazer",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:56.530072+00:00",
+    "retry_after": "2026-10-23T04:15:56.530087+00:00"
+  },
+  {
+    "name": "Domino Lady",
+    "publisher": "Fantagraphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30058,
+        "name": "Domino Lady",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 20386,
+        "name": "Domino Lady",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:56.946391+00:00",
+    "retry_after": "2026-10-23T04:15:56.946408+00:00"
+  },
+  {
+    "name": "Venom War: Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159704,
+        "name": "Venom War: Wolverine",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:57.207160+00:00",
+    "retry_after": "2026-10-23T04:15:57.207176+00:00"
+  },
+  {
+    "name": "Marvel Knights Punisher by Garth Ennis: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115894,
+        "name": "Marvel Knights Punisher by Garth Ennis: The Complete Collection",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:57.554668+00:00",
+    "retry_after": "2026-10-23T04:15:57.554684+00:00"
+  },
+  {
+    "name": "Hip Hop Family Tree [Box Set]",
+    "publisher": "Fantagraphics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:58.005712+00:00",
+    "retry_after": "2026-10-23T04:15:58.005729+00:00"
+  },
+  {
+    "name": "Untamed",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129086,
+        "name": "Untamed",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 22950,
+        "name": "Untamed",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:58.653683+00:00",
+    "retry_after": "2026-10-23T04:15:58.653699+00:00"
+  },
+  {
+    "name": "Suneater",
+    "publisher": "Heavy Metal",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129934,
+        "name": "SunEater",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 138697,
+        "name": "SunEater",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:59.436206+00:00",
+    "retry_after": "2026-10-23T04:15:59.436222+00:00"
+  },
+  {
+    "name": "Amazing Spider-Man: Blood Hunt",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158148,
+        "name": "Amazing Spider-Man: Blood Hunt",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 160911,
+        "name": "The Amazing Spider-Man: Blood Hunt",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:15:59.792003+00:00",
+    "retry_after": "2026-10-23T04:15:59.792020+00:00"
+  },
+  {
+    "name": "Iron Fist",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2766,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 100082,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 23561,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 141631,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 114112,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 6214,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 22401,
+        "name": "Iron Fist",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:16:00.630229+00:00",
+    "retry_after": "2026-10-23T04:16:00.630245+00:00"
+  },
+  {
+    "name": "Spider-Man and His Amazing Friends",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26291,
+        "name": "Spider-Man and His Amazing Friends",
+        "publisher": null,
+        "start_year": 1981
+      },
+      {
+        "id": 47659,
+        "name": "Spider-Man and his Amazing Friends",
+        "publisher": null,
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:16:01.407357+00:00",
+    "retry_after": "2026-10-23T04:16:01.407374+00:00"
+  },
+  {
+    "name": "Beetle Bailey",
+    "publisher": "Charlton Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20118,
+        "name": "Beetle Bailey",
+        "publisher": null,
+        "start_year": 1956
+      },
+      {
+        "id": 150347,
+        "name": "Beetle Bailey",
+        "publisher": null,
+        "start_year": 1969
+      },
+      {
+        "id": 32384,
+        "name": "Beetle Bailey",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 49910,
+        "name": "Beetle Bailey",
+        "publisher": null,
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:16:01.855069+00:00",
+    "retry_after": "2026-10-23T04:16:01.855086+00:00"
+  },
+  {
+    "name": "Catwoman",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4955,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 112028,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 7328,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 42722,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 94785,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 118239,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 41994,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 60384,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 120064,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 45671,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 4176,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 149934,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 166392,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 127248,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 137835,
+        "name": "Catwoman",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:16:02.241192+00:00",
+    "retry_after": "2026-10-23T04:16:02.241211+00:00"
+  },
+  {
+    "name": "Donald Duck",
+    "publisher": "BOOM! Studios",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 139267,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 31262,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 1952
+      },
+      {
+        "id": 2090,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 1952
+      },
+      {
+        "id": 82112,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 49727,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 169345,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 61059,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 48886,
+        "name": "Donald Duck",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:16:02.565493+00:00",
+    "retry_after": "2026-10-23T04:16:02.565509+00:00"
+  },
+  {
+    "name": "Spawn",
+    "publisher": "Image Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4937,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 127843,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 43255,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 125306,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 53869,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 48314,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 53868,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 127267,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 53870,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 91700,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 145228,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 164079,
+        "name": "Spawn",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:16:02.902829+00:00",
+    "retry_after": "2026-10-23T04:16:02.902845+00:00"
+  },
+  {
+    "name": "Batgirl",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 160861,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 82483,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 150121,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 7205,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 92542,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 127240,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 41790,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 154015,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 42604,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 27457,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 100119,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 22245,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 60406,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 50413,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 167372,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:16:03.451513+00:00",
+    "retry_after": "2026-10-23T04:16:03.451529+00:00"
+  },
+  {
+    "name": "ALF",
+    "publisher": "Marvel Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4042,
+        "name": "ALF",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 40656,
+        "name": "ALF",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 52563,
+        "name": "Alf",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 127508,
+        "name": "Alf",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 177199,
+        "name": "Alf",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 125857,
+        "name": "Alf",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 136259,
+        "name": "Alf",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 166249,
+        "name": "Alf",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 32243,
+        "name": "ALF",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:16:03.802885+00:00",
+    "retry_after": "2026-10-23T04:16:03.802902+00:00"
+  },
+  {
+    "name": "Old Man Logan",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 87624,
+        "name": "Old Man Logan",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 118907,
+        "name": "Old Man Logan ",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 82208,
+        "name": "Old Man Logan",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:16:04.560916+00:00",
+    "retry_after": "2026-10-23T04:16:04.560932+00:00"
+  },
+  {
+    "name": "Booklet [Hockey Booklets]",
+    "publisher": "Topps Comics",
+    "year": 1971,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T04:16:04.863672+00:00",
+    "retry_after": "2026-10-23T04:16:04.863689+00:00"
   }
 ]

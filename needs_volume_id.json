@@ -59424,19 +59424,19 @@
       {
         "id": 35685,
         "name": "Crime Patrol",
-        "publisher": "Gemstone",
+        "publisher": null,
         "start_year": 2000
       },
       {
         "id": 18613,
         "name": "Crime Patrol",
-        "publisher": "EC",
+        "publisher": null,
         "start_year": 1948
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T10:16:23.777599+00:00",
-    "retry_after": "2026-10-22T10:16:23.777618+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T11:15:54.248557+00:00",
+    "retry_after": "2026-10-25T11:15:54.248571+00:00"
   },
   {
     "name": "Charlamagne Tha God Presents: Illuminati",
@@ -59444,9 +59444,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T10:16:28.963762+00:00",
-    "retry_after": "2026-10-22T10:16:28.963778+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T11:15:54.828988+00:00",
+    "retry_after": "2026-10-25T11:15:54.829003+00:00"
   },
   {
     "name": "Rat Queens Deluxe Hardcover",
@@ -59454,9 +59454,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T10:16:41.216151+00:00",
-    "retry_after": "2026-10-22T10:16:41.216165+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T11:15:55.362312+00:00",
+    "retry_after": "2026-10-25T11:15:55.362326+00:00"
   },
   {
     "name": "Private American",
@@ -59464,9 +59464,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T10:16:51.329671+00:00",
-    "retry_after": "2026-10-22T10:16:51.329686+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T11:15:55.726908+00:00",
+    "retry_after": "2026-10-25T11:15:55.726940+00:00"
   },
   {
     "name": "Bible Tales for Young People",
@@ -72539,5 +72539,519 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T10:16:03.177810+00:00",
     "retry_after": "2026-10-23T10:16:03.177825+00:00"
+  },
+  {
+    "name": "Deathmask",
+    "publisher": "IDW Publishing",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25801,
+        "name": "Deathmask",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:15:56.178004+00:00",
+    "retry_after": "2026-10-23T11:15:56.178018+00:00"
+  },
+  {
+    "name": "WildC.A.T.s Trilogy",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 128416,
+        "name": "WildC.A.T.S Trilogy",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 18504,
+        "name": "WildC.A.T.S Trilogy",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:15:56.692785+00:00",
+    "retry_after": "2026-10-23T11:15:56.692799+00:00"
+  },
+  {
+    "name": "Marvel Special Edition Featuring Star Wars",
+    "publisher": "Marvel Comics",
+    "year": 1977,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11734,
+        "name": "Marvel Special Edition Featuring Star Wars",
+        "publisher": null,
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:15:57.121501+00:00",
+    "retry_after": "2026-10-23T11:15:57.121513+00:00"
+  },
+  {
+    "name": "Dungeons & Dragons",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127515,
+        "name": "Dungeons & Dragons",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 34871,
+        "name": "Dungeons & Dragons",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 90079,
+        "name": "Dungeons & Dragons",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 141656,
+        "name": "Dungeons & Dragons ",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:15:57.749416+00:00",
+    "retry_after": "2026-10-23T11:15:57.749430+00:00"
+  },
+  {
+    "name": "Man Goat & The Bunnyman: Beware The Pigman",
+    "publisher": "Zenescope Entertainment",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159027,
+        "name": "Man Goat & The Bunnyman: Beware the Pigman",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:15:58.312752+00:00",
+    "retry_after": "2026-10-23T11:15:58.312766+00:00"
+  },
+  {
+    "name": "The New Adventures of Cholly and Flytrap: Till Death Do Us Part",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:15:58.879380+00:00",
+    "retry_after": "2026-10-23T11:15:58.879398+00:00"
+  },
+  {
+    "name": "The Forged",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148892,
+        "name": "The Forged",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 155573,
+        "name": "The Forged",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 117389,
+        "name": "Forged",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:15:59.421344+00:00",
+    "retry_after": "2026-10-23T11:15:59.421359+00:00"
+  },
+  {
+    "name": "The Untold Legend of Captain Marvel",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11191,
+        "name": "Untold Legend of Captain Marvel",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:15:59.894692+00:00",
+    "retry_after": "2026-10-23T11:15:59.894707+00:00"
+  },
+  {
+    "name": "Pooh vs. Bambi",
+    "publisher": "Zenescope Entertainment",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157854,
+        "name": "Pooh vs Bambi",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:00.375588+00:00",
+    "retry_after": "2026-10-23T11:16:00.375603+00:00"
+  },
+  {
+    "name": "Super-Homem versus Apocalypse: A Revanche",
+    "publisher": "Avatar Press",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:00.708522+00:00",
+    "retry_after": "2026-10-23T11:16:00.708537+00:00"
+  },
+  {
+    "name": "Borgia",
+    "publisher": "Heavy Metal",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 92440,
+        "name": "Borgia",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 164706,
+        "name": "Borgia",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 24835,
+        "name": "Borgia",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 103566,
+        "name": "Borgia",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 136262,
+        "name": "Borgia",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:01.000963+00:00",
+    "retry_after": "2026-10-23T11:16:01.000978+00:00"
+  },
+  {
+    "name": "Eureka Graphic Novel",
+    "publisher": "Dark Horse Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66097,
+        "name": "Eureka Graphic Novel",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:01.741110+00:00",
+    "retry_after": "2026-10-23T11:16:01.741124+00:00"
+  },
+  {
+    "name": "American Jesus: Revelation",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 145742,
+        "name": "American Jesus: Revelation",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:02.198032+00:00",
+    "retry_after": "2026-10-23T11:16:02.198047+00:00"
+  },
+  {
+    "name": "Venom War: Venomous",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159326,
+        "name": "Venom War: Venomous",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:02.746618+00:00",
+    "retry_after": "2026-10-23T11:16:02.746633+00:00"
+  },
+  {
+    "name": "RoboForce",
+    "publisher": "Oni Press",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158103,
+        "name": "RoboForce",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:03.058968+00:00",
+    "retry_after": "2026-10-23T11:16:03.058983+00:00"
+  },
+  {
+    "name": "First Love Pictorial",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158542,
+        "name": "First Love Pictorial ",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:03.515027+00:00",
+    "retry_after": "2026-10-23T11:16:03.515041+00:00"
+  },
+  {
+    "name": "Gantz",
+    "publisher": "Dark Horse Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 95893,
+        "name": "Gantz",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 42448,
+        "name": "Gantz",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 27611,
+        "name": "Gantz",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 103204,
+        "name": "Gantz",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 162393,
+        "name": "Gantz",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:04.167826+00:00",
+    "retry_after": "2026-10-23T11:16:04.167841+00:00"
+  },
+  {
+    "name": "Billy the Kid Adventure Magazine",
+    "publisher": "Atlas Comics",
+    "year": 1959,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 128562,
+        "name": "Billy the Kid Adventure Magazine",
+        "publisher": null,
+        "start_year": 1953
+      },
+      {
+        "id": 58730,
+        "name": "Billy the Kid Adventure Magazine",
+        "publisher": null,
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:04.725242+00:00",
+    "retry_after": "2026-10-23T11:16:04.725258+00:00"
+  },
+  {
+    "name": "Pokémon Black and White",
+    "publisher": "VIZ Media",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:05.216741+00:00",
+    "retry_after": "2026-10-23T11:16:05.216757+00:00"
+  },
+  {
+    "name": "Clive Barker's Hellraiser",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39454,
+        "name": "Clive Barker's Hellraiser",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 21636,
+        "name": "Clive Barker's Hellraiser",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:05.668031+00:00",
+    "retry_after": "2026-10-23T11:16:05.668046+00:00"
+  },
+  {
+    "name": "Cheeky Angel",
+    "publisher": "VIZ Media",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:06.254647+00:00",
+    "retry_after": "2026-10-23T11:16:06.254663+00:00"
+  },
+  {
+    "name": "Battle Fire",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25204,
+        "name": "Battle Fire",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:06.632586+00:00",
+    "retry_after": "2026-10-23T11:16:06.632601+00:00"
+  },
+  {
+    "name": "Batman: O Desenho da TV",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:07.170139+00:00",
+    "retry_after": "2026-10-23T11:16:07.170154+00:00"
+  },
+  {
+    "name": "The Promised Neverland",
+    "publisher": "VIZ Media",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 149686,
+        "name": "The Promised Neverland",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 106538,
+        "name": "The Promised Neverland",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 156892,
+        "name": "The Promised Neverland",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:07.645369+00:00",
+    "retry_after": "2026-10-23T11:16:07.645384+00:00"
+  },
+  {
+    "name": "Karmatrón y los Transformables",
+    "publisher": "BOOM! Studios",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:08.006177+00:00",
+    "retry_after": "2026-10-23T11:16:08.006192+00:00"
+  },
+  {
+    "name": "Battleground",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 124603,
+        "name": "Battleground",
+        "publisher": null,
+        "start_year": 1964
+      },
+      {
+        "id": 30534,
+        "name": "Battleground",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T11:16:08.375098+00:00",
+    "retry_after": "2026-10-23T11:16:08.375114+00:00"
   }
 ]

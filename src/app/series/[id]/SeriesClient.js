@@ -13,6 +13,12 @@ import { buildSeriesIntro } from "@/lib/seriesSeo";
 import KeyTimeline from "@/components/KeyTimeline";
 import { KeyRound } from "lucide-react";
 import { ageSpanLabel, heroKeyCovers } from "@/lib/seriesPage";
+import {
+  buildRunQuickAddPayload,
+  RUN_QUICK_ADD_LIMIT,
+  selectableIssueIds,
+  selectIssueRange,
+} from "@/lib/runQuickAdd";
 
 const ISSUE_BATCH = 60;
 
@@ -49,7 +55,7 @@ function issueSortValue(issueNumber) {
 // initialSeries is the /api/series/[id] payload rendered on the server
 // (src/app/series/[id]/page.js), so the issue grid is in the first HTML.
 // null means the server did not have it and the client fetches as before.
-export default function SeriesClient({ initialSeries = null }) {
+export default function SeriesClient({ initialSeries = null, initialOwnMode = false }) {
   const { id } = useParams();
   const [series, setSeries] = useState(initialSeries);
   const [loading, setLoading] = useState(!initialSeries);
@@ -66,11 +72,18 @@ export default function SeriesClient({ initialSeries = null }) {
     collectionIds,
     wishlistIds,
     addToCollection,
+    addRunToCollection,
     removeFromCollection,
   } = useLibrary();
   const [bulkAdding, setBulkAdding] = useState(false);
   const [bulkResult, setBulkResult] = useState(null);
   const [mutationError, setMutationError] = useState(null);
+  const [ownMode, setOwnMode] = useState(initialOwnMode);
+  const [selectedIssueIds, setSelectedIssueIds] = useState(new Set());
+  const [rangeStartId, setRangeStartId] = useState(null);
+  const [selectingRange, setSelectingRange] = useState(false);
+  const [runAdding, setRunAdding] = useState(false);
+  const markingMode = Boolean(user && ownMode);
 
   async function updateIssueLibrary(issueId, status) {
     try {
@@ -178,6 +191,53 @@ export default function SeriesClient({ initialSeries = null }) {
 
     return deduped;
     }, [series, sortMode]);
+
+  function toggleIssueSelection(issueId) {
+    const key = String(issueId);
+    if (collectionIds?.has(key)) return;
+
+    if (selectingRange) {
+      if (!rangeStartId) {
+        setRangeStartId(key);
+        setSelectedIssueIds(new Set([key]));
+        return;
+      }
+      const range = selectIssueRange(sortedIssues, rangeStartId, key, collectionIds)
+        .slice(0, RUN_QUICK_ADD_LIMIT);
+      setSelectedIssueIds(new Set(range));
+      setRangeStartId(null);
+      setSelectingRange(false);
+      return;
+    }
+
+    setSelectedIssueIds((current) => {
+      const next = new Set(current);
+      if (next.has(key)) next.delete(key);
+      else if (next.size < RUN_QUICK_ADD_LIMIT) next.add(key);
+      return next;
+    });
+  }
+
+  async function handleRunAdd() {
+    const payload = buildRunQuickAddPayload(selectedIssueIds, collectionIds);
+    if (!payload.issue_ids.length) return;
+
+    setRunAdding(true);
+    setMutationError(null);
+    const ids = payload.issue_ids.map((issueId) => `gcd-${issueId}`);
+    const result = await addRunToCollection(ids);
+    setRunAdding(false);
+    if (!result.ok) {
+      setMutationError(result.error || "Could not add those issues.");
+      return;
+    }
+
+    setSelectedIssueIds(new Set());
+    trackEvent("run_quick_add", {
+      count: result.added?.length ?? ids.length,
+      series_id: series.id,
+    });
+  }
 
   // Run completion math. issue.id is already the library key
   // ("gcd-<gcd_id>" for GCD issues, plain uuid for local user comics) - same
@@ -553,43 +613,66 @@ export default function SeriesClient({ initialSeries = null }) {
           </div>
         )}
 
-        {/* Anonymous-visitor nudge - mirrors the issue page's pattern.
-            Previously this whole engagement slot only rendered for signed-in
-            users who already owned/wishlisted something from this run, so an
-            anonymous visitor (or a logged-in user new to this series) saw no
-            prompt to start tracking at all. */}
-        {!user && sortedIssues.length > 0 && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              gap: 12,
-              flexWrap: "wrap",
-              marginBottom: 20,
-              padding: "14px 16px",
-              borderRadius: 10,
-              background: "rgba(255,215,0,0.06)",
-              border: "1px solid rgba(255,215,0,0.25)",
-            }}
-          >
-            <div style={{ fontSize: "0.9rem", opacity: 0.9 }}>
-              Track your progress on this {sortedIssues.length}-issue run - see what you own and what you&rsquo;re missing.
-            </div>
-            <Link
-              href={`/signup?next=${encodeURIComponent(`/series/${id}`)}`}
-              style={{
-                padding: "8px 14px",
-                borderRadius: 8,
-                border: "1px solid var(--cc-gold, #FFD700)",
-                color: "var(--cc-gold, #FFD700)",
-                fontWeight: 700,
-                textDecoration: "none",
-                flexShrink: 0,
-              }}
-            >
-              Start tracking - free →
-            </Link>
+        {sortedIssues.length > 0 && (
+          <div className="run-quick-add-toolbar">
+            {user ? (
+              <>
+                <button
+                  type="button"
+                  className={`run-quick-add-toggle${ownMode ? " is-active" : ""}`}
+                  onClick={() => {
+                    setOwnMode((current) => !current);
+                    setSelectingRange(false);
+                    setRangeStartId(null);
+                  }}
+                >
+                  {ownMode ? "Done marking" : "Mark what you own"}
+                </button>
+                {ownMode && (
+                  <div className="run-quick-add-tools">
+                    <button
+                      type="button"
+                      className={selectingRange ? "is-active" : ""}
+                      onClick={() => {
+                        setSelectingRange((current) => !current);
+                        setRangeStartId(null);
+                      }}
+                    >
+                      {selectingRange
+                        ? rangeStartId
+                          ? "Tap the last issue"
+                          : "Tap the first issue"
+                        : "Select a range"}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedIssueIds(new Set(
+                        selectableIssueIds(sortedIssues, collectionIds)
+                          .slice(0, RUN_QUICK_ADD_LIMIT)
+                      ))}
+                    >
+                      Select all
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedIssueIds(new Set());
+                        setRangeStartId(null);
+                      }}
+                    >
+                      Clear
+                    </button>
+                  </div>
+                )}
+              </>
+            ) : (
+              <Link
+                href={`/signup?next=${encodeURIComponent(`/series/${id}?own=1`)}`}
+                className="run-quick-add-signup"
+              >
+                Sign up to mark what you own
+              </Link>
+            )}
           </div>
         )}
 
@@ -649,14 +732,25 @@ export default function SeriesClient({ initialSeries = null }) {
               const key = String(issue?.id ?? "");
               const isOwned = collectionIds?.has(key);
               const isWanted = !isOwned && wishlistIds?.has(key);
+              const isSelected = selectedIssueIds.has(key);
               const keyIssue = keyByIssueId.get(key);
               const majorKey = Number(keyIssue?.tier) === 1;
               return (
               <article
                 key={issue.id}
-                className={`comic-card${keyIssue ? ` comic-card--key${majorKey ? " comic-card--major-key" : ""}` : ""}`}
+                className={`comic-card${keyIssue ? ` comic-card--key${majorKey ? " comic-card--major-key" : ""}` : ""}${markingMode ? " run-select-card" : ""}${isSelected ? " is-selected" : ""}${isOwned && markingMode ? " is-owned" : ""}`}
               >
-                <Link prefetch={false} href={`/issue/${issue.id}`} className="card-link">
+                <Link
+                  prefetch={false}
+                  href={`/issue/${issue.id}`}
+                  className="card-link"
+                  aria-label={markingMode ? `${isSelected ? "Deselect" : "Select"} issue ${issue.issue_number}` : undefined}
+                  onClick={(event) => {
+                    if (!markingMode) return;
+                    event.preventDefault();
+                    toggleIssueSelection(key);
+                  }}
+                >
                   <div className="comic-card-cover" style={{ position: "relative" }}>
                     <img
                       src={coverThumb(issue.cover || "/fallback-cover.png")}
@@ -686,6 +780,9 @@ export default function SeriesClient({ initialSeries = null }) {
                       >
                         OWNED
                       </span>
+                    )}
+                    {isSelected && (
+                      <span className="run-selected-check" aria-hidden="true">✓</span>
                     )}
                     {isWanted && (
                       <span
@@ -730,7 +827,7 @@ export default function SeriesClient({ initialSeries = null }) {
                     </div>
                   )}
                 </Link>
-                <div className="comic-card-actions series-issue-actions">
+                {!markingMode && <div className="comic-card-actions series-issue-actions">
                   {!isOwned && !isWanted && (
                     user ? (
                       <>
@@ -767,7 +864,7 @@ export default function SeriesClient({ initialSeries = null }) {
                       Remove
                     </button>
                   )}
-                </div>
+                </div>}
               </article>
               );
             })}
@@ -778,6 +875,15 @@ export default function SeriesClient({ initialSeries = null }) {
           <div ref={moreRef} className="series-more">
             <button type="button" onClick={() => setShown(sortedIssues.length)}>
               Show all {sortedIssues.length.toLocaleString("en-US")} issues
+            </button>
+          </div>
+        )}
+        {markingMode && selectedIssueIds.size > 0 && (
+          <div className="run-quick-add-bar" role="region" aria-label="Add selected issues">
+            <button type="button" onClick={handleRunAdd} disabled={runAdding}>
+              {runAdding
+                ? "Adding to your collection..."
+                : `Add ${selectedIssueIds.size} to your collection`}
             </button>
           </div>
         )}

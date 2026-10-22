@@ -78,6 +78,31 @@ export function getSeriesData(id) {
   return settle(cachedSeries(id));
 }
 
+export async function getKeyRulings(gcdIssueIds) {
+  const ids = [...new Set((gcdIssueIds ?? []).map(Number).filter(Number.isFinite))].sort((a, b) => a - b);
+  if (!ids.length) return {};
+
+  return unstable_cache(async () => {
+    const supabase = getServiceClient();
+    const { data, error } = await supabase
+      .from("key_rulings")
+      .select("gcd_issue_id, action, verdict, note, ruled_at")
+      .in("gcd_issue_id", ids)
+      .is("reverted_at", null)
+      .neq("action", "fix_reason")
+      .order("ruled_at", { ascending: false });
+    if (error) {
+      console.error("key page ruling lookup failed:", error.code, error.message);
+      return {};
+    }
+    const latest = {};
+    for (const row of data ?? []) {
+      if (!latest[row.gcd_issue_id]) latest[row.gcd_issue_id] = row;
+    }
+    return latest;
+  }, ["series-key-rulings-v1", ids.join(",")], { revalidate: 3600 })();
+}
+
 const cachedIssue = unstable_cache(
   (id) =>
     callRoute(issueGET, `http://internal/api/issues/${encodeURIComponent(id)}`, "issue", {

@@ -27555,7 +27555,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27573,8 +27573,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T08:06:14.776401+00:00",
-    "retry_after": "2026-10-23T08:06:14.776417+00:00"
+    "last_attempt_at": "2026-10-22T09:00:52.144123+00:00",
+    "retry_after": "2026-10-23T09:00:52.144139+00:00"
   },
   {
     "name": "Cerebus",
@@ -43531,7 +43531,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43549,8 +43549,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T08:00:50.310695+00:00",
-    "retry_after": "2026-10-23T08:00:50.310710+00:00"
+    "last_attempt_at": "2026-10-22T09:00:52.194354+00:00",
+    "retry_after": "2026-10-23T09:00:52.194371+00:00"
   },
   {
     "name": "Justice League Special",
@@ -59278,9 +59278,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T08:15:42.992859+00:00",
-    "retry_after": "2026-10-22T08:15:42.992876+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T09:15:53.986687+00:00",
+    "retry_after": "2026-10-25T09:15:53.986701+00:00"
   },
   {
     "name": "Brian Pulido's Lady Death: Swimsuit",
@@ -59288,9 +59288,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T08:15:55.048662+00:00",
-    "retry_after": "2026-10-22T08:15:55.048675+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T09:15:54.344655+00:00",
+    "retry_after": "2026-10-25T09:15:54.344667+00:00"
   },
   {
     "name": "Skin Graft",
@@ -59298,9 +59298,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T08:16:19.272239+00:00",
-    "retry_after": "2026-10-22T08:16:19.272260+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T09:15:55.008468+00:00",
+    "retry_after": "2026-10-25T09:15:55.008482+00:00"
   },
   {
     "name": "Archer Coe",
@@ -59308,9 +59308,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T08:16:26.588765+00:00",
-    "retry_after": "2026-10-22T08:16:26.588785+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T09:15:55.441314+00:00",
+    "retry_after": "2026-10-25T09:15:55.441330+00:00"
   },
   {
     "name": "The Walled City",
@@ -59318,9 +59318,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T08:16:27.037817+00:00",
-    "retry_after": "2026-10-22T08:16:27.037837+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T09:15:55.776999+00:00",
+    "retry_after": "2026-10-25T09:15:55.777014+00:00"
   },
   {
     "name": "Batman / Aliens",
@@ -59331,19 +59331,19 @@
       {
         "id": 49204,
         "name": "Batman / Aliens",
-        "publisher": "Norma Editorial",
+        "publisher": null,
         "start_year": 2001
       },
       {
         "id": 6820,
         "name": "Batman/Aliens",
-        "publisher": "DC Comics",
+        "publisher": null,
         "start_year": 1997
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T08:16:32.330890+00:00",
-    "retry_after": "2026-10-22T08:16:32.330908+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T09:15:56.156829+00:00",
+    "retry_after": "2026-10-25T09:15:56.156844+00:00"
   },
   {
     "name": "The Two Mouseketeers Giant Edition",
@@ -59354,13 +59354,13 @@
       {
         "id": 158600,
         "name": "The Two Mouseketeers Giant Edition",
-        "publisher": "Magazine Management",
+        "publisher": null,
         "start_year": null
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T08:16:32.885000+00:00",
-    "retry_after": "2026-10-22T08:16:32.885014+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T09:15:56.705594+00:00",
+    "retry_after": "2026-10-25T09:15:56.705606+00:00"
   },
   {
     "name": "Wendy Whitebread",
@@ -59368,9 +59368,9 @@
     "year": 1990,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T08:16:33.464088+00:00",
-    "retry_after": "2026-10-22T08:16:33.464107+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T09:15:57.251352+00:00",
+    "retry_after": "2026-10-25T09:15:57.251365+00:00"
   },
   {
     "name": "2021 Lost Children",
@@ -71566,5 +71566,459 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T08:07:34.503184+00:00",
     "retry_after": "2026-10-23T08:07:34.503198+00:00"
+  },
+  {
+    "name": "Nancy Complete Dailies",
+    "publisher": "Fantagraphics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:15:58.016143+00:00",
+    "retry_after": "2026-10-23T09:15:58.016158+00:00"
+  },
+  {
+    "name": "Fantastic Four: House of M",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11892,
+        "name": "Fantastic Four: House of M",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:15:58.561394+00:00",
+    "retry_after": "2026-10-23T09:15:58.561415+00:00"
+  },
+  {
+    "name": "Young Witches IV: The Eternal Dream",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26863,
+        "name": "The Young Witches IV: The Eternal Dream",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:15:59.048969+00:00",
+    "retry_after": "2026-10-23T09:15:59.048983+00:00"
+  },
+  {
+    "name": "Hey Kids! Comics!",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112686,
+        "name": "Hey Kids! Comics!",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 117061,
+        "name": "Hey Kids! Comics!",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:15:59.509035+00:00",
+    "retry_after": "2026-10-23T09:15:59.509049+00:00"
+  },
+  {
+    "name": "Deathstalker",
+    "publisher": "Vault Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161231,
+        "name": "Deathstalker",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 157848,
+        "name": "Deathstalker",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:15:59.892609+00:00",
+    "retry_after": "2026-10-23T09:15:59.892624+00:00"
+  },
+  {
+    "name": "Casper and the Ghostly Trio",
+    "publisher": "Harvey Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10790,
+        "name": "Casper and the Ghostly Trio",
+        "publisher": null,
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:00.422628+00:00",
+    "retry_after": "2026-10-23T09:16:00.422644+00:00"
+  },
+  {
+    "name": "Beethoven",
+    "publisher": "Harvey Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33326,
+        "name": "Beethoven",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:01.039351+00:00",
+    "retry_after": "2026-10-23T09:16:01.039366+00:00"
+  },
+  {
+    "name": "Zealot",
+    "publisher": "Image Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 128386,
+        "name": "Zealot",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 22855,
+        "name": "Zealot",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:01.372235+00:00",
+    "retry_after": "2026-10-23T09:16:01.372249+00:00"
+  },
+  {
+    "name": "Hellhole",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24179,
+        "name": "Hellhole",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:01.661864+00:00",
+    "retry_after": "2026-10-23T09:16:01.661878+00:00"
+  },
+  {
+    "name": "Alien Legion: One Planet at a Time",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25087,
+        "name": "Alien Legion: One Planet at a Time",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:02.080072+00:00",
+    "retry_after": "2026-10-23T09:16:02.080087+00:00"
+  },
+  {
+    "name": "Richie Rich and the New Kids on the Block",
+    "publisher": "Harvey Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:02.450408+00:00",
+    "retry_after": "2026-10-23T09:16:02.450423+00:00"
+  },
+  {
+    "name": "Moon Knight",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 137698,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 89613,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 174240,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 18105,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 39957,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 87355,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 3052,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 1980
+      },
+      {
+        "id": 72112,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 28617,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 146282,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:03.427380+00:00",
+    "retry_after": "2026-10-23T09:16:03.427395+00:00"
+  },
+  {
+    "name": "Blue Ribbon Comics",
+    "publisher": "Archie Comics",
+    "year": 1939,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21303,
+        "name": "Blue Ribbon Comics",
+        "publisher": null,
+        "start_year": 1939
+      },
+      {
+        "id": 113114,
+        "name": "Blue Ribbon Comics",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 3211,
+        "name": "Blue Ribbon Comics",
+        "publisher": null,
+        "start_year": 1983
+      },
+      {
+        "id": 51073,
+        "name": "Blue Ribbon Comics",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:04.137493+00:00",
+    "retry_after": "2026-10-23T09:16:04.137509+00:00"
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:04.474790+00:00",
+    "retry_after": "2026-10-23T09:16:04.474806+00:00"
+  },
+  {
+    "name": "Fator X",
+    "publisher": "Avatar Press",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44923,
+        "name": "Fator-X",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:06.140395+00:00",
+    "retry_after": "2026-10-23T09:16:06.140411+00:00"
+  },
+  {
+    "name": "Maschera Nera",
+    "publisher": "Dark Horse Comics",
+    "year": 1964,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28188,
+        "name": "Maschera Nera",
+        "publisher": null,
+        "start_year": 1962
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:06.688853+00:00",
+    "retry_after": "2026-10-23T09:16:06.688868+00:00"
+  },
+  {
+    "name": "Turok Son of Stone",
+    "publisher": "Marvel Comics",
+    "year": 1957,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26288,
+        "name": "Turok Son of Stone",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 2101,
+        "name": "Turok, Son of Stone",
+        "publisher": null,
+        "start_year": 1956
+      },
+      {
+        "id": 36039,
+        "name": "Turok, Son of Stone",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:07.002206+00:00",
+    "retry_after": "2026-10-23T09:16:07.002222+00:00"
+  },
+  {
+    "name": "Dylan Dog Gigante",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41508,
+        "name": "Dylan Dog Gigante",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:07.425750+00:00",
+    "retry_after": "2026-10-23T09:16:07.425762+00:00"
+  },
+  {
+    "name": "Fireman Sam",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:07.899009+00:00",
+    "retry_after": "2026-10-23T09:16:07.899025+00:00"
+  },
+  {
+    "name": "Família Dinossauros",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:08.628156+00:00",
+    "retry_after": "2026-10-23T09:16:08.628171+00:00"
+  },
+  {
+    "name": "The Phantom Rider",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65302,
+        "name": "Phantom Rider",
+        "publisher": null,
+        "start_year": 1945
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:09.101976+00:00",
+    "retry_after": "2026-10-23T09:16:09.101989+00:00"
+  },
+  {
+    "name": "Top Comics",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 154110,
+        "name": "Top Comics ",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 45787,
+        "name": "Top Comics",
+        "publisher": null,
+        "start_year": 1969
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T09:16:10.904399+00:00",
+    "retry_after": "2026-10-23T09:16:10.904410+00:00"
   }
 ]

@@ -59474,38 +59474,50 @@
     "year": 1954,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T11:16:19.578657+00:00",
-    "retry_after": "2026-10-22T11:16:19.578673+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T12:15:55.522668+00:00",
+    "retry_after": "2026-10-25T12:15:55.522688+00:00"
   },
   {
     "name": "Lenore",
     "publisher": "Titan Comics",
     "year": 2006,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
+      {
+        "id": 61778,
+        "name": "Lenore",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 22998,
+        "name": "Lenore",
+        "publisher": null,
+        "start_year": 1998
+      },
       {
         "id": 41875,
         "name": "Lenore",
-        "publisher": "Titan Comics",
+        "publisher": null,
         "start_year": 2011
       },
       {
         "id": 39319,
         "name": "Lenore",
-        "publisher": "Titan Comics",
+        "publisher": null,
         "start_year": 2009
       },
       {
         "id": 120560,
         "name": "Lenore",
-        "publisher": "Titan Comics",
+        "publisher": null,
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T11:17:09.074312+00:00",
-    "retry_after": "2026-10-22T11:17:09.074328+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T12:15:56.013134+00:00",
+    "retry_after": "2026-10-25T12:15:56.013152+00:00"
   },
   {
     "name": "Brigada",
@@ -59516,25 +59528,25 @@
       {
         "id": 67871,
         "name": "Brigada",
-        "publisher": "self published",
+        "publisher": null,
         "start_year": 2013
       },
       {
         "id": 94092,
         "name": "Brigada",
-        "publisher": "Magnetic Press",
+        "publisher": null,
         "start_year": 2016
       },
       {
         "id": 97409,
         "name": "Brigada",
-        "publisher": "Magnetic Press",
+        "publisher": null,
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T11:17:28.352158+00:00",
-    "retry_after": "2026-10-22T11:17:28.352175+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T12:15:56.548312+00:00",
+    "retry_after": "2026-10-25T12:15:56.548330+00:00"
   },
   {
     "name": "Almanaque da Margarida",
@@ -73053,5 +73065,604 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T11:16:08.375098+00:00",
     "retry_after": "2026-10-23T11:16:08.375114+00:00"
+  },
+  {
+    "name": "The Steve Ditko Archives",
+    "publisher": "Fantagraphics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48904,
+        "name": "The Steve Ditko Archives",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:15:54.925144+00:00",
+    "retry_after": "2026-10-23T12:15:54.925163+00:00"
+  },
+  {
+    "name": "Crazy",
+    "publisher": "Marvel Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 124289,
+        "name": "Crazy",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 1574,
+        "name": "Crazy",
+        "publisher": null,
+        "start_year": 1953
+      },
+      {
+        "id": 2631,
+        "name": "Crazy",
+        "publisher": null,
+        "start_year": 1973
+      },
+      {
+        "id": 122066,
+        "name": "Crazy",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:15:56.989730+00:00",
+    "retry_after": "2026-10-23T12:15:56.989749+00:00"
+  },
+  {
+    "name": "The Ultimates",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158414,
+        "name": "Ultimates",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 140076,
+        "name": "Ultimates",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 18327,
+        "name": "The Ultimates",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 168761,
+        "name": "Ultimates",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 85972,
+        "name": "Ultimates",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 61425,
+        "name": "Ultimates",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 26942,
+        "name": "The Ultimates",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 170198,
+        "name": "The Ultimates",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:15:57.472080+00:00",
+    "retry_after": "2026-10-23T12:15:57.472099+00:00"
+  },
+  {
+    "name": "Aqua Knight",
+    "publisher": "VIZ Media",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25116,
+        "name": "Aqua Knight",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 103312,
+        "name": "Aqua Knight",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 62445,
+        "name": "Aqua Knight",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:15:57.921246+00:00",
+    "retry_after": "2026-10-23T12:15:57.921264+00:00"
+  },
+  {
+    "name": "Playbear",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45982,
+        "name": "Playbear",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:15:58.409145+00:00",
+    "retry_after": "2026-10-23T12:15:58.409164+00:00"
+  },
+  {
+    "name": "Saint Seiya - Time Odyssey",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151744,
+        "name": "Saint Seiya - Time Odyssey",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:15:58.878455+00:00",
+    "retry_after": "2026-10-23T12:15:58.878472+00:00"
+  },
+  {
+    "name": "Hammer of the Gods: Hammer Hits China",
+    "publisher": "Image Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26823,
+        "name": "Hammer of the Gods: Hammer Hits China",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:15:59.372434+00:00",
+    "retry_after": "2026-10-23T12:15:59.372452+00:00"
+  },
+  {
+    "name": "The Sisterhood",
+    "publisher": "Archaia",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22783,
+        "name": "The Sisterhood",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 167718,
+        "name": "Sisterhood",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:15:59.744004+00:00",
+    "retry_after": "2026-10-23T12:15:59.744022+00:00"
+  },
+  {
+    "name": "Broken Trinity",
+    "publisher": "Image Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66107,
+        "name": "Broken Trinity",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 155129,
+        "name": "Broken Trinity",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 21461,
+        "name": "Broken Trinity",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 62090,
+        "name": "Broken Trinity",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:00.178225+00:00",
+    "retry_after": "2026-10-23T12:16:00.178245+00:00"
+  },
+  {
+    "name": "Carbon Grey",
+    "publisher": "Image Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50609,
+        "name": "Carbon Grey",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 67630,
+        "name": "Carbon Grey",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 69693,
+        "name": "Carbon Grey",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 39249,
+        "name": "Carbon Grey",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 158567,
+        "name": "Carbon Grey ",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:00.624873+00:00",
+    "retry_after": "2026-10-23T12:16:00.624892+00:00"
+  },
+  {
+    "name": "Lee O' Lion",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:01.480830+00:00",
+    "retry_after": "2026-10-23T12:16:01.480851+00:00"
+  },
+  {
+    "name": "Army of Darkness",
+    "publisher": "Dynamite Entertainment",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78551,
+        "name": "Army of Darkness",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 19006,
+        "name": "Army of Darkness",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 6977,
+        "name": "Army of Darkness",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 91844,
+        "name": "Army of Darkness",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 78049,
+        "name": "Army of Darkness",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 45874,
+        "name": "Army of Darkness",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 18863,
+        "name": "Army of Darkness",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:02.036149+00:00",
+    "retry_after": "2026-10-23T12:16:02.036168+00:00"
+  },
+  {
+    "name": "Existence 2.0",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27124,
+        "name": "Existence 2.0",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:02.757283+00:00",
+    "retry_after": "2026-10-23T12:16:02.757303+00:00"
+  },
+  {
+    "name": "Blackstone the Magician",
+    "publisher": "Marvel Comics",
+    "year": 1948,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18938,
+        "name": "Blackstone the Magician",
+        "publisher": null,
+        "start_year": 1947
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:03.209922+00:00",
+    "retry_after": "2026-10-23T12:16:03.209941+00:00"
+  },
+  {
+    "name": "Clementine",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 150610,
+        "name": "Clementine",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 145007,
+        "name": "Clementine",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 162967,
+        "name": "Clementine",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:03.757932+00:00",
+    "retry_after": "2026-10-23T12:16:03.757951+00:00"
+  },
+  {
+    "name": "Everybody Loves Tank Girl",
+    "publisher": "Titan Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51258,
+        "name": "Everybody Loves Tank Girl",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 58463,
+        "name": "Everybody Loves Tank Girl",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:04.274108+00:00",
+    "retry_after": "2026-10-23T12:16:04.274127+00:00"
+  },
+  {
+    "name": "Bondage Slaves",
+    "publisher": "Fantagraphics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:04.693201+00:00",
+    "retry_after": "2026-10-23T12:16:04.693219+00:00"
+  },
+  {
+    "name": "Navy Combat",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30575,
+        "name": "Navy Combat",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:05.670517+00:00",
+    "retry_after": "2026-10-23T12:16:05.670536+00:00"
+  },
+  {
+    "name": "Color Zagor",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129273,
+        "name": "Color Zagor",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:06.058366+00:00",
+    "retry_after": "2026-10-23T12:16:06.058385+00:00"
+  },
+  {
+    "name": "Ferraille",
+    "publisher": "Heavy Metal",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 83870,
+        "name": "Ferraille",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:06.586962+00:00",
+    "retry_after": "2026-10-23T12:16:06.586981+00:00"
+  },
+  {
+    "name": "Junior Comics Library",
+    "publisher": "Marvel Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63320,
+        "name": "Junior Comics Library",
+        "publisher": null,
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:07.272725+00:00",
+    "retry_after": "2026-10-23T12:16:07.272744+00:00"
+  },
+  {
+    "name": "Bastard",
+    "publisher": "VIZ Media",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60250,
+        "name": "Bastard!!",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 169677,
+        "name": "Bastard",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 158767,
+        "name": "Bastard!!",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 76773,
+        "name": "Bastard",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 114014,
+        "name": "Bastard",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:07.663828+00:00",
+    "retry_after": "2026-10-23T12:16:07.663848+00:00"
+  },
+  {
+    "name": "Angel Sanctuary",
+    "publisher": "VIZ Media",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41754,
+        "name": "Angel Sanctuary",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 51691,
+        "name": "Angel Sanctuary",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 167144,
+        "name": "Angel Sanctuary",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 8048,
+        "name": "Angel Sanctuary",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 163549,
+        "name": "Angel Sanctuary",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T12:16:08.162679+00:00",
+    "retry_after": "2026-10-23T12:16:08.162699+00:00"
   }
 ]

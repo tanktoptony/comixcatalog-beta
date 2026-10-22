@@ -8,8 +8,9 @@ import { seriesJsonLd } from "@/lib/seriesSeo";
 // used to render empty and fetch /api/series/[id] from the browser). The
 // data is the same cached read layout.js uses for the page title, so one
 // request does the work once.
-export default async function SeriesPage({ params }) {
+export default async function SeriesPage({ params, searchParams }) {
   const { id } = await params;
+  const query = await searchParams;
   const initialSeries = await getSeriesData(id);
   const jsonLd = seriesJsonLd(initialSeries, `${SITE_URL}/series/${id}`);
   return (
@@ -20,7 +21,7 @@ export default async function SeriesPage({ params }) {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
       )}
-      <SeriesClient initialSeries={initialSeries} />
+      <SeriesClient initialSeries={initialSeries} initialOwnMode={query?.own === "1"} />
     </>
   );
 }

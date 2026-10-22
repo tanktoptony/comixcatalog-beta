@@ -1462,7 +1462,7 @@ function LibraryPageContent() {
         </div>
 
         {!isPublicPreview && (
-        <form onSubmit={handleCsvImport} className="library-upload-bar">
+        <form id="csv-import" onSubmit={handleCsvImport} className="library-upload-bar">
           <label className={`library-secondary-btn ${selectedFile ? "ready" : ""}`}>
             {selectedFile ? "CSV Ready ✓" : "Choose CSV"}
             <input

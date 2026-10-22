@@ -398,6 +398,84 @@ export function LibraryProvider({ children }) {
     });
   }
 
+  async function addRunToCollection(issueIds) {
+    if (!user?.id) return { ok: false, error: "Sign in required" };
+
+    const payloadIds = [...new Set(issueIds ?? [])]
+      .map((id) => String(id).match(/^gcd-(\d+)$/i))
+      .filter(Boolean)
+      .map((match) => Number(match[1]));
+    if (!payloadIds.length) return { ok: false, error: "Select at least one issue" };
+
+    const wasEmpty =
+      !loading &&
+      !loadError &&
+      !collections.some((row) => row.status === "owned" || row.status === "for_sale");
+    const optimisticNow = new Date().toISOString();
+    setCollections((prev) => {
+      const selected = new Set(payloadIds);
+      const kept = prev.filter(
+        (row) => !(selected.has(Number(row.gcd_issue_id)) && row.status === "wishlist")
+      );
+      const alreadyOwned = new Set(
+        kept
+          .filter((row) => row.status === "owned" || row.status === "for_sale")
+          .map((row) => Number(row.gcd_issue_id))
+      );
+      const optimistic = payloadIds
+        .filter((issueId) => !alreadyOwned.has(issueId))
+        .map((issueId) => ({
+          id: `optimistic-gcd-${issueId}-${Date.now()}`,
+          user_id: user.id,
+          comic_id: null,
+          gcd_issue_id: issueId,
+          status: "owned",
+          copy_number: 1,
+          created_at: optimisticNow,
+        }));
+      return [...kept, ...optimistic];
+    });
+
+    try {
+      const response = await authedFetch("/api/collection/bulk", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ issue_ids: payloadIds }),
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        await refreshLibrary({ background: true });
+        return { ok: false, error: result.error || "Could not add those issues" };
+      }
+
+      await refreshLibrary({ background: true });
+      trackEvent("collection_add", { status: "owned", count: result.added?.length ?? 0 });
+      try {
+        const milestoneResponse = await authedFetch("/api/traction/milestones", {
+          method: "POST",
+        });
+        if (milestoneResponse.ok) {
+          const milestone = await milestoneResponse.json();
+          for (const eventName of milestone.claimed || []) {
+            trackEvent(eventName, {
+              collection_count: milestone.count,
+              ...attributionParams(),
+            });
+          }
+        }
+      } catch {
+        // Collection writes must not fail because analytics claiming is unavailable.
+      }
+      if (wasEmpty && (result.added?.length ?? 0) > 0) {
+        trackEvent("first_collection_add", attributionParams());
+      }
+      return { ok: true, ...result };
+    } catch (error) {
+      await refreshLibrary({ background: true });
+      return { ok: false, error: error.message || "Could not add those issues" };
+    }
+  }
+
   async function removeFromCollection(inputId, { rowId, scope = "latest-copy" } = {}) {
     if (!user?.id) return { ok: false, error: "Sign in required" };
 
@@ -537,6 +615,7 @@ export function LibraryProvider({ children }) {
         collectionIds,
         wishlistIds,
         addToCollection,
+        addRunToCollection,
         addAnotherCopy,
         removeFromCollection,
         refreshLibrary,

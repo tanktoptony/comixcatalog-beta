@@ -97,26 +97,42 @@ function read() {
 // First touch wins: an existing fresh record is kept, so a visitor who came
 // from Instagram and later clicks a newsletter link is still credited to
 // Instagram. Returns whichever record is now in effect.
+// Pure: which record should be kept? A fresh record with a real signal
+// (campaign, ref or outside referrer) is never replaced: first touch wins.
+// A "direct" record (no signal, kept only for its landing page) gives way
+// to the first visit that does carry a signal, so typing the URL once does
+// not hide a later Instagram click for 30 days.
+export function chooseAttribution(existing, incoming, now = Date.now()) {
+  const keep = isFresh(existing, now) ? existing : null;
+  if (keep && !keep.direct) return keep;
+  if (incoming && !incoming.direct) return incoming;
+  return keep || incoming || null;
+}
+
+// Runs on every page (src/components/AttributionCapture.js), not just /start:
+// until 2026-10-20 it ran only on /start and the invite page, so visitors who
+// landed anywhere else, including the Instagram bio link's
+// /founding-collectors, signed up with no source at all.
 export function captureAttribution() {
   if (typeof window === "undefined") return null;
-  const existing = read();
-  if (isFresh(existing)) return existing;
-  let next = parseAttribution(
-    new URLSearchParams(window.location.search),
-    window.location.pathname
-  );
+  const landing = window.location.pathname.slice(0, 64) || "/";
+  let incoming = parseAttribution(new URLSearchParams(window.location.search), window.location.pathname);
   const referrerHost = cleanReferrerHost(document.referrer);
-  if (!next && referrerHost) next = { landing: window.location.pathname.slice(0, 64) || "/", ts: Date.now() };
-  if (!next) return null;
-  if (referrerHost && referrerHost !== window.location.hostname.replace(/^www\./, "")) {
-    next.referrer_host = referrerHost;
+  const outside = referrerHost && referrerHost !== window.location.hostname.replace(/^www\./, "") ? referrerHost : null;
+  if (!incoming && outside) incoming = { landing, ts: Date.now() };
+  if (incoming && outside) incoming.referrer_host = outside;
+  if (!incoming) incoming = { landing, ts: Date.now(), direct: true };
+
+  const existing = read();
+  const chosen = chooseAttribution(existing, incoming);
+  if (chosen !== existing) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(chosen));
+    } catch {
+      // Private mode / blocked storage: attribution is best-effort.
+    }
   }
-  try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-  } catch {
-    // Private mode / blocked storage: attribution is best-effort.
-  }
-  return next;
+  return chosen;
 }
 
 // Restore attribution that travelled on the account (user_metadata) into

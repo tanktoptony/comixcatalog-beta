@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import FoundingBanner from "../components/FoundingBanner";
 import OnboardingModal from "../components/OnboardingModal";
 import CoverThumbFallback from "../components/CoverThumbFallback";
+import AttributionCapture from "../components/AttributionCapture";
 import { LibraryProvider } from "../context/LibraryContext";
 import { AuthProvider } from "../context/AuthContext";
 import { SearchQueryProvider } from "../context/SearchQueryContext";
@@ -141,6 +142,7 @@ export default async function RootLayout({ children }) {
           </>
         )}
         <CoverThumbFallback />
+        <AttributionCapture />
         <AuthProvider>
           <LibraryProvider>
             <SearchQueryProvider>

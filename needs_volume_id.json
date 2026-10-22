@@ -58748,9 +58748,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T23:17:11.900047+00:00",
-    "retry_after": "2026-10-21T23:17:11.900063+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T00:15:49.170068+00:00",
+    "retry_after": "2026-10-25T00:15:49.170089+00:00"
   },
   {
     "name": "Film Classics",
@@ -58758,9 +58758,9 @@
     "year": 1960,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T23:17:12.456186+00:00",
-    "retry_after": "2026-10-21T23:17:12.456203+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T00:15:49.637658+00:00",
+    "retry_after": "2026-10-25T00:15:49.637677+00:00"
   },
   {
     "name": "Mäx",
@@ -58768,9 +58768,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T23:17:13.241932+00:00",
-    "retry_after": "2026-10-21T23:17:13.241947+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T00:15:49.975471+00:00",
+    "retry_after": "2026-10-25T00:15:49.975488+00:00"
   },
   {
     "name": "A Big Someplace",
@@ -58778,32 +58778,56 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T23:17:13.854073+00:00",
-    "retry_after": "2026-10-21T23:17:13.854088+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T00:15:52.016405+00:00",
+    "retry_after": "2026-10-25T00:15:52.016424+00:00"
   },
   {
     "name": "The Beauty",
     "publisher": "Image Comics",
     "year": 2025,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 83799,
         "name": "The Beauty",
-        "publisher": "Image",
+        "publisher": null,
         "start_year": 2015
       },
       {
         "id": 88915,
         "name": "The Beauty",
-        "publisher": "Image",
+        "publisher": null,
         "start_year": 2016
+      },
+      {
+        "id": 77464,
+        "name": "Beauty",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 162351,
+        "name": "Beauty",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 170259,
+        "name": "The Beauty",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 109816,
+        "name": "The Beauty",
+        "publisher": null,
+        "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T23:17:20.829343+00:00",
-    "retry_after": "2026-10-21T23:17:20.829357+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T00:15:52.547266+00:00",
+    "retry_after": "2026-10-25T00:15:52.547285+00:00"
   },
   {
     "name": "Damian & Alexander",
@@ -58811,9 +58835,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T23:17:22.045282+00:00",
-    "retry_after": "2026-10-21T23:17:22.045298+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T00:15:52.949068+00:00",
+    "retry_after": "2026-10-25T00:15:52.949088+00:00"
   },
   {
     "name": "Carotte Comix",
@@ -58821,9 +58845,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-20T23:17:22.875359+00:00",
-    "retry_after": "2026-10-21T23:17:22.875393+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T00:15:53.516312+00:00",
+    "retry_after": "2026-10-25T00:15:53.516327+00:00"
   },
   {
     "name": "Prince Valiant Jumbo/Giant Edition",
@@ -58831,9 +58855,9 @@
     "year": 1960,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T00:15:50.699347+00:00",
-    "retry_after": "2026-10-22T00:15:50.699362+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T00:15:55.721557+00:00",
+    "retry_after": "2026-10-25T00:15:55.721576+00:00"
   },
   {
     "name": "Young Lover's Pictorial",
@@ -65104,5 +65128,689 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T23:16:04.553323+00:00",
     "retry_after": "2026-10-22T23:16:04.553337+00:00"
+  },
+  {
+    "name": "21",
+    "publisher": "Image Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21360,
+        "name": "21",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:15:56.131144+00:00",
+    "retry_after": "2026-10-23T00:15:56.131164+00:00"
+  },
+  {
+    "name": "Adventureman",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132491,
+        "name": "Adventureman",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 127830,
+        "name": "Adventureman",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 145467,
+        "name": "Adventureman ",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 161779,
+        "name": "Adventureman",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:15:56.714296+00:00",
+    "retry_after": "2026-10-23T00:15:56.714317+00:00"
+  },
+  {
+    "name": "Batman & Robin: Year One - Dynamic Duos",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 175730,
+        "name": "Batman and Robin: Year One - Dynamic Duos",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:15:57.022984+00:00",
+    "retry_after": "2026-10-23T00:15:57.023005+00:00"
+  },
+  {
+    "name": "Batgirl",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 160861,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 82483,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 150121,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 7205,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 92542,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 127240,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 41790,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 154015,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 42604,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 27457,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 100119,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 22245,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 60406,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 50413,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 167372,
+        "name": "Batgirl",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:15:57.539959+00:00",
+    "retry_after": "2026-10-23T00:15:57.539980+00:00"
+  },
+  {
+    "name": "Battlefields: The Tankies",
+    "publisher": "Dynamite Entertainment",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26301,
+        "name": "Battlefields: The Tankies",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 56009,
+        "name": "Battlefields: The Tankies",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:15:57.917495+00:00",
+    "retry_after": "2026-10-23T00:15:57.917515+00:00"
+  },
+  {
+    "name": "Jan, Jans en de kinderen Vakantieboek",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:15:58.392444+00:00",
+    "retry_after": "2026-10-23T00:15:58.392465+00:00"
+  },
+  {
+    "name": "Martian Manhunter: American Secrets",
+    "publisher": "DC Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4749,
+        "name": "Martian Manhunter: American Secrets",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:15:58.857870+00:00",
+    "retry_after": "2026-10-23T00:15:58.857889+00:00"
+  },
+  {
+    "name": "Western Tales",
+    "publisher": "Harvey Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 128550,
+        "name": "Western Tales",
+        "publisher": null,
+        "start_year": 1967
+      },
+      {
+        "id": 50108,
+        "name": "Western Tales",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:15:59.233554+00:00",
+    "retry_after": "2026-10-23T00:15:59.233575+00:00"
+  },
+  {
+    "name": "Glork Patrol",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130358,
+        "name": "Glork Patrol",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:15:59.647788+00:00",
+    "retry_after": "2026-10-23T00:15:59.647841+00:00"
+  },
+  {
+    "name": "Absolute Carnage: Scream",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 120627,
+        "name": "Absolute Carnage: Scream",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 124285,
+        "name": "Absolute Carnage: Scream",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:15:59.975150+00:00",
+    "retry_after": "2026-10-23T00:15:59.975170+00:00"
+  },
+  {
+    "name": "Absolute Carnage: Lethal Protectors",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 120945,
+        "name": "Absolute Carnage: Lethal Protectors",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 124283,
+        "name": "Absolute Carnage: Lethal Protectors",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:00.419995+00:00",
+    "retry_after": "2026-10-23T00:16:00.420015+00:00"
+  },
+  {
+    "name": "Absolute Carnage: Miles Morales",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 120946,
+        "name": "Absolute Carnage: Miles Morales",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 124284,
+        "name": "Absolute Carnage: Miles Morales",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:00.822316+00:00",
+    "retry_after": "2026-10-23T00:16:00.822336+00:00"
+  },
+  {
+    "name": "New Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11497,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 55330,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 119940,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 33777,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 85301,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 40895,
+        "name": "The New Avengers",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 165022,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 87105,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 55695,
+        "name": "New Avengers",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 170991,
+        "name": "New Avengers ",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:01.535259+00:00",
+    "retry_after": "2026-10-23T00:16:01.535282+00:00"
+  },
+  {
+    "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
+    "publisher": "Harvey Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148472,
+        "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:02.125080+00:00",
+    "retry_after": "2026-10-23T00:16:02.125098+00:00"
+  },
+  {
+    "name": "Movietown's Animal Antics",
+    "publisher": "DC Comics",
+    "year": 1950,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:02.616818+00:00",
+    "retry_after": "2026-10-23T00:16:02.616840+00:00"
+  },
+  {
+    "name": "Josie",
+    "publisher": "Archie Comics",
+    "year": 1965,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11906,
+        "name": "Josie",
+        "publisher": null,
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:03.065521+00:00",
+    "retry_after": "2026-10-23T00:16:03.065541+00:00"
+  },
+  {
+    "name": "Haikyu!!",
+    "publisher": "VIZ Media",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147470,
+        "name": "Haikyu!!",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 166700,
+        "name": "Haikyu!!",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 92005,
+        "name": "Haikyu!!",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 137216,
+        "name": "Haikyu!!",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 166788,
+        "name": "Haikyu!!",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 148387,
+        "name": "Haikyu!!",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:05.390643+00:00",
+    "retry_after": "2026-10-23T00:16:05.390661+00:00"
+  },
+  {
+    "name": "Billy",
+    "publisher": "Harvey Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130405,
+        "name": "Billy",
+        "publisher": null,
+        "start_year": 1971
+      },
+      {
+        "id": 75836,
+        "name": "Billy",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 146821,
+        "name": "Billy ",
+        "publisher": null,
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:05.849348+00:00",
+    "retry_after": "2026-10-23T00:16:05.849368+00:00"
+  },
+  {
+    "name": "Tales from the Crypt",
+    "publisher": "EC Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 38203,
+        "name": "Tales from the Crypt",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 18612,
+        "name": "Tales from the Crypt",
+        "publisher": null,
+        "start_year": 1950
+      },
+      {
+        "id": 30124,
+        "name": "Tales from the Crypt",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 30341,
+        "name": "Tales from the Crypt",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 169182,
+        "name": "Tales from the Crypt",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 48705,
+        "name": "Tales from the Crypt",
+        "publisher": null,
+        "start_year": 1952
+      },
+      {
+        "id": 30088,
+        "name": "Tales from the Crypt",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 48611,
+        "name": "Tales from the Crypt",
+        "publisher": null,
+        "start_year": 1968
+      },
+      {
+        "id": 48646,
+        "name": "Tales from the Crypt",
+        "publisher": null,
+        "start_year": 1964
+      },
+      {
+        "id": 48674,
+        "name": "Tales from the Crypt",
+        "publisher": null,
+        "start_year": 1950
+      },
+      {
+        "id": 96166,
+        "name": "Tales From the Crypt",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 149708,
+        "name": "Tales from the Crypt",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:06.444312+00:00",
+    "retry_after": "2026-10-23T00:16:06.444332+00:00"
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:06.770391+00:00",
+    "retry_after": "2026-10-23T00:16:06.770406+00:00"
+  },
+  {
+    "name": "Comic Hits",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 93045,
+        "name": "Comic Hits",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 52669,
+        "name": "Comic Hits",
+        "publisher": null,
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:07.132180+00:00",
+    "retry_after": "2026-10-23T00:16:07.132200+00:00"
+  },
+  {
+    "name": "Ninjak",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 80599,
+        "name": "Ninjak",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 5348,
+        "name": "Ninjak",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 6030,
+        "name": "Ninjak",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 137582,
+        "name": "Ninjak",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 143832,
+        "name": "Ninjak",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T00:16:07.684787+00:00",
+    "retry_after": "2026-10-23T00:16:07.684834+00:00"
   }
 ]

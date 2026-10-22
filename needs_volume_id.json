@@ -43906,13 +43906,13 @@
   },
   {
     "name": "It's Raining on Your Parade, Charlie Brown",
-    "publisher": "Fawcett Comics",
+    "publisher": "Heavy Metal",
     "year": 1975,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-10T01:00:57.873855+00:00",
-    "retry_after": "2026-10-11T01:00:57.873870+00:00"
+    "last_attempt_at": "2026-10-22T21:23:57.303361+00:00",
+    "retry_after": "2026-10-23T21:23:57.303377+00:00"
   },
   {
     "name": "Justice League Adventures [Six Flags Giveaway]",
@@ -61149,9 +61149,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T21:00:50.005040+00:00",
-    "retry_after": "2026-10-22T21:00:50.005084+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T21:00:51.498708+00:00",
+    "retry_after": "2026-10-25T21:00:51.498731+00:00"
   },
   {
     "name": "Bug Ego",
@@ -73662,5 +73662,535 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T20:24:13.376244+00:00",
     "retry_after": "2026-10-23T20:24:13.376258+00:00"
+  },
+  {
+    "name": "West Coast Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3521,
+        "name": "West Coast Avengers",
+        "publisher": null,
+        "start_year": 1985
+      },
+      {
+        "id": 165818,
+        "name": "West Coast Avengers",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 161322,
+        "name": "West Coast Avengers",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 112977,
+        "name": "West Coast Avengers",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 3372,
+        "name": "West Coast Avengers",
+        "publisher": null,
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:53.059182+00:00",
+    "retry_after": "2026-10-23T21:23:53.059198+00:00"
+  },
+  {
+    "name": "Exquisite Corpses: Fox Mask Killer",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 176994,
+        "name": "Exquisite Corpses: Fox Mask Killer",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:53.768830+00:00",
+    "retry_after": "2026-10-23T21:23:53.768846+00:00"
+  },
+  {
+    "name": "String Divers",
+    "publisher": "IDW Publishing",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 83772,
+        "name": "String Divers",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 88778,
+        "name": "String Divers",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:54.160703+00:00",
+    "retry_after": "2026-10-23T21:23:54.160719+00:00"
+  },
+  {
+    "name": "Harley Quinn Annual",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 77792,
+        "name": "Harley Quinn Annual",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:54.709633+00:00",
+    "retry_after": "2026-10-23T21:23:54.709648+00:00"
+  },
+  {
+    "name": "Brian Pulido's Lady Death: 10th Anniversary",
+    "publisher": "Avatar Press",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:55.322577+00:00",
+    "retry_after": "2026-10-23T21:23:55.322592+00:00"
+  },
+  {
+    "name": "Superman / Batman [Free Comic Book Day Edition]",
+    "publisher": "DC Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:55.718284+00:00",
+    "retry_after": "2026-10-23T21:23:55.718301+00:00"
+  },
+  {
+    "name": "Woman's Day",
+    "publisher": "Fawcett Comics",
+    "year": 1968,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:56.137657+00:00",
+    "retry_after": "2026-10-23T21:23:56.137673+00:00"
+  },
+  {
+    "name": "Concrete Jungle: The Legend of the Black Lion",
+    "publisher": "Valiant Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:56.511488+00:00",
+    "retry_after": "2026-10-23T21:23:56.511504+00:00"
+  },
+  {
+    "name": "Death of Cerebus in Hell",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 106484,
+        "name": "The Death of Cerebus in Hell?",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:56.905083+00:00",
+    "retry_after": "2026-10-23T21:23:56.905100+00:00"
+  },
+  {
+    "name": "Richie Rich Vacation Digest Magazine",
+    "publisher": "Harvey Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34863,
+        "name": "Richie Rich Vacation Digest Magazine",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:57.660308+00:00",
+    "retry_after": "2026-10-23T21:23:57.660325+00:00"
+  },
+  {
+    "name": "Ex-Mutants Graphic Novel",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:57.972710+00:00",
+    "retry_after": "2026-10-23T21:23:57.972727+00:00"
+  },
+  {
+    "name": "Compass",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60029,
+        "name": "Compass",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 136955,
+        "name": "Compass",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:58.322011+00:00",
+    "retry_after": "2026-10-23T21:23:58.322027+00:00"
+  },
+  {
+    "name": "Razor: The Ravening",
+    "publisher": "Avatar Press",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21967,
+        "name": "Razor: The Ravening",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:58.796623+00:00",
+    "retry_after": "2026-10-23T21:23:58.796646+00:00"
+  },
+  {
+    "name": "Pirates vs. Ninjas Annual",
+    "publisher": "Antarctic Press",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51004,
+        "name": "Pirates vs. Ninjas Annual",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:59.247377+00:00",
+    "retry_after": "2026-10-23T21:23:59.247394+00:00"
+  },
+  {
+    "name": "Purgatori: Heartbreaker",
+    "publisher": "Chaos! Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20632,
+        "name": "Purgatori: Heartbreaker",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:23:59.667522+00:00",
+    "retry_after": "2026-10-23T21:23:59.667537+00:00"
+  },
+  {
+    "name": "Burn the Witch",
+    "publisher": "VIZ Media",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130776,
+        "name": "Burn the Witch",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 139686,
+        "name": "Burn the Witch",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:00.147718+00:00",
+    "retry_after": "2026-10-23T21:24:00.147735+00:00"
+  },
+  {
+    "name": "King Kong: The 8th Wonder of the World",
+    "publisher": "Dark Horse Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63492,
+        "name": "King Kong: The 8th Wonder of the World",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:00.580553+00:00",
+    "retry_after": "2026-10-23T21:24:00.580568+00:00"
+  },
+  {
+    "name": "Dark Wolf Annual",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51706,
+        "name": "Dark Wolf Annual",
+        "publisher": null,
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:01.143789+00:00",
+    "retry_after": "2026-10-23T21:24:01.143806+00:00"
+  },
+  {
+    "name": "I Love Lucy in Full Color",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63062,
+        "name": "I Love Lucy in Full Color",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:01.590289+00:00",
+    "retry_after": "2026-10-23T21:24:01.590305+00:00"
+  },
+  {
+    "name": "Fire Power",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54612,
+        "name": "Fire Power",
+        "publisher": null,
+        "start_year": 1948
+      },
+      {
+        "id": 73061,
+        "name": "Fire Power",
+        "publisher": null,
+        "start_year": 1964
+      },
+      {
+        "id": 129260,
+        "name": "Fire Power",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 145721,
+        "name": "Fire Power",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 128169,
+        "name": "Fire Power",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 131312,
+        "name": "Fire Power",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:02.357777+00:00",
+    "retry_after": "2026-10-23T21:24:02.357794+00:00"
+  },
+  {
+    "name": "Tippy Teen",
+    "publisher": "Antarctic Press",
+    "year": 1965,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11474,
+        "name": "Tippy Teen",
+        "publisher": null,
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:02.843745+00:00",
+    "retry_after": "2026-10-23T21:24:02.843763+00:00"
+  },
+  {
+    "name": "Clive Barker's Night Breed",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23595,
+        "name": "Clive Barker's Night Breed",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:03.177962+00:00",
+    "retry_after": "2026-10-23T21:24:03.177980+00:00"
+  },
+  {
+    "name": "Men's Adventures",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30573,
+        "name": "Men's Adventures",
+        "publisher": null,
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:03.542146+00:00",
+    "retry_after": "2026-10-23T21:24:03.542163+00:00"
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:03.975666+00:00",
+    "retry_after": "2026-10-23T21:24:03.975683+00:00"
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": null,
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:04.425559+00:00",
+    "retry_after": "2026-10-23T21:24:04.425576+00:00"
+  },
+  {
+    "name": "Yummy Fur",
+    "publisher": "Charlton Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35961,
+        "name": "Yummy Fur",
+        "publisher": null,
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:04.983595+00:00",
+    "retry_after": "2026-10-23T21:24:04.983613+00:00"
+  },
+  {
+    "name": "Police Against Crime",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57616,
+        "name": "Police Against Crime",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:05.304432+00:00",
+    "retry_after": "2026-10-23T21:24:05.304466+00:00"
+  },
+  {
+    "name": "Conan Rei",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113627,
+        "name": "Conan Rei",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:05.722096+00:00",
+    "retry_after": "2026-10-23T21:24:05.722113+00:00"
+  },
+  {
+    "name": "Dale Evans Comics",
+    "publisher": "DC Comics",
+    "year": 1948,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31710,
+        "name": "Dale Evans Comics",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T21:24:06.238919+00:00",
+    "retry_after": "2026-10-23T21:24:06.238935+00:00"
   }
 ]

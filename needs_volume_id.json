@@ -59554,9 +59554,9 @@
     "year": 1988,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T12:15:56.856412+00:00",
-    "retry_after": "2026-10-22T12:15:56.856428+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T13:15:57.844713+00:00",
+    "retry_after": "2026-10-25T13:15:57.844729+00:00"
   },
   {
     "name": "Almanaque de Tom & Jerry",
@@ -59564,9 +59564,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T12:16:06.821230+00:00",
-    "retry_after": "2026-10-22T12:16:06.821246+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T13:15:59.383422+00:00",
+    "retry_after": "2026-10-25T13:15:59.383437+00:00"
   },
   {
     "name": "Rick and Morty The Space Shake Saga",
@@ -59574,9 +59574,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T12:16:25.230879+00:00",
-    "retry_after": "2026-10-22T12:16:25.230913+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T13:15:59.950588+00:00",
+    "retry_after": "2026-10-25T13:15:59.950603+00:00"
   },
   {
     "name": "Atlas Artist Edition",
@@ -73664,5 +73664,383 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T12:16:08.162679+00:00",
     "retry_after": "2026-10-23T12:16:08.162699+00:00"
+  },
+  {
+    "name": "True Believers: Fantastic Four vs. Doctor Doom",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112226,
+        "name": "True Believers: Fantastic Four vs. Doctor Doom!",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:15:56.911612+00:00",
+    "retry_after": "2026-10-23T13:15:56.911628+00:00"
+  },
+  {
+    "name": "Harley Quinn",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 134718,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 69322,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 109850,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 86934,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 9494,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 96070,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 160586,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 92750,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 151187,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 147797,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 89443,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 166504,
+        "name": "Harley Quinn",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:00.336940+00:00",
+    "retry_after": "2026-10-23T13:16:00.336956+00:00"
+  },
+  {
+    "name": "Star Wars: X-Wing Rogue Squadron",
+    "publisher": "Dark Horse Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5629,
+        "name": "Star Wars: X-Wing Rogue Squadron",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:00.927238+00:00",
+    "retry_after": "2026-10-23T13:16:00.927255+00:00"
+  },
+  {
+    "name": "Monster & Madman",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76546,
+        "name": "Monster & Madman",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 72280,
+        "name": "Monster & Madman",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:01.353562+00:00",
+    "retry_after": "2026-10-23T13:16:01.353578+00:00"
+  },
+  {
+    "name": "The Spanish Conquest",
+    "publisher": "Fantagraphics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36336,
+        "name": "The Spanish Conquest",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:02.242765+00:00",
+    "retry_after": "2026-10-23T13:16:02.242780+00:00"
+  },
+  {
+    "name": "Kitana - Prinzessin der Engel",
+    "publisher": "Fawcett Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:02.754576+00:00",
+    "retry_after": "2026-10-23T13:16:02.754591+00:00"
+  },
+  {
+    "name": "Overlook",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26470,
+        "name": "Overlook",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:03.262617+00:00",
+    "retry_after": "2026-10-23T13:16:03.262635+00:00"
+  },
+  {
+    "name": "Dungeon Quest",
+    "publisher": "Fantagraphics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51795,
+        "name": "Dungeon Quest",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:03.606849+00:00",
+    "retry_after": "2026-10-23T13:16:03.606864+00:00"
+  },
+  {
+    "name": "I Hate Gallant Girl",
+    "publisher": "Image Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23943,
+        "name": "I Hate Gallant Girl",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:04.096406+00:00",
+    "retry_after": "2026-10-23T13:16:04.096421+00:00"
+  },
+  {
+    "name": "Ghost Cage",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141988,
+        "name": "Ghost Cage",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 154701,
+        "name": "Ghost Cage",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:04.523428+00:00",
+    "retry_after": "2026-10-23T13:16:04.523443+00:00"
+  },
+  {
+    "name": "Barbarella: Woman Untamed",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161197,
+        "name": "Barbarella: Woman Untamed",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:05.392571+00:00",
+    "retry_after": "2026-10-23T13:16:05.392587+00:00"
+  },
+  {
+    "name": "The Alliance",
+    "publisher": "Image Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30996,
+        "name": "The Alliance",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:05.848265+00:00",
+    "retry_after": "2026-10-23T13:16:05.848280+00:00"
+  },
+  {
+    "name": "Kabuki Reflections",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31829,
+        "name": "Kabuki Reflections",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:06.209914+00:00",
+    "retry_after": "2026-10-23T13:16:06.209930+00:00"
+  },
+  {
+    "name": "Blue Estate",
+    "publisher": "Image Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 177648,
+        "name": "Blue Estate",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 39626,
+        "name": "Blue Estate",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 45347,
+        "name": "Blue Estate",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:06.770407+00:00",
+    "retry_after": "2026-10-23T13:16:06.770422+00:00"
+  },
+  {
+    "name": "The Marvel Masterpieces 2 Collection",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5311,
+        "name": "The Marvel Masterpieces 2 Collection",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:07.315970+00:00",
+    "retry_after": "2026-10-23T13:16:07.315985+00:00"
+  },
+  {
+    "name": "Bitter Root",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122870,
+        "name": "Bitter Root",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 115236,
+        "name": "Bitter Root",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:08.169110+00:00",
+    "retry_after": "2026-10-23T13:16:08.169125+00:00"
+  },
+  {
+    "name": "Dark X-Men: The Beginning",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27004,
+        "name": "Dark X-Men: The Beginning",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T13:16:08.776940+00:00",
+    "retry_after": "2026-10-23T13:16:08.776956+00:00"
   }
 ]

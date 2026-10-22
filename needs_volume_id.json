@@ -68750,5 +68750,724 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T13:45:12.894044+00:00",
     "retry_after": "2026-10-23T13:45:12.894059+00:00"
+  },
+  {
+    "name": "Justice League International Special",
+    "publisher": "DC Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23478,
+        "name": "Justice League International Special",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:00:50.328085+00:00",
+    "retry_after": "2026-10-23T14:00:50.328100+00:00"
+  },
+  {
+    "name": "Man-Thing",
+    "publisher": "Marvel Comics",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3006,
+        "name": "Man-Thing",
+        "publisher": null,
+        "start_year": 1979
+      },
+      {
+        "id": 99444,
+        "name": "Man-Thing",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 11303,
+        "name": "Man-Thing",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 2693,
+        "name": "Man-Thing",
+        "publisher": null,
+        "start_year": 1974
+      },
+      {
+        "id": 18540,
+        "name": "Man-Thing",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:00:51.324399+00:00",
+    "retry_after": "2026-10-23T14:00:51.324416+00:00"
+  },
+  {
+    "name": "Forever People",
+    "publisher": "DC Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2501,
+        "name": "The Forever People",
+        "publisher": null,
+        "start_year": 1971
+      },
+      {
+        "id": 4000,
+        "name": "Forever People",
+        "publisher": null,
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:00:51.735887+00:00",
+    "retry_after": "2026-10-23T14:00:51.735905+00:00"
+  },
+  {
+    "name": "Deadly Foes of Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4588,
+        "name": "Deadly Foes of Spider-Man",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:00:52.254092+00:00",
+    "retry_after": "2026-10-23T14:00:52.254108+00:00"
+  },
+  {
+    "name": "The X-Men Annual",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10748,
+        "name": "X-Men Annual",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 22988,
+        "name": "X-Men Annual",
+        "publisher": null,
+        "start_year": 1970
+      },
+      {
+        "id": 69538,
+        "name": "X-Men Annual",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 170792,
+        "name": "X-Men Annual",
+        "publisher": null,
+        "start_year": 2026
+      },
+      {
+        "id": 18169,
+        "name": "X-Men Annual",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 146988,
+        "name": "X-Men Annual",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 153608,
+        "name": "X-Men Annual ",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:00:52.702822+00:00",
+    "retry_after": "2026-10-23T14:00:52.702839+00:00"
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:00:53.110272+00:00",
+    "retry_after": "2026-10-23T14:00:53.110288+00:00"
+  },
+  {
+    "name": "Doomquest",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172118,
+        "name": "Doomquest",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:00:53.770276+00:00",
+    "retry_after": "2026-10-23T14:00:53.770290+00:00"
+  },
+  {
+    "name": "Miss Fury Special Limited Edition",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 135997,
+        "name": "Miss Fury Special Limited Edition",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:23:55.357690+00:00",
+    "retry_after": "2026-10-23T14:23:55.357707+00:00"
+  },
+  {
+    "name": "Harpy Pin-Up Special",
+    "publisher": "Devil's Due",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24161,
+        "name": "Harpy Pin-Up Special",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:23:55.931920+00:00",
+    "retry_after": "2026-10-23T14:23:55.931935+00:00"
+  },
+  {
+    "name": "Marvel Super-Heroes Spring Special",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 154866,
+        "name": "Marvel Super-Heroes Spring Special",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:23:56.412902+00:00",
+    "retry_after": "2026-10-23T14:23:56.412917+00:00"
+  },
+  {
+    "name": "Rex Allen",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37005,
+        "name": "Rex Allen",
+        "publisher": null,
+        "start_year": 1951
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:23:56.744405+00:00",
+    "retry_after": "2026-10-23T14:23:56.744419+00:00"
+  },
+  {
+    "name": "Confessions Illustrated",
+    "publisher": "Marvel Comics",
+    "year": 1974,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1803,
+        "name": "Confessions Illustrated",
+        "publisher": null,
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:23:57.245495+00:00",
+    "retry_after": "2026-10-23T14:23:57.245510+00:00"
+  },
+  {
+    "name": "Tales of the Vienna Sausage Woods",
+    "publisher": "Top Cow Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71419,
+        "name": "Tales of the Vienna Sausage Woods",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:23:57.723974+00:00",
+    "retry_after": "2026-10-23T14:23:57.723989+00:00"
+  },
+  {
+    "name": "Chester 5000 XYV",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53285,
+        "name": "Chester 5000 XYV",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:23:58.124634+00:00",
+    "retry_after": "2026-10-23T14:23:58.124646+00:00"
+  },
+  {
+    "name": "Herman Hedning Spesialutgave Raptus 1999",
+    "publisher": "Harvey Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141782,
+        "name": "Herman Hedning Spesialutgave Raptus 1999",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:23:58.720793+00:00",
+    "retry_after": "2026-10-23T14:23:58.720808+00:00"
+  },
+  {
+    "name": "Alien Sex / Monster Lust",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29098,
+        "name": "Alien Sex/Monster Lust",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:23:59.182347+00:00",
+    "retry_after": "2026-10-23T14:23:59.182392+00:00"
+  },
+  {
+    "name": "Spider-Man & Friends",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48020,
+        "name": "Spider-Man and Friends",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:23:59.772335+00:00",
+    "retry_after": "2026-10-23T14:23:59.772350+00:00"
+  },
+  {
+    "name": "Slave Girl",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81795,
+        "name": "Slave Girl",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:00.269720+00:00",
+    "retry_after": "2026-10-23T14:24:00.269735+00:00"
+  },
+  {
+    "name": "Sienna",
+    "publisher": "Fawcett Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142525,
+        "name": "Sienna",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:00.659054+00:00",
+    "retry_after": "2026-10-23T14:24:00.659069+00:00"
+  },
+  {
+    "name": "Famous Comics",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72379,
+        "name": "Famous Comics",
+        "publisher": null,
+        "start_year": 1933
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:01.041284+00:00",
+    "retry_after": "2026-10-23T14:24:01.041298+00:00"
+  },
+  {
+    "name": "Skinheads in Love",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71651,
+        "name": "Skinheads in Love",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:01.462268+00:00",
+    "retry_after": "2026-10-23T14:24:01.462284+00:00"
+  },
+  {
+    "name": "Crossover",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 131724,
+        "name": "Crossover",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 121365,
+        "name": "The Crossover",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 127380,
+        "name": "Crossover",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 144975,
+        "name": "Crossover ",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 118121,
+        "name": "Crossover",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:01.931641+00:00",
+    "retry_after": "2026-10-23T14:24:01.931657+00:00"
+  },
+  {
+    "name": "Teens at Play",
+    "publisher": "Dynamite Entertainment",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30220,
+        "name": "Teens At Play",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:02.462536+00:00",
+    "retry_after": "2026-10-23T14:24:02.462550+00:00"
+  },
+  {
+    "name": "Voracia",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72977,
+        "name": "Voracia",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:02.919802+00:00",
+    "retry_after": "2026-10-23T14:24:02.919814+00:00"
+  },
+  {
+    "name": "Screw Comics",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70421,
+        "name": "Screw Comics",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:03.508611+00:00",
+    "retry_after": "2026-10-23T14:24:03.508626+00:00"
+  },
+  {
+    "name": "The Forty Winks / Buzzboy Super Special",
+    "publisher": "Devil's Due",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79438,
+        "name": "Forty Winks / Buzzboy Super Special",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:03.960758+00:00",
+    "retry_after": "2026-10-23T14:24:03.960773+00:00"
+  },
+  {
+    "name": "Amazing Mysteries",
+    "publisher": "Fantagraphics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21608,
+        "name": "Amazing Mysteries",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:04.309312+00:00",
+    "retry_after": "2026-10-23T14:24:04.309327+00:00"
+  },
+  {
+    "name": "Domingos Alegres",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53933,
+        "name": "Domingos Alegres",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:05.138893+00:00",
+    "retry_after": "2026-10-23T14:24:05.138910+00:00"
+  },
+  {
+    "name": "Chiquilladas",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68422,
+        "name": "Chiquilladas",
+        "publisher": null,
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:05.642222+00:00",
+    "retry_after": "2026-10-23T14:24:05.642238+00:00"
+  },
+  {
+    "name": "Tarzán",
+    "publisher": "Marvel Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 145785,
+        "name": "Tarzán",
+        "publisher": null,
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:05.943860+00:00",
+    "retry_after": "2026-10-23T14:24:05.943875+00:00"
+  },
+  {
+    "name": "Basserne",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130307,
+        "name": "Basserne",
+        "publisher": null,
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:06.412913+00:00",
+    "retry_after": "2026-10-23T14:24:06.412966+00:00"
+  },
+  {
+    "name": "La Pequeña Lulú",
+    "publisher": "Harvey Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141790,
+        "name": "La Pequeña Lulú",
+        "publisher": null,
+        "start_year": 1971
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:06.723548+00:00",
+    "retry_after": "2026-10-23T14:24:06.723564+00:00"
+  },
+  {
+    "name": "Joyas de la Mitología",
+    "publisher": "Harvey Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44319,
+        "name": "Joyas de la Mitología",
+        "publisher": null,
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:07.092663+00:00",
+    "retry_after": "2026-10-23T14:24:07.092677+00:00"
+  },
+  {
+    "name": "Tex Nuova Ristampa",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 93849,
+        "name": "Tex Nuova Ristampa",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:07.525068+00:00",
+    "retry_after": "2026-10-23T14:24:07.525082+00:00"
+  },
+  {
+    "name": "Periquita",
+    "publisher": "Marvel Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 82528,
+        "name": "Periquita",
+        "publisher": null,
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:07.935561+00:00",
+    "retry_after": "2026-10-23T14:24:07.935576+00:00"
+  },
+  {
+    "name": "Gene Autry",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50262,
+        "name": "Gene Autry",
+        "publisher": null,
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:08.365353+00:00",
+    "retry_after": "2026-10-23T14:24:08.365385+00:00"
+  },
+  {
+    "name": "Kriminal",
+    "publisher": "Dark Horse Comics",
+    "year": 1957,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2216,
+        "name": "Kriminal",
+        "publisher": null,
+        "start_year": 1964
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T14:24:08.759218+00:00",
+    "retry_after": "2026-10-23T14:24:08.759233+00:00"
   }
 ]

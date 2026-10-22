@@ -27550,12 +27550,12 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-21T22:32:41.540150+00:00",
-    "retry_after": "2026-10-22T22:32:41.540163+00:00"
+    "last_attempt_at": "2026-10-22T05:10:21.728627+00:00",
+    "retry_after": "2026-10-23T05:10:21.728639+00:00"
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27572,9 +27572,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-21T23:00:47.637975+00:00",
-    "retry_after": "2026-10-24T23:00:47.637991+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:09:54.572460+00:00",
+    "retry_after": "2026-10-23T05:09:54.572473+00:00"
   },
   {
     "name": "Cerebus",
@@ -43531,7 +43531,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43548,9 +43548,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-21T23:00:47.722059+00:00",
-    "retry_after": "2026-10-24T23:00:47.722076+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:01:02.485045+00:00",
+    "retry_after": "2026-10-23T05:01:02.485062+00:00"
   },
   {
     "name": "Justice League Special",
@@ -59175,9 +59175,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T04:15:58.669278+00:00",
-    "retry_after": "2026-10-22T04:15:58.669286+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T05:10:03.906994+00:00",
+    "retry_after": "2026-10-25T05:10:03.907009+00:00"
   },
   {
     "name": "Tough Guys & Wild Women",
@@ -68677,5 +68677,845 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T04:16:04.863672+00:00",
     "retry_after": "2026-10-23T04:16:04.863689+00:00"
+  },
+  {
+    "name": "Peter Parker, The Spectacular Spider-Man",
+    "publisher": "Marvel Comics Group",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 139754,
+        "name": "Peter Parker, the Spectacular Spider-Man",
+        "publisher": null,
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:00:58.238766+00:00",
+    "retry_after": "2026-10-23T05:00:58.238780+00:00"
+  },
+  {
+    "name": "Peter Parker, The Spectacular Spider-Man",
+    "publisher": "Marvel",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 139754,
+        "name": "Peter Parker, the Spectacular Spider-Man",
+        "publisher": null,
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:00:58.287926+00:00",
+    "retry_after": "2026-10-23T05:00:58.287937+00:00"
+  },
+  {
+    "name": "Fables",
+    "publisher": "DC Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40871,
+        "name": "Fables",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 169136,
+        "name": "Fables",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 9723,
+        "name": "Fables",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 169140,
+        "name": "Fables",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:01:07.736778+00:00",
+    "retry_after": "2026-10-23T05:01:07.736794+00:00"
+  },
+  {
+    "name": "Evil Ernie: Destroyer Preview",
+    "publisher": "Chaos! Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71299,
+        "name": "Evil Ernie: Destroyer Preview",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:09:51.084879+00:00",
+    "retry_after": "2026-10-23T05:09:51.084894+00:00"
+  },
+  {
+    "name": "Halloween III: The Devil's Eyes",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24466,
+        "name": "Halloween III: The Devil's Eyes",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:09:51.595540+00:00",
+    "retry_after": "2026-10-23T05:09:51.595555+00:00"
+  },
+  {
+    "name": "Lady Death / Medieval Witchblade",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20791,
+        "name": "Lady Death / Medieval Witchblade",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:09:52.768253+00:00",
+    "retry_after": "2026-10-23T05:09:52.768269+00:00"
+  },
+  {
+    "name": "The Chaos! Bible",
+    "publisher": "Chaos! Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27147,
+        "name": "Chaos Bible",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:09:53.329111+00:00",
+    "retry_after": "2026-10-23T05:09:53.329127+00:00"
+  },
+  {
+    "name": "Chastity: Reign of Terror",
+    "publisher": "Chaos! Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20913,
+        "name": "Chastity: Reign of Terror",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:09:54.521277+00:00",
+    "retry_after": "2026-10-23T05:09:54.521292+00:00"
+  },
+  {
+    "name": "Muppet Babies",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3494,
+        "name": "Muppet Babies",
+        "publisher": null,
+        "start_year": 1985
+      },
+      {
+        "id": 127497,
+        "name": "Muppet Babies",
+        "publisher": null,
+        "start_year": 1986
+      },
+      {
+        "id": 45841,
+        "name": "Muppet Babies",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:09:57.711110+00:00",
+    "retry_after": "2026-10-23T05:09:57.711126+00:00"
+  },
+  {
+    "name": "Millie the Model",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19441,
+        "name": "Millie the Model",
+        "publisher": null,
+        "start_year": 1945
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:09:58.076293+00:00",
+    "retry_after": "2026-10-23T05:09:58.076308+00:00"
+  },
+  {
+    "name": "Barbie",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166269,
+        "name": "Barbie",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 58918,
+        "name": "Barbie",
+        "publisher": null,
+        "start_year": 1986
+      },
+      {
+        "id": 59179,
+        "name": "Barbie",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 33723,
+        "name": "Barbie",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 59051,
+        "name": "Barbie",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 94994,
+        "name": "Barbie",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 58950,
+        "name": "Barbie",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 176841,
+        "name": "Barbie",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 58866,
+        "name": "Barbie",
+        "publisher": null,
+        "start_year": 1986
+      },
+      {
+        "id": 117355,
+        "name": "Barbie",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 116002,
+        "name": "Barbie",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:09:59.827460+00:00",
+    "retry_after": "2026-10-23T05:09:59.827476+00:00"
+  },
+  {
+    "name": "Doctor Who: Free Comic Book Day",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81694,
+        "name": "Doctor Who: Free Comic Book Day",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 163769,
+        "name": "Doctor Who: Free Comic Book Day",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:01.585776+00:00",
+    "retry_after": "2026-10-23T05:10:01.585792+00:00"
+  },
+  {
+    "name": "The Deathsnake",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26736,
+        "name": "The Deathsnake",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:04.339448+00:00",
+    "retry_after": "2026-10-23T05:10:04.339463+00:00"
+  },
+  {
+    "name": "Spore Whores",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71910,
+        "name": "Spore Whores",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:05.358425+00:00",
+    "retry_after": "2026-10-23T05:10:05.358437+00:00"
+  },
+  {
+    "name": "The Crypt of Terror",
+    "publisher": "EC Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18611,
+        "name": "Crypt of Terror",
+        "publisher": null,
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:06.664107+00:00",
+    "retry_after": "2026-10-23T05:10:06.664123+00:00"
+  },
+  {
+    "name": "Secret Avengers by Rick Remender",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51824,
+        "name": "Secret Avengers by Rick Remender",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:08.038873+00:00",
+    "retry_after": "2026-10-23T05:10:08.038887+00:00"
+  },
+  {
+    "name": "Daredevil by Mark Waid",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57482,
+        "name": "Daredevil by Mark Waid",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 45530,
+        "name": "Daredevil by Mark Waid",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:08.393149+00:00",
+    "retry_after": "2026-10-23T05:10:08.393164+00:00"
+  },
+  {
+    "name": "Destroy All Humans. They Can’t Be Regenerated. A Magic: The Gathering Manga",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 160317,
+        "name": "Destroy All Humans. They Can't Be Regenerated. A Magic: The Gathering Manga",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:09.117042+00:00",
+    "retry_after": "2026-10-23T05:10:09.117057+00:00"
+  },
+  {
+    "name": "Moon Knight",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 137698,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 89613,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 174240,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 18105,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 39957,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 87355,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 3052,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 1980
+      },
+      {
+        "id": 72112,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 28617,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 146282,
+        "name": "Moon Knight",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:09.648787+00:00",
+    "retry_after": "2026-10-23T05:10:09.648802+00:00"
+  },
+  {
+    "name": "Bazongas",
+    "publisher": "Fantagraphics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78687,
+        "name": "Bazongas",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:09.988455+00:00",
+    "retry_after": "2026-10-23T05:10:09.988471+00:00"
+  },
+  {
+    "name": "Torment",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37204,
+        "name": "Torment",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:11.031486+00:00",
+    "retry_after": "2026-10-23T05:10:11.031500+00:00"
+  },
+  {
+    "name": "Blade Runner 2019",
+    "publisher": "Titan Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 120232,
+        "name": "Blade Runner 2019",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 130624,
+        "name": "Blade Runner 2019",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 130423,
+        "name": "Blade Runner 2019",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:11.632969+00:00",
+    "retry_after": "2026-10-23T05:10:11.632985+00:00"
+  },
+  {
+    "name": "Black Widow: Pale Little Spider",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 9453,
+        "name": "Black Widow: Pale Little Spider",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:13.088740+00:00",
+    "retry_after": "2026-10-23T05:10:13.088756+00:00"
+  },
+  {
+    "name": "Star Trek: Discovery - Aftermath",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 121044,
+        "name": "Star Trek: Discovery - Aftermath",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 126288,
+        "name": "Star Trek: Discovery - Aftermath",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:14.175959+00:00",
+    "retry_after": "2026-10-23T05:10:14.175974+00:00"
+  },
+  {
+    "name": "Descendant",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27093,
+        "name": "Descendant",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:15.166617+00:00",
+    "retry_after": "2026-10-23T05:10:15.166632+00:00"
+  },
+  {
+    "name": "Marines at War",
+    "publisher": "Marvel Comics",
+    "year": 1957,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1849,
+        "name": "Marines at War",
+        "publisher": null,
+        "start_year": 1957
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:15.682419+00:00",
+    "retry_after": "2026-10-23T05:10:15.682435+00:00"
+  },
+  {
+    "name": "Baobab",
+    "publisher": "Fantagraphics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 125294,
+        "name": "Baobab",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 48286,
+        "name": "Baobab",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:16.072724+00:00",
+    "retry_after": "2026-10-23T05:10:16.072739+00:00"
+  },
+  {
+    "name": "Savant Garde Fan Edition",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26564,
+        "name": "Savant Garde Fan Edition",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:17.894766+00:00",
+    "retry_after": "2026-10-23T05:10:17.894780+00:00"
+  },
+  {
+    "name": "Sin Metal Sirens",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36232,
+        "name": "Sin Metal Sirens",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:19.020437+00:00",
+    "retry_after": "2026-10-23T05:10:19.020452+00:00"
+  },
+  {
+    "name": "Wayward",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76638,
+        "name": "Wayward",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 85319,
+        "name": "Wayward",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:21.347234+00:00",
+    "retry_after": "2026-10-23T05:10:21.347249+00:00"
+  },
+  {
+    "name": "Cupid Pictorial",
+    "publisher": "Marvel Comics",
+    "year": 1959,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:22.407316+00:00",
+    "retry_after": "2026-10-23T05:10:22.407333+00:00"
+  },
+  {
+    "name": "First Romance",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:25.086518+00:00",
+    "retry_after": "2026-10-23T05:10:25.086541+00:00"
+  },
+  {
+    "name": "King Classics",
+    "publisher": "Titan Comics",
+    "year": 1977,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30988,
+        "name": "King Classics",
+        "publisher": null,
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:25.579126+00:00",
+    "retry_after": "2026-10-23T05:10:25.579141+00:00"
+  },
+  {
+    "name": "Cartoon Fun and Comedy",
+    "publisher": "Marvel Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62076,
+        "name": "Cartoon Fun and Comedy",
+        "publisher": null,
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:27.449735+00:00",
+    "retry_after": "2026-10-23T05:10:27.449751+00:00"
+  },
+  {
+    "name": "Yummy Fur",
+    "publisher": "Charlton Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35961,
+        "name": "Yummy Fur",
+        "publisher": null,
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:28.013963+00:00",
+    "retry_after": "2026-10-23T05:10:28.013979+00:00"
+  },
+  {
+    "name": "Beavis and Butt-Head",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21508,
+        "name": "Beavis & Butt-Head",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 125031,
+        "name": "Beavis & Butt-Head",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 125033,
+        "name": "Beavis & Butt-Head",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:29.999871+00:00",
+    "retry_after": "2026-10-23T05:10:29.999886+00:00"
+  },
+  {
+    "name": "Police Against Crime",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57616,
+        "name": "Police Against Crime",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:30.438050+00:00",
+    "retry_after": "2026-10-23T05:10:30.438064+00:00"
+  },
+  {
+    "name": "Conan Rei",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113627,
+        "name": "Conan Rei",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:31.805899+00:00",
+    "retry_after": "2026-10-23T05:10:31.805913+00:00"
+  },
+  {
+    "name": "Heavy Metal Brasil",
+    "publisher": "Heavy Metal",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T05:10:33.848536+00:00",
+    "retry_after": "2026-10-23T05:10:33.848552+00:00"
   }
 ]

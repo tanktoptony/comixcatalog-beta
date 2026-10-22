@@ -44562,47 +44562,77 @@
     "name": "Ice Cream Man",
     "publisher": "Image Comics",
     "year": 2023,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
+      {
+        "id": 151533,
+        "name": "Ice Cream Man",
+        "publisher": null,
+        "start_year": null
+      },
       {
         "id": 107948,
         "name": "Ice Cream Man",
-        "publisher": "Image",
+        "publisher": null,
         "start_year": 2018
       },
       {
         "id": 111675,
         "name": "Ice Cream Man",
-        "publisher": "Image",
+        "publisher": null,
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T02:00:53.807611+00:00",
-    "retry_after": "2026-10-22T02:00:53.807627+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-22T03:01:18.084479+00:00",
+    "retry_after": "2026-11-05T03:01:18.084494+00:00"
   },
   {
     "name": "Preacher",
     "publisher": "DC Comics",
     "year": 2007,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 5516,
         "name": "Preacher",
-        "publisher": "DC Comics",
+        "publisher": null,
         "start_year": 1995
+      },
+      {
+        "id": 40882,
+        "name": "Preacher",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 80193,
+        "name": "Preacher",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 143966,
+        "name": "Preacher",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 166674,
+        "name": "Preacher",
+        "publisher": null,
+        "start_year": 1996
       },
       {
         "id": 29843,
         "name": "Preacher",
-        "publisher": "DC Comics",
+        "publisher": null,
         "start_year": 2009
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T02:00:54.338408+00:00",
-    "retry_after": "2026-10-22T02:00:54.338425+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-22T03:01:18.615002+00:00",
+    "retry_after": "2026-11-05T03:01:18.615019+00:00"
   },
   {
     "name": "Dylan Dog Oldboy nuova serie",
@@ -58994,13 +59024,13 @@
       {
         "id": 140320,
         "name": "Cowboy Stories",
-        "publisher": "Magazine Management",
+        "publisher": null,
         "start_year": 1965
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T02:15:55.190071+00:00",
-    "retry_after": "2026-10-22T02:15:55.190088+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T03:16:19.666138+00:00",
+    "retry_after": "2026-10-25T03:16:19.666152+00:00"
   },
   {
     "name": "Ju-On",
@@ -59008,9 +59038,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T02:16:34.639865+00:00",
-    "retry_after": "2026-10-22T02:16:34.639881+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T03:16:20.058515+00:00",
+    "retry_after": "2026-10-25T03:16:20.058528+00:00"
   },
   {
     "name": "Astonishing X-Men: Gambit",
@@ -59018,9 +59048,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T02:16:41.281925+00:00",
-    "retry_after": "2026-10-22T02:16:41.281937+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T03:16:20.395608+00:00",
+    "retry_after": "2026-10-25T03:16:20.395624+00:00"
   },
   {
     "name": "Full Throttle",
@@ -59031,19 +59061,19 @@
       {
         "id": 130875,
         "name": "Full Throttle",
-        "publisher": "Subterranean Press",
+        "publisher": null,
         "start_year": 2020
       },
       {
         "id": 24151,
         "name": "Full Throttle",
-        "publisher": "Aircel Publishing",
+        "publisher": null,
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T02:17:15.755656+00:00",
-    "retry_after": "2026-10-22T02:17:15.755671+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T03:16:20.701116+00:00",
+    "retry_after": "2026-10-25T03:16:20.701125+00:00"
   },
   {
     "name": "Cupid's Revenge",
@@ -59051,9 +59081,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T02:17:16.950320+00:00",
-    "retry_after": "2026-10-22T02:17:16.950336+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T03:16:21.114737+00:00",
+    "retry_after": "2026-10-25T03:16:21.114754+00:00"
   },
   {
     "name": "Julien Boisvert",
@@ -67106,5 +67136,519 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T02:16:05.152524+00:00",
     "retry_after": "2026-10-23T02:16:05.152536+00:00"
+  },
+  {
+    "name": "Independent Voices",
+    "publisher": "Devil's Due",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23696,
+        "name": "Independent Voices",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:21.522519+00:00",
+    "retry_after": "2026-10-23T03:16:21.522530+00:00"
+  },
+  {
+    "name": "Megahurtz",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27528,
+        "name": "Megahurtz",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:21.867845+00:00",
+    "retry_after": "2026-10-23T03:16:21.867858+00:00"
+  },
+  {
+    "name": "Pounded",
+    "publisher": "Oni Press",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41522,
+        "name": "Pounded",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 58364,
+        "name": "Pounded",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:22.406027+00:00",
+    "retry_after": "2026-10-23T03:16:22.406039+00:00"
+  },
+  {
+    "name": "Della Vision",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28793,
+        "name": "Della Vision",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:22.754913+00:00",
+    "retry_after": "2026-10-23T03:16:22.754924+00:00"
+  },
+  {
+    "name": "Snaked",
+    "publisher": "IDW Publishing",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23664,
+        "name": "Snaked",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:23.208616+00:00",
+    "retry_after": "2026-10-23T03:16:23.208629+00:00"
+  },
+  {
+    "name": "Little Dot",
+    "publisher": "Marvel Comics",
+    "year": 1959,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33715,
+        "name": "Little Dot",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 143886,
+        "name": "Little Dot",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 11404,
+        "name": "Little Dot",
+        "publisher": null,
+        "start_year": 1953
+      },
+      {
+        "id": 48613,
+        "name": "Little Dot",
+        "publisher": null,
+        "start_year": 1955
+      },
+      {
+        "id": 143775,
+        "name": "Little Dot ",
+        "publisher": null,
+        "start_year": 1959
+      },
+      {
+        "id": 143984,
+        "name": "Little Dot ",
+        "publisher": null,
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:23.583685+00:00",
+    "retry_after": "2026-10-23T03:16:23.583695+00:00"
+  },
+  {
+    "name": "Robin III",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:23.999799+00:00",
+    "retry_after": "2026-10-23T03:16:23.999809+00:00"
+  },
+  {
+    "name": "Back to the Future: Forward to the Future",
+    "publisher": "Harvey Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4764,
+        "name": "Back to the Future: Forward to the Future",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:24.357574+00:00",
+    "retry_after": "2026-10-23T03:16:24.357583+00:00"
+  },
+  {
+    "name": "The Last Temptation",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5306,
+        "name": "The Last Temptation",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 31191,
+        "name": "The Last Temptation",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:24.696438+00:00",
+    "retry_after": "2026-10-23T03:16:24.696451+00:00"
+  },
+  {
+    "name": "Amazing Spider-Man Presents: Jackpot",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30919,
+        "name": "Amazing Spider-Man Presents: Jackpot",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 35185,
+        "name": "Amazing Spider-Man Presents: Jackpot",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:25.012010+00:00",
+    "retry_after": "2026-10-23T03:16:25.012019+00:00"
+  },
+  {
+    "name": "Offcastes",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23336,
+        "name": "Offcastes",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:25.497431+00:00",
+    "retry_after": "2026-10-23T03:16:25.497442+00:00"
+  },
+  {
+    "name": "Here Come the Lovejoys Again!",
+    "publisher": "Fantagraphics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36101,
+        "name": "Here Come The Lovejoys Again",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:25.806855+00:00",
+    "retry_after": "2026-10-23T03:16:25.806867+00:00"
+  },
+  {
+    "name": "Pee Soup",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28583,
+        "name": "Pee Soup",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:26.311160+00:00",
+    "retry_after": "2026-10-23T03:16:26.311175+00:00"
+  },
+  {
+    "name": "Badrock",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 174640,
+        "name": "Badrock",
+        "publisher": null,
+        "start_year": 2026
+      },
+      {
+        "id": 18266,
+        "name": "Badrock",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:26.784290+00:00",
+    "retry_after": "2026-10-23T03:16:26.784299+00:00"
+  },
+  {
+    "name": "The Complete Darkness",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 134043,
+        "name": "The Complete Darkness",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:27.373884+00:00",
+    "retry_after": "2026-10-23T03:16:27.373896+00:00"
+  },
+  {
+    "name": "2000 AD",
+    "publisher": "Rebellion",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19752,
+        "name": "2000 AD",
+        "publisher": null,
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:28.079279+00:00",
+    "retry_after": "2026-10-23T03:16:28.079294+00:00"
+  },
+  {
+    "name": "Super Comics",
+    "publisher": "Dell Comics",
+    "year": 1943,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19800,
+        "name": "Super Comics",
+        "publisher": null,
+        "start_year": 1938
+      },
+      {
+        "id": 177058,
+        "name": "Super-Comics",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:28.422761+00:00",
+    "retry_after": "2026-10-23T03:16:28.422773+00:00"
+  },
+  {
+    "name": "Justice Society of America",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157577,
+        "name": "Justice Society of America",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 18052,
+        "name": "Justice Society of America",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 4556,
+        "name": "Justice Society of America",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 42482,
+        "name": "Justice Society of America",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 146561,
+        "name": "Justice Society of America",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 4747,
+        "name": "Justice Society of America",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:28.841190+00:00",
+    "retry_after": "2026-10-23T03:16:28.841201+00:00"
+  },
+  {
+    "name": "Men's Adventures",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30573,
+        "name": "Men's Adventures",
+        "publisher": null,
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:29.171316+00:00",
+    "retry_after": "2026-10-23T03:16:29.171328+00:00"
+  },
+  {
+    "name": "Marines in Battle",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1633,
+        "name": "Marines in Battle",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:29.471801+00:00",
+    "retry_after": "2026-10-23T03:16:29.471811+00:00"
+  },
+  {
+    "name": "All-American Western",
+    "publisher": "DC Comics",
+    "year": 1948,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25515,
+        "name": "All-American Western",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:29.911815+00:00",
+    "retry_after": "2026-10-23T03:16:29.911828+00:00"
+  },
+  {
+    "name": "The DNAgents",
+    "publisher": "Eclipse Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3254,
+        "name": "DNAgents",
+        "publisher": null,
+        "start_year": 1983
+      },
+      {
+        "id": 29764,
+        "name": "DNAgents",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:30.275943+00:00",
+    "retry_after": "2026-10-23T03:16:30.275952+00:00"
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:30.639466+00:00",
+    "retry_after": "2026-10-23T03:16:30.639476+00:00"
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": null,
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:30.911091+00:00",
+    "retry_after": "2026-10-23T03:16:30.911100+00:00"
+  },
+  {
+    "name": "Beep! Beep!",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37606,
+        "name": "Beep Beep",
+        "publisher": null,
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T03:16:31.267440+00:00",
+    "retry_after": "2026-10-23T03:16:31.267453+00:00"
   }
 ]

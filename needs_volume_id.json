@@ -74681,5 +74681,615 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T22:48:38.441529+00:00",
     "retry_after": "2026-10-23T22:48:38.441544+00:00"
+  },
+  {
+    "name": "Lords of Mars",
+    "publisher": "Dynamite Entertainment",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66068,
+        "name": "Lords of Mars",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:52.951605+00:00",
+    "retry_after": "2026-10-23T23:23:52.951624+00:00"
+  },
+  {
+    "name": "Uncanny Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52880,
+        "name": "Uncanny Avengers",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 119941,
+        "name": "Uncanny Avengers",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 85318,
+        "name": "Uncanny Avengers",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 63315,
+        "name": "Uncanny Avengers",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 79736,
+        "name": "Uncanny Avengers",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 153018,
+        "name": "Uncanny Avengers",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 72503,
+        "name": "Uncanny Avengers",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 73264,
+        "name": "Uncanny Avengers",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 62905,
+        "name": "Uncanny Avengers",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:53.489352+00:00",
+    "retry_after": "2026-10-23T23:23:53.489372+00:00"
+  },
+  {
+    "name": "Serving Supes",
+    "publisher": "First Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86123,
+        "name": "Serving Supes",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 92309,
+        "name": "Serving Supes",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:53.892940+00:00",
+    "retry_after": "2026-10-23T23:23:53.892958+00:00"
+  },
+  {
+    "name": "McCain: The Comic Book",
+    "publisher": "Antarctic Press",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50963,
+        "name": "McCain: The Comic Book",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:54.340529+00:00",
+    "retry_after": "2026-10-23T23:23:54.340547+00:00"
+  },
+  {
+    "name": "Star Wars: The High Republic Adventures (Phase III) - Crash Landing",
+    "publisher": "Dark Horse Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157447,
+        "name": "Star Wars: The High Republic Adventures (Phase III)―Crash Landing",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:54.818564+00:00",
+    "retry_after": "2026-10-23T23:23:54.818583+00:00"
+  },
+  {
+    "name": "Marine Comedy",
+    "publisher": "Marvel Comics",
+    "year": 1944,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 138213,
+        "name": "Marine Comedy",
+        "publisher": null,
+        "start_year": 1944
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:55.576177+00:00",
+    "retry_after": "2026-10-23T23:23:55.576195+00:00"
+  },
+  {
+    "name": "Eternal Warriors: Mog",
+    "publisher": "Valiant Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:56.100722+00:00",
+    "retry_after": "2026-10-23T23:23:56.100739+00:00"
+  },
+  {
+    "name": "The Apparition: Visitations",
+    "publisher": "Caliber Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45127,
+        "name": "Apparition Visitations",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:56.964271+00:00",
+    "retry_after": "2026-10-23T23:23:56.964286+00:00"
+  },
+  {
+    "name": "Pantera",
+    "publisher": "Malibu Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 135887,
+        "name": "Pantera",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:57.366647+00:00",
+    "retry_after": "2026-10-23T23:23:57.366665+00:00"
+  },
+  {
+    "name": "All-New X-Men Annual",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79024,
+        "name": "All-New X-Men Annual",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 95807,
+        "name": "All-New X-Men Annual",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:57.780300+00:00",
+    "retry_after": "2026-10-23T23:23:57.780318+00:00"
+  },
+  {
+    "name": "Heckle and Jeckle the Talking  Magpies",
+    "publisher": "Marvel Comics",
+    "year": 1976,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54818,
+        "name": "Heckle and Jeckle the Talking Magpies",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:58.159634+00:00",
+    "retry_after": "2026-10-23T23:23:58.159652+00:00"
+  },
+  {
+    "name": "Monster Frat House",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24570,
+        "name": "Monster Frat House",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:58.518688+00:00",
+    "retry_after": "2026-10-23T23:23:58.518707+00:00"
+  },
+  {
+    "name": "Astro Boy",
+    "publisher": "Dark Horse Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166817,
+        "name": "Astro Boy",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 49022,
+        "name": "Astro Boy",
+        "publisher": null,
+        "start_year": 1965
+      },
+      {
+        "id": 31887,
+        "name": "Astro Boy",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 167986,
+        "name": "Astro Boy",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 47498,
+        "name": "Astro Boy",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:58.958885+00:00",
+    "retry_after": "2026-10-23T23:23:58.958903+00:00"
+  },
+  {
+    "name": "Punchline #1 FCBD Edition",
+    "publisher": "Antarctic Press",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:23:59.712488+00:00",
+    "retry_after": "2026-10-23T23:23:59.712506+00:00"
+  },
+  {
+    "name": "The Un-Bedable Vark",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111866,
+        "name": "The Un-Bedable Vark",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:00.225427+00:00",
+    "retry_after": "2026-10-23T23:24:00.225445+00:00"
+  },
+  {
+    "name": "Femosaur World",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35828,
+        "name": "Femosaur World",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:00.785883+00:00",
+    "retry_after": "2026-10-23T23:24:00.785901+00:00"
+  },
+  {
+    "name": "Shuriken Team-Up",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81324,
+        "name": "Shuriken Team-Up",
+        "publisher": null,
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:01.231257+00:00",
+    "retry_after": "2026-10-23T23:24:01.231274+00:00"
+  },
+  {
+    "name": "Archie Comics 85th Anniversary Presents: Archie's Movie Mania",
+    "publisher": "Archie Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171912,
+        "name": "Archie Comics 85th Anniversary Presents: Archie's Movie Mania",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:01.617916+00:00",
+    "retry_after": "2026-10-23T23:24:01.617935+00:00"
+  },
+  {
+    "name": "Morning Glories Compendium",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78557,
+        "name": "Morning Glories Compendium",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:02.071383+00:00",
+    "retry_after": "2026-10-23T23:24:02.071399+00:00"
+  },
+  {
+    "name": "Belzebubs",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 117696,
+        "name": "Belzebubs",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:02.469435+00:00",
+    "retry_after": "2026-10-23T23:24:02.469453+00:00"
+  },
+  {
+    "name": "The Incredible Hulks",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48512,
+        "name": "The Incredible Hulks",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 73395,
+        "name": "The Incredible Hulks",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 35303,
+        "name": "Incredible Hulks",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 94887,
+        "name": "The Incredible Hulks",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:03.246909+00:00",
+    "retry_after": "2026-10-23T23:24:03.246927+00:00"
+  },
+  {
+    "name": "Dylan Dog Gigante",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41508,
+        "name": "Dylan Dog Gigante",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:03.740820+00:00",
+    "retry_after": "2026-10-23T23:24:03.740839+00:00"
+  },
+  {
+    "name": "The Sacrificers",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 152802,
+        "name": "The Sacrificers",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 158850,
+        "name": "The Sacrificers",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 161395,
+        "name": "The Sacrificers",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:04.057949+00:00",
+    "retry_after": "2026-10-23T23:24:04.057967+00:00"
+  },
+  {
+    "name": "Fator X",
+    "publisher": "Avatar Press",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44923,
+        "name": "Fator-X",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:04.584488+00:00",
+    "retry_after": "2026-10-23T23:24:04.584512+00:00"
+  },
+  {
+    "name": "Maschera Nera",
+    "publisher": "Dark Horse Comics",
+    "year": 1964,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28188,
+        "name": "Maschera Nera",
+        "publisher": null,
+        "start_year": 1962
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:05.097400+00:00",
+    "retry_after": "2026-10-23T23:24:05.097420+00:00"
+  },
+  {
+    "name": "Richie Rich's Funtime Comics",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45891,
+        "name": "Richie Rich's Funtime Comics",
+        "publisher": null,
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:05.675906+00:00",
+    "retry_after": "2026-10-23T23:24:05.675925+00:00"
+  },
+  {
+    "name": "Heróis da TV",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158264,
+        "name": "Heróis da TV",
+        "publisher": null,
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:06.497163+00:00",
+    "retry_after": "2026-10-23T23:24:06.497181+00:00"
+  },
+  {
+    "name": "Disney Especial Reedição",
+    "publisher": "Avatar Press",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79152,
+        "name": "Disney Especial Reedição",
+        "publisher": null,
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:06.954694+00:00",
+    "retry_after": "2026-10-23T23:24:06.954713+00:00"
+  },
+  {
+    "name": "Fun House Comedy",
+    "publisher": "Marvel Comics",
+    "year": 1964,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 125513,
+        "name": "Fun House Comedy",
+        "publisher": null,
+        "start_year": 1964
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:07.404436+00:00",
+    "retry_after": "2026-10-23T23:24:07.404481+00:00"
+  },
+  {
+    "name": "The Phantom Rider",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65302,
+        "name": "Phantom Rider",
+        "publisher": null,
+        "start_year": 1945
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T23:24:07.759797+00:00",
+    "retry_after": "2026-10-23T23:24:07.759815+00:00"
   }
 ]

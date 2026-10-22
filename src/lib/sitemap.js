@@ -174,7 +174,7 @@ export async function seriesEntries(prefix) {
   for (;;) {
     const cursor = after;
     const data = await withRetry(() => {
-      let query = allowlistedSeries(supabase.from("series").select("id"))
+      let query = allowlistedSeries(supabase.from("series").select("id,gcd_id"))
         .gte("id", lower)
         .lte("id", upper)
         .order("id", { ascending: true })
@@ -182,12 +182,34 @@ export async function seriesEntries(prefix) {
       if (cursor) query = query.gt("id", cursor);
       return query;
     }, `series-${prefix} after ${cursor ?? "start"}`);
+    const gcdIds = data.map((row) => row.gcd_id).filter((value) => value != null);
+    const keyRows = gcdIds.length ? await withRetry(
+      () => supabase
+        .from("key_issues")
+        .select("gcd_issues!inner(series_gcd_id)")
+        .in("gcd_issues.series_gcd_id", gcdIds),
+      `series-${prefix} key counts after ${cursor ?? "start"}`
+    ) : [];
+    const keyCounts = new Map();
+    for (const keyRow of keyRows) {
+      const issue = Array.isArray(keyRow.gcd_issues) ? keyRow.gcd_issues[0] : keyRow.gcd_issues;
+      const seriesGcdId = issue?.series_gcd_id;
+      if (seriesGcdId == null) continue;
+      keyCounts.set(String(seriesGcdId), (keyCounts.get(String(seriesGcdId)) ?? 0) + 1);
+    }
     for (const row of data) {
       entries.push({
         url: `${SITE_URL}/series/${row.id}`,
         changeFrequency: "monthly",
         priority: 0.6,
       });
+      if ((keyCounts.get(String(row.gcd_id)) ?? 0) >= 3) {
+        entries.push({
+          url: `${SITE_URL}/series/${row.id}/keys`,
+          changeFrequency: "monthly",
+          priority: 0.6,
+        });
+      }
     }
     if (data.length < PAGE) break;
     after = data[data.length - 1].id;

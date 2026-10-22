@@ -415,7 +415,14 @@ export default function SeriesClient({ initialSeries = null }) {
 
         {/* Full width under the hero: the timeline needs room, the hero's
             text column is too narrow for 70 years of keys. */}
-        {series.key_issues?.length > 0 && <KeyTimeline issues={series.key_issues} />}
+        {series.key_issues?.length > 0 && (
+          <>
+            <KeyTimeline issues={series.key_issues} />
+            <Link className="series-shareable-link series-all-keys-link" href={`/series/${id}/keys`}>
+              See all {series.key_issues.length} keys
+            </Link>
+          </>
+        )}
 
         <div className="series-public-details">
           <section className="series-public-panel">
@@ -599,6 +606,11 @@ export default function SeriesClient({ initialSeries = null }) {
         >
           <div className="muted">
             {sortedIssues.length} issue{sortedIssues.length === 1 ? "" : "s"}
+            {sortedIssues.length > 0 && (
+              <Link className="series-shareable-link" href={`/series/${id}/checklist`}>
+                Printable checklist
+              </Link>
+            )}
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>

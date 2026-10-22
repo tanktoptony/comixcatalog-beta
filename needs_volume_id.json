@@ -12402,9 +12402,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-18T03:39:47.630640+00:00",
-    "retry_after": "2026-10-21T03:39:47.630658+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-22T08:06:18.267013+00:00",
+    "retry_after": "2026-10-29T08:06:18.267028+00:00"
   },
   {
     "name": "Mortal Kombat Special Edition",
@@ -27550,12 +27550,12 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T05:10:21.728627+00:00",
-    "retry_after": "2026-10-23T05:10:21.728639+00:00"
+    "last_attempt_at": "2026-10-22T08:07:26.070013+00:00",
+    "retry_after": "2026-10-23T08:07:26.070027+00:00"
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27573,8 +27573,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T06:00:52.202978+00:00",
-    "retry_after": "2026-10-23T06:00:52.202996+00:00"
+    "last_attempt_at": "2026-10-22T08:06:14.776401+00:00",
+    "retry_after": "2026-10-23T08:06:14.776417+00:00"
   },
   {
     "name": "Cerebus",
@@ -36615,9 +36615,9 @@
     "year": 1971,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T07:38:31.220505+00:00",
-    "retry_after": "2026-10-22T07:38:31.220522+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-22T08:07:01.423510+00:00",
+    "retry_after": "2026-10-25T08:07:01.423526+00:00"
   },
   {
     "name": "The Flintstones",
@@ -43531,7 +43531,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43549,8 +43549,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T06:00:52.250276+00:00",
-    "retry_after": "2026-10-23T06:00:52.250289+00:00"
+    "last_attempt_at": "2026-10-22T08:00:50.310695+00:00",
+    "retry_after": "2026-10-23T08:00:50.310710+00:00"
   },
   {
     "name": "Justice League Special",
@@ -70795,5 +70795,776 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T07:32:35.952294+00:00",
     "retry_after": "2026-10-23T07:32:35.952310+00:00"
+  },
+  {
+    "name": "The Punisher",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11164,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 41758,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 112965,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 6586,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 42863,
+        "name": "Punisher",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 124897,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 90118,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 71435,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 18328,
+        "name": "Punisher",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 25370,
+        "name": "Punisher",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 141843,
+        "name": "Punisher",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 42864,
+        "name": "Punisher",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 87642,
+        "name": "Punisher",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 3855,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 9133,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 35398,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 170671,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 2026
+      },
+      {
+        "id": 3649,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 1986
+      },
+      {
+        "id": 21768,
+        "name": "The Punisher",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 61380,
+        "name": "Punisher",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:06:17.464877+00:00",
+    "retry_after": "2026-10-23T08:06:17.464893+00:00"
+  },
+  {
+    "name": "Street Fighter Unlimited",
+    "publisher": "Udon Entertainment Corp.",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 93682,
+        "name": "Street Fighter Unlimited",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 85643,
+        "name": "Street Fighter Unlimited",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:06:17.858449+00:00",
+    "retry_after": "2026-10-23T08:06:17.858464+00:00"
+  },
+  {
+    "name": "Harbinger Wars",
+    "publisher": "Valiant Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59509,
+        "name": "Harbinger Wars",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 67445,
+        "name": "Harbinger Wars",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:06:59.392769+00:00",
+    "retry_after": "2026-10-23T08:06:59.392785+00:00"
+  },
+  {
+    "name": "Automaton",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 110971,
+        "name": "Automaton",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 40362,
+        "name": "Automaton",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:03.635654+00:00",
+    "retry_after": "2026-10-23T08:07:03.635670+00:00"
+  },
+  {
+    "name": "A Distant Soil",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66112,
+        "name": "A Distant Soil",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 31632,
+        "name": "A Distant Soil",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 25045,
+        "name": "A Distant Soil",
+        "publisher": null,
+        "start_year": 1983
+      },
+      {
+        "id": 66245,
+        "name": "A Distant Soil",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:05.789918+00:00",
+    "retry_after": "2026-10-23T08:07:05.789934+00:00"
+  },
+  {
+    "name": "Western Winners",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30130,
+        "name": "Western Winners",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:07.407715+00:00",
+    "retry_after": "2026-10-23T08:07:07.407730+00:00"
+  },
+  {
+    "name": "The Lone Ranger",
+    "publisher": "Dell Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19140,
+        "name": "The Lone Ranger",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 44895,
+        "name": "The Lone Ranger",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 1172,
+        "name": "The Lone Ranger",
+        "publisher": null,
+        "start_year": 1948
+      },
+      {
+        "id": 2204,
+        "name": "The Lone Ranger",
+        "publisher": null,
+        "start_year": 1964
+      },
+      {
+        "id": 114068,
+        "name": "The Lone Ranger",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 74236,
+        "name": "Lone Ranger",
+        "publisher": null,
+        "start_year": 1960
+      },
+      {
+        "id": 63143,
+        "name": "Lone Ranger",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 130403,
+        "name": "The Lone Ranger",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:08.635329+00:00",
+    "retry_after": "2026-10-23T08:07:08.635345+00:00"
+  },
+  {
+    "name": "Spooky Digest",
+    "publisher": "Harvey Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33796,
+        "name": "Spooky Digest",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:11.350170+00:00",
+    "retry_after": "2026-10-23T08:07:11.350186+00:00"
+  },
+  {
+    "name": "Richie Rich Treasure Chest Digest",
+    "publisher": "Harvey Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34955,
+        "name": "Richie Rich Treasure Chest Digest",
+        "publisher": null,
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:11.748714+00:00",
+    "retry_after": "2026-10-23T08:07:11.748729+00:00"
+  },
+  {
+    "name": "Centuria",
+    "publisher": "VIZ Media",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158724,
+        "name": "Centuria",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 167261,
+        "name": "Centuria",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 171043,
+        "name": "Centuria",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 170393,
+        "name": "Centuria",
+        "publisher": null,
+        "start_year": 2026
+      },
+      {
+        "id": 170611,
+        "name": "Centuria",
+        "publisher": null,
+        "start_year": 2026
+      },
+      {
+        "id": 165473,
+        "name": "Centuria",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:12.042123+00:00",
+    "retry_after": "2026-10-23T08:07:12.042138+00:00"
+  },
+  {
+    "name": "Stone Protectors",
+    "publisher": "Harvey Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48386,
+        "name": "Stone Protectors",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:14.150932+00:00",
+    "retry_after": "2026-10-23T08:07:14.150946+00:00"
+  },
+  {
+    "name": "Cobb",
+    "publisher": "IDW Publishing",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:15.466163+00:00",
+    "retry_after": "2026-10-23T08:07:15.466178+00:00"
+  },
+  {
+    "name": "Saddle Romances",
+    "publisher": "EC Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18974,
+        "name": "Saddle Romances",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:17.292470+00:00",
+    "retry_after": "2026-10-23T08:07:17.292486+00:00"
+  },
+  {
+    "name": "Bishop: XSE",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11200,
+        "name": "Bishop: XSE",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:18.335510+00:00",
+    "retry_after": "2026-10-23T08:07:18.335525+00:00"
+  },
+  {
+    "name": "Devil Dog Dugan",
+    "publisher": "Marvel Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19577,
+        "name": "Devil Dog Dugan",
+        "publisher": null,
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:18.834891+00:00",
+    "retry_after": "2026-10-23T08:07:18.834906+00:00"
+  },
+  {
+    "name": "Wonder Duck",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30599,
+        "name": "Wonder Duck",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:20.706414+00:00",
+    "retry_after": "2026-10-23T08:07:20.706430+00:00"
+  },
+  {
+    "name": "The Witchfinder",
+    "publisher": "Image Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28034,
+        "name": "The Witchfinder",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:21.078248+00:00",
+    "retry_after": "2026-10-23T08:07:21.078263+00:00"
+  },
+  {
+    "name": "Super Duper",
+    "publisher": "Harvey Comics",
+    "year": 1941,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47750,
+        "name": "Super-Duper",
+        "publisher": null,
+        "start_year": 1946
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:22.709898+00:00",
+    "retry_after": "2026-10-23T08:07:22.709914+00:00"
+  },
+  {
+    "name": "Venom: On Trial",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20348,
+        "name": "Venom: On Trial",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:23.305611+00:00",
+    "retry_after": "2026-10-23T08:07:23.305626+00:00"
+  },
+  {
+    "name": "Dagger of Blood",
+    "publisher": "Fantagraphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23023,
+        "name": "Dagger of Blood",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:25.353237+00:00",
+    "retry_after": "2026-10-23T08:07:25.353253+00:00"
+  },
+  {
+    "name": "Calexit: The Battle of Universal City",
+    "publisher": "Black Mask Studios",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172080,
+        "name": "Calexit: The Battle of Universal City",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:25.733332+00:00",
+    "retry_after": "2026-10-23T08:07:25.733348+00:00"
+  },
+  {
+    "name": "Witch Hunter",
+    "publisher": "Malibu Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49635,
+        "name": "Witch Hunter",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 20482,
+        "name": "Witch Hunter",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 70138,
+        "name": "Witch Hunter",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 53692,
+        "name": "Witch Hunter",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:26.576825+00:00",
+    "retry_after": "2026-10-23T08:07:26.576842+00:00"
+  },
+  {
+    "name": "Queen's Quality",
+    "publisher": "VIZ Media",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 104073,
+        "name": "Queen's Quality",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 106386,
+        "name": "Queen's Quality",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:27.028944+00:00",
+    "retry_after": "2026-10-23T08:07:27.028958+00:00"
+  },
+  {
+    "name": "Eagle: The Making of An Asian-American President",
+    "publisher": "VIZ Media",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52598,
+        "name": "Eagle: The Making of an Asian-American President",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:29.354184+00:00",
+    "retry_after": "2026-10-23T08:07:29.354200+00:00"
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:29.795153+00:00",
+    "retry_after": "2026-10-23T08:07:29.795168+00:00"
+  },
+  {
+    "name": "Donald Duck Themapocket",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:30.707152+00:00",
+    "retry_after": "2026-10-23T08:07:30.707167+00:00"
+  },
+  {
+    "name": "Corriere della Paura",
+    "publisher": "Dark Horse Comics",
+    "year": 1974,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:31.213436+00:00",
+    "retry_after": "2026-10-23T08:07:31.213452+00:00"
+  },
+  {
+    "name": "Roy Rogers and Trigger",
+    "publisher": "Marvel Comics",
+    "year": 1967,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37879,
+        "name": "Roy Rogers and Trigger",
+        "publisher": null,
+        "start_year": 1955
+      },
+      {
+        "id": 61412,
+        "name": "Roy Rogers and Trigger",
+        "publisher": null,
+        "start_year": 1967
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:33.562143+00:00",
+    "retry_after": "2026-10-23T08:07:33.562159+00:00"
+  },
+  {
+    "name": "Essential X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36821,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 79512,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 37974,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 110868,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 21196,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 94886,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:33.998566+00:00",
+    "retry_after": "2026-10-23T08:07:33.998581+00:00"
+  },
+  {
+    "name": "Chamber of Chills Magazine",
+    "publisher": "Harvey Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1487,
+        "name": "Chamber of Chills Magazine",
+        "publisher": null,
+        "start_year": 1951
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T08:07:34.503184+00:00",
+    "retry_after": "2026-10-23T08:07:34.503198+00:00"
   }
 ]

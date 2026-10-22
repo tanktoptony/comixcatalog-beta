@@ -389,7 +389,11 @@ async function seriesPhase(db, supabase, mirrorSeriesIds) {
   const batches = chunks(plans, 250);
   for (let index = 0; index < batches.length; index += 1) {
     const batch = batches[index];
-    await retry("insert gcd_series", () => supabase.from("gcd_series").upsert(batch.map((plan) => plan.gcd), { onConflict: "gcd_id", ignoreDuplicates: true }));
+    // gcd_series has no unique index on gcd_id, so an upsert with onConflict
+    // fails (42P10, 2026-10-21). Insert only the rows the mirror lacks.
+    const newGcdRows = batch.filter((plan) => !mirrorSeriesIds.has(plan.gcd.gcd_id)).map((plan) => plan.gcd);
+    if (newGcdRows.length)
+      await retry("insert gcd_series", () => supabase.from("gcd_series").insert(newGcdRows));
     for (const plan of batch) {
       if (plan.match.kind === "exact") {
         const linked = await retry(`link placeholder ${plan.match.row.id}`, () => supabase.from("series").update(placeholderUpdate(plan.match.row, plan.app)).eq("id", plan.match.row.id).is("gcd_id", null).select("id"));

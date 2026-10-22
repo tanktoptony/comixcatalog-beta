@@ -10052,31 +10052,38 @@
   },
   {
     "name": "The Killer",
-    "publisher": "Archaia",
+    "publisher": "BOOM! Studios",
     "year": 2017,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 22655,
         "name": "The Killer",
-        "publisher": "Archaia",
+        "publisher": null,
         "start_year": 2006
       },
       {
         "id": 65785,
         "name": "The Killer",
-        "publisher": "Archaia",
+        "publisher": null,
         "start_year": 2007
       },
       {
         "id": 124983,
         "name": "The Killer",
-        "publisher": "Archaia",
+        "publisher": null,
         "start_year": 2007
+      },
+      {
+        "id": 94561,
+        "name": "Killer",
+        "publisher": null,
+        "start_year": 1986
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556158+00:00"
+    "last_attempt_at": "2026-10-22T22:24:01.693615+00:00",
+    "retry_after": "2026-10-23T22:24:01.693635+00:00"
   },
   {
     "name": "Western Gunfighters",
@@ -74192,5 +74199,487 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T21:24:06.238919+00:00",
     "retry_after": "2026-10-23T21:24:06.238935+00:00"
+  },
+  {
+    "name": "The League of Extraordinary Cerebi",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 114954,
+        "name": "The League of Extraordinary Cerebi",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:52.740518+00:00",
+    "retry_after": "2026-10-23T22:23:52.740532+00:00"
+  },
+  {
+    "name": "The Trouble With Girls Annual",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64605,
+        "name": "The Trouble With Girls Annual",
+        "publisher": null,
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:53.245280+00:00",
+    "retry_after": "2026-10-23T22:23:53.245296+00:00"
+  },
+  {
+    "name": "Yu-Gi-Oh! [Limited Edition]",
+    "publisher": "VIZ Media",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:54.249205+00:00",
+    "retry_after": "2026-10-23T22:23:54.249219+00:00"
+  },
+  {
+    "name": "Upside Down",
+    "publisher": "IDW Publishing",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:54.715092+00:00",
+    "retry_after": "2026-10-23T22:23:54.715108+00:00"
+  },
+  {
+    "name": "Fear Is Hell",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:55.074586+00:00",
+    "retry_after": "2026-10-23T22:23:55.074601+00:00"
+  },
+  {
+    "name": "Cerebus Woman",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 118805,
+        "name": "Cerebus Woman",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:55.452203+00:00",
+    "retry_after": "2026-10-23T22:23:55.452218+00:00"
+  },
+  {
+    "name": "ABC: A-Z, Top 10 and Teams",
+    "publisher": "DC Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22006,
+        "name": "ABC A-Z: Top 10 & Teams",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:55.872605+00:00",
+    "retry_after": "2026-10-23T22:23:55.872618+00:00"
+  },
+  {
+    "name": "Family Trade",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 104940,
+        "name": "The Family Trade",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 109765,
+        "name": "The Family Trade",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:56.872709+00:00",
+    "retry_after": "2026-10-23T22:23:56.872724+00:00"
+  },
+  {
+    "name": "The Prisoner of Chillon",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50438,
+        "name": "Prisoner of Chillon",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:57.210968+00:00",
+    "retry_after": "2026-10-23T22:23:57.210984+00:00"
+  },
+  {
+    "name": "Best of Television",
+    "publisher": "Marvel Comics",
+    "year": 1961,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46471,
+        "name": "Best of Television",
+        "publisher": null,
+        "start_year": 1961
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:57.554589+00:00",
+    "retry_after": "2026-10-23T22:23:57.554601+00:00"
+  },
+  {
+    "name": "Dune: Edge of a Crysknife: Rage of Shai-Hulud",
+    "publisher": "BOOM! Studios",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166445,
+        "name": "Dune: Edge of a Crysknife: Rage of Shai-Hulud",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:58.196138+00:00",
+    "retry_after": "2026-10-23T22:23:58.196153+00:00"
+  },
+  {
+    "name": "Peter Paul's 4 in 1 Jumbo Comic Book",
+    "publisher": "Charlton Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57278,
+        "name": "Peter Paul's 4 in 1 Jumbo Comic Book",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:58.535406+00:00",
+    "retry_after": "2026-10-23T22:23:58.535422+00:00"
+  },
+  {
+    "name": "Hangman",
+    "publisher": "Archie Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85479,
+        "name": "The Hangman",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 107148,
+        "name": "The Hangman",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:58.919365+00:00",
+    "retry_after": "2026-10-23T22:23:58.919380+00:00"
+  },
+  {
+    "name": "Twisted Romance",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113266,
+        "name": "Twisted Romance",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 108545,
+        "name": "Twisted Romance",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:59.189127+00:00",
+    "retry_after": "2026-10-23T22:23:59.189139+00:00"
+  },
+  {
+    "name": "Awake",
+    "publisher": "Action Lab Entertainment",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84261,
+        "name": "Awake",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:59.529828+00:00",
+    "retry_after": "2026-10-23T22:23:59.529843+00:00"
+  },
+  {
+    "name": "Imperial War: Black Panther",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166450,
+        "name": "Imperial War: Black Panther",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:23:59.902435+00:00",
+    "retry_after": "2026-10-23T22:23:59.902449+00:00"
+  },
+  {
+    "name": "Descendent",
+    "publisher": "AfterShock Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 124301,
+        "name": "The Descendent",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 118685,
+        "name": "The Descendent",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:00.327512+00:00",
+    "retry_after": "2026-10-23T22:24:00.327526+00:00"
+  },
+  {
+    "name": "Mouse Guard Facsimile Edition",
+    "publisher": "BOOM! Studios",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:00.701068+00:00",
+    "retry_after": "2026-10-23T22:24:00.701087+00:00"
+  },
+  {
+    "name": "Shannon Denton's Actionopolis",
+    "publisher": "Antarctic Press",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:01.351493+00:00",
+    "retry_after": "2026-10-23T22:24:01.351509+00:00"
+  },
+  {
+    "name": "All-American Western",
+    "publisher": "DC Comics",
+    "year": 1948,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25515,
+        "name": "All-American Western",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:02.666080+00:00",
+    "retry_after": "2026-10-23T22:24:02.666095+00:00"
+  },
+  {
+    "name": "King Classics",
+    "publisher": "Titan Comics",
+    "year": 1977,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30988,
+        "name": "King Classics",
+        "publisher": null,
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:03.367268+00:00",
+    "retry_after": "2026-10-23T22:24:03.367284+00:00"
+  },
+  {
+    "name": "Beep! Beep!",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37606,
+        "name": "Beep Beep",
+        "publisher": null,
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:03.816715+00:00",
+    "retry_after": "2026-10-23T22:24:03.816731+00:00"
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:04.189871+00:00",
+    "retry_after": "2026-10-23T22:24:04.189886+00:00"
+  },
+  {
+    "name": "Gesebel",
+    "publisher": "Dark Horse Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27826,
+        "name": "Gesebel",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:04.601508+00:00",
+    "retry_after": "2026-10-23T22:24:04.601523+00:00"
+  },
+  {
+    "name": "Blowjob",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28184,
+        "name": "Blowjob",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:05.090200+00:00",
+    "retry_after": "2026-10-23T22:24:05.090215+00:00"
+  },
+  {
+    "name": "Chamber of Chills Magazine",
+    "publisher": "Harvey Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1487,
+        "name": "Chamber of Chills Magazine",
+        "publisher": null,
+        "start_year": 1951
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:05.562147+00:00",
+    "retry_after": "2026-10-23T22:24:05.562162+00:00"
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:05.952851+00:00",
+    "retry_after": "2026-10-23T22:24:05.952865+00:00"
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:06.331746+00:00",
+    "retry_after": "2026-10-23T22:24:06.331759+00:00"
+  },
+  {
+    "name": "Eagle: The Making of An Asian-American President",
+    "publisher": "VIZ Media",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52598,
+        "name": "Eagle: The Making of an Asian-American President",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T22:24:06.740620+00:00",
+    "retry_after": "2026-10-23T22:24:06.740640+00:00"
   }
 ]

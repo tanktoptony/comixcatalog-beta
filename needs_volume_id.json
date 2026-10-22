@@ -15350,13 +15350,13 @@
   },
   {
     "name": "Savage Dragon vs. Savage Megaton Man",
-    "publisher": "Malibu Comics",
+    "publisher": "Image Comics",
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-20T21:01:34.834354+00:00",
-    "retry_after": "2026-10-23T21:01:34.834376+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:00.048178+00:00",
+    "retry_after": "2026-10-23T20:24:00.048192+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -72908,5 +72908,759 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T19:23:59.996194+00:00",
     "retry_after": "2026-10-23T19:23:59.996212+00:00"
+  },
+  {
+    "name": "Elseworlds: Superman Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:23:59.043590+00:00",
+    "retry_after": "2026-10-23T20:23:59.043604+00:00"
+  },
+  {
+    "name": "Gideon Falls Director's Cut",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113705,
+        "name": "Gideon Falls: Director's Cut",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:23:59.489012+00:00",
+    "retry_after": "2026-10-23T20:23:59.489028+00:00"
+  },
+  {
+    "name": "M.A.S.K.: Mobile Armored Strike Kommand: Revolution",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 94390,
+        "name": "M.A.S.K.: Mobile Armored Strike Kommand: Revolution",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:00.587143+00:00",
+    "retry_after": "2026-10-23T20:24:00.587159+00:00"
+  },
+  {
+    "name": "Photo Romance",
+    "publisher": "Atlas Comics",
+    "year": 1954,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:01.164737+00:00",
+    "retry_after": "2026-10-23T20:24:01.164754+00:00"
+  },
+  {
+    "name": "Gold Key: Alliance",
+    "publisher": "Dynamite Entertainment",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 96659,
+        "name": "Gold Key: Alliance",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 89362,
+        "name": "Gold Key: Alliance",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:01.698344+00:00",
+    "retry_after": "2026-10-23T20:24:01.698359+00:00"
+  },
+  {
+    "name": "China Sea",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20841,
+        "name": "China Sea",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 29627,
+        "name": "China Sea",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:02.306215+00:00",
+    "retry_after": "2026-10-23T20:24:02.306229+00:00"
+  },
+  {
+    "name": "The Phantom of the Opera",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58683,
+        "name": "The Phantom of the Opera",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 141977,
+        "name": "The Phantom of the Opera",
+        "publisher": null,
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:02.668513+00:00",
+    "retry_after": "2026-10-23T20:24:02.668529+00:00"
+  },
+  {
+    "name": "Korgi: Short Tails",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 102848,
+        "name": "Korgi: Short Tails",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:03.158204+00:00",
+    "retry_after": "2026-10-23T20:24:03.158219+00:00"
+  },
+  {
+    "name": "Short Program",
+    "publisher": "VIZ Media",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 94681,
+        "name": "Short Program",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 153373,
+        "name": "Short Program",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 168881,
+        "name": "Short Program",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:03.566843+00:00",
+    "retry_after": "2026-10-23T20:24:03.566860+00:00"
+  },
+  {
+    "name": "The Complete Adventures of Carl",
+    "publisher": "BOOM! Studios",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46083,
+        "name": "Complete Adventures of Carl",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:04.101172+00:00",
+    "retry_after": "2026-10-23T20:24:04.101187+00:00"
+  },
+  {
+    "name": "Ex-Mutants Winter Special",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35047,
+        "name": "Ex-Mutants Winter Special",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:04.469420+00:00",
+    "retry_after": "2026-10-23T20:24:04.469436+00:00"
+  },
+  {
+    "name": "One for One: The Strain",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:05.010989+00:00",
+    "retry_after": "2026-10-23T20:24:05.011006+00:00"
+  },
+  {
+    "name": "Avengelyne",
+    "publisher": "Image Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19380,
+        "name": "Avengelyne",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 59828,
+        "name": "Avengelyne",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 21443,
+        "name": "Avengelyne",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 41412,
+        "name": "Avengelyne",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 5712,
+        "name": "Avengelyne",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 66058,
+        "name": "Avengelyne",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 177359,
+        "name": "Avengelyne",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:05.535669+00:00",
+    "retry_after": "2026-10-23T20:24:05.535684+00:00"
+  },
+  {
+    "name": "New Mutants",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18351,
+        "name": "New Mutants",
+        "publisher": null,
+        "start_year": 2003
+      },
+      {
+        "id": 3234,
+        "name": "The New Mutants",
+        "publisher": null,
+        "start_year": 1983
+      },
+      {
+        "id": 26327,
+        "name": "New Mutants",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 122666,
+        "name": "New Mutants",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 125858,
+        "name": "New Mutants",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 149821,
+        "name": "New Mutants",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 149285,
+        "name": "New Mutants",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:05.916137+00:00",
+    "retry_after": "2026-10-23T20:24:05.916152+00:00"
+  },
+  {
+    "name": "Atomic Age Truckstop Waitress",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26715,
+        "name": "Atomic Age Truckstop Waitress",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:06.429238+00:00",
+    "retry_after": "2026-10-23T20:24:06.429254+00:00"
+  },
+  {
+    "name": "Dinosaur Hour!",
+    "publisher": "VIZ Media",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 38896,
+        "name": "Dinosaur Hour!",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:06.930309+00:00",
+    "retry_after": "2026-10-23T20:24:06.930326+00:00"
+  },
+  {
+    "name": "Rise",
+    "publisher": "Heavy Metal",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109044,
+        "name": "Rise",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 123050,
+        "name": "Rise",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 117762,
+        "name": "Rise",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 135258,
+        "name": "The Rise",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 84601,
+        "name": "Rise",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 76692,
+        "name": "The RISE",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:07.319937+00:00",
+    "retry_after": "2026-10-23T20:24:07.319952+00:00"
+  },
+  {
+    "name": "Far West",
+    "publisher": "Antarctic Press",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140692,
+        "name": "Far West",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 158923,
+        "name": "Far West",
+        "publisher": null,
+        "start_year": 1966
+      },
+      {
+        "id": 36373,
+        "name": "Far West",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 31944,
+        "name": "Far West",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 51708,
+        "name": "Far West",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:07.713589+00:00",
+    "retry_after": "2026-10-23T20:24:07.713603+00:00"
+  },
+  {
+    "name": "Artesia Annual",
+    "publisher": "Archaia",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10884,
+        "name": "Artesia Annual",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:08.338947+00:00",
+    "retry_after": "2026-10-23T20:24:08.338963+00:00"
+  },
+  {
+    "name": "Ultimate Fantastic Four",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10379,
+        "name": "Ultimate Fantastic Four",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 43424,
+        "name": "Ultimate Fantastic Four",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 43423,
+        "name": "Ultimate Fantastic Four",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 43425,
+        "name": "Ultimate Fantastic Four",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 70993,
+        "name": "Ultimate Fantastic Four",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:09.208602+00:00",
+    "retry_after": "2026-10-23T20:24:09.208618+00:00"
+  },
+  {
+    "name": "Judge Dredd",
+    "publisher": "Titan Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86696,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 127476,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 3928,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 3284,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 1983
+      },
+      {
+        "id": 54111,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 19045,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 34817,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 149234,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 59215,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:09.654739+00:00",
+    "retry_after": "2026-10-23T20:24:09.654757+00:00"
+  },
+  {
+    "name": "Mighty Thor",
+    "publisher": "Marvel Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44149,
+        "name": "The Mighty Thor",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 47523,
+        "name": "The Mighty Thor",
+        "publisher": null,
+        "start_year": 1983
+      },
+      {
+        "id": 86113,
+        "name": "Mighty Thor",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 39763,
+        "name": "The Mighty Thor",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 61213,
+        "name": "The Mighty Thor",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:10.101374+00:00",
+    "retry_after": "2026-10-23T20:24:10.101389+00:00"
+  },
+  {
+    "name": "Shutter",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72938,
+        "name": "Shutter",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 105252,
+        "name": "Shutter",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:10.670556+00:00",
+    "retry_after": "2026-10-23T20:24:10.670571+00:00"
+  },
+  {
+    "name": "The Many Loves of Dobie Gillis",
+    "publisher": "DC Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2015,
+        "name": "Many Loves of Dobie Gillis",
+        "publisher": null,
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:11.192253+00:00",
+    "retry_after": "2026-10-23T20:24:11.192269+00:00"
+  },
+  {
+    "name": "Spindelmannen",
+    "publisher": "Dark Horse Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 7133,
+        "name": "Spindelmannen",
+        "publisher": null,
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:11.550531+00:00",
+    "retry_after": "2026-10-23T20:24:11.550545+00:00"
+  },
+  {
+    "name": "Harbinger",
+    "publisher": "Valiant Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49539,
+        "name": "Harbinger",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 139862,
+        "name": "The Harbinger",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 24884,
+        "name": "Harbinger",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 4827,
+        "name": "Harbinger",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 24895,
+        "name": "Harbinger",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:12.118356+00:00",
+    "retry_after": "2026-10-23T20:24:12.118371+00:00"
+  },
+  {
+    "name": "Liga da Justiça e Batman",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119234,
+        "name": "Liga da Justiça e Batman",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:12.517097+00:00",
+    "retry_after": "2026-10-23T20:24:12.517113+00:00"
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:12.964361+00:00",
+    "retry_after": "2026-10-23T20:24:12.964376+00:00"
+  },
+  {
+    "name": "Marines in Battle",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1633,
+        "name": "Marines in Battle",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-22T20:24:13.376244+00:00",
+    "retry_after": "2026-10-23T20:24:13.376258+00:00"
   }
 ]

@@ -33768,13 +33768,13 @@
   },
   {
     "name": "Don't Bet on It, Snoopy",
-    "publisher": "Fawcett Comics",
+    "publisher": "Heavy Metal",
     "year": 1982,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-04T03:00:50.035053+00:00",
-    "retry_after": "2026-10-11T03:00:50.035068+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:24:00.027913+00:00",
+    "retry_after": "2026-10-24T05:24:00.027931+00:00"
   },
   {
     "name": "Beetle Bailey The Daily and Sunday Strips",
@@ -77807,5 +77807,385 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T04:24:01.613855+00:00",
     "retry_after": "2026-10-24T04:24:01.613868+00:00"
+  },
+  {
+    "name": "Mobile Suit Gundam 0079",
+    "publisher": "VIZ Media",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41249,
+        "name": "Mobile Suit Gundam 0079",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:52.007170+00:00",
+    "retry_after": "2026-10-24T05:23:52.007187+00:00"
+  },
+  {
+    "name": "Primal",
+    "publisher": "Dark Horse Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61122,
+        "name": "Primal",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 20529,
+        "name": "Primal",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 176534,
+        "name": "Primal",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:52.406601+00:00",
+    "retry_after": "2026-10-24T05:23:52.406620+00:00"
+  },
+  {
+    "name": "The Scorpion King",
+    "publisher": "Dark Horse Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53637,
+        "name": "The Scorpion King",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:52.931721+00:00",
+    "retry_after": "2026-10-24T05:23:52.931738+00:00"
+  },
+  {
+    "name": "Appleseed Databook",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44746,
+        "name": "Appleseed Databook",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 21354,
+        "name": "Appleseed Databook",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:53.322439+00:00",
+    "retry_after": "2026-10-24T05:23:53.322455+00:00"
+  },
+  {
+    "name": "Ground Zero",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29004,
+        "name": "Ground Zero",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:53.793668+00:00",
+    "retry_after": "2026-10-24T05:23:53.793685+00:00"
+  },
+  {
+    "name": "Jeremiah: Birds of Prey",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39172,
+        "name": "Jeremiah: Birds of Prey",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:54.210442+00:00",
+    "retry_after": "2026-10-24T05:23:54.210458+00:00"
+  },
+  {
+    "name": "Terry Toons Big Book of Comics Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1971,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155424,
+        "name": "Terry Toons Big Book of Comics Giant Edition ",
+        "publisher": null,
+        "start_year": 1971
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:54.579438+00:00",
+    "retry_after": "2026-10-24T05:23:54.579455+00:00"
+  },
+  {
+    "name": "Wonder Woman [Pizza Hut Collectors' Edition]",
+    "publisher": "DC Comics",
+    "year": 1953,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:54.970118+00:00",
+    "retry_after": "2026-10-24T05:23:54.970136+00:00"
+  },
+  {
+    "name": "Maxi Mister No",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32766,
+        "name": "Maxi Mister No",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:55.567190+00:00",
+    "retry_after": "2026-10-24T05:23:55.567205+00:00"
+  },
+  {
+    "name": "Headless Horseman",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36037,
+        "name": "Headless Horseman",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:56.038621+00:00",
+    "retry_after": "2026-10-24T05:23:56.038644+00:00"
+  },
+  {
+    "name": "Spirit of the Dragon",
+    "publisher": "Chaos! Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:56.530845+00:00",
+    "retry_after": "2026-10-24T05:23:56.530876+00:00"
+  },
+  {
+    "name": "Spidey and His Amazing Friends",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159262,
+        "name": "Spidey and His Amazing Friends",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:56.863721+00:00",
+    "retry_after": "2026-10-24T05:23:56.863739+00:00"
+  },
+  {
+    "name": "Scream Play",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 80697,
+        "name": "Scream Play",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:57.277993+00:00",
+    "retry_after": "2026-10-24T05:23:57.278011+00:00"
+  },
+  {
+    "name": "The Hellbound",
+    "publisher": "Dark Horse Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88883,
+        "name": "Hellbound",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 84764,
+        "name": "Hellbound",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:57.721045+00:00",
+    "retry_after": "2026-10-24T05:23:57.721062+00:00"
+  },
+  {
+    "name": "Trollords",
+    "publisher": "Caliber Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45906,
+        "name": "Trollords",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 45905,
+        "name": "Trollords",
+        "publisher": null,
+        "start_year": 1986
+      },
+      {
+        "id": 54634,
+        "name": "Trollords",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:58.069820+00:00",
+    "retry_after": "2026-10-24T05:23:58.069837+00:00"
+  },
+  {
+    "name": "X Omnibus",
+    "publisher": "Dark Horse Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29922,
+        "name": "X Omnibus",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:58.468641+00:00",
+    "retry_after": "2026-10-24T05:23:58.468658+00:00"
+  },
+  {
+    "name": "Death Dog",
+    "publisher": "Ahoy Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 168210,
+        "name": "Death Dog",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:58.789826+00:00",
+    "retry_after": "2026-10-24T05:23:58.789842+00:00"
+  },
+  {
+    "name": "Defenders of the Earth",
+    "publisher": "Mad Cave Studios",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3839,
+        "name": "Defenders of the Earth",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 159099,
+        "name": "Defenders of the Earth",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 159254,
+        "name": "Defenders of the Earth",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:59.093602+00:00",
+    "retry_after": "2026-10-24T05:23:59.093619+00:00"
+  },
+  {
+    "name": "True Life Tales",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1298,
+        "name": "True Life Tales",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:23:59.509582+00:00",
+    "retry_after": "2026-10-24T05:23:59.509599+00:00"
+  },
+  {
+    "name": "Red Hood and the Outlaws",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 92966,
+        "name": "Red Hood & the Outlaws",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 42919,
+        "name": "Red Hood and the Outlaws",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T05:24:00.756061+00:00",
+    "retry_after": "2026-10-24T05:24:00.756075+00:00"
   }
 ]

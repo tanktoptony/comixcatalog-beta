@@ -4,7 +4,7 @@
 -- probes index-backed and avoids scanning every collection on every request.
 
 -- Run on its own first (CONCURRENTLY cannot run inside a transaction, and a
--- plain CREATE INDEX would block writes to user_collections while it builds).
+-- non-concurrent build would block writes to the collections table).
 create index concurrently if not exists user_collections_people_suggestions_idx
   on public.user_collections (user_id, created_at desc)
   include (gcd_issue_id)

@@ -60,6 +60,14 @@ const nextConfig = {
         destination: "/founding-collectors?utm_source=youtube&utm_medium=video&utm_campaign=founding-wall",
         permanent: false,
       },
+      // Printed comic shop kit (bookmarks and counter checklists): one QR
+      // link per shop, e.g. /s/challengers. Temporary for the same reason as
+      // /ig; the shop slug becomes utm_source so signups are credited to it.
+      {
+        source: "/s/:shop([a-z0-9-]{2,40})",
+        destination: "/founding-collectors?utm_source=:shop&utm_medium=print&utm_campaign=shop-kit",
+        permanent: false,
+      },
       { source: "/forum", destination: "/", permanent: false },
       { source: "/crate-dig", destination: "/", permanent: false },
     ];

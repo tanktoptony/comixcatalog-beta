@@ -15013,86 +15013,86 @@
   },
   {
     "name": "Spawn",
-    "publisher": "Malibu Comics",
+    "publisher": "Image Comics",
     "year": 1992,
     "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 4937,
         "name": "Spawn",
-        "publisher": "Image",
+        "publisher": null,
         "start_year": 1992
       },
       {
         "id": 127843,
         "name": "Spawn",
-        "publisher": "Panini Comics",
+        "publisher": null,
         "start_year": 1996
       },
       {
         "id": 43255,
         "name": "Spawn",
-        "publisher": "Panini Verlag",
+        "publisher": null,
         "start_year": 1997
       },
       {
         "id": 125306,
         "name": "Spawn",
-        "publisher": "Mandragora",
+        "publisher": null,
         "start_year": 1997
       },
       {
         "id": 53869,
         "name": "Spawn",
-        "publisher": "Hjemmet",
+        "publisher": null,
         "start_year": 1996
       },
       {
         "id": 48314,
         "name": "Spawn",
-        "publisher": "Abril",
+        "publisher": null,
         "start_year": 1996
       },
       {
         "id": 53868,
         "name": "Spawn",
-        "publisher": "Planeta DeAgostini",
+        "publisher": null,
         "start_year": 1994
       },
       {
         "id": 127267,
         "name": "Spawn",
-        "publisher": "JuniorPress BV",
+        "publisher": null,
         "start_year": 1996
       },
       {
         "id": 53870,
         "name": "Spawn",
-        "publisher": "Egmont Comics",
+        "publisher": null,
         "start_year": 1996
       },
       {
         "id": 91700,
         "name": "Spawn",
-        "publisher": "Delcourt",
+        "publisher": null,
         "start_year": 2016
       },
       {
         "id": 145228,
         "name": "Spawn",
-        "publisher": "Grupo Editorial Vid",
+        "publisher": null,
         "start_year": 1997
       },
       {
         "id": 164079,
         "name": "Spawn",
-        "publisher": "Trielle Komix",
+        "publisher": null,
         "start_year": 1995
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-02T21:37:30.823913+00:00",
-    "retry_after": "2026-10-16T21:37:30.823929+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:25:31.802521+00:00",
+    "retry_after": "2026-10-24T13:25:31.802540+00:00"
   },
   {
     "name": "Custom Sony Interactive Entertainment 2023 UK English Print Comic [Spider-Man 2]",
@@ -81318,8 +81318,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:03.120912+00:00",
-    "retry_after": "2026-10-24T13:24:03.120927+00:00"
+    "last_attempt_at": "2026-10-23T13:48:33.193741+00:00",
+    "retry_after": "2026-10-24T13:48:33.193762+00:00"
   },
   {
     "name": "The Straw Men",
@@ -81341,8 +81341,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:03.517779+00:00",
-    "retry_after": "2026-10-24T13:24:03.517795+00:00"
+    "last_attempt_at": "2026-10-23T13:48:33.559615+00:00",
+    "retry_after": "2026-10-24T13:48:33.559637+00:00"
   },
   {
     "name": "John Byrne's Next Men",
@@ -81370,8 +81370,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:03.945486+00:00",
-    "retry_after": "2026-10-24T13:24:03.945501+00:00"
+    "last_attempt_at": "2026-10-23T13:48:33.962341+00:00",
+    "retry_after": "2026-10-24T13:48:33.962362+00:00"
   },
   {
     "name": "Fathom",
@@ -81417,8 +81417,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:04.453308+00:00",
-    "retry_after": "2026-10-24T13:24:04.453343+00:00"
+    "last_attempt_at": "2026-10-23T13:48:34.298236+00:00",
+    "retry_after": "2026-10-24T13:48:34.298257+00:00"
   },
   {
     "name": "Gene Simmons House of Horrors",
@@ -81446,8 +81446,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:04.849937+00:00",
-    "retry_after": "2026-10-24T13:24:04.849952+00:00"
+    "last_attempt_at": "2026-10-23T13:48:34.625326+00:00",
+    "retry_after": "2026-10-24T13:48:34.625346+00:00"
   },
   {
     "name": "Bronx",
@@ -81469,8 +81469,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:05.250836+00:00",
-    "retry_after": "2026-10-24T13:24:05.250852+00:00"
+    "last_attempt_at": "2026-10-23T13:48:34.933987+00:00",
+    "retry_after": "2026-10-24T13:48:34.934007+00:00"
   },
   {
     "name": "Pictorial Romances",
@@ -81486,8 +81486,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:05.679649+00:00",
-    "retry_after": "2026-10-24T13:24:05.679664+00:00"
+    "last_attempt_at": "2026-10-23T13:48:35.401240+00:00",
+    "retry_after": "2026-10-24T13:48:35.401261+00:00"
   },
   {
     "name": "Johnny Atomic",
@@ -81503,8 +81503,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:06.128865+00:00",
-    "retry_after": "2026-10-24T13:24:06.128880+00:00"
+    "last_attempt_at": "2026-10-23T13:48:35.980836+00:00",
+    "retry_after": "2026-10-24T13:48:35.980857+00:00"
   },
   {
     "name": "Doctor Gorpon",
@@ -81526,8 +81526,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:06.515353+00:00",
-    "retry_after": "2026-10-24T13:24:06.515368+00:00"
+    "last_attempt_at": "2026-10-23T13:48:36.863461+00:00",
+    "retry_after": "2026-10-24T13:48:36.863481+00:00"
   },
   {
     "name": "Triple-XXX",
@@ -81543,8 +81543,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:06.945851+00:00",
-    "retry_after": "2026-10-24T13:24:06.945867+00:00"
+    "last_attempt_at": "2026-10-23T13:48:37.762386+00:00",
+    "retry_after": "2026-10-24T13:48:37.762406+00:00"
   },
   {
     "name": "Grimm Fairy Tales Adult Coloring Book",
@@ -81560,8 +81560,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:07.359587+00:00",
-    "retry_after": "2026-10-24T13:24:07.359602+00:00"
+    "last_attempt_at": "2026-10-23T13:48:38.109104+00:00",
+    "retry_after": "2026-10-24T13:48:38.109128+00:00"
   },
   {
     "name": "Invaders from Mars Book II",
@@ -81570,8 +81570,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:07.891991+00:00",
-    "retry_after": "2026-10-24T13:24:07.892007+00:00"
+    "last_attempt_at": "2026-10-23T13:48:38.617823+00:00",
+    "retry_after": "2026-10-24T13:48:38.617843+00:00"
   },
   {
     "name": "Roger Wilco",
@@ -81587,8 +81587,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:08.251137+00:00",
-    "retry_after": "2026-10-24T13:24:08.251152+00:00"
+    "last_attempt_at": "2026-10-23T13:48:38.948248+00:00",
+    "retry_after": "2026-10-24T13:48:38.948266+00:00"
   },
   {
     "name": "Screwball Squirrel",
@@ -81604,8 +81604,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:08.716473+00:00",
-    "retry_after": "2026-10-24T13:24:08.716488+00:00"
+    "last_attempt_at": "2026-10-23T13:48:39.396609+00:00",
+    "retry_after": "2026-10-24T13:48:39.396630+00:00"
   },
   {
     "name": "The Ripper Legacy",
@@ -81627,8 +81627,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:09.238060+00:00",
-    "retry_after": "2026-10-24T13:24:09.238075+00:00"
+    "last_attempt_at": "2026-10-23T13:48:40.021017+00:00",
+    "retry_after": "2026-10-24T13:48:40.021036+00:00"
   },
   {
     "name": "The Engineer",
@@ -81637,8 +81637,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:09.646667+00:00",
-    "retry_after": "2026-10-24T13:24:09.646682+00:00"
+    "last_attempt_at": "2026-10-23T13:48:40.369903+00:00",
+    "retry_after": "2026-10-24T13:48:40.369922+00:00"
   },
   {
     "name": "Labyrinth: The Movie",
@@ -81654,8 +81654,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:09.989442+00:00",
-    "retry_after": "2026-10-24T13:24:09.989457+00:00"
+    "last_attempt_at": "2026-10-23T13:48:40.741000+00:00",
+    "retry_after": "2026-10-24T13:48:40.741021+00:00"
   },
   {
     "name": "Teen Wolf: Bite Me",
@@ -81671,8 +81671,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:10.315978+00:00",
-    "retry_after": "2026-10-24T13:24:10.315992+00:00"
+    "last_attempt_at": "2026-10-23T13:48:41.140956+00:00",
+    "retry_after": "2026-10-24T13:48:41.140976+00:00"
   },
   {
     "name": "Pakkins' Land: Forgotten Dreams",
@@ -81694,8 +81694,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:10.716679+00:00",
-    "retry_after": "2026-10-24T13:24:10.716693+00:00"
+    "last_attempt_at": "2026-10-23T13:48:41.467667+00:00",
+    "retry_after": "2026-10-24T13:48:41.467687+00:00"
   },
   {
     "name": "Dragonero / Conan",
@@ -81729,8 +81729,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:11.315737+00:00",
-    "retry_after": "2026-10-24T13:24:11.315752+00:00"
+    "last_attempt_at": "2026-10-23T13:48:41.924261+00:00",
+    "retry_after": "2026-10-24T13:48:41.924281+00:00"
   },
   {
     "name": "Ultimate Comics Spider-Man",
@@ -81752,7 +81752,7 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:24:12.135365+00:00",
-    "retry_after": "2026-10-24T13:24:12.135380+00:00"
+    "last_attempt_at": "2026-10-23T13:48:43.264914+00:00",
+    "retry_after": "2026-10-24T13:48:43.264935+00:00"
   }
 ]

@@ -1,9 +1,17 @@
 "use client";
 
-// Messaging v1 is wallpapered off while we focus on data ingestion. The
-// inbox routes still exist behind /inbox/* for testing, but the entry
-// points (profile button + header icon) are hidden so users don't trip
-// over the hanging-load issue. Re-enable by restoring the original render.
-export default function MessageButton() {
-  return null;
+import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
+
+export default function MessageButton({ recipientUsername, recipientId, compact = false }) {
+  const { user, loading } = useAuth();
+  if (loading || !user || !recipientUsername || user.id === recipientId) return null;
+  return (
+    <Link
+      href={`/inbox/${encodeURIComponent(recipientUsername)}`}
+      className={`profile-action-btn message-button${compact ? " is-compact" : ""}`}
+    >
+      Message
+    </Link>
+  );
 }

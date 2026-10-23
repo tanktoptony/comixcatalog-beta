@@ -119,6 +119,29 @@
   scroll-behavior: smooth;
 }
 
+.messageBlock {
+  display: contents;
+}
+
+.dateSeparator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 8px;
+  color: var(--cc-text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.dateSeparator::before,
+.dateSeparator::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--cc-line);
+}
+
 .empty {
   margin: auto;
   max-width: 320px;

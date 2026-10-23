@@ -21,6 +21,7 @@ import ListingCompletionPanel from "@/components/ListingCompletionPanel";
 import ListingQuickPrice from "@/components/ListingQuickPrice";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
+import SuggestedCollectors from "@/app/people/SuggestedCollectors";
 import MarkSoldButton from "@/components/MarkSoldButton";
 import { coverThumb } from "@/lib/coverThumb";
 import { readLocal, writeLocal } from "@/lib/localCache";
@@ -1946,6 +1947,8 @@ function LibraryPageContent() {
 
           {/* /library is always the signed-in owner's own page. */}
           <RunCompletionWidget />
+
+          <SuggestedCollectors compact />
 
           {/* Unified insight widgets (Phase 2). Same component used on the
               public profile; owner sees Cost basis (shown=true), public

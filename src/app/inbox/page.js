@@ -18,6 +18,51 @@ import EmptyState from "@/components/EmptyState";
 import FollowButton from "@/components/FollowButton";
 import { authedFetch } from "@/lib/apiClient";
 import { UNREAD_CHANGED_EVENT } from "@/hooks/useUnreadMessageCount";
+import { summarizeThreads } from "@/lib/messageThreads";
+
+function NewMessagePicker({ onClose }) {
+  const [query, setQuery] = useState("");
+  const [people, setPeople] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const value = query.trim();
+    if (value.length < 2) return undefined;
+    let cancelled = false;
+    const timer = setTimeout(async () => {
+      setLoading(true);
+      const response = await authedFetch(`/api/members/search?q=${encodeURIComponent(value)}`, { cache: "no-store" });
+      const body = await response.json().catch(() => []);
+      if (!cancelled) {
+        setPeople(response.ok ? [...body].sort((a, b) => Number(b.following) - Number(a.following)) : []);
+        setLoading(false);
+      }
+    }, 250);
+    return () => { cancelled = true; clearTimeout(timer); };
+  }, [query]);
+
+  return (
+    <div className="inbox-picker-backdrop" role="presentation" onMouseDown={onClose}>
+      <section className="inbox-picker" role="dialog" aria-modal="true" aria-labelledby="new-message-title" onMouseDown={(event) => event.stopPropagation()}>
+        <div className="inbox-picker-head">
+          <h2 id="new-message-title">New message</h2>
+          <button type="button" onClick={onClose} aria-label="Close">×</button>
+        </div>
+        <input autoFocus type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search names or usernames" />
+        {loading && <p>Searching...</p>}
+        {!loading && query.trim().length >= 2 && people.length === 0 && <p>No collectors found.</p>}
+        <div className="inbox-picker-results">
+          {people.map((person) => (
+            <Link key={person.id} href={`/inbox/${encodeURIComponent(person.username)}`} className="inbox-picker-person">
+              <Avatar profile={person} />
+              <span><strong>{person.display_name || person.username}</strong><small>@{person.username}{person.following ? " · Following" : ""}</small></span>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
 
 function NewFollowersStrip({ followers }) {
   if (!followers?.length) return null;
@@ -72,6 +117,8 @@ export default function InboxPage() {
   const [newFollowers, setNewFollowers] = useState([]);
   const [pendingPurchases, setPendingPurchases] = useState([]);
   const [error, setError] = useState(null);
+  const [search, setSearch] = useState("");
+  const [pickerOpen, setPickerOpen] = useState(false);
 
   useEffect(() => {
     // Start as soon as we know who's signed in; AuthContext keeps `loading`
@@ -129,22 +176,8 @@ export default function InboxPage() {
       }
 
       // Group by the OTHER participant and keep the newest message per thread.
-      const byOther = new Map();
-      for (const m of msgs ?? []) {
-        const otherId = m.sender_id === user.id ? m.recipient_id : m.sender_id;
-        if (!byOther.has(otherId)) {
-          byOther.set(otherId, {
-            otherId,
-            lastMessage: m,
-            unread: 0,
-          });
-        }
-        const t = byOther.get(otherId);
-        // Newest-first ordering means the first hit is already the latest.
-        if (m.recipient_id === user.id && m.read_at == null) {
-          t.unread += 1;
-        }
-      }
+      const summaries = summarizeThreads(msgs ?? [], user.id);
+      const byOther = new Map(summaries.map((thread) => [thread.otherId, thread]));
 
       const otherIds = [...byOther.keys()];
       if (otherIds.length === 0) {
@@ -194,6 +227,15 @@ export default function InboxPage() {
     };
   }, [user, authLoading, router]);
 
+  const filteredThreads = useMemo(() => {
+    const needle = search.trim().toLowerCase();
+    if (!needle) return threads ?? [];
+    return (threads ?? []).filter((thread) => {
+      const profileText = `${thread.profile?.display_name || ""} ${thread.profile?.username || ""}`.toLowerCase();
+      return profileText.includes(needle) || String(thread.lastMessage?.body || "").toLowerCase().includes(needle);
+    });
+  }, [threads, search]);
+
   if ((!user && authLoading) || threads === null) {
     return (
       <section className="comic-panel">
@@ -216,12 +258,14 @@ export default function InboxPage() {
     return (
       <section className="comic-panel">
         <h1 className="hero-title">Inbox</h1>
+        <div className="inbox-toolbar"><button type="button" className="primary-btn" onClick={() => setPickerOpen(true)}>New message</button></div>
         <NewFollowersStrip followers={newFollowers} />
         <PendingPurchasesStrip purchases={pendingPurchases} />
         <EmptyState
           title="No messages yet"
           body="When another collector messages you, the conversation will show up here. You can also start one from any profile."
         />
+        {pickerOpen && <NewMessagePicker onClose={() => setPickerOpen(false)} />}
       </section>
     );
   }
@@ -229,10 +273,14 @@ export default function InboxPage() {
   return (
     <section className="comic-panel">
       <h1 className="hero-title">Inbox</h1>
+      <div className="inbox-toolbar">
+        <input type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search conversations" aria-label="Search conversations" />
+        <button type="button" className="primary-btn" onClick={() => setPickerOpen(true)}>New message</button>
+      </div>
       <NewFollowersStrip followers={newFollowers} />
       <PendingPurchasesStrip purchases={pendingPurchases} />
       <ul className="inbox-thread-list">
-        {threads.map((t) => {
+        {filteredThreads.map((t) => {
           const username = t.profile?.username || "unknown";
           const name = t.profile?.display_name || t.profile?.username || "Unknown user";
           const preview = (t.lastMessage.body || "").slice(0, 110);
@@ -256,6 +304,8 @@ export default function InboxPage() {
           );
         })}
       </ul>
+      {filteredThreads.length === 0 && <p className="people-state">No conversations match that search.</p>}
+      {pickerOpen && <NewMessagePicker onClose={() => setPickerOpen(false)} />}
     </section>
   );
 }

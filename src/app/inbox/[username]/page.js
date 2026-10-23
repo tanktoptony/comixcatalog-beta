@@ -17,6 +17,7 @@ import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import styles from "./thread.module.css";
 import ReportButton from "@/components/ReportButton";
+import { messageDateLabel, shouldStartMessageGroup } from "@/lib/messageThreads";
 
 const MAX_BODY = 4000;
 // Shown to everyone, including people who can't use checkout yet, so it can't point at checkout.
@@ -226,8 +227,10 @@ export default function ThreadPage() {
       )
       .subscribe();
 
-    // Polling fallback — postgres_changes is reliable but can stall.
-    pollInterval = setInterval(load, 15000);
+    // Polling fallback covers a stalled postgres_changes connection.
+    pollInterval = setInterval(() => {
+      if (document.visibilityState === "visible") load();
+    }, 10000);
 
     return () => {
       cancelled = true;
@@ -436,7 +439,9 @@ export default function ThreadPage() {
         {messages?.map((m, idx) => {
           const mine = m.sender_id === user.id;
           const prev = messages[idx - 1];
-          const grouped = prev && prev.sender_id === m.sender_id;
+          const startsGroup = shouldStartMessageGroup(m, prev);
+          const grouped = !startsGroup;
+          const startsDay = !prev || new Date(prev.created_at).toDateString() !== new Date(m.created_at).toDateString();
           const classNames = [
             styles.msg,
             mine ? styles.msgMine : styles.msgTheirs,
@@ -445,17 +450,24 @@ export default function ThreadPage() {
             .filter(Boolean)
             .join(" ");
           return (
-            <div key={m.id} className={classNames}>
-              <div className={styles.bubble}>{m.body}</div>
-              {findOffPlatformPaymentTerms(m.body).length > 0 && (
-                <div className={styles.paymentWarning}>{PAYMENT_WARNING}</div>
-              )}
-              {!mine && containsMessageUrl(m.body) && (
-                <div className={styles.linkWarning}>
-                  Contains a link. Never pay through a link someone sends you.
+            <div key={m.id} className={styles.messageBlock}>
+              {startsDay && (
+                <div className={styles.dateSeparator}>
+                  <span>{messageDateLabel(m.created_at)}</span>
                 </div>
               )}
-              <div className={styles.meta}>{formatTimestamp(m.created_at)}</div>
+              <div className={classNames}>
+                <div className={styles.bubble}>{m.body}</div>
+                {findOffPlatformPaymentTerms(m.body).length > 0 && (
+                  <div className={styles.paymentWarning}>{PAYMENT_WARNING}</div>
+                )}
+                {!mine && containsMessageUrl(m.body) && (
+                  <div className={styles.linkWarning}>
+                    Contains a link. Never pay through a link someone sends you.
+                  </div>
+                )}
+                <div className={styles.meta}>{formatTimestamp(m.created_at)}</div>
+              </div>
             </div>
           );
         })}

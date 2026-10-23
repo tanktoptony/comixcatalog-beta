@@ -14,7 +14,7 @@ import { inboxAriaLabel, inboxBadgeTotal } from "@/lib/inboxNotifications";
 import { coverThumb } from "@/lib/coverThumb";
 import InviteButton from "@/components/InviteButton";
 import { authedFetch } from "@/lib/apiClient";
-import { CircleHelp, Inbox, LibraryBig, Package, Store } from "lucide-react";
+import { CircleHelp, Inbox, LibraryBig, Package, Store, Users } from "lucide-react";
 
 const NAV_ICON_PROPS = { size: 20, strokeWidth: 1.75, "aria-hidden": true };
 
@@ -388,7 +388,7 @@ export default function Header() {
           <input
             className="header-search-input"
             type="text"
-            placeholder={isNavigating ? "Opening…" : "Search series, issues, characters..."}
+            placeholder={isNavigating ? "Opening…" : "Search comics"}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => {
@@ -581,23 +581,17 @@ export default function Header() {
           {user && (
             <Link
               href="/people"
-              className={`nav-link collectors-nav-link${pathname === "/people" ? " active" : ""}`}
-              aria-current={pathname === "/people" ? "page" : undefined}
+              className="nav-icon-btn"
+              aria-label="Collectors"
+              data-label="Collectors"
+              aria-current={routeIsCurrent(pathname, "/people") ? "page" : undefined}
               onClick={closeMenu}
             >
-              Collectors
+              <Users {...NAV_ICON_PROPS} />
             </Link>
           )}
-          <Link
-            href="/marketplace"
-            className="nav-icon-btn"
-            onClick={closeMenu}
-            aria-label="Marketplace (beta)"
-            data-label="Marketplace"
-            aria-current={routeIsCurrent(pathname, "/marketplace") ? "page" : undefined}
-          >
-            <Store {...NAV_ICON_PROPS} />
-          </Link>
+          {/* Marketplace left the top bar on 2026-10-23 until real sellers
+              are on it; it lives in the avatar menu and the footer. */}
 
           {!user && !loading && (
             <>
@@ -789,6 +783,10 @@ const UserMenu = forwardRef(function UserMenu(
 
           <div className="user-menu-divider" />
 
+          <Link href="/marketplace" className="user-menu-item user-menu-item-with-icon" role="menuitem" onClick={handleItem()}>
+            <Store {...NAV_ICON_PROPS} />
+            <span>Marketplace (beta)</span>
+          </Link>
           <OrdersMenuItem onClick={handleItem()} />
           <button
             type="button"

@@ -388,7 +388,7 @@ export default function Header() {
           <input
             className="header-search-input"
             type="text"
-            placeholder={isNavigating ? "Opening…" : "Search series, issues, characters..."}
+            placeholder={isNavigating ? "Opening…" : "Search comics"}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => {

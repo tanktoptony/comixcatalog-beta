@@ -56854,78 +56854,126 @@
     "name": "Fantastic Four",
     "publisher": "Marvel Comics",
     "year": 2021,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 2045,
         "name": "Fantastic Four",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1961
       },
       {
         "id": 112685,
         "name": "Fantastic Four",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2018
+      },
+      {
+        "id": 53526,
+        "name": "Fantastic Four",
+        "publisher": null,
+        "start_year": 1982
       },
       {
         "id": 71949,
         "name": "Fantastic Four",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2014
       },
       {
-        "id": 6211,
+        "id": 87144,
         "name": "Fantastic Four",
-        "publisher": "Marvel",
-        "start_year": 1998
+        "publisher": null,
+        "start_year": 2013
       },
       {
         "id": 34468,
         "name": "Fantastic Four",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1981
       },
       {
         "id": 170993,
         "name": "Fantastic Four ",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2026
+      },
+      {
+        "id": 6211,
+        "name": "Fantastic Four",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 127411,
+        "name": "Fantastic Four",
+        "publisher": null,
+        "start_year": 1979
       },
       {
         "id": 145912,
         "name": "Fantastic Four",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2023
       },
       {
         "id": 165358,
         "name": "Fantastic Four",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2025
       },
       {
         "id": 9462,
         "name": "Fantastic Four",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1996
+      },
+      {
+        "id": 42342,
+        "name": "Fantastic Four",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 40093,
+        "name": "The Fantastic Four",
+        "publisher": null,
+        "start_year": 1979
       },
       {
         "id": 84326,
         "name": "Fantastic Four",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1981
+      },
+      {
+        "id": 42343,
+        "name": "Fantastic Four",
+        "publisher": null,
+        "start_year": 1999
       },
       {
         "id": 53921,
         "name": "Fantastic Four",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2013
+      },
+      {
+        "id": 142786,
+        "name": "Fantastic Four",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 42344,
+        "name": "Fantastic Four",
+        "publisher": null,
+        "start_year": 2009
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-20T18:00:54.705659+00:00",
-    "retry_after": "2026-10-23T18:00:54.705675+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-23T18:26:34.161166+00:00",
+    "retry_after": "2026-10-30T18:26:34.161180+00:00"
   },
   {
     "name": "Watchmen",
@@ -70705,8 +70753,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:49.283126+00:00",
-    "retry_after": "2026-10-26T18:23:49.283159+00:00"
+    "last_attempt_at": "2026-10-23T18:49:36.092545+00:00",
+    "retry_after": "2026-10-26T18:49:36.092560+00:00"
   },
   {
     "name": "Nintendo Power",
@@ -70958,8 +71006,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:49.759875+00:00",
-    "retry_after": "2026-10-26T18:23:49.759901+00:00"
+    "last_attempt_at": "2026-10-23T18:49:36.596051+00:00",
+    "retry_after": "2026-10-26T18:49:36.596066+00:00"
   },
   {
     "name": "The Fall of Ultraman",
@@ -70975,8 +71023,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:50.089921+00:00",
-    "retry_after": "2026-10-26T18:23:50.089935+00:00"
+    "last_attempt_at": "2026-10-23T18:49:37.124623+00:00",
+    "retry_after": "2026-10-26T18:49:37.124638+00:00"
   },
   {
     "name": "Fantastic Four / Gargoyles",
@@ -70992,8 +71040,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:50.446100+00:00",
-    "retry_after": "2026-10-26T18:23:50.446115+00:00"
+    "last_attempt_at": "2026-10-23T18:49:37.472855+00:00",
+    "retry_after": "2026-10-26T18:49:37.472870+00:00"
   },
   {
     "name": "Obergeist: The Empty Locket",
@@ -71009,8 +71057,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:50.892336+00:00",
-    "retry_after": "2026-10-26T18:23:50.892352+00:00"
+    "last_attempt_at": "2026-10-23T18:49:37.964369+00:00",
+    "retry_after": "2026-10-26T18:49:37.964384+00:00"
   },
   {
     "name": "True Believers: X-Men - Empath",
@@ -71026,8 +71074,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:51.320865+00:00",
-    "retry_after": "2026-10-26T18:23:51.320881+00:00"
+    "last_attempt_at": "2026-10-23T18:49:38.364490+00:00",
+    "retry_after": "2026-10-26T18:49:38.364505+00:00"
   },
   {
     "name": "True Believers: Fantastic Four vs. Doctor Doom",
@@ -71043,8 +71091,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:51.741524+00:00",
-    "retry_after": "2026-10-26T18:23:51.741539+00:00"
+    "last_attempt_at": "2026-10-23T18:49:38.849252+00:00",
+    "retry_after": "2026-10-26T18:49:38.849267+00:00"
   },
   {
     "name": "Jim Butcher's The Dresden Files: Wild Card",
@@ -71066,8 +71114,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:52.392131+00:00",
-    "retry_after": "2026-10-26T18:23:52.392163+00:00"
+    "last_attempt_at": "2026-10-23T18:49:39.305022+00:00",
+    "retry_after": "2026-10-26T18:49:39.305037+00:00"
   },
   {
     "name": "Giant-Size Thor",
@@ -71089,8 +71137,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:52.945547+00:00",
-    "retry_after": "2026-10-26T18:23:52.945562+00:00"
+    "last_attempt_at": "2026-10-23T18:49:40.094333+00:00",
+    "retry_after": "2026-10-26T18:49:40.094348+00:00"
   },
   {
     "name": "Flash Gordon",
@@ -71220,8 +71268,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:53.374557+00:00",
-    "retry_after": "2026-10-26T18:23:53.374570+00:00"
+    "last_attempt_at": "2026-10-23T18:49:41.061707+00:00",
+    "retry_after": "2026-10-26T18:49:41.061722+00:00"
   },
   {
     "name": "Starseeds",
@@ -71237,8 +71285,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:53.863500+00:00",
-    "retry_after": "2026-10-26T18:23:53.863513+00:00"
+    "last_attempt_at": "2026-10-23T18:49:42.044914+00:00",
+    "retry_after": "2026-10-26T18:49:42.044930+00:00"
   },
   {
     "name": "Interactive Comics: Dudley Serious Saves the World",
@@ -71254,8 +71302,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:54.242337+00:00",
-    "retry_after": "2026-10-26T18:23:54.242352+00:00"
+    "last_attempt_at": "2026-10-23T18:49:42.582896+00:00",
+    "retry_after": "2026-10-26T18:49:42.582911+00:00"
   },
   {
     "name": "Marvelous Adventures of Gus Beezer: Gus Beezer & Spider-Man",
@@ -71271,8 +71319,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:54.647171+00:00",
-    "retry_after": "2026-10-26T18:23:54.647186+00:00"
+    "last_attempt_at": "2026-10-23T18:49:43.165211+00:00",
+    "retry_after": "2026-10-26T18:49:43.165226+00:00"
   },
   {
     "name": "Hundred Penny Press: Angel: After the Fall",
@@ -71288,8 +71336,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:54.992889+00:00",
-    "retry_after": "2026-10-26T18:23:54.992902+00:00"
+    "last_attempt_at": "2026-10-23T18:49:43.555001+00:00",
+    "retry_after": "2026-10-26T18:49:43.555016+00:00"
   },
   {
     "name": "Disney Hercules",
@@ -71305,8 +71353,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:55.341127+00:00",
-    "retry_after": "2026-10-26T18:23:55.341158+00:00"
+    "last_attempt_at": "2026-10-23T18:49:43.954972+00:00",
+    "retry_after": "2026-10-26T18:49:43.954986+00:00"
   },
   {
     "name": "Evil Ernie",
@@ -71589,8 +71637,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:57.726320+00:00",
-    "retry_after": "2026-10-26T18:23:57.726335+00:00"
+    "last_attempt_at": "2026-10-23T18:49:44.556806+00:00",
+    "retry_after": "2026-10-26T18:49:44.556818+00:00"
   },
   {
     "name": "Modeling with Millie",
@@ -71606,8 +71654,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:58.119846+00:00",
-    "retry_after": "2026-10-26T18:23:58.119860+00:00"
+    "last_attempt_at": "2026-10-23T18:49:44.900610+00:00",
+    "retry_after": "2026-10-26T18:49:44.900625+00:00"
   },
   {
     "name": "Mad XL",
@@ -71623,8 +71671,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:58.479383+00:00",
-    "retry_after": "2026-10-26T18:23:58.479398+00:00"
+    "last_attempt_at": "2026-10-23T18:49:45.371681+00:00",
+    "retry_after": "2026-10-26T18:49:45.371696+00:00"
   },
   {
     "name": "Buster Book",
@@ -71640,8 +71688,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:58.876857+00:00",
-    "retry_after": "2026-10-26T18:23:58.876872+00:00"
+    "last_attempt_at": "2026-10-23T18:49:45.815019+00:00",
+    "retry_after": "2026-10-26T18:49:45.815034+00:00"
   },
   {
     "name": "Sub-Mariner Comics",
@@ -71657,8 +71705,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:59.247209+00:00",
-    "retry_after": "2026-10-26T18:23:59.247225+00:00"
+    "last_attempt_at": "2026-10-23T18:49:46.726458+00:00",
+    "retry_after": "2026-10-26T18:49:46.726473+00:00"
   },
   {
     "name": "The Durango Kid",
@@ -71674,8 +71722,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:59.695662+00:00",
-    "retry_after": "2026-10-26T18:23:59.695676+00:00"
+    "last_attempt_at": "2026-10-23T18:49:47.207603+00:00",
+    "retry_after": "2026-10-26T18:49:47.207618+00:00"
   },
   {
     "name": "Jane, Famous Oomph Girl",
@@ -71691,8 +71739,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:24:00.122582+00:00",
-    "retry_after": "2026-10-26T18:24:00.122598+00:00"
+    "last_attempt_at": "2026-10-23T18:49:48.519538+00:00",
+    "retry_after": "2026-10-26T18:49:48.519553+00:00"
   },
   {
     "name": "Dungeons & Dragons: Ravenloft",
@@ -71707,9 +71755,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:49:34.266627+00:00",
-    "retry_after": "2026-10-23T18:49:34.266644+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T18:49:35.554896+00:00",
+    "retry_after": "2026-10-26T18:49:35.554911+00:00"
   },
   {
     "name": "Hero Squared",
@@ -71736,9 +71784,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:49:34.753931+00:00",
-    "retry_after": "2026-10-23T18:49:34.753949+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T18:49:39.752104+00:00",
+    "retry_after": "2026-10-26T18:49:39.752118+00:00"
   },
   {
     "name": "The Big Shakedown",
@@ -71753,9 +71801,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:49:35.230780+00:00",
-    "retry_after": "2026-10-23T18:49:35.230798+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T18:49:40.552569+00:00",
+    "retry_after": "2026-10-26T18:49:40.552584+00:00"
   },
   {
     "name": "Amazing Spider-Man Annual",
@@ -71806,9 +71854,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:49:35.520747+00:00",
-    "retry_after": "2026-10-23T18:49:35.520765+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T18:49:41.600865+00:00",
+    "retry_after": "2026-10-26T18:49:41.600880+00:00"
   },
   {
     "name": "Southern Bastards",
@@ -72153,9 +72201,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:49:41.479226+00:00",
-    "retry_after": "2026-10-23T18:49:41.479244+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T18:49:46.295807+00:00",
+    "retry_after": "2026-10-26T18:49:46.295822+00:00"
   },
   {
     "name": "Harrow County",
@@ -72182,9 +72230,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:49:41.789762+00:00",
-    "retry_after": "2026-10-23T18:49:41.789779+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T18:49:47.681431+00:00",
+    "retry_after": "2026-10-26T18:49:47.681446+00:00"
   },
   {
     "name": "Descender",
@@ -72205,9 +72253,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:49:42.240900+00:00",
-    "retry_after": "2026-10-23T18:49:42.240918+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T18:49:48.119412+00:00",
+    "retry_after": "2026-10-26T18:49:48.119427+00:00"
   },
   {
     "name": "Redneck",
@@ -82487,8 +82535,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T18:00:46.708608+00:00",
-    "retry_after": "2026-10-24T18:00:46.708628+00:00"
+    "last_attempt_at": "2026-10-23T18:26:32.421147+00:00",
+    "retry_after": "2026-10-24T18:26:32.421162+00:00"
   },
   {
     "name": "Doctor Who: The Fourth Doctor",
@@ -82504,59 +82552,7 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T18:23:48.766859+00:00",
-    "retry_after": "2026-10-24T18:23:48.766876+00:00"
-  },
-  {
-    "name": "Black Panther / Namor: Doomed",
-    "publisher": "Marvel Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 176682,
-        "name": "Black Panther/Namor: Doomed",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T18:23:56.504367+00:00",
-    "retry_after": "2026-10-24T18:23:56.504382+00:00"
-  },
-  {
-    "name": "Micronauts",
-    "publisher": "Marvel Comics",
-    "year": 1984,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 38396,
-        "name": "Micronauts",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 3008,
-        "name": "Micronauts",
-        "publisher": null,
-        "start_year": 1979
-      },
-      {
-        "id": 89897,
-        "name": "Micronauts",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 27081,
-        "name": "Micronauts",
-        "publisher": null,
-        "start_year": 2002
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T18:24:00.673097+00:00",
-    "retry_after": "2026-10-24T18:24:00.673112+00:00"
+    "last_attempt_at": "2026-10-23T18:49:35.035431+00:00",
+    "retry_after": "2026-10-24T18:49:35.035446+00:00"
   }
 ]

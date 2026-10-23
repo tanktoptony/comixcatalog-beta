@@ -46634,13 +46634,13 @@
   },
   {
     "name": "Let's Hear It for Dinner, Snoopy",
-    "publisher": "Fawcett Comics",
+    "publisher": "Heavy Metal",
     "year": 1979,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T15:11:09.719070+00:00",
-    "retry_after": "2026-10-22T15:11:09.719086+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:02.454293+00:00",
+    "retry_after": "2026-10-24T02:24:02.454310+00:00"
   },
   {
     "name": "Lisa Cheese and Ghost Guitar",
@@ -76221,5 +76221,397 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T01:48:51.627394+00:00",
     "retry_after": "2026-10-24T01:48:51.627412+00:00"
+  },
+  {
+    "name": "Marvel Masterworks: The Human Torch",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35209,
+        "name": "Marvel Masterworks: The Human Torch",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:23:58.831350+00:00",
+    "retry_after": "2026-10-24T02:23:58.831366+00:00"
+  },
+  {
+    "name": "Action Lab Dog of Wonder",
+    "publisher": "Action Lab Entertainment",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88546,
+        "name": "Action Lab, Dog of Wonder",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 85396,
+        "name": "Action Lab: Dog of Wonder",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:23:59.170677+00:00",
+    "retry_after": "2026-10-24T02:23:59.170694+00:00"
+  },
+  {
+    "name": "Convocations - A Magic: The Gathering Gallery",
+    "publisher": "Valiant Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34896,
+        "name": "Convocations - A Magic: The Gathering Gallery",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:01.583722+00:00",
+    "retry_after": "2026-10-24T02:24:01.583738+00:00"
+  },
+  {
+    "name": "A Science Affair: Special Compilation",
+    "publisher": "Antarctic Press",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:01.982024+00:00",
+    "retry_after": "2026-10-24T02:24:01.982046+00:00"
+  },
+  {
+    "name": "Superman: The Last Son of Krypton FCBD Special Edition",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60811,
+        "name": "Superman: Last Son of Krypton FCBD Special Edition",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:04.834899+00:00",
+    "retry_after": "2026-10-24T02:24:04.834914+00:00"
+  },
+  {
+    "name": "Justice League: Rebirth 1 Special Edition",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:05.243800+00:00",
+    "retry_after": "2026-10-24T02:24:05.243816+00:00"
+  },
+  {
+    "name": "Wonder Woman: Earth One",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 89397,
+        "name": "Wonder Woman: Earth One",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:05.815309+00:00",
+    "retry_after": "2026-10-24T02:24:05.815325+00:00"
+  },
+  {
+    "name": "The Unknown",
+    "publisher": "BOOM! Studios",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85540,
+        "name": "Unknown",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 7827,
+        "name": "The Unknown",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 101694,
+        "name": "Unknown",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 44682,
+        "name": "The Unknown",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 128283,
+        "name": "The Unknown",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:06.270026+00:00",
+    "retry_after": "2026-10-24T02:24:06.270043+00:00"
+  },
+  {
+    "name": "Cerberus in Hell?",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115538,
+        "name": "Cerberus in Hell",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:07.363509+00:00",
+    "retry_after": "2026-10-24T02:24:07.363525+00:00"
+  },
+  {
+    "name": "The Wizard's Back",
+    "publisher": "Fawcett Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:07.725572+00:00",
+    "retry_after": "2026-10-24T02:24:07.725588+00:00"
+  },
+  {
+    "name": "Destroy!!",
+    "publisher": "Eclipse Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171548,
+        "name": "Destroy!!",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 25871,
+        "name": "Destroy !!",
+        "publisher": null,
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:08.157614+00:00",
+    "retry_after": "2026-10-24T02:24:08.157631+00:00"
+  },
+  {
+    "name": "Black",
+    "publisher": "Black Mask Studios",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 94605,
+        "name": "BLACK",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 105739,
+        "name": "BLACK",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:09.978712+00:00",
+    "retry_after": "2026-10-24T02:24:09.978727+00:00"
+  },
+  {
+    "name": "How to Break into Comics",
+    "publisher": "Antarctic Press",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59686,
+        "name": "How to Break into Comics",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 68678,
+        "name": "How to Break Into Comics",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:10.459187+00:00",
+    "retry_after": "2026-10-24T02:24:10.459209+00:00"
+  },
+  {
+    "name": "Warrior Nun Lazarus",
+    "publisher": "Antarctic Press",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50429,
+        "name": "Warrior Nun: Lazarus",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:10.782344+00:00",
+    "retry_after": "2026-10-24T02:24:10.782359+00:00"
+  },
+  {
+    "name": "Alien, Predator, & Planet of the Apes CGD 2026",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 177311,
+        "name": "Alien, Predator, & Planet of the Apes CGD 2026",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:11.061693+00:00",
+    "retry_after": "2026-10-24T02:24:11.061709+00:00"
+  },
+  {
+    "name": "The Shell Collector Series - Superman",
+    "publisher": "DC Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 103456,
+        "name": "Shell Collector Series - Superman",
+        "publisher": null,
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:11.431543+00:00",
+    "retry_after": "2026-10-24T02:24:11.431559+00:00"
+  },
+  {
+    "name": "Ascension",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20237,
+        "name": "Ascension",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 89659,
+        "name": "Ascension",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:12.156190+00:00",
+    "retry_after": "2026-10-24T02:24:12.156205+00:00"
+  },
+  {
+    "name": "Michael Turner's Soulfire Annual",
+    "publisher": "Aspen Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75735,
+        "name": "Michael Turner's Soulfire Annual",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:12.603652+00:00",
+    "retry_after": "2026-10-24T02:24:12.603668+00:00"
+  },
+  {
+    "name": "Act-Age",
+    "publisher": "VIZ Media",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 110235,
+        "name": "Act-Age",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 121129,
+        "name": "Act-Age",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 177442,
+        "name": "Act-Age",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 177445,
+        "name": "Act-Age",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 128484,
+        "name": "Act-Age",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 177443,
+        "name": "Act-Age",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 177444,
+        "name": "Act-Age",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T02:24:13.190207+00:00",
+    "retry_after": "2026-10-24T02:24:13.190222+00:00"
   }
 ]

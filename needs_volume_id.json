@@ -65084,9 +65084,9 @@
         "start_year": 1980
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T05:00:58.238766+00:00",
-    "retry_after": "2026-10-23T05:00:58.238780+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T06:00:55.246943+00:00",
+    "retry_after": "2026-10-26T06:00:55.246958+00:00"
   },
   {
     "name": "Peter Parker, The Spectacular Spider-Man",
@@ -65101,9 +65101,9 @@
         "start_year": 1980
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T05:00:58.287926+00:00",
-    "retry_after": "2026-10-23T05:00:58.287937+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T06:00:55.343630+00:00",
+    "retry_after": "2026-10-26T06:00:55.343646+00:00"
   },
   {
     "name": "Fables",
@@ -78187,5 +78187,542 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T05:24:00.756061+00:00",
     "retry_after": "2026-10-24T05:24:00.756075+00:00"
+  },
+  {
+    "name": "We Live",
+    "publisher": "AfterShock Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141860,
+        "name": "We Live",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 136119,
+        "name": "We Live",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 131152,
+        "name": "We Live",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:23:57.224354+00:00",
+    "retry_after": "2026-10-24T06:23:57.224370+00:00"
+  },
+  {
+    "name": "Dr. Weird",
+    "publisher": "Caliber Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 87284,
+        "name": "Dr. Weird",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 40155,
+        "name": "Dr. Weird",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:23:57.763822+00:00",
+    "retry_after": "2026-10-24T06:23:57.763838+00:00"
+  },
+  {
+    "name": "Harbinger",
+    "publisher": "Valiant Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49539,
+        "name": "Harbinger",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 139862,
+        "name": "The Harbinger",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 24884,
+        "name": "Harbinger",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 4827,
+        "name": "Harbinger",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 24895,
+        "name": "Harbinger",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:23:58.422877+00:00",
+    "retry_after": "2026-10-24T06:23:58.422892+00:00"
+  },
+  {
+    "name": "TMNT Mutant Universe Sourcebook",
+    "publisher": "Archie Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:23:59.025105+00:00",
+    "retry_after": "2026-10-24T06:23:59.025120+00:00"
+  },
+  {
+    "name": "Disney Frozen: Classic Comic Collection",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:23:59.731862+00:00",
+    "retry_after": "2026-10-24T06:23:59.731878+00:00"
+  },
+  {
+    "name": "Casper Jumbo Edition",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64322,
+        "name": "Casper Jumbo Edition",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:00.378405+00:00",
+    "retry_after": "2026-10-24T06:24:00.378417+00:00"
+  },
+  {
+    "name": "The Sensational She-Hulk in Ceremony",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22095,
+        "name": "The Sensational She-Hulk in Ceremony",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:00.740870+00:00",
+    "retry_after": "2026-10-24T06:24:00.740885+00:00"
+  },
+  {
+    "name": "The Dollz",
+    "publisher": "Image Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66985,
+        "name": "Dollz",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 21688,
+        "name": "Dollz",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:01.303848+00:00",
+    "retry_after": "2026-10-24T06:24:01.303863+00:00"
+  },
+  {
+    "name": "Dog Supreme",
+    "publisher": "Antarctic Press",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:01.872335+00:00",
+    "retry_after": "2026-10-24T06:24:01.872351+00:00"
+  },
+  {
+    "name": "Ex-Mutants",
+    "publisher": "Malibu Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4898,
+        "name": "Ex-Mutants",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 28421,
+        "name": "Ex-Mutants",
+        "publisher": null,
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:02.330239+00:00",
+    "retry_after": "2026-10-24T06:24:02.330255+00:00"
+  },
+  {
+    "name": "Books of Lore: Shape of Evil",
+    "publisher": "Devil's Due",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 105454,
+        "name": "Books of Lore: Shape of Evil",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:02.864426+00:00",
+    "retry_after": "2026-10-24T06:24:02.864441+00:00"
+  },
+  {
+    "name": "Eddie Brock: Carnage",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167667,
+        "name": "Eddie Brock: Carnage",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 162404,
+        "name": "Eddie Brock: Carnage",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:03.361266+00:00",
+    "retry_after": "2026-10-24T06:24:03.361281+00:00"
+  },
+  {
+    "name": "How to Make an American Porn",
+    "publisher": "Black Mask Studios",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:03.724442+00:00",
+    "retry_after": "2026-10-24T06:24:03.724458+00:00"
+  },
+  {
+    "name": "The EC Archives: Panic",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 87610,
+        "name": "The EC Archives: Panic",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:04.207130+00:00",
+    "retry_after": "2026-10-24T06:24:04.207145+00:00"
+  },
+  {
+    "name": "Sheena, Queen of the Jungle",
+    "publisher": "Devil's Due",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 138974,
+        "name": "Sheena, Queen of the Jungle",
+        "publisher": null,
+        "start_year": 1958
+      },
+      {
+        "id": 23884,
+        "name": "Sheena, Queen of the Jungle",
+        "publisher": null,
+        "start_year": 1942
+      },
+      {
+        "id": 103331,
+        "name": "Sheena Queen of the Jungle",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 139998,
+        "name": "Sheena: Queen of the Jungle",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 20342,
+        "name": "Sheena, Queen of the Jungle",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 26251,
+        "name": "Sheena Queen of the Jungle",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 73135,
+        "name": "Sheena, Queen of the Jungle",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 110760,
+        "name": "Sheena: Queen of the Jungle",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:04.716804+00:00",
+    "retry_after": "2026-10-24T06:24:04.716819+00:00"
+  },
+  {
+    "name": "X-Men: The Manga: Remastered",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161119,
+        "name": "X-Men: The Manga: Remastered",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:05.177406+00:00",
+    "retry_after": "2026-10-24T06:24:05.177421+00:00"
+  },
+  {
+    "name": "Fathom: The Core",
+    "publisher": "Aspen Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140411,
+        "name": "Fathom: The Core",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:05.596450+00:00",
+    "retry_after": "2026-10-24T06:24:05.596466+00:00"
+  },
+  {
+    "name": "Ultimate Annuals",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34142,
+        "name": "Ultimate Annuals",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:06.015818+00:00",
+    "retry_after": "2026-10-24T06:24:06.015834+00:00"
+  },
+  {
+    "name": "Nausicaä of the Valley of the Wind",
+    "publisher": "VIZ Media",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:06.479151+00:00",
+    "retry_after": "2026-10-24T06:24:06.479167+00:00"
+  },
+  {
+    "name": "Meteor Prince",
+    "publisher": "VIZ Media",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79258,
+        "name": "Meteor Prince",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:07.032968+00:00",
+    "retry_after": "2026-10-24T06:24:07.032983+00:00"
+  },
+  {
+    "name": "Judge Dredd",
+    "publisher": "Titan Comics",
+    "year": 1981,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86696,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 127476,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 3928,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 3284,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 1983
+      },
+      {
+        "id": 54111,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 19045,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 34817,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 149234,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 59215,
+        "name": "Judge Dredd",
+        "publisher": null,
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:07.799407+00:00",
+    "retry_after": "2026-10-24T06:24:07.799422+00:00"
+  },
+  {
+    "name": "X",
+    "publisher": "Dark Horse Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 103009,
+        "name": "X",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 131430,
+        "name": "X",
+        "publisher": null,
+        "start_year": 1959
+      },
+      {
+        "id": 43890,
+        "name": "X",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 167050,
+        "name": "X",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 5403,
+        "name": "X",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 57406,
+        "name": "X",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 45390,
+        "name": "X",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 93542,
+        "name": "X",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 18506,
+        "name": "X",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T06:24:08.314403+00:00",
+    "retry_after": "2026-10-24T06:24:08.314419+00:00"
   }
 ]

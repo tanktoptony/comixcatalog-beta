@@ -58,8 +58,7 @@ export default function HomeClient({
             Your collection, and its value, in one place.
           </h1>
           <p className="lp-sub">
-            Every issue, grade and variant you own, what it&rsquo;s worth
-            from real sold comps, and a wantlist for the hunt.
+            Every issue, grade and variant you own, an estimate of what it&apos;s worth, and a wantlist for the hunt.
           </p>
 
           {/* Hero search - the activation surface. Anonymous visitors can act

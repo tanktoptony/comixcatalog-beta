@@ -11267,6 +11267,19 @@ button.nav-link {
 .founding-banner p strong { color: #f4e3ae; font-weight: 600; }
 .founding-banner-cta { color: #d8b04b; font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(216,176,75,0.4); padding-bottom: 1px; }
 .founding-banner-cta:hover { color: #f4d03f; border-bottom-color: #f4d03f; }
+.founding-banner-mobile-copy { display: none; }
+@media (max-width: 640px) {
+  .founding-banner-inner {
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding: 9px 12px;
+    white-space: nowrap;
+  }
+  .founding-banner p { font-size: .8rem; }
+  .founding-banner-desktop-copy { display: none; }
+  .founding-banner-mobile-copy { display: inline; }
+  .founding-banner-cta { font-size: .8rem; }
+}
 .founding-page { max-width: 920px; margin: 0 auto; padding: clamp(2rem,6vw,5rem) 1rem; }
 .founding-page .section-label.badge-x {
   display: inline-block;

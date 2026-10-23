@@ -11,7 +11,7 @@ export default function HelpPage() {
         <h1 className="cc-form-title">Help Center</h1>
         <p className="cc-form-sub">
           ComixCatalog is in active development by a solo team. The fastest way
-          to get a real answer is direct contact — email or Discord, both read
+          to get a real answer is direct contact. Email and Discord are both read
           daily.
         </p>
 
@@ -96,7 +96,7 @@ export default function HelpPage() {
         </div>
 
         <p className="cc-hint" style={{ marginTop: 28 }}>
-          Don&rsquo;t see your question? Email or Discord — answers usually
+          Don&rsquo;t see your question? Email or Discord. Answers usually
           come the same day.
         </p>
 

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { coverThumb, coverOriginal, thumbStoragePath } from "./coverThumb.js";
+import { coverThumb, coverOriginal, coverTransform, thumbStoragePath } from "./coverThumb.js";
 
 const BASE = "https://x.supabase.co/storage/v1/object/public";
 const ORIG = `${BASE}/canonical-covers/comicvine/x-men/vol-1/1-issue-1.jpg`;
@@ -14,6 +14,14 @@ test("maps a canonical cover to its thumb and back", () => {
 
 test("drops a query string rather than baking it into the path", () => {
   assert.equal(coverThumb(`${ORIG}?v=2`), THUMB);
+});
+
+test("maps a missing thumb to Supabase's 400px image transform", () => {
+  assert.equal(
+    coverTransform(THUMB),
+    `${BASE.replace("/object/public", "/render/image/public")}/canonical-covers/comicvine/x-men/vol-1/1-issue-1.jpg?width=400&quality=80`
+  );
+  assert.equal(coverTransform(ORIG), null);
 });
 
 test("leaves everything that is not a canonical cover alone", () => {

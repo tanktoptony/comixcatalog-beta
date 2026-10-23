@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
         </p>
         <p>
           <strong>Profile information.</strong> Anything you choose to add to
-          your public profile — display name, avatar, bio, badges — is stored
+          your public profile, including display name, avatar, bio, and badges, is stored
           and shown according to your privacy settings.
         </p>
         <p>
@@ -87,7 +87,7 @@ export default function PrivacyPolicyPage() {
           <li>
             <strong>Service providers</strong> who help us run the Service —
             Supabase (database + auth + storage), Stripe (payments),
-            transactional email providers — under contracts that limit their
+            transactional email providers, under contracts that limit their
             use of your data.
           </li>
           <li>
@@ -118,8 +118,8 @@ export default function PrivacyPolicyPage() {
 
         <h2>6. Security</h2>
         <p>
-          We use industry-standard practices — TLS in transit, hashed
-          passwords, role-based database access — to protect your data. No
+          We use industry-standard practices, including TLS in transit, hashed
+          passwords, and role-based database access, to protect your data. No
           system is perfectly secure; if we ever discover a breach affecting
           your account, we will notify you as required by law.
         </p>

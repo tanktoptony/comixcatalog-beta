@@ -11,7 +11,7 @@ const ARTICLES = [
     slug: "how-to-grade-raw-comics",
     kicker: "Collecting 101",
     title: "How to Grade Your Raw Comics: A Beginner's Guide",
-    dek: "Before you slab anything or list it for sale, learn what graders actually look at — and how to do a credible self-grade in five minutes.",
+    dek: "Before you slab anything or list it for sale, learn what graders actually look at, and how to do a credible self-grade in five minutes.",
     publishedAt: "2026-04-28",
     readingTime: "6 min read",
     body: () => (
@@ -19,7 +19,7 @@ const ARTICLES = [
         <p>
           Every conversation about a raw comic&rsquo;s value starts with the
           same question: <em>what condition is it in?</em> Two copies of
-          Amazing Spider-Man #129 — same printing, same year — can sell for
+          Amazing Spider-Man #129, same printing, same year, can sell for
           $200 or $2,000 depending entirely on grade. Learning to assess your
           books accurately, before you ever send anything to CGC or list it on
           a marketplace, is the single highest-leverage skill in collecting.
@@ -33,44 +33,44 @@ const ARTICLES = [
         </p>
         <ul>
           <li>
-            <strong>10.0 (Gem Mint)</strong> — vanishingly rare, essentially
+            <strong>10.0 (Gem Mint)</strong>, vanishingly rare, essentially
             unattainable for any book that&rsquo;s been touched.
           </li>
           <li>
-            <strong>9.8 (Near Mint/Mint)</strong> — the standard target for
+            <strong>9.8 (Near Mint/Mint)</strong>, the standard target for
             most modern collectors. Sharp corners, no spine ticks, glossy
             cover, white pages.
           </li>
           <li>
-            <strong>9.6 (Near Mint+)</strong> — barely distinguishable from
+            <strong>9.6 (Near Mint+)</strong>, barely distinguishable from
             9.8 to the eye but a meaningful price drop on hot keys.
           </li>
           <li>
-            <strong>9.4 (Near Mint)</strong> — minor handling, maybe a
+            <strong>9.4 (Near Mint)</strong>, minor handling, maybe a
             superficial spine tick. Most well-cared-for new books grade here.
           </li>
           <li>
-            <strong>9.0 (Very Fine/Near Mint)</strong> — visible flaws but
+            <strong>9.0 (Very Fine/Near Mint)</strong>, visible flaws but
             still &ldquo;clean.&rdquo;
           </li>
           <li>
-            <strong>8.0 (Very Fine)</strong> — slightly rounded corners,
+            <strong>8.0 (Very Fine)</strong>, slightly rounded corners,
             light reading wear.
           </li>
           <li>
-            <strong>6.0 (Fine)</strong> — clearly read but well-kept. Body
+            <strong>6.0 (Fine)</strong>, clearly read but well-kept. Body
             of the cover still attractive.
           </li>
           <li>
-            <strong>4.0 (Very Good)</strong> — significant wear, possibly a
+            <strong>4.0 (Very Good)</strong>, significant wear, possibly a
             small color break or crease.
           </li>
           <li>
-            <strong>2.0 (Good)</strong> — heavily worn but complete and
+            <strong>2.0 (Good)</strong>, heavily worn but complete and
             structurally sound.
           </li>
           <li>
-            <strong>0.5 (Poor)</strong> — barely a comic; missing pieces,
+            <strong>0.5 (Poor)</strong>, barely a comic; missing pieces,
             tape, water damage.
           </li>
         </ul>
@@ -126,7 +126,7 @@ const ARTICLES = [
           </li>
           <li>
             Open the book gently. Note the page color (white / off-white /
-            cream / tan). Write it down — you&rsquo;ll forget.
+            cream / tan). Write it down, you&rsquo;ll forget.
           </li>
           <li>
             Flip through every page checking for tears, writing, brown
@@ -144,7 +144,7 @@ const ARTICLES = [
           Slabbing costs $20–$60 per book and takes weeks. The math only
           works for high-value keys (Bronze Age first appearances, hot
           modern variants, anything over ~$200 raw). For your everyday run
-          books, an honest raw self-grade is better — you don&rsquo;t pay the
+          books, an honest raw self-grade is better, you don&rsquo;t pay the
           slab fee, and the marketplace price for raw 9.0 vs. raw 9.4 is
           often within $10–$20.
         </p>
@@ -165,7 +165,7 @@ const ARTICLES = [
   {
     slug: "comicvine-gcd-cgc-disagree",
     kicker: "Behind the Database",
-    title: "When ComicVine, GCD, and CGC All Disagree — and Which to Trust",
+    title: "When ComicVine, GCD, and CGC All Disagree, and Which to Trust",
     dek: "Three databases, three opinions on what counts as Volume 1. Here's how each one defines a series, where they get it wrong, and how ComixCatalog reconciles them.",
     publishedAt: "2026-04-26",
     readingTime: "5 min read",
@@ -174,8 +174,8 @@ const ARTICLES = [
         <p>
           You&rsquo;d think there&rsquo;d be one universally agreed-on answer
           for &ldquo;What volume is Uncanny X-Men #500 from?&rdquo; You&rsquo;d
-          be wrong. Three of the biggest comic databases — ComicVine, the
-          Grand Comics Database, and CGC&rsquo;s registry — each define
+          be wrong. Three of the biggest comic databases, ComicVine, the
+          Grand Comics Database, and CGC&rsquo;s registry, each define
           &ldquo;volume&rdquo; differently. For a collector trying to log a
           book accurately, this is the source of more headaches than any
           other.
@@ -228,7 +228,7 @@ const ARTICLES = [
           </li>
           <li>
             <strong>CGC</strong> is bound by what&rsquo;s on the slab label.
-            A 1999 ASM #1 in a CGC slab is labeled &ldquo;V. 2&rdquo; — a
+            A 1999 ASM #1 in a CGC slab is labeled &ldquo;V. 2&rdquo;, a
             2003 ASM #500 is labeled as part of the original run.
           </li>
         </ul>
@@ -236,7 +236,7 @@ const ARTICLES = [
         <h2>How ComixCatalog reconciles</h2>
         <p>
           ComixCatalog draws metadata from <strong>GCD</strong> as the
-          source of truth — it&rsquo;s the most rigorous about indicia and
+          source of truth, it&rsquo;s the most rigorous about indicia and
           renumbering. We pull cover imagery from <strong>ComicVine</strong>{" "}
           because the visuals are the best available. And when you record a
           slabbed book in your collection, we capture the{" "}
@@ -255,7 +255,7 @@ const ARTICLES = [
         <p>
           When you search ComixCatalog for a series like &ldquo;Uncanny
           X-Men&rdquo; or &ldquo;Amazing Spider-Man,&rdquo; you may see
-          multiple entries — one per volume per GCD&rsquo;s definition.
+          multiple entries, one per volume per GCD&rsquo;s definition.
           That&rsquo;s the correct level of detail. Pick the one that
           matches the indicia of the book in your hand. If you&rsquo;re
           unsure, the year of publication is the fastest tiebreaker —
@@ -281,9 +281,9 @@ const ARTICLES = [
     body: () => (
       <>
         <p>
-          The headline Bronze Age keys — <em>Incredible Hulk</em> #181 (first
+          The headline Bronze Age keys, <em>Incredible Hulk</em> #181 (first
           full Wolverine, 1974), <em>Giant-Size X-Men</em> #1 (1975),{" "}
-          <em>Amazing Spider-Man</em> #129 (first Punisher, 1974) — have all
+          <em>Amazing Spider-Man</em> #129 (first Punisher, 1974), have all
           had their explosive growth phases. They&rsquo;re still good books,
           but the price-to-upside ratio is no longer where it was in 2015.
           For collectors thinking long, the question now is: where&rsquo;s
@@ -291,7 +291,7 @@ const ARTICLES = [
         </p>
         <p>
           Here&rsquo;s a short list of Bronze Age books we think have
-          asymmetric upside left in them. None are picks — they&rsquo;re
+          asymmetric upside left in them. None are picks, they&rsquo;re
           patterns to study.
         </p>
 
@@ -311,7 +311,7 @@ const ARTICLES = [
           First appearance of Blade. He&rsquo;s had three movies and an
           MCU reboot is in motion. The book is from a horror title that
           collectors under-collected because horror was unfashionable in
-          the &lsquo;80s and &lsquo;90s — but pop reports are way thinner
+          the &lsquo;80s and &lsquo;90s, but pop reports are way thinner
           than you&rsquo;d expect, and 9.4+ copies are still attainable in
           a way that contemporaries like Werewolf by Night #32 (first Moon
           Knight) are not.
@@ -341,7 +341,7 @@ const ARTICLES = [
           Marvel&rsquo;s 2022 Werewolf by Night Halloween special on Disney+
           was a critical hit and is reportedly being expanded. The first
           appearance of Jack Russell as Werewolf by Night was actually in
-          Marvel Spotlight #2 — but #1 of his ongoing is still a Bronze Age
+          Marvel Spotlight #2, but #1 of his ongoing is still a Bronze Age
           first that doesn&rsquo;t carry the Spotlight #2 premium yet.
         </p>
 
@@ -364,7 +364,7 @@ const ARTICLES = [
           <li>
             <strong>Pop-report scarcity.</strong> Books from titles that
             were considered &ldquo;throwaway&rdquo; in their era —
-            horror, cosmic, sword-and-sorcery — were less likely to be
+            horror, cosmic, sword-and-sorcery, were less likely to be
             preserved, so high-grade copies are rarer than the published
             print run suggests.
           </li>

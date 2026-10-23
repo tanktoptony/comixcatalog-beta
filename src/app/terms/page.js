@@ -82,7 +82,7 @@ export default function TermsOfServicePage() {
         <p>
           The Service may include a marketplace allowing users to list
           collectibles for sale to other users. ComixCatalog is a venue
-          only — we are not a party to transactions between buyers and
+          only. We are not a party to transactions between buyers and
           sellers. Disputes are resolved between the parties, with our
           help where appropriate.
         </p>

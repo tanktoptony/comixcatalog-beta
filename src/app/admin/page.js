@@ -191,7 +191,7 @@ export default function AdminPage() {
 
       <p className="admin-footnote">
         Pro is the in-app flag (<code>profiles.is_pro</code>). It does <strong>not</strong> create or cancel
-        a Stripe subscription — for that, manage through the Stripe Dashboard.
+        a Stripe subscription. For that, manage through the Stripe Dashboard.
         This tool is for comps, manual grants, and overrides.
       </p>
     </main>

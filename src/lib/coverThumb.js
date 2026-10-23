@@ -43,3 +43,13 @@ export function coverOriginal(url) {
   if (!path.endsWith(".webp")) return null;
   return `${url.slice(0, at)}${ORIGINAL_MARKER}${path.slice(0, -".webp".length)}`;
 }
+
+// Supabase's on-demand 400px transform is the lightweight fallback when a
+// prebuilt WebP thumb has not reached the cover-thumbs bucket yet.
+export function coverTransform(url) {
+  const original = coverOriginal(url);
+  if (!original) return null;
+  return original
+    .replace("/storage/v1/object/public/canonical-covers/", "/storage/v1/render/image/public/canonical-covers/")
+    .concat("?width=400&quality=80");
+}

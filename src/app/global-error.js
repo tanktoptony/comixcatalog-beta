@@ -32,7 +32,7 @@ export default function GlobalError({ error, reset }) {
             We&rsquo;re briefly offline.
           </h1>
           <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.5, marginBottom: "1.5rem" }}>
-            Something unexpected broke the layout. Try refreshing — if it keeps happening,
+            Something unexpected broke the layout. Try refreshing. If it keeps happening,
             check back in a few minutes.
           </p>
           <button

@@ -80796,5 +80796,476 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T11:23:58.042630+00:00",
     "retry_after": "2026-10-24T11:23:58.042646+00:00"
+  },
+  {
+    "name": "Giant-Size Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2686,
+        "name": "Giant-Size Spider-Man",
+        "publisher": null,
+        "start_year": 1974
+      },
+      {
+        "id": 74329,
+        "name": "Giant-Size Spider-Man",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 155967,
+        "name": "Giant-Size Spider-Man",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 42490,
+        "name": "Giant Size Spider-Man",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:23:57.291328+00:00",
+    "retry_after": "2026-10-24T12:23:57.291342+00:00"
+  },
+  {
+    "name": "Cyborg",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 150427,
+        "name": "Cyborg",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 100121,
+        "name": "Cyborg",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 89154,
+        "name": "Cyborg",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 83480,
+        "name": "Cyborg",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 94266,
+        "name": "Cyborg",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:23:57.727576+00:00",
+    "retry_after": "2026-10-24T12:23:57.727592+00:00"
+  },
+  {
+    "name": "Wonderlost",
+    "publisher": "Image Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21989,
+        "name": "Wonderlost",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:23:58.043960+00:00",
+    "retry_after": "2026-10-24T12:23:58.043974+00:00"
+  },
+  {
+    "name": "Witches Western Tales",
+    "publisher": "Harvey Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31724,
+        "name": "Witches Western Tales",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:23:58.534218+00:00",
+    "retry_after": "2026-10-24T12:23:58.534232+00:00"
+  },
+  {
+    "name": "Frogmen",
+    "publisher": "Marvel Comics",
+    "year": 1961,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2060,
+        "name": "The Frogmen",
+        "publisher": null,
+        "start_year": 1962
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:23:58.958780+00:00",
+    "retry_after": "2026-10-24T12:23:58.958795+00:00"
+  },
+  {
+    "name": "Picture Stories from World History",
+    "publisher": "EC Comics",
+    "year": 1947,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10986,
+        "name": "Picture Stories from World History",
+        "publisher": null,
+        "start_year": 1947
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:23:59.407842+00:00",
+    "retry_after": "2026-10-24T12:23:59.407857+00:00"
+  },
+  {
+    "name": "Essential Power Man and Iron Fist",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25856,
+        "name": "Essential Power Man and Iron Fist",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:23:59.959822+00:00",
+    "retry_after": "2026-10-24T12:23:59.959837+00:00"
+  },
+  {
+    "name": "Angel",
+    "publisher": "Marvel Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19692,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 86605,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 6695,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 118417,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 36748,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 130441,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 144704,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 11568,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 1954
+      },
+      {
+        "id": 141562,
+        "name": "Angel ",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 140575,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:00.365919+00:00",
+    "retry_after": "2026-10-24T12:24:00.365934+00:00"
+  },
+  {
+    "name": "Dexter's Laboratory Classics",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75364,
+        "name": "Dexter's Laboratory Classics",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:01.160154+00:00",
+    "retry_after": "2026-10-24T12:24:01.160170+00:00"
+  },
+  {
+    "name": "Enigma Cipher",
+    "publisher": "BOOM! Studios",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23465,
+        "name": "Enigma Cipher",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 41557,
+        "name": "Enigma Cipher",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:01.526979+00:00",
+    "retry_after": "2026-10-24T12:24:01.526994+00:00"
+  },
+  {
+    "name": "Spooky the Tuff Little Ghost Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85482,
+        "name": "Spooky the Tuff Little Ghost Giant Edition",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:01.911519+00:00",
+    "retry_after": "2026-10-24T12:24:01.911530+00:00"
+  },
+  {
+    "name": "Jeremiah: A Fistful of Sand",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6657,
+        "name": "Jeremiah: A Fistful of Sand",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:02.241123+00:00",
+    "retry_after": "2026-10-24T12:24:02.241138+00:00"
+  },
+  {
+    "name": "DemonWars",
+    "publisher": "Devil's Due",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:02.836419+00:00",
+    "retry_after": "2026-10-24T12:24:02.836436+00:00"
+  },
+  {
+    "name": "Deep State",
+    "publisher": "BOOM! Studios",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78072,
+        "name": "Deep State",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 127763,
+        "name": "Deep State",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:03.436331+00:00",
+    "retry_after": "2026-10-24T12:24:03.436347+00:00"
+  },
+  {
+    "name": "Rocketo: Journey to the Hidden Sea",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45188,
+        "name": "Rocketo: Journey to the Hidden Sea",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:03.865416+00:00",
+    "retry_after": "2026-10-24T12:24:03.865432+00:00"
+  },
+  {
+    "name": "Deadpool Corps",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32441,
+        "name": "Deadpool Corps",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:04.394276+00:00",
+    "retry_after": "2026-10-24T12:24:04.394291+00:00"
+  },
+  {
+    "name": "Tomorrow Stories Special",
+    "publisher": "DC Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18252,
+        "name": "Tomorrow Stories Special",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:04.900653+00:00",
+    "retry_after": "2026-10-24T12:24:04.900669+00:00"
+  },
+  {
+    "name": "Adabana",
+    "publisher": "Dark Horse Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133514,
+        "name": "Adabana",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 168917,
+        "name": "Adabana",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 171603,
+        "name": "Adabana",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 174777,
+        "name": "Adabana",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 172326,
+        "name": "Adabana",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:05.205282+00:00",
+    "retry_after": "2026-10-24T12:24:05.205297+00:00"
+  },
+  {
+    "name": "Spider-Verse vs. Venomverse",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 164324,
+        "name": "Spider-Verse vs. Venomverse",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 170134,
+        "name": "Spider-Verse vs. Venomverse",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:05.534017+00:00",
+    "retry_after": "2026-10-24T12:24:05.534032+00:00"
+  },
+  {
+    "name": "Fear Itself: Uncanny X-Force",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41143,
+        "name": "Fear Itself: Uncanny X-Force",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T12:24:05.953209+00:00",
+    "retry_after": "2026-10-24T12:24:05.953224+00:00"
   }
 ]

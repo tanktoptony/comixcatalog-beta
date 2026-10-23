@@ -41947,134 +41947,134 @@
   },
   {
     "name": "X-Men",
-    "publisher": "Sociedad Editora Am�rica, S. A.",
+    "publisher": "Marvel Comics",
     "year": 1991,
     "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 2133,
         "name": "The X-Men",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1963
       },
       {
         "id": 43672,
         "name": "X-Men",
-        "publisher": "Panini Verlag",
+        "publisher": null,
         "start_year": 2001
       },
       {
         "id": 10731,
         "name": "X-Men",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2004
       },
       {
         "id": 34221,
         "name": "X-Men",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2010
       },
       {
         "id": 46130,
         "name": "X-Men",
-        "publisher": "Planeta DeAgostini",
+        "publisher": null,
         "start_year": 1992
       },
       {
         "id": 117893,
         "name": "X-Men",
-        "publisher": "Panini Brasil",
+        "publisher": null,
         "start_year": 2017
       },
       {
         "id": 137402,
         "name": "X-Men",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2021
       },
       {
         "id": 56350,
         "name": "X-Men",
-        "publisher": "Semic S.A.",
+        "publisher": null,
         "start_year": 1992
-      },
-      {
-        "id": 74075,
-        "name": "X-Men",
-        "publisher": "Panini Brasil",
-        "start_year": 2014
       },
       {
         "id": 57741,
         "name": "X-Men",
-        "publisher": "Abril",
+        "publisher": null,
         "start_year": 1989
+      },
+      {
+        "id": 74075,
+        "name": "X-Men",
+        "publisher": null,
+        "start_year": 2014
       },
       {
         "id": 104729,
         "name": "X-Men",
-        "publisher": "Panini France",
+        "publisher": null,
         "start_year": 2017
       },
       {
         "id": 118014,
         "name": "X-Men",
-        "publisher": "Panini Verlag",
+        "publisher": null,
         "start_year": 2016
       },
       {
         "id": 43640,
         "name": "X-Men",
-        "publisher": "Panini France",
+        "publisher": null,
         "start_year": 1997
       },
       {
         "id": 43634,
         "name": "X-Men",
-        "publisher": "Panini Brasil",
+        "publisher": null,
         "start_year": 2002
       },
       {
         "id": 4605,
         "name": "X-Men",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1991
       },
       {
         "id": 45796,
         "name": "X-Men",
-        "publisher": "Planeta DeAgostini",
+        "publisher": null,
         "start_year": 1996
       },
       {
         "id": 69176,
         "name": "X-Men",
-        "publisher": "Panini Brasil",
+        "publisher": null,
         "start_year": 2013
       },
       {
         "id": 62383,
         "name": "X-Men",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2013
       },
       {
         "id": 122077,
         "name": "X-Men",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2019
       },
       {
         "id": 43575,
         "name": "X-Men",
-        "publisher": "Panini España",
+        "publisher": null,
         "start_year": 2011
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-18T03:29:32.783019+00:00",
-    "retry_after": "2026-11-01T03:29:32.783035+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:00:51.577738+00:00",
+    "retry_after": "2026-10-24T03:00:51.577761+00:00"
   },
   {
     "name": "Wolverine & Black Cat: Claws 2",
@@ -76613,5 +76613,832 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T02:24:13.190207+00:00",
     "retry_after": "2026-10-24T02:24:13.190222+00:00"
+  },
+  {
+    "name": "Flash",
+    "publisher": "DC Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3790,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 1995,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 1959
+      },
+      {
+        "id": 78610,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 137189,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 1970
+      },
+      {
+        "id": 43018,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 91750,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 151033,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 9159,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 1971
+      },
+      {
+        "id": 174239,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 134500,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 92077,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 153720,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 137252,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 151350,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 32562,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 61524,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 135852,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 53722,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 79003,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 160580,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:00:51.123457+00:00",
+    "retry_after": "2026-10-24T03:00:51.123473+00:00"
+  },
+  {
+    "name": "Cyberforce",
+    "publisher": "Image Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142737,
+        "name": "Cyberforce",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 18361,
+        "name": "Cyberforce",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 91926,
+        "name": "Cyberforce",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 132979,
+        "name": "Cyberforce",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 118057,
+        "name": "CyberForce",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:00:51.996233+00:00",
+    "retry_after": "2026-10-24T03:00:51.996248+00:00"
+  },
+  {
+    "name": "Superman",
+    "publisher": "DC Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75392,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1967
+      },
+      {
+        "id": 773,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1939
+      },
+      {
+        "id": 78849,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 60429,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 60404,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 91298,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 149415,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1982
+      },
+      {
+        "id": 3816,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 149742,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 153779,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 154031,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1982
+      },
+      {
+        "id": 75337,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1966
+      },
+      {
+        "id": 144286,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1967
+      },
+      {
+        "id": 78850,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 78862,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 144747,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 64323,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1950
+      },
+      {
+        "id": 148476,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 154886,
+        "name": "Superman",
+        "publisher": null,
+        "start_year": 1976
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:00:53.498028+00:00",
+    "retry_after": "2026-10-24T03:00:53.498049+00:00"
+  },
+  {
+    "name": "Stellar",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111541,
+        "name": "Stellar",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 116515,
+        "name": "Stellar",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:23:55.479503+00:00",
+    "retry_after": "2026-10-24T03:23:55.479518+00:00"
+  },
+  {
+    "name": "Star Trek Movie Special",
+    "publisher": "DC Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3319,
+        "name": "Star Trek Movie Special",
+        "publisher": null,
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:23:55.898573+00:00",
+    "retry_after": "2026-10-24T03:23:55.898590+00:00"
+  },
+  {
+    "name": "Naruto [Limited Edition]",
+    "publisher": "VIZ Media",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:23:57.087371+00:00",
+    "retry_after": "2026-10-24T03:23:57.087387+00:00"
+  },
+  {
+    "name": "Old Haunts",
+    "publisher": "AWA Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133712,
+        "name": "Old Haunts",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 127838,
+        "name": "Old Haunts",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:23:57.505815+00:00",
+    "retry_after": "2026-10-24T03:23:57.505831+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe's The Bells",
+    "publisher": "Caliber Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62561,
+        "name": "Edgar Allan Poe's The Bells",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:23:58.015815+00:00",
+    "retry_after": "2026-10-24T03:23:58.015830+00:00"
+  },
+  {
+    "name": "Escape from the Planet of the Living Dead",
+    "publisher": "Antarctic Press",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 43596,
+        "name": "Escape from the Planet of the Living Dead",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:23:58.597935+00:00",
+    "retry_after": "2026-10-24T03:23:58.597951+00:00"
+  },
+  {
+    "name": "Flaming Carrot & Reid Fleming, World's Toughest Milkman (Flaming Carrot Comics)",
+    "publisher": "Dark Horse Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:23:58.977985+00:00",
+    "retry_after": "2026-10-24T03:23:58.978000+00:00"
+  },
+  {
+    "name": "Robotech: Firewalkers",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39269,
+        "name": "Robotech - Firewalkers",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:23:59.593058+00:00",
+    "retry_after": "2026-10-24T03:23:59.593074+00:00"
+  },
+  {
+    "name": "Angelic",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 104453,
+        "name": "Angelic",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:00.014936+00:00",
+    "retry_after": "2026-10-24T03:24:00.014952+00:00"
+  },
+  {
+    "name": "Chicago",
+    "publisher": "VIZ Media",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65169,
+        "name": "Chicago",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 84264,
+        "name": "Chicago",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:00.408170+00:00",
+    "retry_after": "2026-10-24T03:24:00.408186+00:00"
+  },
+  {
+    "name": "Chiller",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4996,
+        "name": "Chiller",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:00.889067+00:00",
+    "retry_after": "2026-10-24T03:24:00.889083+00:00"
+  },
+  {
+    "name": "Warlands: Chronicles",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:01.367474+00:00",
+    "retry_after": "2026-10-24T03:24:01.367489+00:00"
+  },
+  {
+    "name": "Vampire Diaries",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68836,
+        "name": "The Vampire Diaries",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 70700,
+        "name": "The Vampire Diaries",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 78200,
+        "name": "The Vampire Diaries",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:01.727007+00:00",
+    "retry_after": "2026-10-24T03:24:01.727022+00:00"
+  },
+  {
+    "name": "Indiana Jones and the Golden Fleece",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24225,
+        "name": "Indiana Jones and the Golden Fleece",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:02.153699+00:00",
+    "retry_after": "2026-10-24T03:24:02.153714+00:00"
+  },
+  {
+    "name": "Mistress and the Maggot",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65280,
+        "name": "Mistress and the Maggot",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:02.677616+00:00",
+    "retry_after": "2026-10-24T03:24:02.677632+00:00"
+  },
+  {
+    "name": "World War Hulks: Captain America Vs. Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:03.406146+00:00",
+    "retry_after": "2026-10-24T03:24:03.406160+00:00"
+  },
+  {
+    "name": "Aphrodisia",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44545,
+        "name": "Aphrodisia",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 29200,
+        "name": "Aphrodisia",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 43846,
+        "name": "Aphrodisia",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:03.869554+00:00",
+    "retry_after": "2026-10-24T03:24:03.869570+00:00"
+  },
+  {
+    "name": "Super Taboo",
+    "publisher": "Fantagraphics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26702,
+        "name": "Super Taboo",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 72380,
+        "name": "Super Taboo",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:04.358704+00:00",
+    "retry_after": "2026-10-24T03:24:04.358715+00:00"
+  },
+  {
+    "name": "War Against Crime",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11807,
+        "name": "War Against Crime!",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:04.706629+00:00",
+    "retry_after": "2026-10-24T03:24:04.706644+00:00"
+  },
+  {
+    "name": "Roger Lincoln",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 99988,
+        "name": "Roger Lincoln",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:05.072593+00:00",
+    "retry_after": "2026-10-24T03:24:05.072609+00:00"
+  },
+  {
+    "name": "Lone Wolf and Cub",
+    "publisher": "First Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42527,
+        "name": "Lone Wolf & Cub",
+        "publisher": null,
+        "start_year": 2003
+      },
+      {
+        "id": 9308,
+        "name": "Lone Wolf and Cub",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 9319,
+        "name": "Lone Wolf and Cub",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:05.676925+00:00",
+    "retry_after": "2026-10-24T03:24:05.676941+00:00"
+  },
+  {
+    "name": "Gideon Falls",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 124067,
+        "name": "Gideon Falls  ",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 140718,
+        "name": "Gideon Falls",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 109099,
+        "name": "Gideon Falls",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 140717,
+        "name": "Gideon Falls",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:06.154258+00:00",
+    "retry_after": "2026-10-24T03:24:06.154274+00:00"
+  },
+  {
+    "name": "Angel",
+    "publisher": "IDW Publishing",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19692,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 86605,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 6695,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 118417,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 36748,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 130441,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 144704,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 11568,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 1954
+      },
+      {
+        "id": 141562,
+        "name": "Angel ",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 140575,
+        "name": "Angel",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:06.594843+00:00",
+    "retry_after": "2026-10-24T03:24:06.594858+00:00"
+  },
+  {
+    "name": "The Incredible Hulks",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48512,
+        "name": "The Incredible Hulks",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 73395,
+        "name": "The Incredible Hulks",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 35303,
+        "name": "Incredible Hulks",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 94887,
+        "name": "The Incredible Hulks",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T03:24:07.041321+00:00",
+    "retry_after": "2026-10-24T03:24:07.041336+00:00"
   }
 ]

@@ -15362,8 +15362,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T20:24:00.048178+00:00",
-    "retry_after": "2026-10-23T20:24:00.048192+00:00"
+    "last_attempt_at": "2026-10-23T07:13:29.897287+00:00",
+    "retry_after": "2026-10-24T07:13:29.897301+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -25794,9 +25794,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-08T12:00:45.009846+00:00",
-    "retry_after": "2026-10-22T12:00:45.009864+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-23T07:05:25.031931+00:00",
+    "retry_after": "2026-11-22T07:05:25.031946+00:00"
   },
   {
     "name": "Doctor Who 25th Anniversary Special",
@@ -27552,17 +27552,17 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T08:07:26.070013+00:00",
-    "retry_after": "2026-10-23T08:07:26.070027+00:00"
+    "last_attempt_at": "2026-10-23T07:05:27.061814+00:00",
+    "retry_after": "2026-10-24T07:05:27.061830+00:00"
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27580,8 +27580,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T09:00:52.144123+00:00",
-    "retry_after": "2026-10-23T09:00:52.144139+00:00"
+    "last_attempt_at": "2026-10-23T07:05:26.539433+00:00",
+    "retry_after": "2026-10-24T07:05:26.539448+00:00"
   },
   {
     "name": "Cerebus",
@@ -41947,7 +41947,7 @@
   },
   {
     "name": "X-Men",
-    "publisher": "Marvel Comics",
+    "publisher": "Sociedad Editora Am�rica, S. A.",
     "year": 1991,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -42073,8 +42073,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T03:00:51.577738+00:00",
-    "retry_after": "2026-10-24T03:00:51.577761+00:00"
+    "last_attempt_at": "2026-10-23T07:00:59.301156+00:00",
+    "retry_after": "2026-10-24T07:00:59.301170+00:00"
   },
   {
     "name": "Wolverine & Black Cat: Claws 2",
@@ -43550,7 +43550,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43568,8 +43568,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T09:00:52.194354+00:00",
-    "retry_after": "2026-10-23T09:00:52.194371+00:00"
+    "last_attempt_at": "2026-10-23T07:00:58.752336+00:00",
+    "retry_after": "2026-10-24T07:00:58.752357+00:00"
   },
   {
     "name": "Justice League Special",
@@ -65136,9 +65136,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T05:01:07.736778+00:00",
-    "retry_after": "2026-10-23T05:01:07.736794+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T07:00:59.024140+00:00",
+    "retry_after": "2026-10-26T07:00:59.024156+00:00"
   },
   {
     "name": "Muppet Babies",
@@ -65165,9 +65165,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T05:09:57.711110+00:00",
-    "retry_after": "2026-10-23T05:09:57.711126+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T07:05:28.439592+00:00",
+    "retry_after": "2026-10-26T07:05:28.439607+00:00"
   },
   {
     "name": "Barbie",
@@ -78724,5 +78724,488 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T06:24:08.314403+00:00",
     "retry_after": "2026-10-24T06:24:08.314419+00:00"
+  },
+  {
+    "name": "Evil Ernie: Destroyer Preview",
+    "publisher": "Chaos! Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71299,
+        "name": "Evil Ernie: Destroyer Preview",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:05:23.984144+00:00",
+    "retry_after": "2026-10-24T07:05:23.984160+00:00"
+  },
+  {
+    "name": "Halloween III: The Devil's Eyes",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24466,
+        "name": "Halloween III: The Devil's Eyes",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:05:24.532475+00:00",
+    "retry_after": "2026-10-24T07:05:24.532490+00:00"
+  },
+  {
+    "name": "Lady Death / Medieval Witchblade",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20791,
+        "name": "Lady Death / Medieval Witchblade",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:05:25.458483+00:00",
+    "retry_after": "2026-10-24T07:05:25.458498+00:00"
+  },
+  {
+    "name": "The Chaos! Bible",
+    "publisher": "Chaos! Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27147,
+        "name": "Chaos Bible",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:05:25.983421+00:00",
+    "retry_after": "2026-10-24T07:05:25.983437+00:00"
+  },
+  {
+    "name": "Chastity: Reign of Terror",
+    "publisher": "Chaos! Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20913,
+        "name": "Chastity: Reign of Terror",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:05:26.469747+00:00",
+    "retry_after": "2026-10-24T07:05:26.469763+00:00"
+  },
+  {
+    "name": "Thundercats",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156702,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 3515,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 1985
+      },
+      {
+        "id": 40080,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 9532,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 47304,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 160482,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 23374,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 177682,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:05:28.007746+00:00",
+    "retry_after": "2026-10-24T07:05:28.007762+00:00"
+  },
+  {
+    "name": "Cobra Commander",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156197,
+        "name": "Cobra Commander",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 159018,
+        "name": "Cobra Commander",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:29.381783+00:00",
+    "retry_after": "2026-10-24T07:13:29.381798+00:00"
+  },
+  {
+    "name": "Cat",
+    "publisher": "Dell Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72774,
+        "name": "Cat",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 161148,
+        "name": "The Cat",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 2565,
+        "name": "The Cat",
+        "publisher": null,
+        "start_year": 1972
+      },
+      {
+        "id": 37628,
+        "name": "The Cat",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:29.834153+00:00",
+    "retry_after": "2026-10-24T07:13:29.834170+00:00"
+  },
+  {
+    "name": "Spiritual Police",
+    "publisher": "VIZ Media",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69154,
+        "name": "Spiritual Police",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:30.220561+00:00",
+    "retry_after": "2026-10-24T07:13:30.220578+00:00"
+  },
+  {
+    "name": "Venus with a Hot Crotch",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37412,
+        "name": "Venus With A Hot Crotch",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:31.340896+00:00",
+    "retry_after": "2026-10-24T07:13:31.340913+00:00"
+  },
+  {
+    "name": "The Texas Chainsaw Massacre",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25446,
+        "name": "Texas Chainsaw Massacre",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:31.729727+00:00",
+    "retry_after": "2026-10-24T07:13:31.729743+00:00"
+  },
+  {
+    "name": "Frumpy the Clown",
+    "publisher": "Oni Press",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55750,
+        "name": "Frumpy the Clown",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:32.117235+00:00",
+    "retry_after": "2026-10-24T07:13:32.117251+00:00"
+  },
+  {
+    "name": "Richie Rich the Poor Little Rich Boy",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62051,
+        "name": "Richie Rich the Poor Little Rich Boy",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:32.541679+00:00",
+    "retry_after": "2026-10-24T07:13:32.541699+00:00"
+  },
+  {
+    "name": "The Legend of Kamui: The Island of Sugaru",
+    "publisher": "VIZ Media",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:32.959533+00:00",
+    "retry_after": "2026-10-24T07:13:32.959549+00:00"
+  },
+  {
+    "name": "Sleeping Moon",
+    "publisher": "VIZ Media",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63301,
+        "name": "Sleeping Moon",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:34.123975+00:00",
+    "retry_after": "2026-10-24T07:13:34.123992+00:00"
+  },
+  {
+    "name": "Shugga",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71365,
+        "name": "Shugga",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:34.579963+00:00",
+    "retry_after": "2026-10-24T07:13:34.579979+00:00"
+  },
+  {
+    "name": "Pokémon Adventures: HeartGold and SoulSilver",
+    "publisher": "VIZ Media",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66077,
+        "name": "Pokémon Adventures HeartGold & SoulSilver",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:35.009811+00:00",
+    "retry_after": "2026-10-24T07:13:35.009827+00:00"
+  },
+  {
+    "name": "Warlocks: The Special Edition",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37208,
+        "name": "Warlocks Special Edition",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:35.494883+00:00",
+    "retry_after": "2026-10-24T07:13:35.494899+00:00"
+  },
+  {
+    "name": "Last Quarter",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166717,
+        "name": "Last Quarter",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:35.924611+00:00",
+    "retry_after": "2026-10-24T07:13:35.924626+00:00"
+  },
+  {
+    "name": "Forbidden Frankenstein",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35892,
+        "name": "Forbidden Frankenstein",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:36.404489+00:00",
+    "retry_after": "2026-10-24T07:13:36.404506+00:00"
+  },
+  {
+    "name": "De Zware Jongens Vakantieboek",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79156,
+        "name": "De Zware Jongens Vakantieboek",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:36.770583+00:00",
+    "retry_after": "2026-10-24T07:13:36.770598+00:00"
+  },
+  {
+    "name": "Defoe: The London Hanged",
+    "publisher": "Rebellion",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:37.197252+00:00",
+    "retry_after": "2026-10-24T07:13:37.197267+00:00"
+  },
+  {
+    "name": "Komikwerks",
+    "publisher": "Zenescope Entertainment",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 89692,
+        "name": "Komikwerks",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:37.537337+00:00",
+    "retry_after": "2026-10-24T07:13:37.537352+00:00"
+  },
+  {
+    "name": "Infinite Dark",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 114248,
+        "name": "Infinite Dark",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 117587,
+        "name": "Infinite Dark",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:37.988849+00:00",
+    "retry_after": "2026-10-24T07:13:37.988864+00:00"
+  },
+  {
+    "name": "Sam and Twitch: The Complete Collection",
+    "publisher": "Image Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50799,
+        "name": "Sam and Twitch: The Complete Collection",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T07:13:38.522955+00:00",
+    "retry_after": "2026-10-24T07:13:38.522970+00:00"
   }
 ]

@@ -27562,7 +27562,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27580,8 +27580,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T07:05:26.539433+00:00",
-    "retry_after": "2026-10-24T07:05:26.539448+00:00"
+    "last_attempt_at": "2026-10-23T08:00:52.969157+00:00",
+    "retry_after": "2026-10-24T08:00:52.969172+00:00"
   },
   {
     "name": "Cerebus",
@@ -41947,7 +41947,7 @@
   },
   {
     "name": "X-Men",
-    "publisher": "Sociedad Editora Am�rica, S. A.",
+    "publisher": "Marvel Comics",
     "year": 1991,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -42073,8 +42073,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T07:00:59.301156+00:00",
-    "retry_after": "2026-10-24T07:00:59.301170+00:00"
+    "last_attempt_at": "2026-10-23T08:00:53.218585+00:00",
+    "retry_after": "2026-10-24T08:00:53.218601+00:00"
   },
   {
     "name": "Wolverine & Black Cat: Claws 2",
@@ -43550,7 +43550,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43568,8 +43568,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-23T07:00:58.752336+00:00",
-    "retry_after": "2026-10-24T07:00:58.752357+00:00"
+    "last_attempt_at": "2026-10-23T08:00:53.270805+00:00",
+    "retry_after": "2026-10-24T08:00:53.270814+00:00"
   },
   {
     "name": "Justice League Special",
@@ -79080,5 +79080,455 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T07:38:14.615745+00:00",
     "retry_after": "2026-10-24T07:38:14.615764+00:00"
+  },
+  {
+    "name": "Original X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63825,
+        "name": "The Original X-Men",
+        "publisher": null,
+        "start_year": 1983
+      },
+      {
+        "id": 155510,
+        "name": "The Original X-Men",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:54.895558+00:00",
+    "retry_after": "2026-10-24T08:23:54.895573+00:00"
+  },
+  {
+    "name": "Ghost Rider Annual",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 153861,
+        "name": "Ghost Rider Annual",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 19698,
+        "name": "Ghost Rider Annual",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 20061,
+        "name": "Ghost Rider Annual",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:55.336702+00:00",
+    "retry_after": "2026-10-24T08:23:55.336718+00:00"
+  },
+  {
+    "name": "Poupée",
+    "publisher": "Dynamite Entertainment",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:55.704811+00:00",
+    "retry_after": "2026-10-24T08:23:55.704826+00:00"
+  },
+  {
+    "name": "Marvel's Iron Man 2 Adaptation",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53784,
+        "name": "Marvel's Iron Man 2 Adaptation",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:56.119708+00:00",
+    "retry_after": "2026-10-24T08:23:56.119724+00:00"
+  },
+  {
+    "name": "Le straordinarie avventure di Adèle Blanc-Sec",
+    "publisher": "Dell Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157726,
+        "name": "Le straordinarie avventure di Adèle Blanc-Sec",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:56.582271+00:00",
+    "retry_after": "2026-10-24T08:23:56.582286+00:00"
+  },
+  {
+    "name": "Mad Cave Ones",
+    "publisher": "Mad Cave Studios",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:56.954557+00:00",
+    "retry_after": "2026-10-24T08:23:56.954573+00:00"
+  },
+  {
+    "name": "Le Club des divorcés",
+    "publisher": "Dynamite Entertainment",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167166,
+        "name": "Le Club des Divorcés",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:57.361010+00:00",
+    "retry_after": "2026-10-24T08:23:57.361025+00:00"
+  },
+  {
+    "name": "Dragon Arms",
+    "publisher": "Antarctic Press",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51744,
+        "name": "Dragon Arms",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:57.817525+00:00",
+    "retry_after": "2026-10-24T08:23:57.817541+00:00"
+  },
+  {
+    "name": "Elsewhere",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 124713,
+        "name": "Elsewhere",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 103231,
+        "name": "Elsewhere",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 107501,
+        "name": "Elsewhere",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:58.299893+00:00",
+    "retry_after": "2026-10-24T08:23:58.299908+00:00"
+  },
+  {
+    "name": "Pokémon Adventures: Omega Ruby and Alpha Sapphire",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156102,
+        "name": "Pokémon Adventures: Omega Ruby and Alpha Sapphire",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:58.673812+00:00",
+    "retry_after": "2026-10-24T08:23:58.673829+00:00"
+  },
+  {
+    "name": "Dracula",
+    "publisher": "Dark Horse Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 8527,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 1974
+      },
+      {
+        "id": 2059,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 1962
+      },
+      {
+        "id": 7103,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 1972
+      },
+      {
+        "id": 33648,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 49644,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 88146,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 1973
+      },
+      {
+        "id": 168502,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 74049,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 52424,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 52999,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 56078,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 1972
+      },
+      {
+        "id": 57365,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 1966
+      },
+      {
+        "id": 78788,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 127123,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 93826,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 1982
+      },
+      {
+        "id": 159804,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 74152,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 76053,
+        "name": "Dracula",
+        "publisher": null,
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:59.028104+00:00",
+    "retry_after": "2026-10-24T08:23:59.028119+00:00"
+  },
+  {
+    "name": "Banished Knights",
+    "publisher": "Image Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21771,
+        "name": "Banished Knights",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:23:59.820052+00:00",
+    "retry_after": "2026-10-24T08:23:59.820069+00:00"
+  },
+  {
+    "name": "Naruto: Konoha’s Story—The Steam Ninja Scrolls: The Manga",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 160382,
+        "name": "Naruto: Konoha's Story—The Steam Ninja Scrolls: The Manga",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:24:00.310389+00:00",
+    "retry_after": "2026-10-24T08:24:00.310405+00:00"
+  },
+  {
+    "name": "Cortez and the Fall of the Aztecs",
+    "publisher": "Caliber Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46139,
+        "name": "Cortez and the Fall of the Aztecs",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 99465,
+        "name": "Cortez and the Fall of the Aztecs",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:24:00.751606+00:00",
+    "retry_after": "2026-10-24T08:24:00.751622+00:00"
+  },
+  {
+    "name": "Commando Adventures",
+    "publisher": "Marvel Comics",
+    "year": 1957,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30504,
+        "name": "Commando Adventures",
+        "publisher": null,
+        "start_year": 1957
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:24:01.505046+00:00",
+    "retry_after": "2026-10-24T08:24:01.505062+00:00"
+  },
+  {
+    "name": "Clown Comics",
+    "publisher": "Harvey Comics",
+    "year": 1946,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34340,
+        "name": "Clown Comics",
+        "publisher": null,
+        "start_year": 1946
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:24:02.214072+00:00",
+    "retry_after": "2026-10-24T08:24:02.214087+00:00"
+  },
+  {
+    "name": "Batman: A Espada de Azrael",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:24:02.669956+00:00",
+    "retry_after": "2026-10-24T08:24:02.669971+00:00"
+  },
+  {
+    "name": "Wildguard: Fool's Gold",
+    "publisher": "Image Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26819,
+        "name": "Wildguard: Fool's Gold",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:24:03.133982+00:00",
+    "retry_after": "2026-10-24T08:24:03.133997+00:00"
+  },
+  {
+    "name": "Konjiki no Gash Bell !!",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:24:03.500539+00:00",
+    "retry_after": "2026-10-24T08:24:03.500556+00:00"
+  },
+  {
+    "name": "Forty Winks: Mr. Horrible",
+    "publisher": "Devil's Due",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79380,
+        "name": "Forty Winks: Mr. Horrible",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T08:24:04.497250+00:00",
+    "retry_after": "2026-10-24T08:24:04.497266+00:00"
   }
 ]

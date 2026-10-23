@@ -79975,5 +79975,489 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T09:23:58.206061+00:00",
     "retry_after": "2026-10-24T09:23:58.206078+00:00"
+  },
+  {
+    "name": "O.M.A.C.",
+    "publisher": "DC Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42576,
+        "name": "O.M.A.C.",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:49.055317+00:00",
+    "retry_after": "2026-10-24T10:23:49.055335+00:00"
+  },
+  {
+    "name": "Monster High Magazine",
+    "publisher": "Titan Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:49.476543+00:00",
+    "retry_after": "2026-10-24T10:23:49.476560+00:00"
+  },
+  {
+    "name": "Der letzte Kobold",
+    "publisher": "Fawcett Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 100497,
+        "name": "Der letzte Kobold",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:49.809112+00:00",
+    "retry_after": "2026-10-24T10:23:49.809127+00:00"
+  },
+  {
+    "name": "Family Favourites",
+    "publisher": "Marvel Comics",
+    "year": 1965,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88355,
+        "name": "Family Favourites",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:50.440670+00:00",
+    "retry_after": "2026-10-24T10:23:50.440684+00:00"
+  },
+  {
+    "name": "Mega Man Mastermix",
+    "publisher": "UDON",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 108109,
+        "name": "Mega Man Mastermix",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:50.782666+00:00",
+    "retry_after": "2026-10-24T10:23:50.782683+00:00"
+  },
+  {
+    "name": "Tom Et Jerry",
+    "publisher": "Gold Key",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141858,
+        "name": "Tom et Jerry",
+        "publisher": null,
+        "start_year": 1953
+      },
+      {
+        "id": 141927,
+        "name": "Tom Et Jerry",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:51.139142+00:00",
+    "retry_after": "2026-10-24T10:23:51.139155+00:00"
+  },
+  {
+    "name": "The Black Pearl",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45986,
+        "name": "The Black Pearl",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 5826,
+        "name": "The Black Pearl",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 48357,
+        "name": "The Black Pearl",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:51.584810+00:00",
+    "retry_after": "2026-10-24T10:23:51.584844+00:00"
+  },
+  {
+    "name": "Beyblade X",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 162025,
+        "name": "Beyblade X",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 154462,
+        "name": "Beyblade X",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 167948,
+        "name": "Beyblade X",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:52.022770+00:00",
+    "retry_after": "2026-10-24T10:23:52.022788+00:00"
+  },
+  {
+    "name": "Biker Mice from Mars",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 165172,
+        "name": "Biker Mice from Mars",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 4987,
+        "name": "Biker Mice from Mars",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 158893,
+        "name": "Biker Mice from Mars",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:52.691247+00:00",
+    "retry_after": "2026-10-24T10:23:52.691264+00:00"
+  },
+  {
+    "name": "Dopey Duck",
+    "publisher": "Marvel Comics",
+    "year": 1945,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:53.067589+00:00",
+    "retry_after": "2026-10-24T10:23:53.067604+00:00"
+  },
+  {
+    "name": "Crime Illustrated",
+    "publisher": "EC Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1729,
+        "name": "Crime Illustrated",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:53.469240+00:00",
+    "retry_after": "2026-10-24T10:23:53.469256+00:00"
+  },
+  {
+    "name": "C.E.O. Fellatio",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 146646,
+        "name": "C.E.O. Fellatio",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:53.957501+00:00",
+    "retry_after": "2026-10-24T10:23:53.957518+00:00"
+  },
+  {
+    "name": "Romance Diary",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30520,
+        "name": "Romance Diary",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:54.294874+00:00",
+    "retry_after": "2026-10-24T10:23:54.294891+00:00"
+  },
+  {
+    "name": "Sky Doll: Lacrima Christi Collection",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155514,
+        "name": "Sky Doll: Lacrima Christi Collection",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:54.789285+00:00",
+    "retry_after": "2026-10-24T10:23:54.789301+00:00"
+  },
+  {
+    "name": "Ripley's Believe It or Not! True Demons and Monsters",
+    "publisher": "Marvel Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:55.294209+00:00",
+    "retry_after": "2026-10-24T10:23:55.294225+00:00"
+  },
+  {
+    "name": "Hot Line",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56254,
+        "name": "Hot Line",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:55.760368+00:00",
+    "retry_after": "2026-10-24T10:23:55.760389+00:00"
+  },
+  {
+    "name": "Backstage Prince",
+    "publisher": "VIZ Media",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 38968,
+        "name": "Backstage Prince",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:56.109849+00:00",
+    "retry_after": "2026-10-24T10:23:56.109866+00:00"
+  },
+  {
+    "name": "Awakening",
+    "publisher": "Archaia",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26990,
+        "name": "Awakening",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 55327,
+        "name": "The Awakening",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:56.543043+00:00",
+    "retry_after": "2026-10-24T10:23:56.543060+00:00"
+  },
+  {
+    "name": "Birds of Prey by Gail Simone Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:56.860777+00:00",
+    "retry_after": "2026-10-24T10:23:56.860795+00:00"
+  },
+  {
+    "name": "Our Love",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1287,
+        "name": "Our Love",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:57.209691+00:00",
+    "retry_after": "2026-10-24T10:23:57.209706+00:00"
+  },
+  {
+    "name": "Thor: God of Thunder",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53920,
+        "name": "Thor: God of Thunder",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 150787,
+        "name": "Thor: God of Thunder",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 78023,
+        "name": "Thor: God of Thunder",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:57.856024+00:00",
+    "retry_after": "2026-10-24T10:23:57.856042+00:00"
+  },
+  {
+    "name": "The Transformers",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20559,
+        "name": "The Transformers",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 3370,
+        "name": "The Transformers",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 153968,
+        "name": "Transformers",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 29903,
+        "name": "The Transformers",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 130616,
+        "name": "Transformers",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 163604,
+        "name": "Transformers",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 171174,
+        "name": "Transformers",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 27885,
+        "name": "The Transformers",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 117551,
+        "name": "Transformers",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 78066,
+        "name": "The Transformers",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 166262,
+        "name": "Transformers",
+        "publisher": null,
+        "start_year": 1991
+      },
+      {
+        "id": 158825,
+        "name": "Transformers",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 176894,
+        "name": "Transformers",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 88970,
+        "name": "The Transformers",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T10:23:58.396342+00:00",
+    "retry_after": "2026-10-24T10:23:58.396359+00:00"
   }
 ]

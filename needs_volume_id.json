@@ -35478,26 +35478,26 @@
   },
   {
     "name": "Divine Right",
-    "publisher": "WildStorm",
+    "publisher": "DC Comics",
     "year": 2002,
     "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 93248,
         "name": "Divine Right",
-        "publisher": "Splitter",
+        "publisher": null,
         "start_year": 1998
       },
       {
         "id": 127388,
         "name": "Divine Right",
-        "publisher": "JuniorPress BV",
+        "publisher": null,
         "start_year": 1998
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T03:01:36.232700+00:00",
-    "retry_after": "2026-10-06T03:01:36.232716+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:52.469960+00:00",
+    "retry_after": "2026-10-24T11:23:52.469975+00:00"
   },
   {
     "name": "Flash Gordon: Classic Collection",
@@ -80459,5 +80459,342 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T10:23:58.396342+00:00",
     "retry_after": "2026-10-24T10:23:58.396359+00:00"
+  },
+  {
+    "name": "Oz",
+    "publisher": "Caliber Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5409,
+        "name": "Oz",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:48.607022+00:00",
+    "retry_after": "2026-10-24T11:23:48.607037+00:00"
+  },
+  {
+    "name": "Hotell",
+    "publisher": "AWA Studios",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140294,
+        "name": "Hotell",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 150179,
+        "name": "Hotell",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 125833,
+        "name": "Hotell",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 130934,
+        "name": "Hotell",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:49.139171+00:00",
+    "retry_after": "2026-10-24T11:23:49.139205+00:00"
+  },
+  {
+    "name": "Morning Glory Academy - Intégrale",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:49.548434+00:00",
+    "retry_after": "2026-10-24T11:23:49.548451+00:00"
+  },
+  {
+    "name": "My Diary",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30518,
+        "name": "My Diary",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:50.347658+00:00",
+    "retry_after": "2026-10-24T11:23:50.347674+00:00"
+  },
+  {
+    "name": "The Return of Happy the Clown",
+    "publisher": "Caliber Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21906,
+        "name": "The Return of Happy the Clown",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:50.858030+00:00",
+    "retry_after": "2026-10-24T11:23:50.858046+00:00"
+  },
+  {
+    "name": "War Victory Adventures",
+    "publisher": "Harvey Comics",
+    "year": 1943,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58665,
+        "name": "War Victory Adventures",
+        "publisher": null,
+        "start_year": 1943
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:51.310967+00:00",
+    "retry_after": "2026-10-24T11:23:51.310983+00:00"
+  },
+  {
+    "name": "Loveland",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30516,
+        "name": "Loveland",
+        "publisher": null,
+        "start_year": 1949
+      },
+      {
+        "id": 129791,
+        "name": "Loveland",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:51.690081+00:00",
+    "retry_after": "2026-10-24T11:23:51.690097+00:00"
+  },
+  {
+    "name": "The Gifted",
+    "publisher": "Vault Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78905,
+        "name": "The Gifted",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 155380,
+        "name": "Gifted",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 167591,
+        "name": "Gifted",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:52.088308+00:00",
+    "retry_after": "2026-10-24T11:23:52.088324+00:00"
+  },
+  {
+    "name": "Steamboy (Ani-Manga)",
+    "publisher": "VIZ Media",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:52.923308+00:00",
+    "retry_after": "2026-10-24T11:23:52.923325+00:00"
+  },
+  {
+    "name": "Erotic Holiday",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78843,
+        "name": "Erotic Holiday",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:53.345436+00:00",
+    "retry_after": "2026-10-24T11:23:53.345452+00:00"
+  },
+  {
+    "name": "Best Western",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30502,
+        "name": "Best Western",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:53.683628+00:00",
+    "retry_after": "2026-10-24T11:23:53.683644+00:00"
+  },
+  {
+    "name": "Dragon Ball: A Bela do Castelo Amaldiçoado",
+    "publisher": "Avatar Press",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:54.105560+00:00",
+    "retry_after": "2026-10-24T11:23:54.105577+00:00"
+  },
+  {
+    "name": "Cataclysm",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 109248,
+        "name": "Cataclysm",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 68720,
+        "name": "Cataclysm",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:54.933955+00:00",
+    "retry_after": "2026-10-24T11:23:54.933969+00:00"
+  },
+  {
+    "name": "Official True Crime Cases Comics",
+    "publisher": "Marvel Comics",
+    "year": 1947,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20013,
+        "name": "Official True Crime Cases Comics",
+        "publisher": null,
+        "start_year": 1947
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:55.258419+00:00",
+    "retry_after": "2026-10-24T11:23:55.258435+00:00"
+  },
+  {
+    "name": "Eros Tattoo",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53016,
+        "name": "Eros Tattoo",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:55.676354+00:00",
+    "retry_after": "2026-10-24T11:23:55.676370+00:00"
+  },
+  {
+    "name": "The Red Hook",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111439,
+        "name": "The Red Hook",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:56.047250+00:00",
+    "retry_after": "2026-10-24T11:23:56.047266+00:00"
+  },
+  {
+    "name": "Blake's 7 Summer Special",
+    "publisher": "Marvel Comics",
+    "year": 1981,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:56.835243+00:00",
+    "retry_after": "2026-10-24T11:23:56.835259+00:00"
+  },
+  {
+    "name": "Hellraiser Nightbreed - Jihad",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21597,
+        "name": "Hellraiser Nightbreed: Jihad",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:57.721324+00:00",
+    "retry_after": "2026-10-24T11:23:57.721340+00:00"
+  },
+  {
+    "name": "Alley Oop: The Complete Sundays",
+    "publisher": "Dark Horse Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73667,
+        "name": "Alley Oop: The Complete Sundays",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T11:23:58.042630+00:00",
+    "retry_after": "2026-10-24T11:23:58.042646+00:00"
   }
 ]

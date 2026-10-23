@@ -3,12 +3,14 @@
 -- recent owned catalog rows. The partial user/status index makes those bounded
 -- probes index-backed and avoids scanning every collection on every request.
 
-begin;
-
-create index if not exists user_collections_people_suggestions_idx
+-- Run on its own first (CONCURRENTLY cannot run inside a transaction, and a
+-- plain CREATE INDEX would block writes to user_collections while it builds).
+create index concurrently if not exists user_collections_people_suggestions_idx
   on public.user_collections (user_id, created_at desc)
   include (gcd_issue_id)
   where status in ('owned', 'for_sale') and gcd_issue_id is not null;
+
+begin;
 
 create or replace function public.people_suggestions(
   p_viewer uuid,

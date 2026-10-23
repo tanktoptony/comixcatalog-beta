@@ -62,7 +62,12 @@ as $$
     select gi.series_gcd_id, max(gs.title)::text as title
     from viewer_books vb
     join public.gcd_issues gi on gi.gcd_id = vb.gcd_issue_id
-    left join public.gcd_series gs on gs.gcd_id = gi.series_gcd_id
+    left join lateral (
+      select s.title, s.resolved_publisher_cached
+      from public.series s
+      where s.gcd_id = gi.series_gcd_id
+      limit 1
+    ) gs on true
     where gi.series_gcd_id is not null
     group by gi.series_gcd_id
   ),
@@ -88,7 +93,12 @@ as $$
       count(*) as books
     from viewer_books vb
     join public.gcd_issues gi on gi.gcd_id = vb.gcd_issue_id
-    left join public.gcd_series gs on gs.gcd_id = gi.series_gcd_id
+    left join lateral (
+      select s.title, s.resolved_publisher_cached
+      from public.series s
+      where s.gcd_id = gi.series_gcd_id
+      limit 1
+    ) gs on true
     left join public.gcd_publishers gp on gp.gcd_id = gi.publisher_gcd_id
     group by 1
     order by books desc, publisher
@@ -108,11 +118,16 @@ as $$
       limit 500
     ) candidate_books
     join public.gcd_issues gi on gi.gcd_id = candidate_books.gcd_issue_id
-    left join public.gcd_series gs on gs.gcd_id = gi.series_gcd_id
+    left join lateral (
+      select s.title, s.resolved_publisher_cached
+      from public.series s
+      where s.gcd_id = gi.series_gcd_id
+      limit 1
+    ) gs on true
     left join public.gcd_publishers gp on gp.gcd_id = gi.publisher_gcd_id
     group by e.id, 2
   ),
-  reasons as (
+  reasons (user_id, reason_kind, reason_text, score) as (
     select s.user_id, 'shared_runs'::text,
       ('Also collects ' || coalesce(s.first_title, 'the same runs') ||
         case when s.matches > 1 then ' and ' || (s.matches - 1) || ' more' else '' end)::text,
@@ -126,7 +141,7 @@ as $$
     join public.profiles p on p.id = mutual.follower_id
     group by e.id
     union all
-    select e.id, 'same_shop', ('Also from ' || e.signup_source)::text, 60::numeric
+    select e.id, 'same_shop', ('Also from ' || initcap(replace(e.signup_source, '-', ' ')))::text, 60::numeric
     from eligible e cross join viewer_profile v
     where e.signup_medium = 'print' and v.signup_medium = 'print'
       and e.signup_source is not null and lower(e.signup_source) = lower(v.signup_source)

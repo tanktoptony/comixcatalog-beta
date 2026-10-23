@@ -10,6 +10,7 @@ import AttributionCapture from "../components/AttributionCapture";
 import { LibraryProvider } from "../context/LibraryContext";
 import { AuthProvider } from "../context/AuthContext";
 import { SearchQueryProvider } from "../context/SearchQueryContext";
+import BadgeToast from "../components/BadgeToast";
 
 // Display face for the public profile ("The Case") — a deliberate contrast
 // with /library's plain grotesk, part of the workshop/showcase split
@@ -152,6 +153,7 @@ export default async function RootLayout({ children }) {
                   user's first page load actually lands (post-signup that's
                   /u/[username], not "/") — see OnboardingModal.js. */}
               <OnboardingModal />
+              <BadgeToast />
               <main id="main-content" tabIndex={-1} className="page-wrapper">{children}</main>
               <Footer />
             </SearchQueryProvider>

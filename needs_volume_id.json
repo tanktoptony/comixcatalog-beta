@@ -81267,5 +81267,492 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T12:24:05.953209+00:00",
     "retry_after": "2026-10-24T12:24:05.953224+00:00"
+  },
+  {
+    "name": "Hawkeye",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 96661,
+        "name": "Hawkeye",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 68971,
+        "name": "Hawkeye",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 3225,
+        "name": "Hawkeye",
+        "publisher": null,
+        "start_year": 1983
+      },
+      {
+        "id": 110332,
+        "name": "Hawkeye",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 50941,
+        "name": "Hawkeye",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 23481,
+        "name": "Hawkeye",
+        "publisher": null,
+        "start_year": 2003
+      },
+      {
+        "id": 5301,
+        "name": "Hawkeye",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:03.120912+00:00",
+    "retry_after": "2026-10-24T13:24:03.120927+00:00"
+  },
+  {
+    "name": "The Straw Men",
+    "publisher": "Zenescope Entertainment",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29296,
+        "name": "Straw Men",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 23110,
+        "name": "The Straw Men",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:03.517779+00:00",
+    "retry_after": "2026-10-24T13:24:03.517795+00:00"
+  },
+  {
+    "name": "John Byrne's Next Men",
+    "publisher": "Dark Horse Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19617,
+        "name": "John Byrne's Next Men",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 37492,
+        "name": "John Byrne's Next Men",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 43056,
+        "name": "John Byrne's Next Men",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:03.945486+00:00",
+    "retry_after": "2026-10-24T13:24:03.945501+00:00"
+  },
+  {
+    "name": "Fathom",
+    "publisher": "Aspen Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18057,
+        "name": "Fathom",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 119140,
+        "name": "Fathom",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 127354,
+        "name": "Fathom",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 111667,
+        "name": "Fathom",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 3904,
+        "name": "Fathom",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 4852,
+        "name": "Fathom",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:04.453308+00:00",
+    "retry_after": "2026-10-24T13:24:04.453343+00:00"
+  },
+  {
+    "name": "Gene Simmons House of Horrors",
+    "publisher": "IDW Publishing",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58046,
+        "name": "Gene Simmons House of Horrors",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 56193,
+        "name": "Gene Simmons House of Horrors",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 62767,
+        "name": "Gene Simmons House of Horrors",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:04.849937+00:00",
+    "retry_after": "2026-10-24T13:24:04.849952+00:00"
+  },
+  {
+    "name": "Bronx",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 146649,
+        "name": "Bronx",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 29541,
+        "name": "Bronx",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:05.250836+00:00",
+    "retry_after": "2026-10-24T13:24:05.250852+00:00"
+  },
+  {
+    "name": "Pictorial Romances",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56180,
+        "name": "Pictorial Romances",
+        "publisher": null,
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:05.679649+00:00",
+    "retry_after": "2026-10-24T13:24:05.679664+00:00"
+  },
+  {
+    "name": "Johnny Atomic",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67370,
+        "name": "Johnny Atomic",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:06.128865+00:00",
+    "retry_after": "2026-10-24T13:24:06.128880+00:00"
+  },
+  {
+    "name": "Doctor Gorpon",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74255,
+        "name": "Doctor Gorpon",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 28867,
+        "name": "Doctor Gorpon",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:06.515353+00:00",
+    "retry_after": "2026-10-24T13:24:06.515368+00:00"
+  },
+  {
+    "name": "Triple-XXX",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85865,
+        "name": "Triple-XXX",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:06.945851+00:00",
+    "retry_after": "2026-10-24T13:24:06.945867+00:00"
+  },
+  {
+    "name": "Grimm Fairy Tales Adult Coloring Book",
+    "publisher": "Zenescope Entertainment",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86358,
+        "name": "Grimm Fairy Tales Adult Coloring Book",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:07.359587+00:00",
+    "retry_after": "2026-10-24T13:24:07.359602+00:00"
+  },
+  {
+    "name": "Invaders from Mars Book II",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:07.891991+00:00",
+    "retry_after": "2026-10-24T13:24:07.892007+00:00"
+  },
+  {
+    "name": "Roger Wilco",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79675,
+        "name": "Roger Wilco",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:08.251137+00:00",
+    "retry_after": "2026-10-24T13:24:08.251152+00:00"
+  },
+  {
+    "name": "Screwball Squirrel",
+    "publisher": "Dark Horse Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 134689,
+        "name": "Screwball Squirrel",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:08.716473+00:00",
+    "retry_after": "2026-10-24T13:24:08.716488+00:00"
+  },
+  {
+    "name": "The Ripper Legacy",
+    "publisher": "Caliber Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70092,
+        "name": "Ripper Legacy",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 75623,
+        "name": "The Ripper Legacy",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:09.238060+00:00",
+    "retry_after": "2026-10-24T13:24:09.238075+00:00"
+  },
+  {
+    "name": "The Engineer",
+    "publisher": "Archaia",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:09.646667+00:00",
+    "retry_after": "2026-10-24T13:24:09.646682+00:00"
+  },
+  {
+    "name": "Labyrinth: The Movie",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3642,
+        "name": "Labyrinth: The Movie",
+        "publisher": null,
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:09.989442+00:00",
+    "retry_after": "2026-10-24T13:24:09.989457+00:00"
+  },
+  {
+    "name": "Teen Wolf: Bite Me",
+    "publisher": "Image Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 43034,
+        "name": "Teen Wolf: Bite Me",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:10.315978+00:00",
+    "retry_after": "2026-10-24T13:24:10.315992+00:00"
+  },
+  {
+    "name": "Pakkins' Land: Forgotten Dreams",
+    "publisher": "Caliber Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51885,
+        "name": "Pakkins' Land: Forgotten Dreams",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 51956,
+        "name": "Pakkins' Land: Forgotten Dreams",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:10.716679+00:00",
+    "retry_after": "2026-10-24T13:24:10.716693+00:00"
+  },
+  {
+    "name": "Dragonero / Conan",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 162059,
+        "name": "Dragonero/Conan",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 154397,
+        "name": "Dragonero/Conan",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 161655,
+        "name": "Dragonero/Conan",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 162238,
+        "name": "Dragonero/Conan",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:11.315737+00:00",
+    "retry_after": "2026-10-24T13:24:11.315752+00:00"
+  },
+  {
+    "name": "Ultimate Comics Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63559,
+        "name": "Ultimate Comics: Spider-Man",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 42821,
+        "name": "Ultimate Comics Spider-Man",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T13:24:12.135365+00:00",
+    "retry_after": "2026-10-24T13:24:12.135380+00:00"
   }
 ]

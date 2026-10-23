@@ -65,26 +65,27 @@ function Price({ l }) {
   );
 }
 
-function Card({ l }) {
+function Card({ l, issueLink = false }) {
+  const href = issueLink ? l.href : l.listingHref;
   return (
     <li className="mk-card">
-      <Link prefetch={false} href={l.listingHref} className="mk-card-cover">
+      <Link prefetch={false} href={href} className="mk-card-cover">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={coverThumb(l.cover || "/fallback-cover.png")} alt={`${l.title} #${l.issueNumber}`} loading="lazy" />
       </Link>
-      <Link prefetch={false} href={l.listingHref} className="mk-card-title">
+      <Link prefetch={false} href={href} className="mk-card-title">
         {l.title} #{l.issueNumber || "?"}
       </Link>
       <span className="mk-card-meta">
         {conditionLabel(l)}
         {l.year ? ` · ${l.year}` : ""}
       </span>
-      <Price l={l} />
+      {!issueLink && <Price l={l} />}
     </li>
   );
 }
 
-function Shelf({ title, items, more, note }) {
+function Shelf({ title, items, more, note, issueLinks = false }) {
   if (!items.length) return null;
   return (
     <section className="mk-shelf">
@@ -99,7 +100,7 @@ function Shelf({ title, items, more, note }) {
       </div>
       <ul className="mk-cards">
         {items.map((l) => (
-          <Card key={l.id} l={l} />
+          <Card key={l.id} l={l} issueLink={issueLinks} />
         ))}
       </ul>
     </section>
@@ -108,14 +109,15 @@ function Shelf({ title, items, more, note }) {
 
 function Landing({ listings, params, wanted }) {
   const s = landingSections(listings);
+  const wantedForFront = wanted.filter((listing) => listing.price != null && (listing.photoCount > 0 || listing.cover));
   return (
     <div className="mk-landing">
-      {wanted.length > 0 && (
+      {wantedForFront.length >= 4 && (
         <Shelf
           title="From your wantlist"
-          note={`${wanted.length} ${wanted.length === 1 ? "copy" : "copies"} for sale, cheapest first`}
-          items={wanted.slice(0, 6)}
-          more={wanted.length > 6 ? hrefWith(params, { wants: "1" }) : null}
+          note={`${wantedForFront.length} ${wantedForFront.length === 1 ? "copy" : "copies"} for sale, cheapest first`}
+          items={wantedForFront.slice(0, 6)}
+          more={wantedForFront.length > 6 ? hrefWith(params, { wants: "1" }) : null}
         />
       )}
       <Shelf title="Just listed" items={s.justListed} more={hrefWith(params, { view: "all", sort: "newest" })} />
@@ -136,7 +138,11 @@ function Landing({ listings, params, wanted }) {
         </ul>
       </section>
 
-      <Shelf title="Most wanted" note="On the most wantlists right now" items={s.mostWanted} />
+      {s.mostWanted.length > 0 ? (
+        <Shelf title="Most wanted" note="On the most wantlists right now" items={s.mostWanted} />
+      ) : (
+        <Shelf title="Most wanted, not for sale yet" items={s.mostWantedNotForSale} issueLinks />
+      )}
       <Shelf title="Highest priced" items={s.mostValuable} more={hrefWith(params, { view: "all", sort: "value-desc" })} />
 
       {s.sellers.length > 0 && (
@@ -367,7 +373,6 @@ function MarketplaceView({ listings, params }) {
   }, [user, collections, listings, profile?.username]);
   const f = readFilters(params);
   const browsing = isBrowsing(f) || params.get("view") === "all";
-  const sellers = new Set(listings.map((l) => l.seller)).size;
   const priced = listings.filter((l) => l.price != null).length;
 
   return (
@@ -391,12 +396,14 @@ function MarketplaceView({ listings, params }) {
         <SearchBox f={f} params={params} />
         {!browsing && listings.length > 0 && (
           <p className="mk-stats">
-            {listings.length.toLocaleString("en-US")} comic{listings.length === 1 ? "" : "s"} listed by{" "}
-            {sellers.toLocaleString("en-US")} collector{sellers === 1 ? "" : "s"} · {priced.toLocaleString("en-US")} with a price. {" "}
+            {priced.toLocaleString("en-US")} comic{priced === 1 ? "" : "s"} for sale with a price
+            <span className="mk-dot"> · </span>
+            {listings.length.toLocaleString("en-US")} comic{listings.length === 1 ? "" : "s"} listed in all
+            <span className="mk-dot"> · </span>
+            No fees during the beta. {" "}
             <Link prefetch={false} href="/marketplace?view=all">
               Browse everything
             </Link>
-            <span className="mk-dot">·</span>No fees during the beta.
           </p>
         )}
       </header>

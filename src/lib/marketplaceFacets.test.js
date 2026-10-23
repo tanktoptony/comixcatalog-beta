@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
+  capPerSeries,
   wantlistMatches,
   queryScore,
   readFilters,
@@ -10,6 +11,9 @@ import {
   sortListings,
   paginate,
   landingSections,
+  hideShortRail,
+  isHeadlineListing,
+  roundRobinBySeller,
   PAGE_SIZE,
 } from "./marketplaceFacets.js";
 
@@ -98,12 +102,56 @@ test("pagination clamps and counts past one page", () => {
 });
 
 test("landing shelves", () => {
-  const s = landingSections(listings, 2);
-  assert.deepEqual(s.justListed.map((l) => l.id), [3, 2]);
-  assert.deepEqual(s.mostWanted.map((l) => l.id), [1, 3]);
-  assert.deepEqual(s.mostValuable.map((l) => l.id), [4]);
-  assert.deepEqual(s.publishers[0], ["Marvel Comics", 3]);
-  assert.deepEqual(s.sellers, [["tony", 3], ["pete", 2]]);
+  const eligible = Array.from({ length: 6 }, (_, i) => L({
+    id: i + 10,
+    title: `Series ${i}`,
+    seller: i < 3 ? "tony" : "pete",
+    price: i + 1,
+    cover: "/cover.jpg",
+    wantCount: 6 - i,
+    listedAt: `2026-10-01T0${i}:00:00Z`,
+  }));
+  const s = landingSections([...listings, ...eligible]);
+  assert.deepEqual(s.justListed.map((l) => l.id), [15, 12, 14, 11, 13, 10]);
+  assert.equal(s.mostWanted.length, 6);
+  assert.equal(s.mostValuable.length, 6);
+  assert.deepEqual(s.publishers[0], ["Marvel Comics", 9]);
+  assert.deepEqual(s.sellers, [["tony", 6], ["pete", 5]]);
+});
+
+test("headline listings require a price and either a seller photo or catalog cover", () => {
+  assert.equal(isHeadlineListing(L({ price: 10, photoCount: 1 })), true);
+  assert.equal(isHeadlineListing(L({ price: 10, cover: "/cover.jpg" })), true);
+  assert.equal(isHeadlineListing(L({ price: null, cover: "/cover.jpg", photoCount: 1 })), false);
+  assert.equal(isHeadlineListing(L({ price: 10, cover: null, photoCount: 0 })), false);
+});
+
+test("newest rail round robins sellers and caps each seller at two", () => {
+  const rows = [
+    L({ id: "a1", seller: "a", listedAt: "2026-10-06" }),
+    L({ id: "a2", seller: "a", listedAt: "2026-10-05" }),
+    L({ id: "a3", seller: "a", listedAt: "2026-10-04" }),
+    L({ id: "b1", seller: "b", listedAt: "2026-10-03" }),
+    L({ id: "c1", seller: "c", listedAt: "2026-10-02" }),
+  ];
+  assert.deepEqual(roundRobinBySeller(rows).map((l) => l.id), ["a1", "b1", "c1", "a2"]);
+});
+
+test("headline rails hide when fewer than four items qualify", () => {
+  assert.deepEqual(hideShortRail([1, 2, 3]), []);
+  assert.deepEqual(hideShortRail([1, 2, 3, 4]), [1, 2, 3, 4]);
+});
+
+test("most wanted fallback only contains issues without a priced copy", () => {
+  const rows = Array.from({ length: 5 }, (_, i) => L({
+    id: i,
+    gcdIssueId: i,
+    wantCount: 10 - i,
+  }));
+  rows.push(L({ id: "priced", gcdIssueId: 0, price: 20, cover: "/cover.jpg", wantCount: 10 }));
+  const sections = landingSections(rows);
+  assert.equal(sections.mostWanted.length, 0);
+  assert.deepEqual(sections.mostWantedNotForSale.map((listing) => listing.gcdIssueId), [1, 2, 3, 4]);
 });
 
 test("search follows the catalog search rules", () => {
@@ -149,4 +197,9 @@ test("wantlist matches: on your list, not your own copies, cheapest first", () =
   const f = readFilters(new URLSearchParams("wants=1"));
   assert.equal(f.wants, true);
   assert.equal(isBrowsing(f), true);
+});
+
+test("capPerSeries keeps at most two listings from one series, in order", () => {
+  const rows = [{ title: "Amory Wars" }, { title: "Amory Wars" }, { title: "X-Men" }, { title: "Amory Wars" }, { title: "X-Men" }];
+  assert.deepEqual(capPerSeries(rows).map((r) => r.title), ["Amory Wars", "Amory Wars", "X-Men", "X-Men"]);
 });

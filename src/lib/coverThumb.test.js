@@ -19,7 +19,7 @@ test("drops a query string rather than baking it into the path", () => {
 test("maps a missing thumb to Supabase's 400px image transform", () => {
   assert.equal(
     coverTransform(THUMB),
-    `${BASE.replace("/object/public", "/render/image/public")}/canonical-covers/comicvine/x-men/vol-1/1-issue-1.jpg?width=400&quality=80`
+    `${BASE.replace("/object/public", "/render/image/public")}/canonical-covers/comicvine/x-men/vol-1/1-issue-1.jpg?width=400&resize=contain&quality=80`
   );
   assert.equal(coverTransform(ORIG), null);
 });

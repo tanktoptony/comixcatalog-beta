@@ -12,7 +12,7 @@ const DRAWABLE = /^image\/(jpeg|png|gif)/;
 export function ogCoverUrl(url) {
   if (typeof url !== "string" || !url.includes(OBJECT_MARKER)) return url;
   const base = url.split(/[?#]/)[0].replace(OBJECT_MARKER, RENDER_MARKER);
-  return `${base}?width=600&quality=80`;
+  return `${base}?width=600&resize=contain&quality=80`;
 }
 
 async function fetchDrawable(url) {

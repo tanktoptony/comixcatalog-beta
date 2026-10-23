@@ -46,10 +46,13 @@ export function coverOriginal(url) {
 
 // Supabase's on-demand 400px transform is the lightweight fallback when a
 // prebuilt WebP thumb has not reached the cover-thumbs bucket yet.
+// resize=contain is required: with width alone Supabase defaults to "cover"
+// and keeps the original height, returning a 400px-wide strip of the full
+// cover (400x3048 for a 1977x3048 scan), which cards then show zoomed in.
 export function coverTransform(url) {
   const original = coverOriginal(url);
   if (!original) return null;
   return original
     .replace("/storage/v1/object/public/canonical-covers/", "/storage/v1/render/image/public/canonical-covers/")
-    .concat("?width=400&quality=80");
+    .concat("?width=400&resize=contain&quality=80");
 }

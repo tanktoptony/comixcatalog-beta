@@ -77440,5 +77440,372 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T03:24:07.041321+00:00",
     "retry_after": "2026-10-24T03:24:07.041336+00:00"
+  },
+  {
+    "name": "Marvel's Voices: Pride",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 137050,
+        "name": "Marvel's Voices: Pride",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 151966,
+        "name": "Marvel's Voices: Pride ",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 143815,
+        "name": "Marvel's Voices: Pride",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:54.274681+00:00",
+    "retry_after": "2026-10-24T04:23:54.274697+00:00"
+  },
+  {
+    "name": "Batman: A Espada de Azrael",
+    "publisher": "Avatar Press",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:54.696515+00:00",
+    "retry_after": "2026-10-24T04:23:54.696531+00:00"
+  },
+  {
+    "name": "Predator: Primal",
+    "publisher": "Dark Horse Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66429,
+        "name": "Predator: Primal",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 31924,
+        "name": "Predator: Primal",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:54.998059+00:00",
+    "retry_after": "2026-10-24T04:23:54.998073+00:00"
+  },
+  {
+    "name": "Bloodseed",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22556,
+        "name": "Bloodseed",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:55.391437+00:00",
+    "retry_after": "2026-10-24T04:23:55.391452+00:00"
+  },
+  {
+    "name": "Essential Werewolf by Night",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29953,
+        "name": "Essential Werewolf by Night",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:55.737933+00:00",
+    "retry_after": "2026-10-24T04:23:55.737947+00:00"
+  },
+  {
+    "name": "Crime Does Not Pay",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 943,
+        "name": "Crime Does Not Pay",
+        "publisher": null,
+        "start_year": 1942
+      },
+      {
+        "id": 171998,
+        "name": "Crime Does Not Pay",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:56.042773+00:00",
+    "retry_after": "2026-10-24T04:23:56.042789+00:00"
+  },
+  {
+    "name": "Jungle Life Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79390,
+        "name": "Jungle Life Giant Edition",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:56.451093+00:00",
+    "retry_after": "2026-10-24T04:23:56.451108+00:00"
+  },
+  {
+    "name": "Cartoons of the Roaring Twenties",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50485,
+        "name": "Cartoons of the Roaring Twenties",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:56.851342+00:00",
+    "retry_after": "2026-10-24T04:23:56.851356+00:00"
+  },
+  {
+    "name": "Gyo",
+    "publisher": "VIZ Media",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11951,
+        "name": "Gyo",
+        "publisher": null,
+        "start_year": 2003
+      },
+      {
+        "id": 173842,
+        "name": "Gyo",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 150137,
+        "name": "Gyo",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 70500,
+        "name": "Gyo",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:57.200721+00:00",
+    "retry_after": "2026-10-24T04:23:57.200734+00:00"
+  },
+  {
+    "name": "Erotic Fables & Faerie Tales",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25575,
+        "name": "Erotic Fables & Faerie Tales",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:57.629067+00:00",
+    "retry_after": "2026-10-24T04:23:57.629082+00:00"
+  },
+  {
+    "name": "Love Secrets Annual",
+    "publisher": "Marvel Comics",
+    "year": 1963,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:58.028434+00:00",
+    "retry_after": "2026-10-24T04:23:58.028448+00:00"
+  },
+  {
+    "name": "O Melhor de Batman",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119458,
+        "name": "O Melhor de Batman ",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:58.445377+00:00",
+    "retry_after": "2026-10-24T04:23:58.445392+00:00"
+  },
+  {
+    "name": "Clássicos DC",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119422,
+        "name": "Clássicos DC ",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:58.916529+00:00",
+    "retry_after": "2026-10-24T04:23:58.916543+00:00"
+  },
+  {
+    "name": "Mighty Avengers: The Ultron Initiative",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27748,
+        "name": "Mighty Avengers: The Ultron Initiative",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:59.297148+00:00",
+    "retry_after": "2026-10-24T04:23:59.297164+00:00"
+  },
+  {
+    "name": "Daring Adventure",
+    "publisher": "Marvel Comics",
+    "year": 1965,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:59.623298+00:00",
+    "retry_after": "2026-10-24T04:23:59.623312+00:00"
+  },
+  {
+    "name": "Hot Tails",
+    "publisher": "Fantagraphics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30799,
+        "name": "Hot Tails",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:23:59.994170+00:00",
+    "retry_after": "2026-10-24T04:23:59.994185+00:00"
+  },
+  {
+    "name": "The Face-Skull",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66996,
+        "name": "Face-Skull",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:24:00.501050+00:00",
+    "retry_after": "2026-10-24T04:24:00.501065+00:00"
+  },
+  {
+    "name": "Egon",
+    "publisher": "Dark Horse Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23157,
+        "name": "Egon",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 138873,
+        "name": "Egon",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:24:00.813830+00:00",
+    "retry_after": "2026-10-24T04:24:00.813845+00:00"
+  },
+  {
+    "name": "Wink",
+    "publisher": "Marvel Comics",
+    "year": 1972,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 138214,
+        "name": "Wink",
+        "publisher": null,
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:24:01.298196+00:00",
+    "retry_after": "2026-10-24T04:24:01.298211+00:00"
+  },
+  {
+    "name": "U.N. Force Files",
+    "publisher": "Caliber Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48771,
+        "name": "U.N. Force Files",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T04:24:01.613855+00:00",
+    "retry_after": "2026-10-24T04:24:01.613868+00:00"
   }
 ]

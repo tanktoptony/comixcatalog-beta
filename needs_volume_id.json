@@ -56979,24 +56979,54 @@
     "name": "Watchmen",
     "publisher": "DC Comics",
     "year": 2005,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
+      {
+        "id": 53871,
+        "name": "Watchmen",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 79545,
+        "name": "Watchmen",
+        "publisher": null,
+        "start_year": 1987
+      },
       {
         "id": 3622,
         "name": "Watchmen",
-        "publisher": "DC Comics",
+        "publisher": null,
         "start_year": 1986
       },
       {
         "id": 29927,
         "name": "Watchmen",
-        "publisher": "DC Comics",
+        "publisher": null,
         "start_year": 1987
+      },
+      {
+        "id": 53872,
+        "name": "Watchmen",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 76711,
+        "name": "Watchmen",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 161273,
+        "name": "Watchmen",
+        "publisher": null,
+        "start_year": null
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-20T19:18:39.866036+00:00",
-    "retry_after": "2026-10-23T19:18:39.866052+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-23T20:00:53.296203+00:00",
+    "retry_after": "2026-10-30T20:00:53.296224+00:00"
   },
   {
     "name": "The Walking Dead #1 Wizard World Ohio Comicon Exclusive",
@@ -72143,9 +72173,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:49:40.377982+00:00",
-    "retry_after": "2026-10-23T18:49:40.378000+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:54.654581+00:00",
+    "retry_after": "2026-10-26T20:23:54.654598+00:00"
   },
   {
     "name": "Entanglement",
@@ -72160,9 +72190,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T18:49:40.660318+00:00",
-    "retry_after": "2026-10-23T18:49:40.660337+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:55.025089+00:00",
+    "retry_after": "2026-10-26T20:23:55.025106+00:00"
   },
   {
     "name": "Ultimate Fantastic Four",
@@ -72436,9 +72466,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:47.675817+00:00",
-    "retry_after": "2026-10-23T19:23:47.675833+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:55.431013+00:00",
+    "retry_after": "2026-10-26T20:23:55.431029+00:00"
   },
   {
     "name": "Fairlady",
@@ -72459,9 +72489,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:47.958980+00:00",
-    "retry_after": "2026-10-23T19:23:47.958998+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:55.807525+00:00",
+    "retry_after": "2026-10-26T20:23:55.807541+00:00"
   },
   {
     "name": "Spawnmobile Vehicle",
@@ -72469,9 +72499,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:48.356275+00:00",
-    "retry_after": "2026-10-23T19:23:48.356295+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:56.207510+00:00",
+    "retry_after": "2026-10-26T20:23:56.207525+00:00"
   },
   {
     "name": "Guardians 3000",
@@ -72486,9 +72516,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:48.883519+00:00",
-    "retry_after": "2026-10-23T19:23:48.883540+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:56.789753+00:00",
+    "retry_after": "2026-10-26T20:23:56.789771+00:00"
   },
   {
     "name": "Action Time Buddies Free Comic Book Day Edition",
@@ -72496,9 +72526,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:49.336289+00:00",
-    "retry_after": "2026-10-23T19:23:49.336309+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:57.244247+00:00",
+    "retry_after": "2026-10-26T20:23:57.244262+00:00"
   },
   {
     "name": "Batvark",
@@ -72513,9 +72543,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:49.784162+00:00",
-    "retry_after": "2026-10-23T19:23:49.784179+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:57.698109+00:00",
+    "retry_after": "2026-10-26T20:23:57.698125+00:00"
   },
   {
     "name": "Fantastic Panic",
@@ -72536,9 +72566,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:50.248633+00:00",
-    "retry_after": "2026-10-23T19:23:50.248647+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:58.068612+00:00",
+    "retry_after": "2026-10-26T20:23:58.068628+00:00"
   },
   {
     "name": "Fathom",
@@ -72583,9 +72613,9 @@
         "start_year": 1992
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:50.647829+00:00",
-    "retry_after": "2026-10-23T19:23:50.647844+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:58.484433+00:00",
+    "retry_after": "2026-10-26T20:23:58.484478+00:00"
   },
   {
     "name": "Laflèche",
@@ -72593,9 +72623,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:50.988876+00:00",
-    "retry_after": "2026-10-23T19:23:50.988896+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:58.856964+00:00",
+    "retry_after": "2026-10-26T20:23:58.856979+00:00"
   },
   {
     "name": "Nexus",
@@ -72634,9 +72664,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:51.650812+00:00",
-    "retry_after": "2026-10-23T19:23:51.650830+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:59.290068+00:00",
+    "retry_after": "2026-10-26T20:23:59.290084+00:00"
   },
   {
     "name": "Predator: Invaders from the Fourth Dimension",
@@ -72644,9 +72674,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:52.017493+00:00",
-    "retry_after": "2026-10-23T19:23:52.017512+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:23:59.639732+00:00",
+    "retry_after": "2026-10-26T20:23:59.639748+00:00"
   },
   {
     "name": "Mangazine Super Special",
@@ -72654,9 +72684,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:52.356782+00:00",
-    "retry_after": "2026-10-23T19:23:52.356800+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:00.006613+00:00",
+    "retry_after": "2026-10-26T20:24:00.006630+00:00"
   },
   {
     "name": "Robotech: Final Fire",
@@ -72671,9 +72701,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:52.972869+00:00",
-    "retry_after": "2026-10-23T19:23:52.972884+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:00.577692+00:00",
+    "retry_after": "2026-10-26T20:24:00.577707+00:00"
   },
   {
     "name": "Women on Top",
@@ -72688,9 +72718,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:53.356892+00:00",
-    "retry_after": "2026-10-23T19:23:53.356907+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:00.949190+00:00",
+    "retry_after": "2026-10-26T20:24:00.949205+00:00"
   },
   {
     "name": "The Goon: Rough Stuff",
@@ -72711,9 +72741,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:53.868018+00:00",
-    "retry_after": "2026-10-23T19:23:53.868034+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:01.293732+00:00",
+    "retry_after": "2026-10-26T20:24:01.293748+00:00"
   },
   {
     "name": "The Courier: From the Ashes",
@@ -72734,9 +72764,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:54.364776+00:00",
-    "retry_after": "2026-10-23T19:23:54.364795+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:01.844368+00:00",
+    "retry_after": "2026-10-26T20:24:01.844383+00:00"
   },
   {
     "name": "Swordquest",
@@ -72757,9 +72787,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:54.840281+00:00",
-    "retry_after": "2026-10-23T19:23:54.840299+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:02.348823+00:00",
+    "retry_after": "2026-10-26T20:24:02.348839+00:00"
   },
   {
     "name": "Dark Knights of Steel II Special: Heir to the Sea",
@@ -72858,9 +72888,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:57.309254+00:00",
-    "retry_after": "2026-10-23T19:23:57.309272+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:03.057148+00:00",
+    "retry_after": "2026-10-26T20:24:03.057164+00:00"
   },
   {
     "name": "Combat Casey",
@@ -72875,9 +72905,9 @@
         "start_year": 1953
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:57.747048+00:00",
-    "retry_after": "2026-10-23T19:23:57.747065+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:03.445921+00:00",
+    "retry_after": "2026-10-26T20:24:03.445937+00:00"
   },
   {
     "name": "Patsy and Her Pals",
@@ -72892,9 +72922,9 @@
         "start_year": 1953
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:58.352891+00:00",
-    "retry_after": "2026-10-23T19:23:58.352908+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:03.876363+00:00",
+    "retry_after": "2026-10-26T20:24:03.876379+00:00"
   },
   {
     "name": "Donald Ducks julehistorier",
@@ -72909,9 +72939,9 @@
         "start_year": 1996
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:58.767275+00:00",
-    "retry_after": "2026-10-23T19:23:58.767294+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:04.309313+00:00",
+    "retry_after": "2026-10-26T20:24:04.309329+00:00"
   },
   {
     "name": "Josie",
@@ -72926,9 +72956,9 @@
         "start_year": 1965
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:59.235024+00:00",
-    "retry_after": "2026-10-23T19:23:59.235042+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:04.771742+00:00",
+    "retry_after": "2026-10-26T20:24:04.771757+00:00"
   },
   {
     "name": "Tom and Jerry Present the Two Mouseketeers",
@@ -72943,9 +72973,9 @@
         "start_year": null
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:59.604282+00:00",
-    "retry_after": "2026-10-23T19:23:59.604294+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:05.129799+00:00",
+    "retry_after": "2026-10-26T20:24:05.129812+00:00"
   },
   {
     "name": "Joe Palooka Presents the Funsational Humphrey",
@@ -72960,9 +72990,9 @@
         "start_year": 1952
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T19:23:59.996194+00:00",
-    "retry_after": "2026-10-23T19:23:59.996212+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T20:24:05.462611+00:00",
+    "retry_after": "2026-10-26T20:24:05.462628+00:00"
   },
   {
     "name": "Elseworlds: Superman Omnibus",
@@ -82600,5 +82630,63 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T19:23:52.319866+00:00",
     "retry_after": "2026-10-24T19:23:52.319881+00:00"
+  },
+  {
+    "name": "Star Wars: Revelations",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155511,
+        "name": "Star Wars: Revelations",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 146386,
+        "name": "Star Wars: Revelations",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T20:23:54.207497+00:00",
+    "retry_after": "2026-10-24T20:23:54.207512+00:00"
+  },
+  {
+    "name": "Micronauts",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 38396,
+        "name": "Micronauts",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 3008,
+        "name": "Micronauts",
+        "publisher": null,
+        "start_year": 1979
+      },
+      {
+        "id": 89897,
+        "name": "Micronauts",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 27081,
+        "name": "Micronauts",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T20:24:05.715188+00:00",
+    "retry_after": "2026-10-24T20:24:05.715204+00:00"
   }
 ]

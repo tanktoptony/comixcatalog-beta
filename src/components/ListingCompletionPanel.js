@@ -27,7 +27,7 @@ export default function ListingCompletionPanel({ listing, estimate, onSaved, onP
   return (
     <section className="listing-completion" aria-label="Finish your listing">
       <h3>Finish your listing</h3>
-      <p>A price, a photo of your copy, and a short condition note help buyers decide.</p>
+      <p>Priced listings with a photo show on the marketplace front page.</p>
       <ListingQuickPrice listing={listing} estimate={estimate} onSaved={onSaved} autoFocus />
       <div className="listing-completion-photo"><strong>Add a photo of your copy</strong><PhotoManager collectionId={listing.collection_id} onPhotoAdded={() => { trackEvent("listing_photo_added"); onPhotoAdded?.(); }} /></div>
       <label className="listing-completion-note"><span>Condition note</span><textarea rows={3} maxLength={LIMITS.maxNotes} value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Spine stress, corner wear, color breaks..." /></label>

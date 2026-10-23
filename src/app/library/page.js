@@ -747,7 +747,7 @@ function LibraryPageContent() {
     if (count === 0) return;
     const ok = window.confirm(
       listing
-        ? `List all ${count} books in your collection for sale? They'll appear on the Marketplace and on each issue's page as open to offers. You can take any of them off sale later.`
+        ? `List all ${count} books in your collection for sale? Priced listings with a photo show on the marketplace front page. You can add those details from your For sale tab.`
         : `Take all ${count} books off sale? They stay in your collection.`
     );
     if (!ok) return;
@@ -771,7 +771,7 @@ function LibraryPageContent() {
           setMyListings(fresh.listings);
           setPhotoCollectionIds(fresh.photoCollectionIds);
         }
-        setSaleNotice(`${count} book${count === 1 ? "" : "s"} listed. ${count} need a price.`);
+        setSaleNotice(`${count} book${count === 1 ? "" : "s"} listed. Add a price and photo to show them on the marketplace front page.`);
       }
     } finally {
       setBulkSaleBusy(false);
@@ -2005,7 +2005,9 @@ function LibraryPageContent() {
 
           {tab === "for_sale" && !isPublicPreview && (
             <div className="listing-completeness-head">
-              <span><b>{completeness.needsPrice.length}</b> need a price</span>
+              <span>
+                <b>{completeness.needsPrice.length}</b> of your listings {completeness.needsPrice.length === 1 ? "has" : "have"} no price
+              </span>
               <span><b>{completeness.needsPhoto.length}</b> need a photo</span>
               <button type="button" className={completionFilter === "price" ? "active" : ""} onClick={() => setCompletionFilter(completionFilter === "price" ? "all" : "price")}>Needs a price</button>
               <button type="button" className={completionFilter === "photo" ? "active" : ""} onClick={() => setCompletionFilter(completionFilter === "photo" ? "all" : "photo")}>Needs a photo</button>
@@ -2280,7 +2282,7 @@ function LibraryPageContent() {
                         >
                           {myListings[item.id].price_cents != null
                             ? `Listed at $${(myListings[item.id].price_cents / 100).toLocaleString("en-US")}`
-                            : "Set price"}
+                            : "Add a price"}
                         </button>
                       )}
                       {item.status === "for_sale" && !isPublicPreview && (
@@ -2559,6 +2561,22 @@ function LibraryPageContent() {
                     </Link>
 
                     {!isPublicPreview && <UnlinkedForSaleNotice item={item} onLink={() => setPickerEntry({ collection_id: item.id, comic: { series_title: comic.title, issue_number: comic.issueNumber, release_year: comic.year } })} />}
+
+                    {item.status === "for_sale" && !isPublicPreview && myListings[item.id]?.price_cents == null && (
+                      <button
+                        type="button"
+                        className="library-add-price-chip"
+                        onClick={() =>
+                          setEditing({
+                            listing: myListings[item.id],
+                            title: `${comic.title}${comic.issueNumber ? ` #${comic.issueNumber}` : ""}`,
+                            estValue: Number(liveGrade?.market_value) > 0 ? Number(liveGrade.market_value) : marketValues?.[item.id]?.value ?? null,
+                          })
+                        }
+                      >
+                        Add a price
+                      </button>
+                    )}
 
                     {(liveGrade.grade_numeric || liveGrade.condition) && (
                       <div style={{ padding: "4px 10px 0" }}>

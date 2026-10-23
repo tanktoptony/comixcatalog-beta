@@ -12673,6 +12673,17 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 
 /* Seller listing editor (src/components/ListingEditor.js). */
 .library-edit-listing { border-color: rgba(244, 208, 63, 0.55) !important; color: #F4D03F !important; }
+.library-add-price-chip {
+  justify-self: start;
+  margin: 8px 10px 0;
+  padding: 5px 10px;
+  border: 1px solid var(--cc-gold);
+  border-radius: 999px;
+  background: var(--cc-gold-soft);
+  color: var(--cc-gold);
+  font: 700 0.75rem/1.2 inherit;
+  cursor: pointer;
+}
 .le-backdrop { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 16px; background: rgba(0, 0, 0, 0.6); }
 .le { width: min(520px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; display: grid; gap: 16px; padding: 22px 22px 18px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.12); background: #11151d; color: #e9ebf0; }
 .le-head h2 { margin: 0; font-size: 1.2rem; }

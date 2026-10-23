@@ -1,4 +1,5 @@
 import { parseSearchQuery } from "./searchQuery.js";
+import { TEST_ACCOUNT_USERNAMES } from "./traction.js";
 
 // Discogs-style browsing for /marketplace: filters with live counts, sort and
 // pagination over the listing objects from src/lib/marketplace.js. Pure, so
@@ -222,26 +223,86 @@ export function filterLabel(key, value) {
   return value;
 }
 
+export const MIN_HEADLINE_RAIL_ITEMS = 4;
+
+export function isHeadlineListing(listing) {
+  return shownValue(listing) != null && (listing.photoCount > 0 || Boolean(listing.cover));
+}
+
+export function hideShortRail(items, minimum = MIN_HEADLINE_RAIL_ITEMS) {
+  return items.length >= minimum ? items : [];
+}
+
+export function roundRobinBySeller(listings, limit = 6, perSeller = 2) {
+  const ordered = sortListings(listings, "newest");
+  const sellerOrder = [];
+  const groups = new Map();
+  for (const listing of ordered) {
+    const seller = listing.seller ?? "";
+    if (!groups.has(seller)) {
+      groups.set(seller, []);
+      sellerOrder.push(seller);
+    }
+    groups.get(seller).push(listing);
+  }
+
+  const result = [];
+  for (let pass = 0; pass < perSeller && result.length < limit; pass += 1) {
+    for (const seller of sellerOrder) {
+      const listing = groups.get(seller)[pass];
+      if (listing) result.push(listing);
+      if (result.length === limit) break;
+    }
+  }
+  return result;
+}
+
+// At most `perSeries` listings from any one series, in the given order, so a
+// rail of six is not six issues of the same run.
+export function capPerSeries(listings, perSeries = 2) {
+  const seen = new Map();
+  return listings.filter((listing) => {
+    const key = String(listing.title ?? "").toLowerCase();
+    const count = seen.get(key) ?? 0;
+    if (count >= perSeries) return false;
+    seen.set(key, count + 1);
+    return true;
+  });
+}
+
 // The landing page's shelves. Each list is capped so the page stays short.
 export function landingSections(listings, n = 6) {
-  const byNewest = sortListings(listings, "newest");
-  const withValue = listings.filter((l) => shownValue(l) != null);
-  const mostValuable = sortListings(withValue, "value-desc").slice(0, n);
-  const mostWanted = listings
+  const headlineListings = listings.filter(isHeadlineListing);
+  const justListed = hideShortRail(roundRobinBySeller(capPerSeries(sortListings(headlineListings, "newest")), n, 4));
+  const mostValuable = hideShortRail(capPerSeries(sortListings(headlineListings, "value-desc")).slice(0, n));
+  const mostWanted = hideShortRail(headlineListings
     .filter((l) => (l.wantCount ?? 0) > 0)
     .sort((a, b) => b.wantCount - a.wantCount || (shownValue(b) ?? 0) - (shownValue(a) ?? 0))
-    .slice(0, n);
+    .slice(0, n));
+  const issuesForSaleWithPrice = new Set(listings.filter((listing) => shownValue(listing) != null).map((listing) => listing.gcdIssueId));
+  const wantedIssues = new Map();
+  for (const listing of listings) {
+    if ((listing.wantCount ?? 0) <= 0 || issuesForSaleWithPrice.has(listing.gcdIssueId)) continue;
+    const current = wantedIssues.get(listing.gcdIssueId);
+    if (!current || listing.wantCount > current.wantCount) wantedIssues.set(listing.gcdIssueId, listing);
+  }
+  const mostWantedNotForSale = hideShortRail([...wantedIssues.values()]
+    .sort((a, b) => b.wantCount - a.wantCount || String(b.listedAt ?? "").localeCompare(String(a.listedAt ?? "")))
+    .slice(0, n));
   const pubCounts = new Map();
   const sellerCounts = new Map();
   for (const l of listings) {
     const p = publisherOf(l);
     pubCounts.set(p, (pubCounts.get(p) ?? 0) + 1);
-    sellerCounts.set(l.seller, (sellerCounts.get(l.seller) ?? 0) + 1);
+    if (!TEST_ACCOUNT_USERNAMES.includes(String(l.seller ?? "").toLowerCase())) {
+      sellerCounts.set(l.seller, (sellerCounts.get(l.seller) ?? 0) + 1);
+    }
   }
   const rank = (m) => [...m.entries()].sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0])));
   return {
-    justListed: byNewest.slice(0, n),
+    justListed,
     mostWanted,
+    mostWantedNotForSale,
     mostValuable,
     publishers: rank(pubCounts).slice(0, 12),
     sellers: rank(sellerCounts).slice(0, 8),

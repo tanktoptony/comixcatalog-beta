@@ -75291,5 +75291,578 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T23:24:07.759797+00:00",
     "retry_after": "2026-10-23T23:24:07.759815+00:00"
+  },
+  {
+    "name": "Wizard Ace Edition: Daredevil",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:50.804797+00:00",
+    "retry_after": "2026-10-24T00:23:50.804811+00:00"
+  },
+  {
+    "name": "Spawn Figure",
+    "publisher": "Image Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69269,
+        "name": "Spawn Figure",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:51.211322+00:00",
+    "retry_after": "2026-10-24T00:23:51.211338+00:00"
+  },
+  {
+    "name": "Tom and Jerry Summer Special",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158612,
+        "name": "Tom and Jerry Summer Special",
+        "publisher": null,
+        "start_year": 1972
+      },
+      {
+        "id": 158636,
+        "name": "Tom and Jerry Summer Special",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:51.686812+00:00",
+    "retry_after": "2026-10-24T00:23:51.686828+00:00"
+  },
+  {
+    "name": "Joker's Asylum II: Mad Hatter",
+    "publisher": "DC Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33771,
+        "name": "Joker's Asylum II: The Mad Hatter",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:52.105792+00:00",
+    "retry_after": "2026-10-24T00:23:52.105807+00:00"
+  },
+  {
+    "name": "Homicide",
+    "publisher": "Dark Horse Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 94157,
+        "name": "Homicide",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:52.419133+00:00",
+    "retry_after": "2026-10-24T00:23:52.419148+00:00"
+  },
+  {
+    "name": "O Homem-Aranha e Kazar",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:52.751100+00:00",
+    "retry_after": "2026-10-24T00:23:52.751115+00:00"
+  },
+  {
+    "name": "The Kinky Hook",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24194,
+        "name": "The Kinky Hook",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:53.148991+00:00",
+    "retry_after": "2026-10-24T00:23:53.149006+00:00"
+  },
+  {
+    "name": "Marvelman Classic",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35338,
+        "name": "Marvelman Classic",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:53.686796+00:00",
+    "retry_after": "2026-10-24T00:23:53.686812+00:00"
+  },
+  {
+    "name": "Gold Digger Tangent",
+    "publisher": "Antarctic Press",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31332,
+        "name": "Gold Digger: Tangent",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:54.167426+00:00",
+    "retry_after": "2026-10-24T00:23:54.167441+00:00"
+  },
+  {
+    "name": "Totentanz",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 143759,
+        "name": "Totentanz",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:54.667090+00:00",
+    "retry_after": "2026-10-24T00:23:54.667105+00:00"
+  },
+  {
+    "name": "Doctor Strange: The End",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 124680,
+        "name": "Doctor Strange: The End",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:55.056291+00:00",
+    "retry_after": "2026-10-24T00:23:55.056306+00:00"
+  },
+  {
+    "name": "Roulette",
+    "publisher": "Caliber Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45423,
+        "name": "Roulette",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:55.455744+00:00",
+    "retry_after": "2026-10-24T00:23:55.455759+00:00"
+  },
+  {
+    "name": "Batch",
+    "publisher": "Caliber Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45253,
+        "name": "Batch",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:55.960424+00:00",
+    "retry_after": "2026-10-24T00:23:55.960439+00:00"
+  },
+  {
+    "name": "Adventures of Miru",
+    "publisher": "Action Lab Entertainment",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 92149,
+        "name": "The Adventures of Miru",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 103745,
+        "name": "The Adventures of Miru",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:56.469366+00:00",
+    "retry_after": "2026-10-24T00:23:56.469381+00:00"
+  },
+  {
+    "name": "Kong: Gods of Skull Island",
+    "publisher": "BOOM! Studios",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 105332,
+        "name": "Kong: Gods of Skull Island",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:56.889653+00:00",
+    "retry_after": "2026-10-24T00:23:56.889668+00:00"
+  },
+  {
+    "name": "Dr. Weird Special",
+    "publisher": "Caliber Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46729,
+        "name": "Dr. Weird Special",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:57.414868+00:00",
+    "retry_after": "2026-10-24T00:23:57.414884+00:00"
+  },
+  {
+    "name": "Venom by Rick Remender",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 43031,
+        "name": "Venom by Rick Remender",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:57.800026+00:00",
+    "retry_after": "2026-10-24T00:23:57.800040+00:00"
+  },
+  {
+    "name": "Skrulls!",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22390,
+        "name": "Skrulls!",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:58.148515+00:00",
+    "retry_after": "2026-10-24T00:23:58.148530+00:00"
+  },
+  {
+    "name": "I Hunt Monsters Hunting Season",
+    "publisher": "Antarctic Press",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68883,
+        "name": "I Hunt Monsters: Hunting Season",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:58.521025+00:00",
+    "retry_after": "2026-10-24T00:23:58.521040+00:00"
+  },
+  {
+    "name": "Irredeemable Artist Edition",
+    "publisher": "BOOM! Studios",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:58.887498+00:00",
+    "retry_after": "2026-10-24T00:23:58.887513+00:00"
+  },
+  {
+    "name": "Incredible Hercules",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20588,
+        "name": "Incredible Hercules",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:59.563115+00:00",
+    "retry_after": "2026-10-24T00:23:59.563130+00:00"
+  },
+  {
+    "name": "Planet of the Apes",
+    "publisher": "Marvel Comics",
+    "year": 1974,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2699,
+        "name": "Planet of the Apes",
+        "publisher": null,
+        "start_year": 1974
+      },
+      {
+        "id": 39882,
+        "name": "Planet of the Apes",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 149308,
+        "name": "Planet of the Apes",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 47751,
+        "name": "Planet of the Apes",
+        "publisher": null,
+        "start_year": 1974
+      },
+      {
+        "id": 29952,
+        "name": "Planet of the Apes",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 27990,
+        "name": "Planet of the Apes",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 49156,
+        "name": "Planet of the Apes",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:23:59.912734+00:00",
+    "retry_after": "2026-10-24T00:23:59.912749+00:00"
+  },
+  {
+    "name": "Robotech II: The Sentinels Book II",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34622,
+        "name": "Robotech II: The Sentinels - Book II",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:24:00.271935+00:00",
+    "retry_after": "2026-10-24T00:24:00.271950+00:00"
+  },
+  {
+    "name": "Please Save My Earth",
+    "publisher": "VIZ Media",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57087,
+        "name": "Please Save My Earth",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:24:00.563682+00:00",
+    "retry_after": "2026-10-24T00:24:00.563698+00:00"
+  },
+  {
+    "name": "Secret Story Romances",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1581,
+        "name": "Secret Story Romances",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:24:01.038491+00:00",
+    "retry_after": "2026-10-24T00:24:01.038507+00:00"
+  },
+  {
+    "name": "Moriarty the Patriot",
+    "publisher": "VIZ Media",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130415,
+        "name": "Moriarty the Patriot",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 130800,
+        "name": "Moriarty the Patriot",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:24:01.453722+00:00",
+    "retry_after": "2026-10-24T00:24:01.453739+00:00"
+  },
+  {
+    "name": "Starlet",
+    "publisher": "Harvey Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166267,
+        "name": "Starlet",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 154672,
+        "name": "Starlet",
+        "publisher": null,
+        "start_year": 1966
+      },
+      {
+        "id": 154837,
+        "name": "Starlet",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:24:01.798678+00:00",
+    "retry_after": "2026-10-24T00:24:01.798693+00:00"
+  },
+  {
+    "name": "Color Zagor",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129273,
+        "name": "Color Zagor",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:24:02.189982+00:00",
+    "retry_after": "2026-10-24T00:24:02.189997+00:00"
+  },
+  {
+    "name": "Junior Comics Library",
+    "publisher": "Marvel Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63320,
+        "name": "Junior Comics Library",
+        "publisher": null,
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:24:02.651734+00:00",
+    "retry_after": "2026-10-24T00:24:02.651750+00:00"
+  },
+  {
+    "name": "Black Rider",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30493,
+        "name": "Black Rider",
+        "publisher": null,
+        "start_year": 1957
+      },
+      {
+        "id": 30131,
+        "name": "Black Rider",
+        "publisher": null,
+        "start_year": 1950
+      },
+      {
+        "id": 55985,
+        "name": "Black Rider",
+        "publisher": null,
+        "start_year": 1950
+      },
+      {
+        "id": 160303,
+        "name": "Black Rider",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T00:24:03.024158+00:00",
+    "retry_after": "2026-10-24T00:24:03.024174+00:00"
   }
 ]

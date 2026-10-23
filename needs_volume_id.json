@@ -79530,5 +79530,450 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T08:24:04.497250+00:00",
     "retry_after": "2026-10-24T08:24:04.497266+00:00"
+  },
+  {
+    "name": "Timeless",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140623,
+        "name": "Timeless",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 147148,
+        "name": "Timeless",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 155723,
+        "name": "Timeless ",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:47.835215+00:00",
+    "retry_after": "2026-10-24T09:23:47.835234+00:00"
+  },
+  {
+    "name": "Marvel Masterworks: Captain Marvel",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34783,
+        "name": "Marvel Masterworks: Captain Marvel",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:48.338759+00:00",
+    "retry_after": "2026-10-24T09:23:48.338800+00:00"
+  },
+  {
+    "name": "Killadelphia",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 123105,
+        "name": "Killadelphia",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 170498,
+        "name": "Killadelphia",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 103741,
+        "name": "Killadelphia",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 152012,
+        "name": "Killadelphia",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:48.899179+00:00",
+    "retry_after": "2026-10-24T09:23:48.899198+00:00"
+  },
+  {
+    "name": "Animal Antics",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24146,
+        "name": "Animal Antics",
+        "publisher": null,
+        "start_year": 1946
+      },
+      {
+        "id": 66935,
+        "name": "Animal Antics",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:49.981065+00:00",
+    "retry_after": "2026-10-24T09:23:49.981085+00:00"
+  },
+  {
+    "name": "Jigsaw",
+    "publisher": "Harvey Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2287,
+        "name": "Jigsaw",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:50.535572+00:00",
+    "retry_after": "2026-10-24T09:23:50.535592+00:00"
+  },
+  {
+    "name": "The Secret World of Arrietty",
+    "publisher": "VIZ Media",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45999,
+        "name": "The Secret World of Arrietty",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:51.291011+00:00",
+    "retry_after": "2026-10-24T09:23:51.291032+00:00"
+  },
+  {
+    "name": "Catholic Action Comics",
+    "publisher": "Charlton Comics",
+    "year": 1950,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:51.635137+00:00",
+    "retry_after": "2026-10-24T09:23:51.635154+00:00"
+  },
+  {
+    "name": "Baoh",
+    "publisher": "VIZ Media",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63501,
+        "name": "Baoh",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:52.016404+00:00",
+    "retry_after": "2026-10-24T09:23:52.016422+00:00"
+  },
+  {
+    "name": "Monkey Prince",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151106,
+        "name": "Monkey Prince",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 139643,
+        "name": "Monkey Prince",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:52.756471+00:00",
+    "retry_after": "2026-10-24T09:23:52.756489+00:00"
+  },
+  {
+    "name": "Last Line",
+    "publisher": "AfterShock Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 144970,
+        "name": "Last Line",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:53.083380+00:00",
+    "retry_after": "2026-10-24T09:23:53.083399+00:00"
+  },
+  {
+    "name": "Casper the Friendly Ghost Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86176,
+        "name": "Casper the Friendly Ghost Giant Edition",
+        "publisher": null,
+        "start_year": 1969
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:53.670763+00:00",
+    "retry_after": "2026-10-24T09:23:53.670806+00:00"
+  },
+  {
+    "name": "Captain America: Winter Soldier",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27158,
+        "name": "Captain America: Winter Soldier",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 163076,
+        "name": "Captain America: The Winter Soldier",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 71357,
+        "name": "Captain America: The Winter Soldier",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:54.016183+00:00",
+    "retry_after": "2026-10-24T09:23:54.016201+00:00"
+  },
+  {
+    "name": "Hentai Demon Huntress",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167390,
+        "name": "Hentai Demon Huntress",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:54.461217+00:00",
+    "retry_after": "2026-10-24T09:23:54.461237+00:00"
+  },
+  {
+    "name": "Rival Schools",
+    "publisher": "Eclipse Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19008,
+        "name": "Rival Schools",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:54.851219+00:00",
+    "retry_after": "2026-10-24T09:23:54.851237+00:00"
+  },
+  {
+    "name": "Mermaid Saga Collector’s Edition",
+    "publisher": "VIZ Media",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132026,
+        "name": "Mermaid Saga Collector's Edition",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:55.552180+00:00",
+    "retry_after": "2026-10-24T09:23:55.552198+00:00"
+  },
+  {
+    "name": "Of Bitter Souls",
+    "publisher": "Malibu Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40245,
+        "name": "Of Bitter Souls",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 56955,
+        "name": "Of Bitter Souls",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:56.158358+00:00",
+    "retry_after": "2026-10-24T09:23:56.158377+00:00"
+  },
+  {
+    "name": "Giant Junior Funnies",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63199,
+        "name": "Giant Junior Funnies",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:56.537317+00:00",
+    "retry_after": "2026-10-24T09:23:56.537331+00:00"
+  },
+  {
+    "name": "Snotgirl",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 92387,
+        "name": "Snotgirl",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:56.896174+00:00",
+    "retry_after": "2026-10-24T09:23:56.896195+00:00"
+  },
+  {
+    "name": "Dragon Ball: Aventura Mágica",
+    "publisher": "Avatar Press",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:57.242613+00:00",
+    "retry_after": "2026-10-24T09:23:57.242631+00:00"
+  },
+  {
+    "name": "X-Men Gigante",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57596,
+        "name": "X-Men Gigante",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:57.631711+00:00",
+    "retry_after": "2026-10-24T09:23:57.631728+00:00"
+  },
+  {
+    "name": "Teen Titans",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10414,
+        "name": "Teen Titans",
+        "publisher": null,
+        "start_year": 2003
+      },
+      {
+        "id": 43004,
+        "name": "Teen Titans",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 95242,
+        "name": "Teen Titans",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 19986,
+        "name": "Teen Titans",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 75697,
+        "name": "Teen Titans",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 43331,
+        "name": "Teen Titans",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 176699,
+        "name": "Teen Titans",
+        "publisher": null,
+        "start_year": 2026
+      },
+      {
+        "id": 2279,
+        "name": "Teen Titans",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T09:23:58.206061+00:00",
+    "retry_after": "2026-10-24T09:23:58.206078+00:00"
   }
 ]

@@ -21,15 +21,23 @@ export default function CoverThumbFallback() {
       img.src = transformed;
       return true;
     };
+    // Server-rendered markup can't carry onError handlers, so an <img> opts in
+    // to a last-resort placeholder with data-cover-fallback="<url>" instead.
+    const lastResort = (img) => {
+      const fallback = img.dataset.coverFallback;
+      if (!fallback || img.getAttribute("src") === fallback) return false;
+      img.src = fallback;
+      return true;
+    };
     const onError = (event) => {
       const img = event.target;
       if (!(img instanceof HTMLImageElement)) return;
-      if (swap(img)) event.stopImmediatePropagation();
+      if (swap(img) || lastResort(img)) event.stopImmediatePropagation();
     };
     document.addEventListener("error", onError, true);
     // Thumbs that already failed before this effect ran.
     for (const img of document.images) {
-      if (img.complete && img.naturalWidth === 0) swap(img);
+      if (img.complete && img.naturalWidth === 0 && !swap(img)) lastResort(img);
     }
     return () => document.removeEventListener("error", onError, true);
   }, []);

@@ -13781,7 +13781,15 @@ select.input {
 .badge-progress { width: 110px; height: 6px; overflow: hidden; border-radius: 99px; background: var(--cc-surface-2); }
 .badge-progress i { display: block; height: 100%; background: var(--cc-gold); }
 .profile-achievements { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin: 12px 0; }
-.profile-achievements-row { display: flex; gap: 4px; }
+.profile-achievements-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start; max-width: 100%; }
+@media (max-width: 640px) {
+  .profile-achievements { width: 100%; }
+  .profile-achievements-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; gap: 6px; }
+  .profile-achievements-row .collector-badge { width: auto; min-width: 0; }
+  .profile-achievements-row .collector-badge-patch { width: min(52px, 100%); height: auto; }
+}
+.profile-achievements-row .collector-badge { width: 66px; gap: 4px; }
+.collector-badge-name { display: block; max-width: 66px; color: var(--cc-text-muted); font-size: 10px; font-weight: 700; line-height: 1.15; text-align: center; text-transform: uppercase; letter-spacing: .02em; }
 .profile-achievements a, .badges-back { color: var(--cc-gold); font-weight: 700; }
 .badges-page { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 72px; }
 .badges-page > h1 { margin: 18px 0 8px; font: 900 clamp(38px, 7vw, 66px)/.9 var(--font-display); text-transform: uppercase; }

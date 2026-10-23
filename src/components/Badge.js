@@ -1,3 +1,5 @@
+import { markSvg } from "@/lib/badges/marks";
+
 function Shape({ shape, uid }) {
   if (shape === "circle") return <><circle cx="64" cy="64" r="60" fill="#0b1e5b" /><circle cx="64" cy="64" r="54" fill={`url(#${uid}-twill)`} /><circle cx="64" cy="64" r="57" fill="none" stroke="#f6cf2e" strokeWidth="2.5" strokeDasharray="4 3" /></>;
   if (shape === "hex") return <><polygon points="64,4 116,34 116,94 64,124 12,94 12,34" fill="#0b1e5b" /><polygon points="64,11 110,38 110,90 64,117 18,90 18,38" fill={`url(#${uid}-gold)`} /><polygon points="64,7.5 113,36 113,92 64,120.5 15,92 15,36" fill="none" stroke="#0b1e5b" strokeWidth="2.5" strokeDasharray="4 3" /></>;
@@ -5,15 +7,11 @@ function Shape({ shape, uid }) {
 }
 
 function Mark({ badge, foundingNumber }) {
-  const mark = badge.mark;
-  if (mark === "key") return <g transform="translate(64 66)" fill="none" stroke="#0b1e5b" strokeWidth="7" strokeLinecap="round"><circle cx="-14" r="13" /><path d="M-1 0h31M18 0v11M28 0v8" /></g>;
-  if (mark === "check") return <path d="m40 64 17 17 33-35" fill="none" stroke="#f6cf2e" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />;
-  if (mark === "slab") return <g><rect x="44" y="32" width="40" height="62" rx="4" fill="#0b1e5b" /><rect x="50" y="38" width="28" height="9" fill="#f6cf2e" /><rect x="50" y="51" width="28" height="36" fill="#fbf6e6" /></g>;
-  if (mark === "founding") return <><text x="64" y="61" textAnchor="middle" className="badge-mark-small">FOUNDING</text><text x="64" y="91" textAnchor="middle" className="badge-mark">No.{String(foundingNumber ?? "").padStart(3, "0")}</text></>;
-  return <text x="64" y="77" textAnchor="middle" className="badge-mark">{mark}</text>;
+  // Static SVG markup from the shared mark artwork (src/lib/badges/marks.js).
+  return <g dangerouslySetInnerHTML={{ __html: markSvg(badge, { foundingNumber, fontFamily: "var(--font-display), Impact, sans-serif" }) }} />;
 }
 
-export default function Badge({ badge, earned = true, progress, foundingNumber, size = 128, showText = true }) {
+export default function Badge({ badge, earned = true, progress, foundingNumber, size = 128, showText = true, showName = false }) {
   const percent = progress?.target ? Math.min(100, Math.round((progress.progress / progress.target) * 100)) : 0;
   const uid = `badge-${badge.id}`;
   return (
@@ -28,6 +26,7 @@ export default function Badge({ badge, earned = true, progress, foundingNumber, 
           <Mark badge={badge} foundingNumber={foundingNumber ?? badge.foundingNumber} />
         </svg>
       </div>
+      {showName && !showText && <span className="collector-badge-name">{badge.name}</span>}
       {showText && <><strong>{badge.name}</strong><small>{earned ? badge.description : `${progress?.progress ?? 0} of ${progress?.target ?? badge.threshold ?? 1}`}</small>{!earned && <span className="badge-progress"><i style={{ width: `${percent}%` }} /></span>}</>}
     </div>
   );

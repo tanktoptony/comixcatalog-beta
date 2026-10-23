@@ -6,7 +6,7 @@ export default function ProfileBadgeRow({ username, badges = [], foundingNumber 
   return (
     <div className="profile-achievements">
       <div className="profile-achievements-row">
-        {badges.map((badge) => <Badge key={badge.id} badge={badge} foundingNumber={foundingNumber} size={58} showText={false} />)}
+        {badges.map((badge) => <Badge key={badge.id} badge={badge} foundingNumber={foundingNumber} size={58} showText={false} showName />)}
       </div>
       <Link href={`/u/${encodeURIComponent(username)}/badges`}>All badges</Link>
     </div>

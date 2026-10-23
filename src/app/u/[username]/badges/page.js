@@ -20,7 +20,10 @@ export default async function BadgesPage({ params }) {
   const groupedMap = new Map();
   for (const badge of visible) {
     if (!groupedMap.has(badge.group)) groupedMap.set(badge.group, []);
-    groupedMap.get(badge.group).push({ badge, earned: true });
+    // Plain data only: BadgeGallery is a client component, and the catalog's
+    // test() functions can't cross the server/client boundary.
+    const { test: _test, ...display } = badge;
+    groupedMap.get(badge.group).push({ badge: display, earned: true });
   }
   const grouped = [...groupedMap.entries()];
   return (

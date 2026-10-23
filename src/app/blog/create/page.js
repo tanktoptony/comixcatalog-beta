@@ -108,7 +108,7 @@ export default function NewBlogPostPage() {
               required
             />
             <span className="cc-hint">
-              URL-safe, unique. Auto-filled from the title — edit if you want a shorter URL.
+              URL-safe, unique. Auto-filled from the title. Edit if you want a shorter URL.
             </span>
           </div>
 

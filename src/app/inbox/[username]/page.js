@@ -430,7 +430,7 @@ export default function ThreadPage() {
         {messages && messages.length === 0 && (
           <div className={styles.empty}>
             <div className={styles.emptyGlyph} aria-hidden="true">💬</div>
-            <p>Say hi — this is the start of your conversation with <strong>{otherName}</strong>.</p>
+            <p>Say hi. This is the start of your conversation with <strong>{otherName}</strong>.</p>
           </div>
         )}
         {messages?.map((m, idx) => {

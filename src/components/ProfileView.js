@@ -35,6 +35,11 @@ function topShelfCoverUrl(d) {
   return d.canonicalCoverUrl || d.communityCoverUrl || d.personalCoverUrl || d.coverUrl || "/fallback-cover.png";
 }
 
+function useFallbackCover(event) {
+  event.currentTarget.onerror = null;
+  event.currentTarget.src = "/fallback-cover.png";
+}
+
 function formatAddedAgo(iso) {
   if (!iso) return null;
   const then = new Date(iso).getTime();
@@ -242,7 +247,14 @@ export default function ProfileView({ data, isOwner = false }) {
               return (
                 <Link key={item.id} href={d.href} className="profile-top-shelf-card">
                   <div className="profile-top-shelf-cover">
-                    <img src={coverThumb(topShelfCoverUrl(d))} alt={d.title} width="400" height="600" decoding="async" />
+                    <img
+                      src={coverThumb(topShelfCoverUrl(d))}
+                      alt={d.title}
+                      width="400"
+                      height="600"
+                      decoding="async"
+                      onError={useFallbackCover}
+                    />
                     {item.key_issue ? (
                       <span className="profile-key-badge" title={item.key_issue.reason}>
                         KEY
@@ -297,7 +309,15 @@ export default function ProfileView({ data, isOwner = false }) {
               return (
                 <Link key={item.id} href={d.href} className="profile-top-shelf-card">
                   <div className="profile-top-shelf-cover">
-                    <img src={coverThumb(topShelfCoverUrl(d))} alt={d.title} width="400" height="600" loading="lazy" decoding="async" />
+                    <img
+                      src={coverThumb(topShelfCoverUrl(d))}
+                      alt={d.title}
+                      width="400"
+                      height="600"
+                      loading="lazy"
+                      decoding="async"
+                      onError={useFallbackCover}
+                    />
                     {item.slab_company && item.grade_numeric ? (
                       <span className="profile-grade-badge">
                         {item.slab_company} {Number(item.grade_numeric).toFixed(1)}

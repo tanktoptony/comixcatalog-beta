@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { coverThumb } from "@/lib/coverThumb";
 
 function Note({ pick }) {
   if (!pick.noteLink || !pick.noteLinkHref) return pick.note;
@@ -42,7 +43,7 @@ function CoverCard({ pick, eager }) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={series.cover}
+            src={coverThumb(series.cover)}
             alt={`${series.title} cover`}
             loading={eager ? "eager" : "lazy"}
           />

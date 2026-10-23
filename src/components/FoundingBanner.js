@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 // initialRemaining comes from the server-rendered layout, computed fresh
 // per request — this used to seed useState with a hardcoded 83, which every
@@ -12,6 +13,7 @@ import { usePathname } from "next/navigation";
 export default function FoundingBanner({ initialRemaining = null }) {
   const [remaining, setRemaining] = useState(initialRemaining);
   const pathname = usePathname();
+  const { user, loading } = useAuth();
 
   useEffect(() => {
     fetch("/api/founding/status", { cache: "no-store" })
@@ -22,7 +24,7 @@ export default function FoundingBanner({ initialRemaining = null }) {
       .catch(() => {});
   }, []);
 
-  if (remaining == null || remaining < 1) return null;
+  if (loading || user || remaining == null || remaining < 1) return null;
   // /start (the Instagram landing page) carries the founding offer in its
   // own section. Up here it would push the hero's signup CTA down on a phone
   // and send clicks to /signup without the funnel's return path.
@@ -30,8 +32,13 @@ export default function FoundingBanner({ initialRemaining = null }) {
   return (
     <div className="founding-banner" role="region" aria-label="Founding Collector offer">
       <div className="founding-banner-inner">
-        <span className="founding-banner-count">{remaining}</span>
-        <p><strong>free lifetime memberships remain.</strong> Join now and confirm your email, no card required.</p>
+        <p>
+          <span className="founding-banner-count">{remaining}</span>{" "}
+          <strong className="founding-banner-desktop-copy">free lifetime memberships remain.</strong>
+          <strong className="founding-banner-mobile-copy">free lifetime spots left</strong>
+          <span className="founding-banner-desktop-copy"> Join now and confirm your email, no card required.</span>
+        </p>
+        <span className="founding-banner-mobile-copy" aria-hidden="true">·</span>
         <Link href="/signup" className="founding-banner-cta">Join free →</Link>
       </div>
     </div>

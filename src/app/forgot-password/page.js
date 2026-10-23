@@ -111,7 +111,7 @@ export default function ForgotPasswordPage() {
         <>
           <p className="auth-subtitle">
             If an account exists for <strong>{email}</strong>, we just sent a
-            password-reset link to that address. Check your inbox — the link is
+            password-reset link to that address. Check your inbox. The link is
             valid for one hour.
           </p>
           <p className="auth-footer">
@@ -136,7 +136,7 @@ export default function ForgotPasswordPage() {
       ) : (
         <>
           <p className="auth-subtitle">
-            Enter the email on your account and we'll send a link to set a new
+            Enter the email on your account and we&rsquo;ll send a link to set a new
             password.
           </p>
 

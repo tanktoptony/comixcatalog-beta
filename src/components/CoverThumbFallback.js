@@ -1,24 +1,24 @@
 "use client";
 
 import { useEffect } from "react";
-import { coverOriginal } from "@/lib/coverThumb";
+import { coverTransform } from "@/lib/coverThumb";
 
 // Grids ask for a cover's small WebP thumb (src/lib/coverThumb.js). Until the
 // backfill reaches every cover, some thumbs will 404; this swaps any thumb
-// that fails back to its full-size original, sitewide, so no call site needs
+// that fails to Supabase's 400px image transform, sitewide, so no call site needs
 // its own fallback.
 //
 // It listens in the capture phase on document, which runs before an <img>'s
 // own onError, and stops the event there so a component's "show the
-// placeholder" handler does not fire for a cover that does exist. If the
-// original fails too, that second error has a non-thumb src and passes
+// placeholder" handler does not fire before the transform is tried. If the
+// transform fails too, that second error has a non-thumb src and passes
 // through to the component as before.
 export default function CoverThumbFallback() {
   useEffect(() => {
     const swap = (img) => {
-      const original = coverOriginal(img.getAttribute("src"));
-      if (!original) return false;
-      img.src = original;
+      const transformed = coverTransform(img.getAttribute("src"));
+      if (!transformed) return false;
+      img.src = transformed;
       return true;
     };
     const onError = (event) => {

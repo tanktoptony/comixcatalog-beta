@@ -35,7 +35,7 @@ const STEPS = [
     icon: "🔍",
     title: "Search the database",
     body:
-      "Every series, every issue, every variant. 217k+ series indexed. Search by title, character, publisher, or year — then add what you own.",
+      "Every series, every issue, every variant. 217k+ series indexed. Search by title, character, publisher, or year, then add what you own.",
     cta: { href: "/search", label: "Open search" },
   },
   {

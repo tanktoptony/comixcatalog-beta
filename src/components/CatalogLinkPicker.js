@@ -215,7 +215,7 @@ export default function CatalogLinkPicker({
         >
           <div style={{ minWidth: 0 }}>
             <div style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.08em", opacity: 0.6, fontWeight: 700 }}>
-              {pickedSeries ? "Step 2 — confirm issue" : "Step 1 — find the series"}
+              {pickedSeries ? "Step 2, confirm issue" : "Step 1, find the series"}
             </div>
             <div style={{ fontSize: "1.05rem", fontWeight: 700, marginTop: 2 }}>
               {entry?.comic?.series_title} #{entry?.comic?.issue_number}
@@ -490,7 +490,7 @@ export default function CatalogLinkPicker({
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ fontWeight: 700, fontSize: "0.95rem" }}>
                         #{i.issue_number}
-                        {i.issue_title ? ` — ${i.issue_title}` : ""}
+                        {i.issue_title ? `, ${i.issue_title}` : ""}
                       </div>
                       <div style={{ fontSize: "0.8rem", opacity: 0.7, marginTop: 2 }}>
                         {i.issue_year ?? "Year unknown"}

@@ -169,7 +169,7 @@ export default function SignUpPage() {
       setSaving(false);
       failSignup(
         "timeout",
-        "Email service is temporarily unavailable — your confirmation " +
+        "Email service is temporarily unavailable. Your confirmation " +
           "email can't be sent right now. Email comixcatalog@gmail.com " +
           "and we'll get you in manually."
       );
@@ -330,7 +330,7 @@ export default function SignUpPage() {
       </Link>
 
       <h1 className="auth-title">Create your account</h1>
-      <p className="auth-subtitle">Free to start tracking your collection &mdash; values, grades, runs.</p>
+      <p className="auth-subtitle">Free to start tracking your collection, values, grades, runs.</p>
 
       {/* OAuth temporarily hidden — pre-launch users were finding the
           Google flow clunky (extra redirects, /complete-profile gate,

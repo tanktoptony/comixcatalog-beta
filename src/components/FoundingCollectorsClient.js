@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
+import FoundingQueryMessage from "@/components/FoundingQueryMessage";
 
 // initialRemaining comes from the server-rendered page (see page.js) - this
 // used to default to a hardcoded 83 in useState, which flashed to the real
@@ -37,7 +38,7 @@ function writeNumber(userId, n) {
   }
 }
 
-export default function FoundingCollectorsClient({ initialRemaining = null, roster = [], initialMessage = "" }) {
+export default function FoundingCollectorsClient({ initialRemaining = null, roster = [] }) {
   const { user, profile, loading } = useAuth();
   const userId = user?.id ?? null;
   const [status, setStatus] = useState({ remaining: initialRemaining, isFounding: false, canClaim: false });
@@ -47,7 +48,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
   // founder while it's still finding out who they are.
   const [statusFor, setStatusFor] = useState(null);
   const [busy, setBusy] = useState(false);
-  const [message, setMessage] = useState(initialMessage);
+  const [message, setMessage] = useState("");
 
   async function fetchStatus() {
     const response = userId
@@ -146,6 +147,11 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
             </div>
           )}
           {message && <p className="founding-message">{message}</p>}
+          {!message && (
+            <Suspense fallback={null}>
+              <FoundingQueryMessage />
+            </Suspense>
+          )}
         </div>
 
         <div className="fc-pass-wrap" aria-hidden="true">

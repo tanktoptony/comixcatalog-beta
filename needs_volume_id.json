@@ -69160,9 +69160,9 @@
         "start_year": 1933
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T14:24:01.041284+00:00",
-    "retry_after": "2026-10-23T14:24:01.041298+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T15:23:44.480086+00:00",
+    "retry_after": "2026-10-26T15:23:44.480101+00:00"
   },
   {
     "name": "Skinheads in Love",
@@ -69218,9 +69218,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T14:24:01.931641+00:00",
-    "retry_after": "2026-10-23T14:24:01.931657+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-23T15:23:44.834058+00:00",
+    "retry_after": "2026-10-26T15:23:44.834072+00:00"
   },
   {
     "name": "Teens at Play",
@@ -81982,5 +81982,466 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-23T14:24:10.778085+00:00",
     "retry_after": "2026-10-24T14:24:10.778098+00:00"
+  },
+  {
+    "name": "The Seasons",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 162192,
+        "name": "The Seasons",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 130152,
+        "name": "SEASONS",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:43.838887+00:00",
+    "retry_after": "2026-10-24T15:23:43.838902+00:00"
+  },
+  {
+    "name": "Married... with Children: Kelly Goes to Kollege",
+    "publisher": "Now Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72510,
+        "name": "Married... With Children: Kelly Goes to Kollege",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:45.359173+00:00",
+    "retry_after": "2026-10-24T15:23:45.359189+00:00"
+  },
+  {
+    "name": "Gun Blaze West",
+    "publisher": "VIZ Media",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 89998,
+        "name": "Gun Blaze West",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 39186,
+        "name": "Gun Blaze West",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 42554,
+        "name": "Gun Blaze West",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:45.812258+00:00",
+    "retry_after": "2026-10-24T15:23:45.812273+00:00"
+  },
+  {
+    "name": "Star Wars - L'Empire écarlate",
+    "publisher": "Dark Horse Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:46.217551+00:00",
+    "retry_after": "2026-10-24T15:23:46.217566+00:00"
+  },
+  {
+    "name": "Dracula Lord of the Undead",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33700,
+        "name": "Dracula: Lord of the Undead",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:46.501162+00:00",
+    "retry_after": "2026-10-24T15:23:46.501177+00:00"
+  },
+  {
+    "name": "Richie Rich and His Mean Cousin Reggie",
+    "publisher": "Harvey Comics",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32270,
+        "name": "Richie Rich and His Mean Cousin Reggie",
+        "publisher": null,
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:46.855218+00:00",
+    "retry_after": "2026-10-24T15:23:46.855232+00:00"
+  },
+  {
+    "name": "James Bond 007 - La Dent du serpent",
+    "publisher": "Dark Horse Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:47.201234+00:00",
+    "retry_after": "2026-10-24T15:23:47.201249+00:00"
+  },
+  {
+    "name": "Grendel l'enfant guerrier",
+    "publisher": "Dark Horse Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:48.029463+00:00",
+    "retry_after": "2026-10-24T15:23:48.029479+00:00"
+  },
+  {
+    "name": "The Defenseless Dead",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48734,
+        "name": "The Defenseless Dead",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:48.502818+00:00",
+    "retry_after": "2026-10-24T15:23:48.502832+00:00"
+  },
+  {
+    "name": "The Powerpuff Girls: Bureau of Bad",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 110475,
+        "name": "Powerpuff Girls: Bureau of Bad",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 106535,
+        "name": "The Powerpuff Girls: Bureau of Bad",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:48.885095+00:00",
+    "retry_after": "2026-10-24T15:23:48.885110+00:00"
+  },
+  {
+    "name": "IT! The Terror from Beyond Space",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62652,
+        "name": "IT! The Terror From Beyond Space",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:49.265855+00:00",
+    "retry_after": "2026-10-24T15:23:49.265870+00:00"
+  },
+  {
+    "name": "Hammer of the Gods: Hammer Hits China",
+    "publisher": "Image Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26823,
+        "name": "Hammer of the Gods: Hammer Hits China",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:49.703901+00:00",
+    "retry_after": "2026-10-24T15:23:49.703915+00:00"
+  },
+  {
+    "name": "All Western Winners",
+    "publisher": "Marvel Comics",
+    "year": 1948,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21548,
+        "name": "All Western Winners",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:50.275102+00:00",
+    "retry_after": "2026-10-24T15:23:50.275117+00:00"
+  },
+  {
+    "name": "Primordia",
+    "publisher": "Archaia",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28396,
+        "name": "Primordia",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:50.688692+00:00",
+    "retry_after": "2026-10-24T15:23:50.688707+00:00"
+  },
+  {
+    "name": "Captain Carrot and the Final Ark",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19670,
+        "name": "Captain Carrot and the Final Ark!",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 43746,
+        "name": "Captain Carrot and the Final Ark",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:51.106057+00:00",
+    "retry_after": "2026-10-24T15:23:51.106071+00:00"
+  },
+  {
+    "name": "Cyberlust",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27210,
+        "name": "Cyberlust",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:51.536604+00:00",
+    "retry_after": "2026-10-24T15:23:51.536619+00:00"
+  },
+  {
+    "name": "Living with the Dead",
+    "publisher": "Dark Horse Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19643,
+        "name": "Living with the Dead",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 48034,
+        "name": "Living with the Dead",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:52.018531+00:00",
+    "retry_after": "2026-10-24T15:23:52.018547+00:00"
+  },
+  {
+    "name": "Sea Serpent's Heir",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147085,
+        "name": "Sea Serpent's Heir",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:52.389192+00:00",
+    "retry_after": "2026-10-24T15:23:52.389206+00:00"
+  },
+  {
+    "name": "Uncle Scrooge",
+    "publisher": "IDW Publishing",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2103,
+        "name": "Uncle Scrooge",
+        "publisher": null,
+        "start_year": 1953
+      },
+      {
+        "id": 81497,
+        "name": "Uncle Scrooge",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 167517,
+        "name": "Uncle Scrooge",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:53.033363+00:00",
+    "retry_after": "2026-10-24T15:23:53.033377+00:00"
+  },
+  {
+    "name": "Fallen Angel",
+    "publisher": "IDW Publishing",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11052,
+        "name": "Fallen Angel",
+        "publisher": null,
+        "start_year": 2003
+      },
+      {
+        "id": 57889,
+        "name": "Fallen Angel",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 18670,
+        "name": "Fallen Angel",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 70758,
+        "name": "Fallen Angel",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:53.493578+00:00",
+    "retry_after": "2026-10-24T15:23:53.493594+00:00"
+  },
+  {
+    "name": "Babyteeth",
+    "publisher": "AfterShock Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 101922,
+        "name": "Babyteeth",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 171891,
+        "name": "Babyteeth",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:53.882509+00:00",
+    "retry_after": "2026-10-24T15:23:53.882524+00:00"
+  },
+  {
+    "name": "Bakuman.",
+    "publisher": "VIZ Media",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71293,
+        "name": "Bakuman.",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 79303,
+        "name": "Bakuman.",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 26276,
+        "name": "Bakuman.",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 107545,
+        "name": "Bakuman.",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 34830,
+        "name": "Bakuman.",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 166765,
+        "name": "Bakuman",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 155489,
+        "name": "Bakuman",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-23T15:23:54.248518+00:00",
+    "retry_after": "2026-10-24T15:23:54.248533+00:00"
   }
 ]

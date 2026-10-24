@@ -90,10 +90,27 @@ export default function TermsOfServicePage() {
           Sellers are responsible for accurately describing items, complying
           with all applicable laws (including taxes), and shipping promptly.
           Buyers are responsible for paying for items they agree to buy. The
-          marketplace is in beta. ComixCatalog doesn&rsquo;t charge fees or process
-          payments for marketplace sales during the beta. Buyers and sellers
-          arrange payment and shipping directly. If we add fees or checkout,
-          we&rsquo;ll update these Terms and tell you before anything changes.
+          marketplace is in beta.
+        </p>
+        <p>
+          <strong>Buy now orders.</strong> When you buy with Buy now, ComixCatalog
+          collects your payment through Stripe and pays the seller after the order
+          completes (3 days after delivery, and for new sellers no sooner than 14
+          days after the sale). Sellers must ship within 3 business days, with
+          tracking on orders of $50 or more. If an item doesn&rsquo;t arrive or isn&rsquo;t
+          as described, the buyer can report it from the order page before the
+          order completes; we review it and may refund the buyer and recover the
+          amount from the seller&rsquo;s payout. Returns for any other reason are up
+          to the seller. Sellers who use Buy now must also accept Stripe&rsquo;s
+          Connected Account Agreement. ComixCatalog charges no marketplace fee
+          during the beta; Stripe&rsquo;s card processing fee is deducted from the
+          seller&rsquo;s payout. If we add a fee, we&rsquo;ll update these Terms and tell
+          sellers before it applies.
+        </p>
+        <p>
+          <strong>Deals by message.</strong> For sales arranged by message,
+          buyers and sellers agree on payment and shipping directly, and
+          ComixCatalog is not a party to the sale.
         </p>
 
         <h2>6. Database Contributions</h2>

@@ -216,14 +216,28 @@ async function computeListing(id) {
   if (error) throw error;
   if (!l || !["active", "reserved", "sold"].includes(l.status)) return null;
 
-  const [{ data: seller, error: sErr }, { data: uc, error: uErr }, { count: otherCount, error: cErr }] = await Promise.all([
+  const [{ data: seller, error: sErr }, { data: uc, error: uErr }, { count: otherCount, error: cErr }, { data: pricedRows, error: pricedError }, { data: sellerAccount }] = await Promise.all([
     sb.from("profiles").select("username, is_public, show_for_sale, created_at, avatar_key, avatar_url, is_founding_collector").eq("id", l.seller_id).maybeSingle(),
     sb.from("user_collections").select("market_value, auto_market_value").eq("id", l.collection_id).maybeSingle(),
     sb.from("listings").select("id", { count: "exact", head: true }).eq("seller_id", l.seller_id).eq("status", "active").neq("id", l.id),
+    sb.from("listings").select("id,collection_id,gcd_issue_id,series_title,issue_number,release_year,publisher,variant_label,cover_path,condition,grade_numeric,slab_company,price_cents,shipping_cents,accepts_offers,created_at").eq("seller_id", l.seller_id).eq("status", "active").not("price_cents", "is", null).neq("id", l.id).order("created_at", { ascending: false }).limit(12),
+    sb.from("seller_accounts").select("additional_item_shipping_cents").eq("user_id", l.seller_id).maybeSingle(),
   ]);
   if (sErr) throw sErr;
   if (uErr) throw uErr;
   if (cErr) throw cErr;
+  if (pricedError) throw pricedError;
+  // Offer only books checkout will actually take (onboarded seller, photos
+  // at $100+, slab certs, new-seller caps): one ineligible book fails the
+  // whole multi-book order.
+  const buyable = [];
+  // Same series first: someone buying X-Men #18 most likely wants #19.
+  const sameSeriesFirst = [...(pricedRows || [])].sort((a, b) => Number(b.series_title === l.series_title) - Number(a.series_title === l.series_title));
+  for (const row of sameSeriesFirst) {
+    if (buyable.length === 6) break;
+    const { data: block, error: blockError } = await sb.rpc("mkt_listing_checkout_block", { p_listing: row.id });
+    if (!blockError && block == null) buyable.push(row);
+  }
   if (!seller?.username || seller.is_public === false || seller.show_for_sale === false) return null;
 
   const { data: photoRows, error: pErr } = await sb
@@ -265,6 +279,8 @@ async function computeListing(id) {
       avatar: avatarForProfile({ ...seller, id: l.seller_id }, { width: 88, height: 88 }),
       otherListings: otherCount ?? 0,
       rating: formatSellerRating(rating),
+      pricedListings: buyable.map((row) => toListing({ ...row, seller_username: seller.username }, supa)),
+      additionalShippingCents: sellerAccount?.additional_item_shipping_cents ?? 100,
     },
   };
 }

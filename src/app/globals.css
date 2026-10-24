@@ -13986,3 +13986,37 @@ select.input {
 .badge-toast strong { font: 800 24px/1 var(--font-display); text-transform: uppercase; }
 .badge-toast span { color: var(--cc-text-muted); font-size: 14px; }
 .badge-toast > button { position: absolute; top: 5px; right: 7px; border: 0; background: none; color: var(--cc-text-muted); font-size: 22px; cursor: pointer; }
+.more-from-seller {
+  min-width: 0;
+  margin: 0 0 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--cc-gold) 35%, transparent);
+  border-radius: 8px;
+}
+
+.more-from-seller legend {
+  padding: 0 0.25rem;
+  color: var(--cc-gold);
+  font-family: var(--font-display);
+}
+
+.more-from-seller label {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.3rem 0;
+  cursor: pointer;
+}
+
+.more-from-seller span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 360px) {
+  .more-from-seller label {
+    font-size: 0.85rem;
+  }
+}

@@ -8,6 +8,76 @@
 
 export const SITE_NEWS = [
   {
+    date: "2026-10-24",
+    title: "Nearly 7,000 more series",
+    body: "The catalog picked up almost 7,000 US series it was missing this week, new books included: the Midnight line, Mind MGMT: New & Improved and The Forever Home are all in.",
+    href: "/series/5f531b24-610e-4656-a9ed-654105fd65f8",
+  },
+  {
+    date: "2026-10-23",
+    title: "Badges",
+    body: "Collecting now earns badges, 31 of them: milestones from your first issue up, keys from every age, full runs, slabs, the 9.8 Club and more. Your badges page shows how close you are to the next one, and you pick four to show on your profile.",
+  },
+  {
+    date: "2026-10-23",
+    title: "People you may know",
+    body: "The People page suggests collectors with a reason attached: you collect the same runs, someone you follow follows them, you signed up through the same comic shop, or you live in the same city. There's also a list of other collectors who love the same publisher you do.",
+    href: "/people",
+  },
+  {
+    date: "2026-10-23",
+    title: "A real inbox",
+    body: "Conversations show a preview, unread ones stand out, and you can search them. New message lets you pick who to write to, threads are grouped by day, and Enter sends. Profiles have a Message button now too.",
+    href: "/inbox",
+  },
+  {
+    date: "2026-10-23",
+    title: "Better link previews",
+    body: "Share a profile, series, issue, creator or listing in a text or a post and it shows up as a proper ComixCatalog preview card instead of a bare link.",
+  },
+  {
+    date: "2026-10-23",
+    title: "A cleaner marketplace front",
+    body: "The marketplace front page only features books with a price and a photo or cover, and it mixes sellers so one big lister can't fill a whole row.",
+    href: "/marketplace",
+  },
+  {
+    date: "2026-10-22",
+    title: "Add a whole run at once",
+    body: "On any series page, switch on Mark what you own, tap the issues you have or select a range, and add them all in one go.",
+    href: "/series/51ee909e-99c3-49a0-871a-be0b79a8dcb5?own=1",
+  },
+  {
+    date: "2026-10-22",
+    title: "Key pages and printable checklists",
+    body: "A run with keys now gets its own keys page, every key and why it matters, plus a printable checklist of the whole run with the keys marked. If you're signed in, what you own is already checked off.",
+    href: "/series/51ee909e-99c3-49a0-871a-be0b79a8dcb5/keys",
+  },
+  {
+    date: "2026-10-22",
+    title: "A better insurance PDF",
+    body: "Export PDF on your library now prints the real publisher, the cover and a short grade for every book. The total is labeled an estimate, because that's what it is.",
+    href: "/library",
+  },
+  {
+    date: "2026-10-19",
+    title: "Can't find a book? Ask",
+    body: "If something's missing from the catalog, request it and it goes to the front of the line for covers and data.",
+    href: "/request",
+  },
+  {
+    date: "2026-10-19",
+    title: "Search goes all the way",
+    body: "Reach the end of a search and you get links to the full runs of that title, instead of a dead end.",
+    href: "/search",
+  },
+  {
+    date: "2026-10-19",
+    title: "Keys in the run grid",
+    body: "Key issues are marked right in a series' issue grid, with the reason under the issue number. Major keys get a gold tag.",
+    href: "/series/51ee909e-99c3-49a0-871a-be0b79a8dcb5",
+  },
+  {
     date: "2026-10-18",
     title: "Series pages, rebuilt",
     body: "Every series page now opens with the run at a glance: how many issues, how many keys, the years it ran, and how many times it's been reprinted. Below that is who wrote and drew it most, plus every other run of the same title.",

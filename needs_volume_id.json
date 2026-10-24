@@ -67603,9 +67603,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T10:15:59.568784+00:00",
-    "retry_after": "2026-10-23T10:15:59.568799+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T13:00:48.522720+00:00",
+    "retry_after": "2026-10-27T13:00:48.522735+00:00"
   },
   {
     "name": "Warlord of Mars: Dejah Thoris",
@@ -75891,9 +75891,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T12:23:57.291328+00:00",
-    "retry_after": "2026-10-24T12:23:57.291342+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T13:23:59.926440+00:00",
+    "retry_after": "2026-10-27T13:23:59.926455+00:00"
   },
   {
     "name": "Cyborg",
@@ -77615,5 +77615,777 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T11:23:50.684365+00:00",
     "retry_after": "2026-10-25T11:23:50.684380+00:00"
+  },
+  {
+    "name": "Justice League International Special",
+    "publisher": "DC Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23478,
+        "name": "Justice League International Special",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:00:47.722723+00:00",
+    "retry_after": "2026-10-25T13:00:47.722738+00:00"
+  },
+  {
+    "name": "Swamp Thing",
+    "publisher": "DC Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42599,
+        "name": "Swamp Thing",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 2556,
+        "name": "Swamp Thing",
+        "publisher": null,
+        "start_year": 1972
+      },
+      {
+        "id": 51518,
+        "name": "Swamp Thing",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 138174,
+        "name": "Swamp Thing",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 134142,
+        "name": "The Swamp Thing",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 40953,
+        "name": "Swamp Thing",
+        "publisher": null,
+        "start_year": 2003
+      },
+      {
+        "id": 3465,
+        "name": "Swamp Thing",
+        "publisher": null,
+        "start_year": 1986
+      },
+      {
+        "id": 11315,
+        "name": "Swamp Thing",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 6760,
+        "name": "Swamp Thing",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 58231,
+        "name": "Swamp Thing",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 87185,
+        "name": "Swamp Thing",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:00:49.000551+00:00",
+    "retry_after": "2026-10-25T13:00:49.000567+00:00"
+  },
+  {
+    "name": "Underworld",
+    "publisher": "DC Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3820,
+        "name": "Underworld",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 22064,
+        "name": "Underworld",
+        "publisher": null,
+        "start_year": 2003
+      },
+      {
+        "id": 26919,
+        "name": "Underworld",
+        "publisher": null,
+        "start_year": 1948
+      },
+      {
+        "id": 73225,
+        "name": "Underworld",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 86561,
+        "name": "Underworld",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 139087,
+        "name": "Underworld",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 25523,
+        "name": "Underworld",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 92895,
+        "name": "Underworld",
+        "publisher": null,
+        "start_year": 1951
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:00:49.532591+00:00",
+    "retry_after": "2026-10-25T13:00:49.532605+00:00"
+  },
+  {
+    "name": "Metal Men",
+    "publisher": "DC Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2113,
+        "name": "Metal Men",
+        "publisher": null,
+        "start_year": 1963
+      },
+      {
+        "id": 19027,
+        "name": "Metal Men",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 4972,
+        "name": "Metal Men",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 122039,
+        "name": "Metal Men",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 27309,
+        "name": "Metal Men",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:00:50.017200+00:00",
+    "retry_after": "2026-10-25T13:00:50.017215+00:00"
+  },
+  {
+    "name": "Batman: Gotham Nights II",
+    "publisher": "DC Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19622,
+        "name": "Batman: Gotham Nights II",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:00:50.437740+00:00",
+    "retry_after": "2026-10-25T13:00:50.437756+00:00"
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:00:50.823560+00:00",
+    "retry_after": "2026-10-25T13:00:50.823575+00:00"
+  },
+  {
+    "name": "Fantastic Four: First Foes",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171100,
+        "name": "The Fantastic Four: First Foes",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:00:51.196642+00:00",
+    "retry_after": "2026-10-25T13:00:51.196657+00:00"
+  },
+  {
+    "name": "Doomquest",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172118,
+        "name": "Doomquest",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:00:51.602356+00:00",
+    "retry_after": "2026-10-25T13:00:51.602372+00:00"
+  },
+  {
+    "name": "Fantastic Four: First Foes - Shalla-Bal",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 174204,
+        "name": "Fantastic Four: First Foes - Shalla-Bal",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:00:51.963542+00:00",
+    "retry_after": "2026-10-25T13:00:51.963556+00:00"
+  },
+  {
+    "name": "Eternals 50th Anniversary Special",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171258,
+        "name": "Eternals 50th Anniversary Special",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:53.468269+00:00",
+    "retry_after": "2026-10-25T13:23:53.468284+00:00"
+  },
+  {
+    "name": "Echo: Seeker of Truth",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 168195,
+        "name": "Echo: Seeker of Truth",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:53.824486+00:00",
+    "retry_after": "2026-10-25T13:23:53.824501+00:00"
+  },
+  {
+    "name": "It's Jeff & Other Marvel Tails",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166646,
+        "name": "It's Jeff & Other Marvel Tails",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:54.253625+00:00",
+    "retry_after": "2026-10-25T13:23:54.253637+00:00"
+  },
+  {
+    "name": "Deadpool: April Pool's Day",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171256,
+        "name": "Deadpool: April Pool's Day",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:54.567563+00:00",
+    "retry_after": "2026-10-25T13:23:54.567577+00:00"
+  },
+  {
+    "name": "Energon Universe 2026 Special",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171773,
+        "name": "Energon Universe 2026 Special",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:55.071289+00:00",
+    "retry_after": "2026-10-25T13:23:55.071304+00:00"
+  },
+  {
+    "name": "Famous Comics",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72379,
+        "name": "Famous Comics",
+        "publisher": null,
+        "start_year": 1933
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:55.361978+00:00",
+    "retry_after": "2026-10-25T13:23:55.361993+00:00"
+  },
+  {
+    "name": "Rex Allen",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37005,
+        "name": "Rex Allen",
+        "publisher": null,
+        "start_year": 1951
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:55.597116+00:00",
+    "retry_after": "2026-10-25T13:23:55.597131+00:00"
+  },
+  {
+    "name": "Doom 2099: Rage of Doom",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171681,
+        "name": "Doom 2099: Rage of Doom",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:55.848460+00:00",
+    "retry_after": "2026-10-25T13:23:55.848474+00:00"
+  },
+  {
+    "name": "Marvel Super-Heroes Spring Special",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 154866,
+        "name": "Marvel Super-Heroes Spring Special",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:56.310680+00:00",
+    "retry_after": "2026-10-25T13:23:56.310694+00:00"
+  },
+  {
+    "name": "Tales of the Vienna Sausage Woods",
+    "publisher": "Top Cow Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71419,
+        "name": "Tales of the Vienna Sausage Woods",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:56.722526+00:00",
+    "retry_after": "2026-10-25T13:23:56.722538+00:00"
+  },
+  {
+    "name": "Doomed 2099",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166444,
+        "name": "Doomed 2099",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:56.991260+00:00",
+    "retry_after": "2026-10-25T13:23:56.991275+00:00"
+  },
+  {
+    "name": "Alien Sex / Monster Lust",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29098,
+        "name": "Alien Sex/Monster Lust",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:57.427413+00:00",
+    "retry_after": "2026-10-25T13:23:57.427427+00:00"
+  },
+  {
+    "name": "Avengers: The Initiative Annual",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19935,
+        "name": "Avengers: The Initiative Annual",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:57.808790+00:00",
+    "retry_after": "2026-10-25T13:23:57.808806+00:00"
+  },
+  {
+    "name": "The Fall of Ultraman",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170544,
+        "name": "The Fall of Ultraman",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:58.176107+00:00",
+    "retry_after": "2026-10-25T13:23:58.176122+00:00"
+  },
+  {
+    "name": "Fantastic Four / Gargoyles",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167693,
+        "name": "Fantastic Four/Gargoyles",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:58.450829+00:00",
+    "retry_after": "2026-10-25T13:23:58.450843+00:00"
+  },
+  {
+    "name": "Obergeist: The Empty Locket",
+    "publisher": "Image Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42740,
+        "name": "Obergeist: The Empty Locket",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:58.941512+00:00",
+    "retry_after": "2026-10-25T13:23:58.941528+00:00"
+  },
+  {
+    "name": "True Believers: X-Men - Empath",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130191,
+        "name": "True Believers: X-Men: Empath",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:23:59.290402+00:00",
+    "retry_after": "2026-10-25T13:23:59.290418+00:00"
+  },
+  {
+    "name": "True Believers: Fantastic Four vs. Doctor Doom",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112226,
+        "name": "True Believers: Fantastic Four vs. Doctor Doom!",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:00.398588+00:00",
+    "retry_after": "2026-10-25T13:24:00.398603+00:00"
+  },
+  {
+    "name": "Batman / Superman / Weird Al: World's Weirdest",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 176681,
+        "name": "Batman/Superman/Weird Al: World's Weirdest",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:00.723539+00:00",
+    "retry_after": "2026-10-25T13:24:00.723554+00:00"
+  },
+  {
+    "name": "Domingos Alegres",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53933,
+        "name": "Domingos Alegres",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:01.412205+00:00",
+    "retry_after": "2026-10-25T13:24:01.412222+00:00"
+  },
+  {
+    "name": "Chiquilladas",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68422,
+        "name": "Chiquilladas",
+        "publisher": null,
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:01.812149+00:00",
+    "retry_after": "2026-10-25T13:24:01.812165+00:00"
+  },
+  {
+    "name": "Tarzán",
+    "publisher": "Marvel Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 145785,
+        "name": "Tarzán",
+        "publisher": null,
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:02.127633+00:00",
+    "retry_after": "2026-10-25T13:24:02.127648+00:00"
+  },
+  {
+    "name": "Basserne",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130307,
+        "name": "Basserne",
+        "publisher": null,
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:02.562250+00:00",
+    "retry_after": "2026-10-25T13:24:02.562265+00:00"
+  },
+  {
+    "name": "La Pequeña Lulú",
+    "publisher": "Harvey Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141790,
+        "name": "La Pequeña Lulú",
+        "publisher": null,
+        "start_year": 1971
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:02.835018+00:00",
+    "retry_after": "2026-10-25T13:24:02.835034+00:00"
+  },
+  {
+    "name": "Joyas de la Mitología",
+    "publisher": "Harvey Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44319,
+        "name": "Joyas de la Mitología",
+        "publisher": null,
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:03.169626+00:00",
+    "retry_after": "2026-10-25T13:24:03.169641+00:00"
+  },
+  {
+    "name": "Tex Nuova Ristampa",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 93849,
+        "name": "Tex Nuova Ristampa",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:03.549266+00:00",
+    "retry_after": "2026-10-25T13:24:03.549281+00:00"
+  },
+  {
+    "name": "Periquita",
+    "publisher": "Marvel Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 82528,
+        "name": "Periquita",
+        "publisher": null,
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:03.924721+00:00",
+    "retry_after": "2026-10-25T13:24:03.924737+00:00"
+  },
+  {
+    "name": "Gene Autry",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50262,
+        "name": "Gene Autry",
+        "publisher": null,
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:04.306036+00:00",
+    "retry_after": "2026-10-25T13:24:04.306051+00:00"
+  },
+  {
+    "name": "Kriminal",
+    "publisher": "Dark Horse Comics",
+    "year": 1957,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2216,
+        "name": "Kriminal",
+        "publisher": null,
+        "start_year": 1964
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T13:24:04.693634+00:00",
+    "retry_after": "2026-10-25T13:24:04.693650+00:00"
   }
 ]

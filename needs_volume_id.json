@@ -75932,9 +75932,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T12:23:57.727576+00:00",
-    "retry_after": "2026-10-24T12:23:57.727592+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T19:23:55.550580+00:00",
+    "retry_after": "2026-10-27T19:23:55.550595+00:00"
   },
   {
     "name": "Angel",
@@ -77022,9 +77022,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T18:26:32.421147+00:00",
-    "retry_after": "2026-10-24T18:26:32.421162+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T19:00:44.704783+00:00",
+    "retry_after": "2026-10-27T19:00:44.704798+00:00"
   },
   {
     "name": "Doctor Who: The Fourth Doctor",
@@ -77039,9 +77039,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T18:49:35.035431+00:00",
-    "retry_after": "2026-10-24T18:49:35.035446+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T19:23:48.122246+00:00",
+    "retry_after": "2026-10-27T19:23:48.122269+00:00"
   },
   {
     "name": "Debbie Does Dallas",
@@ -81053,5 +81053,557 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T18:41:35.189128+00:00",
     "retry_after": "2026-10-25T18:41:35.189146+00:00"
+  },
+  {
+    "name": "Absolute Superman",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 160860,
+        "name": "Absolute Superman",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 168589,
+        "name": "Absolute Superman",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 169086,
+        "name": "Absolute Superman",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 166388,
+        "name": "Absolute Superman",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 168339,
+        "name": "Absolute Superman",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:00:46.847532+00:00",
+    "retry_after": "2026-10-25T19:00:46.847548+00:00"
+  },
+  {
+    "name": "Absolute Green Lantern",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 169121,
+        "name": "Absolute Green Lantern",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 163145,
+        "name": "Absolute Green Lantern",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 170601,
+        "name": "Absolute Green Lantern",
+        "publisher": null,
+        "start_year": 2026
+      },
+      {
+        "id": 171173,
+        "name": "Absolute Green Lantern",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:00:47.150623+00:00",
+    "retry_after": "2026-10-25T19:00:47.150639+00:00"
+  },
+  {
+    "name": "Michael Turner's Soulfire Annual",
+    "publisher": "Aspen Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75735,
+        "name": "Michael Turner's Soulfire Annual",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:48.586642+00:00",
+    "retry_after": "2026-10-25T19:23:48.586658+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe's The Bells",
+    "publisher": "Caliber Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62561,
+        "name": "Edgar Allan Poe's The Bells",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:48.936552+00:00",
+    "retry_after": "2026-10-25T19:23:48.936567+00:00"
+  },
+  {
+    "name": "Escape from the Planet of the Living Dead",
+    "publisher": "Antarctic Press",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 43596,
+        "name": "Escape from the Planet of the Living Dead",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:49.450126+00:00",
+    "retry_after": "2026-10-25T19:23:49.450140+00:00"
+  },
+  {
+    "name": "Robotech: Firewalkers",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39269,
+        "name": "Robotech - Firewalkers",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:49.921430+00:00",
+    "retry_after": "2026-10-25T19:23:49.921444+00:00"
+  },
+  {
+    "name": "Chiller",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4996,
+        "name": "Chiller",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:50.263395+00:00",
+    "retry_after": "2026-10-25T19:23:50.263410+00:00"
+  },
+  {
+    "name": "Indiana Jones and the Golden Fleece",
+    "publisher": "Dark Horse Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24225,
+        "name": "Indiana Jones and the Golden Fleece",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:50.605599+00:00",
+    "retry_after": "2026-10-25T19:23:50.605613+00:00"
+  },
+  {
+    "name": "Mistress and the Maggot",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65280,
+        "name": "Mistress and the Maggot",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:50.984269+00:00",
+    "retry_after": "2026-10-25T19:23:50.984283+00:00"
+  },
+  {
+    "name": "War Against Crime",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11807,
+        "name": "War Against Crime!",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:51.313873+00:00",
+    "retry_after": "2026-10-25T19:23:51.313887+00:00"
+  },
+  {
+    "name": "Roger Lincoln",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 99988,
+        "name": "Roger Lincoln",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:51.697296+00:00",
+    "retry_after": "2026-10-25T19:23:51.697311+00:00"
+  },
+  {
+    "name": "Bloodseed",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22556,
+        "name": "Bloodseed",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:52.094238+00:00",
+    "retry_after": "2026-10-25T19:23:52.094253+00:00"
+  },
+  {
+    "name": "Essential Werewolf by Night",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29953,
+        "name": "Essential Werewolf by Night",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:52.572995+00:00",
+    "retry_after": "2026-10-25T19:23:52.573009+00:00"
+  },
+  {
+    "name": "Jungle Life Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79390,
+        "name": "Jungle Life Giant Edition",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:52.933393+00:00",
+    "retry_after": "2026-10-25T19:23:52.933409+00:00"
+  },
+  {
+    "name": "Cartoons of the Roaring Twenties",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50485,
+        "name": "Cartoons of the Roaring Twenties",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:53.246671+00:00",
+    "retry_after": "2026-10-25T19:23:53.246685+00:00"
+  },
+  {
+    "name": "Erotic Fables & Faerie Tales",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25575,
+        "name": "Erotic Fables & Faerie Tales",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:53.611520+00:00",
+    "retry_after": "2026-10-25T19:23:53.611535+00:00"
+  },
+  {
+    "name": "O Melhor de Batman",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119458,
+        "name": "O Melhor de Batman ",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:53.938028+00:00",
+    "retry_after": "2026-10-25T19:23:53.938043+00:00"
+  },
+  {
+    "name": "Clássicos DC",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119422,
+        "name": "Clássicos DC ",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:54.327100+00:00",
+    "retry_after": "2026-10-25T19:23:54.327115+00:00"
+  },
+  {
+    "name": "Mighty Avengers: The Ultron Initiative",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27748,
+        "name": "Mighty Avengers: The Ultron Initiative",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:54.626643+00:00",
+    "retry_after": "2026-10-25T19:23:54.626658+00:00"
+  },
+  {
+    "name": "The Face-Skull",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66996,
+        "name": "Face-Skull",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:55.092601+00:00",
+    "retry_after": "2026-10-25T19:23:55.092617+00:00"
+  },
+  {
+    "name": "King Classics",
+    "publisher": "Titan Comics",
+    "year": 1977,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30988,
+        "name": "King Classics",
+        "publisher": null,
+        "start_year": 1977
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:56.312667+00:00",
+    "retry_after": "2026-10-25T19:23:56.312680+00:00"
+  },
+  {
+    "name": "Beep! Beep!",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37606,
+        "name": "Beep Beep",
+        "publisher": null,
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:56.631425+00:00",
+    "retry_after": "2026-10-25T19:23:56.631440+00:00"
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:56.994601+00:00",
+    "retry_after": "2026-10-25T19:23:56.994615+00:00"
+  },
+  {
+    "name": "Gesebel",
+    "publisher": "Dark Horse Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27826,
+        "name": "Gesebel",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:57.321764+00:00",
+    "retry_after": "2026-10-25T19:23:57.321779+00:00"
+  },
+  {
+    "name": "Blowjob",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28184,
+        "name": "Blowjob",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:57.813481+00:00",
+    "retry_after": "2026-10-25T19:23:57.813496+00:00"
+  },
+  {
+    "name": "Chamber of Chills Magazine",
+    "publisher": "Harvey Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1487,
+        "name": "Chamber of Chills Magazine",
+        "publisher": null,
+        "start_year": 1951
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:58.244387+00:00",
+    "retry_after": "2026-10-25T19:23:58.244403+00:00"
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:58.602404+00:00",
+    "retry_after": "2026-10-25T19:23:58.602416+00:00"
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:58.934756+00:00",
+    "retry_after": "2026-10-25T19:23:58.934770+00:00"
+  },
+  {
+    "name": "Eagle: The Making of An Asian-American President",
+    "publisher": "VIZ Media",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52598,
+        "name": "Eagle: The Making of an Asian-American President",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:59.265772+00:00",
+    "retry_after": "2026-10-25T19:23:59.265786+00:00"
+  },
+  {
+    "name": "Dylan Dog Gigante",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41508,
+        "name": "Dylan Dog Gigante",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T19:23:59.892760+00:00",
+    "retry_after": "2026-10-25T19:23:59.892776+00:00"
   }
 ]

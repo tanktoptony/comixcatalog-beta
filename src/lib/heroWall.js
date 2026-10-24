@@ -1,9 +1,10 @@
 import { unstable_cache } from "next/cache";
 import { getServiceClient } from "./supabase/service.js";
+import { chicagoDayIndex } from "./dailySeed.js";
 
-// The homepage hero's cover wall: a weekly mix of all-time classics and
-// this week's featured series, so it reads as "every era of comics" rather
-// than a wall of 2024-25 relaunches. Each week picks 3 Golden/Silver Age,
+// The homepage hero's cover wall: a daily mix of all-time classics and
+// today's featured series, so it reads as "every era of comics" rather
+// than a wall of 2024-25 relaunches. Each day picks 3 Golden/Silver Age,
 // 3 Bronze Age and 2 later classics, plus 4 current featured covers.
 //
 // Every entry here was checked to have a cover in canonical_covers
@@ -66,18 +67,18 @@ const cachedClassics = unstable_cache(loadClassicCovers, ["hero-wall-classics-v1
 // 12 covers for the hero: [{ id, cover }]. `featured` is the homepage's
 // featured-series list (cover_path = full canonical URL).
 export async function getHeroWall(featured = []) {
-  const week = Math.floor(Date.now() / (7 * 24 * 3600 * 1000));
+  const day = chicagoDayIndex();
   let classics = [];
   try {
     classics = await cachedClassics();
   } catch (err) {
     console.error("hero wall classics failed:", err);
   }
-  const era = (lo, hi) => seededShuffle(classics.filter((c) => c.year >= lo && c.year <= hi), week);
+  const era = (lo, hi) => seededShuffle(classics.filter((c) => c.year >= lo && c.year <= hi), day);
   const picks = [...era(0, 1965).slice(0, 3), ...era(1966, 1985).slice(0, 3), ...era(1986, 2100).slice(0, 2)];
   const modern = seededShuffle(
     featured.filter((s) => s?.cover_path).map((s) => ({ id: s.id, cover: s.cover_path })),
-    week + 7
+    day + 7
   ).slice(0, 12 - picks.length);
-  return seededShuffle([...picks, ...modern], week + 13);
+  return seededShuffle([...picks, ...modern], day + 13);
 }

@@ -18,7 +18,7 @@ export default async function SeriesChecklistPage({ params }) {
         <p className="shareable-eyebrow">Printable run checklist</p>
         <h1>{series.title} checklist</h1>
         <p className="shareable-years">{seriesYearLabel(series)}</p>
-        <p className="shareable-statline">{rows.length} issues, {keyCount} keys</p>
+        <p className="shareable-statline">{rows.length} issue{rows.length === 1 ? "" : "s"}, {keyCount} key{keyCount === 1 ? "" : "s"}</p>
         <ShareButton title={`${series.title} checklist`} />
       </header>
       {rows.length > 0 ? (

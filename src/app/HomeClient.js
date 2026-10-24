@@ -30,7 +30,7 @@ export default function HomeClient({
   // Pending until the results page has actually rendered, so the button
   // stays visibly pressed instead of looking like nothing happened.
   const [isSearching, startSearch] = useTransition();
-  // Hero art: a weekly mix of classics and current featured covers
+  // Hero art: a daily mix of classics and current featured covers
   // (src/lib/heroWall.js), falling back to featured covers alone.
   const wall = heroWall?.length
     ? heroWall

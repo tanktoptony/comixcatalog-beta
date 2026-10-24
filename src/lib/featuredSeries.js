@@ -48,6 +48,14 @@ export const FEATURED_SERIES = [
   { title: "Spider-Boy", publisher: "Marvel Comics", prefer_year: 2024, tier: 1 },
   { title: "TVA", publisher: "Marvel Comics", prefer_year: 2024, tier: 1 },
   { title: "One World Under Doom", publisher: "Marvel Comics", prefer_year: 2025, tier: 1 },
+  // Added 2026-10-24: the books on the homepage "excited about" strip.
+  { title: "Absolute Catwoman", publisher: "DC Comics", prefer_year: 2026, tier: 1 },
+  { title: "Batman of Two Worlds", publisher: "DC Comics", prefer_year: 2026, tier: 1 },
+  { title: "Midnight Spider-Man", publisher: "Marvel Comics", prefer_year: 2026, tier: 1 },
+  { title: "Midnight X-Men", publisher: "Marvel Comics", prefer_year: 2026, tier: 1 },
+  { title: "Midnight Fantastic Four", publisher: "Marvel Comics", prefer_year: 2026, tier: 1 },
+  { title: "Mind MGMT: New & Improved", publisher: "Oni Press", prefer_year: 2026, tier: 1 },
+  { title: "The Forever Home", publisher: "Oni Press", prefer_year: 2026, tier: 1 },
 
   // ── Tier 2: Recent modern classics (2019–2023) ────────────────────────
   { title: "X-Men", publisher: "Marvel Comics", prefer_year: 2019, tier: 2 }, // HoX/PoX & Krakoa

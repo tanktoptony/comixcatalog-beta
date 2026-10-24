@@ -3,13 +3,14 @@ import { getServiceClient } from "./supabase/service.js";
 import { FEATURED_SERIES } from "@/lib/featuredSeries";
 import { baseIssueNumber } from "@/lib/coverMatch";
 import { fetchAllPages } from "./supabase/fetchAllPages.js";
+import { chicagoDayIndex } from "./dailySeed.js";
 
 // The homepage "Featured series" carousel and the no-query /search browse
 // list. Moved out of GET /api/comics (2026-10-01) so the homepage can render
 // it on the server instead of fetching it after load.
 //
 // Computing it is slow (~5-7 s: it pages through every issue and cover of
-// ~100 series to check full coverage) and the answer only changes weekly
+// ~100 series to check full coverage) and the answer only changes daily
 // (rotation) or when covers land, so it is cached for an hour in Next's data
 // cache, shared across all requests and regions. A failed computation
 // throws, so an error is never cached as an empty carousel.
@@ -17,15 +18,9 @@ import { fetchAllPages } from "./supabase/fetchAllPages.js";
 // Version history of the selection rules lives with the route
 // (src/app/api/comics/route.js).
 
-// Weekly rotation seed: ISO-week index since epoch. Same value for all
-// requests within one calendar week → carousel looks identical to a user
-// reloading the page on Monday afternoon and Friday morning, but flips to a
-// new mix the following Monday. Adds liveliness without cron infra.
-function currentWeekIndex() {
-  const now = Date.now();
-  const oneWeekMs = 7 * 24 * 60 * 60 * 1000;
-  return Math.floor(now / oneWeekMs);
-}
+// Rotation seed: one new mix per day (Chicago calendar), the same for every
+// request that day, so the homepage looks fresh daily without cron infra.
+// Was weekly until 2026-10-24.
 
 // Deterministic shuffle: same `seed` → same output order. Mulberry32 over
 // a hashed seed. Tier ordering is preserved by shuffling *within* each tier
@@ -47,7 +42,7 @@ function seededShuffle(arr, seed) {
   return a;
 }
 
-function rotateFeaturedSeries(week) {
+function rotateFeaturedSeries(day) {
   // Bucket by tier (default 5 for entries missing the field), shuffle each
   // bucket with a tier-offset seed so different tiers get different orderings,
   // then concatenate tier1 → tier2 → tier3 → tier4.
@@ -60,15 +55,15 @@ function rotateFeaturedSeries(week) {
   const tiers = [...byTier.keys()].sort((a, b) => a - b);
   const out = [];
   for (const tier of tiers) {
-    out.push(...seededShuffle(byTier.get(tier), week * 1000 + tier));
+    out.push(...seededShuffle(byTier.get(tier), day * 1000 + tier));
   }
   return out;
 }
 
-async function computeFeaturedSeries(weekIndex) {
+async function computeFeaturedSeries(dayIndex) {
   const supabase = getServiceClient();
 
-  const rotatedFeatured = rotateFeaturedSeries(weekIndex);
+  const rotatedFeatured = rotateFeaturedSeries(dayIndex);
 
   // Pull every series row matching any (title, publisher) pair from the
   // curated list. We can't compose a clean IN clause for tuples in
@@ -204,13 +199,13 @@ async function computeFeaturedSeries(weekIndex) {
   }));
 }
 
-// The week index is an argument, so it is part of the cache key: Monday's
-// rotation is a new entry, not an hour-old copy of last week's.
+// The day index is an argument, so it is part of the cache key: each day's
+// rotation is a new entry, not an hour-old copy of yesterday's.
 const cachedFeaturedSeries = unstable_cache(computeFeaturedSeries, ["featured-series-v1"], {
   revalidate: 3600,
 });
 
 // Every fully-covered featured series, in display order.
 export function getFeaturedSeries() {
-  return cachedFeaturedSeries(currentWeekIndex());
+  return cachedFeaturedSeries(chicagoDayIndex());
 }

@@ -491,7 +491,7 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
               {[{ label: "Writers", rows: series.top_creators?.writers }, { label: "Artists", rows: series.top_creators?.artists }].map(({ label, rows }) => (
                 <div key={label}>
                   <h3>{label}</h3>
-                  <ol>{(rows ?? []).slice(0, 3).map((creator) => <li key={creator.slug}><Link href={`/creator/${creator.slug}`}>{creator.name}</Link><span>{creator.issues} issues</span></li>)}</ol>
+                  <ol>{(rows ?? []).slice(0, 3).map((creator) => <li key={creator.slug}><Link href={`/creator/${creator.slug}`}>{creator.name}</Link><span>{creator.issues} issue{creator.issues === 1 ? "" : "s"}</span></li>)}</ol>
                 </div>
               ))}
             </div>

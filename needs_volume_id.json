@@ -76708,9 +76708,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T15:23:43.838887+00:00",
-    "retry_after": "2026-10-24T15:23:43.838902+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T16:23:46.994860+00:00",
+    "retry_after": "2026-10-27T16:23:46.994881+00:00"
   },
   {
     "name": "Gun Blaze West",
@@ -79425,5 +79425,516 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T15:23:52.230756+00:00",
     "retry_after": "2026-10-25T15:23:52.230767+00:00"
+  },
+  {
+    "name": "The Trouble With Girls Annual",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64605,
+        "name": "The Trouble With Girls Annual",
+        "publisher": null,
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:47.764173+00:00",
+    "retry_after": "2026-10-25T16:23:47.764188+00:00"
+  },
+  {
+    "name": "Harpy Pin-Up Special",
+    "publisher": "Devil's Due",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24161,
+        "name": "Harpy Pin-Up Special",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:48.303284+00:00",
+    "retry_after": "2026-10-25T16:23:48.303299+00:00"
+  },
+  {
+    "name": "Gen 13 Bootleg",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5870,
+        "name": "Gen 13 Bootleg",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:48.618034+00:00",
+    "retry_after": "2026-10-25T16:23:48.618049+00:00"
+  },
+  {
+    "name": "Cerebus Woman",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 118805,
+        "name": "Cerebus Woman",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:49.489017+00:00",
+    "retry_after": "2026-10-25T16:23:49.489032+00:00"
+  },
+  {
+    "name": "ABC: A-Z, Top 10 and Teams",
+    "publisher": "DC Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22006,
+        "name": "ABC A-Z: Top 10 & Teams",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:49.908428+00:00",
+    "retry_after": "2026-10-25T16:23:49.908442+00:00"
+  },
+  {
+    "name": "The Prisoner of Chillon",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50438,
+        "name": "Prisoner of Chillon",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:50.259471+00:00",
+    "retry_after": "2026-10-25T16:23:50.259486+00:00"
+  },
+  {
+    "name": "Best of Television",
+    "publisher": "Marvel Comics",
+    "year": 1961,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46471,
+        "name": "Best of Television",
+        "publisher": null,
+        "start_year": 1961
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:50.569404+00:00",
+    "retry_after": "2026-10-25T16:23:50.569419+00:00"
+  },
+  {
+    "name": "Dune: Edge of a Crysknife: Rage of Shai-Hulud",
+    "publisher": "BOOM! Studios",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166445,
+        "name": "Dune: Edge of a Crysknife: Rage of Shai-Hulud",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:51.471114+00:00",
+    "retry_after": "2026-10-25T16:23:51.471129+00:00"
+  },
+  {
+    "name": "Peter Paul's 4 in 1 Jumbo Comic Book",
+    "publisher": "Charlton Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57278,
+        "name": "Peter Paul's 4 in 1 Jumbo Comic Book",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:51.782954+00:00",
+    "retry_after": "2026-10-25T16:23:51.782969+00:00"
+  },
+  {
+    "name": "Imperial War: Black Panther",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166450,
+        "name": "Imperial War: Black Panther",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:52.208058+00:00",
+    "retry_after": "2026-10-25T16:23:52.208072+00:00"
+  },
+  {
+    "name": "McCain: The Comic Book",
+    "publisher": "Antarctic Press",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50963,
+        "name": "McCain: The Comic Book",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:52.501954+00:00",
+    "retry_after": "2026-10-25T16:23:52.501968+00:00"
+  },
+  {
+    "name": "Star Wars: The High Republic Adventures (Phase III) - Crash Landing",
+    "publisher": "Dark Horse Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157447,
+        "name": "Star Wars: The High Republic Adventures (Phase III)―Crash Landing",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:53.024722+00:00",
+    "retry_after": "2026-10-25T16:23:53.024737+00:00"
+  },
+  {
+    "name": "Marine Comedy",
+    "publisher": "Marvel Comics",
+    "year": 1944,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 138213,
+        "name": "Marine Comedy",
+        "publisher": null,
+        "start_year": 1944
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:53.394271+00:00",
+    "retry_after": "2026-10-25T16:23:53.394285+00:00"
+  },
+  {
+    "name": "The Apparition: Visitations",
+    "publisher": "Caliber Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45127,
+        "name": "Apparition Visitations",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:53.683795+00:00",
+    "retry_after": "2026-10-25T16:23:53.683809+00:00"
+  },
+  {
+    "name": "Pantera",
+    "publisher": "Malibu Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 135887,
+        "name": "Pantera",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:54.041794+00:00",
+    "retry_after": "2026-10-25T16:23:54.041809+00:00"
+  },
+  {
+    "name": "Heckle and Jeckle the Talking  Magpies",
+    "publisher": "Marvel Comics",
+    "year": 1976,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54818,
+        "name": "Heckle and Jeckle the Talking Magpies",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:54.749622+00:00",
+    "retry_after": "2026-10-25T16:23:54.749637+00:00"
+  },
+  {
+    "name": "Monster Frat House",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24570,
+        "name": "Monster Frat House",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:55.462663+00:00",
+    "retry_after": "2026-10-25T16:23:55.462678+00:00"
+  },
+  {
+    "name": "The Un-Bedable Vark",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111866,
+        "name": "The Un-Bedable Vark",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:56.257094+00:00",
+    "retry_after": "2026-10-25T16:23:56.257108+00:00"
+  },
+  {
+    "name": "Femosaur World",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35828,
+        "name": "Femosaur World",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:56.718907+00:00",
+    "retry_after": "2026-10-25T16:23:56.718923+00:00"
+  },
+  {
+    "name": "Hitman",
+    "publisher": "DC Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 96074,
+        "name": "Hitman",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 5750,
+        "name": "Hitman",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 114326,
+        "name": "Hitman",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 126638,
+        "name": "Hitman",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:57.399952+00:00",
+    "retry_after": "2026-10-25T16:23:57.399967+00:00"
+  },
+  {
+    "name": "The Masked G-Man",
+    "publisher": "Atlas Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75837,
+        "name": "The Masked G-Man",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:57.826884+00:00",
+    "retry_after": "2026-10-25T16:23:57.826899+00:00"
+  },
+  {
+    "name": "Peter Panda",
+    "publisher": "DC Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24869,
+        "name": "Peter Panda",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:58.057646+00:00",
+    "retry_after": "2026-10-25T16:23:58.057661+00:00"
+  },
+  {
+    "name": "Bilag til Donald Duck & Co",
+    "publisher": "Harvey Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141922,
+        "name": "Bilag til Donald Duck & Co",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:58.362278+00:00",
+    "retry_after": "2026-10-25T16:23:58.362293+00:00"
+  },
+  {
+    "name": "Korak - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 106802,
+        "name": "Korak Serie Avestruz",
+        "publisher": null,
+        "start_year": 1975
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:58.861674+00:00",
+    "retry_after": "2026-10-25T16:23:58.861690+00:00"
+  },
+  {
+    "name": "Adventures into Weird Worlds",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1492,
+        "name": "Adventures into Weird Worlds",
+        "publisher": null,
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:23:59.346026+00:00",
+    "retry_after": "2026-10-25T16:23:59.346041+00:00"
+  },
+  {
+    "name": "Laugh Riot",
+    "publisher": "Marvel Comics",
+    "year": 1961,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 92445,
+        "name": "Laugh Riot",
+        "publisher": null,
+        "start_year": 1961
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:24:00.069963+00:00",
+    "retry_after": "2026-10-25T16:24:00.069978+00:00"
+  },
+  {
+    "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
+    "publisher": "Harvey Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148472,
+        "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:24:00.675583+00:00",
+    "retry_after": "2026-10-25T16:24:00.675599+00:00"
+  },
+  {
+    "name": "Dylan Dog Oldboy",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129208,
+        "name": "Dylan Dog Oldboy",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:24:01.123236+00:00",
+    "retry_after": "2026-10-25T16:24:01.123252+00:00"
+  },
+  {
+    "name": "Combat Casey",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1573,
+        "name": "Combat Casey",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T16:24:01.492306+00:00",
+    "retry_after": "2026-10-25T16:24:01.492321+00:00"
   }
 ]

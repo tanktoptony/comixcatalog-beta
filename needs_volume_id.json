@@ -78897,5 +78897,533 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T14:48:18.098577+00:00",
     "retry_after": "2026-10-25T14:48:18.098585+00:00"
+  },
+  {
+    "name": "Robotech: Final Fire",
+    "publisher": "Antarctic Press",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62239,
+        "name": "Robotech: Final Fire",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:38.643100+00:00",
+    "retry_after": "2026-10-25T15:23:38.643114+00:00"
+  },
+  {
+    "name": "Women on Top",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37401,
+        "name": "Women on Top",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:39.063243+00:00",
+    "retry_after": "2026-10-25T15:23:39.063262+00:00"
+  },
+  {
+    "name": "Gideon Falls Director's Cut",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113705,
+        "name": "Gideon Falls: Director's Cut",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:39.495427+00:00",
+    "retry_after": "2026-10-25T15:23:39.495443+00:00"
+  },
+  {
+    "name": "M.A.S.K.: Mobile Armored Strike Kommand: Revolution",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 94390,
+        "name": "M.A.S.K.: Mobile Armored Strike Kommand: Revolution",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:39.993999+00:00",
+    "retry_after": "2026-10-25T15:23:39.994015+00:00"
+  },
+  {
+    "name": "Ben 10",
+    "publisher": "Dynamite Entertainment",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171767,
+        "name": "Ben 10",
+        "publisher": null,
+        "start_year": 2026
+      },
+      {
+        "id": 95838,
+        "name": "Ben 10",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 69352,
+        "name": "Ben 10",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 73897,
+        "name": "Ben 10",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:40.426875+00:00",
+    "retry_after": "2026-10-25T15:23:40.426887+00:00"
+  },
+  {
+    "name": "Korgi: Short Tails",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 102848,
+        "name": "Korgi: Short Tails",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:40.847331+00:00",
+    "retry_after": "2026-10-25T15:23:40.847343+00:00"
+  },
+  {
+    "name": "The Complete Adventures of Carl",
+    "publisher": "BOOM! Studios",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46083,
+        "name": "Complete Adventures of Carl",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:41.332184+00:00",
+    "retry_after": "2026-10-25T15:23:41.332198+00:00"
+  },
+  {
+    "name": "Ex-Mutants Winter Special",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35047,
+        "name": "Ex-Mutants Winter Special",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:42.029693+00:00",
+    "retry_after": "2026-10-25T15:23:42.029707+00:00"
+  },
+  {
+    "name": "Atomic Age Truckstop Waitress",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26715,
+        "name": "Atomic Age Truckstop Waitress",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:42.488635+00:00",
+    "retry_after": "2026-10-25T15:23:42.488649+00:00"
+  },
+  {
+    "name": "Dinosaur Hour!",
+    "publisher": "VIZ Media",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 38896,
+        "name": "Dinosaur Hour!",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:42.884974+00:00",
+    "retry_after": "2026-10-25T15:23:42.884989+00:00"
+  },
+  {
+    "name": "Artesia Annual",
+    "publisher": "Archaia",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10884,
+        "name": "Artesia Annual",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:43.448724+00:00",
+    "retry_after": "2026-10-25T15:23:43.448739+00:00"
+  },
+  {
+    "name": "Harley Quinn Annual",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 77792,
+        "name": "Harley Quinn Annual",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:44.127606+00:00",
+    "retry_after": "2026-10-25T15:23:44.127617+00:00"
+  },
+  {
+    "name": "Death of Cerebus in Hell",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 106484,
+        "name": "The Death of Cerebus in Hell?",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:44.470130+00:00",
+    "retry_after": "2026-10-25T15:23:44.470138+00:00"
+  },
+  {
+    "name": "Richie Rich Vacation Digest Magazine",
+    "publisher": "Harvey Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34863,
+        "name": "Richie Rich Vacation Digest Magazine",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:44.915439+00:00",
+    "retry_after": "2026-10-25T15:23:44.915453+00:00"
+  },
+  {
+    "name": "Razor: The Ravening",
+    "publisher": "Avatar Press",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21967,
+        "name": "Razor: The Ravening",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:45.449046+00:00",
+    "retry_after": "2026-10-25T15:23:45.449061+00:00"
+  },
+  {
+    "name": "Pirates vs. Ninjas Annual",
+    "publisher": "Antarctic Press",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51004,
+        "name": "Pirates vs. Ninjas Annual",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:46.203624+00:00",
+    "retry_after": "2026-10-25T15:23:46.203636+00:00"
+  },
+  {
+    "name": "Purgatori: Heartbreaker",
+    "publisher": "Chaos! Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20632,
+        "name": "Purgatori: Heartbreaker",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:46.538242+00:00",
+    "retry_after": "2026-10-25T15:23:46.538259+00:00"
+  },
+  {
+    "name": "Dark Wolf Annual",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51706,
+        "name": "Dark Wolf Annual",
+        "publisher": null,
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:47.194105+00:00",
+    "retry_after": "2026-10-25T15:23:47.194122+00:00"
+  },
+  {
+    "name": "I Love Lucy in Full Color",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63062,
+        "name": "I Love Lucy in Full Color",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:47.569633+00:00",
+    "retry_after": "2026-10-25T15:23:47.569648+00:00"
+  },
+  {
+    "name": "The League of Extraordinary Cerebi",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 114954,
+        "name": "The League of Extraordinary Cerebi",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:47.913075+00:00",
+    "retry_after": "2026-10-25T15:23:47.913084+00:00"
+  },
+  {
+    "name": "Zona X",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28041,
+        "name": "Zona X",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:48.600182+00:00",
+    "retry_after": "2026-10-25T15:23:48.600197+00:00"
+  },
+  {
+    "name": "Edição Extra",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140232,
+        "name": "Edição Extra",
+        "publisher": null,
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:48.999723+00:00",
+    "retry_after": "2026-10-25T15:23:48.999739+00:00"
+  },
+  {
+    "name": "Modeling with Millie",
+    "publisher": "Marvel Comics",
+    "year": 1963,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19440,
+        "name": "Modeling With Millie",
+        "publisher": null,
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:49.333370+00:00",
+    "retry_after": "2026-10-25T15:23:49.333380+00:00"
+  },
+  {
+    "name": "Mad XL",
+    "publisher": "EC Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21634,
+        "name": "MAD XL",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:49.674458+00:00",
+    "retry_after": "2026-10-25T15:23:49.674465+00:00"
+  },
+  {
+    "name": "Buster Book",
+    "publisher": "Malibu Comics",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41229,
+        "name": "Buster Book",
+        "publisher": null,
+        "start_year": 1962
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:50.107482+00:00",
+    "retry_after": "2026-10-25T15:23:50.107495+00:00"
+  },
+  {
+    "name": "Sub-Mariner Comics",
+    "publisher": "Marvel Comics",
+    "year": 1941,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18548,
+        "name": "Sub-Mariner Comics",
+        "publisher": null,
+        "start_year": 1941
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:50.466473+00:00",
+    "retry_after": "2026-10-25T15:23:50.466482+00:00"
+  },
+  {
+    "name": "The Durango Kid",
+    "publisher": "Atlas Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50567,
+        "name": "Durango Kid",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:50.877348+00:00",
+    "retry_after": "2026-10-25T15:23:50.877365+00:00"
+  },
+  {
+    "name": "Jane, Famous Oomph Girl",
+    "publisher": "Atlas Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68101,
+        "name": "Jane, Famous Oomph Girl",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:51.292543+00:00",
+    "retry_after": "2026-10-25T15:23:51.292560+00:00"
+  },
+  {
+    "name": "All-Flash",
+    "publisher": "DC Comics",
+    "year": 1941,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18925,
+        "name": "All Flash",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:51.843497+00:00",
+    "retry_after": "2026-10-25T15:23:51.843506+00:00"
+  },
+  {
+    "name": "Snappy",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 136630,
+        "name": "Snappy",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T15:23:52.230756+00:00",
+    "retry_after": "2026-10-25T15:23:52.230767+00:00"
   }
 ]

@@ -13,6 +13,7 @@ import { SLOT } from "@/lib/houseAds";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
 import { countCopies } from "@/lib/libraryMutations";
+import { publisherHref } from "@/lib/publisherPages";
 import { buildIssueDetailsRows, formatGcdDate, formatGcdPrice, humanizeStoryType, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
 import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
 
@@ -286,7 +287,7 @@ export default function IssueClient({ initialIssue = null }) {
     <main className="page-wrapper">
       <section className="comic-panel">
         <nav className="issue-breadcrumb" aria-label="Issue navigation">
-          <div><Link href="/search">{issue.publisher || "Publisher"}</Link><span>/</span>{issue.series_id ? <Link href={`/series/${issue.series_id}`}>{issue.series_title}{issue.series_year_start ? ` (${issue.series_year_start})` : ""}</Link> : <span>{issue.series_title}</span>}<span>/</span><strong>#{issue.issue_number}</strong></div>
+          <div>{publisherHref(issue.publisher) ? <Link href={publisherHref(issue.publisher)}>{issue.publisher}</Link> : <span>{issue.publisher || "Unknown publisher"}</span>}<span>/</span>{issue.series_id ? <Link href={`/series/${issue.series_id}`}>{issue.series_title}{issue.series_year_start ? ` (${issue.series_year_start})` : ""}</Link> : <span>{issue.series_title}</span>}<span>/</span><strong>#{issue.issue_number}</strong></div>
           <div className="issue-prev-next">
               {issue.prev_issue ? (
                 <Link href={`/issue/${issue.prev_issue.id}`} aria-label={`Previous issue, number ${issue.prev_issue.issue_number}`}>← #{issue.prev_issue.issue_number}</Link>
@@ -509,7 +510,7 @@ export default function IssueClient({ initialIssue = null }) {
             )}
 
             <div className="issue-fact-chips">
-              <span>{issue.publisher || "Unknown Publisher"}</span>
+              {publisherHref(issue.publisher) ? <Link href={publisherHref(issue.publisher)}>{issue.publisher}</Link> : <span>{issue.publisher || "Unknown Publisher"}</span>}
               {issue.series_format_tag && <span className="pill pill-format" title={issue.series_format_tag_title || issue.series_format || undefined}>{issue.series_format_tag}</span>}
               {/* display_date is the API's canonical English "Month YYYY"
                   rendering, derived from key_date. Replaces the redundant

@@ -18,6 +18,7 @@ import { supabaseServer } from "@/lib/supabase/server";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import ARTICLES from "@/app/reads/articles";
 import { SITE_URL } from "@/lib/siteUrl";
+import { PUBLISHER_BY_SLUG } from "@/lib/publisherPages";
 
 export { SITE_URL };
 
@@ -125,6 +126,10 @@ export async function staticEntries() {
     changeFrequency,
     priority,
   }));
+
+  for (const slug of PUBLISHER_BY_SLUG.keys()) {
+    entries.push({ url: `${SITE_URL}/publisher/${slug}`, lastModified: now, changeFrequency: "weekly", priority: 0.6 });
+  }
 
   for (const article of ARTICLES) {
     entries.push({

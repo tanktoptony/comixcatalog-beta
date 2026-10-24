@@ -12,6 +12,7 @@ import { coverThumb } from "@/lib/coverThumb";
 import { buildSeriesIntro } from "@/lib/seriesSeo";
 import KeyTimeline from "@/components/KeyTimeline";
 import { KeyRound } from "lucide-react";
+import { publisherHref } from "@/lib/publisherPages";
 import { ageSpanLabel, heroKeyCovers } from "@/lib/seriesPage";
 import {
   buildRunQuickAddPayload,
@@ -19,6 +20,12 @@ import {
   selectableIssueIds,
   selectIssueRange,
 } from "@/lib/runQuickAdd";
+
+// The publisher as a link to its page when it has one.
+function publisherLink(name) {
+  const href = publisherHref(name);
+  return href ? <Link href={href}>{name}</Link> : <span>{name}</span>;
+}
 
 const ISSUE_BATCH = 60;
 
@@ -323,7 +330,7 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
     <main className="page-wrapper">
       <section className="comic-panel series-public-page">
         <nav className="series-breadcrumb" aria-label="Breadcrumb">
-          <span>{series.publisher}</span><span aria-hidden="true">/</span><span>{series.title}</span><span aria-hidden="true">/</span><span>{series.year_start || "Unknown year"} series</span>
+          {publisherLink(series.publisher)}<span aria-hidden="true">/</span><span>{series.title}</span><span aria-hidden="true">/</span><span>{series.year_start || "Unknown year"} series</span>
         </nav>
 
         <div className="series-public-hero">
@@ -334,7 +341,7 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
             <img src={coverThumb(series.featured_cover || "/fallback-cover.png")} alt={series.title} className="series-cover-front" width={220} height={330} fetchPriority="high" loading="eager" />
           </div>
           <div className="series-hero-copy">
-            <div className="series-eyebrow">{series.publisher} <span>·</span> {formatText} <span>·</span> {yearLabel}</div>
+            <div className="series-eyebrow">{publisherLink(series.publisher)} <span>·</span> {formatText} <span>·</span> {yearLabel}</div>
             <h1 className="series-public-title">{series.title} {series.year_start && <small>({series.year_start})</small>}</h1>
             <div className="series-chip-row">
               {ageLabel && <span className="series-chip">{ageLabel}</span>}

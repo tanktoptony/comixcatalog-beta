@@ -11,7 +11,7 @@ import { buyerLimitMessage } from "@/lib/buyerLimits";
 
 export const runtime = "nodejs";
 
-const LIST_FIELDS = "id,buyer_id,seller_id,series_title,issue_number,cover_path,condition,grade_numeric,slab_company,total_cents,seller_net_cents,currency,status,created_at,paid_at";
+const LIST_FIELDS = "id,buyer_id,seller_id,series_title,issue_number,cover_path,condition,grade_numeric,slab_company,total_cents,seller_net_cents,currency,status,created_at,paid_at,order_items(listing_id,series_title,issue_number,cover_path,condition,grade_numeric,slab_company,item_cents)";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -56,8 +56,13 @@ export async function GET(req) {
   if (before) query = query.lt("created_at", before);
   const { data, error } = await query;
   if (error) return NextResponse.json({ error: "Could not load orders." }, { status: 500 });
+  const sellerIds = [...new Set((data || []).map((order) => order.seller_id))];
+  const { data: sellers } = sellerIds.length ? await db.from("profiles").select("id,username").in("id", sellerIds) : { data: [] };
+  const sellerNames = Object.fromEntries((sellers || []).map((seller) => [seller.id, seller.username]));
   const orders = (data || []).map((order) => ({
     ...order,
+    seller_username: sellerNames[order.seller_id] || "collector",
+    items: (order.order_items || []).map((item) => ({ ...item, cover_url: item.cover_path && (/^https?:\/\//i.test(item.cover_path) ? item.cover_path : `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${item.cover_path}`) })),
     cover_url: order.cover_path && (/^https?:\/\//i.test(order.cover_path)
       ? order.cover_path
       : `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${order.cover_path}`),
@@ -71,14 +76,14 @@ export async function POST(req) {
   if (!canUseCheckout(user.id)) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
   const body = await req.json().catch(() => null);
-  const listing = body?.listing_id;
-  if (!UUID.test(listing || "")) {
+  const listings = Array.isArray(body?.listing_ids) ? body.listing_ids : [body?.listing_id];
+  if (listings.length < 1 || listings.length > 20 || new Set(listings).size !== listings.length || listings.some((id) => !UUID.test(id || ""))) {
     return NextResponse.json({ error: "Invalid listing" }, { status: 400 });
   }
   const db = getServiceClient();
-  const { data: order, error } = await db.rpc("order_create", {
+  const { data: order, error } = await db.rpc("order_create_multi", {
     p_buyer: user.id,
-    p_listing: listing,
+    p_listings: listings,
     p_request_id: randomUUID(),
   });
   if (error) {
@@ -87,6 +92,9 @@ export async function POST(req) {
   }
 
   try {
+    const { data: items, error: itemsError } = await db.from("order_items").select("*").eq("order_id", order.id);
+    if (itemsError) throw itemsError;
+    order.items = items;
     const stripe = getMarketplaceStripe();
     const session = await stripe.checkout.sessions.create(
       buildCheckoutSessionParams(order, { siteUrl: getSiteUrl() }),

@@ -137,10 +137,11 @@ export default function OrderStatus({ id }) {
     <main className={styles.page}>
       <Link href="/orders">Back to orders</Link>
       <section className={styles.receipt}>
-        <div className={styles.cover}>{order.cover_url && <img src={order.cover_url} alt="" />}</div>
+        <div className={styles.cover}>{(order.items?.length ? order.items : [{ cover_url: order.cover_url }]).map((item, index) => item.cover_url && <img src={item.cover_url} alt="" key={`${item.listing_id || order.id}-${index}`} />)}</div>
         <div className={styles.details}>
           <p className={styles.eyebrow}>Marketplace receipt</p>
-          <h1>{order.series_title}{order.issue_number ? ` #${order.issue_number}` : ""}</h1>
+          <h1>{order.items?.length > 1 ? `${order.items.length} books from @${order.seller_username}` : `${order.series_title}${order.issue_number ? ` #${order.issue_number}` : ""}`}</h1>
+          {order.items?.length > 1 && <ul>{order.items.map((item) => <li key={item.listing_id}>{item.series_title}{item.issue_number ? ` #${item.issue_number}` : ""} · {money(item.item_cents)}</li>)}</ul>}
           <p>{[order.variant_label, order.printing_name].filter(Boolean).join(" · ")}</p>
           {order.slab_company ? (
             <div className={styles.slab}>{order.slab_company} <strong>{order.grade_numeric}</strong><small>Cert {order.slab_cert_number}</small></div>
@@ -148,7 +149,7 @@ export default function OrderStatus({ id }) {
           <p>{order.role === "buyer" ? "Sold by" : "Bought by"} <strong>@{person}</strong></p>
           <span className={styles.status}>{processing ? "Payment processing" : statusLabel(order.status)}</span>
           <dl className={styles.money}>
-            <div><dt>Item</dt><dd>{money(order.item_cents)}</dd></div>
+            <div><dt>{order.items?.length > 1 ? `${order.items.length} books` : "Item"}</dt><dd>{money(order.item_cents)}</dd></div>
             <div><dt>Shipping</dt><dd>{money(order.shipping_cents)}</dd></div>
             <div><dt>Tax</dt><dd>{money(order.tax_cents)}</dd></div>
             <div className={styles.total}><dt>Total</dt><dd>{money(order.total_cents)}</dd></div>

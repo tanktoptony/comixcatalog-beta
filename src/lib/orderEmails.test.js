@@ -20,3 +20,12 @@ test("order email templates escape values, link the order, and omit full address
   }
   assert.match(orderEmailTemplate(order, "paid", "seller").html, /Austin, TX/);
 });
+
+test("multi-book emails name the first book and remaining count", () => {
+  const result = orderEmailTemplate({ ...order, items: [
+    { series_title: "Uncanny X-Men", issue_number: "302" },
+    { series_title: "Uncanny X-Men", issue_number: "303" },
+    { series_title: "Uncanny X-Men", issue_number: "304" },
+  ] }, "paid", "buyer");
+  assert.match(result.text, /Uncanny X-Men #302 and 2 more/);
+});

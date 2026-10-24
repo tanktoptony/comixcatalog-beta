@@ -13,6 +13,7 @@ export default function PayoutsClient() {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [denied, setDenied] = useState(false);
+  const [extraShipping, setExtraShipping] = useState("1.00");
 
   useEffect(() => {
     let active = true;
@@ -27,7 +28,7 @@ export default function PayoutsClient() {
         const body = await response.json().catch(() => ({}));
         if (response.status === 404) { if (active) setDenied(true); return; }
         if (!response.ok) throw new Error(body.error || "Could not load payout setup.");
-        if (active) setSeller(body.seller);
+        if (active) { setSeller(body.seller); setExtraShipping(((body.seller?.additional_item_shipping_cents ?? 100) / 100).toFixed(2)); }
       } catch (loadError) { if (active) setError(loadError.message); }
     }
     load();
@@ -44,6 +45,17 @@ export default function PayoutsClient() {
     } catch (openError) { setError(openError.message); setBusy(false); }
   }
 
+  async function saveShipping(event) {
+    event.preventDefault(); setBusy(true); setError("");
+    const cents = Math.round(Number(extraShipping) * 100);
+    try {
+      const response = await authedFetch("/api/sell/stripe/status", { method: "PATCH", headers: { "content-type": "application/json" }, body: JSON.stringify({ additional_item_shipping_cents: cents }) });
+      const body = await response.json();
+      if (!response.ok) throw new Error(body.error);
+      setSeller((current) => ({ ...current, ...body.seller }));
+    } catch (saveError) { setError(saveError.message); } finally { setBusy(false); }
+  }
+
   const summary = sellerStatusSummary(seller || null);
   if (denied) notFound();
   return <main className={styles.shell}>
@@ -55,6 +67,7 @@ export default function PayoutsClient() {
       {summary.state === "not_started" && seller !== undefined && <><p className={styles.muted}>Stripe securely collects identity and bank details. ComixCatalog never stores those details.</p><button disabled={busy} onClick={() => open("/api/sell/stripe/onboard")}>Set up payouts with Stripe</button></>}
       {summary.state === "pending" && <><p className={styles.muted}>{seller.requirements_due?.length ? `Still needed: ${seller.requirements_due.join(", ")}` : "Stripe will show you what is still needed."}</p><button disabled={busy} onClick={() => open("/api/sell/stripe/onboard")}>Continue setup</button></>}
       {summary.state === "ready" && <><span className={styles.badge}>{seller.tier === "established" ? "Established" : "New seller"}</span>{seller.tier === "new" && <ul><li>Up to 25 active priced listings</li><li>Up to $1,000 per listing</li><li>Up to $2,000 in open orders</li></ul>}<button disabled={busy} onClick={() => open("/api/sell/stripe/dashboard")}>Open Stripe dashboard</button></>}
+      {seller && <form onSubmit={saveShipping}><label>Each extra book ships for $<input type="number" min="0" max="20" step="0.01" value={extraShipping} onChange={(event) => setExtraShipping(event.target.value)} /></label><button disabled={busy}>Save combined shipping</button></form>}
       {error && <p className={styles.error} role="alert">{error}</p>}
     </section>
   </main>;

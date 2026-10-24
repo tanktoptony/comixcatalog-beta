@@ -57,6 +57,7 @@ export async function startDatabase() {
   const disputesMigration = await readFile(new URL("../../scripts/migrations/0073_disputes_refunds.sql", import.meta.url), "utf8");
   const fraudMigration = await readFile(new URL("../../scripts/migrations/0074_marketplace_fraud_limits.sql", import.meta.url), "utf8");
   const foundingMigration = await readFile(new URL("../../scripts/migrations/0076_founding_inbox_normalization.sql", import.meta.url), "utf8");
+  const orderItemsMigration = await readFile(new URL("../../scripts/migrations/0085_order_items.sql", import.meta.url), "utf8");
   await client.query(fixture);
   await client.query(migration);
   await client.query(sellersMigration);
@@ -66,6 +67,7 @@ export async function startDatabase() {
   await client.query(disputesMigration);
   await client.query(fraudMigration);
   await client.query(foundingMigration);
+  await client.query(orderItemsMigration);
   await client.end();
 }
 
@@ -137,6 +139,11 @@ export async function seedListing(client, { sellerId, priceCents = 5000, shippin
 export async function createOrder(client, buyerId, listingId, requestId = "test") {
   await asService(client);
   return (await client.query("select * from public.order_create($1,$2,$3)", [buyerId, listingId, requestId])).rows[0];
+}
+
+export async function createMultiOrder(client, buyerId, listingIds, requestId = "test-multi") {
+  await asService(client);
+  return (await client.query("select * from public.order_create_multi($1,$2,$3)", [buyerId, listingIds, requestId])).rows[0];
 }
 
 export async function transition(client, orderId, to, actorId, role, payload = {}, requestId = null, eventId = null) {

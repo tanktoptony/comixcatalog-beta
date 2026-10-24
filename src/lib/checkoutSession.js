@@ -7,14 +7,12 @@ function itemName(order) {
 }
 
 export function buildCheckoutSessionParams(order, { siteUrl, now = Date.now() } = {}) {
-  const product = { name: itemName(order) };
-  if (/^https?:\/\//i.test(order.cover_path || "")) {
-    product.images = [order.cover_path];
-  }
-  const line_items = [{
-    price_data: { currency: "usd", product_data: product, unit_amount: order.item_cents },
-    quantity: 1,
-  }];
+  const items = order.items?.length ? order.items : [order];
+  const line_items = items.map((item) => {
+    const product = { name: itemName(item) };
+    if (/^https?:\/\//i.test(item.cover_path || "")) product.images = [item.cover_path];
+    return { price_data: { currency: "usd", product_data: product, unit_amount: item.item_cents }, quantity: 1 };
+  });
   if (order.shipping_cents > 0) {
     line_items.push({
       price_data: {

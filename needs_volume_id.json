@@ -80480,8 +80480,67 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:06.685305+00:00",
-    "retry_after": "2026-10-25T18:15:06.685320+00:00"
+    "last_attempt_at": "2026-10-24T18:41:20.362896+00:00",
+    "retry_after": "2026-10-25T18:41:20.362914+00:00"
+  },
+  {
+    "name": "Haunted",
+    "publisher": "Charlton Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2498,
+        "name": "Haunted",
+        "publisher": null,
+        "start_year": 1971
+      },
+      {
+        "id": 27060,
+        "name": "The Haunted",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 77636,
+        "name": "Haunted",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 102191,
+        "name": "Haunted",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 73456,
+        "name": "Haunted",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 67002,
+        "name": "Haunted",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 68277,
+        "name": "Haunted",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 72343,
+        "name": "Haunted",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:41:20.824607+00:00",
+    "retry_after": "2026-10-25T18:41:20.824622+00:00"
   },
   {
     "name": "Fugitive",
@@ -80497,8 +80556,55 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:07.152029+00:00",
-    "retry_after": "2026-10-25T18:15:07.152045+00:00"
+    "last_attempt_at": "2026-10-24T18:41:21.674881+00:00",
+    "retry_after": "2026-10-25T18:41:21.674899+00:00"
+  },
+  {
+    "name": "Kick-Ass",
+    "publisher": "Image Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 108738,
+        "name": "Kick-Ass",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 42483,
+        "name": "Kick-Ass",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 20680,
+        "name": "Kick-Ass",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 61776,
+        "name": "Kick-Ass",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 32190,
+        "name": "Kick-Ass",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 33036,
+        "name": "Kick-Ass",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:41:22.202319+00:00",
+    "retry_after": "2026-10-25T18:41:22.202336+00:00"
   },
   {
     "name": "Anna Malle's Dirty Deeds",
@@ -80514,8 +80620,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:07.581623+00:00",
-    "retry_after": "2026-10-25T18:15:07.581639+00:00"
+    "last_attempt_at": "2026-10-24T18:41:23.041834+00:00",
+    "retry_after": "2026-10-25T18:41:23.041851+00:00"
   },
   {
     "name": "Dicks Winter Special",
@@ -80531,8 +80637,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:07.997248+00:00",
-    "retry_after": "2026-10-25T18:15:07.997264+00:00"
+    "last_attempt_at": "2026-10-24T18:41:23.733271+00:00",
+    "retry_after": "2026-10-25T18:41:23.733287+00:00"
   },
   {
     "name": "Pandora Annual",
@@ -80548,8 +80654,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:08.454113+00:00",
-    "retry_after": "2026-10-25T18:15:08.454129+00:00"
+    "last_attempt_at": "2026-10-24T18:41:24.176194+00:00",
+    "retry_after": "2026-10-25T18:41:24.176215+00:00"
   },
   {
     "name": "Cutting Edge: The Devil's Mirror",
@@ -80565,8 +80671,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:08.958274+00:00",
-    "retry_after": "2026-10-25T18:15:08.958291+00:00"
+    "last_attempt_at": "2026-10-24T18:41:24.823197+00:00",
+    "retry_after": "2026-10-25T18:41:24.823215+00:00"
   },
   {
     "name": "The Verdict: The Acolyte",
@@ -80582,8 +80688,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:09.379688+00:00",
-    "retry_after": "2026-10-25T18:15:09.379704+00:00"
+    "last_attempt_at": "2026-10-24T18:41:25.165880+00:00",
+    "retry_after": "2026-10-25T18:41:25.165898+00:00"
   },
   {
     "name": "Cheerleaders from Hell",
@@ -80599,8 +80705,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:09.671085+00:00",
-    "retry_after": "2026-10-25T18:15:09.671100+00:00"
+    "last_attempt_at": "2026-10-24T18:41:25.539541+00:00",
+    "retry_after": "2026-10-25T18:41:25.539558+00:00"
   },
   {
     "name": "Catchpenny Comics",
@@ -80616,8 +80722,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:10.056071+00:00",
-    "retry_after": "2026-10-25T18:15:10.056087+00:00"
+    "last_attempt_at": "2026-10-24T18:41:25.898677+00:00",
+    "retry_after": "2026-10-25T18:41:25.898695+00:00"
   },
   {
     "name": "Frank Ironwine",
@@ -80633,8 +80739,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:10.518508+00:00",
-    "retry_after": "2026-10-25T18:15:10.518521+00:00"
+    "last_attempt_at": "2026-10-24T18:41:26.573925+00:00",
+    "retry_after": "2026-10-25T18:41:26.573945+00:00"
   },
   {
     "name": "LegendLore: Daemonstorm",
@@ -80650,8 +80756,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:10.931255+00:00",
-    "retry_after": "2026-10-25T18:15:10.931269+00:00"
+    "last_attempt_at": "2026-10-24T18:41:26.951590+00:00",
+    "retry_after": "2026-10-25T18:41:26.951608+00:00"
   },
   {
     "name": "Convocations - A Magic: The Gathering Gallery",
@@ -80667,8 +80773,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:11.372363+00:00",
-    "retry_after": "2026-10-25T18:15:11.372378+00:00"
+    "last_attempt_at": "2026-10-24T18:41:27.361599+00:00",
+    "retry_after": "2026-10-25T18:41:27.361615+00:00"
   },
   {
     "name": "Superman: The Last Son of Krypton FCBD Special Edition",
@@ -80684,8 +80790,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:11.725676+00:00",
-    "retry_after": "2026-10-25T18:15:11.725692+00:00"
+    "last_attempt_at": "2026-10-24T18:41:28.049293+00:00",
+    "retry_after": "2026-10-25T18:41:28.049312+00:00"
   },
   {
     "name": "Cerberus in Hell?",
@@ -80701,8 +80807,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:12.172487+00:00",
-    "retry_after": "2026-10-25T18:15:12.172501+00:00"
+    "last_attempt_at": "2026-10-24T18:41:28.431912+00:00",
+    "retry_after": "2026-10-25T18:41:28.431930+00:00"
   },
   {
     "name": "Dusty Star",
@@ -80724,8 +80830,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:12.667598+00:00",
-    "retry_after": "2026-10-25T18:15:12.667613+00:00"
+    "last_attempt_at": "2026-10-24T18:41:28.914213+00:00",
+    "retry_after": "2026-10-25T18:41:28.914231+00:00"
   },
   {
     "name": "Warrior Nun Lazarus",
@@ -80741,8 +80847,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:12.993950+00:00",
-    "retry_after": "2026-10-25T18:15:12.993965+00:00"
+    "last_attempt_at": "2026-10-24T18:41:29.305884+00:00",
+    "retry_after": "2026-10-25T18:41:29.305902+00:00"
   },
   {
     "name": "Alien, Predator, & Planet of the Apes CGD 2026",
@@ -80758,8 +80864,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:13.276644+00:00",
-    "retry_after": "2026-10-25T18:15:13.276659+00:00"
+    "last_attempt_at": "2026-10-24T18:41:29.641964+00:00",
+    "retry_after": "2026-10-25T18:41:29.641981+00:00"
   },
   {
     "name": "The Shell Collector Series - Superman",
@@ -80775,42 +80881,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:13.606249+00:00",
-    "retry_after": "2026-10-25T18:15:13.606265+00:00"
-  },
-  {
-    "name": "Michael Turner's Soulfire Annual",
-    "publisher": "Aspen Comics",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 75735,
-        "name": "Michael Turner's Soulfire Annual",
-        "publisher": null,
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:14.077246+00:00",
-    "retry_after": "2026-10-25T18:15:14.077262+00:00"
-  },
-  {
-    "name": "Edgar Allan Poe's The Bells",
-    "publisher": "Caliber Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62561,
-        "name": "Edgar Allan Poe's The Bells",
-        "publisher": null,
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:15.013847+00:00",
-    "retry_after": "2026-10-25T18:15:15.013863+00:00"
+    "last_attempt_at": "2026-10-24T18:41:30.033935+00:00",
+    "retry_after": "2026-10-25T18:41:30.033953+00:00"
   },
   {
     "name": "Tippy Teen",
@@ -80826,8 +80898,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:15.846999+00:00",
-    "retry_after": "2026-10-25T18:15:15.847014+00:00"
+    "last_attempt_at": "2026-10-24T18:41:30.934266+00:00",
+    "retry_after": "2026-10-25T18:41:30.934284+00:00"
   },
   {
     "name": "Clive Barker's Night Breed",
@@ -80843,8 +80915,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:16.482367+00:00",
-    "retry_after": "2026-10-25T18:15:16.482383+00:00"
+    "last_attempt_at": "2026-10-24T18:41:31.292080+00:00",
+    "retry_after": "2026-10-25T18:41:31.292097+00:00"
   },
   {
     "name": "Men's Adventures",
@@ -80860,8 +80932,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:16.968453+00:00",
-    "retry_after": "2026-10-25T18:15:16.968468+00:00"
+    "last_attempt_at": "2026-10-24T18:41:31.708670+00:00",
+    "retry_after": "2026-10-25T18:41:31.708689+00:00"
   },
   {
     "name": "I Vendicatori",
@@ -80877,8 +80949,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:17.496049+00:00",
-    "retry_after": "2026-10-25T18:15:17.496065+00:00"
+    "last_attempt_at": "2026-10-24T18:41:32.261393+00:00",
+    "retry_after": "2026-10-25T18:41:32.261410+00:00"
   },
   {
     "name": "Anti-Crime Squad",
@@ -80894,8 +80966,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:17.798994+00:00",
-    "retry_after": "2026-10-25T18:15:17.799009+00:00"
+    "last_attempt_at": "2026-10-24T18:41:32.604871+00:00",
+    "retry_after": "2026-10-25T18:41:32.604891+00:00"
   },
   {
     "name": "Yummy Fur",
@@ -80911,8 +80983,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:18.434268+00:00",
-    "retry_after": "2026-10-25T18:15:18.434283+00:00"
+    "last_attempt_at": "2026-10-24T18:41:33.396892+00:00",
+    "retry_after": "2026-10-25T18:41:33.396911+00:00"
   },
   {
     "name": "Police Against Crime",
@@ -80928,8 +81000,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:18.854190+00:00",
-    "retry_after": "2026-10-25T18:15:18.854205+00:00"
+    "last_attempt_at": "2026-10-24T18:41:33.762222+00:00",
+    "retry_after": "2026-10-25T18:41:33.762245+00:00"
   },
   {
     "name": "Conan Rei",
@@ -80945,8 +81017,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:19.252595+00:00",
-    "retry_after": "2026-10-25T18:15:19.252607+00:00"
+    "last_attempt_at": "2026-10-24T18:41:34.143409+00:00",
+    "retry_after": "2026-10-25T18:41:34.143427+00:00"
   },
   {
     "name": "Dale Evans Comics",
@@ -80962,8 +81034,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:20.263742+00:00",
-    "retry_after": "2026-10-25T18:15:20.263757+00:00"
+    "last_attempt_at": "2026-10-24T18:41:34.643148+00:00",
+    "retry_after": "2026-10-25T18:41:34.643166+00:00"
   },
   {
     "name": "All-American Western",
@@ -80979,7 +81051,7 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:15:20.910464+00:00",
-    "retry_after": "2026-10-25T18:15:20.910479+00:00"
+    "last_attempt_at": "2026-10-24T18:41:35.189128+00:00",
+    "retry_after": "2026-10-25T18:41:35.189146+00:00"
   }
 ]

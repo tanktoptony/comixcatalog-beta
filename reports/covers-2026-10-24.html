@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Cover Ingest Report — 2026-10-24</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --cc-bg: #090c11;
+    --cc-surface: #11161d;
+    --cc-surface-2: #171d26;
+    --cc-line: #2b3444;
+    --cc-text: #eef2f7;
+    --cc-text-muted: #a4aebb;
+    --cc-gold: #d8b04b;
+    --cc-blue: #1f4ea8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cc-bg);
+    color: var(--cc-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    padding: 32px 24px 64px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  header { margin-bottom: 28px; }
+  .kicker {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--cc-gold); margin: 0 0 8px;
+  }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  .subtitle { color: var(--cc-text-muted); font-size: 0.9rem; margin: 0; }
+
+  .stat-row { display: flex; gap: 14px; margin: 24px 0 36px; flex-wrap: wrap; }
+  .stat-tile {
+    flex: 1 1 160px; background: var(--cc-surface); border: 1px solid var(--cc-line);
+    border-radius: 12px; padding: 16px 18px;
+  }
+  .stat-num { font-size: 1.7rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .stat-label { font-size: 0.78rem; color: var(--cc-text-muted); margin-top: 2px; }
+
+  .series-group { margin-bottom: 32px; }
+  .series-group h2 {
+    font-size: 1.05rem; margin: 0 0 12px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  }
+  .publisher-tag, .count-tag {
+    font-size: 0.72rem; font-weight: 600; color: var(--cc-text-muted);
+    background: var(--cc-surface-2); border: 1px solid var(--cc-line);
+    padding: 2px 8px; border-radius: 999px;
+  }
+  .count-tag { color: var(--cc-gold); border-color: rgba(216,176,75,0.35); }
+
+  .cover-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+  .cover-card {
+    margin: 0; background: var(--cc-surface); border: 1px solid var(--cc-line);
+    border-radius: 8px; overflow: hidden;
+  }
+  .cover-card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; background: var(--cc-surface-2); }
+  .cover-card figcaption {
+    display: flex; justify-content: space-between; padding: 6px 8px;
+    font-size: 0.72rem; color: var(--cc-text-muted);
+  }
+  .issue-num { color: var(--cc-text); font-weight: 700; }
+  .more-tile {
+    display: flex; align-items: center; justify-content: center;
+    aspect-ratio: 2/3; border: 1px dashed var(--cc-line); border-radius: 8px;
+    color: var(--cc-text-muted); font-size: 0.82rem; font-weight: 600;
+  }
+
+  .empty-state {
+    background: var(--cc-surface); border: 1px dashed var(--cc-line);
+    border-radius: 12px; padding: 32px 24px; text-align: center;
+  }
+  .empty-headline { font-size: 1.1rem; font-weight: 700; margin: 0 0 8px; }
+  .empty-body { color: var(--cc-text-muted); font-size: 0.88rem; max-width: 520px; margin: 0 auto; line-height: 1.5; }
+
+  .progress-section {
+    background: var(--cc-surface); border: 1px solid var(--cc-line);
+    border-radius: 12px; padding: 20px 22px; margin-bottom: 32px;
+  }
+  .progress-section h2 { font-size: 1rem; margin: 0 0 4px; }
+  .progress-note { color: var(--cc-text-muted); font-size: 0.82rem; margin: 0 0 16px; }
+  .progress-bar-track {
+    height: 10px; border-radius: 999px; background: var(--cc-surface-2);
+    border: 1px solid var(--cc-line); overflow: hidden; margin-bottom: 16px;
+  }
+  .progress-bar-fill { height: 100%; background: var(--cc-gold); }
+  .progress-trend { color: var(--cc-gold); font-weight: 700; }
+  .progress-trend.flat { color: var(--cc-text-muted); font-weight: 600; }
+
+  footer { margin-top: 40px; color: var(--cc-text-muted); font-size: 0.78rem; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">Cover ingest · nightly report</p>
+      <h1>2026-10-24</h1>
+      <p class="subtitle">Covers attached to the database in the last 24 hours, grouped by series.</p>
+    </header>
+
+    <div class="stat-row">
+      <div class="stat-tile">
+        <div class="stat-num">221</div>
+        <div class="stat-label">New covers (24h)</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-num">10</div>
+        <div class="stat-label">Series touched (24h)</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-num">152,959</div>
+        <div class="stat-label">All-time total covers</div>
+      </div>
+    </div>
+
+    
+    <section class="progress-section">
+      <h2>Allowlisted-corpus coverage — the real target</h2>
+      <p class="progress-note">Every issue from a real, commercially-released US-market series (~45 publishers, variant-deduped). Excludes foreign reprints, licensed editions, and GCD ephemera — see scripts/lib/coverageMetrics.js for why this is the number that matters.</p>
+      <div class="progress-bar-track"><div class="progress-bar-fill" style="width:39.06%"></div></div>
+      <div class="stat-row" style="margin:0;">
+        <div class="stat-tile">
+          <div class="stat-num">39.1%</div>
+          <div class="stat-label">Covered <span class="progress-trend">+0.21pt/day</span></div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-num">119,661</div>
+          <div class="stat-label">Covered issues</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-num">186,726</div>
+          <div class="stat-label">Remaining issues</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-num">12,408 / 59,917</div>
+          <div class="stat-label">Series with &ge;1 cover</div>
+        </div>
+      </div>
+    </section>
+
+    
+      <section class="series-group">
+        <h2>Superaventuras Marvel <span class="publisher-tag">Abril</span> <span class="count-tag">81 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070901-issue-98.jpg" alt="Superaventuras Marvel #98" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#98</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070900-issue-97.jpg" alt="Superaventuras Marvel #97" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#97</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070899-issue-95.jpg" alt="Superaventuras Marvel #95" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#95</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070898-issue-94.jpg" alt="Superaventuras Marvel #94" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#94</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070897-issue-93.jpg" alt="Superaventuras Marvel #93" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#93</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070896-issue-92.jpg" alt="Superaventuras Marvel #92" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#92</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070895-issue-91.jpg" alt="Superaventuras Marvel #91" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#91</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070894-issue-90.jpg" alt="Superaventuras Marvel #90" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#90</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070818-issue-9.jpg" alt="Superaventuras Marvel #9" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#9</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070893-issue-89.jpg" alt="Superaventuras Marvel #89" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#89</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070892-issue-87.jpg" alt="Superaventuras Marvel #87" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#87</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070891-issue-86.jpg" alt="Superaventuras Marvel #86" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#86</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070890-issue-85.jpg" alt="Superaventuras Marvel #85" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#85</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070889-issue-84.jpg" alt="Superaventuras Marvel #84" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#84</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070888-issue-83.jpg" alt="Superaventuras Marvel #83" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#83</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070887-issue-82.jpg" alt="Superaventuras Marvel #82" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#82</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070886-issue-81.jpg" alt="Superaventuras Marvel #81" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#81</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070885-issue-80.jpg" alt="Superaventuras Marvel #80" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#80</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070817-issue-8.jpg" alt="Superaventuras Marvel #8" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#8</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070884-issue-78.jpg" alt="Superaventuras Marvel #78" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#78</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070883-issue-77.jpg" alt="Superaventuras Marvel #77" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#77</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070882-issue-76.jpg" alt="Superaventuras Marvel #76" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#76</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070881-issue-75.jpg" alt="Superaventuras Marvel #75" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#75</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/superaventuras-marvel/vol-159876/1070880-issue-73.jpg" alt="Superaventuras Marvel #73" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#73</span>
+            
+          </figcaption>
+        </figure><div class="more-tile">+57 more</div></div>
+      </section>
+      <section class="series-group">
+        <h2>A Espada Selvagem de Conan <span class="publisher-tag">Abril</span> <span class="count-tag">68 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369378-issue-99.jpg" alt="A Espada Selvagem de Conan #99" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#99</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369377-issue-98.jpg" alt="A Espada Selvagem de Conan #98" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#98</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369376-issue-97.jpg" alt="A Espada Selvagem de Conan #97" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#97</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369375-issue-96.jpg" alt="A Espada Selvagem de Conan #96" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#96</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369374-issue-95.jpg" alt="A Espada Selvagem de Conan #95" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#95</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369373-issue-94.jpg" alt="A Espada Selvagem de Conan #94" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#94</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369372-issue-93.jpg" alt="A Espada Selvagem de Conan #93" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#93</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369371-issue-92.jpg" alt="A Espada Selvagem de Conan #92" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#92</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369370-issue-91.jpg" alt="A Espada Selvagem de Conan #91" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#91</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369369-issue-90.jpg" alt="A Espada Selvagem de Conan #90" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#90</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369302-issue-9.jpg" alt="A Espada Selvagem de Conan #9" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#9</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369368-issue-89.jpg" alt="A Espada Selvagem de Conan #89" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#89</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369367-issue-88.jpg" alt="A Espada Selvagem de Conan #88" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#88</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369366-issue-87.jpg" alt="A Espada Selvagem de Conan #87" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#87</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369365-issue-86.jpg" alt="A Espada Selvagem de Conan #86" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#86</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369364-issue-85.jpg" alt="A Espada Selvagem de Conan #85" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#85</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369363-issue-84.jpg" alt="A Espada Selvagem de Conan #84" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#84</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369362-issue-83.jpg" alt="A Espada Selvagem de Conan #83" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#83</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369361-issue-82.jpg" alt="A Espada Selvagem de Conan #82" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#82</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369360-issue-81.jpg" alt="A Espada Selvagem de Conan #81" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#81</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369359-issue-80.jpg" alt="A Espada Selvagem de Conan #80" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#80</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369303-issue-8.jpg" alt="A Espada Selvagem de Conan #8" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#8</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369358-issue-79.jpg" alt="A Espada Selvagem de Conan #79" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#79</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/a-espada-selvagem-de-conan/vol-54179/369357-issue-78.jpg" alt="A Espada Selvagem de Conan #78" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#78</span>
+            
+          </figcaption>
+        </figure><div class="more-tile">+44 more</div></div>
+      </section>
+      <section class="series-group">
+        <h2>Corriere dei Piccoli <span class="publisher-tag">RCS MediaGroup</span> <span class="count-tag">27 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/206779-che-carino.jpg" alt="Corriere dei Piccoli #199312" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199312</span>
+            <span class="cover-date">1993-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/206781-gino-e-il-triceratopo.jpg" alt="Corriere dei Piccoli #199311" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199311</span>
+            <span class="cover-date">1993-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/897714-issue-199310.jpg" alt="Corriere dei Piccoli #199310" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199310</span>
+            <span class="cover-date">1993-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/206512-gino-gulp-anch-io-in-maschera.jpg" alt="Corriere dei Piccoli #199309" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199309</span>
+            <span class="cover-date">1993-02</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/206514-laura-e-l-amore.jpg" alt="Corriere dei Piccoli #199307" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199307</span>
+            <span class="cover-date">1993-02</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/206517-bugs-bunny-co-svelato-il-segreto-di-taddeo.jpg" alt="Corriere dei Piccoli #199305" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199305</span>
+            <span class="cover-date">1993-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/1144815-issue-199304.jpg" alt="Corriere dei Piccoli #199304" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199304</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/204860-che-simpatica-cagnolina.jpg" alt="Corriere dei Piccoli #199303" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199303</span>
+            <span class="cover-date">1993-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/204862-buon-1993.jpg" alt="Corriere dei Piccoli #199301-02" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199301-02</span>
+            <span class="cover-date">1993-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208361-buon-natale.jpg" alt="Corriere dei Piccoli #199252" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199252</span>
+            <span class="cover-date">1992-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208362-l-alberello-di-natale.jpg" alt="Corriere dei Piccoli #199251" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199251</span>
+            <span class="cover-date">1992-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208375-gino-e-gli-orsetti.jpg" alt="Corriere dei Piccoli #199250" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199250</span>
+            <span class="cover-date">1992-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208376-bugs-bunny-la-carota-gigante.jpg" alt="Corriere dei Piccoli #199249" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199249</span>
+            <span class="cover-date">1992-12</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208377-gatto-silvestro-arriva-il-circo.jpg" alt="Corriere dei Piccoli #199246" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199246</span>
+            <span class="cover-date">1992-11</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208378-tarzan-in-esclusiva-la-sua-vera-storia-e-che-storia.jpg" alt="Corriere dei Piccoli #199244" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199244</span>
+            <span class="cover-date">1992-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208379-the-duckers-eccoli-al-completo.jpg" alt="Corriere dei Piccoli #199243" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199243</span>
+            <span class="cover-date">1992-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208380-gino-un-nome-ai-cuccioli.jpg" alt="Corriere dei Piccoli #199242" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199242</span>
+            <span class="cover-date">1992-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208381-carino-lo-scoiattolo-vero.jpg" alt="Corriere dei Piccoli #199241" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199241</span>
+            <span class="cover-date">1992-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208382-the-duckers-conto-alla-rovescia.jpg" alt="Corriere dei Piccoli #199240" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199240</span>
+            <span class="cover-date">1992-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208383-noi-mostri-sgurp-che-dieta.jpg" alt="Corriere dei Piccoli #199239" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199239</span>
+            <span class="cover-date">1992-09</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208384-the-duckers-week-end-dallo-zio.jpg" alt="Corriere dei Piccoli #199238" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199238</span>
+            <span class="cover-date">1992-09</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208385-finalmente-i-mostri.jpg" alt="Corriere dei Piccoli #199237" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199237</span>
+            <span class="cover-date">1992-09</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208386-taglia-e-ritaglia-gino-e-i-tuoi-amici.jpg" alt="Corriere dei Piccoli #199236" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199236</span>
+            <span class="cover-date">1992-09</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/corriere-dei-piccoli/vol-27801/208387-taglia-e-ritaglia-il-tartadirigibile.jpg" alt="Corriere dei Piccoli #199231" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#199231</span>
+            <span class="cover-date">1992-07</span>
+          </figcaption>
+        </figure><div class="more-tile">+3 more</div></div>
+      </section>
+      <section class="series-group">
+        <h2>Spider-Man and Friends <span class="publisher-tag">Marvel UK/Panini UK</span> <span class="count-tag">25 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/355734-is-it-home-time.jpg" alt="Spider-Man and Friends #7" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#7</span>
+            <span class="cover-date">2007-03</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331670-issue-66.jpg" alt="Spider-Man and Friends #66" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#66</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331669-issue-65.jpg" alt="Spider-Man and Friends #65" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#65</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331668-issue-64.jpg" alt="Spider-Man and Friends #64" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#64</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331667-issue-63.jpg" alt="Spider-Man and Friends #63" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#63</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331666-issue-62.jpg" alt="Spider-Man and Friends #62" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#62</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331665-issue-61.jpg" alt="Spider-Man and Friends #61" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#61</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331664-issue-60.jpg" alt="Spider-Man and Friends #60" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#60</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331663-issue-59.jpg" alt="Spider-Man and Friends #59" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#59</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331662-issue-58.jpg" alt="Spider-Man and Friends #58" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#58</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331661-snow-prints.jpg" alt="Spider-Man and Friends #57" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#57</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331660-issue-56.jpg" alt="Spider-Man and Friends #56" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#56</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331659-issue-55.jpg" alt="Spider-Man and Friends #55" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#55</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331658-issue-54.jpg" alt="Spider-Man and Friends #54" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#54</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331657-issue-53.jpg" alt="Spider-Man and Friends #53" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#53</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331656-issue-52.jpg" alt="Spider-Man and Friends #52" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#52</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331655-issue-51.jpg" alt="Spider-Man and Friends #51" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#51</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331654-issue-50.jpg" alt="Spider-Man and Friends #50" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#50</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/355733-issue-5.jpg" alt="Spider-Man and Friends #5" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#5</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331653-issue-49.jpg" alt="Spider-Man and Friends #49" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#49</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331652-issue-48.jpg" alt="Spider-Man and Friends #48" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#48</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/331651-issue-47.jpg" alt="Spider-Man and Friends #47" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#47</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/993795-a-festive-party.jpg" alt="Spider-Man and Friends #17" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#17</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spider-man-and-friends/vol-48020/993352-too-many-things-to-do.jpg" alt="Spider-Man and Friends #15" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#15</span>
+            
+          </figcaption>
+        </figure><div class="more-tile">+1 more</div></div>
+      </section>
+      <section class="series-group">
+        <h2>O Incrível Hulk <span class="publisher-tag">Abril</span> <span class="count-tag">8 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/o-incr-vel-hulk/vol-159873/1070592-issue-130.jpg" alt="O Incrível Hulk #130" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#130</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/o-incr-vel-hulk/vol-159873/1070591-issue-124.jpg" alt="O Incrível Hulk #124" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#124</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/o-incr-vel-hulk/vol-159873/1070590-issue-123.jpg" alt="O Incrível Hulk #123" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#123</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/o-incr-vel-hulk/vol-159873/1070589-issue-108.jpg" alt="O Incrível Hulk #108" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#108</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/o-incr-vel-hulk/vol-159873/1070588-issue-103.jpg" alt="O Incrível Hulk #103" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#103</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/o-incr-vel-hulk/vol-159873/1070587-issue-101.jpg" alt="O Incrível Hulk #101" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#101</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/o-incr-vel-hulk/vol-159873/1070586-issue-100.jpg" alt="O Incrível Hulk #100" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#100</span>
+            
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/o-incr-vel-hulk/vol-159873/1070543-issue-1.jpg" alt="O Incrível Hulk #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Teens At Play <span class="publisher-tag">Eros Comix</span> <span class="count-tag">4 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/teens-at-play/vol-30220/316212-issue-4.jpg" alt="Teens At Play #4" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#4</span>
+            <span class="cover-date">2011-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/teens-at-play/vol-30220/240928-issue-3.jpg" alt="Teens At Play #3" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#3</span>
+            <span class="cover-date">2005-09</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/teens-at-play/vol-30220/186309-issue-2.jpg" alt="Teens At Play #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">2004-08</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/teens-at-play/vol-30220/186308-issue-1.jpg" alt="Teens At Play #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2004-01</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Amazing Mysteries <span class="publisher-tag">Marvel</span> <span class="count-tag">4 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/amazing-mysteries/vol-21608/188828-danny-guild-the-hood-from-hell-s-kitchen.jpg" alt="Amazing Mysteries #35" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#35</span>
+            <span class="cover-date">1950-01</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/amazing-mysteries/vol-21608/188827-poppy-chavez-the-strange-woman.jpg" alt="Amazing Mysteries #34" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#34</span>
+            <span class="cover-date">1949-10</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/amazing-mysteries/vol-21608/188826-the-thing-in-the-vault.jpg" alt="Amazing Mysteries #33" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#33</span>
+            <span class="cover-date">1949-07</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/amazing-mysteries/vol-21608/130521-the-thing-at-chugamung-cove.jpg" alt="Amazing Mysteries #32" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#32</span>
+            <span class="cover-date">1949-05</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Chester 5000 XYV <span class="publisher-tag">Top Shelf</span> <span class="count-tag">2 issues</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/chester-5000-xyv/vol-53285/579223-book-2-isabelle-george.jpg" alt="Chester 5000 XYV #2" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#2</span>
+            <span class="cover-date">2016-08</span>
+          </figcaption>
+        </figure>
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/chester-5000-xyv/vol-53285/362788-book-1.jpg" alt="Chester 5000 XYV #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2011-04</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Voracia <span class="publisher-tag">Eros Comix</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/voracia/vol-72977/450203-issue-1.jpg" alt="Voracia #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            <span class="cover-date">2001-04</span>
+          </figcaption>
+        </figure></div>
+      </section>
+      <section class="series-group">
+        <h2>Skinheads in Love <span class="publisher-tag">Eros Comix</span> <span class="count-tag">1 issue</span></h2>
+        <div class="cover-grid">
+        <figure class="cover-card">
+          <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/skinheads-in-love/vol-71651/445299-issue-1.jpg" alt="Skinheads in Love #1" loading="lazy" width="220" height="330" />
+          <figcaption>
+            <span class="issue-num">#1</span>
+            
+          </figcaption>
+        </figure></div>
+      </section>
+
+    <footer>Generated 2026-10-24T09:55:55.465Z by scripts/generateNightlyCoverReport.js</footer>
+  </div>
+</body>
+</html>

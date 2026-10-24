@@ -35495,9 +35495,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T11:23:52.469960+00:00",
-    "retry_after": "2026-10-24T11:23:52.469975+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T23:18:06.213703+00:00",
+    "retry_after": "2026-10-27T23:18:06.213719+00:00"
   },
   {
     "name": "Flash Gordon: Classic Collection",
@@ -75724,9 +75724,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T11:23:49.139171+00:00",
-    "retry_after": "2026-10-24T11:23:49.139205+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T23:18:03.094551+00:00",
+    "retry_after": "2026-10-27T23:18:03.094568+00:00"
   },
   {
     "name": "Morning Glory Academy - Intégrale",
@@ -75734,9 +75734,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T11:23:49.548434+00:00",
-    "retry_after": "2026-10-24T11:23:49.548451+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T23:18:03.496877+00:00",
+    "retry_after": "2026-10-27T23:18:03.496893+00:00"
   },
   {
     "name": "Loveland",
@@ -75757,9 +75757,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T11:23:51.690081+00:00",
-    "retry_after": "2026-10-24T11:23:51.690097+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T23:18:05.243893+00:00",
+    "retry_after": "2026-10-27T23:18:05.243908+00:00"
   },
   {
     "name": "The Gifted",
@@ -75786,9 +75786,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T11:23:52.088308+00:00",
-    "retry_after": "2026-10-24T11:23:52.088324+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T23:18:05.743080+00:00",
+    "retry_after": "2026-10-27T23:18:05.743096+00:00"
   },
   {
     "name": "Steamboy (Ani-Manga)",
@@ -75796,9 +75796,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T11:23:52.923308+00:00",
-    "retry_after": "2026-10-24T11:23:52.923325+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T23:18:07.071179+00:00",
+    "retry_after": "2026-10-27T23:18:07.071195+00:00"
   },
   {
     "name": "Dragon Ball: A Bela do Castelo Amaldiçoado",
@@ -82866,5 +82866,267 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T22:23:57.229384+00:00",
     "retry_after": "2026-10-25T22:23:57.229396+00:00"
+  },
+  {
+    "name": "Marvel Masterworks: Rawhide Kid",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23388,
+        "name": "Marvel Masterworks: Rawhide Kid",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:17:58.664435+00:00",
+    "retry_after": "2026-10-25T23:17:58.664447+00:00"
+  },
+  {
+    "name": "I Love You",
+    "publisher": "Fawcett Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23310,
+        "name": "I Love You",
+        "publisher": null,
+        "start_year": 1955
+      },
+      {
+        "id": 167404,
+        "name": "I Love You",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 65772,
+        "name": "I Love You",
+        "publisher": null,
+        "start_year": 1950
+      },
+      {
+        "id": 87918,
+        "name": "I Love You",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 137352,
+        "name": "I Love You",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:17:59.162340+00:00",
+    "retry_after": "2026-10-25T23:17:59.162353+00:00"
+  },
+  {
+    "name": "X-Men Gigante",
+    "publisher": "Avatar Press",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57596,
+        "name": "X-Men Gigante",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:17:59.599745+00:00",
+    "retry_after": "2026-10-25T23:17:59.599760+00:00"
+  },
+  {
+    "name": "Der letzte Kobold",
+    "publisher": "Fawcett Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 100497,
+        "name": "Der letzte Kobold",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:17:59.966912+00:00",
+    "retry_after": "2026-10-25T23:17:59.966927+00:00"
+  },
+  {
+    "name": "Family Favourites",
+    "publisher": "Marvel Comics",
+    "year": 1965,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88355,
+        "name": "Family Favourites",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:18:00.384832+00:00",
+    "retry_after": "2026-10-25T23:18:00.384845+00:00"
+  },
+  {
+    "name": "Crime Illustrated",
+    "publisher": "EC Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1729,
+        "name": "Crime Illustrated",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:18:00.687425+00:00",
+    "retry_after": "2026-10-25T23:18:00.687440+00:00"
+  },
+  {
+    "name": "C.E.O. Fellatio",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 146646,
+        "name": "C.E.O. Fellatio",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:18:01.109851+00:00",
+    "retry_after": "2026-10-25T23:18:01.109866+00:00"
+  },
+  {
+    "name": "Romance Diary",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30520,
+        "name": "Romance Diary",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:18:01.563812+00:00",
+    "retry_after": "2026-10-25T23:18:01.563827+00:00"
+  },
+  {
+    "name": "Sky Doll: Lacrima Christi Collection",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155514,
+        "name": "Sky Doll: Lacrima Christi Collection",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:18:01.947437+00:00",
+    "retry_after": "2026-10-25T23:18:01.947452+00:00"
+  },
+  {
+    "name": "Hot Line",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56254,
+        "name": "Hot Line",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:18:02.350865+00:00",
+    "retry_after": "2026-10-25T23:18:02.350881+00:00"
+  },
+  {
+    "name": "Our Love",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1287,
+        "name": "Our Love",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:18:02.672049+00:00",
+    "retry_after": "2026-10-25T23:18:02.672065+00:00"
+  },
+  {
+    "name": "My Diary",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30518,
+        "name": "My Diary",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:18:03.906986+00:00",
+    "retry_after": "2026-10-25T23:18:03.907002+00:00"
+  },
+  {
+    "name": "The Return of Happy the Clown",
+    "publisher": "Caliber Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21906,
+        "name": "The Return of Happy the Clown",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:18:04.384891+00:00",
+    "retry_after": "2026-10-25T23:18:04.384906+00:00"
+  },
+  {
+    "name": "War Victory Adventures",
+    "publisher": "Harvey Comics",
+    "year": 1943,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58665,
+        "name": "War Victory Adventures",
+        "publisher": null,
+        "start_year": 1943
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T23:18:04.860188+00:00",
+    "retry_after": "2026-10-25T23:18:04.860203+00:00"
   }
 ]

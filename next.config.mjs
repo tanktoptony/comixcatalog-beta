@@ -68,6 +68,13 @@ const nextConfig = {
         destination: "/founding-collectors?utm_source=:shop&utm_medium=print&utm_campaign=shop-kit",
         permanent: false,
       },
+      // Short link for texting a buyer a listing (first test purchase,
+      // 2026-10-24). Temporary so it can be repointed at the next listing.
+      {
+        source: "/buy",
+        destination: "/listing/039eb7af-79b7-4ae6-9a76-de75af3c5e4b",
+        permanent: false,
+      },
       { source: "/forum", destination: "/", permanent: false },
       { source: "/crate-dig", destination: "/", permanent: false },
     ];

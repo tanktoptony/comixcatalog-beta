@@ -80465,5 +80465,521 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T17:24:04.453062+00:00",
     "retry_after": "2026-10-25T17:24:04.453079+00:00"
+  },
+  {
+    "name": "Marvel Masterworks: Golden Age Human Torch",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35568,
+        "name": "Marvel Masterworks: Golden Age Human Torch",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:06.685305+00:00",
+    "retry_after": "2026-10-25T18:15:06.685320+00:00"
+  },
+  {
+    "name": "Fugitive",
+    "publisher": "Caliber Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47316,
+        "name": "Fugitive",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:07.152029+00:00",
+    "retry_after": "2026-10-25T18:15:07.152045+00:00"
+  },
+  {
+    "name": "Anna Malle's Dirty Deeds",
+    "publisher": "Fantagraphics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84181,
+        "name": "Anna Malle's Dirty Deeds",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:07.581623+00:00",
+    "retry_after": "2026-10-25T18:15:07.581639+00:00"
+  },
+  {
+    "name": "Dicks Winter Special",
+    "publisher": "Avatar Press",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22469,
+        "name": "Dicks Winter Special",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:07.997248+00:00",
+    "retry_after": "2026-10-25T18:15:07.997264+00:00"
+  },
+  {
+    "name": "Pandora Annual",
+    "publisher": "Avatar Press",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21290,
+        "name": "Pandora Annual",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:08.454113+00:00",
+    "retry_after": "2026-10-25T18:15:08.454129+00:00"
+  },
+  {
+    "name": "Cutting Edge: The Devil's Mirror",
+    "publisher": "Titan Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133351,
+        "name": "Cutting Edge: The Devil's Mirror",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:08.958274+00:00",
+    "retry_after": "2026-10-25T18:15:08.958291+00:00"
+  },
+  {
+    "name": "The Verdict: The Acolyte",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48934,
+        "name": "Verdict: The Acolyte",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:09.379688+00:00",
+    "retry_after": "2026-10-25T18:15:09.379704+00:00"
+  },
+  {
+    "name": "Cheerleaders from Hell",
+    "publisher": "Caliber Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23788,
+        "name": "Cheerleaders From Hell",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:09.671085+00:00",
+    "retry_after": "2026-10-25T18:15:09.671100+00:00"
+  },
+  {
+    "name": "Catchpenny Comics",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 114804,
+        "name": "Catchpenny Comics",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:10.056071+00:00",
+    "retry_after": "2026-10-25T18:15:10.056087+00:00"
+  },
+  {
+    "name": "Frank Ironwine",
+    "publisher": "Avatar Press",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32037,
+        "name": "Frank Ironwine",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:10.518508+00:00",
+    "retry_after": "2026-10-25T18:15:10.518521+00:00"
+  },
+  {
+    "name": "LegendLore: Daemonstorm",
+    "publisher": "Caliber Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69438,
+        "name": "LegendLore: Daemonstorm",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:10.931255+00:00",
+    "retry_after": "2026-10-25T18:15:10.931269+00:00"
+  },
+  {
+    "name": "Convocations - A Magic: The Gathering Gallery",
+    "publisher": "Valiant Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34896,
+        "name": "Convocations - A Magic: The Gathering Gallery",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:11.372363+00:00",
+    "retry_after": "2026-10-25T18:15:11.372378+00:00"
+  },
+  {
+    "name": "Superman: The Last Son of Krypton FCBD Special Edition",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60811,
+        "name": "Superman: Last Son of Krypton FCBD Special Edition",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:11.725676+00:00",
+    "retry_after": "2026-10-25T18:15:11.725692+00:00"
+  },
+  {
+    "name": "Cerberus in Hell?",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115538,
+        "name": "Cerberus in Hell",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:12.172487+00:00",
+    "retry_after": "2026-10-25T18:15:12.172501+00:00"
+  },
+  {
+    "name": "Dusty Star",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26630,
+        "name": "Dusty Star",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 34883,
+        "name": "Dusty Star",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:12.667598+00:00",
+    "retry_after": "2026-10-25T18:15:12.667613+00:00"
+  },
+  {
+    "name": "Warrior Nun Lazarus",
+    "publisher": "Antarctic Press",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50429,
+        "name": "Warrior Nun: Lazarus",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:12.993950+00:00",
+    "retry_after": "2026-10-25T18:15:12.993965+00:00"
+  },
+  {
+    "name": "Alien, Predator, & Planet of the Apes CGD 2026",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 177311,
+        "name": "Alien, Predator, & Planet of the Apes CGD 2026",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:13.276644+00:00",
+    "retry_after": "2026-10-25T18:15:13.276659+00:00"
+  },
+  {
+    "name": "The Shell Collector Series - Superman",
+    "publisher": "DC Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 103456,
+        "name": "Shell Collector Series - Superman",
+        "publisher": null,
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:13.606249+00:00",
+    "retry_after": "2026-10-25T18:15:13.606265+00:00"
+  },
+  {
+    "name": "Michael Turner's Soulfire Annual",
+    "publisher": "Aspen Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75735,
+        "name": "Michael Turner's Soulfire Annual",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:14.077246+00:00",
+    "retry_after": "2026-10-25T18:15:14.077262+00:00"
+  },
+  {
+    "name": "Edgar Allan Poe's The Bells",
+    "publisher": "Caliber Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62561,
+        "name": "Edgar Allan Poe's The Bells",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:15.013847+00:00",
+    "retry_after": "2026-10-25T18:15:15.013863+00:00"
+  },
+  {
+    "name": "Tippy Teen",
+    "publisher": "Antarctic Press",
+    "year": 1965,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11474,
+        "name": "Tippy Teen",
+        "publisher": null,
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:15.846999+00:00",
+    "retry_after": "2026-10-25T18:15:15.847014+00:00"
+  },
+  {
+    "name": "Clive Barker's Night Breed",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23595,
+        "name": "Clive Barker's Night Breed",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:16.482367+00:00",
+    "retry_after": "2026-10-25T18:15:16.482383+00:00"
+  },
+  {
+    "name": "Men's Adventures",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30573,
+        "name": "Men's Adventures",
+        "publisher": null,
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:16.968453+00:00",
+    "retry_after": "2026-10-25T18:15:16.968468+00:00"
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:17.496049+00:00",
+    "retry_after": "2026-10-25T18:15:17.496065+00:00"
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": null,
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:17.798994+00:00",
+    "retry_after": "2026-10-25T18:15:17.799009+00:00"
+  },
+  {
+    "name": "Yummy Fur",
+    "publisher": "Charlton Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35961,
+        "name": "Yummy Fur",
+        "publisher": null,
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:18.434268+00:00",
+    "retry_after": "2026-10-25T18:15:18.434283+00:00"
+  },
+  {
+    "name": "Police Against Crime",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57616,
+        "name": "Police Against Crime",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:18.854190+00:00",
+    "retry_after": "2026-10-25T18:15:18.854205+00:00"
+  },
+  {
+    "name": "Conan Rei",
+    "publisher": "Avatar Press",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 113627,
+        "name": "Conan Rei",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:19.252595+00:00",
+    "retry_after": "2026-10-25T18:15:19.252607+00:00"
+  },
+  {
+    "name": "Dale Evans Comics",
+    "publisher": "DC Comics",
+    "year": 1948,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31710,
+        "name": "Dale Evans Comics",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:20.263742+00:00",
+    "retry_after": "2026-10-25T18:15:20.263757+00:00"
+  },
+  {
+    "name": "All-American Western",
+    "publisher": "DC Comics",
+    "year": 1948,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25515,
+        "name": "All-American Western",
+        "publisher": null,
+        "start_year": 1948
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T18:15:20.910464+00:00",
+    "retry_after": "2026-10-25T18:15:20.910479+00:00"
   }
 ]

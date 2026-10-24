@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 // Last-resort boundary: catches errors thrown by the root layout itself,
 // where Header/Footer aren't available. Must render its own <html>/<body>.
-export default function GlobalError({ error, reset }) {
+export default function GlobalError({ error }) {
   useEffect(() => {
     console.error("Root layout error:", error);
   }, [error]);
@@ -37,7 +37,8 @@ export default function GlobalError({ error, reset }) {
           </p>
           <button
             type="button"
-            onClick={() => reset()}
+            // The root layout itself failed, so do a full reload.
+            onClick={() => window.location.reload()}
             style={{
               background: "#F4D03F",
               color: "#000",

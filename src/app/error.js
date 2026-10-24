@@ -1,12 +1,24 @@
 "use client";
 
-import { useEffect } from "react";
+import { startTransition, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function AppError({ error, reset }) {
+  const router = useRouter();
+
   useEffect(() => {
     console.error("App-level error:", error);
   }, [error]);
+
+  // reset() alone re-renders the same failed server payload, so the button
+  // looked dead on server errors. Refetch from the server first.
+  function retry() {
+    startTransition(() => {
+      router.refresh();
+      reset();
+    });
+  }
 
   return (
     <section className="error-shell">
@@ -18,7 +30,7 @@ export default function AppError({ error, reset }) {
           or search for what you were looking for.
         </p>
         <div className="error-actions">
-          <button type="button" className="error-btn primary" onClick={() => reset()}>
+          <button type="button" className="error-btn primary" onClick={retry}>
             Try again
           </button>
           <Link href="/" className="error-btn">

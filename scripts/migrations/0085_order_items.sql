@@ -30,10 +30,16 @@ revoke all on public.order_items from public, anon, authenticated;
 grant select on public.order_items to authenticated;
 grant all on public.order_items to service_role;
 
+-- Backfill one item per existing order. A sold copy's listing is deleted with
+-- its collection row, which clears orders.listing_id, so paid and later
+-- orders take the listing and copy from their sold_items row (applied this
+-- way in production 2026-10-24; the first version found no rows).
 insert into public.order_items(order_id,listing_id,collection_id,sold_item_id,gcd_issue_id,series_title,issue_number,cover_path,condition,grade_numeric,slab_company,item_cents,created_at)
-select o.id,o.listing_id,l.collection_id,o.sold_item_id,o.gcd_issue_id,o.series_title,o.issue_number,o.cover_path,o.condition,o.grade_numeric,o.slab_company,o.item_cents,o.created_at
-from public.orders o left join public.listings l on l.id=o.listing_id
-where o.listing_id is not null
+select o.id,coalesce(o.listing_id,si.listing_id),coalesce(l.collection_id,si.collection_item_id),o.sold_item_id,o.gcd_issue_id,o.series_title,o.issue_number,o.cover_path,o.condition,o.grade_numeric,o.slab_company,o.item_cents,o.created_at
+from public.orders o
+left join public.listings l on l.id=o.listing_id
+left join public.sold_items si on si.id=o.sold_item_id
+where coalesce(o.listing_id,si.listing_id) is not null
 on conflict do nothing;
 
 create index order_items_listing_idx on public.order_items(listing_id);

@@ -67,7 +67,17 @@ export default function PayoutsClient() {
       {summary.state === "not_started" && seller !== undefined && <><p className={styles.muted}>Stripe securely collects identity and bank details. ComixCatalog never stores those details.</p><button disabled={busy} onClick={() => open("/api/sell/stripe/onboard")}>Set up payouts with Stripe</button></>}
       {summary.state === "pending" && <><p className={styles.muted}>{seller.requirements_due?.length ? `Still needed: ${seller.requirements_due.join(", ")}` : "Stripe will show you what is still needed."}</p><button disabled={busy} onClick={() => open("/api/sell/stripe/onboard")}>Continue setup</button></>}
       {summary.state === "ready" && <><span className={styles.badge}>{seller.tier === "established" ? "Established" : "New seller"}</span>{seller.tier === "new" && <ul><li>Up to 25 active priced listings</li><li>Up to $1,000 per listing</li><li>Up to $2,000 in open orders</li></ul>}<button disabled={busy} onClick={() => open("/api/sell/stripe/dashboard")}>Open Stripe dashboard</button></>}
-      {seller && <form onSubmit={saveShipping}><label>Each extra book ships for $<input type="number" min="0" max="20" step="0.01" value={extraShipping} onChange={(event) => setExtraShipping(event.target.value)} /></label><button disabled={busy}>Save combined shipping</button></form>}
+      {seller && (
+        <form onSubmit={saveShipping} className={styles.shipping}>
+          <h2>Combined shipping</h2>
+          <p className={styles.muted}>When someone buys several of your books at once, they pay your highest shipping price once, plus this for each extra book.</p>
+          <label>
+            Each extra book ships for
+            <span className={styles.money}>$<input type="number" min="0" max="20" step="0.01" value={extraShipping} onChange={(event) => setExtraShipping(event.target.value)} /></span>
+          </label>
+          <button disabled={busy}>Save</button>
+        </form>
+      )}
       {error && <p className={styles.error} role="alert">{error}</p>}
     </section>
   </main>;

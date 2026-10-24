@@ -231,7 +231,9 @@ async function computeListing(id) {
   // at $100+, slab certs, new-seller caps): one ineligible book fails the
   // whole multi-book order.
   const buyable = [];
-  for (const row of pricedRows || []) {
+  // Same series first: someone buying X-Men #18 most likely wants #19.
+  const sameSeriesFirst = [...(pricedRows || [])].sort((a, b) => Number(b.series_title === l.series_title) - Number(a.series_title === l.series_title));
+  for (const row of sameSeriesFirst) {
     if (buyable.length === 6) break;
     const { data: block, error: blockError } = await sb.rpc("mkt_listing_checkout_block", { p_listing: row.id });
     if (!blockError && block == null) buyable.push(row);

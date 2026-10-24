@@ -137,13 +137,13 @@ export default function OrderStatus({ id }) {
     <main className={styles.page}>
       <Link href="/orders">Back to orders</Link>
       <section className={styles.receipt}>
-        <div className={styles.cover}>{(order.items?.length ? order.items : [{ cover_url: order.cover_url }]).map((item, index) => item.cover_url && <img src={item.cover_url} alt="" key={`${item.listing_id || order.id}-${index}`} />)}</div>
+        <div className={order.items?.length > 1 ? styles.coverStack : styles.cover}>{(order.items?.length ? order.items : [{ cover_url: order.cover_url }]).map((item, index) => item.cover_url && <img src={item.cover_url} alt="" key={`${item.listing_id || order.id}-${index}`} />)}</div>
         <div className={styles.details}>
           <p className={styles.eyebrow}>Marketplace receipt</p>
           <h1>{order.items?.length > 1 ? `${order.items.length} books from @${order.seller_username}` : `${order.series_title}${order.issue_number ? ` #${order.issue_number}` : ""}`}</h1>
           {order.items?.length > 1 && <ul>{order.items.map((item) => <li key={item.listing_id}>{item.series_title}{item.issue_number ? ` #${item.issue_number}` : ""} · {money(item.item_cents)}</li>)}</ul>}
           <p>{[order.variant_label, order.printing_name].filter(Boolean).join(" · ")}</p>
-          {order.slab_company ? (
+          {order.items?.length > 1 ? null : order.slab_company ? (
             <div className={styles.slab}>{order.slab_company} <strong>{order.grade_numeric}</strong><small>Cert {order.slab_cert_number}</small></div>
           ) : <p>Grade: {order.condition || order.grade_numeric || "Not specified"}</p>}
           <p>{order.role === "buyer" ? "Sold by" : "Bought by"} <strong>@{person}</strong></p>

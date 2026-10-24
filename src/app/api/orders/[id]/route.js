@@ -54,7 +54,8 @@ export async function GET(req, { params }) {
     db.from("order_disputes").select("kind,status,reason_text,resolution_note,opened_at,resolved_at").eq("order_id", id).order("opened_at", { ascending: false }),
     db.from("order_refunds").select("amount_cents,reason,status,created_at").eq("order_id", id).order("created_at", { ascending: false }),
   ]);
-  if (disputesError || refundsError) return NextResponse.json({ error: "Could not load order history" }, { status: 500 });
+  const { data: items, error: itemsError } = await db.from("order_items").select("listing_id,series_title,issue_number,cover_path,condition,grade_numeric,slab_company,item_cents").eq("order_id", id).order("created_at");
+  if (disputesError || refundsError || itemsError) return NextResponse.json({ error: "Could not load order history" }, { status: 500 });
   const usernames = Object.fromEntries((profiles || []).map((profile) => [profile.id, profile.username]));
   const actions = {
     mark_shipped: canTransition(data.status, "shipped", role),
@@ -84,6 +85,7 @@ export async function GET(req, { params }) {
   delete data.ship_to;
   return NextResponse.json({ order: {
     ...data,
+    items: (items || []).map((item) => ({ ...item, cover_url: item.cover_path && (/^https?:\/\//i.test(item.cover_path) ? item.cover_path : `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${item.cover_path}`) })),
     role,
     actions,
     timeline,

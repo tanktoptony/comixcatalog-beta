@@ -60,8 +60,8 @@ export default function OrdersList() {
       <div className={styles.list}>
         {state.orders.map((order) => (
           <Link href={`/orders/${order.id}`} className={styles.row} key={order.id}>
-            <div className={styles.cover}>{order.cover_url && <img src={order.cover_url} alt="" />}</div>
-            <div><strong>{order.series_title}{order.issue_number ? ` #${order.issue_number}` : ""}</strong><span>{order.slab_company ? `${order.slab_company} ${order.grade_numeric || ""}` : order.condition || "Raw"}</span></div>
+            <div className={styles.cover}>{(order.items?.length ? order.items : [{ cover_url: order.cover_url }]).slice(0, 3).map((item, index) => item.cover_url && <img src={item.cover_url} alt="" key={`${item.listing_id || order.id}-${index}`} />)}</div>
+            <div><strong>{order.items?.length > 1 ? `${order.items.length} books from @${order.seller_username}` : `${order.series_title}${order.issue_number ? ` #${order.issue_number}` : ""}`}</strong><span>{order.items?.length > 1 ? order.items.map((item) => `${item.series_title}${item.issue_number ? ` #${item.issue_number}` : ""}`).join(", ") : order.slab_company ? `${order.slab_company} ${order.grade_numeric || ""}` : order.condition || "Raw"}</span></div>
             <div className={styles.meta}><b>{money(order.total_cents)}</b><span className={styles.chip}>{statusLabel(order.status)}</span><time>{new Date(order.created_at).toLocaleDateString()}</time></div>
           </Link>
         ))}

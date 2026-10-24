@@ -39,6 +39,14 @@ test("shipping is omitted at zero", () => {
   assert.equal(params.expires_at, 1861);
 });
 
+test("multi-book checkout has one trusted line per book plus shipping", () => {
+  const params = buildCheckoutSessionParams({ ...order, item_cents: 3000, shipping_cents: 300, items: [
+    { series_title: "Batman", issue_number: "1", item_cents: 1000 },
+    { series_title: "Batman", issue_number: "2", item_cents: 2000 },
+  ] }, { siteUrl: "https://test", now: 1000 });
+  assert.deepEqual(params.line_items.map((line) => line.price_data.unit_amount), [1000, 2000, 300]);
+});
+
 test("paid session verifier rejects every mismatch", () => {
   const session = {
     id: "cs_1",

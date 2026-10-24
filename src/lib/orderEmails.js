@@ -12,7 +12,8 @@ export function escapeHtml(value) {
 }
 
 function title(order) {
-  return `${order.series_title}${order.issue_number ? ` #${order.issue_number}` : ""}`;
+  const first = order.items?.[0] || order;
+  return `${first.series_title}${first.issue_number ? ` #${first.issue_number}` : ""}${order.items?.length > 1 ? ` and ${order.items.length - 1} more` : ""}`;
 }
 
 function shipSummary(order) {

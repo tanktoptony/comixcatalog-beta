@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { ORDERS_CHANGED_EVENT } from "@/hooks/useSellerOrders";
 import { authedFetch } from "@/lib/apiClient";
 import { statusLabel } from "@/lib/orders";
 import { trackingUrl } from "@/lib/tracking";
@@ -20,11 +21,13 @@ const money = (value) => new Intl.NumberFormat("en-US", {
 const PAYMENT_WARNING = "Heads up: payments outside ComixCatalog checkout aren't covered. If someone asks for Friends and Family, Zelle, a wire or gift cards, that's the classic scam.";
 
 export default function OrderStatus({ id }) {
-  const success = useSearchParams().get("checkout") === "success";
+  const searchParams = useSearchParams();
+  const success = searchParams.get("checkout") === "success";
   const [state, setState] = useState({ loading: true });
   const [messages, setMessages] = useState([]);
   const [body, setBody] = useState("");
-  const [shipping, setShipping] = useState(false);
+  // ?ship=1 (from the seller's "To ship" card) opens the shipment form.
+  const [shipping, setShipping] = useState(searchParams.get("ship") === "1");
   const [carrier, setCarrier] = useState("usps");
   const [tracking, setTracking] = useState("");
   const [feedbackRating, setFeedbackRating] = useState("");
@@ -81,6 +84,7 @@ export default function OrderStatus({ id }) {
       return;
     }
     setShipping(false);
+    window.dispatchEvent(new Event(ORDERS_CHANGED_EVENT));
     await load();
   }
 
@@ -173,7 +177,7 @@ export default function OrderStatus({ id }) {
             <button disabled={disputeReason.trim().length < 10}>Open dispute</button>
             <button type="button" onClick={() => setDisputeOpen(false)}>Cancel</button>
           </form>}
-          {shipping && <form className={styles.shipForm} onSubmit={(event) => { event.preventDefault(); action("ship", { carrier, tracking_number: tracking }); }}><label>Carrier<select value={carrier} onChange={(event) => setCarrier(event.target.value)}><option value="usps">USPS</option><option value="ups">UPS</option><option value="fedex">FedEx</option><option value="dhl">DHL</option><option value="other">Other</option></select></label><label>Tracking number<input value={tracking} onChange={(event) => setTracking(event.target.value)} /></label><small>Tracking is required for orders of $50 or more.</small><button>Save shipment</button></form>}
+          {shipping && order.actions.mark_shipped && <form className={styles.shipForm} onSubmit={(event) => { event.preventDefault(); action("ship", { carrier, tracking_number: tracking }); }}><label>Carrier<select value={carrier} onChange={(event) => setCarrier(event.target.value)}><option value="usps">USPS</option><option value="ups">UPS</option><option value="fedex">FedEx</option><option value="dhl">DHL</option><option value="other">Other</option></select></label><label>Tracking number<input value={tracking} onChange={(event) => setTracking(event.target.value)} /></label><small>Tracking is required for orders of $50 or more.</small><button>Save shipment</button></form>}
           {state.actionError && <p className={styles.error}>{state.actionError}</p>}
         </aside>
       </section>

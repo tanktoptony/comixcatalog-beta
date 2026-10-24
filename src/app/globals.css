@@ -3840,6 +3840,53 @@ input[type="file"] {
   }
 }
 
+/* Library: one slim line while sold books wait on the seller to ship. */
+.to-ship-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border: 1px solid rgba(244, 208, 63, 0.4);
+  border-radius: 10px;
+  background: rgba(244, 208, 63, 0.08);
+  color: var(--x-gold);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.to-ship-bar:hover {
+  background: rgba(244, 208, 63, 0.14);
+}
+
+.to-ship-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: #e8e6df;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.to-ship-text strong {
+  color: #fff;
+}
+
+.to-ship-action {
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .to-ship-bar {
+    flex-wrap: wrap;
+  }
+
+  .to-ship-text {
+    white-space: normal;
+  }
+}
+
 .marketplace-page {
   max-width: 1000px;
   margin: 0 auto;
@@ -7875,7 +7922,25 @@ button.nav-link {
 
   /* Avatar dropdown — keep anchored to its trigger but slightly wider on
      phones since there's nothing to overflow into. */
-  .user-menu-panel {
+  /* Paid orders waiting on this seller to ship. */
+.user-menu-ship-badge {
+  top: -4px;
+  right: -6px;
+  pointer-events: none;
+}
+
+.user-menu-count {
+  margin-left: auto;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(244, 208, 63, 0.16);
+  color: var(--x-gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.user-menu-panel {
     min-width: 220px;
     right: 0 !important;
   }

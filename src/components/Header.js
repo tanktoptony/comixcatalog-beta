@@ -10,6 +10,7 @@ import { useAuth } from "@/context/AuthContext";
 import { SIGNUP_HREF as START_SIGNUP_HREF } from "@/app/start/StartClient";
 import { useSearchQuery } from "@/context/SearchQueryContext";
 import { useUnreadMessageCount } from "@/hooks/useUnreadMessageCount";
+import { useSellerOrders } from "@/hooks/useSellerOrders";
 import { inboxAriaLabel, inboxBadgeTotal } from "@/lib/inboxNotifications";
 import { coverThumb } from "@/lib/coverThumb";
 import InviteButton from "@/components/InviteButton";
@@ -676,38 +677,13 @@ function InboxNavButton({ current }) {
   );
 }
 
-function OrdersMenuItem({ onClick }) {
-  const [allowed, setAllowed] = useState(false);
-  useEffect(() => {
-    // Ask once per browser session, not on every page load (each check is a function call).
-    const KEY = "cc-orders-access";
-    let cached = null;
-    try { cached = sessionStorage.getItem(KEY); } catch { /* storage blocked (private mode): ask the server instead */ }
-    let active = true;
-    if (cached !== null) {
-      queueMicrotask(() => {
-        if (active) setAllowed(cached === "1");
-      });
-      return () => {
-        active = false;
-      };
-    }
-    authedFetch("/api/orders/access")
-      .then((response) => {
-        if (response.status === 401) return;
-        try { sessionStorage.setItem(KEY, response.ok ? "1" : "0"); } catch { /* storage blocked: we just ask again next page load */ }
-        if (active) setAllowed(response.ok);
-      })
-      .catch(() => {});
-    return () => {
-      active = false;
-    };
-  }, []);
-  if (!allowed) return null;
+function OrdersMenuItem({ onClick, orders }) {
+  if (!orders.allowed) return null;
   return (
     <Link href="/orders" className="user-menu-item user-menu-item-with-icon" role="menuitem" onClick={onClick}>
       <Package {...NAV_ICON_PROPS} />
       <span>Orders</span>
+      {orders.toShip > 0 && <span className="user-menu-count">{orders.toShip} to ship</span>}
     </Link>
   );
 }
@@ -717,6 +693,7 @@ const UserMenu = forwardRef(function UserMenu(
   ref
 ) {
   const username = profile?.username || null;
+  const orders = useSellerOrders(Boolean(user));
   // Email is the always-present source of truth from the auth user. The
   // dropdown header MUST identify the user — falling through to a bare
   // "Account" label (the previous behavior) made it impossible to tell
@@ -748,7 +725,7 @@ const UserMenu = forwardRef(function UserMenu(
         onClick={() => setOpen(!open)}
         aria-haspopup="menu"
         aria-expanded={open}
-        aria-label="Account menu"
+        aria-label={orders.toShip > 0 ? `Account menu, ${orders.toShip} ${orders.toShip === 1 ? "order" : "orders"} to ship` : "Account menu"}
       >
         {avatarSrc ? (
           <img src={avatarSrc} alt="" className="user-menu-avatar" />
@@ -756,6 +733,11 @@ const UserMenu = forwardRef(function UserMenu(
           <span className="user-menu-avatar user-menu-avatar--pending" aria-hidden="true" />
         )}
         {hasSupporterPerks && <span className="user-menu-pro-dot" aria-hidden="true" />}
+        {orders.toShip > 0 && (
+          <span className="nav-icon-badge user-menu-ship-badge" aria-hidden="true">
+            {orders.toShip > 9 ? "9+" : orders.toShip}
+          </span>
+        )}
       </button>
 
       {open && (
@@ -783,11 +765,11 @@ const UserMenu = forwardRef(function UserMenu(
 
           <div className="user-menu-divider" />
 
+          <OrdersMenuItem onClick={handleItem()} orders={orders} />
           <Link href="/marketplace" className="user-menu-item user-menu-item-with-icon" role="menuitem" onClick={handleItem()}>
             <Store {...NAV_ICON_PROPS} />
             <span>Marketplace (beta)</span>
           </Link>
-          <OrdersMenuItem onClick={handleItem()} />
           <button
             type="button"
             className="user-menu-item user-menu-item-with-icon"

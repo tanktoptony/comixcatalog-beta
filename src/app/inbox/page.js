@@ -153,7 +153,7 @@ export default function InboxPage() {
       // an empty list, not sit on a "Loading…" forever.
       const msgsQuery = supabase
         .from("messages")
-        .select("id, sender_id, recipient_id, body, read_at, created_at")
+        .select("id, sender_id, recipient_id, body, is_system, read_at, created_at")
         .or(`sender_id.eq.${user.id},recipient_id.eq.${user.id}`)
         .order("created_at", { ascending: false })
         .limit(500);
@@ -283,7 +283,8 @@ export default function InboxPage() {
         {filteredThreads.map((t) => {
           const username = t.profile?.username || "unknown";
           const name = t.profile?.display_name || t.profile?.username || "Unknown user";
-          const preview = (t.lastMessage.body || "").slice(0, 110);
+          // Order notes are written by the site, not by either collector.
+          const preview = `${t.lastMessage.is_system ? "ComixCatalog: " : ""}${t.lastMessage.body || ""}`.slice(0, 110);
           const isUnread = t.unread > 0;
           return (
             <li key={t.otherId} className={`inbox-thread ${isUnread ? "is-unread" : ""}`}>

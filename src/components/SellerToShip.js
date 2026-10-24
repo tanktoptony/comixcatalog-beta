@@ -1,18 +1,23 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Package } from "lucide-react";
 import { authedFetch } from "@/lib/apiClient";
 import { shipByLabel } from "@/lib/shipBy";
 import { useSellerOrders } from "@/hooks/useSellerOrders";
+
+// "Oct 28": the year only adds width on a phone.
+const shortDate = (paidAt) => shipByLabel(paidAt).replace(/, \d{4}$/, "");
 
 function money(cents) {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format((cents ?? 0) / 100);
 }
 
-// Sold books waiting on the seller, at the top of their library. A sale
-// takes the book off the shelf, so without this the book just vanished.
+// One slim line at the top of the seller's library while sold books wait to
+// ship. A sale takes the book off the shelf, so without this it just
+// vanished. One order links straight to its shipment form; several link to
+// Orders.
 export default function SellerToShip() {
   const { allowed, toShip } = useSellerOrders();
   const [orders, setOrders] = useState([]);
@@ -23,7 +28,10 @@ export default function SellerToShip() {
     authedFetch("/api/orders?role=selling")
       .then((response) => (response.ok ? response.json() : { orders: [] }))
       .then((body) => {
-        if (active) setOrders((body.orders ?? []).filter((order) => order.status === "paid"));
+        if (!active) return;
+        const paid = (body.orders ?? []).filter((order) => order.status === "paid");
+        // Oldest payment first: that one ships soonest.
+        setOrders(paid.sort((a, b) => String(a.paid_at).localeCompare(String(b.paid_at))));
       })
       .catch(() => {});
     return () => {
@@ -32,24 +40,19 @@ export default function SellerToShip() {
   }, [allowed, toShip]);
 
   if (!allowed || toShip === 0 || orders.length === 0) return null;
+  const next = orders[0];
+  const single = orders.length === 1;
+  const title = `${next.series_title}${next.issue_number ? ` #${next.issue_number}` : ""}`;
 
   return (
-    <section className="to-ship" aria-labelledby="to-ship-title">
-      <h2 id="to-ship-title" className="to-ship-title">
-        You sold {orders.length === 1 ? "a book" : `${orders.length} books`}. Time to ship.
-      </h2>
-      <ul className="to-ship-list">
-        {orders.map((order) => (
-          <li key={order.id} className="to-ship-item">
-            {order.cover_url ? <img src={order.cover_url} alt="" className="to-ship-cover" /> : <span className="to-ship-cover" aria-hidden="true" />}
-            <div className="to-ship-copy">
-              <strong>{order.series_title}{order.issue_number ? ` #${order.issue_number}` : ""}</strong>
-              <span>Ship by {shipByLabel(order.paid_at)} · you get {money(order.seller_net_cents)}</span>
-            </div>
-            <Link href={`/orders/${order.id}?ship=1`} className="to-ship-btn">Add tracking</Link>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <Link href={single ? `/orders/${next.id}?ship=1` : "/orders"} className="to-ship-bar">
+      <Package size={16} strokeWidth={2.2} aria-hidden="true" />
+      <span className="to-ship-text">
+        {single
+          ? <>Ship <strong>{title}</strong> by {shortDate(next.paid_at)} · you get {money(next.seller_net_cents)}</>
+          : <><strong>{orders.length} sales to ship</strong> · next by {shortDate(next.paid_at)}</>}
+      </span>
+      <span className="to-ship-action">{single ? "Add tracking" : "View orders"} →</span>
+    </Link>
   );
 }

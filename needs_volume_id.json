@@ -76993,9 +76993,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T17:23:49.478502+00:00",
-    "retry_after": "2026-10-24T17:23:49.478516+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T17:23:51.456621+00:00",
+    "retry_after": "2026-10-27T17:23:51.456638+00:00"
   },
   {
     "name": "The Mighty Avengers",
@@ -79936,5 +79936,534 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T16:24:01.492306+00:00",
     "retry_after": "2026-10-25T16:24:01.492321+00:00"
+  },
+  {
+    "name": "Shuriken Team-Up",
+    "publisher": "Malibu Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 81324,
+        "name": "Shuriken Team-Up",
+        "publisher": null,
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:51.879265+00:00",
+    "retry_after": "2026-10-25T17:23:51.879284+00:00"
+  },
+  {
+    "name": "Archie Comics 85th Anniversary Presents: Archie's Movie Mania",
+    "publisher": "Archie Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171912,
+        "name": "Archie Comics 85th Anniversary Presents: Archie's Movie Mania",
+        "publisher": null,
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:52.374403+00:00",
+    "retry_after": "2026-10-25T17:23:52.374419+00:00"
+  },
+  {
+    "name": "Morning Glories Compendium",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78557,
+        "name": "Morning Glories Compendium",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:52.762836+00:00",
+    "retry_after": "2026-10-25T17:23:52.762853+00:00"
+  },
+  {
+    "name": "Belzebubs",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 117696,
+        "name": "Belzebubs",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:53.062287+00:00",
+    "retry_after": "2026-10-25T17:23:53.062303+00:00"
+  },
+  {
+    "name": "Spawn Figure",
+    "publisher": "Image Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69269,
+        "name": "Spawn Figure",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:53.600948+00:00",
+    "retry_after": "2026-10-25T17:23:53.600963+00:00"
+  },
+  {
+    "name": "Joker's Asylum II: Mad Hatter",
+    "publisher": "DC Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33771,
+        "name": "Joker's Asylum II: The Mad Hatter",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:54.040345+00:00",
+    "retry_after": "2026-10-25T17:23:54.040362+00:00"
+  },
+  {
+    "name": "Homicide",
+    "publisher": "Dark Horse Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 94157,
+        "name": "Homicide",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:54.455213+00:00",
+    "retry_after": "2026-10-25T17:23:54.455229+00:00"
+  },
+  {
+    "name": "The Kinky Hook",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24194,
+        "name": "The Kinky Hook",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:54.817971+00:00",
+    "retry_after": "2026-10-25T17:23:54.817986+00:00"
+  },
+  {
+    "name": "Totentanz",
+    "publisher": "Caliber Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 143759,
+        "name": "Totentanz",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:55.152202+00:00",
+    "retry_after": "2026-10-25T17:23:55.152217+00:00"
+  },
+  {
+    "name": "Roulette",
+    "publisher": "Caliber Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45423,
+        "name": "Roulette",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:55.613136+00:00",
+    "retry_after": "2026-10-25T17:23:55.613152+00:00"
+  },
+  {
+    "name": "Batch",
+    "publisher": "Caliber Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45253,
+        "name": "Batch",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:56.003605+00:00",
+    "retry_after": "2026-10-25T17:23:56.003622+00:00"
+  },
+  {
+    "name": "Ant",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19591,
+        "name": "Ant",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 139836,
+        "name": "Ant",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 19590,
+        "name": "Ant",
+        "publisher": null,
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:56.487965+00:00",
+    "retry_after": "2026-10-25T17:23:56.487980+00:00"
+  },
+  {
+    "name": "Mighty Crusaders",
+    "publisher": "Archie Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3215,
+        "name": "The Mighty Crusaders",
+        "publisher": null,
+        "start_year": 1983
+      },
+      {
+        "id": 2231,
+        "name": "The Mighty Crusaders",
+        "publisher": null,
+        "start_year": 1965
+      },
+      {
+        "id": 34462,
+        "name": "The Mighty Crusaders",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 106685,
+        "name": "The Mighty Crusaders",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 116261,
+        "name": "The Mighty Crusaders",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:56.925813+00:00",
+    "retry_after": "2026-10-25T17:23:56.925828+00:00"
+  },
+  {
+    "name": "Kong: Gods of Skull Island",
+    "publisher": "BOOM! Studios",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 105332,
+        "name": "Kong: Gods of Skull Island",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:57.365052+00:00",
+    "retry_after": "2026-10-25T17:23:57.365067+00:00"
+  },
+  {
+    "name": "Dr. Weird Special",
+    "publisher": "Caliber Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46729,
+        "name": "Dr. Weird Special",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:57.886942+00:00",
+    "retry_after": "2026-10-25T17:23:57.886958+00:00"
+  },
+  {
+    "name": "Skrulls!",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22390,
+        "name": "Skrulls!",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:58.376997+00:00",
+    "retry_after": "2026-10-25T17:23:58.377016+00:00"
+  },
+  {
+    "name": "I Hunt Monsters Hunting Season",
+    "publisher": "Antarctic Press",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68883,
+        "name": "I Hunt Monsters: Hunting Season",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:58.824550+00:00",
+    "retry_after": "2026-10-25T17:23:58.824566+00:00"
+  },
+  {
+    "name": "Lady Death Origins Annual",
+    "publisher": "Avatar Press",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 42862,
+        "name": "Lady Death: Origins Annual",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:59.156942+00:00",
+    "retry_after": "2026-10-25T17:23:59.156958+00:00"
+  },
+  {
+    "name": "Hellsing Anime Manga",
+    "publisher": "Dark Horse Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 150286,
+        "name": "Hellsing Anime Manga",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:23:59.571138+00:00",
+    "retry_after": "2026-10-25T17:23:59.571155+00:00"
+  },
+  {
+    "name": "Patsy and Her Pals",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30576,
+        "name": "Patsy and Her Pals",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:24:00.527440+00:00",
+    "retry_after": "2026-10-25T17:24:00.527456+00:00"
+  },
+  {
+    "name": "Donald Ducks julehistorier",
+    "publisher": "Harvey Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166713,
+        "name": "Donald Ducks Julehistorier",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:24:00.987570+00:00",
+    "retry_after": "2026-10-25T17:24:00.987587+00:00"
+  },
+  {
+    "name": "Josie",
+    "publisher": "Archie Comics",
+    "year": 1965,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11906,
+        "name": "Josie",
+        "publisher": null,
+        "start_year": 1965
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:24:01.555229+00:00",
+    "retry_after": "2026-10-25T17:24:01.555245+00:00"
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:24:01.943039+00:00",
+    "retry_after": "2026-10-25T17:24:01.943051+00:00"
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": null,
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:24:02.318385+00:00",
+    "retry_after": "2026-10-25T17:24:02.318402+00:00"
+  },
+  {
+    "name": "The Many Loves of Dobie Gillis",
+    "publisher": "DC Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2015,
+        "name": "Many Loves of Dobie Gillis",
+        "publisher": null,
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:24:02.750786+00:00",
+    "retry_after": "2026-10-25T17:24:02.750802+00:00"
+  },
+  {
+    "name": "Spindelmannen",
+    "publisher": "Dark Horse Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 7133,
+        "name": "Spindelmannen",
+        "publisher": null,
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:24:03.120475+00:00",
+    "retry_after": "2026-10-25T17:24:03.120493+00:00"
+  },
+  {
+    "name": "Liga da Justiça e Batman",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119234,
+        "name": "Liga da Justiça e Batman",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:24:03.476287+00:00",
+    "retry_after": "2026-10-25T17:24:03.476304+00:00"
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:24:03.914066+00:00",
+    "retry_after": "2026-10-25T17:24:03.914082+00:00"
+  },
+  {
+    "name": "Marines in Battle",
+    "publisher": "Marvel Comics",
+    "year": 1954,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1633,
+        "name": "Marines in Battle",
+        "publisher": null,
+        "start_year": 1954
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T17:24:04.453062+00:00",
+    "retry_after": "2026-10-25T17:24:04.453079+00:00"
   }
 ]

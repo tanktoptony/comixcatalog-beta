@@ -151,6 +151,16 @@ def parse_cli() -> argparse.Namespace:
         ),
     )
     p.add_argument(
+        "--missing-only",
+        action="store_true",
+        help=(
+            "With --skip-existing, pass over issues that already have a cover "
+            "instead of re-upserting them and re-downloading their variants. "
+            "2000 AD (2,504 issues) spent the manual lane's whole 15 minutes "
+            "on that every hour and never finished (2026-10-24)."
+        ),
+    )
+    p.add_argument(
         "--limit",
         type=int,
         default=None,
@@ -279,6 +289,8 @@ def load_targets_from_file(path: str) -> list[dict]:
                 "publisher": entry.get("publisher"),
                 "year": entry.get("year"),
                 "volume_id": entry.get("volume_id"),
+                # gap-new-releases.json knows the GCD series it came from.
+                "series_gcd_id": entry.get("series_gcd_id"),
             }
         )
     return cleaned
@@ -1700,8 +1712,10 @@ def main():
             # Check the permanent pin first — see
             # _lookup_gcd_id_by_pinned_volume's docstring for why this must
             # come before the title-based fallback, not after.
-            target_gcd_id = _lookup_gcd_id_by_pinned_volume(volume.get("id"))
-            if target_gcd_id:
+            target_gcd_id = target.get("series_gcd_id") or _lookup_gcd_id_by_pinned_volume(volume.get("id"))
+            if target.get("series_gcd_id"):
+                print(f"  using target series_gcd_id: {target_gcd_id}")
+            elif target_gcd_id:
                 print(f"  using pinned series_gcd_id: {target_gcd_id}")
             else:
                 target_gcd_id = _resolve_series_gcd_id(
@@ -1750,6 +1764,8 @@ def main():
                 api_detail_url = issue.get("api_detail_url")
                 existing_cover = None
                 if issue_number_key and issue_number_key in already_uploaded:
+                    if args.missing_only:
+                        continue
                     existing_cover = fetch_canonical_cover_row(
                         api_detail_url or f"comicvine-issue-{issue_id}"
                     )

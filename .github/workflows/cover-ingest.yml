@@ -20,6 +20,13 @@ name: Cover ingest
 #                            the file had existed since August and was
 #                            wired into nothing, so it sat at 10 entries
 #                            dated Aug 25 while six other lanes ran hourly.
+#   1b. gap-new-releases.json — books on sale in the last few weeks that the
+#                            site still shows without a cover. Rebuilt at
+#                            the start of every run by
+#                            scripts/generateNewReleaseGap.js. Added
+#                            2026-10-24: these used to wait ~220 targets deep
+#                            in gap-manual.json, so this week's books stayed
+#                            blank for 10+ days.
 #   2. gap-priority.json   — live launch-gate universe (highest impact)
 #   3. gap-featured.json   — homepage carousel curated picks
 #   4. gap-manual.json     — ad-hoc adds (Batman/Joker style targeted hunts)
@@ -207,6 +214,15 @@ jobs:
             echo '[]' > gap-requested.json
           fi
 
+      # Same posture as the requested-book generator above: a failure warns and
+      # leaves an empty file so the lane skips, and the rest of the run goes on.
+      - name: Generate new-release targets
+        run: |
+          if ! node scripts/generateNewReleaseGap.js --apply; then
+            echo "::warning::New-release generator failed; this run ingests without the new-release lane."
+            echo '[]' > gap-new-releases.json
+          fi
+
       - name: Show current ledger size
         run: |
           if [ -f .ingest-done.json ]; then
@@ -218,15 +234,16 @@ jobs:
             python -c "import json; d=json.load(open('needs_volume_id.json'));print(f'needs_volume_id.json entries (from git): {len(d)}')"
           fi
 
-      # Cycle: requested books → user-collected → launch priority → featured →
-      # manual → pinned → width → depth.
+      # Cycle: requested books → new releases → user-collected → launch
+      # priority → featured → manual → pinned → width → depth.
       # --skip-existing so already-covered targets cost ~0 requests.
       # continue-on-error lets a failing step (rate-limit, transient 5xx)
       # not block the next file.
       #
       # Per-lane --max-search-calls sums to 120 (requested books 15 +
-      # user-collected 15 + priority 15 + featured 10 + manual 15 + pinned 20 + width 20 +
-      # depth 10). At the ~3x-per-match
+      # new releases 15 + user-collected 15 + priority 15 + featured 10 +
+      # manual 15 + pinned 20 + width 10 + depth 5; new releases took its 15
+      # from width and depth on 2026-10-24). At the ~3x-per-match
       # real-call multiplier that's ~200-300 real calls in the worst case
       # (every attempt succeeds) — priority/featured/manual will rarely use
       # their full allowance since they're mostly already-done skips, which
@@ -247,6 +264,24 @@ jobs:
         if: hashFiles('gap-requested.json') != ''
         continue-on-error: true
         run: python comicvine_api_to_supabase.py --targets gap-requested.json --skip-existing --max-search-calls 15 --vol-sleep 1.0
+
+      # Most targets carry a volume_id, so one call each and no title search.
+      # --missing-only: a long-running volume (G.I. Joe, 2000 AD) must not
+      # spend the lane re-upserting hundreds of covers it already has.
+      # The generator holds back anything this lane tried in the last 6 hours.
+      - name: Ingest new-release targets
+        id: lane_new_releases
+        if: hashFiles('gap-new-releases.json') != ''
+        continue-on-error: true
+        run: |
+          set +e
+          timeout --kill-after=60s 8m python comicvine_api_to_supabase.py --targets gap-new-releases.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 8-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
 
       - name: Ingest user-collected gap targets
         id: lane_user_collected
@@ -269,6 +304,9 @@ jobs:
       # Per-lane caps: one huge volume (2000 AD, ~2,500 progs) ate the whole
       # 45-minute job three hours running and starved every lane after it.
       # The ledger saves atomically per target, so a capped lane resumes next hour.
+      # --missing-only (2026-10-24): a capped volume never reaches its done mark,
+      # so 2000 AD came back first every hour, re-upserted the same ~1,000
+      # covers it already had, and hit the cap again. Nothing behind it moved.
       # Shell timeout, not step timeout-minutes: a step timeout reads as a failed
       # lane to "Report lane outcomes" and emails a false alarm.
       - name: Ingest manual-gap targets
@@ -277,7 +315,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 15m python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --newest-first --max-search-calls 15 --vol-sleep 1.0
+          timeout --kill-after=60s 15m python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --missing-only --newest-first --max-search-calls 15 --vol-sleep 1.0
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 15-minute cap. The ledger picks it up next hour."
@@ -308,7 +346,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --max-search-calls 20 --vol-sleep 1.0
+          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --max-search-calls 10 --vol-sleep 1.0
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 6-minute cap. The ledger picks it up next hour."
@@ -322,7 +360,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --max-search-calls 10 --vol-sleep 1.0
+          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --max-search-calls 5 --vol-sleep 1.0
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 5-minute cap. The ledger picks it up next hour."
@@ -384,6 +422,7 @@ jobs:
           }
           echo "Ingest lane outcomes:"
           check "requested-books" "${{ steps.lane_requested.outcome }}"
+          check "new-releases"   "${{ steps.lane_new_releases.outcome }}"
           check "user-collected" "${{ steps.lane_user_collected.outcome }}"
           check "launch-priority" "${{ steps.lane_priority.outcome }}"
           check "featured"       "${{ steps.lane_featured.outcome }}"

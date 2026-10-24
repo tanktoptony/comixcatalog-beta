@@ -76900,9 +76900,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T15:23:53.493578+00:00",
-    "retry_after": "2026-10-24T15:23:53.493594+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T21:23:59.546968+00:00",
+    "retry_after": "2026-10-27T21:23:59.546983+00:00"
   },
   {
     "name": "Babyteeth",
@@ -76923,9 +76923,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T15:23:53.882509+00:00",
-    "retry_after": "2026-10-24T15:23:53.882524+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T21:24:00.664199+00:00",
+    "retry_after": "2026-10-27T21:24:00.664216+00:00"
   },
   {
     "name": "Bakuman.",
@@ -76976,9 +76976,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T15:23:54.248518+00:00",
-    "retry_after": "2026-10-24T15:23:54.248533+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T21:24:00.994485+00:00",
+    "retry_after": "2026-10-27T21:24:00.994501+00:00"
   },
   {
     "name": "Lilo & Stitch: 'Ohana",
@@ -77126,9 +77126,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T20:24:05.715188+00:00",
-    "retry_after": "2026-10-24T20:24:05.715204+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T21:23:59.961093+00:00",
+    "retry_after": "2026-10-27T21:23:59.961108+00:00"
   },
   {
     "name": "Marvel Masterworks: Warlock",
@@ -82047,5 +82047,442 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T20:48:27.518665+00:00",
     "retry_after": "2026-10-25T20:48:27.518675+00:00"
+  },
+  {
+    "name": "Smurfs",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50583,
+        "name": "Smurfs",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 3150,
+        "name": "Smurfs",
+        "publisher": null,
+        "start_year": 1982
+      },
+      {
+        "id": 34259,
+        "name": "Smurfs",
+        "publisher": null,
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:50.991280+00:00",
+    "retry_after": "2026-10-25T21:23:50.991293+00:00"
+  },
+  {
+    "name": "Terminal Hero",
+    "publisher": "Dynamite Entertainment",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76305,
+        "name": "Terminal Hero",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:51.297477+00:00",
+    "retry_after": "2026-10-25T21:23:51.297493+00:00"
+  },
+  {
+    "name": "X-Men: The Manga: Remastered",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161119,
+        "name": "X-Men: The Manga: Remastered",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:51.516900+00:00",
+    "retry_after": "2026-10-25T21:23:51.516912+00:00"
+  },
+  {
+    "name": "Fathom: The Core",
+    "publisher": "Aspen Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 140411,
+        "name": "Fathom: The Core",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:51.840285+00:00",
+    "retry_after": "2026-10-25T21:23:51.840299+00:00"
+  },
+  {
+    "name": "Ultimate Annuals",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34142,
+        "name": "Ultimate Annuals",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:52.150783+00:00",
+    "retry_after": "2026-10-25T21:23:52.150795+00:00"
+  },
+  {
+    "name": "Meteor Prince",
+    "publisher": "VIZ Media",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79258,
+        "name": "Meteor Prince",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:52.575761+00:00",
+    "retry_after": "2026-10-25T21:23:52.575774+00:00"
+  },
+  {
+    "name": "Spiritual Police",
+    "publisher": "VIZ Media",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 69154,
+        "name": "Spiritual Police",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:52.886688+00:00",
+    "retry_after": "2026-10-25T21:23:52.886700+00:00"
+  },
+  {
+    "name": "Venus with a Hot Crotch",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37412,
+        "name": "Venus With A Hot Crotch",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:53.276110+00:00",
+    "retry_after": "2026-10-25T21:23:53.276125+00:00"
+  },
+  {
+    "name": "Frumpy the Clown",
+    "publisher": "Oni Press",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55750,
+        "name": "Frumpy the Clown",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:53.538363+00:00",
+    "retry_after": "2026-10-25T21:23:53.538374+00:00"
+  },
+  {
+    "name": "Richie Rich the Poor Little Rich Boy",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62051,
+        "name": "Richie Rich the Poor Little Rich Boy",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:53.895198+00:00",
+    "retry_after": "2026-10-25T21:23:53.895212+00:00"
+  },
+  {
+    "name": "Sleeping Moon",
+    "publisher": "VIZ Media",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63301,
+        "name": "Sleeping Moon",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:54.279139+00:00",
+    "retry_after": "2026-10-25T21:23:54.279154+00:00"
+  },
+  {
+    "name": "Shugga",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71365,
+        "name": "Shugga",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:54.728568+00:00",
+    "retry_after": "2026-10-25T21:23:54.728584+00:00"
+  },
+  {
+    "name": "Pokémon Adventures: HeartGold and SoulSilver",
+    "publisher": "VIZ Media",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66077,
+        "name": "Pokémon Adventures HeartGold & SoulSilver",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:55.018181+00:00",
+    "retry_after": "2026-10-25T21:23:55.018197+00:00"
+  },
+  {
+    "name": "Warlocks: The Special Edition",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37208,
+        "name": "Warlocks Special Edition",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:55.471816+00:00",
+    "retry_after": "2026-10-25T21:23:55.471831+00:00"
+  },
+  {
+    "name": "Last Quarter",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 166717,
+        "name": "Last Quarter",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:55.918424+00:00",
+    "retry_after": "2026-10-25T21:23:55.918439+00:00"
+  },
+  {
+    "name": "Forbidden Frankenstein",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35892,
+        "name": "Forbidden Frankenstein",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:56.337573+00:00",
+    "retry_after": "2026-10-25T21:23:56.337588+00:00"
+  },
+  {
+    "name": "De Zware Jongens Vakantieboek",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79156,
+        "name": "De Zware Jongens Vakantieboek",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:56.835538+00:00",
+    "retry_after": "2026-10-25T21:23:56.835552+00:00"
+  },
+  {
+    "name": "Komikwerks",
+    "publisher": "Zenescope Entertainment",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 89692,
+        "name": "Komikwerks",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:57.171424+00:00",
+    "retry_after": "2026-10-25T21:23:57.171439+00:00"
+  },
+  {
+    "name": "Sam and Twitch: The Complete Collection",
+    "publisher": "Image Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50799,
+        "name": "Sam and Twitch: The Complete Collection",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:57.530097+00:00",
+    "retry_after": "2026-10-25T21:23:57.530112+00:00"
+  },
+  {
+    "name": "Our Super Adventure",
+    "publisher": "Oni Press",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 117938,
+        "name": "Our Super Adventure",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:57.845835+00:00",
+    "retry_after": "2026-10-25T21:23:57.845849+00:00"
+  },
+  {
+    "name": "Please Save My Earth",
+    "publisher": "VIZ Media",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57087,
+        "name": "Please Save My Earth",
+        "publisher": null,
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:58.483601+00:00",
+    "retry_after": "2026-10-25T21:23:58.483614+00:00"
+  },
+  {
+    "name": "Secret Story Romances",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1581,
+        "name": "Secret Story Romances",
+        "publisher": null,
+        "start_year": 1953
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:23:58.940329+00:00",
+    "retry_after": "2026-10-25T21:23:58.940344+00:00"
+  },
+  {
+    "name": "Color Zagor",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129273,
+        "name": "Color Zagor",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:24:00.304359+00:00",
+    "retry_after": "2026-10-25T21:24:00.304374+00:00"
+  },
+  {
+    "name": "Junior Comics Library",
+    "publisher": "Marvel Comics",
+    "year": 1956,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63320,
+        "name": "Junior Comics Library",
+        "publisher": null,
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:24:01.422205+00:00",
+    "retry_after": "2026-10-25T21:24:01.422220+00:00"
+  },
+  {
+    "name": "Ferraille",
+    "publisher": "Heavy Metal",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 83870,
+        "name": "Ferraille",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T21:24:01.905829+00:00",
+    "retry_after": "2026-10-25T21:24:01.905845+00:00"
   }
 ]

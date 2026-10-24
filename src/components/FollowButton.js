@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
+import { scheduleBadgeSync } from "@/lib/badges/client";
 
 export default function FollowButton({ username, ownerId, initialFollowing = false, onChange, compact = false }) {
   const { user, loading } = useAuth();
@@ -41,6 +42,7 @@ export default function FollowButton({ username, ownerId, initialFollowing = fal
         throw new Error(body.error || "Could not update follow.");
       }
       trackEvent(next ? "follow" : "unfollow");
+      scheduleBadgeSync();
     } catch (requestError) {
       setFollowing(!next);
       onChange?.(!next);

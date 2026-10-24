@@ -139,7 +139,7 @@ function Strip({ label, items }) {
   );
 }
 
-function TextColumn({ eyebrow, pill, title, titleMax, issue, lines = [], stats = [], strip, style }) {
+function TextColumn({ eyebrow, pill, title, titleMax, issue, lines = [], stats = [], badges = [], strip, style }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", minWidth: 0, ...style }}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
@@ -154,6 +154,11 @@ function TextColumn({ eyebrow, pill, title, titleMax, issue, lines = [], stats =
         <Line key={i} {...(typeof line === "string" ? { children: line } : line)} />
       ))}
       <Stats stats={stats} />
+      {badges.length > 0 && (
+        <div style={{ display: "flex", gap: 8, marginTop: 18 }}>
+          {badges.slice(0, 4).map((src, index) => <img key={index} alt="" src={src} width={54} height={54} />)}
+        </div>
+      )}
       {strip}
     </div>
   );

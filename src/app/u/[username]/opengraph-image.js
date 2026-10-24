@@ -2,6 +2,8 @@ import { getPublicProfile } from "@/lib/pageData";
 import { renderShelfCard, OG_SIZE } from "@/lib/og/card";
 import { homeImage } from "@/app/opengraph-image";
 import { isOwnedStatus } from "@/lib/collectionStatus";
+import { getProfileBadges, selectShowcaseBadges } from "@/lib/badges/server";
+import { badgeSvgDataUrl } from "@/lib/badges/svg";
 
 export const alt = "Collector profile on ComixCatalog";
 export const size = OG_SIZE;
@@ -38,6 +40,7 @@ export default async function Image({ params }) {
     const d = await getPublicProfile(username);
     if (d?.notFound || !d?.profile) return homeImage();
     const p = d.profile;
+    const showcase = selectShowcaseBadges(p, await getProfileBadges(p));
     return renderShelfCard({
       covers: profileCovers(d),
       title: p.display_name || `@${p.username}`,
@@ -45,6 +48,7 @@ export default async function Image({ params }) {
       pill: p.is_founding_collector ? "FOUNDING MEMBER" : null,
       lines: [p.location || null],
       stats: profileStats(d),
+      badges: showcase.map((badge) => badgeSvgDataUrl(badge, badge.foundingNumber)),
     });
   } catch (error) {
     console.warn("profile OG card failed:", error);

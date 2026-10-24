@@ -6,6 +6,7 @@ import { trackEvent } from "@/lib/analytics";
 import { attributionParams } from "@/lib/attribution";
 import { authedFetch } from "@/lib/apiClient";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
+import { scheduleBadgeSync } from "@/lib/badges/client";
 import { readLocal, writeLocal, clearLocalPrefix } from "@/lib/localCache";
 import {
   nextCopyNumber,
@@ -394,6 +395,7 @@ export function LibraryProvider({ children }) {
       ...attributionParams(),
     });
   }
+    scheduleBadgeSync();
     return { ok: true };
     });
   }
@@ -469,6 +471,7 @@ export function LibraryProvider({ children }) {
       if (wasEmpty && (result.added?.length ?? 0) > 0) {
         trackEvent("first_collection_add", attributionParams());
       }
+      scheduleBadgeSync();
       return { ok: true, ...result };
     } catch (error) {
       await refreshLibrary({ background: true });
@@ -538,6 +541,7 @@ export function LibraryProvider({ children }) {
       await refreshLibrary({ background: true });
       return { ok: false, error: error.message || "Failed to remove item" };
     }
+    scheduleBadgeSync();
     return { ok: true };
     });
   }
@@ -602,6 +606,7 @@ export function LibraryProvider({ children }) {
     }
     // Swap in the saved row so the copy can be removed right away.
     setCollections((prev) => prev.map((row) => (row.id === optimisticId ? saved : row)));
+    scheduleBadgeSync();
     return { ok: true, row: saved };
     });
   }

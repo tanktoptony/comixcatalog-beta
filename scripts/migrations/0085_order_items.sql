@@ -1,3 +1,6 @@
+-- migration-check: allow UPDATE listings appears only inside function bodies (reserving or releasing the copies in one order, by id), never as a bulk update.
+-- Applied in production 2026-10-24.
+
 begin;
 
 alter table public.seller_accounts

@@ -82484,5 +82484,387 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T21:24:01.905829+00:00",
     "retry_after": "2026-10-25T21:24:01.905845+00:00"
+  },
+  {
+    "name": "Powers",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6472,
+        "name": "Powers",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 30045,
+        "name": "Powers",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 116809,
+        "name": "Powers",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 18034,
+        "name": "Powers",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 146264,
+        "name": "Powers",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 79571,
+        "name": "Powers",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 61656,
+        "name": "Powers",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:50.638710+00:00",
+    "retry_after": "2026-10-25T22:23:50.638725+00:00"
+  },
+  {
+    "name": "Little Bird",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 143416,
+        "name": "Little Bird",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 117592,
+        "name": "Little Bird",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:50.993175+00:00",
+    "retry_after": "2026-10-25T22:23:50.993190+00:00"
+  },
+  {
+    "name": "Archie Valentine's Spectacular",
+    "publisher": "Archie Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141581,
+        "name": "Archie Valentine's Spectacular",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:51.420491+00:00",
+    "retry_after": "2026-10-25T22:23:51.420506+00:00"
+  },
+  {
+    "name": "Marvel's Iron Man 2 Adaptation",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53784,
+        "name": "Marvel's Iron Man 2 Adaptation",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:51.640919+00:00",
+    "retry_after": "2026-10-25T22:23:51.640933+00:00"
+  },
+  {
+    "name": "Le straordinarie avventure di Adèle Blanc-Sec",
+    "publisher": "Dell Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157726,
+        "name": "Le straordinarie avventure di Adèle Blanc-Sec",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:51.836744+00:00",
+    "retry_after": "2026-10-25T22:23:51.836759+00:00"
+  },
+  {
+    "name": "Le Club des divorcés",
+    "publisher": "Dynamite Entertainment",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167166,
+        "name": "Le Club des Divorcés",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:52.188789+00:00",
+    "retry_after": "2026-10-25T22:23:52.188811+00:00"
+  },
+  {
+    "name": "Pokémon Adventures: Omega Ruby and Alpha Sapphire",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156102,
+        "name": "Pokémon Adventures: Omega Ruby and Alpha Sapphire",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:52.499965+00:00",
+    "retry_after": "2026-10-25T22:23:52.499979+00:00"
+  },
+  {
+    "name": "Naruto: Konoha’s Story—The Steam Ninja Scrolls: The Manga",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 160382,
+        "name": "Naruto: Konoha's Story—The Steam Ninja Scrolls: The Manga",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:52.791191+00:00",
+    "retry_after": "2026-10-25T22:23:52.791206+00:00"
+  },
+  {
+    "name": "Commando Adventures",
+    "publisher": "Marvel Comics",
+    "year": 1957,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30504,
+        "name": "Commando Adventures",
+        "publisher": null,
+        "start_year": 1957
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:53.112891+00:00",
+    "retry_after": "2026-10-25T22:23:53.112905+00:00"
+  },
+  {
+    "name": "Clown Comics",
+    "publisher": "Harvey Comics",
+    "year": 1946,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34340,
+        "name": "Clown Comics",
+        "publisher": null,
+        "start_year": 1946
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:53.587659+00:00",
+    "retry_after": "2026-10-25T22:23:53.587675+00:00"
+  },
+  {
+    "name": "Wildguard: Fool's Gold",
+    "publisher": "Image Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26819,
+        "name": "Wildguard: Fool's Gold",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:53.802216+00:00",
+    "retry_after": "2026-10-25T22:23:53.802254+00:00"
+  },
+  {
+    "name": "Forty Winks: Mr. Horrible",
+    "publisher": "Devil's Due",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79380,
+        "name": "Forty Winks: Mr. Horrible",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:54.328205+00:00",
+    "retry_after": "2026-10-25T22:23:54.328219+00:00"
+  },
+  {
+    "name": "Jigsaw",
+    "publisher": "Harvey Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2287,
+        "name": "Jigsaw",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:54.701762+00:00",
+    "retry_after": "2026-10-25T22:23:54.701779+00:00"
+  },
+  {
+    "name": "The Secret World of Arrietty",
+    "publisher": "VIZ Media",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45999,
+        "name": "The Secret World of Arrietty",
+        "publisher": null,
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:55.163172+00:00",
+    "retry_after": "2026-10-25T22:23:55.163188+00:00"
+  },
+  {
+    "name": "Last Line",
+    "publisher": "AfterShock Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 144970,
+        "name": "Last Line",
+        "publisher": null,
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:55.423422+00:00",
+    "retry_after": "2026-10-25T22:23:55.423437+00:00"
+  },
+  {
+    "name": "Casper the Friendly Ghost Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1969,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86176,
+        "name": "Casper the Friendly Ghost Giant Edition",
+        "publisher": null,
+        "start_year": 1969
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:55.706697+00:00",
+    "retry_after": "2026-10-25T22:23:55.706711+00:00"
+  },
+  {
+    "name": "Hentai Demon Huntress",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167390,
+        "name": "Hentai Demon Huntress",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:56.099576+00:00",
+    "retry_after": "2026-10-25T22:23:56.099591+00:00"
+  },
+  {
+    "name": "Rival Schools",
+    "publisher": "Eclipse Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19008,
+        "name": "Rival Schools",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:56.493359+00:00",
+    "retry_after": "2026-10-25T22:23:56.493374+00:00"
+  },
+  {
+    "name": "Mermaid Saga Collector’s Edition",
+    "publisher": "VIZ Media",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132026,
+        "name": "Mermaid Saga Collector's Edition",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:56.891758+00:00",
+    "retry_after": "2026-10-25T22:23:56.891773+00:00"
+  },
+  {
+    "name": "Giant Junior Funnies",
+    "publisher": "Marvel Comics",
+    "year": 1960,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63199,
+        "name": "Giant Junior Funnies",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T22:23:57.229384+00:00",
+    "retry_after": "2026-10-25T22:23:57.229396+00:00"
   }
 ]

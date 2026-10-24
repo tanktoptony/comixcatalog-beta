@@ -57,7 +57,7 @@ export default function FeaturedCarousel({ initialSeries = null }) {
     <section className="featured-section" aria-label="Featured series">
       <div className="featured-header">
         <div>
-          <p className="featured-kicker">This week</p>
+          <p className="featured-kicker">Today</p>
           <h2 className="featured-title">Featured series</h2>
         </div>
         <div className="featured-controls">
@@ -111,7 +111,7 @@ export default function FeaturedCarousel({ initialSeries = null }) {
                       {s.series_title || "Untitled"}
                     </div>
                     <div className="featured-sub">
-                      {[s.publisher, s.release_year, s.issue_count ? `${s.issue_count} issues` : null]
+                      {[s.publisher, s.release_year, s.issue_count ? `${s.issue_count} issue${s.issue_count === 1 ? "" : "s"}` : null]
                         .filter(Boolean)
                         .join(" · ")}
                     </div>

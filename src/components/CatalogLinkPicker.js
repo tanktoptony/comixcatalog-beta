@@ -410,7 +410,7 @@ export default function CatalogLinkPicker({
               </div>
               <div style={{ fontSize: "0.8rem", opacity: 0.75, marginBottom: 10 }}>
                 {pickedSeries.publisher || "Unknown Publisher"} · {yearSpan(pickedSeries)}
-                {pickedSeries.issue_count ? ` · ${pickedSeries.issue_count} issues` : ""}
+                {pickedSeries.issue_count ? ` · ${pickedSeries.issue_count} issue${pickedSeries.issue_count === 1 ? "" : "s"}` : ""}
               </div>
               <label style={{ display: "block", fontSize: "0.75rem", opacity: 0.7, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.04em", fontWeight: 700 }}>
                 Issue #

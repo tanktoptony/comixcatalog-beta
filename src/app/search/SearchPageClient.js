@@ -422,7 +422,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                           {[
                             s.publisher?.name || "Unknown Publisher",
                             yearLabel,
-                            s.issue_count != null ? `${s.issue_count} issues` : null,
+                            s.issue_count != null ? `${s.issue_count} issue${s.issue_count === 1 ? "" : "s"}` : null,
                           ]
                             .filter(Boolean)
                             .join(" · ")}
@@ -558,7 +558,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                       ? [
                           item.publisher,
                           item.year,
-                          item.issueCount ? `${item.issueCount} issues` : null,
+                          item.issueCount ? `${item.issueCount} issue${item.issueCount === 1 ? "" : "s"}` : null,
                         ]
                           .filter(Boolean)
                           .join(" · ") || "Unknown"
@@ -695,7 +695,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                         {s.year_start ? ` (${s.year_start})` : ""}
                       </span>
                       <span className="search-runs-meta">
-                        {[s.publisher?.name, s.issue_count != null ? `${Number(s.issue_count).toLocaleString("en-US")} issues` : null]
+                        {[s.publisher?.name, s.issue_count != null ? `${Number(s.issue_count).toLocaleString("en-US")} issue${Number(s.issue_count) === 1 ? "" : "s"}` : null]
                           .filter(Boolean)
                           .join(" · ")}
                       </span>

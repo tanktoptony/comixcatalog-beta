@@ -20,7 +20,7 @@ export default async function SeriesKeysPage({ params }) {
         <p className="shareable-eyebrow">Collector guide</p>
         <h1>Every {series.title} key issue</h1>
         <p className="shareable-years">{seriesYearLabel(series)}</p>
-        <p className="shareable-statline">{keys.length} key issues, {majorCount} major</p>
+        <p className="shareable-statline">{keys.length} key issue{keys.length === 1 ? "" : "s"}, {majorCount} major</p>
         <ShareButton title={`Every ${series.title} key issue`} />
       </header>
       {keys.length > 0 ? (

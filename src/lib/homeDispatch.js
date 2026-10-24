@@ -36,32 +36,59 @@ async function loadStats(sb) {
   return { series, issues, covers: covers + variants };
 }
 
+const STRIP_PUBLISHERS = new Set([
+  "Marvel Comics", "DC Comics", "Image Comics", "Dark Horse Comics", "Oni Press",
+  "Archie Comics", "Valiant Comics", "BOOM! Studios", "Dynamite Entertainment", "Harvey Comics",
+]);
+// Big publishers still have the odd adult title.
+const STRIP_TITLE_BLOCK = /\b(sex|sexy|nude|naked|erotic|porn|xxx|playboy|penthouse|fetish)\b/i;
+
 async function loadNewCovers(sb) {
   const since = new Date(Date.now() - 7 * 24 * 3600 * 1000).toISOString();
   const added = await count(() =>
     sb.from("canonical_covers").select("id", { count: "exact", head: true }).gte("created_at", since)
   );
-  // The newest covers usually arrive a whole run at a time, so take a wide
-  // slice and keep one per series to make the strip show variety.
-  const { data, error } = await sb
-    .from("canonical_covers")
-    .select("storage_path, series_title, issue_number, gcd_issue_id, created_at")
-    .not("storage_path", "is", null)
-    .order("created_at", { ascending: false })
-    .limit(300);
-  if (error) throw error;
-  const seen = new Set();
+  // The newest covers usually arrive a whole run at a time, and often for
+  // foreign reprint editions search doesn't show (on 2026-10-24 the newest
+  // 300 were four series, three of them Italian or Brazilian), and the rest
+  // is wide open: Fantagraphics' adult line led the US covers that day. This
+  // strip is the first thing a stranger sees, so read up to 3,000 of the
+  // newest and keep US-market series from mainstream publishers, one cover
+  // per series.
   const strip = [];
-  for (const row of data ?? []) {
-    const key = (row.series_title ?? "").toLowerCase();
-    if (!key || seen.has(key)) continue;
-    seen.add(key);
-    strip.push({
-      title: `${row.series_title}${row.issue_number ? ` #${row.issue_number}` : ""}`,
-      cover: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${row.storage_path}`,
-      href: row.gcd_issue_id != null ? `/issue/gcd-${row.gcd_issue_id}` : null,
-    });
-    if (strip.length === 11) break;
+  const seen = new Set();
+  for (let page = 0; page < 3 && strip.length < 11; page++) {
+    const { data, error } = await sb
+      .from("canonical_covers")
+      .select("storage_path, series_title, series_gcd_id, issue_number, gcd_issue_id, created_at")
+      .not("storage_path", "is", null)
+      .order("created_at", { ascending: false })
+      .range(page * 1000, page * 1000 + 999);
+    if (error) throw error;
+    const ids = [...new Set((data ?? []).map((row) => row.series_gcd_id).filter((id) => id != null))];
+    const usSeries = new Set();
+    for (let i = 0; i < ids.length; i += 200) {
+      const { data: rows, error: seriesError } = await sb
+        .from("series")
+        .select("gcd_id, resolved_publisher_cached")
+        .eq("us_market", true)
+        .in("gcd_id", ids.slice(i, i + 200));
+      if (seriesError) throw seriesError;
+      for (const row of rows ?? []) {
+        if (STRIP_PUBLISHERS.has(row.resolved_publisher_cached)) usSeries.add(row.gcd_id);
+      }
+    }
+    for (const row of data ?? []) {
+      if (strip.length === 11) break;
+      const key = (row.series_title ?? "").toLowerCase();
+      if (!key || seen.has(key) || !usSeries.has(row.series_gcd_id) || STRIP_TITLE_BLOCK.test(row.series_title)) continue;
+      seen.add(key);
+      strip.push({
+        title: `${row.series_title}${row.issue_number ? ` #${row.issue_number}` : ""}`,
+        cover: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${row.storage_path}`,
+        href: row.gcd_issue_id != null ? `/issue/gcd-${row.gcd_issue_id}` : null,
+      });
+    }
   }
   return { added, strip };
 }
@@ -116,7 +143,7 @@ async function computeHomeData() {
   return result;
 }
 
-const cachedHomeData = unstable_cache(computeHomeData, ["home-dispatch-v6"], { revalidate: 3600 });
+const cachedHomeData = unstable_cache(computeHomeData, ["home-dispatch-v11"], { revalidate: 3600 });
 
 // { stats: {series, issues, covers} | null, newCovers: {added, strip} | null, feed: [...] }
 export async function getHomeData() {

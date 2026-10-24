@@ -1,24 +1,10 @@
 import { sendFeedbackRequestEmails, sendOrderEmails } from "./orderEmails.js";
-
-function addBusinessDays(value, days) {
-  const date = new Date(value);
-  let left = days;
-  while (left > 0) {
-    date.setUTCDate(date.getUTCDate() + 1);
-    if (date.getUTCDay() !== 0 && date.getUTCDay() !== 6) left--;
-  }
-  return date;
-}
+import { shipByLabel } from "./shipBy.js";
 
 export function orderSystemText(order, event) {
   if (event === "paid") {
-    const shipBy = addBusinessDays(order.paid_at || new Date(), 3).toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-      timeZone: "UTC",
-    });
-    return `Order paid. Seller, ship by ${shipBy}.`;
+    // Both sides read this note, and the inbox shows it as from ComixCatalog.
+    return `Order paid. The seller ships by ${shipByLabel(order.paid_at)}.`;
   }
   if (event === "shipped") {
     const tracking = order.tracking_number ? ` Tracking: ${order.tracking_number}.` : "";

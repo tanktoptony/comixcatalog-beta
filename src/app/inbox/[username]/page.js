@@ -159,7 +159,7 @@ export default function ThreadPage() {
     async function load() {
       const { data, error: mErr } = await supabase
         .from("messages")
-        .select("id, sender_id, recipient_id, body, read_at, created_at")
+        .select("id, sender_id, recipient_id, body, is_system, order_id, read_at, created_at")
         .or(
           `and(sender_id.eq.${user.id},recipient_id.eq.${otherProfile.id}),` +
             `and(sender_id.eq.${otherProfile.id},recipient_id.eq.${user.id})`
@@ -456,6 +456,14 @@ export default function ThreadPage() {
                   <span>{messageDateLabel(m.created_at)}</span>
                 </div>
               )}
+              {m.is_system ? (
+                <div className={styles.systemNote}>
+                  <span className={styles.systemLabel}>ComixCatalog</span>
+                  <p>{m.body}</p>
+                  {m.order_id && <Link href={`/orders/${m.order_id}`}>View order</Link>}
+                  <div className={styles.meta}>{formatTimestamp(m.created_at)}</div>
+                </div>
+              ) : (
               <div className={classNames}>
                 <div className={styles.bubble}>{m.body}</div>
                 {findOffPlatformPaymentTerms(m.body).length > 0 && (
@@ -468,6 +476,7 @@ export default function ThreadPage() {
                 )}
                 <div className={styles.meta}>{formatTimestamp(m.created_at)}</div>
               </div>
+              )}
             </div>
           );
         })}

@@ -3840,6 +3840,85 @@ input[type="file"] {
   }
 }
 
+/* Library: sold books waiting on the seller to ship. */
+.to-ship {
+  margin: 0 0 20px;
+  padding: 16px 18px;
+  border: 1px solid rgba(244, 208, 63, 0.45);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(244, 208, 63, 0.12), rgba(244, 208, 63, 0.03));
+}
+
+.to-ship-title {
+  margin: 0 0 12px;
+  color: var(--x-gold);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.to-ship-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.to-ship-item {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+}
+
+.to-ship-cover {
+  display: block;
+  width: 44px;
+  height: 66px;
+  border-radius: 4px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.to-ship-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.to-ship-copy strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.to-ship-copy span {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.to-ship-btn {
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: var(--x-gold);
+  color: #0b0d12;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .to-ship-item {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .to-ship-btn {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+}
+
 .marketplace-page {
   max-width: 1000px;
   margin: 0 auto;
@@ -7875,7 +7954,25 @@ button.nav-link {
 
   /* Avatar dropdown — keep anchored to its trigger but slightly wider on
      phones since there's nothing to overflow into. */
-  .user-menu-panel {
+  /* Paid orders waiting on this seller to ship. */
+.user-menu-ship-badge {
+  top: -4px;
+  right: -6px;
+  pointer-events: none;
+}
+
+.user-menu-count {
+  margin-left: auto;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(244, 208, 63, 0.16);
+  color: var(--x-gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.user-menu-panel {
     min-width: 220px;
     right: 0 !important;
   }

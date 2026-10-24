@@ -32,6 +32,7 @@ import { normalizePublisherDisplayName } from "@/lib/publisher";
 import { isUnlinkedForSale, listingCompleteness } from "@/lib/listingCompleteness";
 import { buildLibraryItems, groupLibraryRows } from "@/lib/libraryView";
 import PayoutsPrompt from "@/components/PayoutsPrompt";
+import SellerToShip from "@/components/SellerToShip";
 import CollectionReconcileReview from "@/components/CollectionReconcileReview";
 
 // Books per /api/library-hydrate request. The route caps a request at 2,000.
@@ -1435,6 +1436,8 @@ function LibraryPageContent() {
           )}
         </div>
       </section>
+
+      {user && !isPublicPreview && <SellerToShip />}
 
       <section className="library-topbar">
         <div className="library-tabs">

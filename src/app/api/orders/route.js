@@ -11,7 +11,7 @@ import { buyerLimitMessage } from "@/lib/buyerLimits";
 
 export const runtime = "nodejs";
 
-const LIST_FIELDS = "id,buyer_id,seller_id,series_title,issue_number,cover_path,condition,grade_numeric,slab_company,total_cents,currency,status,created_at";
+const LIST_FIELDS = "id,buyer_id,seller_id,series_title,issue_number,cover_path,condition,grade_numeric,slab_company,total_cents,seller_net_cents,currency,status,created_at,paid_at";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 

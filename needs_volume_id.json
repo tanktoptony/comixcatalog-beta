@@ -76508,9 +76508,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:48:43.264914+00:00",
-    "retry_after": "2026-10-24T13:48:43.264935+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T20:24:00.670133+00:00",
+    "retry_after": "2026-10-27T20:24:00.670151+00:00"
   },
   {
     "name": "Catwoman",
@@ -76865,9 +76865,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T15:23:53.033363+00:00",
-    "retry_after": "2026-10-24T15:23:53.033377+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T20:23:59.550929+00:00",
+    "retry_after": "2026-10-27T20:23:59.550946+00:00"
   },
   {
     "name": "Fallen Angel",
@@ -77068,9 +77068,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T19:23:49.469446+00:00",
-    "retry_after": "2026-10-24T19:23:49.469462+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-24T20:23:47.003738+00:00",
+    "retry_after": "2026-10-27T20:23:47.003757+00:00"
   },
   {
     "name": "Star Wars: Revelations",
@@ -81605,5 +81605,464 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T19:23:59.892760+00:00",
     "retry_after": "2026-10-25T19:23:59.892776+00:00"
+  },
+  {
+    "name": "Fantastic Four: The Movie",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39899,
+        "name": "Fantastic Four: The Movie",
+        "publisher": null,
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:46.532373+00:00",
+    "retry_after": "2026-10-25T20:23:46.532390+00:00"
+  },
+  {
+    "name": "Wink",
+    "publisher": "Marvel Comics",
+    "year": 1972,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 138214,
+        "name": "Wink",
+        "publisher": null,
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:47.460981+00:00",
+    "retry_after": "2026-10-25T20:23:47.460998+00:00"
+  },
+  {
+    "name": "U.N. Force Files",
+    "publisher": "Caliber Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48771,
+        "name": "U.N. Force Files",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:47.800202+00:00",
+    "retry_after": "2026-10-25T20:23:47.800232+00:00"
+  },
+  {
+    "name": "The Scorpion King",
+    "publisher": "Dark Horse Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53637,
+        "name": "The Scorpion King",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:48.870461+00:00",
+    "retry_after": "2026-10-25T20:23:48.870478+00:00"
+  },
+  {
+    "name": "Ground Zero",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29004,
+        "name": "Ground Zero",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:49.360228+00:00",
+    "retry_after": "2026-10-25T20:23:49.360244+00:00"
+  },
+  {
+    "name": "Jeremiah: Birds of Prey",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39172,
+        "name": "Jeremiah: Birds of Prey",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:49.935310+00:00",
+    "retry_after": "2026-10-25T20:23:49.935330+00:00"
+  },
+  {
+    "name": "Terry Toons Big Book of Comics Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1971,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155424,
+        "name": "Terry Toons Big Book of Comics Giant Edition ",
+        "publisher": null,
+        "start_year": 1971
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:50.352693+00:00",
+    "retry_after": "2026-10-25T20:23:50.352714+00:00"
+  },
+  {
+    "name": "The Absolute Authority",
+    "publisher": "DC Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37762,
+        "name": "Absolute Authority",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:50.712848+00:00",
+    "retry_after": "2026-10-25T20:23:50.712864+00:00"
+  },
+  {
+    "name": "Maxi Mister No",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32766,
+        "name": "Maxi Mister No",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:51.240038+00:00",
+    "retry_after": "2026-10-25T20:23:51.240055+00:00"
+  },
+  {
+    "name": "Headless Horseman",
+    "publisher": "Malibu Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36037,
+        "name": "Headless Horseman",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:51.742165+00:00",
+    "retry_after": "2026-10-25T20:23:51.742182+00:00"
+  },
+  {
+    "name": "Spidey and His Amazing Friends",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159262,
+        "name": "Spidey and His Amazing Friends",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:52.105272+00:00",
+    "retry_after": "2026-10-25T20:23:52.105290+00:00"
+  },
+  {
+    "name": "Scream Play",
+    "publisher": "Malibu Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 80697,
+        "name": "Scream Play",
+        "publisher": null,
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:52.599654+00:00",
+    "retry_after": "2026-10-25T20:23:52.599670+00:00"
+  },
+  {
+    "name": "X Omnibus",
+    "publisher": "Dark Horse Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29922,
+        "name": "X Omnibus",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:53.928297+00:00",
+    "retry_after": "2026-10-25T20:23:53.928315+00:00"
+  },
+  {
+    "name": "Death Dog",
+    "publisher": "Ahoy Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 168210,
+        "name": "Death Dog",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:54.289361+00:00",
+    "retry_after": "2026-10-25T20:23:54.289377+00:00"
+  },
+  {
+    "name": "True Life Tales",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1298,
+        "name": "True Life Tales",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:54.650349+00:00",
+    "retry_after": "2026-10-25T20:23:54.650365+00:00"
+  },
+  {
+    "name": "Casper Jumbo Edition",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64322,
+        "name": "Casper Jumbo Edition",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:55.048417+00:00",
+    "retry_after": "2026-10-25T20:23:55.048431+00:00"
+  },
+  {
+    "name": "The Sensational She-Hulk in Ceremony",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22095,
+        "name": "The Sensational She-Hulk in Ceremony",
+        "publisher": null,
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:55.439445+00:00",
+    "retry_after": "2026-10-25T20:23:55.439462+00:00"
+  },
+  {
+    "name": "Books of Lore: Shape of Evil",
+    "publisher": "Devil's Due",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 105454,
+        "name": "Books of Lore: Shape of Evil",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:55.993771+00:00",
+    "retry_after": "2026-10-25T20:23:55.993788+00:00"
+  },
+  {
+    "name": "X-Men: The Manga: Remastered",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161119,
+        "name": "X-Men: The Manga: Remastered",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:57.218899+00:00",
+    "retry_after": "2026-10-25T20:23:57.218915+00:00"
+  },
+  {
+    "name": "Fator X",
+    "publisher": "Avatar Press",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44923,
+        "name": "Fator-X",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:58.114798+00:00",
+    "retry_after": "2026-10-25T20:23:58.114815+00:00"
+  },
+  {
+    "name": "Maschera Nera",
+    "publisher": "Dark Horse Comics",
+    "year": 1964,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28188,
+        "name": "Maschera Nera",
+        "publisher": null,
+        "start_year": 1962
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:58.637816+00:00",
+    "retry_after": "2026-10-25T20:23:58.637834+00:00"
+  },
+  {
+    "name": "Richie Rich's Funtime Comics",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45891,
+        "name": "Richie Rich's Funtime Comics",
+        "publisher": null,
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:59.133988+00:00",
+    "retry_after": "2026-10-25T20:23:59.134003+00:00"
+  },
+  {
+    "name": "Heróis da TV",
+    "publisher": "Avatar Press",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158264,
+        "name": "Heróis da TV",
+        "publisher": null,
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:23:59.831324+00:00",
+    "retry_after": "2026-10-25T20:23:59.831342+00:00"
+  },
+  {
+    "name": "Disney Especial Reedição",
+    "publisher": "Avatar Press",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79152,
+        "name": "Disney Especial Reedição",
+        "publisher": null,
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:24:00.236400+00:00",
+    "retry_after": "2026-10-25T20:24:00.236417+00:00"
+  },
+  {
+    "name": "Fun House Comedy",
+    "publisher": "Marvel Comics",
+    "year": 1964,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 125513,
+        "name": "Fun House Comedy",
+        "publisher": null,
+        "start_year": 1964
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:24:01.028790+00:00",
+    "retry_after": "2026-10-25T20:24:01.028807+00:00"
+  },
+  {
+    "name": "The Phantom Rider",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65302,
+        "name": "Phantom Rider",
+        "publisher": null,
+        "start_year": 1945
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:24:01.534995+00:00",
+    "retry_after": "2026-10-25T20:24:01.535013+00:00"
+  },
+  {
+    "name": "Robotech II: The Sentinels Book II",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34622,
+        "name": "Robotech II: The Sentinels - Book II",
+        "publisher": null,
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-24T20:24:01.930257+00:00",
+    "retry_after": "2026-10-25T20:24:01.930274+00:00"
   }
 ]

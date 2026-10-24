@@ -10,9 +10,14 @@
     "year": 1979
   },
   {
-    "name": "The Vision and the Scarlet Witch",
+    "name": "Moon Knight",
     "publisher": "Marvel Comics",
-    "year": 1982
+    "year": 1980
+  },
+  {
+    "name": "Swamp Thing",
+    "publisher": "DC Comics",
+    "year": 1985
   },
   {
     "name": "G.I. Joe Comics Magazine",
@@ -26,6 +31,11 @@
   },
   {
     "name": "Flash",
+    "publisher": "DC Comics",
+    "year": 1987
+  },
+  {
+    "name": "Underworld",
     "publisher": "DC Comics",
     "year": 1987
   },
@@ -45,16 +55,6 @@
     "year": 1988
   },
   {
-    "name": "Damage Control",
-    "publisher": "Marvel Comics",
-    "year": 1989
-  },
-  {
-    "name": "The Question Quarterly",
-    "publisher": "DC Comics",
-    "year": 1990
-  },
-  {
     "name": "Deadly Foes of Spider-Man",
     "publisher": "Marvel Comics",
     "year": 1991
@@ -63,6 +63,11 @@
     "name": "X-Men",
     "publisher": "Marvel Comics",
     "year": 1991
+  },
+  {
+    "name": "Metal Men",
+    "publisher": "DC Comics",
+    "year": 1993
   },
   {
     "name": "Savage Dragon",
@@ -83,6 +88,11 @@
     "name": "Cyberforce",
     "publisher": "Image Comics",
     "year": 1992
+  },
+  {
+    "name": "Batman: Gotham Nights II",
+    "publisher": "DC Comics",
+    "year": 1995
   },
   {
     "name": "Cerebus",
@@ -110,7 +120,22 @@
     "year": 2025
   },
   {
+    "name": "Fantastic Four: First Foes",
+    "publisher": "Marvel Comics",
+    "year": 2026
+  },
+  {
     "name": "Doomquest",
+    "publisher": "Marvel Comics",
+    "year": 2026
+  },
+  {
+    "name": "Fantastic Four: First Foes - Shalla-Bal",
+    "publisher": "Marvel Comics",
+    "year": 2026
+  },
+  {
+    "name": "Fantastic Four: First Foes - Dragon Man",
     "publisher": "Marvel Comics",
     "year": 2026
   }

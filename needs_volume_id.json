@@ -43850,8 +43850,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T20:02:28.403815+00:00",
-    "retry_after": "2026-10-26T20:02:28.403831+00:00",
+    "last_attempt_at": "2026-10-25T21:02:57.188545+00:00",
+    "retry_after": "2026-10-26T21:02:57.188556+00:00",
     "search_hydrated": true
   },
   {
@@ -46386,9 +46386,10 @@
         "start_year": 2026
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T10:18:21.525712+00:00",
-    "retry_after": "2026-10-22T10:18:21.525727+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-25T21:01:55.226126+00:00",
+    "retry_after": "2026-11-08T21:01:55.226143+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Hulk E I Difensori",
@@ -57454,9 +57455,10 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-20T22:39:10.207824+00:00",
-    "retry_after": "2026-10-23T22:39:10.207842+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-25T21:05:58.020468+00:00",
+    "retry_after": "2026-11-01T21:05:58.020475+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Rick and Morty Oni 25th Anniversary Edition",
@@ -68481,24 +68483,25 @@
     "name": "Dune: House Corrino",
     "publisher": "BOOM! Studios",
     "year": 2026,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
         "id": 157343,
         "name": "Dune: House Corrino",
-        "publisher": null,
+        "publisher": "Boom! Studios",
         "start_year": 2024
       },
       {
         "id": 161490,
         "name": "Dune: House Corrino",
-        "publisher": null,
+        "publisher": "Boom! Studios",
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T16:24:04.917681+00:00",
-    "retry_after": "2026-10-26T16:24:04.917696+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:06:15.639841+00:00",
+    "retry_after": "2026-10-26T21:06:15.639853+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Chastity",
@@ -68860,106 +68863,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T18:49:36.092545+00:00",
     "retry_after": "2026-10-26T18:49:36.092560+00:00"
-  },
-  {
-    "name": "The Doom Patrol",
-    "publisher": "DC Comics",
-    "year": 1964,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2177,
-        "name": "Doom Patrol",
-        "publisher": null,
-        "start_year": 1964
-      },
-      {
-        "id": 7329,
-        "name": "Doom Patrol",
-        "publisher": null,
-        "start_year": 2001
-      },
-      {
-        "id": 27258,
-        "name": "Doom Patrol",
-        "publisher": null,
-        "start_year": 2009
-      },
-      {
-        "id": 94114,
-        "name": "Doom Patrol",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 3786,
-        "name": "Doom Patrol",
-        "publisher": null,
-        "start_year": 1987
-      },
-      {
-        "id": 88200,
-        "name": "Doom Patrol",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 39754,
-        "name": "Doom Patrol",
-        "publisher": null,
-        "start_year": 2005
-      },
-      {
-        "id": 11053,
-        "name": "Doom Patrol",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 176685,
-        "name": "The Doom Patrol",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T17:24:03.610393+00:00",
-    "retry_after": "2026-10-26T17:24:03.610408+00:00"
-  },
-  {
-    "name": "Spider-Gwen",
-    "publisher": "Marvel Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 85311,
-        "name": "Spider-Gwen",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 80298,
-        "name": "Spider-Gwen",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 98567,
-        "name": "Spider-Gwen",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 119235,
-        "name": "Spider-Gwen",
-        "publisher": null,
-        "start_year": 2016
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T17:24:04.499139+00:00",
-    "retry_after": "2026-10-26T17:24:04.499154+00:00"
   },
   {
     "name": "Jim Butcher's The Dresden Files: Wild Card",
@@ -69421,23 +69324,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T18:49:44.556806+00:00",
     "retry_after": "2026-10-26T18:49:44.556818+00:00"
-  },
-  {
-    "name": "Dungeons & Dragons: Ravenloft",
-    "publisher": "Dark Horse Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 176993,
-        "name": "Dungeons & Dragons: Ravenloft",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:49:35.554896+00:00",
-    "retry_after": "2026-10-26T18:49:35.554911+00:00"
   },
   {
     "name": "Hero Squared",
@@ -75509,23 +75395,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Doctor Who: The Fourth Doctor",
-    "publisher": "Titan Comics",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 89156,
-        "name": "Doctor Who: The Fourth Doctor",
-        "publisher": null,
-        "start_year": 2016
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T19:23:48.122246+00:00",
-    "retry_after": "2026-10-27T19:23:48.122269+00:00"
-  },
-  {
     "name": "Debbie Does Dallas",
     "publisher": "Malibu Comics",
     "year": 1991,
@@ -76130,23 +75999,6 @@
     "retry_after": "2026-10-28T14:17:09.143195+00:00"
   },
   {
-    "name": "Doom 2099: Rage of Doom",
-    "publisher": "Marvel Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 171681,
-        "name": "Doom 2099: Rage of Doom",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T14:17:09.490151+00:00",
-    "retry_after": "2026-10-28T14:17:09.490170+00:00"
-  },
-  {
     "name": "Marvel Super-Heroes Spring Special",
     "publisher": "Marvel Comics",
     "year": 1993,
@@ -76531,23 +76383,6 @@
     "retry_after": "2026-10-25T14:48:01.138382+00:00"
   },
   {
-    "name": "Interactive Comics: Dudley Serious Saves the World",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 75764,
-        "name": "Interactive Comics - Dudley Serious Saves the World",
-        "publisher": null,
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:02.153549+00:00",
-    "retry_after": "2026-10-25T14:48:02.153566+00:00"
-  },
-  {
     "name": "Marvelous Adventures of Gus Beezer: Gus Beezer & Spider-Man",
     "publisher": "Marvel Comics",
     "year": 2004,
@@ -76597,23 +76432,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T14:48:04.178106+00:00",
     "retry_after": "2026-10-25T14:48:04.178123+00:00"
-  },
-  {
-    "name": "Slave Girl",
-    "publisher": "Malibu Comics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 81795,
-        "name": "Slave Girl",
-        "publisher": null,
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:04.770319+00:00",
-    "retry_after": "2026-10-25T14:48:04.770336+00:00"
   },
   {
     "name": "Essential Iron Fist",
@@ -76835,23 +76653,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T14:48:12.423269+00:00",
     "retry_after": "2026-10-25T14:48:12.423275+00:00"
-  },
-  {
-    "name": "Batvark",
-    "publisher": "Aardvark-Vanaheim",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 103850,
-        "name": "Batvark",
-        "publisher": null,
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:12.865786+00:00",
-    "retry_after": "2026-10-25T14:48:12.865793+00:00"
   },
   {
     "name": "Gli Incredibili X-Men",
@@ -77151,23 +76952,6 @@
     "retry_after": "2026-10-25T15:23:40.847343+00:00"
   },
   {
-    "name": "The Complete Adventures of Carl",
-    "publisher": "BOOM! Studios",
-    "year": 2007,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 46083,
-        "name": "Complete Adventures of Carl",
-        "publisher": null,
-        "start_year": 2007
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:41.332184+00:00",
-    "retry_after": "2026-10-25T15:23:41.332198+00:00"
-  },
-  {
     "name": "Ex-Mutants Winter Special",
     "publisher": "Malibu Comics",
     "year": 1989,
@@ -77183,23 +76967,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T15:23:42.029693+00:00",
     "retry_after": "2026-10-25T15:23:42.029707+00:00"
-  },
-  {
-    "name": "Atomic Age Truckstop Waitress",
-    "publisher": "Fantagraphics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26715,
-        "name": "Atomic Age Truckstop Waitress",
-        "publisher": null,
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:42.488635+00:00",
-    "retry_after": "2026-10-25T15:23:42.488649+00:00"
   },
   {
     "name": "Dinosaur Hour!",
@@ -77353,23 +77120,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T15:23:47.194105+00:00",
     "retry_after": "2026-10-25T15:23:47.194122+00:00"
-  },
-  {
-    "name": "I Love Lucy in Full Color",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 63062,
-        "name": "I Love Lucy in Full Color",
-        "publisher": null,
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:47.569633+00:00",
-    "retry_after": "2026-10-25T15:23:47.569648+00:00"
   },
   {
     "name": "The League of Extraordinary Cerebi",
@@ -77574,23 +77324,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T16:23:47.764173+00:00",
     "retry_after": "2026-10-25T16:23:47.764188+00:00"
-  },
-  {
-    "name": "Harpy Pin-Up Special",
-    "publisher": "Devil's Due",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24161,
-        "name": "Harpy Pin-Up Special",
-        "publisher": null,
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:48.303284+00:00",
-    "retry_after": "2026-10-25T16:23:48.303299+00:00"
   },
   {
     "name": "Gen 13 Bootleg",
@@ -78086,23 +77819,6 @@
     "retry_after": "2026-10-25T17:23:52.762853+00:00"
   },
   {
-    "name": "Belzebubs",
-    "publisher": "IDW Publishing",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 117696,
-        "name": "Belzebubs",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:53.062287+00:00",
-    "retry_after": "2026-10-25T17:23:53.062303+00:00"
-  },
-  {
     "name": "Spawn Figure",
     "publisher": "Image Comics",
     "year": 1994,
@@ -78152,23 +77868,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T17:23:54.455213+00:00",
     "retry_after": "2026-10-25T17:23:54.455229+00:00"
-  },
-  {
-    "name": "The Kinky Hook",
-    "publisher": "Fantagraphics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24194,
-        "name": "The Kinky Hook",
-        "publisher": null,
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:54.817971+00:00",
-    "retry_after": "2026-10-25T17:23:54.817986+00:00"
   },
   {
     "name": "Totentanz",
@@ -78704,23 +78403,6 @@
     "retry_after": "2026-10-25T18:41:22.202336+00:00"
   },
   {
-    "name": "Anna Malle's Dirty Deeds",
-    "publisher": "Fantagraphics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 84181,
-        "name": "Anna Malle's Dirty Deeds",
-        "publisher": null,
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:41:23.041834+00:00",
-    "retry_after": "2026-10-25T18:41:23.041851+00:00"
-  },
-  {
     "name": "Dicks Winter Special",
     "publisher": "Avatar Press",
     "year": 2005,
@@ -79186,23 +78868,6 @@
     "retry_after": "2026-10-25T19:23:49.450140+00:00"
   },
   {
-    "name": "Robotech: Firewalkers",
-    "publisher": "Malibu Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 39269,
-        "name": "Robotech - Firewalkers",
-        "publisher": null,
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T19:23:49.921430+00:00",
-    "retry_after": "2026-10-25T19:23:49.921444+00:00"
-  },
-  {
     "name": "Chiller",
     "publisher": "Marvel Comics",
     "year": 1993,
@@ -79373,40 +79038,6 @@
     "retry_after": "2026-10-25T19:23:53.611535+00:00"
   },
   {
-    "name": "O Melhor de Batman",
-    "publisher": "Avatar Press",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 119458,
-        "name": "O Melhor de Batman ",
-        "publisher": null,
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T19:23:53.938028+00:00",
-    "retry_after": "2026-10-25T19:23:53.938043+00:00"
-  },
-  {
-    "name": "Clássicos DC",
-    "publisher": "Avatar Press",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 119422,
-        "name": "Clássicos DC ",
-        "publisher": null,
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T19:23:54.327100+00:00",
-    "retry_after": "2026-10-25T19:23:54.327115+00:00"
-  },
-  {
     "name": "Mighty Avengers: The Ultron Initiative",
     "publisher": "Marvel Comics",
     "year": 2008,
@@ -79422,23 +79053,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T19:23:54.626643+00:00",
     "retry_after": "2026-10-25T19:23:54.626658+00:00"
-  },
-  {
-    "name": "The Face-Skull",
-    "publisher": "Marvel Comics",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 66996,
-        "name": "Face-Skull",
-        "publisher": null,
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T19:23:55.092601+00:00",
-    "retry_after": "2026-10-25T19:23:55.092617+00:00"
   },
   {
     "name": "King Classics",
@@ -79745,23 +79359,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T20:48:20.716022+00:00",
     "retry_after": "2026-10-25T20:48:20.716034+00:00"
-  },
-  {
-    "name": "Maxi Mister No",
-    "publisher": "Marvel Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 32766,
-        "name": "Maxi Mister No",
-        "publisher": null,
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T20:48:20.924502+00:00",
-    "retry_after": "2026-10-25T20:48:20.924511+00:00"
   },
   {
     "name": "Headless Horseman",
@@ -80354,23 +79951,6 @@
     "retry_after": "2026-10-25T21:23:56.835552+00:00"
   },
   {
-    "name": "Komikwerks",
-    "publisher": "Zenescope Entertainment",
-    "year": 2003,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 89692,
-        "name": "Komikwerks",
-        "publisher": null,
-        "start_year": 2003
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T21:23:57.171424+00:00",
-    "retry_after": "2026-10-25T21:23:57.171439+00:00"
-  },
-  {
     "name": "Sam and Twitch: The Complete Collection",
     "publisher": "Image Comics",
     "year": 2011,
@@ -80821,23 +80401,6 @@
     "retry_after": "2026-10-25T22:23:56.099591+00:00"
   },
   {
-    "name": "Rival Schools",
-    "publisher": "Eclipse Comics",
-    "year": 2006,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19008,
-        "name": "Rival Schools",
-        "publisher": null,
-        "start_year": 2006
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T22:23:56.493359+00:00",
-    "retry_after": "2026-10-25T22:23:56.493374+00:00"
-  },
-  {
     "name": "Mermaid Saga Collector’s Edition",
     "publisher": "VIZ Media",
     "year": 2020,
@@ -80870,40 +80433,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T22:23:57.229384+00:00",
     "retry_after": "2026-10-25T22:23:57.229396+00:00"
-  },
-  {
-    "name": "X-Men Gigante",
-    "publisher": "Avatar Press",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57596,
-        "name": "X-Men Gigante",
-        "publisher": null,
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T23:42:27.430812+00:00",
-    "retry_after": "2026-10-25T23:42:27.430827+00:00"
-  },
-  {
-    "name": "Der letzte Kobold",
-    "publisher": "Fawcett Comics",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 100497,
-        "name": "Der letzte Kobold",
-        "publisher": null,
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T23:42:27.700783+00:00",
-    "retry_after": "2026-10-25T23:42:27.700797+00:00"
   },
   {
     "name": "Family Favourites",
@@ -81401,23 +80930,6 @@
     "retry_after": "2026-10-26T04:32:03.593505+00:00"
   },
   {
-    "name": "Spooky the Tuff Little Ghost Giant Edition",
-    "publisher": "Marvel Comics",
-    "year": 1970,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 85482,
-        "name": "Spooky the Tuff Little Ghost Giant Edition",
-        "publisher": null,
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T04:32:04.608023+00:00",
-    "retry_after": "2026-10-26T04:32:04.608031+00:00"
-  },
-  {
     "name": "Jeremiah: A Fistful of Sand",
     "publisher": "Malibu Comics",
     "year": 1991,
@@ -81589,53 +81101,6 @@
     "retry_after": "2026-10-26T05:54:34.881373+00:00"
   },
   {
-    "name": "Xena: Warrior Princess",
-    "publisher": "Topps Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 118405,
-        "name": "Xena: Warrior Princess",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 20038,
-        "name": "Xena: Warrior Princess",
-        "publisher": null,
-        "start_year": 2006
-      },
-      {
-        "id": 6097,
-        "name": "Xena: Warrior Princess",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 108762,
-        "name": "Xena: Warrior Princess",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 6380,
-        "name": "Xena: Warrior Princess",
-        "publisher": null,
-        "start_year": 1999
-      },
-      {
-        "id": 89631,
-        "name": "Xena: Warrior Princess",
-        "publisher": null,
-        "start_year": 2016
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T06:17:09.602155+00:00",
-    "retry_after": "2026-10-26T06:17:09.602168+00:00"
-  },
-  {
     "name": "Sword of Sorcery",
     "publisher": "DC Comics",
     "year": 2013,
@@ -81742,108 +81207,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T06:17:15.066686+00:00",
     "retry_after": "2026-10-26T06:17:15.066695+00:00"
-  },
-  {
-    "name": "Purgatori: Mischief Night",
-    "publisher": "Chaos! Comics",
-    "year": 2001,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20633,
-        "name": "Purgatori: Mischief Night",
-        "publisher": null,
-        "start_year": 2001
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:09:17.978675+00:00",
-    "retry_after": "2026-10-26T07:09:17.978690+00:00"
-  },
-  {
-    "name": "Purgatori: The Dracula Gambit",
-    "publisher": "Chaos! Comics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20636,
-        "name": "Purgatori: The Dracula Gambit",
-        "publisher": null,
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:09:18.487454+00:00",
-    "retry_after": "2026-10-26T07:09:18.487469+00:00"
-  },
-  {
-    "name": "Brinke of Eternity",
-    "publisher": "Chaos! Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 21185,
-        "name": "Brinke of Eternity",
-        "publisher": null,
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:09:20.364472+00:00",
-    "retry_after": "2026-10-26T07:09:20.364488+00:00"
-  },
-  {
-    "name": "Evil Ernie: Depraved Preview",
-    "publisher": "Chaos! Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 154090,
-        "name": "Evil Ernie: Depraved Preview",
-        "publisher": null,
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:09:21.679287+00:00",
-    "retry_after": "2026-10-26T07:09:21.679301+00:00"
-  },
-  {
-    "name": "Evil Ernie vs. the Movie Monsters",
-    "publisher": "Chaos! Comics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19389,
-        "name": "Evil Ernie vs. The Movie Monsters",
-        "publisher": null,
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:09:22.571985+00:00",
-    "retry_after": "2026-10-26T07:09:22.571999+00:00"
-  },
-  {
-    "name": "Vigilante 8: Second Offense",
-    "publisher": "Chaos! Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 23058,
-        "name": "Vigilante 8: Second Offense",
-        "publisher": null,
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:09:23.082033+00:00",
-    "retry_after": "2026-10-26T07:09:23.082047+00:00"
   },
   {
     "name": "Lady Death / Medieval Witchblade",
@@ -84544,6 +83907,129 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T20:07:28.859153+00:00",
     "retry_after": "2026-10-26T20:07:28.859167+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kill Blue",
+    "publisher": "VIZ Media",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 159781,
+        "name": "Kill Blue",
+        "publisher": "Viz",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:01:47.555348+00:00",
+    "retry_after": "2026-10-26T21:01:47.555360+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "MF Ghost",
+    "publisher": "Kodansha USA",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 141132,
+        "name": "MF Ghost",
+        "publisher": "Kodansha Comics USA",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:02:23.596490+00:00",
+    "retry_after": "2026-10-26T21:02:23.596508+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Sgt. Rock: The Rock of Easy Co.",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 177115,
+        "name": "DC Finest: Sgt. Rock: The Rock of Easy Co.",
+        "publisher": "DC Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:05:13.665031+00:00",
+    "retry_after": "2026-10-26T21:05:13.665043+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: The Demon: Birth of the Demon",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 177119,
+        "name": "DC Finest: The Demon: Birth of the Demon",
+        "publisher": "DC Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:05:34.460959+00:00",
+    "retry_after": "2026-10-26T21:05:34.460972+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: The Flash: The Fastest Man Dead",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:05:40.745874+00:00",
+    "retry_after": "2026-10-26T21:05:40.745885+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Western: The Hangman Never Loses",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 177116,
+        "name": "DC Finest: Western: The Hangman Never Loses",
+        "publisher": "DC Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:05:47.858789+00:00",
+    "retry_after": "2026-10-26T21:05:47.858800+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC K.O.: All Fight",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:05:56.338111+00:00",
+    "retry_after": "2026-10-26T21:05:56.338121+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC K.O.: Battle Royale",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:05:57.523085+00:00",
+    "retry_after": "2026-10-26T21:05:57.523095+00:00",
     "search_hydrated": true
   }
 ]

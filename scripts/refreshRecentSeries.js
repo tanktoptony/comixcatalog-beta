@@ -1,113 +1,85 @@
 // refreshRecentSeries.js
 //
-// Targeted cache refresh for series whose canonical_covers were just touched.
-// Called at the tail of cover-ingest so freshly-ingested series get their
-// featured_cover_path_cached, issue_count_cached, year_start_cached etc.
-// updated within hours instead of waiting up to 3 weeks for weekly-refresh
-// to rotate around to them.
+// Targeted cache refresh for series whose canonical_covers were just added.
+// Runs at the tail of cover-ingest so a freshly covered series shows its cover
+// on series cards (search, carousels, series lists) within the hour instead of
+// waiting up to 3 weeks for weekly-refresh to rotate around to it.
 //
 // Usage:
 //   node scripts/refreshRecentSeries.js                    # last 24h
-//   node scripts/refreshRecentSeries.js --since-hours=6    # custom window
+//   node scripts/refreshRecentSeries.js --since-hours=2    # custom window
 //
 // Strategy:
-//   1. Find canonical_covers created in last N hours.
-//   2. Resolve those to distinct series.id values via two paths:
-//      - canonical_covers.series_gcd_id -> series.gcd_id
-//      - canonical_covers.comicvine_volume_id -> series.cv_publisher (no FK,
-//        fallback via series_title match)
-//   3. Spawn refreshSeriesSearchCache.js --force --only-ids=<...> in chunks
-//      (500 ids per invocation to keep argv under shell length caps).
+//   1. Find canonical_covers created in the last N hours.
+//   2. Map their series_gcd_id to series.id. Covers with no series_gcd_id are
+//      skipped: a title match would refresh every same-titled series (hundreds
+//      of "Batman" rows), and the mislink repair attributes them later.
+//   3. Run refreshSeriesSearchCache.js --force --skip-reconcile over the ids
+//      (the duplicate-cover reconcile scans every series; weekly-refresh runs it).
+//
+// 2026-10-25: rewritten. The old local fetchAllPages took a query builder but
+// was handed a function, so the script threw on its first read and was never
+// wired into any workflow.
 
 import "dotenv/config";
 import { config } from "dotenv";
-import { createClient } from "@supabase/supabase-js";
+import fs from "fs";
+import os from "os";
+import path from "path";
 import { spawnSync } from "child_process";
+import { createClient } from "@supabase/supabase-js";
+import { fetchAllPages } from "../src/lib/supabase/fetchAllPages.js";
 
 config({ path: ".env.local" });
 
 const hoursArg = process.argv.find((a) => a.startsWith("--since-hours="));
 const SINCE_HOURS = hoursArg ? Number(hoursArg.split("=")[1]) : 24;
-const CHUNK = 500;
+const IN_CHUNK = 500;
 
 const sb = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-async function fetchAllPages(builder, pageSize = 1000) {
-  let from = 0, all = [];
-  for (;;) {
-    const { data, error } = await builder.range(from, from + pageSize - 1);
-    if (error) throw error;
-    if (!data?.length) break;
-    all.push(...data);
-    if (data.length < pageSize) break;
-    from += pageSize;
-  }
-  return all;
-}
-
-(async () => {
+async function main() {
   const since = new Date(Date.now() - SINCE_HOURS * 3600 * 1000).toISOString();
   console.log(`Finding canonical_covers created since ${since}…`);
 
-  const recent = await fetchAllPages((from, to) =>
+  const recent = await fetchAllPages(() =>
     sb
       .from("canonical_covers")
-      .select("series_gcd_id, comicvine_volume_id, series_title")
+      .select("id, series_gcd_id")
       .gte("created_at", since)
-      .order("id")
+      .not("series_gcd_id", "is", null)
   );
-  console.log(`  ${recent.length} canonical_covers in window`);
+  const gcdIds = [...new Set(recent.map((r) => r.series_gcd_id))];
+  console.log(`  ${recent.length} new covers across ${gcdIds.length} GCD series`);
 
-  // Resolve to series.id via gcd bridge first (most reliable).
-  const gcdIds = [...new Set(recent.map((r) => r.series_gcd_id).filter(Boolean))];
-  const titlesOnly = [...new Set(
-    recent.filter((r) => !r.series_gcd_id).map((r) => r.series_title).filter(Boolean)
-  )];
-
-  const seriesIds = new Set();
-
-  if (gcdIds.length) {
-    for (let i = 0; i < gcdIds.length; i += 500) {
-      const chunk = gcdIds.slice(i, i + 500);
-      const { data } = await sb.from("series").select("id").in("gcd_id", chunk);
-      if (data) for (const r of data) seriesIds.add(r.id);
-    }
-    console.log(`  ${seriesIds.size} series matched via gcd_id bridge`);
+  const ids = [];
+  for (let i = 0; i < gcdIds.length; i += IN_CHUNK) {
+    const { data, error } = await sb.from("series").select("id").in("gcd_id", gcdIds.slice(i, i + IN_CHUNK));
+    if (error) throw error;
+    ids.push(...(data ?? []).map((r) => r.id));
   }
-
-  if (titlesOnly.length) {
-    const before = seriesIds.size;
-    for (let i = 0; i < titlesOnly.length; i += 200) {
-      const chunk = titlesOnly.slice(i, i + 200);
-      const { data } = await sb.from("series").select("id").in("title", chunk);
-      if (data) for (const r of data) seriesIds.add(r.id);
-    }
-    console.log(`  +${seriesIds.size - before} series matched via title fallback`);
-  }
-
-  const ids = [...seriesIds];
   if (!ids.length) {
     console.log("Nothing to refresh.");
     return;
   }
-  console.log(`\nRefreshing ${ids.length} series in chunks of ${CHUNK}…`);
 
-  let chunkN = 0;
-  for (let i = 0; i < ids.length; i += CHUNK) {
-    chunkN++;
-    const chunk = ids.slice(i, i + CHUNK);
-    console.log(`\n--- chunk ${chunkN} (${chunk.length} ids) ---`);
-    const res = spawnSync(
-      "node",
-      ["scripts/refreshSeriesSearchCache.js", "--force", `--only-ids=${chunk.join(",")}`],
-      { stdio: "inherit" }
-    );
-    if (res.status !== 0) {
-      console.error(`Chunk ${chunkN} failed with exit ${res.status}. Continuing.`);
-    }
-  }
-  console.log(`\nDone. Refreshed ${ids.length} recently-touched series.`);
-})();
+  const idsFile = path.join(os.tmpdir(), `recent-series-${process.pid}.txt`);
+  fs.writeFileSync(idsFile, ids.join("\n"));
+  console.log(`Refreshing ${ids.length} series…`);
+  const res = spawnSync(
+    process.execPath,
+    ["scripts/refreshSeriesSearchCache.js", "--force", "--skip-reconcile", `--only-ids-file=${idsFile}`],
+    { stdio: "inherit" }
+  );
+  fs.rmSync(idsFile, { force: true });
+  if (res.status !== 0) throw new Error(`refreshSeriesSearchCache exited ${res.status}`);
+  console.log(`\nDone. Refreshed ${ids.length} recently covered series.`);
+}
+
+main().catch((error) => {
+  console.error("refreshRecentSeries failed:", error?.message || error);
+  process.exit(1);
+});

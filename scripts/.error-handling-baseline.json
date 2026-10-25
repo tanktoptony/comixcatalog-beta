@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-24",
+  "updated": "2026-10-25",
   "counts": {
     "supabase-query-ignores-error": 55,
     "invented-error-text": 7,
     "empty-catch": 6,
-    "blanket-continue-on-error": 13
+    "blanket-continue-on-error": 14
   },
   "hits": {
     "supabase-query-ignores-error": [
@@ -82,16 +82,17 @@
       "src/components/ProfileTabs.js:123"
     ],
     "blanket-continue-on-error": [
-      ".github/workflows/cover-ingest.yml:265",
-      ".github/workflows/cover-ingest.yml:275",
-      ".github/workflows/cover-ingest.yml:289",
-      ".github/workflows/cover-ingest.yml:295",
-      ".github/workflows/cover-ingest.yml:301",
-      ".github/workflows/cover-ingest.yml:315",
-      ".github/workflows/cover-ingest.yml:332",
-      ".github/workflows/cover-ingest.yml:346",
-      ".github/workflows/cover-ingest.yml:360",
-      ".github/workflows/cover-ingest.yml:386",
+      ".github/workflows/cover-ingest.yml:269",
+      ".github/workflows/cover-ingest.yml:279",
+      ".github/workflows/cover-ingest.yml:293",
+      ".github/workflows/cover-ingest.yml:299",
+      ".github/workflows/cover-ingest.yml:305",
+      ".github/workflows/cover-ingest.yml:319",
+      ".github/workflows/cover-ingest.yml:336",
+      ".github/workflows/cover-ingest.yml:353",
+      ".github/workflows/cover-ingest.yml:367",
+      ".github/workflows/cover-ingest.yml:381",
+      ".github/workflows/cover-ingest.yml:407",
       ".github/workflows/gap-probe.yml:92",
       ".github/workflows/gap-probe.yml:103",
       ".github/workflows/gap-probe.yml:107"

@@ -236,3 +236,11 @@ test("sibling fallback stays blank when more than one candidate qualifies", () =
     cover({ id: 2, series_gcd_id: 22, storage_path: "two.jpg" }),
   ]), null);
 });
+
+test("unnumbered issues resolve by gcd_issue_id only", () => {
+  const issues = [issue({ gcd_issue_id: 2650878, series_gcd_id: 214328, series_title: "Resurrection of Magneto", issue_number: "[nn]", year: 2024, series_year_start: 2024, series_year_end: 2024 })];
+  const linked = cover({ id: 718382, gcd_issue_id: 2650878, series_gcd_id: 214328, series_title: "Resurrection of Magneto", issue_number: "1", series_year: 2024, storage_path: "resurrection-tpb.jpeg" });
+  assert.equal(pickCovers(issues, [linked]).get(2650878).storage_path, "resurrection-tpb.jpeg");
+  // Without the link there is no number to match on, so nothing is guessed.
+  assert.equal(pickCovers(issues, [{ ...linked, gcd_issue_id: null }]).has(2650878), false);
+});

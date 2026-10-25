@@ -1,4 +1,4 @@
--- 0087: index gcd_issues.key_date for the new-release cover queue.
+-- 0088: index gcd_issues.key_date for the new-release cover queue.
 --
 -- scripts/generateNewReleaseGap.js runs before every hourly cover ingest and
 -- asks for the issues GCD dates in the last few weeks. Without this index that

@@ -447,6 +447,9 @@ PUBLISHER_ALIASES: tuple[frozenset[str], ...] = (
     frozenset({"wildstorm", "image"}),  # WildStorm was founded within Image 1992-1998, pre-DC.
     frozenset({"valiant", "valiantacclaim", "dmgvaliant"}),  # Same line under different owners/eras.
     frozenset({"aspen", "aspenmlt"}),  # Aspen Comics is published by Aspen MLT, Inc.
+    # Eternity and Aircel were Malibu imprints; ComicVine files many Malibu
+    # books under them (Robotech: Firewalkers, 2026-10-25).
+    frozenset({"malibu", "eternity", "aircel"}),
     # ComicVine files Udon under the bare masthead "UDON" (normalizes to
     # "udon"); our own data says "Udon Entertainment Corp.", which normalizes
     # to "udoncorp" because _norm_publisher strips the generic "entertainment"
@@ -694,9 +697,25 @@ def load_needs_volume_id_prior(path: str) -> int:
     return bootstrapped
 
 
+# Failures recorded before the search hydration fix (see
+# _hydrate_search_volumes) were decided on publisher-less, zero-count search
+# results, so their cooldowns are void. Records written since carry
+# search_hydrated and back off normally.
+def _failed_on_blank_search(rec: dict) -> bool:
+    if rec.get("search_hydrated"):
+        return False
+    reason = str(rec.get("reason") or "")
+    candidates = rec.get("candidates") or []
+    if reason == "publisher_mismatch":
+        return bool(candidates) and all(not c.get("publisher") for c in candidates)
+    return reason.startswith("multiple_")
+
+
 def _is_backing_off(key: tuple) -> bool:
     rec = NEEDS_VOLUME_ID_PRIOR.get(key)
     if not rec:
+        return False
+    if _failed_on_blank_search(rec):
         return False
     stamp = rec.get("retry_after")
     if not stamp:
@@ -724,7 +743,10 @@ def _record_needs_volume_id(name, publisher, year, reason, candidates):
     # escalates (1 -> 3 -> 7 -> 14 -> 30 days) instead of resetting to one day
     # every time the same target fails again.
     prior = NEEDS_VOLUME_ID_PRIOR.get(_backlog_key(name, publisher, year)) or {}
-    attempts = int(prior.get("attempts") or 0) + 1
+    # A failure decided on blank search results says nothing about the
+    # target, so its escalation starts over.
+    prior_attempts = 0 if _failed_on_blank_search(prior) else int(prior.get("attempts") or 0)
+    attempts = prior_attempts + 1
     NEEDS_VOLUME_ID.append(
         {
             "name": name,
@@ -735,6 +757,7 @@ def _record_needs_volume_id(name, publisher, year, reason, candidates):
             "attempts": attempts,
             "last_attempt_at": _now_iso(),
             "retry_after": _retry_after_iso(attempts),
+            "search_hydrated": True,
         }
     )
     # Track every recorded failure (ambiguous OR zero-match) so the caller
@@ -838,6 +861,47 @@ def _pick_by_issue_count(
     return None
 
 
+def _hydrate_search_volumes(volumes: list[dict]) -> list[dict]:
+    """Fill publisher and count_of_issues on search results.
+
+    ComicVine's search/ endpoint now returns publisher: null and
+    count_of_issues: 0 for every volume (seen 2026-10-25; the volumes/ list
+    endpoint still returns both). The publisher gate below then rejected
+    every title-search target as "observed publishers: (none)", and the
+    issue-count tiebreak saw every same-year pair as tied. Hourly runs spent
+    30 searches matching nothing, and 977 targets sat in retry-backoff for
+    it. One volumes/ call with an id filter refills all candidates at once.
+    """
+    missing = [
+        v for v in volumes
+        if v.get("id") and (not v.get("publisher") or not v.get("count_of_issues"))
+    ]
+    if not missing:
+        return volumes
+    ids = "|".join(str(v["id"]) for v in missing[:100])
+    data = cv_get(
+        "volumes/",
+        {
+            "filter": f"id:{ids}",
+            "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
+            "limit": 100,
+        },
+    )
+    by_id = {v.get("id"): v for v in (data.get("results") or [])}
+    hydrated = []
+    for v in volumes:
+        full = by_id.get(v.get("id"))
+        if full:
+            v = {
+                **v,
+                "publisher": v.get("publisher") or full.get("publisher"),
+                "count_of_issues": v.get("count_of_issues") or full.get("count_of_issues"),
+                "start_year": v.get("start_year") or full.get("start_year"),
+            }
+        hydrated.append(v)
+    return hydrated
+
+
 def find_volume(name: str, publisher: str | None = None, year: int | None = None) -> dict | None:
     """Resolve a ComicVine volume by (name, publisher, year). Hard-fails when
     the publisher constraint can't be satisfied — never falls through to a
@@ -863,6 +927,7 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
     name_matches = [
         v for v in results if _norm_title(v.get("name")) == target_title
     ]
+    name_matches = _hydrate_search_volumes(name_matches)
     def _pub_ok(v: dict) -> bool:
         if not target_pub:
             return True
@@ -1373,7 +1438,7 @@ def _load_gcd_issues(series_gcd_id: int) -> list[dict]:
                 "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
             },
             params={
-                "select": "gcd_id,issue_number,title,publication_date,key_date,publisher_gcd_id",
+                "select": "gcd_id,issue_number,title,publication_date,key_date,publisher_gcd_id,variant_of_gcd_id",
                 "series_gcd_id": f"eq.{series_gcd_id}",
                 "order": "gcd_id.asc",
                 "limit": str(page_size),
@@ -1392,12 +1457,25 @@ def _load_gcd_issues(series_gcd_id: int) -> list[dict]:
 
 
 def _resolve_gcd_issue_id(
-    series_gcd_id: int | None, issue_number: object
+    series_gcd_id: int | None, issue_number: object, volume_issue_count: int | None = None
 ) -> tuple[int | None, str]:
-    """Mirror resolveGcdIssueId() in src/lib/coverMatch.js."""
+    """Mirror resolveGcdIssueId() in src/lib/coverMatch.js, plus one
+    ingest-only rule (volume_issue_count; the JS side never passes it)."""
     if series_gcd_id is None:
         return None, "unresolved"
     issues = _load_gcd_issues(int(series_gcd_id))
+    # Trades, omnibuses, graphic novels and one-shots are "[nn]" in GCD while
+    # ComicVine numbers them "1", so no number ever matches and the cover
+    # lands with gcd_issue_id null, which the issue page can't resolve for an
+    # unnumbered issue. When both sides are a single book, they are the same
+    # book (Resurrection of Magneto TPB, Magneto Was Right; 2026-10-24).
+    base_issues = [i for i in issues if not i.get("variant_of_gcd_id")]
+    if (
+        volume_issue_count == 1
+        and len(base_issues) == 1
+        and _base_issue_number(base_issues[0].get("issue_number")) is None
+    ):
+        return int(base_issues[0]["gcd_id"]), "resolved"
     raw = str(issue_number or "").strip()
     candidates = [i for i in issues if str(i.get("issue_number") or "").strip() == raw]
     if not candidates:
@@ -1799,7 +1877,7 @@ def main():
                     comicvine_volume_id = None
 
                 gcd_issue_id, match_confidence = _resolve_gcd_issue_id(
-                    target_gcd_id, issue_number
+                    target_gcd_id, issue_number, volume_issue_count=len(issues)
                 )
                 print(
                     f"    match: series_gcd_id={target_gcd_id} "

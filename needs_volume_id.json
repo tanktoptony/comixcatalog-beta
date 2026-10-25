@@ -43850,8 +43850,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T19:04:02.193098+00:00",
-    "retry_after": "2026-10-26T19:04:02.193123+00:00",
+    "last_attempt_at": "2026-10-25T20:02:28.403815+00:00",
+    "retry_after": "2026-10-26T20:02:28.403831+00:00",
     "search_hydrated": true
   },
   {
@@ -68448,47 +68448,6 @@
     "retry_after": "2026-10-23T13:45:12.894059+00:00"
   },
   {
-    "name": "Crossover",
-    "publisher": "Image Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 131724,
-        "name": "Crossover",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 121365,
-        "name": "The Crossover",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 127380,
-        "name": "Crossover",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 144975,
-        "name": "Crossover ",
-        "publisher": null,
-        "start_year": 2022
-      },
-      {
-        "id": 118121,
-        "name": "Crossover",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T15:23:44.834058+00:00",
-    "retry_after": "2026-10-26T15:23:44.834072+00:00"
-  },
-  {
     "name": "Emily Kado",
     "publisher": "Mad Cave Studios",
     "year": 2026,
@@ -68602,53 +68561,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T16:24:09.823652+00:00",
     "retry_after": "2026-10-26T16:24:09.823669+00:00"
-  },
-  {
-    "name": "Speed Racer",
-    "publisher": "Mad Cave Studios",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20094,
-        "name": "Speed Racer",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 21518,
-        "name": "Speed Racer",
-        "publisher": null,
-        "start_year": 1987
-      },
-      {
-        "id": 166017,
-        "name": "Speed Racer",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 18499,
-        "name": "Speed Racer",
-        "publisher": null,
-        "start_year": 1999
-      },
-      {
-        "id": 73020,
-        "name": "Speed Racer",
-        "publisher": null,
-        "start_year": 1992
-      },
-      {
-        "id": 74094,
-        "name": "Speed Racer",
-        "publisher": null,
-        "start_year": 1995
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T16:24:03.612531+00:00",
-    "retry_after": "2026-10-26T16:24:03.612550+00:00"
   },
   {
     "name": "Energon Universe 2026 Free Comic Book Day Special",
@@ -75701,23 +75613,6 @@
     "retry_after": "2026-10-27T21:23:59.961108+00:00"
   },
   {
-    "name": "Marvel Masterworks: Warlock",
-    "publisher": "Marvel Comics",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 35214,
-        "name": "Marvel Masterworks: Warlock",
-        "publisher": null,
-        "start_year": 2007
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T23:42:26.670442+00:00",
-    "retry_after": "2026-10-27T23:42:26.670456+00:00"
-  },
-  {
     "name": "Avengers: Saving the Day",
     "publisher": "Marvel Comics",
     "year": 2014,
@@ -76208,13 +76103,14 @@
       {
         "id": 72379,
         "name": "Famous Comics",
-        "publisher": null,
+        "publisher": "Zain-Eppy",
         "start_year": 1933
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T14:17:08.832978+00:00",
-    "retry_after": "2026-10-28T14:17:08.832997+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:07:37.509885+00:00",
+    "retry_after": "2026-10-26T20:07:37.509902+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Rex Allen",
@@ -77072,13 +76968,14 @@
       {
         "id": 126425,
         "name": "Anders And & Co.",
-        "publisher": null,
+        "publisher": "Egmont Publishing A/S",
         "start_year": 1949
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:16.066826+00:00",
-    "retry_after": "2026-10-25T14:48:16.066833+00:00"
+    "last_attempt_at": "2026-10-25T20:07:46.882413+00:00",
+    "retry_after": "2026-10-26T20:07:46.882429+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Corriere dei Ragazzi",
@@ -77089,13 +76986,14 @@
       {
         "id": 32469,
         "name": "Corriere dei Ragazzi",
-        "publisher": null,
+        "publisher": "Corriere Della Sera",
         "start_year": 1972
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:17.375370+00:00",
-    "retry_after": "2026-10-25T14:48:17.375381+00:00"
+    "last_attempt_at": "2026-10-25T20:07:47.688794+00:00",
+    "retry_after": "2026-10-26T20:07:47.688809+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Gli Albi di Orient Express",
@@ -77106,13 +77004,14 @@
       {
         "id": 47514,
         "name": "Gli Albi di Orient Express",
-        "publisher": null,
+        "publisher": "L'Isola Trovata",
         "start_year": 1983
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:17.754958+00:00",
-    "retry_after": "2026-10-25T14:48:17.754965+00:00"
+    "last_attempt_at": "2026-10-25T20:07:48.450973+00:00",
+    "retry_after": "2026-10-26T20:07:48.450989+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Headline Comics",
@@ -81217,41 +81116,6 @@
     "retry_after": "2026-10-26T01:56:08.770998+00:00"
   },
   {
-    "name": "Boruto: Two Blue Vortex",
-    "publisher": "VIZ Media",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 165905,
-        "name": "Boruto - Two Blue Vortex",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 156576,
-        "name": "Boruto: Two Blue Vortex",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 162392,
-        "name": "Boruto: Two Blue Vortex",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 164191,
-        "name": "Boruto Two Blue Vortex",
-        "publisher": null,
-        "start_year": 2024
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T01:56:09.321882+00:00",
-    "retry_after": "2026-10-26T01:56:09.321901+00:00"
-  },
-  {
     "name": "Erotic Holiday",
     "publisher": "Fantagraphics",
     "year": 1994,
@@ -81725,114 +81589,6 @@
     "retry_after": "2026-10-26T05:54:34.881373+00:00"
   },
   {
-    "name": "Lady Death: Swimsuit 2001",
-    "publisher": "Chaos! Comics",
-    "year": 2001,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20580,
-        "name": "Lady Death Swimsuit 2001",
-        "publisher": null,
-        "start_year": 2001
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T06:09:05.142021+00:00",
-    "retry_after": "2026-10-26T06:09:05.142030+00:00"
-  },
-  {
-    "name": "Bad Kitty: Mischief Night",
-    "publisher": "Chaos! Comics",
-    "year": 2001,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20745,
-        "name": "Bad Kitty: Mischief Night",
-        "publisher": null,
-        "start_year": 2001
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T06:09:06.007706+00:00",
-    "retry_after": "2026-10-26T06:09:06.007720+00:00"
-  },
-  {
-    "name": "Untold Tales of Purgatori",
-    "publisher": "Chaos! Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19831,
-        "name": "Untold Tales of Purgatori",
-        "publisher": null,
-        "start_year": 2000
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T06:09:06.804726+00:00",
-    "retry_after": "2026-10-26T06:09:06.804741+00:00"
-  },
-  {
-    "name": "Chaos! Gallery",
-    "publisher": "Chaos! Comics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 27146,
-        "name": "Chaos Gallery",
-        "publisher": null,
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T06:09:07.347611+00:00",
-    "retry_after": "2026-10-26T06:09:07.347619+00:00"
-  },
-  {
-    "name": "Aftermath",
-    "publisher": "Chaos! Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 80150,
-        "name": "Aftermath",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 20573,
-        "name": "Aftermath",
-        "publisher": null,
-        "start_year": 2000
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T06:09:07.827420+00:00",
-    "retry_after": "2026-10-26T06:09:07.827428+00:00"
-  },
-  {
-    "name": "Purgatori: Re-Imagined",
-    "publisher": "Chaos! Comics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20695,
-        "name": "Purgatori: Re-Imagined",
-        "publisher": null,
-        "start_year": 2002
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T06:09:08.609165+00:00",
-    "retry_after": "2026-10-26T06:09:08.609173+00:00"
-  },
-  {
     "name": "Xena: Warrior Princess",
     "publisher": "Topps Comics",
     "year": 2016,
@@ -81986,23 +81742,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T06:17:15.066686+00:00",
     "retry_after": "2026-10-26T06:17:15.066695+00:00"
-  },
-  {
-    "name": "Lady Death: River of Fear",
-    "publisher": "Chaos! Comics",
-    "year": 2001,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20795,
-        "name": "Lady Death: River of Fear",
-        "publisher": null,
-        "start_year": 2001
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:09:17.660098+00:00",
-    "retry_after": "2026-10-26T07:09:17.660137+00:00"
   },
   {
     "name": "Purgatori: Mischief Night",
@@ -84630,6 +84369,181 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T19:08:42.754199+00:00",
     "retry_after": "2026-10-26T19:08:42.754215+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cryptology",
+    "publisher": "TwoMorrows Publishing",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:01:04.552589+00:00",
+    "retry_after": "2026-10-26T20:01:04.552606+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kase-san and Yamada",
+    "publisher": "Seven Seas Entertainment",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:02:13.108242+00:00",
+    "retry_after": "2026-10-26T20:02:13.108260+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Daken: Dark Wolverine Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:06:49.332545+00:00",
+    "retry_after": "2026-10-26T20:06:49.332561+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dark Crisis Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:06:52.538508+00:00",
+    "retry_after": "2026-10-26T20:06:52.538525+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dark Knights of Steel: Allwinter",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 158859,
+        "name": "Dark Knights of Steel: Allwinter",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:06:53.545009+00:00",
+    "retry_after": "2026-10-26T20:06:53.545024+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Darwyn Cooke's The Complete Spirit Connoisseur Edition",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:06:54.027921+00:00",
+    "retry_after": "2026-10-26T20:06:54.027937+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC All In Saga: Darkseid vs. the World",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:06:54.385127+00:00",
+    "retry_after": "2026-10-26T20:06:54.385143+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Batman: The Demon Lives Again",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:07:10.116823+00:00",
+    "retry_after": "2026-10-26T20:07:10.116839+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Events: Crisis on Infinite Earths Part Two",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:07:15.710940+00:00",
+    "retry_after": "2026-10-26T20:07:15.710955+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Green Arrow: The Trial of Oliver Queen",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:07:21.095144+00:00",
+    "retry_after": "2026-10-26T20:07:21.095160+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Green Lantern: Setting Up Shop",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:07:26.455546+00:00",
+    "retry_after": "2026-10-26T20:07:26.455561+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Harley Quinn: The Ballad of Harley Quinn",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 177106,
+        "name": "DC Finest: Harley Quinn: The Ballad of Harley Quinn",
+        "publisher": "DC Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:07:27.396055+00:00",
+    "retry_after": "2026-10-26T20:07:27.396070+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Horror: Where Dead Men Walk",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:07:27.905284+00:00",
+    "retry_after": "2026-10-26T20:07:27.905299+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Justice League of America: Crisis on Earth-X",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 177107,
+        "name": "DC Finest: Justice League of America: Crisis on Earth-X",
+        "publisher": "DC Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T20:07:28.859153+00:00",
+    "retry_after": "2026-10-26T20:07:28.859167+00:00",
     "search_hydrated": true
   }
 ]

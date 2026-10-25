@@ -144,6 +144,9 @@ jobs:
       - name: Volume-resolver tests
         run: npm run test:resolve-by-year
 
+      - name: New-release cover queue tests
+        run: npm run test:new-release-gap
+
       - name: Cover thumb URL tests
         run: npm run test:cover-thumb
 

@@ -20,6 +20,7 @@
 //   node scripts/refreshGcdIssuesFromApi.js --source=featured --no-cursor
 
 import dotenv from "dotenv";
+import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -281,7 +282,7 @@ async function refreshOne(seriesGcdId) {
 
   if (missing.length === 0 || DRY_RUN) {
     if (DRY_RUN && missing.length > 0) console.log(`  [dry-run] would fetch+insert ${missing.length} rows`);
-    return { series: seriesJson.name, missing: missing.length, inserted: 0 };
+    return { series: seriesJson.name, gcdId: seriesGcdId, missing: missing.length, inserted: 0 };
   }
 
   // Upsert incrementally (one row at a time, right after each fetch) rather
@@ -331,7 +332,31 @@ async function refreshOne(seriesGcdId) {
   if (rateLimitedErr) throw rateLimitedErr;
   // Complete only when every missing issue was fetched; a series cut short by
   // the per-invocation issue cap is resumed next run, not skipped.
-  return { series: seriesJson.name, missing: missing.length, inserted, complete: issuesToFetch.length === missing.length };
+  return { series: seriesJson.name, gcdId: seriesGcdId, missing: missing.length, inserted, complete: issuesToFetch.length === missing.length };
+}
+
+// series.issue_count_cached only moved when weekly-refresh rotated around to
+// the row, up to three weeks later, and the search RPC hides series whose
+// count is 0. Iron Man (2026) had 10 issues and a count of 0 on 2026-10-24.
+// Recompute the cache for every series this run added issues to.
+async function refreshSeriesCache(seriesGcdIds) {
+  const { data, error } = await supabase.from("series").select("id").in("gcd_id", seriesGcdIds);
+  if (error) {
+    console.error(`::warning::Series cache refresh skipped: ${describeError(error)}`);
+    return;
+  }
+  const ids = (data ?? []).map((row) => row.id);
+  if (!ids.length) return;
+  console.log(`
+Refreshing cached counts for ${ids.length} series that gained issues.`);
+  // --skip-reconcile: the duplicate-cover pass scans every series with a
+  // featured cover; the weekly full refresh runs it.
+  const res = spawnSync(
+    process.execPath,
+    ["scripts/refreshSeriesSearchCache.js", "--force", "--skip-reconcile", `--only-ids=${ids.join(",")}`],
+    { stdio: "inherit" },
+  );
+  if (res.status !== 0) console.error(`::warning::Series cache refresh exited ${res.status}; weekly-refresh will catch these up.`);
 }
 
 async function run() {
@@ -399,6 +424,9 @@ async function run() {
   } else if (rotating && !DRY_RUN) {
     console.log("\nCursor unchanged: this run's first series isn't finished yet.");
   }
+
+  const gained = results.filter((r) => r.inserted > 0).map((r) => r.gcdId);
+  if (gained.length && !DRY_RUN) await refreshSeriesCache(gained);
 
   const totalMissing = results.reduce((s, r) => s + r.missing, 0);
   const totalInserted = results.reduce((s, r) => s + r.inserted, 0);

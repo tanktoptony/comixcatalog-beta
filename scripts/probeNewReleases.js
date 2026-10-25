@@ -26,6 +26,8 @@ import { createClient } from '@supabase/supabase-js';
 import { normalizePublisherLabel } from '../src/lib/publisher.js';
 import { fetchAllPages } from '../src/lib/supabase/fetchAllPages.js';
 import { fetchRecentComicVineIssues } from './lib/cvRecentReleases.js';
+// Its own copy rendered a missing year as "null"; the ingester's key says "None".
+import { doneKey } from './lib/newReleaseTargets.js';
 
 config({ path: '.env.local' });
 
@@ -56,10 +58,6 @@ function normalizeIssueNumber(value) {
   const numeric = raw.match(/^#?\s*(\d+(?:\.\d+)?)/);
   if (numeric) return String(Number(numeric[1]));
   return raw.replace(/(?:[\s._-]*(?:variant|cover)?\s*[a-z])$/i, '');
-}
-
-function doneKey(target) {
-  return `${target.name}\u0001${target.publisher}\u0001${target.year}`;
 }
 
 async function cvFetch(url) {

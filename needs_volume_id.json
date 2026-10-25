@@ -43850,8 +43850,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T21:02:57.188545+00:00",
-    "retry_after": "2026-10-26T21:02:57.188556+00:00",
+    "last_attempt_at": "2026-10-25T21:29:57.311167+00:00",
+    "retry_after": "2026-10-26T21:29:57.311182+00:00",
     "search_hydrated": true
   },
   {
@@ -68504,58 +68504,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Chastity",
-    "publisher": "Dynamite Entertainment",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 75558,
-        "name": "Chastity",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 121229,
-        "name": "Chastity",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 20914,
-        "name": "Chastity",
-        "publisher": null,
-        "start_year": 2001
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T16:24:05.554473+00:00",
-    "retry_after": "2026-10-26T16:24:05.554490+00:00"
-  },
-  {
-    "name": "Eden's Fall",
-    "publisher": "Image Comics",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 97749,
-        "name": "Eden's Fall",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 93659,
-        "name": "Eden's Fall",
-        "publisher": null,
-        "start_year": 2016
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T17:23:50.805095+00:00",
-    "retry_after": "2026-10-26T17:23:50.805109+00:00"
-  },
-  {
     "name": "Disneyland Magazine",
     "publisher": "Fawcett Comics",
     "year": 1972,
@@ -69225,53 +69173,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T19:23:53.320117+00:00",
     "retry_after": "2026-10-26T19:23:53.320131+00:00"
-  },
-  {
-    "name": "Gen 13",
-    "publisher": "Image Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 5667,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 1995
-      },
-      {
-        "id": 18921,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 1994
-      },
-      {
-        "id": 18560,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 2006
-      },
-      {
-        "id": 95045,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 127382,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 1996
-      },
-      {
-        "id": 26374,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 2002
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T17:24:05.856130+00:00",
-    "retry_after": "2026-10-26T17:24:05.856146+00:00"
   },
   {
     "name": "Avengers: The Initiative",
@@ -70586,47 +70487,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T21:24:01.768216+00:00",
     "retry_after": "2026-10-26T21:24:01.768231+00:00"
-  },
-  {
-    "name": "West Coast Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 3521,
-        "name": "West Coast Avengers",
-        "publisher": null,
-        "start_year": 1985
-      },
-      {
-        "id": 165818,
-        "name": "West Coast Avengers",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 161322,
-        "name": "West Coast Avengers",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 112977,
-        "name": "West Coast Avengers",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 3372,
-        "name": "West Coast Avengers",
-        "publisher": null,
-        "start_year": 1984
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T22:39:00.472244+00:00",
-    "retry_after": "2026-10-26T22:39:00.472264+00:00"
   },
   {
     "name": "Exquisite Corpses: Fox Mask Killer",
@@ -76823,13 +76683,14 @@
       {
         "id": 19581,
         "name": "Headline Comics",
-        "publisher": null,
+        "publisher": "Prize",
         "start_year": 1943
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:18.098577+00:00",
-    "retry_after": "2026-10-25T14:48:18.098585+00:00"
+    "last_attempt_at": "2026-10-25T21:36:03.125243+00:00",
+    "retry_after": "2026-10-26T21:36:03.125267+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Robotech: Final Fire",
@@ -77147,13 +77008,14 @@
       {
         "id": 28041,
         "name": "Zona X",
-        "publisher": null,
+        "publisher": "Sergio Bonelli Editore",
         "start_year": 1992
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:48.600182+00:00",
-    "retry_after": "2026-10-25T15:23:48.600197+00:00"
+    "last_attempt_at": "2026-10-25T21:36:04.510697+00:00",
+    "retry_after": "2026-10-26T21:36:04.510716+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Edição Extra",
@@ -79225,23 +79087,6 @@
     "retry_after": "2026-10-25T19:23:59.892776+00:00"
   },
   {
-    "name": "Fantastic Four: The Movie",
-    "publisher": "Marvel Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 39899,
-        "name": "Fantastic Four: The Movie",
-        "publisher": null,
-        "start_year": 2005
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T20:48:18.359176+00:00",
-    "retry_after": "2026-10-25T20:48:18.359191+00:00"
-  },
-  {
     "name": "Wink",
     "publisher": "Marvel Comics",
     "year": 1972,
@@ -80981,35 +80826,6 @@
     "retry_after": "2026-10-26T04:32:07.680359+00:00"
   },
   {
-    "name": "Sensational Wonder Woman",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 133034,
-        "name": "Sensational Wonder Woman",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 139406,
-        "name": "Sensational Wonder Woman",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 134137,
-        "name": "Sensational Wonder Woman",
-        "publisher": null,
-        "start_year": 2021
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T05:31:51.905094+00:00",
-    "retry_after": "2026-10-26T05:31:51.905110+00:00"
-  },
-  {
     "name": "Threshold",
     "publisher": "DC Comics",
     "year": 2014,
@@ -81209,40 +81025,6 @@
     "retry_after": "2026-10-26T06:17:15.066695+00:00"
   },
   {
-    "name": "Lady Death / Medieval Witchblade",
-    "publisher": "Chaos! Comics",
-    "year": 2001,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20791,
-        "name": "Lady Death / Medieval Witchblade",
-        "publisher": null,
-        "start_year": 2001
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:09:23.776629+00:00",
-    "retry_after": "2026-10-26T07:09:23.776644+00:00"
-  },
-  {
-    "name": "The Chaos! Bible",
-    "publisher": "Chaos! Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 27147,
-        "name": "Chaos Bible",
-        "publisher": null,
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:09:24.321937+00:00",
-    "retry_after": "2026-10-26T07:09:24.321952+00:00"
-  },
-  {
     "name": "Doctor Who: The Eighth Doctor",
     "publisher": "Titan Comics",
     "year": 2016,
@@ -81304,57 +81086,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T07:17:27.335836+00:00",
     "retry_after": "2026-10-26T07:17:27.335851+00:00"
-  },
-  {
-    "name": "Chastity: Reign of Terror",
-    "publisher": "Chaos! Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20913,
-        "name": "Chastity: Reign of Terror",
-        "publisher": null,
-        "start_year": 2000
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T08:09:20.859211+00:00",
-    "retry_after": "2026-10-26T08:09:20.859221+00:00"
-  },
-  {
-    "name": "A Tribute to Steven Hughes",
-    "publisher": "Chaos! Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 39532,
-        "name": "A Tribute to Steven Hughes",
-        "publisher": null,
-        "start_year": 2000
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T08:09:21.882749+00:00",
-    "retry_after": "2026-10-26T08:09:21.882768+00:00"
-  },
-  {
-    "name": "The Mummy: Valley of the Gods",
-    "publisher": "Chaos! Comics",
-    "year": 2001,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24480,
-        "name": "The Mummy: Valley of the Gods",
-        "publisher": null,
-        "start_year": 2001
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T08:09:22.207724+00:00",
-    "retry_after": "2026-10-26T08:09:22.207736+00:00"
   },
   {
     "name": "Chyna",
@@ -81568,23 +81299,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T08:17:28.763354+00:00",
     "retry_after": "2026-10-26T08:17:28.763369+00:00"
-  },
-  {
-    "name": "Lady Death / Bad Kitty",
-    "publisher": "Chaos! Comics",
-    "year": 2001,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20747,
-        "name": "Lady Death / Bad Kitty",
-        "publisher": null,
-        "start_year": 2001
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T09:09:11.208203+00:00",
-    "retry_after": "2026-10-26T09:09:11.208224+00:00"
   },
   {
     "name": "Chyna II",
@@ -84030,6 +83744,217 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T21:05:57.523085+00:00",
     "retry_after": "2026-10-26T21:05:57.523095+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Peach Boy Riverside",
+    "publisher": "Kodansha USA",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 131815,
+        "name": "Peach Boy Riverside",
+        "publisher": "Kodansha Comics USA",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:27:57.433342+00:00",
+    "retry_after": "2026-10-26T21:27:57.433378+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Public Domain Funnies Comics",
+    "publisher": "Studio Chikara",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:28:09.315214+00:00",
+    "retry_after": "2026-10-26T21:28:09.315232+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Secondhand Sisters",
+    "publisher": "Kodansha USA",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:28:11.966165+00:00",
+    "retry_after": "2026-10-26T21:28:11.966182+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Super Hero Girls: High School Reunion",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:22.618270+00:00",
+    "retry_after": "2026-10-26T21:34:22.618289+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC W.I.P. Dark Nights: Metal 1",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:23.070030+00:00",
+    "retry_after": "2026-10-26T21:34:23.070049+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC W.I.P.: Supergirl: Woman of Tomorrow 1",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 173800,
+        "name": "DC W.I.P.: Supergirl: Woman of Tomorrow 1",
+        "publisher": "DC Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:24.354348+00:00",
+    "retry_after": "2026-10-26T21:34:24.354386+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadman by Kelley Jones: The Complete Collection (New Edition)",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:27.722442+00:00",
+    "retry_after": "2026-10-26T21:34:27.722459+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death of Superman: Absolute Edition",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:28.253273+00:00",
+    "retry_after": "2026-10-26T21:34:28.253289+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death to Pachuco",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 167496,
+        "name": "Death to Pachuco",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:29.348639+00:00",
+    "retry_after": "2026-10-26T21:34:29.348655+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deathstroke: The Terminator",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:29.755673+00:00",
+    "retry_after": "2026-10-26T21:34:29.755689+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Strange by Paul Smith Artist's Edition",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:35.900976+00:00",
+    "retry_after": "2026-10-26T21:34:35.900992+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dust to Dust",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 161782,
+        "name": "Dust to Dust",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:43.379829+00:00",
+    "retry_after": "2026-10-26T21:34:43.379844+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Eclipse #1 Tenth Anniversary Edition",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:43.646592+00:00",
+    "retry_after": "2026-10-26T21:34:43.646608+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantastic Four by Dan Slott Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:49.847855+00:00",
+    "retry_after": "2026-10-26T21:34:49.847871+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fear Agent Compendium",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:50.209170+00:00",
+    "retry_after": "2026-10-26T21:34:50.209185+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Final Boss",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 168594,
+        "name": "Final Boss",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T21:34:51.461309+00:00",
+    "retry_after": "2026-10-26T21:34:51.461326+00:00",
     "search_hydrated": true
   }
 ]

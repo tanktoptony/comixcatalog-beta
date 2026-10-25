@@ -12,7 +12,7 @@ begin;
 
 create or replace function public.mkt_checkout_livemode() returns boolean
 language sql immutable as $$ select true $$;
-comment on function public.mkt_checkout_livemode() is 'Marketplace checkout mode. Live since 0087 (2026-10-24).';
+comment on function public.mkt_checkout_livemode() is 'Marketplace checkout mode. Live since 0089 (2026-10-24).';
 
 do $$
 declare body text; patched text;

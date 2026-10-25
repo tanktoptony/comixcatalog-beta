@@ -12,11 +12,13 @@ export async function POST(req) {
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   if (!canUseCheckout(user.id)) return NextResponse.json({ error: "Not found" }, { status: 404 });
   const supabase = getServiceClient();
-  const { data: existing, error } = await supabase.from("seller_accounts").select("stripe_account_id").eq("user_id", user.id).maybeSingle();
+  const { data: existing, error } = await supabase.from("seller_accounts").select("stripe_account_id,livemode").eq("user_id", user.id).maybeSingle();
   if (error) return NextResponse.json({ error: "Could not load payout setup" }, { status: 500 });
   try {
     const stripe = getMarketplaceStripe();
-    let account = existing?.stripe_account_id;
+    // An account from the other Stripe mode (test-mode onboarding before go-live)
+    // can't be used: start a new one in this mode.
+    let account = existing?.livemode === MARKETPLACE_LIVEMODE ? existing.stripe_account_id : null;
     if (!account) {
       const created = await stripe.accounts.create({ type: "express", country: "US", email: user.email, capabilities: { transfers: { requested: true } }, business_profile: { product_description: "Comic books sold on ComixCatalog" }, metadata: { supabase_user_id: user.id } }, { idempotencyKey: `acct-${user.id}` });
       account = created.id;

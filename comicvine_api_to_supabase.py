@@ -902,6 +902,23 @@ def _hydrate_search_volumes(volumes: list[dict]) -> list[dict]:
     return hydrated
 
 
+# Our collected-edition titles carry a byline or a format tag that ComicVine
+# leaves off ("Ms. Marvel: Beyond the Limit by Samira Ahmed", "Ms. Marvel:
+# Generations GN-TPB"). Stripped, the title can also name the monthly run
+# ("Captain Marvel by Kelly Thompson" -> "Captain Marvel"), so a match on the
+# stripped title is only taken when the volume is a single book.
+_NAME_WORD = r"(?!(?:Omnibus|Collection|Edition|Vol|Volume|Epic|Compendium|Library|Treasury|Deluxe)\b)[A-Z][\w.'-]*"
+_EDITION_SUFFIX = re.compile(
+    rf"(\s+by\s+{_NAME_WORD}(?:\s+{_NAME_WORD}){{0,3}}"
+    r"|\s+(?:GN-TPB|TPB|HC|GN|Hardcover|Softcover))\s*$"
+)
+
+
+def _title_without_edition_suffix(name: str) -> str | None:
+    stripped = _EDITION_SUFFIX.sub("", name or "").strip()
+    return stripped if stripped and stripped != (name or "").strip() else None
+
+
 def _same_book_off_by_a_year(volume: dict, target: dict) -> bool:
     """GCD dates a series by its first cover date and ComicVine by its own
     start year, so the same book is often a year apart (Nova: Richard Rider
@@ -1002,6 +1019,29 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
     # that distinguishes it from the ambiguous-match cases above) and let
     # the caller's AMBIGUOUS_THIS_RUN check keep it out of the done-ledger
     # instead of silently disappearing it.
+    if not name_matches:
+        alt = _title_without_edition_suffix(name)
+        if alt:
+            alt_data = cv_get(
+                "search/",
+                {
+                    "query": alt,
+                    "resources": "volume",
+                    "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
+                    "limit": 20,
+                },
+            )
+            alt_title = _norm_title(alt)
+            name_matches = [
+                v for v in _hydrate_search_volumes([
+                    v for v in (alt_data.get("results") or [])
+                    if _norm_title(v.get("name")) == alt_title
+                ])
+                if int(v.get("count_of_issues") or 0) == 1
+            ]
+            if name_matches:
+                print(f"  matched ComicVine's title {alt!r} for {name!r} (single-book volumes only)")
+                pub_matches = [v for v in name_matches if _pub_ok(v)]
     if not name_matches:
         _record_needs_volume_id(name, publisher, year, "no_title_match", [])
         return None

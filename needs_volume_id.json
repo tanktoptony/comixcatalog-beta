@@ -13242,9 +13242,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-10T01:00:52.680577+00:00",
-    "retry_after": "2026-10-24T01:00:52.680592+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T08:09:22.549393+00:00",
+    "retry_after": "2026-11-24T08:09:22.549408+00:00"
   },
   {
     "name": "DC Justice League Essentials: Superman Rebirth",
@@ -14723,9 +14723,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-10T01:00:52.182039+00:00",
-    "retry_after": "2026-10-24T01:00:52.182054+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T08:09:21.494241+00:00",
+    "retry_after": "2026-11-24T08:09:21.494255+00:00"
   },
   {
     "name": "Marvels Comics: Captain America",
@@ -15410,8 +15410,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:17:24.807815+00:00",
-    "retry_after": "2026-10-26T07:17:24.807837+00:00"
+    "last_attempt_at": "2026-10-25T08:17:25.208348+00:00",
+    "retry_after": "2026-10-26T08:17:25.208360+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -23584,9 +23584,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-10T01:00:53.090950+00:00",
-    "retry_after": "2026-10-24T01:00:53.090965+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T08:09:24.311014+00:00",
+    "retry_after": "2026-11-24T08:09:24.311028+00:00"
   },
   {
     "name": "Little Orphan Annie and the Big Town Gunmen",
@@ -32715,9 +32715,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-10T07:00:46.136638+00:00",
-    "retry_after": "2026-10-24T07:00:46.136654+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T08:09:21.124285+00:00",
+    "retry_after": "2026-11-24T08:09:21.124296+00:00"
   },
   {
     "name": "Lady Death II: Between Heaven & Hell",
@@ -42121,8 +42121,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:09:16.899102+00:00",
-    "retry_after": "2026-10-26T07:09:16.899140+00:00"
+    "last_attempt_at": "2026-10-25T08:09:19.949781+00:00",
+    "retry_after": "2026-10-26T08:09:19.949792+00:00"
   },
   {
     "name": "Wolverine & Black Cat: Claws 2",
@@ -43616,8 +43616,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T07:09:16.832239+00:00",
-    "retry_after": "2026-10-26T07:09:16.832251+00:00"
+    "last_attempt_at": "2026-10-25T08:09:19.903150+00:00",
+    "retry_after": "2026-10-26T08:09:19.903162+00:00"
   },
   {
     "name": "Justice League Special",
@@ -76733,9 +76733,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T14:24:10.386868+00:00",
-    "retry_after": "2026-10-24T14:24:10.386881+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T08:17:27.920027+00:00",
+    "retry_after": "2026-10-28T08:17:27.920041+00:00"
   },
   {
     "name": "The Seasons",
@@ -77468,9 +77468,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T07:23:48.945035+00:00",
-    "retry_after": "2026-10-25T07:23:48.945050+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T08:17:25.612545+00:00",
+    "retry_after": "2026-10-28T08:17:25.612560+00:00"
   },
   {
     "name": "Stargate: Vala Mal Doran",
@@ -77491,9 +77491,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T07:23:49.293401+00:00",
-    "retry_after": "2026-10-25T07:23:49.293416+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T08:17:26.032772+00:00",
+    "retry_after": "2026-10-28T08:17:26.032787+00:00"
   },
   {
     "name": "Kissing Chaos",
@@ -85166,5 +85166,286 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T07:17:27.335836+00:00",
     "retry_after": "2026-10-26T07:17:27.335851+00:00"
+  },
+  {
+    "name": "Evil Ernie vs. the Super Heroes",
+    "publisher": "Chaos! Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19387,
+        "name": "Evil Ernie vs. The Super Heroes",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:09:20.586030+00:00",
+    "retry_after": "2026-10-26T08:09:20.586044+00:00"
+  },
+  {
+    "name": "Chastity: Reign of Terror",
+    "publisher": "Chaos! Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20913,
+        "name": "Chastity: Reign of Terror",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:09:20.859211+00:00",
+    "retry_after": "2026-10-26T08:09:20.859221+00:00"
+  },
+  {
+    "name": "A Tribute to Steven Hughes",
+    "publisher": "Chaos! Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39532,
+        "name": "A Tribute to Steven Hughes",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:09:21.882749+00:00",
+    "retry_after": "2026-10-26T08:09:21.882768+00:00"
+  },
+  {
+    "name": "The Mummy: Valley of the Gods",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24480,
+        "name": "The Mummy: Valley of the Gods",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:09:22.207724+00:00",
+    "retry_after": "2026-10-26T08:09:22.207736+00:00"
+  },
+  {
+    "name": "Chyna",
+    "publisher": "Chaos! Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19632,
+        "name": "Chyna",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:09:23.264037+00:00",
+    "retry_after": "2026-10-26T08:09:23.264051+00:00"
+  },
+  {
+    "name": "Vandala II",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19898,
+        "name": "Vandala II",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:09:23.717360+00:00",
+    "retry_after": "2026-10-26T08:09:23.717374+00:00"
+  },
+  {
+    "name": "Chastity: Love Bites",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20912,
+        "name": "Chastity: Love Bites",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:09:24.029752+00:00",
+    "retry_after": "2026-10-26T08:09:24.029764+00:00"
+  },
+  {
+    "name": "Planet Comics",
+    "publisher": "Antarctic Press",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 816,
+        "name": "Planet Comics",
+        "publisher": null,
+        "start_year": 1940
+      },
+      {
+        "id": 125838,
+        "name": "Planet Comics",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 58605,
+        "name": "Planet Comics",
+        "publisher": null,
+        "start_year": 1950
+      },
+      {
+        "id": 58862,
+        "name": "Planet Comics",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 21059,
+        "name": "Planet Comics",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 58682,
+        "name": "Planet Comics",
+        "publisher": null,
+        "start_year": 1952
+      },
+      {
+        "id": 58795,
+        "name": "Planet Comics",
+        "publisher": null,
+        "start_year": 1958
+      },
+      {
+        "id": 58108,
+        "name": "Planet Comics",
+        "publisher": null,
+        "start_year": 1951
+      },
+      {
+        "id": 58989,
+        "name": "Planet Comics",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 29709,
+        "name": "Planet Comics",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:17:25.162433+00:00",
+    "retry_after": "2026-10-26T08:17:25.162448+00:00"
+  },
+  {
+    "name": "Disney's Pocahontas",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 29799,
+        "name": "Disney's Pocahontas",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:17:26.503978+00:00",
+    "retry_after": "2026-10-26T08:17:26.503995+00:00"
+  },
+  {
+    "name": "Ghostly Tales",
+    "publisher": "Charlton Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170199,
+        "name": "Ghostly Tales",
+        "publisher": null,
+        "start_year": 1977
+      },
+      {
+        "id": 2269,
+        "name": "Ghostly Tales",
+        "publisher": null,
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:17:27.097119+00:00",
+    "retry_after": "2026-10-26T08:17:27.097134+00:00"
+  },
+  {
+    "name": "Indiana Jones Omnibus: The Further Adventures",
+    "publisher": "Dark Horse Comics",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40833,
+        "name": "Indiana Jones Omnibus: The Further Adventures",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:17:27.550591+00:00",
+    "retry_after": "2026-10-26T08:17:27.550605+00:00"
+  },
+  {
+    "name": "Domino Lady's Jungle Adventure",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35824,
+        "name": "Domino Lady's Jungle Adventure",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:17:28.247354+00:00",
+    "retry_after": "2026-10-26T08:17:28.247369+00:00"
+  },
+  {
+    "name": "Married... with Children: Kelly Goes to Kollege",
+    "publisher": "Now Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72510,
+        "name": "Married... With Children: Kelly Goes to Kollege",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T08:17:28.763354+00:00",
+    "retry_after": "2026-10-26T08:17:28.763369+00:00"
   }
 ]

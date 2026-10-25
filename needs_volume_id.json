@@ -13771,24 +13771,54 @@
     "name": "Evil Ernie",
     "publisher": "Dynamite Entertainment",
     "year": 2013,
-    "reason": "multiple_near_year_tied",
+    "reason": "publisher_mismatch",
     "candidates": [
+      {
+        "id": 140292,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 21169,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 19385,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 1998
+      },
       {
         "id": 52863,
         "name": "Evil Ernie",
-        "publisher": "Dynamite Entertainment",
+        "publisher": null,
         "start_year": 2012
+      },
+      {
+        "id": 52543,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 1998
       },
       {
         "id": 77430,
         "name": "Evil Ernie",
-        "publisher": "Dynamite Entertainment",
+        "publisher": null,
         "start_year": 2014
+      },
+      {
+        "id": 18112,
+        "name": "Evil Ernie",
+        "publisher": null,
+        "start_year": 1991
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-10T01:00:48.716646+00:00",
-    "retry_after": "2026-10-24T01:00:48.716661+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T05:23:48.117426+00:00",
+    "retry_after": "2026-11-24T05:23:48.117443+00:00"
   },
   {
     "name": "Fathom 0",
@@ -15379,9 +15409,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T07:23:48.572884+00:00",
-    "retry_after": "2026-10-27T07:23:48.572898+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T05:31:51.961174+00:00",
+    "retry_after": "2026-10-26T05:31:51.961189+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -31624,24 +31654,24 @@
     "name": "Elric: The White Wolf",
     "publisher": "Titan Comics",
     "year": 2018,
-    "reason": "multiple_same_start_year_tied",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 113238,
         "name": "Elric: The White Wolf",
-        "publisher": "Titan Comics",
+        "publisher": null,
         "start_year": 2018
       },
       {
         "id": 116047,
         "name": "Elric: The White Wolf",
-        "publisher": "Titan Comics",
+        "publisher": null,
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-10T01:00:49.338359+00:00",
-    "retry_after": "2026-10-24T01:00:49.338376+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T05:23:49.025458+00:00",
+    "retry_after": "2026-11-24T05:23:49.025475+00:00"
   },
   {
     "name": "Essential Conan",
@@ -32953,9 +32983,9 @@
     "year": null,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-10T11:00:47.191004+00:00",
-    "retry_after": "2026-10-24T11:00:47.191019+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T05:23:48.491103+00:00",
+    "retry_after": "2026-11-24T05:23:48.491119+00:00"
   },
   {
     "name": "X-Men: Divided We Stand",
@@ -33026,9 +33056,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-10T13:00:48.951117+00:00",
-    "retry_after": "2026-10-24T13:00:48.951132+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T05:23:47.818195+00:00",
+    "retry_after": "2026-11-24T05:23:47.818211+00:00"
   },
   {
     "name": "The X-Men Creators' Choice",
@@ -41965,7 +41995,7 @@
   },
   {
     "name": "X-Men",
-    "publisher": "Marvel Comics",
+    "publisher": "Sociedad Editora Am�rica, S. A.",
     "year": 1991,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -42090,9 +42120,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T09:00:54.273458+00:00",
-    "retry_after": "2026-10-27T09:00:54.273472+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T05:09:01.347671+00:00",
+    "retry_after": "2026-10-26T05:09:01.347691+00:00"
   },
   {
     "name": "Wolverine & Black Cat: Claws 2",
@@ -43568,7 +43598,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43585,9 +43615,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T09:00:54.313891+00:00",
-    "retry_after": "2026-10-27T09:00:54.313899+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T05:09:01.087625+00:00",
+    "retry_after": "2026-10-26T05:09:01.087638+00:00"
   },
   {
     "name": "Justice League Special",
@@ -76135,9 +76165,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T12:24:05.205282+00:00",
-    "retry_after": "2026-10-24T12:24:05.205297+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T05:31:52.777566+00:00",
+    "retry_after": "2026-10-28T05:31:52.777585+00:00"
   },
   {
     "name": "Spider-Verse vs. Venomverse",
@@ -76158,9 +76188,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T12:24:05.534017+00:00",
-    "retry_after": "2026-10-24T12:24:05.534032+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T05:31:53.553288+00:00",
+    "retry_after": "2026-10-28T05:31:53.553306+00:00"
   },
   {
     "name": "Hawkeye",
@@ -76211,9 +76241,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:48:33.193741+00:00",
-    "retry_after": "2026-10-24T13:48:33.193762+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T05:31:54.348045+00:00",
+    "retry_after": "2026-10-28T05:31:54.348061+00:00"
   },
   {
     "name": "The Straw Men",
@@ -76234,9 +76264,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:48:33.559615+00:00",
-    "retry_after": "2026-10-24T13:48:33.559637+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T05:31:54.871484+00:00",
+    "retry_after": "2026-10-28T05:31:54.871502+00:00"
   },
   {
     "name": "John Byrne's Next Men",
@@ -76263,9 +76293,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:48:33.962341+00:00",
-    "retry_after": "2026-10-24T13:48:33.962362+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T05:31:55.240886+00:00",
+    "retry_after": "2026-10-28T05:31:55.240902+00:00"
   },
   {
     "name": "Fathom",
@@ -76310,9 +76340,9 @@
         "start_year": 1992
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:48:34.298236+00:00",
-    "retry_after": "2026-10-24T13:48:34.298257+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T05:31:55.679578+00:00",
+    "retry_after": "2026-10-28T05:31:55.679594+00:00"
   },
   {
     "name": "Gene Simmons House of Horrors",
@@ -84195,5 +84225,165 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T04:32:07.680347+00:00",
     "retry_after": "2026-10-26T04:32:07.680359+00:00"
+  },
+  {
+    "name": "Lady Death: Retribution",
+    "publisher": "Chaos! Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20794,
+        "name": "Lady Death: Retribution",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T05:23:49.479449+00:00",
+    "retry_after": "2026-10-26T05:23:49.479465+00:00"
+  },
+  {
+    "name": "Lady Death In Lingerie",
+    "publisher": "Chaos! Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28557,
+        "name": "Lady Death In Lingerie",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T05:23:49.800373+00:00",
+    "retry_after": "2026-10-26T05:23:49.800391+00:00"
+  },
+  {
+    "name": "The Undead",
+    "publisher": "Chaos! Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 134504,
+        "name": "The Undead",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 19370,
+        "name": "Undead",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T05:23:50.247857+00:00",
+    "retry_after": "2026-10-26T05:23:50.247874+00:00"
+  },
+  {
+    "name": "Evil Ernie: Baddest Battles",
+    "publisher": "Chaos! Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21170,
+        "name": "Evil Ernie: Baddest Battles",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T05:23:50.614706+00:00",
+    "retry_after": "2026-10-26T05:23:50.614722+00:00"
+  },
+  {
+    "name": "Lady Death Swimsuit Special",
+    "publisher": "Chaos! Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 39591,
+        "name": "Lady Death: Swimsuit Special",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T05:23:51.220861+00:00",
+    "retry_after": "2026-10-26T05:23:51.220878+00:00"
+  },
+  {
+    "name": "Sensational Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133034,
+        "name": "Sensational Wonder Woman",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 139406,
+        "name": "Sensational Wonder Woman",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 134137,
+        "name": "Sensational Wonder Woman",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T05:31:51.905094+00:00",
+    "retry_after": "2026-10-26T05:31:51.905110+00:00"
+  },
+  {
+    "name": "Threshold",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19837,
+        "name": "Threshold",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 55801,
+        "name": "Threshold",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T05:31:52.473076+00:00",
+    "retry_after": "2026-10-26T05:31:52.473094+00:00"
+  },
+  {
+    "name": "Fear Itself: Uncanny X-Force",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41143,
+        "name": "Fear Itself: Uncanny X-Force",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T05:31:53.969227+00:00",
+    "retry_after": "2026-10-26T05:31:53.969244+00:00"
   }
 ]

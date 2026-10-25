@@ -9247,42 +9247,25 @@
     "name": "Geiger",
     "publisher": "Image Comics",
     "year": 2021,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_same_start_year_tied",
     "candidates": [
-      {
-        "id": 157520,
-        "name": "Geiger",
-        "publisher": null,
-        "start_year": 2024
-      },
       {
         "id": 141212,
         "name": "Geiger",
-        "publisher": null,
+        "publisher": "Image",
         "start_year": 2021
       },
       {
         "id": 135290,
         "name": "Geiger",
-        "publisher": null,
+        "publisher": "Image",
         "start_year": 2021
-      },
-      {
-        "id": 155290,
-        "name": "Geiger",
-        "publisher": null,
-        "start_year": 2022
-      },
-      {
-        "id": 145676,
-        "name": "Geiger ",
-        "publisher": null,
-        "start_year": 2022
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T01:33:07.475465+00:00",
-    "retry_after": "2026-11-24T01:33:07.475482+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:30:09.197418+00:00",
+    "retry_after": "2026-10-26T16:30:09.197432+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Birds of Prey: Uncovered",
@@ -9631,9 +9614,10 @@
         "start_year": 1987
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-19T14:00:43.219543+00:00",
-    "retry_after": "2026-10-26T14:00:43.219557+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:30:07.509737+00:00",
+    "retry_after": "2026-10-26T16:30:07.509752+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Space Ghost",
@@ -12583,9 +12567,10 @@
         "start_year": 2022
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-15T15:00:52.034829+00:00",
-    "retry_after": "2026-11-14T15:00:52.034845+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:29:56.705207+00:00",
+    "retry_after": "2026-10-26T16:29:56.705224+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Dragonfly & Dragonflyman [Free Comic Book Day]",
@@ -13771,54 +13756,25 @@
     "name": "Evil Ernie",
     "publisher": "Dynamite Entertainment",
     "year": 2013,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_near_year_tied",
     "candidates": [
-      {
-        "id": 140292,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 21169,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 1993
-      },
-      {
-        "id": 19385,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 1998
-      },
       {
         "id": 52863,
         "name": "Evil Ernie",
-        "publisher": null,
+        "publisher": "Dynamite Entertainment",
         "start_year": 2012
-      },
-      {
-        "id": 52543,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 1998
       },
       {
         "id": 77430,
         "name": "Evil Ernie",
-        "publisher": null,
+        "publisher": "Dynamite Entertainment",
         "start_year": 2014
-      },
-      {
-        "id": 18112,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 1991
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T05:23:48.117426+00:00",
-    "retry_after": "2026-11-24T05:23:48.117443+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:30:18.031462+00:00",
+    "retry_after": "2026-10-26T16:30:18.031477+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Fathom 0",
@@ -19049,9 +19005,10 @@
         "start_year": 2004
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-19T18:00:46.310135+00:00",
-    "retry_after": "2026-11-02T18:00:46.310153+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:30:08.332763+00:00",
+    "retry_after": "2026-10-26T16:30:08.332779+00:00",
+    "search_hydrated": true
   },
   {
     "name": "King of the Royal Mounted in Arctic Law",
@@ -31938,24 +31895,25 @@
     "name": "Elric: The White Wolf",
     "publisher": "Titan Comics",
     "year": 2018,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
         "id": 113238,
         "name": "Elric: The White Wolf",
-        "publisher": null,
+        "publisher": "Titan Comics",
         "start_year": 2018
       },
       {
         "id": 116047,
         "name": "Elric: The White Wolf",
-        "publisher": null,
+        "publisher": "Titan Comics",
         "start_year": 2018
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T05:23:49.025458+00:00",
-    "retry_after": "2026-11-24T05:23:49.025475+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:30:18.608995+00:00",
+    "retry_after": "2026-10-26T16:30:18.609010+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Essential Conan",
@@ -42286,127 +42244,128 @@
       {
         "id": 2133,
         "name": "The X-Men",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 1963
       },
       {
         "id": 43672,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Panini Verlag",
         "start_year": 2001
       },
       {
         "id": 10731,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2004
       },
       {
         "id": 34221,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2010
       },
       {
         "id": 46130,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Planeta DeAgostini",
         "start_year": 1992
       },
       {
         "id": 117893,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Panini Brasil",
         "start_year": 2017
       },
       {
         "id": 137402,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2021
       },
       {
         "id": 56350,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Semic S.A.",
         "start_year": 1992
       },
       {
         "id": 57741,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Abril",
         "start_year": 1989
       },
       {
         "id": 74075,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Panini Brasil",
         "start_year": 2014
       },
       {
         "id": 104729,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Panini France",
         "start_year": 2017
       },
       {
         "id": 118014,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Panini Verlag",
         "start_year": 2016
       },
       {
         "id": 43640,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Panini France",
         "start_year": 1997
       },
       {
         "id": 43634,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Panini Brasil",
         "start_year": 2002
       },
       {
         "id": 4605,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 1991
       },
       {
         "id": 45796,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Planeta DeAgostini",
         "start_year": 1996
       },
       {
         "id": 69176,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Panini Brasil",
         "start_year": 2013
       },
       {
         "id": 62383,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2013
       },
       {
         "id": 122077,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2019
       },
       {
         "id": 43575,
         "name": "X-Men",
-        "publisher": null,
+        "publisher": "Panini España",
         "start_year": 2011
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T14:09:01.030686+00:00",
-    "retry_after": "2026-10-26T14:09:01.030701+00:00"
+    "last_attempt_at": "2026-10-25T16:30:17.286492+00:00",
+    "retry_after": "2026-10-26T16:30:17.286510+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Wolverine & Black Cat: Claws 2",
@@ -43900,8 +43859,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T16:20:04.115759+00:00",
-    "retry_after": "2026-10-26T16:20:04.115772+00:00",
+    "last_attempt_at": "2026-10-25T16:30:11.241850+00:00",
+    "retry_after": "2026-10-26T16:30:11.241863+00:00",
     "search_hydrated": true
   },
   {
@@ -44323,19 +44282,20 @@
       {
         "id": 116293,
         "name": "Cerebus",
-        "publisher": null,
+        "publisher": "Aardvark",
         "start_year": 2019
       },
       {
         "id": 2930,
         "name": "Cerebus",
-        "publisher": null,
+        "publisher": "Aardvark",
         "start_year": 1977
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-22T01:00:52.767824+00:00",
-    "retry_after": "2026-11-05T01:00:52.767836+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:29:42.549439+00:00",
+    "retry_after": "2026-10-26T16:29:42.549451+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Punisher",
@@ -44880,30 +44840,25 @@
     "name": "Ice Cream Man",
     "publisher": "Image Comics",
     "year": 2023,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
-      {
-        "id": 151533,
-        "name": "Ice Cream Man",
-        "publisher": null,
-        "start_year": null
-      },
       {
         "id": 107948,
         "name": "Ice Cream Man",
-        "publisher": null,
+        "publisher": "Image",
         "start_year": 2018
       },
       {
         "id": 111675,
         "name": "Ice Cream Man",
-        "publisher": null,
+        "publisher": "Image",
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-22T03:01:18.084479+00:00",
-    "retry_after": "2026-11-05T03:01:18.084494+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:30:09.971757+00:00",
+    "retry_after": "2026-10-26T16:30:09.971772+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Preacher",
@@ -45041,9 +44996,10 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T01:15:57.013206+00:00",
-    "retry_after": "2026-10-22T01:15:57.013222+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-25T16:34:45.243848+00:00",
+    "retry_after": "2026-11-08T16:34:45.243864+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Mister No",
@@ -57230,54 +57186,25 @@
     "name": "Watchmen",
     "publisher": "DC Comics",
     "year": 2005,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
-      {
-        "id": 53871,
-        "name": "Watchmen",
-        "publisher": null,
-        "start_year": 1999
-      },
-      {
-        "id": 79545,
-        "name": "Watchmen",
-        "publisher": null,
-        "start_year": 1987
-      },
       {
         "id": 3622,
         "name": "Watchmen",
-        "publisher": null,
+        "publisher": "DC Comics",
         "start_year": 1986
       },
       {
         "id": 29927,
         "name": "Watchmen",
-        "publisher": null,
+        "publisher": "DC Comics",
         "start_year": 1987
-      },
-      {
-        "id": 53872,
-        "name": "Watchmen",
-        "publisher": null,
-        "start_year": 1988
-      },
-      {
-        "id": 76711,
-        "name": "Watchmen",
-        "publisher": null,
-        "start_year": 1993
-      },
-      {
-        "id": 161273,
-        "name": "Watchmen",
-        "publisher": null,
-        "start_year": null
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-23T20:00:53.296203+00:00",
-    "retry_after": "2026-10-30T20:00:53.296224+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:30:10.785674+00:00",
+    "retry_after": "2026-10-26T16:30:10.785690+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Walking Dead #1 Wizard World Ohio Comicon Exclusive",
@@ -59995,137 +59922,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-22T13:45:07.242340+00:00",
     "retry_after": "2026-10-25T13:45:07.242355+00:00"
-  },
-  {
-    "name": "Wolverine",
-    "publisher": "Marvel Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 69993,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 1989
-      },
-      {
-        "id": 4250,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 1988
-      },
-      {
-        "id": 43496,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 43493,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 35263,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 65024,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 43497,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2009
-      },
-      {
-        "id": 160055,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 69175,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 58822,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 160058,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2022
-      },
-      {
-        "id": 76418,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 29930,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2001
-      },
-      {
-        "id": 43515,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 10809,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2003
-      },
-      {
-        "id": 127236,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 1990
-      },
-      {
-        "id": 125121,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 43518,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 159705,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 50046,
-        "name": "Wolverine",
-        "publisher": null,
-        "start_year": 2012
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-22T19:00:45.484592+00:00",
-    "retry_after": "2026-10-25T19:00:45.484609+00:00"
   },
   {
     "name": "Cine Quadrinhos",
@@ -65157,41 +64953,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Fables",
-    "publisher": "DC Comics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 40871,
-        "name": "Fables",
-        "publisher": null,
-        "start_year": 2006
-      },
-      {
-        "id": 169136,
-        "name": "Fables",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 9723,
-        "name": "Fables",
-        "publisher": null,
-        "start_year": 2002
-      },
-      {
-        "id": 169140,
-        "name": "Fables",
-        "publisher": null,
-        "start_year": 2004
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T07:00:59.024140+00:00",
-    "retry_after": "2026-10-26T07:00:59.024156+00:00"
-  },
-  {
     "name": "Muppet Babies",
     "publisher": "Marvel Comics",
     "year": null,
@@ -68778,314 +68539,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T15:23:44.834058+00:00",
     "retry_after": "2026-10-26T15:23:44.834072+00:00"
-  },
-  {
-    "name": "Green Arrow",
-    "publisher": "DC Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 91284,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 78749,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2002
-      },
-      {
-        "id": 95013,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 42398,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 4003,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 1988
-      },
-      {
-        "id": 137269,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 1990
-      },
-      {
-        "id": 33909,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 9113,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2001
-      },
-      {
-        "id": 42598,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 149738,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 78750,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 78818,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 3197,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 1983
-      },
-      {
-        "id": 157618,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 32002,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 134501,
-        "name": "Green Arrow",
-        "publisher": null,
-        "start_year": 2014
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T16:00:53.764649+00:00",
-    "retry_after": "2026-10-26T16:00:53.764667+00:00"
-  },
-  {
-    "name": "Wonder Woman",
-    "publisher": "DC Comics",
-    "year": 1987,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18208,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2006
-      },
-      {
-        "id": 153611,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 155102,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 28295,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1981
-      },
-      {
-        "id": 78334,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1972
-      },
-      {
-        "id": 18525,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1942
-      },
-      {
-        "id": 3824,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1987
-      },
-      {
-        "id": 91774,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 42953,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 127359,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 147775,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1988
-      },
-      {
-        "id": 51165,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 99063,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 70837,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1998
-      },
-      {
-        "id": 61652,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 43520,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2001
-      },
-      {
-        "id": 160507,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 138762,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 143059,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 163173,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2024
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T16:00:54.460838+00:00",
-    "retry_after": "2026-10-26T16:00:54.460857+00:00"
-  },
-  {
-    "name": "Escape",
-    "publisher": "Image Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52768,
-        "name": "Escape",
-        "publisher": null,
-        "start_year": 1983
-      },
-      {
-        "id": 166315,
-        "name": "Escape",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 50326,
-        "name": "Escape!",
-        "publisher": null,
-        "start_year": 1972
-      },
-      {
-        "id": 172119,
-        "name": "Escape",
-        "publisher": null,
-        "start_year": 2026
-      },
-      {
-        "id": 42314,
-        "name": "Escape",
-        "publisher": null,
-        "start_year": 1988
-      },
-      {
-        "id": 121816,
-        "name": "ESCAPE",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 128965,
-        "name": "The Escape",
-        "publisher": null,
-        "start_year": 2020
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T16:23:55.691533+00:00",
-    "retry_after": "2026-10-26T16:23:55.691550+00:00"
-  },
-  {
-    "name": "DC vs. Vampires: World War V",
-    "publisher": "DC Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 159245,
-        "name": "DC vs. Vampires: World War V",
-        "publisher": null,
-        "start_year": 2024
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T16:23:56.026860+00:00",
-    "retry_after": "2026-10-26T16:23:56.026878+00:00"
   },
   {
     "name": "Dark Engine",
@@ -72906,47 +72359,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T04:23:48.760102+00:00",
     "retry_after": "2026-10-27T04:23:48.760113+00:00"
-  },
-  {
-    "name": "Cyberforce",
-    "publisher": "Image Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 142737,
-        "name": "Cyberforce",
-        "publisher": null,
-        "start_year": 2022
-      },
-      {
-        "id": 18361,
-        "name": "Cyberforce",
-        "publisher": null,
-        "start_year": 1993
-      },
-      {
-        "id": 91926,
-        "name": "Cyberforce",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 132979,
-        "name": "Cyberforce",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 118057,
-        "name": "CyberForce",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T04:00:42.394804+00:00",
-    "retry_after": "2026-10-27T04:00:42.394812+00:00"
   },
   {
     "name": "Stellar",
@@ -77142,23 +76554,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Eternals 50th Anniversary Special",
-    "publisher": "Marvel Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 171258,
-        "name": "Eternals 50th Anniversary Special",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T14:17:05.873722+00:00",
-    "retry_after": "2026-10-28T14:17:05.873746+00:00"
-  },
-  {
     "name": "Echo: Seeker of Truth",
     "publisher": "Marvel Comics",
     "year": 2026,
@@ -77473,13 +76868,14 @@
       {
         "id": 53933,
         "name": "Domingos Alegres",
-        "publisher": null,
+        "publisher": "Editorial Novaro",
         "start_year": 1954
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T14:17:10.896655+00:00",
-    "retry_after": "2026-10-28T14:17:10.896676+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:35:02.348307+00:00",
+    "retry_after": "2026-10-26T16:35:02.348326+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Chiquilladas",
@@ -77490,13 +76886,14 @@
       {
         "id": 68422,
         "name": "Chiquilladas",
-        "publisher": null,
+        "publisher": "Editorial Novaro",
         "start_year": 1952
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T14:17:11.377161+00:00",
-    "retry_after": "2026-10-28T14:17:11.377179+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:35:02.804665+00:00",
+    "retry_after": "2026-10-26T16:35:02.804681+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Tarzán",
@@ -77507,13 +76904,14 @@
       {
         "id": 145785,
         "name": "Tarzán",
-        "publisher": null,
+        "publisher": "Epucol",
         "start_year": 1970
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T14:17:11.715077+00:00",
-    "retry_after": "2026-10-28T14:17:11.715095+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:35:03.410870+00:00",
+    "retry_after": "2026-10-26T16:35:03.410886+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Basserne",
@@ -80097,23 +79495,6 @@
     "retry_after": "2026-10-25T18:41:29.305902+00:00"
   },
   {
-    "name": "Alien, Predator, & Planet of the Apes CGD 2026",
-    "publisher": "Marvel Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 177311,
-        "name": "Alien, Predator, & Planet of the Apes CGD 2026",
-        "publisher": null,
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:41:29.641964+00:00",
-    "retry_after": "2026-10-25T18:41:29.641981+00:00"
-  },
-  {
     "name": "The Shell Collector Series - Superman",
     "publisher": "DC Comics",
     "year": 1980,
@@ -82038,64 +81419,6 @@
     "retry_after": "2026-10-25T22:23:57.229396+00:00"
   },
   {
-    "name": "Marvel Masterworks: Rawhide Kid",
-    "publisher": "Marvel Comics",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 23388,
-        "name": "Marvel Masterworks: Rawhide Kid",
-        "publisher": null,
-        "start_year": 2006
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T23:42:25.800649+00:00",
-    "retry_after": "2026-10-25T23:42:25.800664+00:00"
-  },
-  {
-    "name": "I Love You",
-    "publisher": "Fawcett Comics",
-    "year": 1950,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 23310,
-        "name": "I Love You",
-        "publisher": null,
-        "start_year": 1955
-      },
-      {
-        "id": 167404,
-        "name": "I Love You",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 65772,
-        "name": "I Love You",
-        "publisher": null,
-        "start_year": 1950
-      },
-      {
-        "id": 87918,
-        "name": "I Love You",
-        "publisher": null,
-        "start_year": null
-      },
-      {
-        "id": 137352,
-        "name": "I Love You",
-        "publisher": null,
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T23:42:26.140781+00:00",
-    "retry_after": "2026-10-25T23:42:26.140793+00:00"
-  },
-  {
     "name": "X-Men Gigante",
     "publisher": "Avatar Press",
     "year": 1996,
@@ -82298,416 +81621,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T23:42:31.995377+00:00",
     "retry_after": "2026-10-25T23:42:31.995393+00:00"
-  },
-  {
-    "name": "Gunslinger",
-    "publisher": "Image Comics",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 139839,
-        "name": "Gunslinger",
-        "publisher": null,
-        "start_year": 2021
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T01:33:04.472294+00:00",
-    "retry_after": "2026-10-26T01:33:04.472311+00:00"
-  },
-  {
-    "name": "Wonder Woman",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18208,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2006
-      },
-      {
-        "id": 153611,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 155102,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 28295,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1981
-      },
-      {
-        "id": 78334,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1972
-      },
-      {
-        "id": 18525,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1942
-      },
-      {
-        "id": 3824,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1987
-      },
-      {
-        "id": 91774,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 42953,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 127359,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 147775,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1988
-      },
-      {
-        "id": 51165,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 99063,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 70837,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 1998
-      },
-      {
-        "id": 61652,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 43520,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2001
-      },
-      {
-        "id": 160507,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 138762,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 143059,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 163173,
-        "name": "Wonder Woman",
-        "publisher": null,
-        "start_year": 2024
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T01:33:04.711644+00:00",
-    "retry_after": "2026-10-26T01:33:04.711661+00:00"
-  },
-  {
-    "name": "The Flash",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 3790,
-        "name": "The Flash",
-        "publisher": null,
-        "start_year": 1987
-      },
-      {
-        "id": 1995,
-        "name": "The Flash",
-        "publisher": null,
-        "start_year": 1959
-      },
-      {
-        "id": 78610,
-        "name": "Flash",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 137189,
-        "name": "Flash",
-        "publisher": null,
-        "start_year": 1970
-      },
-      {
-        "id": 43018,
-        "name": "The Flash",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 91750,
-        "name": "The Flash",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 151033,
-        "name": "Flash",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 9159,
-        "name": "Flash",
-        "publisher": null,
-        "start_year": 1971
-      },
-      {
-        "id": 174239,
-        "name": "Flash",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 134500,
-        "name": "The Flash",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 92077,
-        "name": "Flash",
-        "publisher": null,
-        "start_year": null
-      },
-      {
-        "id": 153720,
-        "name": "The Flash",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 137252,
-        "name": "Flash",
-        "publisher": null,
-        "start_year": 1994
-      },
-      {
-        "id": 151350,
-        "name": "Flash",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 32562,
-        "name": "The Flash",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 61524,
-        "name": "Flash",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 135852,
-        "name": "Flash",
-        "publisher": null,
-        "start_year": 1984
-      },
-      {
-        "id": 53722,
-        "name": "The Flash",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 79003,
-        "name": "Flash",
-        "publisher": null,
-        "start_year": 2005
-      },
-      {
-        "id": 160580,
-        "name": "The Flash",
-        "publisher": null,
-        "start_year": 2024
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T01:33:05.642466+00:00",
-    "retry_after": "2026-10-26T01:33:05.642483+00:00"
-  },
-  {
-    "name": "Green Lantern",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2839,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 1960
-      },
-      {
-        "id": 25944,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 1941
-      },
-      {
-        "id": 79179,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2009
-      },
-      {
-        "id": 142798,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 90758,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 28230,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 1975
-      },
-      {
-        "id": 4363,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 1990
-      },
-      {
-        "id": 18216,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2005
-      },
-      {
-        "id": 42808,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 55261,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 115055,
-        "name": "The Green Lantern",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 79177,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 94425,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 42399,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2001
-      },
-      {
-        "id": 159672,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 78611,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 150172,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 135228,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 51131,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 60430,
-        "name": "Green Lantern",
-        "publisher": null,
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T01:33:05.887115+00:00",
-    "retry_after": "2026-10-26T01:33:05.887131+00:00"
   },
   {
     "name": "Nightwing",
@@ -83277,40 +82190,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T04:32:07.680347+00:00",
     "retry_after": "2026-10-26T04:32:07.680359+00:00"
-  },
-  {
-    "name": "Lady Death: Retribution",
-    "publisher": "Chaos! Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20794,
-        "name": "Lady Death: Retribution",
-        "publisher": null,
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T05:23:49.479449+00:00",
-    "retry_after": "2026-10-26T05:23:49.479465+00:00"
-  },
-  {
-    "name": "Lady Death In Lingerie",
-    "publisher": "Chaos! Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 28557,
-        "name": "Lady Death In Lingerie",
-        "publisher": null,
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T05:23:49.800373+00:00",
-    "retry_after": "2026-10-26T05:23:49.800391+00:00"
   },
   {
     "name": "The Undead",
@@ -84218,23 +83097,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T07:17:27.335836+00:00",
     "retry_after": "2026-10-26T07:17:27.335851+00:00"
-  },
-  {
-    "name": "Evil Ernie vs. the Super Heroes",
-    "publisher": "Chaos! Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19387,
-        "name": "Evil Ernie vs. The Super Heroes",
-        "publisher": null,
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T08:09:20.586030+00:00",
-    "retry_after": "2026-10-26T08:09:20.586044+00:00"
   },
   {
     "name": "Chastity: Reign of Terror",
@@ -85698,5 +84560,278 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T14:09:05.025618+00:00",
     "retry_after": "2026-10-26T14:09:05.025640+00:00"
+  },
+  {
+    "name": "A Star Called the Sun",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:26.101385+00:00",
+    "retry_after": "2026-10-26T16:34:26.101403+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Power",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 165900,
+        "name": "Absolute Power",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:26.895466+00:00",
+    "retry_after": "2026-10-26T16:34:26.895480+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Power Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:27.382849+00:00",
+    "retry_after": "2026-10-26T16:34:27.382865+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Power: Task Force VII 1 (2026 Edition)",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:27.715172+00:00",
+    "retry_after": "2026-10-26T16:34:27.715187+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Action Comics 1 (Facsimile Edition)",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:28.188612+00:00",
+    "retry_after": "2026-10-26T16:34:28.188629+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Action Comics 1 Superman Day Special Edition",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:28.571071+00:00",
+    "retry_after": "2026-10-26T16:34:28.571088+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Action Comics 242 (Facsimile Edition)",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:29.050039+00:00",
+    "retry_after": "2026-10-26T16:34:29.050064+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Action Comics 252 Superman Day Special Edition",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:29.417957+00:00",
+    "retry_after": "2026-10-26T16:34:29.417973+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Action Comics 419 (Facsimile Edition)",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:29.850575+00:00",
+    "retry_after": "2026-10-26T16:34:29.850593+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Action Comics 454 (Facsimile Edition)",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:30.173831+00:00",
+    "retry_after": "2026-10-26T16:34:30.173846+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Action Comics 583 (Facsimile Edition)",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:30.504407+00:00",
+    "retry_after": "2026-10-26T16:34:30.504422+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Adventure Comics 247 (Facsimile Edition)",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:30.721643+00:00",
+    "retry_after": "2026-10-26T16:34:30.721657+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Adventures of Superman 501 (Facsimile Edition)",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:31.016170+00:00",
+    "retry_after": "2026-10-26T16:34:31.016186+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Adventures of Superman: Book of El 1 (2026 Edition)",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:31.329334+00:00",
+    "retry_after": "2026-10-26T16:34:31.329349+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "All-New Spider-Gwen: The Ghost-Spider",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 166312,
+        "name": "All-New Spider-Gwen: The Ghost-Spider",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:36.568517+00:00",
+    "retry_after": "2026-10-26T16:34:36.568531+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Adventures",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2469,
+        "name": "Amazing Adventures",
+        "publisher": "Marvel",
+        "start_year": 1970
+      },
+      {
+        "id": 3001,
+        "name": "Amazing Adventures",
+        "publisher": "Marvel",
+        "start_year": 1979
+      },
+      {
+        "id": 2044,
+        "name": "Amazing Adventures",
+        "publisher": "Marvel",
+        "start_year": 1961
+      },
+      {
+        "id": 31631,
+        "name": "Amazing Adventures",
+        "publisher": "Marvel",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:41.817180+00:00",
+    "retry_after": "2026-10-26T16:34:41.817196+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Spider-Man #546 Facsimile Edition",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:42.209322+00:00",
+    "retry_after": "2026-10-26T16:34:42.209338+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Spider-Man: Halloween Special",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 177664,
+        "name": "Amazing Spider-Man: Halloween Special",
+        "publisher": "Marvel",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:42.825735+00:00",
+    "retry_after": "2026-10-26T16:34:42.825750+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Spider-Man: Torn",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 167490,
+        "name": "Amazing Spider-Man: Torn",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:43.672287+00:00",
+    "retry_after": "2026-10-26T16:34:43.672299+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Animal Man by Tom Veitch and Steve Dillon Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T16:34:44.130197+00:00",
+    "retry_after": "2026-10-26T16:34:44.130212+00:00",
+    "search_hydrated": true
   }
 ]

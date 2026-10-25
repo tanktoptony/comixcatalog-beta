@@ -31179,19 +31179,20 @@
       {
         "id": 54489,
         "name": "Hectic Planet",
-        "publisher": null,
+        "publisher": "SLG Publishing",
         "start_year": 1998
       },
       {
         "id": 54451,
         "name": "Hectic Planet",
-        "publisher": null,
+        "publisher": "SLG Publishing",
         "start_year": 1993
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T10:09:20.903617+00:00",
-    "retry_after": "2026-11-24T10:09:20.903635+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:51:17.791792+00:00",
+    "retry_after": "2026-10-26T23:51:17.791808+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Slow News Day",
@@ -31202,25 +31203,26 @@
       {
         "id": 135045,
         "name": "Slow News Day",
-        "publisher": null,
+        "publisher": "Çà et Là",
         "start_year": 2005
       },
       {
         "id": 64099,
         "name": "Slow News Day",
-        "publisher": null,
+        "publisher": "SLG Publishing",
         "start_year": 2001
       },
       {
         "id": 60025,
         "name": "Slow News Day",
-        "publisher": null,
+        "publisher": "SLG Publishing",
         "start_year": 2002
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T10:09:20.621052+00:00",
-    "retry_after": "2026-11-24T10:09:20.621069+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:51:17.004854+00:00",
+    "retry_after": "2026-10-26T23:51:17.004869+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Waiting Place",
@@ -31231,25 +31233,26 @@
       {
         "id": 69722,
         "name": "Waiting Place",
-        "publisher": null,
+        "publisher": "SLG Publishing",
         "start_year": 2001
       },
       {
         "id": 21680,
         "name": "Waiting Place",
-        "publisher": null,
+        "publisher": "SLG Publishing",
         "start_year": 1999
       },
       {
         "id": 28527,
         "name": "Waiting Place",
-        "publisher": null,
+        "publisher": "SLG Publishing",
         "start_year": 1997
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T10:09:20.235485+00:00",
-    "retry_after": "2026-11-24T10:09:20.235503+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:51:16.248870+00:00",
+    "retry_after": "2026-10-26T23:51:16.248883+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Frontier",
@@ -31260,49 +31263,50 @@
       {
         "id": 164566,
         "name": "The Frontier",
-        "publisher": null,
+        "publisher": "Le Lombard",
         "start_year": 2023
       },
       {
         "id": 154222,
         "name": "Frontier",
-        "publisher": null,
+        "publisher": "Rue de Sèvres",
         "start_year": 2023
       },
       {
         "id": 152039,
         "name": "Frontier",
-        "publisher": null,
+        "publisher": "Youth in Decline",
         "start_year": null
       },
       {
         "id": 51881,
         "name": "Frontier",
-        "publisher": null,
+        "publisher": "SLG Publishing",
         "start_year": 1994
       },
       {
         "id": 150113,
         "name": "The Frontier",
-        "publisher": null,
+        "publisher": "Europe Comics",
         "start_year": 2023
       },
       {
         "id": 162800,
         "name": "Frontier",
-        "publisher": null,
+        "publisher": "Grafito Editorial",
         "start_year": 2023
       },
       {
         "id": 168440,
         "name": "Frontier",
-        "publisher": null,
+        "publisher": "Splitter",
         "start_year": 2025
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T10:09:19.800168+00:00",
-    "retry_after": "2026-11-24T10:09:19.800186+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:51:15.691562+00:00",
+    "retry_after": "2026-10-26T23:51:15.691578+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Shang-Chi: Master of Kung Fu One-Shot",
@@ -43851,8 +43855,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T23:01:00.845496+00:00",
-    "retry_after": "2026-10-26T23:01:00.845510+00:00",
+    "last_attempt_at": "2026-10-25T23:51:07.448878+00:00",
+    "retry_after": "2026-10-26T23:51:07.448891+00:00",
     "search_hydrated": true
   },
   {
@@ -68595,59 +68599,6 @@
     "retry_after": "2026-10-26T17:24:00.166793+00:00"
   },
   {
-    "name": "The End",
-    "publisher": "Fantagraphics",
-    "year": 2007,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52979,
-        "name": "The End",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 63308,
-        "name": "The End",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 74172,
-        "name": "The End",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 129901,
-        "name": "The End",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 92835,
-        "name": "End",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 51488,
-        "name": "End",
-        "publisher": null,
-        "start_year": 1998
-      },
-      {
-        "id": 81568,
-        "name": "End",
-        "publisher": null,
-        "start_year": 2012
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T17:24:01.167547+00:00",
-    "retry_after": "2026-10-26T17:24:01.167563+00:00"
-  },
-  {
     "name": "Elseworlds: Justice League Omnibus",
     "publisher": "DC Comics",
     "year": 2026,
@@ -69287,35 +69238,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T19:24:00.427618+00:00",
     "retry_after": "2026-10-26T19:24:00.427633+00:00"
-  },
-  {
-    "name": "Redneck",
-    "publisher": "Image Comics",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 100835,
-        "name": "Redneck",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 150422,
-        "name": "Redneck",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 109838,
-        "name": "Redneck",
-        "publisher": null,
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T19:24:01.107679+00:00",
-    "retry_after": "2026-10-26T19:24:01.107695+00:00"
   },
   {
     "name": "Hitman",
@@ -69976,47 +69898,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T21:23:58.204266+00:00",
     "retry_after": "2026-10-26T21:23:58.204282+00:00"
-  },
-  {
-    "name": "Ultimate Fantastic Four",
-    "publisher": "Marvel Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 10379,
-        "name": "Ultimate Fantastic Four",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 43424,
-        "name": "Ultimate Fantastic Four",
-        "publisher": null,
-        "start_year": 2005
-      },
-      {
-        "id": 43423,
-        "name": "Ultimate Fantastic Four",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 43425,
-        "name": "Ultimate Fantastic Four",
-        "publisher": null,
-        "start_year": 2005
-      },
-      {
-        "id": 70993,
-        "name": "Ultimate Fantastic Four",
-        "publisher": null,
-        "start_year": 2007
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T21:23:58.952922+00:00",
-    "retry_after": "2026-10-26T21:23:58.952937+00:00"
   },
   {
     "name": "Judge Dredd",
@@ -75516,74 +75397,6 @@
     "retry_after": "2026-10-25T13:23:57.427427+00:00"
   },
   {
-    "name": "Avengers: The Initiative Annual",
-    "publisher": "Marvel Comics",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19935,
-        "name": "Avengers: The Initiative Annual",
-        "publisher": null,
-        "start_year": 2008
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:57.808790+00:00",
-    "retry_after": "2026-10-25T13:23:57.808806+00:00"
-  },
-  {
-    "name": "The Fall of Ultraman",
-    "publisher": "Marvel Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 170544,
-        "name": "The Fall of Ultraman",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:58.176107+00:00",
-    "retry_after": "2026-10-25T13:23:58.176122+00:00"
-  },
-  {
-    "name": "Fantastic Four / Gargoyles",
-    "publisher": "Marvel Comics",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 167693,
-        "name": "Fantastic Four/Gargoyles",
-        "publisher": null,
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:58.450829+00:00",
-    "retry_after": "2026-10-25T13:23:58.450843+00:00"
-  },
-  {
-    "name": "Obergeist: The Empty Locket",
-    "publisher": "Image Comics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 42740,
-        "name": "Obergeist: The Empty Locket",
-        "publisher": null,
-        "start_year": 2002
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:58.941512+00:00",
-    "retry_after": "2026-10-25T13:23:58.941528+00:00"
-  },
-  {
     "name": "True Believers: X-Men - Empath",
     "publisher": "Marvel Comics",
     "year": 2020,
@@ -77126,13 +76939,14 @@
       {
         "id": 106802,
         "name": "Korak Serie Avestruz",
-        "publisher": null,
+        "publisher": "Editorial Novaro",
         "start_year": 1975
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:58.861674+00:00",
-    "retry_after": "2026-10-25T16:23:58.861690+00:00"
+    "last_attempt_at": "2026-10-25T23:56:21.596150+00:00",
+    "retry_after": "2026-10-26T23:56:21.596165+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Adventures into Weird Worlds",
@@ -80787,40 +80601,6 @@
     "retry_after": "2026-10-26T08:17:28.763369+00:00"
   },
   {
-    "name": "Lady Death / Bedlam",
-    "publisher": "Chaos! Comics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20576,
-        "name": "Lady Death/Bedlam",
-        "publisher": null,
-        "start_year": 2002
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T09:09:15.212599+00:00",
-    "retry_after": "2026-10-26T09:09:15.212615+00:00"
-  },
-  {
-    "name": "Lady Death / Chastity",
-    "publisher": "Chaos! Comics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20788,
-        "name": "Lady Death / Chastity",
-        "publisher": null,
-        "start_year": 2002
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T09:09:15.626735+00:00",
-    "retry_after": "2026-10-26T09:09:15.626750+00:00"
-  },
-  {
     "name": "Dracula Lord of the Undead",
     "publisher": "Marvel Comics",
     "year": 1998,
@@ -80870,23 +80650,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T09:17:19.354431+00:00",
     "retry_after": "2026-10-26T09:17:19.354445+00:00"
-  },
-  {
-    "name": "Evil Ernie Straight to Hell Ashcan Preview",
-    "publisher": "Chaos! Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62510,
-        "name": "Evil Ernie Straight to Hell Ashcan Preview",
-        "publisher": null,
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T10:09:19.248641+00:00",
-    "retry_after": "2026-10-26T10:09:19.248661+00:00"
   },
   {
     "name": "New Warriors",
@@ -83563,6 +83326,196 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T23:05:59.108349+00:00",
     "retry_after": "2026-10-26T23:05:59.108366+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Impact Winter: Origins",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:18.555841+00:00",
+    "retry_after": "2026-10-26T23:55:18.555856+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Incredible Hulk: Return of the Monster Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:22.994089+00:00",
+    "retry_after": "2026-10-26T23:55:22.994103+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Infamous Iron Man: The Rise of Doom",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:23.329183+00:00",
+    "retry_after": "2026-10-26T23:55:23.329196+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Invincible #1 Foil Edition",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:23.694966+00:00",
+    "retry_after": "2026-10-26T23:55:23.694980+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Invincible Omnibus",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:24.189274+00:00",
+    "retry_after": "2026-10-26T23:55:24.189289+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Iron Man: Racing Towards Doom",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 177672,
+        "name": "Iron Man: Racing Towards Doom",
+        "publisher": "Marvel",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:25.017647+00:00",
+    "retry_after": "2026-10-26T23:55:25.017662+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Jack Kirby Way",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:33.710190+00:00",
+    "retry_after": "2026-10-26T23:55:33.710205+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Jeff the Land Shark: Friends and Rivals",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:33.958530+00:00",
+    "retry_after": "2026-10-26T23:55:33.958542+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "JLA by Mark Waid Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:34.280823+00:00",
+    "retry_after": "2026-10-26T23:55:34.280838+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "JLA: A League of One: Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:34.766233+00:00",
+    "retry_after": "2026-10-26T23:55:34.766248+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "John Constantine Hellblazer by Paul Jenkins and Sean Phillips Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:35.161073+00:00",
+    "retry_after": "2026-10-26T23:55:35.161088+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice League Dark: The New 52 Compendium",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:39.931747+00:00",
+    "retry_after": "2026-10-26T23:55:39.931761+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice League vs. Godzilla vs. Kong 2",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 164835,
+        "name": "Justice League vs. Godzilla vs. Kong 2",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:49.036183+00:00",
+    "retry_after": "2026-10-26T23:55:49.036194+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice League: Cheetah & Cheshire Rob the Watchtower",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:49.387554+00:00",
+    "retry_after": "2026-10-26T23:55:49.387568+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice League: Dark Realm Special",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:49.733541+00:00",
+    "retry_after": "2026-10-26T23:55:49.733556+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kid Flash: Going Rogue",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:55:50.298775+00:00",
+    "retry_after": "2026-10-26T23:55:50.298791+00:00",
     "search_hydrated": true
   }
 ]

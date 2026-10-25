@@ -902,6 +902,58 @@ def _hydrate_search_volumes(volumes: list[dict]) -> list[dict]:
     return hydrated
 
 
+def _same_book_off_by_a_year(volume: dict, target: dict) -> bool:
+    """GCD dates a series by its first cover date and ComicVine by its own
+    start year, so the same book is often a year apart (Nova: Richard Rider
+    Omnibus 2022 vs 2023, Robins, Paper Girls: The Complete Story). On
+    2026-10-25 that was 10 of 32 backfill failures. Accept a one-year gap
+    when the issue counts agree; a different run under the same title has a
+    different count (the Captain America 2026 one-shot is 1 issue, the 2025
+    ongoing it matched is 15)."""
+    try:
+        gap = abs(int(_start_year_of(volume) or 0) - int(target["year"]))
+        cv_count = int(volume.get("count_of_issues") or 0)
+    except (TypeError, ValueError):
+        return False
+    if gap != 1 or cv_count <= 0:
+        return False
+    gcd_count = len([
+        i for i in _load_gcd_issues(int(target["series_gcd_id"]))
+        if not i.get("variant_of_gcd_id")
+    ])
+    if gcd_count <= 0 or abs(cv_count - gcd_count) > max(1, gcd_count // 5):
+        return False
+    # If another same-titled series from this publisher starts in the
+    # volume's own year, that series is the exact match and this one is a
+    # different edition (two GCD "Rorschach" series, 2021 and 2022, both
+    # hit ComicVine's 2021 volume). Taking it would make them trade covers.
+    try:
+        resp = requests.get(
+            f"{SUPABASE_URL}/rest/v1/series",
+            headers={
+                "apikey": SUPABASE_SERVICE_ROLE_KEY,
+                "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+            },
+            params={
+                "select": "gcd_id,resolved_publisher_cached",
+                "title": f"eq.{target.get('name')}",
+                "year_start_cached": f"eq.{_start_year_of(volume)}",
+                "gcd_id": f"neq.{int(target['series_gcd_id'])}",
+                "limit": "20",
+            },
+            timeout=15,
+        )
+        if resp.status_code != 200:
+            return False
+        rivals = [
+            row for row in resp.json() or []
+            if _publishers_compatible(row.get("resolved_publisher_cached"), target.get("publisher"))
+        ]
+    except Exception:
+        return False
+    return not rivals
+
+
 def find_volume(name: str, publisher: str | None = None, year: int | None = None) -> dict | None:
     """Resolve a ComicVine volume by (name, publisher, year). Hard-fails when
     the publisher constraint can't be satisfied — never falls through to a
@@ -1780,6 +1832,7 @@ def main():
                 and not explicit_volume_id
                 and target.get("year")
                 and _start_year_of(volume) != int(target["year"])
+                and not _same_book_off_by_a_year(volume, target)
             ):
                 print(
                     f"  ✗ matched a {_start_year_of(volume)} volume for a {target['year']} "

@@ -15405,13 +15405,13 @@
   },
   {
     "name": "Savage Dragon vs. Savage Megaton Man",
-    "publisher": "Image Comics",
+    "publisher": "Malibu Comics",
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T13:17:18.563751+00:00",
-    "retry_after": "2026-10-26T13:17:18.563768+00:00"
+    "last_attempt_at": "2026-10-25T14:09:01.315581+00:00",
+    "retry_after": "2026-10-26T14:09:01.315600+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -25905,195 +25905,525 @@
     "name": "Spider-Man",
     "publisher": "Marvel Comics",
     "year": null,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 4421,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1990
+      },
+      {
+        "id": 43261,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 43265,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 43264,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 130590,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 78587,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1999
       },
       {
         "id": 87820,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2016
+      },
+      {
+        "id": 132425,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 133121,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 47656,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 47670,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1982
+      },
+      {
+        "id": 52487,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1999
       },
       {
         "id": 121420,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2019
       },
       {
         "id": 34457,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1987
+      },
+      {
+        "id": 48892,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 168371,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 43260,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 87487,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 83666,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 145364,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:33:57.506957+00:00",
-    "retry_after": "2026-10-23T22:33:57.506975+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T14:09:05.100295+00:00",
+    "retry_after": "2026-11-24T14:09:05.100312+00:00"
   },
   {
     "name": "Spider-Man",
     "publisher": "Marvel Comics",
     "year": 1997,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 4421,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1990
+      },
+      {
+        "id": 43261,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 43265,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 43264,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 130590,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 78587,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1999
       },
       {
         "id": 87820,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2016
+      },
+      {
+        "id": 132425,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 133121,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 47656,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 47670,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1982
+      },
+      {
+        "id": 52487,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1999
       },
       {
         "id": 121420,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2019
       },
       {
         "id": 34457,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1987
+      },
+      {
+        "id": 48892,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 168371,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 43260,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 87487,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 83666,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 145364,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:33:57.441751+00:00",
-    "retry_after": "2026-10-23T22:33:57.441767+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T14:09:04.414927+00:00",
+    "retry_after": "2026-11-24T14:09:04.414941+00:00"
   },
   {
     "name": "Captain America",
     "publisher": "Marvel Comics",
     "year": null,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 2400,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1968
       },
       {
         "id": 11499,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2005
       },
       {
         "id": 6206,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1998
       },
       {
         "id": 112027,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2018
       },
       {
         "id": 54110,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2013
+      },
+      {
+        "id": 66539,
+        "name": "Captain America",
+        "publisher": null,
+        "start_year": 2009
       },
       {
         "id": 41245,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2011
       },
       {
         "id": 5776,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1996
+      },
+      {
+        "id": 138501,
+        "name": "Captain America",
+        "publisher": null,
+        "start_year": 2001
       },
       {
         "id": 142485,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2022
       },
       {
         "id": 151915,
         "name": "Captain America ",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2023
+      },
+      {
+        "id": 47367,
+        "name": "Captain America",
+        "publisher": null,
+        "start_year": 1981
+      },
+      {
+        "id": 41992,
+        "name": "Captain America",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 41993,
+        "name": "Captain America",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 120107,
+        "name": "Captain America",
+        "publisher": null,
+        "start_year": 2019
       },
       {
         "id": 9088,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2002
       },
       {
         "id": 153610,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2023
       },
       {
         "id": 165232,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2025
       },
       {
         "id": 103427,
         "name": "Captain America",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2017
+      },
+      {
+        "id": 61231,
+        "name": "Captain America",
+        "publisher": null,
+        "start_year": 2012
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:33:57.358121+00:00",
-    "retry_after": "2026-10-23T22:33:57.358138+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T14:09:03.968625+00:00",
+    "retry_after": "2026-11-24T14:09:03.968645+00:00"
   },
   {
     "name": "Spider-Man",
     "publisher": "Marvel Comics",
     "year": 2006,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 4421,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1990
+      },
+      {
+        "id": 43261,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2000
+      },
+      {
+        "id": 43265,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2004
+      },
+      {
+        "id": 43264,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 130590,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 78587,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1999
       },
       {
         "id": 87820,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2016
+      },
+      {
+        "id": 132425,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 133121,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 47656,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 47670,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1982
+      },
+      {
+        "id": 52487,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1999
       },
       {
         "id": 121420,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2019
       },
       {
         "id": 34457,
         "name": "Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1987
+      },
+      {
+        "id": 48892,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 168371,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 43260,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 87487,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 83666,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 145364,
+        "name": "Spider-Man",
+        "publisher": null,
+        "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:33:56.779839+00:00",
-    "retry_after": "2026-10-23T22:33:56.779856+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T14:09:03.542736+00:00",
+    "retry_after": "2026-11-24T14:09:03.542753+00:00"
   },
   {
     "name": "Spider-Man Comic",
@@ -26104,96 +26434,132 @@
       {
         "id": 47678,
         "name": "Spider-Man Comic",
-        "publisher": "Marvel UK/Panini UK",
+        "publisher": null,
         "start_year": 1979
       },
       {
         "id": 47655,
         "name": "The Spider-Man Comic",
-        "publisher": "Marvel UK/Panini UK",
+        "publisher": null,
         "start_year": 1985
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:33:53.962609+00:00",
-    "retry_after": "2026-10-23T22:33:53.962626+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T14:09:03.145400+00:00",
+    "retry_after": "2026-11-24T14:09:03.145418+00:00"
   },
   {
     "name": "Amazing Spider-Man",
     "publisher": "Marvel Comics",
     "year": 1997,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 87154,
         "name": "The Amazing Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2016
       },
       {
         "id": 2127,
         "name": "The Amazing Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1963
+      },
+      {
+        "id": 56505,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 1979
       },
       {
         "id": 112161,
         "name": "The Amazing Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2018
       },
       {
         "id": 142577,
         "name": "The Amazing Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2022
-      },
-      {
-        "id": 85076,
-        "name": "The Amazing Spider-Man",
-        "publisher": "Marvel",
-        "start_year": 2015
       },
       {
         "id": 78701,
         "name": "The Amazing Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1999
+      },
+      {
+        "id": 85076,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2015
       },
       {
         "id": 163325,
         "name": "The Amazing Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2025
+      },
+      {
+        "id": 152139,
+        "name": "Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2021
       },
       {
         "id": 73420,
         "name": "The Amazing Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2014
+      },
+      {
+        "id": 154391,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2011
       },
       {
         "id": 34326,
         "name": "The Amazing Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1979
+      },
+      {
+        "id": 110451,
+        "name": "Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 174245,
+        "name": "Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2025
       },
       {
         "id": 169193,
         "name": "The Amazing Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 2025
       },
       {
         "id": 22719,
         "name": "The Amazing Spider-Man",
-        "publisher": "Marvel",
+        "publisher": null,
         "start_year": 1982
+      },
+      {
+        "id": 151406,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 1980
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:33:53.167558+00:00",
-    "retry_after": "2026-10-23T22:33:53.167576+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T14:09:02.731324+00:00",
+    "retry_after": "2026-11-24T14:09:02.731345+00:00"
   },
   {
     "name": "Star Wars: Vader Down",
@@ -27604,13 +27970,13 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T07:05:27.061814+00:00",
-    "retry_after": "2026-10-24T07:05:27.061830+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:09:01.913670+00:00",
+    "retry_after": "2026-10-28T14:09:01.913687+00:00"
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27627,9 +27993,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T09:00:53.866433+00:00",
-    "retry_after": "2026-10-27T09:00:53.866445+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T14:09:01.383192+00:00",
+    "retry_after": "2026-10-26T14:09:01.383208+00:00"
   },
   {
     "name": "Cerebus",
@@ -42121,8 +42487,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T13:09:12.962093+00:00",
-    "retry_after": "2026-10-26T13:09:12.962112+00:00"
+    "last_attempt_at": "2026-10-25T14:09:01.030686+00:00",
+    "retry_after": "2026-10-26T14:09:01.030701+00:00"
   },
   {
     "name": "Wolverine & Black Cat: Claws 2",
@@ -43616,8 +43982,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T13:09:12.896492+00:00",
-    "retry_after": "2026-10-26T13:09:12.896513+00:00"
+    "last_attempt_at": "2026-10-25T14:09:00.960318+00:00",
+    "retry_after": "2026-10-26T14:09:00.960335+00:00"
   },
   {
     "name": "Justice League Special",
@@ -77956,9 +78322,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:53.468269+00:00",
-    "retry_after": "2026-10-25T13:23:53.468284+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:05.873722+00:00",
+    "retry_after": "2026-10-28T14:17:05.873746+00:00"
   },
   {
     "name": "Echo: Seeker of Truth",
@@ -77973,9 +78339,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:53.824486+00:00",
-    "retry_after": "2026-10-25T13:23:53.824501+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:06.545311+00:00",
+    "retry_after": "2026-10-28T14:17:06.545330+00:00"
   },
   {
     "name": "It's Jeff & Other Marvel Tails",
@@ -77990,9 +78356,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:54.253625+00:00",
-    "retry_after": "2026-10-25T13:23:54.253637+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:07.131967+00:00",
+    "retry_after": "2026-10-28T14:17:07.131985+00:00"
   },
   {
     "name": "Deadpool: April Pool's Day",
@@ -78007,9 +78373,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:54.567563+00:00",
-    "retry_after": "2026-10-25T13:23:54.567577+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:07.925315+00:00",
+    "retry_after": "2026-10-28T14:17:07.925333+00:00"
   },
   {
     "name": "Energon Universe 2026 Special",
@@ -78024,9 +78390,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:55.071289+00:00",
-    "retry_after": "2026-10-25T13:23:55.071304+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:08.452220+00:00",
+    "retry_after": "2026-10-28T14:17:08.452262+00:00"
   },
   {
     "name": "Famous Comics",
@@ -78041,9 +78407,9 @@
         "start_year": 1933
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:55.361978+00:00",
-    "retry_after": "2026-10-25T13:23:55.361993+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:08.832978+00:00",
+    "retry_after": "2026-10-28T14:17:08.832997+00:00"
   },
   {
     "name": "Rex Allen",
@@ -78058,9 +78424,9 @@
         "start_year": 1951
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:55.597116+00:00",
-    "retry_after": "2026-10-25T13:23:55.597131+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:09.143178+00:00",
+    "retry_after": "2026-10-28T14:17:09.143195+00:00"
   },
   {
     "name": "Doom 2099: Rage of Doom",
@@ -78075,9 +78441,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:55.848460+00:00",
-    "retry_after": "2026-10-25T13:23:55.848474+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:09.490151+00:00",
+    "retry_after": "2026-10-28T14:17:09.490170+00:00"
   },
   {
     "name": "Marvel Super-Heroes Spring Special",
@@ -78092,9 +78458,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:56.310680+00:00",
-    "retry_after": "2026-10-25T13:23:56.310694+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:10.086571+00:00",
+    "retry_after": "2026-10-28T14:17:10.086589+00:00"
   },
   {
     "name": "Tales of the Vienna Sausage Woods",
@@ -78109,9 +78475,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:23:56.722526+00:00",
-    "retry_after": "2026-10-25T13:23:56.722538+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:10.397666+00:00",
+    "retry_after": "2026-10-28T14:17:10.397683+00:00"
   },
   {
     "name": "Doomed 2099",
@@ -78279,9 +78645,9 @@
         "start_year": 1954
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:24:01.412205+00:00",
-    "retry_after": "2026-10-25T13:24:01.412222+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:10.896655+00:00",
+    "retry_after": "2026-10-28T14:17:10.896676+00:00"
   },
   {
     "name": "Chiquilladas",
@@ -78296,9 +78662,9 @@
         "start_year": 1952
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:24:01.812149+00:00",
-    "retry_after": "2026-10-25T13:24:01.812165+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:11.377161+00:00",
+    "retry_after": "2026-10-28T14:17:11.377179+00:00"
   },
   {
     "name": "Tarzán",
@@ -78313,9 +78679,9 @@
         "start_year": 1970
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:24:02.127633+00:00",
-    "retry_after": "2026-10-25T13:24:02.127648+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:11.715077+00:00",
+    "retry_after": "2026-10-28T14:17:11.715095+00:00"
   },
   {
     "name": "Basserne",
@@ -78330,9 +78696,9 @@
         "start_year": 1972
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:24:02.562250+00:00",
-    "retry_after": "2026-10-25T13:24:02.562265+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:11.939160+00:00",
+    "retry_after": "2026-10-28T14:17:11.939175+00:00"
   },
   {
     "name": "La Pequeña Lulú",
@@ -78347,9 +78713,9 @@
         "start_year": 1971
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:24:02.835018+00:00",
-    "retry_after": "2026-10-25T13:24:02.835034+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T14:17:12.257407+00:00",
+    "retry_after": "2026-10-28T14:17:12.257425+00:00"
   },
   {
     "name": "Joyas de la Mitología",
@@ -86410,5 +86776,241 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T13:17:21.834833+00:00",
     "retry_after": "2026-10-26T13:17:21.834850+00:00"
+  },
+  {
+    "name": "Essential X-Men",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36821,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 79512,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 37974,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 110868,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 21196,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 94886,
+        "name": "Essential X-Men",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T14:09:02.274408+00:00",
+    "retry_after": "2026-10-26T14:09:02.274428+00:00"
+  },
+  {
+    "name": "Thundercats",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156702,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 3515,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 1985
+      },
+      {
+        "id": 40080,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 9532,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 47304,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 160482,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 23374,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": 1989
+      },
+      {
+        "id": 177682,
+        "name": "Thundercats",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T14:09:04.360774+00:00",
+    "retry_after": "2026-10-26T14:09:04.360792+00:00"
+  },
+  {
+    "name": "Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 87154,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 2127,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 1963
+      },
+      {
+        "id": 56505,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 1979
+      },
+      {
+        "id": 112161,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 142577,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 78701,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 85076,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 163325,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 152139,
+        "name": "Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 73420,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 154391,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 34326,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 1979
+      },
+      {
+        "id": 110451,
+        "name": "Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 174245,
+        "name": "Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 169193,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 22719,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 1982
+      },
+      {
+        "id": 151406,
+        "name": "The Amazing Spider-Man",
+        "publisher": null,
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T14:09:04.484657+00:00",
+    "retry_after": "2026-10-26T14:09:04.484670+00:00"
+  },
+  {
+    "name": "Millie the Model",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19441,
+        "name": "Millie the Model",
+        "publisher": null,
+        "start_year": 1945
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T14:09:05.025618+00:00",
+    "retry_after": "2026-10-26T14:09:05.025640+00:00"
   }
 ]

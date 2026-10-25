@@ -34,6 +34,10 @@ name: Cover ingest
 #                            (see scripts/resolveNeedsVolumeIdBacklog.js) —
 #                            fetches the volume directly by id, no title
 #                            search, so this lane is close to a guaranteed hit
+#   5b. gap-backfill.json — series with no cover at all, mainstream and
+#                            newest first, trades and one-shots included
+#                            (scripts/generateCoverBackfillGap.js, daily in
+#                            gap-probe.yml). Added 2026-10-25.
 #   6. gap-width.json      — broadens coverage across new series
 #   7. gap-depth.json      — fills in issues for series we already cover
 #
@@ -340,6 +344,23 @@ jobs:
           fi
           exit "$code"
 
+      # Every target carries its GCD series id; most need a title search
+      # (search + one volumes/ call to fill publishers), so 30 calls is ~15
+      # series an hour.
+      - name: Ingest backfill targets
+        id: lane_backfill
+        if: hashFiles('gap-backfill.json') != ''
+        continue-on-error: true
+        run: |
+          set +e
+          timeout --kill-after=60s 8m python comicvine_api_to_supabase.py --targets gap-backfill.json --skip-existing --missing-only --max-search-calls 30 --vol-sleep 1.0
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 8-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
+
       - name: Ingest width-gap targets
         id: lane_width
         if: hashFiles('gap-width.json') != ''
@@ -428,6 +449,7 @@ jobs:
           check "featured"       "${{ steps.lane_featured.outcome }}"
           check "manual"         "${{ steps.lane_manual.outcome }}"
           check "pinned-volume"  "${{ steps.lane_pinned.outcome }}"
+          check "backfill"       "${{ steps.lane_backfill.outcome }}"
           check "width"          "${{ steps.lane_width.outcome }}"
           check "depth"          "${{ steps.lane_depth.outcome }}"
           check "auto-repair"    "${{ steps.auto_repair.outcome }}"

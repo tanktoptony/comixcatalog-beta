@@ -76021,9 +76021,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T12:24:00.365919+00:00",
-    "retry_after": "2026-10-24T12:24:00.365934+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T03:32:11.130479+00:00",
+    "retry_after": "2026-10-28T03:32:11.130494+00:00"
   },
   {
     "name": "Enigma Cipher",
@@ -77364,9 +77364,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T03:23:40.590159+00:00",
-    "retry_after": "2026-10-25T03:23:40.590178+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T03:32:08.999541+00:00",
+    "retry_after": "2026-10-28T03:32:08.999555+00:00"
   },
   {
     "name": "The Sandman Universe: Nightmare Country",
@@ -77387,9 +77387,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T03:23:46.632985+00:00",
-    "retry_after": "2026-10-25T03:23:46.633002+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T03:32:09.712208+00:00",
+    "retry_after": "2026-10-28T03:32:09.712223+00:00"
   },
   {
     "name": "2099 A.D.",
@@ -83967,5 +83967,130 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T02:31:59.252411+00:00",
     "retry_after": "2026-10-26T02:31:59.252418+00:00"
+  },
+  {
+    "name": "Hot Damn",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 89599,
+        "name": "Hot Damn",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 95793,
+        "name": "Hot Damn",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T03:32:09.353067+00:00",
+    "retry_after": "2026-10-26T03:32:09.353082+00:00"
+  },
+  {
+    "name": "Wonderlost",
+    "publisher": "Image Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21989,
+        "name": "Wonderlost",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T03:32:09.920254+00:00",
+    "retry_after": "2026-10-26T03:32:09.920269+00:00"
+  },
+  {
+    "name": "Witches Western Tales",
+    "publisher": "Harvey Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31724,
+        "name": "Witches Western Tales",
+        "publisher": null,
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T03:32:10.147133+00:00",
+    "retry_after": "2026-10-26T03:32:10.147148+00:00"
+  },
+  {
+    "name": "Frogmen",
+    "publisher": "Marvel Comics",
+    "year": 1961,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2060,
+        "name": "The Frogmen",
+        "publisher": null,
+        "start_year": 1962
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T03:32:10.384302+00:00",
+    "retry_after": "2026-10-26T03:32:10.384318+00:00"
+  },
+  {
+    "name": "Picture Stories from World History",
+    "publisher": "EC Comics",
+    "year": 1947,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10986,
+        "name": "Picture Stories from World History",
+        "publisher": null,
+        "start_year": 1947
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T03:32:10.597263+00:00",
+    "retry_after": "2026-10-26T03:32:10.597278+00:00"
+  },
+  {
+    "name": "Essential Power Man and Iron Fist",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 25856,
+        "name": "Essential Power Man and Iron Fist",
+        "publisher": null,
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T03:32:10.879307+00:00",
+    "retry_after": "2026-10-26T03:32:10.879322+00:00"
+  },
+  {
+    "name": "Dexter's Laboratory Classics",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75364,
+        "name": "Dexter's Laboratory Classics",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T03:32:11.388381+00:00",
+    "retry_after": "2026-10-26T03:32:11.388396+00:00"
   }
 ]

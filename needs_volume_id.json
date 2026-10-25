@@ -15410,8 +15410,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T08:17:25.208348+00:00",
-    "retry_after": "2026-10-26T08:17:25.208360+00:00"
+    "last_attempt_at": "2026-10-25T09:17:16.122266+00:00",
+    "retry_after": "2026-10-26T09:17:16.122279+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -23202,19 +23202,19 @@
       {
         "id": 153167,
         "name": "Smiley",
-        "publisher": "Nihon Bungeisha",
+        "publisher": null,
         "start_year": 2022
       },
       {
         "id": 162603,
         "name": "Smiley",
-        "publisher": "Yermo Ediciones y Publicaciones",
+        "publisher": null,
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-10T01:00:53.459102+00:00",
-    "retry_after": "2026-10-24T01:00:53.459118+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T09:09:12.788466+00:00",
+    "retry_after": "2026-11-24T09:09:12.788481+00:00"
   },
   {
     "name": "Amazing Fantasy",
@@ -42121,8 +42121,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T08:09:19.949781+00:00",
-    "retry_after": "2026-10-26T08:09:19.949792+00:00"
+    "last_attempt_at": "2026-10-25T09:09:10.634092+00:00",
+    "retry_after": "2026-10-26T09:09:10.634106+00:00"
   },
   {
     "name": "Wolverine & Black Cat: Claws 2",
@@ -43616,8 +43616,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T08:09:19.903150+00:00",
-    "retry_after": "2026-10-26T08:09:19.903162+00:00"
+    "last_attempt_at": "2026-10-25T09:09:10.575900+00:00",
+    "retry_after": "2026-10-26T09:09:10.575914+00:00"
   },
   {
     "name": "Justice League Special",
@@ -76785,9 +76785,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T15:23:45.812258+00:00",
-    "retry_after": "2026-10-24T15:23:45.812273+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T09:17:16.962248+00:00",
+    "retry_after": "2026-10-28T09:17:16.962264+00:00"
   },
   {
     "name": "Star Wars - L'Empire écarlate",
@@ -76795,9 +76795,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T15:23:46.217551+00:00",
-    "retry_after": "2026-10-24T15:23:46.217566+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T09:17:17.392060+00:00",
+    "retry_after": "2026-10-28T09:17:17.392076+00:00"
   },
   {
     "name": "James Bond 007 - La Dent du serpent",
@@ -76805,9 +76805,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T15:23:47.201234+00:00",
-    "retry_after": "2026-10-24T15:23:47.201249+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T09:17:18.544881+00:00",
+    "retry_after": "2026-10-28T09:17:18.544896+00:00"
   },
   {
     "name": "Grendel l'enfant guerrier",
@@ -76815,9 +76815,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T15:23:48.029463+00:00",
-    "retry_after": "2026-10-24T15:23:48.029479+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T09:17:18.880418+00:00",
+    "retry_after": "2026-10-28T09:17:18.880432+00:00"
   },
   {
     "name": "The Powerpuff Girls: Bureau of Bad",
@@ -76838,9 +76838,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T15:23:48.885095+00:00",
-    "retry_after": "2026-10-24T15:23:48.885110+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T09:17:19.655425+00:00",
+    "retry_after": "2026-10-28T09:17:19.655440+00:00"
   },
   {
     "name": "Captain Carrot and the Final Ark",
@@ -77508,9 +77508,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T08:23:48.271382+00:00",
-    "retry_after": "2026-10-25T08:23:48.271395+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T09:17:16.471068+00:00",
+    "retry_after": "2026-10-28T09:17:16.471084+00:00"
   },
   {
     "name": "Capes",
@@ -85447,5 +85447,267 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T08:17:28.763354+00:00",
     "retry_after": "2026-10-26T08:17:28.763369+00:00"
+  },
+  {
+    "name": "Lady Death / Bad Kitty",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20747,
+        "name": "Lady Death / Bad Kitty",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:09:11.208203+00:00",
+    "retry_after": "2026-10-26T09:09:11.208224+00:00"
+  },
+  {
+    "name": "Chyna II",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19659,
+        "name": "Chyna II",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:09:11.597129+00:00",
+    "retry_after": "2026-10-26T09:09:11.597144+00:00"
+  },
+  {
+    "name": "Lady Death: The Crucible",
+    "publisher": "Chaos! Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20739,
+        "name": "Lady Death: The Crucible",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:09:11.948133+00:00",
+    "retry_after": "2026-10-26T09:09:11.948148+00:00"
+  },
+  {
+    "name": "Vandala",
+    "publisher": "Chaos! Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20674,
+        "name": "Vandala",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:09:12.464630+00:00",
+    "retry_after": "2026-10-26T09:09:12.464645+00:00"
+  },
+  {
+    "name": "Smiley Anti-Holiday Special",
+    "publisher": "Chaos! Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21452,
+        "name": "Smiley: Anti-Holiday Special",
+        "publisher": null,
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:09:13.277597+00:00",
+    "retry_after": "2026-10-26T09:09:13.277613+00:00"
+  },
+  {
+    "name": "Lady Death: Dragon Wars",
+    "publisher": "Chaos! Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20796,
+        "name": "Lady Death: Dragon Wars",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:09:13.650114+00:00",
+    "retry_after": "2026-10-26T09:09:13.650128+00:00"
+  },
+  {
+    "name": "Lady Death and the Women of Chaos! Gallery",
+    "publisher": "Chaos! Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28842,
+        "name": "Lady Death and the Women of Chaos! Gallery",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:09:14.055664+00:00",
+    "retry_after": "2026-10-26T09:09:14.055679+00:00"
+  },
+  {
+    "name": "Lady Death",
+    "publisher": "Chaos! Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46516,
+        "name": "Lady Death",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 37096,
+        "name": "Lady Death",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 20760,
+        "name": "Lady Death",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 19344,
+        "name": "Lady Death",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:09:14.454444+00:00",
+    "retry_after": "2026-10-26T09:09:14.454460+00:00"
+  },
+  {
+    "name": "Lady Death: Heartbreaker",
+    "publisher": "Chaos! Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20755,
+        "name": "Lady Death: Heartbreaker",
+        "publisher": null,
+        "start_year": 2002
+      },
+      {
+        "id": 125352,
+        "name": "Lady Death: Heartbreaker",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:09:14.817408+00:00",
+    "retry_after": "2026-10-26T09:09:14.817422+00:00"
+  },
+  {
+    "name": "Lady Death / Bedlam",
+    "publisher": "Chaos! Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20576,
+        "name": "Lady Death/Bedlam",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:09:15.212599+00:00",
+    "retry_after": "2026-10-26T09:09:15.212615+00:00"
+  },
+  {
+    "name": "Lady Death / Chastity",
+    "publisher": "Chaos! Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20788,
+        "name": "Lady Death / Chastity",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:09:15.626735+00:00",
+    "retry_after": "2026-10-26T09:09:15.626750+00:00"
+  },
+  {
+    "name": "Dracula Lord of the Undead",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33700,
+        "name": "Dracula: Lord of the Undead",
+        "publisher": null,
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:17:17.725089+00:00",
+    "retry_after": "2026-10-26T09:17:17.725103+00:00"
+  },
+  {
+    "name": "Richie Rich and His Mean Cousin Reggie",
+    "publisher": "Harvey Comics",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32270,
+        "name": "Richie Rich and His Mean Cousin Reggie",
+        "publisher": null,
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:17:18.227813+00:00",
+    "retry_after": "2026-10-26T09:17:18.227828+00:00"
+  },
+  {
+    "name": "The Defenseless Dead",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48734,
+        "name": "The Defenseless Dead",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T09:17:19.354431+00:00",
+    "retry_after": "2026-10-26T09:17:19.354445+00:00"
   }
 ]

@@ -110,17 +110,6 @@
     ]
   },
   {
-    "name": "Sunder",
-    "publisher": "Mad Cave Studios",
-    "year": 2026,
-    "volume_id": null,
-    "series_gcd_id": 240897,
-    "newest_release": "2026-09-30",
-    "missing": [
-      "1"
-    ]
-  },
-  {
     "name": "Zorro's Legacy",
     "publisher": "Alien Books",
     "year": 2026,
@@ -443,17 +432,6 @@
     ]
   },
   {
-    "name": "Absolute Wonder Woman",
-    "publisher": "DC Comics",
-    "year": 2024,
-    "volume_id": 160511,
-    "series_gcd_id": 216727,
-    "newest_release": "2026-12-00",
-    "missing": [
-      "25"
-    ]
-  },
-  {
     "name": "Catwoman",
     "publisher": "DC Comics",
     "year": 2018,
@@ -500,6 +478,17 @@
     "missing": [
       "30",
       "31"
+    ]
+  },
+  {
+    "name": "The Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "volume_id": 163325,
+    "series_gcd_id": 222176,
+    "newest_release": "2026-12-00",
+    "missing": [
+      "1002"
     ]
   },
   {

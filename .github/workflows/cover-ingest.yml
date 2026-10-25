@@ -160,7 +160,13 @@ jobs:
     # not a real budget. If a run is regularly approaching this, something
     # is wrong (stuck retry loop, runaway lane) and needs investigating
     # before raising it.
-    timeout-minutes: 45
+    # 55 since 2026-10-25: every lane now has its own shell cap (they sum to
+    # 44 minutes) so one lane can no longer eat the hour. Before #389 fixed
+    # title matching, the early lanes matched nothing and finished in
+    # seconds; once they matched again, requested/user-collected/priority/
+    # featured had no cap and the 15:00 run spent 25+ minutes in two of them
+    # before the job limit cut off every lane, the repair and the commit.
+    timeout-minutes: 55
 
     # Concurrency guard: hourly runs should each finish in a few minutes,
     # comfortably inside the hour, but if one ever runs long the next
@@ -241,6 +247,10 @@ jobs:
       # Cycle: requested books → new releases → user-collected → launch
       # priority → featured → manual → pinned → width → depth.
       # --skip-existing so already-covered targets cost ~0 requests.
+      # --missing-only on every lane (2026-10-25): without it a matched volume
+      # re-upserts every cover it already has and re-downloads its variants
+      # (scripts/backfillCoverVariants.js does variants), which turned the
+      # launch-priority lane into a 25-minute run once matching worked again.
       # continue-on-error lets a failing step (rate-limit, transient 5xx)
       # not block the next file.
       #
@@ -267,7 +277,15 @@ jobs:
         id: lane_requested
         if: hashFiles('gap-requested.json') != ''
         continue-on-error: true
-        run: python comicvine_api_to_supabase.py --targets gap-requested.json --skip-existing --max-search-calls 15 --vol-sleep 1.0
+        run: |
+          set +e
+          timeout --kill-after=60s 4m python comicvine_api_to_supabase.py --targets gap-requested.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 4-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
 
       # Most targets carry a volume_id, so one call each and no title search.
       # --missing-only: a long-running volume (G.I. Joe, 2000 AD) must not
@@ -279,10 +297,10 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 8m python comicvine_api_to_supabase.py --targets gap-new-releases.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0
+          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-new-releases.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
-            echo "Lane hit its 8-minute cap. The ledger picks it up next hour."
+            echo "Lane hit its 6-minute cap. The ledger picks it up next hour."
             exit 0
           fi
           exit "$code"
@@ -291,19 +309,43 @@ jobs:
         id: lane_user_collected
         if: hashFiles('gap-user-collected.json') != ''
         continue-on-error: true
-        run: python comicvine_api_to_supabase.py --targets gap-user-collected.json --skip-existing --max-search-calls 15 --vol-sleep 1.0
+        run: |
+          set +e
+          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-user-collected.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 5-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
 
       - name: Ingest launch-priority gap targets
         id: lane_priority
         if: hashFiles('gap-priority.json') != ''
         continue-on-error: true
-        run: python comicvine_api_to_supabase.py --targets gap-priority.json --skip-existing --max-search-calls 15 --vol-sleep 1.0
+        run: |
+          set +e
+          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-priority.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 5-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
 
       - name: Ingest featured-gap targets
         id: lane_featured
         if: hashFiles('gap-featured.json') != ''
         continue-on-error: true
-        run: python comicvine_api_to_supabase.py --targets gap-featured.json --skip-existing --max-search-calls 10 --vol-sleep 1.0
+        run: |
+          set +e
+          timeout --kill-after=60s 3m python comicvine_api_to_supabase.py --targets gap-featured.json --skip-existing --missing-only --max-search-calls 10 --vol-sleep 1.0
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 3-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
 
       # Per-lane caps: one huge volume (2000 AD, ~2,500 progs) ate the whole
       # 45-minute job three hours running and starved every lane after it.
@@ -319,10 +361,10 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 15m python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --missing-only --newest-first --max-search-calls 15 --vol-sleep 1.0
+          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --missing-only --newest-first --max-search-calls 15 --vol-sleep 1.0
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
-            echo "Lane hit its 15-minute cap. The ledger picks it up next hour."
+            echo "Lane hit its 6-minute cap. The ledger picks it up next hour."
             exit 0
           fi
           exit "$code"
@@ -336,10 +378,10 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 8m python comicvine_api_to_supabase.py --targets gap-pinned.json --skip-existing --max-search-calls 20 --vol-sleep 1.0
+          timeout --kill-after=60s 4m python comicvine_api_to_supabase.py --targets gap-pinned.json --skip-existing --missing-only --max-search-calls 20 --vol-sleep 1.0
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
-            echo "Lane hit its 8-minute cap. The ledger picks it up next hour."
+            echo "Lane hit its 4-minute cap. The ledger picks it up next hour."
             exit 0
           fi
           exit "$code"
@@ -353,10 +395,10 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 8m python comicvine_api_to_supabase.py --targets gap-backfill.json --skip-existing --missing-only --max-search-calls 30 --vol-sleep 1.0
+          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-backfill.json --skip-existing --missing-only --max-search-calls 30 --vol-sleep 1.0
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
-            echo "Lane hit its 8-minute cap. The ledger picks it up next hour."
+            echo "Lane hit its 6-minute cap. The ledger picks it up next hour."
             exit 0
           fi
           exit "$code"
@@ -367,10 +409,10 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --max-search-calls 10 --vol-sleep 1.0
+          timeout --kill-after=60s 3m python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --missing-only --max-search-calls 10 --vol-sleep 1.0
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
-            echo "Lane hit its 6-minute cap. The ledger picks it up next hour."
+            echo "Lane hit its 3-minute cap. The ledger picks it up next hour."
             exit 0
           fi
           exit "$code"
@@ -381,10 +423,10 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --max-search-calls 5 --vol-sleep 1.0
+          timeout --kill-after=60s 2m python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --missing-only --max-search-calls 5 --vol-sleep 1.0
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
-            echo "Lane hit its 5-minute cap. The ledger picks it up next hour."
+            echo "Lane hit its 2-minute cap. The ledger picks it up next hour."
             exit 0
           fi
           exit "$code"

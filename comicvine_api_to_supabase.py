@@ -291,6 +291,8 @@ def load_targets_from_file(path: str) -> list[dict]:
                 "volume_id": entry.get("volume_id"),
                 # gap-new-releases.json knows the GCD series it came from.
                 "series_gcd_id": entry.get("series_gcd_id"),
+                # gap-new-releases.json lists the issue numbers still missing.
+                "missing": entry.get("missing"),
             }
         )
     return cleaned
@@ -1150,6 +1152,32 @@ def fetch_issues_for_volume(volume_id: int) -> list[dict]:
     return all_issues
 
 
+# A long volume's issue list is one issues/ call per 100 issues: 26 for 2000
+# AD. The new-release lane put 2000 AD first, its list fetch ran into
+# ComicVine's 420 and the lane stopped with 82 targets untried (2026-10-25).
+# When a target names the issues it is missing, a long volume fetches just
+# those, one call each.
+FETCH_ONLY_MISSING_ABOVE = 200
+
+
+def fetch_named_issues(volume_id: int, numbers: list) -> list[dict]:
+    found: dict = {}
+    for number in numbers:
+        base = _base_issue_number(number) or str(number).strip()
+        data = cv_get(
+            "issues/",
+            {
+                "filter": f"volume:{volume_id},issue_number:{base}",
+                "field_list": "id,name,issue_number,cover_date,store_date,image,associated_images,description,volume,api_detail_url",
+                "limit": 10,
+            },
+        )
+        for issue in data.get("results") or []:
+            found[issue.get("id")] = issue
+        time.sleep(0.5)
+    return list(found.values())
+
+
 def download_image_bytes(url: str) -> bytes:
     resp = requests.get(url, headers=HEADERS, timeout=120)
     resp.raise_for_status()
@@ -1920,7 +1948,12 @@ def main():
                 update_series_cv_publisher(target_gcd_id, cv_pub_name)
 
             volume_id = volume["id"]
-            issues = fetch_issues_for_volume(volume_id)
+            missing_numbers = [n for n in (target.get("missing") or []) if str(n).strip()]
+            if missing_numbers and int(volume.get("count_of_issues") or 0) > FETCH_ONLY_MISSING_ABOVE:
+                issues = fetch_named_issues(volume_id, missing_numbers)
+                print(f"  long volume: fetched only the missing issue(s) {', '.join(map(str, missing_numbers))}")
+            else:
+                issues = fetch_issues_for_volume(volume_id)
             print(f"  fetched {len(issues)} issues")
 
             if limit_per_volume:
@@ -1990,7 +2023,8 @@ def main():
                     comicvine_volume_id = None
 
                 gcd_issue_id, match_confidence = _resolve_gcd_issue_id(
-                    target_gcd_id, issue_number, volume_issue_count=len(issues)
+                    target_gcd_id, issue_number,
+                    volume_issue_count=int(volume.get("count_of_issues") or 0) or len(issues),
                 )
                 print(
                     f"    match: series_gcd_id={target_gcd_id} "

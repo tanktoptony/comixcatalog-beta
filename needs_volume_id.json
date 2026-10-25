@@ -75857,9 +75857,9 @@
     "year": 1981,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T11:23:56.835243+00:00",
-    "retry_after": "2026-10-24T11:23:56.835259+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T02:31:58.786067+00:00",
+    "retry_after": "2026-10-28T02:31:58.786073+00:00"
   },
   {
     "name": "Alley Oop: The Complete Sundays",
@@ -75874,9 +75874,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T11:23:58.042630+00:00",
-    "retry_after": "2026-10-24T11:23:58.042646+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T02:31:59.633588+00:00",
+    "retry_after": "2026-10-28T02:31:59.633594+00:00"
   },
   {
     "name": "Giant-Size Spider-Man",
@@ -77242,9 +77242,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T02:23:47.281659+00:00",
-    "retry_after": "2026-10-25T02:23:47.281677+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T02:31:55.242471+00:00",
+    "retry_after": "2026-10-28T02:31:55.242483+00:00"
   },
   {
     "name": "Gen 13",
@@ -77289,9 +77289,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T02:23:47.605767+00:00",
-    "retry_after": "2026-10-25T02:23:47.605784+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T02:31:56.237017+00:00",
+    "retry_after": "2026-10-28T02:31:56.237023+00:00"
   },
   {
     "name": "Cover",
@@ -77318,9 +77318,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T02:23:49.657319+00:00",
-    "retry_after": "2026-10-25T02:23:49.657335+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T02:31:56.606467+00:00",
+    "retry_after": "2026-10-28T02:31:56.606473+00:00"
   },
   {
     "name": "Die Hard: Year One",
@@ -77341,9 +77341,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T02:23:51.375499+00:00",
-    "retry_after": "2026-10-25T02:23:51.375538+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T02:31:57.317745+00:00",
+    "retry_after": "2026-10-28T02:31:57.317751+00:00"
   },
   {
     "name": "The All-New Batman: The Brave and the Bold",
@@ -83893,5 +83893,79 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T01:56:11.363282+00:00",
     "retry_after": "2026-10-26T01:56:11.363299+00:00"
+  },
+  {
+    "name": "Harbinger Wars 2",
+    "publisher": "Valiant Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111141,
+        "name": "Harbinger Wars 2",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 115436,
+        "name": "Harbinger Wars 2",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T02:31:55.815955+00:00",
+    "retry_after": "2026-10-26T02:31:55.815963+00:00"
+  },
+  {
+    "name": "Eros Tattoo",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53016,
+        "name": "Eros Tattoo",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T02:31:57.742493+00:00",
+    "retry_after": "2026-10-26T02:31:57.742499+00:00"
+  },
+  {
+    "name": "The Red Hook",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 111439,
+        "name": "The Red Hook",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T02:31:58.106064+00:00",
+    "retry_after": "2026-10-26T02:31:58.106070+00:00"
+  },
+  {
+    "name": "Hellraiser Nightbreed - Jihad",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21597,
+        "name": "Hellraiser Nightbreed: Jihad",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T02:31:59.252411+00:00",
+    "retry_after": "2026-10-26T02:31:59.252418+00:00"
   }
 ]

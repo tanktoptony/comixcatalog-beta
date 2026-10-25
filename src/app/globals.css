@@ -1914,6 +1914,37 @@ input[type="file"] {
   pointer-events: none;
 }
 
+/* Announced books with press art: the cover fills the card, a shade at the
+   foot keeps the pill and creator links readable over it. */
+.excited-status-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.excited-status-art.has-cover {
+  padding: 6px;
+}
+
+.excited-status-art.has-cover::after {
+  position: absolute;
+  inset: 70% 0 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(12, 8, 14, 0.8) 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.excited-status-art.has-cover > :not(img) {
+  z-index: 1;
+}
+
+.excited-status-art.has-cover .excited-status-pill {
+  margin-bottom: 0;
+  background: rgba(12, 8, 14, 0.78);
+}
+
 .excited-status-pill {
   position: relative;
   margin-bottom: 10px;
@@ -1937,6 +1968,7 @@ input[type="file"] {
 }
 
 .excited-creators {
+  position: relative;
   margin-top: 8px;
   color: var(--cc-gold-soft);
   font-size: 0.78rem;

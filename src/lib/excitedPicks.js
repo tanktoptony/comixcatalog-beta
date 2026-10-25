@@ -11,6 +11,9 @@ export const EXCITED_PICKS = [
     label: "Marvel",
     title: "Magneto: End of Days",
     status: "Coming February 2027",
+    // Marvel's NYCC 2026 press art (Andrea Sorrentino, Cover A). Not in
+    // ComicVine or GCD yet; swap to seriesGcdIds once the series exists.
+    cover: "/img/upcoming/magneto-end-of-days-1.jpg",
     creators: [
       { slug: "brian-michael-bendis", name: "Brian Michael Bendis" },
       { slug: "andrea-sorrentino", name: "Andrea Sorrentino" },

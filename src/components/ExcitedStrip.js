@@ -17,17 +17,32 @@ function Note({ pick }) {
 function CoverCard({ pick, eager }) {
   if (pick.status) {
     return (
-      <div className="excited-status-art">
+      <div className={`excited-status-art${pick.cover ? " has-cover" : ""}`}>
+        {pick.cover ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            className="excited-status-cover"
+            src={pick.cover}
+            alt={`${pick.title} #1 cover`}
+            loading={eager ? "eager" : "lazy"}
+          />
+        ) : null}
         <span className="excited-status-pill">{pick.status}</span>
-        <strong>{pick.title}</strong>
-        <div className="excited-creators">
-          {pick.creators.map((creator, index) => (
-            <span key={creator.slug}>
-              {index > 0 ? " + " : null}
-              <Link href={`/creator/${creator.slug}`}>{creator.name}</Link>
-            </span>
-          ))}
-        </div>
+        {/* With press art the cover carries the title and the note names the
+            creators; at card size the overlay would bury the art. */}
+        {pick.cover ? null : (
+          <>
+            <strong>{pick.title}</strong>
+            <div className="excited-creators">
+              {pick.creators.map((creator, index) => (
+                <span key={creator.slug}>
+                  {index > 0 ? " + " : null}
+                  <Link href={`/creator/${creator.slug}`}>{creator.name}</Link>
+                </span>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     );
   }

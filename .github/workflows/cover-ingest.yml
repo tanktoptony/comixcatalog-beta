@@ -412,6 +412,19 @@ jobs:
             *) echo "Repair runs on the 00/06/12/18 UTC runs (full cover-table scan); skipping at ${hour}:00." ;;
           esac
 
+      # Series cards (search, carousels, series lists) read the cached
+      # featured cover, which only weekly-refresh rewrote, so a newly covered
+      # series stayed blank on cards for up to 3 weeks. Refresh the series
+      # that got covers in the last 2 hours (runs overlap the hour, so none
+      # are missed). Runs after the repair so it caches repaired links. A
+      # failure warns; weekly-refresh still catches these up.
+      - name: Refresh series cards for new covers
+        if: always()
+        run: |
+          if ! node scripts/refreshRecentSeries.js --since-hours=2; then
+            echo "::warning::Series card refresh failed; weekly-refresh will catch these up."
+          fi
+
       # Every lane above runs with continue-on-error so one bad lane cannot
       # stop the other six — that part is deliberate and stays. What was
       # missing is anyone ever LOOKING at the outcomes afterwards. A lane

@@ -255,7 +255,7 @@ async function fetchPinnedGcdIdByVolume() {
 async function run() {
   console.log("Loading all covers with a comicvine_volume_id...");
   const covers = await fetchAllPages(() =>
-    supabase.from("canonical_covers").select("id, comicvine_volume_id, series_gcd_id, issue_number, series_title, series_year, cover_date")
+    supabase.from("canonical_covers").select("id, comicvine_volume_id, series_gcd_id, gcd_issue_id, issue_number, series_title, series_year, cover_date")
       .not("comicvine_volume_id", "is", null).not("storage_path", "is", null),
   "id");
   console.log(`Covers loaded: ${covers.length}`);
@@ -295,7 +295,48 @@ async function run() {
   let pinnedRelinks = 0;
   let pinnedRelinkRows = 0;
   const plan = [];
+  // Single-book series: trades, graphic novels, one-shots. GCD numbers them
+  // "[nn]" and ComicVine numbers them "1", so overlap against their own
+  // series is 0% and a same-titled numbered run wins at 100%. The 2026-10-25
+  // 00:00 run moved the Resurrection of Magneto TPB cover onto the 4-issue
+  // mini that way, while its gcd_issue_id still pointed at the trade, and
+  // the moved row then looked clean (#1 overlaps the mini 100%). For a
+  // one-issue volume whose gcd_issue_id belongs to a series with no
+  // numbered issues at all, number overlap cannot judge it and the link
+  // decides. Limited to unnumbered series on purpose: mis-pinned volumes also
+  // carry gcd_issue_ids, inside the wrong series, and must still be scored.
+  const singleBookVolumes = [...byVolume].filter(([volume, rows]) =>
+    !pinnedGcdIdByVolume.has(volume)
+    && new Set(rows.map((r) => baseIssueNumber(r.issue_number))).size === 1
+    && rows.every((r) => r.gcd_issue_id != null));
+  const linkedIssueIds = [...new Set(singleBookVolumes.flatMap(([, rows]) => rows.map((r) => r.gcd_issue_id)))];
+  const seriesOfIssue = new Map();
+  for (let i = 0; i < linkedIssueIds.length; i += 500) {
+    const data = await fetchAllPages(() =>
+      supabase.from("gcd_issues").select("gcd_id, series_gcd_id").in("gcd_id", linkedIssueIds.slice(i, i + 500)).order("gcd_id")
+    );
+    for (const row of data) seriesOfIssue.set(Number(row.gcd_id), row.series_gcd_id);
+  }
+  const owners = [...new Set(seriesOfIssue.values())].filter((id) => id != null);
+  const ownerNumbered = await fetchIssueSets(owners);
+  let singleBookRelinks = 0;
+  let singleBookRows = 0;
+  const singleBookHandled = new Set();
+  for (const [volume, rows] of singleBookVolumes) {
+    const owner = new Set(rows.map((r) => seriesOfIssue.get(Number(r.gcd_issue_id))));
+    if (owner.size !== 1) continue;
+    const [ownerId] = owner;
+    if (ownerId == null || ownerNumbered.get(ownerId)?.size) continue;
+    singleBookHandled.add(volume);
+    const rowsToFix = rows.filter((r) => r.series_gcd_id !== ownerId);
+    if (!rowsToFix.length) { alreadyClean++; continue; }
+    singleBookRelinks++;
+    singleBookRows += rowsToFix.length;
+    plan.push({ volume, title: mode(rows.map((r) => r.series_title)), winner: ownerId, overlap: null, reason: "single-book link", rowIds: rowsToFix.map((r) => r.id) });
+  }
+
   for (const [volume, rows] of byVolume) {
+    if (singleBookHandled.has(volume)) continue;
     const volIssueNumbers = new Set(rows.map((r) => baseIssueNumber(r.issue_number)).filter(Boolean));
     if (volIssueNumbers.size === 0) continue;
 
@@ -331,6 +372,7 @@ async function run() {
   }
   console.log(`Already clean (skip): ${alreadyClean}`);
   console.log(`Pin-driven relinks: ${pinnedRelinks} volumes, ${pinnedRelinkRows} rows`);
+  console.log(`Single-book relinks (gcd_issue_id on an unnumbered series): ${singleBookRelinks} volumes, ${singleBookRows} rows`);
   console.log(`Needs resolution (unpinned, overlap-scored): ${needsResolution.length}`);
 
   // Pass 2: expand candidates via gcd_series title match for volumes that
@@ -375,7 +417,7 @@ async function run() {
   // tags + title-expansion pool). `plan` already holds pin-driven relinks
   // from the loop above — this appends the overlap-scored ones to the same
   // array so the summary and apply step below cover both in one pass.
-  let resolved = 0, skippedNoCandidate = 0, skippedAmbiguous = 0, skippedSameYear = 0, yearGated = 0, totalRowsToUpdate = pinnedRelinkRows;
+  let resolved = 0, skippedNoCandidate = 0, skippedAmbiguous = 0, skippedSameYear = 0, yearGated = 0, totalRowsToUpdate = pinnedRelinkRows + singleBookRows;
   for (const v of needsResolution) {
     const candidateIds = new Set([
       ...v.rows.map((r) => r.series_gcd_id).filter((x) => x != null),
@@ -435,7 +477,7 @@ async function run() {
   if (plan.length > 0) {
     console.log("\nTop 20 by rows affected:");
     for (const p of plan.sort((a, b) => b.rowIds.length - a.rowIds.length).slice(0, 20)) {
-      const scoreLabel = p.overlap == null ? "pinned" : `overlap ${(p.overlap * 100).toFixed(0)}%`;
+      const scoreLabel = p.reason ?? (p.overlap == null ? "pinned" : `overlap ${(p.overlap * 100).toFixed(0)}%`);
       console.log(`  ${p.title} -> series_gcd_id ${p.winner} (${scoreLabel}), ${p.rowIds.length} row(s)`);
     }
   }

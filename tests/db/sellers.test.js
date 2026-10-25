@@ -85,3 +85,12 @@ test("five completions promote unless a buyer-won dispute is recorded", async ()
   }
   await db.end();
 });
+
+test("a seller can move from a test-mode Stripe account to a live one, once per mode", async () => {
+  const db=await dbClient(); const s=await setup(db); await asService(db);
+  // seedListing onboards the seller in test mode (livemode false).
+  const live=(await db.query("select * from public.mkt_upsert_seller_account($1,'acct_live',true,false,false,false,'[]')",[s.sellerId])).rows[0];
+  assert.equal(live.stripe_account_id,"acct_live"); assert.equal(live.livemode,true);
+  await assert.rejects(()=>db.query("select public.mkt_upsert_seller_account($1,'acct_live_other',true,true,true,true,'[]')",[s.sellerId]),{code:"55000"});
+  await db.end();
+});

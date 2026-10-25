@@ -1,16 +1,5 @@
 [
   {
-    "name": "Teenage Mutant Ninja Turtles",
-    "publisher": "IDW Publishing",
-    "year": 2024,
-    "volume_id": null,
-    "series_gcd_id": 213565,
-    "newest_release": "2026-10-14",
-    "missing": [
-      "23"
-    ]
-  },
-  {
     "name": "Overkiller",
     "publisher": "Cosmic Lion Productions",
     "year": 2026,
@@ -220,21 +209,10 @@
     ]
   },
   {
-    "name": "The Masterful Cat Is Depressed Again Today",
-    "publisher": "Seven Seas Entertainment",
-    "year": 2021,
-    "volume_id": null,
-    "series_gcd_id": 176535,
-    "newest_release": "2026-10-00",
-    "missing": [
-      "12"
-    ]
-  },
-  {
     "name": "The Seven Deadly Sins: Four Knights of the Apocalypse",
-    "publisher": "Kodansha USA",
+    "publisher": "Kodansha Comics USA",
     "year": 2022,
-    "volume_id": null,
+    "volume_id": 146819,
     "series_gcd_id": 180634,
     "newest_release": "2026-10-00",
     "missing": [
@@ -243,24 +221,13 @@
   },
   {
     "name": "Welcome to Demon School! Iruma-kun",
-    "publisher": "Kodansha USA",
+    "publisher": "Kodansha Comics USA",
     "year": 2023,
-    "volume_id": null,
+    "volume_id": 150197,
     "series_gcd_id": 200336,
     "newest_release": "2026-10-00",
     "missing": [
       "22"
-    ]
-  },
-  {
-    "name": "Yokai Cats",
-    "publisher": "Seven Seas Entertainment",
-    "year": 2022,
-    "volume_id": null,
-    "series_gcd_id": 191844,
-    "newest_release": "2026-10-00",
-    "missing": [
-      "11"
     ]
   }
 ]

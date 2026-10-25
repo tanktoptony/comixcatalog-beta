@@ -23067,19 +23067,20 @@
       {
         "id": 153167,
         "name": "Smiley",
-        "publisher": null,
+        "publisher": "Nihon Bungeisha",
         "start_year": 2022
       },
       {
         "id": 162603,
         "name": "Smiley",
-        "publisher": null,
+        "publisher": "Yermo Ediciones y Publicaciones",
         "start_year": 2024
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T09:09:12.788466+00:00",
-    "retry_after": "2026-11-24T09:09:12.788481+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:01:04.218455+00:00",
+    "retry_after": "2026-10-26T23:01:04.218470+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Amazing Fantasy",
@@ -43850,8 +43851,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T22:03:33.114464+00:00",
-    "retry_after": "2026-10-26T22:03:33.114483+00:00",
+    "last_attempt_at": "2026-10-25T23:01:00.845496+00:00",
+    "retry_after": "2026-10-26T23:01:00.845510+00:00",
     "search_hydrated": true
   },
   {
@@ -68584,58 +68585,6 @@
     "retry_after": "2026-10-26T17:23:58.816034+00:00"
   },
   {
-    "name": "Doctor Strange and Doctor Doom: Triumph and Torment",
-    "publisher": "Marvel Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 89079,
-        "name": "Doctor Strange & Doctor Doom: Triumph & Torment",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 23227,
-        "name": "Doctor Strange & Doctor Doom: Triumph and Torment",
-        "publisher": null,
-        "start_year": 1989
-      },
-      {
-        "id": 176684,
-        "name": "Doctor Strange and Doctor Doom: Triumph and Torment",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T17:23:59.410500+00:00",
-    "retry_after": "2026-10-26T17:23:59.410514+00:00"
-  },
-  {
-    "name": "The Divided States of Hysteria",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 101933,
-        "name": "The Divided States of Hysteria",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 107645,
-        "name": "The Divided States of Hysteria",
-        "publisher": null,
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T17:23:59.745023+00:00",
-    "retry_after": "2026-10-26T17:23:59.745038+00:00"
-  },
-  {
     "name": "Doomquest Black & White",
     "publisher": "Marvel Comics",
     "year": 2026,
@@ -68644,29 +68593,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T17:24:00.166778+00:00",
     "retry_after": "2026-10-26T17:24:00.166793+00:00"
-  },
-  {
-    "name": "The Dregs",
-    "publisher": "Black Mask Studios",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 98330,
-        "name": "The Dregs",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 103079,
-        "name": "The Dregs",
-        "publisher": null,
-        "start_year": 2017
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T17:24:00.706449+00:00",
-    "retry_after": "2026-10-26T17:24:00.706464+00:00"
   },
   {
     "name": "The End",
@@ -69361,99 +69287,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T19:24:00.427618+00:00",
     "retry_after": "2026-10-26T19:24:00.427633+00:00"
-  },
-  {
-    "name": "Ultimate Fantastic Four",
-    "publisher": "Marvel Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 10379,
-        "name": "Ultimate Fantastic Four",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 43424,
-        "name": "Ultimate Fantastic Four",
-        "publisher": null,
-        "start_year": 2005
-      },
-      {
-        "id": 43423,
-        "name": "Ultimate Fantastic Four",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 43425,
-        "name": "Ultimate Fantastic Four",
-        "publisher": null,
-        "start_year": 2005
-      },
-      {
-        "id": 70993,
-        "name": "Ultimate Fantastic Four",
-        "publisher": null,
-        "start_year": 2007
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:49:46.295807+00:00",
-    "retry_after": "2026-10-26T18:49:46.295822+00:00"
-  },
-  {
-    "name": "Harrow County",
-    "publisher": "Dark Horse Comics",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 81991,
-        "name": "Harrow County",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 96434,
-        "name": "Harrow County",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 158798,
-        "name": "Harrow County",
-        "publisher": null,
-        "start_year": 2016
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:49:47.681431+00:00",
-    "retry_after": "2026-10-26T18:49:47.681446+00:00"
-  },
-  {
-    "name": "Descender",
-    "publisher": "Image Comics",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 80426,
-        "name": "Descender",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 105168,
-        "name": "Descender",
-        "publisher": null,
-        "start_year": 2015
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:49:48.119412+00:00",
-    "retry_after": "2026-10-26T18:49:48.119427+00:00"
   },
   {
     "name": "Redneck",
@@ -79672,59 +79505,6 @@
     "retry_after": "2026-10-25T21:24:01.905845+00:00"
   },
   {
-    "name": "Powers",
-    "publisher": "Image Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 6472,
-        "name": "Powers",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 30045,
-        "name": "Powers",
-        "publisher": null,
-        "start_year": 2009
-      },
-      {
-        "id": 116809,
-        "name": "Powers",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 18034,
-        "name": "Powers",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 146264,
-        "name": "Powers",
-        "publisher": null,
-        "start_year": 2022
-      },
-      {
-        "id": 79571,
-        "name": "Powers",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 61656,
-        "name": "Powers",
-        "publisher": null,
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T22:23:50.638710+00:00",
-    "retry_after": "2026-10-25T22:23:50.638725+00:00"
-  },
-  {
     "name": "Little Bird",
     "publisher": "Image Comics",
     "year": 2020,
@@ -81007,132 +80787,6 @@
     "retry_after": "2026-10-26T08:17:28.763369+00:00"
   },
   {
-    "name": "Vandala",
-    "publisher": "Chaos! Comics",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20674,
-        "name": "Vandala",
-        "publisher": null,
-        "start_year": 2000
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T09:09:12.464630+00:00",
-    "retry_after": "2026-10-26T09:09:12.464645+00:00"
-  },
-  {
-    "name": "Smiley Anti-Holiday Special",
-    "publisher": "Chaos! Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 21452,
-        "name": "Smiley: Anti-Holiday Special",
-        "publisher": null,
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T09:09:13.277597+00:00",
-    "retry_after": "2026-10-26T09:09:13.277613+00:00"
-  },
-  {
-    "name": "Lady Death: Dragon Wars",
-    "publisher": "Chaos! Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20796,
-        "name": "Lady Death: Dragon Wars",
-        "publisher": null,
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T09:09:13.650114+00:00",
-    "retry_after": "2026-10-26T09:09:13.650128+00:00"
-  },
-  {
-    "name": "Lady Death and the Women of Chaos! Gallery",
-    "publisher": "Chaos! Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 28842,
-        "name": "Lady Death and the Women of Chaos! Gallery",
-        "publisher": null,
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T09:09:14.055664+00:00",
-    "retry_after": "2026-10-26T09:09:14.055679+00:00"
-  },
-  {
-    "name": "Lady Death",
-    "publisher": "Chaos! Comics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 46516,
-        "name": "Lady Death",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 37096,
-        "name": "Lady Death",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 20760,
-        "name": "Lady Death",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 19344,
-        "name": "Lady Death",
-        "publisher": null,
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T09:09:14.454444+00:00",
-    "retry_after": "2026-10-26T09:09:14.454460+00:00"
-  },
-  {
-    "name": "Lady Death: Heartbreaker",
-    "publisher": "Chaos! Comics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20755,
-        "name": "Lady Death: Heartbreaker",
-        "publisher": null,
-        "start_year": 2002
-      },
-      {
-        "id": 125352,
-        "name": "Lady Death: Heartbreaker",
-        "publisher": null,
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T09:09:14.817408+00:00",
-    "retry_after": "2026-10-26T09:09:14.817422+00:00"
-  },
-  {
     "name": "Lady Death / Bedlam",
     "publisher": "Chaos! Comics",
     "year": 2002,
@@ -81401,71 +81055,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T10:17:27.161772+00:00",
     "retry_after": "2026-10-26T10:17:27.161790+00:00"
-  },
-  {
-    "name": "Superman Annual",
-    "publisher": "Titan Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 3817,
-        "name": "Superman Annual",
-        "publisher": null,
-        "start_year": 1987
-      },
-      {
-        "id": 64331,
-        "name": "Superman Annual",
-        "publisher": null,
-        "start_year": 1972
-      },
-      {
-        "id": 96165,
-        "name": "Superman Annual",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 71279,
-        "name": "Superman Annual",
-        "publisher": null,
-        "start_year": 1951
-      },
-      {
-        "id": 2016,
-        "name": "Superman Annual",
-        "publisher": null,
-        "start_year": 1960
-      },
-      {
-        "id": 102804,
-        "name": "Superman Annual",
-        "publisher": null,
-        "start_year": null
-      },
-      {
-        "id": 51617,
-        "name": "Superman Annual",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 77200,
-        "name": "Superman Annual",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 103036,
-        "name": "Superman Annual",
-        "publisher": null,
-        "start_year": 1981
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T11:23:29.778349+00:00",
-    "retry_after": "2026-10-26T11:23:29.778359+00:00"
   },
   {
     "name": "Cyberlust",
@@ -83769,6 +83358,211 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T22:08:37.821431+00:00",
     "retry_after": "2026-10-26T22:08:37.821449+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Good as Dead",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 167090,
+        "name": "Good as Dead",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:37.624688+00:00",
+    "retry_after": "2026-10-26T23:05:37.624708+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gotham City Sirens: Unfit for Orbit",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 165241,
+        "name": "Gotham City Sirens: Unfit for Orbit",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:38.687908+00:00",
+    "retry_after": "2026-10-26T23:05:38.687927+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gotham City: Year One Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:39.166344+00:00",
+    "retry_after": "2026-10-26T23:05:39.166361+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Lantern / Green Lantern Corps: The Starbreaker Supremacy",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:39.663193+00:00",
+    "retry_after": "2026-10-26T23:05:39.663211+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Lantern Dark",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 160513,
+        "name": "Green Lantern: Dark",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:40.583929+00:00",
+    "retry_after": "2026-10-26T23:05:40.583947+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Lantern: Earth One",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 109196,
+        "name": "Green Lantern: Earth One",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:41.399674+00:00",
+    "retry_after": "2026-10-26T23:05:41.399692+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Lantern: The Sinestro Corps War Compendium",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:41.839139+00:00",
+    "retry_after": "2026-10-26T23:05:41.839157+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gunslinger Spawn Origins",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:42.212202+00:00",
+    "retry_after": "2026-10-26T23:05:42.212220+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Harley Quinn In Paradise",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 160457,
+        "name": "Harley Quinn in Paradise",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:43.086670+00:00",
+    "retry_after": "2026-10-26T23:05:43.086687+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hector Plasm",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:47.921551+00:00",
+    "retry_after": "2026-10-26T23:05:47.921567+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Huck",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 86104,
+        "name": "Huck",
+        "publisher": "Image",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:48.724183+00:00",
+    "retry_after": "2026-10-26T23:05:48.724199+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Imaginary Fiends",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119537,
+        "name": "Imaginary Fiends",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 106297,
+        "name": "Imaginary Fiends",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:58.408764+00:00",
+    "retry_after": "2026-10-26T23:05:58.408780+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Immortal Legend Batman",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 166449,
+        "name": "Immortal Legend Batman",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T23:05:59.108349+00:00",
+    "retry_after": "2026-10-26T23:05:59.108366+00:00",
     "search_hydrated": true
   }
 ]

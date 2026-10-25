@@ -154,7 +154,6 @@ export function pickCovers(issues, candidateRows, seriesFormats) {
 
   for (const issue of issues ?? []) {
     const key = baseIssueNumber(issue.issue_number);
-    if (!key) continue;
 
     // The year check applies here too. Some gcd_issue_id links in the table
     // come from mis-pinned volumes (parity run 2026-10-06: Transformers
@@ -168,6 +167,13 @@ export function pickCovers(issues, candidateRows, seriesFormats) {
       resolved.set(issue.gcd_issue_id, result(rankRows(tier1, issue, 1)[0], 1, "gcd_issue_id"));
       continue;
     }
+
+    // Everything below matches on the issue number. One-shots, graphic novels
+    // and trades are "[nn]" in GCD, so only the direct gcd_issue_id link above
+    // can resolve them. This check used to sit before it, which left every
+    // unnumbered book blank even with a linked cover (Resurrection of Magneto
+    // TPB, 2026-10-24).
+    if (!key) continue;
 
     const tier2 = rows.filter((row) =>
       issue.series_gcd_id != null

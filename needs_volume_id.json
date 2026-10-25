@@ -76044,9 +76044,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T12:24:01.526979+00:00",
-    "retry_after": "2026-10-24T12:24:01.526994+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T04:32:04.363902+00:00",
+    "retry_after": "2026-10-28T04:32:04.363911+00:00"
   },
   {
     "name": "DemonWars",
@@ -76054,9 +76054,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T12:24:02.836419+00:00",
-    "retry_after": "2026-10-24T12:24:02.836436+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T04:32:05.611676+00:00",
+    "retry_after": "2026-10-28T04:32:05.611687+00:00"
   },
   {
     "name": "Deep State",
@@ -76077,9 +76077,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T12:24:03.436331+00:00",
-    "retry_after": "2026-10-24T12:24:03.436347+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T04:32:06.251971+00:00",
+    "retry_after": "2026-10-28T04:32:06.251982+00:00"
   },
   {
     "name": "Deadpool Corps",
@@ -76094,9 +76094,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T12:24:04.394276+00:00",
-    "retry_after": "2026-10-24T12:24:04.394291+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T04:32:07.252676+00:00",
+    "retry_after": "2026-10-28T04:32:07.252686+00:00"
   },
   {
     "name": "Adabana",
@@ -77404,9 +77404,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T04:23:45.582186+00:00",
-    "retry_after": "2026-10-25T04:23:45.582199+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T04:32:04.025849+00:00",
+    "retry_after": "2026-10-28T04:32:04.025860+00:00"
   },
   {
     "name": "Blood & Thunder",
@@ -84092,5 +84092,108 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T03:32:11.388381+00:00",
     "retry_after": "2026-10-26T03:32:11.388396+00:00"
+  },
+  {
+    "name": "Fatale",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61700,
+        "name": "Fatale",
+        "publisher": null,
+        "start_year": 2013
+      },
+      {
+        "id": 153327,
+        "name": "Fatale",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 44935,
+        "name": "Fatale",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 6852,
+        "name": "Fatale",
+        "publisher": null,
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T04:32:03.593496+00:00",
+    "retry_after": "2026-10-26T04:32:03.593505+00:00"
+  },
+  {
+    "name": "Spooky the Tuff Little Ghost Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1970,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85482,
+        "name": "Spooky the Tuff Little Ghost Giant Edition",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T04:32:04.608023+00:00",
+    "retry_after": "2026-10-26T04:32:04.608031+00:00"
+  },
+  {
+    "name": "Jeremiah: A Fistful of Sand",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6657,
+        "name": "Jeremiah: A Fistful of Sand",
+        "publisher": null,
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T04:32:04.960822+00:00",
+    "retry_after": "2026-10-26T04:32:04.960831+00:00"
+  },
+  {
+    "name": "Rocketo: Journey to the Hidden Sea",
+    "publisher": "Image Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45188,
+        "name": "Rocketo: Journey to the Hidden Sea",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T04:32:06.753480+00:00",
+    "retry_after": "2026-10-26T04:32:06.753490+00:00"
+  },
+  {
+    "name": "Tomorrow Stories Special",
+    "publisher": "DC Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18252,
+        "name": "Tomorrow Stories Special",
+        "publisher": null,
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T04:32:07.680347+00:00",
+    "retry_after": "2026-10-26T04:32:07.680359+00:00"
   }
 ]

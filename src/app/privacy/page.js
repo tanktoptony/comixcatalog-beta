@@ -42,11 +42,13 @@ export default function PrivacyPolicyPage() {
           values, notes, and any cover photos you upload.
         </p>
         <p>
-          <strong>Payment information.</strong> Subscription payments are
-          processed by Stripe. The marketplace doesn&rsquo;t process payments during
-          the beta. We do not store your full card
-          number on our servers; Stripe holds that data subject to its own
-          policies.
+          <strong>Payment information.</strong> Subscription payments and
+          marketplace Buy now orders are processed by Stripe. We do not store
+          your full card number on our servers; Stripe holds that data subject
+          to its own policies. For a Buy now order we keep the shipping address
+          Stripe collects, show it to the seller so they can ship, and remove it
+          120 days after the order completes. Sellers who set up payouts give
+          their identity and bank details to Stripe, not to us.
         </p>
         <p>
           <strong>Usage data.</strong> Standard server logs (IP, user agent,

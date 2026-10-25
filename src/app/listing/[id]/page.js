@@ -11,8 +11,8 @@ import BuyNowButton from "@/components/BuyNowButton";
 import { Suspense } from "react";
 
 // One copy for sale, Discogs item-page style: the copy, its condition, the
-// seller, the price, and the way to buy (an offer or a message while there's
-// no checkout). Server-rendered from the cached listing read.
+// seller, the price, and the way to buy (Buy now when the seller has payouts
+// set up, otherwise an offer by message). Server-rendered from the cached listing read.
 
 export const revalidate = 120;
 

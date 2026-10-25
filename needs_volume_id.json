@@ -9247,24 +9247,42 @@
     "name": "Geiger",
     "publisher": "Image Comics",
     "year": 2021,
-    "reason": "multiple_same_start_year_tied",
+    "reason": "publisher_mismatch",
     "candidates": [
+      {
+        "id": 157520,
+        "name": "Geiger",
+        "publisher": null,
+        "start_year": 2024
+      },
       {
         "id": 141212,
         "name": "Geiger",
-        "publisher": "Image",
+        "publisher": null,
         "start_year": 2021
       },
       {
         "id": 135290,
         "name": "Geiger",
-        "publisher": "Image",
+        "publisher": null,
         "start_year": 2021
+      },
+      {
+        "id": 155290,
+        "name": "Geiger",
+        "publisher": null,
+        "start_year": 2022
+      },
+      {
+        "id": 145676,
+        "name": "Geiger ",
+        "publisher": null,
+        "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-11T00:06:06.866002+00:00",
-    "retry_after": "2026-10-25T00:06:06.866018+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T01:00:23.581038+00:00",
+    "retry_after": "2026-11-24T01:00:23.581055+00:00"
   },
   {
     "name": "Birds of Prey: Uncovered",
@@ -75806,9 +75824,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T11:23:54.105560+00:00",
-    "retry_after": "2026-10-24T11:23:54.105577+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T01:23:27.295313+00:00",
+    "retry_after": "2026-10-28T01:23:27.295328+00:00"
   },
   {
     "name": "Cataclysm",
@@ -75829,9 +75847,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T11:23:54.933955+00:00",
-    "retry_after": "2026-10-24T11:23:54.933969+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T01:23:27.712343+00:00",
+    "retry_after": "2026-10-28T01:23:27.712358+00:00"
   },
   {
     "name": "Blake's 7 Summer Special",
@@ -77183,9 +77201,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T00:49:20.357750+00:00",
-    "retry_after": "2026-10-25T00:49:20.357768+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T01:23:25.523287+00:00",
+    "retry_after": "2026-10-28T01:23:25.523302+00:00"
   },
   {
     "name": "Nexus",
@@ -83128,5 +83146,752 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T23:42:31.995377+00:00",
     "retry_after": "2026-10-25T23:42:31.995393+00:00"
+  },
+  {
+    "name": "Savage Dragon",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5170,
+        "name": "Savage Dragon",
+        "publisher": null,
+        "start_year": 1993
+      },
+      {
+        "id": 18373,
+        "name": "Savage Dragon",
+        "publisher": null,
+        "start_year": 1992
+      },
+      {
+        "id": 53866,
+        "name": "The Savage Dragon",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 177392,
+        "name": "Savage Dragon",
+        "publisher": null,
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:00:19.442319+00:00",
+    "retry_after": "2026-10-26T01:00:19.442334+00:00"
+  },
+  {
+    "name": "Gunslinger",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 139839,
+        "name": "Gunslinger",
+        "publisher": null,
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:00:20.197907+00:00",
+    "retry_after": "2026-10-26T01:00:20.197922+00:00"
+  },
+  {
+    "name": "Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18208,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 153611,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 155102,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 28295,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 1981
+      },
+      {
+        "id": 78334,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 1972
+      },
+      {
+        "id": 18525,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 1942
+      },
+      {
+        "id": 3824,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 91774,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 42953,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 127359,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 147775,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 1988
+      },
+      {
+        "id": 51165,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 99063,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 70837,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 1998
+      },
+      {
+        "id": 61652,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 43520,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 160507,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 138762,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 143059,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 163173,
+        "name": "Wonder Woman",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:00:20.777416+00:00",
+    "retry_after": "2026-10-26T01:00:20.777432+00:00"
+  },
+  {
+    "name": "The Flash",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3790,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 1987
+      },
+      {
+        "id": 1995,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 1959
+      },
+      {
+        "id": 78610,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 137189,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 1970
+      },
+      {
+        "id": 43018,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 91750,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 151033,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 9159,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 1971
+      },
+      {
+        "id": 174239,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 134500,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 92077,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": null
+      },
+      {
+        "id": 153720,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 137252,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 1994
+      },
+      {
+        "id": 151350,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 32562,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2010
+      },
+      {
+        "id": 61524,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 135852,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 1984
+      },
+      {
+        "id": 53722,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 79003,
+        "name": "Flash",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 160580,
+        "name": "The Flash",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:00:21.396055+00:00",
+    "retry_after": "2026-10-26T01:00:21.396069+00:00"
+  },
+  {
+    "name": "Green Lantern",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2839,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 1960
+      },
+      {
+        "id": 25944,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 1941
+      },
+      {
+        "id": 79179,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 142798,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 90758,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 28230,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 1975
+      },
+      {
+        "id": 4363,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 1990
+      },
+      {
+        "id": 18216,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2005
+      },
+      {
+        "id": 42808,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 55261,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 115055,
+        "name": "The Green Lantern",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 79177,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 94425,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 42399,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2001
+      },
+      {
+        "id": 159672,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 78611,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 150172,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2023
+      },
+      {
+        "id": 135228,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 51131,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 60430,
+        "name": "Green Lantern",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:00:21.858709+00:00",
+    "retry_after": "2026-10-26T01:00:21.858728+00:00"
+  },
+  {
+    "name": "Nightwing",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5755,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 1996
+      },
+      {
+        "id": 92569,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2016
+      },
+      {
+        "id": 127258,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 142685,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2008
+      },
+      {
+        "id": 111008,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2017
+      },
+      {
+        "id": 132018,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 5514,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 1995
+      },
+      {
+        "id": 158290,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 166178,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 42720,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2011
+      },
+      {
+        "id": 142687,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2009
+      },
+      {
+        "id": 148290,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2021
+      },
+      {
+        "id": 78708,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 134503,
+        "name": "Nightwing",
+        "publisher": null,
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:00:22.352286+00:00",
+    "retry_after": "2026-10-26T01:00:22.352301+00:00"
+  },
+  {
+    "name": "Absolute Flash",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 162847,
+        "name": "Absolute Flash",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 169084,
+        "name": "Absolute Flash",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 169521,
+        "name": "Absolute Flash",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 169027,
+        "name": "Absolute Flash",
+        "publisher": null,
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:00:23.062977+00:00",
+    "retry_after": "2026-10-26T01:00:23.062992+00:00"
+  },
+  {
+    "name": "Superman: Rebirth",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 90896,
+        "name": "Superman: Rebirth",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:23:24.317012+00:00",
+    "retry_after": "2026-10-26T01:23:24.317027+00:00"
+  },
+  {
+    "name": "Retcon",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 104317,
+        "name": "Retcon",
+        "publisher": null,
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:23:24.705677+00:00",
+    "retry_after": "2026-10-26T01:23:24.705716+00:00"
+  },
+  {
+    "name": "Aphrodite V",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 116030,
+        "name": "Aphrodite V",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 112292,
+        "name": "Aphrodite V",
+        "publisher": null,
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:23:25.096785+00:00",
+    "retry_after": "2026-10-26T01:23:25.096801+00:00"
+  },
+  {
+    "name": "Boruto: Two Blue Vortex",
+    "publisher": "VIZ Media",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 165905,
+        "name": "Boruto - Two Blue Vortex",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 156576,
+        "name": "Boruto: Two Blue Vortex",
+        "publisher": null,
+        "start_year": 2024
+      },
+      {
+        "id": 162392,
+        "name": "Boruto: Two Blue Vortex",
+        "publisher": null,
+        "start_year": 2025
+      },
+      {
+        "id": 164191,
+        "name": "Boruto Two Blue Vortex",
+        "publisher": null,
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:23:25.854475+00:00",
+    "retry_after": "2026-10-26T01:23:25.854490+00:00"
+  },
+  {
+    "name": "Erotic Holiday",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78843,
+        "name": "Erotic Holiday",
+        "publisher": null,
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:23:26.358544+00:00",
+    "retry_after": "2026-10-26T01:23:26.358559+00:00"
+  },
+  {
+    "name": "Best Western",
+    "publisher": "Marvel Comics",
+    "year": 1949,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30502,
+        "name": "Best Western",
+        "publisher": null,
+        "start_year": 1949
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:23:26.714318+00:00",
+    "retry_after": "2026-10-26T01:23:26.714334+00:00"
+  },
+  {
+    "name": "Official True Crime Cases Comics",
+    "publisher": "Marvel Comics",
+    "year": 1947,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20013,
+        "name": "Official True Crime Cases Comics",
+        "publisher": null,
+        "start_year": 1947
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:23:28.037031+00:00",
+    "retry_after": "2026-10-26T01:23:28.037046+00:00"
+  },
+  {
+    "name": "Something Is Killing the Children",
+    "publisher": "BOOM! Studios",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 125470,
+        "name": "Something is Killing the Children",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 135673,
+        "name": "Something is killing the children",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 121102,
+        "name": "Something is Killing the Children",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T01:23:28.658100+00:00",
+    "retry_after": "2026-10-26T01:23:28.658115+00:00"
   }
 ]

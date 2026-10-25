@@ -15410,8 +15410,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T12:17:27.841910+00:00",
-    "retry_after": "2026-10-26T12:17:27.841922+00:00"
+    "last_attempt_at": "2026-10-25T13:17:18.563751+00:00",
+    "retry_after": "2026-10-26T13:17:18.563768+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -27635,24 +27635,24 @@
     "name": "Cerebus",
     "publisher": "Aardvark",
     "year": 2010,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 116293,
         "name": "Cerebus",
-        "publisher": "Aardvark",
+        "publisher": null,
         "start_year": 2019
       },
       {
         "id": 2930,
         "name": "Cerebus",
-        "publisher": "Aardvark",
+        "publisher": null,
         "start_year": 1977
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:33:52.134552+00:00",
-    "retry_after": "2026-10-23T22:33:52.134569+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:18.182900+00:00",
+    "retry_after": "2026-11-24T13:09:18.182918+00:00"
   },
   {
     "name": "Street Fighter",
@@ -27663,37 +27663,37 @@
       {
         "id": 162587,
         "name": "Street Fighter",
-        "publisher": "Moztros Producciones",
+        "publisher": null,
         "start_year": 2022
       },
       {
         "id": 18369,
         "name": "Street Fighter",
-        "publisher": "Malibu",
+        "publisher": null,
         "start_year": 1994
       },
       {
         "id": 49906,
         "name": "Street Fighter",
-        "publisher": "Editora Escala",
+        "publisher": null,
         "start_year": 1994
       },
       {
         "id": 18305,
         "name": "Street Fighter",
-        "publisher": "UDON",
+        "publisher": null,
         "start_year": 2003
       },
       {
         "id": 136851,
         "name": "Street Fighter",
-        "publisher": "Urban Comics",
+        "publisher": null,
         "start_year": 2017
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:33:51.866583+00:00",
-    "retry_after": "2026-10-23T22:33:51.866601+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:18.125564+00:00",
+    "retry_after": "2026-11-24T13:09:18.125583+00:00"
   },
   {
     "name": "Justice League International",
@@ -27750,24 +27750,24 @@
     "name": "Street Fighter Legends [Sakura]",
     "publisher": "Udon Entertainment Corp.",
     "year": null,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
         "id": 20143,
         "name": "Street Fighter Legends: Sakura",
-        "publisher": "UDON",
+        "publisher": null,
         "start_year": 2006
       },
       {
         "id": 73522,
         "name": "Street Fighter Legends: Sakura",
-        "publisher": "UDON",
+        "publisher": null,
         "start_year": 2007
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:33:50.611504+00:00",
-    "retry_after": "2026-10-23T22:33:50.611521+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:17.703035+00:00",
+    "retry_after": "2026-11-24T13:09:17.703055+00:00"
   },
   {
     "name": "Street Fighter II",
@@ -27778,19 +27778,19 @@
       {
         "id": 23232,
         "name": "Street Fighter II",
-        "publisher": "Tokuma Comics",
+        "publisher": null,
         "start_year": 1994
       },
       {
         "id": 19806,
         "name": "Street Fighter II",
-        "publisher": "UDON",
+        "publisher": null,
         "start_year": 2005
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:01:05.151765+00:00",
-    "retry_after": "2026-10-23T22:01:05.151781+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:17.195989+00:00",
+    "retry_after": "2026-11-24T13:09:17.196010+00:00"
   },
   {
     "name": "Ghost Rider Epic Collection",
@@ -27828,9 +27828,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:01:04.392626+00:00",
-    "retry_after": "2026-10-23T22:01:04.392642+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:16.821140+00:00",
+    "retry_after": "2026-11-24T13:09:16.821159+00:00"
   },
   {
     "name": "Shi / Daredevil: Honor Thy Mother Banzai Edition",
@@ -27838,9 +27838,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:01:03.317872+00:00",
-    "retry_after": "2026-10-23T22:01:03.317891+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:16.324782+00:00",
+    "retry_after": "2026-11-24T13:09:16.324800+00:00"
   },
   {
     "name": "Tomoe-Witchblade: Fire Sermon",
@@ -27848,9 +27848,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:01:02.914619+00:00",
-    "retry_after": "2026-10-23T22:01:02.914635+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:15.891322+00:00",
+    "retry_after": "2026-11-24T13:09:15.891339+00:00"
   },
   {
     "name": "Angel Fire (Rising Sun Edition)",
@@ -27858,9 +27858,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:01:02.447658+00:00",
-    "retry_after": "2026-10-23T22:01:02.447674+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:15.531030+00:00",
+    "retry_after": "2026-11-24T13:09:15.531047+00:00"
   },
   {
     "name": "The Punisher",
@@ -28190,9 +28190,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:01:01.903499+00:00",
-    "retry_after": "2026-10-23T22:01:01.903516+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:15.137930+00:00",
+    "retry_after": "2026-11-24T13:09:15.137948+00:00"
   },
   {
     "name": "Shi: Black, White and Red - Year of the Dragon Collected Edition",
@@ -28200,9 +28200,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:00:58.955901+00:00",
-    "retry_after": "2026-10-23T22:00:58.955917+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:14.753097+00:00",
+    "retry_after": "2026-11-24T13:09:14.753116+00:00"
   },
   {
     "name": "The Undaunted / The Burning Blue Flip-Book",
@@ -28210,9 +28210,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:00:58.462588+00:00",
-    "retry_after": "2026-10-23T22:00:58.462604+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:14.323643+00:00",
+    "retry_after": "2026-11-24T13:09:14.323661+00:00"
   },
   {
     "name": "Wizard Ace Edition #10:  Shi #4",
@@ -28220,9 +28220,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:00:54.752475+00:00",
-    "retry_after": "2026-10-23T22:00:54.752491+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T13:09:13.717126+00:00",
+    "retry_after": "2026-11-24T13:09:13.717145+00:00"
   },
   {
     "name": "Shi: The Way of the Warrior Trade Paperback",
@@ -42121,8 +42121,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T12:09:20.259892+00:00",
-    "retry_after": "2026-10-26T12:09:20.259903+00:00"
+    "last_attempt_at": "2026-10-25T13:09:12.962093+00:00",
+    "retry_after": "2026-10-26T13:09:12.962112+00:00"
   },
   {
     "name": "Wolverine & Black Cat: Claws 2",
@@ -43616,8 +43616,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T12:09:20.217902+00:00",
-    "retry_after": "2026-10-26T12:09:20.217914+00:00"
+    "last_attempt_at": "2026-10-25T13:09:12.896492+00:00",
+    "retry_after": "2026-10-26T13:09:12.896513+00:00"
   },
   {
     "name": "Justice League Special",
@@ -77677,9 +77677,9 @@
         "start_year": 1990
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:00:47.722723+00:00",
-    "retry_after": "2026-10-25T13:00:47.722738+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T13:01:08.284255+00:00",
+    "retry_after": "2026-10-28T13:01:08.284275+00:00"
   },
   {
     "name": "Swamp Thing",
@@ -77754,9 +77754,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:00:49.000551+00:00",
-    "retry_after": "2026-10-25T13:00:49.000567+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T13:09:09.098874+00:00",
+    "retry_after": "2026-10-28T13:09:09.098894+00:00"
   },
   {
     "name": "Underworld",
@@ -77813,9 +77813,9 @@
         "start_year": 1951
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:00:49.532591+00:00",
-    "retry_after": "2026-10-25T13:00:49.532605+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T13:09:09.428601+00:00",
+    "retry_after": "2026-10-28T13:09:09.428620+00:00"
   },
   {
     "name": "Metal Men",
@@ -77854,9 +77854,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:00:50.017200+00:00",
-    "retry_after": "2026-10-25T13:00:50.017215+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T13:09:10.031841+00:00",
+    "retry_after": "2026-10-28T13:09:10.031860+00:00"
   },
   {
     "name": "Batman: Gotham Nights II",
@@ -77871,9 +77871,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:00:50.437740+00:00",
-    "retry_after": "2026-10-25T13:00:50.437756+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T13:09:10.479535+00:00",
+    "retry_after": "2026-10-28T13:09:10.479555+00:00"
   },
   {
     "name": "In Rage",
@@ -77888,9 +77888,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:00:50.823560+00:00",
-    "retry_after": "2026-10-25T13:00:50.823575+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T13:09:11.041717+00:00",
+    "retry_after": "2026-10-28T13:09:11.041735+00:00"
   },
   {
     "name": "Fantastic Four: First Foes",
@@ -77905,9 +77905,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:00:51.196642+00:00",
-    "retry_after": "2026-10-25T13:00:51.196657+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T13:09:11.418146+00:00",
+    "retry_after": "2026-10-28T13:09:11.418163+00:00"
   },
   {
     "name": "Doomquest",
@@ -77922,9 +77922,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:00:51.602356+00:00",
-    "retry_after": "2026-10-25T13:00:51.602372+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T13:09:11.831468+00:00",
+    "retry_after": "2026-10-28T13:09:11.831487+00:00"
   },
   {
     "name": "Fantastic Four: First Foes - Shalla-Bal",
@@ -77939,9 +77939,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T13:00:51.963542+00:00",
-    "retry_after": "2026-10-25T13:00:51.963556+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T13:09:12.090557+00:00",
+    "retry_after": "2026-10-28T13:09:12.090577+00:00"
   },
   {
     "name": "Eternals 50th Anniversary Special",
@@ -86254,5 +86254,161 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T12:17:30.429026+00:00",
     "retry_after": "2026-10-26T12:17:30.429040+00:00"
+  },
+  {
+    "name": "Mr. Stuffins",
+    "publisher": "BOOM! Studios",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23471,
+        "name": "Mr. Stuffins",
+        "publisher": null,
+        "start_year": 2007
+      },
+      {
+        "id": 40361,
+        "name": "Mr. Stuffins",
+        "publisher": null,
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T13:17:18.945342+00:00",
+    "retry_after": "2026-10-26T13:17:18.945361+00:00"
+  },
+  {
+    "name": "Green Lantern / New Gods: Godhead",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84425,
+        "name": "Green Lantern/New Gods: Godhead",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 77218,
+        "name": "Green Lantern/New Gods: Godhead",
+        "publisher": null,
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T13:17:19.340334+00:00",
+    "retry_after": "2026-10-26T13:17:19.340352+00:00"
+  },
+  {
+    "name": "Tangent Comics",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T13:17:19.658291+00:00",
+    "retry_after": "2026-10-26T13:17:19.658307+00:00"
+  },
+  {
+    "name": "Hiding in Time",
+    "publisher": "Image Comics",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19067,
+        "name": "Hiding in Time",
+        "publisher": null,
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T13:17:20.084618+00:00",
+    "retry_after": "2026-10-26T13:17:20.084636+00:00"
+  },
+  {
+    "name": "Harbinger: Omegas",
+    "publisher": "Valiant Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76261,
+        "name": "Harbinger: Omegas",
+        "publisher": null,
+        "start_year": 2014
+      },
+      {
+        "id": 79714,
+        "name": "Harbinger: Omegas",
+        "publisher": null,
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T13:17:20.554009+00:00",
+    "retry_after": "2026-10-26T13:17:20.554026+00:00"
+  },
+  {
+    "name": "My Dearest Patrolman",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T13:17:20.907071+00:00",
+    "retry_after": "2026-10-26T13:17:20.907087+00:00"
+  },
+  {
+    "name": "Sons of Anarchy Legacy Edition",
+    "publisher": "BOOM! Studios",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 116679,
+        "name": "Sons of Anarchy Legacy Edition",
+        "publisher": null,
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T13:17:21.188804+00:00",
+    "retry_after": "2026-10-26T13:17:21.188821+00:00"
+  },
+  {
+    "name": "Just Imagine Stan Lee Creating the DC Universe",
+    "publisher": "DC Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147203,
+        "name": "Just Imagine Stan Lee Creating the DC Universe",
+        "publisher": null,
+        "start_year": 2020
+      },
+      {
+        "id": 43735,
+        "name": "Just Imagine Stan Lee Creating the DC Universe",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T13:17:21.521697+00:00",
+    "retry_after": "2026-10-26T13:17:21.521715+00:00"
+  },
+  {
+    "name": "De tre vännerna... och Jerry",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T13:17:21.834833+00:00",
+    "retry_after": "2026-10-26T13:17:21.834850+00:00"
   }
 ]

@@ -14287,9 +14287,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-10T01:00:51.289239+00:00",
-    "retry_after": "2026-10-24T01:00:51.289254+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T06:09:03.572945+00:00",
+    "retry_after": "2026-11-24T06:09:03.572956+00:00"
   },
   {
     "name": "Tales Designed to Thrizzle",
@@ -15410,8 +15410,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T05:54:32.059190+00:00",
-    "retry_after": "2026-10-26T05:54:32.059203+00:00"
+    "last_attempt_at": "2026-10-25T06:17:09.868473+00:00",
+    "retry_after": "2026-10-26T06:17:09.868484+00:00"
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -32811,9 +32811,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-10T09:28:04.332951+00:00",
-    "retry_after": "2026-10-24T09:28:04.332966+00:00"
+    "attempts": 5,
+    "last_attempt_at": "2026-10-25T06:09:02.594626+00:00",
+    "retry_after": "2026-11-24T06:09:02.594634+00:00"
   },
   {
     "name": "Stone Cold: Tougher Than the Rest",
@@ -42121,8 +42121,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T05:52:19.797675+00:00",
-    "retry_after": "2026-10-26T05:52:19.797689+00:00"
+    "last_attempt_at": "2026-10-25T06:09:01.626750+00:00",
+    "retry_after": "2026-10-26T06:09:01.626758+00:00"
   },
   {
     "name": "Wolverine & Black Cat: Claws 2",
@@ -43616,8 +43616,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T05:52:19.730773+00:00",
-    "retry_after": "2026-10-26T05:52:19.730787+00:00"
+    "last_attempt_at": "2026-10-25T06:09:01.534418+00:00",
+    "retry_after": "2026-10-26T06:09:01.534428+00:00"
   },
   {
     "name": "Justice League Special",
@@ -76465,9 +76465,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:48:40.021017+00:00",
-    "retry_after": "2026-10-24T13:48:40.021036+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T06:17:13.788879+00:00",
+    "retry_after": "2026-10-28T06:17:13.788888+00:00"
   },
   {
     "name": "The Engineer",
@@ -76475,9 +76475,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-23T13:48:40.369903+00:00",
-    "retry_after": "2026-10-24T13:48:40.369922+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-25T06:17:14.287000+00:00",
+    "retry_after": "2026-10-28T06:17:14.287010+00:00"
   },
   {
     "name": "Pakkins' Land: Forgotten Dreams",
@@ -84619,5 +84619,336 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T05:54:34.881357+00:00",
     "retry_after": "2026-10-26T05:54:34.881373+00:00"
+  },
+  {
+    "name": "Lady Death: Mischief Night",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20763,
+        "name": "Lady Death: Mischief Night",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:09:02.251808+00:00",
+    "retry_after": "2026-10-26T06:09:02.251817+00:00"
+  },
+  {
+    "name": "Evil Ernie: Destroyer Preview",
+    "publisher": "Chaos! Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71299,
+        "name": "Evil Ernie: Destroyer Preview",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:09:03.049477+00:00",
+    "retry_after": "2026-10-26T06:09:03.049491+00:00"
+  },
+  {
+    "name": "Halloween III: The Devil's Eyes",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24466,
+        "name": "Halloween III: The Devil's Eyes",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:09:04.126580+00:00",
+    "retry_after": "2026-10-26T06:09:04.126589+00:00"
+  },
+  {
+    "name": "Purgatori vs. Lady Death",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20729,
+        "name": "Purgatori vs Lady Death",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:09:04.761807+00:00",
+    "retry_after": "2026-10-26T06:09:04.761815+00:00"
+  },
+  {
+    "name": "Lady Death: Swimsuit 2001",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20580,
+        "name": "Lady Death Swimsuit 2001",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:09:05.142021+00:00",
+    "retry_after": "2026-10-26T06:09:05.142030+00:00"
+  },
+  {
+    "name": "Bad Kitty: Mischief Night",
+    "publisher": "Chaos! Comics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20745,
+        "name": "Bad Kitty: Mischief Night",
+        "publisher": null,
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:09:06.007706+00:00",
+    "retry_after": "2026-10-26T06:09:06.007720+00:00"
+  },
+  {
+    "name": "Untold Tales of Purgatori",
+    "publisher": "Chaos! Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19831,
+        "name": "Untold Tales of Purgatori",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:09:06.804726+00:00",
+    "retry_after": "2026-10-26T06:09:06.804741+00:00"
+  },
+  {
+    "name": "Chaos! Gallery",
+    "publisher": "Chaos! Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27146,
+        "name": "Chaos Gallery",
+        "publisher": null,
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:09:07.347611+00:00",
+    "retry_after": "2026-10-26T06:09:07.347619+00:00"
+  },
+  {
+    "name": "Aftermath",
+    "publisher": "Chaos! Comics",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 80150,
+        "name": "Aftermath",
+        "publisher": null,
+        "start_year": 2015
+      },
+      {
+        "id": 20573,
+        "name": "Aftermath",
+        "publisher": null,
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:09:07.827420+00:00",
+    "retry_after": "2026-10-26T06:09:07.827428+00:00"
+  },
+  {
+    "name": "Purgatori: Re-Imagined",
+    "publisher": "Chaos! Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20695,
+        "name": "Purgatori: Re-Imagined",
+        "publisher": null,
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:09:08.609165+00:00",
+    "retry_after": "2026-10-26T06:09:08.609173+00:00"
+  },
+  {
+    "name": "Xena: Warrior Princess",
+    "publisher": "Topps Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 118405,
+        "name": "Xena: Warrior Princess",
+        "publisher": null,
+        "start_year": 2019
+      },
+      {
+        "id": 20038,
+        "name": "Xena: Warrior Princess",
+        "publisher": null,
+        "start_year": 2006
+      },
+      {
+        "id": 6097,
+        "name": "Xena: Warrior Princess",
+        "publisher": null,
+        "start_year": 1997
+      },
+      {
+        "id": 108762,
+        "name": "Xena: Warrior Princess",
+        "publisher": null,
+        "start_year": 2018
+      },
+      {
+        "id": 6380,
+        "name": "Xena: Warrior Princess",
+        "publisher": null,
+        "start_year": 1999
+      },
+      {
+        "id": 89631,
+        "name": "Xena: Warrior Princess",
+        "publisher": null,
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:17:09.602155+00:00",
+    "retry_after": "2026-10-26T06:17:09.602168+00:00"
+  },
+  {
+    "name": "Sword of Sorcery",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52242,
+        "name": "Sword of Sorcery",
+        "publisher": null,
+        "start_year": 2012
+      },
+      {
+        "id": 2624,
+        "name": "Sword of Sorcery",
+        "publisher": null,
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:17:10.316395+00:00",
+    "retry_after": "2026-10-26T06:17:10.316404+00:00"
+  },
+  {
+    "name": "Morbius",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122817,
+        "name": "Morbius",
+        "publisher": null,
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:17:10.793290+00:00",
+    "retry_after": "2026-10-26T06:17:10.793298+00:00"
+  },
+  {
+    "name": "Roger Wilco",
+    "publisher": "Malibu Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79675,
+        "name": "Roger Wilco",
+        "publisher": null,
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:17:11.222276+00:00",
+    "retry_after": "2026-10-26T06:17:11.222285+00:00"
+  },
+  {
+    "name": "Screwball Squirrel",
+    "publisher": "Dark Horse Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 134689,
+        "name": "Screwball Squirrel",
+        "publisher": null,
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:17:12.532891+00:00",
+    "retry_after": "2026-10-26T06:17:12.532900+00:00"
+  },
+  {
+    "name": "Labyrinth: The Movie",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3642,
+        "name": "Labyrinth: The Movie",
+        "publisher": null,
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:17:14.585743+00:00",
+    "retry_after": "2026-10-26T06:17:14.585752+00:00"
+  },
+  {
+    "name": "Teen Wolf: Bite Me",
+    "publisher": "Image Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 43034,
+        "name": "Teen Wolf: Bite Me",
+        "publisher": null,
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-25T06:17:15.066686+00:00",
+    "retry_after": "2026-10-26T06:17:15.066695+00:00"
   }
 ]

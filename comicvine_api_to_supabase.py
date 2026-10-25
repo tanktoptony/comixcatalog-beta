@@ -1771,6 +1771,26 @@ def main():
                 volume.get("count_of_issues"),
             )
 
+            # A series_gcd_id hint names one exact GCD series. A title search
+            # that settled on a neighbouring start year found some other
+            # volume (Captain America 2026 one-shot -> the 2025 ongoing), and
+            # the hint would file that volume's covers under the wrong series.
+            if (
+                target.get("series_gcd_id")
+                and not explicit_volume_id
+                and target.get("year")
+                and _start_year_of(volume) != int(target["year"])
+            ):
+                print(
+                    f"  ✗ matched a {_start_year_of(volume)} volume for a {target['year']} "
+                    f"series with a GCD hint; not trusting it. Pass --volume-id."
+                )
+                _record_needs_volume_id(
+                    volume_name, publisher_name, target.get("year"),
+                    "series_hint_year_mismatch", [volume],
+                )
+                continue
+
             # Resolved — drop any stale backlog entry (and its cooldown) for
             # this target on write. Covers the case where a publisher alias,
             # a pinned volume id, or a matcher improvement fixes something

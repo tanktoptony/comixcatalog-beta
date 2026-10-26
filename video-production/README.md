@@ -83,7 +83,7 @@ Segment types (`shared/EpisodeRenderer.jsx`):
 | `screen` | ScreenCapture | `asset`, `treatment` (`push` or `panDown`), optional `title` |
 | `end` | EndCard | `title`, `sub` (right half left clear for YouTube end screens) |
 | `placeholder` | PlaceholderCard | `asset`, `label` |
-| `dossier` | DossierReveal | `card`, `start`, `flipAt`, `overlay`, `highlight` |
+| `dossier` | DossierReveal | `card`, `side`, `flipAt`, `fillAt`, `slam`, `overlay`, `overlayOut`, `highlight`, `context`, `sorcery`, `label` |
 
 Every segment crossfades 8 frames in and out; set `transition: "cut"` (or
 `fadeIn` / `fadeOut` frames) to change that.

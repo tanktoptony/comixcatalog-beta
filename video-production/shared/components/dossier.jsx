@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { brand, fonts } from "../brand.js";
 import { DOSSIERS } from "../dossiers.js";
-import { Halftone, Media } from "./primitives.jsx";
+import { Backdrop, Halftone, Media, SegmentContext } from "./primitives.jsx";
 
 export const DOSSIER_THEMES = {
   doom: { ironDark: "#1f2427", iron: "#353d42", ironLight: "#59636a", green: "#4c6a3f", greenDeep: "#2e4229", parchment: "#efe6cf", ink: "#1b1a17", gold: "#b08d45", goldLight: "#d9b968" },
@@ -82,7 +82,7 @@ function Meter({ stat, index, t, progress, highlight, overlayData, overlayAmount
   </div>;
 }
 
-export function DossierBack({ data, theme, layers, overlay, overlayAmount = 0, progress = 1, meterProgress = progress, badgeProgress = 1, highlight }) {
+export function DossierBack({ data, theme, layers, overlay, overlayAmount = 0, progress = 1, meterProgress = progress, badgeProgress = 1, highlight, context }) {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = theme ?? DOSSIER_THEMES[data.theme] ?? DOSSIER_THEMES.comixcatalog;
@@ -114,18 +114,19 @@ export function DossierBack({ data, theme, layers, overlay, overlayAmount = 0, p
       {data.vitals && <div style={{ position: "absolute", left: 70, right: 70, top: 1100, display: "flex", gap: 36, color: t.ink, fontFamily: fonts.body, fontSize: 18, fontWeight: 600 }}>
         {data.vitals.map(([label, value]) => <div key={label}><span style={{ fontWeight: 800, letterSpacing: ".14em", color: t.green, marginRight: 10 }}>{label}</span>{value}</div>)}
       </div>}
-      {data.contexts && <ContextStrip contexts={data.contexts} t={t} overlayData={overlayActive ? overlayData : null} overlayAmount={overlayAmount} />}
+      {data.contexts && <ContextStrip contexts={data.contexts} t={t} overlayData={overlayActive ? overlayData : null} overlayAmount={overlayAmount} active={context} />}
       {data.footer && <div style={{ position: "absolute", left: 70, right: 70, bottom: 66, display: "flex", justifyContent: "space-between", color: t.ink, opacity: .6, fontFamily: fonts.body, fontWeight: 700, fontSize: 15, letterSpacing: ".16em" }}>{data.footer.map((s) => <span key={s}>{s}</span>)}</div>}
     </>}
   </Base>;
 }
 
-// A / B / C power contexts. The baseline card lights A; a power-up overlay lights C.
-function ContextStrip({ contexts, t, overlayData, overlayAmount }) {
+// A / B / C power contexts. The baseline card lights A; a power-up overlay lights C;
+// `active` ("A", "B" or "C") lights one on purpose while the narration names it.
+function ContextStrip({ contexts, t, overlayData, overlayAmount, active }) {
   return <div style={{ position: "absolute", left: 70, right: 70, top: 1158, color: t.ink }}>
     <div style={{ fontFamily: fonts.body, fontWeight: 800, fontSize: 15, letterSpacing: ".2em", opacity: .7, marginBottom: 8 }}>POWER CONTEXT</div>
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>{contexts.map((label, i) => {
-      const lit = overlayData ? i === contexts.length - 1 : i === 0;
+      const lit = active ? i === "ABC".indexOf(active) : overlayData ? i === contexts.length - 1 : i === 0;
       const color = overlayData && lit ? overlayData.color : t.green;
       return <div key={label} style={{ height: 52, display: "flex", alignItems: "center", gap: 10, padding: "0 14px", boxSizing: "border-box", border: `2px solid ${lit ? t.ink : t.ink + "40"}`, background: lit ? color : "transparent", color: lit && !overlayData ? t.parchment : t.ink, opacity: lit && overlayData ? Math.max(overlayAmount, .35) : 1, fontFamily: fonts.body, fontWeight: 800, fontSize: 17, letterSpacing: ".06em" }}>
         <span style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 30 }}>{"ABC"[i]}</span>{label}
@@ -138,7 +139,7 @@ function InfoList({ title, items, top, left, width, numbered, t }) {
   return <div style={{ position: "absolute", top, left, width, color: t.ink }}><div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 30, borderBottom: `3px solid ${t.gold}`, paddingBottom: 5, marginBottom: 11 }}>{title}</div>{items.map((item, i) => <div key={i} style={{ display: "flex", gap: 9, fontFamily: fonts.body, fontWeight: 600, fontSize: 18, lineHeight: 1.25, marginBottom: 10 }}><span style={{ color: t.green, fontWeight: 800 }}>{numbered ? `${i + 1}.` : "◆"}</span><span>{item}</span></div>)}</div>;
 }
 
-export function DossierCard({ data, flip = 0, overlay, overlayAmount = 0, meterProgress = 1, badgeProgress = 1, height = 900, highlight }) {
+export function DossierCard({ data, flip = 0, overlay, overlayAmount = 0, meterProgress = 1, badgeProgress = 1, height = 900, highlight, context }) {
   const frame = useCurrentFrame();
   const t = DOSSIER_THEMES[data.theme] ?? DOSSIER_THEMES.comixcatalog;
   const overlayData = data.overlays?.[overlay];
@@ -152,18 +153,46 @@ export function DossierCard({ data, flip = 0, overlay, overlayAmount = 0, meterP
     <div style={{ position: "absolute", inset: 0, transformStyle: "preserve-3d", transform: `rotateY(${flip * 180}deg)` }}>
       <div style={{ ...face, transform: `scale(${scale})` }}><DossierFront data={data} theme={t} /></div>
       {/* Faces scale from the top-left corner, so the back face rotates about its left edge; shift it one card width so it lands on the front. */}
-      <div style={{ ...face, transform: `translateX(${width}px) rotateY(180deg) scale(${scale})` }}><DossierBack data={data} theme={t} overlay={overlay} overlayAmount={overlayAmount} meterProgress={meterProgress} badgeProgress={badgeProgress} highlight={highlight} /></div>
+      <div style={{ ...face, transform: `translateX(${width}px) rotateY(180deg) scale(${scale})` }}><DossierBack data={data} theme={t} overlay={overlay} overlayAmount={overlayAmount} meterProgress={meterProgress} badgeProgress={badgeProgress} highlight={highlight} context={context} /></div>
     </div>
   </div>;
 }
 
-export function DossierReveal({ card, start = "front", flipAt = null, overlay = null, highlight = null }) {
+// Timeline segment. Times are seconds into the segment. side: "front" or "back"
+// (not `start`, which the timeline engine owns).
+// slam: drops in with a white hit (the reveal). fillAt: meters fill from 0, then the
+// sorcery badge pops. overlayOut: the power-up overlay retracts there. context: light
+// A, B or C. sorcery: override the badge ({ value, note }). push: slow push-in.
+// label: a segment name beside the card (e.g. "CARD BACK"), under the series name.
+export function DossierReveal({ card, side = "front", flipAt = null, overlay = null, highlight = null, slam = false, fillAt = null, overlayOut = null, context = null, sorcery = null, push = true, label = null }) {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const data = DOSSIERS[card];
-  if (!data) throw new Error(`Unknown dossier: ${card}`);
-  const target = start === "back" ? 1 : 0;
-  const flip = flipAt == null ? target : interpolate(frame, [flipAt * fps, flipAt * fps + 18], [target, 1 - target], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const overlayAmount = overlay ? interpolate(frame, [0, 20], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 0;
-  return <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}><DossierCard data={data} flip={flip} overlay={overlay} overlayAmount={overlayAmount} meterProgress={1} badgeProgress={1} height={900} highlight={highlight} /></AbsoluteFill>;
+  const { durationInFrames } = React.useContext(SegmentContext);
+  const base = DOSSIERS[card];
+  if (!base) throw new Error(`Unknown dossier: ${card}`);
+  const data = sorcery ? { ...base, sorcery: { ...base.sorcery, ...sorcery } } : base;
+  const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" };
+  const target = side === "back" ? 1 : 0;
+  const flip = flipAt == null ? target : interpolate(frame, [flipAt * fps, flipAt * fps + 18], [target, 1 - target], clamp);
+  const amountIn = overlay ? interpolate(frame, [0, 20], [0, 1], clamp) : 0;
+  const overlayAmount = overlayOut == null ? amountIn : Math.min(amountIn, interpolate(frame, [overlayOut * fps, overlayOut * fps + 14], [1, 0], clamp));
+  const meterProgress = fillAt == null ? 1 : interpolate(frame, [fillAt * fps, fillAt * fps + 48], [0, 1], clamp);
+  const badgeProgress = fillAt == null ? 1 : interpolate(frame, [fillAt * fps + 40, fillAt * fps + 60], [0, 1], clamp);
+  const drop = slam ? spring({ frame, fps, durationInFrames: 17, config: { damping: 11, stiffness: 190, mass: .8 } }) : 1;
+  const y = interpolate(drop, [0, 1], [-1250, 0]);
+  const rotate = slam ? interpolate(drop, [0, 1], [-7, -2]) : 0;
+  const scale = push ? 1 + .035 * frame / Math.max(1, durationInFrames) : 1;
+  const flash = slam && frame >= 15 && frame < 17 ? .82 : 0;
+  const t = DOSSIER_THEMES[data.theme] ?? DOSSIER_THEMES.comixcatalog;
+  return <Backdrop field={t.ironDark} tint={t.green} glow={.48}>
+    <Halftone opacity={.045} size={11} />
+    <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
+      <div style={{ transform: `translateY(${y}px) rotate(${rotate}deg) scale(${scale})` }}><DossierCard data={data} flip={flip} overlay={overlay} overlayAmount={overlayAmount} meterProgress={meterProgress} badgeProgress={badgeProgress} height={900} highlight={highlight} context={context} /></div>
+    </AbsoluteFill>
+    {label && <div style={{ position: "absolute", left: 90, top: 84, color: t.parchment }}>
+      <div style={{ fontFamily: fonts.body, fontWeight: 700, fontSize: 20, letterSpacing: ".3em", color: t.goldLight }}>{data.series ?? "THE POWER INDEX"}</div>
+      <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 64, lineHeight: 1, marginTop: 6 }}>{label}</div>
+    </div>}
+    {flash > 0 && <AbsoluteFill style={{ background: "white", opacity: flash }} />}
+  </Backdrop>;
 }

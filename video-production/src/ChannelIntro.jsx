@@ -86,7 +86,9 @@ function ClipShot({ asset, fallback, from }) {
   );
 }
 
-export function Logo() {
+// `tagline` defaults to the line episodes 001 to 005 shipped with; from 006 on the
+// timeline passes the brand tagline ("Catalog. Collect. Connect.").
+export function Logo({ tagline = "Comics. No homework." }) {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const slam = spring({ frame, fps, config: { damping: 11, stiffness: 190 } });
@@ -103,7 +105,7 @@ export function Logo() {
             Comix<span style={{ color: brand.gold }}>Catalog</span>
           </div>
           <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 70, textTransform: "uppercase", color: brand.gold, letterSpacing: "0.03em", opacity: tag }}>
-            Comics. No homework.
+            {tagline}
           </div>
         </div>
       </AbsoluteFill>

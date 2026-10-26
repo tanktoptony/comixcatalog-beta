@@ -14,7 +14,7 @@ import { withFallbacks, resolveAudio } from "./timeline.js";
 import { Logo } from "../src/ChannelIntro.jsx";
 import { DossierReveal } from "./components/dossier.jsx";
 
-const StingCard = () => <Logo />;
+const StingCard = ({ tagline }) => <Logo tagline={tagline} />;
 
 // Timeline `type` -> component. Add a type here and it is usable from any
 // episode's timeline.

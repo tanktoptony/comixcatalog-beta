@@ -27511,26 +27511,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
       {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:03:12.312538+00:00",
-    "retry_after": "2026-10-27T16:03:12.312557+00:00",
+    "last_attempt_at": "2026-10-26T19:01:30.098940+00:00",
+    "retry_after": "2026-10-27T19:01:30.098942+00:00",
     "search_hydrated": true
   },
   {
@@ -43552,8 +43552,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T18:02:01.325831+00:00",
-    "retry_after": "2026-10-27T18:02:01.325843+00:00",
+    "last_attempt_at": "2026-10-26T19:01:30.098864+00:00",
+    "retry_after": "2026-10-27T19:01:30.098881+00:00",
     "search_hydrated": true
   },
   {
@@ -67851,9 +67851,10 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:49:36.092545+00:00",
-    "retry_after": "2026-10-26T18:49:36.092560+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-26T19:06:55.590316+00:00",
+    "retry_after": "2026-11-02T19:06:55.590317+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Dungeon Crawler Carl, #0, FCBD Edition",
@@ -72557,9 +72558,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:12:11.750770+00:00",
-    "retry_after": "2026-10-26T18:12:11.750785+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:01:16.551890+00:00",
+    "retry_after": "2026-10-29T19:01:16.551907+00:00",
     "search_hydrated": true
   },
   {
@@ -72575,9 +72576,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:12:11.909843+00:00",
-    "retry_after": "2026-10-26T18:12:11.909859+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:01:16.551942+00:00",
+    "retry_after": "2026-10-29T19:01:16.551945+00:00",
     "search_hydrated": true
   },
   {
@@ -72586,9 +72587,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:25.446598+00:00",
-    "retry_after": "2026-10-26T18:17:25.446611+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:32.527897+00:00",
+    "retry_after": "2026-10-29T19:06:32.527911+00:00",
     "search_hydrated": true
   },
   {
@@ -72597,9 +72598,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:25.975902+00:00",
-    "retry_after": "2026-10-26T18:17:25.975916+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:32.527931+00:00",
+    "retry_after": "2026-10-29T19:06:32.527934+00:00",
     "search_hydrated": true
   },
   {
@@ -72608,9 +72609,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:26.084723+00:00",
-    "retry_after": "2026-10-26T18:17:26.084737+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:32.527944+00:00",
+    "retry_after": "2026-10-29T19:06:32.527946+00:00",
     "search_hydrated": true
   },
   {
@@ -72632,9 +72633,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:26.270181+00:00",
-    "retry_after": "2026-10-26T18:17:26.270196+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:32.527981+00:00",
+    "retry_after": "2026-10-29T19:06:32.527983+00:00",
     "search_hydrated": true
   },
   {
@@ -72643,9 +72644,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:27.953271+00:00",
-    "retry_after": "2026-10-26T18:17:27.953284+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:32.527995+00:00",
+    "retry_after": "2026-10-29T19:06:32.527996+00:00",
     "search_hydrated": true
   },
   {
@@ -72654,9 +72655,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:28.110504+00:00",
-    "retry_after": "2026-10-26T18:17:28.110520+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:32.528005+00:00",
+    "retry_after": "2026-10-29T19:06:32.528006+00:00",
     "search_hydrated": true
   },
   {
@@ -72672,9 +72673,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:28.425082+00:00",
-    "retry_after": "2026-10-26T18:17:28.425096+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:33.252491+00:00",
+    "retry_after": "2026-10-29T19:06:33.252500+00:00",
     "search_hydrated": true
   },
   {
@@ -72696,9 +72697,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:28.807523+00:00",
-    "retry_after": "2026-10-26T18:17:28.807539+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:32.528033+00:00",
+    "retry_after": "2026-10-29T19:06:32.528034+00:00",
     "search_hydrated": true
   },
   {
@@ -72707,9 +72708,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:32.131004+00:00",
-    "retry_after": "2026-10-26T18:17:32.131018+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:32.528041+00:00",
+    "retry_after": "2026-10-29T19:06:32.528043+00:00",
     "search_hydrated": true
   },
   {
@@ -72725,9 +72726,9 @@
         "start_year": 1986
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:32.393938+00:00",
-    "retry_after": "2026-10-26T18:17:32.393952+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:33.252542+00:00",
+    "retry_after": "2026-10-29T19:06:33.252543+00:00",
     "search_hydrated": true
   },
   {
@@ -72736,9 +72737,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:32.510617+00:00",
-    "retry_after": "2026-10-26T18:17:32.510633+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:55.590249+00:00",
+    "retry_after": "2026-10-29T19:06:55.590264+00:00",
     "search_hydrated": true
   },
   {
@@ -72747,9 +72748,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:32.622922+00:00",
-    "retry_after": "2026-10-26T18:17:32.622936+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:55.590280+00:00",
+    "retry_after": "2026-10-29T19:06:55.590281+00:00",
     "search_hydrated": true
   },
   {
@@ -72758,9 +72759,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T18:17:32.829833+00:00",
-    "retry_after": "2026-10-26T18:17:32.829848+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T19:06:55.590290+00:00",
+    "retry_after": "2026-10-29T19:06:55.590291+00:00",
     "search_hydrated": true
   },
   {
@@ -76759,6 +76760,189 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T18:08:01.609171+00:00",
     "retry_after": "2026-10-27T18:08:01.609189+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Uncanny X-men vol.5",
+    "publisher": "Marvel",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T19:01:09.085096+00:00",
+    "retry_after": "2026-10-27T19:01:09.085110+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 87154,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 2127,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 112161,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 142577,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 78701,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1999
+      },
+      {
+        "id": 85076,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2015
+      },
+      {
+        "id": 163325,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 73420,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 34326,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1979
+      },
+      {
+        "id": 169193,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2025
+      },
+      {
+        "id": 22719,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T19:01:09.085194+00:00",
+    "retry_after": "2026-10-27T19:01:09.085197+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Hate Fairyland",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 85292,
+        "name": "I Hate Fairyland",
+        "publisher": "Image",
+        "start_year": 2015
+      },
+      {
+        "id": 146190,
+        "name": "I Hate Fairyland",
+        "publisher": "Image",
+        "start_year": 2022
+      },
+      {
+        "id": 156925,
+        "name": "I Hate Fairyland",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T19:06:55.590375+00:00",
+    "retry_after": "2026-10-27T19:06:55.590377+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Hate Fairyland - Free Comic Day 2025",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T19:06:55.590385+00:00",
+    "retry_after": "2026-10-27T19:06:55.590386+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ice Cream Man: The Mortal Coil Shuffle",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T19:06:55.590397+00:00",
+    "retry_after": "2026-10-27T19:06:55.590398+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Human Torch: Burn",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 38070,
+        "name": "Human Torch: Burn",
+        "publisher": "Marvel",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T19:06:56.306311+00:00",
+    "retry_after": "2026-10-27T19:06:56.306318+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Injection",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 81986,
+        "name": "Injection",
+        "publisher": "Image",
+        "start_year": 2015
+      },
+      {
+        "id": 85109,
+        "name": "Injection",
+        "publisher": "Image",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T19:07:21.776400+00:00",
+    "retry_after": "2026-10-27T19:07:21.776411+00:00",
     "search_hydrated": true
   }
 ]

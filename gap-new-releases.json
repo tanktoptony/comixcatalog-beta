@@ -1,5 +1,16 @@
 [
   {
+    "name": "Teenage Mutant Ninja Turtles",
+    "publisher": "IDW Publishing",
+    "year": 2024,
+    "volume_id": null,
+    "series_gcd_id": 213565,
+    "newest_release": "2026-10-14",
+    "missing": [
+      "23"
+    ]
+  },
+  {
     "name": "Overkiller",
     "publisher": "Cosmic Lion Productions",
     "year": 2026,
@@ -41,32 +52,6 @@
     "newest_release": "2026-09-29",
     "missing": [
       "5"
-    ]
-  },
-  {
-    "name": "Catwoman",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "volume_id": 7328,
-    "series_gcd_id": 126584,
-    "newest_release": "2026-12-00",
-    "missing": [
-      "90",
-      "91",
-      "92"
-    ]
-  },
-  {
-    "name": "Nightwing",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "volume_id": 148290,
-    "series_gcd_id": 104515,
-    "newest_release": "2026-12-00",
-    "missing": [
-      "141",
-      "142",
-      "143"
     ]
   },
   {

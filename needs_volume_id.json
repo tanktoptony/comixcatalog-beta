@@ -15275,8 +15275,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T14:05:52.565953+00:00",
-    "retry_after": "2026-10-27T14:05:52.565971+00:00",
+    "last_attempt_at": "2026-10-26T15:06:19.720858+00:00",
+    "retry_after": "2026-10-27T15:06:19.720875+00:00",
     "search_hydrated": true
   },
   {
@@ -24342,9 +24342,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-25T23:00:50.721791+00:00",
-    "retry_after": "2026-09-28T23:00:50.721807+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-26T15:04:24.728227+00:00",
+    "retry_after": "2026-11-02T15:04:24.728230+00:00",
+    "search_hydrated": true
   },
   {
     "name": "One Dollar Debut: Bloodshot",
@@ -27515,21 +27516,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T14:02:28.640066+00:00",
-    "retry_after": "2026-10-27T14:02:28.640069+00:00",
+    "last_attempt_at": "2026-10-26T15:01:56.801577+00:00",
+    "retry_after": "2026-10-27T15:01:56.801579+00:00",
     "search_hydrated": true
   },
   {
@@ -43550,8 +43551,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T14:02:28.639987+00:00",
-    "retry_after": "2026-10-27T14:02:28.639999+00:00",
+    "last_attempt_at": "2026-10-26T15:01:56.801481+00:00",
+    "retry_after": "2026-10-27T15:01:56.801497+00:00",
     "search_hydrated": true
   },
   {
@@ -48742,9 +48743,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-14T01:29:55.069368+00:00",
-    "retry_after": "2026-10-17T01:29:55.069385+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-26T15:05:05.286484+00:00",
+    "retry_after": "2026-11-02T15:05:05.286486+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Teenage Mutant Ninja Turtles Amazing Adventures Robotanimals",
@@ -57753,9 +57755,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-21T07:38:24.704610+00:00",
-    "retry_after": "2026-10-24T07:38:24.704629+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-26T15:04:24.728252+00:00",
+    "retry_after": "2026-11-02T15:04:24.728254+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Too Funny for Words",
@@ -61907,107 +61910,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T00:15:56.714296+00:00",
     "retry_after": "2026-10-23T00:15:56.714317+00:00"
-  },
-  {
-    "name": "Batgirl",
-    "publisher": "DC Comics",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 160861,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 82483,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 150121,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 7205,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 92542,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 127240,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 41790,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 154015,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 42604,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 27457,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2009
-      },
-      {
-        "id": 100119,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 22245,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2008
-      },
-      {
-        "id": 60406,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 50413,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 167372,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T00:15:57.539959+00:00",
-    "retry_after": "2026-10-23T00:15:57.539980+00:00"
   },
   {
     "name": "Battlefields: The Tankies",
@@ -68246,69 +68148,6 @@
     "retry_after": "2026-10-26T22:39:06.005660+00:00"
   },
   {
-    "name": "Compass",
-    "publisher": "Image Comics",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 60029,
-        "name": "Compass",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 136955,
-        "name": "Compass",
-        "publisher": null,
-        "start_year": 2021
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T22:39:06.444054+00:00",
-    "retry_after": "2026-10-26T22:39:06.444072+00:00"
-  },
-  {
-    "name": "Burn the Witch",
-    "publisher": "VIZ Media",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 130776,
-        "name": "Burn the Witch",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 139686,
-        "name": "Burn the Witch",
-        "publisher": null,
-        "start_year": 2021
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T22:39:08.344684+00:00",
-    "retry_after": "2026-10-26T22:39:08.344702+00:00"
-  },
-  {
-    "name": "King Kong: The 8th Wonder of the World",
-    "publisher": "Dark Horse Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 63492,
-        "name": "King Kong: The 8th Wonder of the World",
-        "publisher": null,
-        "start_year": 2005
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T22:39:08.689054+00:00",
-    "retry_after": "2026-10-26T22:39:08.689073+00:00"
-  },
-  {
     "name": "Yu-Gi-Oh! [Limited Edition]",
     "publisher": "VIZ Media",
     "year": 2003,
@@ -68337,29 +68176,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T23:23:49.898052+00:00",
     "retry_after": "2026-10-26T23:23:49.898070+00:00"
-  },
-  {
-    "name": "Family Trade",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 104940,
-        "name": "The Family Trade",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 109765,
-        "name": "The Family Trade",
-        "publisher": null,
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T23:23:51.552561+00:00",
-    "retry_after": "2026-10-26T23:23:51.552578+00:00"
   },
   {
     "name": "Hangman",
@@ -69632,35 +69448,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T07:23:55.000746+00:00",
     "retry_after": "2026-10-27T07:23:55.000761+00:00"
-  },
-  {
-    "name": "We Live",
-    "publisher": "AfterShock Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 141860,
-        "name": "We Live",
-        "publisher": null,
-        "start_year": 2022
-      },
-      {
-        "id": 136119,
-        "name": "We Live",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 131152,
-        "name": "We Live",
-        "publisher": null,
-        "start_year": 2020
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T07:23:49.540887+00:00",
-    "retry_after": "2026-10-27T07:23:49.540901+00:00"
   },
   {
     "name": "Dr. Weird",
@@ -72482,23 +72269,6 @@
     "retry_after": "2026-10-25T15:23:52.230767+00:00"
   },
   {
-    "name": "Gen 13 Bootleg",
-    "publisher": "Image Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 5870,
-        "name": "Gen 13 Bootleg",
-        "publisher": null,
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:48.618034+00:00",
-    "retry_after": "2026-10-25T16:23:48.618049+00:00"
-  },
-  {
     "name": "Star Wars: The High Republic Adventures (Phase III) - Crash Landing",
     "publisher": "Dark Horse Comics",
     "year": 2024,
@@ -72514,40 +72284,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T16:23:53.024722+00:00",
     "retry_after": "2026-10-25T16:23:53.024737+00:00"
-  },
-  {
-    "name": "The Un-Bedable Vark",
-    "publisher": "Aardvark-Vanaheim",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 111866,
-        "name": "The Un-Bedable Vark",
-        "publisher": null,
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:56.257094+00:00",
-    "retry_after": "2026-10-25T16:23:56.257108+00:00"
-  },
-  {
-    "name": "Femosaur World",
-    "publisher": "Fantagraphics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 35828,
-        "name": "Femosaur World",
-        "publisher": null,
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:56.718907+00:00",
-    "retry_after": "2026-10-25T16:23:56.718923+00:00"
   },
   {
     "name": "The Masked G-Man",
@@ -72705,159 +72441,6 @@
     "retry_after": "2026-10-25T16:24:01.492321+00:00"
   },
   {
-    "name": "Shuriken Team-Up",
-    "publisher": "Malibu Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 81324,
-        "name": "Shuriken Team-Up",
-        "publisher": null,
-        "start_year": 1988
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:51.879265+00:00",
-    "retry_after": "2026-10-25T17:23:51.879284+00:00"
-  },
-  {
-    "name": "Archie Comics 85th Anniversary Presents: Archie's Movie Mania",
-    "publisher": "Archie Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 171912,
-        "name": "Archie Comics 85th Anniversary Presents: Archie's Movie Mania",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:52.374403+00:00",
-    "retry_after": "2026-10-25T17:23:52.374419+00:00"
-  },
-  {
-    "name": "Morning Glories Compendium",
-    "publisher": "Image Comics",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 78557,
-        "name": "Morning Glories Compendium",
-        "publisher": null,
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:52.762836+00:00",
-    "retry_after": "2026-10-25T17:23:52.762853+00:00"
-  },
-  {
-    "name": "Spawn Figure",
-    "publisher": "Image Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 69269,
-        "name": "Spawn Figure",
-        "publisher": null,
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:53.600948+00:00",
-    "retry_after": "2026-10-25T17:23:53.600963+00:00"
-  },
-  {
-    "name": "Joker's Asylum II: Mad Hatter",
-    "publisher": "DC Comics",
-    "year": 2010,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 33771,
-        "name": "Joker's Asylum II: The Mad Hatter",
-        "publisher": null,
-        "start_year": 2010
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:54.040345+00:00",
-    "retry_after": "2026-10-25T17:23:54.040362+00:00"
-  },
-  {
-    "name": "Homicide",
-    "publisher": "Dark Horse Comics",
-    "year": 1990,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 94157,
-        "name": "Homicide",
-        "publisher": null,
-        "start_year": 1990
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:54.455213+00:00",
-    "retry_after": "2026-10-25T17:23:54.455229+00:00"
-  },
-  {
-    "name": "Totentanz",
-    "publisher": "Caliber Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 143759,
-        "name": "Totentanz",
-        "publisher": null,
-        "start_year": 2005
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:55.152202+00:00",
-    "retry_after": "2026-10-25T17:23:55.152217+00:00"
-  },
-  {
-    "name": "Roulette",
-    "publisher": "Caliber Comics",
-    "year": 1990,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 45423,
-        "name": "Roulette",
-        "publisher": null,
-        "start_year": 1990
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:55.613136+00:00",
-    "retry_after": "2026-10-25T17:23:55.613152+00:00"
-  },
-  {
-    "name": "Batch",
-    "publisher": "Caliber Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 45253,
-        "name": "Batch",
-        "publisher": null,
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:56.003605+00:00",
-    "retry_after": "2026-10-25T17:23:56.003622+00:00"
-  },
-  {
     "name": "Ant",
     "publisher": "Image Comics",
     "year": 2006,
@@ -72926,108 +72509,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T17:23:56.925813+00:00",
     "retry_after": "2026-10-25T17:23:56.925828+00:00"
-  },
-  {
-    "name": "Kong: Gods of Skull Island",
-    "publisher": "BOOM! Studios",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 105332,
-        "name": "Kong: Gods of Skull Island",
-        "publisher": null,
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:57.365052+00:00",
-    "retry_after": "2026-10-25T17:23:57.365067+00:00"
-  },
-  {
-    "name": "Dr. Weird Special",
-    "publisher": "Caliber Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 46729,
-        "name": "Dr. Weird Special",
-        "publisher": null,
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:57.886942+00:00",
-    "retry_after": "2026-10-25T17:23:57.886958+00:00"
-  },
-  {
-    "name": "Skrulls!",
-    "publisher": "Marvel Comics",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22390,
-        "name": "Skrulls!",
-        "publisher": null,
-        "start_year": 2008
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:58.376997+00:00",
-    "retry_after": "2026-10-25T17:23:58.377016+00:00"
-  },
-  {
-    "name": "I Hunt Monsters Hunting Season",
-    "publisher": "Antarctic Press",
-    "year": 2006,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 68883,
-        "name": "I Hunt Monsters: Hunting Season",
-        "publisher": null,
-        "start_year": 2006
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:58.824550+00:00",
-    "retry_after": "2026-10-25T17:23:58.824566+00:00"
-  },
-  {
-    "name": "Lady Death Origins Annual",
-    "publisher": "Avatar Press",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 42862,
-        "name": "Lady Death: Origins Annual",
-        "publisher": null,
-        "start_year": 2011
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:59.156942+00:00",
-    "retry_after": "2026-10-25T17:23:59.156958+00:00"
-  },
-  {
-    "name": "Hellsing Anime Manga",
-    "publisher": "Dark Horse Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 150286,
-        "name": "Hellsing Anime Manga",
-        "publisher": null,
-        "start_year": 2005
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:23:59.571138+00:00",
-    "retry_after": "2026-10-25T17:23:59.571155+00:00"
   },
   {
     "name": "Patsy and Her Pals",
@@ -73155,82 +72636,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Haunted",
-    "publisher": "Charlton Comics",
-    "year": 2001,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2498,
-        "name": "Haunted",
-        "publisher": null,
-        "start_year": 1971
-      },
-      {
-        "id": 27060,
-        "name": "The Haunted",
-        "publisher": null,
-        "start_year": 2002
-      },
-      {
-        "id": 77636,
-        "name": "Haunted",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 102191,
-        "name": "Haunted",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 73456,
-        "name": "Haunted",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 67002,
-        "name": "Haunted",
-        "publisher": null,
-        "start_year": 2001
-      },
-      {
-        "id": 68277,
-        "name": "Haunted",
-        "publisher": null,
-        "start_year": null
-      },
-      {
-        "id": 72343,
-        "name": "Haunted",
-        "publisher": null,
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:41:20.824607+00:00",
-    "retry_after": "2026-10-25T18:41:20.824622+00:00"
-  },
-  {
-    "name": "Fugitive",
-    "publisher": "Caliber Comics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47316,
-        "name": "Fugitive",
-        "publisher": null,
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:41:21.674881+00:00",
-    "retry_after": "2026-10-25T18:41:21.674899+00:00"
-  },
-  {
     "name": "Kick-Ass",
     "publisher": "Image Comics",
     "year": 2013,
@@ -73276,23 +72681,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T18:41:22.202319+00:00",
     "retry_after": "2026-10-25T18:41:22.202336+00:00"
-  },
-  {
-    "name": "Dicks Winter Special",
-    "publisher": "Avatar Press",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22469,
-        "name": "Dicks Winter Special",
-        "publisher": null,
-        "start_year": 2005
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:41:23.733271+00:00",
-    "retry_after": "2026-10-25T18:41:23.733287+00:00"
   },
   {
     "name": "Pandora Annual",
@@ -75329,29 +74717,6 @@
     "retry_after": "2026-10-25T23:42:31.995393+00:00"
   },
   {
-    "name": "Aphrodite V",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 116030,
-        "name": "Aphrodite V",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 112292,
-        "name": "Aphrodite V",
-        "publisher": null,
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T01:56:08.770981+00:00",
-    "retry_after": "2026-10-26T01:56:08.770998+00:00"
-  },
-  {
     "name": "Erotic Holiday",
     "publisher": "Fantagraphics",
     "year": 1994,
@@ -75605,29 +74970,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T04:32:07.680347+00:00",
     "retry_after": "2026-10-26T04:32:07.680359+00:00"
-  },
-  {
-    "name": "Threshold",
-    "publisher": "DC Comics",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19837,
-        "name": "Threshold",
-        "publisher": null,
-        "start_year": 1998
-      },
-      {
-        "id": 55801,
-        "name": "Threshold",
-        "publisher": null,
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T05:31:52.473076+00:00",
-    "retry_after": "2026-10-26T05:31:52.473094+00:00"
   },
   {
     "name": "Fear Itself: Uncanny X-Force",
@@ -81035,6 +80377,79 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T14:05:24.071462+00:00",
     "retry_after": "2026-10-27T14:05:24.071465+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC K.O. 1 (Local Comic Shop Day 2025 Ashcan Edition)",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T15:04:24.728157+00:00",
+    "retry_after": "2026-10-27T15:04:24.728175+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC K.O. 1 (SDCC 2025 Ashcan Edition)",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T15:04:24.728193+00:00",
+    "retry_after": "2026-10-27T15:04:24.728196+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Power 2024",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 156491,
+        "name": "DC Power 2024",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T15:04:36.438809+00:00",
+    "retry_after": "2026-10-27T15:04:36.438826+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DCeased Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T15:05:05.286424+00:00",
+    "retry_after": "2026-10-27T15:05:05.286441+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadly Class Giant Sized Artist's Proof Edition",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T15:05:05.286457+00:00",
+    "retry_after": "2026-10-27T15:05:05.286460+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Doom Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T15:05:05.286522+00:00",
+    "retry_after": "2026-10-27T15:05:05.286524+00:00",
     "search_hydrated": true
   }
 ]

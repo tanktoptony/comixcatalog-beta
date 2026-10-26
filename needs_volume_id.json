@@ -43551,8 +43551,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:33:26.136571+00:00",
-    "retry_after": "2026-10-27T16:33:26.136586+00:00",
+    "last_attempt_at": "2026-10-26T17:01:40.662431+00:00",
+    "retry_after": "2026-10-27T17:01:40.662450+00:00",
     "search_hydrated": true
   },
   {
@@ -76561,6 +76561,156 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T16:40:12.600269+00:00",
     "retry_after": "2026-10-27T16:40:12.600273+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Far Sector: The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T17:06:34.578274+00:00",
+    "retry_after": "2026-10-27T17:06:34.578292+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Flash by Grant Morrison and Mark Millar: The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T17:06:34.578343+00:00",
+    "retry_after": "2026-10-27T17:06:34.578347+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Free Marvel Must-Haves: March 2025",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T17:06:34.578369+00:00",
+    "retry_after": "2026-10-27T17:06:34.578372+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Friday",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 126593,
+        "name": "Friday",
+        "publisher": "Panelsyndicate",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T17:06:34.578410+00:00",
+    "retry_after": "2026-10-27T17:06:34.578412+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "G.I. Joe: A Real American Hero - The Silent Missions",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T17:07:25.755533+00:00",
+    "retry_after": "2026-10-27T17:07:25.755551+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Godzilla vs. Fantastic Four No. 1 Halloween Trick-or-Read 2025",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T17:07:25.755621+00:00",
+    "retry_after": "2026-10-27T17:07:25.755625+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Giant-Size X-Men: Tribute to Wein & Cockrum",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 130761,
+        "name": "Giant-Size X-Men: Tribute To Wein & Cockrum",
+        "publisher": "Marvel",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T17:07:46.050107+00:00",
+    "retry_after": "2026-10-27T17:07:46.050131+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gotham City: Year One",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 145346,
+        "name": "Gotham City: Year One",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      },
+      {
+        "id": 153988,
+        "name": "Gotham City: Year One",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T17:08:08.977951+00:00",
+    "retry_after": "2026-10-27T17:08:08.977968+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Free Marvel Must-Haves: April 2024",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T17:09:01.014208+00:00",
+    "retry_after": "2026-10-27T17:09:01.014226+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Slow Burn",
+    "publisher": "Fantagraphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26833,
+        "name": "Slow Burn",
+        "publisher": "Eros Comix",
+        "start_year": 1995
+      },
+      {
+        "id": 155114,
+        "name": "Slow Burn",
+        "publisher": "Boom! Studios",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T17:09:01.014311+00:00",
+    "retry_after": "2026-10-27T17:09:01.014314+00:00",
     "search_hydrated": true
   }
 ]

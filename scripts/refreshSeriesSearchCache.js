@@ -335,10 +335,8 @@ async function processBatch(seriesBatch) {
   // ComicVine's "Army of Darkness Forever") never had its fully normalized
   // form fetched. titleVariants(), added by #102 for the same bug on the live
   // read path, already covers the combined case, so this now uses it rather
-  // than keeping a second partial copy of the same rule.
-  const coverFetchTitles = [
-    ...new Set(seriesTitles.flatMap((t) => titleVariants(t))),
-  ];
+  // than keeping a second partial copy of the same rule. (The variant list is
+  // built per title in the canonical_covers fetch below.)
 
   const issueRows = [];
   const PAGE_SIZE = 1000;
@@ -505,8 +503,31 @@ async function processBatch(seriesBatch) {
   // series_gcd_id IS NULL, i.e. covers that no series row owns. A cover
   // tagged to some other gcd_id belongs to that series and must never be
   // handed to a same-titled sibling; that is the whole bug.
+  //
+  // 2026-10-26: the title list is fetched in URL-length-bounded chunks. Each
+  // title expands to up to four variants, and a batch of long collected-
+  // edition titles ("Machine Man by Kirby & Ditko: The Complete Collection")
+  // pushed one request past undici's header cap again (UND_ERR_HEADERS_OVERFLOW
+  // on every retry), so the whole refresh failed and no card updated. A
+  // title's variants stay in one chunk, so each title's rows still arrive
+  // in one (series_title, id) ordered response.
   let coverRows = [];
-  if (seriesTitles.length > 0) {
+  const titleChunks = [];
+  const chunkedTitles = new Set();
+  for (const seriesTitle of seriesTitles) {
+    const variants = titleVariants(seriesTitle).filter((t) => !chunkedTitles.has(t));
+    if (variants.length === 0) continue;
+    variants.forEach((t) => chunkedTitles.add(t));
+    const size = variants.reduce((n, t) => n + encodeURIComponent(`"${t}",`).length, 0);
+    const last = titleChunks[titleChunks.length - 1];
+    if (last && last.size + size <= 4000) {
+      last.titles.push(...variants);
+      last.size += size;
+    } else {
+      titleChunks.push({ titles: variants, size });
+    }
+  }
+  for (const { titles } of titleChunks) {
     const COVER_PAGE = 1000;
     let from = 0;
     while (true) {
@@ -520,7 +541,7 @@ async function processBatch(seriesBatch) {
           supabase
             .from("canonical_covers")
             .select(COVER_SCORING_COLUMNS)
-            .in("series_title", coverFetchTitles)
+            .in("series_title", titles)
             // (series_title, id) matches idx_canonical_covers_series_title_id
             // exactly. ORDER BY id alone lets the planner walk the primary
             // key and filter titles, which is what times out under load.

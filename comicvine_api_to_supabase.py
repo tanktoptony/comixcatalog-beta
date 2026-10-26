@@ -1,10 +1,12 @@
 import argparse
 import csv
+import io
 import json
 import os
 import re
 import sys
 import time
+from contextlib import redirect_stdout
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -211,6 +213,16 @@ def parse_cli() -> argparse.Namespace:
             "free tier limits 200/hour; default 180 leaves headroom for the "
             "rolling window. Exits cleanly when hit so the next run resumes "
             "with --skip-existing."
+        ),
+    )
+    p.add_argument(
+        "--max-issue-calls",
+        type=int,
+        default=None,
+        help=(
+            "Optional cap on ComicVine issues/ requests per run. issues/ has "
+            "its own hourly limit (~200), separate from search+volume. Exits "
+            "cleanly when hit."
         ),
     )
     p.add_argument(
@@ -872,24 +884,27 @@ def _hydrate_search_volumes(volumes: list[dict]) -> list[dict]:
     every title-search target as "observed publishers: (none)", and the
     issue-count tiebreak saw every same-year pair as tied. Hourly runs spent
     30 searches matching nothing, and 977 targets sat in retry-backoff for
-    it. One volumes/ call with an id filter refills all candidates at once.
+    it. One volumes/ call with an id filter refills all candidates at once,
+    so a chunk of targets can share one call (_resolve_chunk).
     """
-    missing = [
-        v for v in volumes
+    missing = list({
+        v["id"]: v for v in volumes
         if v.get("id") and (not v.get("publisher") or not v.get("count_of_issues"))
-    ]
+    })
     if not missing:
         return volumes
-    ids = "|".join(str(v["id"]) for v in missing[:100])
-    data = cv_get(
-        "volumes/",
-        {
-            "filter": f"id:{ids}",
-            "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
-            "limit": 100,
-        },
-    )
-    by_id = {v.get("id"): v for v in (data.get("results") or [])}
+    by_id: dict = {}
+    for start in range(0, len(missing), 100):
+        ids = "|".join(str(i) for i in missing[start:start + 100])
+        data = cv_get(
+            "volumes/",
+            {
+                "filter": f"id:{ids}",
+                "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
+                "limit": 100,
+            },
+        )
+        by_id.update({v.get("id"): v for v in (data.get("results") or [])})
     hydrated = []
     for v in volumes:
         full = by_id.get(v.get("id"))
@@ -918,8 +933,8 @@ def _volumes_named(name: str) -> list[dict] | None:
     "Locke and Key") still falls back to search. Titles with more than one
     page of matches ("Batman": 2,231) also go to search, which ranks them.
     """
-    if not name or "," in name or "|" in name:
-        return None  # the filter syntax splits on both
+    if not _name_filterable(name):
+        return None
     data = cv_get(
         "volumes/",
         {
@@ -931,6 +946,48 @@ def _volumes_named(name: str) -> list[dict] | None:
     if int(data.get("number_of_total_results") or 0) > 100:
         return None
     return data.get("results") or []
+
+
+def _name_filterable(name: str | None) -> bool:
+    # The filter syntax splits on commas and pipes, and it takes one name
+    # per call: "name:A|B" is a literal search that matches nothing.
+    return bool(name) and "," not in name and "|" not in name
+
+
+def _search_title_matches(name: str) -> list[dict]:
+    """search/ results whose title matches exactly, not yet hydrated."""
+    data = cv_get(
+        "search/",
+        {
+            "query": name,
+            "resources": "volume",
+            "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
+            "limit": 20,
+        },
+    )
+    title = _norm_title(name)
+    return [v for v in (data.get("results") or []) if _norm_title(v.get("name")) == title]
+
+
+def _title_candidates(name: str, search_first: bool = False) -> tuple[list[dict], bool]:
+    """Exact-title ComicVine volumes for `name`, and whether they still need
+    hydrating (search results arrive without publisher or issue count).
+
+    Name-filter first costs one volumes/ call; search first costs one
+    search/ call plus a share of a hydrate call. Each endpoint has its own
+    hourly limit, so _resolve_chunk alternates the two and both stay in use.
+    """
+    title = _norm_title(name)
+    if not search_first:
+        matches = [v for v in (_volumes_named(name) or []) if _norm_title(v.get("name")) == title]
+        if matches:
+            return matches, False
+    matches = _search_title_matches(name)
+    if matches or not search_first:
+        return matches, True
+    # Search-first missed: the name filter sees every volume containing the
+    # title, not just search's top 20.
+    return [v for v in (_volumes_named(name) or []) if _norm_title(v.get("name")) == title], False
 
 
 # Our collected-edition titles carry a byline or a format tag that ComicVine
@@ -1002,35 +1059,28 @@ def _same_book_off_by_a_year(volume: dict, target: dict) -> bool:
     return not rivals
 
 
-def find_volume(name: str, publisher: str | None = None, year: int | None = None) -> dict | None:
+def find_volume(
+    name: str,
+    publisher: str | None = None,
+    year: int | None = None,
+    name_matches: list[dict] | None = None,
+) -> dict | None:
     """Resolve a ComicVine volume by (name, publisher, year). Hard-fails when
     the publisher constraint can't be satisfied — never falls through to a
     random first-result, which is how Editorial Televisa's Spanish reprints
     silently overwrote a Marvel run.
 
+    `name_matches` takes exact-title candidates already gathered and
+    hydrated by _resolve_chunk; without it they are looked up here.
+
     For ambiguous cases (multiple Marvel volumes named 'Uncanny X-Men' starting
     in the same year), the caller should pass an explicit --volume-id."""
     target_pub = _norm_publisher(publisher)
 
-    target_title = _norm_title(name)
-    name_matches = [
-        v for v in (_volumes_named(name) or [])
-        if _norm_title(v.get("name")) == target_title
-    ]
-    if not name_matches:
-        data = cv_get(
-            "search/",
-            {
-                "query": name,
-                "resources": "volume",
-                "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
-                "limit": 20,
-            },
-        )
-        name_matches = _hydrate_search_volumes([
-            v for v in (data.get("results") or [])
-            if _norm_title(v.get("name")) == target_title
-        ])
+    if name_matches is None:
+        name_matches, needs_hydrate = _title_candidates(name)
+        if needs_hydrate:
+            name_matches = _hydrate_search_volumes(name_matches)
     def _pub_ok(v: dict) -> bool:
         if not target_pub:
             return True
@@ -1056,25 +1106,9 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
     if not name_matches:
         alt = _title_without_edition_suffix(name)
         if alt:
-            alt_title = _norm_title(alt)
-            alt_matches = [
-                v for v in (_volumes_named(alt) or [])
-                if _norm_title(v.get("name")) == alt_title
-            ]
-            if not alt_matches:
-                alt_data = cv_get(
-                    "search/",
-                    {
-                        "query": alt,
-                        "resources": "volume",
-                        "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
-                        "limit": 20,
-                    },
-                )
-                alt_matches = _hydrate_search_volumes([
-                    v for v in (alt_data.get("results") or [])
-                    if _norm_title(v.get("name")) == alt_title
-                ])
+            alt_matches, needs_hydrate = _title_candidates(alt)
+            if needs_hydrate:
+                alt_matches = _hydrate_search_volumes(alt_matches)
             name_matches = [
                 v for v in alt_matches
                 if int(v.get("count_of_issues") or 0) == 1
@@ -1160,7 +1194,106 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
     return None
 
 
-def fetch_issues_for_volume(volume_id: int) -> list[dict]:
+LOOKUP_CHUNK = 10
+
+
+def _resolve_chunk(chunk: list[tuple[int, dict]]) -> dict[int, tuple[dict | None, str]]:
+    """Look up a chunk of upcoming targets together: their volumes, then
+    the issue lists of the small ones.
+
+    ComicVine limits search/, volumes/ and issues/ to roughly 200 calls an
+    hour each, and one target at a time spent about one call per target on
+    each. On 2026-10-26 the local backfill hit 420s on volumes/ after ~120
+    calls in the hour and on issues/ the same way, while each batch covered
+    only ~85 targets. In a chunk, lookups alternate between the name filter
+    (volumes/) and search (search/), the search results share one hydrate
+    call, and the small volumes share issues/ calls (_prefetch_issues).
+
+    Returns {target index: (volume or None, find_volume's printed output)}
+    so the main loop prints each target's lines under its own header. A
+    target whose lookup raised anything but RateLimited is left out, and
+    the main loop looks it up again the ordinary way.
+    """
+    gathered: list[tuple[int, dict, list[dict], bool]] = []
+    for n, (idx, target) in enumerate(chunk):
+        if n:
+            time.sleep(1.0)  # spacing, as --vol-sleep gives one-at-a-time runs
+        try:
+            matches, needs_hydrate = _title_candidates(target["name"], search_first=bool(n % 2))
+        except RateLimited:
+            raise
+        except Exception:
+            continue
+        gathered.append((idx, target, matches, needs_hydrate))
+
+    to_hydrate = [v for _, _, matches, needs in gathered if needs for v in matches]
+    hydrated = {v.get("id"): v for v in _hydrate_search_volumes(to_hydrate)} if to_hydrate else {}
+
+    resolved: dict[int, tuple[dict | None, str]] = {}
+    for idx, target, matches, needs_hydrate in gathered:
+        if needs_hydrate:
+            matches = [hydrated.get(v.get("id"), v) for v in matches]
+        out = io.StringIO()
+        try:
+            with redirect_stdout(out):
+                volume = find_volume(
+                    target["name"], target.get("publisher"), target.get("year"),
+                    name_matches=matches,
+                )
+        except RateLimited:
+            raise
+        except Exception:
+            continue
+        resolved[idx] = (volume, out.getvalue())
+
+    _prefetch_issues([volume for volume, _ in resolved.values() if volume])
+    return resolved
+
+
+ISSUE_FIELDS = "id,name,issue_number,cover_date,store_date,image,associated_images,description,volume,api_detail_url"
+
+# Issue lists fetched ahead by _prefetch_issues, keyed by volume id.
+_ISSUES_CACHE: dict[int, list[dict]] = {}
+
+
+def _prefetch_issues(volumes: list[dict]) -> None:
+    """Fetch the issue lists of several small volumes in shared calls.
+
+    The issues/ volume filter takes OR'd ids ("volume:1|2|3"), so volumes
+    whose issue counts add up to 100 or fewer share one page. Backfill
+    targets are mostly short runs and single-book trades, so a chunk of ten
+    often needs one or two issues/ calls instead of ten. A volume alone in
+    its group is left to fetch_issues_for_volume, which costs the same.
+    """
+    small = list({
+        int(v["id"]): v for v in volumes
+        if v and v.get("id") and int(v["id"]) not in _ISSUES_CACHE
+        and 0 < int(v.get("count_of_issues") or 0) <= 100
+    }.values())
+    groups: list[list[int]] = []
+    current: list[int] = []
+    current_count = 0
+    for v in small:
+        count = int(v["count_of_issues"])
+        if current and current_count + count > 100:
+            groups.append(current)
+            current, current_count = [], 0
+        current.append(int(v["id"]))
+        current_count += count
+    if current:
+        groups.append(current)
+    for ids in groups:
+        if len(ids) < 2:
+            continue
+        by_volume: dict[int, list[dict]] = {i: [] for i in ids}
+        for issue in _fetch_issue_pages("|".join(map(str, ids))):
+            vid = (issue.get("volume") or {}).get("id")
+            if vid in by_volume:
+                by_volume[vid].append(issue)
+        _ISSUES_CACHE.update(by_volume)
+
+
+def _fetch_issue_pages(volume_filter: str) -> list[dict]:
     offset = 0
     all_issues = []
 
@@ -1168,9 +1301,9 @@ def fetch_issues_for_volume(volume_id: int) -> list[dict]:
         data = cv_get(
             "issues/",
             {
-                "filter": f"volume:{volume_id}",
+                "filter": f"volume:{volume_filter}",
                 "sort": "issue_number:asc",
-                "field_list": "id,name,issue_number,cover_date,store_date,image,associated_images,description,volume,api_detail_url",
+                "field_list": ISSUE_FIELDS,
                 "limit": 100,
                 "offset": offset,
             },
@@ -1190,6 +1323,13 @@ def fetch_issues_for_volume(volume_id: int) -> list[dict]:
     return all_issues
 
 
+def fetch_issues_for_volume(volume_id: int) -> list[dict]:
+    cached = _ISSUES_CACHE.pop(int(volume_id), None)
+    if cached is not None:
+        return cached
+    return _fetch_issue_pages(str(volume_id))
+
+
 # A long volume's issue list is one issues/ call per 100 issues: 26 for 2000
 # AD. The new-release lane put 2000 AD first, its list fetch ran into
 # ComicVine's 420 and the lane stopped with 82 targets untried (2026-10-25).
@@ -1206,7 +1346,7 @@ def fetch_named_issues(volume_id: int, numbers: list) -> list[dict]:
             "issues/",
             {
                 "filter": f"volume:{volume_id},issue_number:{base}",
-                "field_list": "id,name,issue_number,cover_date,store_date,image,associated_images,description,volume,api_detail_url",
+                "field_list": ISSUE_FIELDS,
                 "limit": 10,
             },
         )
@@ -1842,11 +1982,39 @@ def main():
         )
     skipped_backoff = 0
 
-    for target in targets:
+    def _done_skip(t: dict) -> bool:
+        return bool(
+            use_ledger and not args.volume_id
+            and _is_done_fresh(done, _done_key(t), args.done_ttl_days)
+        )
+
+    def _backoff_skip(t: dict) -> bool:
+        return bool(
+            use_backoff and not args.volume_id
+            and _is_backing_off(_backlog_key(t.get("name"), t.get("publisher"), t.get("year")))
+        )
+
+    def _next_lookups(start: int, size: int) -> list[tuple[int, dict]]:
+        """The next `size` targets this run will look up by title, skipping
+        exactly what the loop below skips."""
+        chunk: list[tuple[int, dict]] = []
+        for i in range(start, len(targets)):
+            if len(chunk) >= size:
+                break
+            t = targets[i]
+            if t.get("volume_id") or _done_skip(t) or _backoff_skip(t):
+                continue
+            chunk.append((i, t))
+        return chunk
+
+    # Volumes (and issue lists) looked up ahead by _resolve_chunk.
+    resolved: dict[int, tuple[dict | None, str]] = {}
+
+    for t_idx, target in enumerate(targets):
         # Skip already-processed targets BEFORE spending a search call. This is
         # what makes successive runs advance down the list instead of re-grinding
         # the top. (Skip happens before the budget check so done targets are free.)
-        if use_ledger and not args.volume_id and _is_done_fresh(done, _done_key(target), args.done_ttl_days):
+        if _done_skip(target):
             skipped_done += 1
             continue
 
@@ -1860,25 +2028,30 @@ def main():
         # Explicit volume IDs avoid a search call, but image-less issues still
         # consume issue/detail work. Honor their recorded cooldown so they do
         # not loop on every hourly run.
-        if (
-            use_backoff
-            and not args.volume_id
-            and _is_backing_off(
-                _backlog_key(
-                    target.get("name"), target.get("publisher"), target.get("year")
-                )
-            )
-        ):
+        if _backoff_skip(target):
             skipped_backoff += 1
             continue
 
         # Budget check: stop BEFORE making the next search if we're already
-        # past the cap. Cleaner than getting a 420 mid-run.
+        # past the cap. Cleaner than getting a 420 mid-run. A target looked
+        # up in an earlier chunk has already paid for its lookup.
+        prefetched = t_idx in resolved
         search_volume_used = REQUEST_COUNTER["search"] + REQUEST_COUNTER["volume"]
-        if search_volume_used >= args.max_search_calls:
+        if not prefetched and search_volume_used >= args.max_search_calls:
             print(
                 f"\n── Budget cap reached "
                 f"({search_volume_used} search+volume calls ≥ {args.max_search_calls}). "
+                f"Exiting cleanly. Re-run later with --skip-existing to resume."
+            )
+            break
+        if (
+            not prefetched
+            and args.max_issue_calls is not None
+            and REQUEST_COUNTER["issues"] >= args.max_issue_calls
+        ):
+            print(
+                f"\n── Issue-call cap reached "
+                f"({REQUEST_COUNTER['issues']} issues calls ≥ {args.max_issue_calls}). "
                 f"Exiting cleanly. Re-run later with --skip-existing to resume."
             )
             break
@@ -1893,7 +2066,14 @@ def main():
                 volume = get_volume(explicit_volume_id)
                 print(f"  using explicit volume id: {explicit_volume_id}")
             else:
-                volume = find_volume(volume_name, publisher_name, target.get("year"))
+                if not prefetched and args.targets:
+                    room = max(1, args.max_search_calls - search_volume_used)
+                    resolved.update(_resolve_chunk(_next_lookups(t_idx, min(LOOKUP_CHUNK, room))))
+                if t_idx in resolved:
+                    volume, lookup_log = resolved.pop(t_idx)
+                    print(lookup_log, end="")
+                else:
+                    volume = find_volume(volume_name, publisher_name, target.get("year"))
 
             if not volume:
                 print(f"  volume not found: {volume_name}")

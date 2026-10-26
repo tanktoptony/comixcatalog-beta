@@ -1,13 +1,11 @@
 # Episode 006 · Character Dossier 001: Doctor Doom
 
-Recording script, draft 1 (2026-10-26). Built from the V0.1 in the production brief, with the four fact fixes and the sourced feats from `RESEARCH.md`.
+Recording script, draft 1 (2026-10-26), with Tony's answers in: both personal lines kept, sorcery 5, voice from his HeyGen clone. Built from the V0.1 in the production brief, with the four fact fixes and the sourced feats from `RESEARCH.md`.
 
 How to read this file:
 - Each `##` heading is one recording: 12 sections plus 3 Shorts. Save each under that file name.
 - Narration is plain text. Read it as written, or loosen it. Short pauses between paragraphs give me cut points.
 - `SHOW:` lines are for the edit. Covers and the dossier card are already built. `[SCAN]` means a phone photo of that page from your copy makes the shot better (reprints count). Every one has a cover fallback.
-- `[TONY]` lines are only yours to know. Keep them if they're true, cut them if not.
-- `[SORCERY]` marks the one line that changes if you'd rather leave the sorcery badge UNRATED.
 - No `[VERIFY]` lines left. Everything said out loud traces to Marvel.com, ComicVine, or the issue summaries in RESEARCH.md. Lines that needed a page I couldn't see were rewritten as paraphrase.
 
 Length: about 2,770 words of narration, so roughly 19 minutes at Ep 005's pace (145 words a minute), plus the card animations. Inside the brief's 15 to 20.
@@ -36,7 +34,7 @@ I'm Tony, this is ComixCatalog, and this is the first Character Dossier.
 
 If you were a kid in the early nineties, you might remember the Marvel Universe trading cards. Big art on the front. And on the back, power ratings. Little bars, one to seven. That's what this is. Our own card, one character at a time.
 
-[TONY, keep if true: I had a stack of these. Probably still do, somewhere.]
+I had a stack of these. Probably still do, somewhere.
 
 > SHOW: Card front, slow push. Then the flip to the back. [Optional: a phone photo of your own Marvel Universe cards, if you have them.]
 
@@ -148,7 +146,7 @@ Think about that. This is one of the best scientists in the Marvel Universe, and
 
 The book that shows it best is Doctor Strange and Doctor Doom: Triumph and Torment. A graphic novel from 1989. Roger Stern writing, Mike Mignola on art. Yes, that Mike Mignola. A few years before Hellboy.
 
-[TONY, keep if true: I hadn't read this one before we started on this episode. It's exactly the kind of book I want these dossiers to dig up.]
+I hadn't read this one before we started on this episode. It's exactly the kind of book I want these dossiers to dig up.
 
 It opens with a contest. Sorcerers from all over, competing for the title of Sorcerer Supreme.
 
@@ -174,9 +172,7 @@ That's the story where Doom gets to be the hero. Sort of. He's still Doom.
 
 So, the sorcery badge. Marvel doesn't rate magic, so we built our own scale, one to seven. A five means you're a master. You can go head to head for the Sorcerer Supreme title. A six means you hold the title, or beat whoever does.
 
-[SORCERY] Standard Doom gets a five. He went toe to toe with Strange, magic only, and came in second. That's a five.
-
-[SORCERY, if UNRATED instead: For now, the sorcery badge stays unrated. One contest isn't enough for me to put a number on it.]
+Standard Doom gets a five. He went toe to toe with Strange, magic only, and came in second. That's a five.
 
 > SHOW: Sorcery medallion pops out of the card back, value 5, label CC EDITORIAL. Rubric strip under it (text card 2 of 8).
 

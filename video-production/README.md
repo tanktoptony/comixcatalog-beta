@@ -83,9 +83,23 @@ Segment types (`shared/EpisodeRenderer.jsx`):
 | `screen` | ScreenCapture | `asset`, `treatment` (`push` or `panDown`), optional `title` |
 | `end` | EndCard | `title`, `sub` (right half left clear for YouTube end screens) |
 | `placeholder` | PlaceholderCard | `asset`, `label` |
+| `dossier` | DossierReveal | `card`, `start`, `flipAt`, `overlay`, `highlight` |
 
 Every segment crossfades 8 frames in and out; set `transition: "cut"` (or
 `fadeIn` / `fadeOut` frames) to change that.
+
+## Character Dossier card
+
+Dossier copy and power values live in `episode-006/dossier-001.js`; the registry in
+`shared/dossiers.js` makes a card available to timelines by ID. Visual palettes
+live in `DOSSIER_THEMES` in `shared/components/dossier.jsx`, so another dossier
+can reuse the card by adding data and selecting a theme.
+
+Episode 006 registers the reveal, three temporary-power variants, complete front
+and back stills, and separate frame, art, lettering, and meter stills. Run
+`npm run dossier:006` for the reveal videos or `npm run dossier:006:stills` for
+the PNG layers. The layer PNGs keep transparency; the accompanying JPEG copies
+from the still script are flattened preview files.
 
 ## Retiming against the narration
 

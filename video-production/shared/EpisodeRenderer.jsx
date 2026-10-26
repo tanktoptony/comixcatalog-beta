@@ -12,6 +12,7 @@ import { CoverFull, KenBurnsCover, MediaFull, CoverPair, CoverGrid, CoverFan, Co
 import { ChapterCard, QuoteCard, TitleCard, ComixCatalogCard, EndCard, PlaceholderCard, ScreenCapture, TrackListCard } from "./components/cards.jsx";
 import { withFallbacks, resolveAudio } from "./timeline.js";
 import { Logo } from "../src/ChannelIntro.jsx";
+import { DossierReveal } from "./components/dossier.jsx";
 
 const StingCard = () => <Logo />;
 
@@ -38,6 +39,7 @@ export const SEGMENT_TYPES = {
   end: EndCard,
   placeholder: PlaceholderCard,
   tracklist: TrackListCard,
+  dossier: DossierReveal,
 };
 
 // Short crossfade at each edge unless the segment asks for a cut.

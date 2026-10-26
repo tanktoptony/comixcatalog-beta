@@ -9,6 +9,7 @@ import { THUMBNAILS_002 } from "./Thumbnails002.jsx";
 import { THUMBNAILS_003 } from "./Thumbnails003.jsx";
 import { THUMBNAILS_004 } from "./Thumbnails004.jsx";
 import { THUMBNAILS_005 } from "./Thumbnails005.jsx";
+import { THUMBNAILS_006 } from "./Thumbnails006.jsx";
 import { ShortClip } from "./Shorts.jsx";
 import { ChannelBanner } from "./Banner.jsx";
 import { ChannelIntro, ChannelSting } from "./ChannelIntro.jsx";
@@ -20,6 +21,7 @@ import { narrationWords as narrationWords003 } from "../episode-003/timeline.js"
 import { narrationWords as narrationWords004 } from "../episode-004/timeline.js";
 import { shortsWords as shortsWords005 } from "../episode-005/shorts-timeline.js";
 import { fixWords as fixWords005 } from "../episode-005/fixWords.js";
+import { shortsWords as shortsWords006 } from "../episode-006/shorts-timeline.js";
 import { Dossier001Reveal, Dossier001Cosmic, Dossier001Front, Dossier001Back, Dossier001FrontFrame, Dossier001FrontArt, Dossier001FrontLettering, Dossier001BackFrame, Dossier001BackMeters, Dossier001BackLettering } from "./Dossier006.jsx";
 
 const shortDetails = {
@@ -43,6 +45,10 @@ const shortDetails = {
     words: fixWords005(shortsWords005),
     endCardTitle: "The Amory Wars, Part 2: The Second Stage Turbine Blade",
   },
+  "episode-006-shorts": {
+    words: shortsWords006,
+    endCardTitle: "The Power Index · Power Profile #001: Doctor Doom",
+  },
 };
 
 // YouTube thumbnails (scripts/thumbs.mjs).
@@ -54,6 +60,7 @@ export const THUMBNAILS = [
   ...THUMBNAILS_003,
   ...THUMBNAILS_004,
   ...THUMBNAILS_005,
+  ...THUMBNAILS_006,
 ];
 
 export function Root() {

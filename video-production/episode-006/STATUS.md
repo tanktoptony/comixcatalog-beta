@@ -13,17 +13,15 @@ The Power Index · Power Profile #001: Doctor Doom. Channel episode 6, first of 
 - 2026-10-26 Tony liked the script and answered: both personal lines kept, sorcery 5 (card data updated), voice from his HeyGen clone. Series renamed to The Power Index (episode: Power Profile #001: Doctor Doom; segment: Card Back). Card front/back relabeled, reveal clips re-rendered; only the 6 narration paragraphs that said "dossier" were re-voiced.
 - 2026-10-26 Voice: `build_voice.py` sends each SCRIPT.md paragraph through Tony's HeyGen clone (cached per paragraph, so edits only pay for changed paragraphs). 16 files in `Desktop/YouTube/episode-006-assets/audio/` (`NN - name.wav` + `.words.json` word timings; `02b` is the optional Avengers: Doomsday line, date re-checked 10-26), plus `NARRATION_COMBINED.wav` (sections 01 to 12, 19.7 min, leveled).
 
+- 2026-10-26 The edit: `build_audio.py` (program audio: light de-ess, -13 dBFS speech, continuous Rollin at 5 bed, Funkorama sting), `timeline.js` (246 shots, about 4.9 s each, no text-only cards; Marvel.com captures with ads blanked and the address shown, live ComixCatalog pages, the card with slam, meter fill, A/B/C context and power-up overlays). The sting says "Catalog. Collect. Connect." (Episodes 001 to 005 keep their "Comics. No homework." line.) Tony liked the 45 s preview but flagged zooms landing on nothing (Doom's midsection); every cover zoom now uses `zoomTo` and was checked on a simulated crop sheet.
+- 2026-10-26 Shorts edit (`shorts-timeline.js`, `build_shorts_audio.py`), thumbnails (`src/Thumbnails006.jsx`), upload package (`package.mjs` -> `Desktop/YouTube/episode-006-youtube`: PACKAGE.md, captions.srt, 12 chapters).
+
 ## Waiting on Tony
 
-Nothing blocking. Optional: page photos from the scan list (every shot has a cover fallback); keep or drop the 02b Avengers: Doomsday line (default: keep).
+Nothing blocking. Optional: keep or drop the 02b Avengers: Doomsday line (default: keep, it's in the cut).
 
 ## Open, Claude's side
 
-- Before the collector's corner captures: Triumph and Torment (1989) has no issue row in the catalog and Emperor Doom isn't linked to ComicVine. Fix so the collector's corner captures work. The section 11 CTA matches the live /start page copy ("Catalog your books... see what's missing").
-- Captures: Marvel.com Doom profile (power grid, armor paragraph, Tony Stark line), ComixCatalog series pages for the five essentials, the Fantastic Four (1961) owned-issues view for the CTA.
-- Thumbnail: card frame + Doom silhouette, working copy "DOOM: POWER PROFILE".
+- Full render (`npm run render:006`), digital-zero scan, then the vertical card stills with overlays for the Shorts (frames from the render), `npm run shorts:006`, `npm run thumbs` for Thumb006*, re-run `node episode-006/package.mjs`, upload page.
+- Catalog: Triumph and Torment (1989) has two duplicate series rows (e4376985..., 4a6ab5ef...); the description links the first.
 - Branch `agent/episode-006` is stacked on `agent/episode-005` (PR #360, still open).
-
-## Build steps once audio lands
-
-Same as Ep 005: per-section audio in `audio/`, transcribe, hand-written timeline from SCRIPT.md's SHOW lines and SHOTS.md (count text-only shots before the first full render, budget 8), 45 s preview, full render, digital-zero scan, Shorts, thumbnails, package to `Desktop/YouTube/episode-006-youtube`, upload page.

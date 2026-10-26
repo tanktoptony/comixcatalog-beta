@@ -28,6 +28,7 @@
     "shorts:005": "npm run index && node scripts/render-shorts.mjs Short005CastList Short005TheCouple Short005Jesse",
     "thumbs:005": "npm run index && node scripts/thumbs.mjs episode-005 Thumb005TenSongs Thumb005NameNames",
     "package:001": "node scripts/ep.mjs 001 package",
+    "shorts:006": "npm run index && node scripts/render-shorts.mjs Short006NotIronMan Short006SilverSurfer Short006GodEmperor",
     "render:006": "npm run index && node scripts/render.mjs episode-006",
     "dossier:006": "npm run index && remotion render src/index.jsx Dossier001Reveal episode-006/output/dossier-001-reveal.mp4 && remotion render src/index.jsx Dossier001Cosmic episode-006/output/dossier-001-cosmic.mp4",
     "dossier:006:stills": "npm run index && node scripts/thumbs.mjs episode-006 Dossier001Front Dossier001Back Dossier001FrontFrame Dossier001FrontArt Dossier001FrontLettering Dossier001BackFrame Dossier001BackMeters Dossier001BackLettering"

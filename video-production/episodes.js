@@ -10,9 +10,10 @@ import episode004 from "./episode-004/timeline.js";
 import episode005 from "./episode-005/timeline.js";
 import episode005shorts from "./episode-005/shorts-timeline.js";
 import episode006 from "./episode-006/timeline.js";
+import episode006shorts from "./episode-006/shorts-timeline.js";
 import demo from "./demo/timeline.js";
 
-export const EPISODES = [episode001, episode001v2, episode001v3, episode002, episode003, episode004, episode005, episode005shorts, episode006, demo];
+export const EPISODES = [episode001, episode001v2, episode001v3, episode002, episode003, episode004, episode005, episode005shorts, episode006, episode006shorts, demo];
 
 // Folder under public/ that an episode's assets live in.
 export const assetFolder = (ep) => ep.assetEpisodeId ?? ep.id;

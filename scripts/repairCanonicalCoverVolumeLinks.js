@@ -6,6 +6,7 @@
 import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 import { createCoverMatcher } from "../src/lib/coverMatch.js";
+import { titleVariants, toTitleNormalizedKey } from "../src/lib/catalogLinkMatcher.js";
 
 dotenv.config({ path: ".env.local" });
 
@@ -14,9 +15,15 @@ const arg = (name) => process.argv.find((value) => value.startsWith(`--${name}=`
 const VOLUME_ID = Number(arg("volume-id"));
 const SERIES_GCD_ID = Number(arg("series-gcd-id"));
 const CONFIRMED_COUNT = arg("confirm") == null ? null : Number(arg("confirm"));
+// --move-pin also moves series.comicvine_volume_id: cleared on other series
+// pinned to this volume, set on the target when it has no pin. A wrong pin
+// is how the ingest kept attaching Wonder Woman (1987) covers to a one-book
+// 1995 Abbeville "Wonder Woman" (2026-10-26), so moving covers alone would
+// not stick.
+const MOVE_PIN = process.argv.includes("--move-pin");
 
 if (!Number.isSafeInteger(VOLUME_ID) || !Number.isSafeInteger(SERIES_GCD_ID)) {
-  throw new Error("Usage: node scripts/repairCanonicalCoverVolumeLinks.js --volume-id=<id> --series-gcd-id=<id> [--apply --confirm=<rows>]");
+  throw new Error("Usage: node scripts/repairCanonicalCoverVolumeLinks.js --volume-id=<id> --series-gcd-id=<id> [--move-pin] [--apply --confirm=<rows>]");
 }
 
 const supabase = createClient(
@@ -44,8 +51,12 @@ async function run() {
   if (coversError) throw coversError;
   if (!covers?.length) throw new Error(`No covers found for ComicVine volume ${VOLUME_ID}`);
 
+  // Same normalization the catalog linker uses, so "The Amazing Spider-Man"
+  // (ComicVine) matches GCD "Amazing Spider-Man" and "X-Men: Red" matches
+  // "X-Men Red". An exact comparison refused most real relinks (2026-10-26).
+  const targetKey = toTitleNormalizedKey(series.name);
   const titleMismatches = covers.filter(
-    (cover) => String(cover.series_title).trim().toLowerCase() !== String(series.name).trim().toLowerCase()
+    (cover) => !titleVariants(cover.series_title).includes(targetKey)
   );
   if (titleMismatches.length > 0) {
     throw new Error(`${titleMismatches.length} cover titles do not match target GCD series ${series.name}`);
@@ -87,6 +98,36 @@ async function run() {
     );
   }
 
+  let pinPlan = { clear: [], set: null };
+  if (MOVE_PIN) {
+    const { data: pinned, error: pinnedError } = await supabase
+      .from("series")
+      .select("id, gcd_id, title, comicvine_volume_id")
+      .or(`comicvine_volume_id.eq.${VOLUME_ID},gcd_id.eq.${SERIES_GCD_ID}`);
+    if (pinnedError) throw pinnedError;
+    const target = pinned.find((row) => Number(row.gcd_id) === SERIES_GCD_ID);
+    // A target pinned to another volume keeps that pin only if some of that
+    // volume's covers are on the target. Wonder Woman (1987) was pinned to the
+    // 1942 volume, whose covers all sit on the 1942 series.
+    let replace = false;
+    const oldPin = target?.comicvine_volume_id == null ? null : Number(target.comicvine_volume_id);
+    if (oldPin != null && oldPin !== VOLUME_ID) {
+      const { count, error } = await supabase.from("canonical_covers")
+        .select("id", { count: "exact", head: true })
+        .eq("comicvine_volume_id", oldPin).eq("series_gcd_id", SERIES_GCD_ID);
+      if (error) throw error;
+      replace = count === 0;
+      console.log(`  pin: target pinned to ${oldPin} with ${count} of its covers; ${replace ? "replacing" : "leaving it"}`);
+    }
+    pinPlan = {
+      clear: pinned.filter((row) => Number(row.gcd_id) !== SERIES_GCD_ID && Number(row.comicvine_volume_id) === VOLUME_ID),
+      set: target && (oldPin == null || replace) ? target : null,
+      from: oldPin,
+    };
+    for (const row of pinPlan.clear) console.log(`  pin: clear ${VOLUME_ID} from series ${row.gcd_id} "${row.title}"`);
+    if (pinPlan.set) console.log(`  pin: set ${VOLUME_ID} on series ${SERIES_GCD_ID}`);
+  }
+
   if (!APPLY) {
     console.log("Dry run complete; no rows changed.");
     return;
@@ -106,6 +147,19 @@ async function run() {
     applied += 1;
   }
   console.log(`Apply complete: ${applied} rows updated; ${stats.unchanged} already correct.`);
+
+  for (const row of pinPlan.clear) {
+    const { error } = await supabase.from("series").update({ comicvine_volume_id: null })
+      .eq("id", row.id).eq("comicvine_volume_id", VOLUME_ID);
+    if (error) throw new Error(`series ${row.gcd_id} pin clear failed: ${error.message}`);
+  }
+  if (pinPlan.set) {
+    let update = supabase.from("series").update({ comicvine_volume_id: VOLUME_ID }).eq("id", pinPlan.set.id);
+    update = pinPlan.from == null ? update.is("comicvine_volume_id", null) : update.eq("comicvine_volume_id", pinPlan.from);
+    const { error } = await update;
+    if (error) throw new Error(`series ${SERIES_GCD_ID} pin set failed: ${error.message}`);
+  }
+  if (MOVE_PIN) console.log(`Pins: cleared ${pinPlan.clear.length}, set ${pinPlan.set ? 1 : 0}.`);
 }
 
 run().catch((error) => {

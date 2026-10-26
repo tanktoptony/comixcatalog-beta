@@ -43,9 +43,7 @@ SAY = [
     ("S.H.I.E.L.D.", "Shield"),
     ("Ribić", "Ribich"),
     ("Mignola", "Minyola"),
-    ("A. Standard.", "Ay. Standard."),
-    ("The card only rates A.", "The card only rates Ay."),
-    ("That's A. Now B.", "That's Ay. Now B."),
+    ("That's A. Now B.", "That's Ay. Now B."),  # "Ay" reads right here; a bare "A." read as "I" in 02 only when spelled "Ay"
 ]
 # Spoken token sequences -> caption text.
 DISPLAY = [

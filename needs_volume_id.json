@@ -15270,13 +15270,14 @@
   },
   {
     "name": "Savage Dragon vs. Savage Megaton Man",
-    "publisher": "Malibu Comics",
+    "publisher": "Image Comics",
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T14:09:01.315581+00:00",
-    "retry_after": "2026-10-26T14:09:01.315600+00:00"
+    "last_attempt_at": "2026-10-26T11:09:14.097019+00:00",
+    "retry_after": "2026-10-27T11:09:14.097023+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Daredevil by Smith, Quesada & Palmiotti",
@@ -27526,8 +27527,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T10:00:57.575966+00:00",
-    "retry_after": "2026-10-27T10:00:57.575971+00:00",
+    "last_attempt_at": "2026-10-26T11:01:19.574916+00:00",
+    "retry_after": "2026-10-27T11:01:19.574920+00:00",
     "search_hydrated": true
   },
   {
@@ -43547,8 +43548,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T10:00:57.575900+00:00",
-    "retry_after": "2026-10-27T10:00:57.575919+00:00",
+    "last_attempt_at": "2026-10-26T11:01:19.574861+00:00",
+    "retry_after": "2026-10-27T11:01:19.574877+00:00",
     "search_hydrated": true
   },
   {
@@ -68108,47 +68109,6 @@
     "retry_after": "2026-10-26T20:23:58.856979+00:00"
   },
   {
-    "name": "Nexus",
-    "publisher": "First Comics",
-    "year": 2003,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 3563,
-        "name": "Nexus",
-        "publisher": null,
-        "start_year": 1983
-      },
-      {
-        "id": 3097,
-        "name": "Nexus",
-        "publisher": null,
-        "start_year": 1981
-      },
-      {
-        "id": 48046,
-        "name": "Nexus",
-        "publisher": null,
-        "start_year": 1993
-      },
-      {
-        "id": 89727,
-        "name": "Nexus",
-        "publisher": null,
-        "start_year": 2001
-      },
-      {
-        "id": 159286,
-        "name": "Nexus",
-        "publisher": null,
-        "start_year": 1995
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T20:23:59.290068+00:00",
-    "retry_after": "2026-10-26T20:23:59.290084+00:00"
-  },
-  {
     "name": "Predator: Invaders from the Fourth Dimension",
     "publisher": "Dark Horse Comics",
     "year": 1994,
@@ -68169,75 +68129,6 @@
     "retry_after": "2026-10-26T20:24:00.006630+00:00"
   },
   {
-    "name": "The Goon: Rough Stuff",
-    "publisher": "Dark Horse Comics",
-    "year": 2010,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 49146,
-        "name": "The Goon: Rough Stuff",
-        "publisher": null,
-        "start_year": 2002
-      },
-      {
-        "id": 38990,
-        "name": "The Goon: Rough Stuff",
-        "publisher": null,
-        "start_year": 2004
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T20:24:01.293732+00:00",
-    "retry_after": "2026-10-26T20:24:01.293748+00:00"
-  },
-  {
-    "name": "The Courier: From the Ashes",
-    "publisher": "Zenescope Entertainment",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 100566,
-        "name": "The Courier: From the Ashes",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 106962,
-        "name": "The Courier: From the Ashes",
-        "publisher": null,
-        "start_year": 2017
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T20:24:01.844368+00:00",
-    "retry_after": "2026-10-26T20:24:01.844383+00:00"
-  },
-  {
-    "name": "Swordquest",
-    "publisher": "Dynamite Entertainment",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18647,
-        "name": "Swordquest",
-        "publisher": null,
-        "start_year": 1982
-      },
-      {
-        "id": 101219,
-        "name": "Swordquest",
-        "publisher": null,
-        "start_year": 2017
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T20:24:02.348823+00:00",
-    "retry_after": "2026-10-26T20:24:02.348839+00:00"
-  },
-  {
     "name": "Dark Knights of Steel II Special: Heir to the Sea",
     "publisher": "DC Comics",
     "year": 2026,
@@ -68246,29 +68137,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T21:23:49.060714+00:00",
     "retry_after": "2026-10-26T21:23:49.060736+00:00"
-  },
-  {
-    "name": "Crosswind",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 108936,
-        "name": "Crosswind",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 102247,
-        "name": "Crosswind",
-        "publisher": null,
-        "start_year": 2017
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T21:23:49.470006+00:00",
-    "retry_after": "2026-10-26T21:23:49.470022+00:00"
   },
   {
     "name": "Elseworlds: Superman Omnibus",
@@ -73104,23 +72972,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Robotech: Final Fire",
-    "publisher": "Antarctic Press",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62239,
-        "name": "Robotech: Final Fire",
-        "publisher": null,
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:38.643100+00:00",
-    "retry_after": "2026-10-25T15:23:38.643114+00:00"
-  },
-  {
     "name": "Women on Top",
     "publisher": "Fantagraphics",
     "year": 1991,
@@ -73129,30 +72980,14 @@
       {
         "id": 37401,
         "name": "Women on Top",
-        "publisher": null,
+        "publisher": "Eros Comix",
         "start_year": 1991
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:39.063243+00:00",
-    "retry_after": "2026-10-25T15:23:39.063262+00:00"
-  },
-  {
-    "name": "Gideon Falls Director's Cut",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 113705,
-        "name": "Gideon Falls: Director's Cut",
-        "publisher": null,
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:39.495427+00:00",
-    "retry_after": "2026-10-25T15:23:39.495443+00:00"
+    "last_attempt_at": "2026-10-26T11:09:14.096907+00:00",
+    "retry_after": "2026-10-27T11:09:14.096926+00:00",
+    "search_hydrated": true
   },
   {
     "name": "M.A.S.K.: Mobile Armored Strike Kommand: Revolution",
@@ -82025,6 +81860,107 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T10:04:57.765139+00:00",
     "retry_after": "2026-10-27T10:04:57.765153+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: White Knight Presents: Harley Quinn and Generation Joker - The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T11:06:13.226395+00:00",
+    "retry_after": "2026-10-27T11:06:13.226414+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Battle Pope: The Immaculate Collection",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T11:06:13.226459+00:00",
+    "retry_after": "2026-10-27T11:06:13.226463+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Beta Ray Bill by Daniel Warren Johnson: Argent Star",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T11:06:13.226494+00:00",
+    "retry_after": "2026-10-27T11:06:13.226496+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Bitter Root: The Next Movement Ashcan",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T11:06:13.226550+00:00",
+    "retry_after": "2026-10-27T11:06:13.226553+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Black Heart Billy",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48498,
+        "name": "Black Heart Billy",
+        "publisher": "SLG Publishing",
+        "start_year": 2000
+      },
+      {
+        "id": 50230,
+        "name": "Black Heart Billy",
+        "publisher": "AiT/Planet Lar",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T11:06:13.226597+00:00",
+    "retry_after": "2026-10-27T11:06:13.226600+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Black Lightning: The Standard",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T11:07:17.926251+00:00",
+    "retry_after": "2026-10-27T11:07:17.926269+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Black Panther: Panther's Prey Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T11:07:17.926289+00:00",
+    "retry_after": "2026-10-27T11:07:17.926291+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cable: Love and Chome",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T11:08:29.439573+00:00",
+    "retry_after": "2026-10-27T11:08:29.439593+00:00",
     "search_hydrated": true
   }
 ]

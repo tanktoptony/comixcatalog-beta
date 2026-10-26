@@ -14,22 +14,11 @@
     "name": "Comic Shop News",
     "publisher": "ParaGraphics",
     "year": 1987,
-    "volume_id": null,
+    "volume_id": 37737,
     "series_gcd_id": 125746,
     "newest_release": "2026-09-30",
     "missing": [
       "2041"
-    ]
-  },
-  {
-    "name": "Sunder",
-    "publisher": "Mad Cave Studios",
-    "year": 2026,
-    "volume_id": null,
-    "series_gcd_id": 240897,
-    "newest_release": "2026-09-30",
-    "missing": [
-      "1"
     ]
   },
   {
@@ -55,25 +44,69 @@
     ]
   },
   {
-    "name": "X-Men United",
-    "publisher": "Marvel",
-    "year": 2026,
-    "volume_id": 170960,
+    "name": "Action Comics",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "volume_id": 91078,
     "series_gcd_id": null,
     "newest_release": "2026-10-21",
     "missing": [
-      "8"
+      "1103"
     ]
   },
   {
-    "name": "X-Men: Outback",
-    "publisher": "Marvel",
-    "year": 2026,
-    "volume_id": 173293,
+    "name": "Amazing Spider-Man: Halloween Special",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "volume_id": 177664,
     "series_gcd_id": null,
     "newest_release": "2026-10-21",
     "missing": [
-      "5"
+      "1"
+    ]
+  },
+  {
+    "name": "Detective Comics",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "volume_id": 91098,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-21",
+    "missing": [
+      "1114"
+    ]
+  },
+  {
+    "name": "Iron Man: Racing Towards Doom",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "volume_id": 177672,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-21",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Punisher Showdowns: Black Widow",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "volume_id": 177676,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-21",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Thundercats",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 177682,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-21",
+    "missing": [
+      "1"
     ]
   },
   {
@@ -168,7 +201,7 @@
     "name": "Kill Blue",
     "publisher": "VIZ Media",
     "year": 2025,
-    "volume_id": null,
+    "volume_id": 159781,
     "series_gcd_id": 224619,
     "newest_release": "2026-10-00",
     "missing": [
@@ -190,7 +223,7 @@
     "name": "MF Ghost",
     "publisher": "Kodansha USA",
     "year": 2026,
-    "volume_id": null,
+    "volume_id": 141132,
     "series_gcd_id": 238926,
     "newest_release": "2026-10-00",
     "missing": [
@@ -201,7 +234,7 @@
     "name": "Peach Boy Riverside",
     "publisher": "Kodansha USA",
     "year": 2021,
-    "volume_id": null,
+    "volume_id": 131815,
     "series_gcd_id": 173579,
     "newest_release": "2026-10-00",
     "missing": [
@@ -234,7 +267,7 @@
     "name": "The Magnificent Bastard: The Legend of Keiji",
     "publisher": "Kodansha USA",
     "year": 2025,
-    "volume_id": null,
+    "volume_id": 169293,
     "series_gcd_id": 230723,
     "newest_release": "2026-10-00",
     "missing": [

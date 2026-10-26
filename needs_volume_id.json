@@ -15270,13 +15270,13 @@
   },
   {
     "name": "Savage Dragon vs. Savage Megaton Man",
-    "publisher": "Image Comics",
+    "publisher": "Malibu Comics",
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T15:06:19.720858+00:00",
-    "retry_after": "2026-10-27T15:06:19.720875+00:00",
+    "last_attempt_at": "2026-10-26T16:04:29.200374+00:00",
+    "retry_after": "2026-10-27T16:04:29.200376+00:00",
     "search_hydrated": true
   },
   {
@@ -27511,26 +27511,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
       {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T15:01:56.801577+00:00",
-    "retry_after": "2026-10-27T15:01:56.801579+00:00",
+    "last_attempt_at": "2026-10-26T16:03:12.312538+00:00",
+    "retry_after": "2026-10-27T16:03:12.312557+00:00",
     "search_hydrated": true
   },
   {
@@ -43551,8 +43551,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T15:01:56.801481+00:00",
-    "retry_after": "2026-10-27T15:01:56.801497+00:00",
+    "last_attempt_at": "2026-10-26T16:04:29.200333+00:00",
+    "retry_after": "2026-10-27T16:04:29.200351+00:00",
     "search_hydrated": true
   },
   {
@@ -44116,9 +44116,10 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T01:00:47.226010+00:00",
-    "retry_after": "2026-10-22T01:00:47.226025+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T16:04:13.341074+00:00",
+    "retry_after": "2026-10-27T16:04:13.341093+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Dementia's Dirty Girls",
@@ -64516,9 +64517,9 @@
         "start_year": 1980
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T15:37:43.766100+00:00",
-    "retry_after": "2026-10-26T15:37:43.766116+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T16:01:04.325422+00:00",
+    "retry_after": "2026-10-29T16:01:04.325439+00:00",
     "search_hydrated": true
   },
   {
@@ -71408,9 +71409,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T15:38:54.339053+00:00",
-    "retry_after": "2026-10-26T15:38:54.339069+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T16:01:04.325478+00:00",
+    "retry_after": "2026-10-29T16:01:04.325481+00:00",
     "search_hydrated": true
   },
   {
@@ -76280,6 +76281,125 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T15:05:05.286522+00:00",
     "retry_after": "2026-10-27T15:05:05.286524+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T16:03:12.312597+00:00",
+    "retry_after": "2026-10-27T16:03:12.312599+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Free Marvel Must-Haves: August 2024",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T16:15:08.703716+00:00",
+    "retry_after": "2026-10-27T16:15:08.703728+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Chiquilladas",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68422,
+        "name": "Chiquilladas",
+        "publisher": "Editorial Novaro",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T16:15:48.050798+00:00",
+    "retry_after": "2026-10-27T16:15:48.050811+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tarzán",
+    "publisher": "Marvel Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 145785,
+        "name": "Tarzán",
+        "publisher": "Epucol",
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T16:15:48.050839+00:00",
+    "retry_after": "2026-10-27T16:15:48.050842+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Basserne",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130307,
+        "name": "Basserne",
+        "publisher": "Egmont Publishing A/S",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T16:15:48.050859+00:00",
+    "retry_after": "2026-10-27T16:15:48.050861+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "La Pequeña Lulú",
+    "publisher": "Harvey Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141790,
+        "name": "La Pequeña Lulú",
+        "publisher": "Epucol",
+        "start_year": 1971
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T16:15:48.050880+00:00",
+    "retry_after": "2026-10-27T16:15:48.050882+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joyas de la Mitología",
+    "publisher": "Harvey Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44319,
+        "name": "Joyas de la Mitología",
+        "publisher": "Editorial Novaro",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T16:15:48.050893+00:00",
+    "retry_after": "2026-10-27T16:15:48.050895+00:00",
     "search_hydrated": true
   }
 ]

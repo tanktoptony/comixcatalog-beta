@@ -55,6 +55,19 @@ test("Nova volumes resolve #4 independently", () => {
   assert.equal(result.get(2).storage_path, "nova-13.jpg");
 });
 
+test("date-numbered issues take only their own linked cover", () => {
+  // GCD numbers The Spirit sections by date; ComicVine numbers them 1-631.
+  // "7/5/1942" read as issue 7 picked ComicVine #7 (1940-07-14) by number.
+  const issues = [
+    issue({ gcd_issue_id: 1, series_gcd_id: 10295, issue_number: "7/14/1940", year: 1940, series_year_start: 1940, series_year_end: 1952 }),
+    issue({ gcd_issue_id: 2, series_gcd_id: 10295, issue_number: "7/5/1942", year: 1942, series_year_start: 1940, series_year_end: 1952 }),
+  ];
+  const rows = [cover({ gcd_issue_id: 1, series_gcd_id: 10295, issue_number: "7", series_year: 1940, storage_path: "spirit-7.jpg" })];
+  const result = pickCovers(issues, rows);
+  assert.equal(result.get(1).storage_path, "spirit-7.jpg");
+  assert.equal(result.has(2), false);
+});
+
 test("Robin 1993 rejects an untagged 2022 cover", () => {
   const result = pickCovers([
     issue({ series_gcd_id: 93, series_title: "Robin", year: 1993, series_year_start: 1993, series_year_end: 1993 }),

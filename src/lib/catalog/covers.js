@@ -145,6 +145,8 @@ export function pickUniqueSiblingCover(issue, rows, seriesFormats) {
   return unique.length === 1 ? result(unique[0], 4, "sibling") : null;
 }
 
+const DATE_ISSUE_NUMBER = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+
 export function pickCovers(issues, candidateRows, seriesFormats) {
   const rows = (candidateRows ?? []).filter((row) => row?.storage_path);
   const resolved = new Map();
@@ -153,7 +155,13 @@ export function pickCovers(issues, candidateRows, seriesFormats) {
     .map((row) => String(row.series_gcd_id)));
 
   for (const issue of issues ?? []) {
-    const key = baseIssueNumber(issue.issue_number);
+    // GCD numbers some runs by date ("7/5/1942", The Spirit's weekly
+    // sections). Read as issue 7, the number tiers below picked ComicVine #7
+    // from 1940 (2026-10-26), so a date-numbered issue takes only a cover
+    // linked to it.
+    const key = DATE_ISSUE_NUMBER.test(String(issue.issue_number ?? "").trim())
+      ? null
+      : baseIssueNumber(issue.issue_number);
 
     // The year check applies here too. Some gcd_issue_id links in the table
     // come from mis-pinned volumes (parity run 2026-10-06: Transformers

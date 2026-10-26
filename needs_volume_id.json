@@ -25771,132 +25771,43 @@
     "name": "Spider-Man",
     "publisher": "Marvel Comics",
     "year": null,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
         "id": 4421,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 1990
-      },
-      {
-        "id": 43261,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 43265,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 43264,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 130590,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1990
-      },
-      {
-        "id": 78587,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1999
       },
       {
         "id": 87820,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2016
-      },
-      {
-        "id": 132425,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 133121,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 47656,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1984
-      },
-      {
-        "id": 47670,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1982
-      },
-      {
-        "id": 52487,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1999
       },
       {
         "id": 121420,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2019
       },
       {
         "id": 34457,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 1987
-      },
-      {
-        "id": 48892,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 168371,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 43260,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 87487,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 83666,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2015
       },
       {
         "id": 145364,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2022
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T14:09:05.100295+00:00",
-    "retry_after": "2026-11-24T14:09:05.100312+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:01:53.055189+00:00",
+    "retry_after": "2026-10-27T05:01:53.055209+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Spider-Man",
@@ -27607,8 +27518,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T04:01:13.391518+00:00",
-    "retry_after": "2026-10-27T04:01:13.391536+00:00",
+    "last_attempt_at": "2026-10-26T05:01:22.375050+00:00",
+    "retry_after": "2026-10-27T05:01:22.375066+00:00",
     "search_hydrated": true
   },
   {
@@ -43624,8 +43535,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T04:01:13.287199+00:00",
-    "retry_after": "2026-10-27T04:01:13.287216+00:00",
+    "last_attempt_at": "2026-10-26T05:01:22.280335+00:00",
+    "retry_after": "2026-10-27T05:01:22.280353+00:00",
     "search_hydrated": true
   },
   {
@@ -64706,35 +64617,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Muppet Babies",
-    "publisher": "Marvel Comics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 3494,
-        "name": "Muppet Babies",
-        "publisher": null,
-        "start_year": 1985
-      },
-      {
-        "id": 127497,
-        "name": "Muppet Babies",
-        "publisher": null,
-        "start_year": 1986
-      },
-      {
-        "id": 45841,
-        "name": "Muppet Babies",
-        "publisher": null,
-        "start_year": 1993
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T07:05:28.439592+00:00",
-    "retry_after": "2026-10-26T07:05:28.439607+00:00"
-  },
-  {
     "name": "Barbie",
     "publisher": "Marvel Comics",
     "year": null,
@@ -68378,23 +68260,6 @@
     "retry_after": "2026-10-26T18:49:36.092560+00:00"
   },
   {
-    "name": "Disney Hercules",
-    "publisher": "Dynamite Entertainment",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 157639,
-        "name": "Disney Hercules",
-        "publisher": null,
-        "start_year": 2024
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:49:43.954972+00:00",
-    "retry_after": "2026-10-26T18:49:43.954986+00:00"
-  },
-  {
     "name": "Evil Ernie",
     "publisher": "Chaos! Comics",
     "year": 1993,
@@ -68544,41 +68409,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T19:23:53.320117+00:00",
     "retry_after": "2026-10-26T19:23:53.320131+00:00"
-  },
-  {
-    "name": "Southern Bastards",
-    "publisher": "Image Comics",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 73392,
-        "name": "Southern Bastards",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 84995,
-        "name": "Southern Bastards",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 150781,
-        "name": "Southern Bastards",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 110391,
-        "name": "Southern Bastards",
-        "publisher": null,
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T19:23:49.769689+00:00",
-    "retry_after": "2026-10-26T19:23:49.769706+00:00"
   },
   {
     "name": "Supercrooks",
@@ -70295,23 +70125,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T02:23:58.362552+00:00",
     "retry_after": "2026-10-27T02:23:58.362569+00:00"
-  },
-  {
-    "name": "Marvel Masterworks: The Human Torch",
-    "publisher": "Marvel Comics",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 35209,
-        "name": "Marvel Masterworks: The Human Torch",
-        "publisher": null,
-        "start_year": 2006
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T03:23:39.821044+00:00",
-    "retry_after": "2026-10-27T03:23:39.821060+00:00"
   },
   {
     "name": "Action Lab Dog of Wonder",
@@ -74354,23 +74167,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Hundred Penny Press: Angel: After the Fall",
-    "publisher": "IDW Publishing",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 54358,
-        "name": "Hundred Penny Press: Angel After the Fall",
-        "publisher": null,
-        "start_year": 2011
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:03.766328+00:00",
-    "retry_after": "2026-10-25T14:48:03.766342+00:00"
-  },
-  {
     "name": "Black Panther / Namor: Doomed",
     "publisher": "Marvel Comics",
     "year": 2026,
@@ -76113,30 +75909,14 @@
       {
         "id": 156763,
         "name": "Joe Palooka Presents the Funsational Humphrey",
-        "publisher": null,
+        "publisher": "Magazine Management",
         "start_year": 1952
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:24:02.318385+00:00",
-    "retry_after": "2026-10-25T17:24:02.318402+00:00"
-  },
-  {
-    "name": "The Many Loves of Dobie Gillis",
-    "publisher": "DC Comics",
-    "year": 1960,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 2015,
-        "name": "Many Loves of Dobie Gillis",
-        "publisher": null,
-        "start_year": 1960
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:24:02.750786+00:00",
-    "retry_after": "2026-10-25T17:24:02.750802+00:00"
+    "last_attempt_at": "2026-10-26T05:04:09.523770+00:00",
+    "retry_after": "2026-10-27T05:04:09.523818+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Spindelmannen",
@@ -76147,13 +75927,14 @@
       {
         "id": 7133,
         "name": "Spindelmannen",
-        "publisher": null,
+        "publisher": "Egmont Comics",
         "start_year": 1974
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:24:03.120475+00:00",
-    "retry_after": "2026-10-25T17:24:03.120493+00:00"
+    "last_attempt_at": "2026-10-26T05:04:14.610471+00:00",
+    "retry_after": "2026-10-27T05:04:14.610488+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Liga da Justiça e Batman",
@@ -79295,65 +79076,6 @@
     "retry_after": "2026-10-26T09:17:19.354445+00:00"
   },
   {
-    "name": "New Warriors",
-    "publisher": "Marvel Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 59121,
-        "name": "New Warriors",
-        "publisher": null,
-        "start_year": 1991
-      },
-      {
-        "id": 71802,
-        "name": "New Warriors",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 57840,
-        "name": "New Warriors",
-        "publisher": null,
-        "start_year": 1995
-      },
-      {
-        "id": 18671,
-        "name": "New Warriors",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 58263,
-        "name": "New Warriors",
-        "publisher": null,
-        "start_year": 1996
-      },
-      {
-        "id": 4407,
-        "name": "The New Warriors",
-        "publisher": null,
-        "start_year": 1990
-      },
-      {
-        "id": 6787,
-        "name": "The New Warriors",
-        "publisher": null,
-        "start_year": 1999
-      },
-      {
-        "id": 18016,
-        "name": "New Warriors",
-        "publisher": null,
-        "start_year": 2005
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T10:17:24.587642+00:00",
-    "retry_after": "2026-10-26T10:17:24.587660+00:00"
-  },
-  {
     "name": "All-Star Batman",
     "publisher": "DC Comics",
     "year": 2017,
@@ -79878,23 +79600,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T13:17:21.834833+00:00",
     "retry_after": "2026-10-26T13:17:21.834850+00:00"
-  },
-  {
-    "name": "Millie the Model",
-    "publisher": "Marvel Comics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19441,
-        "name": "Millie the Model",
-        "publisher": null,
-        "start_year": 1945
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T14:09:05.025618+00:00",
-    "retry_after": "2026-10-26T14:09:05.025640+00:00"
   },
   {
     "name": "A Star Called the Sun",
@@ -82941,6 +82646,190 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T04:05:34.561494+00:00",
     "retry_after": "2026-10-27T04:05:34.561510+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Supergirl's Zoo-per Heroes: Krypto's Big Break",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:02.114909+00:00",
+    "retry_after": "2026-10-27T05:03:02.114933+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: Action Comics",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 118148,
+        "name": "Superman: Action Comics",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 50973,
+        "name": "Superman - Action Comics",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 98909,
+        "name": "Superman: Action Comics",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 141886,
+        "name": "Superman: Action Comics",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      },
+      {
+        "id": 158003,
+        "name": "Superman: Action Comics",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:03.301917+00:00",
+    "retry_after": "2026-10-27T05:03:03.301932+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: Brainiac Reborn Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:03.719953+00:00",
+    "retry_after": "2026-10-27T05:03:03.719969+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: New Krypton Saga Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:10.289461+00:00",
+    "retry_after": "2026-10-27T05:03:10.289477+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Kryptonite Spectrum",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 166183,
+        "name": "Superman: The Kryptonite Spectrum",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:12.189822+00:00",
+    "retry_after": "2026-10-27T05:03:12.189839+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Man of Steel by John Byrne: Absolute Edition",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:12.575043+00:00",
+    "retry_after": "2026-10-27T05:03:12.575059+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Wedding Album – 30th Anniversary Special",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:12.951105+00:00",
+    "retry_after": "2026-10-27T05:03:12.951120+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teen Titans by Geoff Johns Compendium",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:22.030671+00:00",
+    "retry_after": "2026-10-27T05:03:22.030686+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teen Titans Go! On Strike!",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:26.967373+00:00",
+    "retry_after": "2026-10-27T05:03:26.967390+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teen Titans: Together",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 177626,
+        "name": "Teen Titans: Together",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:28.955384+00:00",
+    "retry_after": "2026-10-27T05:03:28.955400+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 163325,
+        "name": "The Amazing Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:29.484146+00:00",
+    "retry_after": "2026-10-27T05:03:29.484161+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Amazing Spider-Man by Steve Ditko Artist's Edition",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T05:03:29.934397+00:00",
+    "retry_after": "2026-10-27T05:03:29.934413+00:00",
     "search_hydrated": true
   }
 ]

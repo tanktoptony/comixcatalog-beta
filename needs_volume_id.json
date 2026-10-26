@@ -26033,263 +26033,133 @@
     "name": "Captain America",
     "publisher": "Marvel Comics",
     "year": null,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
         "id": 2400,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 1968
       },
       {
         "id": 11499,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2005
       },
       {
         "id": 6206,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 1998
       },
       {
         "id": 112027,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2018
       },
       {
         "id": 54110,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2013
-      },
-      {
-        "id": 66539,
-        "name": "Captain America",
-        "publisher": null,
-        "start_year": 2009
       },
       {
         "id": 41245,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2011
       },
       {
         "id": 5776,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 1996
-      },
-      {
-        "id": 138501,
-        "name": "Captain America",
-        "publisher": null,
-        "start_year": 2001
       },
       {
         "id": 142485,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2022
       },
       {
         "id": 151915,
         "name": "Captain America ",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2023
-      },
-      {
-        "id": 47367,
-        "name": "Captain America",
-        "publisher": null,
-        "start_year": 1981
-      },
-      {
-        "id": 41992,
-        "name": "Captain America",
-        "publisher": null,
-        "start_year": 1999
-      },
-      {
-        "id": 41993,
-        "name": "Captain America",
-        "publisher": null,
-        "start_year": 2008
-      },
-      {
-        "id": 120107,
-        "name": "Captain America",
-        "publisher": null,
-        "start_year": 2019
       },
       {
         "id": 9088,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2002
       },
       {
         "id": 153610,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2023
       },
       {
         "id": 165232,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2025
       },
       {
         "id": 103427,
         "name": "Captain America",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2017
-      },
-      {
-        "id": 61231,
-        "name": "Captain America",
-        "publisher": null,
-        "start_year": 2012
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T14:09:03.968625+00:00",
-    "retry_after": "2026-11-24T14:09:03.968645+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:25:33.008708+00:00",
+    "retry_after": "2026-10-27T03:25:33.008723+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Spider-Man",
     "publisher": "Marvel Comics",
     "year": 2006,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
         "id": 4421,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 1990
-      },
-      {
-        "id": 43261,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 43265,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 43264,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 130590,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1990
-      },
-      {
-        "id": 78587,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1999
       },
       {
         "id": 87820,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2016
-      },
-      {
-        "id": 132425,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 133121,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 47656,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1984
-      },
-      {
-        "id": 47670,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1982
-      },
-      {
-        "id": 52487,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1999
       },
       {
         "id": 121420,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2019
       },
       {
         "id": 34457,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 1987
-      },
-      {
-        "id": 48892,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 168371,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 43260,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 87487,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 83666,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2015
       },
       {
         "id": 145364,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2022
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T14:09:03.542736+00:00",
-    "retry_after": "2026-11-24T14:09:03.542753+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:25:26.036804+00:00",
+    "retry_after": "2026-10-27T03:25:26.036820+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Spider-Man Comic",
@@ -27826,8 +27696,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:01:10.853223+00:00",
-    "retry_after": "2026-10-27T03:01:10.853243+00:00",
+    "last_attempt_at": "2026-10-26T03:25:24.725695+00:00",
+    "retry_after": "2026-10-27T03:25:24.725711+00:00",
     "search_hydrated": true
   },
   {
@@ -43843,8 +43713,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:01:10.407428+00:00",
-    "retry_after": "2026-10-27T03:01:10.407446+00:00",
+    "last_attempt_at": "2026-10-26T03:25:24.592336+00:00",
+    "retry_after": "2026-10-27T03:25:24.592351+00:00",
     "search_hydrated": true
   },
   {
@@ -68597,23 +68467,6 @@
     "retry_after": "2026-10-26T18:49:36.092560+00:00"
   },
   {
-    "name": "Starseeds",
-    "publisher": "Fantagraphics",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 98915,
-        "name": "Starseeds",
-        "publisher": null,
-        "start_year": 2017
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:49:42.044914+00:00",
-    "retry_after": "2026-10-26T18:49:42.044930+00:00"
-  },
-  {
     "name": "Disney Hercules",
     "publisher": "Dynamite Entertainment",
     "year": 2026,
@@ -71007,112 +70860,6 @@
     "retry_after": "2026-10-27T05:48:16.955919+00:00"
   },
   {
-    "name": "Angel",
-    "publisher": "IDW Publishing",
-    "year": 2009,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19692,
-        "name": "Angel",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 86605,
-        "name": "Angel",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 6695,
-        "name": "Angel",
-        "publisher": null,
-        "start_year": 1999
-      },
-      {
-        "id": 118417,
-        "name": "Angel",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 36748,
-        "name": "Angel",
-        "publisher": null,
-        "start_year": 2001
-      },
-      {
-        "id": 130441,
-        "name": "Angel",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 144704,
-        "name": "Angel",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 11568,
-        "name": "Angel",
-        "publisher": null,
-        "start_year": 1954
-      },
-      {
-        "id": 141562,
-        "name": "Angel ",
-        "publisher": null,
-        "start_year": 2022
-      },
-      {
-        "id": 140575,
-        "name": "Angel",
-        "publisher": null,
-        "start_year": 2008
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T04:23:54.331106+00:00",
-    "retry_after": "2026-10-27T04:23:54.331123+00:00"
-  },
-  {
-    "name": "The Incredible Hulks",
-    "publisher": "Marvel Comics",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 48512,
-        "name": "The Incredible Hulks",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 73395,
-        "name": "The Incredible Hulks",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 35303,
-        "name": "Incredible Hulks",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 94887,
-        "name": "The Incredible Hulks",
-        "publisher": null,
-        "start_year": 2016
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T04:23:54.675812+00:00",
-    "retry_after": "2026-10-27T04:23:54.675831+00:00"
-  },
-  {
     "name": "Batman: A Espada de Azrael",
     "publisher": "Avatar Press",
     "year": 1993,
@@ -71873,29 +71620,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T07:23:58.419603+00:00",
     "retry_after": "2026-10-27T07:23:58.419614+00:00"
-  },
-  {
-    "name": "Cobra Commander",
-    "publisher": "Image Comics",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 156197,
-        "name": "Cobra Commander",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 159018,
-        "name": "Cobra Commander",
-        "publisher": null,
-        "start_year": 2024
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T08:23:47.588583+00:00",
-    "retry_after": "2026-10-27T08:23:47.588612+00:00"
   },
   {
     "name": "Cat",
@@ -74047,58 +73771,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Debbie Does Dallas",
-    "publisher": "Malibu Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24030,
-        "name": "Debbie Does Dallas",
-        "publisher": null,
-        "start_year": 1991
-      },
-      {
-        "id": 27235,
-        "name": "Debbie Does Dallas",
-        "publisher": null,
-        "start_year": 2008
-      },
-      {
-        "id": 73634,
-        "name": "Debbie Does Dallas",
-        "publisher": null,
-        "start_year": 1991
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T20:48:18.961874+00:00",
-    "retry_after": "2026-10-27T20:48:18.961888+00:00"
-  },
-  {
-    "name": "Star Wars: Revelations",
-    "publisher": "Marvel Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 155511,
-        "name": "Star Wars: Revelations",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 146386,
-        "name": "Star Wars: Revelations",
-        "publisher": null,
-        "start_year": 2023
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T20:48:18.667372+00:00",
-    "retry_after": "2026-10-27T20:48:18.667382+00:00"
-  },
-  {
     "name": "Micronauts",
     "publisher": "Marvel Comics",
     "year": 1984,
@@ -74769,23 +74441,6 @@
     "last_attempt_at": "2026-10-25T18:17:43.554072+00:00",
     "retry_after": "2026-10-26T18:17:43.554089+00:00",
     "search_hydrated": true
-  },
-  {
-    "name": "Marvelous Adventures of Gus Beezer: Gus Beezer & Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 27176,
-        "name": "Marvelous Adventures of Gus Beezer: Gus Beezer & Spider-Man",
-        "publisher": null,
-        "start_year": 2004
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:02.616112+00:00",
-    "retry_after": "2026-10-25T14:48:02.616123+00:00"
   },
   {
     "name": "Hundred Penny Press: Angel: After the Fall",
@@ -76529,13 +76184,14 @@
       {
         "id": 64345,
         "name": "Tom and Jerry Present the Two Mouseketeers",
-        "publisher": null,
+        "publisher": "Magazine Management",
         "start_year": null
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:24:01.943039+00:00",
-    "retry_after": "2026-10-25T17:24:01.943051+00:00"
+    "last_attempt_at": "2026-10-26T03:28:24.304674+00:00",
+    "retry_after": "2026-10-27T03:28:24.304694+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Joe Palooka Presents the Funsational Humphrey",
@@ -83183,6 +82839,191 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T03:03:37.529986+00:00",
     "retry_after": "2026-10-27T03:03:37.530004+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: The Other",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 21107,
+        "name": "Spider-Man: The Other",
+        "publisher": "Marvel",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:26:43.452463+00:00",
+    "retry_after": "2026-10-27T03:26:43.452480+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spirits of Violence",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 167330,
+        "name": "Spirits of Violence",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:26:49.448280+00:00",
+    "retry_after": "2026-10-27T03:26:49.448297+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars Legends: The Newspaper Strips Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:26:54.966634+00:00",
+    "retry_after": "2026-10-27T03:26:54.966652+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Boba Fett - Black, White & Red Treasury Edition",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:26:55.405047+00:00",
+    "retry_after": "2026-10-27T03:26:55.405063+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Dark Droids Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:26:55.947337+00:00",
+    "retry_after": "2026-10-27T03:26:55.947352+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Doctor Aphra - Chaos Agent",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 165088,
+        "name": "Star Wars: Doctor Aphra: Chaos Agent",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:26:56.822717+00:00",
+    "retry_after": "2026-10-27T03:26:56.822732+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Han Solo - Hunt for the Falcon",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 166652,
+        "name": "Star Wars: Han Solo - Hunt for the Falcon",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:26:57.951404+00:00",
+    "retry_after": "2026-10-27T03:26:57.951420+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Out of the Darkness",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 173011,
+        "name": "Star Wars: Out of the Darkness",
+        "publisher": "Marvel",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:27:03.801045+00:00",
+    "retry_after": "2026-10-27T03:27:03.801062+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Poe Dameron Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:27:04.314139+00:00",
+    "retry_after": "2026-10-27T03:27:04.314155+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Rogue One - Darth Vader",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:27:10.399458+00:00",
+    "retry_after": "2026-10-27T03:27:10.399474+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: The Mandalorian - Seasons One & Two",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:27:16.329439+00:00",
+    "retry_after": "2026-10-27T03:27:16.329455+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Visions",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 145515,
+        "name": "Star Wars: Visions",
+        "publisher": "Marvel",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:27:17.054688+00:00",
+    "retry_after": "2026-10-27T03:27:17.054704+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Starhenge",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T03:27:17.716294+00:00",
+    "retry_after": "2026-10-27T03:27:17.716310+00:00",
     "search_hydrated": true
   }
 ]

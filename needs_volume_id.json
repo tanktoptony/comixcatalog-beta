@@ -27526,8 +27526,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:46:09.632652+00:00",
-    "retry_after": "2026-10-27T09:46:09.632656+00:00",
+    "last_attempt_at": "2026-10-26T10:00:57.575966+00:00",
+    "retry_after": "2026-10-27T10:00:57.575971+00:00",
     "search_hydrated": true
   },
   {
@@ -35352,9 +35352,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-02T21:37:45.912541+00:00",
-    "retry_after": "2026-10-05T21:37:45.912566+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-26T10:04:37.092317+00:00",
+    "retry_after": "2026-11-02T10:04:37.092333+00:00",
+    "search_hydrated": true
   },
   {
     "name": "I Hate Mondays",
@@ -43546,8 +43547,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:46:09.632595+00:00",
-    "retry_after": "2026-10-27T09:46:09.632613+00:00",
+    "last_attempt_at": "2026-10-26T10:00:57.575900+00:00",
+    "retry_after": "2026-10-27T10:00:57.575919+00:00",
     "search_hydrated": true
   },
   {
@@ -60957,23 +60958,6 @@
     "retry_after": "2026-10-22T22:32:38.904407+00:00"
   },
   {
-    "name": "Crowbound",
-    "publisher": "Image Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 176683,
-        "name": "Crowbound",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T22:32:39.010515+00:00",
-    "retry_after": "2026-10-22T22:32:39.010530+00:00"
-  },
-  {
     "name": "Crimson",
     "publisher": "DC Comics",
     "year": 1999,
@@ -68064,29 +68048,6 @@
     "retry_after": "2026-10-26T19:24:00.427633+00:00"
   },
   {
-    "name": "Fairlady",
-    "publisher": "Image Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 118244,
-        "name": "Fairlady",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 121387,
-        "name": "Fairlady",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T20:23:55.807525+00:00",
-    "retry_after": "2026-10-26T20:23:55.807541+00:00"
-  },
-  {
     "name": "Spawnmobile Vehicle",
     "publisher": "Image Comics",
     "year": 1994,
@@ -68095,23 +68056,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T20:23:56.207510+00:00",
     "retry_after": "2026-10-26T20:23:56.207525+00:00"
-  },
-  {
-    "name": "Guardians 3000",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 77224,
-        "name": "Guardians 3000",
-        "publisher": null,
-        "start_year": 2014
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T20:23:56.789753+00:00",
-    "retry_after": "2026-10-26T20:23:56.789771+00:00"
   },
   {
     "name": "Action Time Buddies Free Comic Book Day Edition",
@@ -68124,74 +68068,34 @@
     "retry_after": "2026-10-26T20:23:57.244262+00:00"
   },
   {
-    "name": "Fantastic Panic",
-    "publisher": "Antarctic Press",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 65841,
-        "name": "Fantastic Panic",
-        "publisher": null,
-        "start_year": 1993
-      },
-      {
-        "id": 66419,
-        "name": "Fantastic Panic",
-        "publisher": null,
-        "start_year": 1995
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T20:23:58.068612+00:00",
-    "retry_after": "2026-10-26T20:23:58.068628+00:00"
-  },
-  {
     "name": "Fathom",
     "publisher": "Aspen Comics",
     "year": 2001,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
         "id": 18057,
         "name": "Fathom",
-        "publisher": null,
+        "publisher": "Aspen MLT",
         "start_year": 1998
       },
       {
         "id": 119140,
         "name": "Fathom",
-        "publisher": null,
+        "publisher": "Aspen MLT",
         "start_year": 2019
-      },
-      {
-        "id": 127354,
-        "name": "Fathom",
-        "publisher": null,
-        "start_year": 1999
       },
       {
         "id": 111667,
         "name": "Fathom",
-        "publisher": null,
+        "publisher": "Aspen MLT",
         "start_year": 2018
-      },
-      {
-        "id": 3904,
-        "name": "Fathom",
-        "publisher": null,
-        "start_year": 1987
-      },
-      {
-        "id": 4852,
-        "name": "Fathom",
-        "publisher": null,
-        "start_year": 1992
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T20:23:58.484433+00:00",
-    "retry_after": "2026-10-26T20:23:58.484478+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T10:05:26.309323+00:00",
+    "retry_after": "2026-10-27T10:05:26.309329+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Laflèche",
@@ -69001,71 +68905,6 @@
     "retry_after": "2026-10-27T00:49:13.455247+00:00"
   },
   {
-    "name": "Uncanny Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52880,
-        "name": "Uncanny Avengers",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 119941,
-        "name": "Uncanny Avengers",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 85318,
-        "name": "Uncanny Avengers",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 63315,
-        "name": "Uncanny Avengers",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 79736,
-        "name": "Uncanny Avengers",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 153018,
-        "name": "Uncanny Avengers",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 72503,
-        "name": "Uncanny Avengers",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 73264,
-        "name": "Uncanny Avengers",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 62905,
-        "name": "Uncanny Avengers",
-        "publisher": null,
-        "start_year": 2013
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T00:49:12.489794+00:00",
-    "retry_after": "2026-10-27T00:49:12.489816+00:00"
-  },
-  {
     "name": "Serving Supes",
     "publisher": "First Comics",
     "year": 2016,
@@ -69171,35 +69010,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T00:49:18.890362+00:00",
     "retry_after": "2026-10-27T00:49:18.890381+00:00"
-  },
-  {
-    "name": "The Sacrificers",
-    "publisher": "Image Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 152802,
-        "name": "The Sacrificers",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 158850,
-        "name": "The Sacrificers",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 161395,
-        "name": "The Sacrificers",
-        "publisher": null,
-        "start_year": 2024
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T00:49:24.110852+00:00",
-    "retry_after": "2026-10-27T00:49:24.110872+00:00"
   },
   {
     "name": "Wizard Ace Edition: Daredevil",
@@ -72763,65 +72573,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Teen Titans",
-    "publisher": "DC Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 10414,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2003
-      },
-      {
-        "id": 43004,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 95242,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 19986,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 1996
-      },
-      {
-        "id": 75697,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 43331,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 176699,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2026
-      },
-      {
-        "id": 2279,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 1966
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T11:23:29.831062+00:00",
-    "retry_after": "2026-10-28T11:23:29.831072+00:00"
-  },
-  {
     "name": "Supercrooks",
     "publisher": "Marvel Comics",
     "year": 2012,
@@ -73165,47 +72916,14 @@
       {
         "id": 36060,
         "name": "Tales From The Clit",
-        "publisher": null,
+        "publisher": "Eros Comix",
         "start_year": 2007
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:11.663827+00:00",
-    "retry_after": "2026-10-25T14:48:11.663834+00:00"
-  },
-  {
-    "name": "Entanglement",
-    "publisher": "AWA Studios",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 166446,
-        "name": "Entanglement",
-        "publisher": null,
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:12.018912+00:00",
-    "retry_after": "2026-10-25T14:48:12.018919+00:00"
-  },
-  {
-    "name": "Zombies!: Hunters",
-    "publisher": "IDW Publishing",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 43995,
-        "name": "Zombies! Hunters",
-        "publisher": null,
-        "start_year": 2008
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:12.423269+00:00",
-    "retry_after": "2026-10-25T14:48:12.423275+00:00"
+    "last_attempt_at": "2026-10-26T10:05:26.309079+00:00",
+    "retry_after": "2026-10-27T10:05:26.309095+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Gli Incredibili X-Men",
@@ -75684,30 +75402,14 @@
       {
         "id": 57055,
         "name": "Marvel Mix",
-        "publisher": null,
+        "publisher": "Panini Comics",
         "start_year": 1996
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T19:23:58.934756+00:00",
-    "retry_after": "2026-10-25T19:23:58.934770+00:00"
-  },
-  {
-    "name": "Eagle: The Making of An Asian-American President",
-    "publisher": "VIZ Media",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52598,
-        "name": "Eagle: The Making of an Asian-American President",
-        "publisher": null,
-        "start_year": 2000
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T19:23:59.265772+00:00",
-    "retry_after": "2026-10-25T19:23:59.265786+00:00"
+    "last_attempt_at": "2026-10-26T10:06:28.087229+00:00",
+    "retry_after": "2026-10-27T10:06:28.087244+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Dylan Dog Gigante",
@@ -75718,13 +75420,14 @@
       {
         "id": 41508,
         "name": "Dylan Dog Gigante",
-        "publisher": null,
+        "publisher": "Sergio Bonelli Editore",
         "start_year": 1993
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T19:23:59.892760+00:00",
-    "retry_after": "2026-10-25T19:23:59.892776+00:00"
+    "last_attempt_at": "2026-10-26T10:06:28.087296+00:00",
+    "retry_after": "2026-10-27T10:06:28.087300+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Wink",
@@ -76007,13 +75710,14 @@
       {
         "id": 44923,
         "name": "Fator-X",
-        "publisher": null,
+        "publisher": "Abril",
         "start_year": 1997
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T20:48:24.782748+00:00",
-    "retry_after": "2026-10-25T20:48:24.782761+00:00"
+    "last_attempt_at": "2026-10-26T10:06:28.087344+00:00",
+    "retry_after": "2026-10-27T10:06:28.087347+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Maschera Nera",
@@ -77941,29 +77645,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T11:23:30.447641+00:00",
     "retry_after": "2026-10-26T11:23:30.447649+00:00"
-  },
-  {
-    "name": "Courtney Crumrin & the Night Things",
-    "publisher": "Oni Press",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 39112,
-        "name": "Courtney Crumrin & the Night Things",
-        "publisher": null,
-        "start_year": 2002
-      },
-      {
-        "id": 47862,
-        "name": "Courtney Crumrin and the Night Things",
-        "publisher": null,
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T12:17:27.788496+00:00",
-    "retry_after": "2026-10-26T12:17:27.788512+00:00"
   },
   {
     "name": "The Last Witch",
@@ -82194,6 +81875,156 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T09:52:18.792623+00:00",
     "retry_after": "2026-10-27T09:52:18.792642+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman '66 Compendium",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T10:04:08.201449+00:00",
+    "retry_after": "2026-10-27T10:04:08.201464+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman '89",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 138183,
+        "name": "Batman '89",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      },
+      {
+        "id": 146553,
+        "name": "Batman '89",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T10:04:08.201523+00:00",
+    "retry_after": "2026-10-27T10:04:08.201528+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman / Catwoman",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 147054,
+        "name": "Batman/Catwoman",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      },
+      {
+        "id": 132336,
+        "name": "Batman/Catwoman",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T10:04:08.201585+00:00",
+    "retry_after": "2026-10-27T10:04:08.201588+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman & Robin: The Animated Adventures",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T10:04:08.201615+00:00",
+    "retry_after": "2026-10-27T10:04:08.201617+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman 159 Exclusive Launch Party Ashcan",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T10:04:08.201631+00:00",
+    "retry_after": "2026-10-27T10:04:08.201634+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman Black and White Compendium",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T10:04:08.201647+00:00",
+    "retry_after": "2026-10-27T10:04:08.201650+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Dark Age",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 157401,
+        "name": "Batman: Dark Age",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T10:04:17.943993+00:00",
+    "retry_after": "2026-10-27T10:04:17.944008+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Detective Comics by Mariko Tamaki Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T10:04:37.092357+00:00",
+    "retry_after": "2026-10-27T10:04:37.092360+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: War Games Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T10:04:37.092430+00:00",
+    "retry_after": "2026-10-27T10:04:37.092433+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Gotham by Gaslight - The Kryptonian Age",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 158462,
+        "name": "Batman: Gotham by Gaslight - The Kryptonian Age",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T10:04:57.765139+00:00",
+    "retry_after": "2026-10-27T10:04:57.765153+00:00",
     "search_hydrated": true
   }
 ]

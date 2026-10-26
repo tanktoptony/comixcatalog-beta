@@ -10,14 +10,14 @@
     "year": 1992
   },
   {
+    "name": "Absolute Batman",
+    "publisher": "DC Comics",
+    "year": 2024
+  },
+  {
     "name": "Silver Surfer",
     "publisher": "Marvel Comics",
     "year": 1987
-  },
-  {
-    "name": "Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 1990
   },
   {
     "name": "The Amazing Spider-Man",
@@ -25,14 +25,24 @@
     "year": 1963
   },
   {
+    "name": "Absolute Catwoman",
+    "publisher": "DC Comics",
+    "year": 2026
+  },
+  {
+    "name": "The Forever Home",
+    "publisher": "Oni Press",
+    "year": 2026
+  },
+  {
     "name": "Ultimate Invasion",
     "publisher": "Marvel Comics",
     "year": 2023
   },
   {
-    "name": "Flash",
+    "name": "Absolute Wonder Woman",
     "publisher": "DC Comics",
-    "year": 1987
+    "year": 2024
   },
   {
     "name": "The Spectacular Spider-Man",
@@ -40,9 +50,19 @@
     "year": 1976
   },
   {
+    "name": "The Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2025
+  },
+  {
     "name": "Doomquest",
     "publisher": "Marvel Comics",
     "year": 2026
+  },
+  {
+    "name": "The Ringo Kid",
+    "publisher": "Marvel Comics",
+    "year": 1970
   },
   {
     "name": "Cerebus",
@@ -50,14 +70,14 @@
     "year": 1986
   },
   {
+    "name": "Classics Illustrated Special Issue",
+    "publisher": "Gilberton",
+    "year": 1955
+  },
+  {
     "name": "G.I. Joe Comics Magazine",
     "publisher": "Marvel Comics",
     "year": 1986
-  },
-  {
-    "name": "Man-Thing",
-    "publisher": "Marvel Comics",
-    "year": 1979
   },
   {
     "name": "Teenage Mutant Ninja Turtles",
@@ -65,9 +85,9 @@
     "year": 1984
   },
   {
-    "name": "Forever People",
+    "name": "Swamp Thing",
     "publisher": "DC Comics",
-    "year": 1988
+    "year": 1985
   },
   {
     "name": "TUG & buster",
@@ -85,6 +105,11 @@
     "year": 1993
   },
   {
+    "name": "Spider-Man: Spider's Shadow",
+    "publisher": "Marvel Comics",
+    "year": 2021
+  },
+  {
     "name": "Superman",
     "publisher": "DC Comics",
     "year": 1987
@@ -95,11 +120,6 @@
     "year": 2004
   },
   {
-    "name": "Deadly Foes of Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 1991
-  },
-  {
     "name": "Action Comics",
     "publisher": "DC Comics",
     "year": 1938
@@ -108,6 +128,11 @@
     "name": "Adventures of Superman",
     "publisher": "DC Comics",
     "year": 1987
+  },
+  {
+    "name": "Fantastic Four: First Foes",
+    "publisher": "Marvel Comics",
+    "year": 2026
   },
   {
     "name": "Hot Stuff, the Little Devil",
@@ -130,14 +155,19 @@
     "year": 1991
   },
   {
-    "name": "The X-Men Annual",
+    "name": "Fantastic Four: First Foes - Dragon Man",
     "publisher": "Marvel Comics",
-    "year": 1992
+    "year": 2026
   },
   {
-    "name": "Gunslinger",
-    "publisher": "Image Comics",
-    "year": 2021
+    "name": "Fantastic Four: First Foes - Shalla-Bal",
+    "publisher": "Marvel Comics",
+    "year": 2026
+  },
+  {
+    "name": "The Rawhide Kid",
+    "publisher": "Marvel Comics",
+    "year": 1960
   },
   {
     "name": "Aquaman",
@@ -165,9 +195,19 @@
     "year": 1937
   },
   {
+    "name": "Flash",
+    "publisher": "DC Comics",
+    "year": 1987
+  },
+  {
     "name": "Green Arrow",
     "publisher": "DC Comics",
     "year": 1988
+  },
+  {
+    "name": "Gunslinger",
+    "publisher": "Image Comics",
+    "year": 2021
   },
   {
     "name": "Lobo",
@@ -183,6 +223,11 @@
     "name": "Scud: The Disposable Assassin",
     "publisher": "Fireman Press",
     "year": 1994
+  },
+  {
+    "name": "Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 1990
   },
   {
     "name": "Venom: Lethal Protector",
@@ -255,13 +300,13 @@
     "year": 2023
   },
   {
-    "name": "Daredevil",
-    "publisher": "Marvel Comics",
+    "name": "The Flash",
+    "publisher": "DC Comics",
     "year": 2023
   },
   {
-    "name": "The Flash",
-    "publisher": "DC Comics",
+    "name": "Daredevil",
+    "publisher": "Marvel Comics",
     "year": 2023
   },
   {
@@ -325,6 +370,16 @@
     "year": 2021
   },
   {
+    "name": "Harley Quinn",
+    "publisher": "DC Comics",
+    "year": 2021
+  },
+  {
+    "name": "Nightwing",
+    "publisher": "DC Comics",
+    "year": 2016
+  },
+  {
     "name": "Radiant Black",
     "publisher": "Image Comics",
     "year": 2021
@@ -340,19 +395,14 @@
     "year": 2022
   },
   {
-    "name": "Harley Quinn",
-    "publisher": "DC Comics",
-    "year": 2021
-  },
-  {
     "name": "Justice League",
     "publisher": "DC Comics",
     "year": 2022
   },
   {
-    "name": "Nightwing",
+    "name": "Poison Ivy",
     "publisher": "DC Comics",
-    "year": 2016
+    "year": 2022
   },
   {
     "name": "The Walking Dead",

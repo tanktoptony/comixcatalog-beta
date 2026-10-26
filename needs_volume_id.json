@@ -25761,11 +25761,18 @@
         "name": "Spider-Man",
         "publisher": "Marvel",
         "start_year": 1987
+      },
+      {
+        "id": 145364,
+        "name": "Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-09T22:33:57.556991+00:00",
-    "retry_after": "2026-10-23T22:33:57.557008+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:01:41.447951+00:00",
+    "retry_after": "2026-10-27T06:01:41.447966+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Spider-Man",
@@ -27518,8 +27525,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:01:22.375050+00:00",
-    "retry_after": "2026-10-27T05:01:22.375066+00:00",
+    "last_attempt_at": "2026-10-26T06:01:40.809821+00:00",
+    "retry_after": "2026-10-27T06:01:40.809834+00:00",
     "search_hydrated": true
   },
   {
@@ -43535,8 +43542,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:01:22.280335+00:00",
-    "retry_after": "2026-10-27T05:01:22.280353+00:00",
+    "last_attempt_at": "2026-10-26T06:01:40.703617+00:00",
+    "retry_after": "2026-10-27T06:01:40.703631+00:00",
     "search_hydrated": true
   },
   {
@@ -64617,83 +64624,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Barbie",
-    "publisher": "Marvel Comics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 166269,
-        "name": "Barbie",
-        "publisher": null,
-        "start_year": 1993
-      },
-      {
-        "id": 58918,
-        "name": "Barbie",
-        "publisher": null,
-        "start_year": 1986
-      },
-      {
-        "id": 59179,
-        "name": "Barbie",
-        "publisher": null,
-        "start_year": 1995
-      },
-      {
-        "id": 33723,
-        "name": "Barbie",
-        "publisher": null,
-        "start_year": 1991
-      },
-      {
-        "id": 59051,
-        "name": "Barbie",
-        "publisher": null,
-        "start_year": 1993
-      },
-      {
-        "id": 94994,
-        "name": "Barbie",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 58950,
-        "name": "Barbie",
-        "publisher": null,
-        "start_year": 1988
-      },
-      {
-        "id": 176841,
-        "name": "Barbie",
-        "publisher": null,
-        "start_year": 1989
-      },
-      {
-        "id": 58866,
-        "name": "Barbie",
-        "publisher": null,
-        "start_year": 1986
-      },
-      {
-        "id": 117355,
-        "name": "Barbie",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 116002,
-        "name": "Barbie",
-        "publisher": null,
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T05:09:59.827460+00:00",
-    "retry_after": "2026-10-23T05:09:59.827476+00:00"
-  },
-  {
     "name": "Doctor Who: Free Comic Book Day",
     "publisher": "Titan Comics",
     "year": 2016,
@@ -65904,137 +65834,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T07:32:35.952294+00:00",
     "retry_after": "2026-10-23T07:32:35.952310+00:00"
-  },
-  {
-    "name": "The Punisher",
-    "publisher": "Marvel Comics",
-    "year": 1987,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 11164,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 41758,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 112965,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 6586,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 42863,
-        "name": "Punisher",
-        "publisher": null,
-        "start_year": 2009
-      },
-      {
-        "id": 124897,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 1990
-      },
-      {
-        "id": 90118,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 71435,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 18328,
-        "name": "Punisher",
-        "publisher": null,
-        "start_year": 1995
-      },
-      {
-        "id": 25370,
-        "name": "Punisher",
-        "publisher": null,
-        "start_year": 2009
-      },
-      {
-        "id": 141843,
-        "name": "Punisher",
-        "publisher": null,
-        "start_year": 2022
-      },
-      {
-        "id": 42864,
-        "name": "Punisher",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 87642,
-        "name": "Punisher",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 3855,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 1987
-      },
-      {
-        "id": 9133,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 2001
-      },
-      {
-        "id": 35398,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 1989
-      },
-      {
-        "id": 170671,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 2026
-      },
-      {
-        "id": 3649,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 1986
-      },
-      {
-        "id": 21768,
-        "name": "The Punisher",
-        "publisher": null,
-        "start_year": 1998
-      },
-      {
-        "id": 61380,
-        "name": "Punisher",
-        "publisher": null,
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T08:06:17.464877+00:00",
-    "retry_after": "2026-10-23T08:06:17.464893+00:00"
   },
   {
     "name": "Street Fighter Unlimited",
@@ -68260,59 +68059,6 @@
     "retry_after": "2026-10-26T18:49:36.092560+00:00"
   },
   {
-    "name": "Evil Ernie",
-    "publisher": "Chaos! Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 140292,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 21169,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 1993
-      },
-      {
-        "id": 19385,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 1998
-      },
-      {
-        "id": 52863,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 52543,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 1998
-      },
-      {
-        "id": 77430,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 18112,
-        "name": "Evil Ernie",
-        "publisher": null,
-        "start_year": 1991
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:55.630261+00:00",
-    "retry_after": "2026-10-26T18:23:55.630276+00:00"
-  },
-  {
     "name": "Fearscape",
     "publisher": "Vault Comics",
     "year": 2019,
@@ -68409,23 +68155,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T19:23:53.320117+00:00",
     "retry_after": "2026-10-26T19:23:53.320131+00:00"
-  },
-  {
-    "name": "Supercrooks",
-    "publisher": "Marvel Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 46996,
-        "name": "Supercrooks",
-        "publisher": null,
-        "start_year": 2012
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T19:23:50.479116+00:00",
-    "retry_after": "2026-10-26T19:23:50.479131+00:00"
   },
   {
     "name": "Marvel Holiday Special",
@@ -68544,41 +68273,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T19:24:00.427618+00:00",
     "retry_after": "2026-10-26T19:24:00.427633+00:00"
-  },
-  {
-    "name": "Hitman",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 96074,
-        "name": "Hitman",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 5750,
-        "name": "Hitman",
-        "publisher": null,
-        "start_year": 1996
-      },
-      {
-        "id": 114326,
-        "name": "Hitman",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 126638,
-        "name": "Hitman",
-        "publisher": null,
-        "start_year": 2020
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T19:23:51.805390+00:00",
-    "retry_after": "2026-10-26T19:23:51.805405+00:00"
   },
   {
     "name": "Fairlady",
@@ -69204,47 +68898,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T21:23:58.204266+00:00",
     "retry_after": "2026-10-26T21:23:58.204282+00:00"
-  },
-  {
-    "name": "Harbinger",
-    "publisher": "Valiant Comics",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 49539,
-        "name": "Harbinger",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 139862,
-        "name": "The Harbinger",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 24884,
-        "name": "Harbinger",
-        "publisher": null,
-        "start_year": 1993
-      },
-      {
-        "id": 4827,
-        "name": "Harbinger",
-        "publisher": null,
-        "start_year": 1992
-      },
-      {
-        "id": 24895,
-        "name": "Harbinger",
-        "publisher": null,
-        "start_year": 2007
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T21:24:01.768216+00:00",
-    "retry_after": "2026-10-26T21:24:01.768231+00:00"
   },
   {
     "name": "Exquisite Corpses: Fox Mask Killer",
@@ -70905,29 +70558,6 @@
     "retry_after": "2026-10-27T07:23:55.000761+00:00"
   },
   {
-    "name": "Red Hood and the Outlaws",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 92966,
-        "name": "Red Hood & the Outlaws",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 42919,
-        "name": "Red Hood and the Outlaws",
-        "publisher": null,
-        "start_year": 2011
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T05:48:19.007446+00:00",
-    "retry_after": "2026-10-27T05:48:19.007462+00:00"
-  },
-  {
     "name": "We Live",
     "publisher": "AfterShock Comics",
     "year": 2023,
@@ -71346,41 +70976,6 @@
     "retry_after": "2026-10-27T07:23:58.419614+00:00"
   },
   {
-    "name": "Cat",
-    "publisher": "Dell Comics",
-    "year": 2006,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 72774,
-        "name": "Cat",
-        "publisher": null,
-        "start_year": 1991
-      },
-      {
-        "id": 161148,
-        "name": "The Cat",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 2565,
-        "name": "The Cat",
-        "publisher": null,
-        "start_year": 1972
-      },
-      {
-        "id": 37628,
-        "name": "The Cat",
-        "publisher": null,
-        "start_year": 1966
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T08:23:47.940847+00:00",
-    "retry_after": "2026-10-27T08:23:47.940856+00:00"
-  },
-  {
     "name": "The Texas Chainsaw Massacre",
     "publisher": "DC Comics",
     "year": 2007,
@@ -71439,35 +71034,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T10:48:15.380459+00:00",
     "retry_after": "2026-10-27T10:48:15.380474+00:00"
-  },
-  {
-    "name": "Ghost Rider Annual",
-    "publisher": "Marvel Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 153861,
-        "name": "Ghost Rider Annual",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 19698,
-        "name": "Ghost Rider Annual",
-        "publisher": null,
-        "start_year": 2008
-      },
-      {
-        "id": 20061,
-        "name": "Ghost Rider Annual",
-        "publisher": null,
-        "start_year": 1993
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T09:23:57.988226+00:00",
-    "retry_after": "2026-10-27T09:23:57.988240+00:00"
   },
   {
     "name": "Poupée",
@@ -75945,13 +75511,14 @@
       {
         "id": 119234,
         "name": "Liga da Justiça e Batman",
-        "publisher": null,
+        "publisher": "Abril",
         "start_year": 1994
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:24:03.476287+00:00",
-    "retry_after": "2026-10-25T17:24:03.476304+00:00"
+    "last_attempt_at": "2026-10-26T06:04:19.310141+00:00",
+    "retry_after": "2026-10-27T06:04:19.310158+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Mad Classics",
@@ -82830,6 +82397,244 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T05:03:29.934397+00:00",
     "retry_after": "2026-10-27T05:03:29.934413+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Cold Witch: A Tale of the Shrouded College",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 164327,
+        "name": "The Cold Witch: A Tale of the Shrouded College",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:28.081698+00:00",
+    "retry_after": "2026-10-27T06:03:28.081712+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Cutting Garden",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:29.383278+00:00",
+    "retry_after": "2026-10-27T06:03:29.383296+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Darkness versus Angelus",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:34.469783+00:00",
+    "retry_after": "2026-10-27T06:03:34.469799+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The DC Universe By Keith Giffen",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:34.963189+00:00",
+    "retry_after": "2026-10-27T06:03:34.963205+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The End League Complete Collection",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:35.460304+00:00",
+    "retry_after": "2026-10-27T06:03:35.460320+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Flash: The Road to Rebirth Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 173582,
+        "name": "The Flash: The Road to Rebirth Omnibus",
+        "publisher": "DC Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:41.920682+00:00",
+    "retry_after": "2026-10-27T06:03:41.920697+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Invisibles Compendium",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:42.496483+00:00",
+    "retry_after": "2026-10-27T06:03:42.496499+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Juniper Lodge",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:42.911600+00:00",
+    "retry_after": "2026-10-27T06:03:42.911616+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The New Titans Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:43.382572+00:00",
+    "retry_after": "2026-10-27T06:03:43.382588+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Superior Foes of Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 64687,
+        "name": "The Superior Foes of Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:44.128437+00:00",
+    "retry_after": "2026-10-27T06:03:44.128470+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Swamp Thing by Ram V and Mike Perkins Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:46.080222+00:00",
+    "retry_after": "2026-10-27T06:03:46.080239+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Tin Can Society",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 159851,
+        "name": "The Tin Can Society",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:47.546155+00:00",
+    "retry_after": "2026-10-27T06:03:47.546169+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Trap",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56568,
+        "name": "The Trap",
+        "publisher": "Chick Publications",
+        "start_year": 1988
+      },
+      {
+        "id": 120765,
+        "name": "Trap",
+        "publisher": "Europe Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:48.362482+00:00",
+    "retry_after": "2026-10-27T06:03:48.362497+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Unchosen",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 165381,
+        "name": "The Unchosen",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:49.313977+00:00",
+    "retry_after": "2026-10-27T06:03:49.313990+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Undead Iron Fist",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 166831,
+        "name": "The Undead Iron Fist",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:51.367650+00:00",
+    "retry_after": "2026-10-27T06:03:51.367663+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Voice Said Kill",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 165723,
+        "name": "The Voice Said Kill",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T06:03:52.237362+00:00",
+    "retry_after": "2026-10-27T06:03:52.237376+00:00",
     "search_hydrated": true
   }
 ]

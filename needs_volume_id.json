@@ -23081,9 +23081,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T23:01:04.218455+00:00",
-    "retry_after": "2026-10-26T23:01:04.218470+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T23:01:14.542923+00:00",
+    "retry_after": "2026-10-29T23:01:14.542925+00:00",
     "search_hydrated": true
   },
   {
@@ -27518,21 +27518,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T22:01:30.345381+00:00",
-    "retry_after": "2026-10-27T22:01:30.345383+00:00",
+    "last_attempt_at": "2026-10-26T23:01:14.542942+00:00",
+    "retry_after": "2026-10-27T23:01:14.542943+00:00",
     "search_hydrated": true
   },
   {
@@ -43554,8 +43554,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T22:01:30.345334+00:00",
-    "retry_after": "2026-10-27T22:01:30.345353+00:00",
+    "last_attempt_at": "2026-10-26T23:01:14.542881+00:00",
+    "retry_after": "2026-10-27T23:01:14.542892+00:00",
     "search_hydrated": true
   },
   {
@@ -73440,9 +73440,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T22:07:56.891364+00:00",
-    "retry_after": "2026-10-26T22:07:56.891384+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T23:04:40.495986+00:00",
+    "retry_after": "2026-10-29T23:04:40.495998+00:00",
     "search_hydrated": true
   },
   {
@@ -73451,9 +73451,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T22:07:57.317553+00:00",
-    "retry_after": "2026-10-26T22:07:57.317574+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T23:04:38.958799+00:00",
+    "retry_after": "2026-10-29T23:04:38.958811+00:00",
     "search_hydrated": true
   },
   {
@@ -73462,9 +73462,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T22:07:57.722207+00:00",
-    "retry_after": "2026-10-26T22:07:57.722225+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T23:04:38.958826+00:00",
+    "retry_after": "2026-10-29T23:04:38.958828+00:00",
     "search_hydrated": true
   },
   {
@@ -73473,9 +73473,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T22:07:58.127438+00:00",
-    "retry_after": "2026-10-26T22:07:58.127457+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T23:04:38.958837+00:00",
+    "retry_after": "2026-10-29T23:04:38.958838+00:00",
     "search_hydrated": true
   },
   {
@@ -73484,9 +73484,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T22:08:18.179717+00:00",
-    "retry_after": "2026-10-26T22:08:18.179737+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T23:04:38.958846+00:00",
+    "retry_after": "2026-10-29T23:04:38.958847+00:00",
     "search_hydrated": true
   },
   {
@@ -73495,9 +73495,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T22:08:33.146620+00:00",
-    "retry_after": "2026-10-26T22:08:33.146639+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T23:04:38.958855+00:00",
+    "retry_after": "2026-10-29T23:04:38.958856+00:00",
     "search_hydrated": true
   },
   {
@@ -73506,9 +73506,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T22:08:33.561757+00:00",
-    "retry_after": "2026-10-26T22:08:33.561776+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T23:04:38.958863+00:00",
+    "retry_after": "2026-10-29T23:04:38.958865+00:00",
     "search_hydrated": true
   },
   {
@@ -73524,9 +73524,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T22:08:34.436289+00:00",
-    "retry_after": "2026-10-26T22:08:34.436307+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T23:04:40.656924+00:00",
+    "retry_after": "2026-10-29T23:04:40.656931+00:00",
     "search_hydrated": true
   },
   {
@@ -73535,9 +73535,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T22:08:34.764376+00:00",
-    "retry_after": "2026-10-26T22:08:34.764395+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T23:04:38.958881+00:00",
+    "retry_after": "2026-10-29T23:04:38.958882+00:00",
     "search_hydrated": true
   },
   {
@@ -73546,9 +73546,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T22:08:37.821431+00:00",
-    "retry_after": "2026-10-26T22:08:37.821449+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T23:04:38.958888+00:00",
+    "retry_after": "2026-10-29T23:04:38.958889+00:00",
     "search_hydrated": true
   },
   {
@@ -77391,6 +77391,153 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T22:07:07.689167+00:00",
     "retry_after": "2026-10-27T22:07:07.689185+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Letter 44 Compendium",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T23:05:00.158382+00:00",
+    "retry_after": "2026-10-27T23:05:00.158395+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Local Man Deluxe",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T23:05:00.158405+00:00",
+    "retry_after": "2026-10-27T23:05:00.158407+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Knights vs Samurai",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 160096,
+        "name": "Knights vs. Samurai",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T23:05:14.440778+00:00",
+    "retry_after": "2026-10-27T23:05:14.440788+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Lady Mechanika: The Mechanical Menagerie",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 171778,
+        "name": "Lady Mechanika: The Mechanical Menagerie",
+        "publisher": "Image",
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T23:05:14.582935+00:00",
+    "retry_after": "2026-10-27T23:05:14.582941+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Lego Ninjago: Shatterspin",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 159034,
+        "name": "Lego Ninjago: Shatterspin",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T23:05:22.861013+00:00",
+    "retry_after": "2026-10-27T23:05:22.861023+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mermaid Project",
+    "publisher": "Fawcett Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 107749,
+        "name": "Mermaid Project",
+        "publisher": "Europe Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 116119,
+        "name": "Mermaid Project",
+        "publisher": "Splitter",
+        "start_year": 2018
+      },
+      {
+        "id": 116204,
+        "name": "Mermaid Project",
+        "publisher": "Cinebook",
+        "start_year": 2018
+      },
+      {
+        "id": 137433,
+        "name": "Mermaid Project",
+        "publisher": "Dargaud",
+        "start_year": 2012
+      },
+      {
+        "id": 137465,
+        "name": "Mermaid Project",
+        "publisher": "Dargaud",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T23:05:48.768669+00:00",
+    "retry_after": "2026-10-27T23:05:48.768681+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Brigade #1 Remastered Edition",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T23:05:48.768736+00:00",
+    "retry_after": "2026-10-27T23:05:48.768738+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi di Orient Express",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47514,
+        "name": "Gli Albi di Orient Express",
+        "publisher": "L'Isola Trovata",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T23:06:39.141191+00:00",
+    "retry_after": "2026-10-27T23:06:39.141203+00:00",
     "search_hydrated": true
   }
 ]

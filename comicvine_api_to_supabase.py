@@ -904,6 +904,35 @@ def _hydrate_search_volumes(volumes: list[dict]) -> list[dict]:
     return hydrated
 
 
+def _volumes_named(name: str) -> list[dict] | None:
+    """Every ComicVine volume whose name contains `name`, from the volumes/
+    list endpoint, or None when that list can't stand in for a search.
+
+    ComicVine rate-limits each endpoint separately (about 200 calls an hour
+    each), and search/ was the one running out: on 2026-10-26 the hourly
+    lanes plus the local backfill spent ~130 searches an hour, and every
+    search also needed a volumes/ call to fill in the publisher. One name
+    filter call returns the publisher and issue count directly, so a found
+    title costs one volumes/ call and no search. The filter is a literal
+    substring match, so a title written differently ("Locke & Key" vs
+    "Locke and Key") still falls back to search. Titles with more than one
+    page of matches ("Batman": 2,231) also go to search, which ranks them.
+    """
+    if not name or "," in name or "|" in name:
+        return None  # the filter syntax splits on both
+    data = cv_get(
+        "volumes/",
+        {
+            "filter": f"name:{name}",
+            "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
+            "limit": 100,
+        },
+    )
+    if int(data.get("number_of_total_results") or 0) > 100:
+        return None
+    return data.get("results") or []
+
+
 # Our collected-edition titles carry a byline or a format tag that ComicVine
 # leaves off ("Ms. Marvel: Beyond the Limit by Samira Ahmed", "Ms. Marvel:
 # Generations GN-TPB"). Stripped, the title can also name the monthly run
@@ -981,24 +1010,27 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
 
     For ambiguous cases (multiple Marvel volumes named 'Uncanny X-Men' starting
     in the same year), the caller should pass an explicit --volume-id."""
-    data = cv_get(
-        "search/",
-        {
-            "query": name,
-            "resources": "volume",
-            "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
-            "limit": 20,
-        },
-    )
-    results = data.get("results") or []
-
     target_pub = _norm_publisher(publisher)
 
     target_title = _norm_title(name)
     name_matches = [
-        v for v in results if _norm_title(v.get("name")) == target_title
+        v for v in (_volumes_named(name) or [])
+        if _norm_title(v.get("name")) == target_title
     ]
-    name_matches = _hydrate_search_volumes(name_matches)
+    if not name_matches:
+        data = cv_get(
+            "search/",
+            {
+                "query": name,
+                "resources": "volume",
+                "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
+                "limit": 20,
+            },
+        )
+        name_matches = _hydrate_search_volumes([
+            v for v in (data.get("results") or [])
+            if _norm_title(v.get("name")) == target_title
+        ])
     def _pub_ok(v: dict) -> bool:
         if not target_pub:
             return True
@@ -1024,21 +1056,27 @@ def find_volume(name: str, publisher: str | None = None, year: int | None = None
     if not name_matches:
         alt = _title_without_edition_suffix(name)
         if alt:
-            alt_data = cv_get(
-                "search/",
-                {
-                    "query": alt,
-                    "resources": "volume",
-                    "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
-                    "limit": 20,
-                },
-            )
             alt_title = _norm_title(alt)
-            name_matches = [
-                v for v in _hydrate_search_volumes([
+            alt_matches = [
+                v for v in (_volumes_named(alt) or [])
+                if _norm_title(v.get("name")) == alt_title
+            ]
+            if not alt_matches:
+                alt_data = cv_get(
+                    "search/",
+                    {
+                        "query": alt,
+                        "resources": "volume",
+                        "field_list": "id,name,publisher,start_year,count_of_issues,api_detail_url",
+                        "limit": 20,
+                    },
+                )
+                alt_matches = _hydrate_search_volumes([
                     v for v in (alt_data.get("results") or [])
                     if _norm_title(v.get("name")) == alt_title
                 ])
+            name_matches = [
+                v for v in alt_matches
                 if int(v.get("count_of_issues") or 0) == 1
             ]
             if name_matches:

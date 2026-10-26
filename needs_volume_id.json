@@ -35234,9 +35234,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T00:48:47.627108+00:00",
-    "retry_after": "2026-10-06T00:48:47.627124+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-26T18:06:50.143102+00:00",
+    "retry_after": "2026-11-02T18:06:50.143103+00:00",
+    "search_hydrated": true
   },
   {
     "name": "G.I. Joe: The Best of Duke",
@@ -43551,8 +43552,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T17:01:40.662431+00:00",
-    "retry_after": "2026-10-27T17:01:40.662450+00:00",
+    "last_attempt_at": "2026-10-26T18:02:01.325831+00:00",
+    "retry_after": "2026-10-27T18:02:01.325843+00:00",
     "search_hydrated": true
   },
   {
@@ -63624,89 +63625,6 @@
     "retry_after": "2026-10-23T04:15:53.017577+00:00"
   },
   {
-    "name": "Harley Quinn",
-    "publisher": "DC Comics",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 134718,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 69322,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 109850,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 86934,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 9494,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 96070,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 160586,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 92750,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 151187,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 147797,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 89443,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 166504,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T04:15:53.308716+00:00",
-    "retry_after": "2026-10-23T04:15:53.308732+00:00"
-  },
-  {
     "name": "Prey",
     "publisher": "Fantagraphics",
     "year": 1991,
@@ -67860,9 +67778,10 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T17:23:51.898137+00:00",
-    "retry_after": "2026-10-26T17:23:51.898152+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-26T18:06:50.143054+00:00",
+    "retry_after": "2026-11-02T18:06:50.143055+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The End of the Arab of the Future: A Youth in the Middle East",
@@ -67910,9 +67829,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T17:23:58.816019+00:00",
-    "retry_after": "2026-10-26T17:23:58.816034+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-26T18:06:50.143078+00:00",
+    "retry_after": "2026-11-02T18:06:50.143079+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Doomquest Black & White",
@@ -67920,9 +67840,10 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T17:24:00.166778+00:00",
-    "retry_after": "2026-10-26T17:24:00.166793+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-26T18:06:50.143040+00:00",
+    "retry_after": "2026-11-02T18:06:50.143042+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Elseworlds: Justice League Omnibus",
@@ -72372,9 +72293,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T17:01:19.681812+00:00",
-    "retry_after": "2026-10-26T17:01:19.681828+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T18:01:32.482666+00:00",
+    "retry_after": "2026-10-29T18:01:32.482682+00:00",
     "search_hydrated": true
   },
   {
@@ -72537,9 +72458,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T17:07:00.431045+00:00",
-    "retry_after": "2026-10-26T17:07:00.431060+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-26T18:06:50.142997+00:00",
+    "retry_after": "2026-10-29T18:06:50.143015+00:00",
     "search_hydrated": true
   },
   {
@@ -76711,6 +76632,133 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T17:09:01.014311+00:00",
     "retry_after": "2026-10-27T17:09:01.014314+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gracie's Ghost",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T18:06:50.143086+00:00",
+    "retry_after": "2026-10-27T18:06:50.143087+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Lantern by Robert Venditti Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T18:06:50.143111+00:00",
+    "retry_after": "2026-10-27T18:06:50.143112+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Lantern: Rebirth Compendium",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T18:06:50.143130+00:00",
+    "retry_after": "2026-10-27T18:06:50.143131+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Curse of Sherlee Johnson",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 164475,
+        "name": "The Curse of Sherlee Johnson",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T18:06:50.780058+00:00",
+    "retry_after": "2026-10-27T18:06:50.780074+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gunslingers",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 35563,
+        "name": "Gunslingers",
+        "publisher": "Marvel",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T18:07:17.999720+00:00",
+    "retry_after": "2026-10-27T18:07:17.999746+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hellspawn: The Complete Collection",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 63888,
+        "name": "Hellspawn: The Complete Collection",
+        "publisher": "Image",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T18:07:44.165395+00:00",
+    "retry_after": "2026-10-27T18:07:44.165421+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hornsby & Halo",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 161325,
+        "name": "Hornsby & Halo",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T18:07:44.317084+00:00",
+    "retry_after": "2026-10-27T18:07:44.317100+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Howard the Duck by Zdarsky & Quinones",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T18:07:45.505767+00:00",
+    "retry_after": "2026-10-27T18:07:45.505784+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Free Marvel Must-Haves: December 2024",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T18:08:01.609171+00:00",
+    "retry_after": "2026-10-27T18:08:01.609189+00:00",
     "search_hydrated": true
   }
 ]

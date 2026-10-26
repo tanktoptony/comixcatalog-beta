@@ -1765,6 +1765,33 @@ def _load_gcd_issues(series_gcd_id: int) -> list[dict]:
     return rows
 
 
+def _volume_overflows_series(volume: dict, series_gcd_id: int | None) -> tuple[int, int] | None:
+    """(ComicVine count, GCD base-issue count) when the volume is far bigger
+    than the GCD series its covers would be filed under, else None.
+
+    Every cover of a matched volume lands on the target series, matched issue
+    or not. A 2026-10-26 audit found 155 series holding more covers than they
+    have issues (6,427 covers): Wonder Woman (1987)'s 228 on a one-book 1995
+    Abbeville "Wonder Woman", 52 Harley Quinn in Paradise webtoon episodes on
+    a one-book 2026 print edition, and that night ComicVine's 631-issue
+    Spirit Section volume on a 12-issue GCD series. The real series show
+    blanks and the ingest can't repair them, since the covers already exist.
+    The slack (2x, or 10 more) leaves room for GCD lagging new issues."""
+    try:
+        cv_count = int(volume.get("count_of_issues") or 0)
+    except (TypeError, ValueError):
+        return None
+    if not series_gcd_id or cv_count <= 0:
+        return None
+    gcd_count = len([
+        i for i in _load_gcd_issues(int(series_gcd_id))
+        if not i.get("variant_of_gcd_id")
+    ])
+    if gcd_count <= 0 or cv_count <= max(2 * gcd_count, gcd_count + 10):
+        return None
+    return cv_count, gcd_count
+
+
 def _resolve_gcd_issue_id(
     series_gcd_id: int | None, issue_number: object, volume_issue_count: int | None = None
 ) -> tuple[int | None, str]:
@@ -2180,6 +2207,19 @@ def main():
                     target.get("year") or volume.get("start_year"),
                     cv_pub_name,
                 )
+
+            overflow = _volume_overflows_series(volume, target_gcd_id)
+            if overflow:
+                cv_count, gcd_count = overflow
+                print(
+                    f"  ✗ volume has {cv_count} issues but GCD series {target_gcd_id} has "
+                    f"{gcd_count}; not filing them under it. Pass --volume-id."
+                )
+                _record_needs_volume_id(
+                    volume_name, publisher_name, target.get("year"),
+                    "volume_larger_than_series", [volume],
+                )
+                continue
 
             if cv_pub_name and not args.dry_run:
                 update_series_cv_publisher(target_gcd_id, cv_pub_name)

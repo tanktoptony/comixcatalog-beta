@@ -88,9 +88,11 @@ Segment types (`shared/EpisodeRenderer.jsx`):
 Every segment crossfades 8 frames in and out; set `transition: "cut"` (or
 `fadeIn` / `fadeOut` frames) to change that.
 
-## Character Dossier card
+## Power Profile card (The Power Index)
 
-Dossier copy and power values live in `episode-006/dossier-001.js`; the registry in
+The trading card for The Power Index series ("Power Profile #001: Doctor Doom").
+The code keeps its original "dossier" names. Card copy, series labels
+(`series`, `designation`) and power values live in `episode-006/dossier-001.js`; the registry in
 `shared/dossiers.js` makes a card available to timelines by ID. Visual palettes
 live in `DOSSIER_THEMES` in `shared/components/dossier.jsx`, so another dossier
 can reuse the card by adding data and selecting a theme.

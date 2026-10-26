@@ -1,11 +1,13 @@
 export const DOSSIER_001 = {
+  series: "THE POWER INDEX",
+  designation: "POWER PROFILE",
   number: "001",
   name: "DOCTOR DOOM",
   realName: "VICTOR VON DOOM",
   homeland: "LATVERIA",
   firstAppearance: "FANTASTIC FOUR #5 (1962)",
   creators: "LEE / KIRBY",
-  // Front art pending Tony's pick (FF #57 mask, FF #5, Books of Doom 2025 TPB, Doom 2024 #1).
+  // FF #57 mask: Claude's pick, kept as the default (alternates: FF #5, Books of Doom 2025 TPB, Doom 2024 #1).
   art: { asset: "covers/fantastic-four-057-1966.jpg", focus: { x: 0.5, y: 1, zoom: 1.3 }, credit: "Cover art: Jack Kirby and Joe Sinnott, Fantastic Four #57 (1966)" },
   profileTag: "STANDARD ARMOR · BASELINE PROFILE",
   stats: [ // Marvel.com Power Grid, Victor von Doom profile. 1 to 7.
@@ -17,7 +19,7 @@ export const DOSSIER_001 = {
     { key: "fighting", label: "FIGHTING SKILLS", value: 4 },
   ],
   statsSource: "Power grid: Marvel.com, Victor von Doom profile",
-  sorcery: { label: "SORCERY", value: null, note: "CC EDITORIAL" }, // null renders "UNRATED"
+  sorcery: { label: "SORCERY", value: 5, note: "CC EDITORIAL" }, // Tony approved 5 (2026-10-26); null renders "UNRATED"
   bio: [
     "Scientist, sorcerer and monarch of Latveria.",
     "Expelled from State U after his own machine blew up in his face.",

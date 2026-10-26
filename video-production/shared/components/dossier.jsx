@@ -50,8 +50,8 @@ export function DossierFront({ data, theme, layers }) {
       <AbsoluteFill style={{ background: `linear-gradient(transparent 58%, ${t.greenDeep} 100%)` }} />
     </div>}
     {l.lettering && <>
-      <div style={{ position: "absolute", left: 72, top: 72, color: t.parchment, fontFamily: fonts.body, fontWeight: 600, fontSize: 22, letterSpacing: ".32em" }}>COMIXCATALOG</div>
-      <div style={{ position: "absolute", left: 70, top: 105, color: t.parchment, fontFamily: fonts.display, fontWeight: 800, fontSize: 54 }}>CHARACTER DOSSIER</div>
+      <div style={{ position: "absolute", left: 72, top: 72, color: t.parchment, fontFamily: fonts.body, fontWeight: 600, fontSize: 22, letterSpacing: ".32em" }}>COMIXCATALOG · {data.series ?? "THE POWER INDEX"}</div>
+      <div style={{ position: "absolute", left: 70, top: 105, color: t.parchment, fontFamily: fonts.display, fontWeight: 800, fontSize: 54 }}>{data.designation ?? "POWER PROFILE"}</div>
       <Seal number={data.number} t={t} />
       <div style={{ position: "absolute", left: 52, right: 52, top: 940, textAlign: "center", fontFamily: fonts.display, fontWeight: 900, fontSize: 118, lineHeight: .9, color: t.parchment, textShadow: `5px 5px 0 ${t.ink}`, whiteSpace: "nowrap" }}>{data.name}</div>
       <div style={{ position: "absolute", left: 110, right: 110, top: 1060, height: 58, display: "flex", alignItems: "center", justifyContent: "center", background: t.green, border: `3px solid ${t.ink}`, color: t.parchment, fontFamily: fonts.body, fontWeight: 700, fontSize: 26, letterSpacing: ".18em" }}>{data.realName} · {data.homeland}</div>
@@ -96,7 +96,7 @@ export function DossierBack({ data, theme, layers, overlay, overlayAmount = 0, p
     {l.frame && <div style={{ position: "absolute", inset: 38, backgroundImage: "repeating-radial-gradient(circle at 20% 30%, rgba(60,45,20,.055) 0 1px, transparent 1px 5px)" }} />}
     {overlayData && overlayAmount > 0 && <div style={{ position: "absolute", inset: 38, opacity: overlayAmount * pulse, background: `radial-gradient(circle at 50% 30%, ${overlayData.color}55, transparent 62%)` }} />}
     {l.lettering && <>
-      <div style={{ position: "absolute", left: 70, top: 68, fontFamily: fonts.display, fontWeight: 900, fontSize: 48, color: t.ink }}>DOSSIER {data.number} · {data.name}</div>
+      <div style={{ position: "absolute", left: 70, top: 68, fontFamily: fonts.display, fontWeight: 900, fontSize: 48, color: t.ink }}>{data.designation ?? "POWER PROFILE"} #{data.number} · {data.name}</div>
       <div style={{ position: "absolute", left: 70, top: 130, padding: "8px 17px", borderRadius: 24, background: overlayActive ? overlayData.color : t.green, color: overlayActive ? t.ink : t.parchment, fontFamily: fonts.body, fontWeight: 800, fontSize: 18, letterSpacing: ".08em" }}>{overlayActive ? overlayData.tag : data.profileTag}</div>
       {overlayActive && <div style={{ position: "absolute", right: 70, top: 142, fontFamily: fonts.body, fontWeight: 700, fontSize: 15, color: t.ink, opacity: overlayAmount }}>SOURCE: {overlayData.source}</div>}
     </>}

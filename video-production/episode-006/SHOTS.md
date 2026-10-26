@@ -1,4 +1,4 @@
-# Episode 006 · Doom Dossier · shot alignment sheet (draft 1, against script V0.1)
+# Episode 006 · The Power Index · Power Profile #001 · shot alignment sheet (draft 1, against script V0.1)
 
 Aligned to V0.1's beats so the visual plan exists before the script locks. When Tony's recording lands, this becomes the line-by-line `timeline.js` (anchored to his words, per the usual workflow); rows for lines he cut get dropped, new lines get new rows.
 

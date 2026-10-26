@@ -1,4 +1,4 @@
-# Episode 006 · Character Dossier 001: Doctor Doom · research and fact-check
+# Episode 006 · The Power Index · Power Profile #001: Doctor Doom · research and fact-check
 
 Checked 2026-10-25 against Marvel.com's own Doom profile (the page's embedded data, not a fan wiki), ComicVine issue records and credits, and Wikipedia where noted. Every line Tony might say is marked:
 

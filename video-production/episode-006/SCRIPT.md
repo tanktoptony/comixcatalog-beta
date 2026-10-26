@@ -1,11 +1,11 @@
-# Episode 006 · Character Dossier 001: Doctor Doom
+# Episode 006 · The Power Index · Power Profile #001: Doctor Doom
 
 Recording script, draft 1 (2026-10-26), with Tony's answers in: both personal lines kept, sorcery 5, voice from his HeyGen clone. Built from the V0.1 in the production brief, with the four fact fixes and the sourced feats from `RESEARCH.md`.
 
 How to read this file:
 - Each `##` heading is one recording: 12 sections plus 3 Shorts. Save each under that file name.
 - Narration is plain text. Read it as written, or loosen it. Short pauses between paragraphs give me cut points.
-- `SHOW:` lines are for the edit. Covers and the dossier card are already built. `[SCAN]` means a phone photo of that page from your copy makes the shot better (reprints count). Every one has a cover fallback.
+- `SHOW:` lines are for the edit. Covers and the Power Profile card are already built. `[SCAN]` means a phone photo of that page from your copy makes the shot better (reprints count). Every one has a cover fallback.
 - No `[VERIFY]` lines left. Everything said out loud traces to Marvel.com, ComicVine, or the issue summaries in RESEARCH.md. Lines that needed a page I couldn't see were rewritten as paraphrase.
 
 Length: about 2,770 words of narration, so roughly 19 minutes at Ep 005's pace (145 words a minute), plus the card animations. Inside the brief's 15 to 20.
@@ -22,7 +22,7 @@ So how powerful is Doctor Doom on a normal day? What changes when he's had time 
 
 Let's open the card.
 
-> SHOW: FF #57 cover, push on the mask, cut in on the first word (no fade from black). "smartest": FF #10. "sorcerer": Triumph and Torment cover. "his own country": FF #84. "cosmic beings": FF #58 (Doom on the board). "Let's open the card": Dossier 001 slams in and holds on the front.
+> SHOW: FF #57 cover, push on the mask, cut in on the first word (no fade from black). "smartest": FF #10. "sorcerer": Triumph and Torment cover. "his own country": FF #84. "cosmic beings": FF #58 (Doom on the board). "Let's open the card": the Power Profile #001 card slams in and holds on the front.
 
 [CHANNEL STING, 2.5 s]
 
@@ -30,7 +30,9 @@ Let's open the card.
 
 ## 02-the-card.wav · How the card works
 
-I'm Tony, this is ComixCatalog, and this is the first Character Dossier.
+I'm Tony, this is ComixCatalog, and this is the first episode of The Power Index.
+
+> SHOW: Series bug "ComixCatalog · The Power Index · Power Profile #001: Doctor Doom".
 
 If you were a kid in the early nineties, you might remember the Marvel Universe trading cards. Big art on the front. And on the back, power ratings. Little bars, one to seven. That's what this is. Our own card, one character at a time.
 
@@ -48,7 +50,7 @@ Then there's a seventh badge. Sorcery. That one's ours. Marvel's grid doesn't ra
 
 > SHOW: Sorcery medallion, "CC EDITORIAL" label.
 
-One more thing. A bar from one to seven can't tell you how prepared somebody is. Or whose power they borrowed this week. With Doom, that's most of the story. So every dossier looks at three versions of the character.
+One more thing. A bar from one to seven can't tell you how prepared somebody is. Or whose power they borrowed this week. With Doom, that's most of the story. So every Power Profile looks at three versions of the character.
 
 A. Standard. The guy in the armor, on a normal day.
 
@@ -116,7 +118,7 @@ So here are the numbers. Marvel's power grid, out of seven.
 
 Intelligence, six. Strength, four. Speed, five. Durability, six. Energy projection, six. Fighting skills, four.
 
-> SHOW: Card back, each meter fills as it's named. Caption "Marvel.com Power Grid · standard armor".
+> SHOW: Segment bug "CARD BACK" (the recurring stats segment). Card back, each meter fills as it's named. Caption "Marvel.com Power Grid · standard armor".
 
 Look at what's high. Brains, toughness, and firepower. Now look at what's in the middle. Strength and fighting. He's not a brawler. He doesn't need to be. If Doom's in a fistfight, something already went wrong.
 
@@ -146,7 +148,7 @@ Think about that. This is one of the best scientists in the Marvel Universe, and
 
 The book that shows it best is Doctor Strange and Doctor Doom: Triumph and Torment. A graphic novel from 1989. Roger Stern writing, Mike Mignola on art. Yes, that Mike Mignola. A few years before Hellboy.
 
-I hadn't read this one before we started on this episode. It's exactly the kind of book I want these dossiers to dig up.
+I hadn't read this one before we started on this episode. It's exactly the kind of book I want this series to dig up.
 
 It opens with a contest. Sorcerers from all over, competing for the title of Sorcerer Supreme.
 
@@ -372,7 +374,7 @@ Four. Fantastic Four 57 through 60. The Silver Surfer heist. Four issues, and Re
 
 Five. Secret Wars, 2015. God Emperor Doom. Nine issues, and the biggest swing anybody's taken with him.
 
-> SHOW: Each cover as it's named. [CAPTURE: each book's ComixCatalog series page.]
+> SHOW: Segment bug "CARD BACK · Essential reading". Each cover as it's named. [CAPTURE: each book's ComixCatalog series page.]
 
 Bonus round. The 1984 Secret Wars, for Doom versus the Beyonder. And Emperor Doom, for the time he actually won.
 
@@ -390,7 +392,7 @@ That's Doctor Doom. Scientist. Sorcerer. King. And now and then, something a lot
 
 He doesn't have one superpower. He has a whole collection of ways to ruin your day.
 
-What's your favorite Doom moment? And who should get the next dossier? Tell me in the comments.
+What's your favorite Doom moment? And who should get the next Power Profile? Tell me in the comments.
 
 If you want the next one, subscribe. I'm Tony. Catalog. Collect. Connect.
 
@@ -420,7 +422,7 @@ So yeah, he builds the armor. He also nearly won the Sorcerer Supreme title with
 
 And in 2024, he finally got the title. He just never gave it back.
 
-Full Doom dossier is on the channel.
+The full Doom Power Profile is on the channel.
 
 > SHOW: Triumph and Torment cover; [SCAN: contest panels]; card back with the SORCERY medallion popping out; Blood Hunt #5 cover on the last beat.
 
@@ -454,6 +456,6 @@ Now, 1984. The original Secret Wars. Doom builds a machine out of a villain name
 
 Borrowed power. Temporary, every time. So on our card it's an overlay. Not the baseline.
 
-Standard Doom is scary enough. Full dossier on the channel.
+Standard Doom is scary enough. Full Power Profile on the channel.
 
 > SHOW: card back, meters fill on each number; Secret Wars (1984) #9 and #10 covers; BEYONDER overlay; Secret Wars (2015) #1 and #9; GOD EMPEROR overlay; retract to baseline on "Not the baseline."

@@ -15275,8 +15275,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T13:07:11.952691+00:00",
-    "retry_after": "2026-10-27T13:07:11.952708+00:00",
+    "last_attempt_at": "2026-10-26T14:05:52.565953+00:00",
+    "retry_after": "2026-10-27T14:05:52.565971+00:00",
     "search_hydrated": true
   },
   {
@@ -27528,8 +27528,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T13:01:30.841228+00:00",
-    "retry_after": "2026-10-27T13:01:30.841229+00:00",
+    "last_attempt_at": "2026-10-26T14:02:28.640066+00:00",
+    "retry_after": "2026-10-27T14:02:28.640069+00:00",
     "search_hydrated": true
   },
   {
@@ -43550,8 +43550,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T13:01:30.841165+00:00",
-    "retry_after": "2026-10-27T13:01:30.841183+00:00",
+    "last_attempt_at": "2026-10-26T14:02:28.639987+00:00",
+    "retry_after": "2026-10-27T14:02:28.639999+00:00",
     "search_hydrated": true
   },
   {
@@ -68175,82 +68175,25 @@
     "name": "Far West",
     "publisher": "Antarctic Press",
     "year": 2008,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 140692,
+        "id": 31944,
         "name": "Far West",
-        "publisher": null,
-        "start_year": 2006
-      },
-      {
-        "id": 158923,
-        "name": "Far West",
-        "publisher": null,
-        "start_year": 1966
+        "publisher": "Antarctic Press",
+        "start_year": 1999
       },
       {
         "id": 36373,
         "name": "Far West",
-        "publisher": null,
+        "publisher": "Antarctic Press",
         "start_year": 1998
-      },
-      {
-        "id": 31944,
-        "name": "Far West",
-        "publisher": null,
-        "start_year": 1999
-      },
-      {
-        "id": 51708,
-        "name": "Far West",
-        "publisher": null,
-        "start_year": 2001
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T21:23:58.204266+00:00",
-    "retry_after": "2026-10-26T21:23:58.204282+00:00"
-  },
-  {
-    "name": "Exquisite Corpses: Fox Mask Killer",
-    "publisher": "Image Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 176994,
-        "name": "Exquisite Corpses: Fox Mask Killer",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T22:39:01.564800+00:00",
-    "retry_after": "2026-10-26T22:39:01.564820+00:00"
-  },
-  {
-    "name": "String Divers",
-    "publisher": "IDW Publishing",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 83772,
-        "name": "String Divers",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 88778,
-        "name": "String Divers",
-        "publisher": null,
-        "start_year": 2016
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T22:39:02.075666+00:00",
-    "retry_after": "2026-10-26T22:39:02.075685+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:05:52.566081+00:00",
+    "retry_after": "2026-10-27T14:05:52.566087+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Brian Pulido's Lady Death: 10th Anniversary",
@@ -71707,53 +71650,6 @@
     "retry_after": "2026-10-28T01:56:09.086033+00:00"
   },
   {
-    "name": "Gen 13",
-    "publisher": "Image Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 5667,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 1995
-      },
-      {
-        "id": 18921,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 1994
-      },
-      {
-        "id": 18560,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 2006
-      },
-      {
-        "id": 95045,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 127382,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 1996
-      },
-      {
-        "id": 26374,
-        "name": "Gen 13",
-        "publisher": null,
-        "start_year": 2002
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T02:31:56.237017+00:00",
-    "retry_after": "2026-10-28T02:31:56.237023+00:00"
-  },
-  {
     "name": "Cover",
     "publisher": "Dark Horse Comics",
     "year": 2019,
@@ -71844,23 +71740,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-25T04:32:04.025849+00:00",
     "retry_after": "2026-10-28T04:32:04.025860+00:00"
-  },
-  {
-    "name": "Kissing Chaos",
-    "publisher": "Oni Press",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 9334,
-        "name": "Kissing Chaos",
-        "publisher": null,
-        "start_year": 2001
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T09:17:16.471068+00:00",
-    "retry_after": "2026-10-28T09:17:16.471084+00:00"
   },
   {
     "name": "Capes",
@@ -72431,108 +72310,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Richie Rich Vacation Digest Magazine",
-    "publisher": "Harvey Comics",
-    "year": 1991,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34863,
-        "name": "Richie Rich Vacation Digest Magazine",
-        "publisher": null,
-        "start_year": 1991
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:44.915439+00:00",
-    "retry_after": "2026-10-25T15:23:44.915453+00:00"
-  },
-  {
-    "name": "Razor: The Ravening",
-    "publisher": "Avatar Press",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 21967,
-        "name": "Razor: The Ravening",
-        "publisher": null,
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:45.449046+00:00",
-    "retry_after": "2026-10-25T15:23:45.449061+00:00"
-  },
-  {
-    "name": "Pirates vs. Ninjas Annual",
-    "publisher": "Antarctic Press",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 51004,
-        "name": "Pirates vs. Ninjas Annual",
-        "publisher": null,
-        "start_year": 2008
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:46.203624+00:00",
-    "retry_after": "2026-10-25T15:23:46.203636+00:00"
-  },
-  {
-    "name": "Purgatori: Heartbreaker",
-    "publisher": "Chaos! Comics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20632,
-        "name": "Purgatori: Heartbreaker",
-        "publisher": null,
-        "start_year": 2002
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:46.538242+00:00",
-    "retry_after": "2026-10-25T15:23:46.538259+00:00"
-  },
-  {
-    "name": "Dark Wolf Annual",
-    "publisher": "Malibu Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 51706,
-        "name": "Dark Wolf Annual",
-        "publisher": null,
-        "start_year": 1988
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:47.194105+00:00",
-    "retry_after": "2026-10-25T15:23:47.194122+00:00"
-  },
-  {
-    "name": "The League of Extraordinary Cerebi",
-    "publisher": "Aardvark-Vanaheim",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 114954,
-        "name": "The League of Extraordinary Cerebi",
-        "publisher": null,
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T15:23:47.913075+00:00",
-    "retry_after": "2026-10-25T15:23:47.913084+00:00"
-  },
-  {
     "name": "Zona X",
     "publisher": "Marvel Comics",
     "year": 1995,
@@ -72705,23 +72482,6 @@
     "retry_after": "2026-10-25T15:23:52.230767+00:00"
   },
   {
-    "name": "The Trouble With Girls Annual",
-    "publisher": "Malibu Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64605,
-        "name": "The Trouble With Girls Annual",
-        "publisher": null,
-        "start_year": 1988
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:47.764173+00:00",
-    "retry_after": "2026-10-25T16:23:47.764188+00:00"
-  },
-  {
     "name": "Gen 13 Bootleg",
     "publisher": "Image Comics",
     "year": 1998,
@@ -72739,142 +72499,6 @@
     "retry_after": "2026-10-25T16:23:48.618049+00:00"
   },
   {
-    "name": "Cerebus Woman",
-    "publisher": "Aardvark-Vanaheim",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 118805,
-        "name": "Cerebus Woman",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:49.489017+00:00",
-    "retry_after": "2026-10-25T16:23:49.489032+00:00"
-  },
-  {
-    "name": "ABC: A-Z, Top 10 and Teams",
-    "publisher": "DC Comics",
-    "year": 2006,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 22006,
-        "name": "ABC A-Z: Top 10 & Teams",
-        "publisher": null,
-        "start_year": 2006
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:49.908428+00:00",
-    "retry_after": "2026-10-25T16:23:49.908442+00:00"
-  },
-  {
-    "name": "The Prisoner of Chillon",
-    "publisher": "Caliber Comics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 50438,
-        "name": "Prisoner of Chillon",
-        "publisher": null,
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:50.259471+00:00",
-    "retry_after": "2026-10-25T16:23:50.259486+00:00"
-  },
-  {
-    "name": "Best of Television",
-    "publisher": "Marvel Comics",
-    "year": 1961,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 46471,
-        "name": "Best of Television",
-        "publisher": null,
-        "start_year": 1961
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:50.569404+00:00",
-    "retry_after": "2026-10-25T16:23:50.569419+00:00"
-  },
-  {
-    "name": "Dune: Edge of a Crysknife: Rage of Shai-Hulud",
-    "publisher": "BOOM! Studios",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 166445,
-        "name": "Dune: Edge of a Crysknife: Rage of Shai-Hulud",
-        "publisher": null,
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:51.471114+00:00",
-    "retry_after": "2026-10-25T16:23:51.471129+00:00"
-  },
-  {
-    "name": "Peter Paul's 4 in 1 Jumbo Comic Book",
-    "publisher": "Charlton Comics",
-    "year": 1953,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57278,
-        "name": "Peter Paul's 4 in 1 Jumbo Comic Book",
-        "publisher": null,
-        "start_year": 1953
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:51.782954+00:00",
-    "retry_after": "2026-10-25T16:23:51.782969+00:00"
-  },
-  {
-    "name": "Imperial War: Black Panther",
-    "publisher": "Marvel Comics",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 166450,
-        "name": "Imperial War: Black Panther",
-        "publisher": null,
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:52.208058+00:00",
-    "retry_after": "2026-10-25T16:23:52.208072+00:00"
-  },
-  {
-    "name": "McCain: The Comic Book",
-    "publisher": "Antarctic Press",
-    "year": 2008,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 50963,
-        "name": "McCain: The Comic Book",
-        "publisher": null,
-        "start_year": 2008
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:52.501954+00:00",
-    "retry_after": "2026-10-25T16:23:52.501968+00:00"
-  },
-  {
     "name": "Star Wars: The High Republic Adventures (Phase III) - Crash Landing",
     "publisher": "Dark Horse Comics",
     "year": 2024,
@@ -72890,91 +72514,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-24T16:23:53.024722+00:00",
     "retry_after": "2026-10-25T16:23:53.024737+00:00"
-  },
-  {
-    "name": "Marine Comedy",
-    "publisher": "Marvel Comics",
-    "year": 1944,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 138213,
-        "name": "Marine Comedy",
-        "publisher": null,
-        "start_year": 1944
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:53.394271+00:00",
-    "retry_after": "2026-10-25T16:23:53.394285+00:00"
-  },
-  {
-    "name": "The Apparition: Visitations",
-    "publisher": "Caliber Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 45127,
-        "name": "Apparition Visitations",
-        "publisher": null,
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:53.683795+00:00",
-    "retry_after": "2026-10-25T16:23:53.683809+00:00"
-  },
-  {
-    "name": "Pantera",
-    "publisher": "Malibu Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 135887,
-        "name": "Pantera",
-        "publisher": null,
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:54.041794+00:00",
-    "retry_after": "2026-10-25T16:23:54.041809+00:00"
-  },
-  {
-    "name": "Heckle and Jeckle the Talking  Magpies",
-    "publisher": "Marvel Comics",
-    "year": 1976,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 54818,
-        "name": "Heckle and Jeckle the Talking Magpies",
-        "publisher": null,
-        "start_year": 1954
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:54.749622+00:00",
-    "retry_after": "2026-10-25T16:23:54.749637+00:00"
-  },
-  {
-    "name": "Monster Frat House",
-    "publisher": "Malibu Comics",
-    "year": 1989,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 24570,
-        "name": "Monster Frat House",
-        "publisher": null,
-        "start_year": 1989
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T16:23:55.462663+00:00",
-    "retry_after": "2026-10-25T16:23:55.462678+00:00"
   },
   {
     "name": "The Un-Bedable Vark",
@@ -73614,23 +73153,6 @@
     "last_attempt_at": "2026-10-26T07:04:08.454923+00:00",
     "retry_after": "2026-10-27T07:04:08.454941+00:00",
     "search_hydrated": true
-  },
-  {
-    "name": "Marvel Masterworks: Golden Age Human Torch",
-    "publisher": "Marvel Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 35568,
-        "name": "Marvel Masterworks: Golden Age Human Torch",
-        "publisher": null,
-        "start_year": 2003
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:41:20.362896+00:00",
-    "retry_after": "2026-10-25T18:41:20.362914+00:00"
   },
   {
     "name": "Haunted",
@@ -76176,29 +75698,6 @@
     "retry_after": "2026-10-26T05:54:34.881373+00:00"
   },
   {
-    "name": "Sword of Sorcery",
-    "publisher": "DC Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52242,
-        "name": "Sword of Sorcery",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 2624,
-        "name": "Sword of Sorcery",
-        "publisher": null,
-        "start_year": 1973
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T06:17:10.316395+00:00",
-    "retry_after": "2026-10-26T06:17:10.316404+00:00"
-  },
-  {
     "name": "Morbius",
     "publisher": "Marvel Comics",
     "year": 2020,
@@ -76470,47 +75969,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T09:17:19.354431+00:00",
     "retry_after": "2026-10-26T09:17:19.354445+00:00"
-  },
-  {
-    "name": "All-Star Batman",
-    "publisher": "DC Comics",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 100806,
-        "name": "All-Star Batman",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 92947,
-        "name": "All-Star Batman",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 141720,
-        "name": "All Star Batman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 41738,
-        "name": "All Star Batman",
-        "publisher": null,
-        "start_year": 2006
-      },
-      {
-        "id": 150120,
-        "name": "All Star Batman",
-        "publisher": null,
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T10:17:25.414827+00:00",
-    "retry_after": "2026-10-26T10:17:25.414845+00:00"
   },
   {
     "name": "Hammer of the Gods: Hammer Hits China",
@@ -81434,6 +80892,149 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T13:06:47.017999+00:00",
     "retry_after": "2026-10-27T13:06:47.018000+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Plastic Man: The Origin of Plastic Man",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:04:45.136156+00:00",
+    "retry_after": "2026-10-27T14:04:45.136174+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Science Fiction: The Gorilla World",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:04:45.136197+00:00",
+    "retry_after": "2026-10-27T14:04:45.136201+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Static: Playing with Fire",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:04:45.136236+00:00",
+    "retry_after": "2026-10-27T14:04:45.136241+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Suicide Squad: Trial by Fire",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:04:46.420812+00:00",
+    "retry_after": "2026-10-27T14:04:46.420826+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Super Friends: The Fury of the Super Foes",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:04:46.420859+00:00",
+    "retry_after": "2026-10-27T14:04:46.420862+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Superboy: The Superdog from Krypton",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:04:46.420879+00:00",
+    "retry_after": "2026-10-27T14:04:46.420882+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Superman Family: The Giant Turtle Man",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:04:46.420917+00:00",
+    "retry_after": "2026-10-27T14:04:46.420920+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Teen Titans: The Judas Contract",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:05:24.071361+00:00",
+    "retry_after": "2026-10-27T14:05:24.071385+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: The Spectre: The Wrath of the Spectre",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:05:24.071404+00:00",
+    "retry_after": "2026-10-27T14:05:24.071407+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: War: The Big Five Arrive",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:05:24.071420+00:00",
+    "retry_after": "2026-10-27T14:05:24.071423+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Wonder Woman: Introducing Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:05:24.071435+00:00",
+    "retry_after": "2026-10-27T14:05:24.071437+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Wonder Woman: The Legend of Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:05:24.071448+00:00",
+    "retry_after": "2026-10-27T14:05:24.071451+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Zero Hour: Crisis in Time: Part Two",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T14:05:24.071462+00:00",
+    "retry_after": "2026-10-27T14:05:24.071465+00:00",
     "search_hydrated": true
   }
 ]

@@ -244,6 +244,17 @@ def parse_cli() -> argparse.Namespace:
         ),
     )
     p.add_argument(
+        "--max-minutes",
+        type=float,
+        default=None,
+        help=(
+            "Stop starting new targets after this many minutes and exit cleanly. "
+            "A shell timeout kills the run before it writes the needs-volume-id "
+            "ledger and its summary; a 2026-10-26 local batch with ~300 uploads "
+            "ran past its 45-minute timeout that way."
+        ),
+    )
+    p.add_argument(
         "--max-variant-images-per-issue",
         type=int,
         default=10,
@@ -2009,6 +2020,7 @@ def main():
 
     # Volumes (and issue lists) looked up ahead by _resolve_chunk.
     resolved: dict[int, tuple[dict | None, str]] = {}
+    started_at = time.monotonic()
 
     for t_idx, target in enumerate(targets):
         # Skip already-processed targets BEFORE spending a search call. This is
@@ -2052,6 +2064,13 @@ def main():
             print(
                 f"\n── Issue-call cap reached "
                 f"({REQUEST_COUNTER['issues']} issues calls ≥ {args.max_issue_calls}). "
+                f"Exiting cleanly. Re-run later with --skip-existing to resume."
+            )
+            break
+        elapsed_min = (time.monotonic() - started_at) / 60
+        if args.max_minutes is not None and elapsed_min >= args.max_minutes:
+            print(
+                f"\n── Time cap reached ({elapsed_min:.1f} min ≥ {args.max_minutes:g}). "
                 f"Exiting cleanly. Re-run later with --skip-existing to resume."
             )
             break

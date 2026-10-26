@@ -2048,6 +2048,7 @@ def main():
     # Volumes (and issue lists) looked up ahead by _resolve_chunk.
     resolved: dict[int, tuple[dict | None, str]] = {}
     started_at = time.monotonic()
+    time_capped = False
 
     for t_idx, target in enumerate(targets):
         # Skip already-processed targets BEFORE spending a search call. This is
@@ -2256,6 +2257,18 @@ def main():
             new_issue_successes = 0
 
             for idx, issue in enumerate(issues, start=1):
+                # One long volume can outlast the whole cap: on 2026-10-26 The
+                # Spirit's 631 newspaper sections and then 174 issues of
+                # Adventures into the Unknown ran a local batch into its shell
+                # timeout. Stop between issues instead; the volume is not
+                # marked done, so --skip-existing picks up the rest next run.
+                if args.max_minutes is not None and (time.monotonic() - started_at) / 60 >= args.max_minutes:
+                    print(
+                        f"\n── Time cap reached mid-volume at issue {idx}/{len(issues)}. "
+                        f"Exiting cleanly; the rest resume next run."
+                    )
+                    time_capped = True
+                    break
                 issue_number_key = (
                     str(issue.get("issue_number") or "").strip().lower()
                 )
@@ -2413,6 +2426,10 @@ def main():
                                 print(f"    variant db upsert failed: {e}")
 
                 time.sleep(0.5)
+
+            if time_capped:
+                total_new_issue_successes += new_issue_successes
+                break
 
             # Reached the end of this volume's issues without a rate-limit or
             # crash. Only mark it done if that actually meant something: either

@@ -345,7 +345,7 @@ async function processBatch(seriesBatch) {
     const page = await runWithRetry("gcd_issues page", () =>
       supabase
         .from("gcd_issues")
-        .select("series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
+        .select("series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date, variant_of_gcd_id")
         .in("series_gcd_id", seriesGcdIds)
         .order("gcd_id", { ascending: true })
         .range(from, from + PAGE_SIZE - 1)
@@ -629,7 +629,19 @@ async function processBatch(seriesBatch) {
       if (base && !issueByBase.has(base)) orphanBases.add(base);
     }
 
-    const issueCount = dedupedIssues.length + orphanBases.size;
+    // A trade, hardcover, omnibus or one-shot is usually one "[nn]" book with
+    // nothing numbered. Counting it as 0 hid 94,050 such series from search
+    // (the search routes filter issue_count_cached > 0), so a series with no
+    // numbered issues counts its unnumbered books, variants excluded. The
+    // series page lists the same books (src/app/api/series/[id]/route.js).
+    const unnumberedBooks = dedupedIssues.length + orphanBases.size === 0
+      ? issuesForSeries.filter((row) =>
+        String(row.issue_number ?? "").trim() !== ""
+        && isPlaceholderIssueNumber(row.issue_number)
+        && row.variant_of_gcd_id == null
+      ).length
+      : 0;
+    const issueCount = dedupedIssues.length + orphanBases.size + unnumberedBooks;
 
     // Year span uses the RAW row set, not the deduped one. Rationale: a
     // chunk of rows have a valid publication_date but a null/empty

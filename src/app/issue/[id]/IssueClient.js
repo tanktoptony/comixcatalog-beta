@@ -14,6 +14,7 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
 import { countCopies } from "@/lib/libraryMutations";
 import { publisherHref } from "@/lib/publisherPages";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 import { buildIssueDetailsRows, formatGcdDate, formatGcdPrice, humanizeStoryType, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
 import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
 
@@ -192,7 +193,7 @@ export default function IssueClient({ initialIssue = null }) {
 
   const issueTitle = useMemo(() => {
     if (!issue) return "";
-    return `${issue.series_title}${issue.issue_number ? ` #${issue.issue_number}` : ""}`;
+    return `${issue.series_title}${issueNumberSuffix(issue.issue_number)}`;
   }, [issue]);
   const detailRows = useMemo(() => buildIssueDetailsRows(issue), [issue]);
   const allCharacters = useMemo(() => {
@@ -287,7 +288,7 @@ export default function IssueClient({ initialIssue = null }) {
     <main className="page-wrapper">
       <section className="comic-panel">
         <nav className="issue-breadcrumb" aria-label="Issue navigation">
-          <div>{publisherHref(issue.publisher) ? <Link href={publisherHref(issue.publisher)}>{issue.publisher}</Link> : <span>{issue.publisher || "Unknown publisher"}</span>}<span>/</span>{issue.series_id ? <Link href={`/series/${issue.series_id}`}>{issue.series_title}{issue.series_year_start ? ` (${issue.series_year_start})` : ""}</Link> : <span>{issue.series_title}</span>}<span>/</span><strong>#{issue.issue_number}</strong></div>
+          <div>{publisherHref(issue.publisher) ? <Link href={publisherHref(issue.publisher)}>{issue.publisher}</Link> : <span>{issue.publisher || "Unknown publisher"}</span>}<span>/</span>{issue.series_id ? <Link href={`/series/${issue.series_id}`}>{issue.series_title}{issue.series_year_start ? ` (${issue.series_year_start})` : ""}</Link> : <span>{issue.series_title}</span>}{issueNumberSuffix(issue.issue_number) ? <><span>/</span><strong>{issueNumberSuffix(issue.issue_number).trim()}</strong></> : null}</div>
           <div className="issue-prev-next">
               {issue.prev_issue ? (
                 <Link href={`/issue/${issue.prev_issue.id}`} aria-label={`Previous issue, number ${issue.prev_issue.issue_number}`}>← #{issue.prev_issue.issue_number}</Link>

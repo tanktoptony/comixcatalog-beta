@@ -13,6 +13,7 @@ import { buildSeriesIntro } from "@/lib/seriesSeo";
 import KeyTimeline from "@/components/KeyTimeline";
 import { KeyRound } from "lucide-react";
 import { publisherHref } from "@/lib/publisherPages";
+import { isUnnumberedIssue, issueNumberSuffix } from "@/lib/issueNumberLabel";
 import { ageSpanLabel, heroKeyCovers } from "@/lib/seriesPage";
 import {
   buildRunQuickAddPayload,
@@ -761,7 +762,7 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
                   <div className="comic-card-cover" style={{ position: "relative" }}>
                     <img
                       src={coverThumb(issue.cover || "/fallback-cover.png")}
-                      alt={`${series.title} #${issue.issue_number}${issue.release_year ? ` (${issue.release_year})` : ""} cover`}
+                      alt={`${series.title}${issueNumberSuffix(issue.issue_number)}${issue.release_year ? ` (${issue.release_year})` : ""} cover`}
                       loading="lazy"
                     />
                     {isOwned && (
@@ -824,7 +825,9 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
                   <div className="comic-card-title">{series.title}</div>
 
                   <div className="comic-card-meta">
-                    {issue.issue_number ? `#${issue.issue_number}` : "Issue"}
+                    {isUnnumberedIssue(issue.issue_number)
+                      ? series.format_tag || (series.format_noun === "one-shot" ? "One-shot" : "Book")
+                      : issue.issue_number ? `#${issue.issue_number}` : "Issue"}
                     {issue.title && issue.title !== series.title ? ` ${issue.title}` : ""}
                     {issue.release_year ? ` (${issue.release_year})` : ""}
                   </div>

@@ -1,8 +1,9 @@
 import { SITE_URL } from "./siteUrl.js";
+import { issueNumberSuffix } from "./issueNumberLabel.js";
 
 export function issueName(issue) {
   const series = issue?.series_title || "Untitled";
-  const number = issue?.issue_number ? ` #${issue.issue_number}` : "";
+  const number = issueNumberSuffix(issue?.issue_number);
   const year = issue?.release_year ? ` (${issue.release_year})` : "";
   return `${series}${number}${year}`;
 }
@@ -37,7 +38,7 @@ function truncate(value, maxLength) {
 }
 
 export function buildIssueDescription(issue) {
-  const subject = `${issue?.series_title || "This comic"}${issue?.issue_number ? ` #${issue.issue_number}` : ""}`;
+  const subject = `${issue?.series_title || "This comic"}${issueNumberSuffix(issue?.issue_number)}`;
   const publication = issue?.publisher && issue?.release_year
     ? `${subject}, published by ${issue.publisher} in ${issue.release_year}.`
     : issue?.publisher

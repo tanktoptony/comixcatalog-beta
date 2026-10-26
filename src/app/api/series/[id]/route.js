@@ -5,6 +5,7 @@ import { resolvePublisher } from "@/lib/publisher";
 import { collectsLines, formatLabel, formatNoun, formatTag, formatTagTitle, isCollectedEdition } from "@/lib/seriesFormat";
 import { CDN_CACHE_SHORT } from "@/lib/cdnCache";
 import { baseIssueNumber, compareIssueNumbers } from "@/lib/coverMatch";
+import { isUnnumberedIssue } from "@/lib/issueNumberLabel";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { seriesLinkDisplayLines } from "@/lib/seriesLinks";
@@ -321,7 +322,8 @@ export async function GET(req, context) {
           issue_number,
           title,
           publication_date,
-          key_date
+          key_date,
+          variant_of_gcd_id
         `)
         .eq("series_gcd_id", series.gcd_id), "gcd_id")
         .then((data) => ({ data, error: null }))
@@ -546,10 +548,15 @@ export async function GET(req, context) {
     const knownBaseIssues = new Set(
       mappedIssuesRaw.map((issue) => baseIssueNumber(issue.issue_number)).filter(Boolean)
     );
+    // A cover linked to one of this series' own GCD issues is that issue's
+    // cover, not an orphan. Without this, an omnibus whose one "[nn]" book
+    // has a linked ComicVine cover numbered "1" also listed a phantom #1.
+    const listedGcdIds = new Set(issueRows.map((row) => String(row.gcd_id)));
     const orphanCoversByBase = new Map();
     if (series.gcd_id != null) {
       for (const row of canonicalRows) {
         if (row.series_gcd_id !== series.gcd_id || !row.storage_path) continue;
+        if (row.gcd_issue_id != null && listedGcdIds.has(String(row.gcd_issue_id))) continue;
         const base = baseIssueNumber(row.issue_number);
         if (!base || knownBaseIssues.has(base)) continue;
         const existing = orphanCoversByBase.get(base);
@@ -568,7 +575,18 @@ export async function GET(req, context) {
       cover: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${row.storage_path}`,
     }));
 
-    const mappedIssues = dedupeIssuesByBase([...mappedIssuesRaw, ...orphanIssues]);
+    // Trades, hardcovers, omnibuses and one-shots are usually a single "[nn]"
+    // book in GCD. The number-based dedupe drops them, which left those
+    // series pages empty with nothing to add to a collection (2026-10-26).
+    // When nothing in the series is numbered, the unnumbered books are the
+    // series; their variant rows stay out.
+    const variantIds = new Set(
+      issueRows.filter((row) => row.variant_of_gcd_id != null).map((row) => `gcd-${row.gcd_id}`)
+    );
+    const dedupedIssues = dedupeIssuesByBase([...mappedIssuesRaw, ...orphanIssues]);
+    const mappedIssues = dedupedIssues.length
+      ? dedupedIssues
+      : mappedIssuesRaw.filter((issue) => isUnnumberedIssue(issue.issue_number) && !variantIds.has(issue.id));
     const featuredCover =
       mappedIssues.find((issue) => issue.cover)?.cover ?? null;
 

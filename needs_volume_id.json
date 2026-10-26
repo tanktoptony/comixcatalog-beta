@@ -25902,132 +25902,43 @@
     "name": "Spider-Man",
     "publisher": "Marvel Comics",
     "year": 1997,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
         "id": 4421,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 1990
-      },
-      {
-        "id": 43261,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 43265,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 43264,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 130590,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1990
-      },
-      {
-        "id": 78587,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1999
       },
       {
         "id": 87820,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2016
-      },
-      {
-        "id": 132425,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 133121,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 47656,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1984
-      },
-      {
-        "id": 47670,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1982
-      },
-      {
-        "id": 52487,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1999
       },
       {
         "id": 121420,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2019
       },
       {
         "id": 34457,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 1987
-      },
-      {
-        "id": 48892,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 168371,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 43260,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 87487,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 83666,
-        "name": "Spider-Man",
-        "publisher": null,
-        "start_year": 2015
       },
       {
         "id": 145364,
         "name": "Spider-Man",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2022
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T14:09:04.414927+00:00",
-    "retry_after": "2026-11-24T14:09:04.414941+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T04:01:29.829534+00:00",
+    "retry_after": "2026-10-27T04:01:29.829550+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Captain America",
@@ -27696,8 +27607,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:25:24.725695+00:00",
-    "retry_after": "2026-10-27T03:25:24.725711+00:00",
+    "last_attempt_at": "2026-10-26T04:01:13.391518+00:00",
+    "retry_after": "2026-10-27T04:01:13.391536+00:00",
     "search_hydrated": true
   },
   {
@@ -43713,8 +43624,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:25:24.592336+00:00",
-    "retry_after": "2026-10-27T03:25:24.592351+00:00",
+    "last_attempt_at": "2026-10-26T04:01:13.287199+00:00",
+    "retry_after": "2026-10-27T04:01:13.287216+00:00",
     "search_hydrated": true
   },
   {
@@ -79969,65 +79880,6 @@
     "retry_after": "2026-10-26T13:17:21.834850+00:00"
   },
   {
-    "name": "Thundercats",
-    "publisher": "Marvel Comics",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 156702,
-        "name": "Thundercats",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 3515,
-        "name": "Thundercats",
-        "publisher": null,
-        "start_year": 1985
-      },
-      {
-        "id": 40080,
-        "name": "Thundercats",
-        "publisher": null,
-        "start_year": 1987
-      },
-      {
-        "id": 9532,
-        "name": "Thundercats",
-        "publisher": null,
-        "start_year": 2002
-      },
-      {
-        "id": 47304,
-        "name": "Thundercats",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 160482,
-        "name": "Thundercats",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 23374,
-        "name": "Thundercats",
-        "publisher": null,
-        "start_year": 1989
-      },
-      {
-        "id": 177682,
-        "name": "Thundercats",
-        "publisher": null,
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T14:09:04.360774+00:00",
-    "retry_after": "2026-10-26T14:09:04.360792+00:00"
-  },
-  {
     "name": "Millie the Model",
     "publisher": "Marvel Comics",
     "year": null,
@@ -83024,6 +82876,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T03:27:17.716294+00:00",
     "retry_after": "2026-10-27T03:27:17.716310+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Stormbreakers 2026 Sketchbook",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T04:05:30.666466+00:00",
+    "retry_after": "2026-10-27T04:05:30.666481+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Strange Tales",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 167514,
+        "name": "Strange Tales",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T04:05:32.575502+00:00",
+    "retry_after": "2026-10-27T04:05:32.575518+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Super Ego",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73751,
+        "name": "Super Ego",
+        "publisher": "Magnetic Press",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T04:05:33.244582+00:00",
+    "retry_after": "2026-10-27T04:05:33.244597+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Supergirl",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 164287,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T04:05:34.561494+00:00",
+    "retry_after": "2026-10-27T04:05:34.561510+00:00",
     "search_hydrated": true
   }
 ]

@@ -279,7 +279,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 4m python comicvine_api_to_supabase.py --targets gap-requested.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0
+          timeout --kill-after=60s 4m python comicvine_api_to_supabase.py --targets gap-requested.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0 --max-minutes 3
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 4-minute cap. The ledger picks it up next hour."
@@ -297,7 +297,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-new-releases.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0
+          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-new-releases.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0 --max-minutes 5
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 6-minute cap. The ledger picks it up next hour."
@@ -311,7 +311,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-user-collected.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0
+          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-user-collected.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0 --max-minutes 4
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 5-minute cap. The ledger picks it up next hour."
@@ -325,7 +325,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-priority.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0
+          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-priority.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0 --max-minutes 4
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 5-minute cap. The ledger picks it up next hour."
@@ -339,7 +339,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 3m python comicvine_api_to_supabase.py --targets gap-featured.json --skip-existing --missing-only --max-search-calls 10 --vol-sleep 1.0
+          timeout --kill-after=60s 3m python comicvine_api_to_supabase.py --targets gap-featured.json --skip-existing --missing-only --max-search-calls 10 --vol-sleep 1.0 --max-minutes 2
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 3-minute cap. The ledger picks it up next hour."
@@ -361,7 +361,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --missing-only --newest-first --max-search-calls 15 --vol-sleep 1.0
+          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-manual.json --skip-existing --missing-only --newest-first --max-search-calls 15 --vol-sleep 1.0 --max-minutes 5
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 6-minute cap. The ledger picks it up next hour."
@@ -378,7 +378,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 4m python comicvine_api_to_supabase.py --targets gap-pinned.json --skip-existing --missing-only --max-search-calls 20 --vol-sleep 1.0
+          timeout --kill-after=60s 4m python comicvine_api_to_supabase.py --targets gap-pinned.json --skip-existing --missing-only --max-search-calls 20 --vol-sleep 1.0 --max-minutes 3
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 4-minute cap. The ledger picks it up next hour."
@@ -395,7 +395,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-backfill.json --skip-existing --missing-only --max-search-calls 30 --vol-sleep 1.0
+          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-backfill.json --skip-existing --missing-only --max-search-calls 30 --vol-sleep 1.0 --max-minutes 5
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 6-minute cap. The ledger picks it up next hour."
@@ -409,7 +409,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 3m python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --missing-only --max-search-calls 10 --vol-sleep 1.0
+          timeout --kill-after=60s 3m python comicvine_api_to_supabase.py --targets gap-width.json --skip-existing --missing-only --max-search-calls 10 --vol-sleep 1.0 --max-minutes 2
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 3-minute cap. The ledger picks it up next hour."
@@ -423,7 +423,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 2m python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --missing-only --max-search-calls 5 --vol-sleep 1.0
+          timeout --kill-after=60s 2m python comicvine_api_to_supabase.py --targets gap-depth.json --skip-existing --missing-only --max-search-calls 5 --vol-sleep 1.0 --max-minutes 1
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 2-minute cap. The ledger picks it up next hour."

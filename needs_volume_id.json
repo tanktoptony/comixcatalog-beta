@@ -27525,8 +27525,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T06:01:40.809821+00:00",
-    "retry_after": "2026-10-27T06:01:40.809834+00:00",
+    "last_attempt_at": "2026-10-26T07:01:09.980141+00:00",
+    "retry_after": "2026-10-27T07:01:09.980159+00:00",
     "search_hydrated": true
   },
   {
@@ -43542,8 +43542,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T06:01:40.703617+00:00",
-    "retry_after": "2026-10-27T06:01:40.703631+00:00",
+    "last_attempt_at": "2026-10-26T07:01:09.869795+00:00",
+    "retry_after": "2026-10-27T07:01:09.869817+00:00",
     "search_hydrated": true
   },
   {
@@ -68059,52 +68059,6 @@
     "retry_after": "2026-10-26T18:49:36.092560+00:00"
   },
   {
-    "name": "Fearscape",
-    "publisher": "Vault Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 113871,
-        "name": "Fearscape",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 119851,
-        "name": "Fearscape",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:56.088660+00:00",
-    "retry_after": "2026-10-26T18:23:56.088676+00:00"
-  },
-  {
-    "name": "Green Hornet: Parallel Lives",
-    "publisher": "Dynamite Entertainment",
-    "year": 2010,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34030,
-        "name": "The Green Hornet: Parallel Lives",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 39081,
-        "name": "Green Hornet: Parallel Lives",
-        "publisher": null,
-        "start_year": 2010
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T18:23:56.915626+00:00",
-    "retry_after": "2026-10-26T18:23:56.915642+00:00"
-  },
-  {
     "name": "Vampirella vs. Dracula",
     "publisher": "Dynamite Entertainment",
     "year": 2012,
@@ -70846,71 +70800,6 @@
     "retry_after": "2026-10-27T08:23:54.139456+00:00"
   },
   {
-    "name": "Judge Dredd",
-    "publisher": "Titan Comics",
-    "year": 1981,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 86696,
-        "name": "Judge Dredd",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 127476,
-        "name": "Judge Dredd",
-        "publisher": null,
-        "start_year": 1984
-      },
-      {
-        "id": 3928,
-        "name": "Judge Dredd",
-        "publisher": null,
-        "start_year": 1987
-      },
-      {
-        "id": 3284,
-        "name": "Judge Dredd",
-        "publisher": null,
-        "start_year": 1983
-      },
-      {
-        "id": 54111,
-        "name": "Judge Dredd",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 19045,
-        "name": "Judge Dredd",
-        "publisher": null,
-        "start_year": 1994
-      },
-      {
-        "id": 34817,
-        "name": "Judge Dredd",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 149234,
-        "name": "Judge Dredd",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 59215,
-        "name": "Judge Dredd",
-        "publisher": null,
-        "start_year": 1988
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T07:23:58.043348+00:00",
-    "retry_after": "2026-10-27T07:23:58.043364+00:00"
-  },
-  {
     "name": "X",
     "publisher": "Dark Horse Comics",
     "year": 2013,
@@ -71279,23 +71168,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T11:23:51.175186+00:00",
     "retry_after": "2026-10-27T11:23:51.175200+00:00"
-  },
-  {
-    "name": "Marvel Masterworks: Captain Marvel",
-    "publisher": "Marvel Comics",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34783,
-        "name": "Marvel Masterworks: Captain Marvel",
-        "publisher": null,
-        "start_year": 2005
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T09:23:58.900126+00:00",
-    "retry_after": "2026-10-27T09:23:58.900140+00:00"
   },
   {
     "name": "Killadelphia",
@@ -71890,23 +71762,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T10:48:20.440955+00:00",
     "retry_after": "2026-10-27T10:48:20.440971+00:00"
-  },
-  {
-    "name": "Oz",
-    "publisher": "Caliber Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 5409,
-        "name": "Oz",
-        "publisher": null,
-        "start_year": 1994
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T11:23:50.214688+00:00",
-    "retry_after": "2026-10-27T11:23:50.214702+00:00"
   },
   {
     "name": "Hotell",
@@ -73733,23 +73588,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Black Panther / Namor: Doomed",
-    "publisher": "Marvel Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 176682,
-        "name": "Black Panther/Namor: Doomed",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:04.178106+00:00",
-    "retry_after": "2026-10-25T14:48:04.178123+00:00"
-  },
-  {
     "name": "Essential Iron Fist",
     "publisher": "Marvel Comics",
     "year": 2004,
@@ -75529,30 +75367,14 @@
       {
         "id": 18767,
         "name": "Mad Classics",
-        "publisher": null,
+        "publisher": "DC Comics",
         "start_year": 2007
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:24:03.914066+00:00",
-    "retry_after": "2026-10-25T17:24:03.914082+00:00"
-  },
-  {
-    "name": "Marines in Battle",
-    "publisher": "Marvel Comics",
-    "year": 1954,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 1633,
-        "name": "Marines in Battle",
-        "publisher": null,
-        "start_year": 1954
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T17:24:04.453062+00:00",
-    "retry_after": "2026-10-25T17:24:04.453079+00:00"
+    "last_attempt_at": "2026-10-26T07:04:08.454923+00:00",
+    "retry_after": "2026-10-27T07:04:08.454941+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Masterworks: Golden Age Human Torch",
@@ -78699,23 +78521,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T10:17:26.209692+00:00",
     "retry_after": "2026-10-26T10:17:26.209709+00:00"
-  },
-  {
-    "name": "All Western Winners",
-    "publisher": "Marvel Comics",
-    "year": 1948,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 21548,
-        "name": "All Western Winners",
-        "publisher": null,
-        "start_year": 1948
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T10:17:26.785067+00:00",
-    "retry_after": "2026-10-26T10:17:26.785084+00:00"
   },
   {
     "name": "Primordia",
@@ -82635,6 +82440,196 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T06:03:52.237362+00:00",
     "retry_after": "2026-10-27T06:03:52.237376+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thunderbolts: Dark Reign Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:04.765520+00:00",
+    "retry_after": "2026-10-27T07:03:04.765537+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Titans by Tom Taylor Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:05.944442+00:00",
+    "retry_after": "2026-10-27T07:03:05.944461+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Transformers: The Movie 40th Anniversary Edition",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:13.779461+00:00",
+    "retry_after": "2026-10-27T07:03:13.779478+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Treasury Edition 50th Anniversary of Superman vs. The Amazing Spider-Man",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:19.700379+00:00",
+    "retry_after": "2026-10-27T07:03:19.700396+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Trinity: Daughter of Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 165024,
+        "name": "Trinity: Daughter of Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:20.550651+00:00",
+    "retry_after": "2026-10-27T07:03:20.550667+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ultraman Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:26.760838+00:00",
+    "retry_after": "2026-10-27T07:03:26.760854+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Uncle Scrooge: Earth's Mightiest Duck",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 166207,
+        "name": "Uncle Scrooge: Earth's Mightiest Duck",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:33.054487+00:00",
+    "retry_after": "2026-10-27T07:03:33.054499+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Under York",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 157430,
+        "name": "Under York",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:34.904073+00:00",
+    "retry_after": "2026-10-27T07:03:34.904089+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Universal Monsters: The Invisible Man",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 166462,
+        "name": "Universal Monsters: The Invisible Man",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:36.420115+00:00",
+    "retry_after": "2026-10-27T07:03:36.420128+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Venom: Black, White & Blood Treasury Edition",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:37.482944+00:00",
+    "retry_after": "2026-10-27T07:03:37.482961+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Violator",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 160110,
+        "name": "Violator",
+        "publisher": "Image",
+        "start_year": 2024
+      },
+      {
+        "id": 163341,
+        "name": "Violator",
+        "publisher": "Image",
+        "start_year": null
+      },
+      {
+        "id": 5443,
+        "name": "Violator",
+        "publisher": "Image",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:39.258637+00:00",
+    "retry_after": "2026-10-27T07:03:39.258652+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "W0rldtr33 Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:39.615461+00:00",
+    "retry_after": "2026-10-27T07:03:39.615477+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wayward Compendium",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T07:03:40.561204+00:00",
+    "retry_after": "2026-10-27T07:03:40.561220+00:00",
     "search_hydrated": true
   }
 ]

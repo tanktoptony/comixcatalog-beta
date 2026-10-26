@@ -11614,9 +11614,10 @@
         "start_year": 1989
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-19T19:14:49.817217+00:00",
-    "retry_after": "2026-11-18T19:14:49.817232+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T08:01:22.297925+00:00",
+    "retry_after": "2026-10-27T08:01:22.297941+00:00",
+    "search_hydrated": true
   },
   {
     "name": "American Splendor",
@@ -27525,8 +27526,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T07:01:09.980141+00:00",
-    "retry_after": "2026-10-27T07:01:09.980159+00:00",
+    "last_attempt_at": "2026-10-26T08:01:12.733576+00:00",
+    "retry_after": "2026-10-27T08:01:12.733596+00:00",
     "search_hydrated": true
   },
   {
@@ -43542,8 +43543,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T07:01:09.869795+00:00",
-    "retry_after": "2026-10-27T07:01:09.869817+00:00",
+    "last_attempt_at": "2026-10-26T08:01:12.620717+00:00",
+    "retry_after": "2026-10-27T08:01:12.620729+00:00",
     "search_hydrated": true
   },
   {
@@ -55271,9 +55272,10 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-19T17:17:39.875679+00:00",
-    "retry_after": "2026-10-22T17:17:39.875692+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-26T08:01:21.478170+00:00",
+    "retry_after": "2026-11-02T08:01:21.478186+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Garfield's Pet Force 2014 Special",
@@ -65836,29 +65838,6 @@
     "retry_after": "2026-10-23T07:32:35.952310+00:00"
   },
   {
-    "name": "Street Fighter Unlimited",
-    "publisher": "Udon Entertainment Corp.",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 93682,
-        "name": "Street Fighter Unlimited",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 85643,
-        "name": "Street Fighter Unlimited",
-        "publisher": null,
-        "start_year": 2015
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T08:06:17.858449+00:00",
-    "retry_after": "2026-10-23T08:06:17.858464+00:00"
-  },
-  {
     "name": "Harbinger Wars",
     "publisher": "Valiant Comics",
     "year": 2013,
@@ -68057,75 +68036,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-23T18:49:36.092545+00:00",
     "retry_after": "2026-10-26T18:49:36.092560+00:00"
-  },
-  {
-    "name": "Vampirella vs. Dracula",
-    "publisher": "Dynamite Entertainment",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 40547,
-        "name": "Vampirella vs. Dracula",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 59013,
-        "name": "Vampirella vs. Dracula",
-        "publisher": null,
-        "start_year": 2012
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T19:23:52.780853+00:00",
-    "retry_after": "2026-10-26T19:23:52.780868+00:00"
-  },
-  {
-    "name": "Seduction of the Innocent",
-    "publisher": "Dynamite Entertainment",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 3542,
-        "name": "Seduction of the Innocent",
-        "publisher": null,
-        "start_year": 1985
-      },
-      {
-        "id": 86392,
-        "name": "Seduction of the Innocent",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 94226,
-        "name": "Seduction of the Innocent",
-        "publisher": null,
-        "start_year": 2016
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T19:23:53.320117+00:00",
-    "retry_after": "2026-10-26T19:23:53.320131+00:00"
-  },
-  {
-    "name": "Marvel Holiday Special",
-    "publisher": "Marvel Comics",
-    "year": 2006,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18442,
-        "name": "Marvel Holiday Special",
-        "publisher": null,
-        "start_year": 1991
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T19:23:54.337660+00:00",
-    "retry_after": "2026-10-26T19:23:54.337706+00:00"
   },
   {
     "name": "Marvel Super Heroes",
@@ -70798,71 +70708,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T08:23:54.139440+00:00",
     "retry_after": "2026-10-27T08:23:54.139456+00:00"
-  },
-  {
-    "name": "X",
-    "publisher": "Dark Horse Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 103009,
-        "name": "X",
-        "publisher": null,
-        "start_year": 1992
-      },
-      {
-        "id": 131430,
-        "name": "X",
-        "publisher": null,
-        "start_year": 1959
-      },
-      {
-        "id": 43890,
-        "name": "X",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 167050,
-        "name": "X",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 5403,
-        "name": "X",
-        "publisher": null,
-        "start_year": 1994
-      },
-      {
-        "id": 57406,
-        "name": "X",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 45390,
-        "name": "X",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 93542,
-        "name": "X",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 18506,
-        "name": "X",
-        "publisher": null,
-        "start_year": 2000
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T07:23:58.419603+00:00",
-    "retry_after": "2026-10-27T07:23:58.419614+00:00"
   },
   {
     "name": "The Texas Chainsaw Massacre",
@@ -73588,23 +73433,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Essential Iron Fist",
-    "publisher": "Marvel Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26174,
-        "name": "Essential Iron Fist",
-        "publisher": null,
-        "start_year": 2004
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:05.169053+00:00",
-    "retry_after": "2026-10-25T14:48:05.169060+00:00"
-  },
-  {
     "name": "Watch Dogs",
     "publisher": "Titan Comics",
     "year": 2019,
@@ -75820,13 +75648,14 @@
       {
         "id": 151292,
         "name": "I Vendicatori",
-        "publisher": null,
+        "publisher": "Panini Comics",
         "start_year": 1994
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:41:32.261393+00:00",
-    "retry_after": "2026-10-25T18:41:32.261410+00:00"
+    "last_attempt_at": "2026-10-26T08:07:02.488116+00:00",
+    "retry_after": "2026-10-27T08:07:02.488134+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Anti-Crime Squad",
@@ -75837,13 +75666,14 @@
       {
         "id": 52652,
         "name": "Anti Crime Squad",
-        "publisher": null,
+        "publisher": "Magazine Management",
         "start_year": 1952
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:41:32.604871+00:00",
-    "retry_after": "2026-10-25T18:41:32.604891+00:00"
+    "last_attempt_at": "2026-10-26T08:07:03.439679+00:00",
+    "retry_after": "2026-10-27T08:07:03.439697+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Yummy Fur",
@@ -82630,6 +82460,101 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T07:03:40.561204+00:00",
     "retry_after": "2026-10-27T07:03:40.561220+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wolverine: Not Dead Yet Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T08:05:49.639344+00:00",
+    "retry_after": "2026-10-27T08:05:49.639361+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wonder Woman Historia: The Amazons Absolute Edition",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T08:06:00.373016+00:00",
+    "retry_after": "2026-10-27T08:06:00.373032+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wonder Woman Rebirth by Greg Rucka Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T08:06:00.631559+00:00",
+    "retry_after": "2026-10-27T08:06:00.631576+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wrestle Heist!",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 169352,
+        "name": "Wrestle Heist",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T08:06:06.352826+00:00",
+    "retry_after": "2026-10-27T08:06:06.352841+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men: Age of Krakoa - Reign of X Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T08:06:21.391234+00:00",
+    "retry_after": "2026-10-27T08:06:21.391252+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men: Age of Revelation - Book of Revelation",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T08:06:22.026506+00:00",
+    "retry_after": "2026-10-27T08:06:22.026522+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men: Age of Revelation - World of Revelation",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T08:06:27.694794+00:00",
+    "retry_after": "2026-10-27T08:06:27.694810+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men: Blue & Gold - Bloodties Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T08:06:32.474082+00:00",
+    "retry_after": "2026-10-27T08:06:32.474098+00:00",
     "search_hydrated": true
   }
 ]

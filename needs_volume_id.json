@@ -27513,21 +27513,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T08:01:12.733576+00:00",
-    "retry_after": "2026-10-27T08:01:12.733596+00:00",
+    "last_attempt_at": "2026-10-26T09:01:47.851876+00:00",
+    "retry_after": "2026-10-27T09:01:47.851891+00:00",
     "search_hydrated": true
   },
   {
@@ -43530,21 +43530,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-26T08:01:12.620717+00:00",
-    "retry_after": "2026-10-27T08:01:12.620729+00:00",
+    "last_attempt_at": "2026-10-26T09:01:47.793776+00:00",
+    "retry_after": "2026-10-27T09:01:47.793790+00:00",
     "search_hydrated": true
   },
   {
@@ -68038,41 +68038,6 @@
     "retry_after": "2026-10-26T18:49:36.092560+00:00"
   },
   {
-    "name": "Marvel Super Heroes",
-    "publisher": "Marvel Comics",
-    "year": 1966,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 4404,
-        "name": "Marvel Super-Heroes",
-        "publisher": null,
-        "start_year": 1990
-      },
-      {
-        "id": 2353,
-        "name": "Marvel Super-Heroes",
-        "publisher": null,
-        "start_year": 1967
-      },
-      {
-        "id": 155428,
-        "name": "Marvel Super-Heroes",
-        "publisher": null,
-        "start_year": 1980
-      },
-      {
-        "id": 3088,
-        "name": "Marvel Super-Heroes",
-        "publisher": null,
-        "start_year": 1979
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-23T19:23:55.992969+00:00",
-    "retry_after": "2026-10-26T19:23:55.992985+00:00"
-  },
-  {
     "name": "Dead Kings",
     "publisher": "AfterShock Comics",
     "year": 2019,
@@ -71015,41 +70980,6 @@
     "retry_after": "2026-10-27T11:23:51.175200+00:00"
   },
   {
-    "name": "Killadelphia",
-    "publisher": "Image Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 123105,
-        "name": "Killadelphia",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 170498,
-        "name": "Killadelphia",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 103741,
-        "name": "Killadelphia",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 152012,
-        "name": "Killadelphia",
-        "publisher": null,
-        "start_year": 2021
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T09:24:00.655850+00:00",
-    "retry_after": "2026-10-27T09:24:00.655864+00:00"
-  },
-  {
     "name": "Animal Antics",
     "publisher": "DC Comics",
     "year": 2011,
@@ -71200,65 +71130,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T11:23:58.570218+00:00",
     "retry_after": "2026-10-27T11:23:58.570232+00:00"
-  },
-  {
-    "name": "Teen Titans",
-    "publisher": "DC Comics",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 10414,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2003
-      },
-      {
-        "id": 43004,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 95242,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 19986,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 1996
-      },
-      {
-        "id": 75697,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 43331,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2004
-      },
-      {
-        "id": 176699,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 2026
-      },
-      {
-        "id": 2279,
-        "name": "Teen Titans",
-        "publisher": null,
-        "start_year": 1966
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T09:24:12.729188+00:00",
-    "retry_after": "2026-10-27T09:24:12.729204+00:00"
   },
   {
     "name": "O.M.A.C.",
@@ -71483,35 +71354,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T12:23:51.944788+00:00",
     "retry_after": "2026-10-27T12:23:51.944804+00:00"
-  },
-  {
-    "name": "Thor: God of Thunder",
-    "publisher": "Marvel Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 53920,
-        "name": "Thor: God of Thunder",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 150787,
-        "name": "Thor: God of Thunder",
-        "publisher": null,
-        "start_year": null
-      },
-      {
-        "id": 78023,
-        "name": "Thor: God of Thunder",
-        "publisher": null,
-        "start_year": 2014
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T10:48:20.247537+00:00",
-    "retry_after": "2026-10-27T10:48:20.247553+00:00"
   },
   {
     "name": "The Transformers",
@@ -73431,40 +73273,6 @@
     "last_attempt_at": "2026-10-25T18:17:43.554072+00:00",
     "retry_after": "2026-10-26T18:17:43.554089+00:00",
     "search_hydrated": true
-  },
-  {
-    "name": "Watch Dogs",
-    "publisher": "Titan Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 120116,
-        "name": "Watch_Dogs",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:06.006531+00:00",
-    "retry_after": "2026-10-25T14:48:06.006547+00:00"
-  },
-  {
-    "name": "DC's Quoth the Raven… \"Whatever\"",
-    "publisher": "DC Comics",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 177362,
-        "name": "DC's Quoth the Raven… Whatever",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-24T14:48:06.351309+00:00",
-    "retry_after": "2026-10-25T14:48:06.351325+00:00"
   },
   {
     "name": "DC's Zatannic Panic!",
@@ -75684,13 +75492,14 @@
       {
         "id": 35961,
         "name": "Yummy Fur",
-        "publisher": null,
+        "publisher": "Drawn & Quarterly",
         "start_year": 1986
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-24T18:41:33.396892+00:00",
-    "retry_after": "2026-10-25T18:41:33.396911+00:00"
+    "last_attempt_at": "2026-10-26T09:07:41.332380+00:00",
+    "retry_after": "2026-10-27T09:07:41.332399+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Police Against Crime",
@@ -78082,77 +77891,6 @@
     "retry_after": "2026-10-26T07:17:27.335851+00:00"
   },
   {
-    "name": "Planet Comics",
-    "publisher": "Antarctic Press",
-    "year": 2000,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 816,
-        "name": "Planet Comics",
-        "publisher": null,
-        "start_year": 1940
-      },
-      {
-        "id": 125838,
-        "name": "Planet Comics",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 58605,
-        "name": "Planet Comics",
-        "publisher": null,
-        "start_year": 1950
-      },
-      {
-        "id": 58862,
-        "name": "Planet Comics",
-        "publisher": null,
-        "start_year": 1984
-      },
-      {
-        "id": 21059,
-        "name": "Planet Comics",
-        "publisher": null,
-        "start_year": 1988
-      },
-      {
-        "id": 58682,
-        "name": "Planet Comics",
-        "publisher": null,
-        "start_year": 1952
-      },
-      {
-        "id": 58795,
-        "name": "Planet Comics",
-        "publisher": null,
-        "start_year": 1958
-      },
-      {
-        "id": 58108,
-        "name": "Planet Comics",
-        "publisher": null,
-        "start_year": 1951
-      },
-      {
-        "id": 58989,
-        "name": "Planet Comics",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 29709,
-        "name": "Planet Comics",
-        "publisher": null,
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T08:17:25.162433+00:00",
-    "retry_after": "2026-10-26T08:17:25.162448+00:00"
-  },
-  {
     "name": "Disney's Pocahontas",
     "publisher": "Marvel Comics",
     "year": 1995,
@@ -78500,23 +78238,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-25T11:23:30.447641+00:00",
     "retry_after": "2026-10-26T11:23:30.447649+00:00"
-  },
-  {
-    "name": "Inhumanity: Superior Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 70898,
-        "name": "Inhumanity: Superior Spider-Man",
-        "publisher": null,
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T12:17:27.395193+00:00",
-    "retry_after": "2026-10-26T12:17:27.395208+00:00"
   },
   {
     "name": "Courtney Crumrin & the Night Things",
@@ -82555,6 +82276,170 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-26T08:06:32.474082+00:00",
     "retry_after": "2026-10-27T08:06:32.474098+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men: The Messiah Trilogy Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:19.169169+00:00",
+    "retry_after": "2026-10-27T09:06:19.169190+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men: The Trial of Gambit Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:20.316052+00:00",
+    "retry_after": "2026-10-27T09:06:20.316070+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Youngblood",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 168419,
+        "name": "Youngblood",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:21.189359+00:00",
+    "retry_after": "2026-10-27T09:06:21.189374+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Youngblood Vault Edition",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:24.041455+00:00",
+    "retry_after": "2026-10-27T09:06:24.041473+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Zatanna by Paul Dini Omnibus",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:30.211365+00:00",
+    "retry_after": "2026-10-27T09:06:30.211385+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "A Righteous Thirst for Vengeance Giant-Sized Artist's Proof Edition",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:36.138400+00:00",
+    "retry_after": "2026-10-27T09:06:36.138419+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Batman Zero Year",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:39.292995+00:00",
+    "retry_after": "2026-10-27T09:06:39.293013+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Mister Miracle by Tom King and Mitch Gerads",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:40.453706+00:00",
+    "retry_after": "2026-10-27T09:06:40.453724+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Power: Origins",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 159010,
+        "name": "Absolute Power: Origins",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:41.412766+00:00",
+    "retry_after": "2026-10-27T09:06:41.412782+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Superman: Red Son",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:50.403703+00:00",
+    "retry_after": "2026-10-27T09:06:50.403722+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Universe 2025 ComicsPro Ashcan Preview",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:51.506227+00:00",
+    "retry_after": "2026-10-27T09:06:51.506244+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Agents of S.H.I.E.L.D. Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:58.283424+00:00",
+    "retry_after": "2026-10-27T09:06:58.283441+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Alien: Black, White & Blood",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 156962,
+        "name": "Alien: Black, White & Blood",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-26T09:06:59.747832+00:00",
+    "retry_after": "2026-10-27T09:06:59.747844+00:00",
     "search_hydrated": true
   }
 ]

@@ -20,10 +20,13 @@ export async function POST(req) {
     // can't be used: start a new one in this mode.
     let account = existing?.livemode === MARKETPLACE_LIVEMODE ? existing.stripe_account_id : null;
     if (!account) {
+      // Live mode only allows transfers-only accounts with Stripe approval, so ask
+      // for card_payments too (Stripe's default for US Express accounts). Buyers
+      // still pay the platform; sellers only ever receive transfers.
       // The key dedupes double clicks, but only within 10 minutes: Stripe replays
       // a failed response for the same key for 24 hours, so a fixed key kept
       // returning a rejection after the seller had cleared it on Stripe's side.
-      const created = await stripe.accounts.create({ type: "express", country: "US", email: user.email, capabilities: { transfers: { requested: true } }, business_profile: { product_description: "Comic books sold on ComixCatalog" }, metadata: { supabase_user_id: user.id } }, { idempotencyKey: `acct-${MARKETPLACE_LIVEMODE ? "live" : "test"}-${user.id}-${Math.floor(Date.now() / 600000)}` });
+      const created = await stripe.accounts.create({ type: "express", country: "US", email: user.email, capabilities: { card_payments: { requested: true }, transfers: { requested: true } }, business_profile: { product_description: "Comic books sold on ComixCatalog" }, metadata: { supabase_user_id: user.id } }, { idempotencyKey: `acct-${MARKETPLACE_LIVEMODE ? "live" : "test"}-${user.id}-${Math.floor(Date.now() / 600000)}` });
       account = created.id;
       const { error: upsertError } = await supabase.rpc("mkt_upsert_seller_account", { p_user: user.id, p_stripe_account_id: account, p_livemode: MARKETPLACE_LIVEMODE, p_charges: created.charges_enabled, p_payouts: created.payouts_enabled, p_details: created.details_submitted, p_requirements: created.requirements?.currently_due || [] });
       if (upsertError) throw upsertError;

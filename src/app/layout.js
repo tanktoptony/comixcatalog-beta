@@ -104,6 +104,13 @@ export const metadata = {
     ],
   },
   manifest: "/favicon/site.webmanifest",
+  // Home-screen install on iPhone: name under the icon, opens without
+  // Safari's bars, dark status bar to match the site.
+  appleWebApp: {
+    capable: true,
+    title: SITE_NAME,
+    statusBarStyle: "black",
+  },
 };
 
 // Next 16 moved themeColor (and a few others) out of `metadata` and into a

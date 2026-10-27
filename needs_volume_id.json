@@ -27517,8 +27517,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T15:03:19.591876+00:00",
-    "retry_after": "2026-10-28T15:03:19.591881+00:00",
+    "last_attempt_at": "2026-10-27T16:01:21.794042+00:00",
+    "retry_after": "2026-10-28T16:01:21.794045+00:00",
     "search_hydrated": true
   },
   {
@@ -43550,8 +43550,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T15:03:19.591816+00:00",
-    "retry_after": "2026-10-28T15:03:19.591832+00:00",
+    "last_attempt_at": "2026-10-27T16:01:21.793981+00:00",
+    "retry_after": "2026-10-28T16:01:21.794002+00:00",
     "search_hydrated": true
   },
   {
@@ -78970,6 +78970,301 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T15:07:43.336391+00:00",
     "retry_after": "2026-10-28T15:07:43.336394+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Human Target by Tom King and Greg Smallwood: The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:04:54.295577+00:00",
+    "retry_after": "2026-10-28T16:04:54.295597+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Kids One-Shot",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:04:54.295617+00:00",
+    "retry_after": "2026-10-28T16:04:54.295621+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Riptide",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 21757,
+        "name": "Riptide",
+        "publisher": "Image",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:04:55.072826+00:00",
+    "retry_after": "2026-10-28T16:04:55.072845+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Horizon Experiment",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 167290,
+        "name": "The Horizon Experiment",
+        "publisher": "Image",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:05:14.466223+00:00",
+    "retry_after": "2026-10-28T16:05:14.466248+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Man Who Dreamt the Impossible",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:05:42.013720+00:00",
+    "retry_after": "2026-10-28T16:05:42.013738+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Private Eye",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 30577,
+        "name": "Private Eye",
+        "publisher": "Marvel",
+        "start_year": 1951
+      },
+      {
+        "id": 59208,
+        "name": "The Private Eye",
+        "publisher": "Panelsyndicate",
+        "start_year": 2013
+      },
+      {
+        "id": 83194,
+        "name": "The Private Eye",
+        "publisher": "Panelsyndicate",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:05:42.013802+00:00",
+    "retry_after": "2026-10-28T16:05:42.013806+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Shadow Planet",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:05:42.013844+00:00",
+    "retry_after": "2026-10-28T16:05:42.013846+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Spectre by John Ostrander and Tom Mandrake Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:05:42.013863+00:00",
+    "retry_after": "2026-10-28T16:05:42.013865+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Terrifics: The Complete Collection",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:05:42.013877+00:00",
+    "retry_after": "2026-10-28T16:05:42.013879+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Toxic Avenger",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171480,
+        "name": "The Toxic Avenger",
+        "publisher": "Legendary Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:05:42.013909+00:00",
+    "retry_after": "2026-10-28T16:05:42.013911+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Transformers #2 Kickstarter Exclusive",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:05:42.013923+00:00",
+    "retry_after": "2026-10-28T16:05:42.013925+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Pinhead",
+    "publisher": "BOOM! Studios",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21723,
+        "name": "Pinhead",
+        "publisher": "Marvel",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:06:10.889601+00:00",
+    "retry_after": "2026-10-28T16:06:10.889619+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Magic Order Omnibus",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:06:10.889681+00:00",
+    "retry_after": "2026-10-28T16:06:10.889685+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Golden Age Art of Joe Kubert",
+    "publisher": "Dell Comics",
+    "year": 1979,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:06:10.889700+00:00",
+    "retry_after": "2026-10-28T16:06:10.889703+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Essentials: Action Comics",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:06:10.889716+00:00",
+    "retry_after": "2026-10-28T16:06:10.889718+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "One for One: Dragon Age: The Silent Grove",
+    "publisher": "Dark Horse Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:06:10.889745+00:00",
+    "retry_after": "2026-10-28T16:06:10.889747+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Corriere dei Ragazzi",
+    "publisher": "Dell Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32469,
+        "name": "Corriere dei Ragazzi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:06:29.149569+00:00",
+    "retry_after": "2026-10-28T16:06:29.149587+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi di Orient Express",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47514,
+        "name": "Gli Albi di Orient Express",
+        "publisher": "L'Isola Trovata",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:06:29.149628+00:00",
+    "retry_after": "2026-10-28T16:06:29.149632+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Zona X",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28041,
+        "name": "Zona X",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:06:29.149677+00:00",
+    "retry_after": "2026-10-28T16:06:29.149679+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Korak - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 106802,
+        "name": "Korak Serie Avestruz",
+        "publisher": "Editorial Novaro",
+        "start_year": 1975
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T16:06:29.149697+00:00",
+    "retry_after": "2026-10-28T16:06:29.149700+00:00",
     "search_hydrated": true
   }
 ]

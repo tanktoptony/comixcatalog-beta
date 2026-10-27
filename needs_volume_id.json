@@ -27493,8 +27493,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T12:06:17.095229+00:00",
-    "retry_after": "2026-10-28T12:06:17.095249+00:00",
+    "last_attempt_at": "2026-10-27T13:07:34.994162+00:00",
+    "retry_after": "2026-10-28T13:07:34.994178+00:00",
     "search_hydrated": true
   },
   {
@@ -27517,8 +27517,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T12:01:18.708267+00:00",
-    "retry_after": "2026-10-28T12:01:18.708269+00:00",
+    "last_attempt_at": "2026-10-27T13:01:39.712174+00:00",
+    "retry_after": "2026-10-28T13:01:39.712179+00:00",
     "search_hydrated": true
   },
   {
@@ -41588,9 +41588,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-10T07:00:51.715843+00:00",
-    "retry_after": "2026-10-17T07:00:51.715857+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-27T13:05:21.577499+00:00",
+    "retry_after": "2026-11-10T13:05:21.577502+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Avengers Legends",
@@ -43549,8 +43550,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T12:01:18.708215+00:00",
-    "retry_after": "2026-10-28T12:01:18.708236+00:00",
+    "last_attempt_at": "2026-10-27T13:01:39.712113+00:00",
+    "retry_after": "2026-10-28T13:01:39.712129+00:00",
     "search_hydrated": true
   },
   {
@@ -61609,29 +61610,6 @@
     "retry_after": "2026-10-22T23:15:57.355236+00:00"
   },
   {
-    "name": "The Bat-Man: Second Knight",
-    "publisher": "DC Comics",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 167082,
-        "name": "The Bat-Man: Second Knight",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 171785,
-        "name": "The Bat-Man: Second Knight",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T23:15:58.213599+00:00",
-    "retry_after": "2026-10-22T23:15:58.213614+00:00"
-  },
-  {
     "name": "Aggretsuko: Meet Her Friends",
     "publisher": "Oni Press",
     "year": 2020,
@@ -70291,9 +70269,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T12:23:51.944788+00:00",
-    "retry_after": "2026-10-27T12:23:51.944804+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T13:05:02.885894+00:00",
+    "retry_after": "2026-11-03T13:05:02.885912+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Hotell",
@@ -75684,9 +75663,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T12:07:33.100276+00:00",
-    "retry_after": "2026-10-27T12:07:33.100294+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T13:05:02.885964+00:00",
+    "retry_after": "2026-10-30T13:05:02.885969+00:00",
     "search_hydrated": true
   },
   {
@@ -75695,9 +75674,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T12:07:33.100307+00:00",
-    "retry_after": "2026-10-27T12:07:33.100309+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T13:05:02.885986+00:00",
+    "retry_after": "2026-10-30T13:05:02.885989+00:00",
     "search_hydrated": true
   },
   {
@@ -75719,9 +75698,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T12:07:33.100379+00:00",
-    "retry_after": "2026-10-27T12:07:33.100381+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T13:05:02.886053+00:00",
+    "retry_after": "2026-10-30T13:05:02.886057+00:00",
     "search_hydrated": true
   },
   {
@@ -75730,9 +75709,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T12:07:33.100395+00:00",
-    "retry_after": "2026-10-27T12:07:33.100396+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T13:05:02.886075+00:00",
+    "retry_after": "2026-10-30T13:05:02.886079+00:00",
     "search_hydrated": true
   },
   {
@@ -75741,9 +75720,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T12:07:33.100405+00:00",
-    "retry_after": "2026-10-27T12:07:33.100407+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T13:05:02.886095+00:00",
+    "retry_after": "2026-10-30T13:05:02.886097+00:00",
     "search_hydrated": true
   },
   {
@@ -75752,9 +75731,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T12:07:33.100414+00:00",
-    "retry_after": "2026-10-27T12:07:33.100416+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T13:05:02.886111+00:00",
+    "retry_after": "2026-10-30T13:05:02.886113+00:00",
     "search_hydrated": true
   },
   {
@@ -75770,9 +75749,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T12:07:33.920858+00:00",
-    "retry_after": "2026-10-27T12:07:33.920874+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T13:05:03.514798+00:00",
+    "retry_after": "2026-10-30T13:05:03.514813+00:00",
     "search_hydrated": true
   },
   {
@@ -75788,9 +75767,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T12:07:37.038275+00:00",
-    "retry_after": "2026-10-27T12:07:37.038299+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T13:05:03.514910+00:00",
+    "retry_after": "2026-10-30T13:05:03.514914+00:00",
     "search_hydrated": true
   },
   {
@@ -75799,9 +75778,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T12:07:40.752266+00:00",
-    "retry_after": "2026-10-27T12:07:40.752288+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T13:05:02.886135+00:00",
+    "retry_after": "2026-10-30T13:05:02.886138+00:00",
     "search_hydrated": true
   },
   {
@@ -75810,9 +75789,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T12:07:40.752308+00:00",
-    "retry_after": "2026-10-27T12:07:40.752310+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T13:05:21.577352+00:00",
+    "retry_after": "2026-10-30T13:05:21.577368+00:00",
     "search_hydrated": true
   },
   {
@@ -78915,6 +78894,154 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T12:06:17.095283+00:00",
     "retry_after": "2026-10-28T12:06:17.095286+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Adventures of Spawn Complete Collection",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T13:05:21.577430+00:00",
+    "retry_after": "2026-10-28T13:05:21.577435+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Book of Shame: An Extra Fabulous Collection",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T13:05:21.577472+00:00",
+    "retry_after": "2026-10-28T13:05:21.577475+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Boy Wonder",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 158018,
+        "name": "The Boy Wonder",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T13:06:15.655061+00:00",
+    "retry_after": "2026-10-28T13:06:15.655076+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Goldie Vance",
+    "publisher": "BOOM! Studios",
+    "year": 2026,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 89593,
+        "name": "Goldie Vance",
+        "publisher": "Boom! Studios",
+        "start_year": 2016
+      },
+      {
+        "id": 94628,
+        "name": "Goldie Vance",
+        "publisher": "Boom! Studios",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T13:06:35.200202+00:00",
+    "retry_after": "2026-10-28T13:06:35.200218+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Near Mint",
+    "publisher": "Dell Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T13:06:35.200244+00:00",
+    "retry_after": "2026-10-28T13:06:35.200248+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "World of Archie, FCBD Edition",
+    "publisher": "Archie Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T13:06:35.200276+00:00",
+    "retry_after": "2026-10-28T13:06:35.200279+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Jupiter's Legacy Omnibus",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T13:06:35.200294+00:00",
+    "retry_after": "2026-10-28T13:06:35.200297+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Speed Racer Deluxe Edition",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T13:06:35.200310+00:00",
+    "retry_after": "2026-10-28T13:06:35.200313+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Street Sharks Annual 2026",
+    "publisher": "IDW Publishing",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T13:06:35.200325+00:00",
+    "retry_after": "2026-10-28T13:06:35.200328+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nickelodeon Avatar Legends: Masters of the Elements",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T13:06:35.200351+00:00",
+    "retry_after": "2026-10-28T13:06:35.200354+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T13:07:34.994234+00:00",
+    "retry_after": "2026-10-28T13:07:34.994239+00:00",
     "search_hydrated": true
   }
 ]

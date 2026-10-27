@@ -12493,8 +12493,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556838+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T01:15:08.785794+00:00",
+    "retry_after": "2026-10-30T01:15:08.785797+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Cartoon Cartoons [Choice Hotels International Giveaway]",
@@ -16538,9 +16540,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T02:12:23.676339+00:00",
-    "retry_after": "2026-09-26T02:12:23.676353+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T01:15:08.785830+00:00",
+    "retry_after": "2026-11-03T01:15:08.785833+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Deadpool",
@@ -17107,9 +17110,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T05:32:28.849068+00:00",
-    "retry_after": "2026-09-26T05:32:28.849086+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T01:15:08.785813+00:00",
+    "retry_after": "2026-11-03T01:15:08.785815+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Rom / Action Man Prologue [Free Comic Book Day]",
@@ -19694,9 +19698,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T01:08:03.029397+00:00",
-    "retry_after": "2026-09-27T01:08:03.029406+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T01:15:08.785847+00:00",
+    "retry_after": "2026-11-03T01:15:08.785849+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Peter Parker: Spectacular Spider-Man Annual",
@@ -27531,8 +27536,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T01:01:34.366942+00:00",
-    "retry_after": "2026-10-28T01:01:34.366945+00:00",
+    "last_attempt_at": "2026-10-27T01:11:44.385032+00:00",
+    "retry_after": "2026-10-28T01:11:44.385037+00:00",
     "search_hydrated": true
   },
   {
@@ -35648,9 +35653,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T00:48:25.699459+00:00",
-    "retry_after": "2026-10-06T00:48:25.699475+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T01:15:08.785772+00:00",
+    "retry_after": "2026-11-03T01:15:08.785776+00:00",
+    "search_hydrated": true
   },
   {
     "name": "X-Men: From the Ashes � Demons and Death",
@@ -43554,8 +43560,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T01:01:31.870958+00:00",
-    "retry_after": "2026-10-28T01:01:31.870971+00:00",
+    "last_attempt_at": "2026-10-27T01:11:44.384975+00:00",
+    "retry_after": "2026-10-28T01:11:44.384989+00:00",
     "search_hydrated": true
   },
   {
@@ -77567,6 +77573,108 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T00:06:08.534387+00:00",
     "retry_after": "2026-10-28T00:06:08.534391+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Madi: Once upon a Time in the Future",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 131848,
+        "name": "Madi: Once Upon a Time in the Future",
+        "publisher": "Z2 Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T01:15:08.785706+00:00",
+    "retry_after": "2026-10-28T01:15:08.785723+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Archive Edition: Amazing Spider-Man - The Black Costume: Year One Gallery Edition",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T01:15:08.785864+00:00",
+    "retry_after": "2026-10-28T01:15:08.785866+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Archive Edition: Marvel Super Heroes Secret Wars Gallery Edition",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T01:15:40.031427+00:00",
+    "retry_after": "2026-10-28T01:15:40.031444+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up #14 Blind Bag Exclusive",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T01:15:40.031522+00:00",
+    "retry_after": "2026-10-28T01:15:40.031527+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Zombies: Black, White & Blood",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 154293,
+        "name": "Marvel Zombies: Black, White & Blood",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T01:16:04.104047+00:00",
+    "retry_after": "2026-10-28T01:16:04.104071+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Special Edition, Detective Comics",
+    "publisher": "DC Comics",
+    "year": 1945,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T01:16:53.374214+00:00",
+    "retry_after": "2026-10-28T01:16:53.374230+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Minor Threats Library Edition",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T01:16:53.374266+00:00",
+    "retry_after": "2026-10-28T01:16:53.374270+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Rick and Morty Oni Compact Comics Edition: Ain't Nothing to Frick With",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T01:16:53.374301+00:00",
+    "retry_after": "2026-10-28T01:16:53.374304+00:00",
     "search_hydrated": true
   }
 ]

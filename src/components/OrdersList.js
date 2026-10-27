@@ -5,11 +5,32 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
 import { statusLabel } from "@/lib/orders";
+import { money, orderGrade, orderNextStep, orderTitle } from "@/lib/orderRows";
 import styles from "@/app/orders/orders.module.css";
 import PayoutsPrompt from "@/components/PayoutsPrompt";
 
-function money(cents) {
-  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(cents / 100);
+function OrderRow({ order, role }) {
+  const selling = role === "selling";
+  const step = orderNextStep(order, role);
+  const closed = ["cancelled", "refunded"].includes(order.status);
+  const covers = (order.items?.length ? order.items : [{ cover_url: order.cover_url }]).slice(0, 3);
+  return (
+    <Link href={`/orders/${order.id}`} className={styles.row}>
+      <div className={styles.cover}>{covers.map((item, index) => item.cover_url && <img src={item.cover_url} alt="" key={`${item.listing_id || order.id}-${index}`} />)}</div>
+      <div className={styles.body}>
+        <strong>{orderTitle(order)}{order.test && <em className={styles.test}>Test</em>}</strong>
+        <span>{orderGrade(order)}</span>
+        <span>{selling ? "Sold to" : "From"} <b>@{selling ? order.buyer_username : order.seller_username}</b></span>
+        {step.text && <span className={styles.step} data-tone={step.tone}>{step.text}</span>}
+      </div>
+      <div className={styles.meta}>
+        <b>{money(order.total_cents)}</b>
+        {selling && !closed && order.paid_at && <small>You get {money(order.seller_net_cents)}</small>}
+        <span className={styles.chip} data-tone={step.tone}>{statusLabel(order.status)}</span>
+        <time dateTime={order.created_at}>{new Date(order.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</time>
+      </div>
+    </Link>
+  );
 }
 
 export default function OrdersList() {
@@ -29,6 +50,7 @@ export default function OrdersList() {
       if (!response.ok) throw new Error(result.error);
       setState((current) => ({
         loading: false,
+        totals: before ? current.totals : result.totals,
         orders: before ? [...current.orders, ...result.orders] : result.orders,
         more: result.orders.length === 25,
       }));
@@ -52,19 +74,16 @@ export default function OrdersList() {
         ))}
       </div>
       {role === "selling" && <PayoutsPrompt />}
+      {state.totals?.some((total) => total.value && total.value !== "$0.00") && (
+        <dl className={styles.totals}>{state.totals.map((total) => <div key={total.label}><dt>{total.label}</dt><dd>{total.value}</dd></div>)}</dl>
+      )}
       {state.loading && <p className={styles.state}>Loading the receipts...</p>}
       {state.error && <p className={styles.state}>Could not load orders. {state.error}</p>}
       {!state.loading && !state.error && state.orders.length === 0 && (
         <p className={styles.state}>Nothing {role === "buying" ? "bought" : "sold"} yet. <Link href="/marketplace">The marketplace is that way.</Link></p>
       )}
       <div className={styles.list}>
-        {state.orders.map((order) => (
-          <Link href={`/orders/${order.id}`} className={styles.row} key={order.id}>
-            <div className={styles.cover}>{(order.items?.length ? order.items : [{ cover_url: order.cover_url }]).slice(0, 3).map((item, index) => item.cover_url && <img src={item.cover_url} alt="" key={`${item.listing_id || order.id}-${index}`} />)}</div>
-            <div><strong>{order.items?.length > 1 ? `${order.items.length} books from @${order.seller_username}` : `${order.series_title}${order.issue_number ? ` #${order.issue_number}` : ""}`}</strong><span>{order.items?.length > 1 ? order.items.map((item) => `${item.series_title}${item.issue_number ? ` #${item.issue_number}` : ""}`).join(", ") : order.slab_company ? `${order.slab_company} ${order.grade_numeric || ""}` : order.condition || "Raw"}</span></div>
-            <div className={styles.meta}><b>{money(order.total_cents)}</b><span className={styles.chip}>{statusLabel(order.status)}</span><time>{new Date(order.created_at).toLocaleDateString()}</time></div>
-          </Link>
-        ))}
+        {state.orders.map((order) => <OrderRow order={order} role={role} key={order.id} />)}
       </div>
       {state.more && <button className={styles.more} onClick={() => load(state.orders.at(-1).created_at)}>Load more</button>}
     </main>

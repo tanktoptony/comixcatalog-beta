@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { authedFetch } from "@/lib/apiClient";
 
@@ -11,6 +12,9 @@ const toCents = (value) => Math.round((Number(value) || 0) * 100);
 // the same order. Combined shipping matches order_create_multi: the highest
 // single shipping price, plus the seller's extra-book rate for each extra
 // book. The server recomputes every amount; this is only the preview.
+// Until checkout says yes (or when it says no), `children` shows instead:
+// the listing page's offer-by-message block. With Buy now available, the
+// offer link drops to a secondary button so the two can't be confused.
 export default function BuyNowButton({
   listingId,
   totalCents,
@@ -18,6 +22,9 @@ export default function BuyNowButton({
   otherListings = [],
   seller,
   additionalShippingCents = 100,
+  offerHref,
+  offerLabel,
+  children,
 }) {
   const [canBuy, setCanBuy] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -72,6 +79,7 @@ export default function BuyNowButton({
   return (
     <>
       {cancelled && <p className="checkout-note">Checkout cancelled. The book is still here.</p>}
+      {!canBuy && children}
       {canBuy && (
         <div className="buy-now">
           {otherListings.length > 0 && (
@@ -97,12 +105,23 @@ export default function BuyNowButton({
                 ? `Buy ${extras.length + 1} books · ${dollars(total)}`
                 : `Buy now · ${dollars(total)}`}
           </button>
-          <small>
-            {extras.length > 0 && <>Includes {dollars(shipping)} combined shipping. </>}
-            Secure checkout with Stripe. Pay through ComixCatalog to be covered.
-          </small>
+          {extras.length > 0 && <small>Includes {dollars(shipping)} combined shipping.</small>}
+          {/* The order rules from the Trust page: 3 business days to ship
+              (shipBy.js), tracking from a $50 order total (tracking_required_cents),
+              and a report from the order if it never arrives or isn't as described. */}
+          <ul className="buy-promises">
+            <li>Ships within 3 business days{total >= 5000 ? ", with tracking" : ""}</li>
+            <li>Covered if it never arrives or isn&rsquo;t as described</li>
+            <li>Secure checkout with Stripe</li>
+          </ul>
           {error && <p role="alert">{error}</p>}
         </div>
+      )}
+      {canBuy && offerHref && (
+        <>
+          <Link href={offerHref} className="lp-cta lp-cta-quiet">{offerLabel}</Link>
+          <p className="lp-fine">Deals made by message are paid outside ComixCatalog and aren&rsquo;t covered by Buy now.</p>
+        </>
       )}
     </>
   );

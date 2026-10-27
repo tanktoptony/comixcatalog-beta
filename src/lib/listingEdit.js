@@ -5,6 +5,10 @@
 
 export const LIMITS = { minPrice: 1, maxPrice: 100000, maxShipping: 1000, maxNotes: 2000 };
 
+// Raw grades, worst to best, as the library's grade editor stores them.
+// Buy now needs one of these or a slab grade (migration 0093).
+export const RAW_CONDITIONS = ["Poor", "Fair", "Good", "Very Good", "Fine", "Very Fine", "Near Mint", "Mint"];
+
 // "$1,250.50" / "1250.5" / 1250.5 -> 125050 cents. "" / null -> null.
 // Anything else -> NaN so the caller can say what's wrong.
 export function toCents(value) {
@@ -40,6 +44,14 @@ export function validateListingEdit(body) {
   if ("acceptsOffers" in b) patch.accepts_offers = Boolean(b.acceptsOffers);
   if ("restored" in b) patch.restored = Boolean(b.restored);
   if ("signed" in b) patch.signed = Boolean(b.signed);
+
+  // Lives on the collection row; the route copies it there so the library
+  // and the listing agree. Blank clears it.
+  if ("condition" in b) {
+    const condition = b.condition == null ? "" : String(b.condition).trim();
+    if (condition && !RAW_CONDITIONS.includes(condition)) return { error: "Pick a condition from the list." };
+    patch.condition = condition || null;
+  }
 
   if ("conditionNotes" in b) {
     const notes = b.conditionNotes == null ? "" : String(b.conditionNotes).trim();

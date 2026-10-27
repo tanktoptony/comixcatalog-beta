@@ -12,7 +12,7 @@
 .slab { display: inline-grid; grid-template-columns: auto auto; gap: 2px 12px; padding: 10px 14px; border: 2px solid var(--cc-gold, #e4b94f); background: #f2ead4; color: #17120a; font-weight: 900; text-transform: uppercase; }
 .slab strong { font-size: 1.5rem; }
 .slab small { grid-column: 1 / -1; }
-.status { display: inline-block; padding: 5px 10px; border-radius: 999px; background: var(--cc-gold-soft, #5e4c22); }
+.status { display: inline-block; padding: 5px 10px; border-radius: 999px; background: var(--cc-gold-soft, #ecd48c); color: #0B1E6B; font-weight: 800; }
 .money { margin-top: 22px; }
 .money div { display: flex; justify-content: space-between; gap: 20px; padding: 7px 0; border-bottom: 1px solid #ffffff12; }
 .money dd { margin: 0; }

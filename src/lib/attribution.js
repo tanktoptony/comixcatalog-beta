@@ -52,10 +52,15 @@ export function parseAttribution(params, landingPath = "/", now = Date.now()) {
   return out;
 }
 
+// Takes a full URL (document.referrer) or a bare host. The browser stores the
+// already-cleaned host ("bing.com"), and the server cleans that saved value
+// again; new URL("bing.com") throws, which silently dropped every referrer
+// before it reached profiles.signup_referrer_host.
 export function cleanReferrerHost(value) {
   if (!value) return null;
+  const raw = String(value).trim();
   try {
-    const host = new URL(value).hostname.toLowerCase().replace(/^www\./, "");
+    const host = new URL(/^[a-z][a-z0-9+.-]*:\/\//i.test(raw) ? raw : `https://${raw}`).hostname.toLowerCase().replace(/^www\./, "");
     return /^[a-z0-9.-]{1,253}$/.test(host) ? host : null;
   } catch {
     return null;

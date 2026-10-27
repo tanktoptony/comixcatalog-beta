@@ -67,12 +67,12 @@ test("a leading slash does not create a second key for the same file", () => {
 // 3.3 likes against 2 posts in 2026-05 averaging 20.5. These pin the schedule
 // so a future change to the gate is deliberate rather than accidental.
 
-test("posts on Monday, Wednesday and Friday only", () => {
+test("posts on Friday only", () => {
   // 2026-09-21 is a Monday. Walk a full week in UTC.
   const expected = {
-    "2026-09-21": true,  // Mon
+    "2026-09-21": false, // Mon
     "2026-09-22": false, // Tue
-    "2026-09-23": true,  // Wed
+    "2026-09-23": false, // Wed
     "2026-09-24": false, // Thu
     "2026-09-25": true,  // Fri
     "2026-09-26": false, // Sat
@@ -87,19 +87,22 @@ test("posts on Monday, Wednesday and Friday only", () => {
   }
 });
 
-test("three posting days a week, not four", () => {
-  // The cut was from 7 to 3. A regression to 4+ would quietly undo it.
+test("one posting day a week, not more", () => {
+  // Cut from 7 to 3 (2026-09-24), then to 1 (2026-10-27). More would quietly
+  // undo it, and Tuesday belongs to the hand-made carousel series.
   let count = 0;
   for (let d = 0; d < 7; d += 1) {
     if (isPostingDay(new Date(Date.UTC(2026, 8, 21 + d, 12)))) count += 1;
   }
-  assert.equal(count, 3);
+  assert.equal(count, 1);
 });
 
 test("the day boundary is UTC, matching the already-posted stamp", () => {
   // todayStamp() slices an ISO string, so it is UTC. If this gate used local
   // time the two could disagree at the edges and drop or double a post.
-  assert.equal(isPostingDay(new Date("2026-09-21T00:00:00Z")), true);
-  assert.equal(isPostingDay(new Date("2026-09-21T23:59:59Z")), true);
-  assert.equal(isPostingDay(new Date("2026-09-22T00:00:00Z")), false);
+  // 2026-09-25 is a Friday.
+  assert.equal(isPostingDay(new Date("2026-09-24T23:59:59Z")), false);
+  assert.equal(isPostingDay(new Date("2026-09-25T00:00:00Z")), true);
+  assert.equal(isPostingDay(new Date("2026-09-25T23:59:59Z")), true);
+  assert.equal(isPostingDay(new Date("2026-09-26T00:00:00Z")), false);
 });

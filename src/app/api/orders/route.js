@@ -3,7 +3,8 @@ import { NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
 import { canUseCheckout } from "@/lib/marketplaceFlags";
 import { getServiceClient } from "@/lib/supabase/service";
-import { getMarketplaceStripe } from "@/lib/marketplaceStripe";
+import { getMarketplaceStripe, MARKETPLACE_LIVEMODE } from "@/lib/marketplaceStripe";
+import { orderTotals } from "@/lib/orderRows";
 import { getSiteUrl } from "@/lib/stripe";
 import { buildCheckoutSessionParams } from "@/lib/checkoutSession";
 import { afterOrderTransition } from "@/lib/orderEvents";
@@ -11,7 +12,9 @@ import { buyerLimitMessage } from "@/lib/buyerLimits";
 
 export const runtime = "nodejs";
 
-const LIST_FIELDS = "id,buyer_id,seller_id,series_title,issue_number,cover_path,condition,grade_numeric,slab_company,total_cents,seller_net_cents,currency,status,created_at,paid_at,order_items(listing_id,series_title,issue_number,cover_path,condition,grade_numeric,slab_company,item_cents)";
+const LIST_FIELDS = "id,buyer_id,seller_id,series_title,issue_number,cover_path,condition,grade_numeric,slab_company,total_cents,seller_net_cents,currency,status,livemode,created_at,paid_at,shipped_at,delivered_at,completed_at,cancelled_at,refunded_at,transferred_at,tracking_carrier,tracking_number,order_items(listing_id,series_title,issue_number,cover_path,condition,grade_numeric,slab_company,item_cents)";
+
+const FEEDBACK_WINDOW_MS = 60 * 86400000;
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -56,18 +59,39 @@ export async function GET(req) {
   if (before) query = query.lt("created_at", before);
   const { data, error } = await query;
   if (error) return NextResponse.json({ error: "Could not load orders." }, { status: 500 });
-  const sellerIds = [...new Set((data || []).map((order) => order.seller_id))];
-  const { data: sellers } = sellerIds.length ? await db.from("profiles").select("id,username").in("id", sellerIds) : { data: [] };
-  const sellerNames = Object.fromEntries((sellers || []).map((seller) => [seller.id, seller.username]));
+  const ids = (data || []).map((order) => order.id);
+  const people = [...new Set((data || []).flatMap((order) => [order.seller_id, order.buyer_id]))];
+  const [{ data: profiles }, { data: feedback }, { data: disputes }, { data: refunds }, totalsResult] = await Promise.all([
+    people.length ? db.from("profiles").select("id,username").in("id", people) : { data: [] },
+    ids.length ? db.from("order_feedback").select("order_id").in("order_id", ids).eq("author_id", user.id) : { data: [] },
+    ids.length ? db.from("order_disputes").select("order_id").in("order_id", ids).eq("status", "open") : { data: [] },
+    ids.length ? db.from("order_refunds").select("order_id,amount_cents").in("order_id", ids).eq("status", "succeeded") : { data: [] },
+    // The strip above the list counts every order, so only the first page asks.
+    before ? { data: null } : db.from("orders").select("status,livemode,transferred_at,seller_net_cents").eq(role === "buying" ? "buyer_id" : "seller_id", user.id).limit(1000),
+  ]);
+  const names = Object.fromEntries((profiles || []).map((profile) => [profile.id, profile.username]));
+  const rated = new Set((feedback || []).map((row) => row.order_id));
+  const disputed = new Set((disputes || []).map((row) => row.order_id));
+  const refunded = {};
+  for (const row of refunds || []) refunded[row.order_id] = (refunded[row.order_id] || 0) + row.amount_cents;
+  const totals = totalsResult.data
+    ? orderTotals(totalsResult.data.map((row) => ({ ...row, test: row.livemode !== MARKETPLACE_LIVEMODE })), role)
+    : null;
   const orders = (data || []).map((order) => ({
     ...order,
-    seller_username: sellerNames[order.seller_id] || "collector",
+    test: order.livemode !== MARKETPLACE_LIVEMODE,
+    seller_username: names[order.seller_id] || "collector",
+    buyer_username: names[order.buyer_id] || "collector",
+    open_dispute: disputed.has(order.id),
+    refunded_cents: refunded[order.id] || 0,
+    needs_feedback: order.status === "completed" && !rated.has(order.id)
+      && Date.now() - new Date(order.completed_at).getTime() <= FEEDBACK_WINDOW_MS,
     items: (order.order_items || []).map((item) => ({ ...item, cover_url: item.cover_path && (/^https?:\/\//i.test(item.cover_path) ? item.cover_path : `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${item.cover_path}`) })),
     cover_url: order.cover_path && (/^https?:\/\//i.test(order.cover_path)
       ? order.cover_path
       : `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${order.cover_path}`),
   }));
-  return NextResponse.json({ orders });
+  return NextResponse.json({ orders, totals });
 }
 
 export async function POST(req) {

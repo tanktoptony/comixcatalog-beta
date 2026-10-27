@@ -62,13 +62,31 @@ async function run() {
     throw new Error(`${titleMismatches.length} cover titles do not match target GCD series ${series.name}`);
   }
 
+  // The number resolver can't place a one-book ComicVine volume on a GCD
+  // series whose only book is "[nn]", and an unnumbered book shows a cover
+  // only through that exact link. Re-running this on East of West: The World
+  // (2026-10-27) unlinked its cover. Keep a link that already points at one
+  // of the target's own books, and link a one-book volume to a one-book series.
+  const { data: targetIssues, error: targetIssuesError } = await supabase
+    .from("gcd_issues")
+    .select("gcd_id")
+    .eq("series_gcd_id", SERIES_GCD_ID)
+    .is("variant_of_gcd_id", null);
+  if (targetIssuesError) throw targetIssuesError;
+  const targetIssueIds = new Set(targetIssues.map((row) => Number(row.gcd_id)));
+  const onlyBook = covers.length === 1 && targetIssues.length === 1 ? Number(targetIssues[0].gcd_id) : null;
+
   const plan = [];
   const stats = { rows: covers.length, resolved: 0, seriesOnly: 0, unchanged: 0, updates: 0 };
   for (const cover of covers) {
-    const issue = await resolveGcdIssueId({
+    let issue = await resolveGcdIssueId({
       seriesGcdId: SERIES_GCD_ID,
       issueNumber: cover.issue_number,
     });
+    if (issue.gcdIssueId == null) {
+      const keep = targetIssueIds.has(Number(cover.gcd_issue_id)) ? Number(cover.gcd_issue_id) : onlyBook;
+      if (keep != null) issue = { gcdIssueId: keep, matchConfidence: "resolved" };
+    }
     if (issue.matchConfidence === "resolved") stats.resolved += 1;
     else stats.seriesOnly += 1;
     const after = {

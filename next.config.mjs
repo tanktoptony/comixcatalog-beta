@@ -50,7 +50,15 @@ const nextConfig = {
       // signups (src/lib/attribution.js).
       {
         source: "/ig",
-        destination: "/founding-collectors?utm_source=instagram&utm_medium=social&utm_campaign=founding-wall",
+        destination: "/founding-collectors?utm_source=instagram&utm_medium=social&utm_campaign=vs-incumbents",
+        permanent: false,
+      },
+      // One link per post in the "why ComixCatalog" carousel series, printed
+      // on each post's last slide, e.g. /ig/grades. The slug becomes
+      // utm_content so signups can be credited to the post that sent them.
+      {
+        source: "/ig/:post([a-z0-9-]{2,40})",
+        destination: "/founding-collectors?utm_source=instagram&utm_medium=social&utm_campaign=vs-incumbents&utm_content=:post",
         permanent: false,
       },
       // Short link for YouTube videos. Temporary (302) so the destination can

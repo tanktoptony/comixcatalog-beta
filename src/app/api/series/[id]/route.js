@@ -318,7 +318,6 @@ export async function GET(req, context) {
         .select(`
           gcd_id,
           series_gcd_id,
-          publisher_gcd_id,
           issue_number,
           title,
           publication_date,
@@ -328,8 +327,9 @@ export async function GET(req, context) {
         .eq("series_gcd_id", series.gcd_id), "gcd_id")
         .then((data) => ({ data, error: null }))
         .catch((error) => ({ data: null, error })),
-      // Series-level publisher per GCD. More reliable than per-issue
-      // publisher_gcd_id, which is often a distributor or shell company.
+      // Series-level publisher per GCD. Never gcd_issues.publisher_gcd_id:
+      // for most rows that is GCD's indicia publisher id, a different id
+      // space from gcd_publishers (see scripts/refreshSeriesSearchCache.js).
       supabase
         .from("gcd_series")
         .select("publisher_gcd_id")
@@ -376,21 +376,9 @@ export async function GET(req, context) {
       degraded = true;
     });
 
-    const publisherGcdIds = [
-      ...new Set(
-        [
-          seriesLevelPublisherGcdId,
-          ...issueRows.map((row) => row.publisher_gcd_id),
-        ]
-          .filter(Boolean)
-          .map((v) => String(v))
-      ),
-    ];
-
-    let gcdPublisherNames = [];
     let seriesLevelPublisherName = null;
-    const publisherRowsPromise = publisherGcdIds.length > 0
-      ? supabase.from("gcd_publishers").select("gcd_id, name").in("gcd_id", publisherGcdIds)
+    const publisherRowsPromise = seriesLevelPublisherGcdId
+      ? supabase.from("gcd_publishers").select("gcd_id, name").eq("gcd_id", seriesLevelPublisherGcdId)
       : Promise.resolve(null);
 
     const issueNumbers = [
@@ -462,15 +450,7 @@ export async function GET(req, context) {
         degraded = true;
       }
 
-      const nameByGcdId = new Map(
-        (gcdPublisherRows ?? []).map((row) => [String(row.gcd_id), row.name])
-      );
-
-      seriesLevelPublisherName = seriesLevelPublisherGcdId
-        ? nameByGcdId.get(String(seriesLevelPublisherGcdId)) ?? null
-        : null;
-
-      gcdPublisherNames = [...nameByGcdId.values()].filter(Boolean);
+      seriesLevelPublisherName = gcdPublisherRows?.[0]?.name ?? null;
     }
 
     const localPublisherName = series.publisher?.name ?? null;
@@ -489,7 +469,7 @@ export async function GET(req, context) {
     // Prefer the precomputed cached value. It went through the audit
     // pipeline (scripts/repairSeriesPublishersWithCv.js) which applies the
     // year-aware logic — modern era trusts cv_publisher, pre-2000 prefers
-    // GCD indicia. Re-resolving here on every request would bypass that
+    // GCD's series publisher. Re-resolving here on every request would bypass that
     // and reintroduce the bug where 1984 TMNT showed "IDW Publishing"
     // because IDW currently owns the IP. Only re-resolve as a fallback.
     const resolvedPublisher =
@@ -499,7 +479,6 @@ export async function GET(req, context) {
         candidates: [
           localPublisherName,
           seriesLevelPublisherName,
-          ...gcdPublisherNames,
         ],
         seriesTitle: series.title,
       });

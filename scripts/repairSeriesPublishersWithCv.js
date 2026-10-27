@@ -10,7 +10,7 @@
 // Strategy:
 //   - year_start_cached >= 2000 (or null): trust cv_publisher. Modern era,
 //     ComicVine is reliable.
-//   - year_start_cached < 2000: prefer GCD indicia candidates over
+//   - year_start_cached < 2000: prefer GCD's series publisher over
 //     cv_publisher. cv often reflects later IP ownership (IDW owning the
 //     TMNT IP today doesn't change that Mirage published it in 1984).
 //   - Never downgrade a specific name to "Unknown Publisher".
@@ -81,32 +81,28 @@ async function run() {
   );
   console.log(`  ${allSeries.length} series loaded`);
 
-  // Pull issue-level indicia for all of them.
+  // GCD's series-level publisher for all of them. Not gcd_issues.publisher_gcd_id:
+  // for most rows that is GCD's indicia publisher id, a different id space from
+  // gcd_publishers, so it named unrelated publishers (2026-10-27, see
+  // scripts/refreshSeriesSearchCache.js).
   const gcdIds = allSeries.map((s) => s.gcd_id);
-  const indiciaPubIdsBySeriesGcd = new Map();
+  const publisherIdBySeriesGcd = new Map();
 
   for (let i = 0; i < gcdIds.length; i += 500) {
     const batch = gcdIds.slice(i, i + 500);
     const { data } = await supabase
-      .from("gcd_issues")
-      .select("series_gcd_id, publisher_gcd_id")
-      .in("series_gcd_id", batch);
+      .from("gcd_series")
+      .select("gcd_id, publisher_gcd_id")
+      .in("gcd_id", batch);
     for (const row of data ?? []) {
-      const k = row.series_gcd_id;
-      if (!indiciaPubIdsBySeriesGcd.has(k)) indiciaPubIdsBySeriesGcd.set(k, new Set());
-      if (row.publisher_gcd_id != null) {
-        indiciaPubIdsBySeriesGcd.get(k).add(row.publisher_gcd_id);
-      }
+      if (row.publisher_gcd_id != null) publisherIdBySeriesGcd.set(row.gcd_id, row.publisher_gcd_id);
     }
-    process.stdout.write(`  indicia fetched: ${Math.min(i + 500, gcdIds.length)}/${gcdIds.length}\r`);
+    process.stdout.write(`  GCD series publishers fetched: ${Math.min(i + 500, gcdIds.length)}/${gcdIds.length}\r`);
   }
   console.log("");
 
   // Resolve publisher_gcd_id → name in one go.
-  const allPubIds = new Set();
-  for (const set of indiciaPubIdsBySeriesGcd.values()) {
-    for (const id of set) allPubIds.add(id);
-  }
+  const allPubIds = new Set(publisherIdBySeriesGcd.values());
   const pubNameById = new Map();
   if (allPubIds.size > 0) {
     const allIdArr = [...allPubIds];
@@ -129,10 +125,7 @@ async function run() {
   for (const series of allSeries) {
     const oldValue = series.resolved_publisher_cached;
     const year = series.year_start_cached;
-    const indiciaPubIds = indiciaPubIdsBySeriesGcd.get(series.gcd_id) ?? new Set();
-    const indiciaNames = [...indiciaPubIds]
-      .map((id) => pubNameById.get(id))
-      .filter(Boolean);
+    const gcdPublisherNames = [pubNameById.get(publisherIdBySeriesGcd.get(series.gcd_id))].filter(Boolean);
     const publishersFkName = series.publisher?.name ?? null;
 
     let newValue;
@@ -141,19 +134,19 @@ async function run() {
       // Modern era — trust cv_publisher heavily.
       newValue = resolvePublisher({
         cv: series.cv_publisher,
-        candidates: [publishersFkName, ...indiciaNames],
+        candidates: [publishersFkName, ...gcdPublisherNames],
         seriesTitle: series.title,
       });
     } else {
-      // Pre-2000 — prefer indicia. cv often reflects later IP ownership
+      // Pre-2000 — prefer GCD's publisher. cv often reflects later IP ownership
       // (IDW owning the TMNT IP today doesn't change that Mirage published
-      // it in 1984). If indicia gives nothing useful, KEEP the old value —
+      // it in 1984). If GCD gives nothing useful, KEEP the old value —
       // do NOT fall back to cv, which is the signal we explicitly distrust
       // for pre-2000 series. Better to leave a row alone than overwrite an
       // indie attribution with the modern IP holder.
       const indiciaResolved = resolvePublisher({
         cv: null,
-        candidates: [publishersFkName, ...indiciaNames],
+        candidates: [publishersFkName, ...gcdPublisherNames],
         seriesTitle: series.title,
       });
       if (indiciaResolved && indiciaResolved !== "Unknown Publisher") {

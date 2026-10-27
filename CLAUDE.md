@@ -207,7 +207,7 @@ Columns: `name`, `sort_name`, `year_began`, `year_ended`.
 - `scripts/discoverGcdSeries.js` creates missing mirror and app rows directly from 50-row GCD list pages. It also creates provisional `gcd_issues` rows from `active_issues` and `issue_descriptors`; dates and titles stay null until an issue-detail refresh. The search cache falls back to `gcd_series.year_began/year_ended` when those dates are null.
 
 #### `gcd_issues`
-PK `gcd_id` (int4). FK `series_gcd_id` → `series.gcd_id` AND `gcd_series.gcd_id`. Also `publisher_gcd_id` → `gcd_publishers.gcd_id`.
+PK `gcd_id` (int4). FK `series_gcd_id` → `series.gcd_id` AND `gcd_series.gcd_id`. `publisher_gcd_id` is **not** a `gcd_publishers` id for most rows: the original import stored GCD's indicia publisher id (a different id space). Never read it as a publisher; use `gcd_series.publisher_gcd_id`.
 Columns: `issue_number`, `title`, `publication_date`, `key_date`.
 - `publication_date` is null on ~65% of rows. `key_date` (GCD's sortable approximation) fills most of that gap — use `bestYearFor(row)` helper, never raw `parseYear(publication_date)`.
 
@@ -336,7 +336,7 @@ Patreon Founding Collectors get grandfathered Pro status in-app via `is_founding
 - [x] `/search` browse curated featured-series tiles (no more "Untitled #[nn]" garbage)
 - [x] `comics` table garbage audit + 1.65M legacy-row dedupe (`scripts/dedupeComicsByContent.js`)
 - [x] US-publisher allowlist applied to browse + typed search
-- [x] Year-aware publisher resolution (pre-2000 trusts GCD indicia, modern trusts cv) replicated into cache refresh
+- [x] Year-aware publisher resolution (pre-2000 trusts GCD's series publisher, modern trusts cv) replicated into cache refresh
 - [x] Variant-aware issue count dedupe (`baseIssueNumber()` collapses bracketed/slash-year suffixes)
 - [x] `key_date` fallback for year coverage — 79.4% → 85.5%
 - [x] Cache refresh hardened with retry-on-57014 and cursor persistence (`scripts/.refresh-cursor`)

@@ -250,7 +250,6 @@ export async function GET(req, context) {
         .select(`
           gcd_id,
           series_gcd_id,
-          publisher_gcd_id,
           issue_number,
           title,
           publication_date,
@@ -283,8 +282,9 @@ export async function GET(req, context) {
           `)
           .eq("gcd_id", issue.series_gcd_id)
           .single(),
-        // Series-level publisher per GCD — preferred over per-issue
-        // publisher_gcd_id, which is often a distributor or shell company.
+        // Series-level publisher per GCD. Never gcd_issues.publisher_gcd_id:
+        // for most rows that is GCD's indicia publisher id, a different id
+        // space from gcd_publishers (see scripts/refreshSeriesSearchCache.js).
         supabase
           .from("gcd_series")
           .select("publisher_gcd_id")
@@ -332,35 +332,17 @@ export async function GET(req, context) {
       const seriesFormat = gcdFormatResult.error ? null : gcdFormatResult.data;
       const collectedEdition = isCollectedEdition(seriesFormat ?? {});
 
-      const publisherIdsToFetch = [
-        ...new Set(
-          [issue.publisher_gcd_id, seriesLevelPublisherGcdId]
-            .filter(Boolean)
-            .map((v) => String(v))
-        ),
-      ];
-
-      let gcdPublisherName = null;
       let seriesLevelPublisherName = null;
-      if (publisherIdsToFetch.length > 0) {
+      if (seriesLevelPublisherGcdId) {
         const { data: gcdPublisherRows, error: gcdPublisherRowsError } = await supabase
           .from("gcd_publishers")
           .select("gcd_id, name")
-          .in("gcd_id", publisherIdsToFetch);
+          .eq("gcd_id", seriesLevelPublisherGcdId);
         if (gcdPublisherRowsError) {
           console.error("issue publisher lookup failed:", gcdPublisherRowsError.code, gcdPublisherRowsError.message);
           degradation.value = true;
         }
-
-        const nameByGcdId = new Map(
-          (gcdPublisherRows ?? []).map((row) => [String(row.gcd_id), row.name])
-        );
-        gcdPublisherName = issue.publisher_gcd_id
-          ? nameByGcdId.get(String(issue.publisher_gcd_id)) ?? null
-          : null;
-        seriesLevelPublisherName = seriesLevelPublisherGcdId
-          ? nameByGcdId.get(String(seriesLevelPublisherGcdId)) ?? null
-          : null;
+        seriesLevelPublisherName = gcdPublisherRows?.[0]?.name ?? null;
       }
 
       const seriesId = seriesRow?.id ?? null;
@@ -443,22 +425,19 @@ export async function GET(req, context) {
       // cache is null.
       //
       // Re-resolution priority (most-trusted → least):
-      //   1. Per-issue indicia publisher from gcd_issues (what was physically
-      //      printed in this specific book — what the collector cares about)
-      //   2. Series-level GCD publisher
-      //   3. Publishers-table FK on the canonical series row
-      //   4. ComicVine's series-level publisher (often the CURRENT IP owner
+      //   1. Series-level GCD publisher
+      //   2. Publishers-table FK on the canonical series row
+      //   3. ComicVine's series-level publisher (often the CURRENT IP owner
       //      rather than the original publisher — wrong for old issues)
-      //   5. ComicVine's canonical-covers publisher
+      //   4. ComicVine's canonical-covers publisher
       //
       // The old code ranked ComicVine first, which made the 1984 Mirage
       // TMNT #1 read as "IDW Publishing" because IDW currently holds the IP.
       const publisherName =
         seriesRow?.resolved_publisher_cached ||
         resolvePublisher({
-          cv: gcdPublisherName,
+          cv: seriesLevelPublisherName,
           candidates: [
-            seriesLevelPublisherName,
             seriesRow?.publisher?.name ?? null,
             seriesRow?.cv_publisher ?? null,
             canonicalMatch.publisher ?? null,

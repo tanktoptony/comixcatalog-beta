@@ -49,7 +49,7 @@ Consequences: Visible gaps on series pages until ingest fills them. Every cover 
 
 Status: Active
 Date: May 2026
-Decision: Publisher is resolved once per series (pre-2000 trusts GCD indicia, later trusts ComicVine), stored in `series.resolved_publisher_cached`, and pinned for key series in `SERIES_OVERRIDES`. Request-time code reads the cache.
+Decision: Publisher is resolved once per series (pre-2000 trusts GCD's series publisher, later trusts ComicVine), stored in `series.resolved_publisher_cached`, and pinned for key series in `SERIES_OVERRIDES`. Request-time code reads the cache.
 Reason: Both raw publisher fields are corrupt in places; re-resolving per request produced regressions ("1984 TMNT shows IDW").
 Consequences: Publisher fixes need a cache refresh to show up.
 

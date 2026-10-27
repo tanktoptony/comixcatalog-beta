@@ -156,7 +156,7 @@ async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }
           () =>
             supabase
               .from("gcd_issues")
-              .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
+              .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
               .in("gcd_id", gcdIds)
               .order("gcd_id"),
           "gcd_id"
@@ -259,28 +259,16 @@ async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }
   const issueList = gcdIssuesResult.data ?? [];
   if (issueList.length > 0) {
     const seriesGcdIds = [...new Set(issueList.map((i) => i.series_gcd_id).filter(Boolean))];
-    const publisherGcdIds = [...new Set(issueList.map((i) => i.publisher_gcd_id).filter(Boolean))];
 
-    const [seriesResult, publisherResult] = await Promise.all([
-      seriesGcdIds.length > 0
-        ? supabase
-            .from("series")
-            .select("gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)")
-            .in("gcd_id", seriesGcdIds)
-        : { data: [] },
-      publisherGcdIds.length > 0
-        ? supabase
-            .from("gcd_publishers")
-            .select("gcd_id, name")
-            .in("gcd_id", publisherGcdIds)
-        : { data: [] },
-    ]);
+    const seriesResult = seriesGcdIds.length > 0
+      ? await supabase
+          .from("series")
+          .select("gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)")
+          .in("gcd_id", seriesGcdIds)
+      : { data: [] };
 
     const seriesLookup = Object.fromEntries(
       (seriesResult.data ?? []).map((r) => [String(r.gcd_id), r])
-    );
-    const publisherLookup = Object.fromEntries(
-      (publisherResult.data ?? []).map((r) => [String(r.gcd_id), r.name])
     );
 
     for (const issue of issueList) issueYears.set(`gcd-${issue.gcd_id}`, bestYearFor(issue));
@@ -295,14 +283,13 @@ async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }
         seriesTitle: seriesRow?.title ?? null,
         seriesYearStart: seriesRow?.year_start_cached ?? null,
         seriesYearEnd: seriesRow?.year_end_cached ?? null,
-        // resolved_publisher_cached is the year-aware, audited value — prefer
-        // it. The publisher_gcd_id fallback draws on GCD's scrambled publisher
-        // links (US Marvel books mislinked to foreign houses), so it's last
-        // resort only.
+        // resolved_publisher_cached is the year-aware, audited value. No
+        // fallback to gcd_issues.publisher_gcd_id: for most rows that is GCD's
+        // indicia publisher id, not a gcd_publishers id, so it named an
+        // unrelated publisher (see scripts/refreshSeriesSearchCache.js).
         publisher:
           seriesRow?.resolved_publisher_cached ??
           seriesRow?.publisher?.name ??
-          publisherLookup[String(issue.publisher_gcd_id)] ??
           null,
       };
     });

@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "slug": "grades",
+      "post_on": "2026-10-27",
+      "approved_by_tony": "2026-10-27",
+      "slides": [
+        "https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/comic-covers/brand-cards/vs-grades-1.jpg",
+        "https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/comic-covers/brand-cards/vs-grades-2.jpg",
+        "https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/comic-covers/brand-cards/vs-grades-3.jpg",
+        "https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/comic-covers/brand-cards/vs-grades-4.jpg"
+      ],
+      "posted": {
+        "media_id": "18643684174050801",
+        "permalink": "https://www.instagram.com/p/DfANWVglksA/",
+        "posted_at": "2026-10-27T15:44:38Z",
+        "spots_left": 66,
+        "by": "hand"
+      }
+    },
+    {
+      "slug": "missing",
+      "post_on": "2026-11-03",
+      "approved_by_tony": "2026-10-27",
+      "slides": [
+        "https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/comic-covers/brand-cards/vs-missing-1.jpg",
+        "https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/comic-covers/brand-cards/vs-missing-2.jpg",
+        "https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/comic-covers/brand-cards/vs-missing-3.jpg"
+      ],
+      "founders_slide": true,
+      "check": {
+        "url": "https://leagueofcomicgeeks.com/member/pro",
+        "must_contain": ["Missing Issues Smart List", "49.00 PER YEAR", "Progress Tracking", "1.90 PER MONTH", "19.00 PER YEAR"]
+      },
+      "caption": "Every run has holes in it. The trick is knowing exactly which ones before you're flipping through the back-issue bins.\n\nStart a run on ComixCatalog and it keeps count for you: how many you own, the exact issues you're missing, and one button that puts every one of them on your wantlist. Already own a stack of a run? Mark it all at once, or select a range. Then print a checklist with yours already checked off. All free.\n\nFor the record, as of Oct 27: on League of Comic Geeks, the Missing Issues smart list is a Patron beta at $49 a year, and progress tracking is part of Pro.\n\nThe first 100 members are Founding Collectors: a numbered badge nobody after No. 100 can get, your name on the founders wall, and a lifetime membership. {{spots_left}}. Link in bio.\n\n#comicbooks #comiccollector #backissues #comiccollection #xmen",
+      "posted": null
+    }
+  ]
+}

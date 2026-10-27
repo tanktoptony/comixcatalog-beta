@@ -25954,9 +25954,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:25:33.008708+00:00",
-    "retry_after": "2026-10-27T03:25:33.008723+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:01:23.973845+00:00",
+    "retry_after": "2026-10-30T04:01:23.973847+00:00",
     "search_hydrated": true
   },
   {
@@ -25996,9 +25996,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:25:26.036804+00:00",
-    "retry_after": "2026-10-27T03:25:26.036820+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:01:23.973798+00:00",
+    "retry_after": "2026-10-30T04:01:23.973799+00:00",
     "search_hydrated": true
   },
   {
@@ -27523,21 +27523,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T03:02:06.435475+00:00",
-    "retry_after": "2026-10-28T03:02:06.435478+00:00",
+    "last_attempt_at": "2026-10-27T04:01:23.973730+00:00",
+    "retry_after": "2026-10-28T04:01:23.973732+00:00",
     "search_hydrated": true
   },
   {
@@ -43563,8 +43563,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T03:02:06.435375+00:00",
-    "retry_after": "2026-10-28T03:02:06.435390+00:00",
+    "last_attempt_at": "2026-10-27T04:01:23.973682+00:00",
+    "retry_after": "2026-10-28T04:01:23.973701+00:00",
     "search_hydrated": true
   },
   {
@@ -74360,9 +74360,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:03:36.093360+00:00",
-    "retry_after": "2026-10-27T03:03:36.093378+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:04:43.228895+00:00",
+    "retry_after": "2026-10-30T04:04:43.228913+00:00",
     "search_hydrated": true
   },
   {
@@ -74378,9 +74378,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:03:36.866096+00:00",
-    "retry_after": "2026-10-27T03:03:36.866140+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:04:44.008440+00:00",
+    "retry_after": "2026-10-30T04:04:44.008454+00:00",
     "search_hydrated": true
   },
   {
@@ -74389,9 +74389,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:03:37.529986+00:00",
-    "retry_after": "2026-10-27T03:03:37.530004+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:04:43.228951+00:00",
+    "retry_after": "2026-10-30T04:04:43.228954+00:00",
     "search_hydrated": true
   },
   {
@@ -74407,9 +74407,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:26:43.452463+00:00",
-    "retry_after": "2026-10-27T03:26:43.452480+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:04:44.008480+00:00",
+    "retry_after": "2026-10-30T04:04:44.008482+00:00",
     "search_hydrated": true
   },
   {
@@ -74425,9 +74425,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:26:49.448280+00:00",
-    "retry_after": "2026-10-27T03:26:49.448297+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:04:44.118001+00:00",
+    "retry_after": "2026-10-30T04:04:44.118018+00:00",
     "search_hydrated": true
   },
   {
@@ -74436,9 +74436,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:26:54.966634+00:00",
-    "retry_after": "2026-10-27T03:26:54.966652+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:04:43.228979+00:00",
+    "retry_after": "2026-10-30T04:04:43.228981+00:00",
     "search_hydrated": true
   },
   {
@@ -74447,9 +74447,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:26:55.405047+00:00",
-    "retry_after": "2026-10-27T03:26:55.405063+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:04:43.228989+00:00",
+    "retry_after": "2026-10-30T04:04:43.228991+00:00",
     "search_hydrated": true
   },
   {
@@ -74458,9 +74458,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:26:55.947337+00:00",
-    "retry_after": "2026-10-27T03:26:55.947352+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:04:43.228997+00:00",
+    "retry_after": "2026-10-30T04:04:43.228998+00:00",
     "search_hydrated": true
   },
   {
@@ -74476,9 +74476,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:26:56.822717+00:00",
-    "retry_after": "2026-10-27T03:26:56.822732+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:04:44.223294+00:00",
+    "retry_after": "2026-10-30T04:04:44.223311+00:00",
     "search_hydrated": true
   },
   {
@@ -74494,9 +74494,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:26:57.951404+00:00",
-    "retry_after": "2026-10-27T03:26:57.951420+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:04:44.347587+00:00",
+    "retry_after": "2026-10-30T04:04:44.347605+00:00",
     "search_hydrated": true
   },
   {
@@ -74505,9 +74505,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:27:04.314139+00:00",
-    "retry_after": "2026-10-27T03:27:04.314155+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:05:02.354481+00:00",
+    "retry_after": "2026-10-30T04:05:02.354498+00:00",
     "search_hydrated": true
   },
   {
@@ -74516,9 +74516,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:27:10.399458+00:00",
-    "retry_after": "2026-10-27T03:27:10.399474+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:05:02.354515+00:00",
+    "retry_after": "2026-10-30T04:05:02.354517+00:00",
     "search_hydrated": true
   },
   {
@@ -74527,9 +74527,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:27:16.329439+00:00",
-    "retry_after": "2026-10-27T03:27:16.329455+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:05:02.354526+00:00",
+    "retry_after": "2026-10-30T04:05:02.354527+00:00",
     "search_hydrated": true
   },
   {
@@ -74545,9 +74545,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:27:17.054688+00:00",
-    "retry_after": "2026-10-27T03:27:17.054704+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:05:02.929030+00:00",
+    "retry_after": "2026-10-30T04:05:02.929044+00:00",
     "search_hydrated": true
   },
   {
@@ -74556,9 +74556,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T03:27:17.716294+00:00",
-    "retry_after": "2026-10-27T03:27:17.716310+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T04:05:02.354555+00:00",
+    "retry_after": "2026-10-30T04:05:02.354556+00:00",
     "search_hydrated": true
   },
   {
@@ -77848,6 +77848,81 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T03:06:11.094819+00:00",
     "retry_after": "2026-10-28T03:06:11.094822+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "High Moon",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 31300,
+        "name": "High Moon",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 60577,
+        "name": "High Moon",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T04:05:47.570553+00:00",
+    "retry_after": "2026-10-28T04:05:47.570571+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Arclight: The Art of Joe Wight",
+    "publisher": "Antarctic Press",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T04:05:47.570588+00:00",
+    "retry_after": "2026-10-28T04:05:47.570590+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spidey and His Amazing Friends Halloween Trick-Or-Read 2025",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T04:05:47.570602+00:00",
+    "retry_after": "2026-10-28T04:05:47.570603+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Image Firsts: The Darkness [1996]",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T04:05:47.570664+00:00",
+    "retry_after": "2026-10-28T04:05:47.570665+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Humphrey Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84056,
+        "name": "Humphrey Giant Edition",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T04:05:47.570681+00:00",
+    "retry_after": "2026-10-28T04:05:47.570683+00:00",
     "search_hydrated": true
   }
 ]

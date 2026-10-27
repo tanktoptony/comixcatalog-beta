@@ -27494,8 +27494,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T19:08:25.992742+00:00",
-    "retry_after": "2026-10-28T19:08:25.992757+00:00",
+    "last_attempt_at": "2026-10-27T19:28:49.613287+00:00",
+    "retry_after": "2026-10-28T19:28:49.613305+00:00",
     "search_hydrated": true
   },
   {
@@ -27518,8 +27518,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T19:02:28.863378+00:00",
-    "retry_after": "2026-10-28T19:02:28.863384+00:00",
+    "last_attempt_at": "2026-10-27T19:23:06.385265+00:00",
+    "retry_after": "2026-10-28T19:23:06.385269+00:00",
     "search_hydrated": true
   },
   {
@@ -36819,9 +36819,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-02T21:37:43.997352+00:00",
-    "retry_after": "2026-10-05T21:37:43.997365+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T19:26:27.225310+00:00",
+    "retry_after": "2026-11-03T19:26:27.225313+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Ninjak Preview",
@@ -43556,8 +43557,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T19:02:28.863321+00:00",
-    "retry_after": "2026-10-28T19:02:28.863337+00:00",
+    "last_attempt_at": "2026-10-27T19:23:06.385205+00:00",
+    "retry_after": "2026-10-28T19:23:06.385223+00:00",
     "search_hydrated": true
   },
   {
@@ -76683,9 +76684,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T19:06:55.590375+00:00",
-    "retry_after": "2026-10-27T19:06:55.590377+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T19:26:27.225181+00:00",
+    "retry_after": "2026-10-30T19:26:27.225198+00:00",
     "search_hydrated": true
   },
   {
@@ -76694,9 +76695,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T19:06:55.590385+00:00",
-    "retry_after": "2026-10-27T19:06:55.590386+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T19:26:27.225228+00:00",
+    "retry_after": "2026-10-30T19:26:27.225232+00:00",
     "search_hydrated": true
   },
   {
@@ -76705,9 +76706,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T19:06:55.590397+00:00",
-    "retry_after": "2026-10-27T19:06:55.590398+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T19:26:27.225250+00:00",
+    "retry_after": "2026-10-30T19:26:27.225252+00:00",
     "search_hydrated": true
   },
   {
@@ -79583,6 +79584,257 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T19:08:25.992831+00:00",
     "retry_after": "2026-10-28T19:08:25.992836+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Violator",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 160110,
+        "name": "Violator",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:26:38.190963+00:00",
+    "retry_after": "2026-10-28T19:26:38.190978+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Violent Flowers",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 160109,
+        "name": "Violent Flowers",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:26:38.318786+00:00",
+    "retry_after": "2026-10-28T19:26:38.318804+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wildcats",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 9418,
+        "name": "Wildcats",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      },
+      {
+        "id": 18003,
+        "name": "WildCats",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 22470,
+        "name": "WildCats",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:27:10.446520+00:00",
+    "retry_after": "2026-10-28T19:27:10.446541+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wolverine: Revenge - Red Band: Black & White Edition",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:27:10.446622+00:00",
+    "retry_after": "2026-10-28T19:27:10.446625+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wonder Woman by Greg Rucka Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:27:51.225177+00:00",
+    "retry_after": "2026-10-28T19:27:51.225195+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wonder Woman by John Byrne Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 167018,
+        "name": "Wonder Woman by John Byrne Omnibus",
+        "publisher": "DC Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:27:55.624404+00:00",
+    "retry_after": "2026-10-28T19:27:55.624428+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Very Vicky",
+    "publisher": "Caliber Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35471,
+        "name": "Very Vicky",
+        "publisher": "Meet Danny Ocean",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:28:29.007466+00:00",
+    "retry_after": "2026-10-28T19:28:29.007485+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "All This and Snoopy, Too",
+    "publisher": "Fawcett Comics",
+    "year": 1969,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:28:29.007513+00:00",
+    "retry_after": "2026-10-28T19:28:29.007517+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "G.I. Joe: G.I. Joe Reborn",
+    "publisher": "Devil's Due",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:28:29.007546+00:00",
+    "retry_after": "2026-10-28T19:28:29.007549+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Real Screen Funnies [ashcan]",
+    "publisher": "DC Comics",
+    "year": 1945,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:28:29.007561+00:00",
+    "retry_after": "2026-10-28T19:28:29.007564+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Riverdale Season 3",
+    "publisher": "Archie Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:28:29.007574+00:00",
+    "retry_after": "2026-10-28T19:28:29.007577+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Machine Gun: Wizards",
+    "publisher": "Dark Horse Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:28:29.007596+00:00",
+    "retry_after": "2026-10-28T19:28:29.007598+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:28:49.613362+00:00",
+    "retry_after": "2026-10-28T19:28:49.613366+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Planet of the Apes",
+    "publisher": "Malibu Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2699,
+        "name": "Planet of the Apes",
+        "publisher": "Marvel",
+        "start_year": 1974
+      },
+      {
+        "id": 27990,
+        "name": "Planet of the Apes",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2001
+      },
+      {
+        "id": 29952,
+        "name": "Planet of the Apes",
+        "publisher": "Adventure",
+        "start_year": 1990
+      },
+      {
+        "id": 39882,
+        "name": "Planet of the Apes",
+        "publisher": "Boom! Studios",
+        "start_year": 2011
+      },
+      {
+        "id": 47751,
+        "name": "Planet of the Apes",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1974
+      },
+      {
+        "id": 49156,
+        "name": "Planet of the Apes",
+        "publisher": "Boom! Studios",
+        "start_year": 2011
+      },
+      {
+        "id": 149308,
+        "name": "Planet of the Apes",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T19:28:49.613420+00:00",
+    "retry_after": "2026-10-28T19:28:49.613422+00:00",
     "search_hydrated": true
   }
 ]

@@ -7,6 +7,18 @@ import { trackEvent } from "@/lib/analytics";
 
 const USER_COVER_UPLOAD_ENABLED = true;
 
+// Types the comic-covers bucket accepts (migration 0094), with the file
+// extension the storage policy expects on library/<collection id>.<ext>.
+const COVER_TYPES = {
+  "image/jpeg": "jpg",
+  "image/png": "png",
+  "image/webp": "webp",
+  "image/gif": "gif",
+  "image/heic": "heic",
+  "image/heif": "heif",
+  "image/avif": "avif",
+};
+
 const RAW_CONDITIONS = [
   { value: "", label: "Not set" },
   { value: "Poor", label: "Poor (P)" },
@@ -138,8 +150,8 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
 
   async function handleCoverFile(file) {
     if (!file || !collectionId) return;
-    if (!file.type.startsWith("image/")) {
-      setError("Please choose an image file.");
+    if (!COVER_TYPES[file.type]) {
+      setError("Please choose a JPEG, PNG, WebP, GIF, HEIC or AVIF image.");
       return;
     }
     if (file.size > 8 * 1024 * 1024) {
@@ -151,8 +163,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
     setError(null);
     try {
       const supabase = getSupabaseClient();
-      const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
-      const path = `library/${collectionId}.${ext}`;
+      const path = `library/${collectionId}.${COVER_TYPES[file.type]}`;
 
       const { error: upErr } = await supabase.storage
         .from("comic-covers")
@@ -321,7 +332,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
                     {uploading ? "Uploading…" : userCoverUrl ? "Replace" : "Upload"}
                     <input
                       type="file"
-                      accept="image/*"
+                      accept={Object.keys(COVER_TYPES).join(",")}
                       hidden
                       disabled={uploading}
                       onChange={(e) => {

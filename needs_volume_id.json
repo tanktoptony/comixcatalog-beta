@@ -27536,8 +27536,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T07:01:32.474168+00:00",
-    "retry_after": "2026-10-28T07:01:32.474172+00:00",
+    "last_attempt_at": "2026-10-27T07:21:57.088738+00:00",
+    "retry_after": "2026-10-28T07:21:57.088743+00:00",
     "search_hydrated": true
   },
   {
@@ -28235,13 +28235,14 @@
   },
   {
     "name": "Adjectives Will Cost You Extra [A Doonesbury Book]",
-    "publisher": "Fawcett Comics",
+    "publisher": "Heavy Metal",
     "year": 1982,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T21:17:52.212264+00:00",
-    "retry_after": "2026-09-30T21:17:52.212270+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T07:28:22.078480+00:00",
+    "retry_after": "2026-10-28T07:28:22.078496+00:00",
+    "search_hydrated": true
   },
   {
     "name": "New Avengers Director's Cut",
@@ -37579,9 +37580,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T09:00:58.727162+00:00",
-    "retry_after": "2026-10-04T09:00:58.727180+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T07:25:14.772897+00:00",
+    "retry_after": "2026-10-30T07:25:14.772901+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Tony Millionaire's Sock Monkey",
@@ -43563,8 +43565,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T07:01:32.474110+00:00",
-    "retry_after": "2026-10-28T07:01:32.474126+00:00",
+    "last_attempt_at": "2026-10-27T07:21:57.088679+00:00",
+    "retry_after": "2026-10-28T07:21:57.088695+00:00",
     "search_hydrated": true
   },
   {
@@ -78215,6 +78217,121 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T07:06:15.413397+00:00",
     "retry_after": "2026-10-28T07:06:15.413400+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Scooby Apocalypse Omnibus",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T07:25:14.772830+00:00",
+    "retry_after": "2026-10-28T07:25:14.772846+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Self Help",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 158619,
+        "name": "Self Help",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T07:25:43.174988+00:00",
+    "retry_after": "2026-10-28T07:25:43.175003+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Skinbreaker Treasury Edition",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T07:26:11.162878+00:00",
+    "retry_after": "2026-10-28T07:26:11.162893+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spawn Manga Shadows of Spawn Collected Edition",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T07:26:11.162936+00:00",
+    "retry_after": "2026-10-28T07:26:11.162939+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spectacular Spider-Man by DeMatteis and S. Buscema Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T07:26:11.162996+00:00",
+    "retry_after": "2026-10-28T07:26:11.162999+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spectacular Spider-Man: Lo, This Monster Treasury Edition",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T07:27:18.766165+00:00",
+    "retry_after": "2026-10-28T07:27:18.766181+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Plague",
+    "publisher": "Caliber Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112333,
+        "name": "Plague",
+        "publisher": "AAM/Markosia",
+        "start_year": 2018
+      },
+      {
+        "id": 100091,
+        "name": "Plague",
+        "publisher": "AAM/Markosia",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T07:28:22.078544+00:00",
+    "retry_after": "2026-10-28T07:28:22.078548+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cerebus World Tour Book",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20422,
+        "name": "Cerebus World Tour Book",
+        "publisher": "Aardvark",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T07:28:22.078623+00:00",
+    "retry_after": "2026-10-28T07:28:22.078627+00:00",
     "search_hydrated": true
   }
 ]

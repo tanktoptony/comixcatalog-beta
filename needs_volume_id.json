@@ -27514,8 +27514,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T09:01:22.731376+00:00",
-    "retry_after": "2026-10-28T09:01:22.731380+00:00",
+    "last_attempt_at": "2026-10-27T10:01:38.899705+00:00",
+    "retry_after": "2026-10-28T10:01:38.899709+00:00",
     "search_hydrated": true
   },
   {
@@ -43544,8 +43544,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T09:01:22.731318+00:00",
-    "retry_after": "2026-10-28T09:01:22.731333+00:00",
+    "last_attempt_at": "2026-10-27T10:01:38.899651+00:00",
+    "retry_after": "2026-10-28T10:01:38.899668+00:00",
     "search_hydrated": true
   },
   {
@@ -75213,9 +75213,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:19.169169+00:00",
-    "retry_after": "2026-10-27T09:06:19.169190+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:05.427638+00:00",
+    "retry_after": "2026-10-30T10:05:05.427657+00:00",
     "search_hydrated": true
   },
   {
@@ -75224,9 +75224,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:20.316052+00:00",
-    "retry_after": "2026-10-27T09:06:20.316070+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:05.427687+00:00",
+    "retry_after": "2026-10-30T10:05:05.427691+00:00",
     "search_hydrated": true
   },
   {
@@ -75242,9 +75242,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:21.189359+00:00",
-    "retry_after": "2026-10-27T09:06:21.189374+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:06.315451+00:00",
+    "retry_after": "2026-10-30T10:05:06.315468+00:00",
     "search_hydrated": true
   },
   {
@@ -75253,9 +75253,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:24.041455+00:00",
-    "retry_after": "2026-10-27T09:06:24.041473+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:05.427763+00:00",
+    "retry_after": "2026-10-30T10:05:05.427765+00:00",
     "search_hydrated": true
   },
   {
@@ -75264,9 +75264,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:30.211365+00:00",
-    "retry_after": "2026-10-27T09:06:30.211385+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:05.427783+00:00",
+    "retry_after": "2026-10-30T10:05:05.427785+00:00",
     "search_hydrated": true
   },
   {
@@ -75275,9 +75275,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:36.138400+00:00",
-    "retry_after": "2026-10-27T09:06:36.138419+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:05.427798+00:00",
+    "retry_after": "2026-10-30T10:05:05.427800+00:00",
     "search_hydrated": true
   },
   {
@@ -75286,9 +75286,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:39.292995+00:00",
-    "retry_after": "2026-10-27T09:06:39.293013+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:05.427811+00:00",
+    "retry_after": "2026-10-30T10:05:05.427813+00:00",
     "search_hydrated": true
   },
   {
@@ -75297,9 +75297,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:40.453706+00:00",
-    "retry_after": "2026-10-27T09:06:40.453724+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:05.427826+00:00",
+    "retry_after": "2026-10-30T10:05:05.427828+00:00",
     "search_hydrated": true
   },
   {
@@ -75315,9 +75315,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:41.412766+00:00",
-    "retry_after": "2026-10-27T09:06:41.412782+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:06.475722+00:00",
+    "retry_after": "2026-10-30T10:05:06.475740+00:00",
     "search_hydrated": true
   },
   {
@@ -75326,9 +75326,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:50.403703+00:00",
-    "retry_after": "2026-10-27T09:06:50.403722+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:05.427865+00:00",
+    "retry_after": "2026-10-30T10:05:05.427867+00:00",
     "search_hydrated": true
   },
   {
@@ -75337,9 +75337,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:51.506227+00:00",
-    "retry_after": "2026-10-27T09:06:51.506244+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:27.092714+00:00",
+    "retry_after": "2026-10-30T10:05:27.092732+00:00",
     "search_hydrated": true
   },
   {
@@ -75348,9 +75348,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:58.283424+00:00",
-    "retry_after": "2026-10-27T09:06:58.283441+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:27.092753+00:00",
+    "retry_after": "2026-10-30T10:05:27.092756+00:00",
     "search_hydrated": true
   },
   {
@@ -75366,9 +75366,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:06:59.747832+00:00",
-    "retry_after": "2026-10-27T09:06:59.747844+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:27.864903+00:00",
+    "retry_after": "2026-10-30T10:05:27.864929+00:00",
     "search_hydrated": true
   },
   {
@@ -75377,9 +75377,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:50:48.624949+00:00",
-    "retry_after": "2026-10-27T09:50:48.624968+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:27.092778+00:00",
+    "retry_after": "2026-10-30T10:05:27.092780+00:00",
     "search_hydrated": true
   },
   {
@@ -75388,9 +75388,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:50:48.625000+00:00",
-    "retry_after": "2026-10-27T09:50:48.625003+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:27.092791+00:00",
+    "retry_after": "2026-10-30T10:05:27.092793+00:00",
     "search_hydrated": true
   },
   {
@@ -75399,9 +75399,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:51:55.371391+00:00",
-    "retry_after": "2026-10-27T09:51:55.371394+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:27.092810+00:00",
+    "retry_after": "2026-10-30T10:05:27.092812+00:00",
     "search_hydrated": true
   },
   {
@@ -75417,9 +75417,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T09:52:18.792623+00:00",
-    "retry_after": "2026-10-27T09:52:18.792642+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:28.181361+00:00",
+    "retry_after": "2026-10-30T10:05:28.181380+00:00",
     "search_hydrated": true
   },
   {
@@ -75428,9 +75428,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T10:04:08.201449+00:00",
-    "retry_after": "2026-10-27T10:04:08.201464+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:27.092821+00:00",
+    "retry_after": "2026-10-30T10:05:27.092822+00:00",
     "search_hydrated": true
   },
   {
@@ -75452,9 +75452,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T10:04:08.201523+00:00",
-    "retry_after": "2026-10-27T10:04:08.201528+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:27.092868+00:00",
+    "retry_after": "2026-10-30T10:05:27.092870+00:00",
     "search_hydrated": true
   },
   {
@@ -75476,9 +75476,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T10:04:08.201585+00:00",
-    "retry_after": "2026-10-27T10:04:08.201588+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T10:05:27.092919+00:00",
+    "retry_after": "2026-10-30T10:05:27.092922+00:00",
     "search_hydrated": true
   },
   {
@@ -78501,6 +78501,90 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T09:06:21.765691+00:00",
     "retry_after": "2026-10-28T09:06:21.765694+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Prophet Ashcan Edition",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T10:05:50.764073+00:00",
+    "retry_after": "2026-10-28T10:05:50.764092+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "ThunderCats Holiday Special 2025",
+    "publisher": "Dynamite Entertainment",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T10:05:50.764115+00:00",
+    "retry_after": "2026-10-28T10:05:50.764118+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phineas and Ferb: Classic Comics Collection 3 in 1",
+    "publisher": "Mad Cave Studios",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T10:05:50.764147+00:00",
+    "retry_after": "2026-10-28T10:05:50.764150+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Stan Lee Presents the Marvel Comics Illustrated Version of Conan the Barbarian",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T10:05:50.764170+00:00",
+    "retry_after": "2026-10-28T10:05:50.764172+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gargoyles: Classic Years",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T10:05:50.764181+00:00",
+    "retry_after": "2026-10-28T10:05:50.764184+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Rick and Morty vs. the Universe: Last Mort Standing #1",
+    "publisher": "Oni Press",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T10:05:50.764195+00:00",
+    "retry_after": "2026-10-28T10:05:50.764197+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Korak - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 106802,
+        "name": "Korak Serie Avestruz",
+        "publisher": "Editorial Novaro",
+        "start_year": 1975
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T10:06:15.747868+00:00",
+    "retry_after": "2026-10-28T10:06:15.747899+00:00",
     "search_hydrated": true
   }
 ]

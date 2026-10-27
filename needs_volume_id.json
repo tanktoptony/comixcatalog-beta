@@ -15278,9 +15278,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:04:29.200374+00:00",
-    "retry_after": "2026-10-27T16:04:29.200376+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:02:16.657829+00:00",
+    "retry_after": "2026-10-30T17:02:16.657834+00:00",
     "search_hydrated": true
   },
   {
@@ -27488,13 +27488,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T15:03:19.591902+00:00",
-    "retry_after": "2026-10-28T15:03:19.591905+00:00",
+    "last_attempt_at": "2026-10-27T17:06:54.759945+00:00",
+    "retry_after": "2026-10-28T17:06:54.759965+00:00",
     "search_hydrated": true
   },
   {
@@ -27504,21 +27504,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:01:21.794042+00:00",
-    "retry_after": "2026-10-28T16:01:21.794045+00:00",
+    "last_attempt_at": "2026-10-27T17:02:16.657866+00:00",
+    "retry_after": "2026-10-28T17:02:16.657870+00:00",
     "search_hydrated": true
   },
   {
@@ -35073,9 +35073,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T23:00:45.485290+00:00",
-    "retry_after": "2026-10-04T23:00:45.485303+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T17:06:08.113486+00:00",
+    "retry_after": "2026-11-03T17:06:08.113489+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Spider-Man, Power Pack",
@@ -38602,9 +38603,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T05:00:53.241165+00:00",
-    "retry_after": "2026-10-08T05:00:53.241180+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T17:06:08.113471+00:00",
+    "retry_after": "2026-11-03T17:06:08.113473+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Walt Disney's Mickey Mouse and the Beanstalk [Dynabrite Comics]",
@@ -43550,8 +43552,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:01:21.793981+00:00",
-    "retry_after": "2026-10-28T16:01:21.794002+00:00",
+    "last_attempt_at": "2026-10-27T17:02:16.657784+00:00",
+    "retry_after": "2026-10-28T17:02:16.657798+00:00",
     "search_hydrated": true
   },
   {
@@ -44115,9 +44117,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:04:13.341074+00:00",
-    "retry_after": "2026-10-27T16:04:13.341093+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:02:12.591256+00:00",
+    "retry_after": "2026-10-30T17:02:12.591273+00:00",
     "search_hydrated": true
   },
   {
@@ -76138,9 +76140,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:15:08.703716+00:00",
-    "retry_after": "2026-10-27T16:15:08.703728+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:06:43.862808+00:00",
+    "retry_after": "2026-10-30T17:06:43.862824+00:00",
     "search_hydrated": true
   },
   {
@@ -76149,9 +76151,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:38:21.781881+00:00",
-    "retry_after": "2026-10-27T16:38:21.781884+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:05:43.025795+00:00",
+    "retry_after": "2026-10-30T17:05:43.025812+00:00",
     "search_hydrated": true
   },
   {
@@ -76167,9 +76169,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:38:23.773951+00:00",
-    "retry_after": "2026-10-27T16:38:23.773960+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:05:44.120923+00:00",
+    "retry_after": "2026-10-30T17:05:44.120938+00:00",
     "search_hydrated": true
   },
   {
@@ -76178,9 +76180,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:38:49.763685+00:00",
-    "retry_after": "2026-10-27T16:38:49.763699+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:05:43.025837+00:00",
+    "retry_after": "2026-10-30T17:05:43.025841+00:00",
     "search_hydrated": true
   },
   {
@@ -76202,9 +76204,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:38:49.763773+00:00",
-    "retry_after": "2026-10-27T16:38:49.763777+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:05:43.025900+00:00",
+    "retry_after": "2026-10-30T17:05:43.025904+00:00",
     "search_hydrated": true
   },
   {
@@ -76213,9 +76215,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:39:49.037691+00:00",
-    "retry_after": "2026-10-27T16:39:49.037708+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:05:43.025925+00:00",
+    "retry_after": "2026-10-30T17:05:43.025928+00:00",
     "search_hydrated": true
   },
   {
@@ -76224,9 +76226,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:39:49.037732+00:00",
-    "retry_after": "2026-10-27T16:39:49.037735+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:05:43.025945+00:00",
+    "retry_after": "2026-10-30T17:05:43.025948+00:00",
     "search_hydrated": true
   },
   {
@@ -76235,9 +76237,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:39:49.037758+00:00",
-    "retry_after": "2026-10-27T16:39:49.037760+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:05:43.025963+00:00",
+    "retry_after": "2026-10-30T17:05:43.025966+00:00",
     "search_hydrated": true
   },
   {
@@ -76246,9 +76248,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:39:49.037774+00:00",
-    "retry_after": "2026-10-27T16:39:49.037777+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:05:43.025979+00:00",
+    "retry_after": "2026-10-30T17:05:43.025981+00:00",
     "search_hydrated": true
   },
   {
@@ -76257,9 +76259,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:40:12.600181+00:00",
-    "retry_after": "2026-10-27T16:40:12.600186+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:05:43.025993+00:00",
+    "retry_after": "2026-10-30T17:05:43.025995+00:00",
     "search_hydrated": true
   },
   {
@@ -76281,9 +76283,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T16:40:12.600269+00:00",
-    "retry_after": "2026-10-27T16:40:12.600273+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T17:06:43.862887+00:00",
+    "retry_after": "2026-10-30T17:06:43.862892+00:00",
     "search_hydrated": true
   },
   {
@@ -79265,6 +79267,148 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T16:06:29.149697+00:00",
     "retry_after": "2026-10-28T16:06:29.149700+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Transformers #5 Kickstarter Exclusive",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T17:06:08.113324+00:00",
+    "retry_after": "2026-10-28T17:06:08.113340+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Transformers #67 Kickstarter Exclusive",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T17:06:08.113365+00:00",
+    "retry_after": "2026-10-28T17:06:08.113368+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Transformers Kickstarter Compendium",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T17:06:08.113385+00:00",
+    "retry_after": "2026-10-28T17:06:08.113388+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Transformers Kickstarter Til All Are One Compendium",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T17:06:08.113402+00:00",
+    "retry_after": "2026-10-28T17:06:08.113405+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Transformers Kickstarter UK Compendium",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T17:06:08.113418+00:00",
+    "retry_after": "2026-10-28T17:06:08.113420+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Wicked + The Divine Compendium",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T17:06:08.113455+00:00",
+    "retry_after": "2026-10-28T17:06:08.113457+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Beyond Words",
+    "publisher": "AWA Studios",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T17:06:43.862979+00:00",
+    "retry_after": "2026-10-28T17:06:43.862982+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Archie Digest, Free Comic Book Day Edition",
+    "publisher": "Archie Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T17:06:43.863007+00:00",
+    "retry_after": "2026-10-28T17:06:43.863010+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
+    "publisher": "Harvey Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148472,
+        "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
+        "publisher": "Hjemmet",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T17:06:54.760013+00:00",
+    "retry_after": "2026-10-28T17:06:54.760018+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T17:06:54.760048+00:00",
+    "retry_after": "2026-10-28T17:06:54.760052+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T17:06:54.760081+00:00",
+    "retry_after": "2026-10-28T17:06:54.760085+00:00",
     "search_hydrated": true
   }
 ]

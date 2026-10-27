@@ -7757,10 +7757,12 @@
     "name": "7174 AD",
     "publisher": "Image Comics",
     "year": 2024,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555624+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T21:04:43.103960+00:00",
+    "retry_after": "2026-10-30T21:04:43.103961+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Custom M&M 2024 Comic",
@@ -27494,8 +27496,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T20:07:04.719695+00:00",
-    "retry_after": "2026-10-28T20:07:04.719710+00:00",
+    "last_attempt_at": "2026-10-27T21:06:49.739753+00:00",
+    "retry_after": "2026-10-28T21:06:49.739771+00:00",
     "search_hydrated": true
   },
   {
@@ -27518,8 +27520,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T20:01:26.924386+00:00",
-    "retry_after": "2026-10-28T20:01:26.924391+00:00",
+    "last_attempt_at": "2026-10-27T21:01:20.633836+00:00",
+    "retry_after": "2026-10-28T21:01:20.633838+00:00",
     "search_hydrated": true
   },
   {
@@ -43557,8 +43559,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T20:01:26.924328+00:00",
-    "retry_after": "2026-10-28T20:01:26.924344+00:00",
+    "last_attempt_at": "2026-10-27T21:01:20.633762+00:00",
+    "retry_after": "2026-10-28T21:01:20.633799+00:00",
     "search_hydrated": true
   },
   {
@@ -76742,9 +76744,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T20:07:30.255863+00:00",
-    "retry_after": "2026-10-27T20:07:30.255879+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T21:04:43.103902+00:00",
+    "retry_after": "2026-10-30T21:04:43.103914+00:00",
     "search_hydrated": true
   },
   {
@@ -76754,21 +76756,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 61690,
-        "name": "Peanuts Every Sunday",
-        "publisher": "Henry Holt and Co.",
-        "start_year": 1994
-      },
-      {
         "id": 57028,
         "name": "Peanuts Every Sunday",
         "publisher": "Holt, Rinehart and Winston",
         "start_year": 1961
+      },
+      {
+        "id": 61690,
+        "name": "Peanuts Every Sunday",
+        "publisher": "Henry Holt and Co.",
+        "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T20:07:30.255935+00:00",
-    "retry_after": "2026-10-27T20:07:30.255938+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T21:06:21.936827+00:00",
+    "retry_after": "2026-10-30T21:06:21.936845+00:00",
     "search_hydrated": true
   },
   {
@@ -79938,6 +79940,232 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T20:07:04.719787+00:00",
     "retry_after": "2026-10-28T20:07:04.719791+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "3D Anomaly",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:04:43.103948+00:00",
+    "retry_after": "2026-10-28T21:04:43.103951+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Batman and Son",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:04:43.103970+00:00",
+    "retry_after": "2026-10-28T21:04:43.103971+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Batman Arkham Asylum",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:04:43.103977+00:00",
+    "retry_after": "2026-10-28T21:04:43.103978+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Death of the Family",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:04:43.103985+00:00",
+    "retry_after": "2026-10-28T21:04:43.103986+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Superman by Geoff Johns & Gary Frank",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:04:43.103995+00:00",
+    "retry_after": "2026-10-28T21:04:43.103996+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Zatanna: Bring Down the House",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 158590,
+        "name": "Zatanna: Bring Down the House",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:04:44.062926+00:00",
+    "retry_after": "2026-10-28T21:04:44.062932+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Adventures of Superman: Jon Kent",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 148728,
+        "name": "Adventures of Superman: Jon Kent",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:04:44.216402+00:00",
+    "retry_after": "2026-10-28T21:04:44.216408+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "AEW Presents Britt Baker",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:05:10.221031+00:00",
+    "retry_after": "2026-10-28T21:05:10.221042+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "AEW Presents Darby Allin",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:05:10.221057+00:00",
+    "retry_after": "2026-10-28T21:05:10.221058+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "AEW Presents Orange Cassidy",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:05:10.221066+00:00",
+    "retry_after": "2026-10-28T21:05:10.221067+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "AEW Presents Swerve Strickland",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:05:10.221074+00:00",
+    "retry_after": "2026-10-28T21:05:10.221075+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "AEW Presents Toni Storm",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:05:10.221080+00:00",
+    "retry_after": "2026-10-28T21:05:10.221081+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "AEW Presents Will Ospreay",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:05:10.221087+00:00",
+    "retry_after": "2026-10-28T21:05:10.221088+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Animal Man by Grant Morrison and Chaz Truog Compendium",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:05:10.221137+00:00",
+    "retry_after": "2026-10-28T21:05:10.221138+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Brian Pulido's Lady Death vs War Angel",
+    "publisher": "Avatar Press",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:06:21.936921+00:00",
+    "retry_after": "2026-10-28T21:06:21.936924+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Lady Death Ashcan Edition",
+    "publisher": "Chaos! Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:06:21.936933+00:00",
+    "retry_after": "2026-10-28T21:06:21.936935+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": "Eros Comix",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:06:49.739827+00:00",
+    "retry_after": "2026-10-28T21:06:49.739830+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T21:06:49.739876+00:00",
+    "retry_after": "2026-10-28T21:06:49.739878+00:00",
     "search_hydrated": true
   }
 ]

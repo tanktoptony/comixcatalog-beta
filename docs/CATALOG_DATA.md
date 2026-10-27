@@ -61,7 +61,8 @@ There is no foreign key from `canonical_covers` to `gcd_issues` or `series`. Lin
 ## Publisher normalization
 
 - Both raw publisher signals are unreliable: `gcd_series.publisher_gcd_id` has wrong links, and `series.cv_publisher` was once stamped by title-only matches.
-- `resolvePublisher()` (`src/lib/publisher.js`) is year-aware: pre-2000 trusts GCD indicia, modern trusts ComicVine.
+- `resolvePublisher()` (`src/lib/publisher.js`) is year-aware: pre-2000 trusts GCD's series publisher, modern trusts ComicVine. When it returns "Unknown Publisher", the refresh shows GCD's series publisher name instead.
+- `gcd_issues.publisher_gcd_id` holds GCD **indicia** publisher ids for most rows, not `gcd_publishers` ids (indicia 490 is Udon Entertainment, publisher 490 is "Eclipse; Quality"). Reading it as a publisher mislabeled ~1,250 series until 2026-10-27. Use `gcd_series.publisher_gcd_id`.
 - The result is cached as `series.resolved_publisher_cached` by `scripts/refreshSeriesSearchCache.js`. **Read the cached value**; re-resolving on request reintroduces bugs like "1984 TMNT shows IDW."
 - `SERIES_OVERRIDES` (`src/lib/seriesOverrides.js`, keyed by `gcd_id`) pins publisher and years for important series, and can hide a row.
 - `US_PUBLISHER_ALLOWLIST` (about 45 publishers) filters search and browse. Setting a non-US publisher in an override doubles as suppression.

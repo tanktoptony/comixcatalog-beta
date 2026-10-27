@@ -15,7 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 
 import { createClient } from "@supabase/supabase-js";
-import { resolvePublisher } from "../src/lib/publisher.js";
+import { normalizePublisherName, resolvePublisher } from "../src/lib/publisher.js";
 import { getSeriesOverride } from "../src/lib/seriesOverrides.js";
 import { normTitle, stripPunctuation, titleVariants } from "../src/lib/titleMatch.js";
 import { isCollectedEdition } from "../src/lib/seriesFormat.js";
@@ -345,7 +345,7 @@ async function processBatch(seriesBatch) {
     const page = await runWithRetry("gcd_issues page", () =>
       supabase
         .from("gcd_issues")
-        .select("series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date, variant_of_gcd_id")
+        .select("series_gcd_id, issue_number, publication_date, key_date, variant_of_gcd_id")
         .in("series_gcd_id", seriesGcdIds)
         .order("gcd_id", { ascending: true })
         .range(from, from + PAGE_SIZE - 1)
@@ -357,12 +357,14 @@ async function processBatch(seriesBatch) {
     from += PAGE_SIZE;
   }
 
+  // Series-level publishers only. gcd_issues.publisher_gcd_id is NOT a
+  // gcd_publishers id for most rows: the original issue import stored GCD's
+  // indicia publisher id there, a different id space (indicia 490 is "Udon
+  // Entertainment Corp.", publisher 490 is "Eclipse; Quality"). Reading it as
+  // a publisher id labeled every UDON book "Eclipse Comics" and ~1,200 other
+  // series with some unrelated publisher (2026-10-27).
   const publisherGcdIds = [
-    ...new Set(
-      [...(issueRows ?? []).map((r) => r.publisher_gcd_id), ...seriesPublisherIds.values()]
-        .filter(Boolean)
-        .map(String)
-    ),
+    ...new Set([...seriesPublisherIds.values()].filter(Boolean).map(String)),
   ];
 
   const pubNameByGcdId = {};
@@ -663,15 +665,7 @@ async function processBatch(seriesBatch) {
     const yearStart = years.length ? Math.min(...years) : (seriesSpan?.yearBegan ?? null);
     const yearEnd = years.length ? Math.max(...years) : (seriesSpan?.yearEnded ?? seriesSpan?.yearBegan ?? null);
 
-    const issuePublisherNames = [
-      ...new Set(
-        [pubNameByGcdId[String(seriesPublisherIds.get(series.gcd_id))], ...issuesForSeries
-          .map((r) => r.publisher_gcd_id)
-          .filter(Boolean)
-          .map((id) => pubNameByGcdId[String(id)])
-        ].filter(Boolean)
-      ),
-    ];
+    const gcdSeriesPublisherName = pubNameByGcdId[String(seriesPublisherIds.get(series.gcd_id))] ?? null;
 
     const titleKey = normTitle(series.title);
 
@@ -769,11 +763,11 @@ async function processBatch(seriesBatch) {
     // IP later changed hands) back to its modern owner. Rule:
     //   year_start >= 2000 or null → trust cv_publisher (ComicVine is
     //     reliable for modern attribution).
-    //   year_start < 2000 → prefer GCD indicia (cv often points at the
-    //     current IP holder, not the original publisher). Only fall back
-    //     to cv if indicia gives nothing useful.
+    //   year_start < 2000 → prefer GCD's series publisher (cv often points
+    //     at the current IP holder, not the original publisher). Only fall
+    //     back to cv if GCD gives nothing useful.
     const MODERN_ERA_CUTOFF = 2000;
-    const candidates = [series.publisher?.name ?? null, ...issuePublisherNames];
+    const candidates = [series.publisher?.name ?? null, gcdSeriesPublisherName];
     let resolvedPublisher;
     if (yearStart == null || yearStart >= MODERN_ERA_CUTOFF) {
       resolvedPublisher = resolvePublisher({
@@ -798,6 +792,12 @@ async function processBatch(seriesBatch) {
           seriesTitle: series.title,
         });
       }
+    }
+    // isSuspiciousPublisherName rejects shell-company names ("Lake Publishing
+    // Company"), which is right for indicia text but wrong for GCD's own
+    // series publisher: that is the publisher, so show it over "Unknown".
+    if (resolvedPublisher === "Unknown Publisher" && gcdSeriesPublisherName) {
+      resolvedPublisher = normalizePublisherName(gcdSeriesPublisherName) || resolvedPublisher;
     }
 
     // Curated override for the marketable core. Both raw publisher signals are

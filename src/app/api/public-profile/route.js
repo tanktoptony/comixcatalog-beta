@@ -180,7 +180,7 @@ export async function GET(req) {
             () =>
               supabase
                 .from("gcd_issues")
-                .select("gcd_id, series_gcd_id, publisher_gcd_id, issue_number, publication_date, key_date")
+                .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
                 .in("gcd_id", chunk),
             "gcd_id"
           ))
@@ -200,9 +200,6 @@ export async function GET(req) {
 
     const seriesGcdIds = [
       ...new Set(issueList.map((i) => i.series_gcd_id).filter(Boolean)),
-    ];
-    const publisherGcdIds = [
-      ...new Set(issueList.map((i) => i.publisher_gcd_id).filter(Boolean)),
     ];
     const issueNumbers = [
       ...new Set(issueList.map((i) => i.issue_number).filter((v) => v != null)),
@@ -237,29 +234,21 @@ export async function GET(req) {
       return rows;
     };
     let seriesRows;
-    let publisherRows;
     try {
-      [seriesRows, publisherRows] = await timing.measure("series_publishers", () => Promise.all([
-        readChunked(
-          "series",
-          "gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)",
-          seriesGcdIds,
-          "id"
-        ),
-        readChunked("gcd_publishers", "gcd_id, name", publisherGcdIds, "gcd_id"),
-      ]));
+      seriesRows = await timing.measure("series_publishers", () => readChunked(
+        "series",
+        "gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)",
+        seriesGcdIds,
+        "id"
+      ));
     } catch (err) {
       console.error("public profile series/publisher lookup failed:", err?.code, err?.message);
       return json({ error: "Failed to load profile collection" }, { status: 502 });
     }
     const seriesResult = { data: seriesRows };
-    const publisherResult = { data: publisherRows };
 
     const seriesLookup = Object.fromEntries(
       (seriesResult.data ?? []).map((r) => [String(r.gcd_id), r])
-    );
-    const publisherLookup = Object.fromEntries(
-      (publisherResult.data ?? []).map((r) => [String(r.gcd_id), r.name])
     );
 
     const intermediate = issueList.map((issue) => {
@@ -271,13 +260,13 @@ export async function GET(req) {
         seriesYearStart: seriesRow?.year_start_cached ?? null,
         seriesYearEnd: seriesRow?.year_end_cached ?? null,
         seriesTitle: seriesRow?.title ?? null,
-        // resolved_publisher_cached is the year-aware, audited value — prefer it.
-        // The publisher_gcd_id fallback draws on GCD's scrambled publisher links
-        // (US Marvel books mislinked to foreign houses), so it's last resort only.
+        // resolved_publisher_cached is the year-aware, audited value. No
+        // fallback to gcd_issues.publisher_gcd_id: for most rows that is GCD's
+        // indicia publisher id, not a gcd_publishers id, so it named an
+        // unrelated publisher (see scripts/refreshSeriesSearchCache.js).
         publisher:
           seriesRow?.resolved_publisher_cached ??
           seriesRow?.publisher?.name ??
-          publisherLookup[String(issue.publisher_gcd_id)] ??
           null,
       };
     });

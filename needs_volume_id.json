@@ -25864,9 +25864,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T04:01:29.829534+00:00",
-    "retry_after": "2026-10-27T04:01:29.829550+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:01:22.263293+00:00",
+    "retry_after": "2026-10-30T05:01:22.263295+00:00",
     "search_hydrated": true
   },
   {
@@ -27536,8 +27536,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T04:01:23.973730+00:00",
-    "retry_after": "2026-10-28T04:01:23.973732+00:00",
+    "last_attempt_at": "2026-10-27T05:01:22.263212+00:00",
+    "retry_after": "2026-10-28T05:01:22.263215+00:00",
     "search_hydrated": true
   },
   {
@@ -43563,8 +43563,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T04:01:23.973682+00:00",
-    "retry_after": "2026-10-28T04:01:23.973701+00:00",
+    "last_attempt_at": "2026-10-27T05:01:22.263163+00:00",
+    "retry_after": "2026-10-28T05:01:22.263179+00:00",
     "search_hydrated": true
   },
   {
@@ -74567,9 +74567,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T04:05:30.666466+00:00",
-    "retry_after": "2026-10-27T04:05:30.666481+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:04:43.899301+00:00",
+    "retry_after": "2026-10-30T05:04:43.899317+00:00",
     "search_hydrated": true
   },
   {
@@ -74585,9 +74585,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T04:05:32.575502+00:00",
-    "retry_after": "2026-10-27T04:05:32.575518+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:04:44.844831+00:00",
+    "retry_after": "2026-10-30T05:04:44.844846+00:00",
     "search_hydrated": true
   },
   {
@@ -74603,9 +74603,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T04:05:34.561494+00:00",
-    "retry_after": "2026-10-27T04:05:34.561510+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:04:44.991541+00:00",
+    "retry_after": "2026-10-30T05:04:44.991556+00:00",
     "search_hydrated": true
   },
   {
@@ -74614,9 +74614,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:03:02.114909+00:00",
-    "retry_after": "2026-10-27T05:03:02.114933+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:04:43.899464+00:00",
+    "retry_after": "2026-10-30T05:04:43.899469+00:00",
     "search_hydrated": true
   },
   {
@@ -74626,22 +74626,16 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 118148,
-        "name": "Superman: Action Comics",
-        "publisher": "DC Comics",
-        "start_year": 2019
-      },
-      {
-        "id": 50973,
-        "name": "Superman - Action Comics",
-        "publisher": "DC Comics",
-        "start_year": 2012
-      },
-      {
         "id": 98909,
         "name": "Superman: Action Comics",
         "publisher": "DC Comics",
         "start_year": 2017
+      },
+      {
+        "id": 118148,
+        "name": "Superman: Action Comics",
+        "publisher": "DC Comics",
+        "start_year": 2019
       },
       {
         "id": 141886,
@@ -74656,9 +74650,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:03:03.301917+00:00",
-    "retry_after": "2026-10-27T05:03:03.301932+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:04:43.899513+00:00",
+    "retry_after": "2026-10-30T05:04:43.899516+00:00",
     "search_hydrated": true
   },
   {
@@ -74667,9 +74661,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:03:03.719953+00:00",
-    "retry_after": "2026-10-27T05:03:03.719969+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:04:43.899527+00:00",
+    "retry_after": "2026-10-30T05:04:43.899529+00:00",
     "search_hydrated": true
   },
   {
@@ -74678,9 +74672,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:03:10.289461+00:00",
-    "retry_after": "2026-10-27T05:03:10.289477+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:04:43.899539+00:00",
+    "retry_after": "2026-10-30T05:04:43.899541+00:00",
     "search_hydrated": true
   },
   {
@@ -74696,9 +74690,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:03:12.189822+00:00",
-    "retry_after": "2026-10-27T05:03:12.189839+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:04:45.151943+00:00",
+    "retry_after": "2026-10-30T05:04:45.151958+00:00",
     "search_hydrated": true
   },
   {
@@ -74707,9 +74701,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:03:12.575043+00:00",
-    "retry_after": "2026-10-27T05:03:12.575059+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:04:43.899562+00:00",
+    "retry_after": "2026-10-30T05:04:43.899564+00:00",
     "search_hydrated": true
   },
   {
@@ -74718,9 +74712,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:03:12.951105+00:00",
-    "retry_after": "2026-10-27T05:03:12.951120+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:04:43.899577+00:00",
+    "retry_after": "2026-10-30T05:04:43.899579+00:00",
     "search_hydrated": true
   },
   {
@@ -74729,9 +74723,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:03:22.030671+00:00",
-    "retry_after": "2026-10-27T05:03:22.030686+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:05:03.720210+00:00",
+    "retry_after": "2026-10-30T05:05:03.720226+00:00",
     "search_hydrated": true
   },
   {
@@ -74740,9 +74734,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:03:26.967373+00:00",
-    "retry_after": "2026-10-27T05:03:26.967390+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:05:03.720243+00:00",
+    "retry_after": "2026-10-30T05:05:03.720245+00:00",
     "search_hydrated": true
   },
   {
@@ -74758,9 +74752,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:03:29.484146+00:00",
-    "retry_after": "2026-10-27T05:03:29.484161+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:05:05.274724+00:00",
+    "retry_after": "2026-10-30T05:05:05.274739+00:00",
     "search_hydrated": true
   },
   {
@@ -74769,9 +74763,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T05:03:29.934397+00:00",
-    "retry_after": "2026-10-27T05:03:29.934413+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T05:05:03.720326+00:00",
+    "retry_after": "2026-10-30T05:05:03.720328+00:00",
     "search_hydrated": true
   },
   {
@@ -77923,6 +77917,122 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T04:05:47.570681+00:00",
     "retry_after": "2026-10-28T04:05:47.570683+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Pizza Witch",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T05:05:03.720340+00:00",
+    "retry_after": "2026-10-28T05:05:03.720342+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Plastic: Death & Dolls",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 158489,
+        "name": "Plastic: Death & Dolls",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T05:05:09.221716+00:00",
+    "retry_after": "2026-10-28T05:05:09.221731+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Power Lords",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 3200,
+        "name": "Power Lords",
+        "publisher": "DC Comics",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T05:05:09.221899+00:00",
+    "retry_after": "2026-10-28T05:05:09.221902+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Precious Metal",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 158407,
+        "name": "Precious Metal",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T05:05:09.386334+00:00",
+    "retry_after": "2026-10-28T05:05:09.386373+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Predator vs. Black Panther",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 159324,
+        "name": "Predator vs. Black Panther",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T05:05:09.535161+00:00",
+    "retry_after": "2026-10-28T05:05:09.535176+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sony Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T05:05:27.820445+00:00",
+    "retry_after": "2026-10-28T05:05:27.820460+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Trek: Strange New Worlds Omnibus",
+    "publisher": "IDW Publishing",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T05:05:27.820477+00:00",
+    "retry_after": "2026-10-28T05:05:27.820480+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Winnie the Pooh Comic Book Classics",
+    "publisher": "Fantagraphics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T05:05:27.820520+00:00",
+    "retry_after": "2026-10-28T05:05:27.820522+00:00",
     "search_hydrated": true
   }
 ]

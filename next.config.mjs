@@ -50,15 +50,16 @@ const nextConfig = {
       // signups (src/lib/attribution.js).
       {
         source: "/ig",
-        destination: "/founding-collectors?utm_source=instagram&utm_medium=social&utm_campaign=vs-incumbents",
+        destination: "/founding-collectors?utm_source=instagram&utm_medium=social&utm_campaign=vs-bio",
         permanent: false,
       },
       // One link per post in the "why ComixCatalog" carousel series, printed
-      // on each post's last slide, e.g. /ig/grades. The slug becomes
-      // utm_content so signups can be credited to the post that sent them.
+      // on each post's last slide, e.g. /ig/grades. The post rides in
+      // utm_campaign (vs-grades) because signup attribution saves source,
+      // medium and campaign only; utm_content never reaches profiles.
       {
         source: "/ig/:post([a-z0-9-]{2,40})",
-        destination: "/founding-collectors?utm_source=instagram&utm_medium=social&utm_campaign=vs-incumbents&utm_content=:post",
+        destination: "/founding-collectors?utm_source=instagram&utm_medium=social&utm_campaign=vs-:post",
         permanent: false,
       },
       // Short link for YouTube videos. Temporary (302) so the destination can

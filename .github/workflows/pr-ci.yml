@@ -112,6 +112,9 @@ jobs:
       - name: Instagram dedupe tests
         run: npm run test:instagram
 
+      - name: Instagram series scheduler tests
+        run: npm run test:ig-series
+
       - name: Health-check failure-mode tests
         run: npm run test:health-check
 

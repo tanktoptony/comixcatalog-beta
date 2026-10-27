@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- Last slide of every post in the Instagram comparison series. Rendered on
+     posting day by scripts/igSeriesPost.js so the count is live, not the
+     number from whenever the post was drafted. Same look as the hand-made
+     slides: Anton + IBM Plex Sans, black and gold. Fonts ship in ./fonts
+     (both OFL) so the GitHub runner renders it without a font CDN. -->
+<style>
+  @font-face { font-family:Anton; src:url("{{FONT_DIR}}/Anton-400.woff2") format("woff2"); font-weight:400; }
+  @font-face { font-family:"IBM Plex Sans"; src:url("{{FONT_DIR}}/IBMPlexSans.woff2") format("woff2"); font-weight:100 700; }
+  :root { --bg:#0d0c0a; --fg:#f1ece0; --muted:#a39b88; --gold:#f2c230; --line:#2c2820; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:1080px; height:1350px; overflow:hidden; background:var(--bg); }
+  .slide { width:1080px; height:1350px; padding:96px 88px; position:relative; color:var(--fg); font-family:"IBM Plex Sans",sans-serif; display:flex; flex-direction:column; background:
+    radial-gradient(1100px 700px at 85% -10%, rgba(242,194,48,.16), transparent 60%), var(--bg); }
+  .kicker { font-weight:600; font-size:30px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
+  h2 { font-family:Anton,sans-serif; font-weight:400; text-transform:uppercase; font-size:118px; line-height:.95; margin-top:10px; }
+  .gold { color:var(--gold); }
+  .big { font-family:Anton,sans-serif; font-size:300px; line-height:.85; color:var(--gold); margin-top:40px; }
+  ul { list-style:none; margin-top:52px; display:grid; gap:30px; }
+  li { font-size:36px; line-height:1.3; padding-left:58px; position:relative; }
+  li::before { content:""; position:absolute; left:0; top:13px; width:28px; height:28px; border-radius:6px; background:var(--gold); }
+  .cta { margin-top:48px; font-family:Anton,sans-serif; font-size:66px; text-transform:uppercase; color:var(--fg); }
+  .foot { position:absolute; left:88px; right:88px; bottom:76px; display:flex; justify-content:space-between; align-items:center; font-size:30px; color:var(--muted); border-top:2px solid var(--line); padding-top:28px; }
+  .brand { font-family:Anton,sans-serif; font-size:40px; letter-spacing:.06em; color:var(--fg); }
+</style></head>
+<body>
+<section class="slide">
+  <div class="kicker">Founding collectors</div>
+  <div class="big">{{SPOTS}}</div>
+  <h2>of 100 founding<br><span class="gold">{{SPOT_WORD}} left</span></h2>
+  <ul>
+    <li>A numbered badge nobody after No. 100 can get</li>
+    <li>Your name on the founders wall</li>
+    <li>Lifetime membership</li>
+  </ul>
+  <div class="cta">Link in bio</div>
+  <div class="foot"><span class="brand">COMIXCATALOG</span><span>comixcatalog.com/ig/{{SLUG}}</span></div>
+</section>
+</body></html>

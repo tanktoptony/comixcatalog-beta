@@ -1,0 +1,63 @@
+name: Instagram series post
+
+# Posts the next approved carousel in the comparison series on its date,
+# from scripts/igSeries/queue.json. Every entry there was approved by Tony,
+# slides and caption; scripts/igSeriesPost.js only fills in the live founding
+# count, renders the last slide with it, and refuses to post if the
+# competitor's page no longer says what the slide says.
+#
+# Tuesdays only, hourly 15:00-22:00 UTC: GitHub's schedule trigger drops
+# firings (see instagram-post.yml), so eight chances instead of one. A post
+# records itself in queue.json, which makes the later firings no-ops. The
+# daily bot keeps Fridays (instagramBot.js POSTING_DAYS_UTC).
+on:
+  schedule:
+    - cron: '0 15-22 * * 2'
+  workflow_dispatch: {}
+
+concurrency:
+  group: ig-series
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      INSTAGRAM_BUSINESS_ACCOUNT_ID: ${{ secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID }}
+      INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Post today's carousel, if one is due
+        run: |
+          google-chrome --version
+          node scripts/igSeriesPost.js
+
+      - name: Record the post
+        run: |
+          git config user.name "comixcatalog-bot"
+          git config user.email "actions@github.com"
+          git add scripts/igSeries/queue.json
+          if git diff --staged --quiet; then
+            echo "Nothing posted this run."
+            exit 0
+          fi
+          git commit -m "ig-series: record posted carousel"
+          git pull --rebase
+          git push

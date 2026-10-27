@@ -770,7 +770,7 @@ async function selectPost() {
 // instead — res.json() then throws a raw "Unexpected token '<'" SyntaxError
 // that hides the real (retryable) cause. Read as text first so a non-JSON
 // body becomes a clear, truncated error instead of a crash.
-async function readJson(res) {
+export async function readJson(res) {
   const text = await res.text();
   try {
     return JSON.parse(text);
@@ -786,7 +786,7 @@ async function readJson(res) {
 // ready. Publishing before that hits error 9007 ("media is not ready for
 // publishing"). Poll until FINISHED (or ERROR/EXPIRED) instead of publishing
 // right away.
-async function waitForContainerReady(containerId, token, { timeoutMs = 90000, intervalMs = 3000 } = {}) {
+export async function waitForContainerReady(containerId, token, { timeoutMs = 90000, intervalMs = 3000 } = {}) {
   const deadline = Date.now() + timeoutMs;
   for (;;) {
     const res = await fetch(
@@ -815,7 +815,7 @@ async function waitForContainerReady(containerId, token, { timeoutMs = 90000, in
 // retry a few times before giving up.
 const TRANSIENT_PUBLISH_SUBCODE = 2207027;
 
-async function publishContainer(igUserId, containerId, token, { retries = 4, delayMs = 5000 } = {}) {
+export async function publishContainer(igUserId, containerId, token, { retries = 4, delayMs = 5000 } = {}) {
   for (let attempt = 0; ; attempt++) {
     const publishRes = await fetch(
       `https://graph.facebook.com/v21.0/${igUserId}/media_publish?` +

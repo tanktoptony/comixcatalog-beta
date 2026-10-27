@@ -11,8 +11,9 @@ import BuyNowButton from "@/components/BuyNowButton";
 import { Suspense } from "react";
 
 // One copy for sale, Discogs item-page style: the copy, its condition, the
-// seller, the price, and the way to buy (an offer or a message while there's
-// no checkout). Server-rendered from the cached listing read.
+// seller, the price, and the way to buy (Buy now when checkout takes the
+// copy, otherwise an offer or a message). Server-rendered from the cached
+// listing read.
 
 export const revalidate = 120;
 
@@ -42,6 +43,15 @@ export default async function ListingPage({ params }) {
   const sold = l.status === "sold";
   const reserved = l.status === "reserved";
   const since = new Date(l.sellerInfo.since).toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  const sales = l.sellerInfo.sales;
+  const offerBlock = (
+    <>
+      <Link href={offerHref(l)} className="lp-cta">
+        {contactLabel(l)}
+      </Link>
+      <p className="lp-fine">No fees during the beta. You and the seller work out payment and shipping by message.</p>
+    </>
+  );
 
   const jsonLd =
     l.price != null && !sold
@@ -107,15 +117,17 @@ export default async function ListingPage({ params }) {
                   )}
                 </div>
                 {shippingLabel(l) && <div className="lp-ship">{shippingLabel(l)}</div>}
-                {l.price != null && !reserved && <Suspense fallback={null}><BuyNowButton listingId={l.id} totalCents={Math.round((l.price + (l.shipping || 0)) * 100)} shippingCents={Math.round((l.shipping || 0) * 100)} otherListings={l.sellerInfo.pricedListings} seller={l.seller} additionalShippingCents={l.sellerInfo.additionalShippingCents} /></Suspense>}
                 {reserved ? (
                   <div className="lp-status">On hold</div>
+                ) : l.price != null ? (
+                  <Suspense fallback={offerBlock}>
+                    <BuyNowButton listingId={l.id} totalCents={Math.round((l.price + (l.shipping || 0)) * 100)} shippingCents={Math.round((l.shipping || 0) * 100)} otherListings={l.sellerInfo.pricedListings} seller={l.seller} additionalShippingCents={l.sellerInfo.additionalShippingCents} offerHref={offerHref(l)} offerLabel={contactLabel(l)}>
+                      {offerBlock}
+                    </BuyNowButton>
+                  </Suspense>
                 ) : (
-                  <Link href={offerHref(l)} className="lp-cta">
-                    {contactLabel(l)}
-                  </Link>
+                  offerBlock
                 )}
-                <p className="lp-fine">No fees during the beta. You and the seller work out payment and shipping by message.</p>
                 <MarkSoldButton
                   collectionItemId={l.collectionId}
                   ownerId={l.sellerInfo.id}
@@ -155,7 +167,10 @@ export default async function ListingPage({ params }) {
               <img src={l.sellerInfo.avatar} alt="" width={44} height={44} />
               <span>
                 <b>@{l.seller}</b>
-                {l.sellerInfo.rating && <small>{l.sellerInfo.rating}</small>}
+                <small className="lp-seller-record">
+                  {sales > 0 ? `${sales.toLocaleString("en-US")} ${sales === 1 ? "sale" : "sales"}` : "New seller"}
+                  {l.sellerInfo.rating ? ` · ${l.sellerInfo.rating}` : ""}
+                </small>
                 <small>
                   Collecting on ComixCatalog since {since}
                   {l.sellerInfo.founder ? " · Founding Collector" : ""}
@@ -167,7 +182,9 @@ export default async function ListingPage({ params }) {
                 {l.sellerInfo.otherListings.toLocaleString("en-US")} more {l.sellerInfo.otherListings === 1 ? "book" : "books"} for sale from @{l.seller}
               </Link>
             )}
-            <ReportButton targetType="listing" targetId={l.id} ownerId={l.sellerInfo.id} />
+            <div className="lp-report">
+              <ReportButton targetType="listing" targetId={l.id} ownerId={l.sellerInfo.id} />
+            </div>
           </section>
 
           {others.length > 0 && (

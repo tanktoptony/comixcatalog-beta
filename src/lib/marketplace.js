@@ -7,6 +7,7 @@ import { normalizePublisherLabel } from "@/lib/publisher";
 import { coverPathFromUrl, toListing } from "@/lib/listingRow";
 import { KIND_LABELS, photoUrl } from "@/lib/listingPhotos";
 import { formatSellerRating } from "@/lib/feedback";
+import { MARKETPLACE_LIVEMODE } from "@/lib/marketplaceStripe";
 
 // Marketplace v2 read model (migration 0031). Each listed copy is a row in
 // `listings` that snapshots the title, issue, publisher, cover and grade, so
@@ -216,12 +217,15 @@ async function computeListing(id) {
   if (error) throw error;
   if (!l || !["active", "reserved", "sold"].includes(l.status)) return null;
 
-  const [{ data: seller, error: sErr }, { data: uc, error: uErr }, { count: otherCount, error: cErr }, { data: pricedRows, error: pricedError }, { data: sellerAccount }] = await Promise.all([
+  const [{ data: seller, error: sErr }, { data: uc, error: uErr }, { count: otherCount, error: cErr }, { data: pricedRows, error: pricedError }, { data: sellerAccount }, { count: salesCount }] = await Promise.all([
     sb.from("profiles").select("username, is_public, show_for_sale, created_at, avatar_key, avatar_url, is_founding_collector").eq("id", l.seller_id).maybeSingle(),
     sb.from("user_collections").select("market_value, auto_market_value").eq("id", l.collection_id).maybeSingle(),
     sb.from("listings").select("id", { count: "exact", head: true }).eq("seller_id", l.seller_id).eq("status", "active").neq("id", l.id),
     sb.from("listings").select("id,collection_id,gcd_issue_id,series_title,issue_number,release_year,publisher,variant_label,cover_path,condition,grade_numeric,slab_company,price_cents,shipping_cents,accepts_offers,created_at").eq("seller_id", l.seller_id).eq("status", "active").not("price_cents", "is", null).neq("id", l.id).order("created_at", { ascending: false }).limit(12),
     sb.from("seller_accounts").select("additional_item_shipping_cents").eq("user_id", l.seller_id).maybeSingle(),
+    // Completed Buy now sales in this Stripe mode, so test orders never count as
+    // real ones. A failed count shows "New seller" rather than failing the page.
+    sb.from("orders").select("id", { count: "exact", head: true }).eq("seller_id", l.seller_id).eq("status", "completed").eq("livemode", MARKETPLACE_LIVEMODE),
   ]);
   if (sErr) throw sErr;
   if (uErr) throw uErr;
@@ -279,6 +283,7 @@ async function computeListing(id) {
       avatar: avatarForProfile({ ...seller, id: l.seller_id }, { width: 88, height: 88 }),
       otherListings: otherCount ?? 0,
       rating: formatSellerRating(rating),
+      sales: salesCount ?? 0,
       pricedListings: buyable.map((row) => toListing({ ...row, seller_username: seller.username }, supa)),
       additionalShippingCents: sellerAccount?.additional_item_shipping_cents ?? 100,
     },
@@ -286,7 +291,7 @@ async function computeListing(id) {
 }
 
 export async function getListing(id) {
-  return unstable_cache(() => computeListing(id), ["marketplace-listing", String(id)], {
+  return unstable_cache(() => computeListing(id), ["marketplace-listing-v2", String(id)], {
     revalidate: 120,
     tags: [LISTINGS_TAG],
   })();

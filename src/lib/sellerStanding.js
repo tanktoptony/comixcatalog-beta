@@ -3,6 +3,7 @@ export const SELLER_BLOCK_MESSAGES = Object.freeze({
   not_priced: "Add a price before buyers can check out.",
   seller_not_onboarded: "Set up payouts before buyers can check out.",
   seller_restricted: "Checkout is paused for this seller account.",
+  needs_condition: "Add the book's condition before buyers can check out.",
   slab_needs_cert: "Add the slab certification number for checkout.",
   needs_photos: "Add front and back photos for a book priced at $100 or more.",
   new_seller_price_cap: "New sellers can list checkout items up to $1,000.",

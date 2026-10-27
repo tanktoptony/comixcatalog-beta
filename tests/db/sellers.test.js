@@ -37,6 +37,19 @@ test("slab certification and high-value photos gate checkout", async () => {
   const low = await setup(db,{ priceCents:9999,issue:2 }); assert.equal(await block(db,low.listingId),null); await db.end();
 });
 
+test("buy now needs a raw condition or a slab grade", async () => {
+  const db = await dbClient(); const s = await setup(db, { priceCents: 2500 });
+  await asOwner(db); await db.query("update public.listings set condition=null,grade_numeric=null where id=$1", [s.listingId]);
+  assert.equal(await block(db, s.listingId), "needs_condition");
+  await asOwner(db); await db.query("update public.listings set condition='   ' where id=$1", [s.listingId]);
+  assert.equal(await block(db, s.listingId), "needs_condition");
+  await asOwner(db); await db.query("update public.listings set condition='Very Fine' where id=$1", [s.listingId]);
+  assert.equal(await block(db, s.listingId), null);
+  await asOwner(db); await db.query("update public.listings set condition=null,grade_numeric=9.8 where id=$1", [s.listingId]);
+  assert.equal(await block(db, s.listingId), null);
+  await db.end();
+});
+
 test("new seller price and listing caps do not restrict established sellers", async () => {
   const db=await dbClient(); const high=await setup(db,{priceCents:100001}); await photo(db,high,"front"); await photo(db,high,"back");
   assert.equal(await block(db,high.listingId),"new_seller_price_cap"); await asOwner(db); await db.query("update public.seller_accounts set tier='established' where user_id=$1",[high.sellerId]); assert.equal(await block(db,high.listingId),null);

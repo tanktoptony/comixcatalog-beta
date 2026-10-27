@@ -43,3 +43,9 @@ test("clearing a price is fine, unless offers are off too", () => {
   assert.match(validateListingEdit({}).error, /Nothing/);
   assert.match(validateListingEdit(null).error, /Nothing/);
 });
+
+test("condition must be one of the raw grades, and blank clears it", () => {
+  assert.deepEqual(validateListingEdit({ condition: "Very Fine" }).patch, { condition: "Very Fine" });
+  assert.deepEqual(validateListingEdit({ condition: "" }).patch, { condition: null });
+  assert.match(validateListingEdit({ condition: "Pristine" }).error, /Pick a condition/);
+});

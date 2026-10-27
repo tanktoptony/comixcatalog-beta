@@ -57,7 +57,7 @@ async function fetchSellerListingData(supabase, userId) {
   for (let pageStart = 0; ; pageStart += 1000) {
     const { data, error } = await supabase
       .from("listings")
-      .select("id, collection_id, price_cents, shipping_cents, accepts_offers, condition_notes, restored, signed")
+      .select("id, collection_id, price_cents, shipping_cents, accepts_offers, condition, grade_numeric, condition_notes, restored, signed")
       .eq("seller_id", userId)
       .in("status", ["draft", "active"])
       .range(pageStart, pageStart + 999);
@@ -142,6 +142,20 @@ function getLibraryHref(item, comic) {
 // the browser then resolved as a relative path → 404. Existing DB rows were
 // backfilled to absolute URLs, but new writes from any unrelated source
 // path could regress this - so we normalize at render-time too.
+// A copy's grade fields as stored, before any edit made on this page.
+function gradeFromItem(item) {
+  return {
+    grade_numeric: item.grade_numeric ?? null,
+    condition: item.condition ?? null,
+    slab_company: item.slab_company ?? null,
+    slab_cert_number: item.slab_cert_number ?? null,
+    notes: item.notes ?? null,
+    purchase_price: item.purchase_price ?? null,
+    market_value: item.market_value ?? null,
+    user_cover_url: USER_COVER_UPLOAD_ENABLED ? (item.user_cover_url ?? null) : null,
+  };
+}
+
 function resolveUserCover(value) {
   if (!value) return null;
   if (/^https?:\/\//i.test(value)) return value;
@@ -1525,12 +1539,17 @@ function LibraryPageContent() {
             trackEvent("listing_photo_added");
             setPhotoCollectionIds((prev) => new Set(prev).add(collectionId));
           }}
-          onSaved={(saved) =>
+          onSaved={(saved) => {
             setMyListings((prev) => {
               const row = Object.values(prev).find((l) => l.id === saved.id);
               return row ? { ...prev, [row.collection_id]: { ...row, ...saved } } : prev;
-            })
-          }
+            });
+            // The editor can set the copy's condition; keep the grade badge in step.
+            if (saved.collection_id && "condition" in saved) {
+              const item = libraryItems.find((entry) => entry.id === saved.collection_id);
+              if (item) setGradeData((prev) => ({ ...prev, [item.id]: { ...(prev[item.id] ?? gradeFromItem(item)), condition: saved.condition } }));
+            }
+          }}
         />
       )}
       {saleToast && <div className="sale-toast" role="status">{saleToast}</div>}
@@ -2110,16 +2129,7 @@ function LibraryPageContent() {
                 const comic = item.comic;
 
                 // Merge live grade state with DB values
-                const liveGrade = gradeData[item.id] ?? {
-                  grade_numeric: item.grade_numeric ?? null,
-                  condition: item.condition ?? null,
-                  slab_company: item.slab_company ?? null,
-                  slab_cert_number: item.slab_cert_number ?? null,
-                  notes: item.notes ?? null,
-                  purchase_price: item.purchase_price ?? null,
-                  market_value: item.market_value ?? null,
-                  user_cover_url: USER_COVER_UPLOAD_ENABLED ? (item.user_cover_url ?? null) : null,
-                };
+                const liveGrade = gradeData[item.id] ?? gradeFromItem(item);
 
                 const displayCover =
                   resolveUserCover(liveGrade.user_cover_url) ||
@@ -2431,16 +2441,7 @@ function LibraryPageContent() {
                         <div className="series-row-grid library-list">
                           {g.items.map((item) => {
                             const comic = item.comic;
-                            const liveGrade = gradeData[item.id] ?? {
-                              grade_numeric: item.grade_numeric ?? null,
-                              condition: item.condition ?? null,
-                              slab_company: item.slab_company ?? null,
-                              slab_cert_number: item.slab_cert_number ?? null,
-                              notes: item.notes ?? null,
-                              purchase_price: item.purchase_price ?? null,
-                              market_value: item.market_value ?? null,
-                              user_cover_url: USER_COVER_UPLOAD_ENABLED ? (item.user_cover_url ?? null) : null,
-                            };
+                            const liveGrade = gradeData[item.id] ?? gradeFromItem(item);
                             const displayCover =
                               resolveUserCover(liveGrade.user_cover_url) ||
                               comic.cover ||
@@ -2516,16 +2517,7 @@ function LibraryPageContent() {
             <div className="comic-grid">
               {filteredItems.slice((page - 1) * LIBRARY_PAGE_SIZE, page * LIBRARY_PAGE_SIZE).map((item) => {
                 const comic = item.comic;
-                const liveGrade = gradeData[item.id] ?? {
-                  grade_numeric: item.grade_numeric ?? null,
-                  condition: item.condition ?? null,
-                  slab_company: item.slab_company ?? null,
-                  slab_cert_number: item.slab_cert_number ?? null,
-                  notes: item.notes ?? null,
-                  purchase_price: item.purchase_price ?? null,
-                  market_value: item.market_value ?? null,
-                  user_cover_url: USER_COVER_UPLOAD_ENABLED ? (item.user_cover_url ?? null) : null,
-                };
+                const liveGrade = gradeData[item.id] ?? gradeFromItem(item);
 
                 const displayCover =
                   resolveUserCover(liveGrade.user_cover_url) ||

@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
-import { validateListingEdit, LIMITS } from "@/lib/listingEdit";
+import { validateListingEdit, LIMITS, RAW_CONDITIONS } from "@/lib/listingEdit";
 import PhotoManager from "@/components/PhotoManager";
 import { trackEvent } from "@/lib/analytics";
 import Link from "next/link";
 
 // Seller's listing editor (opened from the library): price, shipping,
-// offers, condition notes, restored/signed. Saves through
+// offers, condition (raw copies; a slab already has its grade), condition
+// notes, restored/signed. Saves through
 // PATCH /api/listings/:id; the same rules run here first so mistakes show
 // up before the round trip.
 
@@ -18,6 +19,8 @@ export default function ListingEditor({ listing, title, estValue, onClose, onSav
   const [price, setPrice] = useState(dollars(listing.price_cents));
   const [shipping, setShipping] = useState(dollars(listing.shipping_cents));
   const [acceptsOffers, setAcceptsOffers] = useState(listing.accepts_offers !== false);
+  const [condition, setCondition] = useState(listing.condition ?? "");
+  const graded = listing.grade_numeric != null;
   const [notes, setNotes] = useState(listing.condition_notes ?? "");
   const [restored, setRestored] = useState(Boolean(listing.restored));
   const [signed, setSigned] = useState(Boolean(listing.signed));
@@ -46,7 +49,7 @@ export default function ListingEditor({ listing, title, estValue, onClose, onSav
 
   async function save(e) {
     e.preventDefault();
-    const body = { price, shipping, acceptsOffers, conditionNotes: notes, restored, signed };
+    const body = { price, shipping, acceptsOffers, conditionNotes: notes, restored, signed, ...(graded ? {} : { condition }) };
     const check = validateListingEdit(body);
     if (check.error) return setError(check.error);
     setBusy(true);
@@ -96,6 +99,19 @@ export default function ListingEditor({ listing, title, estValue, onClose, onSav
             <small>US shipping. 0 means free.</small>
           </label>
         </div>
+
+        {!graded && (
+          <label className="le-field">
+            <span>Condition</span>
+            <select className="le-select" value={condition} onChange={(e) => setCondition(e.target.value)}>
+              <option value="">Not set</option>
+              {RAW_CONDITIONS.map((value) => (
+                <option key={value} value={value}>{value}</option>
+              ))}
+            </select>
+            <small>Buyers see this next to the price. Buy now needs it.</small>
+          </label>
+        )}
 
         <label className="le-check">
           <input type="checkbox" checked={acceptsOffers} onChange={(e) => setAcceptsOffers(e.target.checked)} />

@@ -5,8 +5,8 @@ import { validateListingEdit } from "@/lib/listingEdit";
 import { revalidateListings } from "@/lib/marketplace";
 
 // PATCH /api/listings/:id
-// The seller edits their own listing: price, shipping, offers, condition
-// notes, restored/signed. Listings have no user write policies (migration
+// The seller edits their own listing: price, shipping, offers, condition,
+// condition notes, restored/signed. Listings have no user write policies (migration
 // 0031), so every change goes through here: the caller must own the
 // listing, it must still be draft or active (a reserved or sold listing is
 // frozen), and the fields are validated by src/lib/listingEdit.js.
@@ -32,11 +32,21 @@ export async function PATCH(req, { params }) {
       .eq("id", id)
       .eq("seller_id", user.id)
       .in("status", ["draft", "active"])
-      .select("id, price_cents, shipping_cents, accepts_offers, condition_notes, restored, signed")
+      .select("id, collection_id, price_cents, shipping_cents, accepts_offers, condition, condition_notes, restored, signed")
       .maybeSingle();
     if (error) throw error;
     // Not yours, gone, or mid-checkout: same answer either way.
     if (!data) return NextResponse.json({ error: "That listing can't be edited right now." }, { status: 404 });
+    // The condition belongs to the copy: write it to the collection row too,
+    // or the library's next grade save would put the old one back.
+    if ("condition" in patch) {
+      const { error: copyError } = await sb
+        .from("user_collections")
+        .update({ condition: patch.condition })
+        .eq("id", data.collection_id)
+        .eq("user_id", user.id);
+      if (copyError) throw copyError;
+    }
     revalidateListings();
     return NextResponse.json({ listing: data });
   } catch (err) {

@@ -18733,9 +18733,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T18:00:45.234130+00:00",
-    "retry_after": "2026-09-26T18:00:45.234147+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T18:06:32.012397+00:00",
+    "retry_after": "2026-11-03T18:06:32.012411+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Official Image Comics Timeline",
@@ -27493,8 +27494,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T17:06:54.759945+00:00",
-    "retry_after": "2026-10-28T17:06:54.759965+00:00",
+    "last_attempt_at": "2026-10-27T18:07:34.052724+00:00",
+    "retry_after": "2026-10-28T18:07:34.052741+00:00",
     "search_hydrated": true
   },
   {
@@ -27504,21 +27505,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T17:02:16.657866+00:00",
-    "retry_after": "2026-10-28T17:02:16.657870+00:00",
+    "last_attempt_at": "2026-10-27T18:01:43.366261+00:00",
+    "retry_after": "2026-10-28T18:01:43.366266+00:00",
     "search_hydrated": true
   },
   {
@@ -35689,9 +35690,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-02T23:01:04.208416+00:00",
-    "retry_after": "2026-10-05T23:01:04.208432+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T18:05:35.045186+00:00",
+    "retry_after": "2026-11-03T18:05:35.045190+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Earth-Prime: Superman & Lois",
@@ -39184,9 +39186,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T13:00:49.199827+00:00",
-    "retry_after": "2026-10-08T13:00:49.199847+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T18:06:32.012432+00:00",
+    "retry_after": "2026-11-03T18:06:32.012436+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Conan - Swords in the Night!",
@@ -43552,8 +43555,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T17:02:16.657784+00:00",
-    "retry_after": "2026-10-28T17:02:16.657798+00:00",
+    "last_attempt_at": "2026-10-27T18:01:43.366204+00:00",
+    "retry_after": "2026-10-28T18:01:43.366219+00:00",
     "search_hydrated": true
   },
   {
@@ -76294,9 +76297,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T17:06:34.578274+00:00",
-    "retry_after": "2026-10-27T17:06:34.578292+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T18:05:10.456811+00:00",
+    "retry_after": "2026-10-30T18:05:10.456827+00:00",
     "search_hydrated": true
   },
   {
@@ -76305,9 +76308,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T17:06:34.578343+00:00",
-    "retry_after": "2026-10-27T17:06:34.578347+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T18:05:10.456861+00:00",
+    "retry_after": "2026-10-30T18:05:10.456866+00:00",
     "search_hydrated": true
   },
   {
@@ -76316,9 +76319,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T17:06:34.578369+00:00",
-    "retry_after": "2026-10-27T17:06:34.578372+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T18:05:10.456884+00:00",
+    "retry_after": "2026-10-30T18:05:10.456887+00:00",
     "search_hydrated": true
   },
   {
@@ -76334,9 +76337,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T17:06:34.578410+00:00",
-    "retry_after": "2026-10-27T17:06:34.578412+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T18:05:10.456927+00:00",
+    "retry_after": "2026-10-30T18:05:10.456930+00:00",
     "search_hydrated": true
   },
   {
@@ -76345,9 +76348,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T17:07:25.755533+00:00",
-    "retry_after": "2026-10-27T17:07:25.755551+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T18:05:10.456949+00:00",
+    "retry_after": "2026-10-30T18:05:10.456952+00:00",
     "search_hydrated": true
   },
   {
@@ -76356,9 +76359,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T17:07:25.755621+00:00",
-    "retry_after": "2026-10-27T17:07:25.755625+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T18:05:10.456982+00:00",
+    "retry_after": "2026-10-30T18:05:10.456985+00:00",
     "search_hydrated": true
   },
   {
@@ -76374,9 +76377,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T17:07:46.050107+00:00",
-    "retry_after": "2026-10-27T17:07:46.050131+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T18:05:11.000240+00:00",
+    "retry_after": "2026-10-30T18:05:11.000252+00:00",
     "search_hydrated": true
   },
   {
@@ -76398,9 +76401,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T17:08:08.977951+00:00",
-    "retry_after": "2026-10-27T17:08:08.977968+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T18:05:10.457015+00:00",
+    "retry_after": "2026-10-30T18:05:10.457018+00:00",
     "search_hydrated": true
   },
   {
@@ -76409,9 +76412,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T17:09:01.014208+00:00",
-    "retry_after": "2026-10-27T17:09:01.014226+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T18:06:55.896776+00:00",
+    "retry_after": "2026-10-30T18:06:55.896792+00:00",
     "search_hydrated": true
   },
   {
@@ -76433,9 +76436,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T17:09:01.014311+00:00",
-    "retry_after": "2026-10-27T17:09:01.014314+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T18:06:55.896857+00:00",
+    "retry_after": "2026-10-30T18:06:55.896862+00:00",
     "search_hydrated": true
   },
   {
@@ -79409,6 +79412,89 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T17:06:54.760081+00:00",
     "retry_after": "2026-10-28T17:06:54.760085+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Phoenix",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45039,
+        "name": "The Phoenix",
+        "publisher": "David Fickling Books",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T18:01:23.272534+00:00",
+    "retry_after": "2026-10-28T18:01:23.272548+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Fantastic Four",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40093,
+        "name": "The Fantastic Four",
+        "publisher": "Simon and Schuster",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T18:05:10.457046+00:00",
+    "retry_after": "2026-10-28T18:05:10.457049+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "True War Stories",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T18:05:35.045099+00:00",
+    "retry_after": "2026-10-28T18:05:35.045114+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "U.S.Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 97772,
+        "name": "U.S.Avengers",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T18:06:23.970125+00:00",
+    "retry_after": "2026-10-28T18:06:23.970149+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spindelmannen",
+    "publisher": "Dark Horse Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 7133,
+        "name": "Spindelmannen",
+        "publisher": "Egmont Comics",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T18:07:34.052805+00:00",
+    "retry_after": "2026-10-28T18:07:34.052810+00:00",
     "search_hydrated": true
   }
 ]

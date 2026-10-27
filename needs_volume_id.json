@@ -22378,34 +22378,10 @@
   },
   {
     "name": "Girl",
-    "publisher": "Dynamite Entertainment",
+    "publisher": "DC Comics",
     "year": 2010,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
-      {
-        "id": 42578,
-        "name": "Girl",
-        "publisher": "Hulton Press",
-        "start_year": 1951
-      },
-      {
-        "id": 54216,
-        "name": "The Girl",
-        "publisher": "Rip Off Press",
-        "start_year": 1991
-      },
-      {
-        "id": 34956,
-        "name": "Girl",
-        "publisher": "NBM",
-        "start_year": 1999
-      },
-      {
-        "id": 139484,
-        "name": "Girl",
-        "publisher": "Dynamite (France)",
-        "start_year": 2010
-      },
       {
         "id": 6925,
         "name": "Girl",
@@ -22420,8 +22396,9 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-09-23T22:43:53.326319+00:00",
-    "retry_after": "2026-09-24T22:43:53.326359+00:00"
+    "last_attempt_at": "2026-10-27T09:06:21.765618+00:00",
+    "retry_after": "2026-10-28T09:06:21.765622+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Harley Quinn Batman Day Special Edition",
@@ -27537,8 +27514,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T08:01:36.232471+00:00",
-    "retry_after": "2026-10-28T08:01:36.232476+00:00",
+    "last_attempt_at": "2026-10-27T09:01:22.731376+00:00",
+    "retry_after": "2026-10-28T09:01:22.731380+00:00",
     "search_hydrated": true
   },
   {
@@ -43181,9 +43158,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-09T14:00:52.321907+00:00",
-    "retry_after": "2026-10-12T14:00:52.321923+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T09:05:35.004525+00:00",
+    "retry_after": "2026-11-03T09:05:35.004530+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Blade Runner Tokyo Nexus: Die in Peace",
@@ -43566,8 +43544,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T08:01:36.232410+00:00",
-    "retry_after": "2026-10-28T08:01:36.232427+00:00",
+    "last_attempt_at": "2026-10-27T09:01:22.731318+00:00",
+    "retry_after": "2026-10-28T09:01:22.731333+00:00",
     "search_hydrated": true
   },
   {
@@ -75140,9 +75118,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T08:05:49.639344+00:00",
-    "retry_after": "2026-10-27T08:05:49.639361+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T09:04:46.434459+00:00",
+    "retry_after": "2026-10-30T09:04:46.434474+00:00",
     "search_hydrated": true
   },
   {
@@ -75151,9 +75129,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T08:06:00.373016+00:00",
-    "retry_after": "2026-10-27T08:06:00.373032+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T09:04:46.434522+00:00",
+    "retry_after": "2026-10-30T09:04:46.434528+00:00",
     "search_hydrated": true
   },
   {
@@ -75162,9 +75140,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T08:06:00.631559+00:00",
-    "retry_after": "2026-10-27T08:06:00.631576+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T09:04:46.434551+00:00",
+    "retry_after": "2026-10-30T09:04:46.434554+00:00",
     "search_hydrated": true
   },
   {
@@ -75180,9 +75158,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T08:06:06.352826+00:00",
-    "retry_after": "2026-10-27T08:06:06.352841+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T09:04:47.917550+00:00",
+    "retry_after": "2026-10-30T09:04:47.917572+00:00",
     "search_hydrated": true
   },
   {
@@ -75191,9 +75169,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T08:06:21.391234+00:00",
-    "retry_after": "2026-10-27T08:06:21.391252+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T09:04:46.434588+00:00",
+    "retry_after": "2026-10-30T09:04:46.434591+00:00",
     "search_hydrated": true
   },
   {
@@ -75202,9 +75180,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T08:06:22.026506+00:00",
-    "retry_after": "2026-10-27T08:06:22.026522+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T09:04:46.434604+00:00",
+    "retry_after": "2026-10-30T09:04:46.434607+00:00",
     "search_hydrated": true
   },
   {
@@ -75213,9 +75191,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T08:06:27.694794+00:00",
-    "retry_after": "2026-10-27T08:06:27.694810+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T09:04:46.434620+00:00",
+    "retry_after": "2026-10-30T09:04:46.434623+00:00",
     "search_hydrated": true
   },
   {
@@ -75224,9 +75202,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T08:06:32.474082+00:00",
-    "retry_after": "2026-10-27T08:06:32.474098+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T09:04:46.434634+00:00",
+    "retry_after": "2026-10-30T09:04:46.434636+00:00",
     "search_hydrated": true
   },
   {
@@ -78426,6 +78404,103 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T08:07:26.018313+00:00",
     "retry_after": "2026-10-28T08:07:26.018317+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: The High Republic Phase III - Trials of the Jedi Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T09:05:35.004336+00:00",
+    "retry_after": "2026-10-28T09:05:35.004352+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "StormWatch: The Road to the Authority Compendium",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T09:05:35.004415+00:00",
+    "retry_after": "2026-10-28T09:05:35.004418+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Strange Girl 20th Anniversary Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T09:05:35.004443+00:00",
+    "retry_after": "2026-10-28T09:05:35.004446+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wynonna Earp: Greatest Hits",
+    "publisher": "IDW Publishing",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T09:06:21.765431+00:00",
+    "retry_after": "2026-10-28T09:06:21.765447+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Frontiersman",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 139129,
+        "name": "Frontiersman",
+        "publisher": "Image",
+        "start_year": 2021
+      },
+      {
+        "id": 143357,
+        "name": "Frontiersman",
+        "publisher": "Image",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T09:06:21.765527+00:00",
+    "retry_after": "2026-10-28T09:06:21.765534+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Ringo",
+    "publisher": "Marvel Comics",
+    "year": 1961,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67374,
+        "name": "Johnny Ringo",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T09:06:21.765651+00:00",
+    "retry_after": "2026-10-28T09:06:21.765654+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Rocketeer #1: IDW Classics",
+    "publisher": "IDW Publishing",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T09:06:21.765691+00:00",
+    "retry_after": "2026-10-28T09:06:21.765694+00:00",
     "search_hydrated": true
   }
 ]

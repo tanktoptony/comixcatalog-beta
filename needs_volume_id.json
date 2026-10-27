@@ -11603,21 +11603,21 @@
     "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
-        "id": 4350,
+        "id": 4349,
         "name": "Damage Control",
         "publisher": "Marvel",
         "start_year": 1989
       },
       {
-        "id": 4349,
+        "id": 4350,
         "name": "Damage Control",
         "publisher": "Marvel",
         "start_year": 1989
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-26T08:01:22.297925+00:00",
-    "retry_after": "2026-10-27T08:01:22.297941+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T08:01:36.232515+00:00",
+    "retry_after": "2026-10-30T08:01:36.232518+00:00",
     "search_hydrated": true
   },
   {
@@ -12934,13 +12934,14 @@
   },
   {
     "name": "Street Fighter V #1 - Free Comic Book Day 2016 Special",
-    "publisher": "Udon Entertainment Corp.",
+    "publisher": "Eclipse Comics",
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T15:00:58.464223+00:00",
-    "retry_after": "2026-09-24T15:00:58.464239+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T08:07:26.018194+00:00",
+    "retry_after": "2026-10-28T08:07:26.018209+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Cracked in the Saddle",
@@ -27536,8 +27537,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T07:21:57.088738+00:00",
-    "retry_after": "2026-10-28T07:21:57.088743+00:00",
+    "last_attempt_at": "2026-10-27T08:01:36.232471+00:00",
+    "retry_after": "2026-10-28T08:01:36.232476+00:00",
     "search_hydrated": true
   },
   {
@@ -43565,8 +43566,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T07:21:57.088679+00:00",
-    "retry_after": "2026-10-28T07:21:57.088695+00:00",
+    "last_attempt_at": "2026-10-27T08:01:36.232410+00:00",
+    "retry_after": "2026-10-28T08:01:36.232427+00:00",
     "search_hydrated": true
   },
   {
@@ -70705,29 +70706,6 @@
     "retry_after": "2026-10-28T05:31:52.777585+00:00"
   },
   {
-    "name": "Spider-Verse vs. Venomverse",
-    "publisher": "Marvel Comics",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 164324,
-        "name": "Spider-Verse vs. Venomverse",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 170134,
-        "name": "Spider-Verse vs. Venomverse",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T05:31:53.553288+00:00",
-    "retry_after": "2026-10-28T05:31:53.553306+00:00"
-  },
-  {
     "name": "Hawkeye",
     "publisher": "Marvel Comics",
     "year": 2013,
@@ -78332,6 +78310,122 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T07:28:22.078623+00:00",
     "retry_after": "2026-10-28T07:28:22.078627+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Verse vs. Venom-Verse",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T08:04:53.556624+00:00",
+    "retry_after": "2026-10-28T08:04:53.556640+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spread Compendium",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T08:04:53.556688+00:00",
+    "retry_after": "2026-10-28T08:04:53.556692+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: Black Suit & Blood",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 159188,
+        "name": "Spider-Man: Black Suit & Blood",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T08:04:54.522894+00:00",
+    "retry_after": "2026-10-28T08:04:54.522906+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Beyond Victory",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T08:05:45.777891+00:00",
+    "retry_after": "2026-10-28T08:05:45.777906+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Standstill",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 159357,
+        "name": "Standstill",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T08:05:46.641980+00:00",
+    "retry_after": "2026-10-28T08:05:46.641991+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Darth Maul - Black, White & Red",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 157844,
+        "name": "Star Wars: Darth Maul - Black, White & Red",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T08:06:37.502753+00:00",
+    "retry_after": "2026-10-28T08:06:37.502764+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "My Little Pony Friendship is Magic Greatest Hits",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T08:07:26.018233+00:00",
+    "retry_after": "2026-10-28T08:07:26.018237+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Korgi: Short Tails",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 102848,
+        "name": "Korgi: Short Tails",
+        "publisher": "Top Shelf",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T08:07:26.018313+00:00",
+    "retry_after": "2026-10-28T08:07:26.018317+00:00",
     "search_hydrated": true
   }
 ]

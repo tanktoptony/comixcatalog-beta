@@ -5,7 +5,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { parseAttribution, isFresh, attributionParams, seedAttribution, sanitizeSavedAttribution, chooseAttribution } from "./attribution.js";
+import { parseAttribution, isFresh, attributionParams, seedAttribution, sanitizeSavedAttribution, chooseAttribution, cleanReferrerHost } from "./attribution.js";
 
 const qs = (s) => new URLSearchParams(s);
 const NOW = 1_800_000_000_000;
@@ -77,6 +77,16 @@ test("saved attribution sanitizes the referrer and preserves valid referral user
   assert.deepEqual(sanitizeSavedAttribution({
     source: "Instagram", landing: "/start", referrer_host: "https://Reddit.com/u/collector?ref=tony_c", ref: "tony_c",
   }), { source: "instagram", ref: "tony_c", referrer_host: "reddit.com", landing_path: "/start" });
+});
+
+// What the browser actually saves is the bare host, not a URL (seen on three
+// real signups from Bing and DuckDuckGo, 2026-10-24 to 10-26).
+test("saved attribution keeps a bare referrer host", () => {
+  assert.deepEqual(sanitizeSavedAttribution({ ts: 1, landing: "/", referrer_host: "bing.com" }),
+    { referrer_host: "bing.com", landing_path: "/" });
+  assert.equal(cleanReferrerHost("noai.duckduckgo.com"), "noai.duckduckgo.com");
+  assert.equal(cleanReferrerHost("not a host"), null);
+  assert.equal(cleanReferrerHost("javascript:alert(1)"), null);
 });
 
 // seedAttribution runs in the browser (/auth/callback). Stand in a minimal

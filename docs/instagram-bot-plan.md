@@ -1,5 +1,7 @@
 # Instagram Auto-Post Bot — Implementation Plan
 
+> **Status 2026-10-27:** the bot posts on Fridays only (`POSTING_DAYS_UTC` in `scripts/instagramBot.js`; was Mon/Wed/Fri from 2026-09-24). Tuesdays carry a hand-made weekly carousel series, posted separately through the Graph API, so the account runs two posts a week.
+
 > **Status 2026-09-21:** captions rewritten in the founder's voice. All copy lives in `scripts/lib/instagramVoice.js` (a blurb per `key_issues` row, seven personal brand-card posts, openers and CTAs); edit that file, not the bot, when a post reads wrong. New `Key Issue` post type leads the 7-day cycle (3 of 7 days). The "Est. cover-price floor" line and the ComicVine solicit text are gone; only comps-backed values print. Collected editions are screened out of spotlight/new posts by title and by ComicVine's `-tpb`/`-hc` file naming until `gcd_series.publishing_format` (migration 0028) is synced. `previewInstagramQueue.js` now uses the bot's own `captionForPost()` and `PICKER_CYCLE`, so the preview cannot drift from what posts.
 
 **Goal:** Daily auto-generated Instagram post — cover art + value/grade info pulled from ComixCatalog's own catalog — via the real Instagram Graph API. No manual content creation once it's running.

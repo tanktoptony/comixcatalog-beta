@@ -144,7 +144,7 @@ function alreadyPostedToday() {
   }
 }
 
-// POSTING CADENCE — Monday, Wednesday, Friday (UTC), not every day.
+// POSTING CADENCE: Friday only (UTC). Was Mon/Wed/Fri from 2026-09-24.
 //
 // Measured against the live account on 2026-09-24, 945 followers, 66 posts:
 //
@@ -163,10 +163,14 @@ function alreadyPostedToday() {
 // that the volume was actively buying negative reach. Three a week is the
 // floor that still reads as an active account.
 //
+// 2026-10-27: cut again to Friday only (Tony's call). A hand-made weekly
+// carousel series now posts on Tuesdays, so the account keeps two posts a
+// week, and only one of them is templated.
+//
 // Days are UTC, matching todayStamp(). The workflow still fires hourly; on a
 // non-posting day every firing is a no-op, same as the second firing of a
 // posting day.
-const POSTING_DAYS_UTC = [1, 3, 5]; // Mon, Wed, Fri
+const POSTING_DAYS_UTC = [5]; // Fri
 
 export function isPostingDay(date = new Date()) {
   return POSTING_DAYS_UTC.includes(date.getUTCDay());
@@ -858,7 +862,7 @@ async function run() {
   if (!DRY_RUN && !isPostingDay()) {
     console.log(
       `Not a posting day (UTC ${new Date().toUTCString().slice(0, 3)}) — skipping. ` +
-        `Cadence is Mon/Wed/Fri; see POSTING_DAYS_UTC for the engagement data behind that.`
+        `Cadence is Friday only; see POSTING_DAYS_UTC for the engagement data behind that.`
     );
     return;
   }

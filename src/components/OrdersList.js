@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
 import { statusLabel } from "@/lib/orders";
 import { money, orderGrade, orderNextStep, orderTitle } from "@/lib/orderRows";
+import { coverThumb } from "@/lib/coverThumb";
 import styles from "@/app/orders/orders.module.css";
 import PayoutsPrompt from "@/components/PayoutsPrompt";
 
@@ -16,7 +17,7 @@ function OrderRow({ order, role }) {
   const covers = (order.items?.length ? order.items : [{ cover_url: order.cover_url }]).slice(0, 3);
   return (
     <Link href={`/orders/${order.id}`} className={styles.row}>
-      <div className={styles.cover}>{covers.map((item, index) => item.cover_url && <img src={item.cover_url} alt="" key={`${item.listing_id || order.id}-${index}`} />)}</div>
+      <div className={styles.cover}>{covers.map((item, index) => item.cover_url && <img src={coverThumb(item.cover_url)} alt="" key={`${item.listing_id || order.id}-${index}`} />)}</div>
       <div className={styles.body}>
         <strong>{orderTitle(order)}{order.test && <em className={styles.test}>Test</em>}</strong>
         <span>{orderGrade(order)}</span>

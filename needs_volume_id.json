@@ -7576,10 +7576,12 @@
     "name": "Catwoman: The Legacy Cowl",
     "publisher": "DC Comics",
     "year": 2024,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555565+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T23:36:19.536445+00:00",
+    "retry_after": "2026-10-30T23:36:19.536447+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Graveyard Club: Revenge Game",
@@ -27496,8 +27498,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:08:46.453751+00:00",
-    "retry_after": "2026-10-28T23:08:46.453768+00:00",
+    "last_attempt_at": "2026-10-27T23:38:27.575694+00:00",
+    "retry_after": "2026-10-28T23:38:27.575711+00:00",
     "search_hydrated": true
   },
   {
@@ -27520,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:02:03.490249+00:00",
-    "retry_after": "2026-10-28T23:02:03.490253+00:00",
+    "last_attempt_at": "2026-10-27T23:31:32.302892+00:00",
+    "retry_after": "2026-10-28T23:31:32.302895+00:00",
     "search_hydrated": true
   },
   {
@@ -35168,9 +35170,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T23:00:48.342149+00:00",
-    "retry_after": "2026-10-04T23:00:48.342166+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T23:36:19.536547+00:00",
+    "retry_after": "2026-11-03T23:36:19.536548+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Masterworks: Man-Thing",
@@ -35781,9 +35784,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T04:00:44.802632+00:00",
-    "retry_after": "2026-10-06T04:00:44.802648+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T23:36:19.536411+00:00",
+    "retry_after": "2026-11-03T23:36:19.536429+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Batman: Hush",
@@ -36636,9 +36640,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-02T21:37:38.243067+00:00",
-    "retry_after": "2026-10-05T21:37:38.243082+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T23:35:16.658598+00:00",
+    "retry_after": "2026-11-03T23:35:16.658601+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Dr. Sex",
@@ -39399,9 +39404,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-04T16:02:47.743633+00:00",
-    "retry_after": "2026-10-05T16:02:47.743652+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-27T23:35:16.658568+00:00",
+    "retry_after": "2026-10-30T23:35:16.658581+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Darkminds: Macropolis",
@@ -43560,8 +43566,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:02:03.490195+00:00",
-    "retry_after": "2026-10-28T23:02:03.490213+00:00",
+    "last_attempt_at": "2026-10-27T23:31:32.302853+00:00",
+    "retry_after": "2026-10-28T23:31:32.302864+00:00",
     "search_hydrated": true
   },
   {
@@ -80432,6 +80438,159 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T23:08:46.453810+00:00",
     "retry_after": "2026-10-28T23:08:46.453813+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Blood Stain",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 89581,
+        "name": "Blood Stain",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T23:35:57.759040+00:00",
+    "retry_after": "2026-10-28T23:35:57.759068+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Bloodrik",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 155176,
+        "name": "Bloodrik",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T23:35:57.862304+00:00",
+    "retry_after": "2026-10-28T23:35:57.862319+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Blue Beetle",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 153329,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T23:35:58.014459+00:00",
+    "retry_after": "2026-10-28T23:35:58.014472+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Bone Orchard: Tenement",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 151620,
+        "name": "Bone Orchard: Tenement",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T23:35:58.124055+00:00",
+    "retry_after": "2026-10-28T23:35:58.124064+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan the Barbarian",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 22947,
+        "name": "Conan the Barbarian",
+        "publisher": "Marvel",
+        "start_year": 1997
+      },
+      {
+        "id": 2471,
+        "name": "Conan the Barbarian",
+        "publisher": "Marvel",
+        "start_year": 1970
+      },
+      {
+        "id": 116245,
+        "name": "Conan the Barbarian",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T23:36:19.536523+00:00",
+    "retry_after": "2026-10-28T23:36:19.536525+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Chamber of Chills",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 2566,
+        "name": "Chamber of Chills",
+        "publisher": "Marvel",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T23:36:46.417775+00:00",
+    "retry_after": "2026-10-28T23:36:46.417795+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Creepshow Volume 3",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T23:37:27.338598+00:00",
+    "retry_after": "2026-10-28T23:37:27.338613+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hiroshima: The Atomic Holocaust",
+    "publisher": "Antarctic Press",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T23:37:57.415565+00:00",
+    "retry_after": "2026-10-28T23:37:57.415581+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Free-View",
+    "publisher": "Valiant Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T23:37:57.415629+00:00",
+    "retry_after": "2026-10-28T23:37:57.415632+00:00",
     "search_hydrated": true
   }
 ]

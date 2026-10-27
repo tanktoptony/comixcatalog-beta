@@ -27494,8 +27494,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T19:28:49.613287+00:00",
-    "retry_after": "2026-10-28T19:28:49.613305+00:00",
+    "last_attempt_at": "2026-10-27T20:07:04.719695+00:00",
+    "retry_after": "2026-10-28T20:07:04.719710+00:00",
     "search_hydrated": true
   },
   {
@@ -27518,8 +27518,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T19:23:06.385265+00:00",
-    "retry_after": "2026-10-28T19:23:06.385269+00:00",
+    "last_attempt_at": "2026-10-27T20:01:26.924386+00:00",
+    "retry_after": "2026-10-28T20:01:26.924391+00:00",
     "search_hydrated": true
   },
   {
@@ -43557,8 +43557,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T19:23:06.385205+00:00",
-    "retry_after": "2026-10-28T19:23:06.385223+00:00",
+    "last_attempt_at": "2026-10-27T20:01:26.924328+00:00",
+    "retry_after": "2026-10-28T20:01:26.924344+00:00",
     "search_hydrated": true
   },
   {
@@ -51931,9 +51931,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-17T17:23:46.639794+00:00",
-    "retry_after": "2026-10-20T17:23:46.639801+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-27T20:05:36.560658+00:00",
+    "retry_after": "2026-11-03T20:05:36.560674+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The League of Extraordinary Gentlemen: The Tempest",
@@ -79835,6 +79836,108 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T19:28:49.613420+00:00",
     "retry_after": "2026-10-28T19:28:49.613422+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men '97 No. 1 Halloween Trick-or-Read 2025",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T20:04:46.632048+00:00",
+    "retry_after": "2026-10-28T20:04:46.632065+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Youngblood (2025)",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T20:05:35.524503+00:00",
+    "retry_after": "2026-10-28T20:05:35.524523+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Your Friendly Neighborhood Spider-Man No. 1 Halloween Trick-or-Read 2025",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T20:05:35.524562+00:00",
+    "retry_after": "2026-10-28T20:05:35.524566+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Metacops: Special Annual Origin Issue",
+    "publisher": "Caliber Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T20:06:38.109519+00:00",
+    "retry_after": "2026-10-28T20:06:38.109536+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Blackest Night [Free Comic Book Day Edition]",
+    "publisher": "DC Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T20:06:38.109615+00:00",
+    "retry_after": "2026-10-28T20:06:38.109619+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Katy Keene Model Behavior",
+    "publisher": "Archie Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T20:06:38.109633+00:00",
+    "retry_after": "2026-10-28T20:06:38.109636+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1953,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T20:07:04.719755+00:00",
+    "retry_after": "2026-10-28T20:07:04.719759+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-27T20:07:04.719787+00:00",
+    "retry_after": "2026-10-28T20:07:04.719791+00:00",
     "search_hydrated": true
   }
 ]

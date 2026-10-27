@@ -35,3 +35,5 @@ end $$;
 revoke all on function public.mkt_listing_checkout_block(uuid) from public,anon,authenticated;
 
 commit;
+
+-- Rollback: re-run mkt_listing_checkout_block from 0068_seller_accounts.sql.

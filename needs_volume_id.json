@@ -27515,8 +27515,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:16:36.584276+00:00",
-    "retry_after": "2026-10-29T11:16:36.584294+00:00",
+    "last_attempt_at": "2026-10-28T12:10:19.291198+00:00",
+    "retry_after": "2026-10-29T12:10:19.291209+00:00",
     "search_hydrated": true
   },
   {
@@ -27539,8 +27539,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:11:16.664653+00:00",
-    "retry_after": "2026-10-29T11:11:16.664657+00:00",
+    "last_attempt_at": "2026-10-28T12:01:24.404640+00:00",
+    "retry_after": "2026-10-29T12:01:24.404644+00:00",
     "search_hydrated": true
   },
   {
@@ -43590,8 +43590,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:11:16.664594+00:00",
-    "retry_after": "2026-10-29T11:11:16.664612+00:00",
+    "last_attempt_at": "2026-10-28T12:01:24.404581+00:00",
+    "retry_after": "2026-10-29T12:01:24.404597+00:00",
     "search_hydrated": true
   },
   {
@@ -78380,9 +78380,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T12:04:43.262865+00:00",
-    "retry_after": "2026-10-28T12:04:43.262866+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T12:06:31.565012+00:00",
+    "retry_after": "2026-10-31T12:06:31.565030+00:00",
     "search_hydrated": true
   },
   {
@@ -78391,23 +78391,17 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T12:05:06.586608+00:00",
-    "retry_after": "2026-10-28T12:05:06.586627+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T12:06:31.565060+00:00",
+    "retry_after": "2026-10-31T12:06:31.565064+00:00",
     "search_hydrated": true
   },
   {
     "name": "Superman: Year One",
     "publisher": "DC Comics",
     "year": 2025,
-    "reason": "multiple_candidates",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
-      {
-        "id": 119775,
-        "name": "Superman Year One",
-        "publisher": "DC Comics",
-        "start_year": 2019
-      },
       {
         "id": 122621,
         "name": "Superman: Year One",
@@ -78415,9 +78409,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T12:05:06.586666+00:00",
-    "retry_after": "2026-10-28T12:05:06.586668+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T12:06:32.775085+00:00",
+    "retry_after": "2026-10-31T12:06:32.775097+00:00",
     "search_hydrated": true
   },
   {
@@ -78426,9 +78420,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T12:05:06.586683+00:00",
-    "retry_after": "2026-10-28T12:05:06.586685+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T12:06:31.565100+00:00",
+    "retry_after": "2026-10-31T12:06:31.565103+00:00",
     "search_hydrated": true
   },
   {
@@ -78437,9 +78431,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T12:05:06.586709+00:00",
-    "retry_after": "2026-10-28T12:05:06.586711+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T12:06:31.565122+00:00",
+    "retry_after": "2026-10-31T12:06:31.565124+00:00",
     "search_hydrated": true
   },
   {
@@ -78448,9 +78442,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T12:05:06.586720+00:00",
-    "retry_after": "2026-10-28T12:05:06.586721+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T12:06:31.565139+00:00",
+    "retry_after": "2026-10-31T12:06:31.565142+00:00",
     "search_hydrated": true
   },
   {
@@ -78459,9 +78453,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T12:05:35.903856+00:00",
-    "retry_after": "2026-10-28T12:05:35.903873+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T12:10:04.771980+00:00",
+    "retry_after": "2026-10-31T12:10:04.771995+00:00",
     "search_hydrated": true
   },
   {
@@ -78470,9 +78464,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T12:05:35.903912+00:00",
-    "retry_after": "2026-10-28T12:05:35.903914+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T12:10:04.772018+00:00",
+    "retry_after": "2026-10-31T12:10:04.772022+00:00",
     "search_hydrated": true
   },
   {
@@ -82222,6 +82216,117 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T11:15:58.996343+00:00",
     "retry_after": "2026-10-29T11:15:58.996361+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ultraman x the Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 165056,
+        "name": "Ultraman X The Avengers",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T12:06:35.635645+00:00",
+    "retry_after": "2026-10-29T12:06:35.635657+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Universal Monsters: Dracula",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 154387,
+        "name": "Universal Monsters: Dracula",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T12:06:35.750275+00:00",
+    "retry_after": "2026-10-29T12:06:35.750284+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Venom: Bedlam No. 1 Halloween Trick-or-Read 2024",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T12:06:58.738984+00:00",
+    "retry_after": "2026-10-29T12:06:58.738999+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "WE3: The 20th Anniversary Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T12:06:58.739077+00:00",
+    "retry_after": "2026-10-29T12:06:58.739080+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Grey: Perfect Collection",
+    "publisher": "VIZ Media",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T12:10:04.772038+00:00",
+    "retry_after": "2026-10-29T12:10:04.772041+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Venus with a Hot Crotch",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37412,
+        "name": "Venus With A Hot Crotch",
+        "publisher": "Eros Comix",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T12:10:04.772076+00:00",
+    "retry_after": "2026-10-29T12:10:04.772079+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fist of the North Star",
+    "publisher": "VIZ Media",
+    "year": 1995,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 136896,
+        "name": "Fist of the North Star",
+        "publisher": "Viz",
+        "start_year": 2021
+      },
+      {
+        "id": 4319,
+        "name": "Fist of the North Star",
+        "publisher": "Viz",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T12:10:04.772173+00:00",
+    "retry_after": "2026-10-29T12:10:04.772177+00:00",
     "search_hydrated": true
   }
 ]

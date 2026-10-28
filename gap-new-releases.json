@@ -77,6 +77,42 @@
     ]
   },
   {
+    "name": "Green Lantern",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "volume_id": null,
+    "series_gcd_id": 200158,
+    "newest_release": "2026-12-00",
+    "missing": [
+      "40 (607)",
+      "40"
+    ]
+  },
+  {
+    "name": "The Flash",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "volume_id": 153720,
+    "series_gcd_id": 201306,
+    "newest_release": "2026-12-00",
+    "missing": [
+      "38 (838)",
+      "38"
+    ]
+  },
+  {
+    "name": "Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "volume_id": null,
+    "series_gcd_id": 201551,
+    "newest_release": "2026-12-00",
+    "missing": [
+      "38 (838)",
+      "38"
+    ]
+  },
+  {
     "name": "DC Start Here: Batman (2011) 1",
     "publisher": "DC Comics",
     "year": 2026,
@@ -188,6 +224,17 @@
     ]
   },
   {
+    "name": "Kill Blue",
+    "publisher": "VIZ Media",
+    "year": 2025,
+    "volume_id": 159781,
+    "series_gcd_id": 224619,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "9"
+    ]
+  },
+  {
     "name": "Mad",
     "publisher": "EC Comics",
     "year": 2018,
@@ -196,6 +243,28 @@
     "newest_release": "2026-10-00",
     "missing": [
       "601"
+    ]
+  },
+  {
+    "name": "MF Ghost",
+    "publisher": "Kodansha Comics USA",
+    "year": 2026,
+    "volume_id": 141132,
+    "series_gcd_id": 238926,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "8"
+    ]
+  },
+  {
+    "name": "Peach Boy Riverside",
+    "publisher": "Kodansha Comics USA",
+    "year": 2021,
+    "volume_id": 131815,
+    "series_gcd_id": 173579,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "16"
     ]
   },
   {
@@ -218,6 +287,17 @@
     "newest_release": "2026-10-00",
     "missing": [
       "3"
+    ]
+  },
+  {
+    "name": "The Magnificent Bastard: The Legend of Keiji",
+    "publisher": "Vertical Inc.",
+    "year": 2025,
+    "volume_id": 169293,
+    "series_gcd_id": 230723,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "4"
     ]
   }
 ]

@@ -6587,15 +6587,6 @@
     "retry_after": "2026-09-21T14:00:38.555262+00:00"
   },
   {
-    "name": "Dark Crisis: Worlds Without a Justice League - Batman",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555265+00:00"
-  },
-  {
     "name": "Buffy '97",
     "publisher": "BOOM! Studios",
     "year": 2022,
@@ -27492,13 +27483,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T15:01:50.479870+00:00",
-    "retry_after": "2026-10-29T15:01:50.479873+00:00",
+    "last_attempt_at": "2026-10-28T18:07:01.845928+00:00",
+    "retry_after": "2026-10-29T18:07:01.845942+00:00",
     "search_hydrated": true
   },
   {
@@ -27521,8 +27512,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T17:13:05.252556+00:00",
-    "retry_after": "2026-10-29T17:13:05.252560+00:00",
+    "last_attempt_at": "2026-10-28T18:01:23.119452+00:00",
+    "retry_after": "2026-10-29T18:01:23.119455+00:00",
     "search_hydrated": true
   },
   {
@@ -36722,9 +36713,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T00:01:28.199552+00:00",
-    "retry_after": "2026-10-06T00:01:28.199565+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T18:05:48.230601+00:00",
+    "retry_after": "2026-11-04T18:05:48.230602+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Ma tante ador�e",
@@ -43574,8 +43566,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T17:13:00.898519+00:00",
-    "retry_after": "2026-10-29T17:13:00.898533+00:00",
+    "last_attempt_at": "2026-10-28T18:01:23.119408+00:00",
+    "retry_after": "2026-10-29T18:01:23.119422+00:00",
     "search_hydrated": true
   },
   {
@@ -78983,9 +78975,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T17:06:43.862979+00:00",
-    "retry_after": "2026-10-28T17:06:43.862982+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T18:06:49.760789+00:00",
+    "retry_after": "2026-10-31T18:06:49.760802+00:00",
     "search_hydrated": true
   },
   {
@@ -78994,9 +78986,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T17:06:43.863007+00:00",
-    "retry_after": "2026-10-28T17:06:43.863010+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T18:06:49.760818+00:00",
+    "retry_after": "2026-10-31T18:06:49.760821+00:00",
     "search_hydrated": true
   },
   {
@@ -82542,6 +82534,331 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T17:17:07.049642+00:00",
     "retry_after": "2026-10-29T17:17:07.049645+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Creepshow Volume 2",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:05:19.097142+00:00",
+    "retry_after": "2026-10-29T18:05:19.097155+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Curse Words Compendium",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:05:19.097175+00:00",
+    "retry_after": "2026-10-29T18:05:19.097177+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Capwolf & the Howling Commandos",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 158235,
+        "name": "Capwolf & The Howling Commandos ",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:05:20.401463+00:00",
+    "retry_after": "2026-10-29T18:05:20.401470+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Clobberin' Time",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 155889,
+        "name": "Clobberin' Time",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:05:21.903018+00:00",
+    "retry_after": "2026-10-29T18:05:21.903029+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Daredevil Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:05:48.230522+00:00",
+    "retry_after": "2026-10-29T18:05:48.230534+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Daredevil: Guardian Devil Gallery Edition",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:05:48.230550+00:00",
+    "retry_after": "2026-10-29T18:05:48.230551+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Manga Sampler",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:05:48.230591+00:00",
+    "retry_after": "2026-10-29T18:05:48.230593+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dark Knights of Steel",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 145391,
+        "name": "Dark Knights of Steel",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:05:56.475564+00:00",
+    "retry_after": "2026-10-29T18:05:56.475575+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Horror Presents: Soul Plumber",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146596,
+        "name": "DC Horror Presents: Soul Plumber",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:06:07.777044+00:00",
+    "retry_after": "2026-10-29T18:06:07.777055+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC vs. Vampires",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146621,
+        "name": "DC vs. Vampires",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:06:07.986787+00:00",
+    "retry_after": "2026-10-29T18:06:07.986794+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadpool: Bad Blood",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 142334,
+        "name": "Deadpool: Bad Blood",
+        "publisher": "Marvel",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:06:08.113869+00:00",
+    "retry_after": "2026-10-29T18:06:08.113876+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Strange by Donny Cates",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 118378,
+        "name": "Doctor Strange by Donny Cates",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:06:32.642389+00:00",
+    "retry_after": "2026-10-29T18:06:32.642416+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Very Vicky",
+    "publisher": "Caliber Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35471,
+        "name": "Very Vicky",
+        "publisher": "Meet Danny Ocean",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:06:49.760852+00:00",
+    "retry_after": "2026-10-29T18:06:49.760854+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shugga",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71365,
+        "name": "Shugga",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:06:49.760870+00:00",
+    "retry_after": "2026-10-29T18:06:49.760872+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mort Todd's Monsters Attack!",
+    "publisher": "Charlton Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161423,
+        "name": "Mort Todd's Monsters Attack",
+        "publisher": "self published",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:06:49.760885+00:00",
+    "retry_after": "2026-10-29T18:06:49.760886+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Skull Cat",
+    "publisher": "IDW Publishing",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 149118,
+        "name": "Skull Cat",
+        "publisher": "Top Shelf",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:06:49.760899+00:00",
+    "retry_after": "2026-10-29T18:06:49.760901+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Venus with a Hot Crotch",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37412,
+        "name": "Venus With A Hot Crotch",
+        "publisher": "Eros Comix",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:06:49.760912+00:00",
+    "retry_after": "2026-10-29T18:06:49.760913+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
+    "publisher": "Harvey Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148472,
+        "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
+        "publisher": "Hjemmet",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:07:01.845978+00:00",
+    "retry_after": "2026-10-29T18:07:01.845980+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:07:01.845998+00:00",
+    "retry_after": "2026-10-29T18:07:01.845999+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T18:07:01.846014+00:00",
+    "retry_after": "2026-10-29T18:07:01.846016+00:00",
     "search_hydrated": true
   }
 ]

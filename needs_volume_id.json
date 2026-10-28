@@ -8601,7 +8601,9 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555877+00:00"
+    "last_attempt_at": "2026-10-28T22:07:04.747973+00:00",
+    "retry_after": "2026-10-29T22:07:04.747977+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Eternals: Never Die, Never Win Edition",
@@ -27491,8 +27493,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T21:07:14.184085+00:00",
-    "retry_after": "2026-10-29T21:07:14.184101+00:00",
+    "last_attempt_at": "2026-10-28T22:09:39.364951+00:00",
+    "retry_after": "2026-10-29T22:09:39.364968+00:00",
     "search_hydrated": true
   },
   {
@@ -27515,8 +27517,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T21:01:34.922421+00:00",
-    "retry_after": "2026-10-29T21:01:34.922426+00:00",
+    "last_attempt_at": "2026-10-28T22:02:49.995407+00:00",
+    "retry_after": "2026-10-29T22:02:49.995412+00:00",
     "search_hydrated": true
   },
   {
@@ -36542,9 +36544,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T01:02:14.621639+00:00",
-    "retry_after": "2026-10-06T01:02:14.621655+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T22:07:04.747925+00:00",
+    "retry_after": "2026-11-04T22:07:04.747928+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Space Family Robinson, Lost in Space on Space Station One",
@@ -43572,8 +43575,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T21:01:34.922363+00:00",
-    "retry_after": "2026-10-29T21:01:34.922378+00:00",
+    "last_attempt_at": "2026-10-28T22:02:49.995345+00:00",
+    "retry_after": "2026-10-29T22:02:49.995362+00:00",
     "search_hydrated": true
   },
   {
@@ -79532,9 +79535,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T21:06:21.936921+00:00",
-    "retry_after": "2026-10-28T21:06:21.936924+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T22:09:16.854752+00:00",
+    "retry_after": "2026-10-31T22:09:16.854770+00:00",
     "search_hydrated": true
   },
   {
@@ -79543,9 +79546,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T21:06:21.936933+00:00",
-    "retry_after": "2026-10-28T21:06:21.936935+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T22:09:16.854792+00:00",
+    "retry_after": "2026-10-31T22:09:16.854796+00:00",
     "search_hydrated": true
   },
   {
@@ -79554,9 +79557,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T22:05:48.328257+00:00",
-    "retry_after": "2026-10-28T22:05:48.328271+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T22:06:43.782802+00:00",
+    "retry_after": "2026-10-31T22:06:43.782822+00:00",
     "search_hydrated": true
   },
   {
@@ -79572,9 +79575,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T22:06:00.770590+00:00",
-    "retry_after": "2026-10-28T22:06:00.770603+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T22:06:45.403761+00:00",
+    "retry_after": "2026-10-31T22:06:45.403779+00:00",
     "search_hydrated": true
   },
   {
@@ -79590,9 +79593,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T22:06:27.975285+00:00",
-    "retry_after": "2026-10-28T22:06:27.975299+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T22:07:04.925852+00:00",
+    "retry_after": "2026-10-31T22:07:04.925868+00:00",
     "search_hydrated": true
   },
   {
@@ -83778,6 +83781,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T21:07:14.184204+00:00",
     "retry_after": "2026-10-29T21:07:14.184207+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Invincible New Edition",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:07:04.747887+00:00",
+    "retry_after": "2026-10-29T22:07:04.747903+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Icon & Rocket: Season One",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146390,
+        "name": "Icon & Rocket: Season One",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:07:16.227787+00:00",
+    "retry_after": "2026-10-29T22:07:16.227804+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Infinite Frontier",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 144518,
+        "name": "Infinite Frontier",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:07:40.151733+00:00",
+    "retry_after": "2026-10-29T22:07:40.151751+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:09:39.365013+00:00",
+    "retry_after": "2026-10-29T22:09:39.365018+00:00",
     "search_hydrated": true
   }
 ]

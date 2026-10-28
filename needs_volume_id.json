@@ -8318,10 +8318,12 @@
     "name": "Fallen Friend",
     "publisher": "Marvel Comics",
     "year": 2023,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555811+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T19:03:27.631586+00:00",
+    "retry_after": "2026-10-31T19:03:27.631589+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Fellspyre Chronicles",
@@ -26444,9 +26446,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T01:03:53.927763+00:00",
-    "retry_after": "2026-10-01T01:03:53.927778+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T19:04:17.955056+00:00",
+    "retry_after": "2026-11-04T19:04:17.955072+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Batman Annual",
@@ -27494,26 +27497,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
       {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T18:01:23.119452+00:00",
-    "retry_after": "2026-10-29T18:01:23.119455+00:00",
+    "last_attempt_at": "2026-10-28T19:01:25.490457+00:00",
+    "retry_after": "2026-10-29T19:01:25.490480+00:00",
     "search_hydrated": true
   },
   {
@@ -31719,9 +31722,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T16:04:22.913918+00:00",
-    "retry_after": "2026-09-29T16:04:22.913934+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T19:04:17.955116+00:00",
+    "retry_after": "2026-10-31T19:04:17.955119+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Journey into Mystery by Kieron Gillen: The Complete Collection",
@@ -39809,9 +39813,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-04T20:12:11.476118+00:00",
-    "retry_after": "2026-10-05T20:12:11.476134+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T19:06:42.263780+00:00",
+    "retry_after": "2026-10-31T19:06:42.263794+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Laurell K. Hamilton's Anita Blake - Vampire Hunter: The First Death",
@@ -40131,9 +40136,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T00:01:18.817416+00:00",
-    "retry_after": "2026-10-06T00:01:18.817430+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T19:06:42.263816+00:00",
+    "retry_after": "2026-10-31T19:06:42.263819+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Syphon",
@@ -43566,8 +43572,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T18:01:23.119408+00:00",
-    "retry_after": "2026-10-29T18:01:23.119422+00:00",
+    "last_attempt_at": "2026-10-28T19:01:46.709878+00:00",
+    "retry_after": "2026-10-29T19:01:46.709891+00:00",
     "search_hydrated": true
   },
   {
@@ -78671,9 +78677,9 @@
         "start_year": 1941
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T14:13:19.801785+00:00",
-    "retry_after": "2026-10-28T14:13:19.801789+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T19:07:35.989048+00:00",
+    "retry_after": "2026-10-31T19:07:35.989061+00:00",
     "search_hydrated": true
   },
   {
@@ -78997,9 +79003,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T18:05:35.045099+00:00",
-    "retry_after": "2026-10-28T18:05:35.045114+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T19:03:27.631325+00:00",
+    "retry_after": "2026-10-31T19:03:27.631372+00:00",
     "search_hydrated": true
   },
   {
@@ -79015,9 +79021,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T18:06:23.970125+00:00",
-    "retry_after": "2026-10-28T18:06:23.970149+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T19:03:28.831099+00:00",
+    "retry_after": "2026-10-31T19:03:28.831114+00:00",
     "search_hydrated": true
   },
   {
@@ -82859,6 +82865,441 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T18:07:01.846014+00:00",
     "retry_after": "2026-10-29T18:07:01.846016+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dance Party DOA",
+    "publisher": "Slave Labor Graphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50249,
+        "name": "Dance Party DOA",
+        "publisher": "SLG Publishing",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:46.709931+00:00",
+    "retry_after": "2026-10-29T19:01:46.709936+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny, the Homicidal Maniac",
+    "publisher": "Slave Labor Graphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18711,
+        "name": "Johnny the Homicidal Maniac",
+        "publisher": "SLG Publishing",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:46.709963+00:00",
+    "retry_after": "2026-10-29T19:01:46.709966+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Narcolepsy Dreams",
+    "publisher": "Slave Labor Graphics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 9486,
+        "name": "Narcolepsy Dreams",
+        "publisher": "SLG Publishing",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:46.709988+00:00",
+    "retry_after": "2026-10-29T19:01:46.709991+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tales from the Heart",
+    "publisher": "Slave Labor Graphics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 49206,
+        "name": "Tales from the Heart",
+        "publisher": "Entropy Enterprises",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:46.710013+00:00",
+    "retry_after": "2026-10-29T19:01:46.710016+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Megazzar Dude Special",
+    "publisher": "Slave Labor Graphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57348,
+        "name": "Megazzar Dude Special",
+        "publisher": "SLG Publishing",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:46.710036+00:00",
+    "retry_after": "2026-10-29T19:01:46.710039+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Jazzbo!: Comics That Swing",
+    "publisher": "Slave Labor Graphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55716,
+        "name": "Jazzbo!: Comics That Swing",
+        "publisher": "SLG Publishing",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:46.710056+00:00",
+    "retry_after": "2026-10-29T19:01:46.710059+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Post Apocalypse",
+    "publisher": "Slave Labor Graphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65011,
+        "name": "Post Apocalypse",
+        "publisher": "SLG Publishing",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:46.710076+00:00",
+    "retry_after": "2026-10-29T19:01:46.710079+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spark Generators",
+    "publisher": "Slave Labor Graphics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67967,
+        "name": "Spark Generators",
+        "publisher": "SLG Publishing",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:46.710095+00:00",
+    "retry_after": "2026-10-29T19:01:46.710098+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Imp",
+    "publisher": "Slave Labor Graphics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55016,
+        "name": "Imp",
+        "publisher": "SLG Publishing",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:46.710115+00:00",
+    "retry_after": "2026-10-29T19:01:46.710117+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Horse",
+    "publisher": "Slave Labor Graphics",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54974,
+        "name": "Horse",
+        "publisher": "SLG Publishing",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:55.936049+00:00",
+    "retry_after": "2026-10-29T19:01:55.936063+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ghost Ship",
+    "publisher": "Slave Labor Graphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54005,
+        "name": "Ghost Ship",
+        "publisher": "SLG Publishing",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:55.936095+00:00",
+    "retry_after": "2026-10-29T19:01:55.936099+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "It's Science with Dr. Radium",
+    "publisher": "Slave Labor Graphics",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46117,
+        "name": "It's Science with Dr. Radium",
+        "publisher": "SLG Publishing",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:55.936124+00:00",
+    "retry_after": "2026-10-29T19:01:55.936127+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Caffeine",
+    "publisher": "Slave Labor Graphics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48725,
+        "name": "Caffeine",
+        "publisher": "SLG Publishing",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:55.936148+00:00",
+    "retry_after": "2026-10-29T19:01:55.936151+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Milk & Cheese",
+    "publisher": "Slave Labor Graphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18362,
+        "name": "Milk and Cheese",
+        "publisher": "SLG Publishing",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:01:55.936170+00:00",
+    "retry_after": "2026-10-29T19:01:55.936172+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doom Patrol by Gerard Way and Nick Derington - The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:03:27.631455+00:00",
+    "retry_after": "2026-10-29T19:03:27.631461+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantastic Four: Antithesis",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 129887,
+        "name": "Fantastic Four: Antithesis",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 135034,
+        "name": "Fantastic Four: Antithesis",
+        "publisher": "Marvel",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:03:27.631625+00:00",
+    "retry_after": "2026-10-29T19:03:27.631628+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Elektra: Black, White & Blood",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 140787,
+        "name": "Elektra: Black, White & Blood",
+        "publisher": "Marvel",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:03:59.264187+00:00",
+    "retry_after": "2026-10-29T19:03:59.264204+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fallen",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 93187,
+        "name": "The Fallen",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:03:59.264239+00:00",
+    "retry_after": "2026-10-29T19:03:59.264243+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ghosted Compendium",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:04:17.955091+00:00",
+    "retry_after": "2026-10-29T19:04:17.955094+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Lantern: Kyle Rayner Rising Compendium",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:04:17.955134+00:00",
+    "retry_after": "2026-10-29T19:04:17.955136+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Guardians of the Galaxy by Donny Cates",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 133097,
+        "name": "Guardians of the Galaxy by Donny Cates",
+        "publisher": "Marvel",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:06:42.263853+00:00",
+    "retry_after": "2026-10-29T19:06:42.263856+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "De Zware Jongens Vakantieboek",
+    "publisher": "Fantagraphics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79156,
+        "name": "De Zware Jongens Vakantieboek",
+        "publisher": "Sanoma Uitgevers",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:07:04.002897+00:00",
+    "retry_after": "2026-10-29T19:07:04.002916+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spindelmannen",
+    "publisher": "Dark Horse Comics",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 7133,
+        "name": "Spindelmannen",
+        "publisher": "Egmont Comics",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:07:35.989095+00:00",
+    "retry_after": "2026-10-29T19:07:35.989100+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Liga da Justiça e Batman",
+    "publisher": "Avatar Press",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119234,
+        "name": "Liga da Justiça e Batman",
+        "publisher": "Abril",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:07:35.989125+00:00",
+    "retry_after": "2026-10-29T19:07:35.989128+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T19:07:35.989149+00:00",
+    "retry_after": "2026-10-29T19:07:35.989152+00:00",
     "search_hydrated": true
   }
 ]

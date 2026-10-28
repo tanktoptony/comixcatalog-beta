@@ -27515,8 +27515,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:08:52.161912+00:00",
-    "retry_after": "2026-10-29T11:08:52.161925+00:00",
+    "last_attempt_at": "2026-10-28T11:16:36.584276+00:00",
+    "retry_after": "2026-10-29T11:16:36.584294+00:00",
     "search_hydrated": true
   },
   {
@@ -27539,8 +27539,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:00:11.822824+00:00",
-    "retry_after": "2026-10-29T11:00:11.822827+00:00",
+    "last_attempt_at": "2026-10-28T11:11:16.664653+00:00",
+    "retry_after": "2026-10-29T11:11:16.664657+00:00",
     "search_hydrated": true
   },
   {
@@ -43590,8 +43590,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:00:11.822778+00:00",
-    "retry_after": "2026-10-29T11:00:11.822795+00:00",
+    "last_attempt_at": "2026-10-28T11:11:16.664594+00:00",
+    "retry_after": "2026-10-29T11:11:16.664612+00:00",
     "search_hydrated": true
   },
   {
@@ -49199,8 +49199,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 3,
-    "last_attempt_at": "2026-10-28T11:04:22.754246+00:00",
-    "retry_after": "2026-11-04T11:04:22.754248+00:00",
+    "last_attempt_at": "2026-10-28T11:15:38.485836+00:00",
+    "retry_after": "2026-11-04T11:15:38.485854+00:00",
     "search_hydrated": true
   },
   {
@@ -78228,9 +78228,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T11:04:59.376358+00:00",
-    "retry_after": "2026-10-28T11:04:59.376361+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T11:15:14.378753+00:00",
+    "retry_after": "2026-10-31T11:15:14.378771+00:00",
     "search_hydrated": true
   },
   {
@@ -78264,9 +78264,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T11:05:25.293635+00:00",
-    "retry_after": "2026-10-28T11:05:25.293651+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T11:15:14.378908+00:00",
+    "retry_after": "2026-10-31T11:15:14.378913+00:00",
     "search_hydrated": true
   },
   {
@@ -78288,9 +78288,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T11:05:25.293686+00:00",
-    "retry_after": "2026-10-28T11:05:25.293690+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T11:15:14.378944+00:00",
+    "retry_after": "2026-10-31T11:15:14.378947+00:00",
     "search_hydrated": true
   },
   {
@@ -78299,9 +78299,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T11:05:25.293801+00:00",
-    "retry_after": "2026-10-28T11:05:25.293803+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T11:15:14.378964+00:00",
+    "retry_after": "2026-10-31T11:15:14.378966+00:00",
     "search_hydrated": true
   },
   {
@@ -78311,21 +78311,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 150056,
-        "name": "Superman: Space Age",
-        "publisher": "DC Comics",
-        "start_year": 2023
-      },
-      {
         "id": 144202,
         "name": "Superman: Space Age",
         "publisher": "DC Comics",
         "start_year": 2022
+      },
+      {
+        "id": 150056,
+        "name": "Superman: Space Age",
+        "publisher": "DC Comics",
+        "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T11:05:25.293837+00:00",
-    "retry_after": "2026-10-28T11:05:25.293840+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T11:15:14.378989+00:00",
+    "retry_after": "2026-10-31T11:15:14.378991+00:00",
     "search_hydrated": true
   },
   {
@@ -78335,8 +78335,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-28T11:08:29.935347+00:00",
-    "retry_after": "2026-10-31T11:08:29.935364+00:00",
+    "last_attempt_at": "2026-10-28T11:16:24.271452+00:00",
+    "retry_after": "2026-10-31T11:16:24.271470+00:00",
     "search_hydrated": true
   },
   {
@@ -78359,8 +78359,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-10-28T11:08:29.935410+00:00",
-    "retry_after": "2026-10-31T11:08:29.935413+00:00",
+    "last_attempt_at": "2026-10-28T11:16:24.271530+00:00",
+    "retry_after": "2026-10-31T11:16:24.271535+00:00",
     "search_hydrated": true
   },
   {
@@ -78370,8 +78370,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-10-28T11:08:29.935425+00:00",
-    "retry_after": "2026-10-31T11:08:29.935426+00:00",
+    "last_attempt_at": "2026-10-28T11:16:24.271554+00:00",
+    "retry_after": "2026-10-31T11:16:24.271556+00:00",
     "search_hydrated": true
   },
   {
@@ -82104,8 +82104,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:04:22.754167+00:00",
-    "retry_after": "2026-10-29T11:04:22.754187+00:00",
+    "last_attempt_at": "2026-10-28T11:15:14.379058+00:00",
+    "retry_after": "2026-10-29T11:15:14.379061+00:00",
     "search_hydrated": true
   },
   {
@@ -82115,19 +82115,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:04:22.754203+00:00",
-    "retry_after": "2026-10-29T11:04:22.754205+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Sandman 19 Remastered",
-    "publisher": "DC Comics",
-    "year": 2024,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:04:22.754255+00:00",
-    "retry_after": "2026-10-29T11:04:22.754256+00:00",
+    "last_attempt_at": "2026-10-28T11:15:14.379074+00:00",
+    "retry_after": "2026-10-29T11:15:14.379077+00:00",
     "search_hydrated": true
   },
   {
@@ -82144,8 +82133,19 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:04:26.643399+00:00",
-    "retry_after": "2026-10-29T11:04:26.643417+00:00",
+    "last_attempt_at": "2026-10-28T11:15:16.663065+00:00",
+    "retry_after": "2026-10-29T11:15:16.663082+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Sandman 19 Remastered",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:15:38.485873+00:00",
+    "retry_after": "2026-10-29T11:15:38.485876+00:00",
     "search_hydrated": true
   },
   {
@@ -82162,26 +82162,26 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:05:54.089642+00:00",
-    "retry_after": "2026-10-29T11:05:54.089660+00:00",
+    "last_attempt_at": "2026-10-28T11:15:42.271570+00:00",
+    "retry_after": "2026-10-29T11:15:42.271587+00:00",
     "search_hydrated": true
   },
   {
     "name": "The Toxic Avenger",
     "publisher": "Marvel Comics",
     "year": 2024,
-    "reason": "publisher_mismatch",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
-        "id": 171480,
-        "name": "The Toxic Avenger",
-        "publisher": "Legendary Comics",
-        "start_year": 2025
+        "id": 22900,
+        "name": "Toxic Avenger",
+        "publisher": "Marvel",
+        "start_year": 1991
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:06:14.378027+00:00",
-    "retry_after": "2026-10-29T11:06:14.378044+00:00",
+    "last_attempt_at": "2026-10-28T11:15:44.846821+00:00",
+    "retry_after": "2026-10-29T11:15:44.846846+00:00",
     "search_hydrated": true
   },
   {
@@ -82191,8 +82191,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:06:14.378080+00:00",
-    "retry_after": "2026-10-29T11:06:14.378082+00:00",
+    "last_attempt_at": "2026-10-28T11:15:56.851418+00:00",
+    "retry_after": "2026-10-29T11:15:56.851436+00:00",
     "search_hydrated": true
   },
   {
@@ -82202,8 +82202,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:06:14.378113+00:00",
-    "retry_after": "2026-10-29T11:06:14.378114+00:00",
+    "last_attempt_at": "2026-10-28T11:15:56.851496+00:00",
+    "retry_after": "2026-10-29T11:15:56.851499+00:00",
     "search_hydrated": true
   },
   {
@@ -82220,44 +82220,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:07:15.833157+00:00",
-    "retry_after": "2026-10-29T11:07:15.833183+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Ultraman x the Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2024,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 165056,
-        "name": "Ultraman X The Avengers",
-        "publisher": "Marvel",
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:08:05.828762+00:00",
-    "retry_after": "2026-10-29T11:08:05.828778+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Universal Monsters: Dracula",
-    "publisher": "Image Comics",
-    "year": 2024,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 154387,
-        "name": "Universal Monsters: Dracula",
-        "publisher": "Image",
-        "start_year": 2023
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:08:05.983277+00:00",
-    "retry_after": "2026-10-29T11:08:05.983290+00:00",
+    "last_attempt_at": "2026-10-28T11:15:58.996343+00:00",
+    "retry_after": "2026-10-29T11:15:58.996361+00:00",
     "search_hydrated": true
   }
 ]

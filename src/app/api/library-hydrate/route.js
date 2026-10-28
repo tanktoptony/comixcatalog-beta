@@ -401,19 +401,19 @@ async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }
         coversByTitle.get(titleKey) ||
         [];
 
-      let storagePath = null;
-      if (candidates.length > 0) {
-        // For a specific issue, cover_date is the authoritative year signal —
-        // it's THIS issue's publication date. series_year is when the
-        // *series* started, which for long-running annuals (X-Men Annual
-        // 1970, issue #3 published 1979) is many years off the actual issue.
-        // Only fall back to series_year when cover_date is missing.
-        const yearOf = (c) => {
-          const cd = parseYear(c.cover_date);
-          if (cd != null) return cd;
-          return c.series_year != null ? Number(c.series_year) : null;
-        };
+      // For a specific issue, cover_date is the authoritative year signal —
+      // it's THIS issue's publication date. series_year is when the
+      // *series* started, which for long-running annuals (X-Men Annual
+      // 1970, issue #3 published 1979) is many years off the actual issue.
+      // Only fall back to series_year when cover_date is missing.
+      const yearOf = (c) => {
+        const cd = parseYear(c.cover_date);
+        if (cd != null) return cd;
+        return c.series_year != null ? Number(c.series_year) : null;
+      };
 
+      let matched = null;
+      if (candidates.length > 0) {
         if (issueYear != null) {
           let best = null;
           let bestDiff = Infinity;
@@ -427,7 +427,7 @@ async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }
               bestDiff = diff;
             }
           }
-          if (best) storagePath = best.storage_path;
+          if (best) matched = best;
         } else if (row.seriesYearStart != null) {
           // gcd_issues has no per-issue date but we know the SERIES's run.
           // Use that as the year hint — stops cross-volume bleed where a
@@ -448,7 +448,7 @@ async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }
               bestYear = cy;
             }
           }
-          if (best) storagePath = best.storage_path;
+          if (best) matched = best;
         } else {
           // Last resort: no issue year, no series year. Take the earliest
           // dated candidate (safer than newest — at least matches the
@@ -464,10 +464,11 @@ async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }
               best = c;
             }
           }
-          if (best) storagePath = best.storage_path;
+          if (best) matched = best;
         }
       }
 
+      const storagePath = matched?.storage_path ?? null;
       const libraryKey = `gcd-${row.gcd_id}`;
       const canonicalCover = storagePath
         ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`
@@ -480,7 +481,10 @@ async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }
         id: libraryKey,
         title: row.seriesTitle ?? "Untitled",
         issueNumber: row.issue_number ?? "",
-        year: issueYear,
+        // GCD has no date on ~60% of issues (Amory Wars IKSSE:3 #6 among
+        // them); the matched cover's date fills that, as /api/series/[id]
+        // already does, so the library and series pages agree.
+        year: issueYear ?? (matched ? yearOf(matched) : null),
         publisher: row.publisher ?? null,
         cover: canonicalCover,
         canonicalCover,

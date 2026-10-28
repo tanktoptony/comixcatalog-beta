@@ -40,6 +40,13 @@ function formatDisplayDate(row) {
   return year != null ? String(year) : null;
 }
 
+// Year of a matched canonical_covers row. GCD has no date at all on ~60% of
+// issues; the cover's own date fills that gap, same as /api/series/[id].
+function coverYear(row) {
+  if (!row) return null;
+  return parseYear(row.cover_date) ?? parseYear(row.series_year);
+}
+
 function normalizeIssueNumber(value) {
   return String(value ?? "").trim().toLowerCase();
 }
@@ -176,14 +183,17 @@ function buildCombinedIssueList(seriesGcdId, gcdIssueRows, coverRows) {
     : null;
   const coversByGcdId = new Map((coverRows ?? [])
     .filter((row) => row.gcd_issue_id && row.storage_path)
-    .map((row) => [Number(row.gcd_issue_id), coverUrl(row.storage_path)]));
-  const realIssues = (gcdIssueRows ?? []).map((row) => ({
-    id: `gcd-${row.gcd_id}`,
-    issue_number: row.issue_number,
-    title: row.title ?? null,
-    release_year: bestYearFor(row),
-    cover: coversByGcdId.get(Number(row.gcd_id)) ?? null,
-  }));
+    .map((row) => [Number(row.gcd_issue_id), row]));
+  const realIssues = (gcdIssueRows ?? []).map((row) => {
+    const coverRow = coversByGcdId.get(Number(row.gcd_id));
+    return {
+      id: `gcd-${row.gcd_id}`,
+      issue_number: row.issue_number,
+      title: row.title ?? null,
+      release_year: bestYearFor(row) ?? coverYear(coverRow),
+      cover: coverUrl(coverRow?.storage_path),
+    };
+  });
   const knownBases = new Set(
     realIssues.map((r) => baseIssueNumber(r.issue_number)).filter(Boolean)
   );
@@ -629,9 +639,9 @@ export async function GET(req, context) {
           series_format_tag_title: formatTagTitle({ name: seriesTitle, ...seriesFormat }),
           issue_number: issue.issue_number,
           title: issue.title ?? null,
-          release_year: bestYearFor(issue),
+          release_year: issueYear ?? coverYear(canonicalMatch),
           publication_date: issue.publication_date ?? null,
-          display_date: formatDisplayDate(issue),
+          display_date: formatDisplayDate(issue) ?? coverYear(canonicalMatch)?.toString() ?? null,
           publisher: publisherName,
           cover,
           variants,

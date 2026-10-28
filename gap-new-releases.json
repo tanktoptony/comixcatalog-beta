@@ -1,27 +1,5 @@
 [
   {
-    "name": "Monstress",
-    "publisher": "Image Comics",
-    "year": 2015,
-    "volume_id": 85776,
-    "series_gcd_id": 93845,
-    "newest_release": "2026-10-28",
-    "missing": [
-      "65"
-    ]
-  },
-  {
-    "name": "Spawn",
-    "publisher": "Image Comics",
-    "year": 1992,
-    "volume_id": 4937,
-    "series_gcd_id": 4611,
-    "newest_release": "2026-10-28",
-    "missing": [
-      "380"
-    ]
-  },
-  {
     "name": "Overkiller",
     "publisher": "Cosmic Lion Productions",
     "year": 2026,
@@ -66,6 +44,17 @@
     ]
   },
   {
+    "name": "Sunder",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 240897,
+    "newest_release": "2026-09-30",
+    "missing": [
+      "1"
+    ]
+  },
+  {
     "name": "Witchblade",
     "publisher": "Image",
     "year": 2024,
@@ -74,6 +63,17 @@
     "newest_release": "2026-10-21",
     "missing": [
       "26"
+    ]
+  },
+  {
+    "name": "Absolute Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "volume_id": 160511,
+    "series_gcd_id": 216727,
+    "newest_release": "2026-12-00",
+    "missing": [
+      "25"
     ]
   },
   {

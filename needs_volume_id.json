@@ -7823,15 +7823,6 @@
     "retry_after": "2026-09-21T14:00:38.555647+00:00"
   },
   {
-    "name": "Marvel's Voices: Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555651+00:00"
-  },
-  {
     "name": "Full Tilt Boogie",
     "publisher": "Rebellion",
     "year": 2021,
@@ -7922,10 +7913,12 @@
     "name": "Lobo Big Fraggin' Compendium",
     "publisher": "DC Comics",
     "year": 2024,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555684+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T04:16:15.338942+00:00",
+    "retry_after": "2026-10-31T04:16:15.338944+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The House of Dolmann",
@@ -7994,10 +7987,12 @@
     "name": "Marvel & Disney: What If...? Donald Duck Became Thor",
     "publisher": "Marvel Comics",
     "year": 2024,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555711+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T04:18:13.659524+00:00",
+    "retry_after": "2026-10-31T04:18:13.659545+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Preview 1993",
@@ -27512,8 +27507,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T04:07:49.064960+00:00",
-    "retry_after": "2026-10-29T04:07:49.064976+00:00",
+    "last_attempt_at": "2026-10-28T04:21:53.757270+00:00",
+    "retry_after": "2026-10-29T04:21:53.757287+00:00",
     "search_hydrated": true
   },
   {
@@ -27536,8 +27531,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T04:01:27.504439+00:00",
-    "retry_after": "2026-10-29T04:01:27.504442+00:00",
+    "last_attempt_at": "2026-10-28T04:12:28.036359+00:00",
+    "retry_after": "2026-10-29T04:12:28.036363+00:00",
     "search_hydrated": true
   },
   {
@@ -31980,9 +31975,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T00:01:03.835133+00:00",
-    "retry_after": "2026-10-10T00:01:03.835143+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-28T04:18:13.659670+00:00",
+    "retry_after": "2026-11-11T04:18:13.659673+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Polar",
@@ -35190,16 +35186,6 @@
     "last_attempt_at": "2026-10-27T23:36:19.536547+00:00",
     "retry_after": "2026-11-03T23:36:19.536548+00:00",
     "search_hydrated": true
-  },
-  {
-    "name": "Marvel Masterworks: Man-Thing",
-    "publisher": "Marvel Comics",
-    "year": 2024,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-02T22:02:07.110659+00:00",
-    "retry_after": "2026-10-05T22:02:07.110674+00:00"
   },
   {
     "name": "Elephantmen 2261 Omnibus",
@@ -43251,9 +43237,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-09T14:00:54.987923+00:00",
-    "retry_after": "2026-10-12T14:00:54.987952+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T04:18:13.659574+00:00",
+    "retry_after": "2026-11-04T04:18:13.659578+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Superman by Phillip Kennedy Johnson Omnibus",
@@ -43587,8 +43574,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T04:01:27.504388+00:00",
-    "retry_after": "2026-10-29T04:01:27.504407+00:00",
+    "last_attempt_at": "2026-10-28T04:12:28.036301+00:00",
+    "retry_after": "2026-10-29T04:12:28.036316+00:00",
     "search_hydrated": true
   },
   {
@@ -81345,6 +81332,86 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T04:07:20.883670+00:00",
     "retry_after": "2026-10-29T04:07:20.883672+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kaya Chapbook",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T04:16:15.338794+00:00",
+    "retry_after": "2026-10-29T04:16:15.338809+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Little Monsters Deluxe",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T04:16:15.338920+00:00",
+    "retry_after": "2026-10-29T04:16:15.338925+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Leviathan",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 112588,
+        "name": "Leviathan",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T04:17:50.316140+00:00",
+    "retry_after": "2026-10-29T04:17:50.316163+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel: August 1961",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T04:18:13.659616+00:00",
+    "retry_after": "2026-10-29T04:18:13.659619+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mort Todd's Monsters Attack!",
+    "publisher": "Charlton Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161423,
+        "name": "Mort Todd's Monsters Attack",
+        "publisher": "self published",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T04:20:09.117812+00:00",
+    "retry_after": "2026-10-29T04:20:09.117829+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Dark Convention Book",
+    "publisher": "Harvey Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T04:20:09.117871+00:00",
+    "retry_after": "2026-10-29T04:20:09.117875+00:00",
     "search_hydrated": true
   }
 ]

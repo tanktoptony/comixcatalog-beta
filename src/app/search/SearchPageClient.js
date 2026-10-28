@@ -76,6 +76,7 @@ function SkeletonCard() {
 export default function SearchPageClient({ initialQuery = "", initialComics = null, initialSeries = null } = {}) {
   const searchParams = useSearchParams();
   const urlQuery = searchParams.get("q") || "";
+  const showEveryRun = searchParams.get("runs") === "1";
 
   // This page had its own <input> directly under the header's, so /search
   // showed two live search boxes. The header's is the one people use, but
@@ -273,25 +274,32 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
   // The shelf above keeps two runs per title for variety; the end-of-list
   // links ask for every run with the searched title (runs=1), so "superman"
   // ends with Superman (1987) too. Fetched once the issue list is exhausted.
-  const [fullRuns, setFullRuns] = useState({ term: null, series: [] });
+  const [fullRuns, setFullRuns] = useState({ term: null, series: [], titleRuns: null });
   const issuesExhausted = !hasMore && !isLoading && !isFirstLoad && supabaseComics.length > 0;
   useEffect(() => {
-    if (!term || !issuesExhausted || fullRuns.term === term) return;
+    if (!term || (!showEveryRun && !issuesExhausted) || fullRuns.term === term) return;
     let cancelled = false;
-    fetch(`/api/search/series?q=${encodeURIComponent(term)}&limit=12&runs=1`)
+    fetch(`/api/search/series?q=${encodeURIComponent(term)}&limit=${showEveryRun ? 40 : 12}&runs=1`)
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`Runs request failed: ${res.status}`))))
       .then((data) => {
-        if (!cancelled) setFullRuns({ term, series: Array.isArray(data?.series) ? data.series.filter(Boolean) : [] });
+        if (!cancelled) setFullRuns({
+          term,
+          series: Array.isArray(data?.series) ? data.series.filter(Boolean) : [],
+          titleRuns: data?.title_runs ?? null,
+        });
       })
       .catch((err) => {
         console.error("Full-runs fetch failed:", err);
-        if (!cancelled) setFullRuns({ term, series: [] });
+        if (!cancelled) setFullRuns({ term, series: [], titleRuns: null });
       });
     return () => {
       cancelled = true;
     };
-  }, [term, issuesExhausted, fullRuns.term]);
+  }, [term, issuesExhausted, fullRuns.term, showEveryRun]);
   const endRuns = (fullRuns.term === term && fullRuns.series.length ? fullRuns.series : seriesResults).filter((s) => s?.id);
+  const topRuns = fullRuns.titleRuns
+    ? endRuns.filter((s) => normalizeTitle(s.title) === normalizeTitle(fullRuns.titleRuns.title))
+    : endRuns;
 
 
   // ── Map + dedupe comics ──────────────────────────────────────────────────────
@@ -388,6 +396,31 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       <h1 className="hero-title">Find Comics</h1>
 
       {/* The search input is the header's — see SearchQueryContext. */}
+
+      {showEveryRun && fullRuns.term === term && topRuns.length > 0 && (
+        <div className="search-runs-end">
+          <h2 className="search-runs-end-lead">
+            Every {topRuns[0]?.title || fullRuns.titleRuns?.title || term} run ({fullRuns.titleRuns?.count || topRuns.length})
+          </h2>
+          <ul className="search-runs-list">
+            {topRuns.map((s) => (
+              <li key={s.id}>
+                <Link prefetch={false} href={`/series/${s.id}`}>
+                  <span className="search-runs-title">
+                    {s.title || "Untitled Series"}{s.year_start ? ` (${s.year_start})` : ""}
+                  </span>
+                  <span className="search-runs-meta">
+                    {[s.publisher?.name, s.issue_count != null ? `${Number(s.issue_count).toLocaleString("en-US")} issue${Number(s.issue_count) === 1 ? "" : "s"}` : null]
+                      .filter(Boolean)
+                      .join(" · ")}
+                  </span>
+                  <span className="search-runs-go" aria-hidden="true">Full run →</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Series suggestions — grouped by title, divider between groups */}
       {seriesResults.length > 0 && (

@@ -43,6 +43,20 @@ export function titleFamily(title) {
     .replace(/[^a-z0-9]/g, "");
 }
 
+// A format word from parseSearchQuery ("saga tpb") against a series row's
+// format_tag. "hc" covers every hardcover-only edition, not just plain HC.
+export function matchesSeriesFormat(row, format) {
+  if (!format) return true;
+  if (format === "trades") return Boolean(row?.format_collected);
+  const tag = String(row?.format_tag ?? "").toLowerCase();
+  if (format === "tpb") return tag === "tpb" || tag === "compendium";
+  if (format === "hc") {
+    return ["hc", "deluxe", "omnibus", "absolute", "library edition", "artist's edition"].includes(tag);
+  }
+  if (format === "gn") return tag === "graphic novel";
+  return tag === format;
+}
+
 /**
  * @param {Array} rows      already ranked best-first
  * @param {object} opts

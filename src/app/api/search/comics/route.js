@@ -12,6 +12,8 @@ import { ADMIN_ID } from "@/lib/admin";
 import { unstable_cache } from "next/cache";
 import { createServerTiming } from "@/lib/serverTiming";
 import { cachedSearchTerm } from "@/lib/searchTermCache";
+import { stripSearchQualifiers } from "@/lib/searchQuery";
+import { getCachedSeriesSearch } from "@/app/api/search/series/route";
 import {
   DegradedSearchError,
   normalizeSearchCacheTerm,
@@ -161,9 +163,12 @@ async function computeComicsResponse(req) {
     const viewer = await timing.measure("auth", () => getAuthedUser(req));
     const { searchParams } = new URL(req.url);
     const q = (searchParams.get("q") || "").trim();
-    const queriedIssueNumber = extractIssueNumberFromQuery(q);
-    const strippedQuery = stripTrailingIssueNumber(q);
-    const titleQuery = queriedIssueNumber && strippedQuery ? strippedQuery : q;
+    // Only the volume and format words come out here; the issue/year logic
+    // below runs on the rest exactly as before (see stripSearchQualifiers).
+    const { query: baseQuery, volume } = stripSearchQualifiers(q);
+    const queriedIssueNumber = extractIssueNumberFromQuery(baseQuery);
+    const strippedQuery = stripTrailingIssueNumber(baseQuery);
+    const titleQuery = queriedIssueNumber && strippedQuery ? strippedQuery : baseQuery;
     const normalizedQ = normalizeSearch(titleQuery);
     const searchWords = normalizeSeriesSearchWords(titleQuery);
     const normalizedQForScoring = normalizeForScoring(titleQuery);
@@ -218,6 +223,17 @@ async function computeComicsResponse(req) {
 
     if (userComicsResult.error) throw userComicsResult.error;
 
+    let preferredSeriesGcdId = null;
+    if (volume != null) {
+      try {
+        const seriesResult = await getCachedSeriesSearch(q, { limit: 40 });
+        preferredSeriesGcdId = seriesResult.series?.find((row) => row.volume_index === volume)?.gcd_id ?? null;
+      } catch (error) {
+        console.error("volume series resolution for comics failed:", error);
+        searchDegraded = true;
+      }
+    }
+
     const userRows = (userComicsResult.data ?? []).map((comic) => ({
       id: comic.id,
       series_title: comic.series_title ?? null,
@@ -234,7 +250,8 @@ async function computeComicsResponse(req) {
     const scoredSeries = seriesCandidates
       .map((s) => ({
         ...s,
-        __score: scoreSeriesTitle(s.title, normalizedQForScoring),
+        __score: scoreSeriesTitle(s.title, normalizedQForScoring)
+          + (Number(s.gcd_id) === Number(preferredSeriesGcdId) ? 2000 : 0),
       }))
       .sort((a, b) => {
         const scoreDelta = b.__score - a.__score;
@@ -334,6 +351,7 @@ async function computeComicsResponse(req) {
         __score:
           scoreSeriesTitle(row.series_title, normalizedQForScoring) +
           scoreIssueNumberMatch(row.issue_number, queriedIssueNumber) +
+          (Number(row.series_gcd_id) === Number(preferredSeriesGcdId) ? 2000 : 0) +
           (row.__source === "user" ? 50 : 0),
       }))
       .sort((a, b) => b.__score - a.__score);
@@ -445,7 +463,7 @@ const legacyCachedComicsSearch = unstable_cache(
     if (measured.degraded) throw new DegradedSearchError(measured);
     return measured;
   },
-  ["search-comics-v1"],
+  ["search-comics-v2"],
   { revalidate: SEARCH_CACHE_REVALIDATE_SECONDS, tags: ["search"] }
 );
 
@@ -491,9 +509,10 @@ async function viewerPendingRows(supabase, viewer, titleQuery) {
 
 function mergeViewerRows(rows, extra, q) {
   if (!extra.length) return rows;
-  const queriedIssueNumber = extractIssueNumberFromQuery(q);
-  const strippedQuery = stripTrailingIssueNumber(q);
-  const titleQuery = queriedIssueNumber && strippedQuery ? strippedQuery : q;
+  const { query: baseQuery } = stripSearchQualifiers(q);
+  const queriedIssueNumber = extractIssueNumberFromQuery(baseQuery);
+  const strippedQuery = stripTrailingIssueNumber(baseQuery);
+  const titleQuery = queriedIssueNumber && strippedQuery ? strippedQuery : baseQuery;
   const normalizedQForScoring = normalizeForScoring(titleQuery);
   const score = (row) =>
     scoreSeriesTitle(row.series_title, normalizedQForScoring) +
@@ -513,7 +532,7 @@ export async function getCachedComicsSearch(q, { limit = 36, offset = 0, viewer 
   const [{ result, state }, pending] = await Promise.all([
     cachedSearchTerm(supabase, {
       kind: "comics",
-      key: normalizedTerm,
+      key: `v2|${normalizedTerm}`,
       compute: () => computeComicsTerm(normalizedTerm),
       schedule: after,
       fallback: () => legacyCachedComicsSearch(normalizedTerm).catch((error) => {
@@ -523,9 +542,10 @@ export async function getCachedComicsSearch(q, { limit = 36, offset = 0, viewer 
     }),
     viewer && offset === 0
       ? viewerPendingRows(supabase, viewer, (() => {
-        const issue = extractIssueNumberFromQuery(q);
-        const stripped = stripTrailingIssueNumber(q);
-        return issue && stripped ? stripped : q;
+        const { query: baseQuery } = stripSearchQualifiers(q);
+        const issue = extractIssueNumberFromQuery(baseQuery);
+        const stripped = stripTrailingIssueNumber(baseQuery);
+        return issue && stripped ? stripped : baseQuery;
       })())
       : Promise.resolve([]),
   ]);

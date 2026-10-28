@@ -4,7 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { avatarForProfile } from "@/lib/defaultAvatar";
 import { forwardRef, useEffect, useMemo, useRef, useState, useTransition } from "react";
-import { groupByTitle, flattenGroups } from "@/lib/searchVariety";
+import { groupByTitle, flattenGroups, titleFamily } from "@/lib/searchVariety";
+import { parseSearchQuery } from "@/lib/searchQuery";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { SIGNUP_HREF as START_SIGNUP_HREF } from "@/app/start/StartClient";
@@ -77,6 +78,7 @@ export default function Header() {
   const [comicsFound, setComicsFound] = useState(NO_RESULTS);
   const currentQuery = query.trim();
   const seriesResults = seriesFound.q === currentQuery ? seriesFound.rows : NO_ROWS;
+  const titleRuns = seriesFound.q === currentQuery ? seriesFound.titleRuns ?? null : null;
   const comicResults = comicsFound.q === currentQuery ? comicsFound.rows : NO_ROWS;
   // Covers the debounce gap too, so "No results" never flashes between a
   // keystroke and its request.
@@ -242,7 +244,8 @@ export default function Header() {
         .then((res) => (res.ok ? res.json() : null))
         .then((data) => {
           if (cancelled) return;
-          store({ q, rows: pick(data) });
+          const picked = pick(data);
+          store({ q, ...(Array.isArray(picked) ? { rows: picked } : picked) });
           setSearchOpen(true);
         })
         .catch((err) => {
@@ -259,7 +262,10 @@ export default function Header() {
       // rather than more of the same one; the dropdown shows the first five.
       load(
         `/api/search/series?q=${encodeURIComponent(q)}&limit=36`,
-        (data) => (Array.isArray(data?.series) ? data.series.slice(0, 5) : NO_ROWS),
+        (data) => ({
+          rows: Array.isArray(data?.series) ? data.series.slice(0, 5) : NO_ROWS,
+          titleRuns: data?.title_runs ?? null,
+        }),
         setSeriesFound,
       );
       load(
@@ -423,21 +429,38 @@ export default function Header() {
                       lands on the same row the cursor is over. */}
                   {(() => {
                     let flatIdx = -1;
-                    return seriesGroups.map((group) => (
+                    return seriesGroups.map((group) => {
+                      const totalRuns = titleRuns && titleFamily(titleRuns.title) === group.family
+                        ? Number(titleRuns.count)
+                        : 0;
+                      const hasMoreRuns = totalRuns > group.rows.length;
+                      return (
                       <div className="header-search-run" key={group.family || group.title}>
-                        {group.rows.length > 1 && (
+                        {(group.rows.length > 1 || hasMoreRuns) && (
                           <div className="header-search-run-title">
                             {group.title || "Untitled Series"}
                             <span className="header-search-run-count">
-                              {group.rows.length} volumes
+                              {hasMoreRuns ? `${group.rows.length} of ${totalRuns} runs` : `${group.rows.length} volumes`}
                             </span>
+                            {hasMoreRuns && (
+                              <Link
+                                className="header-search-view-all"
+                                href={`/search?q=${encodeURIComponent(titleRuns.title)}&runs=1`}
+                                onClick={() => {
+                                  clearSearch();
+                                  closeMenu();
+                                }}
+                              >
+                                See all
+                              </Link>
+                            )}
                           </div>
                         )}
                         {group.rows.map((series) => {
                           flatIdx += 1;
                           const idx = flatIdx;
                           const isActive = highlightedIndex === idx;
-                          const grouped = group.rows.length > 1;
+                          const grouped = group.rows.length > 1 || hasMoreRuns;
                           return (
                             <button
                               key={series.id}
@@ -498,7 +521,8 @@ export default function Header() {
                           );
                         })}
                       </div>
-                    ));
+                      );
+                    });
                   })()}
                 </div>
               )}
@@ -525,6 +549,7 @@ export default function Header() {
                       >
                         <span className="header-search-thumb">
                           {comic.cover ? (
+                            // eslint-disable-next-line @next/next/no-img-element
                             <img
                               src={coverThumb(comic.cover)}
                               alt=""
@@ -568,6 +593,18 @@ export default function Header() {
                   >
                     View all results
                   </Link>
+                  {!parseSearchQuery(query).format && (
+                    <Link
+                      href={`/search?q=${encodeURIComponent(`${query.trim()} trades`)}`}
+                      className="header-search-view-all"
+                      onClick={() => {
+                        clearSearch();
+                        closeMenu();
+                      }}
+                    >
+                      Trades for &lsquo;{query.trim()}&rsquo;
+                    </Link>
+                  )}
                 </div>
               )}
             </div>
@@ -730,6 +767,7 @@ const UserMenu = forwardRef(function UserMenu(
         aria-label={orders.toShip > 0 ? `Account menu, ${orders.toShip} ${orders.toShip === 1 ? "order" : "orders"} to ship` : "Account menu"}
       >
         {avatarSrc ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img src={avatarSrc} alt="" className="user-menu-avatar" />
         ) : (
           <span className="user-menu-avatar user-menu-avatar--pending" aria-hidden="true" />

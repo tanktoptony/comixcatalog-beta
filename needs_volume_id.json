@@ -7770,10 +7770,12 @@
     "name": "Custom M&M 2024 Comic",
     "publisher": "Marvel Comics",
     "year": 2024,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555628+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T00:05:20.308159+00:00",
+    "retry_after": "2026-10-31T00:05:20.308161+00:00",
+    "search_hydrated": true
   },
   {
     "name": "TMNT: Best of Leatherhead",
@@ -7878,10 +7880,12 @@
     "name": "Dark Avengers Modern Era Epic Collection",
     "publisher": "Marvel Comics",
     "year": 2024,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555675+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T00:05:20.308212+00:00",
+    "retry_after": "2026-10-31T00:05:20.308213+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Untold Tales of Spider-Man: The Complete Collection",
@@ -19490,9 +19494,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T01:00:47.257396+00:00",
-    "retry_after": "2026-09-27T01:00:47.257407+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T00:05:20.308119+00:00",
+    "retry_after": "2026-11-04T00:05:20.308137+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Collector's Edition [X-Men Stri-Dex Custom Comic]",
@@ -27498,8 +27503,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:38:27.575694+00:00",
-    "retry_after": "2026-10-28T23:38:27.575711+00:00",
+    "last_attempt_at": "2026-10-28T00:09:00.141506+00:00",
+    "retry_after": "2026-10-29T00:09:00.141523+00:00",
     "search_hydrated": true
   },
   {
@@ -27522,8 +27527,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:31:32.302892+00:00",
-    "retry_after": "2026-10-28T23:31:32.302895+00:00",
+    "last_attempt_at": "2026-10-28T00:01:18.884770+00:00",
+    "retry_after": "2026-10-29T00:01:18.884773+00:00",
     "search_hydrated": true
   },
   {
@@ -43566,8 +43571,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:31:32.302853+00:00",
-    "retry_after": "2026-10-28T23:31:32.302864+00:00",
+    "last_attempt_at": "2026-10-28T00:01:18.884721+00:00",
+    "retry_after": "2026-10-29T00:01:18.884740+00:00",
     "search_hydrated": true
   },
   {
@@ -77251,9 +77256,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T00:06:08.534387+00:00",
-    "retry_after": "2026-10-28T00:06:08.534391+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T00:08:22.924426+00:00",
+    "retry_after": "2026-10-31T00:08:22.924444+00:00",
     "search_hydrated": true
   },
   {
@@ -80591,6 +80596,181 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T23:37:57.415629+00:00",
     "retry_after": "2026-10-28T23:37:57.415632+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Daredevil: Mayor Fisk",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:05:20.308192+00:00",
+    "retry_after": "2026-10-29T00:05:20.308194+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Daredevil: Born Again",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 30019,
+        "name": "Daredevil: Born Again",
+        "publisher": "Marvel",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:05:35.323871+00:00",
+    "retry_after": "2026-10-29T00:05:35.323900+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dark Crisis on Infinite Earths",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 152100,
+        "name": "Dark Crisis on Infinite Earths",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:06:04.520029+00:00",
+    "retry_after": "2026-10-29T00:06:04.520047+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Elseworlds Sampler",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:07:20.146431+00:00",
+    "retry_after": "2026-10-29T00:07:20.146452+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Green Lantern: The Defeat of Green Lantern",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:07:20.146469+00:00",
+    "retry_after": "2026-10-29T00:07:20.146471+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Justice Society of America: For America and Democracy",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:07:20.146480+00:00",
+    "retry_after": "2026-10-29T00:07:20.146482+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Superman: The First Superhero",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 177565,
+        "name": "DC Finest: Superman: The First Superhero",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:07:20.146507+00:00",
+    "retry_after": "2026-10-29T00:07:20.146509+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: The Doom Patrol: The World's Strangest Heroes",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:07:20.146518+00:00",
+    "retry_after": "2026-10-29T00:07:20.146519+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: The Flash: The Human Thunderbolt",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:07:20.146526+00:00",
+    "retry_after": "2026-10-29T00:07:20.146528+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Wonder Woman: Origins & Omens",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:07:20.146536+00:00",
+    "retry_after": "2026-10-29T00:07:20.146537+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Finest: Zero Hour: Crisis in Time: Part One",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:07:20.146544+00:00",
+    "retry_after": "2026-10-29T00:07:20.146545+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cerebus the Vark Knight Returns",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:08:22.924511+00:00",
+    "retry_after": "2026-10-29T00:08:22.924514+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gold Digger: Gold Brick - Reminted Edition",
+    "publisher": "Antarctic Press",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:08:22.924552+00:00",
+    "retry_after": "2026-10-29T00:08:22.924554+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Lone Wolf and Cub Deluxe Edition",
+    "publisher": "Dark Horse Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T00:08:22.924567+00:00",
+    "retry_after": "2026-10-29T00:08:22.924568+00:00",
     "search_hydrated": true
   }
 ]

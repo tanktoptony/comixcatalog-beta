@@ -6937,10 +6937,12 @@
     "name": "Bitter Root Omnibus",
     "publisher": "Image Comics",
     "year": 2023,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555360+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:07:08.941411+00:00",
+    "retry_after": "2026-10-31T16:07:08.941414+00:00",
+    "search_hydrated": true
   },
   {
     "name": "FF: Fifty Fantastic Years",
@@ -27517,8 +27519,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T15:01:50.479844+00:00",
-    "retry_after": "2026-10-29T15:01:50.479848+00:00",
+    "last_attempt_at": "2026-10-28T16:02:54.974445+00:00",
+    "retry_after": "2026-10-29T16:02:54.974449+00:00",
     "search_hydrated": true
   },
   {
@@ -43569,8 +43571,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T15:01:50.479784+00:00",
-    "retry_after": "2026-10-29T15:01:50.479800+00:00",
+    "last_attempt_at": "2026-10-28T16:02:54.974384+00:00",
+    "retry_after": "2026-10-29T16:02:54.974399+00:00",
     "search_hydrated": true
   },
   {
@@ -78685,9 +78687,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T15:07:15.658248+00:00",
-    "retry_after": "2026-10-28T15:07:15.658253+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:06:34.896154+00:00",
+    "retry_after": "2026-10-31T16:06:34.896158+00:00",
     "search_hydrated": true
   },
   {
@@ -78696,33 +78698,27 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T15:07:15.658356+00:00",
-    "retry_after": "2026-10-28T15:07:15.658360+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:06:34.896208+00:00",
+    "retry_after": "2026-10-31T16:06:34.896211+00:00",
     "search_hydrated": true
   },
   {
     "name": "The Domain",
     "publisher": "Image Comics",
     "year": 2025,
-    "reason": "publisher_mismatch",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
-        "id": 65635,
-        "name": "The Domain",
-        "publisher": "Ape Entertainment",
-        "start_year": 2013
-      },
-      {
-        "id": 109910,
-        "name": "The Domain",
-        "publisher": "Treadwell Enterprises",
-        "start_year": 2017
+        "id": 158807,
+        "name": "Domain",
+        "publisher": "Image",
+        "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T15:07:15.658411+00:00",
-    "retry_after": "2026-10-28T15:07:15.658414+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:06:35.884816+00:00",
+    "retry_after": "2026-10-31T16:06:35.884832+00:00",
     "search_hydrated": true
   },
   {
@@ -78731,9 +78727,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:04:54.295577+00:00",
-    "retry_after": "2026-10-28T16:04:54.295597+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:06:34.896249+00:00",
+    "retry_after": "2026-10-31T16:06:34.896252+00:00",
     "search_hydrated": true
   },
   {
@@ -78742,9 +78738,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:04:54.295617+00:00",
-    "retry_after": "2026-10-28T16:04:54.295621+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:06:34.896264+00:00",
+    "retry_after": "2026-10-31T16:06:34.896267+00:00",
     "search_hydrated": true
   },
   {
@@ -78760,9 +78756,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:04:55.072826+00:00",
-    "retry_after": "2026-10-28T16:04:55.072845+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:06:35.732664+00:00",
+    "retry_after": "2026-10-31T16:06:35.732672+00:00",
     "search_hydrated": true
   },
   {
@@ -78771,9 +78767,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:05:42.013720+00:00",
-    "retry_after": "2026-10-28T16:05:42.013738+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:06:34.896279+00:00",
+    "retry_after": "2026-10-31T16:06:34.896282+00:00",
     "search_hydrated": true
   },
   {
@@ -78801,9 +78797,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:05:42.013802+00:00",
-    "retry_after": "2026-10-28T16:05:42.013806+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:06:34.896323+00:00",
+    "retry_after": "2026-10-31T16:06:34.896326+00:00",
     "search_hydrated": true
   },
   {
@@ -78812,9 +78808,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:05:42.013844+00:00",
-    "retry_after": "2026-10-28T16:05:42.013846+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:07:08.941268+00:00",
+    "retry_after": "2026-10-31T16:07:08.941283+00:00",
     "search_hydrated": true
   },
   {
@@ -78823,9 +78819,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:05:42.013863+00:00",
-    "retry_after": "2026-10-28T16:05:42.013865+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:07:08.941310+00:00",
+    "retry_after": "2026-10-31T16:07:08.941314+00:00",
     "search_hydrated": true
   },
   {
@@ -78834,27 +78830,27 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:05:42.013877+00:00",
-    "retry_after": "2026-10-28T16:05:42.013879+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:07:08.941329+00:00",
+    "retry_after": "2026-10-31T16:07:08.941332+00:00",
     "search_hydrated": true
   },
   {
     "name": "The Toxic Avenger",
     "publisher": "Marvel Comics",
     "year": 2025,
-    "reason": "publisher_mismatch",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
-        "id": 171480,
-        "name": "The Toxic Avenger",
-        "publisher": "Legendary Comics",
-        "start_year": 2025
+        "id": 22900,
+        "name": "Toxic Avenger",
+        "publisher": "Marvel",
+        "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:05:42.013909+00:00",
-    "retry_after": "2026-10-28T16:05:42.013911+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:07:15.852324+00:00",
+    "retry_after": "2026-10-31T16:07:15.852338+00:00",
     "search_hydrated": true
   },
   {
@@ -78863,9 +78859,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:05:42.013923+00:00",
-    "retry_after": "2026-10-28T16:05:42.013925+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T16:07:08.941392+00:00",
+    "retry_after": "2026-10-31T16:07:08.941396+00:00",
     "search_hydrated": true
   },
   {
@@ -81923,6 +81919,316 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T15:06:49.972450+00:00",
     "retry_after": "2026-10-29T15:06:49.972454+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:01:49.059064+00:00",
+    "retry_after": "2026-10-29T16:01:49.059067+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ice Cream Man #1 Chocolate / Vanilla Twist Edition",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:06:34.896114+00:00",
+    "retry_after": "2026-10-29T16:06:34.896130+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Saw Santa",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 168724,
+        "name": "I Saw Santa",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:06:35.731713+00:00",
+    "retry_after": "2026-10-29T16:06:35.731730+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Black Science: The Complete Story",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:08.941468+00:00",
+    "retry_after": "2026-10-29T16:07:08.941471+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Leave It to Chance",
+    "publisher": "DC Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19664,
+        "name": "Leave it to Chance",
+        "publisher": "Image",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:35.264906+00:00",
+    "retry_after": "2026-10-29T16:07:35.264923+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "G.I. Joe Frontline",
+    "publisher": "Devil's Due",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 9767,
+        "name": "G.I. Joe: Frontline",
+        "publisher": "Image",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:35.264962+00:00",
+    "retry_after": "2026-10-29T16:07:35.264967+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Famous Comics",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 72379,
+        "name": "Famous Comics",
+        "publisher": "Zain-Eppy",
+        "start_year": 1933
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:35.264994+00:00",
+    "retry_after": "2026-10-29T16:07:35.264997+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:35.265020+00:00",
+    "retry_after": "2026-10-29T16:07:35.265023+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Humphrey Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84056,
+        "name": "Humphrey Giant Edition",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:35.265068+00:00",
+    "retry_after": "2026-10-29T16:07:35.265072+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cerebus World Tour Book",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20422,
+        "name": "Cerebus World Tour Book",
+        "publisher": "Aardvark",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:35.265095+00:00",
+    "retry_after": "2026-10-29T16:07:35.265097+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Korgi: Short Tails",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 102848,
+        "name": "Korgi: Short Tails",
+        "publisher": "Top Shelf",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:35.265118+00:00",
+    "retry_after": "2026-10-29T16:07:35.265121+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Ringo",
+    "publisher": "Marvel Comics",
+    "year": 1961,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67374,
+        "name": "Johnny Ringo",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:35.265142+00:00",
+    "retry_after": "2026-10-29T16:07:35.265144+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Marshal King",
+    "publisher": "VIZ Media",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 164859,
+        "name": "The Marshal King",
+        "publisher": "Shueisha",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:35.265162+00:00",
+    "retry_after": "2026-10-29T16:07:35.265165+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Chiquilladas",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68422,
+        "name": "Chiquilladas",
+        "publisher": "Editorial Novaro",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:43.121410+00:00",
+    "retry_after": "2026-10-29T16:07:43.121428+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tarzán",
+    "publisher": "Marvel Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 145785,
+        "name": "Tarzán",
+        "publisher": "Epucol",
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:43.121469+00:00",
+    "retry_after": "2026-10-29T16:07:43.121473+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Basserne",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130307,
+        "name": "Basserne",
+        "publisher": "Egmont Publishing A/S",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:43.121501+00:00",
+    "retry_after": "2026-10-29T16:07:43.121504+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "La Pequeña Lulú",
+    "publisher": "Harvey Comics",
+    "year": 1951,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141790,
+        "name": "La Pequeña Lulú",
+        "publisher": "Epucol",
+        "start_year": 1971
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:43.121526+00:00",
+    "retry_after": "2026-10-29T16:07:43.121529+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joyas de la Mitología",
+    "publisher": "Harvey Comics",
+    "year": 1962,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 44319,
+        "name": "Joyas de la Mitología",
+        "publisher": "Editorial Novaro",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T16:07:43.121549+00:00",
+    "retry_after": "2026-10-29T16:07:43.121552+00:00",
     "search_hydrated": true
   }
 ]

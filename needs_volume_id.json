@@ -8412,10 +8412,12 @@
     "name": "Untold Tales of I Hate Fairyland",
     "publisher": "Image Comics",
     "year": 2024,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555831+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T11:08:01.181496+00:00",
+    "retry_after": "2026-10-31T11:08:01.181513+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Archie Horror Presents: The Cursed Library",
@@ -27513,8 +27515,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:07:17.883407+00:00",
-    "retry_after": "2026-10-29T10:07:17.883423+00:00",
+    "last_attempt_at": "2026-10-28T11:08:52.161912+00:00",
+    "retry_after": "2026-10-29T11:08:52.161925+00:00",
     "search_hydrated": true
   },
   {
@@ -27537,8 +27539,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:01:21.159112+00:00",
-    "retry_after": "2026-10-29T10:01:21.159122+00:00",
+    "last_attempt_at": "2026-10-28T11:00:11.822824+00:00",
+    "retry_after": "2026-10-29T11:00:11.822827+00:00",
     "search_hydrated": true
   },
   {
@@ -43588,8 +43590,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:01:21.158991+00:00",
-    "retry_after": "2026-10-29T10:01:21.159010+00:00",
+    "last_attempt_at": "2026-10-28T11:00:11.822778+00:00",
+    "retry_after": "2026-10-29T11:00:11.822795+00:00",
     "search_hydrated": true
   },
   {
@@ -49196,9 +49198,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-14T06:28:14.241407+00:00",
-    "retry_after": "2026-10-17T06:28:14.241423+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T11:04:22.754246+00:00",
+    "retry_after": "2026-11-04T11:04:22.754248+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Airboy versus the Airmaidens",
@@ -78331,9 +78334,9 @@
     "year": 1988,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T11:05:50.791209+00:00",
-    "retry_after": "2026-10-28T11:05:50.791226+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T11:08:29.935347+00:00",
+    "retry_after": "2026-10-31T11:08:29.935364+00:00",
     "search_hydrated": true
   },
   {
@@ -78355,9 +78358,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T11:05:50.791282+00:00",
-    "retry_after": "2026-10-28T11:05:50.791287+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T11:08:29.935410+00:00",
+    "retry_after": "2026-10-31T11:08:29.935413+00:00",
     "search_hydrated": true
   },
   {
@@ -78366,9 +78369,9 @@
     "year": 1981,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T11:05:50.791393+00:00",
-    "retry_after": "2026-10-28T11:05:50.791397+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T11:08:29.935425+00:00",
+    "retry_after": "2026-10-31T11:08:29.935426+00:00",
     "search_hydrated": true
   },
   {
@@ -82092,6 +82095,169 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T10:07:07.232148+00:00",
     "retry_after": "2026-10-29T10:07:07.232151+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Joker by James Tynion IV Compendium",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:04:22.754167+00:00",
+    "retry_after": "2026-10-29T11:04:22.754187+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Joker: The Man Who Stopped Laughing: The Complete Series",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:04:22.754203+00:00",
+    "retry_after": "2026-10-29T11:04:22.754205+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Sandman 19 Remastered",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:04:22.754255+00:00",
+    "retry_after": "2026-10-29T11:04:22.754256+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Jurassic League",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 152666,
+        "name": "The Jurassic League",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:04:26.643399+00:00",
+    "retry_after": "2026-10-29T11:04:26.643417+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Savage Strength of Starstorm",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 151186,
+        "name": "The Savage Strength of Starstorm",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:05:54.089642+00:00",
+    "retry_after": "2026-10-29T11:05:54.089660+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Toxic Avenger",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 171480,
+        "name": "The Toxic Avenger",
+        "publisher": "Legendary Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:06:14.378027+00:00",
+    "retry_after": "2026-10-29T11:06:14.378044+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thor Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:06:14.378080+00:00",
+    "retry_after": "2026-10-29T11:06:14.378082+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Time2 Omnibus",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:06:14.378113+00:00",
+    "retry_after": "2026-10-29T11:06:14.378114+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The White Trees: A Blacksand Tale",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 120670,
+        "name": "White Trees: A Blacksand Tale",
+        "publisher": "Image",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:07:15.833157+00:00",
+    "retry_after": "2026-10-29T11:07:15.833183+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ultraman x the Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 165056,
+        "name": "Ultraman X The Avengers",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:08:05.828762+00:00",
+    "retry_after": "2026-10-29T11:08:05.828778+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Universal Monsters: Dracula",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 154387,
+        "name": "Universal Monsters: Dracula",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T11:08:05.983277+00:00",
+    "retry_after": "2026-10-29T11:08:05.983290+00:00",
     "search_hydrated": true
   }
 ]

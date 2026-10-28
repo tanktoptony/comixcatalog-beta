@@ -7790,10 +7790,12 @@
     "name": "Superman: The Silver Age Omnibus",
     "publisher": "DC Comics",
     "year": 2024,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555636+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T10:05:05.977089+00:00",
+    "retry_after": "2026-10-31T10:05:05.977091+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Trinity Special: World�s Finest",
@@ -16546,9 +16548,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T02:12:23.109379+00:00",
-    "retry_after": "2026-09-26T02:12:23.109409+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T10:05:05.977053+00:00",
+    "retry_after": "2026-11-04T10:05:05.977057+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel & Disney: What If...? Mickey and Friends Became the Fantastic Four",
@@ -27510,8 +27513,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T09:08:32.661054+00:00",
-    "retry_after": "2026-10-29T09:08:32.661068+00:00",
+    "last_attempt_at": "2026-10-28T10:07:17.883407+00:00",
+    "retry_after": "2026-10-29T10:07:17.883423+00:00",
     "search_hydrated": true
   },
   {
@@ -27534,8 +27537,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T09:01:25.840763+00:00",
-    "retry_after": "2026-10-29T09:01:25.840768+00:00",
+    "last_attempt_at": "2026-10-28T10:01:21.159112+00:00",
+    "retry_after": "2026-10-29T10:01:21.159122+00:00",
     "search_hydrated": true
   },
   {
@@ -43585,8 +43588,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T09:01:25.840702+00:00",
-    "retry_after": "2026-10-29T09:01:25.840719+00:00",
+    "last_attempt_at": "2026-10-28T10:01:21.158991+00:00",
+    "retry_after": "2026-10-29T10:01:21.159010+00:00",
     "search_hydrated": true
   },
   {
@@ -78077,9 +78080,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T09:05:35.004336+00:00",
-    "retry_after": "2026-10-28T09:05:35.004352+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T10:05:05.976901+00:00",
+    "retry_after": "2026-10-31T10:05:05.976916+00:00",
     "search_hydrated": true
   },
   {
@@ -78088,9 +78091,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T09:05:35.004415+00:00",
-    "retry_after": "2026-10-28T09:05:35.004418+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T10:05:05.976945+00:00",
+    "retry_after": "2026-10-31T10:05:05.976950+00:00",
     "search_hydrated": true
   },
   {
@@ -78099,9 +78102,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T09:05:35.004443+00:00",
-    "retry_after": "2026-10-28T09:05:35.004446+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T10:05:05.976967+00:00",
+    "retry_after": "2026-10-31T10:05:05.976970+00:00",
     "search_hydrated": true
   },
   {
@@ -78156,9 +78159,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T10:05:50.764073+00:00",
-    "retry_after": "2026-10-28T10:05:50.764092+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T10:07:07.231993+00:00",
+    "retry_after": "2026-10-31T10:07:07.232009+00:00",
     "search_hydrated": true
   },
   {
@@ -78167,9 +78170,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T10:05:50.764115+00:00",
-    "retry_after": "2026-10-28T10:05:50.764118+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T10:07:07.232052+00:00",
+    "retry_after": "2026-10-31T10:07:07.232058+00:00",
     "search_hydrated": true
   },
   {
@@ -78178,9 +78181,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T10:05:50.764147+00:00",
-    "retry_after": "2026-10-28T10:05:50.764150+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T10:07:07.232077+00:00",
+    "retry_after": "2026-10-31T10:07:07.232080+00:00",
     "search_hydrated": true
   },
   {
@@ -78189,9 +78192,9 @@
     "year": 1982,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T10:05:50.764170+00:00",
-    "retry_after": "2026-10-28T10:05:50.764172+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T10:07:07.232096+00:00",
+    "retry_after": "2026-10-31T10:07:07.232098+00:00",
     "search_hydrated": true
   },
   {
@@ -78200,9 +78203,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T10:05:50.764181+00:00",
-    "retry_after": "2026-10-28T10:05:50.764184+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T10:07:07.232111+00:00",
+    "retry_after": "2026-10-31T10:07:07.232113+00:00",
     "search_hydrated": true
   },
   {
@@ -78211,9 +78214,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T10:05:50.764195+00:00",
-    "retry_after": "2026-10-28T10:05:50.764197+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T10:07:07.232128+00:00",
+    "retry_after": "2026-10-31T10:07:07.232131+00:00",
     "search_hydrated": true
   },
   {
@@ -81932,6 +81935,163 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T09:07:36.019529+00:00",
     "retry_after": "2026-10-29T09:07:36.019544+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Kylo Ren - Age of Resistance No. 1 Halloween Trick-or-Read 2024",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T10:05:05.976987+00:00",
+    "retry_after": "2026-10-29T10:05:05.976990+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman 100 Project",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T10:05:05.977073+00:00",
+    "retry_after": "2026-10-29T10:05:05.977076+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Swan Songs",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 152066,
+        "name": "Swan Songs",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T10:05:26.020169+00:00",
+    "retry_after": "2026-10-29T10:05:26.020182+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Batman and Robin Adventures Omnibus",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T10:05:43.104290+00:00",
+    "retry_after": "2026-10-29T10:05:43.104305+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Colonized",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 50412,
+        "name": "The Colonized",
+        "publisher": "IDW Publishing",
+        "start_year": 2013
+      },
+      {
+        "id": 68162,
+        "name": "The Colonized",
+        "publisher": "IDW Publishing",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T10:05:43.104361+00:00",
+    "retry_after": "2026-10-29T10:05:43.104365+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Death and Return of Superman 30th Anniversary Collection",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T10:05:43.104383+00:00",
+    "retry_after": "2026-10-29T10:05:43.104386+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Domain",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65635,
+        "name": "The Domain",
+        "publisher": "Ape Entertainment",
+        "start_year": 2013
+      },
+      {
+        "id": 109910,
+        "name": "The Domain",
+        "publisher": "Treadwell Enterprises",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T10:05:43.104414+00:00",
+    "retry_after": "2026-10-29T10:05:43.104417+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tales from Dark Crisis",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 151728,
+        "name": "Tales from Dark Crisis",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T10:05:44.835730+00:00",
+    "retry_after": "2026-10-29T10:05:44.835744+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "TerrorWar",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 149560,
+        "name": "Terrorwar",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T10:05:44.978609+00:00",
+    "retry_after": "2026-10-29T10:05:44.978623+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Disney Twisted-Wonderland: The Manga – Book of Octavinelle",
+    "publisher": "VIZ Media",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T10:07:07.232148+00:00",
+    "retry_after": "2026-10-29T10:07:07.232151+00:00",
     "search_hydrated": true
   }
 ]

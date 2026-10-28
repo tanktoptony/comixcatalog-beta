@@ -1,7 +1,7 @@
 import { after, NextResponse } from "next/server";
 import { searchSeriesRpc } from "@/lib/searchRpc";
 import { parseSearchQuery, yearMatches, yearScore } from "@/lib/searchQuery";
-import { diversify } from "@/lib/searchVariety";
+import { diversify, matchesSeriesFormat } from "@/lib/searchVariety";
 import { pinCurrentRun } from "@/lib/searchCurrentRun";
 import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
@@ -150,17 +150,21 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ, onFallb
 // measured; 200 leaves headroom for longer query strings.
 const VOLUME_LOOKUP_CHUNK = 200;
 
-async function loadSeriesFormats(supabase, rows) {
+async function loadSeriesFormats(supabase, rows, onError = () => {}) {
   const gcdIds = [...new Set(rows.map((row) => Number(row.gcd_id)).filter(Number.isFinite))];
   if (!gcdIds.length) return new Map();
-  const { data, error } = await supabase.from("gcd_series")
-    .select("gcd_id, publishing_format, binding, publication_type")
-    .in("gcd_id", gcdIds);
+  const chunks = [];
+  for (let i = 0; i < gcdIds.length; i += VOLUME_LOOKUP_CHUNK) chunks.push(gcdIds.slice(i, i + VOLUME_LOOKUP_CHUNK));
+  const results = await Promise.all(chunks.map((chunk) => supabase.from("gcd_series")
+    .select("gcd_id, publishing_format, binding, publication_type, publisher_gcd_id")
+    .in("gcd_id", chunk)));
+  const error = results.find((result) => result.error)?.error;
   if (error) {
     console.error("series search format lookup failed:", error.code, error.message);
+    onError();
     return new Map();
   }
-  return new Map((data ?? []).map((row) => [Number(row.gcd_id), row]));
+  return new Map(results.flatMap((result) => result.data ?? []).map((row) => [Number(row.gcd_id), row]));
 }
 
 function addFormatTags(rows, formats) {
@@ -172,6 +176,7 @@ function addFormatTags(rows, formats) {
       format_tag: formatTag(input),
       format_tag_title: formatTagTitle(input),
       format_collected: isCollectedEdition(input) || /graphic novel/i.test(String(input.publishing_format ?? "")),
+      publisher_gcd_id: format?.publisher_gcd_id ?? row.publisher_gcd_id ?? null,
     };
   });
 }
@@ -218,6 +223,7 @@ async function computeSeriesResponse(req) {
 
     let rows;
     let searchDegraded = false;
+    let formatLookupFailed = false;
     const markDegraded = () => { searchDegraded = true; };
     try {
       const aliasFetches = aliasTerms.map((term) =>
@@ -342,6 +348,12 @@ async function computeSeriesResponse(req) {
     };
 
     const stopRanking = timing.start("ranking");
+    const allSeriesFormats = returnFullRanking
+      ? await loadSeriesFormats(supabase, rows, () => {
+        formatLookupFailed = true;
+        markDegraded();
+      })
+      : new Map();
     const grouped = new Map();
     for (const row of rows ?? []) {
       const key = normalizeTitleKey(row.title);
@@ -401,10 +413,31 @@ async function computeSeriesResponse(req) {
         return true;
       });
 
-      // Assign volume indicators only when every row in the group has a real
-      // year_start AND the starts are distinct. Without reliable chronology
-      // the numbers would be meaningless — better to show nothing than to lie.
-      if (pruned.length > 1) {
+      if (returnFullRanking && !formatLookupFailed) {
+        const exactTitle = normalizeForScoring(pruned[0]?.title) === normalizedQForScoring;
+        const eligible = (row) => {
+          const format = allSeriesFormats.get(Number(row.gcd_id));
+          const input = { name: row.title, ...format };
+          return !isCollectedEdition(input)
+            && !/graphic novel|one-shot|giveaway/i.test(String(input.publishing_format ?? ""));
+        };
+        const anchor = exactTitle ? pruned.find(eligible) : null;
+        const publisherId = anchor
+          ? allSeriesFormats.get(Number(anchor.gcd_id))?.publisher_gcd_id
+          : null;
+        const volumeRuns = publisherId == null ? [] : pruned.filter((row) => (
+          exactTitle
+          && allSeriesFormats.get(Number(row.gcd_id))?.publisher_gcd_id === publisherId
+          && eligible(row)
+        ));
+        if (volumeRuns.length > 1 && volumeRuns.every((row) => Number.isFinite(row.year_start_cached))) {
+          volumeRuns.toSorted((a, b) => a.year_start_cached - b.year_start_cached || Number(a.gcd_id) - Number(b.gcd_id))
+            .forEach((row, i) => {
+              volumeIndexById.set(row.id, i + 1);
+              volumeCountById.set(row.id, volumeRuns.length);
+            });
+        }
+      } else if (pruned.length > 1) {
         const allHaveYears = pruned.every((r) => Number.isFinite(r.year_start_cached));
         const starts = pruned.map((r) => r.year_start_cached);
         const startsAreDistinct = new Set(starts).size === starts.length;
@@ -460,7 +493,7 @@ async function computeSeriesResponse(req) {
     // featured_cover_path_cached value.
     stopRanking();
     const [resolvedSeriesCovers, seriesFormats] = returnFullRanking
-      ? [new Map(), new Map()]
+      ? [new Map(), allSeriesFormats]
       : await Promise.all([
         timing.measure("covers", () => resolveSeriesCardCovers(supabase, top)),
         loadSeriesFormats(supabase, top),
@@ -508,7 +541,7 @@ const legacyCachedSeriesSearch = unstable_cache(
     if (measured.degraded) throw new DegradedSearchError(measured);
     return measured;
   },
-  ["search-series-v1"],
+  ["search-series-v2"],
   { revalidate: SEARCH_CACHE_REVALIDATE_SECONDS, tags: ["search"] }
 );
 
@@ -531,11 +564,22 @@ function exactRunsFirst(rows, title, limit) {
 }
 
 async function withCardCovers(result, parsed, limit, timing, runsTitle = null) {
+  const allRows = result.series ?? [];
+  const matchingFormat = parsed.format
+    ? allRows.filter((row) => matchesSeriesFormat(row, parsed.format))
+    : allRows;
+  const filtered = matchingFormat.length > 0 ? matchingFormat : allRows;
+  const volumeMatch = parsed.volume == null
+    ? null
+    : filtered.find((row) => row.volume_index === parsed.volume);
+  const ordered = volumeMatch
+    ? [volumeMatch, ...filtered.filter((row) => row !== volumeMatch)]
+    : filtered;
   const selected = parsed.year != null
-    ? sliceSearchResults(result.series, { limit })
+    ? sliceSearchResults(ordered, { limit })
     : runsTitle
-      ? exactRunsFirst(result.series ?? [], runsTitle, limit)
-      : diversify(result.series, { limit, perTitle: 2 });
+      ? exactRunsFirst(ordered, runsTitle, limit)
+      : diversify(ordered, { limit, perTitle: 2 });
   const resolve = () => resolveSeriesCardCovers(getServiceClient(), selected.map((row) => ({
     id: row.id,
     gcd_id: row.gcd_id,
@@ -544,14 +588,13 @@ async function withCardCovers(result, parsed, limit, timing, runsTitle = null) {
     year_end_cached: row.year_end,
     resolved_publisher_cached: row.publisher?.name,
   })));
-  const supabase = getServiceClient();
-  const [covers, formats] = await Promise.all([
-    timing ? timing.measure("card_covers", resolve) : resolve(),
-    loadSeriesFormats(supabase, selected),
-  ]);
+  const covers = await (timing ? timing.measure("card_covers", resolve) : resolve());
+  const wanted = normalizeForScoring(parsed.title);
+  const exactCount = allRows.filter((row) => normalizeForScoring(row.title) === wanted).length;
   return {
     ...result,
-    series: addFormatTags(selected.map((row) => ({ ...row, cover: coverUrl(covers.get(row.id)?.storage_path) })), formats),
+    series: selected.map((row) => ({ ...row, cover: coverUrl(covers.get(row.id)?.storage_path) })),
+    title_runs: exactCount > 1 ? { title: parsed.title, count: exactCount } : null,
   };
 }
 
@@ -562,7 +605,7 @@ export async function getCachedSeriesSearch(q, { limit = 12, timing = null, runs
   const askedYear = parsed.year ?? null;
   const { result, state } = await cachedSearchTerm(getServiceClient(), {
     kind: "series",
-    key: askedYear == null ? normalizedTerm : `${normalizedTerm}|${askedYear}`,
+    key: `v2|${askedYear == null ? normalizedTerm : `${normalizedTerm}|${askedYear}`}`,
     compute: () => computeSeriesTerm(normalizedTerm, askedYear),
     schedule: after,
     fallback: () => legacyCachedSeriesSearch(normalizedTerm, askedYear).catch((error) => {

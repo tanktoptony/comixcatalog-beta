@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { diversify, titleFamily, groupByTitle, flattenGroups } from "./searchVariety.js";
+import { diversify, titleFamily, groupByTitle, flattenGroups, matchesSeriesFormat } from "./searchVariety.js";
 
 const s = (title, issues, year) => ({ title, issue_count_cached: issues, year_start_cached: year });
 
@@ -154,4 +154,14 @@ test("grouping empty input is empty, not a crash", () => {
   assert.deepEqual(groupByTitle([]), []);
   assert.deepEqual(groupByTitle(null), []);
   assert.deepEqual(flattenGroups(null), []);
+});
+
+
+test("series format filters match their documented tag families", () => {
+  assert.ok(matchesSeriesFormat({ format_collected: true, format_tag: "Collected" }, "trades"));
+  assert.ok(matchesSeriesFormat({ format_tag: "Compendium" }, "tpb"));
+  assert.ok(matchesSeriesFormat({ format_tag: "Library Edition" }, "hc"));
+  assert.ok(matchesSeriesFormat({ format_tag: "Graphic Novel" }, "gn"));
+  assert.ok(matchesSeriesFormat({ format_tag: "Omnibus" }, "omnibus"));
+  assert.ok(!matchesSeriesFormat({ format_tag: "TPB" }, "hc"));
 });

@@ -2,7 +2,53 @@
 
 import test from "node:test";
 import assert from "node:assert/strict";
-import { parseSearchQuery, yearMatches, yearScore } from "./searchQuery.js";
+import { parseSearchQuery as parseFullSearchQuery, stripSearchQualifiers, yearMatches, yearScore } from "./searchQuery.js";
+
+function parseSearchQuery(raw) {
+  const { title, year, issue } = parseFullSearchQuery(raw);
+  return { title, year, issue };
+}
+
+test("volume phrases are removed without swallowing a following issue", () => {
+  for (const query of ["vol 2", "vol. 2", "vol.2", "volume 2", "v2", "v. 2", "volume two", "vol two"]) {
+    const parsed = parseFullSearchQuery(`Amazing Spider-Man ${query}`);
+    assert.equal(parsed.title, "Amazing Spider-Man", query);
+    assert.equal(parsed.volume, 2, query);
+  }
+  assert.deepEqual(parseFullSearchQuery("amazing spider-man vol 2 36"), {
+    title: "amazing spider-man", year: null, issue: "36", volume: 2, format: null,
+  });
+  assert.deepEqual(parseFullSearchQuery("amazing spider-man vol. 2 #36"), {
+    title: "amazing spider-man", year: null, issue: "36", volume: 2, format: null,
+  });
+  assert.equal(parseFullSearchQuery("x-men v").title, "x-men v");
+  assert.equal(parseFullSearchQuery("evolve 2").volume, null);
+  assert.equal(parseFullSearchQuery("amazing spider-man vol").title, "amazing spider-man vol");
+});
+
+test("format suffixes map to filters but real titles remain intact", () => {
+  const cases = {
+    "saga tpb": "tpb", "saga tp": "tpb", "saga trade paperback": "tpb",
+    "saga paperbacks": "tpb", "saga hc": "hc", "saga hardcovers": "hc",
+    "x-men omnibus": "omnibus", "x-men omnibuses": "omnibus", "x-men omni": "omnibus",
+    "batman trades": "trades", "batman collected": "trades", "batman collection": "trades",
+    "saga deluxe": "deluxe", "watchmen absolute": "absolute", "fables compendium": "compendium",
+    "saga gn": "gn", "saga graphic novels": "gn",
+  };
+  for (const [query, format] of Object.entries(cases)) assert.equal(parseFullSearchQuery(query).format, format, query);
+  assert.equal(parseFullSearchQuery("Absolute Batman").title, "Absolute Batman");
+  assert.equal(parseFullSearchQuery("omnibus").title, "omnibus");
+  assert.equal(parseFullSearchQuery("omnibus").format, null);
+});
+
+test("year, volume, issue and format suffixes compose", () => {
+  assert.deepEqual(parseFullSearchQuery("Amazing Spider-Man (1999) vol 2 tpb #36"), {
+    title: "Amazing Spider-Man", year: 1999, issue: "36", volume: 2, format: "tpb",
+  });
+  assert.deepEqual(parseFullSearchQuery("Amazing Spider-Man #36 tpb vol 2"), {
+    title: "Amazing Spider-Man", year: null, issue: "36", volume: 2, format: "tpb",
+  });
+});
 
 test("a trailing year becomes a filter instead of title text", () => {
   // "rai 1994" returned ZERO results live. The year normalized into the
@@ -95,4 +141,17 @@ test("year 0 and other falsy junk do not read as 'no year'", () => {
   assert.equal(parseSearchQuery("rai 0").year, null);
   assert.equal(parseSearchQuery("rai 0").issue, "0");
   assert.ok(!yearMatches({ year_start_cached: 0 }, 1994));
+});
+
+test("stripSearchQualifiers removes only volume and format words", () => {
+  assert.deepEqual(stripSearchQualifiers("amazing spider-man vol 2 36"), { query: "amazing spider-man 36", volume: 2, format: null });
+  assert.deepEqual(stripSearchQualifiers("amazing spider-man vol. 2 #36"), { query: "amazing spider-man #36", volume: 2, format: null });
+  assert.deepEqual(stripSearchQualifiers("saga tpb"), { query: "saga", volume: null, format: "tpb" });
+  assert.deepEqual(stripSearchQualifiers("saga tpb 2012"), { query: "saga 2012", volume: null, format: "tpb" });
+  assert.deepEqual(stripSearchQualifiers("saga 2012 tpb"), { query: "saga 2012", volume: null, format: "tpb" });
+  // Numbers the issue search reads its own way stay exactly as typed.
+  assert.deepEqual(stripSearchQualifiers("spider-man 2099"), { query: "spider-man 2099", volume: null, format: null });
+  assert.deepEqual(stripSearchQualifiers("hulk 181"), { query: "hulk 181", volume: null, format: null });
+  assert.deepEqual(stripSearchQualifiers("Absolute Batman"), { query: "Absolute Batman", volume: null, format: null });
+  assert.deepEqual(stripSearchQualifiers("v for vendetta"), { query: "v for vendetta", volume: null, format: null });
 });

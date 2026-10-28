@@ -8186,10 +8186,12 @@
     "name": "Captain Marvel: Higher, Further, Faster 1 Halloween Trick-or-Read 2023",
     "publisher": "Marvel Comics",
     "year": 2023,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555767+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T17:06:19.888247+00:00",
+    "retry_after": "2026-10-31T17:06:19.888250+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Conan - Curse of the Golden Skull!",
@@ -27519,8 +27521,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T16:02:54.974445+00:00",
-    "retry_after": "2026-10-29T16:02:54.974449+00:00",
+    "last_attempt_at": "2026-10-28T17:01:36.580049+00:00",
+    "retry_after": "2026-10-29T17:01:36.580053+00:00",
     "search_hydrated": true
   },
   {
@@ -35630,9 +35632,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T00:48:20.648300+00:00",
-    "retry_after": "2026-10-06T00:48:20.648316+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T17:08:08.551563+00:00",
+    "retry_after": "2026-11-04T17:08:08.551565+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel & Disney: What If...? Donald Duck Became Iron Man",
@@ -43571,8 +43574,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T16:02:54.974384+00:00",
-    "retry_after": "2026-10-29T16:02:54.974399+00:00",
+    "last_attempt_at": "2026-10-28T17:01:36.579989+00:00",
+    "retry_after": "2026-10-29T17:01:36.580009+00:00",
     "search_hydrated": true
   },
   {
@@ -78601,9 +78604,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T14:13:04.589257+00:00",
-    "retry_after": "2026-10-28T14:13:04.589259+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T17:09:33.298435+00:00",
+    "retry_after": "2026-10-31T17:09:33.298439+00:00",
     "search_hydrated": true
   },
   {
@@ -78612,9 +78615,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T14:13:04.589274+00:00",
-    "retry_after": "2026-10-28T14:13:04.589277+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T17:09:33.298456+00:00",
+    "retry_after": "2026-10-31T17:09:33.298459+00:00",
     "search_hydrated": true
   },
   {
@@ -78623,9 +78626,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T14:13:04.589289+00:00",
-    "retry_after": "2026-10-28T14:13:04.589292+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T17:09:33.298471+00:00",
+    "retry_after": "2026-10-31T17:09:33.298473+00:00",
     "search_hydrated": true
   },
   {
@@ -78634,9 +78637,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T14:13:04.589303+00:00",
-    "retry_after": "2026-10-28T14:13:04.589306+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T17:09:33.298484+00:00",
+    "retry_after": "2026-10-31T17:09:33.298486+00:00",
     "search_hydrated": true
   },
   {
@@ -78870,9 +78873,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:06:10.889681+00:00",
-    "retry_after": "2026-10-28T16:06:10.889685+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T17:09:33.298499+00:00",
+    "retry_after": "2026-10-31T17:09:33.298500+00:00",
     "search_hydrated": true
   },
   {
@@ -78881,9 +78884,9 @@
     "year": 1979,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:06:10.889700+00:00",
-    "retry_after": "2026-10-28T16:06:10.889703+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T17:09:33.298511+00:00",
+    "retry_after": "2026-10-31T17:09:33.298513+00:00",
     "search_hydrated": true
   },
   {
@@ -78892,9 +78895,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:06:10.889716+00:00",
-    "retry_after": "2026-10-28T16:06:10.889718+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T17:09:33.298524+00:00",
+    "retry_after": "2026-10-31T17:09:33.298526+00:00",
     "search_hydrated": true
   },
   {
@@ -78903,9 +78906,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:06:10.889745+00:00",
-    "retry_after": "2026-10-28T16:06:10.889747+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T17:09:33.298540+00:00",
+    "retry_after": "2026-10-31T17:09:33.298542+00:00",
     "search_hydrated": true
   },
   {
@@ -82229,6 +82232,140 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T16:07:43.121549+00:00",
     "retry_after": "2026-10-29T16:07:43.121552+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Blue Beetle - Edición en Español",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T17:06:19.888182+00:00",
+    "retry_after": "2026-10-29T17:06:19.888198+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain Britain: Betsy Braddock",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T17:06:19.888226+00:00",
+    "retry_after": "2026-10-29T17:06:19.888230+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Creepshow Volume 2",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T17:08:08.551502+00:00",
+    "retry_after": "2026-10-29T17:08:08.551520+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Curse Words Compendium",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T17:08:08.551545+00:00",
+    "retry_after": "2026-10-29T17:08:08.551548+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Pinhead",
+    "publisher": "BOOM! Studios",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21723,
+        "name": "Pinhead",
+        "publisher": "Marvel",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T17:09:33.298390+00:00",
+    "retry_after": "2026-10-29T17:09:33.298409+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Corriere dei Ragazzi",
+    "publisher": "Dell Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32469,
+        "name": "Corriere dei Ragazzi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T17:09:41.442950+00:00",
+    "retry_after": "2026-10-29T17:09:41.442970+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi di Orient Express",
+    "publisher": "Marvel Comics",
+    "year": 1983,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 47514,
+        "name": "Gli Albi di Orient Express",
+        "publisher": "L'Isola Trovata",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T17:09:41.443009+00:00",
+    "retry_after": "2026-10-29T17:09:41.443013+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Zona X",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28041,
+        "name": "Zona X",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T17:09:41.443054+00:00",
+    "retry_after": "2026-10-29T17:09:41.443057+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Korak - Serie Avestruz",
+    "publisher": "Harvey Comics",
+    "year": 1975,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 106802,
+        "name": "Korak Serie Avestruz",
+        "publisher": "Editorial Novaro",
+        "start_year": 1975
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T17:09:41.443074+00:00",
+    "retry_after": "2026-10-29T17:09:41.443077+00:00",
     "search_hydrated": true
   }
 ]

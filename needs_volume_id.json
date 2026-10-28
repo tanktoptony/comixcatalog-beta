@@ -6254,10 +6254,12 @@
     "name": "Marvel's Voices: Spider-Verse",
     "publisher": "Marvel Comics",
     "year": 2023,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555156+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T22:22:15.080490+00:00",
+    "retry_after": "2026-10-31T22:22:15.080492+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Genetiks",
@@ -9897,9 +9899,10 @@
         "start_year": 1987
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-01T14:14:45.205962+00:00",
-    "retry_after": "2026-10-15T14:14:45.205978+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:19:51.635042+00:00",
+    "retry_after": "2026-10-29T22:19:51.635058+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Robin",
@@ -27493,8 +27496,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:09:39.364951+00:00",
-    "retry_after": "2026-10-29T22:09:39.364968+00:00",
+    "last_attempt_at": "2026-10-28T22:23:47.753437+00:00",
+    "retry_after": "2026-10-29T22:23:47.753455+00:00",
     "search_hydrated": true
   },
   {
@@ -27517,8 +27520,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:02:49.995407+00:00",
-    "retry_after": "2026-10-29T22:02:49.995412+00:00",
+    "last_attempt_at": "2026-10-28T22:16:07.280515+00:00",
+    "retry_after": "2026-10-29T22:16:07.280519+00:00",
     "search_hydrated": true
   },
   {
@@ -36370,9 +36373,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T05:56:12.828782+00:00",
-    "retry_after": "2026-10-06T05:56:12.828798+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T22:22:15.080368+00:00",
+    "retry_after": "2026-11-04T22:22:15.080384+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Sheena: Queen of the Jungle",
@@ -40105,9 +40109,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T00:00:45.625284+00:00",
-    "retry_after": "2026-10-06T00:00:45.625298+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T22:22:15.080424+00:00",
+    "retry_after": "2026-10-31T22:22:15.080427+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Night Club",
@@ -43575,8 +43580,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:02:49.995345+00:00",
-    "retry_after": "2026-10-29T22:02:49.995362+00:00",
+    "last_attempt_at": "2026-10-28T22:16:07.280453+00:00",
+    "retry_after": "2026-10-29T22:16:07.280471+00:00",
     "search_hydrated": true
   },
   {
@@ -83846,6 +83851,115 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T22:09:39.365013+00:00",
     "retry_after": "2026-10-29T22:09:39.365018+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Legends of the Dark Knight: José Luis García-López",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:19:52.433256+00:00",
+    "retry_after": "2026-10-29T22:19:52.433270+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "King Deadpool by Kelly Thompson",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 135909,
+        "name": "King Deadpool",
+        "publisher": "Marvel",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:21:35.992135+00:00",
+    "retry_after": "2026-10-29T22:21:35.992156+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Loaded Bible: Blood of My Blood",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 141810,
+        "name": "Loaded Bible: Blood of My Blood",
+        "publisher": "Image",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:21:46.677273+00:00",
+    "retry_after": "2026-10-29T22:21:46.677290+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Loki the Liar",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:22:15.080405+00:00",
+    "retry_after": "2026-10-29T22:22:15.080408+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Voices: Community",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:22:15.080449+00:00",
+    "retry_after": "2026-10-29T22:22:15.080452+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel-Verse: Spider-Gwen: Ghost Spider",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:22:15.080473+00:00",
+    "retry_after": "2026-10-29T22:22:15.080476+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Megaton Archives",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 152158,
+        "name": "Megaton Archives",
+        "publisher": "Image",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:23:06.837454+00:00",
+    "retry_after": "2026-10-29T22:23:06.837470+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Jokes",
+    "publisher": "Harvey Comics",
+    "year": 1946,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T22:23:25.352206+00:00",
+    "retry_after": "2026-10-29T22:23:25.352221+00:00",
     "search_hydrated": true
   }
 ]

@@ -66,54 +66,25 @@
     ]
   },
   {
-    "name": "Sunder",
+    "name": "X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "volume_id": 158814,
+    "series_gcd_id": 212762,
+    "newest_release": "2026-11-00",
+    "missing": [
+      "35 (335)",
+      "36 (336)",
+      "37 (337)",
+      "38 (338)",
+      "40"
+    ]
+  },
+  {
+    "name": "Denver",
     "publisher": "Mad Cave Studios",
     "year": 2026,
-    "volume_id": null,
-    "series_gcd_id": 240897,
-    "newest_release": "2026-09-30",
-    "missing": [
-      "1"
-    ]
-  },
-  {
-    "name": "The Amazing Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2025,
-    "volume_id": 163325,
-    "series_gcd_id": 222176,
-    "newest_release": "2026-12-00",
-    "missing": [
-      "1002"
-    ]
-  },
-  {
-    "name": "Alien vs. X-Men",
-    "publisher": "Marvel Comics",
-    "year": 2026,
-    "volume_id": 177251,
-    "series_gcd_id": null,
-    "newest_release": "2026-10-28",
-    "missing": [
-      "2"
-    ]
-  },
-  {
-    "name": "Archie",
-    "publisher": "Oni Press",
-    "year": 2026,
-    "volume_id": 176680,
-    "series_gcd_id": null,
-    "newest_release": "2026-10-28",
-    "missing": [
-      "2"
-    ]
-  },
-  {
-    "name": "Biker Mice from Mars: Scorch",
-    "publisher": "Oni Press",
-    "year": 2026,
-    "volume_id": 175731,
+    "volume_id": 176384,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
@@ -121,21 +92,10 @@
     ]
   },
   {
-    "name": "Bishop",
-    "publisher": "Marvel",
+    "name": "Dungeons & Dragons: Ravenloft",
+    "publisher": "Dark Horse Comics",
     "year": 2026,
-    "volume_id": 172749,
-    "series_gcd_id": null,
-    "newest_release": "2026-10-28",
-    "missing": [
-      "5"
-    ]
-  },
-  {
-    "name": "Black Panther/Namor: Doomed",
-    "publisher": "Marvel Comics",
-    "year": 2026,
-    "volume_id": 176682,
+    "volume_id": 176993,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
@@ -143,58 +103,36 @@
     ]
   },
   {
-    "name": "Black Tower: The Raven Conspiracy",
-    "publisher": "DC Comics",
+    "name": "Escape from New York: Escape from Chicago",
+    "publisher": "Mad Cave Studios",
     "year": 2026,
-    "volume_id": 176383,
+    "volume_id": 177138,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
-      "3"
+      "2"
     ]
   },
   {
-    "name": "Captain America",
+    "name": "Fantastic Four",
     "publisher": "Marvel",
     "year": 2025,
-    "volume_id": 165232,
+    "volume_id": 165358,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
-      "16"
+      "18"
     ]
   },
   {
-    "name": "Conan the Barbarian",
-    "publisher": "Titan Comics",
-    "year": 2023,
-    "volume_id": 152857,
-    "series_gcd_id": null,
-    "newest_release": "2026-10-28",
-    "missing": [
-      "36"
-    ]
-  },
-  {
-    "name": "Crimes Against Nature",
-    "publisher": "Image Comics",
+    "name": "The Amazing Venom",
+    "publisher": "Marvel Comics",
     "year": 2026,
-    "volume_id": 177135,
+    "volume_id": 177268,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
       "2"
-    ]
-  },
-  {
-    "name": "Daredevil",
-    "publisher": "Marvel",
-    "year": 2026,
-    "volume_id": 171255,
-    "series_gcd_id": null,
-    "newest_release": "2026-10-28",
-    "missing": [
-      "8"
     ]
   },
   {
@@ -228,6 +166,17 @@
     "newest_release": "2026-12-00",
     "missing": [
       "2 - Christmas Extravaganza"
+    ]
+  },
+  {
+    "name": "Shudder",
+    "publisher": "Warrant Publishing",
+    "year": 2021,
+    "volume_id": 139156,
+    "series_gcd_id": 175906,
+    "newest_release": "2026-12-00",
+    "missing": [
+      "31"
     ]
   },
   {
@@ -320,6 +269,17 @@
     ]
   },
   {
+    "name": "Boruto: Two Blue Vortex",
+    "publisher": "VIZ Media",
+    "year": 2025,
+    "volume_id": null,
+    "series_gcd_id": 221012,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "6"
+    ]
+  },
+  {
     "name": "Cryptology",
     "publisher": "TwoMorrows Publishing",
     "year": 2024,
@@ -328,6 +288,61 @@
     "newest_release": "2026-10-00",
     "missing": [
       "11"
+    ]
+  },
+  {
+    "name": "Dandadan",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "volume_id": 145549,
+    "series_gcd_id": 190566,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "21"
+    ]
+  },
+  {
+    "name": "Fushigi Yûgi: Byakko Senki",
+    "publisher": "VIZ Media",
+    "year": 2020,
+    "volume_id": 129227,
+    "series_gcd_id": 162598,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "5"
+    ]
+  },
+  {
+    "name": "Grim Night Tales",
+    "publisher": "Seven Seas Entertainment",
+    "year": 2026,
+    "volume_id": 170973,
+    "series_gcd_id": 234011,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "His Sensual Whisper: The Voice That Sets Me On Fire",
+    "publisher": "Seven Seas Entertainment",
+    "year": 2026,
+    "volume_id": 169759,
+    "series_gcd_id": 230235,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "Ichi the Witch",
+    "publisher": "VIZ Media",
+    "year": 2026,
+    "volume_id": 170515,
+    "series_gcd_id": 233135,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "5"
     ]
   },
   {
@@ -342,6 +357,17 @@
     ]
   },
   {
+    "name": "Kitayama and Minamiya",
+    "publisher": "Seven Seas Entertainment",
+    "year": 2026,
+    "volume_id": 172043,
+    "series_gcd_id": 234384,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "3"
+    ]
+  },
+  {
     "name": "Mad",
     "publisher": "EC Comics",
     "year": 2018,
@@ -350,6 +376,39 @@
     "newest_release": "2026-10-00",
     "missing": [
       "601"
+    ]
+  },
+  {
+    "name": "Marriage Toxin",
+    "publisher": "VIZ Media",
+    "year": 2024,
+    "volume_id": 155835,
+    "series_gcd_id": 209241,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "15"
+    ]
+  },
+  {
+    "name": "Monster Cats",
+    "publisher": "Seven Seas Entertainment",
+    "year": 2024,
+    "volume_id": 169720,
+    "series_gcd_id": 214927,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "My Deer Friend Nokotan",
+    "publisher": "Seven Seas Entertainment",
+    "year": 2022,
+    "volume_id": 141896,
+    "series_gcd_id": 183024,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "8"
     ]
   },
   {

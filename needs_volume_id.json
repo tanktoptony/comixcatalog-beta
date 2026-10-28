@@ -8548,28 +8548,6 @@
     "retry_after": "2026-09-21T14:00:38.555865+00:00"
   },
   {
-    "name": "Ambassadors",
-    "publisher": "Image Comics",
-    "year": 2023,
-    "reason": "multiple_same_start_year",
-    "candidates": [
-      {
-        "id": 149098,
-        "name": "The Ambassadors",
-        "publisher": "Image",
-        "start_year": 2023
-      },
-      {
-        "id": 152998,
-        "name": "The Ambassadors",
-        "publisher": "Image",
-        "start_year": 2023
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555868+00:00"
-  },
-  {
     "name": "Star Wars: The Acolyte - Kelnacca",
     "publisher": "Marvel Comics",
     "year": 2024,
@@ -27515,8 +27493,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T13:11:58.082191+00:00",
-    "retry_after": "2026-10-29T13:11:58.082208+00:00",
+    "last_attempt_at": "2026-10-28T14:07:43.541981+00:00",
+    "retry_after": "2026-10-29T14:07:43.541997+00:00",
     "search_hydrated": true
   },
   {
@@ -27539,8 +27517,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T13:01:42.555628+00:00",
-    "retry_after": "2026-10-29T13:01:42.555632+00:00",
+    "last_attempt_at": "2026-10-28T14:01:47.181305+00:00",
+    "retry_after": "2026-10-29T14:01:47.181310+00:00",
     "search_hydrated": true
   },
   {
@@ -32991,9 +32969,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T10:45:18.954117+00:00",
-    "retry_after": "2026-10-10T10:45:18.954133+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-28T14:05:36.398378+00:00",
+    "retry_after": "2026-11-11T14:05:36.398381+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Dork Tower Swimsuit Special",
@@ -43590,8 +43569,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T13:01:42.555550+00:00",
-    "retry_after": "2026-10-29T13:01:42.555569+00:00",
+    "last_attempt_at": "2026-10-28T14:01:47.181245+00:00",
+    "retry_after": "2026-10-29T14:01:47.181262+00:00",
     "search_hydrated": true
   },
   {
@@ -45651,9 +45630,10 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T10:18:14.858881+00:00",
-    "retry_after": "2026-10-22T10:18:14.858896+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-28T14:01:33.865306+00:00",
+    "retry_after": "2026-11-11T14:01:33.865310+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Invader Zim Quarterly: GIR's Big Day",
@@ -47416,9 +47396,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T22:28:52.325602+00:00",
-    "retry_after": "2026-10-22T22:28:52.325614+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-28T14:05:57.123454+00:00",
+    "retry_after": "2026-11-11T14:05:57.123457+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Taoland Adventure",
@@ -47705,9 +47686,10 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T23:15:55.668442+00:00",
-    "retry_after": "2026-10-22T23:15:55.668458+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-28T14:01:33.865329+00:00",
+    "retry_after": "2026-11-11T14:01:33.865332+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Whiz Bang",
@@ -60123,9 +60105,10 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T19:16:01.264804+00:00",
-    "retry_after": "2026-10-22T19:16:01.264819+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T14:01:33.865257+00:00",
+    "retry_after": "2026-10-31T14:01:33.865274+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Firefly Wedding",
@@ -78475,9 +78458,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T13:05:21.577430+00:00",
-    "retry_after": "2026-10-28T13:05:21.577435+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T14:05:36.398287+00:00",
+    "retry_after": "2026-10-31T14:05:36.398305+00:00",
     "search_hydrated": true
   },
   {
@@ -78486,9 +78469,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T13:05:21.577472+00:00",
-    "retry_after": "2026-10-28T13:05:21.577475+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T14:05:36.398336+00:00",
+    "retry_after": "2026-10-31T14:05:36.398340+00:00",
     "search_hydrated": true
   },
   {
@@ -78504,9 +78487,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T13:06:15.655061+00:00",
-    "retry_after": "2026-10-28T13:06:15.655076+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T14:05:36.963916+00:00",
+    "retry_after": "2026-10-31T14:05:36.963931+00:00",
     "search_hydrated": true
   },
   {
@@ -82327,6 +82310,159 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T12:10:04.772173+00:00",
     "retry_after": "2026-10-29T12:10:04.772177+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Zero Hour: Crisis in Time Omnibus",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:05:36.398397+00:00",
+    "retry_after": "2026-10-29T14:05:36.398400+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Batman: Three Jokers",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:05:36.398413+00:00",
+    "retry_after": "2026-10-29T14:05:36.398416+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Dark Nights: Death Metal",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:05:36.398429+00:00",
+    "retry_after": "2026-10-29T14:05:36.398432+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Superman for All Seasons",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:05:36.398457+00:00",
+    "retry_after": "2026-10-29T14:05:36.398460+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Sandman Overture",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 111808,
+        "name": "The Absolute Sandman Overture",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:05:36.965624+00:00",
+    "retry_after": "2026-10-29T14:05:36.965629+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute V for Vendetta",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 27761,
+        "name": "Absolute V for Vendetta",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:05:36.965816+00:00",
+    "retry_after": "2026-10-29T14:05:36.965820+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Spider-Man: The Birth of Tombstone 1 Halloween Trick-or-Read 2023",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:05:57.123335+00:00",
+    "retry_after": "2026-10-29T14:05:57.123350+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Aquaman: 80 Years of the King of the Seven Seas The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:05:57.123423+00:00",
+    "retry_after": "2026-10-29T14:05:57.123427+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Avengers Two: Wonder Man & Beast",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 7261,
+        "name": "Avengers Two: Wonder Man and Beast",
+        "publisher": "Marvel",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:07:08.683586+00:00",
+    "retry_after": "2026-10-29T14:07:08.683614+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "2000 AD Annual 2025",
+    "publisher": "Rebellion",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:07:26.427020+00:00",
+    "retry_after": "2026-10-29T14:07:26.427045+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Franklin Richards: Son of a Genius Ultimate Collection",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:07:26.427070+00:00",
+    "retry_after": "2026-10-29T14:07:26.427074+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fred Perry Treasure Vault",
+    "publisher": "Antarctic Press",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T14:07:26.427090+00:00",
+    "retry_after": "2026-10-29T14:07:26.427093+00:00",
     "search_hydrated": true
   }
 ]

@@ -1,13 +1,24 @@
 [
   {
-    "name": "Amazing Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2021,
-    "volume_id": null,
-    "series_gcd_id": 172683,
-    "newest_release": "2026-10-08",
+    "name": "Monstress",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": 85776,
+    "series_gcd_id": 93845,
+    "newest_release": "2026-10-28",
     "missing": [
-      "73"
+      "65"
+    ]
+  },
+  {
+    "name": "Spawn",
+    "publisher": "Image Comics",
+    "year": 1992,
+    "volume_id": 4937,
+    "series_gcd_id": 4611,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "380"
     ]
   },
   {
@@ -22,25 +33,14 @@
     ]
   },
   {
-    "name": "Something Is Killing the Children",
-    "publisher": "BOOM! Studios",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 160025,
-    "newest_release": "2026-10-07",
-    "missing": [
-      "50"
-    ]
-  },
-  {
-    "name": "Starhenge, Book Two: A Kiss for Atticus",
-    "publisher": "Image Comics",
+    "name": "The Credits Roll into the Sea",
+    "publisher": "Dark Horse Comics",
     "year": 2026,
     "volume_id": null,
-    "series_gcd_id": 238755,
-    "newest_release": "2026-10-07",
+    "series_gcd_id": 238950,
+    "newest_release": "2026-10-06",
     "missing": [
-      "4"
+      "2"
     ]
   },
   {
@@ -66,6 +66,17 @@
     ]
   },
   {
+    "name": "Adventure Time Halloween Special: Those Who Fight Monsters",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 240898,
+    "newest_release": "2026-09-30",
+    "missing": [
+      "1"
+    ]
+  },
+  {
     "name": "Comic Shop News",
     "publisher": "ParaGraphics",
     "year": 1987,
@@ -74,6 +85,17 @@
     "newest_release": "2026-09-30",
     "missing": [
       "2041"
+    ]
+  },
+  {
+    "name": "Archie Jumbo Comic Magazine",
+    "publisher": "Archie Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 235562,
+    "newest_release": "2026-12-00",
+    "missing": [
+      "2 - Christmas Extravaganza"
     ]
   },
   {
@@ -121,6 +143,18 @@
     ]
   },
   {
+    "name": "Deathstroke: The Terminator",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 233427,
+    "newest_release": "2026-11-00",
+    "missing": [
+      "6 [Carmine Di Giandomenico Cover]",
+      "7 [Carmine Di Giandomenico Cover]"
+    ]
+  },
+  {
     "name": "Watchmen (Facsimile Edition)",
     "publisher": "DC Comics",
     "year": 2026,
@@ -140,6 +174,17 @@
     "newest_release": "2026-10-00",
     "missing": [
       "16"
+    ]
+  },
+  {
+    "name": "Avengers / JLA (Facsimile Edition)",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 238627,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "4"
     ]
   },
   {
@@ -192,6 +237,17 @@
     "year": 2026,
     "volume_id": null,
     "series_gcd_id": 237783,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "The Demon Prince of Momochi House: Succession",
+    "publisher": "VIZ Media",
+    "year": 2025,
+    "volume_id": null,
+    "series_gcd_id": 227212,
     "newest_release": "2026-10-00",
     "missing": [
       "3"

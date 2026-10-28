@@ -27507,8 +27507,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T04:21:53.757270+00:00",
-    "retry_after": "2026-10-29T04:21:53.757287+00:00",
+    "last_attempt_at": "2026-10-28T05:10:42.290413+00:00",
+    "retry_after": "2026-10-29T05:10:42.290427+00:00",
     "search_hydrated": true
   },
   {
@@ -27531,8 +27531,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T04:12:28.036359+00:00",
-    "retry_after": "2026-10-29T04:12:28.036363+00:00",
+    "last_attempt_at": "2026-10-28T05:01:23.557711+00:00",
+    "retry_after": "2026-10-29T05:01:23.557715+00:00",
     "search_hydrated": true
   },
   {
@@ -40132,8 +40132,9 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-05T00:00:55.056914+00:00",
-    "retry_after": "2026-10-06T00:00:55.056930+00:00"
+    "last_attempt_at": "2026-10-28T05:06:34.235750+00:00",
+    "retry_after": "2026-10-29T05:06:34.235755+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Guardians of the Galaxy Modern Era Epic Collection",
@@ -40217,9 +40218,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T01:01:06.134699+00:00",
-    "retry_after": "2026-10-06T01:01:06.134721+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T05:06:34.235675+00:00",
+    "retry_after": "2026-10-31T05:06:34.235691+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Walt Disney's Donald Duck: Sunday Classics",
@@ -43574,8 +43576,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T04:12:28.036301+00:00",
-    "retry_after": "2026-10-29T04:12:28.036316+00:00",
+    "last_attempt_at": "2026-10-28T05:01:23.557650+00:00",
+    "retry_after": "2026-10-29T05:01:23.557667+00:00",
     "search_hydrated": true
   },
   {
@@ -58770,9 +58772,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-21T21:15:55.948241+00:00",
-    "retry_after": "2026-10-24T21:15:55.948257+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T05:08:39.553453+00:00",
+    "retry_after": "2026-11-04T05:08:39.553468+00:00",
+    "search_hydrated": true
   },
   {
     "name": "DC Comics Presents: Superman – The Kents",
@@ -77665,9 +77668,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T05:05:27.820445+00:00",
-    "retry_after": "2026-10-28T05:05:27.820460+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T05:09:38.648831+00:00",
+    "retry_after": "2026-10-31T05:09:38.648850+00:00",
     "search_hydrated": true
   },
   {
@@ -77676,9 +77679,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T05:05:27.820477+00:00",
-    "retry_after": "2026-10-28T05:05:27.820480+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T05:09:38.648876+00:00",
+    "retry_after": "2026-10-31T05:09:38.648881+00:00",
     "search_hydrated": true
   },
   {
@@ -77687,9 +77690,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T05:05:27.820520+00:00",
-    "retry_after": "2026-10-28T05:05:27.820522+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T05:09:38.648897+00:00",
+    "retry_after": "2026-10-31T05:09:38.648900+00:00",
     "search_hydrated": true
   },
   {
@@ -81412,6 +81415,139 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T04:20:09.117871+00:00",
     "retry_after": "2026-10-29T04:20:09.117875+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mr. Lovenstein Presents Feelings",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T05:05:05.346449+00:00",
+    "retry_after": "2026-10-29T05:05:05.346466+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Moon Knight: Black, White & Blood",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 142845,
+        "name": "Moon Knight: Black, White & Blood",
+        "publisher": "Marvel",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T05:05:18.733452+00:00",
+    "retry_after": "2026-10-29T05:05:18.733480+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Multiversity: Harley Screws Up the DCU",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 148491,
+        "name": "Multiversity: Harley Screws Up the DCU",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T05:06:11.581281+00:00",
+    "retry_after": "2026-10-29T05:06:11.581296+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nights",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 154198,
+        "name": "Nights",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T05:08:22.270759+00:00",
+    "retry_after": "2026-10-29T05:08:22.270775+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "normalman Fortieth Anniversary Omnibus",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T05:08:39.553490+00:00",
+    "retry_after": "2026-10-29T05:08:39.553494+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Peach Momoko's Demon Saga: Demon Days",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T05:08:39.553519+00:00",
+    "retry_after": "2026-10-29T05:08:39.553522+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Peach Momoko's Demon Saga: Demon Wars",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T05:08:39.553535+00:00",
+    "retry_after": "2026-10-29T05:08:39.553537+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Pearl",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 112817,
+        "name": "Pearl",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 118862,
+        "name": "Pearl",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T05:08:39.553588+00:00",
+    "retry_after": "2026-10-29T05:08:39.553591+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Petrol Head: Welcome to the Non-Human Race",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T05:08:39.553609+00:00",
+    "retry_after": "2026-10-29T05:08:39.553612+00:00",
     "search_hydrated": true
   }
 ]

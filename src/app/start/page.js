@@ -211,7 +211,7 @@ export default async function StartPage() {
           <p className={styles.foundingOffer}>
             <span className={styles.foundingBadge}>Founding Collector</span>
             The first 100 accounts get the badge and a lifetime membership, free.{" "}
-            <strong>{foundingRemaining} left.</strong>{" "}It&rsquo;s automatic when you sign up.
+            Sign up and confirm your email to claim it.
           </p>
         )}
       </section>

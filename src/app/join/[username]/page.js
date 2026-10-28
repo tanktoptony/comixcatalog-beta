@@ -50,7 +50,7 @@ export default async function JoinPage({ params }) {
         {name !== `@${inviter.username}` && <p className={styles.handle}>@{inviter.username}</p>}
         <p className={styles.lede}>Catalog your collection, scan covers, and keep track of the comics you want.</p>
         {Number.isFinite(foundingRemaining) && foundingRemaining > 0 && (
-          <p className={styles.founding}>{foundingRemaining} founding spots left</p>
+          <p className={styles.founding}>Free lifetime spots for the first 100</p>
         )}
         <InviteLandingActions inviter={{ id: inviter.id, username: inviter.username }} />
       </section>

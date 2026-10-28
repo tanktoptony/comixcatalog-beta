@@ -1,27 +1,5 @@
 [
   {
-    "name": "Monstress",
-    "publisher": "Image Comics",
-    "year": 2015,
-    "volume_id": 85776,
-    "series_gcd_id": 93845,
-    "newest_release": "2026-10-28",
-    "missing": [
-      "65"
-    ]
-  },
-  {
-    "name": "Spawn",
-    "publisher": "Image Comics",
-    "year": 1992,
-    "volume_id": 4937,
-    "series_gcd_id": 4611,
-    "newest_release": "2026-10-28",
-    "missing": [
-      "380"
-    ]
-  },
-  {
     "name": "Overkiller",
     "publisher": "Cosmic Lion Productions",
     "year": 2026,
@@ -85,6 +63,28 @@
     "newest_release": "2026-09-30",
     "missing": [
       "2041"
+    ]
+  },
+  {
+    "name": "Sunder",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 240897,
+    "newest_release": "2026-09-30",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Absolute Batman",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "volume_id": 160294,
+    "series_gcd_id": 216143,
+    "newest_release": "2026-12-00",
+    "missing": [
+      "25"
     ]
   },
   {
@@ -152,6 +152,18 @@
     "missing": [
       "6 [Carmine Di Giandomenico Cover]",
       "7 [Carmine Di Giandomenico Cover]"
+    ]
+  },
+  {
+    "name": "Miles Morales: Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 175739,
+    "series_gcd_id": 238556,
+    "newest_release": "2026-11-00",
+    "missing": [
+      "1 [325]",
+      "2 (326)"
     ]
   },
   {
@@ -237,17 +249,6 @@
     "year": 2026,
     "volume_id": null,
     "series_gcd_id": 237783,
-    "newest_release": "2026-10-00",
-    "missing": [
-      "3"
-    ]
-  },
-  {
-    "name": "The Demon Prince of Momochi House: Succession",
-    "publisher": "VIZ Media",
-    "year": 2025,
-    "volume_id": null,
-    "series_gcd_id": 227212,
     "newest_release": "2026-10-00",
     "missing": [
       "3"

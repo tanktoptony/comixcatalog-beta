@@ -113,8 +113,8 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
         <div className="fc-hero-copy">
           <p className="fc-kicker">Founding Collectors · The first {CAP}</p>
           <h1 className="fc-title">
-            {remaining == null ? "-" : remaining}{" "}
-            <span>founding spots left.</span>
+            {soldOut ? "All hundred" : "Be one of"}{" "}
+            <span>{soldOut ? "are claimed." : "the first hundred."}</span>
           </h1>
           <p className="fc-lede">
             The first hundred collectors get a lifetime membership, free, with no card: no upgrade prompts, and a numbered Founding Collector badge nobody after No. 100 can get. After that, membership is $4 a month. Your name goes on the wall below, for good.
@@ -171,10 +171,9 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
         </div>
       </section>
 
-      <section className="fc-slots-section" aria-label={claimed == null ? "Founding passes" : `${claimed} of ${CAP} founding passes claimed`}>
+      <section className="fc-slots-section" aria-label="The first hundred founding passes">
         <div className="fc-slots-head">
           <h2>The first hundred</h2>
-          {claimed != null && <p><b>{claimed}</b> claimed · <b>{remaining}</b> left</p>}
         </div>
         <div className="fc-slots">
           {Array.from({ length: CAP }, (_, i) => {

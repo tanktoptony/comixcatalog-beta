@@ -9,9 +9,10 @@
 // slides and caption, word for word. This script adds nothing of its own
 // except the two things that go stale between approval and posting day:
 //
-//   1. The founding count. The last slide is rendered today from
-//      founders-slide.html and the caption's {{spots_left}} is filled from a
-//      live count, so "66 spots left" can't go out when 61 are left.
+//   1. The founding offer. The last slide is rendered today from
+//      founders-slide.html. It shows no spots-left number (Tony, 2026-10-27),
+//      but if all 100 are claimed the post is refused rather than sell a spot
+//      that's gone.
 //   2. The competitor claim. If the competitor's own page loads and no longer
 //      says what the slide says, the post is refused. If the page can't be
 //      fetched at all (bot wall), it posts anyway: the slide and caption
@@ -46,15 +47,6 @@ export function dueEntry(queue, today) {
   return (queue?.posts ?? []).find((post) => post.post_on === today && !post.posted) ?? null;
 }
 
-export function spotsLeftText(remaining) {
-  return `${remaining} ${remaining === 1 ? "spot" : "spots"} left`;
-}
-
-export function fillCaption(caption, remaining) {
-  if (!caption.includes("{{spots_left}}")) return caption;
-  return caption.replaceAll("{{spots_left}}", spotsLeftText(remaining));
-}
-
 // Pure: which of the expected phrases a fetched page no longer contains.
 // Tags out, whitespace collapsed, case ignored, so "$ 49.00 PER YEAR" split
 // across spans still matches "49.00 per year".
@@ -68,11 +60,9 @@ export function missingPhrases(html, phrases) {
   return phrases.filter((phrase) => !text.includes(phrase.replace(/\s+/g, " ").toLowerCase()));
 }
 
-export function foundersSlideHtml(template, { remaining, slug, fontDir }) {
+export function foundersSlideHtml(template, { slug, fontDir }) {
   return template
     .replaceAll("{{FONT_DIR}}", fontDir)
-    .replaceAll("{{SPOTS}}", String(remaining))
-    .replaceAll("{{SPOT_WORD}}", remaining === 1 ? "spot" : "spots")
     .replaceAll("{{SLUG}}", slug);
 }
 
@@ -117,13 +107,13 @@ function chromePath() {
     : "google-chrome";
 }
 
-async function renderFoundersSlide({ remaining, slug }) {
+async function renderFoundersSlide({ slug }) {
   const work = fs.mkdtempSync(path.join(os.tmpdir(), "ig-series-"));
   const htmlPath = path.join(work, "founders.html");
   const pngPath = path.join(work, "founders.png");
   const template = fs.readFileSync(path.join(SERIES_DIR, "founders-slide.html"), "utf8");
   const fontDir = pathToFileURL(path.join(SERIES_DIR, "fonts")).href;
-  fs.writeFileSync(htmlPath, foundersSlideHtml(template, { remaining, slug, fontDir }));
+  fs.writeFileSync(htmlPath, foundersSlideHtml(template, { slug, fontDir }));
   execFileSync(chromePath(), [
     "--headless=new", "--no-sandbox", "--disable-gpu", "--hide-scrollbars",
     "--force-device-scale-factor=1", "--window-size=1080,1350", "--virtual-time-budget=6000",
@@ -189,16 +179,16 @@ async function run() {
   if (entry.founders_slide && remaining < 1) {
     throw new Error("All 100 founding passes are claimed; the founders slide and caption would be false. Edit the post.");
   }
-  const caption = fillCaption(entry.caption, remaining);
+  const caption = entry.caption;
   if (caption.includes("{{")) throw new Error("Caption still has an unfilled placeholder.");
 
   const slides = [...entry.slides];
   if (entry.founders_slide) {
-    const { jpg, dir } = await renderFoundersSlide({ remaining, slug: entry.slug });
+    const { jpg, dir } = await renderFoundersSlide({ slug: entry.slug });
     if (dryRun) {
       const out = path.join(dir, `vs-${entry.slug}-4.jpg`);
       fs.writeFileSync(out, jpg);
-      console.log(`Dry run: founders slide (${remaining} left) at ${out}`);
+      console.log(`Dry run: founders slide at ${out}`);
     } else {
       slides.push(await uploadSlide(supabase, jpg, `brand-cards/vs-${entry.slug}-4-${today}.jpg`));
     }

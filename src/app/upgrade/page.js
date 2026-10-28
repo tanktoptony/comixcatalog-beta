@@ -159,11 +159,7 @@ export default function UpgradePage() {
         {foundingOpen && (
           <p className="upgrade-founding-offer">
             <Link href="/signup">
-              <strong>
-                {foundingRemaining == null
-                  ? "Free lifetime memberships are still available."
-                  : `${foundingRemaining} free lifetime memberships remain.`}
-              </strong>{" "}
+              <strong>Free lifetime memberships are still available.</strong>{" "}
               Create your account and claim yours →
             </Link>
           </p>

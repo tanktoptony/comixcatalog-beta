@@ -6,10 +6,9 @@ import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
 // initialRemaining comes from the server-rendered layout, computed fresh
-// per request — this used to seed useState with a hardcoded 83, which every
-// visitor briefly saw flash to the real count (e.g. 76) once this effect
-// resolved. Never guess a number here: null means "don't know yet," and the
-// banner stays hidden rather than show something that might be wrong.
+// per request. It only decides whether the banner shows: the count itself is
+// never printed (Tony, 2026-10-27: no spots-left numbers anywhere). null
+// means "don't know yet," and the banner stays hidden until it's known.
 export default function FoundingBanner({ initialRemaining = null }) {
   const [remaining, setRemaining] = useState(initialRemaining);
   const pathname = usePathname();
@@ -33,9 +32,8 @@ export default function FoundingBanner({ initialRemaining = null }) {
     <div className="founding-banner" role="region" aria-label="Founding Collector offer">
       <div className="founding-banner-inner">
         <p>
-          <span className="founding-banner-count">{remaining}</span>{" "}
-          <strong className="founding-banner-desktop-copy">free lifetime memberships remain.</strong>
-          <strong className="founding-banner-mobile-copy">free lifetime spots left</strong>
+          <strong className="founding-banner-desktop-copy">Free lifetime memberships for the first 100.</strong>
+          <strong className="founding-banner-mobile-copy">Free lifetime spots for the first 100</strong>
           <span className="founding-banner-desktop-copy"> Join now and confirm your email, no card required.</span>
         </p>
         <span className="founding-banner-mobile-copy" aria-hidden="true">·</span>

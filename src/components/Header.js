@@ -596,7 +596,7 @@ export default function Header() {
 
           {!user && !loading && (
             <>
-              <Link href="/login" className="nav-link nav-link-mobile-hide" onClick={closeMenu}>
+              <Link href="/login" className="nav-link nav-link-signin" onClick={closeMenu}>
                 Sign in
               </Link>
               {/* On /start (the Instagram landing page) this goes through the
@@ -611,7 +611,9 @@ export default function Header() {
                   ? { "data-start-cta": "start_collection", "data-start-location": "header" }
                   : {})}
               >
-                Create account
+                {/* Phones get the short label so Sign in fits beside it. */}
+                <span className="nav-cta-label-full">Create account</span>
+                <span className="nav-cta-label-short">Sign up</span>
               </Link>
             </>
           )}

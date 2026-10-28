@@ -7929,16 +7929,27 @@ button.nav-link {
     height: 26px;
   }
 
-  /* Hide the inline "Sign in" text — Create-account button is enough room.
-     The signup page has a "Already have an account?" link to login. */
-  .nav-link-mobile-hide {
-    display: none !important;
+  /* Sign in stays visible on phones: hiding it sent returning members
+     through Create account to find the login link (reported 2026-10-28).
+     The CTA drops to "Sign up" to make the room. */
+  .main-nav .nav-link.nav-link-signin {
+    padding: 6px 4px !important;
+    white-space: nowrap;
+  }
+  .main-nav .nav-cta .nav-cta-label-full {
+    display: none;
+  }
+  .main-nav .nav-cta .nav-cta-label-short {
+    display: inline;
   }
 
-  /* Squeeze the Create-account CTA pill so it fits next to a search bar */
-  .nav-cta {
+  /* Squeeze the Create-account CTA pill so it fits next to a search bar.
+     Scoped to .main-nav so it outranks the base .nav-cta rule further
+     down this file, which used to undo it. */
+  .main-nav .nav-cta {
     padding: 6px 10px;
     font-size: 0.78rem;
+    white-space: nowrap;
   }
 
   /* Drop visual separator between nav-icons and personal-actions on
@@ -9067,6 +9078,9 @@ button.nav-link {
 }
 .nav-cta:hover {
   filter: brightness(1.05);
+}
+.nav-cta-label-short {
+  display: none;
 }
 
 /* ── User menu (avatar trigger + dropdown panel) ── */

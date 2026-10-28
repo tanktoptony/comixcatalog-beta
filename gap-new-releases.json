@@ -66,25 +66,109 @@
     ]
   },
   {
-    "name": "X-Men",
-    "publisher": "Marvel Comics",
-    "year": 2024,
-    "volume_id": 158814,
-    "series_gcd_id": 212762,
-    "newest_release": "2026-11-00",
+    "name": "Poison Ivy",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "volume_id": 143431,
+    "series_gcd_id": 185771,
+    "newest_release": "2026-12-00",
     "missing": [
-      "35 (335)",
-      "36 (336)",
-      "37 (337)",
-      "38 (338)",
-      "40"
+      "49"
     ]
   },
   {
-    "name": "Denver",
-    "publisher": "Mad Cave Studios",
+    "name": "Final Boss",
+    "publisher": "Image",
+    "year": 2025,
+    "volume_id": 168594,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "11"
+    ]
+  },
+  {
+    "name": "Fixation",
+    "publisher": "IDW Publishing",
     "year": 2026,
-    "volume_id": 176384,
+    "volume_id": 176899,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "2"
+    ]
+  },
+  {
+    "name": "Gambit Gone",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 177139,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "2"
+    ]
+  },
+  {
+    "name": "Gatchaman",
+    "publisher": "Mad Cave Studios",
+    "year": 2024,
+    "volume_id": 158145,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "22"
+    ]
+  },
+  {
+    "name": "Ghost Pepper",
+    "publisher": "Image",
+    "year": 2025,
+    "volume_id": 165542,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "16"
+    ]
+  },
+  {
+    "name": "Godzilla Conquers the Multiverse",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 175059,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Harley Quinn",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "volume_id": 134718,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "67"
+    ]
+  },
+  {
+    "name": "Hello Darkness",
+    "publisher": "Boom! Studios",
+    "year": 2024,
+    "volume_id": 159025,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "26"
+    ]
+  },
+  {
+    "name": "Hello Kitty and Friends: Hello World",
+    "publisher": "IDW Publishing",
+    "year": 2026,
+    "volume_id": 175737,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
@@ -92,43 +176,175 @@
     ]
   },
   {
-    "name": "Dungeons & Dragons: Ravenloft",
-    "publisher": "Dark Horse Comics",
-    "year": 2026,
-    "volume_id": 176993,
+    "name": "Justice League Unlimited",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "volume_id": 161311,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
-      "2"
+      "24"
     ]
   },
   {
-    "name": "Escape from New York: Escape from Chicago",
+    "name": "Lazarus Order",
     "publisher": "Mad Cave Studios",
     "year": 2026,
-    "volume_id": 177138,
+    "volume_id": 176112,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
-      "2"
+      "3"
     ]
   },
   {
-    "name": "Fantastic Four",
+    "name": "Mighty Morphin Power Rangers",
+    "publisher": "Boom! Studios",
+    "year": 2026,
+    "volume_id": 172461,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "5"
+    ]
+  },
+  {
+    "name": "Mister Nemo",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "volume_id": 174643,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Predator vs. the Planet of the Apes",
     "publisher": "Marvel",
-    "year": 2025,
-    "volume_id": 165358,
+    "year": 2026,
+    "volume_id": 175258,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
-      "18"
+      "4"
     ]
   },
   {
-    "name": "The Amazing Venom",
+    "name": "Punisher vs. Spider-Man",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 174676,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Solomon Kane: The Lion Errant",
+    "publisher": "Titan Comics",
+    "year": 2026,
+    "volume_id": 175065,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Sonic the Hedgehog",
+    "publisher": "IDW Publishing",
+    "year": 2018,
+    "volume_id": 109575,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "91"
+    ]
+  },
+  {
+    "name": "Spider-Man/Hulk: Fire and Brimstone",
     "publisher": "Marvel Comics",
     "year": 2026,
-    "volume_id": 177268,
+    "volume_id": 176116,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "Star Trek: Holo-Ween II",
+    "publisher": "IDW Publishing",
+    "year": 2026,
+    "volume_id": 177374,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Star Wars: The Book of Boba Fett",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 176913,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Super Mondo Mega Mutts",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": 174647,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Superman",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "volume_id": 148476,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "43"
+    ]
+  },
+  {
+    "name": "Superman: Father of Tomorrow",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 172123,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "6"
+    ]
+  },
+  {
+    "name": "Terminal",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 175072,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "That Texas Blood: Hell Comes to Allison Ranch",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "volume_id": 177151,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
@@ -136,25 +352,47 @@
     ]
   },
   {
-    "name": "The Darkness",
-    "publisher": "Image",
-    "year": 2025,
-    "volume_id": 169122,
+    "name": "The Big Shakedown",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "volume_id": 177012,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
-      "8"
+      "2"
     ]
   },
   {
-    "name": "Thor",
+    "name": "The Punisher",
     "publisher": "Marvel",
-    "year": 2025,
-    "volume_id": 166460,
+    "year": 2026,
+    "volume_id": 170671,
     "series_gcd_id": null,
     "newest_release": "2026-10-28",
     "missing": [
-      "802"
+      "9"
+    ]
+  },
+  {
+    "name": "Thundercats Cheetara",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 176917,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "2"
+    ]
+  },
+  {
+    "name": "Tomb of Apocalypse",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 176409,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "3"
     ]
   },
   {
@@ -166,17 +404,6 @@
     "newest_release": "2026-12-00",
     "missing": [
       "2 - Christmas Extravaganza"
-    ]
-  },
-  {
-    "name": "Shudder",
-    "publisher": "Warrant Publishing",
-    "year": 2021,
-    "volume_id": 139156,
-    "series_gcd_id": 175906,
-    "newest_release": "2026-12-00",
-    "missing": [
-      "31"
     ]
   },
   {
@@ -269,17 +496,6 @@
     ]
   },
   {
-    "name": "Boruto: Two Blue Vortex",
-    "publisher": "VIZ Media",
-    "year": 2025,
-    "volume_id": null,
-    "series_gcd_id": 221012,
-    "newest_release": "2026-10-00",
-    "missing": [
-      "6"
-    ]
-  },
-  {
     "name": "Cryptology",
     "publisher": "TwoMorrows Publishing",
     "year": 2024,
@@ -288,28 +504,6 @@
     "newest_release": "2026-10-00",
     "missing": [
       "11"
-    ]
-  },
-  {
-    "name": "Dandadan",
-    "publisher": "VIZ Media",
-    "year": 2022,
-    "volume_id": 145549,
-    "series_gcd_id": 190566,
-    "newest_release": "2026-10-00",
-    "missing": [
-      "21"
-    ]
-  },
-  {
-    "name": "Fushigi Yûgi: Byakko Senki",
-    "publisher": "VIZ Media",
-    "year": 2020,
-    "volume_id": 129227,
-    "series_gcd_id": 162598,
-    "newest_release": "2026-10-00",
-    "missing": [
-      "5"
     ]
   },
   {

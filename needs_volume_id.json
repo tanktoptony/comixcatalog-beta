@@ -27496,8 +27496,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:23:47.753437+00:00",
-    "retry_after": "2026-10-29T22:23:47.753455+00:00",
+    "last_attempt_at": "2026-10-28T23:09:11.331721+00:00",
+    "retry_after": "2026-10-29T23:09:11.331738+00:00",
     "search_hydrated": true
   },
   {
@@ -27520,8 +27520,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:16:07.280515+00:00",
-    "retry_after": "2026-10-29T22:16:07.280519+00:00",
+    "last_attempt_at": "2026-10-28T23:03:18.583741+00:00",
+    "retry_after": "2026-10-29T23:03:18.583745+00:00",
     "search_hydrated": true
   },
   {
@@ -43580,8 +43580,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:16:07.280453+00:00",
-    "retry_after": "2026-10-29T22:16:07.280471+00:00",
+    "last_attempt_at": "2026-10-28T23:03:18.583681+00:00",
+    "retry_after": "2026-10-29T23:03:18.583700+00:00",
     "search_hydrated": true
   },
   {
@@ -48842,9 +48842,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-14T03:15:49.901780+00:00",
-    "retry_after": "2026-10-17T03:15:49.901799+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T23:07:32.500816+00:00",
+    "retry_after": "2026-11-04T23:07:32.500819+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Ultimate X-Men [Free Comic Book Day Edition]",
@@ -79609,9 +79610,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:02:03.490284+00:00",
-    "retry_after": "2026-10-28T23:02:03.490286+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T23:03:18.583815+00:00",
+    "retry_after": "2026-10-31T23:03:18.583817+00:00",
     "search_hydrated": true
   },
   {
@@ -79620,9 +79621,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:05:53.220860+00:00",
-    "retry_after": "2026-10-28T23:05:53.220862+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T23:07:14.987726+00:00",
+    "retry_after": "2026-10-31T23:07:14.987745+00:00",
     "search_hydrated": true
   },
   {
@@ -79631,9 +79632,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:06:27.225819+00:00",
-    "retry_after": "2026-10-28T23:06:27.225837+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T23:07:14.987826+00:00",
+    "retry_after": "2026-10-31T23:07:14.987830+00:00",
     "search_hydrated": true
   },
   {
@@ -79642,9 +79643,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:06:27.225919+00:00",
-    "retry_after": "2026-10-28T23:06:27.225921+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T23:07:32.500626+00:00",
+    "retry_after": "2026-10-31T23:07:32.500642+00:00",
     "search_hydrated": true
   },
   {
@@ -79666,9 +79667,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:06:27.225951+00:00",
-    "retry_after": "2026-10-28T23:06:27.225953+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T23:07:32.500687+00:00",
+    "retry_after": "2026-10-31T23:07:32.500690+00:00",
     "search_hydrated": true
   },
   {
@@ -79684,9 +79685,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:06:29.706874+00:00",
-    "retry_after": "2026-10-28T23:06:29.706892+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T23:07:20.119380+00:00",
+    "retry_after": "2026-10-31T23:07:20.119398+00:00",
     "search_hydrated": true
   },
   {
@@ -79702,9 +79703,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:06:57.934387+00:00",
-    "retry_after": "2026-10-28T23:06:57.934406+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T23:07:33.312809+00:00",
+    "retry_after": "2026-10-31T23:07:33.312829+00:00",
     "search_hydrated": true
   },
   {
@@ -79720,9 +79721,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:07:11.492726+00:00",
-    "retry_after": "2026-10-28T23:07:11.492745+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T23:07:33.645226+00:00",
+    "retry_after": "2026-10-31T23:07:33.645244+00:00",
     "search_hydrated": true
   },
   {
@@ -79744,9 +79745,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:07:18.683406+00:00",
-    "retry_after": "2026-10-28T23:07:18.683408+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T23:07:32.500729+00:00",
+    "retry_after": "2026-10-31T23:07:32.500731+00:00",
     "search_hydrated": true
   },
   {
@@ -83960,6 +83961,53 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T22:23:25.352206+00:00",
     "retry_after": "2026-10-29T22:23:25.352221+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Middlewest: The Complete Tale",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 137468,
+        "name": "Middlewest: The Complete Tale",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T23:07:33.646360+00:00",
+    "retry_after": "2026-10-29T23:07:33.646364+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "New Avengers Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T23:08:02.110559+00:00",
+    "retry_after": "2026-10-29T23:08:02.110577+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Narco",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 170821,
+        "name": "Narco",
+        "publisher": "Image",
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T23:08:02.110615+00:00",
+    "retry_after": "2026-10-29T23:08:02.110618+00:00",
     "search_hydrated": true
   }
 ]

@@ -78680,24 +78680,6 @@
     "search_hydrated": true
   },
   {
-    "name": "In Rage",
-    "publisher": "CFD Productions",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88863,
-        "name": "In Rage",
-        "publisher": "Creative Force Designs",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T15:02:48.827082+00:00",
-    "retry_after": "2026-10-28T15:02:48.827085+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Kid Flash: Going Rogue",
     "publisher": "DC Comics",
     "year": 2025,
@@ -78744,258 +78726,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Leave It to Chance",
-    "publisher": "DC Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19664,
-        "name": "Leave it to Chance",
-        "publisher": "Image",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:00.278198+00:00",
-    "retry_after": "2026-10-31T15:08:00.278215+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "G.I. Joe Frontline",
-    "publisher": "Devil's Due",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 9767,
-        "name": "G.I. Joe: Frontline",
-        "publisher": "Image",
-        "start_year": 2002
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:00.278256+00:00",
-    "retry_after": "2026-10-31T15:08:00.278260+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Famous Comics",
-    "publisher": "Marvel Comics",
-    "year": 1950,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 72379,
-        "name": "Famous Comics",
-        "publisher": "Zain-Eppy",
-        "start_year": 1933
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:00.278313+00:00",
-    "retry_after": "2026-10-31T15:08:00.278318+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Gli Albi dei Super-Eroi",
-    "publisher": "Marvel Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34647,
-        "name": "Gli Albi dei Super-Eroi",
-        "publisher": "Editoriale Corno",
-        "start_year": 1973
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:00.278342+00:00",
-    "retry_after": "2026-10-31T15:08:00.278346+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Humphrey Giant Edition",
-    "publisher": "Marvel Comics",
-    "year": 1950,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 84056,
-        "name": "Humphrey Giant Edition",
-        "publisher": "Magazine Management",
-        "start_year": null
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:00.278390+00:00",
-    "retry_after": "2026-10-31T15:08:00.278394+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Cerebus World Tour Book",
-    "publisher": "Aardvark-Vanaheim",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 20422,
-        "name": "Cerebus World Tour Book",
-        "publisher": "Aardvark",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:00.278422+00:00",
-    "retry_after": "2026-10-31T15:08:00.278426+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Korgi: Short Tails",
-    "publisher": "IDW Publishing",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 102848,
-        "name": "Korgi: Short Tails",
-        "publisher": "Top Shelf",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:00.278446+00:00",
-    "retry_after": "2026-10-31T15:08:00.278449+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Johnny Ringo",
-    "publisher": "Marvel Comics",
-    "year": 1961,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 67374,
-        "name": "Johnny Ringo",
-        "publisher": "Magazine Management",
-        "start_year": null
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:00.278472+00:00",
-    "retry_after": "2026-10-31T15:08:00.278474+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Marshal King",
-    "publisher": "VIZ Media",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 164859,
-        "name": "The Marshal King",
-        "publisher": "Shueisha",
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T15:07:34.762946+00:00",
-    "retry_after": "2026-10-28T15:07:34.762948+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Chiquilladas",
-    "publisher": "Marvel Comics",
-    "year": 1952,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 68422,
-        "name": "Chiquilladas",
-        "publisher": "Editorial Novaro",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:13.676307+00:00",
-    "retry_after": "2026-10-31T15:08:13.676328+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Tarzán",
-    "publisher": "Marvel Comics",
-    "year": 1951,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 145785,
-        "name": "Tarzán",
-        "publisher": "Epucol",
-        "start_year": 1970
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:13.676375+00:00",
-    "retry_after": "2026-10-31T15:08:13.676379+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Basserne",
-    "publisher": "Valiant Comics",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 130307,
-        "name": "Basserne",
-        "publisher": "Egmont Publishing A/S",
-        "start_year": 1972
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:13.676409+00:00",
-    "retry_after": "2026-10-31T15:08:13.676412+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "La Pequeña Lulú",
-    "publisher": "Harvey Comics",
-    "year": 1951,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 141790,
-        "name": "La Pequeña Lulú",
-        "publisher": "Epucol",
-        "start_year": 1971
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:13.676446+00:00",
-    "retry_after": "2026-10-31T15:08:13.676450+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Joyas de la Mitología",
-    "publisher": "Harvey Comics",
-    "year": 1962,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 44319,
-        "name": "Joyas de la Mitología",
-        "publisher": "Editorial Novaro",
-        "start_year": 1963
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T15:08:13.676473+00:00",
-    "retry_after": "2026-10-31T15:08:13.676475+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "The Human Target by Tom King and Greg Smallwood: The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2025,
@@ -79033,24 +78763,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T16:04:55.072826+00:00",
     "retry_after": "2026-10-28T16:04:55.072845+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Horizon Experiment",
-    "publisher": "Image Comics",
-    "year": 2025,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 167290,
-        "name": "The Horizon Experiment",
-        "publisher": "Image",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:05:14.466223+00:00",
-    "retry_after": "2026-10-28T16:05:14.466248+00:00",
     "search_hydrated": true
   },
   {
@@ -79157,24 +78869,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Pinhead",
-    "publisher": "BOOM! Studios",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 21723,
-        "name": "Pinhead",
-        "publisher": "Marvel",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:06:10.889601+00:00",
-    "retry_after": "2026-10-28T16:06:10.889619+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "The Magic Order Omnibus",
     "publisher": "Dark Horse Comics",
     "year": 2026,
@@ -79216,78 +78910,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T16:06:10.889745+00:00",
     "retry_after": "2026-10-28T16:06:10.889747+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Corriere dei Ragazzi",
-    "publisher": "Dell Comics",
-    "year": 1973,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 32469,
-        "name": "Corriere dei Ragazzi",
-        "publisher": "Corriere Della Sera",
-        "start_year": 1972
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:06:29.149569+00:00",
-    "retry_after": "2026-10-28T16:06:29.149587+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Gli Albi di Orient Express",
-    "publisher": "Marvel Comics",
-    "year": 1983,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 47514,
-        "name": "Gli Albi di Orient Express",
-        "publisher": "L'Isola Trovata",
-        "start_year": 1983
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:06:29.149628+00:00",
-    "retry_after": "2026-10-28T16:06:29.149632+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Zona X",
-    "publisher": "Marvel Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 28041,
-        "name": "Zona X",
-        "publisher": "Sergio Bonelli Editore",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:06:29.149677+00:00",
-    "retry_after": "2026-10-28T16:06:29.149679+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Korak - Serie Avestruz",
-    "publisher": "Harvey Comics",
-    "year": 1975,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 106802,
-        "name": "Korak Serie Avestruz",
-        "publisher": "Editorial Novaro",
-        "start_year": 1975
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T16:06:29.149697+00:00",
-    "retry_after": "2026-10-28T16:06:29.149700+00:00",
     "search_hydrated": true
   },
   {
@@ -79379,96 +79001,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
-    "publisher": "Harvey Comics",
-    "year": 1998,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 148472,
-        "name": "Billy Sommerspesial / Billy Sommeralbum / Billy Sommer",
-        "publisher": "Hjemmet",
-        "start_year": 1998
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T17:06:54.760013+00:00",
-    "retry_after": "2026-10-28T17:06:54.760018+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Joe Palooka Presents the Funsational Humphrey",
-    "publisher": "Marvel Comics",
-    "year": 1952,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 156763,
-        "name": "Joe Palooka Presents the Funsational Humphrey",
-        "publisher": "Magazine Management",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T17:06:54.760048+00:00",
-    "retry_after": "2026-10-28T17:06:54.760052+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Tom and Jerry Present the Two Mouseketeers",
-    "publisher": "Marvel Comics",
-    "year": 1955,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64345,
-        "name": "Tom and Jerry Present the Two Mouseketeers",
-        "publisher": "Magazine Management",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T17:06:54.760081+00:00",
-    "retry_after": "2026-10-28T17:06:54.760085+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Phoenix",
-    "publisher": "Marvel Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 45039,
-        "name": "The Phoenix",
-        "publisher": "David Fickling Books",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T18:01:23.272534+00:00",
-    "retry_after": "2026-10-28T18:01:23.272548+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Fantastic Four",
-    "publisher": "Marvel Comics",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 40093,
-        "name": "The Fantastic Four",
-        "publisher": "Simon and Schuster",
-        "start_year": 1979
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T18:05:10.457046+00:00",
-    "retry_after": "2026-10-28T18:05:10.457049+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "True War Stories",
     "publisher": "Image Comics",
     "year": 2025,
@@ -79495,24 +79027,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T18:06:23.970125+00:00",
     "retry_after": "2026-10-28T18:06:23.970149+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Spindelmannen",
-    "publisher": "Dark Horse Comics",
-    "year": 1988,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 7133,
-        "name": "Spindelmannen",
-        "publisher": "Egmont Comics",
-        "start_year": 1974
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T18:07:34.052805+00:00",
-    "retry_after": "2026-10-28T18:07:34.052810+00:00",
     "search_hydrated": true
   },
   {
@@ -79582,24 +79096,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T19:07:46.269637+00:00",
     "retry_after": "2026-10-28T19:07:46.269641+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Liga da Justiça e Batman",
-    "publisher": "Avatar Press",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 119234,
-        "name": "Liga da Justiça e Batman",
-        "publisher": "Abril",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T19:08:25.992831+00:00",
-    "retry_after": "2026-10-28T19:08:25.992836+00:00",
     "search_hydrated": true
   },
   {
@@ -79691,42 +79187,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Wonder Woman by John Byrne Omnibus",
-    "publisher": "DC Comics",
-    "year": 2025,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 167018,
-        "name": "Wonder Woman by John Byrne Omnibus",
-        "publisher": "DC Comics",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T19:27:55.624404+00:00",
-    "retry_after": "2026-10-28T19:27:55.624428+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Very Vicky",
-    "publisher": "Caliber Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 35471,
-        "name": "Very Vicky",
-        "publisher": "Meet Danny Ocean",
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T19:28:29.007466+00:00",
-    "retry_after": "2026-10-28T19:28:29.007485+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "All This and Snoopy, Too",
     "publisher": "Fawcett Comics",
     "year": 1969,
@@ -79779,24 +79239,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T19:28:29.007596+00:00",
     "retry_after": "2026-10-28T19:28:29.007598+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Mad Classics",
-    "publisher": "EC Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18767,
-        "name": "Mad Classics",
-        "publisher": "DC Comics",
-        "start_year": 2007
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T19:28:49.613362+00:00",
-    "retry_after": "2026-10-28T19:28:49.613366+00:00",
     "search_hydrated": true
   },
   {
@@ -79917,42 +79359,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T20:06:38.109633+00:00",
     "retry_after": "2026-10-28T20:06:38.109636+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Anti-Crime Squad",
-    "publisher": "Marvel Comics",
-    "year": 1953,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52652,
-        "name": "Anti Crime Squad",
-        "publisher": "Magazine Management",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T20:07:04.719755+00:00",
-    "retry_after": "2026-10-28T20:07:04.719759+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "I Vendicatori",
-    "publisher": "Marvel Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 151292,
-        "name": "I Vendicatori",
-        "publisher": "Panini Comics",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T20:07:04.719787+00:00",
-    "retry_after": "2026-10-28T20:07:04.719791+00:00",
     "search_hydrated": true
   },
   {
@@ -80146,42 +79552,6 @@
     "search_hydrated": true
   },
   {
-    "name": "MegaManga",
-    "publisher": "Fantagraphics",
-    "year": 2003,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 173763,
-        "name": "MegaManga",
-        "publisher": "Eros Comix",
-        "start_year": 2003
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T21:06:49.739827+00:00",
-    "retry_after": "2026-10-28T21:06:49.739830+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Marvel Mix",
-    "publisher": "Marvel Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57055,
-        "name": "Marvel Mix",
-        "publisher": "Panini Comics",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T21:06:49.739876+00:00",
-    "retry_after": "2026-10-28T21:06:49.739878+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Aquaman by Peter David Omnibus",
     "publisher": "DC Comics",
     "year": 2024,
@@ -80190,24 +79560,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T22:05:48.328257+00:00",
     "retry_after": "2026-10-28T22:05:48.328271+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Arrowsmith: So Smart in Their Fine Uniforms",
-    "publisher": "Image Comics",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 43791,
-        "name": "Arrowsmith: So Smart in Their Fine Uniforms",
-        "publisher": "DC Comics",
-        "start_year": 2004
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T22:05:48.328305+00:00",
-    "retry_after": "2026-10-28T22:05:48.328308+00:00",
     "search_hydrated": true
   },
   {
@@ -80244,42 +79596,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T22:06:27.975285+00:00",
     "retry_after": "2026-10-28T22:06:27.975299+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Dylan Dog Gigante",
-    "publisher": "Marvel Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 41508,
-        "name": "Dylan Dog Gigante",
-        "publisher": "Sergio Bonelli Editore",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T22:07:20.715750+00:00",
-    "retry_after": "2026-10-28T22:07:20.715753+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Fator X",
-    "publisher": "Avatar Press",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 44923,
-        "name": "Fator-X",
-        "publisher": "Abril",
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T22:07:20.715785+00:00",
-    "retry_after": "2026-10-28T22:07:20.715787+00:00",
     "search_hydrated": true
   },
   {
@@ -80426,24 +79742,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-27T23:07:18.683406+00:00",
     "retry_after": "2026-10-28T23:07:18.683408+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Phil Corrigan Secret Agent X9",
-    "publisher": "Atlas Comics",
-    "year": 1950,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 161990,
-        "name": "Phil Corrigan Secret Agent X9 ",
-        "publisher": "Atlas Publications Pty. Ltd.",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T23:08:46.453810+00:00",
-    "retry_after": "2026-10-28T23:08:46.453813+00:00",
     "search_hydrated": true
   },
   {
@@ -80677,24 +79975,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T00:07:20.146480+00:00",
     "retry_after": "2026-10-29T00:07:20.146482+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "DC Finest: Superman: The First Superhero",
-    "publisher": "DC Comics",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 177565,
-        "name": "DC Finest: Superman: The First Superhero",
-        "publisher": null,
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T00:07:20.146507+00:00",
-    "retry_after": "2026-10-29T00:07:20.146509+00:00",
     "search_hydrated": true
   },
   {
@@ -81043,24 +80323,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Shugga",
-    "publisher": "Fantagraphics",
-    "year": 1992,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 71365,
-        "name": "Shugga",
-        "publisher": "Eros Comix",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T02:06:59.746783+00:00",
-    "retry_after": "2026-10-29T02:06:59.746787+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Jim Starlin's Dreadstar Omnibus",
     "publisher": "Dark Horse Comics",
     "year": 2025,
@@ -81383,24 +80645,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Mort Todd's Monsters Attack!",
-    "publisher": "Charlton Comics",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 161423,
-        "name": "Mort Todd's Monsters Attack",
-        "publisher": "self published",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T04:20:09.117812+00:00",
-    "retry_after": "2026-10-29T04:20:09.117829+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "The Dark Convention Book",
     "publisher": "Harvey Comics",
     "year": 1992,
@@ -81625,24 +80869,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Revival Compendium",
-    "publisher": "Image Comics",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 149422,
-        "name": "Revival Compendium",
-        "publisher": "Aleta Ediciones",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T07:05:09.903260+00:00",
-    "retry_after": "2026-10-29T07:05:09.903264+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Robin: Son of Batman by Patrick Gleason - The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2024,
@@ -81771,24 +80997,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Space-Mullet",
-    "publisher": "Image Comics",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 169189,
-        "name": "Space-Mullet!",
-        "publisher": "Akileos",
-        "start_year": 2016
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T08:05:40.416786+00:00",
-    "retry_after": "2026-10-29T08:05:40.416788+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Something Epic",
     "publisher": "Image Comics",
     "year": 2024,
@@ -81804,42 +81012,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T08:06:26.463254+00:00",
     "retry_after": "2026-10-29T08:06:26.463270+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Spawn: Bad Business",
-    "publisher": "Image Comics",
-    "year": 2024,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 161218,
-        "name": "Spawn: Bad Business",
-        "publisher": "Image",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T08:06:48.827655+00:00",
-    "retry_after": "2026-10-29T08:06:48.827671+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Skull Cat",
-    "publisher": "IDW Publishing",
-    "year": 2023,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 149118,
-        "name": "Skull Cat",
-        "publisher": "Top Shelf",
-        "start_year": 2023
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T08:07:06.955940+00:00",
-    "retry_after": "2026-10-29T08:07:06.955942+00:00",
     "search_hydrated": true
   },
   {
@@ -82184,24 +81356,6 @@
     "search_hydrated": true
   },
   {
-    "name": "The White Trees: A Blacksand Tale",
-    "publisher": "Image Comics",
-    "year": 2024,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 120670,
-        "name": "White Trees: A Blacksand Tale",
-        "publisher": "Image",
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T11:15:58.996343+00:00",
-    "retry_after": "2026-10-29T11:15:58.996361+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Ultraman x the Avengers",
     "publisher": "Marvel Comics",
     "year": 2024,
@@ -82268,24 +81422,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T12:10:04.772038+00:00",
     "retry_after": "2026-10-29T12:10:04.772041+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Venus with a Hot Crotch",
-    "publisher": "Fantagraphics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 37412,
-        "name": "Venus With A Hot Crotch",
-        "publisher": "Eros Comix",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T12:10:04.772076+00:00",
-    "retry_after": "2026-10-29T12:10:04.772079+00:00",
     "search_hydrated": true
   },
   {
@@ -82372,24 +81508,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T14:05:36.965624+00:00",
     "retry_after": "2026-10-29T14:05:36.965629+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Absolute V for Vendetta",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 27761,
-        "name": "Absolute V for Vendetta",
-        "publisher": "DC Comics",
-        "start_year": 2009
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:05:36.965816+00:00",
-    "retry_after": "2026-10-29T14:05:36.965820+00:00",
     "search_hydrated": true
   },
   {
@@ -82656,24 +81774,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T15:06:40.435503+00:00",
     "retry_after": "2026-10-29T15:06:40.435519+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Batman: Gotham by Gaslight",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 52306,
-        "name": "Batman: Gotham by Gaslight",
-        "publisher": "DC Comics",
-        "start_year": 2006
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T15:06:40.435736+00:00",
-    "retry_after": "2026-10-29T15:06:40.435740+00:00",
     "search_hydrated": true
   },
   {

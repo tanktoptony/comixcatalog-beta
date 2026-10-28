@@ -28,11 +28,11 @@ Open the book's page and hit Add to collection or Add to wantlist, same as a sin
 
 Plenty of books got collected more than once: a paperback, a hardcover, a deluxe edition, a reprint from another publisher. Each one is its own entry, and the tag, the year and the publisher help you tell them apart.
 
-One tip: if the trade has the same name as the series, search shows the series first and the trade can get crowded out. Add a year. Searching "saga 2012" puts the Saga trades right under the issues.
+One tip: if the trade has the same name as the series, search shows the series first. Add tpb, hc or omnibus to the search and you get just the collected editions, so "saga tpb" goes straight to the Saga trades. The search dropdown also has a Trades link at the bottom that does the same thing.
 
 ## Covers are catching up
 
-Here's the honest part: most trades don't have a cover on here yet. About 3,200 have at least one, and almost 2,000 trade covers came in since Monday. I've got the cover pipeline working through trades now, so more show up every day.
+Here's the honest part: most trades don't have a cover on here yet. About 3,700 have at least one, and about 2,500 trade covers came in since Monday. I've got the cover pipeline working through trades now, so more show up every day.
 
 Brand new trades are the slowest, because a lot of this year's books don't have a cover we can get yet. A book without a cover still works. Add it to your collection and it shows a placeholder until the cover comes in.
 

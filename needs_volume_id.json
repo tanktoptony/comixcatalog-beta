@@ -15489,9 +15489,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-22T21:00:43.544882+00:00",
-    "retry_after": "2026-09-25T21:00:43.544897+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T01:05:12.463597+00:00",
+    "retry_after": "2026-11-04T01:05:12.463601+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Family 1 (Facsimile Edition)",
@@ -27503,8 +27504,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T00:09:00.141506+00:00",
-    "retry_after": "2026-10-29T00:09:00.141523+00:00",
+    "last_attempt_at": "2026-10-28T01:08:54.143152+00:00",
+    "retry_after": "2026-10-29T01:08:54.143170+00:00",
     "search_hydrated": true
   },
   {
@@ -27527,8 +27528,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T00:01:18.884770+00:00",
-    "retry_after": "2026-10-29T00:01:18.884773+00:00",
+    "last_attempt_at": "2026-10-28T01:01:28.500363+00:00",
+    "retry_after": "2026-10-29T01:01:28.500368+00:00",
     "search_hydrated": true
   },
   {
@@ -35114,9 +35115,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T23:00:44.058899+00:00",
-    "retry_after": "2026-10-04T23:00:44.058916+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T01:05:12.463648+00:00",
+    "retry_after": "2026-11-04T01:05:12.463650+00:00",
+    "search_hydrated": true
   },
   {
     "name": "JSA Compendium",
@@ -36686,9 +36688,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-02T21:37:40.300417+00:00",
-    "retry_after": "2026-10-05T21:37:40.300432+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T01:05:41.232007+00:00",
+    "retry_after": "2026-11-04T01:05:41.232021+00:00",
+    "search_hydrated": true
   },
   {
     "name": "G.I. Joe: The Best of Snake Eyes",
@@ -43571,8 +43574,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T00:01:18.884721+00:00",
-    "retry_after": "2026-10-29T00:01:18.884740+00:00",
+    "last_attempt_at": "2026-10-28T01:01:28.500306+00:00",
+    "retry_after": "2026-10-29T01:01:28.500321+00:00",
     "search_hydrated": true
   },
   {
@@ -80771,6 +80774,179 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T00:08:22.924567+00:00",
     "retry_after": "2026-10-29T00:08:22.924568+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Pride: Better Together",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:05:12.463500+00:00",
+    "retry_after": "2026-10-29T01:05:12.463512+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Pride: Love and Justice",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:05:12.463535+00:00",
+    "retry_after": "2026-10-29T01:05:12.463539+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadpool vs. Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:05:12.463628+00:00",
+    "retry_after": "2026-10-29T01:05:12.463631+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Power: A Celebration",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 147868,
+        "name": "DC Power: A Celebration",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:05:13.174255+00:00",
+    "retry_after": "2026-10-29T01:05:13.174266+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DCeased: War of the Undead Gods",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 153428,
+        "name": "DCeased: War of the Undead Gods",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:05:13.364133+00:00",
+    "retry_after": "2026-10-29T01:05:13.364143+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Destiny Gate",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 154121,
+        "name": "Destiny Gate",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:05:24.418349+00:00",
+    "retry_after": "2026-10-29T01:05:24.418360+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Extremity Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:05:41.232116+00:00",
+    "retry_after": "2026-10-29T01:05:41.232124+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fan Expo Detective Comics 27 Limited Edition",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:05:41.232150+00:00",
+    "retry_after": "2026-10-29T01:05:41.232152+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Strange: Fall Sunrise",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146387,
+        "name": "Doctor Strange: Fall Sunrise",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:05:42.311360+00:00",
+    "retry_after": "2026-10-29T01:05:42.311371+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantastic Four by Waid & Wieringo: Imaginauts",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:08:09.128601+00:00",
+    "retry_after": "2026-10-29T01:08:09.128616+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantastic Four: Grand Design",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 124630,
+        "name": "Fantastic Four: Grand Design",
+        "publisher": "Marvel",
+        "start_year": 2020
+      },
+      {
+        "id": 122452,
+        "name": "Fantastic Four: Grand Design",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:08:09.128669+00:00",
+    "retry_after": "2026-10-29T01:08:09.128673+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Purgatory Funeral Cakes",
+    "publisher": "Dark Horse Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T01:08:24.691318+00:00",
+    "retry_after": "2026-10-29T01:08:24.691334+00:00",
     "search_hydrated": true
   }
 ]

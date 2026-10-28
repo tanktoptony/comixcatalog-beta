@@ -13,8 +13,10 @@ import FoundingQueryMessage from "@/components/FoundingQueryMessage";
 // FoundingBanner.js. null means "don't know yet"; render a dash rather than
 // a guessed digit.
 //
-// 2026-10-01 redesign: a numbered foil pass, a 100-slot grid that shows
-// how many are claimed, and a Roll of Honor of the founders so far.
+// 2026-10-01 redesign: a numbered foil pass, a wall of the claimed passes,
+// and a Roll of Honor of the founders so far. 2026-10-28: the wall shows
+// only claimed passes plus one "Your spot" tile, no empty slots, so it
+// reads as who's here rather than how many are missing.
 
 const CAP = 100;
 const pad = (n) => String(n).padStart(3, "0");
@@ -179,8 +181,8 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
           {Array.from({ length: CAP }, (_, i) => {
             const founder = byNumber.get(i + 1);
             const isClaimed = Boolean(founder) || (claimed != null && i < claimed);
-            const className = `fc-slot${isClaimed ? " is-claimed" : ""}${claimed != null && i === claimed ? " is-next" : ""}`;
-            if (!isClaimed) return <span key={i} className={className} />;
+            if (!isClaimed) return null;
+            const className = "fc-slot is-claimed";
             // Every claimed block has its pass number stamped in the gold.
             // Founders still on the stock mask get their initial struck in;
             // an uploaded photo or a picked icon shows as is. Private
@@ -208,6 +210,22 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
               </Link>
             );
           })}
+          {/* The next open pass, for anyone who can still take one. Waits for
+              claim state so a founder never sees it flash. */}
+          {claimStateKnown && !isFounder && !soldOut && nextNumber != null && (() => {
+            const label = <><b>Your spot</b><span>No. {pad(nextNumber)}</span></>;
+            if (!user) {
+              return <Link href="/signup" className="fc-slot-open" aria-label={`Claim pass No. ${pad(nextNumber)}`}>{label}</Link>;
+            }
+            if (status.canClaim) {
+              return (
+                <button type="button" className="fc-slot-open" onClick={claim} disabled={busy} aria-label={`Claim pass No. ${pad(nextNumber)}`}>
+                  {label}
+                </button>
+              );
+            }
+            return <span className="fc-slot-open">{label}</span>;
+          })()}
         </div>
       </section>
 

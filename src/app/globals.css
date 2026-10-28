@@ -12670,7 +12670,13 @@ button.nav-link {
 .fc-slots { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 6px; }
 .fc-slot { aspect-ratio: 1; border-radius: 4px; border: 1px solid rgba(244, 208, 63, 0.28); background: rgba(255, 255, 255, 0.02); }
 .fc-slot.is-claimed { background: linear-gradient(145deg, #f8dc5c, #c99a1c); border-color: transparent; box-shadow: 0 0 10px rgba(244, 208, 63, 0.25); }
-.fc-slot.is-next { border-color: #F4D03F; animation: fc-pulse 1.8s ease-in-out infinite; }
+/* The one open pass at the end of the wall. Spans four slots so the
+   words fit; stretches to the row height the square slots set. */
+.fc-slot-open { grid-column: span 4; min-height: 30px; display: flex; align-items: center; justify-content: center; gap: 0.6em; padding: 0 0.5em; border: 1px dashed #F4D03F; border-radius: 4px; background: rgba(244, 208, 63, 0.06); color: #F4D03F; font: inherit; font-size: clamp(0.72rem, 1.4vw, 0.9rem); white-space: nowrap; overflow: hidden; text-decoration: none; cursor: pointer; animation: fc-pulse 1.8s ease-in-out infinite; }
+.fc-slot-open b { font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; }
+.fc-slot-open span { color: rgba(255, 255, 255, 0.75); font-weight: 700; font-variant-numeric: tabular-nums; }
+span.fc-slot-open { cursor: default; }
+a.fc-slot-open:hover, button.fc-slot-open:hover:not(:disabled) { background: rgba(244, 208, 63, 0.14); }
 /* Claimed blocks: pass number stamped into the gold, plus the founder's
    struck initial (stock-mask founders) or their photo/icon. */
 .fc-slot.is-stamped { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; overflow: hidden; container-type: inline-size; }
@@ -12688,6 +12694,7 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 @keyframes fc-pulse { 50% { box-shadow: 0 0 0 4px rgba(244, 208, 63, 0.25); } }
 @media (max-width: 640px) {
   .fc-slots { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+  .fc-slot-open { grid-column: span 5; }
 }
 
 .fc-perks { display: grid; gap: 1rem; }
@@ -12741,7 +12748,7 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
   .fc-pass { transform: none; width: min(100%, 300px); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .fc-pass-shine, .fc-slot.is-next { animation: none; }
+  .fc-pass-shine, .fc-slot-open { animation: none; }
 }
 
 /* ── Page skeleton (loading.js for profile, series, search) ─────────────── */

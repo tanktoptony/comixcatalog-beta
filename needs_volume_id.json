@@ -7942,10 +7942,12 @@
     "name": "Robin: Tim Drake Compendium",
     "publisher": "DC Comics",
     "year": 2024,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555694+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T07:05:09.903320+00:00",
+    "retry_after": "2026-10-31T07:05:09.903322+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvelmania Monthly Magazine Preview",
@@ -27508,8 +27510,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T06:08:54.530711+00:00",
-    "retry_after": "2026-10-29T06:08:54.530727+00:00",
+    "last_attempt_at": "2026-10-28T07:08:48.425695+00:00",
+    "retry_after": "2026-10-29T07:08:48.425710+00:00",
     "search_hydrated": true
   },
   {
@@ -27532,8 +27534,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T06:01:20.384483+00:00",
-    "retry_after": "2026-10-29T06:01:20.384485+00:00",
+    "last_attempt_at": "2026-10-28T07:01:22.776017+00:00",
+    "retry_after": "2026-10-29T07:01:22.776022+00:00",
     "search_hydrated": true
   },
   {
@@ -29163,9 +29165,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T08:06:05.181354+00:00",
-    "retry_after": "2026-10-01T08:06:05.181369+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T07:06:57.118301+00:00",
+    "retry_after": "2026-11-04T07:06:57.118303+00:00",
+    "search_hydrated": true
   },
   {
     "name": "StormWatch",
@@ -30281,9 +30284,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T18:34:43.978540+00:00",
-    "retry_after": "2026-10-01T18:34:43.978554+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T07:06:57.118267+00:00",
+    "retry_after": "2026-11-04T07:06:57.118270+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Damnation Station",
@@ -36437,9 +36441,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-02T21:37:37.801318+00:00",
-    "retry_after": "2026-10-05T21:37:37.801333+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T07:06:57.118285+00:00",
+    "retry_after": "2026-11-04T07:06:57.118288+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Super Crooks",
@@ -42896,9 +42901,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-08T21:00:47.893597+00:00",
-    "retry_after": "2026-10-11T21:00:47.893614+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T07:06:57.118228+00:00",
+    "retry_after": "2026-11-04T07:06:57.118244+00:00",
+    "search_hydrated": true
   },
   {
     "name": "I Can't Untie My Shoes! [Family Circus]",
@@ -43577,8 +43583,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-28T06:01:20.384435+00:00",
-    "retry_after": "2026-10-29T06:01:20.384453+00:00",
+    "last_attempt_at": "2026-10-28T07:01:22.775959+00:00",
+    "retry_after": "2026-10-29T07:01:22.775974+00:00",
     "search_hydrated": true
   },
   {
@@ -44106,9 +44112,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-25T16:19:50.930749+00:00",
-    "retry_after": "2026-10-26T16:19:50.930766+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T07:05:09.903127+00:00",
+    "retry_after": "2026-10-31T07:05:09.903142+00:00",
     "search_hydrated": true
   },
   {
@@ -48741,9 +48747,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-14T00:15:41.367436+00:00",
-    "retry_after": "2026-10-17T00:15:41.367453+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-28T07:05:09.903173+00:00",
+    "retry_after": "2026-11-04T07:05:09.903178+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Gold Key Select: Boris Karloff Thriller",
@@ -77804,9 +77811,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T07:06:15.413240+00:00",
-    "retry_after": "2026-10-28T07:06:15.413257+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T07:08:42.029650+00:00",
+    "retry_after": "2026-10-31T07:08:42.029665+00:00",
     "search_hydrated": true
   },
   {
@@ -77815,9 +77822,9 @@
     "year": 1987,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T07:06:15.413302+00:00",
-    "retry_after": "2026-10-28T07:06:15.413306+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T07:08:42.029688+00:00",
+    "retry_after": "2026-10-31T07:08:42.029692+00:00",
     "search_hydrated": true
   },
   {
@@ -77826,9 +77833,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T07:06:15.413331+00:00",
-    "retry_after": "2026-10-28T07:06:15.413334+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T07:08:42.029709+00:00",
+    "retry_after": "2026-10-31T07:08:42.029712+00:00",
     "search_hydrated": true
   },
   {
@@ -77850,9 +77857,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T07:06:15.413378+00:00",
-    "retry_after": "2026-10-28T07:06:15.413382+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T07:08:42.029759+00:00",
+    "retry_after": "2026-10-31T07:08:42.029763+00:00",
     "search_hydrated": true
   },
   {
@@ -77861,9 +77868,9 @@
     "year": 1957,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-27T07:06:15.413397+00:00",
-    "retry_after": "2026-10-28T07:06:15.413400+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-28T07:08:42.029779+00:00",
+    "retry_after": "2026-10-31T07:08:42.029782+00:00",
     "search_hydrated": true
   },
   {
@@ -81618,6 +81625,128 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-28T06:07:52.295624+00:00",
     "retry_after": "2026-10-29T06:07:52.295625+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Radiant Black: The Story So Far",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T07:05:09.903196+00:00",
+    "retry_after": "2026-10-29T07:05:09.903199+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Revival Compendium",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 149422,
+        "name": "Revival Compendium",
+        "publisher": "Aleta Ediciones",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T07:05:09.903260+00:00",
+    "retry_after": "2026-10-29T07:05:09.903264+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Robin: Son of Batman by Patrick Gleason - The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T07:05:09.903302+00:00",
+    "retry_after": "2026-10-29T07:05:09.903305+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Scary Godmother: This Was Your Childhood",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T07:06:57.118362+00:00",
+    "retry_after": "2026-10-29T07:06:57.118367+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Secret Six by Gail Simone Omnibus",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T07:06:57.118396+00:00",
+    "retry_after": "2026-10-29T07:06:57.118399+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Scrapper",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 152490,
+        "name": "Scrapper",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T07:08:10.576265+00:00",
+    "retry_after": "2026-10-29T07:08:10.576276+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I, Mage",
+    "publisher": "Action Lab Entertainment",
+    "year": 2016,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 88017,
+        "name": "I, Mage",
+        "publisher": "Action Lab",
+        "start_year": 2016
+      },
+      {
+        "id": 89601,
+        "name": "I, Mage",
+        "publisher": "Action Lab",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T07:08:42.029827+00:00",
+    "retry_after": "2026-10-29T07:08:42.029830+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Lark's Killer",
+    "publisher": "First Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 103292,
+        "name": "Lark's Killer",
+        "publisher": "1First Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-28T07:08:42.029884+00:00",
+    "retry_after": "2026-10-29T07:08:42.029888+00:00",
     "search_hydrated": true
   }
 ]

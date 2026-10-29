@@ -13776,9 +13776,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:33:26.136807+00:00",
-    "retry_after": "2026-10-29T16:33:26.136811+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T17:01:52.938527+00:00",
+    "retry_after": "2026-11-05T17:01:52.938532+00:00",
     "search_hydrated": true
   },
   {
@@ -26590,9 +26590,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T01:03:58.646760+00:00",
-    "retry_after": "2026-10-01T01:03:58.646775+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T17:06:26.743130+00:00",
+    "retry_after": "2026-11-05T17:06:26.743147+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Little Nightmares",
@@ -27496,18 +27497,18 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T15:07:54.175735+00:00",
-    "retry_after": "2026-10-30T15:07:54.175750+00:00",
+    "last_attempt_at": "2026-10-29T17:01:52.938673+00:00",
+    "retry_after": "2026-10-30T17:01:52.938676+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27525,8 +27526,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:02:31.571445+00:00",
-    "retry_after": "2026-10-30T16:02:31.571460+00:00",
+    "last_attempt_at": "2026-10-29T17:01:52.938654+00:00",
+    "retry_after": "2026-10-30T17:01:52.938657+00:00",
     "search_hydrated": true
   },
   {
@@ -31599,9 +31600,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:33:26.136840+00:00",
-    "retry_after": "2026-10-29T16:33:26.136843+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T17:01:52.938587+00:00",
+    "retry_after": "2026-11-05T17:01:52.938595+00:00",
     "search_hydrated": true
   },
   {
@@ -43592,8 +43593,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:39:20.711713+00:00",
-    "retry_after": "2026-10-30T16:39:20.711728+00:00",
+    "last_attempt_at": "2026-10-29T17:01:52.938443+00:00",
+    "retry_after": "2026-10-30T17:01:52.938459+00:00",
     "search_hydrated": true
   },
   {
@@ -51488,13 +51489,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press",
+    "publisher": "Fireman Press, Ltd",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:02:37.503201+00:00",
-    "retry_after": "2026-10-30T16:02:37.503218+00:00",
+    "last_attempt_at": "2026-10-29T17:01:52.938621+00:00",
+    "retry_after": "2026-10-30T17:01:52.938623+00:00",
     "search_hydrated": true
   },
   {
@@ -84137,6 +84138,255 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T16:44:39.403299+00:00",
     "retry_after": "2026-10-30T16:44:39.403311+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fire Power",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 129260,
+        "name": "Fire Power",
+        "publisher": "Image",
+        "start_year": 2020
+      },
+      {
+        "id": 128169,
+        "name": "Fire Power",
+        "publisher": "Image",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:05:14.759422+00:00",
+    "retry_after": "2026-10-30T17:05:14.759437+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Injustice - McFarlane Custom Comic",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:05:14.759469+00:00",
+    "retry_after": "2026-10-30T17:05:14.759473+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Night Club",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146892,
+        "name": "Night Club",
+        "publisher": "Image",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:05:20.310271+00:00",
+    "retry_after": "2026-10-30T17:05:20.310283+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Old Dog",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 145301,
+        "name": "Old Dog",
+        "publisher": "Image",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:05:20.401030+00:00",
+    "retry_after": "2026-10-30T17:05:20.401044+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Stillwater",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 130377,
+        "name": "Stillwater",
+        "publisher": "Image",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:05:28.765672+00:00",
+    "retry_after": "2026-10-30T17:05:28.765692+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: Son of Kal-El",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 137844,
+        "name": "Superman: Son of Kal-El",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:05:28.765744+00:00",
+    "retry_after": "2026-10-30T17:05:28.765748+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Human Target",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 139922,
+        "name": "The Human Target",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:05:37.178125+00:00",
+    "retry_after": "2026-10-30T17:05:37.178136+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Two Graves",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146093,
+        "name": "Two Graves",
+        "publisher": "Image",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:05:41.555414+00:00",
+    "retry_after": "2026-10-30T17:05:41.555430+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Injustice: Gods among Us: Year Zero - The Complete Collection",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 137548,
+        "name": "Injustice: Gods Among Us: Year Zero: The Complete Collection",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:06:27.917215+00:00",
+    "retry_after": "2026-10-30T17:06:27.917232+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joker / Harley: Criminal Sanity",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 138748,
+        "name": "Joker/Harley: Criminal Sanity",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:06:49.270236+00:00",
+    "retry_after": "2026-10-30T17:06:49.270253+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Zombies vs. Robots vs. Amazons HC",
+    "publisher": "IDW Publishing",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:07:18.622712+00:00",
+    "retry_after": "2026-10-30T17:07:18.622730+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thanos: A God up There Listening",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 78654,
+        "name": "Thanos: A God Up There Listening",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 75391,
+        "name": "Thanos: A God Up There Listening",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 77425,
+        "name": "Thanos: A God Up There Listening",
+        "publisher": "Marvel",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:07:18.622805+00:00",
+    "retry_after": "2026-10-30T17:07:18.622809+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Robyn Hood: Blood in the Water",
+    "publisher": "Zenescope Entertainment",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:07:18.622831+00:00",
+    "retry_after": "2026-10-30T17:07:18.622834+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T17:08:09.166426+00:00",
+    "retry_after": "2026-10-30T17:08:09.166443+00:00",
     "search_hydrated": true
   }
 ]

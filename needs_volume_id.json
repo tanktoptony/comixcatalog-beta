@@ -8163,10 +8163,12 @@
     "name": "Young Justice Omnibus",
     "publisher": "DC Comics",
     "year": 2023,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555758+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T09:09:53.789463+00:00",
+    "retry_after": "2026-11-01T09:09:53.789466+00:00",
+    "search_hydrated": true
   },
   {
     "name": "DC vs. Vampires: All-Out War",
@@ -43592,8 +43594,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T08:01:44.264361+00:00",
-    "retry_after": "2026-10-30T08:01:44.264377+00:00",
+    "last_attempt_at": "2026-10-29T09:02:17.784682+00:00",
+    "retry_after": "2026-10-30T09:02:17.784698+00:00",
     "search_hydrated": true
   },
   {
@@ -51498,13 +51500,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press",
+    "publisher": "Fireman Press, Ltd",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-27T14:08:45.507870+00:00",
-    "retry_after": "2026-11-10T14:08:45.507886+00:00",
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:02:17.784764+00:00",
+    "retry_after": "2026-10-30T09:02:17.784769+00:00",
     "search_hydrated": true
   },
   {
@@ -80987,9 +80989,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T08:05:40.416705+00:00",
-    "retry_after": "2026-10-29T08:05:40.416707+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T09:06:55.303313+00:00",
+    "retry_after": "2026-11-01T09:06:55.303329+00:00",
     "search_hydrated": true
   },
   {
@@ -80999,21 +81001,21 @@
     "reason": "multiple_near_year_tied",
     "candidates": [
       {
-        "id": 147646,
-        "name": "Sins of Sinister",
-        "publisher": "Marvel",
-        "start_year": 2023
-      },
-      {
         "id": 153615,
         "name": "Sins of Sinister ",
         "publisher": "Marvel",
         "start_year": 2023
+      },
+      {
+        "id": 147646,
+        "name": "Sins of Sinister",
+        "publisher": "Marvel",
+        "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T08:05:40.416751+00:00",
-    "retry_after": "2026-10-29T08:05:40.416753+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T09:06:55.303399+00:00",
+    "retry_after": "2026-11-01T09:06:55.303404+00:00",
     "search_hydrated": true
   },
   {
@@ -81029,9 +81031,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T08:06:26.463254+00:00",
-    "retry_after": "2026-10-29T08:06:26.463270+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T09:06:56.859379+00:00",
+    "retry_after": "2026-11-01T09:06:56.859393+00:00",
     "search_hydrated": true
   },
   {
@@ -81040,9 +81042,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T09:05:11.648604+00:00",
-    "retry_after": "2026-10-29T09:05:11.648608+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T09:06:55.303436+00:00",
+    "retry_after": "2026-11-01T09:06:55.303439+00:00",
     "search_hydrated": true
   },
   {
@@ -81051,9 +81053,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T09:05:11.648626+00:00",
-    "retry_after": "2026-10-29T09:05:11.648629+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T09:06:55.303454+00:00",
+    "retry_after": "2026-11-01T09:06:55.303456+00:00",
     "search_hydrated": true
   },
   {
@@ -81062,9 +81064,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T09:05:11.648660+00:00",
-    "retry_after": "2026-10-29T09:05:11.648663+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T09:06:55.303468+00:00",
+    "retry_after": "2026-11-01T09:06:55.303471+00:00",
     "search_hydrated": true
   },
   {
@@ -81086,9 +81088,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T09:06:34.074486+00:00",
-    "retry_after": "2026-10-29T09:06:34.074490+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T09:07:27.494352+00:00",
+    "retry_after": "2026-11-01T09:07:27.494366+00:00",
     "search_hydrated": true
   },
   {
@@ -84859,6 +84861,115 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T08:10:03.350703+00:00",
     "retry_after": "2026-10-30T08:10:03.350705+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vixen: NYC",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 145316,
+        "name": "Vixen: NYC",
+        "publisher": "Line Webtoon",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:07:27.494406+00:00",
+    "retry_after": "2026-10-30T09:07:27.494410+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wolverine: Weapon X Deluxe Edition",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:07:27.494465+00:00",
+    "retry_after": "2026-10-30T09:07:27.494468+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wonder Woman: Who Is Wonder Woman? The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:07:27.494532+00:00",
+    "retry_after": "2026-10-30T09:07:27.494536+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wonder Girl: Homecoming",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 149981,
+        "name": "Wonder Girl: Homecoming",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:08:47.461138+00:00",
+    "retry_after": "2026-10-30T09:08:47.461153+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wonder Woman Black & Gold",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146388,
+        "name": "Wonder Woman Black & Gold",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:08:47.699068+00:00",
+    "retry_after": "2026-10-30T09:08:47.699084+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Treme X-Men by Claremont & Larroca: A New Beginning",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:09:53.789428+00:00",
+    "retry_after": "2026-10-30T09:09:53.789442+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "ZVRC: Zombies vs. Robots Classics",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:09:53.789481+00:00",
+    "retry_after": "2026-10-30T09:09:53.789483+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gatchaman: Deluxe Edition",
+    "publisher": "Mad Cave Studios",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:10:40.102441+00:00",
+    "retry_after": "2026-10-30T09:10:40.102457+00:00",
     "search_hydrated": true
   }
 ]

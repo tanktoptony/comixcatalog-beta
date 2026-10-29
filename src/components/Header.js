@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { avatarForProfile } from "@/lib/defaultAvatar";
-import { forwardRef, useEffect, useMemo, useRef, useState, useTransition } from "react";
+import { Fragment, forwardRef, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { groupByTitle, flattenGroups, titleFamily } from "@/lib/searchVariety";
 import { parseSearchQuery } from "@/lib/searchQuery";
 import { useRouter, usePathname } from "next/navigation";
@@ -261,7 +261,7 @@ export default function Header() {
       // runs before truncating, so a bigger number buys more DIFFERENT runs
       // rather than more of the same one; the dropdown shows the first five.
       load(
-        `/api/search/series?q=${encodeURIComponent(q)}&limit=36`,
+        `/api/search/series?q=${encodeURIComponent(q)}&limit=36&works=1`,
         (data) => ({
           rows: Array.isArray(data?.series) ? data.series.slice(0, 5) : NO_ROWS,
           titleRuns: data?.title_runs ?? null,
@@ -434,13 +434,28 @@ export default function Header() {
                         ? Number(titleRuns.count)
                         : 0;
                       const hasMoreRuns = totalRuns > group.rows.length;
+                      const workSeries = group.rows.find(
+                        (series) => series.editions?.groups?.length,
+                      );
                       return (
-                      <div className="header-search-run" key={group.family || group.title}>
-                        {(group.rows.length > 1 || hasMoreRuns) && (
+                      <div
+                        className={`header-search-run${workSeries ? " header-search-run--work" : ""}`}
+                        key={group.family || group.title}
+                      >
+                        {(group.rows.length > 1 || hasMoreRuns || workSeries) && (
                           <div className="header-search-run-title">
                             {group.title || "Untitled Series"}
                             <span className="header-search-run-count">
-                              {hasMoreRuns ? `${group.rows.length} of ${totalRuns} runs` : `${group.rows.length} volumes`}
+                              {hasMoreRuns
+                                ? `${group.rows.length} of ${totalRuns} runs`
+                                : workSeries && group.rows.length === 1
+                                  ? (() => {
+                                    const books = Number(workSeries.issue_count || 0)
+                                      + Number(workSeries.editions.total_books || 0);
+                                    const editions = workSeries.editions.groups.length + 1;
+                                    return `${books} book${books === 1 ? "" : "s"} · ${editions} edition${editions === 1 ? "" : "s"}`;
+                                  })()
+                                  : `${group.rows.length} volumes`}
                             </span>
                             {hasMoreRuns && (
                               <Link
@@ -460,64 +475,102 @@ export default function Header() {
                           flatIdx += 1;
                           const idx = flatIdx;
                           const isActive = highlightedIndex === idx;
-                          const grouped = group.rows.length > 1 || hasMoreRuns;
+                          const hasEditions = Boolean(series.editions?.groups?.length);
+                          const grouped = group.rows.length > 1 || hasMoreRuns || hasEditions;
                           return (
-                            <button
-                              key={series.id}
-                              type="button"
-                              className={
-                                grouped
-                                  ? "header-search-item header-search-item--in-run"
-                                  : "header-search-item"
-                              }
-                              style={isActive ? activeStyle : undefined}
-                              onMouseEnter={() => setHighlightedIndex(idx)}
-                              onClick={() => handleNavigate(`/series/${series.id}`)}
-                            >
-                              <span className="header-search-thumb">
-                                {series.cover ? (
-                                  // eslint-disable-next-line @next/next/no-img-element
-                                  <img
-                                    src={coverThumb(series.cover)}
-                                    alt=""
-                                    loading="lazy"
-                                    onError={(e) => {
-                                      e.currentTarget.style.display = "none";
-                                    }}
-                                  />
-                                ) : null}
-                              </span>
-                              <span className="header-search-item-body">
-                                <span className="header-search-item-title-row">
-                                  <span className="header-search-item-title">
-                                    {grouped
-                                      ? formatYearRange(series.year_start, series.year_end) ||
-                                        series.title ||
-                                        "Untitled Series"
-                                      : series.title || "Untitled Series"}
-                                  </span>
-                                  {series.volume_index && series.volume_count > 1 ? (
-                                    <span className="header-search-volume-tag">
-                                      Vol. {series.volume_index}
-                                    </span>
+                            <Fragment key={series.id}>
+                              <button
+                                type="button"
+                                className={
+                                  grouped
+                                    ? "header-search-item header-search-item--in-run"
+                                    : "header-search-item"
+                                }
+                                style={isActive ? activeStyle : undefined}
+                                onMouseEnter={() => setHighlightedIndex(idx)}
+                                onClick={() => handleNavigate(`/series/${series.id}`)}
+                              >
+                                <span className="header-search-thumb">
+                                  {series.cover ? (
+                                    // eslint-disable-next-line @next/next/no-img-element
+                                    <img
+                                      src={coverThumb(series.cover)}
+                                      alt=""
+                                      loading="lazy"
+                                      onError={(e) => {
+                                        e.currentTarget.style.display = "none";
+                                      }}
+                                    />
                                   ) : null}
-                                  {series.format_tag && <span className={`pill ${series.format_collected ? "pill-format" : "pill-format-muted"}`} title={series.format_tag_title || undefined}>{series.format_tag}</span>}
                                 </span>
-                                <span className="header-search-item-meta">
-                                  {[
-                                    series.publisher?.name || "Unknown Publisher",
-                                    grouped
-                                      ? null
-                                      : formatYearRange(series.year_start, series.year_end) || null,
-                                    series.issue_count
-                                      ? `${series.issue_count} issue${series.issue_count === 1 ? "" : "s"}`
-                                      : null,
-                                  ]
-                                    .filter(Boolean)
-                                    .join(" · ")}
+                                <span className="header-search-item-body">
+                                  <span className="header-search-item-title-row">
+                                    <span className="header-search-item-title">
+                                      {grouped
+                                        ? formatYearRange(series.year_start, series.year_end) ||
+                                          series.title ||
+                                          "Untitled Series"
+                                        : series.title || "Untitled Series"}
+                                    </span>
+                                    {series.volume_index && series.volume_count > 1 ? (
+                                      <span className="header-search-volume-tag">
+                                        Vol. {series.volume_index}
+                                      </span>
+                                    ) : null}
+                                    {series.format_tag && <span className={`pill ${series.format_collected ? "pill-format" : "pill-format-muted"}`} title={series.format_tag_title || undefined}>{series.format_tag}</span>}
+                                  </span>
+                                  <span className="header-search-item-meta">
+                                    {[
+                                      series.publisher?.name || "Unknown Publisher",
+                                      grouped
+                                        ? null
+                                        : formatYearRange(series.year_start, series.year_end) || null,
+                                      series.issue_count
+                                        ? `${series.issue_count} issue${series.issue_count === 1 ? "" : "s"}`
+                                        : null,
+                                    ]
+                                      .filter(Boolean)
+                                      .join(" · ")}
+                                  </span>
                                 </span>
-                              </span>
-                            </button>
+                              </button>
+                              {hasEditions && (
+                                <div className="header-search-editions">
+                                  {series.editions.groups.map((edition) => (
+                                    <Link
+                                      key={`${edition.label}-${edition.href}`}
+                                      className="header-search-edition"
+                                      href={edition.href}
+                                      aria-label={`${edition.label}, ${edition.books} book${edition.books === 1 ? "" : "s"}`}
+                                      onClick={() => {
+                                        clearSearch();
+                                        closeMenu();
+                                      }}
+                                    >
+                                      <span className="header-search-edition-thumb">
+                                        {edition.cover ? (
+                                          // eslint-disable-next-line @next/next/no-img-element
+                                          <img
+                                            src={coverThumb(edition.cover)}
+                                            alt=""
+                                            loading="lazy"
+                                            onError={(e) => {
+                                              e.currentTarget.style.display = "none";
+                                            }}
+                                          />
+                                        ) : null}
+                                      </span>
+                                      <span className="header-search-edition-label">
+                                        {edition.label}
+                                      </span>
+                                      <span className="header-search-edition-count">
+                                        {edition.books}
+                                      </span>
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </Fragment>
                           );
                         })}
                       </div>

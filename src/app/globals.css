@@ -12121,6 +12121,75 @@ button.nav-link {
   padding-left: 12px;
 }
 
+.header-search-run--work {
+  grid-column: span 2;
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 10px;
+  margin: 0 6px;
+}
+
+.header-search-editions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 2px 14px 10px 20px;
+}
+
+.header-search-edition {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 3px 10px 3px 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(244, 208, 63, 0.45);
+  background: rgba(244, 208, 63, 0.06);
+  text-decoration: none;
+}
+
+.header-search-edition:hover,
+.header-search-edition:focus-visible {
+  background: rgba(244, 208, 63, 0.14);
+}
+
+.header-search-edition:focus-visible {
+  outline: 2px solid var(--x-gold, #f4d03f);
+  outline-offset: 2px;
+}
+
+.header-search-edition-thumb {
+  width: 20px;
+  height: 30px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  flex: 0 0 auto;
+}
+
+.header-search-edition-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.header-search-edition-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--x-gold, #f4d03f);
+}
+
+.header-search-edition-count {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 640px) {
+  .header-search-run--work {
+    grid-column: auto;
+  }
+}
+
 /* ── Password guidance on signup ───────────────────────────────────────────
    Appears once typing starts, so an empty form is not a wall of red. */
 .pw-guide {

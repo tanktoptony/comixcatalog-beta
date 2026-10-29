@@ -27510,8 +27510,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T10:09:16.406733+00:00",
-    "retry_after": "2026-10-30T10:09:16.406751+00:00",
+    "last_attempt_at": "2026-10-29T11:09:23.362381+00:00",
+    "retry_after": "2026-10-30T11:09:23.362393+00:00",
     "search_hydrated": true
   },
   {
@@ -27521,21 +27521,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T10:01:29.067769+00:00",
-    "retry_after": "2026-10-30T10:01:29.067771+00:00",
+    "last_attempt_at": "2026-10-29T11:01:43.418775+00:00",
+    "retry_after": "2026-10-30T11:01:43.418778+00:00",
     "search_hydrated": true
   },
   {
@@ -35586,9 +35586,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T03:01:29.241177+00:00",
-    "retry_after": "2026-10-06T03:01:29.241192+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T11:05:45.390335+00:00",
+    "retry_after": "2026-11-05T11:05:45.390337+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Gold Digger Sourcebook",
@@ -43596,8 +43597,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T10:01:23.553679+00:00",
-    "retry_after": "2026-10-30T10:01:23.553697+00:00",
+    "last_attempt_at": "2026-10-29T11:01:43.418616+00:00",
+    "retry_after": "2026-10-30T11:01:43.418632+00:00",
     "search_hydrated": true
   },
   {
@@ -48603,11 +48604,19 @@
     "name": "Black Panther by John Ridley",
     "publisher": "Marvel Comics",
     "year": 2022,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-13T15:02:16.416198+00:00",
-    "retry_after": "2026-10-16T15:02:16.416215+00:00"
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 119952,
+        "name": "Black Panther",
+        "publisher": "Panini Verlag",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T11:06:15.094905+00:00",
+    "retry_after": "2026-11-05T11:06:15.094920+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Turnbuckle Titans",
@@ -51507,8 +51516,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T10:01:29.067731+00:00",
-    "retry_after": "2026-10-30T10:01:29.067742+00:00",
+    "last_attempt_at": "2026-10-29T11:01:43.418741+00:00",
+    "retry_after": "2026-10-30T11:01:43.418746+00:00",
     "search_hydrated": true
   },
   {
@@ -81115,9 +81124,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:05:05.976987+00:00",
-    "retry_after": "2026-10-29T10:05:05.976990+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T11:05:45.390045+00:00",
+    "retry_after": "2026-11-01T11:05:45.390064+00:00",
     "search_hydrated": true
   },
   {
@@ -81126,9 +81135,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:05:05.977073+00:00",
-    "retry_after": "2026-10-29T10:05:05.977076+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T11:05:45.390103+00:00",
+    "retry_after": "2026-11-01T11:05:45.390109+00:00",
     "search_hydrated": true
   },
   {
@@ -81144,9 +81153,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:05:26.020169+00:00",
-    "retry_after": "2026-10-29T10:05:26.020182+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T11:05:46.307357+00:00",
+    "retry_after": "2026-11-01T11:05:46.307372+00:00",
     "search_hydrated": true
   },
   {
@@ -81155,9 +81164,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:05:43.104290+00:00",
-    "retry_after": "2026-10-29T10:05:43.104305+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T11:05:45.390167+00:00",
+    "retry_after": "2026-11-01T11:05:45.390171+00:00",
     "search_hydrated": true
   },
   {
@@ -81179,9 +81188,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:05:43.104361+00:00",
-    "retry_after": "2026-10-29T10:05:43.104365+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T11:05:45.390212+00:00",
+    "retry_after": "2026-11-01T11:05:45.390216+00:00",
     "search_hydrated": true
   },
   {
@@ -81190,9 +81199,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:05:43.104383+00:00",
-    "retry_after": "2026-10-29T10:05:43.104386+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T11:05:45.390234+00:00",
+    "retry_after": "2026-11-01T11:05:45.390264+00:00",
     "search_hydrated": true
   },
   {
@@ -81214,9 +81223,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:05:43.104414+00:00",
-    "retry_after": "2026-10-29T10:05:43.104417+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T11:05:45.390310+00:00",
+    "retry_after": "2026-11-01T11:05:45.390313+00:00",
     "search_hydrated": true
   },
   {
@@ -81232,9 +81241,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:05:44.835730+00:00",
-    "retry_after": "2026-10-29T10:05:44.835744+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T11:05:46.472993+00:00",
+    "retry_after": "2026-11-01T11:05:46.473008+00:00",
     "search_hydrated": true
   },
   {
@@ -81250,9 +81259,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:05:44.978609+00:00",
-    "retry_after": "2026-10-29T10:05:44.978623+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T11:05:46.559824+00:00",
+    "retry_after": "2026-11-01T11:05:46.559837+00:00",
     "search_hydrated": true
   },
   {
@@ -85192,6 +85201,77 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T10:06:42.584990+00:00",
     "retry_after": "2026-10-30T10:06:42.584991+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Brilliant",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 43016,
+        "name": "Brilliant",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 73294,
+        "name": "Brilliant",
+        "publisher": "Marvel",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T11:06:15.095014+00:00",
+    "retry_after": "2026-10-30T11:06:15.095018+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Carnage Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T11:06:15.095116+00:00",
+    "retry_after": "2026-10-30T11:06:15.095119+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Book of Shadows",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 29519,
+        "name": "Book of Shadows",
+        "publisher": "Image",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T11:06:46.120500+00:00",
+    "retry_after": "2026-10-30T11:06:46.120524+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Carnage: Black, White & Blood",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 134780,
+        "name": "Carnage: Black, White & Blood",
+        "publisher": "Marvel",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T11:07:28.729477+00:00",
+    "retry_after": "2026-10-30T11:07:28.729492+00:00",
     "search_hydrated": true
   }
 ]

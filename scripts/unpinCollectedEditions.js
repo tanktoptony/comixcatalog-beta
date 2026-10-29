@@ -9,7 +9,8 @@
 // and set issue_count_cached to the row's own deduped gcd_issues count so it
 // ranks honestly. Nothing is deleted. Rows whose pin is NOT shared are left
 // alone: ComicVine does have real collected-edition volumes, and an
-// unshared pin may well be one.
+// unshared pin may well be one. A pin shared only by collected editions is
+// cleared on all of them (see the plan loop).
 //
 //   node scripts/unpinCollectedEditions.js            # dry run, prints plan
 //   node scripts/unpinCollectedEditions.js --apply    # writes
@@ -79,19 +80,31 @@ async function run() {
   for (const group of shared) {
     const collected = group.filter((r) => isCollectedEdition(format.get(r.gcd_id) ?? {}));
     const notCollected = group.filter((r) => !isCollectedEdition(format.get(r.gcd_id) ?? {}));
-    // Only unpin when a non-collected sibling keeps the volume. If every row
-    // in the group is collected (or unknown), there is nothing to hand the
-    // pin to and we leave it for a human.
-    if (!collected.length || !notCollected.length) continue;
-    for (const r of collected) plan.push({ row: r, keeper: notCollected[0] });
+    if (!collected.length) continue;
+    if (notCollected.length) {
+      for (const r of collected) plan.push({ row: r, keeper: notCollected[0] });
+      continue;
+    }
+    // Every row is a collected edition: two different editions on one
+    // volume is wrong for at least one, and often for all (The Wicked +
+    // The Divine TPB and HC both sat on the monthly's 74863, 2026-10-29).
+    // Search then folds them into one card, so the TPB vanished even for
+    // "wicked divine tpb". We can't tell which row the pin belongs to, so
+    // unpin all of them and let the ingester's title matching decide.
+    if (collected.length > 1) {
+      for (const r of collected) plan.push({ row: r, keeper: null });
+    }
   }
   console.log(`\n${plan.length} collected-edition rows to unpin${APPLY ? "" : " (dry run)"}:`);
 
   let applied = 0;
   for (const { row, keeper } of plan) {
     const { data: issues } = await supabase.from("gcd_issues").select("issue_number").eq("series_gcd_id", row.gcd_id).limit(1000);
-    const count = new Set((issues ?? []).map((i) => baseIssueNumber(i.issue_number)).filter((x) => x != null)).size;
-    console.log(`  ${row.title} (gcd ${row.gcd_id}) vol ${row.comicvine_volume_id} -> unpin; issue_count ${row.issue_count_cached} -> ${count}; volume stays with gcd ${keeper.gcd_id}`);
+    // 0 means the row's gcd_issues aren't loaded yet, not that it has none;
+    // keep the old count rather than zero it out of search.
+    const count = new Set((issues ?? []).map((i) => baseIssueNumber(i.issue_number)).filter((x) => x != null)).size
+      || row.issue_count_cached;
+    console.log(`  ${row.title} (gcd ${row.gcd_id}) vol ${row.comicvine_volume_id} -> unpin; issue_count ${row.issue_count_cached} -> ${count}; ${keeper ? `volume stays with gcd ${keeper.gcd_id}` : "only collected editions shared it"}`);
     if (!APPLY) continue;
     const { error } = await supabase.from("series")
       .update({ comicvine_volume_id: null, featured_cover_path_cached: null, issue_count_cached: count })

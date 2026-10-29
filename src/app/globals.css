@@ -9149,6 +9149,30 @@ button.nav-link {
   padding: 6px;
   z-index: 500;
   animation: user-menu-fade 0.12s ease-out;
+  /* The menu is taller than a short laptop viewport (Switch account and Log
+     out ended up below the fold with no way to reach them). The header is
+     sticky and at most ~76px, so cap the panel to the room under it and let
+     it scroll. */
+  max-height: calc(100vh - 88px);
+  max-height: calc(100dvh - 88px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+.user-menu-panel::-webkit-scrollbar {
+  width: 6px;
+}
+.user-menu-panel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 3px;
+}
+/* Short viewports: tighten the rows so the whole menu usually fits without
+   scrolling at all. */
+@media (max-height: 860px) {
+  .user-menu-panel .user-menu-head { padding: 8px 12px 6px; }
+  .user-menu-panel .user-menu-item { padding-top: 7px; padding-bottom: 7px; }
+  .user-menu-panel .user-menu-divider { margin: 4px; }
 }
 @keyframes user-menu-fade {
   from { opacity: 0; transform: translateY(-4px); }

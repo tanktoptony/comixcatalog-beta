@@ -26443,9 +26443,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T01:03:53.430075+00:00",
-    "retry_after": "2026-10-01T01:03:53.430090+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T03:07:08.524447+00:00",
+    "retry_after": "2026-11-05T03:07:08.524449+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Ghost Rider: Danny Ketch Epic Collection",
@@ -27498,8 +27499,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T02:15:24.714187+00:00",
-    "retry_after": "2026-10-30T02:15:24.714204+00:00",
+    "last_attempt_at": "2026-10-29T03:09:01.664244+00:00",
+    "retry_after": "2026-10-30T03:09:01.664254+00:00",
     "search_hydrated": true
   },
   {
@@ -27522,8 +27523,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T02:10:23.990983+00:00",
-    "retry_after": "2026-10-30T02:10:23.990988+00:00",
+    "last_attempt_at": "2026-10-29T03:01:23.569579+00:00",
+    "retry_after": "2026-10-30T03:01:23.569581+00:00",
     "search_hydrated": true
   },
   {
@@ -40463,9 +40464,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T07:04:48.283293+00:00",
-    "retry_after": "2026-10-06T07:04:48.283309+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T03:07:08.524412+00:00",
+    "retry_after": "2026-11-01T03:07:08.524429+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Arclight",
@@ -43582,8 +43584,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T02:10:23.990924+00:00",
-    "retry_after": "2026-10-30T02:10:23.990940+00:00",
+    "last_attempt_at": "2026-10-29T03:01:23.569541+00:00",
+    "retry_after": "2026-10-30T03:01:23.569553+00:00",
     "search_hydrated": true
   },
   {
@@ -80414,9 +80416,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T03:06:52.618416+00:00",
-    "retry_after": "2026-10-29T03:06:52.618417+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T03:08:23.531661+00:00",
+    "retry_after": "2026-11-01T03:08:23.531676+00:00",
     "search_hydrated": true
   },
   {
@@ -80425,9 +80427,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T03:06:52.618440+00:00",
-    "retry_after": "2026-10-29T03:06:52.618442+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T03:08:23.531690+00:00",
+    "retry_after": "2026-11-01T03:08:23.531692+00:00",
     "search_hydrated": true
   },
   {
@@ -80449,9 +80451,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T03:06:52.618459+00:00",
-    "retry_after": "2026-10-29T03:06:52.618461+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T03:08:23.531720+00:00",
+    "retry_after": "2026-11-01T03:08:23.531721+00:00",
     "search_hydrated": true
   },
   {
@@ -84197,6 +84199,155 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T02:14:57.550180+00:00",
     "retry_after": "2026-10-30T02:14:57.550184+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Savage Dragon: Into the Hornet's Nest",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T03:05:10.566073+00:00",
+    "retry_after": "2026-10-30T03:05:10.566085+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shazam! Power of Hope",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T03:05:10.566152+00:00",
+    "retry_after": "2026-10-30T03:05:10.566154+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shirtless Bear-Fighter 2",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 144695,
+        "name": "Shirtless Bear-Fighter! 2",
+        "publisher": "Image",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T03:06:25.961742+00:00",
+    "retry_after": "2026-10-30T03:06:25.961754+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sins of the Black Flamingo",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 143869,
+        "name": "Sins of the Black Flamingo",
+        "publisher": "Image",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T03:06:47.041740+00:00",
+    "retry_after": "2026-10-30T03:06:47.041752+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man by Tom Taylor",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48892,
+        "name": "Spider-Man",
+        "publisher": "Panini Verlag",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T03:07:10.452200+00:00",
+    "retry_after": "2026-10-30T03:07:10.452216+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Woman by Pacheco & Perez",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T03:07:10.452253+00:00",
+    "retry_after": "2026-10-30T03:07:10.452255+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spidey and His Amazing Friends Halloween Trick-or-Read 2023",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T03:07:10.452279+00:00",
+    "retry_after": "2026-10-30T03:07:10.452280+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spidey: Freshmen Year",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T03:07:10.452286+00:00",
+    "retry_after": "2026-10-30T03:07:10.452288+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man 2099: Exodus",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 143301,
+        "name": "Spider-Man 2099: Exodus",
+        "publisher": "Marvel",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T03:07:11.403471+00:00",
+    "retry_after": "2026-10-30T03:07:11.403487+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "B.C. One More Time",
+    "publisher": "Fawcett Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T03:08:23.531739+00:00",
+    "retry_after": "2026-10-30T03:08:23.531741+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vermines Magazine",
+    "publisher": "Heavy Metal",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T03:08:23.531759+00:00",
+    "retry_after": "2026-10-30T03:08:23.531760+00:00",
     "search_hydrated": true
   }
 ]

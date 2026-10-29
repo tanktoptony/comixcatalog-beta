@@ -43586,8 +43586,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T05:01:53.234280+00:00",
-    "retry_after": "2026-10-30T05:01:53.234297+00:00",
+    "last_attempt_at": "2026-10-29T06:01:39.531656+00:00",
+    "retry_after": "2026-10-30T06:01:39.531672+00:00",
     "search_hydrated": true
   },
   {
@@ -80728,9 +80728,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T05:08:22.270759+00:00",
-    "retry_after": "2026-10-29T05:08:22.270775+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T06:05:41.088631+00:00",
+    "retry_after": "2026-11-01T06:05:41.088644+00:00",
     "search_hydrated": true
   },
   {
@@ -80739,9 +80739,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T05:08:39.553490+00:00",
-    "retry_after": "2026-10-29T05:08:39.553494+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T06:05:39.595114+00:00",
+    "retry_after": "2026-11-01T06:05:39.595129+00:00",
     "search_hydrated": true
   },
   {
@@ -80750,9 +80750,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T05:08:39.553519+00:00",
-    "retry_after": "2026-10-29T05:08:39.553522+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T06:05:39.595152+00:00",
+    "retry_after": "2026-11-01T06:05:39.595156+00:00",
     "search_hydrated": true
   },
   {
@@ -80761,9 +80761,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T05:08:39.553535+00:00",
-    "retry_after": "2026-10-29T05:08:39.553537+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T06:05:39.595171+00:00",
+    "retry_after": "2026-11-01T06:05:39.595174+00:00",
     "search_hydrated": true
   },
   {
@@ -80785,9 +80785,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T05:08:39.553588+00:00",
-    "retry_after": "2026-10-29T05:08:39.553591+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T06:05:39.595229+00:00",
+    "retry_after": "2026-11-01T06:05:39.595232+00:00",
     "search_hydrated": true
   },
   {
@@ -80796,9 +80796,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T05:08:39.553609+00:00",
-    "retry_after": "2026-10-29T05:08:39.553612+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T06:05:39.595249+00:00",
+    "retry_after": "2026-11-01T06:05:39.595252+00:00",
     "search_hydrated": true
   },
   {
@@ -80807,9 +80807,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T06:05:18.468187+00:00",
-    "retry_after": "2026-10-29T06:05:18.468189+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T06:05:39.595268+00:00",
+    "retry_after": "2026-11-01T06:05:39.595271+00:00",
     "search_hydrated": true
   },
   {
@@ -80865,9 +80865,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T06:07:52.295624+00:00",
-    "retry_after": "2026-10-29T06:07:52.295625+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T06:09:19.436905+00:00",
+    "retry_after": "2026-11-01T06:09:19.436921+00:00",
     "search_hydrated": true
   },
   {
@@ -84495,6 +84495,133 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T05:07:15.795476+00:00",
     "retry_after": "2026-10-30T05:07:15.795479+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The 85th Anniversary Collection",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T06:07:29.081375+00:00",
+    "retry_after": "2026-10-30T06:07:29.081389+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Warworld Saga",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T06:07:29.081412+00:00",
+    "retry_after": "2026-10-30T06:07:29.081416+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Swing",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 111158,
+        "name": "Swing",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T06:07:43.001671+00:00",
+    "retry_after": "2026-10-30T06:07:43.001688+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Amazing Spider-Man by Zeb Wells Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 170990,
+        "name": "The Amazing Spider-Man by Zeb Wells Omnibus",
+        "publisher": "Marvel",
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T06:08:46.188133+00:00",
+    "retry_after": "2026-10-30T06:08:46.188156+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Bloody Dozen",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T06:08:53.866012+00:00",
+    "retry_after": "2026-10-30T06:08:53.866028+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Chosen One: The American Jesus Trilogy",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T06:08:53.866051+00:00",
+    "retry_after": "2026-10-30T06:08:53.866054+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Viva!",
+    "publisher": "Dark Horse Comics",
+    "year": 1960,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T06:09:19.436974+00:00",
+    "retry_after": "2026-10-30T06:09:19.436978+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Le straordinarie avventure di Adèle Blanc-Sec",
+    "publisher": "Dell Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157726,
+        "name": "Le straordinarie avventure di Adèle Blanc-Sec",
+        "publisher": "Rizzoli Lizard",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T06:09:19.437014+00:00",
+    "retry_after": "2026-10-30T06:09:19.437018+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hot Line",
+    "publisher": "Fantagraphics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 56254,
+        "name": "Hot Line",
+        "publisher": "Eros Comix",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T06:09:19.437053+00:00",
+    "retry_after": "2026-10-30T06:09:19.437056+00:00",
     "search_hydrated": true
   }
 ]

@@ -7076,10 +7076,12 @@
     "name": "Starhenge Deluxe Edition",
     "publisher": "Image Comics",
     "year": 2023,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555412+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T04:06:23.326279+00:00",
+    "retry_after": "2026-11-01T04:06:23.326296+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Yakitate!! Japan",
@@ -27499,8 +27501,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T03:09:01.664244+00:00",
-    "retry_after": "2026-10-30T03:09:01.664254+00:00",
+    "last_attempt_at": "2026-10-29T04:08:01.467670+00:00",
+    "retry_after": "2026-10-30T04:08:01.467689+00:00",
     "search_hydrated": true
   },
   {
@@ -27523,8 +27525,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T03:01:23.569579+00:00",
-    "retry_after": "2026-10-30T03:01:23.569581+00:00",
+    "last_attempt_at": "2026-10-29T04:01:23.226463+00:00",
+    "retry_after": "2026-10-30T04:01:23.226466+00:00",
     "search_hydrated": true
   },
   {
@@ -43584,8 +43586,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T03:01:23.569541+00:00",
-    "retry_after": "2026-10-30T03:01:23.569553+00:00",
+    "last_attempt_at": "2026-10-29T04:01:23.226415+00:00",
+    "retry_after": "2026-10-30T04:01:23.226433+00:00",
     "search_hydrated": true
   },
   {
@@ -80361,9 +80363,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T03:05:09.009696+00:00",
-    "retry_after": "2026-10-29T03:05:09.009698+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T04:05:17.724423+00:00",
+    "retry_after": "2026-11-01T04:05:17.724442+00:00",
     "search_hydrated": true
   },
   {
@@ -80372,9 +80374,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T03:05:09.009712+00:00",
-    "retry_after": "2026-10-29T03:05:09.009714+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T04:05:17.724466+00:00",
+    "retry_after": "2026-11-01T04:05:17.724469+00:00",
     "search_hydrated": true
   },
   {
@@ -80383,9 +80385,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T03:05:44.418865+00:00",
-    "retry_after": "2026-10-29T03:05:44.418883+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T04:05:17.724480+00:00",
+    "retry_after": "2026-11-01T04:05:17.724482+00:00",
     "search_hydrated": true
   },
   {
@@ -80394,9 +80396,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T03:05:44.418896+00:00",
-    "retry_after": "2026-10-29T03:05:44.418898+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T04:05:17.724490+00:00",
+    "retry_after": "2026-11-01T04:05:17.724492+00:00",
     "search_hydrated": true
   },
   {
@@ -80405,9 +80407,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T03:05:44.418956+00:00",
-    "retry_after": "2026-10-29T03:05:44.418957+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T04:05:17.724500+00:00",
+    "retry_after": "2026-11-01T04:05:17.724518+00:00",
     "search_hydrated": true
   },
   {
@@ -80599,9 +80601,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T04:07:20.883670+00:00",
-    "retry_after": "2026-10-29T04:07:20.883672+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T04:07:44.918565+00:00",
+    "retry_after": "2026-11-01T04:07:44.918585+00:00",
     "search_hydrated": true
   },
   {
@@ -84348,6 +84350,140 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T03:08:23.531759+00:00",
     "retry_after": "2026-10-30T03:08:23.531760+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Static: Up All Night",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T04:06:23.326326+00:00",
+    "retry_after": "2026-10-30T04:06:23.326328+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Stormbreakers Sketchbook",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T04:06:23.326367+00:00",
+    "retry_after": "2026-10-30T04:06:23.326369+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Stringer: A Crime Thriller",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T04:06:23.326376+00:00",
+    "retry_after": "2026-10-30T04:06:23.326377+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: The Mandalorian Season 2",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 154832,
+        "name": "Star Wars: The Mandalorian Season 2 ",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T04:06:24.276260+00:00",
+    "retry_after": "2026-10-30T04:06:24.276279+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Static: Season One",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146349,
+        "name": "Static: Season One",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T04:06:39.521274+00:00",
+    "retry_after": "2026-10-30T04:06:39.521293+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Suicide Squad: Get Joker!",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146350,
+        "name": "Suicide Squad: Get Joker!",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T04:07:27.284368+00:00",
+    "retry_after": "2026-10-30T04:07:27.284387+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Jungle Life Giant Edition",
+    "publisher": "Marvel Comics",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79390,
+        "name": "Jungle Life Giant Edition",
+        "publisher": "Magazine Management",
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T04:07:44.918623+00:00",
+    "retry_after": "2026-10-30T04:07:44.918626+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mistress and the Maggot",
+    "publisher": "Fantagraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65280,
+        "name": "Mistress and the Maggot",
+        "publisher": "Eros Comix",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T04:07:44.918644+00:00",
+    "retry_after": "2026-10-30T04:07:44.918645+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Horla",
+    "publisher": "Heavy Metal",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T04:07:44.918674+00:00",
+    "retry_after": "2026-10-30T04:07:44.918676+00:00",
     "search_hydrated": true
   }
 ]

@@ -8335,10 +8335,12 @@
     "name": "The Fellspyre Chronicles",
     "publisher": "DC Comics",
     "year": 2023,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555814+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T07:06:08.350095+00:00",
+    "retry_after": "2026-11-01T07:06:08.350098+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Power of Shazam!",
@@ -27501,13 +27503,13 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T04:08:01.467670+00:00",
-    "retry_after": "2026-10-30T04:08:01.467689+00:00",
+    "last_attempt_at": "2026-10-29T07:07:35.544809+00:00",
+    "retry_after": "2026-10-30T07:07:35.544824+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27525,8 +27527,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T05:01:34.458247+00:00",
-    "retry_after": "2026-10-30T05:01:34.458264+00:00",
+    "last_attempt_at": "2026-10-29T07:01:35.363593+00:00",
+    "retry_after": "2026-10-30T07:01:35.363606+00:00",
     "search_hydrated": true
   },
   {
@@ -43586,8 +43588,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T06:01:39.531656+00:00",
-    "retry_after": "2026-10-30T06:01:39.531672+00:00",
+    "last_attempt_at": "2026-10-29T07:01:31.244366+00:00",
+    "retry_after": "2026-10-30T07:01:31.244383+00:00",
     "search_hydrated": true
   },
   {
@@ -80825,9 +80827,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T06:06:47.277370+00:00",
-    "retry_after": "2026-10-29T06:06:47.277386+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T07:05:43.317336+00:00",
+    "retry_after": "2026-11-01T07:05:43.317352+00:00",
     "search_hydrated": true
   },
   {
@@ -80843,9 +80845,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T06:06:47.277414+00:00",
-    "retry_after": "2026-10-29T06:06:47.277416+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T07:05:43.317398+00:00",
+    "retry_after": "2026-11-01T07:05:43.317402+00:00",
     "search_hydrated": true
   },
   {
@@ -80854,9 +80856,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T06:06:56.440101+00:00",
-    "retry_after": "2026-10-29T06:06:56.440103+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T07:05:28.208524+00:00",
+    "retry_after": "2026-11-01T07:05:28.208540+00:00",
     "search_hydrated": true
   },
   {
@@ -80876,9 +80878,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T07:05:09.903196+00:00",
-    "retry_after": "2026-10-29T07:05:09.903199+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T07:06:08.349921+00:00",
+    "retry_after": "2026-11-01T07:06:08.349937+00:00",
     "search_hydrated": true
   },
   {
@@ -80887,9 +80889,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T07:05:09.903302+00:00",
-    "retry_after": "2026-10-29T07:05:09.903305+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T07:06:08.349967+00:00",
+    "retry_after": "2026-11-01T07:06:08.349970+00:00",
     "search_hydrated": true
   },
   {
@@ -80909,9 +80911,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T07:06:57.118396+00:00",
-    "retry_after": "2026-10-29T07:06:57.118399+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T07:07:15.557331+00:00",
+    "retry_after": "2026-11-01T07:07:15.557347+00:00",
     "search_hydrated": true
   },
   {
@@ -84622,6 +84624,112 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T06:09:19.437053+00:00",
     "retry_after": "2026-10-30T06:09:19.437056+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Dead Boy Detectives Omnibus (The Sandman Universe Classics)",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T07:06:08.350052+00:00",
+    "retry_after": "2026-10-30T07:06:08.350056+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Good Asian 1936 Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T07:06:08.350111+00:00",
+    "retry_after": "2026-10-30T07:06:08.350113+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 2128,
+        "name": "The Avengers",
+        "publisher": "Marvel",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T07:06:08.351286+00:00",
+    "retry_after": "2026-10-30T07:06:08.351292+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Complete Invincible Library",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 63931,
+        "name": "The Complete Invincible Library",
+        "publisher": "Image",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T07:06:08.351318+00:00",
+    "retry_after": "2026-10-30T07:06:08.351321+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Exiled",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 48555,
+        "name": "Exiled",
+        "publisher": "Marvel",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T07:06:35.054204+00:00",
+    "retry_after": "2026-10-30T07:06:35.054260+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Amazing X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2001,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 68919,
+        "name": "Amazing X-Men",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 5535,
+        "name": "Amazing X-Men",
+        "publisher": "Marvel",
+        "start_year": 1995
+      },
+      {
+        "id": 167491,
+        "name": "Amazing X-Men",
+        "publisher": "Marvel",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T07:07:15.557487+00:00",
+    "retry_after": "2026-10-30T07:07:15.557492+00:00",
     "search_hydrated": true
   }
 ]

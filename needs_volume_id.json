@@ -26649,11 +26649,19 @@
     "name": "Hulk by Donny Cates",
     "publisher": "Marvel Comics",
     "year": 2022,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T01:04:00.291517+00:00",
-    "retry_after": "2026-10-01T01:04:00.291531+00:00"
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57084,
+        "name": "Hulk",
+        "publisher": "ID Komiks",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T15:05:51.338680+00:00",
+    "retry_after": "2026-11-05T15:05:51.338696+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Checkmate",
@@ -27510,8 +27518,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T14:08:24.184968+00:00",
-    "retry_after": "2026-10-30T14:08:24.184981+00:00",
+    "last_attempt_at": "2026-10-29T15:07:54.175735+00:00",
+    "retry_after": "2026-10-30T15:07:54.175750+00:00",
     "search_hydrated": true
   },
   {
@@ -27534,8 +27542,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T14:01:33.634562+00:00",
-    "retry_after": "2026-10-30T14:01:33.634566+00:00",
+    "last_attempt_at": "2026-10-29T15:01:35.047089+00:00",
+    "retry_after": "2026-10-30T15:01:35.047091+00:00",
     "search_hydrated": true
   },
   {
@@ -42949,9 +42957,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-08T21:00:51.066142+00:00",
-    "retry_after": "2026-10-11T21:00:51.066160+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T15:05:51.338727+00:00",
+    "retry_after": "2026-11-05T15:05:51.338730+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Black Sun: Colossus and Nightcrawler",
@@ -43600,8 +43609,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T14:01:33.634477+00:00",
-    "retry_after": "2026-10-30T14:01:33.634493+00:00",
+    "last_attempt_at": "2026-10-29T15:01:35.047019+00:00",
+    "retry_after": "2026-10-30T15:01:35.047034+00:00",
     "search_hydrated": true
   },
   {
@@ -51519,8 +51528,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T14:01:33.634524+00:00",
-    "retry_after": "2026-10-30T14:01:33.634529+00:00",
+    "last_attempt_at": "2026-10-29T15:01:35.047060+00:00",
+    "retry_after": "2026-10-30T15:01:35.047063+00:00",
     "search_hydrated": true
   },
   {
@@ -81486,9 +81495,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:05:36.398397+00:00",
-    "retry_after": "2026-10-29T14:05:36.398400+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T15:05:23.001976+00:00",
+    "retry_after": "2026-11-01T15:05:23.001992+00:00",
     "search_hydrated": true
   },
   {
@@ -81497,9 +81506,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:05:36.398413+00:00",
-    "retry_after": "2026-10-29T14:05:36.398416+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T15:05:23.002016+00:00",
+    "retry_after": "2026-11-01T15:05:23.002019+00:00",
     "search_hydrated": true
   },
   {
@@ -81508,9 +81517,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:05:36.398429+00:00",
-    "retry_after": "2026-10-29T14:05:36.398432+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T15:05:23.002032+00:00",
+    "retry_after": "2026-11-01T15:05:23.002034+00:00",
     "search_hydrated": true
   },
   {
@@ -81519,9 +81528,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:05:36.398457+00:00",
-    "retry_after": "2026-10-29T14:05:36.398460+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T15:05:23.002060+00:00",
+    "retry_after": "2026-11-01T15:05:23.002062+00:00",
     "search_hydrated": true
   },
   {
@@ -81537,9 +81546,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:05:36.965624+00:00",
-    "retry_after": "2026-10-29T14:05:36.965629+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T15:05:23.596072+00:00",
+    "retry_after": "2026-11-01T15:05:23.596086+00:00",
     "search_hydrated": true
   },
   {
@@ -81548,9 +81557,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:05:57.123335+00:00",
-    "retry_after": "2026-10-29T14:05:57.123350+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T15:05:23.002073+00:00",
+    "retry_after": "2026-11-01T15:05:23.002075+00:00",
     "search_hydrated": true
   },
   {
@@ -81559,9 +81568,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:05:57.123423+00:00",
-    "retry_after": "2026-10-29T14:05:57.123427+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T15:05:23.002086+00:00",
+    "retry_after": "2026-11-01T15:05:23.002088+00:00",
     "search_hydrated": true
   },
   {
@@ -81577,9 +81586,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:07:08.683586+00:00",
-    "retry_after": "2026-10-29T14:07:08.683614+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T15:05:23.596162+00:00",
+    "retry_after": "2026-11-01T15:05:23.596165+00:00",
     "search_hydrated": true
   },
   {
@@ -85623,6 +85632,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T14:08:11.637785+00:00",
     "retry_after": "2026-10-30T14:08:11.637788+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Heroes Reborn: America's Mightiest Heroes Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T15:05:49.756824+00:00",
+    "retry_after": "2026-10-30T15:05:49.756839+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Harley Quinn & the Birds of Prey: The Hunt for Harley",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 134713,
+        "name": "Harley Quinn and the Birds of Prey: The Hunt For Harley",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T15:05:52.834109+00:00",
+    "retry_after": "2026-10-30T15:05:52.834127+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "How to Read Comics the Marvel Way",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 140341,
+        "name": "How to Read Comics the Marvel Way",
+        "publisher": "Marvel",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T15:06:41.716364+00:00",
+    "retry_after": "2026-10-30T15:06:41.716379+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Le Club des divorcés",
+    "publisher": "Dynamite Entertainment",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167166,
+        "name": "Le Club des Divorcés",
+        "publisher": "Dargaud",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T15:07:28.949382+00:00",
+    "retry_after": "2026-10-30T15:07:28.949397+00:00",
     "search_hydrated": true
   }
 ]

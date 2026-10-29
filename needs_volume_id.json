@@ -6341,10 +6341,12 @@
     "name": "Earth-Prime: Stargirl",
     "publisher": "DC Comics",
     "year": 2022,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555183+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T14:05:39.421082+00:00",
+    "retry_after": "2026-11-01T14:05:39.421085+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Iron Man: Road to Iron Man 2020 Halloween Comic Fest 2019",
@@ -6399,10 +6401,12 @@
     "name": "Earth-Prime: Hero's Twilight",
     "publisher": "DC Comics",
     "year": 2022,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555198+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T14:05:39.421014+00:00",
+    "retry_after": "2026-11-01T14:05:39.421030+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Spider-Man Behind-the-Scenes Edition",
@@ -7246,10 +7250,12 @@
     "name": "Earth-Prime: The Flash",
     "publisher": "DC Comics",
     "year": 2022,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555460+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T14:05:39.421114+00:00",
+    "retry_after": "2026-11-01T14:05:39.421117+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Marvel Knights 20th Anniversary - Luke Cage, Hero for Hire",
@@ -22210,9 +22216,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T19:29:16.297590+00:00",
-    "retry_after": "2026-09-24T19:29:16.297607+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T14:06:35.193979+00:00",
+    "retry_after": "2026-11-01T14:06:35.193982+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Weird",
@@ -27503,8 +27510,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T13:08:49.217029+00:00",
-    "retry_after": "2026-10-30T13:08:49.217041+00:00",
+    "last_attempt_at": "2026-10-29T14:08:24.184968+00:00",
+    "retry_after": "2026-10-30T14:08:24.184981+00:00",
     "search_hydrated": true
   },
   {
@@ -27514,21 +27521,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T13:01:48.676556+00:00",
-    "retry_after": "2026-10-30T13:01:48.676560+00:00",
+    "last_attempt_at": "2026-10-29T14:01:33.634562+00:00",
+    "retry_after": "2026-10-30T14:01:33.634566+00:00",
     "search_hydrated": true
   },
   {
@@ -27702,9 +27709,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T16:07:32.143167+00:00",
-    "retry_after": "2026-09-30T16:07:32.143180+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T14:06:35.193997+00:00",
+    "retry_after": "2026-11-05T14:06:35.193999+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel 2-in-One",
@@ -35713,9 +35721,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T00:01:23.239993+00:00",
-    "retry_after": "2026-10-06T00:01:23.240003+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T14:05:39.421099+00:00",
+    "retry_after": "2026-11-05T14:05:39.421101+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Fantastic Four MGC",
@@ -38692,9 +38701,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T05:00:55.296374+00:00",
-    "retry_after": "2026-10-08T05:00:55.296390+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T14:05:39.421060+00:00",
+    "retry_after": "2026-11-05T14:05:39.421065+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Bloodborne: FCBD",
@@ -43590,8 +43600,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T13:01:48.676399+00:00",
-    "retry_after": "2026-10-30T13:01:48.676415+00:00",
+    "last_attempt_at": "2026-10-29T14:01:33.634477+00:00",
+    "retry_after": "2026-10-30T14:01:33.634493+00:00",
     "search_hydrated": true
   },
   {
@@ -51509,8 +51519,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T13:01:48.676523+00:00",
-    "retry_after": "2026-10-30T13:01:48.676528+00:00",
+    "last_attempt_at": "2026-10-29T14:01:33.634524+00:00",
+    "retry_after": "2026-10-30T14:01:33.634529+00:00",
     "search_hydrated": true
   },
   {
@@ -81578,9 +81588,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:07:26.427020+00:00",
-    "retry_after": "2026-10-29T14:07:26.427045+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T14:08:11.637644+00:00",
+    "retry_after": "2026-11-01T14:08:11.637661+00:00",
     "search_hydrated": true
   },
   {
@@ -81589,9 +81599,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:07:26.427070+00:00",
-    "retry_after": "2026-10-29T14:07:26.427074+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T14:08:11.637684+00:00",
+    "retry_after": "2026-11-01T14:08:11.637687+00:00",
     "search_hydrated": true
   },
   {
@@ -81600,9 +81610,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T14:07:26.427090+00:00",
-    "retry_after": "2026-10-29T14:07:26.427093+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T14:08:11.637703+00:00",
+    "retry_after": "2026-11-01T14:08:11.637706+00:00",
     "search_hydrated": true
   },
   {
@@ -85522,6 +85532,97 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T13:08:39.060151+00:00",
     "retry_after": "2026-10-30T13:08:39.060154+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Everyday Hero Machine Boy",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T14:05:39.421166+00:00",
+    "retry_after": "2026-10-30T14:05:39.421169+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Errand Boys",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 114055,
+        "name": "Errand Boys",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T14:05:58.483479+00:00",
+    "retry_after": "2026-10-30T14:05:58.483501+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gen 13: Starting Over The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T14:06:35.193943+00:00",
+    "retry_after": "2026-10-30T14:06:35.193959+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Grrl Scouts: Stone Ghosts",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T14:06:35.194044+00:00",
+    "retry_after": "2026-10-30T14:06:35.194047+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hack/Slash: Crossed Over, and Crossed Out",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T14:06:35.194059+00:00",
+    "retry_after": "2026-10-30T14:06:35.194061+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Transformers Premiere Collection",
+    "publisher": "IDW Publishing",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T14:08:11.637738+00:00",
+    "retry_after": "2026-10-30T14:08:11.637741+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Club Nephilim",
+    "publisher": "First Comics",
+    "year": 2026,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 159710,
+        "name": "Club Nephilim",
+        "publisher": "Devil's Due",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T14:08:11.637785+00:00",
+    "retry_after": "2026-10-30T14:08:11.637788+00:00",
     "search_hydrated": true
   }
 ]

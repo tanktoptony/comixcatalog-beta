@@ -27527,8 +27527,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T21:34:10.540522+00:00",
-    "retry_after": "2026-10-30T21:34:10.540524+00:00",
+    "last_attempt_at": "2026-10-29T22:01:16.552888+00:00",
+    "retry_after": "2026-10-30T22:01:16.552890+00:00",
     "search_hydrated": true
   },
   {
@@ -42242,9 +42242,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-08T16:06:58.670127+00:00",
-    "retry_after": "2026-10-11T16:06:58.670145+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T22:04:43.014799+00:00",
+    "retry_after": "2026-11-05T22:04:43.014800+00:00",
+    "search_hydrated": true
   },
   {
     "name": "House of  Mystery",
@@ -43596,8 +43597,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T21:34:10.540444+00:00",
-    "retry_after": "2026-10-30T21:34:10.540463+00:00",
+    "last_attempt_at": "2026-10-29T22:01:16.552833+00:00",
+    "retry_after": "2026-10-30T22:01:16.552845+00:00",
     "search_hydrated": true
   },
   {
@@ -51497,8 +51498,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T21:34:10.540494+00:00",
-    "retry_after": "2026-10-30T21:34:10.540497+00:00",
+    "last_attempt_at": "2026-10-29T22:01:16.552866+00:00",
+    "retry_after": "2026-10-30T22:01:16.552869+00:00",
     "search_hydrated": true
   },
   {
@@ -84902,6 +84903,298 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T21:38:23.463100+00:00",
     "retry_after": "2026-10-30T21:38:23.463103+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Scarlet",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 113090,
+        "name": "Scarlet",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 118528,
+        "name": "Scarlet",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:04:43.014768+00:00",
+    "retry_after": "2026-10-30T22:04:43.014782+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Skullkickers 10th Anniversary Super Special",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:04:43.014823+00:00",
+    "retry_after": "2026-10-30T22:04:43.014824+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Naomi: Season One",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 122178,
+        "name": "Naomi: Season One",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:04:44.907637+00:00",
+    "retry_after": "2026-10-30T22:04:44.907654+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Over My Dead Body",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 124260,
+        "name": "Over My Dead Body",
+        "publisher": "Image",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:04:47.392634+00:00",
+    "retry_after": "2026-10-30T22:04:47.392650+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Powers",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 6472,
+        "name": "Powers",
+        "publisher": "Image",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:04:47.392678+00:00",
+    "retry_after": "2026-10-30T22:04:47.392680+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Quest",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 153017,
+        "name": "Quest",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:04:47.710182+00:00",
+    "retry_after": "2026-10-30T22:04:47.710192+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Rorschach",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 140550,
+        "name": "Rorschach",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:04:58.464931+00:00",
+    "retry_after": "2026-10-30T22:04:58.464943+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spawn Origin Series Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:20.870492+00:00",
+    "retry_after": "2026-10-30T22:05:20.870508+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spidey and His Amazing Friends Halloween Trick-or-Read 2022",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:20.870525+00:00",
+    "retry_after": "2026-10-30T22:05:20.870527+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Doctor Aphra No. 1 Halloween Trick-or-Read 2022",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:20.870536+00:00",
+    "retry_after": "2026-10-30T22:05:20.870537+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Strange Academy No. 1 Halloween Trick-or-Read",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:20.870556+00:00",
+    "retry_after": "2026-10-30T22:05:20.870558+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: Birthright The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:20.870632+00:00",
+    "retry_after": "2026-10-30T22:05:20.870633+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Obi-Wan Kenobi",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 153471,
+        "name": "Star Wars: Obi-Wan Kenobi",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:22.345454+00:00",
+    "retry_after": "2026-10-30T22:05:22.345471+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Strange Adventures",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 140554,
+        "name": "Strange Adventures",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:22.718954+00:00",
+    "retry_after": "2026-10-30T22:05:22.718972+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Suicide Squad: Bad Blood",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 135658,
+        "name": "Suicide Squad: Bad Blood",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:23.069146+00:00",
+    "retry_after": "2026-10-30T22:05:23.069159+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman and the Authority",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 137676,
+        "name": "Superman and the Authority",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:23.250270+00:00",
+    "retry_after": "2026-10-30T22:05:23.250279+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman Red & Blue",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 134489,
+        "name": "Superman Red and Blue",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:23.444654+00:00",
+    "retry_after": "2026-10-30T22:05:23.444664+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Target Fantastic Four: Cosmic Threats",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:41.147390+00:00",
+    "retry_after": "2026-10-30T22:05:41.147408+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wizard Ace Edition:  The Amazing Spider-Man #3",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T22:05:41.147453+00:00",
+    "retry_after": "2026-10-30T22:05:41.147455+00:00",
     "search_hydrated": true
   }
 ]

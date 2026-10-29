@@ -6880,10 +6880,12 @@
     "name": "Earth-Prime: Batwoman",
     "publisher": "DC Comics",
     "year": 2022,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555344+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T13:08:16.160648+00:00",
+    "retry_after": "2026-11-01T13:08:16.160664+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Star Wars: War of the Bounty Hunters Alpha Director's Cut",
@@ -7059,15 +7061,6 @@
     "candidates": [],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.555406+00:00"
-  },
-  {
-    "name": "DC vs. Vampires - Hunters",
-    "publisher": "DC Comics",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555409+00:00"
   },
   {
     "name": "Starhenge Deluxe Edition",
@@ -27510,8 +27503,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T12:08:42.404949+00:00",
-    "retry_after": "2026-10-30T12:08:42.404965+00:00",
+    "last_attempt_at": "2026-10-29T13:08:49.217029+00:00",
+    "retry_after": "2026-10-30T13:08:49.217041+00:00",
     "search_hydrated": true
   },
   {
@@ -27534,8 +27527,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T12:01:35.985779+00:00",
-    "retry_after": "2026-10-30T12:01:35.985783+00:00",
+    "last_attempt_at": "2026-10-29T13:01:48.676556+00:00",
+    "retry_after": "2026-10-30T13:01:48.676560+00:00",
     "search_hydrated": true
   },
   {
@@ -43597,8 +43590,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T12:01:35.985615+00:00",
-    "retry_after": "2026-10-30T12:01:35.985633+00:00",
+    "last_attempt_at": "2026-10-29T13:01:48.676399+00:00",
+    "retry_after": "2026-10-30T13:01:48.676415+00:00",
     "search_hydrated": true
   },
   {
@@ -51516,8 +51509,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T12:01:35.985745+00:00",
-    "retry_after": "2026-10-30T12:01:35.985750+00:00",
+    "last_attempt_at": "2026-10-29T13:01:48.676523+00:00",
+    "retry_after": "2026-10-30T13:01:48.676528+00:00",
     "search_hydrated": true
   },
   {
@@ -81397,9 +81390,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T12:06:35.635645+00:00",
-    "retry_after": "2026-10-29T12:06:35.635657+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T13:06:03.814868+00:00",
+    "retry_after": "2026-11-01T13:06:03.814882+00:00",
     "search_hydrated": true
   },
   {
@@ -81415,9 +81408,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T12:06:35.750275+00:00",
-    "retry_after": "2026-10-29T12:06:35.750284+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T13:06:03.966235+00:00",
+    "retry_after": "2026-11-01T13:06:03.966247+00:00",
     "search_hydrated": true
   },
   {
@@ -81426,9 +81419,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T12:06:58.738984+00:00",
-    "retry_after": "2026-10-29T12:06:58.738999+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T13:06:03.268591+00:00",
+    "retry_after": "2026-11-01T13:06:03.268608+00:00",
     "search_hydrated": true
   },
   {
@@ -81437,9 +81430,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T12:06:58.739077+00:00",
-    "retry_after": "2026-10-29T12:06:58.739080+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T13:06:03.268630+00:00",
+    "retry_after": "2026-11-01T13:06:03.268634+00:00",
     "search_hydrated": true
   },
   {
@@ -81448,9 +81441,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T12:10:04.772038+00:00",
-    "retry_after": "2026-10-29T12:10:04.772041+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T13:08:39.060016+00:00",
+    "retry_after": "2026-11-01T13:08:39.060032+00:00",
     "search_hydrated": true
   },
   {
@@ -81472,9 +81465,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T12:10:04.772173+00:00",
-    "retry_after": "2026-10-29T12:10:04.772177+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T13:08:39.060078+00:00",
+    "retry_after": "2026-11-01T13:08:39.060083+00:00",
     "search_hydrated": true
   },
   {
@@ -85381,6 +85374,154 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T12:07:20.246397+00:00",
     "retry_after": "2026-10-30T12:07:20.246413+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Poster Portfolio: DC Pride",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T13:06:03.268651+00:00",
+    "retry_after": "2026-10-30T13:06:03.268653+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Poster Portfolio: Frank Quitely",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T13:06:03.268667+00:00",
+    "retry_after": "2026-10-30T13:06:03.268669+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Poster Portfolio: George Pérez",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T13:06:03.268682+00:00",
+    "retry_after": "2026-10-30T13:06:03.268685+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Poster Portfolio: J. H. Williams III",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T13:06:03.268697+00:00",
+    "retry_after": "2026-10-30T13:06:03.268699+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Poster Portfolio: Jenny Frison",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T13:06:03.268710+00:00",
+    "retry_after": "2026-10-30T13:06:03.268712+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deathbed",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 108808,
+        "name": "Deathbed",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 114877,
+        "name": "Deathbed",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T13:06:28.914745+00:00",
+    "retry_after": "2026-10-30T13:06:28.914759+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Demon Days",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 158996,
+        "name": "Demon Days",
+        "publisher": "Panini France",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T13:06:28.914791+00:00",
+    "retry_after": "2026-10-30T13:06:28.914813+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doom Patrol by Rachel Pollack Omnibus",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T13:06:28.914869+00:00",
+    "retry_after": "2026-10-30T13:06:28.914872+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Disciples",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 32525,
+        "name": "The Disciples",
+        "publisher": "Image",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T13:07:58.219597+00:00",
+    "retry_after": "2026-10-30T13:07:58.219617+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "B.C. - Right On",
+    "publisher": "Fawcett Comics",
+    "year": 1973,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T13:08:39.060135+00:00",
+    "retry_after": "2026-10-30T13:08:39.060138+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "B.C. Strikes Back",
+    "publisher": "Fawcett Comics",
+    "year": 1962,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T13:08:39.060151+00:00",
+    "retry_after": "2026-10-30T13:08:39.060154+00:00",
     "search_hydrated": true
   }
 ]

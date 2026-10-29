@@ -6453,10 +6453,12 @@
     "name": "Amazing Fantasy 1000",
     "publisher": "Marvel Comics",
     "year": 2022,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555219+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T09:31:33.697511+00:00",
+    "retry_after": "2026-11-01T09:31:33.697530+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Batman Hush 1 Batman Day Special Edition",
@@ -20517,9 +20519,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T07:00:43.235708+00:00",
-    "retry_after": "2026-09-27T07:00:43.235718+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T09:31:33.697547+00:00",
+    "retry_after": "2026-11-05T09:31:33.697548+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Age Spider-Man (Free Comic Book Day Edition)",
@@ -43594,8 +43597,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T09:02:17.784682+00:00",
-    "retry_after": "2026-10-30T09:02:17.784698+00:00",
+    "last_attempt_at": "2026-10-29T09:25:45.120810+00:00",
+    "retry_after": "2026-10-30T09:25:45.120830+00:00",
     "search_hydrated": true
   },
   {
@@ -51505,8 +51508,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T09:02:17.784764+00:00",
-    "retry_after": "2026-10-30T09:02:17.784769+00:00",
+    "last_attempt_at": "2026-10-29T09:25:45.120957+00:00",
+    "retry_after": "2026-10-30T09:25:45.120959+00:00",
     "search_hydrated": true
   },
   {
@@ -81106,9 +81109,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T09:07:36.019529+00:00",
-    "retry_after": "2026-10-29T09:07:36.019544+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T09:29:52.145592+00:00",
+    "retry_after": "2026-11-01T09:29:52.145604+00:00",
     "search_hydrated": true
   },
   {
@@ -84970,6 +84973,126 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T09:10:40.102441+00:00",
     "retry_after": "2026-10-30T09:10:40.102457+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "30th Anniversary Spawn",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:29:51.026735+00:00",
+    "retry_after": "2026-10-30T09:29:51.026752+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "A.X.E.: Judgment Day Companion",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:29:51.026785+00:00",
+    "retry_after": "2026-10-30T09:29:51.026788+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Dark Nights: Metal",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:29:51.026802+00:00",
+    "retry_after": "2026-10-30T09:29:51.026804+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Swamp Thing by Len Wein and Bernie Wrightson",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:31:33.697404+00:00",
+    "retry_after": "2026-10-30T09:31:33.697422+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Wonder Woman Gods and Mortals",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:31:33.697439+00:00",
+    "retry_after": "2026-10-30T09:31:33.697441+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Fantasy Treasury Edition",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:31:33.697538+00:00",
+    "retry_after": "2026-10-30T09:31:33.697539+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Air",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 22702,
+        "name": "Air",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:31:35.058047+00:00",
+    "retry_after": "2026-10-30T09:31:35.058067+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "American Vampire 1976",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 139920,
+        "name": "American Vampire 1976",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:32:14.625924+00:00",
+    "retry_after": "2026-10-30T09:32:14.625935+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Manik",
+    "publisher": "BOOM! Studios",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 68564,
+        "name": "Manik",
+        "publisher": "Millennium Publications",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T09:32:43.363763+00:00",
+    "retry_after": "2026-10-30T09:32:43.363782+00:00",
     "search_hydrated": true
   }
 ]

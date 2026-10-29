@@ -15,6 +15,7 @@ import { pathToFileURL } from "node:url";
 import { formatTag } from "../src/lib/seriesFormat.js";
 import { normalizeWorkTitle } from "./lib/seriesEditions.js";
 import { matchTradeVolumes } from "./lib/tradeVolumeMatch.js";
+import { describeError } from "./lib/describeError.js";
 import { withRetry } from "./lib/withRetry.js";
 
 const PAGE_SIZE = 1000;
@@ -139,7 +140,7 @@ async function fetchCandidates(title, apiKey) {
   if (response.status === 420 || response.status === 429) return { stop: `ComicVine HTTP ${response.status}` };
   if (!response.ok) throw new Error(`ComicVine HTTP ${response.status}: ${response.statusText}`);
   const body = await response.json();
-  if (body.status_code !== 1) return { stop: `ComicVine status ${body.status_code}: ${body.error ?? "unknown error"}` };
+  if (body.status_code !== 1) return { stop: `ComicVine status ${body.status_code}: ${describeError(body.error)}` };
   return { candidates: body.results ?? [] };
 }
 

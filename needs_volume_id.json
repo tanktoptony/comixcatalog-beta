@@ -9611,9 +9611,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:33:03.042978+00:00",
-    "retry_after": "2026-10-29T16:33:03.042982+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T16:38:35.597677+00:00",
+    "retry_after": "2026-11-05T16:38:35.597680+00:00",
     "search_hydrated": true
   },
   {
@@ -12571,9 +12571,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:33:03.042905+00:00",
-    "retry_after": "2026-10-29T16:33:03.042910+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T16:38:35.597604+00:00",
+    "retry_after": "2026-11-05T16:38:35.597609+00:00",
     "search_hydrated": true
   },
   {
@@ -42086,9 +42086,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:33:26.136739+00:00",
-    "retry_after": "2026-10-29T16:33:26.136746+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T16:39:20.711850+00:00",
+    "retry_after": "2026-11-05T16:39:20.711855+00:00",
     "search_hydrated": true
   },
   {
@@ -43574,26 +43574,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
       {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:02:31.571504+00:00",
-    "retry_after": "2026-10-30T16:02:31.571509+00:00",
+    "last_attempt_at": "2026-10-29T16:39:20.711713+00:00",
+    "retry_after": "2026-10-30T16:39:20.711728+00:00",
     "search_hydrated": true
   },
   {
@@ -44014,21 +44014,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:33:03.042777+00:00",
-    "retry_after": "2026-10-29T16:33:03.042793+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T16:38:35.597471+00:00",
+    "retry_after": "2026-11-05T16:38:35.597487+00:00",
     "search_hydrated": true
   },
   {
@@ -72037,9 +72037,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:38:21.781664+00:00",
-    "retry_after": "2026-10-29T16:38:21.781679+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T16:42:40.002004+00:00",
+    "retry_after": "2026-11-05T16:42:40.002020+00:00",
     "search_hydrated": true
   },
   {
@@ -72055,9 +72055,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:38:23.205159+00:00",
-    "retry_after": "2026-10-29T16:38:23.205171+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T16:42:41.022615+00:00",
+    "retry_after": "2026-11-05T16:42:41.022630+00:00",
     "search_hydrated": true
   },
   {
@@ -72066,9 +72066,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:38:21.781744+00:00",
-    "retry_after": "2026-10-29T16:38:21.781748+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T16:42:40.002082+00:00",
+    "retry_after": "2026-11-05T16:42:40.002087+00:00",
     "search_hydrated": true
   },
   {
@@ -72205,9 +72205,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:38:23.372729+00:00",
-    "retry_after": "2026-10-29T16:38:23.372739+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T16:42:41.166983+00:00",
+    "retry_after": "2026-11-05T16:42:41.166997+00:00",
     "search_hydrated": true
   },
   {
@@ -72241,9 +72241,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:38:21.781814+00:00",
-    "retry_after": "2026-10-29T16:38:21.781818+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T16:42:40.002151+00:00",
+    "retry_after": "2026-11-05T16:42:40.002155+00:00",
     "search_hydrated": true
   },
   {
@@ -72270,9 +72270,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:38:23.527439+00:00",
-    "retry_after": "2026-10-29T16:38:23.527447+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T16:42:41.314144+00:00",
+    "retry_after": "2026-11-05T16:42:41.314158+00:00",
     "search_hydrated": true
   },
   {
@@ -72281,9 +72281,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T16:38:21.781850+00:00",
-    "retry_after": "2026-10-29T16:38:21.781853+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T16:42:40.002186+00:00",
+    "retry_after": "2026-11-05T16:42:40.002188+00:00",
     "search_hydrated": true
   },
   {
@@ -81759,9 +81759,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T15:06:39.540574+00:00",
-    "retry_after": "2026-10-29T15:06:39.540577+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T16:43:02.281605+00:00",
+    "retry_after": "2026-11-01T16:43:02.281620+00:00",
     "search_hydrated": true
   },
   {
@@ -81849,9 +81849,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T15:06:41.274863+00:00",
-    "retry_after": "2026-10-29T15:06:41.274878+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T16:42:43.140105+00:00",
+    "retry_after": "2026-11-01T16:42:43.140121+00:00",
     "search_hydrated": true
   },
   {
@@ -81867,9 +81867,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T15:06:41.485342+00:00",
-    "retry_after": "2026-10-29T15:06:41.485356+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T16:43:03.171860+00:00",
+    "retry_after": "2026-11-01T16:43:03.171877+00:00",
     "search_hydrated": true
   },
   {
@@ -81891,9 +81891,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T15:06:49.972344+00:00",
-    "retry_after": "2026-10-29T15:06:49.972360+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T16:43:02.281680+00:00",
+    "retry_after": "2026-11-01T16:43:02.281684+00:00",
     "search_hydrated": true
   },
   {
@@ -81902,9 +81902,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T15:06:49.972386+00:00",
-    "retry_after": "2026-10-29T15:06:49.972389+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T16:43:02.281701+00:00",
+    "retry_after": "2026-11-01T16:43:02.281704+00:00",
     "search_hydrated": true
   },
   {
@@ -81926,9 +81926,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T15:06:49.972450+00:00",
-    "retry_after": "2026-10-29T15:06:49.972454+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T16:43:02.281753+00:00",
+    "retry_after": "2026-11-01T16:43:02.281756+00:00",
     "search_hydrated": true
   },
   {
@@ -81937,27 +81937,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T16:06:34.896114+00:00",
-    "retry_after": "2026-10-29T16:06:34.896130+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "I Saw Santa",
-    "publisher": "Image Comics",
-    "year": 2026,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 168724,
-        "name": "I Saw Santa",
-        "publisher": "Image",
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T16:06:35.731713+00:00",
-    "retry_after": "2026-10-29T16:06:35.731730+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T16:42:40.002215+00:00",
+    "retry_after": "2026-11-01T16:42:40.002218+00:00",
     "search_hydrated": true
   },
   {
@@ -81966,9 +81948,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T16:07:08.941468+00:00",
-    "retry_after": "2026-10-29T16:07:08.941471+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T16:43:02.281771+00:00",
+    "retry_after": "2026-11-01T16:43:02.281773+00:00",
     "search_hydrated": true
   },
   {
@@ -84057,6 +84039,104 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T16:07:22.034329+00:00",
     "retry_after": "2026-10-30T16:07:22.034345+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deathstroke Inc.",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146581,
+        "name": "Deathstroke Inc.",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T16:43:03.465959+00:00",
+    "retry_after": "2026-10-30T16:43:03.465974+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Harley Quinn: The Animated Series",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 144829,
+        "name": "Harley Quinn: The Animated Series",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T16:43:08.439948+00:00",
+    "retry_after": "2026-10-30T16:43:08.439963+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "George A. Romero's Dawn of the Dead DVD Exclusive Mini Comic",
+    "publisher": "IDW Publishing",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T16:43:43.492399+00:00",
+    "retry_after": "2026-10-30T16:43:43.492416+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vignettes the Auto-Bio Comix",
+    "publisher": "Image Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T16:43:43.492472+00:00",
+    "retry_after": "2026-10-30T16:43:43.492477+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles: The Haunted Pizza",
+    "publisher": "Mirage Studios",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T16:43:43.492494+00:00",
+    "retry_after": "2026-10-30T16:43:43.492497+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Supergirl [ashcan]",
+    "publisher": "DC Comics",
+    "year": 1944,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T16:43:43.492528+00:00",
+    "retry_after": "2026-10-30T16:43:43.492531+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T16:44:39.403299+00:00",
+    "retry_after": "2026-10-30T16:44:39.403311+00:00",
     "search_hydrated": true
   }
 ]

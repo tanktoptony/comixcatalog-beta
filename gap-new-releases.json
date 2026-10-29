@@ -1,5 +1,16 @@
 [
   {
+    "name": "Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "volume_id": null,
+    "series_gcd_id": 172683,
+    "newest_release": "2026-10-08",
+    "missing": [
+      "73"
+    ]
+  },
+  {
     "name": "Overkiller",
     "publisher": "Cosmic Lion Productions",
     "year": 2026,
@@ -8,6 +19,17 @@
     "newest_release": "2026-10-07",
     "missing": [
       "1"
+    ]
+  },
+  {
+    "name": "Starhenge, Book Two: A Kiss for Atticus",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 238755,
+    "newest_release": "2026-10-07",
+    "missing": [
+      "4"
     ]
   },
   {
@@ -52,6 +74,17 @@
     "newest_release": "2026-12-00",
     "missing": [
       "2 - Christmas Extravaganza"
+    ]
+  },
+  {
+    "name": "Shudder",
+    "publisher": "Warrant Publishing",
+    "year": 2021,
+    "volume_id": 139156,
+    "series_gcd_id": 175906,
+    "newest_release": "2026-12-00",
+    "missing": [
+      "31"
     ]
   },
   {
@@ -122,6 +155,20 @@
     ]
   },
   {
+    "name": "X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "volume_id": 158814,
+    "series_gcd_id": 212762,
+    "newest_release": "2026-11-00",
+    "missing": [
+      "35 (335)",
+      "36 (336)",
+      "37 (337)",
+      "38 (338)"
+    ]
+  },
+  {
     "name": "Archie Facsimile Edition",
     "publisher": "Archie Comics",
     "year": 2024,
@@ -144,6 +191,17 @@
     ]
   },
   {
+    "name": "Boruto: Two Blue Vortex",
+    "publisher": "VIZ Media",
+    "year": 2025,
+    "volume_id": null,
+    "series_gcd_id": 221012,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "6"
+    ]
+  },
+  {
     "name": "Cryptology",
     "publisher": "TwoMorrows Publishing",
     "year": 2024,
@@ -152,6 +210,28 @@
     "newest_release": "2026-10-00",
     "missing": [
       "11"
+    ]
+  },
+  {
+    "name": "Dandadan",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "volume_id": 145549,
+    "series_gcd_id": 190566,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "21"
+    ]
+  },
+  {
+    "name": "Fushigi Yûgi: Byakko Senki",
+    "publisher": "VIZ Media",
+    "year": 2020,
+    "volume_id": 129227,
+    "series_gcd_id": 162598,
+    "newest_release": "2026-10-00",
+    "missing": [
+      "5"
     ]
   },
   {

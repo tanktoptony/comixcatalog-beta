@@ -13,6 +13,7 @@ import { unstable_cache } from "next/cache";
 import { createServerTiming } from "@/lib/serverTiming";
 import { cachedSearchTerm } from "@/lib/searchTermCache";
 import { formatTag, formatTagTitle, isCollectedEdition } from "@/lib/seriesFormat";
+import { foldWorks, summarizeEditions } from "@/lib/searchWorks";
 import {
   DegradedSearchError,
   normalizeSearchCacheTerm,
@@ -149,6 +150,7 @@ async function fetchSeriesCandidates(supabase, searchWords, normalizedQ, onFallb
 // UUIDs per .in() in the volume lookup. 300 worked and 500 failed when
 // measured; 200 leaves headroom for longer query strings.
 const VOLUME_LOOKUP_CHUNK = 200;
+const WORK_LOOKUP_CHUNK = 300;
 
 async function loadSeriesFormats(supabase, rows, onError = () => {}) {
   const gcdIds = [...new Set(rows.map((row) => Number(row.gcd_id)).filter(Number.isFinite))];
@@ -181,9 +183,82 @@ function addFormatTags(rows, formats) {
   });
 }
 
+function chunksOf(values, size) {
+  const chunks = [];
+  for (let i = 0; i < values.length; i += size) chunks.push(values.slice(i, i + size));
+  return chunks;
+}
+
+async function addWorkSummaries(supabase, rows) {
+  const resultGcdIds = [...new Set(rows.map((row) => Number(row.gcd_id)).filter(Number.isFinite))];
+  if (!resultGcdIds.length) return rows;
+  const resultChunks = chunksOf(resultGcdIds, WORK_LOOKUP_CHUNK);
+  const linkResults = await Promise.all([
+    ...resultChunks.map((chunk) => supabase
+      .from("series_editions")
+      .select("edition_gcd_id, work_gcd_id, role")
+      .in("edition_gcd_id", chunk)),
+    ...resultChunks.map((chunk) => supabase
+      .from("series_editions")
+      .select("edition_gcd_id, work_gcd_id, role")
+      .in("work_gcd_id", chunk)),
+  ]);
+  const linkError = linkResults.find((result) => result.error)?.error;
+  if (linkError) throw linkError;
+
+  const links = [...new Map(linkResults
+    .flatMap((result) => result.data ?? [])
+    .map((link) => [Number(link.edition_gcd_id), link])).values()];
+  const resultGcdIdSet = new Set(resultGcdIds);
+  const workGcdIds = new Set(links
+    .map((link) => Number(link.work_gcd_id))
+    .filter((gcdId) => resultGcdIdSet.has(gcdId)));
+  const editionGcdIds = [...new Set(links
+    .filter((link) => workGcdIds.has(Number(link.work_gcd_id)))
+    .map((link) => Number(link.edition_gcd_id)))];
+  const editionResults = await Promise.all(chunksOf(editionGcdIds, WORK_LOOKUP_CHUNK).map((chunk) => supabase
+    .from("series")
+    .select("id, gcd_id, title, issue_count_cached, card_cover_path")
+    .in("gcd_id", chunk)));
+  const editionError = editionResults.find((result) => result.error)?.error;
+  if (editionError) throw editionError;
+
+  const editionRows = editionResults.flatMap((result) => result.data ?? []);
+  let formatError = null;
+  const editionFormats = await loadSeriesFormats(supabase, editionRows, (error) => { formatError = error ?? true; });
+  if (formatError) throw new Error("series edition format lookup failed");
+  const linkByEdition = new Map(links.map((link) => [Number(link.edition_gcd_id), link]));
+  const editionsByWork = new Map();
+  for (const edition of editionRows) {
+    const link = linkByEdition.get(Number(edition.gcd_id));
+    if (!link) continue;
+    const workGcdId = Number(link.work_gcd_id);
+    if (!editionsByWork.has(workGcdId)) editionsByWork.set(workGcdId, []);
+    editionsByWork.get(workGcdId).push({
+      id: edition.id,
+      gcd_id: edition.gcd_id,
+      title: edition.title,
+      issue_count: edition.issue_count_cached,
+      card_cover_path: edition.card_cover_path,
+      role: link.role,
+      format: editionFormats.get(Number(edition.gcd_id)),
+    });
+  }
+
+  return rows.map((row) => {
+    const link = linkByEdition.get(Number(row.gcd_id));
+    const editions = editionsByWork.get(Number(row.gcd_id));
+    return {
+      ...row,
+      ...(link ? { work_gcd_id: Number(link.work_gcd_id) } : {}),
+      ...(editions?.length ? { editions: summarizeEditions({ work: row, editions }) } : {}),
+    };
+  });
+}
+
 async function computeSeriesResponse(req) {
   const timing = createServerTiming();
-  for (const phase of ["candidates", "volume_ids", "ranking", "covers", "serialization"]) timing.set(phase);
+  for (const phase of ["candidates", "volume_ids", "ranking", "covers", "works", "serialization"]) timing.set(phase);
   const json = (body, init) => {
     const response = timing.measureSync("serialization", () => NextResponse.json(body, init));
     response.headers.set("Server-Timing", timing.header());
@@ -514,7 +589,7 @@ async function computeSeriesResponse(req) {
         timing.measure("covers", () => resolveSeriesCardCovers(supabase, top)),
         loadSeriesFormats(supabase, top),
       ]);
-    const series = addFormatTags(top.map((row) => ({
+    let series = addFormatTags(top.map((row) => ({
       id: row.id,
       gcd_id: row.gcd_id ?? null,
       title: row.title ?? "Untitled Series",
@@ -528,6 +603,14 @@ async function computeSeriesResponse(req) {
       },
       cover: coverUrl(resolvedSeriesCovers.get(row.id)?.storage_path),
     })), seriesFormats);
+    if (returnFullRanking) {
+      try {
+        series = await timing.measure("works", () => addWorkSummaries(supabase, series));
+      } catch (workError) {
+        console.error("series search work lookup failed:", workError.code, workError.message);
+        markDegraded();
+      }
+    }
 
     // A degraded result must not sit in the CDN for ten minutes.
     if (searchDegraded) return json({ series, degraded: true });
@@ -557,7 +640,7 @@ const legacyCachedSeriesSearch = unstable_cache(
     if (measured.degraded) throw new DegradedSearchError(measured);
     return measured;
   },
-  ["search-series-v3"],
+  ["search-series-v4"],
   { revalidate: SEARCH_CACHE_REVALIDATE_SECONDS, tags: ["search"] }
 );
 
@@ -579,8 +662,9 @@ function exactRunsFirst(rows, title, limit) {
   return [...exact, ...diversify(rest, { limit: limit - exact.length, perTitle: 2 })].slice(0, limit);
 }
 
-async function withCardCovers(result, parsed, limit, timing, runsTitle = null) {
-  const allRows = result.series ?? [];
+async function withCardCovers(result, parsed, limit, timing, runsTitle = null, works = false) {
+  const cachedRows = result.series ?? [];
+  const allRows = works && !parsed.format ? foldWorks(cachedRows) : cachedRows;
   const matchingFormat = parsed.format
     ? allRows.filter((row) => matchesSeriesFormat(row, parsed.format))
     : allRows;
@@ -609,19 +693,31 @@ async function withCardCovers(result, parsed, limit, timing, runsTitle = null) {
   const exactCount = allRows.filter((row) => normalizeForScoring(row.title) === wanted).length;
   return {
     ...result,
-    series: selected.map((row) => ({ ...row, cover: coverUrl(covers.get(row.id)?.storage_path) })),
+    series: selected.map((row) => ({
+      ...row,
+      cover: coverUrl(covers.get(row.id)?.storage_path),
+      ...(row.editions ? {
+        editions: {
+          ...row.editions,
+          groups: row.editions.groups.map(({ cover_path: coverPath, ...group }) => ({
+            ...group,
+            cover: coverUrl(coverPath),
+          })),
+        },
+      } : {}),
+    })),
     title_runs: exactCount > 1 ? { title: parsed.title, count: exactCount } : null,
   };
 }
 
-export async function getCachedSeriesSearch(q, { limit = 12, timing = null, runs = false } = {}) {
+export async function getCachedSeriesSearch(q, { limit = 12, timing = null, runs = false, works = false } = {}) {
   const parsed = parseSearchQuery(q);
   const title = stripTrailingIssueNumber(parsed.title || q) || parsed.title || q;
   const normalizedTerm = normalizeSearchCacheTerm(title);
   const askedYear = parsed.year ?? null;
   const { result, state } = await cachedSearchTerm(getServiceClient(), {
     kind: "series",
-    key: `v3|${askedYear == null ? normalizedTerm : `${normalizedTerm}|${askedYear}`}`,
+    key: `v4|${askedYear == null ? normalizedTerm : `${normalizedTerm}|${askedYear}`}`,
     compute: () => computeSeriesTerm(normalizedTerm, askedYear),
     schedule: after,
     fallback: () => legacyCachedSeriesSearch(normalizedTerm, askedYear).catch((error) => {
@@ -629,7 +725,7 @@ export async function getCachedSeriesSearch(q, { limit = 12, timing = null, runs
       throw error;
     }),
   });
-  return { ...(await withCardCovers(result, parsed, limit, timing, runs ? title : null)), _cacheState: state };
+  return { ...(await withCardCovers(result, parsed, limit, timing, runs ? title : null, works)), _cacheState: state };
 }
 
 export async function GET(req) {
@@ -644,7 +740,8 @@ export async function GET(req) {
     const limit = Number.isFinite(requested) ? Math.max(1, Math.min(Math.trunc(requested), 40)) : 12;
     if (!q) return NextResponse.json({ series: [] }, { headers: { "Server-Timing": timing.header() } });
     const runs = searchParams.get("runs") === "1";
-    const result = await timing.measure("search_cache", () => getCachedSeriesSearch(q, { limit, timing, runs }));
+    const works = searchParams.get("works") === "1";
+    const result = await timing.measure("search_cache", () => getCachedSeriesSearch(q, { limit, timing, runs, works }));
     const { _serverTiming, _cacheState, ...body } = result;
     const headers = result.degraded ? undefined : CDN_CACHE_SHORT;
     const response = timing.measureSync("serialization", () => NextResponse.json(body, { headers }));

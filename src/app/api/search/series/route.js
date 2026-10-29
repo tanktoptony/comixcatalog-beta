@@ -364,6 +364,19 @@ async function computeSeriesResponse(req) {
     const volumeIndexById = new Map();
     const volumeCountById = new Map();
 
+    // A trade is never a duplicate of the monthly it collects. The Wicked +
+    // The Divine TPB (Image, 2014-2019) has the monthly's exact publisher and
+    // years, and the dedupe below folded it away, so it was unfindable even
+    // as "wicked divine tpb" (2026-10-29). Formats only load for the cached
+    // ranking; elsewhere every row is "".
+    const editionKey = (row) => {
+      const format = allSeriesFormats.get(Number(row.gcd_id));
+      const input = { name: row.title, ...format };
+      return isCollectedEdition(input) || /graphic novel/i.test(String(format?.publishing_format ?? ""))
+        ? `${formatTag(input)}:`
+        : "";
+    };
+
     const cleaned = [];
     for (const group of grouped.values()) {
       const sorted = [...group].sort(compareSeries);
@@ -372,6 +385,7 @@ async function computeSeriesResponse(req) {
 
       const seenVolumeIds = new Set();
       for (const row of sorted) {
+        const edition = editionKey(row);
         // Strongest signal first: same comicvine_volume_id = same real book,
         // no matter what publisher/year GCD's fragment happens to carry.
         // `sorted` is already ranked best-first (compareSeries), so the
@@ -379,8 +393,9 @@ async function computeSeriesResponse(req) {
         // dropped as duplicates.
         const volumeId = volumeIdByRowId.get(row.id);
         if (volumeId != null) {
-          if (seenVolumeIds.has(volumeId)) continue;
-          seenVolumeIds.add(volumeId);
+          const volumeKey = `${edition}${volumeId}`;
+          if (seenVolumeIds.has(volumeKey)) continue;
+          seenVolumeIds.add(volumeKey);
           kept.push(row);
           continue;
         }
@@ -397,7 +412,7 @@ async function computeSeriesResponse(req) {
         const countBucket = Math.round(issueCount / 5);
         const countKey = `${pub}#${countBucket}`;
 
-        const fp = yearKey ?? countKey;
+        const fp = edition + (yearKey ?? countKey);
         if (fingerprints.has(fp)) continue;
         fingerprints.add(fp);
         kept.push(row);
@@ -406,7 +421,7 @@ async function computeSeriesResponse(req) {
       // Drop tiny runs if a much bigger one exists in the same title group
       const best = kept[0];
       const pruned = kept.filter((row, idx) => {
-        if (idx === 0) return true;
+        if (idx === 0 || editionKey(row)) return true;
         if ((row.issue_count_cached ?? 0) < 3 && (best.issue_count_cached ?? 0) >= 15) {
           return false;
         }
@@ -470,7 +485,8 @@ async function computeSeriesResponse(req) {
       const inYear = cleaned.filter((row) => yearMatches(row, askedYear));
       if (inYear.length > 0) ranked = inYear;
     } else {
-      ranked = pinCurrentRun(ranked, (row) => normalizeForScoring(row.title) === normalizedQForScoring);
+      // A 2026 Batman HC is not the current Batman run.
+      ranked = pinCurrentRun(ranked, (row) => normalizeForScoring(row.title) === normalizedQForScoring && !editionKey(row));
     }
 
     // Spread the page across distinct runs instead of letting one title
@@ -541,7 +557,7 @@ const legacyCachedSeriesSearch = unstable_cache(
     if (measured.degraded) throw new DegradedSearchError(measured);
     return measured;
   },
-  ["search-series-v2"],
+  ["search-series-v3"],
   { revalidate: SEARCH_CACHE_REVALIDATE_SECONDS, tags: ["search"] }
 );
 
@@ -605,7 +621,7 @@ export async function getCachedSeriesSearch(q, { limit = 12, timing = null, runs
   const askedYear = parsed.year ?? null;
   const { result, state } = await cachedSearchTerm(getServiceClient(), {
     kind: "series",
-    key: `v2|${askedYear == null ? normalizedTerm : `${normalizedTerm}|${askedYear}`}`,
+    key: `v3|${askedYear == null ? normalizedTerm : `${normalizedTerm}|${askedYear}`}`,
     compute: () => computeSeriesTerm(normalizedTerm, askedYear),
     schedule: after,
     fallback: () => legacyCachedSeriesSearch(normalizedTerm, askedYear).catch((error) => {

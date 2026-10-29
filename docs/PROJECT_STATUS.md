@@ -34,6 +34,7 @@ Current counts verified during the Oct 12 to Oct 14 work:
 | `issue_printings` | about 417,000 | GCD barcodes and printing records used by scan matching |
 | `key_issues` | 2,094 | Hand-curated and ComicVine-backed key issue records |
 | `series_links` | 5,625 | GCD continuations and collected-edition links |
+| `series_editions` | rebuilt weekly | Edition/special → work links, rebuilt weekly from `issue_reprints` |
 
 The GCD dump import adds creators, story credits, reprints, editions, and related issue detail. A full import with `--resume` is running on Oct 14. Final import counts are not available yet.
 
@@ -55,6 +56,7 @@ The March GCD import's garbled accented text was repaired from the GCD dump on O
 - Issue pages use a Discogs-style layout with identifiers, editions, contents, creator credits, notes, reprints, and copies for sale.
 - Issue URLs keep the selected edition while work-level sections join through the base issue.
 - Series pages show when a run continues in another series or is collected elsewhere. These relationships come from `series_links`.
+- Edition and special series are mapped to their underlying works in `series_editions`, rebuilt weekly from issue-level reprint data with a title fallback.
 - The full GCD dump import is still in progress. Do not treat test-load counts in the vision spec as final production counts.
 
 ## 5. Marketplace transactions

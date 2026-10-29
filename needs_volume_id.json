@@ -8362,7 +8362,9 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555817+00:00"
+    "last_attempt_at": "2026-10-29T08:05:34.222595+00:00",
+    "retry_after": "2026-10-30T08:05:34.222598+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Splatoon",
@@ -8489,10 +8491,12 @@
     "name": "The Unwritten Compendium",
     "publisher": "DC Comics",
     "year": 2023,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555847+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T08:07:21.559845+00:00",
+    "retry_after": "2026-11-01T08:07:21.559860+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Star Wars: Return of the Jedi - Max Rebo",
@@ -27509,7 +27513,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27527,8 +27531,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T07:01:35.363593+00:00",
-    "retry_after": "2026-10-30T07:01:35.363606+00:00",
+    "last_attempt_at": "2026-10-29T08:01:25.596825+00:00",
+    "retry_after": "2026-10-30T08:01:25.596841+00:00",
     "search_hydrated": true
   },
   {
@@ -43588,8 +43592,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T07:01:31.244366+00:00",
-    "retry_after": "2026-10-30T07:01:31.244383+00:00",
+    "last_attempt_at": "2026-10-29T08:01:44.264361+00:00",
+    "retry_after": "2026-10-30T08:01:44.264377+00:00",
     "search_hydrated": true
   },
   {
@@ -62612,9 +62616,10 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T01:16:03.804917+00:00",
-    "retry_after": "2026-10-23T01:16:03.804929+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T08:07:21.559906+00:00",
+    "retry_after": "2026-11-01T08:07:21.559908+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Masterworks: The Invincible Iron Man",
@@ -80900,9 +80905,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T07:06:57.118362+00:00",
-    "retry_after": "2026-10-29T07:06:57.118367+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T08:05:34.222464+00:00",
+    "retry_after": "2026-11-01T08:05:34.222480+00:00",
     "search_hydrated": true
   },
   {
@@ -80929,9 +80934,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T07:08:10.576265+00:00",
-    "retry_after": "2026-10-29T07:08:10.576276+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T08:05:35.174702+00:00",
+    "retry_after": "2026-11-01T08:05:35.174716+00:00",
     "search_hydrated": true
   },
   {
@@ -80953,9 +80958,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T07:08:42.029827+00:00",
-    "retry_after": "2026-10-29T07:08:42.029830+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T08:10:03.350593+00:00",
+    "retry_after": "2026-11-01T08:10:03.350610+00:00",
     "search_hydrated": true
   },
   {
@@ -80971,9 +80976,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T07:08:42.029884+00:00",
-    "retry_after": "2026-10-29T07:08:42.029888+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T08:10:03.350643+00:00",
+    "retry_after": "2026-11-01T08:10:03.350646+00:00",
     "search_hydrated": true
   },
   {
@@ -84730,6 +84735,130 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T07:07:15.557487+00:00",
     "retry_after": "2026-10-30T07:07:15.557492+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Phantom Stranger Omnibus",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T08:05:34.222557+00:00",
+    "retry_after": "2026-10-30T08:05:34.222561+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Scumbag Complete Edition",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T08:05:34.222640+00:00",
+    "retry_after": "2026-10-30T08:05:34.222642+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Joker Presents: A Puzzlebox",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146632,
+        "name": "The Joker Presents: A Puzzlebox",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T08:05:35.478350+00:00",
+    "retry_after": "2026-10-30T08:05:35.478365+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tom Strong Compendium",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T08:07:21.559918+00:00",
+    "retry_after": "2026-10-30T08:07:21.559920+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Top 10 Compendium",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T08:07:21.559929+00:00",
+    "retry_after": "2026-10-30T08:07:21.559931+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thor: The Mighty Avenger",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 39653,
+        "name": "Thor: The Mighty Avenger",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T08:08:13.333172+00:00",
+    "retry_after": "2026-10-30T08:08:13.333195+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Untold Tales of I Hate Fairyland",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T08:08:55.446517+00:00",
+    "retry_after": "2026-10-30T08:08:55.446532+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Venom Modern Era Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T08:08:55.446548+00:00",
+    "retry_after": "2026-10-30T08:08:55.446550+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: The High Republic Adventures - The Complete Phase III",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T08:10:03.350689+00:00",
+    "retry_after": "2026-10-30T08:10:03.350691+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "JLA / Avengers Facsimile Edition",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T08:10:03.350703+00:00",
+    "retry_after": "2026-10-30T08:10:03.350705+00:00",
     "search_hydrated": true
   }
 ]

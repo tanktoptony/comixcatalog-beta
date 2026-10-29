@@ -90,6 +90,8 @@
     "test:amory-wars": "node --test scripts/lib/amoryWars.test.js",
     "test:key-import": "node --test scripts/lib/keyIssuesFromCrawl.test.js",
     "test:series-links": "node --test src/lib/seriesLinks.test.js scripts/importGcdSeriesBonds.test.js",
+    "test:series-editions": "node --test scripts/lib/seriesEditions.test.js",
+    "editions:build": "node scripts/buildSeriesEditions.js",
     "test:search-rpc": "node --test src/lib/searchRpc.test.js",
     "test:search-current-run": "node --test src/lib/searchCurrentRun.test.js",
     "test:orders": "node --test src/lib/orders.test.js src/lib/orderRows.test.js",

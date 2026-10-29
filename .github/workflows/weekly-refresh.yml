@@ -100,6 +100,9 @@ jobs:
       - name: Refresh series search cache
         run: node scripts/refreshSeriesSearchCache.js --force --max-batches=700
 
+      - name: Rebuild series editions
+        run: node scripts/buildSeriesEditions.js --apply
+
       - name: Save refresh cursor
         if: always() && hashFiles('scripts/.refresh-cursor') != ''
         uses: actions/cache/save@v4

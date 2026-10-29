@@ -6662,15 +6662,6 @@
     "retry_after": "2026-09-21T14:00:38.555281+00:00"
   },
   {
-    "name": "Batman / FaZe Clan",
-    "publisher": "DC Comics",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555287+00:00"
-  },
-  {
     "name": "Deadlands: One-Shot",
     "publisher": "Image Comics",
     "year": 1999,
@@ -6701,10 +6692,12 @@
     "name": "Batman: The Silver Age Omnibus",
     "publisher": "DC Comics",
     "year": 2022,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555302+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T10:06:42.585000+00:00",
+    "retry_after": "2026-11-01T10:06:42.585002+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Faust Hornbook",
@@ -6997,10 +6990,12 @@
     "name": "Avengers 1,000,000 BC",
     "publisher": "Marvel Comics",
     "year": 2022,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555384+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T10:04:52.673995+00:00",
+    "retry_after": "2026-11-01T10:04:52.673997+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Walking Dead #1 Cynthiana, Kentucky Edition",
@@ -7298,10 +7293,12 @@
     "name": "Black Adam - The Justice Society Files: Dr. Fate",
     "publisher": "DC Comics",
     "year": 2022,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555469+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T10:08:23.013906+00:00",
+    "retry_after": "2026-11-01T10:08:23.013923+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Honey Badger vs. the World",
@@ -12415,9 +12412,10 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-22T08:06:18.267013+00:00",
-    "retry_after": "2026-10-29T08:06:18.267028+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-29T10:01:29.067789+00:00",
+    "retry_after": "2026-11-12T10:01:29.067791+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Mortal Kombat Special Edition",
@@ -27512,13 +27510,13 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T07:07:35.544809+00:00",
-    "retry_after": "2026-10-30T07:07:35.544824+00:00",
+    "last_attempt_at": "2026-10-29T10:09:16.406733+00:00",
+    "retry_after": "2026-10-30T10:09:16.406751+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27536,8 +27534,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T08:01:25.596825+00:00",
-    "retry_after": "2026-10-30T08:01:25.596841+00:00",
+    "last_attempt_at": "2026-10-29T10:01:29.067769+00:00",
+    "retry_after": "2026-10-30T10:01:29.067771+00:00",
     "search_hydrated": true
   },
   {
@@ -39097,9 +39095,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T12:00:53.854175+00:00",
-    "retry_after": "2026-10-08T12:00:53.854188+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-29T10:06:42.585010+00:00",
+    "retry_after": "2026-11-05T10:06:42.585011+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Harley Quinn [Regal Theaters Giveaway]",
@@ -43597,8 +43596,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T09:25:45.120810+00:00",
-    "retry_after": "2026-10-30T09:25:45.120830+00:00",
+    "last_attempt_at": "2026-10-29T10:01:23.553679+00:00",
+    "retry_after": "2026-10-30T10:01:23.553697+00:00",
     "search_hydrated": true
   },
   {
@@ -51508,8 +51507,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T09:25:45.120957+00:00",
-    "retry_after": "2026-10-30T09:25:45.120959+00:00",
+    "last_attempt_at": "2026-10-29T10:01:29.067731+00:00",
+    "retry_after": "2026-10-30T10:01:29.067742+00:00",
     "search_hydrated": true
   },
   {
@@ -56630,9 +56629,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T13:27:16.680249+00:00",
-    "retry_after": "2026-10-20T13:27:16.680258+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T10:06:42.585018+00:00",
+    "retry_after": "2026-11-01T10:06:42.585020+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Troublemakers Preview",
@@ -68817,24 +68817,19 @@
     "name": "Ascension",
     "publisher": "Image Comics",
     "year": 2022,
-    "reason": "publisher_mismatch",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
         "id": 20237,
         "name": "Ascension",
-        "publisher": null,
+        "publisher": "Image",
         "start_year": 1997
-      },
-      {
-        "id": 89659,
-        "name": "Ascension",
-        "publisher": null,
-        "start_year": 1998
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T04:23:47.898213+00:00",
-    "retry_after": "2026-10-27T04:23:47.898220+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T10:05:22.375704+00:00",
+    "retry_after": "2026-10-30T10:05:22.375724+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Act-Age",
@@ -81266,9 +81261,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T10:07:07.232148+00:00",
-    "retry_after": "2026-10-29T10:07:07.232151+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-29T10:08:52.873053+00:00",
+    "retry_after": "2026-11-01T10:08:52.873070+00:00",
     "search_hydrated": true
   },
   {
@@ -85093,6 +85088,110 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T09:32:43.363763+00:00",
     "retry_after": "2026-10-30T09:32:43.363782+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ascender Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T10:04:52.673944+00:00",
+    "retry_after": "2026-10-30T10:04:52.673961+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batgirl of Burnside Omnibus",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T10:04:52.674007+00:00",
+    "retry_after": "2026-10-30T10:04:52.674009+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Araña: Night of the Hunter",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 34302,
+        "name": "Araña: Night of the Hunter",
+        "publisher": "Marvel",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T10:04:54.237357+00:00",
+    "retry_after": "2026-10-30T10:04:54.237371+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Black & White",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 132457,
+        "name": "Batman Black & White",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T10:06:19.699638+00:00",
+    "retry_after": "2026-10-30T10:06:19.699654+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Curse of the White Knight The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T10:06:42.584872+00:00",
+    "retry_after": "2026-10-30T10:06:42.584906+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Secret Files",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 114871,
+        "name": "Batman Secret Files",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 19710,
+        "name": "Batman Secret Files",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T10:06:42.584972+00:00",
+    "retry_after": "2026-10-30T10:06:42.584973+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: The Long Halloween Deluxe Edition The Prequel: Haunted Knight",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-29T10:06:42.584990+00:00",
+    "retry_after": "2026-10-30T10:06:42.584991+00:00",
     "search_hydrated": true
   }
 ]

@@ -103,6 +103,11 @@ jobs:
       - name: Rebuild series editions
         run: node scripts/buildSeriesEditions.js --apply
 
+      # Editions show as chips, never as search cards, so search never fills
+      # their card covers on its own.
+      - name: Fill edition chip covers
+        run: node scripts/precomputeSeriesCardCovers.js --editions --limit=3000 --apply
+
       - name: Save refresh cursor
         if: always() && hashFiles('scripts/.refresh-cursor') != ''
         uses: actions/cache/save@v4

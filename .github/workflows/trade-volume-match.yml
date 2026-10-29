@@ -1,0 +1,62 @@
+name: Trade volume match (hourly)
+
+# Pins trade/hardcover runs (series_editions, role collected) to their own
+# ComicVine trade volume and appends them to gap-pinned.json, so the hourly
+# cover-ingest "pinned-volume" lane fetches their covers. ~12,200 trade runs
+# had no cover on 2026-10-29 (10,268 distinct titles). One ComicVine
+# volumes/ request per title, most-reprinted works first; the ledger
+# (trade-volume-ledger.json) skips titles checked in the last 30 days.
+#
+# 60 requests at 8 s keeps a run near 8 minutes: it shares the
+# ingest-data-writes lock with cover-ingest.yml and gap-probe.yml (all three
+# write gap-pinned.json), so a long run would delay the hourly ingest.
+# :40 so it never starts with the ingest's :00 or gap-probe's :20.
+
+on:
+  schedule:
+    - cron: '40 * * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: ingest-data-writes
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  match:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      COMICVINE_API_KEY: ${{ secrets.COMICVINE_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Match trade volumes
+        run: node scripts/matchTradeVolumes.js --apply --max-calls=60 --sleep=8
+
+      - name: Commit ledger and gap-pinned additions
+        run: |
+          if [[ -z "$(git status --porcelain trade-volume-ledger.json gap-pinned.json)" ]]; then
+            echo "No changes — nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add trade-volume-ledger.json gap-pinned.json
+          git commit -m "trade-volume-match: pin trade runs to ComicVine trade volumes"
+          git pull --rebase origin main
+          git push

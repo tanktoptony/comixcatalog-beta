@@ -1,5 +1,16 @@
 [
   {
+    "name": "Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "volume_id": null,
+    "series_gcd_id": 172683,
+    "newest_release": "2026-10-08",
+    "missing": [
+      "73"
+    ]
+  },
+  {
     "name": "Overkiller",
     "publisher": "Cosmic Lion Productions",
     "year": 2026,
@@ -8,6 +19,28 @@
     "newest_release": "2026-10-07",
     "missing": [
       "1"
+    ]
+  },
+  {
+    "name": "Something Is Killing the Children",
+    "publisher": "BOOM! Studios",
+    "year": 2019,
+    "volume_id": null,
+    "series_gcd_id": 160025,
+    "newest_release": "2026-10-07",
+    "missing": [
+      "50"
+    ]
+  },
+  {
+    "name": "Starhenge, Book Two: A Kiss for Atticus",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 238755,
+    "newest_release": "2026-10-07",
+    "missing": [
+      "4"
     ]
   },
   {
@@ -22,14 +55,289 @@
     ]
   },
   {
-    "name": "The Phoenix",
-    "publisher": "Marvel Comics",
-    "year": 2011,
-    "volume_id": 45039,
-    "series_gcd_id": 68748,
-    "newest_release": "2026-10-03",
+    "name": "Absolute Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "volume_id": 168588,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
     "missing": [
-      "770"
+      "3"
+    ]
+  },
+  {
+    "name": "Afterlife with Archie Deluxe Edition",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": 177709,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Batman: Bad Seeds - Gotham General",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 177710,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Batman: Bad Seeds - Sunrise",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 177711,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "DC All In Saga: Darkseid vs. the World",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 177712,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "DC Finest: Teen Titans: Terra in the Night",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 177713,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Fall of the House of Slaughter",
+    "publisher": "BOOM! Studios",
+    "year": 2026,
+    "volume_id": 177715,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Godfather of Hell",
+    "publisher": "Vault Comics",
+    "year": 2026,
+    "volume_id": 177718,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Godzilla: Revenge of the Deadzone",
+    "publisher": "IDW Publishing",
+    "year": 2026,
+    "volume_id": 177719,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Grimm Fairy Tales",
+    "publisher": "Zenescope Entertainment",
+    "year": 2026,
+    "volume_id": 170576,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "5"
+    ]
+  },
+  {
+    "name": "Groo: The Prophecy",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "volume_id": 171260,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "Justice League: Dark Realm Special",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 177722,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Marvel Fanfare No. 2 Facsimile Edition",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 177723,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Marvel's Mightiest Monsters",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 177724,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Pathfinder/Vampirella: Blade of Darkness",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 177727,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Satanic Panic",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "volume_id": 177729,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Scream! Halloween Special 2026",
+    "publisher": "Rebellion",
+    "year": 2026,
+    "volume_id": 177730,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Star Wars: Rogue One - Darth Vader",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 177731,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Superman: The Wedding Album 30th Anniversary Special",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 177732,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "The Department of Truth",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "volume_id": 130740,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "39"
+    ]
+  },
+  {
+    "name": "The Peril of the Brutal Dark: An Ezra Cain Mystery",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 177733,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "The Umbrella Academy: Plan B",
+    "publisher": "Dark Horse Comics",
+    "year": 2025,
+    "volume_id": 165028,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "5"
+    ]
+  },
+  {
+    "name": "Universal Monsters: The Bride of Frankenstein Lives",
+    "publisher": "Image Comics",
+    "year": null,
+    "volume_id": 177734,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Welcome to Twilight: Villains and Vignettes",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "volume_id": 177725,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Witchblade: Samhain Special",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "volume_id": 177735,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "Zenescope Zombie Pinup Special 2026",
+    "publisher": "Zenescope Entertainment",
+    "year": 2026,
+    "volume_id": 177736,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "1"
     ]
   },
   {
@@ -97,6 +405,18 @@
     "missing": [
       "6 [Carmine Di Giandomenico Cover]",
       "7 [Carmine Di Giandomenico Cover]"
+    ]
+  },
+  {
+    "name": "Miles Morales: Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 175739,
+    "series_gcd_id": 238556,
+    "newest_release": "2026-11-00",
+    "missing": [
+      "1 [325]",
+      "2 (326)"
     ]
   },
   {
@@ -182,17 +502,6 @@
     "year": 2026,
     "volume_id": null,
     "series_gcd_id": 237783,
-    "newest_release": "2026-10-00",
-    "missing": [
-      "3"
-    ]
-  },
-  {
-    "name": "The Demon Prince of Momochi House: Succession",
-    "publisher": "VIZ Media",
-    "year": 2025,
-    "volume_id": 166705,
-    "series_gcd_id": 227212,
     "newest_release": "2026-10-00",
     "missing": [
       "3"

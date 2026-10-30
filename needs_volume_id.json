@@ -775,22 +775,6 @@
     "retry_after": "2026-09-21T14:00:38.554114+00:00"
   },
   {
-    "name": "Doctor Who Magazine",
-    "publisher": "Marvel Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26877,
-        "name": "Doctor Who Magazine",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1979
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554117+00:00"
-  },
-  {
     "name": "Laugh Comics / Laugh",
     "publisher": "Archie Comics",
     "year": 1946,
@@ -1234,22 +1218,6 @@
     "candidates": [],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.554191+00:00"
-  },
-  {
-    "name": "Doctor Who Magazine",
-    "publisher": "Marvel Comics",
-    "year": 1985,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26877,
-        "name": "Doctor Who Magazine",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1979
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554198+00:00"
   },
   {
     "name": "Dennis the Menace",
@@ -83772,24 +83740,6 @@
     "search_hydrated": true
   },
   {
-    "name": "In Rage",
-    "publisher": "CFD Productions",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88863,
-        "name": "In Rage",
-        "publisher": "Creative Force Designs",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:02:31.571537+00:00",
-    "retry_after": "2026-10-30T16:02:31.571540+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Free Agents",
     "publisher": "Image Comics",
     "year": 2025,
@@ -83949,24 +83899,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Corriere dei Ragazzi",
-    "publisher": "Dell Comics",
-    "year": 1973,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 32469,
-        "name": "Corriere dei Ragazzi",
-        "publisher": "Corriere Della Sera",
-        "start_year": 1972
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:07:22.034329+00:00",
-    "retry_after": "2026-10-30T16:07:22.034345+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Deathstroke Inc.",
     "publisher": "DC Comics",
     "year": 2023,
@@ -84044,24 +83976,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T16:43:43.492528+00:00",
     "retry_after": "2026-10-30T16:43:43.492531+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Tom and Jerry Present the Two Mouseketeers",
-    "publisher": "Marvel Comics",
-    "year": 1955,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64345,
-        "name": "Tom and Jerry Present the Two Mouseketeers",
-        "publisher": "Magazine Management",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:44:39.403299+00:00",
-    "retry_after": "2026-10-30T16:44:39.403311+00:00",
     "search_hydrated": true
   },
   {
@@ -84296,24 +84210,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Joe Palooka Presents the Funsational Humphrey",
-    "publisher": "Marvel Comics",
-    "year": 1952,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 156763,
-        "name": "Joe Palooka Presents the Funsational Humphrey",
-        "publisher": "Magazine Management",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:08:09.166426+00:00",
-    "retry_after": "2026-10-30T17:08:09.166443+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Lady Mechanika",
     "publisher": "Image Comics",
     "year": 2022,
@@ -84399,78 +84295,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Mad Classics",
-    "publisher": "EC Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18767,
-        "name": "Mad Classics",
-        "publisher": "DC Comics",
-        "start_year": 2007
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T18:06:55.350025+00:00",
-    "retry_after": "2026-10-30T18:06:55.350069+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Anti-Crime Squad",
-    "publisher": "Marvel Comics",
-    "year": 1952,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52652,
-        "name": "Anti Crime Squad",
-        "publisher": "Magazine Management",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T18:06:55.350117+00:00",
-    "retry_after": "2026-10-30T18:06:55.350122+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "I Vendicatori",
-    "publisher": "Marvel Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 151292,
-        "name": "I Vendicatori",
-        "publisher": "Panini Comics",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T18:06:55.350148+00:00",
-    "retry_after": "2026-10-30T18:06:55.350151+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "MegaManga",
-    "publisher": "Fantagraphics",
-    "year": 2003,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 173763,
-        "name": "MegaManga",
-        "publisher": "Eros Comix",
-        "start_year": 2003
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T18:06:55.350171+00:00",
-    "retry_after": "2026-10-30T18:06:55.350174+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Marvels Snapshots",
     "publisher": "Marvel Comics",
     "year": 2022,
@@ -84540,24 +84364,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Marvel Team-Up Winter Special",
-    "publisher": "Marvel Comics",
-    "year": 1980,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52549,
-        "name": "Marvel Team-Up Winter Special",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1980
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T19:07:46.949991+00:00",
-    "retry_after": "2026-10-30T19:07:46.950006+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Nickelodeon Avatar: The Last Airbender - North and South Library Edition",
     "publisher": "Dark Horse Comics",
     "year": 2017,
@@ -84599,42 +84405,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T19:07:46.950148+00:00",
     "retry_after": "2026-10-30T19:07:46.950151+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Marvel Mix",
-    "publisher": "Marvel Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57055,
-        "name": "Marvel Mix",
-        "publisher": "Panini Comics",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T19:08:15.864229+00:00",
-    "retry_after": "2026-10-30T19:08:15.864243+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Phil Corrigan Secret Agent X9",
-    "publisher": "Atlas Comics",
-    "year": 1950,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 161990,
-        "name": "Phil Corrigan Secret Agent X9 ",
-        "publisher": "Atlas Publications Pty. Ltd.",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T19:08:15.864279+00:00",
-    "retry_after": "2026-10-30T19:08:15.864283+00:00",
     "search_hydrated": true
   },
   {
@@ -85203,24 +84973,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T00:05:19.187275+00:00",
     "retry_after": "2026-10-31T00:05:19.187291+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Kick-Ass 2 Prelude: Hit Girl",
-    "publisher": "Marvel Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 58598,
-        "name": "Kick-Ass 2 Prelude: Hit-Girl",
-        "publisher": "Icon Books",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T00:05:19.187408+00:00",
-    "retry_after": "2026-10-31T00:05:19.187413+00:00",
     "search_hydrated": true
   },
   {
@@ -85901,24 +85653,6 @@
     "search_hydrated": true
   },
   {
-    "name": "They Called Us Enemy – Expanded Edition",
-    "publisher": "IDW Publishing",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 129898,
-        "name": "They Called Us Enemy: Expanded Edition",
-        "publisher": "Top Shelf",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T10:07:07.410690+00:00",
-    "retry_after": "2026-10-31T10:07:07.410695+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Ultimate Factor-X",
     "publisher": "Marvel Comics",
     "year": 1995,
@@ -85982,24 +85716,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T13:10:06.344687+00:00",
     "retry_after": "2026-10-31T13:10:06.344704+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Lost Boy",
-    "publisher": "Dark Horse Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 67715,
-        "name": "The Lost Boy",
-        "publisher": "Scholastic Book Services",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T13:10:06.344756+00:00",
-    "retry_after": "2026-10-31T13:10:06.344760+00:00",
     "search_hydrated": true
   },
   {

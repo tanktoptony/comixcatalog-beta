@@ -6043,10 +6043,12 @@
     "name": "The Marked 3D Halloween Special",
     "publisher": "Image Comics",
     "year": 2022,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555082+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T02:05:22.248920+00:00",
+    "retry_after": "2026-11-02T02:05:22.248922+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Iron Man 2020 - Jocasta",
@@ -18757,9 +18759,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T18:00:45.672943+00:00",
-    "retry_after": "2026-09-26T18:00:45.672961+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T02:05:22.249005+00:00",
+    "retry_after": "2026-11-06T02:05:22.249007+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Teenage Mutant Ninja Turtles",
@@ -27527,8 +27530,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T01:36:26.980957+00:00",
-    "retry_after": "2026-10-31T01:36:26.980972+00:00",
+    "last_attempt_at": "2026-10-30T02:01:21.312961+00:00",
+    "retry_after": "2026-10-31T02:01:21.312963+00:00",
     "search_hydrated": true
   },
   {
@@ -33438,9 +33441,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T20:00:44.430101+00:00",
-    "retry_after": "2026-10-10T20:00:44.430119+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-10-30T02:05:22.249031+00:00",
+    "retry_after": "2026-11-13T02:05:22.249033+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Andy Devine [Andy Devine Western]",
@@ -37986,9 +37990,10 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T18:02:09.161897+00:00",
-    "retry_after": "2026-10-04T18:02:09.161912+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T02:05:22.248860+00:00",
+    "retry_after": "2026-11-02T02:05:22.248878+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Demon",
@@ -43597,8 +43602,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T01:36:26.882736+00:00",
-    "retry_after": "2026-10-31T01:36:26.882753+00:00",
+    "last_attempt_at": "2026-10-30T02:01:21.312885+00:00",
+    "retry_after": "2026-10-31T02:01:21.312903+00:00",
     "search_hydrated": true
   },
   {
@@ -51498,8 +51503,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T01:36:26.882778+00:00",
-    "retry_after": "2026-10-31T01:36:26.882781+00:00",
+    "last_attempt_at": "2026-10-30T02:01:21.312931+00:00",
+    "retry_after": "2026-10-31T02:01:21.312935+00:00",
     "search_hydrated": true
   },
   {
@@ -82548,9 +82553,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T00:08:13.689891+00:00",
-    "retry_after": "2026-10-30T00:08:13.689909+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T02:04:55.944745+00:00",
+    "retry_after": "2026-11-02T02:04:55.944764+00:00",
     "search_hydrated": true
   },
   {
@@ -82583,9 +82588,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T01:06:17.886653+00:00",
-    "retry_after": "2026-10-30T01:06:17.886655+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T02:04:55.944794+00:00",
+    "retry_after": "2026-11-02T02:04:55.944798+00:00",
     "search_hydrated": true
   },
   {
@@ -82594,9 +82599,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T01:06:17.886694+00:00",
-    "retry_after": "2026-10-30T01:06:17.886696+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T02:04:55.944814+00:00",
+    "retry_after": "2026-11-02T02:04:55.944816+00:00",
     "search_hydrated": true
   },
   {
@@ -82612,9 +82617,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T01:07:03.993071+00:00",
-    "retry_after": "2026-10-30T01:07:03.993099+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T02:04:57.204608+00:00",
+    "retry_after": "2026-11-02T02:04:57.204622+00:00",
     "search_hydrated": true
   },
   {
@@ -85303,6 +85308,193 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T01:06:24.006147+00:00",
     "retry_after": "2026-10-31T01:06:24.006162+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Department of Truth: Wild Fictions Special",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:04:55.944893+00:00",
+    "retry_after": "2026-10-31T02:04:55.944896+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: Son of Kal-El",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 137844,
+        "name": "Superman: Son of Kal-El",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:04:57.811155+00:00",
+    "retry_after": "2026-10-31T02:04:57.811175+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tales from the DC Dark Multiverse II",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 136744,
+        "name": "Tales From the DC Dark Multiverse II",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:04:58.171175+00:00",
+    "retry_after": "2026-10-31T02:04:58.171193+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Task Force Z",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 139802,
+        "name": "Task Force Z",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:04:58.376773+00:00",
+    "retry_after": "2026-10-31T02:04:58.376792+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teen Titans: Beast Boy Loves Raven",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 139227,
+        "name": "Teen Titans: Beast Boy Loves Raven",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:04:58.905868+00:00",
+    "retry_after": "2026-10-31T02:04:58.905888+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Batman's Grave: The Complete Collection",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 134807,
+        "name": "The Batman's Grave: The Complete Collection",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:04:59.248104+00:00",
+    "retry_after": "2026-10-31T02:04:59.248122+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Mighty",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 109811,
+        "name": "The Mighty",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 25747,
+        "name": "The Mighty",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:05:22.248973+00:00",
+    "retry_after": "2026-10-31T02:05:22.248976+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thor: The Saga of Gorr the God Butcher",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:05:22.249043+00:00",
+    "retry_after": "2026-10-31T02:05:22.249045+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Undiscovered Country: Destiny Man One-Shot",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:05:22.249055+00:00",
+    "retry_after": "2026-10-31T02:05:22.249057+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Other History of the DC Universe",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 140569,
+        "name": "The Other History of the DC Universe",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:05:48.013148+00:00",
+    "retry_after": "2026-10-31T02:05:48.013168+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hypericum",
+    "publisher": "Fantagraphics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:06:53.110123+00:00",
+    "retry_after": "2026-10-31T02:06:53.110142+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Rick and Morty vs Cthulhu Deluxe Edition",
+    "publisher": "Oni Press",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T02:06:53.110206+00:00",
+    "retry_after": "2026-10-31T02:06:53.110210+00:00",
     "search_hydrated": true
   }
 ]

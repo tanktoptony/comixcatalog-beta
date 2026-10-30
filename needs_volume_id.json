@@ -6453,15 +6453,6 @@
     "retry_after": "2026-09-21T14:00:38.555225+00:00"
   },
   {
-    "name": "Death of Doctor Strange: Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555229+00:00"
-  },
-  {
     "name": "The Trials of Loki: Marvel Tales",
     "publisher": "Marvel Comics",
     "year": 2021,
@@ -8593,10 +8584,12 @@
     "name": "Eternals: Never Die, Never Win Edition",
     "publisher": "Marvel Comics",
     "year": 2021,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555881+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:05:31.255797+00:00",
+    "retry_after": "2026-11-02T17:05:31.255815+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Mondo Urbano",
@@ -10894,9 +10887,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:02:57.016587+00:00",
-    "retry_after": "2026-10-30T16:02:57.016605+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:01:27.743541+00:00",
+    "retry_after": "2026-11-02T17:01:27.743558+00:00",
     "search_hydrated": true
   },
   {
@@ -27502,8 +27495,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:01:19.262461+00:00",
-    "retry_after": "2026-10-31T16:01:19.262464+00:00",
+    "last_attempt_at": "2026-10-30T17:01:33.899738+00:00",
+    "retry_after": "2026-10-31T17:01:33.899741+00:00",
     "search_hydrated": true
   },
   {
@@ -43582,8 +43575,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:01:19.262377+00:00",
-    "retry_after": "2026-10-31T16:01:19.262395+00:00",
+    "last_attempt_at": "2026-10-30T17:01:33.899654+00:00",
+    "retry_after": "2026-10-31T17:01:33.899673+00:00",
     "search_hydrated": true
   },
   {
@@ -51483,8 +51476,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:01:19.262427+00:00",
-    "retry_after": "2026-10-31T16:01:19.262431+00:00",
+    "last_attempt_at": "2026-10-30T17:01:33.899703+00:00",
+    "retry_after": "2026-10-31T17:01:33.899707+00:00",
     "search_hydrated": true
   },
   {
@@ -83760,9 +83753,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:05:07.826870+00:00",
-    "retry_after": "2026-10-30T16:05:07.826888+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:05:03.302092+00:00",
+    "retry_after": "2026-11-02T17:05:03.302111+00:00",
     "search_hydrated": true
   },
   {
@@ -83778,9 +83771,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:05:07.927147+00:00",
-    "retry_after": "2026-10-30T16:05:07.927164+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:05:03.403431+00:00",
+    "retry_after": "2026-11-02T17:05:03.403449+00:00",
     "search_hydrated": true
   },
   {
@@ -83796,9 +83789,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:05:08.026990+00:00",
-    "retry_after": "2026-10-30T16:05:08.027006+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:05:03.498385+00:00",
+    "retry_after": "2026-11-02T17:05:03.498400+00:00",
     "search_hydrated": true
   },
   {
@@ -83814,9 +83807,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:05:11.770540+00:00",
-    "retry_after": "2026-10-30T16:05:11.770556+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:05:03.604836+00:00",
+    "retry_after": "2026-11-02T17:05:03.604853+00:00",
     "search_hydrated": true
   },
   {
@@ -83832,9 +83825,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:05:16.715977+00:00",
-    "retry_after": "2026-10-30T16:05:16.715993+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:05:03.697445+00:00",
+    "retry_after": "2026-11-02T17:05:03.697462+00:00",
     "search_hydrated": true
   },
   {
@@ -83850,9 +83843,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:05:16.821216+00:00",
-    "retry_after": "2026-10-30T16:05:16.821232+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:05:03.802749+00:00",
+    "retry_after": "2026-11-02T17:05:03.802765+00:00",
     "search_hydrated": true
   },
   {
@@ -83868,9 +83861,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:05:58.620574+00:00",
-    "retry_after": "2026-10-30T16:05:58.620589+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:05:03.906992+00:00",
+    "retry_after": "2026-11-02T17:05:03.907009+00:00",
     "search_hydrated": true
   },
   {
@@ -83919,9 +83912,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:43:03.465959+00:00",
-    "retry_after": "2026-10-30T16:43:03.465974+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:05:04.123578+00:00",
+    "retry_after": "2026-11-02T17:05:04.123596+00:00",
     "search_hydrated": true
   },
   {
@@ -83937,9 +83930,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:43:08.439948+00:00",
-    "retry_after": "2026-10-30T16:43:08.439963+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:05:04.329004+00:00",
+    "retry_after": "2026-11-02T17:05:04.329019+00:00",
     "search_hydrated": true
   },
   {
@@ -83948,9 +83941,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:43:43.492399+00:00",
-    "retry_after": "2026-10-30T16:43:43.492416+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:13:01.905675+00:00",
+    "retry_after": "2026-11-02T17:13:01.905695+00:00",
     "search_hydrated": true
   },
   {
@@ -83959,9 +83952,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:43:43.492472+00:00",
-    "retry_after": "2026-10-30T16:43:43.492477+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:13:01.905724+00:00",
+    "retry_after": "2026-11-02T17:13:01.905728+00:00",
     "search_hydrated": true
   },
   {
@@ -83970,9 +83963,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:43:43.492494+00:00",
-    "retry_after": "2026-10-30T16:43:43.492497+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:13:01.905745+00:00",
+    "retry_after": "2026-11-02T17:13:01.905748+00:00",
     "search_hydrated": true
   },
   {
@@ -83981,9 +83974,9 @@
     "year": 1944,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:43:43.492528+00:00",
-    "retry_after": "2026-10-30T16:43:43.492531+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:13:01.905760+00:00",
+    "retry_after": "2026-11-02T17:13:01.905762+00:00",
     "search_hydrated": true
   },
   {
@@ -84171,9 +84164,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:07:18.622712+00:00",
-    "retry_after": "2026-10-30T17:07:18.622730+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T17:13:03.096587+00:00",
+    "retry_after": "2026-11-02T17:13:03.096604+00:00",
     "search_hydrated": true
   },
   {
@@ -86126,6 +86119,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T16:12:43.931885+00:00",
     "retry_after": "2026-10-31T16:12:43.931888+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantastic Four: Antithesis Treasury Edition",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T17:05:31.255845+00:00",
+    "retry_after": "2026-10-31T17:05:31.255848+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Generation X Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T17:07:41.808653+00:00",
+    "retry_after": "2026-10-31T17:07:41.808670+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Giant-Size X-Men: Tribute to Wein & Cockrum",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 130761,
+        "name": "Giant-Size X-Men: Tribute To Wein & Cockrum",
+        "publisher": "Marvel",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T17:08:43.089655+00:00",
+    "retry_after": "2026-10-31T17:08:43.089673+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T17:13:05.650786+00:00",
+    "retry_after": "2026-10-31T17:13:05.650806+00:00",
     "search_hydrated": true
   }
 ]

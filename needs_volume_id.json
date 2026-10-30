@@ -27482,21 +27482,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T18:01:39.499836+00:00",
-    "retry_after": "2026-10-31T18:01:39.499839+00:00",
+    "last_attempt_at": "2026-10-30T19:01:46.297267+00:00",
+    "retry_after": "2026-10-31T19:01:46.297270+00:00",
     "search_hydrated": true
   },
   {
@@ -43575,8 +43575,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T18:01:39.499731+00:00",
-    "retry_after": "2026-10-31T18:01:39.499747+00:00",
+    "last_attempt_at": "2026-10-30T19:01:46.297188+00:00",
+    "retry_after": "2026-10-31T19:01:46.297199+00:00",
     "search_hydrated": true
   },
   {
@@ -51476,8 +51476,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T18:01:39.499803+00:00",
-    "retry_after": "2026-10-31T18:01:39.499806+00:00",
+    "last_attempt_at": "2026-10-30T19:01:46.297230+00:00",
+    "retry_after": "2026-10-31T19:01:46.297235+00:00",
     "search_hydrated": true
   },
   {
@@ -76245,9 +76245,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T18:05:10.456811+00:00",
-    "retry_after": "2026-10-30T18:05:10.456827+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T19:05:32.407594+00:00",
+    "retry_after": "2026-11-06T19:05:32.407610+00:00",
     "search_hydrated": true
   },
   {
@@ -76256,9 +76256,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T18:05:10.456861+00:00",
-    "retry_after": "2026-10-30T18:05:10.456866+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T19:05:32.407644+00:00",
+    "retry_after": "2026-11-06T19:05:32.407648+00:00",
     "search_hydrated": true
   },
   {
@@ -76267,9 +76267,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T18:05:10.456884+00:00",
-    "retry_after": "2026-10-30T18:05:10.456887+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T19:05:32.407665+00:00",
+    "retry_after": "2026-11-06T19:05:32.407668+00:00",
     "search_hydrated": true
   },
   {
@@ -76285,9 +76285,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T18:05:10.456927+00:00",
-    "retry_after": "2026-10-30T18:05:10.456930+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T19:05:32.407708+00:00",
+    "retry_after": "2026-11-06T19:05:32.407711+00:00",
     "search_hydrated": true
   },
   {
@@ -76296,9 +76296,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T18:05:10.456949+00:00",
-    "retry_after": "2026-10-30T18:05:10.456952+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T19:05:32.407729+00:00",
+    "retry_after": "2026-11-06T19:05:32.407732+00:00",
     "search_hydrated": true
   },
   {
@@ -76307,9 +76307,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T18:05:10.456982+00:00",
-    "retry_after": "2026-10-30T18:05:10.456985+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T19:05:32.407763+00:00",
+    "retry_after": "2026-11-06T19:05:32.407766+00:00",
     "search_hydrated": true
   },
   {
@@ -76325,9 +76325,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T18:05:11.000240+00:00",
-    "retry_after": "2026-10-30T18:05:11.000252+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T19:05:32.922452+00:00",
+    "retry_after": "2026-11-06T19:05:32.922465+00:00",
     "search_hydrated": true
   },
   {
@@ -76349,9 +76349,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T18:05:10.457015+00:00",
-    "retry_after": "2026-10-30T18:05:10.457018+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T19:05:32.407822+00:00",
+    "retry_after": "2026-11-06T19:05:32.407826+00:00",
     "search_hydrated": true
   },
   {
@@ -76360,9 +76360,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T18:06:55.896776+00:00",
-    "retry_after": "2026-10-30T18:06:55.896792+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T19:05:32.407842+00:00",
+    "retry_after": "2026-11-06T19:05:32.407844+00:00",
     "search_hydrated": true
   },
   {
@@ -84135,9 +84135,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:06:27.917215+00:00",
-    "retry_after": "2026-10-30T17:06:27.917232+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T19:05:33.569141+00:00",
+    "retry_after": "2026-11-02T19:05:33.569156+00:00",
     "search_hydrated": true
   },
   {
@@ -84153,9 +84153,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:06:49.270236+00:00",
-    "retry_after": "2026-10-30T17:06:49.270253+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T19:05:51.070140+00:00",
+    "retry_after": "2026-11-02T19:05:51.070151+00:00",
     "search_hydrated": true
   },
   {
@@ -84235,9 +84235,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T18:06:07.353216+00:00",
-    "retry_after": "2026-10-30T18:06:07.353221+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T19:05:50.000754+00:00",
+    "retry_after": "2026-11-02T19:05:50.000787+00:00",
     "search_hydrated": true
   },
   {
@@ -84279,9 +84279,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T18:06:28.137123+00:00",
-    "retry_after": "2026-10-30T18:06:28.137126+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T19:11:16.324630+00:00",
+    "retry_after": "2026-11-02T19:11:16.324644+00:00",
     "search_hydrated": true
   },
   {
@@ -84290,9 +84290,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T18:06:28.137139+00:00",
-    "retry_after": "2026-10-30T18:06:28.137141+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T19:11:16.324684+00:00",
+    "retry_after": "2026-11-02T19:11:16.324688+00:00",
     "search_hydrated": true
   },
   {
@@ -84370,9 +84370,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T19:07:46.950041+00:00",
-    "retry_after": "2026-10-30T19:07:46.950046+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T19:11:16.324708+00:00",
+    "retry_after": "2026-11-02T19:11:16.324711+00:00",
     "search_hydrated": true
   },
   {
@@ -84381,9 +84381,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T19:07:46.950075+00:00",
-    "retry_after": "2026-10-30T19:07:46.950078+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T19:11:16.324726+00:00",
+    "retry_after": "2026-11-02T19:11:16.324728+00:00",
     "search_hydrated": true
   },
   {
@@ -84392,9 +84392,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T19:07:46.950091+00:00",
-    "retry_after": "2026-10-30T19:07:46.950094+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T19:11:16.324742+00:00",
+    "retry_after": "2026-11-02T19:11:16.324745+00:00",
     "search_hydrated": true
   },
   {
@@ -86177,6 +86177,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T17:13:05.650786+00:00",
     "retry_after": "2026-10-31T17:13:05.650806+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Arrow: 80 Years of the Emerald Archer The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T19:05:50.000816+00:00",
+    "retry_after": "2026-10-31T19:05:50.000819+00:00",
     "search_hydrated": true
   }
 ]

@@ -8612,9 +8612,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:07:04.747973+00:00",
-    "retry_after": "2026-10-29T22:07:04.747977+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:04:41.601068+00:00",
+    "retry_after": "2026-11-02T00:04:41.601071+00:00",
     "search_hydrated": true
   },
   {
@@ -9909,9 +9909,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:19:51.635042+00:00",
-    "retry_after": "2026-10-29T22:19:51.635058+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:04:41.601142+00:00",
+    "retry_after": "2026-11-02T00:04:41.601146+00:00",
     "search_hydrated": true
   },
   {
@@ -27514,21 +27514,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T23:01:51.095462+00:00",
-    "retry_after": "2026-10-30T23:01:51.095465+00:00",
+    "last_attempt_at": "2026-10-30T00:01:16.801514+00:00",
+    "retry_after": "2026-10-31T00:01:16.801517+00:00",
     "search_hydrated": true
   },
   {
@@ -43597,8 +43597,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T23:01:51.095353+00:00",
-    "retry_after": "2026-10-30T23:01:51.095370+00:00",
+    "last_attempt_at": "2026-10-30T00:01:16.801429+00:00",
+    "retry_after": "2026-10-31T00:01:16.801445+00:00",
     "search_hydrated": true
   },
   {
@@ -51498,8 +51498,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-29T23:01:51.095398+00:00",
-    "retry_after": "2026-10-30T23:01:51.095401+00:00",
+    "last_attempt_at": "2026-10-30T00:01:16.801477+00:00",
+    "retry_after": "2026-10-31T00:01:16.801481+00:00",
     "search_hydrated": true
   },
   {
@@ -73511,9 +73511,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T23:04:38.958881+00:00",
-    "retry_after": "2026-10-29T23:04:38.958882+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T00:04:41.600917+00:00",
+    "retry_after": "2026-11-06T00:04:41.600933+00:00",
     "search_hydrated": true
   },
   {
@@ -73522,9 +73522,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-26T23:04:38.958888+00:00",
-    "retry_after": "2026-10-29T23:04:38.958889+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T00:04:41.600962+00:00",
+    "retry_after": "2026-11-06T00:04:41.600967+00:00",
     "search_hydrated": true
   },
   {
@@ -82356,9 +82356,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:07:04.747887+00:00",
-    "retry_after": "2026-10-29T22:07:04.747903+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:04:41.601021+00:00",
+    "retry_after": "2026-11-02T00:04:41.601025+00:00",
     "search_hydrated": true
   },
   {
@@ -82374,9 +82374,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:07:16.227787+00:00",
-    "retry_after": "2026-10-29T22:07:16.227804+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:04:42.329903+00:00",
+    "retry_after": "2026-11-02T00:04:42.329917+00:00",
     "search_hydrated": true
   },
   {
@@ -82392,9 +82392,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:07:40.151733+00:00",
-    "retry_after": "2026-10-29T22:07:40.151751+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:04:42.518111+00:00",
+    "retry_after": "2026-11-02T00:04:42.518126+00:00",
     "search_hydrated": true
   },
   {
@@ -82403,9 +82403,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:19:52.433256+00:00",
-    "retry_after": "2026-10-29T22:19:52.433270+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:04:41.601183+00:00",
+    "retry_after": "2026-11-02T00:04:41.601187+00:00",
     "search_hydrated": true
   },
   {
@@ -82421,9 +82421,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:21:46.677273+00:00",
-    "retry_after": "2026-10-29T22:21:46.677290+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:04:42.603976+00:00",
+    "retry_after": "2026-11-02T00:04:42.603991+00:00",
     "search_hydrated": true
   },
   {
@@ -82432,9 +82432,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:22:15.080405+00:00",
-    "retry_after": "2026-10-29T22:22:15.080408+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:04:41.601212+00:00",
+    "retry_after": "2026-11-02T00:04:41.601215+00:00",
     "search_hydrated": true
   },
   {
@@ -82443,9 +82443,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:22:15.080449+00:00",
-    "retry_after": "2026-10-29T22:22:15.080452+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:05:00.204843+00:00",
+    "retry_after": "2026-11-02T00:05:00.204859+00:00",
     "search_hydrated": true
   },
   {
@@ -82454,9 +82454,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T22:22:15.080473+00:00",
-    "retry_after": "2026-10-29T22:22:15.080476+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:05:00.204883+00:00",
+    "retry_after": "2026-11-02T00:05:00.204886+00:00",
     "search_hydrated": true
   },
   {
@@ -82483,9 +82483,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T23:07:33.646360+00:00",
-    "retry_after": "2026-10-29T23:07:33.646364+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:05:01.509849+00:00",
+    "retry_after": "2026-11-02T00:05:01.509862+00:00",
     "search_hydrated": true
   },
   {
@@ -82494,9 +82494,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T23:08:02.110559+00:00",
-    "retry_after": "2026-10-29T23:08:02.110577+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:05:00.204926+00:00",
+    "retry_after": "2026-11-02T00:05:00.204929+00:00",
     "search_hydrated": true
   },
   {
@@ -82512,9 +82512,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-28T23:08:02.110615+00:00",
-    "retry_after": "2026-10-29T23:08:02.110618+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T00:05:01.509901+00:00",
+    "retry_after": "2026-11-02T00:05:01.509904+00:00",
     "search_hydrated": true
   },
   {
@@ -85239,6 +85239,57 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-29T23:05:57.846339+00:00",
     "retry_after": "2026-10-30T23:05:57.846341+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Absolute Multiversity",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T00:05:00.204988+00:00",
+    "retry_after": "2026-10-31T00:05:00.204992+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Limited: Silver Surfer",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T00:05:19.187275+00:00",
+    "retry_after": "2026-10-31T00:05:19.187291+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T00:05:19.187408+00:00",
+    "retry_after": "2026-10-31T00:05:19.187413+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice League of America Super Spectacular No. 1, 1975 Issue",
+    "publisher": "DC Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T00:05:19.187447+00:00",
+    "retry_after": "2026-10-31T00:05:19.187450+00:00",
     "search_hydrated": true
   }
 ]

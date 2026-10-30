@@ -27502,8 +27502,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:35:23.297667+00:00",
-    "retry_after": "2026-10-31T15:35:23.297670+00:00",
+    "last_attempt_at": "2026-10-30T16:01:19.262461+00:00",
+    "retry_after": "2026-10-31T16:01:19.262464+00:00",
     "search_hydrated": true
   },
   {
@@ -31739,11 +31739,19 @@
     "name": "Conan the Barbarian by Jim Zub",
     "publisher": "Marvel Comics",
     "year": 2021,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T03:01:33.310870+00:00",
-    "retry_after": "2026-10-10T03:01:33.310885+00:00"
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 115185,
+        "name": "Conan the Barbarian ",
+        "publisher": "Gotham Entertainment Group",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 4,
+    "last_attempt_at": "2026-10-30T16:04:41.888358+00:00",
+    "retry_after": "2026-11-13T16:04:41.888376+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Captain Canuck",
@@ -43574,8 +43582,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:35:23.297587+00:00",
-    "retry_after": "2026-10-31T15:35:23.297603+00:00",
+    "last_attempt_at": "2026-10-30T16:01:19.262377+00:00",
+    "retry_after": "2026-10-31T16:01:19.262395+00:00",
     "search_hydrated": true
   },
   {
@@ -51475,8 +51483,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:35:23.297635+00:00",
-    "retry_after": "2026-10-31T15:35:23.297639+00:00",
+    "last_attempt_at": "2026-10-30T16:01:19.262427+00:00",
+    "retry_after": "2026-10-31T16:01:19.262431+00:00",
     "search_hydrated": true
   },
   {
@@ -83661,9 +83669,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T14:05:58.483479+00:00",
-    "retry_after": "2026-10-30T14:05:58.483501+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T16:04:43.146704+00:00",
+    "retry_after": "2026-11-02T16:04:43.146723+00:00",
     "search_hydrated": true
   },
   {
@@ -83734,9 +83742,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T15:05:52.834109+00:00",
-    "retry_after": "2026-10-30T15:05:52.834127+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T16:04:44.699074+00:00",
+    "retry_after": "2026-11-02T16:04:44.699092+00:00",
     "search_hydrated": true
   },
   {
@@ -83871,9 +83879,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:06:42.487869+00:00",
-    "retry_after": "2026-10-30T16:06:42.487892+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T16:12:30.464609+00:00",
+    "retry_after": "2026-11-02T16:12:30.464627+00:00",
     "search_hydrated": true
   },
   {
@@ -83882,9 +83890,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:06:42.487929+00:00",
-    "retry_after": "2026-10-30T16:06:42.487934+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T16:12:30.464656+00:00",
+    "retry_after": "2026-11-02T16:12:30.464660+00:00",
     "search_hydrated": true
   },
   {
@@ -83893,9 +83901,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T16:06:42.487953+00:00",
-    "retry_after": "2026-10-30T16:06:42.487956+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T16:12:30.464682+00:00",
+    "retry_after": "2026-11-02T16:12:30.464684+00:00",
     "search_hydrated": true
   },
   {
@@ -85931,6 +85939,193 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T15:43:31.619232+00:00",
     "retry_after": "2026-10-31T15:43:31.619235+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Daredevil No.1 Halloween Comic Extravaganza 2021",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:04:41.888453+00:00",
+    "retry_after": "2026-10-31T16:04:41.888456+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crossover",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 131724,
+        "name": "Crossover",
+        "publisher": "Image",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:05:18.027082+00:00",
+    "retry_after": "2026-10-31T16:05:18.027100+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Comics: The New 52 10th Anniversary Edition",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:06:39.885647+00:00",
+    "retry_after": "2026-10-31T16:06:39.885664+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Poster Portfolio: Joelle Jones",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:06:39.885713+00:00",
+    "retry_after": "2026-10-31T16:06:39.885715+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DCeased",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 118648,
+        "name": "DCeased",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 122959,
+        "name": "DCeased",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:06:39.885760+00:00",
+    "retry_after": "2026-10-31T16:06:39.885762+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DCeased: Unkillables",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 125115,
+        "name": "DCeased: Unkillables",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:07:54.367139+00:00",
+    "retry_after": "2026-10-31T16:07:54.367163+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadpool Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:07:58.462123+00:00",
+    "retry_after": "2026-10-31T16:07:58.462144+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadpool: Black, White & Blood Treasury Edition",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:07:58.462190+00:00",
+    "retry_after": "2026-10-31T16:07:58.462194+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:12:43.931750+00:00",
+    "retry_after": "2026-10-31T16:12:43.931767+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:12:43.931798+00:00",
+    "retry_after": "2026-10-31T16:12:43.931802+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": "Eros Comix",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:12:43.931825+00:00",
+    "retry_after": "2026-10-31T16:12:43.931828+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T16:12:43.931885+00:00",
+    "retry_after": "2026-10-31T16:12:43.931888+00:00",
     "search_hydrated": true
   }
 ]

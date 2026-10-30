@@ -25957,9 +25957,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:01:23.973845+00:00",
-    "retry_after": "2026-10-30T04:01:23.973847+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:01:13.876532+00:00",
+    "retry_after": "2026-11-06T05:01:13.876534+00:00",
     "search_hydrated": true
   },
   {
@@ -25999,9 +25999,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:01:23.973798+00:00",
-    "retry_after": "2026-10-30T04:01:23.973799+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:01:13.876457+00:00",
+    "retry_after": "2026-11-06T05:01:13.876459+00:00",
     "search_hydrated": true
   },
   {
@@ -27520,21 +27520,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T04:01:19.778405+00:00",
-    "retry_after": "2026-10-31T04:01:19.778408+00:00",
+    "last_attempt_at": "2026-10-30T05:01:13.876376+00:00",
+    "retry_after": "2026-10-31T05:01:13.876378+00:00",
     "search_hydrated": true
   },
   {
@@ -43605,8 +43605,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T04:01:19.778242+00:00",
-    "retry_after": "2026-10-31T04:01:19.778258+00:00",
+    "last_attempt_at": "2026-10-30T05:01:13.876272+00:00",
+    "retry_after": "2026-10-31T05:01:13.876318+00:00",
     "search_hydrated": true
   },
   {
@@ -51506,8 +51506,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T04:01:19.778320+00:00",
-    "retry_after": "2026-10-31T04:01:19.778327+00:00",
+    "last_attempt_at": "2026-10-30T05:01:13.876346+00:00",
+    "retry_after": "2026-10-31T05:01:13.876349+00:00",
     "search_hydrated": true
   },
   {
@@ -74324,9 +74324,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:04:43.228895+00:00",
-    "retry_after": "2026-10-30T04:04:43.228913+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:35.729589+00:00",
+    "retry_after": "2026-11-06T05:04:35.729606+00:00",
     "search_hydrated": true
   },
   {
@@ -74342,9 +74342,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:04:44.008440+00:00",
-    "retry_after": "2026-10-30T04:04:44.008454+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:37.850724+00:00",
+    "retry_after": "2026-11-06T05:04:37.850736+00:00",
     "search_hydrated": true
   },
   {
@@ -74353,9 +74353,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:04:43.228951+00:00",
-    "retry_after": "2026-10-30T04:04:43.228954+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:35.729648+00:00",
+    "retry_after": "2026-11-06T05:04:35.729652+00:00",
     "search_hydrated": true
   },
   {
@@ -74371,9 +74371,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:04:44.008480+00:00",
-    "retry_after": "2026-10-30T04:04:44.008482+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:37.850765+00:00",
+    "retry_after": "2026-11-06T05:04:37.850767+00:00",
     "search_hydrated": true
   },
   {
@@ -74389,9 +74389,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:04:44.118001+00:00",
-    "retry_after": "2026-10-30T04:04:44.118018+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:37.921961+00:00",
+    "retry_after": "2026-11-06T05:04:37.921973+00:00",
     "search_hydrated": true
   },
   {
@@ -74400,9 +74400,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:04:43.228979+00:00",
-    "retry_after": "2026-10-30T04:04:43.228981+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:35.729681+00:00",
+    "retry_after": "2026-11-06T05:04:35.729683+00:00",
     "search_hydrated": true
   },
   {
@@ -74411,9 +74411,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:04:43.228989+00:00",
-    "retry_after": "2026-10-30T04:04:43.228991+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:35.729693+00:00",
+    "retry_after": "2026-11-06T05:04:35.729695+00:00",
     "search_hydrated": true
   },
   {
@@ -74422,9 +74422,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:04:43.228997+00:00",
-    "retry_after": "2026-10-30T04:04:43.228998+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:35.729704+00:00",
+    "retry_after": "2026-11-06T05:04:35.729706+00:00",
     "search_hydrated": true
   },
   {
@@ -74440,9 +74440,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:04:44.223294+00:00",
-    "retry_after": "2026-10-30T04:04:44.223311+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:37.993449+00:00",
+    "retry_after": "2026-11-06T05:04:37.993460+00:00",
     "search_hydrated": true
   },
   {
@@ -74458,9 +74458,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:04:44.347587+00:00",
-    "retry_after": "2026-10-30T04:04:44.347605+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:38.059937+00:00",
+    "retry_after": "2026-11-06T05:04:38.059947+00:00",
     "search_hydrated": true
   },
   {
@@ -74469,20 +74469,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:05:02.354481+00:00",
-    "retry_after": "2026-10-30T04:05:02.354498+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Star Wars: Rogue One - Darth Vader",
-    "publisher": "Marvel Comics",
-    "year": 2026,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:05:02.354515+00:00",
-    "retry_after": "2026-10-30T04:05:02.354517+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:57.459368+00:00",
+    "retry_after": "2026-11-06T05:04:57.459384+00:00",
     "search_hydrated": true
   },
   {
@@ -74491,9 +74480,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:05:02.354526+00:00",
-    "retry_after": "2026-10-30T04:05:02.354527+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:57.459403+00:00",
+    "retry_after": "2026-11-06T05:04:57.459406+00:00",
     "search_hydrated": true
   },
   {
@@ -74509,9 +74498,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:05:02.929030+00:00",
-    "retry_after": "2026-10-30T04:05:02.929044+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:57.986816+00:00",
+    "retry_after": "2026-11-06T05:04:57.986829+00:00",
     "search_hydrated": true
   },
   {
@@ -74520,9 +74509,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T04:05:02.354555+00:00",
-    "retry_after": "2026-10-30T04:05:02.354556+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T05:04:57.459442+00:00",
+    "retry_after": "2026-11-06T05:04:57.459445+00:00",
     "search_hydrated": true
   },
   {
@@ -82706,9 +82695,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T03:05:10.566073+00:00",
-    "retry_after": "2026-10-30T03:05:10.566085+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T05:04:57.459459+00:00",
+    "retry_after": "2026-11-02T05:04:57.459462+00:00",
     "search_hydrated": true
   },
   {
@@ -82717,9 +82706,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T03:05:10.566152+00:00",
-    "retry_after": "2026-10-30T03:05:10.566154+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T05:04:57.459474+00:00",
+    "retry_after": "2026-11-02T05:04:57.459476+00:00",
     "search_hydrated": true
   },
   {
@@ -82764,9 +82753,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T03:07:10.452253+00:00",
-    "retry_after": "2026-10-30T03:07:10.452255+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T05:04:57.459534+00:00",
+    "retry_after": "2026-11-02T05:04:57.459536+00:00",
     "search_hydrated": true
   },
   {
@@ -85774,6 +85763,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T03:08:33.524612+00:00",
     "retry_after": "2026-10-31T03:08:33.524615+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Like a Volt from the Blue!! [Spider-Man Peanut Butter]",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T05:06:29.091960+00:00",
+    "retry_after": "2026-10-31T05:06:29.091981+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Complete 30 Days of Night: Trilogy",
+    "publisher": "IDW Publishing",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T05:06:29.092009+00:00",
+    "retry_after": "2026-10-31T05:06:29.092012+00:00",
     "search_hydrated": true
   }
 ]

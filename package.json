@@ -79,6 +79,7 @@
     "report:scan-accuracy": "node scripts/scanAccuracyReport.js",
     "covers:gap-featured": "node scripts/generateFeaturedGapTargets.js",
     "covers:gap-both": "node scripts/generateCoverGapTargets.js --mode=both --limit=5000",
+    "covers:gap-runs": "node scripts/generateRunCompletionGap.js",
     "covers:resolve-pins": "node scripts/resolveNeedsVolumeIdBacklog.js",
     "covers:refresh-cache": "node scripts/refreshSeriesSearchCache.js --force",
     "covers:refresh-cache-test": "node scripts/refreshSeriesSearchCache.js --force --max-batches=1",

@@ -27495,8 +27495,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T20:26:41.629375+00:00",
-    "retry_after": "2026-10-31T20:26:41.629377+00:00",
+    "last_attempt_at": "2026-10-30T21:01:17.010444+00:00",
+    "retry_after": "2026-10-31T21:01:17.010447+00:00",
     "search_hydrated": true
   },
   {
@@ -43575,8 +43575,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T20:26:41.629303+00:00",
-    "retry_after": "2026-10-31T20:26:41.629320+00:00",
+    "last_attempt_at": "2026-10-30T21:01:17.010352+00:00",
+    "retry_after": "2026-10-31T21:01:17.010366+00:00",
     "search_hydrated": true
   },
   {
@@ -51477,8 +51477,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T20:26:41.629348+00:00",
-    "retry_after": "2026-10-31T20:26:41.629351+00:00",
+    "last_attempt_at": "2026-10-30T21:01:17.010402+00:00",
+    "retry_after": "2026-10-31T21:01:17.010408+00:00",
     "search_hydrated": true
   },
   {
@@ -84538,9 +84538,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T21:06:22.556298+00:00",
-    "retry_after": "2026-10-30T21:06:22.556316+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T21:13:12.683981+00:00",
+    "retry_after": "2026-11-02T21:13:12.683999+00:00",
     "search_hydrated": true
   },
   {
@@ -84549,9 +84549,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T21:06:22.556394+00:00",
-    "retry_after": "2026-10-30T21:06:22.556398+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T21:13:12.684029+00:00",
+    "retry_after": "2026-11-02T21:13:12.684033+00:00",
     "search_hydrated": true
   },
   {
@@ -84560,9 +84560,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T21:06:22.556414+00:00",
-    "retry_after": "2026-10-30T21:06:22.556416+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T21:13:12.684052+00:00",
+    "retry_after": "2026-11-02T21:13:12.684054+00:00",
     "search_hydrated": true
   },
   {
@@ -84571,9 +84571,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T21:06:22.556436+00:00",
-    "retry_after": "2026-10-30T21:06:22.556438+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T21:13:12.684068+00:00",
+    "retry_after": "2026-11-02T21:13:12.684070+00:00",
     "search_hydrated": true
   },
   {
@@ -86230,6 +86230,57 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T20:33:40.809341+00:00",
     "retry_after": "2026-10-31T20:33:40.809358+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Jessica Jones: Alias Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T21:04:40.565319+00:00",
+    "retry_after": "2026-10-31T21:04:40.565337+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "JLA: The Tower of Babel the Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T21:04:40.565370+00:00",
+    "retry_after": "2026-10-31T21:04:40.565374+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Jupiter's Legacy (Netflix Edition)",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T21:04:40.565433+00:00",
+    "retry_after": "2026-10-31T21:04:40.565435+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice League Dark: The New 52 Omnibus",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 156318,
+        "name": "Justice League Dark: The New 52 Omnibus",
+        "publisher": "DC Comics",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T21:05:57.103146+00:00",
+    "retry_after": "2026-10-31T21:05:57.103171+00:00",
     "search_hydrated": true
   }
 ]

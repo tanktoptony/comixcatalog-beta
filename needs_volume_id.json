@@ -8365,9 +8365,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T08:05:34.222595+00:00",
-    "retry_after": "2026-10-30T08:05:34.222598+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T09:04:40.359863+00:00",
+    "retry_after": "2026-11-02T09:04:40.359868+00:00",
     "search_hydrated": true
   },
   {
@@ -27533,8 +27533,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T08:08:17.221965+00:00",
-    "retry_after": "2026-10-31T08:08:17.221969+00:00",
+    "last_attempt_at": "2026-10-30T09:01:16.292603+00:00",
+    "retry_after": "2026-10-31T09:01:16.292607+00:00",
     "search_hydrated": true
   },
   {
@@ -43605,8 +43605,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T08:08:17.221880+00:00",
-    "retry_after": "2026-10-31T08:08:17.221897+00:00",
+    "last_attempt_at": "2026-10-30T09:01:16.292495+00:00",
+    "retry_after": "2026-10-31T09:01:16.292507+00:00",
     "search_hydrated": true
   },
   {
@@ -51506,8 +51506,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T08:08:17.221928+00:00",
-    "retry_after": "2026-10-31T08:08:17.221933+00:00",
+    "last_attempt_at": "2026-10-30T09:01:16.292561+00:00",
+    "retry_after": "2026-10-31T09:01:16.292567+00:00",
     "search_hydrated": true
   },
   {
@@ -62806,24 +62806,19 @@
     "name": "Cable by Gerry Duggan",
     "publisher": "Marvel Comics",
     "year": 2021,
-    "reason": "publisher_mismatch",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
         "id": 132133,
         "name": "Cable by Gerry Duggan",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2020
-      },
-      {
-        "id": 144819,
-        "name": "Cable by Gerry Duggan",
-        "publisher": null,
-        "start_year": null
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T02:15:49.261413+00:00",
-    "retry_after": "2026-10-23T02:15:49.261427+00:00"
+    "last_attempt_at": "2026-10-30T09:07:20.575980+00:00",
+    "retry_after": "2026-10-31T09:07:20.575993+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Dick Tracy's Casebook",
@@ -83031,9 +83026,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T08:05:34.222557+00:00",
-    "retry_after": "2026-10-30T08:05:34.222561+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T09:04:40.359798+00:00",
+    "retry_after": "2026-11-02T09:04:40.359815+00:00",
     "search_hydrated": true
   },
   {
@@ -83042,9 +83037,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T08:05:34.222640+00:00",
-    "retry_after": "2026-10-30T08:05:34.222642+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T09:04:40.359887+00:00",
+    "retry_after": "2026-11-02T09:04:40.359890+00:00",
     "search_hydrated": true
   },
   {
@@ -83060,9 +83055,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T08:05:35.478350+00:00",
-    "retry_after": "2026-10-30T08:05:35.478365+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T09:04:41.309418+00:00",
+    "retry_after": "2026-11-02T09:04:41.309429+00:00",
     "search_hydrated": true
   },
   {
@@ -83071,9 +83066,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T08:07:21.559918+00:00",
-    "retry_after": "2026-10-30T08:07:21.559920+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T09:04:40.359903+00:00",
+    "retry_after": "2026-11-02T09:04:40.359906+00:00",
     "search_hydrated": true
   },
   {
@@ -83082,9 +83077,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T08:07:21.559929+00:00",
-    "retry_after": "2026-10-30T08:07:21.559931+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T09:04:40.359918+00:00",
+    "retry_after": "2026-11-02T09:04:40.359920+00:00",
     "search_hydrated": true
   },
   {
@@ -83093,9 +83088,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T08:08:55.446517+00:00",
-    "retry_after": "2026-10-30T08:08:55.446532+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T09:04:40.359933+00:00",
+    "retry_after": "2026-11-02T09:04:40.359936+00:00",
     "search_hydrated": true
   },
   {
@@ -83104,9 +83099,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T08:08:55.446548+00:00",
-    "retry_after": "2026-10-30T08:08:55.446550+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T09:04:40.359947+00:00",
+    "retry_after": "2026-11-02T09:04:40.359949+00:00",
     "search_hydrated": true
   },
   {
@@ -85802,6 +85797,106 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T07:05:44.528820+00:00",
     "retry_after": "2026-10-31T07:05:44.528822+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 2128,
+        "name": "The Avengers",
+        "publisher": "Marvel",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T09:04:41.139791+00:00",
+    "retry_after": "2026-10-31T09:04:41.139807+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nita Hawes' Nightmare Blog",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 139842,
+        "name": "Nita Hawes' Nightmare Blog",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T09:04:41.812296+00:00",
+    "retry_after": "2026-10-31T09:04:41.812312+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: The Dark Prince Charming",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 105736,
+        "name": "Batman: The Dark Prince Charming",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 114870,
+        "name": "Batman: The Dark Prince Charming",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T09:04:57.388647+00:00",
+    "retry_after": "2026-10-31T09:04:57.388662+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Universe",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 125786,
+        "name": "Batman: Universe",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T09:05:20.499971+00:00",
+    "retry_after": "2026-10-31T09:05:20.499986+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain America: Bicentennial Battles",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T09:07:25.849896+00:00",
+    "retry_after": "2026-10-31T09:07:25.849912+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Battlestar Galactica Origins: Baltar",
+    "publisher": "Dynamite Entertainment",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T09:08:42.110704+00:00",
+    "retry_after": "2026-10-31T09:08:42.110724+00:00",
     "search_hydrated": true
   }
 ]

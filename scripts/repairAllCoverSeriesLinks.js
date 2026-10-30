@@ -21,6 +21,12 @@
 //     to EVERY gcd_series row sharing the volume's series_title, not just
 //     gcd_ids already tagged somewhere in the volume, then score all of them.
 //
+// 2026-10-29: production scored 1,773 unresolved volumes but resolved only
+// four: 1,053 missed the 85% overlap gate, 446 were within the 15-point
+// ambiguity margin, and 271 lost to a different-start-year winner. Skipped
+// volumes now get two conservative retries: publisher breaks overlap ties;
+// exact normalized title + publisher + start year can accept >=60% overlap.
+//
 // Usage:
 //   node scripts/repairAllCoverSeriesLinks.js --dry-run
 //   node scripts/repairAllCoverSeriesLinks.js
@@ -29,6 +35,7 @@ import fs from "node:fs";
 import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 import { baseIssueNumber } from "../src/lib/coverMatch.js";
+import { chooseSkippedCandidate, publisherMatches } from "./lib/publisherMatch.js";
 import { withRetry } from "./lib/withRetry.js";
 
 dotenv.config({ path: ".env.local" });
@@ -255,7 +262,7 @@ async function fetchPinnedGcdIdByVolume() {
 async function run() {
   console.log("Loading all covers with a comicvine_volume_id...");
   const covers = await fetchAllPages(() =>
-    supabase.from("canonical_covers").select("id, comicvine_volume_id, series_gcd_id, gcd_issue_id, issue_number, series_title, series_year, cover_date")
+    supabase.from("canonical_covers").select("id, comicvine_volume_id, series_gcd_id, gcd_issue_id, issue_number, series_title, series_year, cover_date, publisher")
       .not("comicvine_volume_id", "is", null).not("storage_path", "is", null),
   "id");
   console.log(`Covers loaded: ${covers.length}`);
@@ -332,7 +339,11 @@ async function run() {
     if (!rowsToFix.length) { alreadyClean++; continue; }
     singleBookRelinks++;
     singleBookRows += rowsToFix.length;
-    plan.push({ volume, title: mode(rows.map((r) => r.series_title)), winner: ownerId, overlap: null, reason: "single-book link", rowIds: rowsToFix.map((r) => r.id) });
+    plan.push({
+      volume, title: mode(rows.map((r) => r.series_title)), winner: ownerId, overlap: null,
+      reason: "single-book link", volumePublisher: mode(rows.map((r) => r.publisher).filter(Boolean)),
+      runnerUp: null, rowIds: rowsToFix.map((r) => r.id),
+    });
   }
 
   for (const [volume, rows] of byVolume) {
@@ -351,6 +362,9 @@ async function run() {
           title: mode(rows.map((r) => r.series_title)),
           winner: pinnedGcdId,
           overlap: null, // pin-driven, not overlap-scored
+          reason: "pinned",
+          volumePublisher: mode(rows.map((r) => r.publisher).filter(Boolean)),
+          runnerUp: null,
           rowIds: rowsToFix.map((r) => r.id),
         });
       } else {
@@ -368,7 +382,12 @@ async function run() {
         continue;
       }
     }
-    needsResolution.push({ volume, rows, volIssueNumbers, title: mode(rows.map((r) => r.series_title)), startYear: volumeStartYear(rows) });
+    needsResolution.push({
+      volume, rows, volIssueNumbers,
+      title: mode(rows.map((r) => r.series_title)),
+      publisher: mode(rows.map((r) => r.publisher).filter(Boolean)),
+      startYear: volumeStartYear(rows),
+    });
   }
   console.log(`Already clean (skip): ${alreadyClean}`);
   console.log(`Pin-driven relinks: ${pinnedRelinks} volumes, ${pinnedRelinkRows} rows`);
@@ -381,26 +400,36 @@ async function run() {
   console.log(`Distinct series_title values needing candidate expansion: ${titles.length}`);
 
   const candidatesByTitle = new Map();
-  const seriesYears = new Map(); // gcd_id -> { began, ended }
+  const seriesMeta = new Map();
   for (let i = 0; i < titles.length; i += 200) {
     const chunk = titles.slice(i, i + 200);
     // Paged: 200 common titles can match well over 1000 gcd_series rows.
     const data = await fetchAllPages(() =>
-      supabase.from("gcd_series").select("gcd_id, name, year_began, year_ended").in("name", chunk).order("name").order("gcd_id")
+      supabase.from("gcd_series").select("gcd_id, name, year_began, year_ended, publisher_gcd_id").in("name", chunk).order("name").order("gcd_id")
     );
     for (const row of data) {
       if (!candidatesByTitle.has(row.name)) candidatesByTitle.set(row.name, []);
       candidatesByTitle.get(row.name).push(row.gcd_id);
-      seriesYears.set(row.gcd_id, { began: row.year_began, ended: row.year_ended });
+      seriesMeta.set(row.gcd_id, row);
     }
   }
   // Existing-tag candidates were not part of the title lookup; fetch their years too.
-  const untimedIds = [...new Set(needsResolution.flatMap((v) => v.rows.map((r) => r.series_gcd_id)))].filter((id) => id != null && !seriesYears.has(id));
+  const untimedIds = [...new Set(needsResolution.flatMap((v) => v.rows.map((r) => r.series_gcd_id)))].filter((id) => id != null && !seriesMeta.has(id));
   for (let i = 0; i < untimedIds.length; i += 200) {
     const data = await fetchAllPages(() =>
-      supabase.from("gcd_series").select("gcd_id, year_began, year_ended").in("gcd_id", untimedIds.slice(i, i + 200)).order("gcd_id")
+      supabase.from("gcd_series").select("gcd_id, name, year_began, year_ended, publisher_gcd_id").in("gcd_id", untimedIds.slice(i, i + 200)).order("gcd_id")
     );
-    for (const row of data) seriesYears.set(row.gcd_id, { began: row.year_began, ended: row.year_ended });
+    for (const row of data) seriesMeta.set(row.gcd_id, row);
+  }
+
+  // Sequential chunk reads stay well below the four-request disk IO budget.
+  const publisherIds = [...new Set([...seriesMeta.values()]
+    .map((row) => row.publisher_gcd_id).filter((id) => id != null))];
+  const publishers = new Map();
+  for (let i = 0; i < publisherIds.length; i += 200) {
+    const data = await fetchAllPages(() => supabase.from("gcd_publishers")
+      .select("gcd_id, name, country").in("gcd_id", publisherIds.slice(i, i + 200)).order("gcd_id"));
+    for (const row of data) publishers.set(row.gcd_id, row);
   }
 
   const newCandidateIds = new Set();
@@ -417,21 +446,30 @@ async function run() {
   // tags + title-expansion pool). `plan` already holds pin-driven relinks
   // from the loop above — this appends the overlap-scored ones to the same
   // array so the summary and apply step below cover both in one pass.
-  let resolved = 0, skippedNoCandidate = 0, skippedAmbiguous = 0, skippedSameYear = 0, yearGated = 0, totalRowsToUpdate = pinnedRelinkRows + singleBookRows;
+  let resolved = 0, skippedNoCandidate = 0, skippedAmbiguous = 0, skippedSameYear = 0;
+  let yearGated = 0, publisherTiebreaks = 0, titlePublisherYear = 0;
+  let totalRowsToUpdate = pinnedRelinkRows + singleBookRows;
   for (const v of needsResolution) {
     const candidateIds = new Set([
       ...v.rows.map((r) => r.series_gcd_id).filter((x) => x != null),
       ...(candidatesByTitle.get(v.title) ?? []),
     ]);
     let best = null, second = null;
+    const scoredCandidates = [];
     for (const gcdId of candidateIds) {
-      if (!yearsCompatible(v.startYear, seriesYears.get(gcdId))) { yearGated++; continue; }
+      const meta = seriesMeta.get(gcdId);
+      if (!yearsCompatible(v.startYear, { began: meta?.year_began, ended: meta?.year_ended })) {
+        yearGated++;
+        continue;
+      }
       const overlap = overlapOf(v.volIssueNumbers, issueSets.get(gcdId));
+      scoredCandidates.push({ gcdId, overlap });
       if (!best || overlap > best.overlap) { second = best; best = { gcdId, overlap }; }
       else if (!second || overlap > second.overlap) { second = { gcdId, overlap }; }
     }
-    if (!best || best.overlap < OVERLAP_THRESHOLD) { skippedNoCandidate++; continue; }
-    if (second && best.overlap - second.overlap < MIN_MARGIN) { skippedAmbiguous++; continue; }
+    let skipReason = null;
+    if (!best || best.overlap < OVERLAP_THRESHOLD) skipReason = "no_candidate";
+    else if (second && best.overlap - second.overlap < MIN_MARGIN) skipReason = "ambiguous";
     // If some candidate began the same year this volume started and it is
     // not the winner, do not move. The GCD mirror is thin on recent series,
     // so a brand-new run can score under 85% simply because its issues are
@@ -439,23 +477,104 @@ async function run() {
     // (Avengers 2023 -> Avengers 2019-2024 in the 2026-09-21 audit).
     // Leaving the volume alone is the safe failure; a later mirror refresh
     // resolves it.
-    if (v.startYear) {
+    if (!skipReason && v.startYear) {
       const sameYearOther = [...candidateIds].some(
-        (gcdId) => gcdId !== best.gcdId && seriesYears.get(gcdId)?.began === v.startYear
+        (gcdId) => gcdId !== best.gcdId && seriesMeta.get(gcdId)?.year_began === v.startYear
       );
-      if (sameYearOther && seriesYears.get(best.gcdId)?.began !== v.startYear) { skippedSameYear++; continue; }
+      if (sameYearOther && seriesMeta.get(best.gcdId)?.year_began !== v.startYear) {
+        skipReason = "same_start_year";
+      }
     }
 
-    const rowsToFix = v.rows.filter((r) => r.series_gcd_id !== best.gcdId);
+    let reason = "overlap";
+    if (skipReason) {
+      const candidates = scoredCandidates.map((candidate) => {
+        const meta = seriesMeta.get(candidate.gcdId);
+        const publisher = publishers.get(meta?.publisher_gcd_id);
+        return {
+          ...candidate,
+          publisherName: publisher?.name ?? null,
+          country: publisher?.country ?? null,
+          name: meta?.name ?? null,
+          yearBegan: meta?.year_began ?? null,
+        };
+      });
+      const retry = chooseSkippedCandidate({
+        skipReason, volumeTitle: v.title, volumePublisher: v.publisher, startYear: v.startYear,
+        candidates, overlapThreshold: OVERLAP_THRESHOLD, minMargin: MIN_MARGIN,
+      });
+      if (!retry) {
+        if (skipReason === "no_candidate") skippedNoCandidate++;
+        else if (skipReason === "ambiguous") skippedAmbiguous++;
+        else skippedSameYear++;
+        continue;
+      }
+      // The same-start-year guard above still applies to a retry winner: a
+      // publisher-matching series that began the year this volume started
+      // and lost is the thin-mirror case, so leave the volume alone.
+      const sameYearLoser = v.startYear && retry.winner.yearBegan !== v.startYear
+        && candidates.some((candidate) => candidate.gcdId !== retry.winner.gcdId
+          && candidate.yearBegan === v.startYear
+          && publisherMatches(v.publisher, candidate.publisherName));
+      if (sameYearLoser) { skippedSameYear++; continue; }
+      best = { gcdId: retry.winner.gcdId, overlap: retry.winner.overlap };
+      reason = retry.reason;
+      if (reason === "publisher tiebreak") publisherTiebreaks++;
+      else titlePublisherYear++;
+    }
+
+    // Split runs: ComicVine keeps Speed Comics #1-44 as one volume, GCD has
+    // Brookwood #1-11 and Harvey #12-44 as two series. Moving every row to
+    // the winner would strip covers that are right where they are, so a row
+    // stays put when its number exists in its current series but not in the
+    // winner's.
+    const winnerSet = issueSets.get(best.gcdId);
+    const rowsToFix = v.rows.filter((r) => {
+      if (r.series_gcd_id === best.gcdId) return false;
+      if (r.series_gcd_id == null) return true;
+      const n = baseIssueNumber(r.issue_number);
+      return !(issueSets.get(r.series_gcd_id)?.has(n) && !winnerSet?.has(n));
+    });
     if (rowsToFix.length === 0) continue;
     resolved++;
     totalRowsToUpdate += rowsToFix.length;
+    const auditRunnerUp = scoredCandidates
+      .filter((candidate) => candidate.gcdId !== best.gcdId)
+      .sort((a, b) => b.overlap - a.overlap)[0] ?? null;
     plan.push({
-      volume: v.volume, title: v.title, winner: best.gcdId, overlap: best.overlap,
-      runnerUp: second ? { gcdId: second.gcdId, overlap: second.overlap } : null,
+      volume: v.volume, title: v.title, winner: best.gcdId, overlap: best.overlap, reason,
+      volumePublisher: v.publisher,
+      winnerPublisher: publishers.get(seriesMeta.get(best.gcdId)?.publisher_gcd_id) ?? null,
+      runnerUp: auditRunnerUp ? {
+        gcdId: auditRunnerUp.gcdId,
+        overlap: auditRunnerUp.overlap,
+        publisherName: publishers.get(seriesMeta.get(auditRunnerUp.gcdId)?.publisher_gcd_id)?.name ?? null,
+        country: publishers.get(seriesMeta.get(auditRunnerUp.gcdId)?.publisher_gcd_id)?.country ?? null,
+      } : null,
       currentGcdIds: [...new Set(rowsToFix.map((r) => r.series_gcd_id))],
       rowIds: rowsToFix.map((r) => r.id),
     });
+  }
+
+  const missingWinnerIds = [...new Set(plan.map((entry) => entry.winner))]
+    .filter((gcdId) => gcdId != null && !seriesMeta.has(gcdId));
+  for (let i = 0; i < missingWinnerIds.length; i += 200) {
+    const data = await fetchAllPages(() => supabase.from("gcd_series")
+      .select("gcd_id, name, year_began, year_ended, publisher_gcd_id")
+      .in("gcd_id", missingWinnerIds.slice(i, i + 200)).order("gcd_id"));
+    for (const row of data) seriesMeta.set(row.gcd_id, row);
+  }
+  const missingPublisherIds = [...new Set(plan.map((entry) =>
+    seriesMeta.get(entry.winner)?.publisher_gcd_id))]
+    .filter((publisherId) => publisherId != null && !publishers.has(publisherId));
+  for (let i = 0; i < missingPublisherIds.length; i += 200) {
+    const data = await fetchAllPages(() => supabase.from("gcd_publishers")
+      .select("gcd_id, name, country").in("gcd_id", missingPublisherIds.slice(i, i + 200)).order("gcd_id"));
+    for (const row of data) publishers.set(row.gcd_id, row);
+  }
+  for (const entry of plan) {
+    entry.winnerPublisher = publishers.get(seriesMeta.get(entry.winner)?.publisher_gcd_id) ?? null;
+    entry.runnerUp ??= null;
   }
 
   console.log(
@@ -467,6 +586,8 @@ async function run() {
   console.log(`Skipped — ambiguous (winner/runner-up within ${MIN_MARGIN * 100} points): ${skippedAmbiguous}`);
   console.log(`Candidates excluded by the year gate (series not in publication at the volume's start year): ${yearGated}`);
   console.log(`Skipped — a same-start-year series exists but did not win (GCD mirror likely thin): ${skippedSameYear}`);
+  console.log(`Resolved by publisher tiebreak: ${publisherTiebreaks}`);
+  console.log(`Resolved by title+publisher+year: ${titlePublisherYear}`);
   // Single machine-parseable line for checkCoverIngestHealth.js --mode=mislink
   // to regex out — added 2026-08-27 alongside the pin-priority feature above,
   // since that change also reworded the human-readable summary this used to

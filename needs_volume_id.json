@@ -6801,7 +6801,7 @@
     "name": "X-Men: Hellfire Gala",
     "publisher": "Marvel Comics",
     "year": 2022,
-    "reason": "multiple_same_start_year",
+    "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
         "id": 141461,
@@ -6817,7 +6817,9 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555319+00:00"
+    "last_attempt_at": "2026-10-30T03:05:04.242882+00:00",
+    "retry_after": "2026-10-31T03:05:04.242884+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Soulfire: Special Edition",
@@ -22686,8 +22688,9 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-09-24T02:00:45.459970+00:00",
-    "retry_after": "2026-09-25T02:00:45.459986+00:00"
+    "last_attempt_at": "2026-10-30T03:05:04.242857+00:00",
+    "retry_after": "2026-10-31T03:05:04.242859+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Detective Comics Special Reprint",
@@ -27517,21 +27520,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T02:01:21.312961+00:00",
-    "retry_after": "2026-10-31T02:01:21.312963+00:00",
+    "last_attempt_at": "2026-10-30T03:01:39.895148+00:00",
+    "retry_after": "2026-10-31T03:01:39.895149+00:00",
     "search_hydrated": true
   },
   {
@@ -27595,9 +27598,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T02:01:40.781110+00:00",
-    "retry_after": "2026-10-30T02:01:40.781113+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T03:01:39.895121+00:00",
+    "retry_after": "2026-11-06T03:01:39.895122+00:00",
     "search_hydrated": true
   },
   {
@@ -27670,9 +27673,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T02:01:40.781062+00:00",
-    "retry_after": "2026-10-30T02:01:40.781066+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T03:01:39.895094+00:00",
+    "retry_after": "2026-11-06T03:01:39.895095+00:00",
     "search_hydrated": true
   },
   {
@@ -27682,21 +27685,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 23232,
-        "name": "Street Fighter II",
-        "publisher": "Tokuma Comics",
-        "start_year": 1994
-      },
-      {
         "id": 19806,
         "name": "Street Fighter II",
         "publisher": "UDON",
         "start_year": 2005
+      },
+      {
+        "id": 23232,
+        "name": "Street Fighter II",
+        "publisher": "Tokuma Comics",
+        "start_year": 1994
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T02:01:40.781027+00:00",
-    "retry_after": "2026-10-30T02:01:40.781030+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T03:01:39.895071+00:00",
+    "retry_after": "2026-11-06T03:01:39.895073+00:00",
     "search_hydrated": true
   },
   {
@@ -28874,21 +28877,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 49609,
-        "name": "Dystopik Snomen",
-        "publisher": "SLG Publishing",
-        "start_year": 1994
-      },
-      {
         "id": 49629,
         "name": "Dystopik Snomen",
         "publisher": "SLG Publishing",
         "start_year": 1995
+      },
+      {
+        "id": 49609,
+        "name": "Dystopik Snomen",
+        "publisher": "SLG Publishing",
+        "start_year": 1994
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T02:01:40.781001+00:00",
-    "retry_after": "2026-10-30T02:01:40.781003+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T03:01:39.895056+00:00",
+    "retry_after": "2026-11-06T03:01:39.895057+00:00",
     "search_hydrated": true
   },
   {
@@ -29097,9 +29100,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T02:01:40.780973+00:00",
-    "retry_after": "2026-10-30T02:01:40.780976+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T03:01:39.895040+00:00",
+    "retry_after": "2026-11-06T03:01:39.895041+00:00",
     "search_hydrated": true
   },
   {
@@ -29119,21 +29122,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 37006,
-        "name": "Suburban High Life",
-        "publisher": "SLG Publishing",
-        "start_year": 1987
-      },
-      {
         "id": 68681,
         "name": "Suburban High Life",
         "publisher": "SLG Publishing",
         "start_year": 1988
+      },
+      {
+        "id": 37006,
+        "name": "Suburban High Life",
+        "publisher": "SLG Publishing",
+        "start_year": 1987
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T02:01:40.780943+00:00",
-    "retry_after": "2026-10-30T02:01:40.780946+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T03:01:39.895024+00:00",
+    "retry_after": "2026-11-06T03:01:39.895025+00:00",
     "search_hydrated": true
   },
   {
@@ -29352,21 +29355,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 42348,
-        "name": "Futurama",
-        "publisher": "Panini Verlag",
-        "start_year": 2000
-      },
-      {
         "id": 20116,
         "name": "Futurama",
         "publisher": "SLG Publishing",
         "start_year": 1989
+      },
+      {
+        "id": 42348,
+        "name": "Futurama",
+        "publisher": "Panini Verlag",
+        "start_year": 2000
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T02:01:40.780904+00:00",
-    "retry_after": "2026-10-30T02:01:40.780910+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T03:01:39.895004+00:00",
+    "retry_after": "2026-11-06T03:01:39.895006+00:00",
     "search_hydrated": true
   },
   {
@@ -43602,8 +43605,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T02:01:21.312885+00:00",
-    "retry_after": "2026-10-31T02:01:21.312903+00:00",
+    "last_attempt_at": "2026-10-30T03:01:39.894919+00:00",
+    "retry_after": "2026-10-31T03:01:39.894936+00:00",
     "search_hydrated": true
   },
   {
@@ -51503,8 +51506,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T02:01:21.312931+00:00",
-    "retry_after": "2026-10-31T02:01:21.312935+00:00",
+    "last_attempt_at": "2026-10-30T03:01:39.894959+00:00",
+    "retry_after": "2026-10-31T03:01:39.894962+00:00",
     "search_hydrated": true
   },
   {
@@ -82628,9 +82631,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T02:14:28.668519+00:00",
-    "retry_after": "2026-10-30T02:14:28.668523+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T03:05:04.242722+00:00",
+    "retry_after": "2026-11-02T03:05:04.242741+00:00",
     "search_hydrated": true
   },
   {
@@ -82639,9 +82642,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T02:14:28.668551+00:00",
-    "retry_after": "2026-10-30T02:14:28.668553+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T03:05:04.242767+00:00",
+    "retry_after": "2026-11-02T03:05:04.242769+00:00",
     "search_hydrated": true
   },
   {
@@ -82650,9 +82653,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T02:14:28.668596+00:00",
-    "retry_after": "2026-10-30T02:14:28.668600+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T03:05:04.242812+00:00",
+    "retry_after": "2026-11-02T03:05:04.242814+00:00",
     "search_hydrated": true
   },
   {
@@ -82668,9 +82671,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T02:14:36.533269+00:00",
-    "retry_after": "2026-10-30T02:14:36.533285+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T03:05:04.963079+00:00",
+    "retry_after": "2026-11-02T03:05:04.963096+00:00",
     "search_hydrated": true
   },
   {
@@ -85495,6 +85498,282 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T02:06:53.110206+00:00",
     "retry_after": "2026-10-31T02:06:53.110210+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "ZVRC",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:05:04.242892+00:00",
+    "retry_after": "2026-10-31T03:05:04.242893+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Planetary Expanded Edition",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:05:04.242901+00:00",
+    "retry_after": "2026-10-31T03:05:04.242903+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Acts of Vengeance: Spider-Man and X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:05:04.242909+00:00",
+    "retry_after": "2026-10-31T03:05:04.242910+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wolverine: Black, White & Blood",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 131734,
+        "name": "Wolverine: Black, White & Blood",
+        "publisher": "Marvel",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:05:05.670227+00:00",
+    "retry_after": "2026-10-31T03:05:05.670245+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batgirl",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 7205,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2000
+      },
+      {
+        "id": 22245,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 27457,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 42604,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 50413,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 82483,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2015
+      },
+      {
+        "id": 92542,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 100119,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 160861,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      },
+      {
+        "id": 167372,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:05:24.924898+00:00",
+    "retry_after": "2026-10-31T03:05:24.924917+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: A Death in the Family The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:05:24.924951+00:00",
+    "retry_after": "2026-10-31T03:05:24.924952+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Arkham Asylum The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:05:24.924960+00:00",
+    "retry_after": "2026-10-31T03:05:24.924962+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Damned",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 113690,
+        "name": "Batman: Damned",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 121065,
+        "name": "Batman: Damned",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:05:24.925017+00:00",
+    "retry_after": "2026-10-31T03:05:24.925018+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Kings of Fear",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 112938,
+        "name": "Batman: Kings of Fear",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 120772,
+        "name": "Batman: Kings of Fear",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:05:24.925031+00:00",
+    "retry_after": "2026-10-31T03:05:24.925032+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Creature of the Night",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 125977,
+        "name": "Batman: Creature of the Night",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:06:19.713289+00:00",
+    "retry_after": "2026-10-31T03:06:19.713307+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Last Knight on Earth",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 126259,
+        "name": "Batman: Last Knight On Earth",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:06:19.964708+00:00",
+    "retry_after": "2026-10-31T03:06:19.964728+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Noël",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73633,
+        "name": "Batman - Noël",
+        "publisher": "Urban Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:06:22.935474+00:00",
+    "retry_after": "2026-10-31T03:06:22.935493+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman vs. the Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 1976,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18946,
+        "name": "Superman vs. the Amazing Spider-Man",
+        "publisher": "Marvel Comics and DC Comics",
+        "start_year": 1976
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:08:33.524567+00:00",
+    "retry_after": "2026-10-31T03:08:33.524588+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sergio Aragonés Groo: 25th Anniversary Special",
+    "publisher": "Dark Horse Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T03:08:33.524612+00:00",
+    "retry_after": "2026-10-31T03:08:33.524615+00:00",
     "search_hydrated": true
   }
 ]

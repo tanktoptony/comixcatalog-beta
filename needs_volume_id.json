@@ -27495,8 +27495,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T20:01:26.282307+00:00",
-    "retry_after": "2026-10-31T20:01:26.282308+00:00",
+    "last_attempt_at": "2026-10-30T20:26:41.629375+00:00",
+    "retry_after": "2026-10-31T20:26:41.629377+00:00",
     "search_hydrated": true
   },
   {
@@ -43575,8 +43575,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T20:01:26.282254+00:00",
-    "retry_after": "2026-10-31T20:01:26.282266+00:00",
+    "last_attempt_at": "2026-10-30T20:26:41.629303+00:00",
+    "retry_after": "2026-10-31T20:26:41.629320+00:00",
     "search_hydrated": true
   },
   {
@@ -50549,9 +50549,10 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-15T17:17:05.006015+00:00",
-    "retry_after": "2026-10-18T17:17:05.006031+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T20:30:05.091689+00:00",
+    "retry_after": "2026-11-06T20:30:05.091691+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Judge Dredd: Day of Chaos",
@@ -51476,8 +51477,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T20:01:26.282286+00:00",
-    "retry_after": "2026-10-31T20:01:26.282289+00:00",
+    "last_attempt_at": "2026-10-30T20:26:41.629348+00:00",
+    "retry_after": "2026-10-31T20:26:41.629351+00:00",
     "search_hydrated": true
   },
   {
@@ -71802,18 +71803,19 @@
     "name": "Home Sick Pilots",
     "publisher": "Image Comics",
     "year": 2021,
-    "reason": "publisher_mismatch",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
         "id": 132493,
         "name": "Home Sick Pilots",
-        "publisher": null,
+        "publisher": "Image",
         "start_year": 2020
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-25T11:23:30.447641+00:00",
-    "retry_after": "2026-10-26T11:23:30.447649+00:00"
+    "last_attempt_at": "2026-10-30T20:33:21.262142+00:00",
+    "retry_after": "2026-10-31T20:33:21.262159+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Last Witch",
@@ -84308,9 +84310,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T19:07:03.895515+00:00",
-    "retry_after": "2026-10-30T19:07:03.895531+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T20:30:06.019090+00:00",
+    "retry_after": "2026-11-02T20:30:06.019108+00:00",
     "search_hydrated": true
   },
   {
@@ -84326,9 +84328,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T19:07:23.973137+00:00",
-    "retry_after": "2026-10-30T19:07:23.973154+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T20:30:06.019164+00:00",
+    "retry_after": "2026-11-02T20:30:06.019166+00:00",
     "search_hydrated": true
   },
   {
@@ -84451,9 +84453,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T20:05:23.462789+00:00",
-    "retry_after": "2026-10-30T20:05:23.462793+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T20:30:05.091581+00:00",
+    "retry_after": "2026-11-02T20:30:05.091600+00:00",
     "search_hydrated": true
   },
   {
@@ -84481,9 +84483,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T20:05:23.462852+00:00",
-    "retry_after": "2026-10-30T20:05:23.462856+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T20:30:05.091633+00:00",
+    "retry_after": "2026-11-02T20:30:05.091636+00:00",
     "search_hydrated": true
   },
   {
@@ -84492,9 +84494,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T20:05:23.462917+00:00",
-    "retry_after": "2026-10-30T20:05:23.462920+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T20:30:05.091650+00:00",
+    "retry_after": "2026-11-02T20:30:05.091652+00:00",
     "search_hydrated": true
   },
   {
@@ -86188,6 +86190,46 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T19:05:50.000816+00:00",
     "retry_after": "2026-10-31T19:05:50.000819+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Harley Quinn and Poison Ivy",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 127127,
+        "name": "Harley Quinn and Poison Ivy",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T20:30:06.351328+00:00",
+    "retry_after": "2026-10-31T20:30:06.351347+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hey Kids! Comics! Vol. 2, Prophets & Loss",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T20:30:36.139469+00:00",
+    "retry_after": "2026-10-31T20:30:36.139486+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Invincible #1 Amazon Animated Series Promo",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T20:33:40.809341+00:00",
+    "retry_after": "2026-10-31T20:33:40.809358+00:00",
     "search_hydrated": true
   }
 ]

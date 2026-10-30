@@ -27534,8 +27534,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T14:01:26.962735+00:00",
-    "retry_after": "2026-10-31T14:01:26.962739+00:00",
+    "last_attempt_at": "2026-10-30T15:01:32.545727+00:00",
+    "retry_after": "2026-10-31T15:01:32.545730+00:00",
     "search_hydrated": true
   },
   {
@@ -43606,8 +43606,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T14:01:26.962655+00:00",
-    "retry_after": "2026-10-31T14:01:26.962667+00:00",
+    "last_attempt_at": "2026-10-30T15:01:32.545651+00:00",
+    "retry_after": "2026-10-31T15:01:32.545666+00:00",
     "search_hydrated": true
   },
   {
@@ -51507,8 +51507,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T14:01:26.962699+00:00",
-    "retry_after": "2026-10-31T14:01:26.962703+00:00",
+    "last_attempt_at": "2026-10-30T15:01:32.545695+00:00",
+    "retry_after": "2026-10-31T15:01:32.545698+00:00",
     "search_hydrated": true
   },
   {
@@ -75778,9 +75778,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:18.463770+00:00",
-    "retry_after": "2026-10-30T14:12:18.463787+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:02.552058+00:00",
+    "retry_after": "2026-11-06T15:05:02.552075+00:00",
     "search_hydrated": true
   },
   {
@@ -75789,9 +75789,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:18.463820+00:00",
-    "retry_after": "2026-10-30T14:12:18.463825+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:02.552099+00:00",
+    "retry_after": "2026-11-06T15:05:02.552120+00:00",
     "search_hydrated": true
   },
   {
@@ -75800,9 +75800,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:18.463840+00:00",
-    "retry_after": "2026-10-30T14:12:18.463843+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:02.552136+00:00",
+    "retry_after": "2026-11-06T15:05:02.552139+00:00",
     "search_hydrated": true
   },
   {
@@ -75818,9 +75818,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:18.625901+00:00",
-    "retry_after": "2026-10-30T14:12:18.625916+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:02.730761+00:00",
+    "retry_after": "2026-11-06T15:05:02.730776+00:00",
     "search_hydrated": true
   },
   {
@@ -75829,9 +75829,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:18.463858+00:00",
-    "retry_after": "2026-10-30T14:12:18.463860+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:02.552152+00:00",
+    "retry_after": "2026-11-06T15:05:02.552154+00:00",
     "search_hydrated": true
   },
   {
@@ -75840,9 +75840,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:18.463872+00:00",
-    "retry_after": "2026-10-30T14:12:18.463875+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:02.552165+00:00",
+    "retry_after": "2026-11-06T15:05:02.552168+00:00",
     "search_hydrated": true
   },
   {
@@ -75851,9 +75851,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:18.463889+00:00",
-    "retry_after": "2026-10-30T14:12:18.463891+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:02.552179+00:00",
+    "retry_after": "2026-11-06T15:05:02.552182+00:00",
     "search_hydrated": true
   },
   {
@@ -75862,9 +75862,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:18.463903+00:00",
-    "retry_after": "2026-10-30T14:12:18.463905+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:02.552192+00:00",
+    "retry_after": "2026-11-06T15:05:02.552194+00:00",
     "search_hydrated": true
   },
   {
@@ -75873,9 +75873,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:18.463916+00:00",
-    "retry_after": "2026-10-30T14:12:18.463918+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:02.552204+00:00",
+    "retry_after": "2026-11-06T15:05:02.552206+00:00",
     "search_hydrated": true
   },
   {
@@ -75884,9 +75884,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:18.463930+00:00",
-    "retry_after": "2026-10-30T14:12:18.463933+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:02.552217+00:00",
+    "retry_after": "2026-11-06T15:05:02.552219+00:00",
     "search_hydrated": true
   },
   {
@@ -75895,9 +75895,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:42.302725+00:00",
-    "retry_after": "2026-10-30T14:12:42.302742+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:25.379543+00:00",
+    "retry_after": "2026-11-06T15:05:25.379566+00:00",
     "search_hydrated": true
   },
   {
@@ -75906,9 +75906,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:42.302774+00:00",
-    "retry_after": "2026-10-30T14:12:42.302777+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:25.379590+00:00",
+    "retry_after": "2026-11-06T15:05:25.379593+00:00",
     "search_hydrated": true
   },
   {
@@ -75917,9 +75917,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:42.302794+00:00",
-    "retry_after": "2026-10-30T14:12:42.302797+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:25.379608+00:00",
+    "retry_after": "2026-11-06T15:05:25.379611+00:00",
     "search_hydrated": true
   },
   {
@@ -75928,9 +75928,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:42.302810+00:00",
-    "retry_after": "2026-10-30T14:12:42.302813+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:25.379623+00:00",
+    "retry_after": "2026-11-06T15:05:25.379626+00:00",
     "search_hydrated": true
   },
   {
@@ -75939,20 +75939,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:42.302824+00:00",
-    "retry_after": "2026-10-30T14:12:42.302827+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "DC Finest: Suicide Squad: Trial by Fire",
-    "publisher": "DC Comics",
-    "year": 2025,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:44.116611+00:00",
-    "retry_after": "2026-10-30T14:12:44.116643+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:25.379639+00:00",
+    "retry_after": "2026-11-06T15:05:25.379641+00:00",
     "search_hydrated": true
   },
   {
@@ -75961,9 +75950,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:44.116678+00:00",
-    "retry_after": "2026-10-30T14:12:44.116682+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:25.379666+00:00",
+    "retry_after": "2026-11-06T15:05:25.379669+00:00",
     "search_hydrated": true
   },
   {
@@ -75972,9 +75961,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:44.116698+00:00",
-    "retry_after": "2026-10-30T14:12:44.116701+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:25.379681+00:00",
+    "retry_after": "2026-11-06T15:05:25.379684+00:00",
     "search_hydrated": true
   },
   {
@@ -75983,9 +75972,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:44.116715+00:00",
-    "retry_after": "2026-10-30T14:12:44.116718+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:25.379696+00:00",
+    "retry_after": "2026-11-06T15:05:25.379699+00:00",
     "search_hydrated": true
   },
   {
@@ -75994,9 +75983,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T14:12:44.116731+00:00",
-    "retry_after": "2026-10-30T14:12:44.116734+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T15:05:25.379710+00:00",
+    "retry_after": "2026-11-06T15:05:25.379713+00:00",
     "search_hydrated": true
   },
   {
@@ -86040,6 +86029,30 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T14:09:48.137783+00:00",
     "retry_after": "2026-10-31T14:09:48.137799+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Queen & Country",
+    "publisher": "Oni Press",
+    "year": 2004,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 9333,
+        "name": "Queen & Country",
+        "publisher": "Oni Press",
+        "start_year": 2001
+      },
+      {
+        "id": 71105,
+        "name": "Queen & Country",
+        "publisher": "Oni Press",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-30T15:09:40.225271+00:00",
+    "retry_after": "2026-10-31T15:09:40.225290+00:00",
     "search_hydrated": true
   }
 ]

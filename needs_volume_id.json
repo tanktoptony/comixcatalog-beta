@@ -15253,9 +15253,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T17:02:16.657829+00:00",
-    "retry_after": "2026-10-30T17:02:16.657834+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T18:01:39.499779+00:00",
+    "retry_after": "2026-11-06T18:01:39.499784+00:00",
     "search_hydrated": true
   },
   {
@@ -27470,9 +27470,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:01:52.938673+00:00",
-    "retry_after": "2026-10-30T17:01:52.938676+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:01:39.499856+00:00",
+    "retry_after": "2026-11-02T18:01:39.499859+00:00",
     "search_hydrated": true
   },
   {
@@ -27482,21 +27482,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T17:01:33.899738+00:00",
-    "retry_after": "2026-10-31T17:01:33.899741+00:00",
+    "last_attempt_at": "2026-10-30T18:01:39.499836+00:00",
+    "retry_after": "2026-10-31T18:01:39.499839+00:00",
     "search_hydrated": true
   },
   {
@@ -43575,8 +43575,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T17:01:33.899654+00:00",
-    "retry_after": "2026-10-31T17:01:33.899673+00:00",
+    "last_attempt_at": "2026-10-30T18:01:39.499731+00:00",
+    "retry_after": "2026-10-31T18:01:39.499747+00:00",
     "search_hydrated": true
   },
   {
@@ -51476,8 +51476,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-30T17:01:33.899703+00:00",
-    "retry_after": "2026-10-31T17:01:33.899707+00:00",
+    "last_attempt_at": "2026-10-30T18:01:39.499803+00:00",
+    "retry_after": "2026-10-31T18:01:39.499806+00:00",
     "search_hydrated": true
   },
   {
@@ -76091,9 +76091,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T17:06:43.862808+00:00",
-    "retry_after": "2026-10-30T17:06:43.862824+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T18:05:06.080733+00:00",
+    "retry_after": "2026-11-06T18:05:06.080735+00:00",
     "search_hydrated": true
   },
   {
@@ -76102,9 +76102,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T17:05:43.025795+00:00",
-    "retry_after": "2026-10-30T17:05:43.025812+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T18:05:06.080521+00:00",
+    "retry_after": "2026-11-06T18:05:06.080538+00:00",
     "search_hydrated": true
   },
   {
@@ -76120,9 +76120,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T17:05:44.120923+00:00",
-    "retry_after": "2026-10-30T17:05:44.120938+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T18:05:06.249306+00:00",
+    "retry_after": "2026-11-06T18:05:06.249321+00:00",
     "search_hydrated": true
   },
   {
@@ -76131,9 +76131,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T17:05:43.025837+00:00",
-    "retry_after": "2026-10-30T17:05:43.025841+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T18:05:06.080563+00:00",
+    "retry_after": "2026-11-06T18:05:06.080567+00:00",
     "search_hydrated": true
   },
   {
@@ -76155,9 +76155,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T17:05:43.025900+00:00",
-    "retry_after": "2026-10-30T17:05:43.025904+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T18:05:06.080626+00:00",
+    "retry_after": "2026-11-06T18:05:06.080630+00:00",
     "search_hydrated": true
   },
   {
@@ -76166,9 +76166,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T17:05:43.025925+00:00",
-    "retry_after": "2026-10-30T17:05:43.025928+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T18:05:06.080650+00:00",
+    "retry_after": "2026-11-06T18:05:06.080653+00:00",
     "search_hydrated": true
   },
   {
@@ -76177,9 +76177,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T17:05:43.025945+00:00",
-    "retry_after": "2026-10-30T17:05:43.025948+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T18:05:06.080669+00:00",
+    "retry_after": "2026-11-06T18:05:06.080672+00:00",
     "search_hydrated": true
   },
   {
@@ -76188,9 +76188,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T17:05:43.025963+00:00",
-    "retry_after": "2026-10-30T17:05:43.025966+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T18:05:06.080686+00:00",
+    "retry_after": "2026-11-06T18:05:06.080689+00:00",
     "search_hydrated": true
   },
   {
@@ -76199,9 +76199,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T17:05:43.025979+00:00",
-    "retry_after": "2026-10-30T17:05:43.025981+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T18:05:06.080703+00:00",
+    "retry_after": "2026-11-06T18:05:06.080705+00:00",
     "search_hydrated": true
   },
   {
@@ -76210,9 +76210,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-27T17:05:43.025993+00:00",
-    "retry_after": "2026-10-30T17:05:43.025995+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-30T18:05:06.080718+00:00",
+    "retry_after": "2026-11-06T18:05:06.080720+00:00",
     "search_hydrated": true
   },
   {
@@ -83986,21 +83986,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 129260,
+        "id": 128169,
         "name": "Fire Power",
         "publisher": "Image",
         "start_year": 2020
       },
       {
-        "id": 128169,
+        "id": 129260,
         "name": "Fire Power",
         "publisher": "Image",
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:05:14.759422+00:00",
-    "retry_after": "2026-10-30T17:05:14.759437+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:05:23.517222+00:00",
+    "retry_after": "2026-11-02T18:05:23.517240+00:00",
     "search_hydrated": true
   },
   {
@@ -84009,9 +84009,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:05:14.759469+00:00",
-    "retry_after": "2026-10-30T17:05:14.759473+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:05:23.517262+00:00",
+    "retry_after": "2026-11-02T18:05:23.517266+00:00",
     "search_hydrated": true
   },
   {
@@ -84027,9 +84027,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:05:20.310271+00:00",
-    "retry_after": "2026-10-30T17:05:20.310283+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:05:25.793465+00:00",
+    "retry_after": "2026-11-02T18:05:25.793481+00:00",
     "search_hydrated": true
   },
   {
@@ -84045,9 +84045,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:05:20.401030+00:00",
-    "retry_after": "2026-10-30T17:05:20.401044+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:05:25.951703+00:00",
+    "retry_after": "2026-11-02T18:05:25.951719+00:00",
     "search_hydrated": true
   },
   {
@@ -84063,9 +84063,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:05:28.765672+00:00",
-    "retry_after": "2026-10-30T17:05:28.765692+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:05:25.951899+00:00",
+    "retry_after": "2026-11-02T18:05:25.951905+00:00",
     "search_hydrated": true
   },
   {
@@ -84081,9 +84081,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:05:28.765744+00:00",
-    "retry_after": "2026-10-30T17:05:28.765748+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:05:25.951938+00:00",
+    "retry_after": "2026-11-02T18:05:25.951940+00:00",
     "search_hydrated": true
   },
   {
@@ -84099,9 +84099,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:05:37.178125+00:00",
-    "retry_after": "2026-10-30T17:05:37.178136+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:05:26.124960+00:00",
+    "retry_after": "2026-11-02T18:05:26.124974+00:00",
     "search_hydrated": true
   },
   {
@@ -84117,9 +84117,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:05:41.555414+00:00",
-    "retry_after": "2026-10-30T17:05:41.555430+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:05:26.283955+00:00",
+    "retry_after": "2026-11-02T18:05:26.283971+00:00",
     "search_hydrated": true
   },
   {
@@ -84176,12 +84176,6 @@
     "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
-        "id": 78654,
-        "name": "Thanos: A God Up There Listening",
-        "publisher": "Marvel",
-        "start_year": 2014
-      },
-      {
         "id": 75391,
         "name": "Thanos: A God Up There Listening",
         "publisher": "Marvel",
@@ -84192,11 +84186,17 @@
         "name": "Thanos: A God Up There Listening",
         "publisher": "Marvel",
         "start_year": 2014
+      },
+      {
+        "id": 78654,
+        "name": "Thanos: A God Up There Listening",
+        "publisher": "Marvel",
+        "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:07:18.622805+00:00",
-    "retry_after": "2026-10-30T17:07:18.622809+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:09:39.508241+00:00",
+    "retry_after": "2026-11-02T18:09:39.508257+00:00",
     "search_hydrated": true
   },
   {
@@ -84205,9 +84205,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T17:07:18.622831+00:00",
-    "retry_after": "2026-10-30T17:07:18.622834+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:09:39.508287+00:00",
+    "retry_after": "2026-11-02T18:09:39.508291+00:00",
     "search_hydrated": true
   },
   {
@@ -84246,9 +84246,9 @@
     "year": 1941,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T18:06:28.136980+00:00",
-    "retry_after": "2026-10-30T18:06:28.136992+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:09:39.508309+00:00",
+    "retry_after": "2026-11-02T18:09:39.508312+00:00",
     "search_hydrated": true
   },
   {
@@ -84257,9 +84257,9 @@
     "year": 1941,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T18:06:28.137022+00:00",
-    "retry_after": "2026-10-30T18:06:28.137026+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:09:39.508326+00:00",
+    "retry_after": "2026-11-02T18:09:39.508328+00:00",
     "search_hydrated": true
   },
   {
@@ -84268,9 +84268,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-29T18:06:28.137104+00:00",
-    "retry_after": "2026-10-30T18:06:28.137108+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-30T18:09:39.508342+00:00",
+    "retry_after": "2026-11-02T18:09:39.508345+00:00",
     "search_hydrated": true
   },
   {

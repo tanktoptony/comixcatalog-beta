@@ -7908,9 +7908,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T07:05:09.903320+00:00",
-    "retry_after": "2026-10-31T07:05:09.903322+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T08:05:36.212663+00:00",
+    "retry_after": "2026-11-07T08:05:36.212681+00:00",
     "search_hydrated": true
   },
   {
@@ -27503,8 +27503,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T07:01:33.431258+00:00",
-    "retry_after": "2026-11-01T07:01:33.431260+00:00",
+    "last_attempt_at": "2026-10-31T08:02:06.634676+00:00",
+    "retry_after": "2026-11-01T08:02:06.634679+00:00",
     "search_hydrated": true
   },
   {
@@ -43584,8 +43584,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T07:01:33.431191+00:00",
-    "retry_after": "2026-11-01T07:01:33.431207+00:00",
+    "last_attempt_at": "2026-10-31T08:02:06.634594+00:00",
+    "retry_after": "2026-11-01T08:02:06.634607+00:00",
     "search_hydrated": true
   },
   {
@@ -44114,9 +44114,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T07:05:09.903127+00:00",
-    "retry_after": "2026-10-31T07:05:09.903142+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T08:02:04.082430+00:00",
+    "retry_after": "2026-11-07T08:02:04.082447+00:00",
     "search_hydrated": true
   },
   {
@@ -51487,8 +51487,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T07:01:33.431231+00:00",
-    "retry_after": "2026-11-01T07:01:33.431235+00:00",
+    "last_attempt_at": "2026-10-31T08:02:06.634638+00:00",
+    "retry_after": "2026-11-01T08:02:06.634643+00:00",
     "search_hydrated": true
   },
   {
@@ -86934,6 +86934,121 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T07:11:54.040116+00:00",
     "retry_after": "2026-11-01T07:11:54.040118+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Amazing World of Superman (Tabloid Edition)",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T08:05:36.212728+00:00",
+    "retry_after": "2026-11-01T08:05:36.212733+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Batman Who Laughs",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 115869,
+        "name": "The Batman Who Laughs",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 120913,
+        "name": "The Batman Who Laughs",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T08:05:36.212819+00:00",
+    "retry_after": "2026-11-01T08:05:36.212828+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Last God: Book 1 of the Fellspyre Chronicles",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T08:06:41.435201+00:00",
+    "retry_after": "2026-11-01T08:06:41.435216+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Eye Collector",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 173285,
+        "name": "The Eye Collector",
+        "publisher": "Image",
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T08:06:50.624224+00:00",
+    "retry_after": "2026-11-01T08:06:50.624247+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Marvel Art of George Pérez",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T08:08:26.600889+00:00",
+    "retry_after": "2026-11-01T08:08:26.600904+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Mighty Valkyries: All Hell Let Loose",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T08:08:26.600964+00:00",
+    "retry_after": "2026-11-01T08:08:26.600968+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T08:13:40.939091+00:00",
+    "retry_after": "2026-11-01T08:13:40.939107+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Wingding",
+    "publisher": "Titan Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T08:13:40.939132+00:00",
+    "retry_after": "2026-11-01T08:13:40.939136+00:00",
     "search_hydrated": true
   }
 ]

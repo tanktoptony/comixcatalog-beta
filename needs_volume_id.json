@@ -7877,9 +7877,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T04:16:15.338942+00:00",
-    "retry_after": "2026-10-31T04:16:15.338944+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T05:05:09.398808+00:00",
+    "retry_after": "2026-11-07T05:05:09.398810+00:00",
     "search_hydrated": true
   },
   {
@@ -7953,9 +7953,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T04:18:13.659524+00:00",
-    "retry_after": "2026-10-31T04:18:13.659545+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T05:05:09.398820+00:00",
+    "retry_after": "2026-11-07T05:05:09.398822+00:00",
     "search_hydrated": true
   },
   {
@@ -8099,9 +8099,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T04:05:26.377420+00:00",
-    "retry_after": "2026-10-31T04:05:26.377440+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T05:05:09.398773+00:00",
+    "retry_after": "2026-11-07T05:05:09.398776+00:00",
     "search_hydrated": true
   },
   {
@@ -27500,8 +27500,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T04:02:02.434148+00:00",
-    "retry_after": "2026-11-01T04:02:02.434152+00:00",
+    "last_attempt_at": "2026-10-31T05:01:46.313156+00:00",
+    "retry_after": "2026-11-01T05:01:46.313159+00:00",
     "search_hydrated": true
   },
   {
@@ -38518,9 +38518,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T04:06:08.592332+00:00",
-    "retry_after": "2026-10-31T04:06:08.592334+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T05:05:09.398795+00:00",
+    "retry_after": "2026-11-07T05:05:09.398797+00:00",
     "search_hydrated": true
   },
   {
@@ -43580,8 +43580,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T04:02:02.434068+00:00",
-    "retry_after": "2026-11-01T04:02:02.434080+00:00",
+    "last_attempt_at": "2026-10-31T05:01:46.313088+00:00",
+    "retry_after": "2026-11-01T05:01:46.313104+00:00",
     "search_hydrated": true
   },
   {
@@ -51483,8 +51483,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T04:02:02.434112+00:00",
-    "retry_after": "2026-11-01T04:02:02.434117+00:00",
+    "last_attempt_at": "2026-10-31T05:01:46.313130+00:00",
+    "retry_after": "2026-11-01T05:01:46.313133+00:00",
     "search_hydrated": true
   },
   {
@@ -77495,9 +77495,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T04:07:20.883611+00:00",
-    "retry_after": "2026-10-31T04:07:20.883613+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T05:05:09.398731+00:00",
+    "retry_after": "2026-11-07T05:05:09.398748+00:00",
     "search_hydrated": true
   },
   {
@@ -85488,9 +85488,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T05:06:29.091960+00:00",
-    "retry_after": "2026-10-31T05:06:29.091981+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T05:13:50.793461+00:00",
+    "retry_after": "2026-11-03T05:13:50.793478+00:00",
     "search_hydrated": true
   },
   {
@@ -85499,9 +85499,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T05:06:29.092009+00:00",
-    "retry_after": "2026-10-31T05:06:29.092012+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T05:13:50.793496+00:00",
+    "retry_after": "2026-11-03T05:13:50.793499+00:00",
     "search_hydrated": true
   },
   {
@@ -86630,6 +86630,82 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T04:14:21.703518+00:00",
     "retry_after": "2026-11-01T04:14:21.703534+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Punisher: Welcome Back, Frank",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 37839,
+        "name": "Punisher: Welcome Back, Frank",
+        "publisher": "Marvel",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T05:05:14.430731+00:00",
+    "retry_after": "2026-11-01T05:05:14.430759+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sea Dogs",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T05:06:35.822604+00:00",
+    "retry_after": "2026-11-01T05:06:35.822621+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Revolver",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 34402,
+        "name": "Revolver",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T05:06:37.284830+00:00",
+    "retry_after": "2026-11-01T05:06:37.284849+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sheriff of Babylon",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 86393,
+        "name": "Sheriff of Babylon",
+        "publisher": "DC Comics",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T05:08:15.364578+00:00",
+    "retry_after": "2026-11-01T05:08:15.364604+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars Adventures: The Light and the Dark",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T05:13:50.793512+00:00",
+    "retry_after": "2026-11-01T05:13:50.793515+00:00",
     "search_hydrated": true
   }
 ]
